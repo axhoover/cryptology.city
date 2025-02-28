@@ -1,6 +1,6 @@
 {
 	"nodes":[
-		{"id":"3f3247b3def3210f","type":"text","text":"# Minicrypt\n\n[[One-way functions]] exist","x":-151,"y":-93,"width":267,"height":156},
+		{"id":"3f3247b3def3210f","type":"text","text":"# Minicrypt\n\n[[One-way function]] exist","x":-151,"y":-93,"width":267,"height":156},
 		{"id":"0c4d11fe794dce7b","type":"text","text":"# Cryptomania\n- [[Trapdoor function]]","x":-513,"y":-93,"width":267,"height":156},
 		{"id":"46e3349623791fb3","type":"text","text":"# Pessiland\n\n[[Nondeterministic Polynomial-Time|NP]] is hard on average","x":193,"y":-93,"width":267,"height":156},
 		{"id":"5dda3925031a32a3","type":"text","text":"# Heuristica\n\n[[Nondeterministic Polynomial-Time|NP]] is easy on average","x":536,"y":-93,"width":267,"height":156},

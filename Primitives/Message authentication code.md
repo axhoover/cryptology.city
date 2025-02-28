@@ -1,15 +1,14 @@
 ---
 aliases:
-  - PKE
+  - MAC
 ---
-# Public key encryption (PKE)
+# Message authentication code (MAC)
 
 ## Definition
 
 
 ### Variations
-CPA
-CCA
+
 
 
 ## Other results

@@ -8,7 +8,7 @@ Fingerprinting codes were first introduced by [[BS98 - Collusion-secure fingerpr
 For fingerprinting codes, it is useful to define the **descendants function** $\mathsf{desc}(\cdot)$, which maps subsets of codewords in $\Sigma^\ell$ to other subsets in the same space. Formally, if index $i$ as character $\sigma$, then there must be some $x_j$ which also has that character at index $i$. This captures the idea that a group of colluding pirates may be able to selectively choose their codewords, but they cannot forge characters at indices they didn't have access to.
 
 ### Syntax
-A fingerprinting code is a tuple of functions $(\mathsf{Gen}, \mathsf{Trace})$ with respect to a keyspace $\mathcal{K}$, alphabet $\Sigma$, number of users $n$, and codeword length $\ell = \ell(\epsilon, c)$, which depends on the error threshold such that:
+A *fingerprinting code* is a tuple of functions $(\mathsf{Gen}, \mathsf{Trace})$ with respect to a keyspace $\mathcal{K}$, alphabet $\Sigma$, number of users $n$, and codeword length $\ell = \ell(\epsilon, c)$, which depends on the error threshold such that:
 
 Note: The fingerprinting code functions are not strictly "efficient," since for example $\mathsf{G}_\mathsf{en}$ can take in $\mathcal{O}(\log n)$ bits and outputs $\Omega(n)$ bits. However, we generally require that both functions run in time that is polynomial in $n$ and $\log |\Sigma|$.
 
@@ -27,3 +27,5 @@ In more plain English, this definition means that the fingerprinting code is use
 
 
 ### Constructions
+- There exist fingerprinting codes of length $O(c^2 \log (n / \varepsilon))$ — [[Tar08 - Optimal probabilistic fingerprint codes|Tar08]]
+	- This is also the optimal length of FP codes

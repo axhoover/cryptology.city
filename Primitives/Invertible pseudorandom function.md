@@ -25,5 +25,5 @@ We define the advantage of a distinguisher $D$ as $$\text{Adv}^{\text{iprf}}_D(\
 An iPRF is secure if for all efficient $D$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{iprf}}_D(\lambda)\le \nu(\lambda)$.
 
 ## Other results
-- [[One-way functions|OWF]] implies the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
+- [[One-way function|OWF]] implies the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
 - [[Pseudorandom permutation|PRP]]s over large domains are iPRFs — [[Switching Lemma]]

@@ -15,6 +15,7 @@ Errors? Omissions? Misattributions? Your favorite primitive/assumption not here?
 `./References` — papers which are referenced
 `./Folklore` — results that are well known, but do not explicitly appear in literature
 `./Complexity` — complexity classes that are relevant to certain results
+`./Glossary` — terms or common concepts which are related and do not fall into the other categories
 
 ## Support team
 **City Mayor** - [Alex Hoover](https://axhoover.com/)
