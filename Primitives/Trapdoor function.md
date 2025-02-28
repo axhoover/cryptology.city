@@ -17,4 +17,4 @@ TODO: Enhanced trapdoor functions
 
 ## Other results
 - Trapdoor functions imply the existence of [[Public key encryption]]
-- Enhanced trapdoor functions imply the existence of [[Oblivious Transfer]]
+- Enhanced trapdoor functions imply the existence of [[Oblivious transfer]]

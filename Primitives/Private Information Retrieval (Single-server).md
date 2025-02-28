@@ -22,7 +22,7 @@ The protocol where the client downloads the entire database is known as the *tri
 
 
 ## Other results
-- Non-trivial PIR implies [[Oblivious Transfer]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
+- Non-trivial PIR implies [[Oblivious transfer]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
 - Single-round PIR cannot be based on NP-hardness unless [[Polynomial-Time Hierarchy|PH]] collapses to the second level — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]
 
 ### Constructions
