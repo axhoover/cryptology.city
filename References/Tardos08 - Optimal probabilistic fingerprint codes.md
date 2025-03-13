@@ -1,10 +1,11 @@
 ---
-title: "Optimal probabilistic fingerprint codes"
-source: "https://dl.acm.org/doi/abs/10.1145/1346330.1346335"
-authors: "Gábor Tardos"
-venue: "Journal of the ACM 2008"
+title: Optimal probabilistic fingerprint codes
+source: https://dl.acm.org/doi/abs/10.1145/1346330.1346335
+authors: Gábor Tardos
+venue: Journal of the ACM 2008
 published: 2008-05-15
-alias: "Tar08"
+aliases:
+  - Tardos08
 ---
 # Optimal probabilistic fingerprint codes
 URL: https://dl.acm.org/doi/abs/10.1145/1346330.1346335
