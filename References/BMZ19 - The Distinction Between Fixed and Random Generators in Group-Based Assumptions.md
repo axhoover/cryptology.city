@@ -1,14 +1,15 @@
 ---
-title: "The Distinction Between Fixed and Random Generators in Group-Based Assumptions"
-source: "https://link.springer.com/chapter/10.1007/978-3-030-26951-7_27"
-authors: "Bartusek, James, Ma, Fermi, Zhandry, Mark"
-venue: "CRYPTO 2019"
+title: The Distinction Between Fixed and Random Generators in Group-Based Assumptions
+source: https://link.springer.com/chapter/10.1007/978-3-030-26951-7_27
+authors: James Bartusek, Fermi Ma, and Mark Zhandry
+venue: CRYPTO 2019
 published: 2019-01-01
-alias: "BMZ19"
+aliases:
+  - BMZ19
 ---
 # The Distinction Between Fixed and Random Generators in Group-Based Assumptions
 URL: https://link.springer.com/chapter/10.1007/978-3-030-26951-7_27
-Authors: Bartusek, James, Ma, Fermi, Zhandry, Mark
+Authors: James Bartusek, Fermi Ma, and Mark Zhandry
 
 ## Abstract
 There is surprisingly little consensus on the precise role of the generator $g$ in group-based assumptions such as DDH. Some works consider $g$ to be a fixed part of the group description, while others take it to be random. We study this subtle distinction from a number of angles.
