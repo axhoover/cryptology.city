@@ -2,7 +2,7 @@
 Complexity Zoo: 
 aliases:
 ---
-#  name
+# name
 
 ## Notable problems
 

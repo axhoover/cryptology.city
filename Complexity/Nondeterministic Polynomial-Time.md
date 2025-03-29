@@ -3,7 +3,7 @@ Complexity Zoo: https://complexityzoo.net/Complexity_Zoo:N#np
 aliases:
   - NP
 ---
-#  Nondeterministic Polynomial-Time (NP)
+# Nondeterministic Polynomial-Time (NP)
 An "NP machine" is a nondeterministic polynomial-time Turing machine.
 Then NP is the class of decision problems solvable by an NP machine such that
 1. If the answer is "yes," at least one computation path accepts.
@@ -15,3 +15,4 @@ Equivalently, NP is the class of decision problems such that, if the answer is "
 - SAT is complete for NP — TODO citation
 
 ## Known relationships
+- If [[Nondeterministic Polynomial-Time|NP]] = coNP, then any inconsistent Boolean formula of size n has a proof of inconsistency of size polynomial in n.

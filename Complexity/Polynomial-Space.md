@@ -3,7 +3,7 @@ Complexity Zoo: https://complexityzoo.net/Complexity_Zoo:P#pspace
 aliases:
   - PSPACE
 ---
-#  Polynomial-Space (PSPACE)
+# Polynomial-Space (PSPACE)
 The class of decision problems solvable by a Turing machine in polynomial space.
 
 ## Known relationships
