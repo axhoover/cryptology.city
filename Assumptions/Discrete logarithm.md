@@ -6,7 +6,7 @@ aliases:
 The *discrete logarithm (DLOG)* assumption is used throughout cryptography. It is a natural strengthening of the [[Computational Diffie-Hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[Computational Diffie-Hellman|CDH]] in the same group.
 
 ## Assumption
-For a family of cyclic groups $\{\mathbb{G}_{\lambda}\}_{\lambda \in \mathbb{N}}$ Define the *DLOG-advantage* of an adversary $\mathcal{A}$ as $$\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) = \Pr[\mathcal{A}(1^{\lambda},g,g^x)=x],$$ where $g$ is the generator for $\mathbb{G}_{\lambda}$ and $x$ is selected uniformly at random between $0$ and $|\mathbb{G}_{\lambda}| - 1$, inclusive.
+For a family of cyclic groups $\{\mathbb{G}_{\lambda}\}_{\lambda \in \mathbb{N}}$, define the *DLOG-advantage* of an adversary $\mathcal{A}$ as $$\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) = \Pr[\mathcal{A}(1^{\lambda},g,g^x)=x],$$ where $g$ is the generator for $\mathbb{G}_{\lambda}$ and $x$ is selected uniformly at random between $0$ and $|\mathbb{G}_{\lambda}| - 1$, inclusive.
 
 Then, we say that *DLOG is hard* for some group family $\{\mathbb{G}_{\lambda}\}_{\lambda \in \mathbb{N}}$ if there exists a negligible function $\nu$ such that for all efficient adversaries $\mathcal{A}$, $$\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) \le \nu(\lambda).$$
 ### Variations
