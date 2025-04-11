@@ -6,7 +6,7 @@ aliases:
 The *Decisional Diffie-Hellman (DDH)* is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]].
 
 ## Assumption
-Informally, the DDH assumption concerns a cyclic group $\mathbb{G}$ and a generator $g$. The assumption is that given any group elements $g^x$ and $g^y$ (where $x$ and $y$ were chosen uniformly and independently from $\{0, \cdots, |\mathbb{G} - 1|\}$) the group element $g^{xy}$ ``looks like" a random element in $\mathbb{G}$. 
+Informally, the DDH assumption concerns a cyclic group $\mathbb{G}$ and a generator $g$. The assumption is that given any group elements $g^x$ and $g^y$ (where $x$ and $y$ were chosen uniformly and independently from $\{0, \cdots, |\mathbb{G} - 1|\}$) the group element $g^{xy}$ "looks like" a random element in $\mathbb{G}$. 
 
 Formally, consider a family of cyclic groups $\{\mathbb{G}_{\lambda}\}_{\lambda \in \mathbb{N}}$. Define the *DDH-advantage* of an adversary $\mathcal{A}$ as $$\text{Adv}^{\text{ddh}}_{\mathcal{A}}(\lambda) = \big|\Pr[\mathcal{A}(1^{\lambda},g,g^x, g^y, g^{xy})=1] - \Pr[\mathcal{A}(1^{\lambda},g,g^{x},g^{y},g^{z})=1]\big|,$$ where $g$ is the generator for $\mathbb{G}_{\lambda}$ and $x$, $y$, and $z$ are selected uniformly at random from the set $\{0, 1, \cdots, |\mathbb{G}_{\lambda}| - 1\}$.
 
