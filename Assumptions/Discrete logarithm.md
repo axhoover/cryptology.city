@@ -16,7 +16,7 @@ In the above definition, we implicitly assume that $\mathbb{G}_{\lambda}$ has a 
 
 
 ## Related results
-- It is easy to see that if $\mathcal{A}$ can compute $x$ for a random $g^x$, then $\mathcal{A}$ can compute both $x$ and $y$ from $g^{x}$ and $g^{y}$ and find $g^{xy}$ easily. This establishes that DLOG is a strictly harder problem to solve than [[Computational Diffie-Hellman|CDH]].
+- It is easy to see that if $\mathcal{A}$ can compute $x$ for a random $g^x$, then $\mathcal{A}$ can compute both $x$ and $y$ from $g^{x}$ and $g^{y}$ and find $g^{xy}$ easily. This establishes that DLOG is not easier than [[Computational Diffie-Hellman|CDH]].
 - In the [[Generic Group Model]], $\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) \le \frac{q^2}{|\mathbb{G}_{\lambda}|}$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Shoup97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 
