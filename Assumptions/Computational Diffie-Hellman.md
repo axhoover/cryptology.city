@@ -16,7 +16,7 @@ We say that *CDH is hard* for some group family $\{\mathbb{G}_{\lambda}\}_{\lamb
 In the above definition, we implicitly assume that $\mathbb{G}_{\lambda}$ has a fixed generator. However, [[BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions|BMZ19]] has explored technical differences between this model and one where $g$ is selected among many random generators.
 
 ## Related results
-- It is easy to see that if $\mathcal{A}$ can compute $g^{xy}$, then $\mathcal{A}$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is a strictly harder problem to solve than [[Decisional Diffie-Hellman|DDH]].
+- It is easy to see that if $\mathcal{A}$ can compute $g^{xy}$, then $\mathcal{A}$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is not easier than [[Decisional Diffie-Hellman|DDH]].
 - In the [[Generic Group Model]], $\text{Adv}^{\text{cdh}}_{\mathcal{A}}(\lambda) \le \frac{q^2}{|\mathbb{G}_{\lambda}|}$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Shoup97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 ## Attacks
