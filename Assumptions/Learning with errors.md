@@ -3,12 +3,12 @@ aliases:
   - LWE
 ---
 # Learning with errors (LWE)
-The *learning with errors (LWE)* assumptions is a standard assumption in cryptography, especially in post-quantum cryptography. It is a generalization of the [learning parity with noise|LPN] assumption.
+The *learning with errors (LWE)* assumptions is a standard assumption in cryptography, especially in post-quantum cryptography. It is a generalization of the [[learning parity with noise|LPN]] assumption.
 
 ## Assumption
 Informally, the LWE problem concerns solving a system of noisy linear equations. In other words, the goal is to find some secret vector $\mathbf{s} \in \mathbb{Z}_q^n$ that satisfies a given set of $m$ random linear equations in $n$ variables. If we are allowed to see the equations precisely (i.e., with no errors) then it is possible to find $\mathbf{s}$ in polynomial time. The LWE assumption is that finding $\mathbf{s}$ is hard if each equation is correct up to some small, additive, non-zero error.
 
-Formally, let $\mathbb{Z}_q$ denote the integers modulo $q$. Fix some secret vector $\mathbf{s} \in \mathbb{Z}^n_q$ and an "error" probability distribution $\chi$ over $\mathbb{Z}$. Denote $A_{\mathbf{s}, \chi}$ to be the random variable on $\mathbb{Z}^n_q \cross \mathbb{Z}$ resulting from the following procedure:
+Formally, let $\mathbb{Z_q}$ denote the integers modulo $q$. Fix some secret vector $\mathbf{s} \in \mathbb{Z}^n_q$ and an "error" probability distribution $\chi$ over $\mathbb{Z}$. Denote $A_{\mathbf{s}, \chi}$ to be the random variable on $\mathbb{Z}^n_q \times \mathbb{Z}$ resulting from the following procedure:
 1. Select $\mathbf{a} \gets \mathbb{Z}^n_q$ uniformly at random.
 2. Sample $e \in \mathbb{Z}$ according to the error distribution $\chi$.
 3. Output $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle + e)$
