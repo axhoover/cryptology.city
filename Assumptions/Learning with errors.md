@@ -13,7 +13,7 @@ Formally, let $\mathbb{Z_q}$ denote the integers modulo $q$. Fix some secret vec
 2. Sample $e \in \mathbb{Z}$ according to the error distribution $\chi$.
 3. Output $(\mathbf{a}, \langle \mathbf{a}, \mathbf{s} \rangle + e)$
 
-The learning with errors problem $\mathsf{LWE}_{q, \chi}$ is to find $\mathbf{s} \in \mathbb{Z}^n_q$ given polynomially-many samples from of $A_{\mathbf{s}, \chi}$. We say that LWE is hard if there exists a negligible function $\nu$ such that for all efficient adversaries $\mathcal{A}$, $$\Pr[\mathcal{A}^{A_{\mathbf{s}, \chi}}(1^n) = \mathbf{s}] \leq \nu(n).$$
+The LWE problem with parameters $\mathbf{s}, \chi$ is to find $\mathbf{s} \in \mathbb{Z}^n_q$ given polynomially-many samples from of $A_{\mathbf{s}, \chi}$. We say that LWE is hard if there exists a negligible function $\nu$ such that for all efficient adversaries $\mathcal{A}$, $$\Pr[\mathcal{A}^{A_{\mathbf{s}, \chi}}(1^n) = \mathbf{s}] \leq \nu(n).$$
 
 ## Variations
 The LWE problem stated above is the "search" version of the problem, as the adversary is tasked with *finding* the secret vector $\mathbf{s}$. An equivalent version is decision LWE, where an adversary must distinguish between samples from $A_{\mathbf{s}, \chi}$ and uniformly random samples from $\mathbb{Z}^n_q \times \mathbb{Z_q}$.
