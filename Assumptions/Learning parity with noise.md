@@ -1,6 +1,7 @@
 ---
 aliases:
   - LPN
+permalink: LPN
 ---
 # Learning parity with noise (LPN)
 The *learning parity with nosie (LPN)* assumptions is a post-quantum candidate assumption that is related to the [[Learning with errors]] assumption.

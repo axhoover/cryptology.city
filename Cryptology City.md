@@ -5,7 +5,7 @@ cover: https://axhoover.com/cc-full.png
 # Cryptology City
 Welcome to Cryptology City! Jump right in by taking a look navigating the site on the left!
 
-This wiki is a collection of cryptographic primitives and reductions between them. It is meant to serve as a large repository of cryptographic information and make it easy to understand the relationships between different primitives. If you'd like to contribute, feel free to make an account and [contribute](https://github.com/axhoover/cryptology.city)!
+This wiki is a collection of cryptographic primitives and reductions between them. It is meant to serve as a large repository of cryptographic information and make it easy to understand the relationships between different primitives. If you'd like to contribute, feel free to contribute to the [repo](https://github.com/axhoover/cryptology.city)!
 
 Errors? Omissions? Misattributions? Your favorite primitive/assumption not here? Then please contribute to the city by submitting a pull request on [GitHub](https://github.com/axhoover/cryptology.city). The repository is just a copy of an [Obsidian](https://obsidian.md) vault, so that is the best way to make modifications. For any other recommendations or issues, please reach out to the Cryptology City [Bluesky](https://bsky.app/profile/cryptology.city), [Twitter](https://twitter.com/cryptologycity), or [email](mailto:cryptologycity@gmail.com).
 

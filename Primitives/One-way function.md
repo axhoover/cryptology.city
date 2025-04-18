@@ -1,6 +1,7 @@
 ---
 aliases:
   - OWF
+  - OWFs
 permalink: OWF
 ---
 # One-way function (OWF)

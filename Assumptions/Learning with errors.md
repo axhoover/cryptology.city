@@ -1,6 +1,7 @@
 ---
 aliases:
   - LWE
+permalink: LWE
 ---
 # Learning with errors (LWE)
 The *learning with errors (LWE)* assumptions is a standard assumption in cryptography, especially in post-quantum cryptography. It is a generalization of the [[learning parity with noise|LPN]] assumption.
@@ -19,7 +20,11 @@ The LWE problem with parameters $m,\chi$ is to distinguish $A_{\mathbf{s},\chi}$
 ## Variations
 LWE with modulus $q = 2$ is the [[learning parity with noise|LPN]] problem. In this case $\chi$ is modeled only as a Bernoulli random variable.
 
-The problem we state above is the "decision" version of LWE, as the adversary is tasked with *distinguish* the secret vector $\mathbf{s}$. A stronger assumption is the "search" LWE problem, where an adversary must *recover* $\mathbf{s}$ by sampling $A_{\mathbf{s}, \chi}$.
+The problem we state above is the "decision" version of LWE, as the adversary is tasked with *distinguish* the secret vector $\mathbf{s}$. An equivalent assumption is the "search" LWE problem, where an adversary must *recover* $\mathbf{s}$ from $A_{\mathbf{s}, \chi}$.
+- The reduction from decision to search is simple, because if one recovers $\mathbf{s}$, then they can just check for consistency to decide whether the sample is uniform or not.
+- The reduction from search to decision is a bit more complicated. But essentially, the adversary can "guess and check" for each index $i\in [n]$ and field element $\alpha \in \mathbb{F}_q$ to see if $\mathbf{s}[i]=\alpha$.
+	- By making this guess and computing a new matrix $A'$ under the guess, it will be distributed as an LWE instance when the guess is right and a uniform instance when the guess is wrong.
+	- This way, a search adversary can just guess and check and then use a decision adversary to figure out when it's guesses are correct.
 
 
 ## Related results
