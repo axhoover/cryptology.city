@@ -51,3 +51,7 @@ Talk about [[Indistinguishability Obfuscation|iO]] together with [[One-way funct
 
 ## Microcrypt
 Explain the recent ideas of cryptography even without one-way functions
+
+Explain the image below from [[GMMY24 - CountCrypt Quantum Cryptography between QCMA and PP]].
+
+![[Minicrypt.png]]
