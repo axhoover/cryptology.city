@@ -27,5 +27,5 @@ In more plain English, this definition means that the fingerprinting code is use
 
 
 ### Constructions
-- There exist fingerprinting codes of length $O(c^2 \log (n / \varepsilon))$ — [[Tardos08 - Optimal probabilistic fingerprint codes|Tardos08]]
+- There exist fingerprinting codes of length $O(c^2 \log (n / \varepsilon))$ — [[Tar08 - Optimal probabilistic fingerprint codes|Tardos08]]
 	- This is also the optimal length of FP codes

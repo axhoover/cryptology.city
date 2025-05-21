@@ -2,10 +2,10 @@
 title: Protecting Data Privacy in Private Information Retrieval Scheme
 source: https://dl.acm.org/doi/pdf/10.1145/276698.276723
 authors: Yael Gertner, Yuval Ishai, Eyal Kushilevitz, Tal Malkin
-venue: STOC 1998
+venue: STOC 1998, JCSS 2000
 published: 1998-06-01
 aliases:
-  - GIKM98
+  - GIKM00
 ---
 # Protecting Data Privacy in Private Information Retrieval Scheme
 URL: https://dl.acm.org/doi/pdf/10.1145/276698.276723

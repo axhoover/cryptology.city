@@ -6,6 +6,7 @@ venue: Eurocrypt 1997
 published: 1997-01-01
 aliases:
   - Shoup97
+  - Sho97
 ---
 # Lower Bounds for Discrete Logarithms and Related Problems
 URL: https://link.springer.com/chapter/10.1007/3-540-69053-0_18

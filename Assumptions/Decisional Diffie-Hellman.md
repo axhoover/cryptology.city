@@ -17,7 +17,7 @@ In the above definition, we implicitly assume that $\mathbb{G}_{\lambda}$ has a 
 
 
 ## Related results
-- In the [[Generic Group Model]], $\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) \le \frac{q^2}{|\mathbb{G}_{\lambda}|}$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Shoup97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- In the [[Generic Group Model]], $\text{Adv}^{\text{dlog}}_{\mathcal{A}}(\lambda) \le \frac{q^2}{|\mathbb{G}_{\lambda}|}$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 
 ## Attacks

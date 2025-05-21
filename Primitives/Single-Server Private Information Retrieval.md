@@ -13,12 +13,10 @@ The protocol where the client downloads the entire database is known as the *tri
 
 
 ### Variations
-- [[Private information retrieval (Multi-server)]] is an information theoretic variant, which requires multiple servers
+- [[Multi-server Private Information Retrieval]] is an information theoretic variant, which requires multiple servers
 - PIR with client-side preprocessing
 - Keyword PIR
 - Single-server Symmetric PIR
-
-#### Doubly-Efficient PIR
 
 
 ## Other results
@@ -28,4 +26,4 @@ The protocol where the client downloads the entire database is known as the *tri
 ### Constructions
 - PIR with $\text{polylog}(n)$ bandwidth can be built from [[Decisional Diffie-Hellman|DDH]], QR, or [[Learning with errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
 	- This result goes through the use of [[Trapdoor hash functions|TDH]], which can be used to build PIR generically
-- [[#Doubly-Efficient PIR]] can be built with server storage $O(N^{1+\varepsilon})$ and online computation and bandwidth $\text{polylog}(n, 1/\varepsilon)$ from [[Learning with errors|LWE]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+- Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]

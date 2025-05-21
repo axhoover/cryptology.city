@@ -6,6 +6,7 @@ venue: FOCS 2001, JACM 2020
 published: 2001-06-01
 aliases:
   - Canetti01
+  - Can01
 ---
 # Universally composable security: a new paradigm for cryptographic protocols
 URL: https://ieeexplore.ieee.org/abstract/document/959888

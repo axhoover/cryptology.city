@@ -6,6 +6,7 @@ venue: Journal of the ACM 2008
 published: 2008-05-15
 aliases:
   - Tardos08
+  - Tar08
 ---
 # Optimal probabilistic fingerprint codes
 URL: https://dl.acm.org/doi/abs/10.1145/1346330.1346335

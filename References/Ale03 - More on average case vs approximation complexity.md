@@ -6,6 +6,7 @@ venue: FOCS 2003
 published: 2003-06-01
 aliases:
   - Alekhnovich03
+  - Ale03
 ---
 # More on average case vs approximation complexity
 URL: https://ieeexplore.ieee.org/document/1238204

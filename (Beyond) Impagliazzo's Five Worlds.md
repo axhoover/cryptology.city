@@ -1,13 +1,13 @@
 # Impagliazzo's Five Worlds
 
-[Russell Impagliazzo](https://cseweb.ucsd.edu/~russell/) in 1995 published a paper called [[Impagliazzo95 - A personal view of average-case complexity|A personal view of average-case complexity]] in which he describes possible worlds which we could live in depending on some (still) unproven conjectures in complexity theory. Reviewing it almost 30 years later, understanding the relationships between certain assumptions and the outcomes of the truth or falsity of them is still fascinating.
+[Russell Impagliazzo](https://cseweb.ucsd.edu/~russell/) in 1995 published a paper called [[Imp95 - A personal view of average-case complexity|A personal view of average-case complexity]] in which he describes possible worlds which we could live in depending on some (still) unproven conjectures in complexity theory. Reviewing it almost 30 years later, understanding the relationships between certain assumptions and the outcomes of the truth or falsity of them is still fascinating.
 
 I think especially considering the worlds from a cryptographer's perspective is important. It's useful to know the cascade of assumptions certain primitives rely on and the potential limits of cryptography in certain worlds.
 
 ## Impagliazzo's five worlds
 Somewhat recently, I was reminded of [Impagliazzo's Five Worlds](https://blog.computationalcomplexity.org/2004/06/impagliazzos-five-worlds.html). The worlds are related to the unresolved problem of [[Polynomial-Time|P]] vs [[Nondeterministic Polynomial-Time|NP]], which revolves around the language classes P and NP. However, it also has distinguishes worlds via existence of a [[One-way function]] (OWF) and [[Trapdoor function]] (TDF).
 
-In [[Impagliazzo95 - A personal view of average-case complexity||his paper]], Impagliazzo illustrates the differences between "worst-case" and "average-case" hardness of problems through his 5 worlds:
+In [[Imp95 - A personal view of average-case complexity||his paper]], Impagliazzo illustrates the differences between "worst-case" and "average-case" hardness of problems through his 5 worlds:
 - **Algorithmica**: $P=NP$ (or something "morally equivalent"), where we can solve NP-complete problems efficiently
 - **Heuristica**: $P\neq NP$ but $NP$ problems are still easy on average
 - **Pessiland**: $P\neq NP$ but OWFs do not exist
