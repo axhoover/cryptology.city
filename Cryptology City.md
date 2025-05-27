@@ -34,3 +34,4 @@ There are lots of other great resources that people can use to learn cryptograph
 - [Complexity Zoo](https://complexityzoo.net/) — repository of complexity classes and many of their relations, originally created by Scott Aaronson
 - [An Intensive Introduction to Cryptography](https://intensecrypto.org/public/) — textbook, written by Boaz Barak
 - [Introduction to Modern Cryptography](http://staff.ustc.edu.cn/~mfy/moderncrypto/reading%20materials/Introduction_to_Modern_Cryptography.pdf) — textbook, written by Jonathan Katz and Yehuda Lindell
+- [ZK Jargon](https://zkjargon.github.io/) — glossary of [[Computational zero-knowledge|zero knowledge]] terms, written by Nico Mohnblatt
