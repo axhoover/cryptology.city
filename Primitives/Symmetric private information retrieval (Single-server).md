@@ -14,4 +14,5 @@ Symmetric private information retrieval is a stronger version of [[Single-Server
 
 
 ## Other results
-
+- Single-server SPIR is equivalent to $1$-out-of-$n$ [[Oblivious transfer|OT]] with an additional efficiency requirement
+- 
