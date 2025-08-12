@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Source+Serif+Pro:wght@400;600&display=swap');
+
+/* Main content area */
+.markdown-preview-view,
+.markdown-preview-section,
+.markdown-preview-view p,
+.markdown-preview-view li,
+.markdown-preview-view table {
+  font-family: "Source Serif Pro", Georgia, serif !important;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+/* Headings */
+.markdown-preview-view h1,
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4,
+.markdown-preview-view h5 {
+  font-family: "Source Sans Pro", Helvetica, sans-serif !important;
+  font-weight: 600;
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+body {
+  font-family: "Source Serif Pro", Georgia, serif;
+  font-size: 18px;
+  line-height: 1.65;
+  padding: 0 1rem;
+}
+
+
+/* MathJax tweaks */
+.markdown-preview-view .mjx-chtml {
+  font-size: 1.05em;
+  line-height: 1.4;
+}
+.markdown-preview-view .mjx-math {
+  color: inherit;
+}
+
+/* Sidebar file explorer */
+.workspace-split.mod-left-split {
+  width: 220px;
+}
+.nav-folder-title, .nav-file-title {
+  font-size: 0.95em;
+  padding: 4px 8px;
+}
+.nav-file-title:hover, .nav-folder-title:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+/* Hide graph view */
+.workspace-leaf-content[data-type="graph"],
+.workspace-tab-header[aria-label="Graph view"] {
+  display: none !important;
+}
+
+/* Dark & light mode */
+body.theme-dark {
+  --background-primary: #121212;
+  --text-normal: #e0e0e0;
+}
+body.theme-light {
+  --background-primary: #ffffff;
+  --text-normal: #222222;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .workspace-split.mod-left-split {
+    display: none;
+  }
+  .markdown-preview-view {
+    font-size: 17px;
+    padding: 0 0.8rem;
+  }
+}
+
+
+.site-body-left-column-site-logo img {
+  display: block;      /* removes inline baseline spacing */
+  margin-left: auto;   /* push to center */
+  margin-right: auto;  /* push to center */
+}
+
+.site-body-left-column-site-name {
+  display: block;
+  margin-left: auto;   /* push to center */
+  margin-right: auto;  /* push to center */
+}
+
+.site-body-left-column-site-logo img {
+  display: block;
+  margin: 0 auto;
+}
+
+.site-body-left-column-site-name {
+  margin-top: 0.4rem; /* small space under logo */
+}
+
