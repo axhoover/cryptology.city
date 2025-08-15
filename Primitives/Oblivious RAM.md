@@ -27,7 +27,7 @@ TODO
 An ORAM is secure if for all efficient $\mathsf{D}$, there exists a negligible function $\nu$, such that
 
 ### Variations
-
+TODO: offline ORAM like in [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]
 
 ## Other results
 - Any Oblivious RAM over an array of $n$ elements must incur $\Omega(\log n)$ amortized overhead blow-up. — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]] and [[LN18 - Yes, There is an Oblivious RAM Lower Bound!|LN18]]
