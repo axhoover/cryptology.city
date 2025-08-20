@@ -5,7 +5,7 @@ authors: Salil P. Vadhan
 venue: SIAM Journal on Computing 2006
 published: 2006-06-01
 aliases:
-  - Vadhan06
+  - Vad06
 ---
 # An Unconditional Study of Computational Zero Knowledge
 URL: https://epubs.siam.org/doi/abs/10.1137/S0097539705447207

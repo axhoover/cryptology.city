@@ -13,7 +13,7 @@ Same as [[Statistical zero-knowledge|SZK]], except that now the two distributio
 
 ## Known relationships
 - Unlike [[Statistical zero-knowledge|SZK]], it is not known if CZK is closed under complement
-- CZK is now known to share other properties with [[Statistical zero-knowledge|SZK]]: the verifier may as well be honest and may as well show their coins, and CZK is closed under unions. — [[Vadhan06 - An Unconditional Study of Computational Zero Knowledge|Vadhan06]]
+- CZK is now known to share other properties with [[Statistical zero-knowledge|SZK]]: the verifier may as well be honest and may as well show their coins, and CZK is closed under unions. — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]
 - Assuming [[One-way function|OWFs]] exist, CZK contains [[Nondeterministic Polynomial-Time|NP]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
 	- And, in fact CZK actually equals [[Interactive Proof Systems|IP]]=[[Polynomial-Space|PSPACE]] — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
 - Contains [[Statistical zero-knowledge|SZK]]

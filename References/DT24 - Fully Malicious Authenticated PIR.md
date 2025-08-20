@@ -1,13 +1,14 @@
 ---
-title: "Fully Malicious Authenticated PIR"
-source: "https://eprint.iacr.org/2023/1804"
-authors: "Marian Dietz, Stefano Tessaro"
-venue: "CRYPTO 2024"
+title: Fully Malicious Authenticated PIR
+source: https://eprint.iacr.org/2023/1804
+authors: Marian Dietz, Stefano Tessaro
+venue: CRYPTO 2024
 published: 2023-11-22
 created: 2025-01-23
 tags:
-  - "paper"
-alias: "DT24"
+  - paper
+aliases:
+  - DT24
 ---
 # Fully Malicious Authenticated PIR
 URL: https://eprint.iacr.org/2023/1804

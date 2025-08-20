@@ -1,13 +1,14 @@
 ---
-title: "Function Secret Sharing"
-source: "https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12"
-authors: "Elette Boyle, Niv Gilboa, Yuval Ishai"
-venue: "Eurocrypt 2015"
+title: Function Secret Sharing
+source: https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12
+authors: Elette Boyle, Niv Gilboa, Yuval Ishai
+venue: Eurocrypt 2015
 published: 2015-01-01
 created: 2025-04-22
 tags:
-  - "paper"
-alias: "BGI15"
+  - paper
+aliases:
+  - BGI15
 ---
 # Function Secret Sharing
 URL: https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12

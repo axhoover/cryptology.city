@@ -1,13 +1,14 @@
 ---
-title: "On the Streaming Indistinguishability of a Random Permutation and a Random Function"
-source: "https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15"
-authors: "Itai Dinur"
-venue: "Eurocrypt 2020"
+title: On the Streaming Indistinguishability of a Random Permutation and a Random Function
+source: https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15
+authors: Itai Dinur
+venue: Eurocrypt 2020
 published: 2020-01-01
 created: 2025-07-24
 tags:
-  - "paper"
-alias: "Din20"
+  - paper
+aliases:
+  - Din20
 ---
 # On the Streaming Indistinguishability of a Random Permutation and a Random Function
 URL: https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15

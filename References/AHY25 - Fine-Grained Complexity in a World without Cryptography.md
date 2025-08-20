@@ -11,7 +11,6 @@ aliases:
 # Fine-Grained Complexity in a World without Cryptography
 URL: https://eprint.iacr.org/2025/324
 Authors: Josh Alman, Yizhi Huang, Kevin Yeo
-
 ## Abstract
 The study of fine-grained cryptography has proliferated in recent years due to its allure of potentially relying on weaker assumptions compared to standard cryptography. As fine-grained cryptography only requires polynomial gaps between the adversary and honest parties, it seems plausible to build primitives relying upon popular hardness assumptions about problems in $\mathbf{P}$ such as $k$-$\mathsf{SUM}$ or $\mathsf{Zero}$-$k$-$\mathsf{Clique}$. The ultimate hope is that fine-grained cryptography could still be viable even if all current cryptographic assumptions are false, such as if $\mathbf{P} = \mathbf{NP}$ or if we live in Pessiland where one-way functions do not exist.
 

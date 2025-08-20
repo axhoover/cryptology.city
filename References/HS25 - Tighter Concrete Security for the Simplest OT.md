@@ -1,13 +1,14 @@
 ---
-title: "Tighter Concrete Security for the Simplest OT"
-source: "https://eprint.iacr.org/2025/493"
-authors: "Iftach Haitner, Gil Segev"
-venue: "preprint"
+title: Tighter Concrete Security for the Simplest OT
+source: https://eprint.iacr.org/2025/493
+authors: Iftach Haitner, Gil Segev
+venue: preprint
 published: 2025-03-15
 created: 2025-03-17
 tags:
-  - "paper"
-alias: "HS25"
+  - paper
+aliases:
+  - HS25
 ---
 # Tighter Concrete Security for the Simplest OT
 URL: https://eprint.iacr.org/2025/493

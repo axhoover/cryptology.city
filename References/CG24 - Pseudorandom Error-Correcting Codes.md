@@ -1,10 +1,11 @@
 ---
-title: "Pseudorandom Error-Correcting Codes"
-source: "https://eprint.iacr.org/2024/235"
-authors: "Miranda Christ, Sam Gunn"
-venue: "CRYPTO 2024"
+title: Pseudorandom Error-Correcting Codes
+source: https://eprint.iacr.org/2024/235
+authors: Miranda Christ, Sam Gunn
+venue: CRYPTO 2024
 published: 2024-02-14
-alias: "CG24"
+aliases:
+  - CG24
 ---
 # Pseudorandom Error-Correcting Codes
 URL: https://eprint.iacr.org/2024/235
