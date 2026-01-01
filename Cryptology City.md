@@ -20,6 +20,8 @@ Errors? Omissions? Misattributions? Your favorite primitive/assumption not here?
 ## Support team
 **City Mayor** - [Alex Hoover](https://axhoover.com/)
 
+### Usage Statistics
+I recently started using [Umami](https://umami.is/) to monitor traffic to this website to understand what is more/less useful to people. You can see the public traffic statistics [here](https://analytics.axhoover.com/share/Vb7GtcBuoXVddTde)! All data is anonymized and GDPR-compliant. But if you would like to avoid all tracking, make sure to disable JavaScript on the website!
 
 ## What is Cryptology City?
 Cryptology City is a passion project that I started just after I finished my PhD in Cryptography. I always liked the [Complexity Zoo](https://complexityzoo.net/) when I was a younger student and really interested in Theoretical Computer Science. I found it really fun to just read about random complexity classes, and interesting that people had even bothered to define and compare them to more standard classes.
