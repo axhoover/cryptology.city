@@ -1,18 +1,19 @@
 ---
-title: Fully Malicious Authenticated PIR
+title: "DT24"
 source: https://eprint.iacr.org/2023/1804
 authors: Marian Dietz, Stefano Tessaro
 venue: CRYPTO 2024
 published: 2023-11-22
 created: 2025-01-23
 tags:
-  - paper
+  - CRYPTO
 aliases:
   - DT24
 ---
-# Fully Malicious Authenticated PIR
-URL: https://eprint.iacr.org/2023/1804
-Authors: Marian Dietz, Stefano Tessaro
+# [DT24] Fully Malicious Authenticated PIR
+
+**Authors:** Marian Dietz, Stefano Tessaro | **Venue:** CRYPTO 2024 | [Source](https://eprint.iacr.org/2023/1804)
+
 ## Abstract
 Authenticated PIR enables a server to initially commit to a database of $N$ items, for which a client can later privately obtain individual items with complexity sublinear in $N$, with the added guarantee that the retrieved item is consistent with the committed database. A crucial requirement is privacy with abort, i.e., the server should not learn anything about a query even if it learns whether the client aborts.
 

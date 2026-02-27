@@ -1,5 +1,5 @@
 ---
-title: Lower-Bounds on Public-Key Operations in PIR
+title: "DH24"
 source: https://eprint.iacr.org/2024/694
 authors: Jesko Dujmovic, Mohammad Hajiabadi
 venue: Eurocrypt 2024
@@ -7,10 +7,13 @@ published: 2024-05-06
 created: 2025-02-07
 aliases:
   - DH24
+tags:
+  - Eurocrypt
+
 ---
-# Lower-Bounds on Public-Key Operations in PIR
-URL: https://eprint.iacr.org/2024/694
-Authors: Jesko Dujmovic, Mohammad Hajiabadi
+# [DH24] Lower-Bounds on Public-Key Operations in PIR
+
+**Authors:** Jesko Dujmovic, Mohammad Hajiabadi | **Venue:** Eurocrypt 2024 | [Source](https://eprint.iacr.org/2024/694)
 
 ## Abstract
 Private information retrieval (PIR) is a fundamental cryptographic primitive that allows a user to fetch a database entry without revealing to the server which database entry it learns. PIR becomes non-trivial if the server communication is less than the database size. We show that building (even) very weak forms of single-server PIR protocols, without pre-processing, requires the number of public-key operations to scale linearly in the database size. This holds irrespective of the number of symmetric-key operations performed by the parties.

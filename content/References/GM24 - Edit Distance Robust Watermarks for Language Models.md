@@ -1,16 +1,20 @@
 ---
-title: Edit Distance Robust Watermarks for Language Models
+title: "GM24"
 source: https://eprint.iacr.org/2024/898
 authors: Noah Golowich, Ankur Moitra
 venue: NeurIPS 2024
 published: 2024-06-05
 aliases:
   - GM24
+tags:
+  - NeurIPS
+
 ---
-# Edit Distance Robust Watermarks for Language Models
+# [GM24] Edit Distance Robust Watermarks for Language Models
+
+**Authors:** Noah Golowich, Ankur Moitra | **Venue:** NeurIPS 2024 | [Source](https://eprint.iacr.org/2024/898)
+
 a.k.a. Edit Distance Robust Watermarks via Indexing Pseudorandom Codes
-URL: https://eprint.iacr.org/2024/898
-Authors:  Noah Golowich, Ankur Moitra
 
 ## Abstract
 Motivated by the problem of detecting AI-generated text, we consider the problem of watermarking the output of language models with provable guarantees. We aim for watermarks which satisfy: (a) undetectability, a cryptographic notion introduced by Christ, Gunn & Zamir (2024) which stipulates that it is computationally hard to distinguish watermarked language model outputs from the model's actual output distribution; and (b) robustness to channels which introduce a constant fraction of adversarial insertions, substitutions, and deletions to the watermarked text. Earlier schemes could only handle stochastic substitutions and deletions, and thus we are aiming for a more natural and appealing robustness guarantee that holds with respect to edit distance.

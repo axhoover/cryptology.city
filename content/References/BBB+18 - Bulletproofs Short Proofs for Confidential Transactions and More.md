@@ -1,5 +1,5 @@
 ---
-title: "Bulletproofs: Short Proofs for Confidential Transactions and More"
+title: "BBB+18"
 source: https://eprint.iacr.org/2017/1066
 authors: Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell
 venue: S&P 2018
@@ -8,8 +8,13 @@ created: 2025-01-24
 aliases:
   - BBB+18
   - Bulletproofs
+tags:
+  - IEEE-SP
+
 ---
-# Bulletproofs: Short Proofs for Confidential Transactions and More
+# [BBB+18] Bulletproofs: Short Proofs for Confidential Transactions and More
+
+**Authors:** Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell | **Venue:** S&P 2018 | [Source](https://eprint.iacr.org/2017/1066)
 
 ## Abstract
 We propose Bulletproofs, a new non-interactive zero-knowledge proof protocol with very short proofs and without a trusted setup; the proof size is only logarithmic in the witness size. Bulletproofs are especially well suited for efficient range proofs on committed values: they enable proving that a committed value is in a range using only $2\log_2(n) + 9$ group and field elements, where $n$ is the bit length of the range. Proof generation and verification times are linear in $n$.

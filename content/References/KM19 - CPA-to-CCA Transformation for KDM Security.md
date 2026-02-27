@@ -1,5 +1,5 @@
 ---
-title: CPA-to-CCA Transformation for KDM Security
+title: "KM19"
 source: https://eprint.iacr.org/2019/609
 authors: Fuyuki Kitagawa, Takahiro Matsuda
 venue: TCC 2019
@@ -7,10 +7,14 @@ published: 2019-06-02
 created: 2025-04-30
 aliases:
   - KM19
+tags:
+  - TCC
+
 ---
-# CPA-to-CCA Transformation for KDM Security
-URL: https://eprint.iacr.org/2019/609
-Authors: Fuyuki Kitagawa, Takahiro Matsuda
+# [KM19] CPA-to-CCA Transformation for KDM Security
+
+**Authors:** Fuyuki Kitagawa, Takahiro Matsuda | **Venue:** TCC 2019 | [Source](https://eprint.iacr.org/2019/609)
+
 ## Abstract
 We show that chosen plaintext attacks (CPA) security is equivalent to chosen ciphertext attacks (CCA) security for key-dependent message (KDM) security. Concretely, we show how to construct a public-key encryption (PKE) scheme that is KDM-CCA secure with respect to all functions computable by circuits of a-priori bounded size, based only on a PKE scheme that is KDM-CPA secure with respect to projection functions. Our construction works for KDM security in the single user setting.
 

@@ -7,10 +7,10 @@ I think especially considering the worlds from a cryptographer's perspective is 
 ## Impagliazzo's five worlds
 Somewhat recently, I was reminded of [Impagliazzo's Five Worlds](https://blog.computationalcomplexity.org/2004/06/impagliazzos-five-worlds.html). The worlds are related to the unresolved problem of [[Polynomial-Time|P]] vs [[Nondeterministic Polynomial-Time|NP]], which revolves around the language classes P and NP. However, it also has distinguishes worlds via existence of a [[One-way function]] (OWF) and [[Trapdoor function]] (TDF).
 
-In [[Imp95 - A personal view of average-case complexity||his paper]], Impagliazzo illustrates the differences between "worst-case" and "average-case" hardness of problems through his 5 worlds:
-- **Algorithmica**: $P=NP$ (or something "morally equivalent"), where we can solve NP-complete problems efficiently
-- **Heuristica**: $P\neq NP$ but $NP$ problems are still easy on average
-- **Pessiland**: $P\neq NP$ but OWFs do not exist
+In his paper, Impagliazzo illustrates the differences between "worst-case" and "average-case" hardness of problems through his 5 worlds:
+- **Algorithmica**: $\classP=\classNP$ (or something "morally equivalent"), where we can solve NP-complete problems efficiently
+- **Heuristica**: $\classP\neq \classNP$ but $\classNP$ problems are still easy on average
+- **Pessiland**: $\classP\neq \classNP$ but OWFs do not exist
 - **Minicrypt**: OWFs exist but TDFs do not exist
 - **Cryptomania**: TDFs exist
 
@@ -24,7 +24,7 @@ All the propositions in that chain are conjectures at this point, but the implic
 ## A note on hardness
 Explain worst-case vs average-case hardness. TODO
 
-There is also work trying to understand if $P \neq NP$ actually could imply [[One-way function|OWFs]] exist (or the barriers to trying to prove this):
+There is also work trying to understand if $\classP \neq \classNP$ actually could imply [[One-way function|OWFs]] exist (or the barriers to trying to prove this):
 - [[GG98 - On the possibility of basing Cryptography on the assumption that P != NP]]
 - [[AGGM06 - On basing one-way functions on NP-hardness]]
 

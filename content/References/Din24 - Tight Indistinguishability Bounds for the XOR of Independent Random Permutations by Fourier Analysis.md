@@ -1,17 +1,19 @@
 ---
-title: Tight Indistinguishability Bounds for the XOR of Independent Random Permutations by Fourier Analysis
+title: "Din24"
 source: https://eprint.iacr.org/2024/338
 authors: Itai Dinur
 venue: Eurocrypt 2024
 published: 2024-02-26
 created: 2025-03-04
 aliases:
-  - Dinur24
   - Din24
+tags:
+  - Eurocrypt
+
 ---
-# Tight Indistinguishability Bounds for the XOR of Independent Random Permutations by Fourier Analysis
-URL: https://eprint.iacr.org/2024/338
-Authors: Itai Dinur
+# [Din24] Tight Indistinguishability Bounds for the XOR of Independent Random Permutations by Fourier Analysis
+
+**Authors:** Itai Dinur | **Venue:** Eurocrypt 2024 | [Source](https://eprint.iacr.org/2024/338)
 
 ## Abstract
 The XOR of two independent permutations (XoP) is a well-known construction for achieving security beyond the birthday bound when implementing a pseudorandom function using a block cipher (i.e., a pseudorandom permutation). The idealized construction (where the permutations are uniformly chosen and independent) and its variants have been extensively analyzed over nearly 25 years.

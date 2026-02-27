@@ -1,15 +1,18 @@
 ---
-title: "Doubly Efficient Cryptography: Commitments, Arguments and RAM MPC"
+title: "LMW24"
 source: https://eprint.iacr.org/2025/235
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
 venue: CRYPTO 2024
 published: 2025-02-14
 aliases:
   - LMW24
+tags:
+  - CRYPTO
+
 ---
-# Doubly Efficient Cryptography: Commitments, Arguments and RAM MPC
-URL: https://eprint.iacr.org/2025/235
-Authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
+# [LMW24] Doubly Efficient Cryptography: Commitments, Arguments and RAM MPC
+
+**Authors:** Wei-Kai Lin, Ethan Mook, Daniel Wichs | **Venue:** CRYPTO 2024 | [Source](https://eprint.iacr.org/2025/235)
 
 ## Abstract
 Can a sender commit to a long input without even reading all of it? Can a prover convince a verifier that an NP statement holds without even reading the entire witness? Can a set of parties run a multiparty computation (MPC) protocol in the RAM model, without necessarily even reading their entire inputs? We show how to construct such "doubly efficient" schemes in a setting where parties can preprocess their input offline, but subsequently they can engage in many different protocol executions over this input in sublinear online time. We do so in the plain model, without any common setup. Our constructions rely on doubly efficient private information retrieval (DEPIR) as a building block and can be instantiated based on Ring LWE.

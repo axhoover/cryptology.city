@@ -1,17 +1,19 @@
 ---
-title: "Combining Outputs of a Random Permutation: New Constructions and Tight Security Bounds by Fourier Analysis"
+title: "Din25"
 source: https://eprint.iacr.org/2024/929
 authors: Itai Dinur
 venue: Eurocrypt 2025
 published: 2024-06-10
 created: 2025-05-05
 aliases:
-  - Dinur25
   - Din25
+tags:
+  - Eurocrypt
+
 ---
-# Combining Outputs of a Random Permutation: New Constructions and Tight Security Bounds by Fourier Analysis
-URL: https://eprint.iacr.org/2024/929
-Authors: Itai Dinur
+# [Din25] Combining Outputs of a Random Permutation: New Constructions and Tight Security Bounds by Fourier Analysis
+
+**Authors:** Itai Dinur | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2024/929)
 
 ## Abstract
 We consider constructions that combine outputs of a single permutation $\pi: \{0,1\}^n \to \{0,1\}^n$ using a public function. These are popular constructions for achieving security beyond the birthday bound when implementing a pseudorandom function using a block cipher (i.e., a pseudorandom permutation). One of the best-known constructions (denoted SXoP$[2,n]$) XORs the outputs of 2 domain-separated calls to $\pi$.

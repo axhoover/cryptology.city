@@ -1,15 +1,18 @@
 ---
-title: "PIR with Client-Side Preprocessing: Information-Theoretic Constructions and Lower Bounds"
+title: "ISW24"
 source: https://eprint.iacr.org/2024/976
 authors: Yuval Ishai, Elaine Shi, Daniel Wichs
 venue: CRYPTO 2024
 published: 2024-06-17
 aliases:
   - ISW24
+tags:
+  - CRYPTO
+
 ---
-# PIR with Client-Side Preprocessing: Information-Theoretic Constructions and Lower Bounds
-URL: https://eprint.iacr.org/2024/976
-Authors: Yuval Ishai, Elaine Shi, Daniel Wichs
+# [ISW24] PIR with Client-Side Preprocessing: Information-Theoretic Constructions and Lower Bounds
+
+**Authors:** Yuval Ishai, Elaine Shi, Daniel Wichs | **Venue:** CRYPTO 2024 | [Source](https://eprint.iacr.org/2024/976)
 
 ## Abstract
 It is well-known that classical Private Information Retrieval (PIR) schemes without preprocessing must suffer from linear server computation per query. Moreover, any such single-server PIR with sublinear bandwidth must rely on public-key cryptography. Several recent works showed that these barriers pertaining to classical PIR can be overcome by introducing a preprocessing phase where each client downloads a small hint that helps it make queries subsequently. Notably, the Piano PIR scheme (and subsequent improvements) showed that with such a client-side preprocessing, not only can we have PIR with sublinear computation and bandwidth per query, but somewhat surprisingly, we can also get it using only symmetric-key cryptography (i.e., one-way functions).

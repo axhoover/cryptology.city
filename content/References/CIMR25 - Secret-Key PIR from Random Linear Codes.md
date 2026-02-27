@@ -1,5 +1,5 @@
 ---
-title: Secret-Key PIR from Random Linear Codes
+title: "CIMR25"
 source: https://eprint.iacr.org/2025/646
 authors: Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen
 venue: preprint
@@ -8,10 +8,13 @@ created: 2025-04-13
 aliases:
   - CIMR25
   - LSN
+tags:
+  - preprint
+
 ---
-# Secret-Key PIR from Random Linear Codes
-URL: https://eprint.iacr.org/2025/646
-Authors: Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen
+# [CIMR25] Secret-Key PIR from Random Linear Codes
+
+**Authors:** Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/646)
 
 ## Abstract
 Private information retrieval (PIR) allows to privately read a chosen bit from an $N$-bit database $x$ with $o(N)$ bits of communication. Lin, Mook, and Wichs (STOC 2023) showed that by preprocessing $x$ into an encoded database $x^\prime$, it suffices to access only $polylog(N)$ bits of $x^\prime$ per query. This requires $|x^\prime| \ge N \cdot polylog(N)$, and prohibitively large server circuit size.

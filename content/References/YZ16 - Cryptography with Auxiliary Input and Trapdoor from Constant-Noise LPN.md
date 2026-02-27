@@ -1,5 +1,5 @@
 ---
-title: Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN
+title: "YZ16"
 source: https://eprint.iacr.org/2016/514
 authors: Yu Yu, Jiang Zhang
 venue: CRYPTO 2016
@@ -7,10 +7,14 @@ published: 2016-05-29
 created: 2025-05-20
 aliases:
   - YZ16
+tags:
+  - CRYPTO
+
 ---
-# Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN
-URL: https://eprint.iacr.org/2016/514
-Authors: Yu Yu, Jiang Zhang
+# [YZ16] Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN
+
+**Authors:** Yu Yu, Jiang Zhang | **Venue:** CRYPTO 2016 | [Source](https://eprint.iacr.org/2016/514)
+
 ## Abstract
 Dodis, Kalai and Lovett (STOC 2009) initiated the study of the Learning Parity with Noise (LPN) problem with (static) exponentially hard-to-invert auxiliary input. In particular, they showed that under a new assumption (called Learning Subspace with Noise) the above is quasi-polynomially hard in the high (polynomially close to uniform) noise regime.
 

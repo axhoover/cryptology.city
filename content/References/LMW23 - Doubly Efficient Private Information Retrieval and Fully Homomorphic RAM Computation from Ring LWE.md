@@ -1,15 +1,18 @@
 ---
-title: Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE
+title: "LMW23"
 source: https://eprint.iacr.org/2022/1703
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
 venue: STOC 2023
 published: 2022-12-08
 aliases:
   - LMW23
+tags:
+  - STOC
+
 ---
-# Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE
-URL: https://eprint.iacr.org/2022/1703
-Authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
+# [LMW23] Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE
+
+**Authors:** Wei-Kai Lin, Ethan Mook, Daniel Wichs | **Venue:** STOC 2023 | [Source](https://eprint.iacr.org/2022/1703)
 
 ## Abstract
 A (single server) private information retrieval (PIR) allows a client to read data from a public database held on a remote server, without revealing to the server which locations she is reading. In a doubly efficient PIR (DEPIR), the database is first preprocessed, but the server can subsequently answer any client's query in time that is sub-linear in the database size. Prior work gave a plausible candidate for a public-key variant of DEPIR, where a trusted party is needed to securely preprocess the database and generate a corresponding public key for the clients; security relied on a new non-standard code-based assumption and a heuristic use of ideal obfuscation. In this work we construct the stronger unkeyed notion of DEPIR, where the preprocessing is a deterministic procedure that the server can execute on its own. Moreover, we prove security under just the standard ring learning-with-errors (RingLWE) assumption. For a database of size $N$ and any constant $\varepsilon > 0$, the preprocessing run-time and size is $O(N^{1+\varepsilon})$, while the run-time and communication-complexity of each PIR query is $polylog(N)$. We also show how to update the preprocessed database in time $O(N^{\varepsilon})$. Our approach is to first construct a standard PIR where the server's computation consists of evaluating a multivariate polynomial; we then convert it to a DEPIR by preprocessing the polynomial to allow for fast evaluation, using the techniques of Kedlaya and Umans (STOC '08).

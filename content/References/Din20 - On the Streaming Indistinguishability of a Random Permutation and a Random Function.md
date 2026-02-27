@@ -1,18 +1,19 @@
 ---
-title: On the Streaming Indistinguishability of a Random Permutation and a Random Function
+title: "Din20"
 source: https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15
 authors: Itai Dinur
 venue: Eurocrypt 2020
 published: 2020-01-01
 created: 2025-07-24
 tags:
-  - paper
+  - Eurocrypt
 aliases:
   - Din20
 ---
-# On the Streaming Indistinguishability of a Random Permutation and a Random Function
-URL: https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15
-Authors: Itai Dinur
+# [Din20] On the Streaming Indistinguishability of a Random Permutation and a Random Function
+
+**Authors:** Itai Dinur | **Venue:** Eurocrypt 2020 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15)
+
 ## Abstract
 An adversary with _S_ bits of memory obtains a stream of _Q_ elements that are uniformly drawn from the set , either with or without replacement. This corresponds to sampling _Q_ elements using either a random function or a random permutation. The adversary’s goal is to distinguish between these two cases.
 

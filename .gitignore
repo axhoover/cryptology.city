@@ -2,3 +2,4 @@ workspace.json
 .obsidian/*
 node_modules/
 public/
+quartz/.quartz-cache/

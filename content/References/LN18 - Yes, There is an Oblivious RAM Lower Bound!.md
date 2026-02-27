@@ -1,15 +1,19 @@
 ---
-title: Yes, There is an Oblivious RAM Lower Bound!
+title: "LN18"
 URL: https://eprint.iacr.org/2018/423
 authors: Kasper Green Larsen, Jesper Buus Nielsen
 venue: CRYPTO 2018
 publish date: 2018-05-18
 aliases:
   - LN18
+tags:
+  - CRYPTO
+
 ---
-# Yes, There is an Oblivious RAM Lower Bound!
-URL: https://eprint.iacr.org/2018/423
-Authors: Kasper Green Larsen, Jesper Buus Nielsen
+# [LN18] Yes, There is an Oblivious RAM Lower Bound!
+
+**Authors:** Kasper Green Larsen, Jesper Buus Nielsen | **Venue:** CRYPTO 2018
+
 ## Abstract
 An Oblivious RAM (ORAM) introduced by Goldreich and Ostrovsky [JACM'96] is a (possibly randomized) RAM, for which the memory access pattern reveals no information about the operations performed. The main performance metric of an ORAM is the bandwidth overhead, i.e., the multiplicative factor extra memory blocks that must be accessed to hide the operation sequence. In their seminal paper introducing the ORAM, Goldreich and Ostrovsky proved an amortized $\Omega(\lg n)$ bandwidth overhead lower bound for ORAMs with memory size $n$. Their lower bound is very strong in the sense that it applies to the ``offline'' setting in which the ORAM knows the entire sequence of operations ahead of time.
 

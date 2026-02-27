@@ -1,15 +1,19 @@
 ---
-title: "Detecting and Correcting Computationally Bounded  Errors: A Simple Construction Under Minimal Assumptions"
+title: "SW25"
 source: https://eprint.iacr.org/2024/1461
 authors: Jad Silbak, Daniel Wichs
 venue: ITCS 2025
 published: 2024-09-18
 aliases:
   - SW25
+tags:
+  - ITCS
+
 ---
-# Detecting and Correcting Computationally Bounded  Errors: A Simple Construction Under Minimal Assumptions
-URL: https://eprint.iacr.org/2024/1461
-Authors: Jad Silbak, Daniel Wichs
+# [SW25] Detecting and Correcting Computationally Bounded  Errors: A Simple Construction Under Minimal Assumptions
+
+**Authors:** Jad Silbak, Daniel Wichs | **Venue:** ITCS 2025 | [Source](https://eprint.iacr.org/2024/1461)
+
 ## Abstract
 We study error detection and error correction in a computationally bounded world, where errors are introduced by an arbitrary polynomial time adversarial channel. We consider codes where the encoding procedure uses random coins and define two distinct variants: (1) in randomized codes, fresh randomness is chosen during each encoding operation and is unknown a priori, while (2) in self-seeded codes, the randomness of the encoding procedure is fixed once upfront and is known to the adversary. In both cases, the randomness need not be known to the decoding procedure, and there is no trusted common setup between the encoder and decoder. The encoding and decoding algorithms are efficient and run in some fixed polynomial time, independent of the run time of the adversary.
 

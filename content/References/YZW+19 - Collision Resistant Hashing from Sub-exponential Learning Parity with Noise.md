@@ -1,15 +1,18 @@
 ---
-title: Collision Resistant Hashing from Sub-exponential Learning Parity with Noise
+title: "YZW+19"
 source: https://eprint.iacr.org/2017/1260
 authors: Yu Yu, Jiang Zhang, Jian Weng, Chun Guo, Xiangxue Li
 venue: ASIACRYPT 2019
 published: 2017-12-30
 aliases:
   - YZW+19
+tags:
+  - Asiacrypt
+
 ---
-# Collision Resistant Hashing from Sub-exponential Learning Parity with Noise
-URL: https://eprint.iacr.org/2017/1260
-Authors: Yu Yu, Jiang Zhang, Jian Weng, Chun Guo, Xiangxue Li
+# [YZW+19] Collision Resistant Hashing from Sub-exponential Learning Parity with Noise
+
+**Authors:** Yu Yu, Jiang Zhang, Jian Weng, Chun Guo, Xiangxue Li | **Venue:** ASIACRYPT 2019 | [Source](https://eprint.iacr.org/2017/1260)
 
 ## Abstract
 The Learning Parity with Noise (LPN) problem has recently found many cryptographic applications such as authentication protocols, pseudorandom generators/functions and even asymmetric tasks including public-key encryption (PKE) schemes and oblivious transfer (OT) protocols. It however remains a long-standing open problem whether LPN implies collision resistant hash (CRH) functions. Based on the recent work of Applebaum et al. (ITCS 2017), we introduce a general framework for constructing CRH from LPN for various parameter choices. We show that, just to mention a few notable ones, under any of the following hardness assumptions (for the two most common variants of LPN)

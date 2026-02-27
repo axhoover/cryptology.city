@@ -1,15 +1,18 @@
 ---
-title: Trapdoor Hash Functions and Their Applications
+title: "DGI+19"
 source: https://eprint.iacr.org/2019/639
 authors: Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, and Rafail Ostrovsky
 venue: CRYPTO 2019
 published: 2019-06-03
 aliases:
   - DGI+19
+tags:
+  - CRYPTO
+
 ---
-# Trapdoor Hash Functions and Their Applications
-URL: https://eprint.iacr.org/2019/639
-Authors: Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, and Rafail Ostrovsky
+# [DGI+19] Trapdoor Hash Functions and Their Applications
+
+**Authors:** Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, and Rafail Ostrovsky | **Venue:** CRYPTO 2019 | [Source](https://eprint.iacr.org/2019/639)
 
 ## Abstract
 We introduce a new primitive, called trapdoor hash functions (TDH), which are hash functions H:{0,1}n→{0,1}sec with additional trapdoor function-like properties. Specifically, given an index i∈[n], TDHs allow for sampling an encoding key ek (that hides i) along with a corresponding trapdoor. Furthermore, given H(x), a hint value E(ek,x), and the trapdoor corresponding to ek, the ith bit of x can be efficiently recovered. In this setting, one of our main questions is: How small can the hint value E(ek,x) be? We obtain constructions where the hint is only one bit long based on DDH, QR, DCR, or LWE.

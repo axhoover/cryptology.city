@@ -1,18 +1,20 @@
 ---
-title: Candidate One-Way Functions Based on Expander Graphs
+title: "Gol00"
 source: https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10
 authors: Oded Goldreich
 venue: Electronic Colloquium on Computational Complexity (ECCC)
 published: 2000-12-03
 created: 2025-02-19
 aliases:
-  - Goldreich00
   - Goldreich's PRF
   - Gol00
+tags:
+  - ECCC
+
 ---
-# Candidate One-Way Functions Based on Expander Graphs
-URL: https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10
-Authors: Oded Goldreich
+# [Gol00] Candidate One-Way Functions Based on Expander Graphs
+
+**Authors:** Oded Goldreich | **Venue:** Electronic Colloquium on Computational Complexity (ECCC) | [Source](https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10)
 
 ## Abstract
 We suggest a candidate one-way function using combinatorial constructs such as expander graphs. These graphs are used to determine a sequence of small overlapping subsets of input bits, to which a hard-wired random predicate is applied. Thus, the function is extremely easy to evaluate: all that is needed is to take multiple projections of the input bits, and to use these as entries to a look-up table. It is feasible for the adversary to scan the look-up table, but we believe it would be infeasible to find an input that fits a given sequence of values obtained for these overlapping projections.

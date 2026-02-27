@@ -1,15 +1,18 @@
 ---
-title: Black Box Crypto is Useless for Doubly Efficient PIR
+title: "LMW25"
 source: https://eprint.iacr.org/2025/552
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
 venue: Eurocrypt 2025
 published: 2025-03-25
 aliases:
   - LMW25
+tags:
+  - Eurocrypt
+
 ---
-# Black Box Crypto is Useless for Doubly Efficient PIR
-URL: https://eprint.iacr.org/2025/552
-Authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
+# [LMW25] Black Box Crypto is Useless for Doubly Efficient PIR
+
+**Authors:** Wei-Kai Lin, Ethan Mook, Daniel Wichs | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2025/552)
 
 ## Abstract
 A (single server) private information retrieval (PIR) allows a client to read data from a public database held on a remote server, without revealing to the server which locations she is reading. In a doubly efficient PIR (DEPIR), the database is first preprocessed offline into a data structure, which then allows the server to answer any client query efficiently in sub-linear online time. Constructing DEPIR is a notoriously difficult problem, and this difficulty even extends to a weaker notion secret-key DEPIR (SK-DEPIR), where the database is preprocessed using secret randomness and the client is given a secret key for making queries. We currently only have constructions of SK-DEPIR from the Ring LWE assumption or from non-standard code-based assumptions.

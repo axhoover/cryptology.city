@@ -1,15 +1,18 @@
 ---
-title: Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing
+title: "BLVW19"
 source: https://eprint.iacr.org/2018/279
 authors: Zvika Brakerski, Vadim Lyubashevsky, Vinod Vaikuntanathan, Daniel Wichs
 venue: Eurocrypt 2019
 published: 2018-03-22
 aliases:
   - BLVW19
+tags:
+  - Eurocrypt
+
 ---
-# Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing
-URL: https://eprint.iacr.org/2018/279
-Authors: Zvika Brakerski, Vadim Lyubashevsky, Vinod Vaikuntanathan, Daniel Wichs
+# [BLVW19] Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing
+
+**Authors:** Zvika Brakerski, Vadim Lyubashevsky, Vinod Vaikuntanathan, Daniel Wichs | **Venue:** Eurocrypt 2019 | [Source](https://eprint.iacr.org/2018/279)
 
 ## Abstract
 We present a worst case decoding problem whose hardness reduces to that of solving the Learning Parity with Noise (LPN) problem, in some parameter regime. Prior to this work, no worst case hardness result was known for LPN (as opposed to syntactically similar problems such as Learning with Errors). The caveat is that this worst case problem is only mildly hard and in particular admits a quasi-polynomial time algorithm, whereas the LPN variant used in the reduction requires extremely high noise rate of $1/2 - 1/poly(n)$. Thus we can only show that ``very hard'' LPN is harder than some ``very mildly hard'' worst case problem. We note that LPN with noise $1/2 - 1/poly(n)$ already implies symmetric cryptography.

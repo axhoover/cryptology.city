@@ -1,5 +1,5 @@
 ---
-title: A Logarithmic Lower Bound for Oblivious RAM (for all parameters)
+title: "KL21"
 source: https://eprint.iacr.org/2020/1132
 authors: Ilan Komargodski, Wei-Kai Lin
 venue: CRYPTO 2021
@@ -7,10 +7,13 @@ published: 2020-09-21
 created: 2025-04-21
 aliases:
   - KL21
+tags:
+  - CRYPTO
+
 ---
-# A Logarithmic Lower Bound for Oblivious RAM (for all parameters)
-URL: https://eprint.iacr.org/2020/1132
-Authors: Ilan Komargodski, Wei-Kai Lin
+# [KL21] A Logarithmic Lower Bound for Oblivious RAM (for all parameters)
+
+**Authors:** Ilan Komargodski, Wei-Kai Lin | **Venue:** CRYPTO 2021 | [Source](https://eprint.iacr.org/2020/1132)
 
 ## Abstract
 An Oblivious RAM (ORAM), introduced by Goldreich and Ostrovsky (J. ACM 1996), is a probabilistic RAM that hides its access pattern; i.e., for every input the observed locations accessed are similarly distributed. In recent years there has been great progress both in terms of upper bounds as well as in terms of lower bounds, essentially pinning down the smallest overhead possible in various settings of parameters.

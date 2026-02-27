@@ -1,15 +1,19 @@
 ---
-title: Lower Bounds for (Batch) PIR with Private Preprocessing
+title: "Yeo23"
 source: https://eprint.iacr.org/2022/828
 authors: Kevin Yeo
 venue: preprint
 published: 2022-06-23
 aliases:
   - Yeo23
+tags:
+  - preprint
+  - Yeo
+
 ---
-# Lower Bounds for (Batch) PIR with Private Preprocessing
-URL: https://eprint.iacr.org/2022/828
-Authors: Kevin Yeo
+# [Yeo23] Lower Bounds for (Batch) PIR with Private Preprocessing
+
+**Authors:** Kevin Yeo | **Venue:** preprint | [Source](https://eprint.iacr.org/2022/828)
 
 ## Abstract
 In this paper, we study (batch) private information retrieval with private preprocessing. Private information retrieval (PIR) is the problem where one or more servers hold a database of $n$ bits and a client wishes to retrieve the $i$-th bit in the database from the server(s). In PIR with private preprocessing (also known as offline-online PIR), the client is able to compute a private $r$-bit hint in an offline stage that may be leveraged to perform retrievals accessing at most $t$ entries. For privacy, the client wishes to hide index $i$ from an adversary that has compromised some of the servers. In the batch PIR setting, the client performs queries to retrieve the contents of multiple entries simultaneously.

@@ -1,5 +1,5 @@
 ---
-title: "Evasive LWE: Attacks, Variants & Obfustopia"
+title: "AMYY25"
 source: https://eprint.iacr.org/2025/375
 authors: Shweta Agrawal, Anuja Modi, Anshu Yadav, Shota Yamada
 venue: preprint
@@ -7,10 +7,13 @@ published: 2025-02-27
 created: 2025-03-04
 aliases:
   - AMYY25
+tags:
+  - preprint
+
 ---
-# Evasive LWE: Attacks, Variants & Obfustopia
-URL: https://eprint.iacr.org/2025/375
-Authors: Shweta Agrawal, Anuja Modi, Anshu Yadav, Shota Yamada
+# [AMYY25] Evasive LWE: Attacks, Variants & Obfustopia
+
+**Authors:** Shweta Agrawal, Anuja Modi, Anshu Yadav, Shota Yamada | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/375)
 
 ## Abstract
 Evasive LWE (Wee, Eurocrypt 2022 and Tsabary, Crypto 2022) is a recently introduced, popular lattice assumption which has been used to tackle long-standing problems in lattice based cryptography. In this work, we develop new counter-examples against Evasive LWE, in both the private and public-coin regime, propose counter-measures that define safety zones, and finally explore modifications to construct full compact FE/iO.

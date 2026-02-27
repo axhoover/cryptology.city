@@ -1,16 +1,18 @@
 ---
-title: Oblivious Transfer from Weak Noisy Channels
+title: "Wul09"
 source: https://eprint.iacr.org/2008/420
 authors: Jürg Wullschleger
 venue: TCC 2009
 published: 2008-10-01
 aliases:
-  - Wullschleger09
   - Wul09
+tags:
+  - TCC
+
 ---
-# Oblivious Transfer from Weak Noisy Channels
-URL: https://eprint.iacr.org/2008/420
-Authors: Jürg Wullschleger
+# [Wul09] Oblivious Transfer from Weak Noisy Channels
+
+**Authors:** Jürg Wullschleger | **Venue:** TCC 2009 | [Source](https://eprint.iacr.org/2008/420)
 
 ## Abstract
 Various results show that oblivious transfer can be implemented using the assumption of noisy channels. Unfortunately, this assumption is not as weak as one might think, because in a cryptographic setting, these noisy channels must satisfy very strong security requirements.

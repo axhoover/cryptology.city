@@ -1,15 +1,18 @@
 ---
-title: Private Coins versus Public Coins in Interactive Proof Systems
+title: "GS86"
 source: https://dl.acm.org/doi/pdf/10.1145/12130.12137
 authors: Shafi Goldwasser, Michael Sipser
 venue: STOC 1986
 published: 1986-06-01
 aliases:
   - GS86
+tags:
+  - STOC
+
 ---
-# Private Coins versus Public Coins in Interactive Proof Systems
-URL: https://dl.acm.org/doi/pdf/10.1145/12130.12137
-Authors: Shafi Goldwasser, Michael Sipser
+# [GS86] Private Coins versus Public Coins in Interactive Proof Systems
+
+**Authors:** Shafi Goldwasser, Michael Sipser | **Venue:** STOC 1986 | [Source](https://dl.acm.org/doi/pdf/10.1145/12130.12137)
 
 ## Abstract
 An interactive proof system is a method by which one party of unlimited resources, called the prover, can convince a party of limited resources, call the verifier, of the truth of a proposition. The verifier may toss coins, ask repeated questions of the prover, and run efficient tests upon the prover's responses before deciding whether to be convinced. This extends the familiar proof system implicit in the notion of NP in that there the verifier may not toss coins or speak, but only listen and verify. Interactive proof systems may not yield proof in the strict mathematical sense: the "proofs" are probabilistic with an exponentially small, though non-zero chance of error.

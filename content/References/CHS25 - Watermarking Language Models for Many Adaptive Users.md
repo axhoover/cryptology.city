@@ -1,15 +1,18 @@
 ---
-title: Watermarking Language Models for Many Adaptive Users
+title: "CHS25"
 source: https://eprint.iacr.org/2024/759
 authors: Aloni Cohen, Alexander Hoover, Gabe Schoenbach
 venue: S&P 2025
 published: 2024-05-17
 aliases:
   - CHS25
+tags:
+  - IEEE-SP
+
 ---
-# Watermarking Language Models for Many Adaptive Users
-URL: https://eprint.iacr.org/2024/759
-Authors: Aloni Cohen, Alexander Hoover, Gabe Schoenbach
+# [CHS25] Watermarking Language Models for Many Adaptive Users
+
+**Authors:** Aloni Cohen, Alexander Hoover, Gabe Schoenbach | **Venue:** S&P 2025 | [Source](https://eprint.iacr.org/2024/759)
 
 ## Abstract
 We study watermarking schemes for language models with provable guarantees. As we show, prior works offer no robustness guarantees against adaptive prompting: when a user queries a language model more than once, as even benign users do. And with just a single exception (Christ and Gunn, 2024), prior works are restricted to zero-bit watermarking: machine-generated text can be detected as such, but no additional information can be extracted from the watermark. Unfortunately, merely detecting AI-generated text may not prevent future abuses.

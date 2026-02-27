@@ -1,5 +1,5 @@
 ---
-title: Is There an Oblivious RAM Lower Bound?
+title: "BN16"
 source: https://eprint.iacr.org/2015/863
 authors: Elette Boyle, Moni Naor
 venue: ITCS 2016
@@ -7,10 +7,13 @@ published: 2015-09-08
 created: 2025-04-29
 aliases:
   - BN16
+tags:
+  - ITCS
+
 ---
-# Is There an Oblivious RAM Lower Bound?
-URL: https://eprint.iacr.org/2015/863
-Authors: Elette Boyle, Moni Naor
+# [BN16] Is There an Oblivious RAM Lower Bound?
+
+**Authors:** Elette Boyle, Moni Naor | **Venue:** ITCS 2016 | [Source](https://eprint.iacr.org/2015/863)
 
 ## Abstract
 An Oblivious RAM (ORAM), introduced by Goldreich and Ostrovsky (JACM 1996), is a (probabilistic) RAM that hides its access pattern, i.e., for every input the observed locations accessed are similarly distributed. Great progress has been made in recent years in minimizing the overhead of ORAM constructions, with the goal of obtaining the smallest overhead possible.

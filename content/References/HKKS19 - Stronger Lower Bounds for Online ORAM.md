@@ -1,5 +1,5 @@
 ---
-title: Stronger Lower Bounds for Online ORAM
+title: "HKKS19"
 source: https://link.springer.com/chapter/10.1007/978-3-030-36033-7_10
 authors: Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová
 venue: TCC 2019
@@ -7,10 +7,13 @@ published: 2019-11-22
 created: 2025-04-22
 aliases:
   - HKKS19
+tags:
+  - TCC
+
 ---
-# Stronger Lower Bounds for Online ORAM
-URL: https://link.springer.com/chapter/10.1007/978-3-030-36033-7_10
-Authors: Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová
+# [HKKS19] Stronger Lower Bounds for Online ORAM
+
+**Authors:** Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová | **Venue:** TCC 2019 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-36033-7_10)
 
 ## Abstract
 Oblivious RAM (ORAM), introduced in the context of software protection by Goldreich and Ostrovsky [JACM’96], aims at obfuscating the memory access pattern induced by a RAM computation. Ideally, the memory access pattern of an ORAM should be independent of the data being processed. Since the work of Goldreich and Ostrovsky, it was believed that there is an inherent $\Omega(\log n)$ bandwidth overhead in any ORAM working with memory of size $n$. Larsen and Nielsen [CRYPTO’18] were the first to give a general $\Omega(\log n)$ lower bound for any online ORAM, i.e., an ORAM that must process its inputs in an online manner.

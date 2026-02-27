@@ -1,15 +1,18 @@
 ---
-title: On basing one-way functions on NP-hardness
+title: "AGGM06"
 source: https://dl.acm.org/doi/abs/10.1145/1132516.1132614
 authors: Adi Akavia, Oded Goldreich, Shafi Goldwasser, Dana Moshkovitz
 venue: STOC 2006
 published: 2006-05-21
 aliases:
   - AGGM06
+tags:
+  - STOC
+
 ---
-# On basing one-way functions on NP-hardness
-URL: https://dl.acm.org/doi/abs/10.1145/1132516.1132614
-Authors: Adi Akavia, Oded Goldreich, Shafi Goldwasser, Dana Moshkovitz
+# [AGGM06] On basing one-way functions on NP-hardness
+
+**Authors:** Adi Akavia, Oded Goldreich, Shafi Goldwasser, Dana Moshkovitz | **Venue:** STOC 2006 | [Source](https://dl.acm.org/doi/abs/10.1145/1132516.1132614)
 
 ## Abstract
 We consider the possibility of basing one-way functions on NP-Hardness; that is, we study possible reductions from a worst-case decision problem to the task of average-case inverting a polynomial-time computable function $f$. Our main findings are the following two negative results:

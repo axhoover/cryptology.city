@@ -1,15 +1,18 @@
 ---
-title: New constructions of pseudorandom codes
+title: "GG24"
 source: https://arxiv.org/abs/2409.07580
 authors: Surendra Ghentiyala, Venkatesan Guruswami
 venue: preprint
 published: 2024-09-11
 aliases:
   - GG24
+tags:
+  - preprint
+
 ---
-# New constructions of pseudorandom codes
-URL: https://arxiv.org/abs/2409.07580
-Authors: Surendra Ghentiyala, Venkatesan Guruswami
+# [GG24] New constructions of pseudorandom codes
+
+**Authors:** Surendra Ghentiyala, Venkatesan Guruswami | **Venue:** preprint | [Source](https://arxiv.org/abs/2409.07580)
 
 ## Abstract
 Introduced in [[CG24 - Pseudorandom Error-Correcting Codes|CG24]], pseudorandom error-correcting codes (PRCs) are a new cryptographic primitive with applications in watermarking generative AI models. These are codes where a collection of polynomially many codewords is computationally indistinguishable from random, except to individuals with the decoding key. In this work, we examine the assumptions under which PRCs with robustness to a constant error rate exist.  

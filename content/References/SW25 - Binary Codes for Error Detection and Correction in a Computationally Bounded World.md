@@ -1,15 +1,19 @@
 ---
-title: Binary Codes for Error Detection and Correction in a Computationally Bounded World
+title: "SW25"
 source: https://eprint.iacr.org/2025/190
 authors: Jad Silbak, Daniel Wichs
 venue: Eurocrypt 2025
 published: 2025-02-09
 aliases:
   - SW25
+tags:
+  - Eurocrypt
+
 ---
-# Binary Codes for Error Detection and Correction in a Computationally Bounded World
-URL: https://eprint.iacr.org/2025/190
-Authors: Jad Silbak, Daniel Wichs
+# [SW25] Binary Codes for Error Detection and Correction in a Computationally Bounded World
+
+**Authors:** Jad Silbak, Daniel Wichs | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2025/190)
+
 ## Abstract
 We study error detection and correction in a computationally bounded world, where errors are introduced by an arbitrary \(\textit{polynomial-time}\) adversarial channel. Our focus is on \(\textit{seeded}\) codes, where the encoding and decoding procedures can share a public random seed, but are otherwise deterministic. We can ask for either \(\textit{selective}\) or \(\textit{adaptive}\) security, depending on whether the adversary can choose the message being encoded before or after seeing the seed. For large alphabets, a recent construction achieves essentially optimal rate versus error tolerance trade-offs under minimal assumptions, surpassing information-theoretic limits. However, for the binary alphabet, the only prior improvement over information theoretic codes relies on non-standard assumptions justified via the random oracle model. We show the following:
 

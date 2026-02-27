@@ -1,15 +1,18 @@
 ---
-title: "Anamorphic Encryption: Private Communication against a Dictator"
+title: "PPY22"
 source: https://eprint.iacr.org/2022/639
 authors: Giuseppe Persiano, Duong Hieu Phan, Moti Yung
 venue: Eurocrypt 2022
 published: 2022-05-24
 aliases:
   - PPY22
+tags:
+  - Eurocrypt
+
 ---
-# Anamorphic Encryption: Private Communication against a Dictator
-URL: https://eprint.iacr.org/2022/639
-Authors: Giuseppe Persiano, Duong Hieu Phan, Moti Yung
+# [PPY22] Anamorphic Encryption: Private Communication against a Dictator
+
+**Authors:** Giuseppe Persiano, Duong Hieu Phan, Moti Yung | **Venue:** Eurocrypt 2022 | [Source](https://eprint.iacr.org/2022/639)
 
 ## Abstract
 Cryptosystems have been developed over the years under the typical prevalent setting which assumes that the receiver’s key is kept secure from the adversary, and that the choice of the message to be sent is freely performed by the sender and is kept secure from the adversary as well. Under these fundamental and basic operational assumptions, modern Cryptography has flourished over the last half a century or so, with amazing achievements: New systems (including public-key Cryptography), beautiful and useful models (including security definitions such as semantic security), and new primitives (such as zero-knowledge proofs) have been developed. Furthermore, these fundamental achievements have been translated into actual working systems, and span many of the daily human activities over the Internet.

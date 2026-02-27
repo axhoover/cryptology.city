@@ -4,7 +4,7 @@ import * as Plugin from "./quartz/plugins"
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "Cryptology City",
-    pageTitleSuffix: " | Cryptology City",
+    pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: {
@@ -98,6 +98,17 @@ const config: QuartzConfig = {
           "\\calX": "\\mathcal{X}",
           "\\calY": "\\mathcal{Y}",
           "\\calZ": "\\mathcal{Z}",
+          // Complexity classes
+          "\\classP": "\\mathbf{P}",
+          "\\classNP": "\\mathbf{NP}",
+          "\\classcoNP": "\\mathbf{coNP}",
+          "\\classBPP": "\\mathbf{BPP}",
+          "\\classRP": "\\mathbf{RP}",
+          "\\classZPP": "\\mathbf{ZPP}",
+          "\\classPSPACE": "\\mathbf{PSPACE}",
+          "\\classSZK": "\\mathbf{SZK}",
+          "\\classCZK": "\\mathbf{CZK}",
+
           // Common algorithms
           "\\Gen": "\\mathsf{Gen}",
           "\\Enc": "\\mathsf{Enc}",

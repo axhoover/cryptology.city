@@ -1,15 +1,18 @@
 ---
-title: Trapdoor Hash Functions and PIR from Low-Noise LPN
+title: "AMR25"
 source: https://eprint.iacr.org/2025/416
 authors: Damiano Abram, Giulio Malavolta, Lawrence Roy
 venue: preprint
 published: 2025-03-04
 aliases:
   - AMR25
+tags:
+  - preprint
+
 ---
-# Trapdoor Hash Functions and PIR from Low-Noise LPN
-URL: https://eprint.iacr.org/2025/416
-Authors: Damiano Abram, Giulio Malavolta, Lawrence Roy
+# [AMR25] Trapdoor Hash Functions and PIR from Low-Noise LPN
+
+**Authors:** Damiano Abram, Giulio Malavolta, Lawrence Roy | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/416)
 
 ## Abstract
 Trapdoor hash functions (TDHs) are compressing hash functions, with an additional trapdoor functionality: Given a encoding key for a function \(f\), a hash on \(x\) together with a (small) input encoding allow one to recover \(f(x)\). TDHs are a versatile tool and a useful building block for more complex cryptographic protocols.

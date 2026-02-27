@@ -1,5 +1,5 @@
 ---
-title: Can We Access a Database Both Locally and Privately?
+title: "BIPW17"
 source: https://eprint.iacr.org/2017/567
 authors: Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters
 venue: TCC 2017
@@ -7,10 +7,14 @@ published: 2017-06-14
 created: 2025-02-17
 aliases:
   - BIPW17
+tags:
+  - TCC
+
 ---
-# Can We Access a Database Both Locally and Privately?
-URL: https://eprint.iacr.org/2017/567
-Authors: Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters
+# [BIPW17] Can We Access a Database Both Locally and Privately?
+
+**Authors:** Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters | **Venue:** TCC 2017 | [Source](https://eprint.iacr.org/2017/567)
+
 ## Abstract
 We consider the following strong variant of private information retrieval (PIR). There is a large database $x$ that we want to make publicly available. To this end, we post an encoding $X$ of $x$ together with a short public key $pk$ in a publicly accessible repository. The goal is to allow any client who comes along to retrieve a chosen bit $x_i$ by reading a small number of bits from $X$, whose positions may be randomly chosen based on $i$ and $pk$, such that even an adversary who can fully observe the access to $X$ does not learn information about $i$.
 

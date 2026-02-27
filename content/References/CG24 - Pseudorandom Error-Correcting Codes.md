@@ -1,15 +1,18 @@
 ---
-title: Pseudorandom Error-Correcting Codes
+title: "CG24"
 source: https://eprint.iacr.org/2024/235
 authors: Miranda Christ, Sam Gunn
 venue: CRYPTO 2024
 published: 2024-02-14
 aliases:
   - CG24
+tags:
+  - CRYPTO
+
 ---
-# Pseudorandom Error-Correcting Codes
-URL: https://eprint.iacr.org/2024/235
-Authors: Miranda Christ, Sam Gunn
+# [CG24] Pseudorandom Error-Correcting Codes
+
+**Authors:** Miranda Christ, Sam Gunn | **Venue:** CRYPTO 2024 | [Source](https://eprint.iacr.org/2024/235)
 
 ## Abstract
 We construct pseudorandom error-correcting codes (or simply pseudorandom codes), which are error-correcting codes with the property that any polynomial number of codewords are pseudorandom to any computationally-bounded adversary. Efficient decoding of corrupted codewords is possible with the help of a decoding key.

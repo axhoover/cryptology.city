@@ -1,5 +1,5 @@
 ---
-title: "OPAQUE: An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks"
+title: "JKX18"
 source: https://eprint.iacr.org/2018/163
 authors: Stanislaw Jarecki, Hugo Krawczyk, Jiayu Xu
 venue: Eurocrypt 2018
@@ -7,10 +7,14 @@ published: 2018-02-11
 aliases:
   - JKX18
   - OPAQUE
+tags:
+  - Eurocrypt
+
 ---
-# OPAQUE: An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks
-URL: https://eprint.iacr.org/2018/163
-Authors: Stanislaw Jarecki, Hugo Krawczyk, Jiayu Xu
+# [JKX18] OPAQUE: An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks
+
+**Authors:** Stanislaw Jarecki, Hugo Krawczyk, Jiayu Xu | **Venue:** Eurocrypt 2018 | [Source](https://eprint.iacr.org/2018/163)
+
 ## Abstract
 Password-Authenticated Key Exchange (PAKE) protocols allow two parties that only share a password to establish a shared key in a way that is immune to offline attacks. Asymmetric PAKE (aPAKE) strengthens this notion for the more common client-server setting where the server stores a mapping of the password and security is required even upon server compromise, that is, the only allowed attack in this case is an (inevitable) offline exhaustive dictionary attack against individual user passwords. Unfortunately, current aPAKE protocols (that dispense with the use of servers' public keys) allow for pre-computation attacks that lead to the instantaneous compromise of user passwords upon server compromise, thus forgoing much of the intended aPAKE security. Indeed, these protocols use - in essential ways - deterministic password mappings or use random "salt" transmitted in the clear from servers to users, and thus are vulnerable to pre-computation attacks.
 

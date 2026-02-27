@@ -1,5 +1,5 @@
 ---
-title: "OptORAMa: Optimal Oblivious RAM"
+title: "AKL+20"
 source: https://eprint.iacr.org/2018/892
 authors: Gilad Asharov, Ilan Komargodski, Wei-Kai Lin, Kartik Nayak, Enoch Peserico, Elaine Shi
 venue: Eurocrypt 2020
@@ -7,10 +7,13 @@ published: 2018-09-23
 aliases:
   - AKL+20
   - OptORAMa
+tags:
+  - Eurocrypt
+
 ---
-# OptORAMa: Optimal Oblivious RAM
-URL: https://eprint.iacr.org/2018/892
-Authors: Gilad Asharov, Ilan Komargodski, Wei-Kai Lin, Kartik Nayak, Enoch Peserico, Elaine Shi
+# [AKL+20] OptORAMa: Optimal Oblivious RAM
+
+**Authors:** Gilad Asharov, Ilan Komargodski, Wei-Kai Lin, Kartik Nayak, Enoch Peserico, Elaine Shi | **Venue:** Eurocrypt 2020 | [Source](https://eprint.iacr.org/2018/892)
 
 ## Abstract
 Oblivious RAM (ORAM), first introduced in the ground-breaking work of Goldreich and Ostrovsky (STOC '87 and J. ACM '96) is a technique for provably obfuscating programs' access patterns, such that the access patterns leak no information about the programs' secret inputs. To compile a general program to an oblivious counterpart, it is well-known that $\Omega(\log N)$ amortized blowup is necessary, where $N$ is the size of the logical memory. This was shown in Goldreich and Ostrovksy's original ORAM work for statistical security and in a somewhat restricted model (the so called balls-and-bins model), and recently by Larsen and Nielsen (CRYPTO '18) for computational security.

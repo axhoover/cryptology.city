@@ -1,18 +1,18 @@
 ---
-title: Function Secret Sharing
+title: "BGI15"
 source: https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12
 authors: Elette Boyle, Niv Gilboa, Yuval Ishai
 venue: Eurocrypt 2015
 published: 2015-01-01
 created: 2025-04-22
 tags:
-  - paper
+  - Eurocrypt
 aliases:
   - BGI15
 ---
-# Function Secret Sharing
-URL: https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12
-Authors: Elette Boyle, Niv Gilboa, Yuval Ishai
+# [BGI15] Function Secret Sharing
+
+**Authors:** Elette Boyle, Niv Gilboa, Yuval Ishai | **Venue:** Eurocrypt 2015 | [Source](https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12)
 
 ## Abstract
 Motivated by the goal of securely searching and updating distributed data, we introduce and study the notion of function secret sharing (FSS). This new notion is a natural generalization of distributed point functions (DPF), a primitive that was recently introduced by Gilboa and Ishai (Eurocrypt 2014). Given a positive integer $p \ge 2$ and a class $F$ of functions $f: \{0,1\}^n \to G$, where $G$ is an Abelian group, a $p$-party FSS scheme for $F$ allows one to split each $f \in F$ into $p$ succinctly described functions $f_i: \{0,1\}^n \to G$, $1 \le i \le p$, such that: (1) $\sum_{i=1}^p f_i = f$, and (2) any strict subset of the $f_i$ hides $f$. Thus, an FSS for $F$ can be thought of as method for succinctly performing an \"additive secret sharing\" of functions from $F$. The original definition of DPF coincides with a two-party FSS for the class of point functions, namely the class of functions that have a nonzero output on at most one input.

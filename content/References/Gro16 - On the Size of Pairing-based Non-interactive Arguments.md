@@ -1,16 +1,18 @@
 ---
-title: On the Size of Pairing-based Non-interactive Arguments
+title: "Gro16"
 source: https://eprint.iacr.org/2016/260
 authors: Jens Groth
 venue: Eurocrypt 2016
 published: 2016-03-08
 aliases:
-  - Groth16
   - Gro16
+tags:
+  - Eurocrypt
+
 ---
-# On the Size of Pairing-based Non-interactive Arguments
-URL: https://eprint.iacr.org/2016/260
-Authors: Jens Groth
+# [Gro16] On the Size of Pairing-based Non-interactive Arguments
+
+**Authors:** Jens Groth | **Venue:** Eurocrypt 2016 | [Source](https://eprint.iacr.org/2016/260)
 
 ## Abstract
 Non-interactive arguments enable a prover to convince a verifier that a statement is true. Recently there has been a lot of progress both in theory and practice on constructing highly efficient non-interactive arguments with small size and low verification complexity, so-called succinct non-interactive arguments (SNARGs) and succinct non-interactive arguments of knowledge (SNARKs).

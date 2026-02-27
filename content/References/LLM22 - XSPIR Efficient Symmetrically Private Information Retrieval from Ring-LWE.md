@@ -1,5 +1,5 @@
 ---
-title: "XSPIR: Efficient Symmetrically Private Information Retrieval from Ring-LWE"
+title: "LLM22"
 source: https://link.springer.com/chapter/10.1007/978-3-031-17140-6_11
 authors: Chengyu Lin, Zeyu Liu, Tal Malkin
 venue: ESORICS 2022
@@ -8,10 +8,14 @@ created: 2025-02-25
 aliases:
   - LLM22
   - XSPIR
+tags:
+  - ESORICS
+
 ---
-# XSPIR: Efficient Symmetrically Private Information Retrieval from Ring-LWE
-URL: https://link.springer.com/chapter/10.1007/978-3-031-17140-6_11
-Authors: Chengyu Lin, Zeyu Liu, Tal Malkin
+# [LLM22] XSPIR: Efficient Symmetrically Private Information Retrieval from Ring-LWE
+
+**Authors:** Chengyu Lin, Zeyu Liu, Tal Malkin | **Venue:** ESORICS 2022 | [Source](https://link.springer.com/chapter/10.1007/978-3-031-17140-6_11)
+
 ## Abstract
 Private Information Retrieval (PIR) allows a client to retrieve one entry from a database held by a server, while hiding from the server which entry has been retrieved. Symmetrically Private Information Retrieval (SPIR) additionally protects the privacy of the data, requiring that the client obtains only its desired entry, and no information on other data entries.
 

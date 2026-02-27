@@ -1,15 +1,18 @@
 ---
-title: Hiding the Input-Size in Secure Two-Party Computation
+title: "LNO13"
 source: https://eprint.iacr.org/2012/679
 authors: Yehuda Lindell, Kobbi Nissim, Claudio Orlandi
 venue: Asiacrypt 2013
 published: 2012-12-10
 aliases:
   - LNO13
+tags:
+  - Asiacrypt
+
 ---
-# Hiding the Input-Size in Secure Two-Party Computation
-URL: https://eprint.iacr.org/2012/679
-Authors: Yehuda Lindell, Kobbi Nissim, Claudio Orlandi
+# [LNO13] Hiding the Input-Size in Secure Two-Party Computation
+
+**Authors:** Yehuda Lindell, Kobbi Nissim, Claudio Orlandi | **Venue:** Asiacrypt 2013 | [Source](https://eprint.iacr.org/2012/679)
 
 ## Abstract
 In the setting of secure multiparty computation, a set of parties wish to compute a joint function of their inputs, while preserving properties like privacy, correctness, and independence of inputs. One security property that has typically not been considered in the past relates to the length or size of the parties inputs. This is despite the fact that in many cases the size of a party's input can be confidential. The reason for this omission seems to have been the folklore belief that, as with encryption, it is impossible to carry out non-trivial secure computation while hiding the size of parties' inputs. However some recent results (e.g., Ishai and Paskin at TCC 2007, Ateniese, De Cristofaro and Tsudik at PKC 2011) showed that it is possible to hide the input size of one of the parties for some limited class of functions, including secure two-party set intersection. This suggests that the folklore belief may not be fully accurate.

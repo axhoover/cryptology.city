@@ -1,15 +1,18 @@
 ---
-title: Undetectable Watermarks for Language Models
+title: "CGZ24"
 source: https://eprint.iacr.org/2023/763
 authors: Miranda Christ, Sam Gunn, Or Zamir
 venue: COLT 2024
 published: 2023-05-25
 aliases:
   - CGZ24
+tags:
+  - COLT
+
 ---
-# Undetectable Watermarks for Language Models
-URL: https://eprint.iacr.org/2023/763
-Authors: Miranda Christ, Sam Gunn, Or Zamir
+# [CGZ24] Undetectable Watermarks for Language Models
+
+**Authors:** Miranda Christ, Sam Gunn, Or Zamir | **Venue:** COLT 2024 | [Source](https://eprint.iacr.org/2023/763)
 
 ## Abstract
 Recent advances in the capabilities of large language models such as GPT-4 have spurred increasing concern about our ability to detect AI-generated text. Prior works have suggested methods of embedding watermarks in model outputs, by \textit{noticeably} altering the output distribution. We ask: Is it possible to introduce a watermark without incurring \textit{any detectable} change to the output distribution?

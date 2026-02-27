@@ -1,3 +1,6 @@
+---
+title: Cryptology City
+---
 # Cryptology City
 Welcome to Cryptology City! Jump right in by taking a look, navigating the site on the left!
 
@@ -6,18 +9,18 @@ This wiki is a collection of cryptographic primitives and reductions between the
 Errors? Omissions? Misattributions? Your favorite primitive/assumption not here? Then please contribute to the city by submitting a pull request on [GitHub](https://github.com/axhoover/cryptology.city). The site is built with [Quartz](https://quartz.jzhao.xyz) and hosted on [Cloudflare Pages](https://pages.cloudflare.com), with content written in Markdown — contributing via GitHub is the best way to make modifications. For any other recommendations or issues, please reach out to the Cryptology City [Bluesky](https://bsky.app/profile/cryptology.city), [Twitter](https://twitter.com/cryptologycity), or [email](mailto:cryptologycity@gmail.com).
 
 ## Structure
-`./Primitives` — descriptions of different cryptographic primitives
-`./Assumptions` — common assumptions that are made in cryptography
-`./References` — papers which are referenced
-`./Folklore` — results that are well known, but do not explicitly appear in literature
-`./Complexity` — complexity classes that are relevant to certain results
-`./Glossary` — terms or common concepts which are related and do not fall into the other categories
+
+| Directory | Description |
+|-----------|-------------|
+| `Primitives` | descriptions of different cryptographic primitives |
+| `Assumptions` | common assumptions that are made in cryptography |
+| `References` | papers which are referenced |
+| `Folklore` | results that are well known, but do not explicitly appear in literature |
+| `Complexity` | complexity classes that are relevant to certain results |
+| `Glossary` | terms or common concepts which are related and do not fall into the other categories |
 
 ## Support team
 **City Mayor** - [Alex Hoover](https://axhoover.com/)
-
-### Usage Statistics
-I recently started using [Umami](https://umami.is/) to monitor traffic to this website to understand what is more/less useful to people. You can see the public traffic statistics [here](https://analytics.axhoover.com/share/Vb7GtcBuoXVddTde)! All data is anonymized and GDPR-compliant. But if you would like to avoid all tracking, make sure to disable JavaScript on the website!
 
 ## What is Cryptology City?
 Cryptology City is a passion project that I started just after I finished my PhD in Cryptography. I always liked the [Complexity Zoo](https://complexityzoo.net/) when I was a younger student and really interested in Theoretical Computer Science. I found it really fun to just read about random complexity classes, and interesting that people had even bothered to define and compare them to more standard classes.

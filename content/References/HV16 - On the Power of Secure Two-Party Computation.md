@@ -1,18 +1,18 @@
 ---
-title: On the Power of Secure Two-Party Computation
+title: "HV16"
 source: https://eprint.iacr.org/2016/074
 authors: Carmit Hazay, Muthuramakrishnan Venkitasubramaniam
 venue: CRYPTO 2016
 published: 2016-01-27
 created: 2025-02-11
 tags:
-  - paper
+  - CRYPTO
 aliases:
   - HV16
 ---
-# On the Power of Secure Two-Party Computation
-URL: https://eprint.iacr.org/2016/074
-Authors: Carmit Hazay, Muthuramakrishnan Venkitasubramaniam
+# [HV16] On the Power of Secure Two-Party Computation
+
+**Authors:** Carmit Hazay, Muthuramakrishnan Venkitasubramaniam | **Venue:** CRYPTO 2016 | [Source](https://eprint.iacr.org/2016/074)
 
 ## Abstract
 Ishai, Kushilevitz, Ostrovsky and Sahai (STOC 2007, SIAM JoC 2009) introduced the powerful ``MPC-in-the-head'' technique that provided a general transformation of  information-theoretic MPC protocols secure against passive adversaries to a ZK proof in a ``black-box'' way. In this work, we extend this technique and provide a generic transformation of any semi-honest secure two-party computation (2PC) protocol (with mild adaptive security guarantees) in the so called oblivious-transfer hybrid model to an adaptive ZK proof for any NP language, in a ``black-box'' way assuming only one-way functions. Our basic construction based on Goldreich-Micali-Wigderson's 2PC protocol yields an adaptive ZK proof with communication complexity proportional to quadratic in the size of the circuit implementing the NP relation. Previously such proofs relied on an expensive Karp reduction of the NP language to Graph Hamiltonicity (Lindell and Zarosim (TCC 2009, Journal of Cryptology 2011)).

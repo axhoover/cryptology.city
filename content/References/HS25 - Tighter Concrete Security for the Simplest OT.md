@@ -1,18 +1,18 @@
 ---
-title: Tighter Concrete Security for the Simplest OT
+title: "HS25"
 source: https://eprint.iacr.org/2025/493
 authors: Iftach Haitner, Gil Segev
 venue: preprint
 published: 2025-03-15
 created: 2025-03-17
 tags:
-  - paper
+  - preprint
 aliases:
   - HS25
 ---
-# Tighter Concrete Security for the Simplest OT
-URL: https://eprint.iacr.org/2025/493
-Authors: Iftach Haitner, Gil Segev
+# [HS25] Tighter Concrete Security for the Simplest OT
+
+**Authors:** Iftach Haitner, Gil Segev | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/493)
 
 ## Abstract
 The Chou-Orlandi batch oblivious transfer (OT) protocol is a particularly attractive OT protocol that bridges the gap between practical efficiency and strong security guarantees and is especially notable due to its simplicity. The security analysis provided by Chou and Orlandi bases the security of their protocol on the hardness of the computational Diffie-Hellman ($\mathsf{CDH}$) problem in prime-order groups. Concretely, in groups in which no better-than-generic algorithms are known for the $\mathsf{CDH}$ problem, their security analysis yields that an attacker running in time $t$ and issuing $q$ random-oracle queries breaks the security of their protocol with probability at most $\epsilon \leq q^2 \cdot t / 2^{\kappa/2}$, where $\kappa$ is the bit-length of the group's order. This concrete bound, however, is somewhat insufficient for 256-bit groups (e.g., for $\kappa = 256$, it does not provide any guarantee already for $t = 2^{48}$ and $q = 2^{40}$).

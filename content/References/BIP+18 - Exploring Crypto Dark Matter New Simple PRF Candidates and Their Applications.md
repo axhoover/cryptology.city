@@ -1,5 +1,5 @@
 ---
-title: "Exploring Crypto Dark Matter: New Simple PRF Candidates and Their Applications"
+title: "BIP+18"
 source: https://eprint.iacr.org/2018/1218
 authors: Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu
 venue: TCC 2018
@@ -7,10 +7,14 @@ published: 2018-12-30
 created: 2025-02-10
 aliases:
   - BIP+18
+tags:
+  - TCC
+
 ---
-# Exploring Crypto Dark Matter: New Simple PRF Candidates and Their Applications
-URL: https://eprint.iacr.org/2018/1218
-Authors: Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu
+# [BIP+18] Exploring Crypto Dark Matter: New Simple PRF Candidates and Their Applications
+
+**Authors:** Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu | **Venue:** TCC 2018 | [Source](https://eprint.iacr.org/2018/1218)
+
 ## Abstract
 Pseudorandom functions (PRFs) are one of the fundamental building blocks in cryptography. We explore a new space of plausible PRF candidates that are obtained by mixing linear functions over different small moduli. Our candidates are motivated by the goals of maximizing simplicity and minimizing complexity measures that are relevant to cryptographic applications such as secure multiparty computation.
 
