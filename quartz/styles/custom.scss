@@ -1,0 +1,43 @@
+@use "./base.scss";
+
+// Body text sizing and line height
+article p,
+article li,
+article td,
+.popover-hint {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+// Heading weight
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  margin-top: 1.3em;
+  margin-bottom: 0.4em;
+}
+
+// KaTeX sizing
+.katex {
+  font-size: 1.05em;
+}
+
+.katex-display {
+  margin: 0.8em 0;
+}
+
+// Sidebar logo above the site title
+.page-title {
+  text-align: center;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 110px;
+    height: 110px;
+    background-image: url("/static/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto 0.6rem;
+  }
+}

@@ -1,2 +1,4 @@
 workspace.json
 .obsidian/*
+node_modules/
+public/
