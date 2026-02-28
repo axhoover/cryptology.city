@@ -1,36 +1,113 @@
 ---
 aliases:
+  - SKE
   - SE
-title: Symmetric Encryption
+title: SKE
 ---
-# Symmetric key encryption (SE)
-Symmetric key encryption (SE) is a central cryptographic primitive in theory and in practice.
+# Symmetric key encryption
+A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages, such that an adversary who does not know the key cannot learn anything about the plaintext from the ciphertext.
 
-## Definition
-A *symmetric key encryption* (SE) scheme is a tuple of efficient algorithms $(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$, with respect to key space $\mathcal{K}$, message space $\mathcal{M}$, and ciphertext space $\mathcal{C}$ such that
-- $\mathsf{Gen}(1^{\lambda}) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \mathcal{K}$,
-- $\mathsf{Enc}_k(m) \to c$, is a randomized algorithm that takes a key $k\in \mathcal{K}$ and message $m\in \mathcal{M}$, and outputs a ciphertext $c \in \mathcal{C}$,
-- $\mathsf{Dec}_k(c) \to m$, is a deterministic algorithm that takes a key $k \in \mathcal{K}$ and candidate ciphertext $c \in \mathcal{C}$, and outputs either a message $m\in \mathcal{M}$
-	- One may also allow $\mathsf{Dec}_k$ to output $\bot$ to indicate that a candidate ciphertext is not a valid encryption
+## Syntax
+A SKE scheme is a tuple of efficient algorithms $\SKE = (\Gen, \Enc, \Dec)$ with respect to keyspace $\calK,$ message space $\calM,$ and ciphertext space $\calC$:
+- $\Gen(1^\secpar) \to k,$ is a randomized algorithm which
+samples a key $k \in \calK$,
+- $\Enc(k, m) \to c,$ is a randomized algorithm which takes a
+key $k \in \calK$ and message $m \in \calM$, outputting a ciphertext
+$c \in \calC$,
+- $\Dec(k, c) \to m,$ is a deterministic algorith which
+takes a key $k \in \calK$ and ciphertext $c \in \calC$,
+outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
+
+## Properties
+
 ### Correctness
-A SE scheme is *correct* if for every $\lambda \in \mathbb{N}$ and message $m\in \mathcal{M}$, $\Pr[\mathsf{Dec}_k(\mathsf{Enc}_k(m))) = m \mid k \gets \mathsf{Gen}(1^{\lambda})] = 1$.
-### Chosen Plaintext Attack (CPA) Security
-The *CPA advantage* of an adversary $\mathcal{A}$ is defined as $$\text{Adv}^{\text{cpa}}_{\mathcal{A}}(\lambda) \le 2\left|\Pr[\mathcal{A}^{\mathsf{LR}_{k,b}}(1^{\lambda}) = b] - \frac{1}{2}\right|,$$ where $k \gets \mathsf{Gen}(1^{\lambda})$, $b\gets \{0,1\}$, and $\mathsf{LR}_{k,b}(m_0,m_1) = \mathsf{Enc}_k(m_b)$ is a left-right oracle, which encrypts either its left or right input based on the input $b$.
+A SKE scheme $\SKE = (\Gen, \Enc, \Dec)$ is
+$(1-\varepsilon)$-**correct** if for all
+$\secpar \in \mathbb{N}$ and $m \in \calM$,
 
-An SE scheme is *CPA-secure* if for all efficient $\mathcal{A}$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{cpa}}_{\mathcal{A}}(\lambda)\le \nu(\lambda)$.
+$$
+\Pr\!\left[\Dec(k, \Enc(k, m)) = m\right] \ge 1 - \varepsilon,
+$$
+over the choice of $k \gets \Gen(1^\secpar)$ and randomness of $\Enc.$ When
+$\varepsilon=0$, we say $\SKE$ is perfectly correct.
 
-#### Indistinguishable from random CPA (IND\$-CPA)
-The *IND\$-CPA advantage* of an adversary $\mathcal{A}$ is defined as $$\text{Adv}^{\text{ind\$-cpa}}_{\mathcal{A}}(\lambda) \le \left|\Pr[\mathcal{A}^{\mathsf{Enc}_k}(1^{\lambda}) = 1] - \Pr[\mathcal{A}^{R}(1^{\lambda}) = 1]\right|,$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $R$ is a random response oracle, which on each query gives a uniformly random $n$-bit string (even on the same input, unlike a random oracle).
+### CPA Security
+In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a hidden bit. The adversary wins by guessing $b$.
 
-An SE scheme is *IND\$-CPA-secure* if for all efficient $\mathcal{A}$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{ind\$-cpa}}_{\mathcal{A}}(\lambda)\le \nu(\lambda)$.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $\calO_0(m_0, m_1) := \Enc(k, m_0)$
+\State $\calO_1(m_0, m_1) := \Enc(k, m_1)$
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-### Chosen Ciphertext Attack (CCA) Security
-The *CCA advantage* of an adversary $\mathcal{A}$ is defined as $$\text{Adv}^{\text{cca}}_{\mathcal{A}}(\lambda) \le 2\left|\Pr[\mathcal{A}^{\mathsf{LR}_{k,b},\mathsf{Dec}_k}(1^{\lambda}) = b] - \frac{1}{2}\right|,$$ where $k \gets \mathsf{Gen}(1^{\lambda})$, $b\gets \{0,1\}$, and $\mathsf{LR}_{k,b}(m_0,m_1) = \mathsf{Enc}_k(m_b)$ is a left-right oracle, which encrypts either its left or right input based on the input $b$.
+A SKE scheme $\SKE$ is **CPA-secure** if for all efficient $\calA$,
 
-An SE scheme is *CCA-secure* if for all **admissible** $\mathcal{A}$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{cca}}_{\mathcal{A}}(\lambda)\le \nu(\lambda)$. An adversary is ***admissible*** if it is efficient and never queries $\mathsf{Dec}$ with an output of $\mathsf{LR}$, i.e., it never decrypts encryptions from the oracle (but it may query inputs which *depend* on the outputs given).
-- This restriction is necessary, as otherwise $\mathcal{A}$ could trivially discover what $b$ is by querying $\mathsf{LR}(0,1)$ and decrypting the answer.
+$$
+\Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
 
-## Other results
-- (Both [[#Chosen Plaintext Attack (CPA) Security|CPA]] and [[#Chosen Ciphertext Attack (CCA) Security|CCA]]) SE can be built in a black-box way from a [[One-way function]] — Folklore?
-- Boosting CPA encryption can be boosted to CCA by using a [[Message authentication code|MAC]]
-- 
+is negligible.
+
+### IND$-CPA Security
+**Indistinguishability from random (IND$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random ciphertexts, rather than encryptions of two chosen messages. The oracle in world 0 encrypts the query; in world 1 it returns a fresh uniform random ciphertext regardless of the input.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $\calO_0(m) := \Enc(k, m)$
+\State $\calO_1(m) \getsr \calC$
+\Comment{Each $m$ is a uniform random ciphertext}
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A SKE scheme $\SKE$ is **IND\$-CPA-secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. IND\$-CPA implies CPA security, but not vice versa.
+
+### CCA Security
+In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has access to a decryption oracle. To avoid a trivial win, $\calA$ is *admissible*: it may not query $\calD$ on any ciphertext output by the encryption oracle $\calO_b$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{cca}}_{\SKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $\calO_b(m_0, m_1) := \Enc(k, m_b)$
+\State $\calD(c) := \Dec(k, c)$
+\Comment{$\calA$ may not query $\calD$ on outputs of $\calO_b$}
+\State $b' \gets \calA^{\calO_b, \calD}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A SKE scheme $\SKE$ is **CCA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{cca}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(0,1)$ and then decrypt the result to trivially learn $b$.
+
+# Other results
+- (Both [[#CPA Security|CPA]] and [[#CCA Security|CCA]]) SKE can be built in a black-box way from a [[One-way function]] — Folklore?
+- CPA-secure SKE can be boosted to CCA-secure SKE using a [[Message authentication code|MAC]]

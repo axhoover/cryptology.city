@@ -2,9 +2,17 @@
 title: Cryptology City
 ---
 # Cryptology City
-Welcome to Cryptology City! Jump right in by taking a look, navigating the site on the left!
+Welcome to Cryptology City! Jump right in by taking a look, navigating the site on the left! **Disclaimer:** there are a lot of stubs and TODOs, so if you just want to get a feel for the project's goals, check out a more filled out page like [[Pseudorandom function|PRFs]].
 
-This wiki is a collection of cryptographic primitives and reductions between them. It is meant to serve as a large repository of cryptographic information and make it easy to understand the relationships between different primitives. If you'd like to contribute, feel free to contribute to the [repo](https://github.com/axhoover/cryptology.city)!
+This wiki is a collection of cryptographic primitives and reductions between 
+them. It is meant to serve as a large repository of cryptographic information 
+and make it easy to understand the relationships between different primitives. 
+If you'd like to contribute, feel free to contribute to the
+[repo](https://github.com/axhoover/cryptology.city)!
+See the [[LaTeX macros]] pages for a summary of some of the notation used
+on the website, which can also be copied into your own LaTeX/KaTeX/MathJax
+projects!
+
 
 Errors? Omissions? Misattributions? Your favorite primitive/assumption not here? Then please contribute to the city by submitting a pull request on [GitHub](https://github.com/axhoover/cryptology.city). The site is built with [Quartz](https://quartz.jzhao.xyz) and hosted on [Cloudflare Pages](https://pages.cloudflare.com), with content written in Markdown — contributing via GitHub is the best way to make modifications. For any other recommendations or issues, please reach out to the Cryptology City [Bluesky](https://bsky.app/profile/cryptology.city), [Twitter](https://twitter.com/cryptologycity), or [email](mailto:cryptologycity@gmail.com).
 
@@ -34,5 +42,4 @@ There are lots of other great resources that people can use to learn cryptograph
 - [Cryptography map](https://www.cryptographymap.com/) — map of many cryptographic assumptions and their implications, created by Peter Li
 - [Complexity Zoo](https://complexityzoo.net/) — repository of complexity classes and many of their relations, originally created by Scott Aaronson
 - [An Intensive Introduction to Cryptography](https://intensecrypto.org/public/) — textbook, written by Boaz Barak
-- [Introduction to Modern Cryptography](http://staff.ustc.edu.cn/~mfy/moderncrypto/reading%20materials/Introduction_to_Modern_Cryptography.pdf) — textbook, written by Jonathan Katz and Yehuda Lindell
 - [ZK Jargon](https://zkjargon.github.io/) — glossary of [[Computational zero-knowledge|zero knowledge]] terms, written by Nico Mohnblatt

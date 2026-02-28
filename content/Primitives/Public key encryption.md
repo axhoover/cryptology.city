@@ -3,37 +3,90 @@ aliases:
   - PKE
 title: PKE
 ---
-# Public key encryption (PKE)
-Public key encryption (PKE) is a central cryptographic primitive in theory and in practice. It is centrally important in communicating over untrusted channels where parties cannot share a key in advance, in which case [[Symmetric key encryption|SE]] is sufficient.
+# Public key encryption
+A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[Symmetric key encryption|SKE]].
 
-## Definition
-A *public key encryption* (PKE) scheme is a tuple of efficient algorithms $(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$, with respect to key space $\mathcal{K} = \mathcal{K}_{\mathrm{priv}} \times \mathcal{K}_{\mathrm{pub}}$, message space $\mathcal{M}$, and ciphertext space $\mathcal{C}$ such that
-- $\mathsf{Gen}(1^{\lambda}) \to (sk,pk)$, is a randomized algorithm that takes a security parameter, and outputs a secret key $sk \in \mathcal{K}_{\mathrm{priv}}$ and a public key $pk \in \mathcal{K}_{\mathrm{pub}}$,
-- $\mathsf{Enc}_{pk}(m) \to c$, is a randomized algorithm that takes a public key $pk\in \mathcal{K}_{\mathrm{pub}}$ and message $m\in \mathcal{M}$, and outputs a ciphertext $c \in \mathcal{C}$,
-- $\mathsf{Dec}_{sk}(c) \to m$, is a deterministic algorithm that takes a secret key $sk \in \mathcal{K}_{\mathrm{priv}}$ and candidate ciphertext $c \in \mathcal{C}$, and outputs either a message $m\in \mathcal{M}$
-	- One may also allow $\mathsf{Dec}_{sk}$ to output $\bot$ to indicate that a candidate ciphertext is not a valid encryption
+## Syntax
+A PKE scheme is a tuple of efficient algorithms $\PKE = (\Gen, \Enc, \Dec)$ with respect to secret keyspace $\calK_{\mathrm{sk}}$, public keyspace $\calK_{\mathrm{pk}}$, message space $\calM$, and ciphertext space $\calC$:
+- $\Gen(1^\secpar) \to (\sk, \pk),$ is a randomized algorithm which samples a secret key $\sk \in \calK_{\mathrm{sk}}$ and public key $\pk \in \calK_{\mathrm{pk}}$,
+- $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
+- $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
+
+## Properties
+
 ### Correctness
-A PKE scheme is *correct* if for every $\lambda \in \mathbb{N}$ and message $m\in \mathcal{M}$, $\Pr[\mathsf{Dec}_{sk}(\mathsf{Enc}_{pk}(m)))=m \mid (sk,pk) \gets \mathsf{Gen}(1^{\lambda})] = 1$.
-### Chosen Plaintext Attack (CPA) Security
-The *CPA advantage* of an adversary $\mathcal{A}$ that outputs messages $m_0$ and $m_1$ is defined as $$\text{Adv}^{\text{cpa}}_{\mathcal{A}}(\lambda) \le 2\left|\Pr[\mathcal{A}(1^{\lambda},pk,c) = b] - \frac{1}{2}\right|,$$ where $(sk,pk) \gets \mathsf{Gen}(1^{\lambda})$, $b\gets \{0,1\}$, and $c \gets \mathsf{Enc}_{pk}(m_b)$.
+A PKE scheme $\PKE = (\Gen, \Enc, \Dec)$ is $(1-\varepsilon)$-**correct**
+if for all $\secpar \in \mathbb{N}$ and $m \in \calM$,
 
-An PKE scheme is *CPA-secure* if for all efficient $\mathcal{A}$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{cpa}}_{\mathcal{A}}(\lambda)\le \nu(\lambda)$.
+$$
+\Pr\!\left[\Dec(\sk, \Enc(\pk, m)) = m\right] \ge 1 - \varepsilon,
+$$
 
-### Chosen Plaintext Attack (CCA) Security
-The *CCA advantage* of an adversary $\mathcal{A}$ that outputs messages $m_0$ and $m_1$ is defined as $$\text{Adv}^{\text{cca}}_{\mathcal{A}}(\lambda) \le 2\left|\Pr[\mathcal{A}^{\mathsf{Dec}_{sk}(\cdot)}(1^{\lambda},pk,c) = b] - \frac{1}{2}\right|,$$ where $(sk,pk) \gets \mathsf{Gen}(1^{\lambda})$, $b\gets \{0,1\}$, $c \gets \mathsf{Enc}_{pk}(m_b)$, and $\mathsf{Dec}_{sk}(\cdot)$ is a decryption oracle. 
+over the choice of $(\sk, \pk) \gets \Gen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is perfectly correct.
 
-An PKE scheme is *CCA-secure* if for all **admissible** $\mathcal{A}$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{cpa}}_{\mathcal{A}}(\lambda)\le \nu(\lambda)$. An adversary is ***admissible*** if it is efficient and never queries $\mathsf{Dec}$ on the input $c$, i.e., it never decrypts the given ciphertext with the oracle (but it may query inputs which *depend* on the outputs given).
-- This restriction is necessary, as otherwise $\mathcal{A}$ could trivially discover what $b$ is by querying $\mathsf{Dec}_{sk}(c)$ to see if it is $m_0$ or $m_1$.
+### CPA Security
+Since $\pk$ is public, the adversary can encrypt any message on their own. The CPA game therefore takes the form of a single challenge: the adversary receives $\pk$, submits two messages, and tries to determine which was encrypted.
 
-### Variations
-- Key-hiding
-- CCA1
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{cpa}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $(m_0, m_1, \stA) \gets \calA(1^\secpar, \pk)$
+\State $c^* \gets \Enc(\pk, m_b)$
+\State $b' \gets \calA(c^*, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-## Other results
+A PKE scheme $\PKE$ is **CPA-secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
+
+### CCA Security
+In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. To avoid a trivial win, $\calA$ is **admissible**: it may not query $\calD$ on $c^*$ itself.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{cca}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $\calD(c) := \Dec(\sk, c)$
+\State $(m_0, m_1, \stA) \gets \calA^{\calD}(1^\secpar, \pk)$
+\Comment{Phase 1: $\calA$ may query $\calD$ freely}
+\State $c^* \gets \Enc(\pk, m_b)$
+\State $b' \gets \calA^{\calD}(c^*, \stA)$
+\Comment{Phase 2: $\calA$ may not query $\calD$ on $c^*$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ is **CCA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{cca}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cca}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. The admissibility restriction is necessary: without it, $\calA$ trivially wins by querying $\calD(c^*)$ to learn $m_b$.
+
+# Variations
+
+## CCA1 Security
+**CCA1** (also called the *lunchtime attack*) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
+
+## Key-hiding
+TODO
+
+# Other results
 - PKE implies [[One-way function|OWF]]
 - [[Trapdoor function|TDF]] implies PKE
-
-### Candidate Public-key Encryption
-- PKE can be built assuming [[Decisional Diffie-Hellman|DDH]] is hard — [[DH76 - New Directions in Cryptography|DH76]]
+- PKE can be built assuming [[Decisional Diffie-Hellman|DDH]] is hard — [[DH76 - New Directions in Cryptography|DH76]]
 - PKE can be built assuming [[Learning parity with noise#Noise Level|mid-noise LPN]]
-- 

@@ -52,6 +52,16 @@ const customMacros: Record<string, string> = {
   "\\ZZ": "\\mathbb{Z}",
   "\\FF": "\\mathbb{F}",
   "\\GG": "\\mathbb{G}",
+  // Simulators and state
+  "\\Sim": "\\mathcal{S}",
+  "\\st": "\\mathsf{st}",
+  "\\stA": "\\mathsf{st}_{\\mathcal{A}}",
+  "\\stB": "\\mathsf{st}_{\\mathcal{B}}",
+  "\\stS": "\\mathsf{st}_{\\mathcal{S}}",
+  // Key names
+  "\\sk": "\\mathsf{sk}",
+  "\\pk": "\\mathsf{pk}",
+  "\\vk": "\\mathsf{vk}",
   // Crypto shorthand
   "\\bits": "\\{0,1\\}",
   "\\negl": "\\mathrm{negl}",
@@ -59,21 +69,24 @@ const customMacros: Record<string, string> = {
   "\\PPT": "\\mathrm{PPT}",
   "\\secpar": "\\lambda",
   "\\getsr": "\\overset{\\$}{\\gets}",
+  "\\Funcs": "\\mathrm{Funcs}",
   // Advantages and experiments
   "\\Adv": "\\mathbf{Adv}",
   "\\Expt": "\\mathbf{Expt}",
   "\\Game": "\\mathbf{G}",
   // Game names
-  "\\indcpa": "\\mathrm{IND\\mbox{-}CPA}",
-  "\\indcca": "\\mathrm{IND\\mbox{-}CCA}",
-  "\\eucma": "\\mathrm{EU\\mbox{-}CMA}",
-  "\\sufcma": "\\mathrm{SUF\\mbox{-}CMA}",
-  //Primitives
+  "\\indcpa": "\\mathrm{IND\\text{-}CPA}",
+  "\\indcca": "\\mathrm{IND\\text{-}CCA}",
+  "\\eucma": "\\mathrm{EU\\text{-}CMA}",
+  "\\sufcma": "\\mathrm{SUF\\text{-}CMA}",
+  // Select Primitives
   "\\PRF": "\\mathsf{PRF}",
   "\\RO": "\\mathsf{RO}",
   "\\PRG": "\\mathsf{PRG}",
   "\\PRP": "\\mathsf{PRP}",
   "\\OT": "\\mathsf{OT}",
+  "\\SKE": "\\mathsf{SKE}",
+  "\\PKE": "\\mathsf{PKE}",
 }
 
 const config: QuartzConfig = {
