@@ -1,6 +1,7 @@
 ---
 aliases:
   - OWP
+title: One-way Permutations
 ---
 # One-way permutations (OWP)
 A one-way permutation is a permutation which is easy to compute in one direction but. hard to invert. This is a type of [[One-way function]] with the extra condition 

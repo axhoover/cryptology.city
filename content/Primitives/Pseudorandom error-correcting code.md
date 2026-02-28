@@ -1,8 +1,10 @@
 ---
 aliases:
   - PRC
+  - Pseudorandom Codes
+title: Pseudorandom Codes
 ---
-# Pseudorandom error-correcting code (PRC)
+# Pseudorandom error-correcting code
 A Pseudorandom Error-correcting Code (PRC) is a type of [[Symmetric key encryption]] that requires ciphertext decoding to be *robust* to some modifications edits, introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a *zero-bit PRC* which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
 
 ## Definition

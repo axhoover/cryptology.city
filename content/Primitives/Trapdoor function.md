@@ -1,6 +1,7 @@
 ---
 aliases:
   - TDF
+title: Trapdoor Functions
 
 ---
 # Trapdoor function (TDF)

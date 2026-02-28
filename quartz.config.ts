@@ -1,6 +1,81 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
 
+const customMacros: Record<string, string> = {
+  // Caligraphic letters
+  "\\calA": "\\mathcal{A}",
+  "\\calB": "\\mathcal{B}",
+  "\\calC": "\\mathcal{C}",
+  "\\calD": "\\mathcal{D}",
+  "\\calE": "\\mathcal{E}",
+  "\\calF": "\\mathcal{F}",
+  "\\calG": "\\mathcal{G}",
+  "\\calH": "\\mathcal{H}",
+  "\\calI": "\\mathcal{I}",
+  "\\calJ": "\\mathcal{J}",
+  "\\calK": "\\mathcal{K}",
+  "\\calL": "\\mathcal{L}",
+  "\\calM": "\\mathcal{M}",
+  "\\calN": "\\mathcal{N}",
+  "\\calO": "\\mathcal{O}",
+  "\\calP": "\\mathcal{P}",
+  "\\calQ": "\\mathcal{Q}",
+  "\\calR": "\\mathcal{R}",
+  "\\calS": "\\mathcal{S}",
+  "\\calT": "\\mathcal{T}",
+  "\\calU": "\\mathcal{U}",
+  "\\calV": "\\mathcal{V}",
+  "\\calW": "\\mathcal{W}",
+  "\\calX": "\\mathcal{X}",
+  "\\calY": "\\mathcal{Y}",
+  "\\calZ": "\\mathcal{Z}",
+  // Complexity classes
+  "\\classP": "\\mathbf{P}",
+  "\\classNP": "\\mathbf{NP}",
+  "\\classcoNP": "\\mathbf{coNP}",
+  "\\classBPP": "\\mathbf{BPP}",
+  "\\classRP": "\\mathbf{RP}",
+  "\\classZPP": "\\mathbf{ZPP}",
+  "\\classPSPACE": "\\mathbf{PSPACE}",
+  "\\classSZK": "\\mathbf{SZK}",
+  "\\classCZK": "\\mathbf{CZK}",
+  // Common algorithms
+  "\\Gen": "\\mathsf{Gen}",
+  "\\Enc": "\\mathsf{Enc}",
+  "\\Dec": "\\mathsf{Dec}",
+  "\\Setup": "\\mathsf{Setup}",
+  "\\Query": "\\mathsf{Query}",
+  "\\Eval": "\\mathsf{Eval}",
+  "\\Invert": "\\mathsf{Invert}",
+  // Number sets
+  "\\NN": "\\mathbb{N}",
+  "\\ZZ": "\\mathbb{Z}",
+  "\\FF": "\\mathbb{F}",
+  "\\GG": "\\mathbb{G}",
+  // Crypto shorthand
+  "\\bits": "\\{0,1\\}",
+  "\\negl": "\\mathrm{negl}",
+  "\\poly": "\\mathrm{poly}",
+  "\\PPT": "\\mathrm{PPT}",
+  "\\secpar": "\\lambda",
+  "\\getsr": "\\overset{\\$}{\\gets}",
+  // Advantages and experiments
+  "\\Adv": "\\mathbf{Adv}",
+  "\\Expt": "\\mathbf{Expt}",
+  "\\Game": "\\mathbf{G}",
+  // Game names
+  "\\indcpa": "\\mathrm{IND\\mbox{-}CPA}",
+  "\\indcca": "\\mathrm{IND\\mbox{-}CCA}",
+  "\\eucma": "\\mathrm{EU\\mbox{-}CMA}",
+  "\\sufcma": "\\mathrm{SUF\\mbox{-}CMA}",
+  //Primitives
+  "\\PRF": "\\mathsf{PRF}",
+  "\\RO": "\\mathsf{RO}",
+  "\\PRG": "\\mathsf{PRG}",
+  "\\PRP": "\\mathsf{PRP}",
+  "\\OT": "\\mathsf{OT}",
+}
+
 const config: QuartzConfig = {
   configuration: {
     pageTitle: "Cryptology City",
@@ -56,6 +131,7 @@ const config: QuartzConfig = {
       Plugin.CreatedModifiedDate({
         priority: ["frontmatter", "git", "filesystem"],
       }),
+      Plugin.Pseudocode({ macros: customMacros }),
       Plugin.SyntaxHighlighting({
         theme: {
           light: "github-light",
@@ -68,75 +144,7 @@ const config: QuartzConfig = {
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),
-      Plugin.Latex({
-        renderEngine: "katex",
-        customMacros: {
-          // Caligraphic letters
-          "\\calA": "\\mathcal{A}",
-          "\\calB": "\\mathcal{B}",
-          "\\calC": "\\mathcal{C}",
-          "\\calD": "\\mathcal{D}",
-          "\\calE": "\\mathcal{E}",
-          "\\calF": "\\mathcal{F}",
-          "\\calG": "\\mathcal{G}",
-          "\\calH": "\\mathcal{H}",
-          "\\calI": "\\mathcal{I}",
-          "\\calJ": "\\mathcal{J}",
-          "\\calK": "\\mathcal{K}",
-          "\\calL": "\\mathcal{L}",
-          "\\calM": "\\mathcal{M}",
-          "\\calN": "\\mathcal{N}",
-          "\\calO": "\\mathcal{O}",
-          "\\calP": "\\mathcal{P}",
-          "\\calQ": "\\mathcal{Q}",
-          "\\calR": "\\mathcal{R}",
-          "\\calS": "\\mathcal{S}",
-          "\\calT": "\\mathcal{T}",
-          "\\calU": "\\mathcal{U}",
-          "\\calV": "\\mathcal{V}",
-          "\\calW": "\\mathcal{W}",
-          "\\calX": "\\mathcal{X}",
-          "\\calY": "\\mathcal{Y}",
-          "\\calZ": "\\mathcal{Z}",
-          // Complexity classes
-          "\\classP": "\\mathbf{P}",
-          "\\classNP": "\\mathbf{NP}",
-          "\\classcoNP": "\\mathbf{coNP}",
-          "\\classBPP": "\\mathbf{BPP}",
-          "\\classRP": "\\mathbf{RP}",
-          "\\classZPP": "\\mathbf{ZPP}",
-          "\\classPSPACE": "\\mathbf{PSPACE}",
-          "\\classSZK": "\\mathbf{SZK}",
-          "\\classCZK": "\\mathbf{CZK}",
-
-          // Common algorithms
-          "\\Gen": "\\mathsf{Gen}",
-          "\\Enc": "\\mathsf{Enc}",
-          "\\Dec": "\\mathsf{Dec}",
-          "\\Setup": "\\mathsf{Setup}",
-          "\\Query": "\\mathsf{Query}",
-          // Number sets
-          "\\NN": "\\mathbb{N}",
-          "\\ZZ": "\\mathbb{Z}",
-          "\\FF": "\\mathbb{F}",
-          "\\GG": "\\mathbb{G}",
-          // Crypto shorthand
-          "\\bits": "\\{0,1\\}",
-          "\\negl": "\\mathrf{negl}",
-          "\\poly": "\\mathrf{poly}",
-          "\\PPT": "\\mathrf{PPT}",
-          "\\secpar": "\\lambda",
-          // Advantages and experiments
-          "\\Adv": "\\mathbf{Adv}",
-          "\\Expt": "\\mathbf{Expt}",
-          "\\Game": "\\mathbf{Game}",
-          // Game names
-          "\\indcpa": "\\mathrf{IND\\mbox{-}CPA}",
-          "\\indcca": "\\mathrf{IND\\mbox{-}CCA}",
-          "\\eucma": "\\mathrf{EU\\mbox{-}CMA}",
-          "\\sufcma": "\\mathrf{SUF\\mbox{-}CMA}",
-        },
-      }),
+      Plugin.Latex({ renderEngine: "katex", customMacros }),
     ],
     filters: [Plugin.RemoveDrafts()],
     emitters: [

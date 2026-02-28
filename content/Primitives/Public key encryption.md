@@ -1,6 +1,7 @@
 ---
 aliases:
   - PKE
+title: PKE
 ---
 # Public key encryption (PKE)
 Public key encryption (PKE) is a central cryptographic primitive in theory and in practice. It is centrally important in communicating over untrusted channels where parties cannot share a key in advance, in which case [[Symmetric key encryption|SE]] is sufficient.

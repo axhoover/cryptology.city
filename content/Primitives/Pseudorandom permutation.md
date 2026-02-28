@@ -1,13 +1,14 @@
 ---
 aliases:
   - PRP
+title: PRP
 ---
 # Pseudorandom permutation
 A Pseudorandom Permutation (PRP) is a basic primitive which allows someone to succinctly sample and represent a permutation which appears to be uniformly randomly selected. The user, who generates the key, can evaluate the permutation over some domain both forward and backward efficiently. These pseudorandom permutations are also the primitive which represents block ciphers, such as [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
 ## Definition
 
-An iPRF is a tuple of efficient functions $(\mathsf{Gen}, P, P^{-1})$, with respect to a keyspace $\mathcal{K}$, domain $\mathcal{D}$ such that:
+A PRP is a tuple of efficient functions $(\mathsf{Gen}, P, P^{-1})$, with respect to a keyspace $\mathcal{K}$, domain $\mathcal{D}$ such that:
 - $\mathsf{Gen}(1^{\lambda}) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \mathcal{K}$
 - $P_k(x) \to y$, is a deterministic algorithm that takes a key $k\in \mathcal{K}$ and input $x\in \mathcal{D}$, and outputs an element $y\in \mathcal{D}$.
 - $P_k^{-1}(y) \to X$, is a deterministic algorithm that takes a key $k\in \mathcal{K}$ and input $y\in \mathcal{D}$, and outputs a preimage element $x\in \mathcal{D}$

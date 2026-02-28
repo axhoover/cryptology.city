@@ -2,8 +2,9 @@
 aliases:
   - DS
   - Signature
+title: Dgital Signatures
 ---
-# Digital signature (DS)
+# Digital signature
 
 ## Definition
 

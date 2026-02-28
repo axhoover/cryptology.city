@@ -1,8 +1,9 @@
 ---
 aliases:
   - OT
+title: Oblivious Transfer
 ---
-# Oblivious transfer (OT)
+# Oblivious transfer
 
 ## Definition
 A 1-out-of-2 OT Two party protocol between two parties $S$ and $R$, with the following functionality:

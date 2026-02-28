@@ -1,6 +1,7 @@
 ---
 aliases:
   - DLOG
+title: DLOG
 ---
 # Discrete logarithm
 The *discrete logarithm (DLOG)* assumption is used throughout cryptography. It is a natural strengthening of the [[Computational Diffie-Hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[Computational Diffie-Hellman|CDH]] in the same group.

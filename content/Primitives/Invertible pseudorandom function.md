@@ -2,6 +2,7 @@
 aliases:
   - iPRF
   - Invertible PRF
+title: Invertible PRF
 ---
 # Invertible PRF (iPRF)
 An Invertible Pseudorandom Function (iPRF) is a strengthening of the traditional Pseudorandom Function (PRF). An iPRF allows a user to succinctly represent and evaluate a function that is indistinguishable from a random function, but also to invert the random function!

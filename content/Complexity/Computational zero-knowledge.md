@@ -1,12 +1,14 @@
 ---
-Complexity Zoo: https://complexityzoo.net/Complexity_Zoo:C#czk
 aliases:
   - CZK
+title: Computational ZK
 ---
 # Computational zero-knowledge (CZK)
 Same as [[Statistical zero-knowledge|SZK]], except that now the two distributions are merely required to be _computationally indistinguishable_ by any [[Bounded-Error Probabilistic Polynomial-Time|BPP]] algorithm; they don't have to be statistically close. The "two distributions" are
 1. the distribution over the verifier's view of their interaction with the prover, conditioned on the verifier's random coins, and
 2. the distribution over views that the verifier can _simulate_ without the prover's help.
+
+See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#czk).
 
 ## Notable problems
 - 3-coloring — assuming [[One-way function|OWFs]] exist

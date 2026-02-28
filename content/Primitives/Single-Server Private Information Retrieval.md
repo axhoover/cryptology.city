@@ -2,6 +2,7 @@
 aliases:
   - PIR
   - cPIR
+title: Computational PIR
 
 ---
 # Single-server Private Information Retrieval (PIR)

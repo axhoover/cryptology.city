@@ -1,7 +1,7 @@
 ---
-Complexity Zoo: https://complexityzoo.net/Complexity_Zoo:B#bpp
 aliases:
   - BPP
+title: BPP
 ---
 # Bounded-Error Probabilistic Polynomial-Time (BPP)
 The class of decision problems solvable by an [[Nondeterministic Polynomial-Time|NP]] machine such that
@@ -10,6 +10,8 @@ The class of decision problems solvable by an [[Nondeterministic Polynomial-Tim
 (Here all computation paths have the same length.)
 
 
+
+See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#bpp).
 
 ## Known relationships
 - BPP is in the intersection of [[Arthur-Merlin|AM]] and [[Complement of Arthur-Merlin|coAM]] — TODO citaion

@@ -1,6 +1,7 @@
 ---
 aliases:
   - iO
+title: iO
 ---
 # Indistinguishability Obfuscation
 TODO

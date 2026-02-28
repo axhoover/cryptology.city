@@ -1,24 +1,50 @@
 ---
 aliases:
   - PRF
+title: PRF
 ---
 # Pseudorandom function (PRF)
-A Pseudorandom Function (PRF) is a primitive that allows someone to succinctly represent a function that is indistinguishable from a random function. A user of a PRF generates a key, which it can use to evaluate a function at many points. Any efficient adversary, who only sees these inputs and outputs of the keyed function, cannot distinguish them from a random function.
+A Pseudorandom Function (PRF) allows someone to succinctly represent a function that is indistinguishable from a uniformly random function. A user generates a key and uses it to evaluate a function at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random function.
 
-## Definition
-A Pseudorandom Function (PRF) is a tuple of efficient functions $(\mathsf{Gen}, \mathsf{F})$, with respect to a keyspace $\mathcal{K}$, domain $\mathcal{D}$, and range $\mathcal{R}$, such that:
-- $\mathsf{Gen}(1^{\lambda}) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \mathcal{K}$,
-- $F_k(x) \to y$, is a deterministic algorithm that takes a key $k\in \mathcal{K}$ and input $x\in \mathcal{D}$, and outputs an element $y\in \mathcal{R}$.
+## Syntax
+A PRF is a pair of efficient algorithms $\PRF= (\Gen, \Eval)$ with respect to keyspace $\calK$, domain $\calD$, and range $\calR$:
+- $\Gen(1^\secpar) \to k$ — samples a key $k \in \calK,$
+- $\Eval(k,x) \to y$ — takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 
-Generally, we assume that $|\mathcal{D}|$ is generally assumed to be "large," in the sense that it grows exponentially with the security parameter. If instead $| \mathcal{D} |$ is bounded by some polynomial in the security parameter, then the primitive is a "small-domain" PRF.
+## Properties
 
 ### Security
-We define the advantage of a distinguisher $D$ as $$\text{Adv}^{\text{prf}}_D(\lambda) \le \left|\Pr[D^{F_k}(1^{\lambda}) = 1] - \Pr[D^{R}(1^{\lambda}) = 1]\right|,$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $R$ is a random function from $\mathcal{D}$ to $\mathcal{R}$.
 
-A PRF is secure if for all efficient $D$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{prf}}_D(\lambda)\le \nu(\lambda)$.
+```pseudocode
+\begin{algorithm}
+\caption{$\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \Gen(1^\secpar)$; $b \gets \{0,1\}$
+\State $\calO_0(x) := \Eval(k,x)$
+\State $\calO_1(x) := R(x)$ for uniform random $R : \calD \to \calR$
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-### Variations
+A PRF is **secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{prf}}_{\PRF,\calA}(\secpar) := \left|\Pr\!\left[\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar) = 1\right] - \frac{1}{2}\right|
+$$
+
+is negligible.
+
+# Variations
+
+## Invertible PRFs
+TODO - move from iPRF file
 
 
-## Other results
+## Injective PRFs
 
+
+## Puncturable PRFs
+
+# Other results

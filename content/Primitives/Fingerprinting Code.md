@@ -1,6 +1,7 @@
 ---
 aliases:
   - FP Code
+title: Fingerprinting Codes
 ---
 # Fingerprinting Codes
 Fingerprinting codes were first introduced by [[BS98 - Collusion-secure fingerprinting for digital data|BS98]]. A fingerprinting code is a process to produce codewords for users. If a group of these users collude to adversarially produce a new codeword, then a fingerprinting code guarantees that the distributor can trace the new word back to these colluders with high probability.

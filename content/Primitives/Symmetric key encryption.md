@@ -1,6 +1,7 @@
 ---
 aliases:
   - SE
+title: Symmetric Encryption
 ---
 # Symmetric key encryption (SE)
 Symmetric key encryption (SE) is a central cryptographic primitive in theory and in practice.

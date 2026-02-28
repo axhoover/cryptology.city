@@ -1,6 +1,7 @@
 ---
 aliases:
   - SIDH
+title: SIDH
 ---
 # Supersingular Isogeny Diffie-Hellman (SIDH)
 TODO

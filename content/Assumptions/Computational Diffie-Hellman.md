@@ -1,6 +1,7 @@
 ---
 aliases:
   - CDH
+title: CDH
 ---
 # Computational Diffie-Hellman
 The *Computational Diffie-Hellman (CDH)* is a central assumption in cryptography. It is a natural strengthening of the [[Decisional Diffie-Hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[Decisional Diffie-Hellman|DDH]] in the same group.

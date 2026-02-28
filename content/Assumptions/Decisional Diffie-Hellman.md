@@ -1,6 +1,7 @@
 ---
 aliases:
   - DDH
+title: DDH
 ---
 # Decisional Diffie-Hellman
 The *Decisional Diffie-Hellman (DDH)* is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]].

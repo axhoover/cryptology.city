@@ -1,6 +1,7 @@
 ---
 aliases:
   - LPN
+title: LPN
 
 ---
 # Learning parity with noise (LPN)

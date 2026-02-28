@@ -1,6 +1,7 @@
 ---
 aliases:
   - NTRU
+title: NTRU
 ---
 # NTRU
 

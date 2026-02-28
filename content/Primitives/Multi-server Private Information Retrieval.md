@@ -2,6 +2,7 @@
 aliases:
   - PIR
   - IT-PIR
+title: Multiserver PIR
 ---
 # Private Information Retrieval (PIR)
 Private Information Retrieval (PIR) is a primitive that allows a client to access a specific element from a public array without revealing which array element was accessed, introduced by [[CGKS98 - Private information retrieval|CGKS98]].

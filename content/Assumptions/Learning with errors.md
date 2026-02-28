@@ -1,6 +1,7 @@
 ---
 aliases:
   - LWE
+title: LWE
 
 ---
 # Learning with errors (LWE)

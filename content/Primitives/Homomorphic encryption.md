@@ -1,6 +1,7 @@
 ---
 aliases:
   - HE
+title: Homomorphic Encryption
 ---
 # Homomorphic Encryption
 TODO

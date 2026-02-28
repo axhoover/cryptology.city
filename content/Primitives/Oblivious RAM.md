@@ -1,9 +1,9 @@
 ---
 aliases:
   - ORAM
-
+title: Oblivious RAM
 ---
-# Oblivious RAM (ORAM)
+# Oblivious RAM
 Oblivious RAM (ORAM) was first introduced by [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. It is a primitive that provides a generic compilation of any random-access memory (RAM) program to one which hides the accesses pattern of the underlying RAM.
 
 **Note**: Oblivious RAM schemes can provide statistical or unconditional security against adversaries who only know which array indices are accessed. However, in practice one almost always needs to deploy ORAM together with standard symmetric encryption.
