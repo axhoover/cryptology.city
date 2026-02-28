@@ -23,7 +23,7 @@ takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 \algname{Game}
 \caption{$\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \gets \{0,1\}$
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \{0,1\}$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$
@@ -55,7 +55,7 @@ Note that for domains much larger than the range, $\Invert$ may return exponenti
 ### Correctness
 With an inversion function, it also makes sense to restrict an iPRF to be **correct**. Meaning if for all for all $x\in \calD,$
 $\Pr[x \in \Invert(k, y): \Eval(k, x) = y] = 1,$
-where the probability is taken over $k \getsr \Gen(1^{\secpar}).$
+where the probability is taken over $k \gets \Gen(1^{\secpar}).$
 
 ### Security
 
@@ -70,7 +70,7 @@ $y\in \calR$.
 \algname{Game}
 \caption{$\Game^{\mathrm{iprf}}_{\mathsf{iPRF},\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \gets \{0,1\}$
+\State $k \gets \Gen(1^\secpar)$; $b \getsr \{0,1\}$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$ ; $\calO_0^{-1}(y) := \Invert(k,y)$
