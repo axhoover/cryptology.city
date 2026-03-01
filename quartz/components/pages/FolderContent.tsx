@@ -1,7 +1,7 @@
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "../types"
 
 import style from "../styles/listPage.scss"
-import { PageList, SortFn } from "../PageList"
+import { PageList, SortFn, byDateAndAlphabeticalFolderFirst } from "../PageList"
 import { Root } from "hast"
 import { htmlToJsx } from "../../util/jsx"
 import { i18n } from "../../i18n"
@@ -9,6 +9,7 @@ import { QuartzPluginData } from "../../plugins/vfile"
 import { ComponentChildren } from "preact"
 import { concatenateResources } from "../../util/resources"
 import { trieFromAllFiles } from "../../util/ctx"
+import { FullSlug, resolveRelative } from "../../util/path"
 
 interface FolderContentOptions {
   /**
@@ -90,17 +91,26 @@ export default ((opts?: Partial<FolderContentOptions>) => {
         .filter((page) => page !== undefined) ?? []
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? []
     const classes = cssClasses.join(" ")
-    const listProps = {
-      ...props,
-      sort: options.sort,
-      allFiles: allPagesInFolder,
-    }
 
     const content = (
       (tree as Root).children.length === 0
         ? fileData.description
         : htmlToJsx(fileData.filePath!, tree)
     ) as ComponentChildren
+
+    // Sort and group by first letter
+    const sorter = options.sort ?? byDateAndAlphabeticalFolderFirst(cfg)
+    const sorted = [...allPagesInFolder].sort(sorter)
+
+    const groups = new Map<string, QuartzPluginData[]>()
+    for (const page of sorted) {
+      const firstChar = (page.frontmatter?.title ?? "")[0]?.toUpperCase() ?? ""
+      const letter = /[A-Z]/.test(firstChar) ? firstChar : "#"
+      if (!groups.has(letter)) groups.set(letter, [])
+      groups.get(letter)!.push(page)
+    }
+
+    const letters = [...groups.keys()]
 
     return (
       <div class="popover-hint">
@@ -113,8 +123,58 @@ export default ((opts?: Partial<FolderContentOptions>) => {
               })}
             </p>
           )}
+          <div class="folder-toc">
+            {letters.map((letter) => (
+              <a href={`#alpha-${letter}`} class="folder-toc-letter">
+                {letter}
+              </a>
+            ))}
+          </div>
           <div>
-            <PageList {...listProps} />
+            {[...groups.entries()].map(([letter, pages]) => (
+              <div class="folder-letter-group">
+                <h2 id={`alpha-${letter}`} class="folder-letter-heading">
+                  {letter}
+                </h2>
+                <ul class="section-ul">
+                  {pages.map((page) => {
+                    const title = page.frontmatter?.title
+                    const tags = page.frontmatter?.tags ?? []
+                    return (
+                      <li class="section-li">
+                        <div class="section">
+                          <div class="desc">
+                            <h3>
+                              <a
+                                href={resolveRelative(fileData.slug!, page.slug!)}
+                                class="internal"
+                              >
+                                {title}
+                              </a>
+                            </h3>
+                          </div>
+                          <ul class="tags">
+                            {tags.map((tag) => (
+                              <li>
+                                <a
+                                  class="internal tag-link"
+                                  href={resolveRelative(
+                                    fileData.slug!,
+                                    `tags/${tag}` as FullSlug,
+                                  )}
+                                >
+                                  {tag}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </div>

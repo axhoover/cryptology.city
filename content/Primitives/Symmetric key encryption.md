@@ -8,8 +8,8 @@ title: SKE
 A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages, such that an adversary who does not know the key cannot learn anything about the plaintext from the ciphertext.
 
 ## Syntax
-A SKE scheme is a tuple of efficient algorithms $\SKE = (\Gen, \Enc, \Dec)$ with respect to keyspace $\calK,$ message space $\calM,$ and ciphertext space $\calC$:
-- $\Gen(1^\secpar) \to k,$ is a randomized algorithm which
+A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ with respect to keyspace $\calK,$ message space $\calM,$ and ciphertext space $\calC$:
+- $\KeyGen(1^\secpar) \to k,$ is a randomized algorithm which
 samples a key $k \in \calK$,
 - $\Enc(k, m) \to c,$ is a randomized algorithm which takes a
 key $k \in \calK$ and message $m \in \calM$, outputting a ciphertext
@@ -21,14 +21,14 @@ outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 ## Properties
 
 ### Correctness
-A SKE scheme $\SKE = (\Gen, \Enc, \Dec)$ is
+A SKE scheme $\SKE = (\KeyGen, \Enc, \Dec)$ is
 $(1-\varepsilon)$-**correct** if for all
 $\secpar \in \mathbb{N}$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(k, \Enc(k, m)) = m\right] \ge 1 - \varepsilon,
 $$
-over the choice of $k \gets \Gen(1^\secpar)$ and randomness of $\Enc.$ When
+over the choice of $k \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When
 $\varepsilon=0$, we say $\SKE$ is perfectly correct.
 
 ### CPA Security
@@ -39,7 +39,7 @@ In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries 
 \algname{Game}
 \caption{$\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(m_0, m_1) := \Enc(k, m_0)$
 \State $\calO_1(m_0, m_1) := \Enc(k, m_1)$
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
@@ -64,7 +64,7 @@ is negligible.
 \algname{Game}
 \caption{$\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(m) := \Enc(k, m)$
 \State $\calO_1(m) \getsr \calC$
 \Comment{Each $m$ is a uniform random ciphertext}
@@ -90,7 +90,7 @@ In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has a
 \algname{Game}
 \caption{$\Game^{\mathrm{cca}}_{\SKE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_b(m_0, m_1) := \Enc(k, m_b)$
 \State $\calD(c) := \Dec(k, c)$
 \Comment{$\calA$ may not query $\calD$ on outputs of $\calO_b$}

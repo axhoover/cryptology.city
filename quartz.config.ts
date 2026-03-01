@@ -1,93 +1,6 @@
 import { QuartzConfig } from "./quartz/cfg"
 import * as Plugin from "./quartz/plugins"
-
-const customMacros: Record<string, string> = {
-  // Caligraphic letters
-  "\\calA": "\\mathcal{A}",
-  "\\calB": "\\mathcal{B}",
-  "\\calC": "\\mathcal{C}",
-  "\\calD": "\\mathcal{D}",
-  "\\calE": "\\mathcal{E}",
-  "\\calF": "\\mathcal{F}",
-  "\\calG": "\\mathcal{G}",
-  "\\calH": "\\mathcal{H}",
-  "\\calI": "\\mathcal{I}",
-  "\\calJ": "\\mathcal{J}",
-  "\\calK": "\\mathcal{K}",
-  "\\calL": "\\mathcal{L}",
-  "\\calM": "\\mathcal{M}",
-  "\\calN": "\\mathcal{N}",
-  "\\calO": "\\mathcal{O}",
-  "\\calP": "\\mathcal{P}",
-  "\\calQ": "\\mathcal{Q}",
-  "\\calR": "\\mathcal{R}",
-  "\\calS": "\\mathcal{S}",
-  "\\calT": "\\mathcal{T}",
-  "\\calU": "\\mathcal{U}",
-  "\\calV": "\\mathcal{V}",
-  "\\calW": "\\mathcal{W}",
-  "\\calX": "\\mathcal{X}",
-  "\\calY": "\\mathcal{Y}",
-  "\\calZ": "\\mathcal{Z}",
-  // Complexity classes
-  "\\classP": "\\mathbf{P}",
-  "\\classNP": "\\mathbf{NP}",
-  "\\classcoNP": "\\mathbf{coNP}",
-  "\\classBPP": "\\mathbf{BPP}",
-  "\\classRP": "\\mathbf{RP}",
-  "\\classZPP": "\\mathbf{ZPP}",
-  "\\classPSPACE": "\\mathbf{PSPACE}",
-  "\\classSZK": "\\mathbf{SZK}",
-  "\\classCZK": "\\mathbf{CZK}",
-  // Common algorithms
-  "\\Gen": "\\mathsf{Gen}",
-  "\\Enc": "\\mathsf{Enc}",
-  "\\Dec": "\\mathsf{Dec}",
-  "\\Setup": "\\mathsf{Setup}",
-  "\\Query": "\\mathsf{Query}",
-  "\\Eval": "\\mathsf{Eval}",
-  "\\Invert": "\\mathsf{Invert}",
-  // Number sets
-  "\\NN": "\\mathbb{N}",
-  "\\ZZ": "\\mathbb{Z}",
-  "\\FF": "\\mathbb{F}",
-  "\\GG": "\\mathbb{G}",
-  // Simulators and state
-  "\\Sim": "\\mathcal{S}",
-  "\\st": "\\mathsf{st}",
-  "\\stA": "\\mathsf{st}_{\\mathcal{A}}",
-  "\\stB": "\\mathsf{st}_{\\mathcal{B}}",
-  "\\stS": "\\mathsf{st}_{\\mathcal{S}}",
-  // Key names
-  "\\sk": "\\mathsf{sk}",
-  "\\pk": "\\mathsf{pk}",
-  "\\vk": "\\mathsf{vk}",
-  // Crypto shorthand
-  "\\bits": "\\{0,1\\}",
-  "\\negl": "\\mathrm{negl}",
-  "\\poly": "\\mathrm{poly}",
-  "\\PPT": "\\mathrm{PPT}",
-  "\\secpar": "\\lambda",
-  "\\getsr": "\\overset{\\$}{\\gets}",
-  "\\Funcs": "\\mathrm{Funcs}",
-  // Advantages and experiments
-  "\\Adv": "\\mathbf{Adv}",
-  "\\Expt": "\\mathbf{Expt}",
-  "\\Game": "\\mathbf{G}",
-  // Game names
-  "\\indcpa": "\\mathrm{IND\\text{-}CPA}",
-  "\\indcca": "\\mathrm{IND\\text{-}CCA}",
-  "\\eucma": "\\mathrm{EU\\text{-}CMA}",
-  "\\sufcma": "\\mathrm{SUF\\text{-}CMA}",
-  // Select Primitives
-  "\\PRF": "\\mathsf{PRF}",
-  "\\RO": "\\mathsf{RO}",
-  "\\PRG": "\\mathsf{PRG}",
-  "\\PRP": "\\mathsf{PRP}",
-  "\\OT": "\\mathsf{OT}",
-  "\\SKE": "\\mathsf{SKE}",
-  "\\PKE": "\\mathsf{PKE}",
-}
+import { customMacros } from "./macros"
 
 const config: QuartzConfig = {
   configuration: {
@@ -164,7 +77,13 @@ const config: QuartzConfig = {
       Plugin.AliasRedirects(),
       Plugin.ComponentResources(),
       Plugin.ContentPage(),
-      Plugin.FolderPage(),
+      Plugin.FolderPage({
+        sort: (f1, f2) => {
+          const t1 = f1.frontmatter?.title?.toLowerCase() ?? ""
+          const t2 = f2.frontmatter?.title?.toLowerCase() ?? ""
+          return t1.localeCompare(t2)
+        },
+      }),
       Plugin.TagPage(),
       Plugin.ContentIndex({
         enableSiteMap: true,

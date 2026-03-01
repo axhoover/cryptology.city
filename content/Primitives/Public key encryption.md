@@ -7,32 +7,35 @@ title: PKE
 A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[Symmetric key encryption|SKE]].
 
 ## Syntax
-A PKE scheme is a tuple of efficient algorithms $\PKE = (\Gen, \Enc, \Dec)$ with respect to secret keyspace $\calK_{\mathrm{sk}}$, public keyspace $\calK_{\mathrm{pk}}$, message space $\calM$, and ciphertext space $\calC$:
-- $\Gen(1^\secpar) \to (\sk, \pk),$ is a randomized algorithm which samples a secret key $\sk \in \calK_{\mathrm{sk}}$ and public key $\pk \in \calK_{\mathrm{pk}}$,
+A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ with respect to secret keyspace $\calK_{\mathrm{sk}}$, public keyspace $\calK_{\mathrm{pk}}$, message space $\calM$, and ciphertext space $\calC$:
+- $\KeyGen(1^\secpar) \to (\sk, \pk),$ is a randomized algorithm which samples a secret key $\sk \in \calK_{\mathrm{sk}}$ and public key $\pk \in \calK_{\mathrm{pk}}$,
 - $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
 ## Properties
 
 ### Correctness
-A PKE scheme $\PKE = (\Gen, \Enc, \Dec)$ is $(1-\varepsilon)$-**correct**
+A PKE scheme $\PKE = (\KeyGen, \Enc, \Dec)$ is $(1-\varepsilon)$-**correct**
 if for all $\secpar \in \mathbb{N}$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\sk, \Enc(\pk, m)) = m\right] \ge 1 - \varepsilon,
 $$
 
-over the choice of $(\sk, \pk) \gets \Gen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is perfectly correct.
+over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is perfectly correct.
 
 ### CPA Security
-Since $\pk$ is public, the adversary can encrypt any message on their own. The CPA game therefore takes the form of a single challenge: the adversary receives $\pk$, submits two messages, and tries to determine which was encrypted.
+The CPA game therefore takes the form of a single challenge:
+the adversary receives $\pk$, submits two messages, and tries to determine
+which was encrypted. Note that the adversary themselves can encrypt messages
+with $\pk.$ 
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{cpa}}_{\PKE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \pk) \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $(m_0, m_1, \stA) \gets \calA(1^\secpar, \pk)$
 \State $c^* \gets \Enc(\pk, m_b)$
 \State $b' \gets \calA(c^*, \stA)$
@@ -57,7 +60,7 @@ In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary addit
 \algname{Game}
 \caption{$\Game^{\mathrm{cca}}_{\PKE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \pk) \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calD(c) := \Dec(\sk, c)$
 \State $(m_0, m_1, \stA) \gets \calA^{\calD}(1^\secpar, \pk)$
 \Comment{Phase 1: $\calA$ may query $\calD$ freely}

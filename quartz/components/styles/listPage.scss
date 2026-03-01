@@ -11,7 +11,7 @@ li.section-li {
 
   & > .section {
     display: grid;
-    grid-template-columns: fit-content(8em) 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
 
     @media all and ($mobile) {
       & > .tags {
@@ -24,8 +24,7 @@ li.section-li {
     }
 
     & .meta {
-      margin: 0 1em 0 0;
-      opacity: 0.6;
+      display: none;
     }
   }
 }
@@ -37,4 +36,41 @@ li.section-li {
   & > .tags {
     display: none;
   }
+}
+
+.folder-toc {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.15rem 0.6rem;
+  margin: 0.75rem 0 1.25rem;
+  color: var(--gray);
+  font-size: 1.05rem;
+
+  &::before {
+    content: "Jump to:";
+    margin-right: 0.3rem;
+    font-style: italic;
+  }
+
+  a.folder-toc-letter {
+    color: var(--secondary);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.folder-letter-heading {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--lightgray);
+  margin: 1.5rem 0 0.5rem;
+  color: var(--gray);
+  padding-bottom: 0.25rem;
 }

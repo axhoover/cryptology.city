@@ -32,6 +32,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 | Macro | Renders as |
 |-------|-----------|
+| `\KeyGen` | $\KeyGen$ |
 | `\Gen` | $\Gen$ |
 | `\Enc` | $\Enc$ |
 | `\Dec` | $\Dec$ |

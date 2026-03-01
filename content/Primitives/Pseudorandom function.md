@@ -8,8 +8,8 @@ title: PRF
 A **Pseudorandom Function (PRF)** allows someone to succinctly represent a function that is indistinguishable from a uniformly random function. A user generates a key and uses it to evaluate a function at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random function.
 
 ## Syntax
-A PRF is a pair of efficient algorithms $\PRF= (\Gen, \Eval)$ with respect to keyspace $\calK$, domain $\calD$, and range $\calR$:
-- $\Gen(1^\secpar) \to k,$ is a randomized function that
+A PRF is a pair of efficient algorithms $\PRF= (\KeyGen, \Eval)$ with respect to keyspace $\calK$, domain $\calD$, and range $\calR$:
+- $\KeyGen(1^\secpar) \to k,$ is a randomized function that
 samples a key $k \in \calK,$
 - $\Eval(k,x) \to y,$ is a deterministic function that
 takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
@@ -23,7 +23,7 @@ takes a key $k\in \calK$ and an input $x \in \calD$, outputting $y \in \calR.$
 \algname{Game}
 \caption{$\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \getsr \{0,1\}$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \{0,1\}$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$
@@ -46,7 +46,7 @@ is negligible.
 
 ## Invertible PRFs
 
-An **invertible PRF (iPRF)** extends the PRF with an inversion algorithm, allowing recovery of all inputs that map to a given output. An $\mathsf{iPRF} = (\Gen, \Eval, \Invert)$ adds:
+An **invertible PRF (iPRF)** extends the PRF with an inversion algorithm, allowing recovery of all inputs that map to a given output. An $\mathsf{iPRF} = (\KeyGen, \Eval, \Invert)$ adds:
 - $\Invert(k, y) \to X,$ is a deterministic function that
 returns the preimage set $X = \{x \in \calD : \Eval(k, x) = y\}$
 
@@ -55,7 +55,7 @@ Note that for domains much larger than the range, $\Invert$ may return exponenti
 ### Correctness
 With an inversion function, it also makes sense to restrict an iPRF to be **correct**. Meaning if for all for all $x\in \calD,$
 $\Pr[x \in \Invert(k, y): \Eval(k, x) = y] = 1,$
-where the probability is taken over $k \gets \Gen(1^{\secpar}).$
+where the probability is taken over $k \gets \KeyGen(1^{\secpar}).$
 
 ### Security
 
@@ -70,7 +70,7 @@ $y\in \calR$.
 \algname{Game}
 \caption{$\Game^{\mathrm{iprf}}_{\mathsf{iPRF},\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \Gen(1^\secpar)$; $b \getsr \{0,1\}$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \{0,1\}$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$ ; $\calO_0^{-1}(y) := \Invert(k,y)$
