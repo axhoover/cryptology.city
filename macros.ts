@@ -36,6 +36,9 @@ export const customMacros: Record<string, string> = {
   "\\classPSPACE": "\\mathbf{PSPACE}",
   "\\classSZK": "\\mathbf{SZK}",
   "\\classCZK": "\\mathbf{CZK}",
+  "\\classIP": "\\mathbf{IP}",
+  "\\classAM": "\\mathbf{AM}",
+  "\\classMA": "\\mathbf{MA}",
   // Common algorithms
   "\\Gen": "\\mathsf{Gen}",
   "\\GrGen": "\\mathsf{GrGen}",
@@ -48,6 +51,9 @@ export const customMacros: Record<string, string> = {
   "\\Invert": "\\mathsf{Invert}",
   "\\Sign": "\\mathsf{Sign}",
   "\\Vrfy": "\\mathsf{Vrfy}",
+  "\\Tag": "\\mathsf{Tag}",
+  "\\Answer": "\\mathsf{Answer}",
+  "\\Decode": "\\mathsf{Decode}",
   // Number sets
   "\\NN": "\\mathbb{N}",
   "\\ZZ": "\\mathbb{Z}",
@@ -71,6 +77,7 @@ export const customMacros: Record<string, string> = {
   "\\secpar": "\\lambda",
   "\\getsr": "\\overset{\\$}{\\gets}",
   "\\Funcs": "\\mathrm{Funcs}",
+  "\\Perms": "\\mathrm{Perms}",
   // Advantages and experiments
   "\\Adv": "\\mathbf{Adv}",
   "\\Expt": "\\mathbf{Expt}",
@@ -78,8 +85,9 @@ export const customMacros: Record<string, string> = {
   // Game names
   "\\indcpa": "\\mathrm{ind\\text{-}cpa}",
   "\\indcca": "\\mathrm{ind\\text{-}cca}",
-  "\\eucma": "\\mathrm{eu\\text{-}cma}",
-  "\\sucma": "\\mathrm{su\\text{-}cma}",
+  "\\ufcma": "\\mathrm{uf\\text{-}cma}",
+  "\\eufcma": "\\mathrm{euf\\text{-}cma}",
+  "\\sufcma": "\\mathrm{suf\\text{-}cma}",
   // Select Primitives
   "\\PRF": "\\mathsf{PRF}",
   "\\RO": "\\mathsf{RO}",
@@ -89,4 +97,6 @@ export const customMacros: Record<string, string> = {
   "\\SKE": "\\mathsf{SKE}",
   "\\PKE": "\\mathsf{PKE}",
   "\\DS": "\\mathsf{DS}",
+  "\\MAC": "\\mathsf{MAC}",
+  "\\PIR": "\\mathsf{PIR}",
 }

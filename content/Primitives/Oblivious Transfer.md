@@ -4,8 +4,9 @@ aliases:
 title: Oblivious Transfer
 ---
 # Oblivious transfer
+TODO - High level description
 
-## Definition
+## Syntax
 A 1-out-of-2 OT Two party protocol between two parties $S$ and $R$, with the following functionality:
 ```
 Shared input: security parameter k
@@ -15,11 +16,14 @@ S output: \bot
 R output: x[b]
 ```
 
-### Variations
-#### Rabin's Random OT
-
-#### k-out-of-n OT
+## Properties
 
 
-## Other results
+# Variations
+## Rabin's Random OT
+
+## k-out-of-n OT
+
+
+# Other results
 - 

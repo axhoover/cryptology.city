@@ -12,7 +12,7 @@ Arthur, a [[Bounded-Error Probabilistic Polynomial-Time|BPP]] verifier, generate
 
 Surprisingly, it turns out that such a system is just as powerful as a private-coin one, in which Arthur does not need to send his random coins to Merlin [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]. So, Arthur never needs to hide information from Merlin.
 
-Furthermore, define AM[k] similarly to AM, except that Arthur and Merlin have $k$ rounds of interaction. Then for all constant k>2, AM[k] = AM[2] = AM [[BS88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BS88]]. Also, the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] can then be stated as follows: [[Interactive Proof Systems|IP]][k] is contained in AM[k+2] for every k (constant or non-constant).
+Furthermore, define AM[k] similarly to AM, except that Arthur and Merlin have $k$ rounds of interaction. Then for all constant k>2, AM[k] = AM[2] = AM [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]. Also, the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] can then be stated as follows: [[Interactive Proof Systems|IP]][k] is contained in AM[k+2] for every k (constant or non-constant).
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#am) and its complement class [coAM here](https://complexityzoo.net/Complexity_Zoo:A#coam).
 

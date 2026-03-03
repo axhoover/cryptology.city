@@ -89,7 +89,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\Game` | $\Game$ |
 | `\indcpa` | $\indcpa$ |
 | `\indcca` | $\indcca$ |
-| `\eucma` | $\eucma$ |
+| `\eufcma` | $\eufcma$ |
 | `\sufcma` | $\sufcma$ |
 
 ### Primitives

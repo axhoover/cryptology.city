@@ -11,4 +11,5 @@ The class of decision problems for which a "yes" answer can be verified by an _
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#ip).
 
 ## Known relationships
-- IP = [[Polynomial-Space|PSPACE]] — TODO citation
+- $\classIP = \classPSPACE$ — TODO citation
+- $\classIP \neq \classPSPACE$ relative in the [[Random Oracle Model]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]

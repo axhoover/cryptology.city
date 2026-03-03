@@ -100,6 +100,28 @@ export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
               #macros-copy-area .pseudocode-copy-btn {
                 opacity: 1;
               }
+              .game-group {
+                display: flex;
+                gap: 1.5rem;
+                align-items: flex-start;
+                justify-content: center;
+                margin: 0;
+              }
+              .game-group .pseudocode-container {
+                width: auto;
+                margin: 0;
+              }
+              .oracle-column {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+              }
+              @media (max-width: 800px) {
+                .game-group {
+                  flex-direction: column;
+                  align-items: center;
+                }
+              }
             `,
             inline: true,
           },
@@ -178,6 +200,46 @@ export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
                     psRoot.parentNode.insertBefore(container, psRoot);
                     container.appendChild(psRoot);
                     if (i < sources.length) _addCopyButtons(container, sources[i]);
+                  });
+
+                  // Group Game blocks with their following oracle blocks side-by-side
+                  var allContainers = Array.from(document.querySelectorAll(".pseudocode-container"));
+
+                  // Pass 1: identify groups (read-only, uses stable snapshot)
+                  var groupings = [];
+                  var ci = 0;
+                  while (ci < allContainers.length) {
+                    var s0 = sources[ci] || "";
+                    var m0 = s0.match(/\\\\algname\\{([^}]*)\\}/);
+                    var n0 = m0 ? m0[1].trim().toLowerCase() : null;
+                    if (n0 !== "game") { ci++; continue; }
+
+                    var grp = [ci];
+                    var cj = ci + 1;
+                    while (cj < allContainers.length) {
+                      if (allContainers[cj - 1].nextElementSibling !== allContainers[cj]) break;
+                      var sJ = sources[cj] || "";
+                      var mJ = sJ.match(/\\\\algname\\{([^}]*)\\}/);
+                      var nJ = mJ ? mJ[1].trim().toLowerCase() : null;
+                      if (nJ === null || nJ === "game") break;
+                      grp.push(cj);
+                      cj++;
+                    }
+                    if (grp.length > 1) groupings.push(grp);
+                    ci = cj;
+                  }
+
+                  // Pass 2: DOM manipulation
+                  groupings.forEach(function(grp) {
+                    var ctrs = grp.map(function(idx) { return allContainers[idx]; });
+                    var wrapper = document.createElement("div");
+                    wrapper.className = "game-group";
+                    ctrs[0].parentNode.insertBefore(wrapper, ctrs[0]);
+                    wrapper.appendChild(ctrs[0]);
+                    var col = document.createElement("div");
+                    col.className = "oracle-column";
+                    wrapper.appendChild(col);
+                    for (var k = 1; k < ctrs.length; k++) col.appendChild(ctrs[k]);
                   });
 
                   var macrosArea = document.getElementById("macros-copy-area");

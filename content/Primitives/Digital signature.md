@@ -40,23 +40,23 @@ possibly $\Sign.$
 
 ### Existential Unforgeability
 The following is the **existential unforgeability under chosen
-message attacks (EU-CMA)** game. This security notion requires that an
+message attacks (EUF-CMA)** game. This security notion requires that an
 adversary cannot find a message signature pair $(\hat{m},\hat{\sigma})$ even
 given many samples
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\eucma}_{\DS,\calA}(\secpar)$}
+\caption{$\Game^{\eufcma}_{\DS,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calQ \gets \{\}$
 \State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
 \If{$\hat{m}\in \calQ$}
-\Comment{Require $\hat{m}$ to be a new message}
+\Comment{$\hat{m}$ cannot repeat}
 \Return $0$
 \EndIf
-\Return $[\Vrfy(\vk,\hat{m},\sigma)]$
+\Return $[\Vrfy(\vk,\hat{m},\hat{\sigma})]$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -66,31 +66,72 @@ given many samples
 \algname{Oracle}
 \caption{$\calO(m)$}
 \begin{algorithmic}
-\State $\calQ \gets \calQ \cup \{m\}$
 \State $\sigma \gets \Sign(\sk,m)$
+\State $\calQ \gets \calQ \cup \{m\}$
 \Return $\sigma$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-A DS scheme $\DS$ is **EU-CMA unforgeable** if for all efficient $\calA$,
+A DS scheme $\DS$ is **EUF-CMA unforgeable** if for all efficient $\calA$,
 
 $$
-\Adv^{\eucma}_{\DS,\calA}(\secpar) := \Pr[\Game^{\eucma}_{\DS,\calA}(\secpar) = 1]
+\Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1]
 $$
 
 is negligible.
 
 
 ### Strong Unforgeability
+The following is the **strongly unforgeability under chosen
+message attacks (SUF-CMA)** game. This security notion strenghtens the above
+EUF-CMA notation and requires $\DS$ to prevent an adversary from "mauling"
+the signature to produce a new signature for the same message. For example,
+by rerandomizing the signature into another valid signature.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\sufcma}_{\DS,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $\calQ \gets \{\}$
+\State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
+\If{$(\hat{m},\hat{\sigma})\in \calQ$}
+\Comment{$(\hat{m},\hat{\sigma})$ cannot repeat}
+\Return $0$
+\EndIf
+\Return $[\Vrfy(\vk,\hat{m},\hat{\sigma})]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO(m)$}
+\begin{algorithmic}
+\State $\sigma \gets \Sign(\sk,m)$
+\State $\calQ \gets \calQ \cup \{(m, \sigma)\}$
+\Return $\sigma$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A DS scheme $\DS$ is **SU-CMA unforgeable** if for all efficient $\calA$,
+
+$$
+\Adv^{\sufcma}_{\DS,\calA}(\secpar) := \Pr[\Game^{\sufcma}_{\DS,\calA}(\secpar) = 1]
+$$
+
+is negligible.
+
+
+# Variations
 
 
 
-## Variations
 
-
-
-
-## Other results
+# Other results
 - If [[One-way function | OWFs]] exist, then Digital Signatures exist
 — Lamport signature citation

@@ -1,16 +1,16 @@
 ---
-title: "BS88"
+title: "BM88"
 source: https://core.ac.uk/download/pdf/82807618.pdf
 authors: Lázló Babai, Shlomo Moran
 venue: JCSS 1988
 published: 1987-08-03
 aliases:
-  - BS88
+  - BM88
 tags:
   - JCSS
 
 ---
-# [BS88] Arthur-merlin games A randomized proof system and a hierarchy of complexity classes
+# [BM88] Arthur-merlin games A randomized proof system and a hierarchy of complexity classes
 
 **Authors:** Lázló Babai, Shlomo Moran | **Venue:** JCSS 1988 | [Source](https://core.ac.uk/download/pdf/82807618.pdf)
 
