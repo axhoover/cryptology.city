@@ -4,6 +4,7 @@ import style from "./styles/explorer.scss"
 // @ts-ignore
 import script from "./scripts/explorer.inline"
 import { classNames } from "../util/lang"
+import { pathToRoot } from "../util/path"
 import { i18n } from "../i18n"
 import { FileTrieNode } from "../util/fileTrie"
 import OverflowListFactory from "./OverflowList"
@@ -60,7 +61,7 @@ export default ((userOpts?: Partial<Options>) => {
   const opts: Options = { ...defaultOptions, ...userOpts }
   const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
 
-  const Explorer: QuartzComponent = ({ cfg, displayClass }: QuartzComponentProps) => {
+  const Explorer: QuartzComponent = ({ cfg, fileData, displayClass }: QuartzComponentProps) => {
     const id = `explorer-${numExplorers++}`
 
     return (
@@ -120,6 +121,9 @@ export default ((userOpts?: Partial<Options>) => {
           </svg>
         </button>
         <div id={id} class="explorer-content" aria-expanded={false} role="group">
+          <a href={pathToRoot(fileData.slug!)} class="explorer-site-title">
+            {cfg.pageTitle}
+          </a>
           <OverflowList class="explorer-ul" />
         </div>
         <template id="template-file">

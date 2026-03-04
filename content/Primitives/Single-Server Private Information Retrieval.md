@@ -11,17 +11,25 @@ Single-server PIR is the principle variant of PIR that is studied in the literat
 The protocol where the client downloads the entire database is known as the *trivial PIR*.
 
 ## Syntax
-A PIR scheme is a triple of efficient algorithms $\PIR = (\Query, \Answer, \Decode)$ with respect to database size $n$ and data alphabet $\Sigma$:
+A PIR scheme is a triple of efficient algorithms $\PIR = (\Query, \Answer, \Decode)$ with respect to database size $n$, modeled as a bit-string $D\in \bits^n$:
 - $\Query(1^\secpar, i) \to (q, \st),$ is a randomized algorithm that takes an index $i \in [n]$, outputting a query $q$ to send to the server and a client state $\st,$
-- $\Answer(db, q) \to a,$ is a deterministic algorithm that takes a database $db \in \Sigma^n$ and query $q$, outputting an answer $a,$
-- $\Decode(\st, a) \to x,$ is a deterministic algorithm that takes client state $\st$ and answer $a$, outputting a value $x \in \Sigma.$
+- $\Answer(D, q) \to a,$ is a deterministic algorithm that takes a database
+$D \in \bits^n$ and query $q$, outputting an answer $a,$
+- $\Decode(\st, a) \to x,$ is a deterministic algorithm that takes client state $\st$ and answer $a$, outputting a value $x \in \bits.$
+
+While PIR is typically represented with data-elements as single bits, most
+constructions support words from $\bits^{w}.$ There is also a generic
+transformation between the two. In particular, on can treat any $w$-width
+word database as a bit-string and just query for the $w$ consecutive bits
+the client is interested in.
 
 ## Properties
 
 ### Correctness
-A PIR $\PIR$ is **correct** if for all $db \in \Sigma^n$ and $i \in [n]$,
+A PIR $\PIR$ is $(1-\varepsilon)$-**correct** if for all
+$D \in \bits^n$ and $i \in [n]$,
 $$
-\Pr\!\left[\Decode(\st, \Answer(db, q)) = db[i]\right] = 1,
+\Pr\!\left[\Decode(\st, \Answer(D, q)) = D[i]\right] \ge 1 - \varepsilon,
 $$
 where $(q, \st) \gets \Query(1^\secpar, i)$.
 
@@ -31,12 +39,12 @@ The server's view — the query $q$ — should reveal nothing about the queried 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{pir}}_{\PIR,\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{priv}}_{\PIR,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(i_0, i_1) \gets \calA(1^\secpar, 1^n)$
+\State $(i_0, i_1, \stA) \gets \calA(1^\secpar, 1^n)$
 \State $b \getsr \bits$
 \State $(q, \st) \gets \Query(1^\secpar, i_b)$
-\State $b' \gets \calA(q)$
+\State $b' \gets \calA(q, \stA)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
@@ -45,7 +53,7 @@ The server's view — the query $q$ — should reveal nothing about the queried 
 A PIR $\PIR$ has **query privacy** if for all efficient $\calA$,
 
 $$
-\Adv^{\mathrm{pir}}_{\PIR,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pir}}_{\PIR,\calA}(\secpar)=1\right]-1\right|
+\Adv^{\mathrm{priv}}_{\PIR,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pir}}_{\PIR,\calA}(\secpar)=1\right]-1\right|
 $$
 
 is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing the challenge indices, then guessing the bit after seeing the query.

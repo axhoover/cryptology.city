@@ -90,8 +90,8 @@ $$
 
 is negligible.
 
-### Known results
-- [[One-way function|OWF]] implies the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
+### Related results results
+- PRFs imply the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
 - [[Pseudorandom permutation|PRP]]s over large domains are iPRFs — [[Switching Lemma]]
 
 
@@ -102,3 +102,4 @@ TODO: define these and say how they relate to PRPs
 ## Puncturable PRFs
 
 # Other results
+- [[One-way function|OWF]] implies the existence of PRFs - TODO
