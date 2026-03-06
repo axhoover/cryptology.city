@@ -1,9 +1,11 @@
 ---
 aliases:
   - TDH
-title: Trapdoor Hash Functions
+  - Trapdoor hash functions
+  - Trapdoor hash functions
+title: Trapdoor hash functions
 ---
-# Trapdoor hash functions (TDH)
+# Trapdoor hash functions
 Introduced by [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]. TODO
 
 ## Definition

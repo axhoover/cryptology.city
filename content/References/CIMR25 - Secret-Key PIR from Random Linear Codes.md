@@ -25,7 +25,7 @@ Under a new conjecture related to the hardness of learning a hidden linear subsp
 
 
 # Notes
-They introduce the *Learning Subspace with Noise (LSN)* conjecture. They show how to build secret-key PIR from both [[Learning Parity with Noise|LPN]] and LSN.
+They introduce the *Learning Subspace with Noise (LSN)* conjecture. They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
 - Note that this will build very mildly doubly efficient PIR the way that [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] build SK-DEPIR
 - I guess secret-key PIR that is not doubly efficient could be interesting...?
 

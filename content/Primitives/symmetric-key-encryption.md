@@ -2,7 +2,8 @@
 aliases:
   - SKE
   - SE
-title: SKE
+  - Symmetric key encryption
+title: Symmetric key encryption
 ---
 # Symmetric key encryption
 A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages, such that an adversary who does not know the key cannot learn anything about the plaintext from the ciphertext.
@@ -109,5 +110,5 @@ $$
 is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(0,1)$ and then decrypt the result to trivially learn $b$.
 
 # Other results
-- (Both [[#CPA Security|CPA]] and [[#CCA Security|CCA]]) SKE can be built in a black-box way from a [[One-way function]] — Folklore?
-- CPA-secure SKE can be boosted to CCA-secure SKE using a [[Message authentication code|MAC]]
+- (Both [[#CPA Security|CPA]] and [[#CCA Security|CCA]]) SKE can be built in a black-box way from a [[hash-function|OWF]] — Folklore?
+- CPA-secure SKE can be boosted to CCA-secure SKE using a [[message-authentication-code|MAC]]

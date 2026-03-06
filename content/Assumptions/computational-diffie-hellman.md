@@ -1,10 +1,11 @@
 ---
 aliases:
   - CDH
-title: CDH
+  - Computational Diffie-Hellman
+title: Computational Diffie-Hellman
 ---
 # Computational Diffie-Hellman
-The *Computational Diffie-Hellman (CDH)* is a central assumption in cryptography. It is a natural strengthening of the [[Decisional Diffie-Hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[Decisional Diffie-Hellman|DDH]] in the same group.
+The *Computational Diffie-Hellman (CDH)* is a central assumption in cryptography. It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group.
 
 ## Assumption
 Informally, the CDH assumption concerns a cyclic group generation algorithm
@@ -26,7 +27,7 @@ set, $g$ is a generator for the group, and $p$ is the order of the group.
 \end{algorithm}
 ```
 We say that **CDH is hard** for a group generation algorithm $\GrGen$
-if for all efficient $\calA$,
+if for all efficient $\calA,$
 
 $$
 \Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{\text{cdh}}_{\MAC,\calA}(\secpar) = 1\right]
@@ -35,8 +36,8 @@ $$
 is negligible.
 
 ## Known Results
-- It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is not easier than [[Decisional Diffie-Hellman|DDH]].
-- In the [[Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le \frac{q^2}{p}$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is not easier than [[decisional-diffie-hellman|DDH]].
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 # Variations
 In the above definition, we implicitly allow $\GrGen$ to choose a *random*

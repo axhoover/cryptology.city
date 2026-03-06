@@ -1,11 +1,12 @@
 ---
 aliases:
   - LPN
-title: LPN
+  - Learning parity with noise
+title: Learning parity with noise
 
 ---
-# Learning parity with noise (LPN)
-The *learning parity with noise (LPN)* assumptions is a post-quantum candidate assumption that is related to the [[Learning with errors]] assumption.
+# Learning parity with noise
+The *learning parity with noise (LPN)* assumptions is a post-quantum candidate assumption that is related to the [[learning-with-errors]] assumption.
 
 ## Assumption
 For parameters $k \in \mathbb{N}$ and $0 < \varepsilon < 1$, we say the *$(k,\varepsilon,m)$-LPN advantage* of an adversary $\mathcal{A}$ as
@@ -25,14 +26,18 @@ Some applications require assuming *subexponential LPN*, which means that they a
 
 In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has negligible advantage. Whereas, the normal LPN assumption only makes an assumption about polynomial time adversaries. Typically, this assumption is made only in the constant-noise regime, making it incomparable to more standard lower-noise normal LPN assumptions.
 
-## Related results
-- Mid-noise (and hence low-noise) LPN implies [[Public key encryption]] — [[Ale03 - More on average case vs approximation complexity|Ale03]]
-- Some works show that Low-noise LPN with $\varepsilon = \log^2 k / k$ implies [[Collision-resistant hash function]] — [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]], [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]
-- Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[Single-Server Private Information Retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[Trapdoor hash functions]])— [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
+# Known results
+- Mid-noise (and hence low-noise) LPN implies [[public-key-encryption|PKE]] — [[Ale03 - More on average case vs approximation complexity|Ale03]]
+- Some works show that Low-noise LPN with $\varepsilon = \log^2 k / k$ implies [[hash-function|OWF]] — [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]], [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]
+- Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[single-server-private-information-retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[trapdoor-hash-function]])— [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
 	- Fully sublinear PIR from any flavor of LPN is open.
-- [[Doubly-efficient PIR|SK-DEPIR]] can be built from mid and high-noise LPN — [[CIMR25 - Secret-Key PIR from Random Linear Codes]]
-- [[Public key encryption|CCA-PKE]] and [[Oblivious transfer|OT]] can be built from subexponential LPN— [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]
-- [[Pseudorandom error-correcting code|Public-key PRCs]] can be built from subexponential LPN — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] 
+- [[doubly-efficient-pir|SK-DEPIR]] can be built from mid and high-noise LPN — [[CIMR25 - Secret-Key PIR from Random Linear Codes]]
+- [[public-key-encryption|CCA-PKE]] and [[oblivious-transfer|OT]] can be built from subexponential LPN— [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]
+- [[pseudorandom-error-correcting-code|Public-key PRCs]] can be built from subexponential LPN — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] 
 
 ## Attacks
 TODO
+
+# Variations
+
+## Sparse Learning Parity with Noise

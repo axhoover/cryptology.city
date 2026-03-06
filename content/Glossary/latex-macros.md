@@ -1,4 +1,6 @@
 ---
+aliases:
+  - LaTeX macros
 title: LaTeX macros
 ---
 # LaTeX macros

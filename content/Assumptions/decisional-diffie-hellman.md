@@ -1,10 +1,11 @@
 ---
 aliases:
   - DDH
-title: DDH
+  - Decisional Diffie-Hellman
+title: Decisional Diffie-Hellman
 ---
 # Decisional Diffie-Hellman
-The *Decisional Diffie-Hellman (DDH)* assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It is implied by the [[Computational Diffie-Hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.
+The *Decisional Diffie-Hellman (DDH)* assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It is implied by the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.
 
 ## Assumption
 Informally, the DDH assumption concerns a cyclic group generation algorithm
@@ -28,7 +29,7 @@ set, $g$ is a generator for the group, and $p$ is the order of the group.
 \end{algorithm}
 ```
 We say that **DDH is hard** for a group generation algorithm $\GrGen$
-if for all efficient $\calA$,
+if for all efficient $\calA,$
 
 $$
 \Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) := \left|2 \cdot \Pr\!\left[\Game^{\text{ddh}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
@@ -37,8 +38,8 @@ $$
 is negligible.
 
 ## Known Results
-- It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that [[Computational Diffie-Hellman|CDH]] is not easier than DDH.
-- In the [[Generic Group Model]], $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le \frac{q^2}{p}$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that [[computational-diffie-hellman|CDH]] is not easier than DDH.
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 ## Attacks
 - TODO — baby step, giant step

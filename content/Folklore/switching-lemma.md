@@ -1,3 +1,8 @@
+---
+aliases:
+  - Switching Lemma
+title: Switching Lemma
+---
 # Switching Lemma
 For any distinguisher $A$ issuing $q$ queries to its oracle, $$\left|\Pr[A^{R} = 1] - \Pr[A^{\pi} = 1]\right| \le O\left(\frac{q^2}{|\mathcal{D}|}\right),$$ where $R$ is a random function and $\pi$ is a random permutation, both from $\mathcal{D}$ to $\mathcal{D}$.
 

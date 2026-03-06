@@ -2,7 +2,8 @@
 aliases:
   - DS
   - Signature
-title: Digital Signatures
+  - Digital signature
+title: Digital signature
 ---
 # Digital signature
 
@@ -133,5 +134,5 @@ is negligible.
 
 
 # Other results
-- If [[One-way function | OWFs]] exist, then Digital Signatures exist
+- If [[hash-function| OWFs]] exist, then Digital Signatures exist
 — Lamport signature citation

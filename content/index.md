@@ -2,14 +2,14 @@
 title: Cryptology City
 ---
 # Cryptology City
-Welcome to Cryptology City! Jump right in by taking a look, navigating the site on the left! **Disclaimer:** there are a lot of stubs and TODOs, so if you just want to get a feel for the project's goals, check out a more filled out page like [[Pseudorandom function|PRFs]].
+Welcome to Cryptology City! Jump right in by taking a look, navigating the site on the left! **Disclaimer:** there are a lot of stubs and TODOs, so if you just want to get a feel for the project's goals, check out a more filled out page like [[pseudorandom-function|PRFs]].
 
 This wiki is a collection of cryptographic primitives and reductions between 
 them. It is meant to serve as a large repository of cryptographic information 
 and make it easy to understand the relationships between different primitives. 
 If you'd like to contribute, feel free to contribute to the
 [repo](https://github.com/axhoover/cryptology.city)!
-See the [[LaTeX macros]] pages for a summary of some of the notation used
+See the [[latex-macros]] pages for a summary of some of the notation used
 on the website, which can also be copied into your own LaTeX/KaTeX/MathJax
 projects!
 
@@ -42,4 +42,4 @@ There are lots of other great resources that people can use to learn cryptograph
 - [Cryptography map](https://www.cryptographymap.com/) — map of many cryptographic assumptions and their implications, created by Peter Li
 - [Complexity Zoo](https://complexityzoo.net/) — repository of complexity classes and many of their relations, originally created by Scott Aaronson
 - [An Intensive Introduction to Cryptography](https://intensecrypto.org/public/) — textbook, written by Boaz Barak
-- [ZK Jargon](https://zkjargon.github.io/) — glossary of [[Computational zero-knowledge|zero knowledge]] terms, written by Nico Mohnblatt
+- [ZK Jargon](https://zkjargon.github.io/) — glossary of [[computational-zero-knowledge|zero knowledge]] terms, written by Nico Mohnblatt

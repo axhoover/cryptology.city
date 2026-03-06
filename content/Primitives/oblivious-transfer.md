@@ -1,7 +1,8 @@
 ---
 aliases:
   - OT
-title: Oblivious Transfer
+  - Oblivious Transfer
+title: Oblivious transfer
 ---
 # Oblivious transfer
 TODO - High level description

@@ -1,10 +1,11 @@
 ---
 aliases:
   - PKE
-title: PKE
+  - Public key encryption
+title: Public key encryption
 ---
 # Public key encryption
-A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[Symmetric key encryption|SKE]].
+A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[symmetric-key-encryption|SKE]].
 
 ## Syntax
 A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ with respect to secret keyspace $\calK_{\mathrm{sk}}$, public keyspace $\calK_{\mathrm{pk}}$, message space $\calM$, and ciphertext space $\calC$:
@@ -89,7 +90,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 TODO
 
 # Other results
-- PKE implies [[One-way function|OWF]]
-- [[Trapdoor function|TDF]] implies PKE
-- PKE can be built assuming [[Decisional Diffie-Hellman|DDH]] is hard — [[DH76 - New Directions in Cryptography|DH76]]
-- PKE can be built assuming [[Learning parity with noise#Noise Level|mid-noise LPN]]
+- PKE implies [[hash-function|OWF]]
+- [[trapdoor-permutation|TDP]] implies PKE
+- PKE can be built assuming [[decisional-diffie-hellman|DDH]] is hard — [[DH76 - New Directions in Cryptography|DH76]]
+- PKE can be built assuming [[learning-parity-with-noise#Noise Level|Mid-noise LPN]]

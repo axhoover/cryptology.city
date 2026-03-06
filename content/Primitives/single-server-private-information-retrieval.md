@@ -2,11 +2,13 @@
 aliases:
   - PIR
   - cPIR
-title: Computational PIR
+  - Single-Server Private Information Retrieval
+  - Single-server Private Information Retrieval
+title: Private Information Retrieval
 
 ---
-# Single-server Private Information Retrieval
-Single-server PIR is the principle variant of PIR that is studied in the literature, introduced by [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. It is deployed in a setting where a server holds a database (represented as an array) and a client is interested in learning one of the database items. A PIR protocol allows the client to learn the entry without revealing which entry the client is interested in.
+# Private Information Retrieval
+(Single-server) PIR is the principle variant of PIR that is studied in the literature, introduced by [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. It is deployed in a setting where a server holds a database (represented as an array) and a client is interested in learning one of the database items. A PIR protocol allows the client to learn the entry without revealing which entry the client is interested in.
 
 The protocol where the client downloads the entire database is known as the *trivial PIR*.
 
@@ -59,16 +61,21 @@ $$
 is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing the challenge indices, then guessing the bit after seeing the query.
 
 # Variations
-- [[Multi-server Private Information Retrieval]] is an information theoretic variant, which requires multiple servers
-- [[Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
+- [[multi-server-private-information-retrieval|Multi-server PIR]] is an information theoretic variant, which requires multiple servers
+- [[symmetric-private-information-retrieval-single-server|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
 - PIR with client-side preprocessing
 - Keyword PIR
 
+## Symmetric private information retrieval (Single-server)
+Symmetric private information retrieval is a stronger version of PIR that in addition to protecting the querier's privacy, also protects the data privacy. The multi-server, information-theoretic version ([[IT-SPIR]]) was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], but follow-up works showed how to construct computationally secure versions based on assumptions.
+
+Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional efficiency requirement.
+
 # Other results
-- Non-trivial PIR implies [[Oblivious transfer]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
-- Single-round PIR cannot be based on NP-hardness unless [[Polynomial-Time Hierarchy|PH]] collapses to the second level — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]
+- Non-trivial PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
+- Single-round PIR cannot be based on NP-hardness unless [[polynomial-time-hierarchy|PH]] collapses to the second level — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]
 
 ## Constructions
-- PIR with $\text{polylog}(n)$ bandwidth can be built from [[Decisional Diffie-Hellman|DDH]], QR, or [[Learning with errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
-	- This result goes through the use of [[Trapdoor hash functions|TDH]], which can be used to build PIR generically
+- PIR with $\polylog(n)$ bandwidth can be built from [[decisional-diffie-hellman|DDH]], QR, or [[learning-with-errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
+	- This result goes through the use of [[trapdoor-hash-function|TDH]], which can be used to build PIR generically
 - Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]

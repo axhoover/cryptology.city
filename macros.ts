@@ -99,4 +99,5 @@ export const customMacros: Record<string, string> = {
   "\\DS": "\\mathsf{DS}",
   "\\MAC": "\\mathsf{MAC}",
   "\\PIR": "\\mathsf{PIR}",
+  "\\hash": "\\mathsf{H}",
 }

@@ -1,7 +1,8 @@
 ---
 aliases:
   - PRG
-title: PRG
+  - Pseudorandom generator
+title: Pseudorandom generator
 ---
 # Pseudorandom generator
 A Pseudorandom Generator (PRG) ...
@@ -19,7 +20,7 @@ $r \in \calR.$
 ### Pseudorandomness
 
 
-## Variations
+# Variations
 
 ### Trapdoor pseudorandom generators
 A **trapdoor PRG** is is a tuple $G$ of efficient
@@ -44,7 +45,6 @@ $$
     \Pr[\Invert(t,r) = 0 : r \getsr \calR] \ge 1 - \delta.
 $$
 
-Note that a [[Pseudorandom error-correcting code|
-zero-bit Pseudorandom Code]] can be viewed as a trapdoor pseudorandom
+Note that a [[pseudorandom-error-correcting-code|zero-bit Pseudorandom Code]] can be viewed as a trapdoor pseudorandom
 generator with the additional property that its completeness is actually 
 robust to noise.

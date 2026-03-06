@@ -1,6 +1,8 @@
 ---
 aliases:
   - GGM
+  - Generic Group Model
+title: Generic Group Model
 ---
 # Generic Group Model
 The *Generic Group Model (GGM)* was a model introduced by [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]] as a method for analyzing the security of (cyclic) group-based assumptions.

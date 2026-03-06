@@ -1,7 +1,8 @@
 ---
 aliases:
   - MAC
-title: MACs
+  - Message authentication code
+title: Message authentication code
 ---
 # Message authentication code
 A **Message Authentication Code (MAC)** allows a user holding a secret key to authenticate messages by attaching a short tag. Anyone with the same key can verify the tag's authenticity; anyone without the key cannot forge a valid tag, even after seeing many legitimate message-tag pairs.
@@ -66,8 +67,8 @@ is negligible.
 When $\Tag$ is deterministic, security still holds under the same UF-CMA game. In this case the tag is a pure function of the key and message.
 
 ## PRF-based MACs
-A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[Pseudorandom function|PRF]] $(\KeyGen, \Eval)$. The UF-CMA security of the resulting MAC follows directly from the PRF's pseudorandomness.
+A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[pseudorandom-function|PRF]] $(\KeyGen, \Eval)$. The UF-CMA security of the resulting MAC follows directly from the PRF's pseudorandomness.
 
 # Other results
-- MACs can be constructed from [[Pseudorandom function|PRF]]s
-- CPA-secure [[Symmetric key encryption|SKE]] can be boosted to CCA-secure SKE using a MAC (encrypt-then-MAC construction)
+- MACs can be constructed from [[pseudorandom-function|PRF]]s
+- CPA-secure [[symmetric-key-encryption|SKE]] can be boosted to CCA-secure SKE using a MAC (encrypt-then-MAC construction)

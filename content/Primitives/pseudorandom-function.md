@@ -2,7 +2,8 @@
 aliases:
   - PRF
   - iPRF
-title: PRF
+  - Pseudorandom function
+title: Pseudorandom function
 ---
 # Pseudorandom function
 A **Pseudorandom Function (PRF)** allows someone to succinctly represent a function that is indistinguishable from a uniformly random function. A user generates a key and uses it to evaluate a function at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random function.
@@ -92,7 +93,7 @@ is negligible.
 
 ### Related results results
 - PRFs imply the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
-- [[Pseudorandom permutation|PRP]]s over large domains are iPRFs — [[Switching Lemma]]
+- [[pseudorandom-permutation|PRP]]s over large domains are iPRFs — [[switching-lemma|Switching Lemma]]
 
 
 ## Pseudorandom Injective Functions
@@ -102,4 +103,4 @@ TODO: define these and say how they relate to PRPs
 ## Puncturable PRFs
 
 # Other results
-- [[One-way function|OWF]] implies the existence of PRFs - TODO
+- [[hash-function|OWF]] implies the existence of PRFs - TODO

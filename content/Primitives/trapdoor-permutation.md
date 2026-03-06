@@ -1,21 +1,25 @@
 ---
 aliases:
+  - TDP
   - TDF
-title: Trapdoor Functions
-
+  - Trapdoor function
+title: Trapdoor permutation
 ---
-# Trapdoor function (TDF)
-A trapdoor function (TDF) is a function (or family of functions) which is easy to compute but hard to invert (like a [[One-way function|OWF]]), but is in fact easy to invert if given the *trapdoor*. Trapdoor functions are associated with Impagliazzo's "Cryptomania" world.  Their existence implies many different public-key cryptography primitives.
+# Trapdoor permutation
+A trapdoor permutation (TDP) is a permutation which is easy to compute but hard to invert (like a [[hash-function|OWF]]), but is in fact easy to invert if given the *trapdoor*. Trapdoor permutations are associated with Impagliazzo's "Cryptomania" world.  Their existence implies many different public-key cryptography primitives.
 
-## Definition
-A *trapdoor function* with respect to a trapdoor space $\mathcal{T}$ consists of two families of efficiently computable functions $\{f_{\lambda} : \mathcal{D} \to \mathcal{R}\}_{\lambda \in \mathbb{N}}$, $\{f^{-1}_{\lambda} : \mathcal{T}\times\mathcal{R} \to \mathcal{D}\}_{\lambda\in \mathbb{N}}$, and a distribution $(X,T)$ over $\mathcal{D}\times \mathcal{T}$, such that:
-- The function is *one-way*: there is some negligible function $\nu$, where, for every $\lambda$ and  efficient algorithm $\mathcal{A}$: $$\Pr_{(x,t)\sim (X,T)}[f_{\lambda}(x') = f_{\lambda}(x) : x' \gets \mathcal{A}(1^{\lambda}, f_{\lambda}(x))] \le \nu(\lambda).$$
-- And the function *easy to invert* given the trapdoor: there is some negligible function $\nu$, where, for every $\lambda$, $$\Pr_{(x,t)\sim (X,T)}[f^{-1}_{\lambda}(t,f_\lambda(x)) = x] \ge 1- \nu(\lambda).$$
+## Syntax
 
-### Variations
-TODO: Enhanced trapdoor functions
+## Properties
+A *trapdoor permutation* with respect to a trapdoor space $\calT$ consists of two families of efficiently computable functions $\{f_{\secpar} : \calD \to \calR\}_{\secpar \in \mathbb{N}}$, $\{f^{-1}_{\secpar} : \mathcal{T}\times\mathcal{R} \to \mathcal{D}\}_{\secpar\in \mathbb{N}}$, and a distribution $(X,T)$ over $\mathcal{D}\times \mathcal{T}$, such that:
+- The function is *one-way*: there is some negligible function $\nu$, where, for every $\secpar$ and  efficient algorithm $\calA$: $$\Pr_{(x,t)\sim (X,T)}[f_{\secpar}(x') = f_{\secpar}(x) : x' \gets \mathcal{A}(1^{\secpar}, f_{\secpar}(x))] \le \nu(\secpar).$$
+- And the function *easy to invert* given the trapdoor: there is some negligible function $\nu$, where, for every $\secpar$, $$\Pr_{(x,t)\sim (X,T)}[f^{-1}_{\secpar}(t,f_\secpar(x)) = x] \ge 1- \nu(\secpar).$$
+
+# Variations
+TODO: Enhanced trapdoor permutations
 
 
-## Other results
-- [[Public key encryption]] can be built from trapdoor functions
-- [[Oblivious transfer]] can be built from enhanced trapdoor functions
+# Other results
+- [[public-key-encryption|PKE]] can be built from trapdoor permutations
+- [[oblivious-transfer|OT]] can be built from enhanced trapdoor permutations
+- The [[RSA Assumption]] implies the existence of a OWP.

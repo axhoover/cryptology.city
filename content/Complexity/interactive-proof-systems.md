@@ -1,9 +1,10 @@
 ---
 aliases:
   - IP
-title: IP
+  - Interactive Proof Systems
+title: Interactive Proof Systems
 ---
-# Interactive Proof Systems (IP)
+# Interactive Proof Systems
 The class of decision problems for which a "yes" answer can be verified by an _interactive proof_. Here a probabilistic polynomial-time verifier sends messages back and forth with an all-powerful prover. They can have polynomially many rounds of interaction. Given the verifier's algorithm, at the end:
 1. If the answer is "yes," the prover must be able to behave in such a way that the verifier accepts with probability at least 2/3 (over the choice of the verifier's random bits).
 2. If the answer is "no," then however the prover behaves the verifier must reject with probability at least 2/3.
@@ -12,4 +13,4 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#i
 
 ## Known relationships
 - $\classIP = \classPSPACE$ — TODO citation
-- $\classIP \neq \classPSPACE$ relative in the [[Random Oracle Model]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
+- $\classIP \neq \classPSPACE$ relative in the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]

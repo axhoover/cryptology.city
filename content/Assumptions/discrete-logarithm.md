@@ -1,10 +1,11 @@
 ---
 aliases:
   - DLOG
-title: DLOG
+  - Discrete logarithm
+title: Discrete logarithm
 ---
 # Discrete logarithm
-The *discrete logarithm (DLOG)* assumption is used throughout cryptography. It is a natural strengthening of the [[Computational Diffie-Hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[Computational Diffie-Hellman|CDH]] in the same group.
+The *discrete logarithm (DLOG)* assumption is used throughout cryptography. It is a natural strengthening of the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[computational-diffie-hellman|CDH]] in the same group.
 
 ## Assumption
 Informally, the DLOG assumption concerns a cyclic group
@@ -27,7 +28,7 @@ set, $g$ is a generator for the group, and $p$ is the order of the group.
 \end{algorithm}
 ```
 We say that **DLOG is hard** for a group generation algorithm $\GrGen$
-if for all efficient $\calA$,
+if for all efficient $\calA,$
 
 $$
 \Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{\text{dl}}_{\GrGen,\calA}(\secpar) = 1\right]
@@ -36,12 +37,12 @@ $$
 is negligible.
 
 ## Related results
-- It is easy to see that if $\calA$ can compute $x$ for a random $g^x$, then $\calA$ can compute both $x$ and $y$ from $g^{x}$ and $g^{y}$ and find $g^{xy}$ easily. This establishes that DLOG is not easier than [[Computational Diffie-Hellman|CDH]].
-- In the [[Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le \frac{q^2}{p}$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- It is easy to see that if $\calA$ can compute $x$ for a random $g^x$, then $\calA$ can compute both $x$ and $y$ from $g^{x}$ and $g^{y}$ and find $g^{xy}$ easily. This establishes that DLOG is not easier than [[computational-diffie-hellman|CDH]].
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 
 ## Attacks
-- The *Baby-step Giant-step* is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Therefore, this is optimal in the [[Generic Group Model|GGM]] — TODO citation
+- The *Baby-step Giant-step* is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Therefore, this is optimal in the [[generic-group-model|GGM]] — TODO citation
 
 # Vairations
 

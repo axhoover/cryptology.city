@@ -2,7 +2,8 @@
 aliases:
   - PRP
   - sPRP
-title: PRP
+  - Pseudorandom permutation
+title: Pseudorandom permutation
 ---
 # Pseudorandom permutation
 A **Pseudorandom Permutation (PRP)** allows someone to succinctly represent a permutation that is indistinguishable from a uniformly random permutation. A user generates a key and uses it to evaluate the permutation forward and backward at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random permutation. PRPs are the formal model behind block ciphers such as [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
@@ -82,6 +83,6 @@ is negligible.
 Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that a brute-force enumeration of $\calD$ is infeasible. When $|\calD|$ is instead polynomial in $\secpar$, the primitive is called a **small-domain PRP** and requires additional care, as some standard constructions and security reductions no longer apply.
 
 # Other results
-- [[Pseudorandom function|PRF]]s imply the existence of large-domain PRPs — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]
-- PRPs imply the existence of large-domain [[Pseudorandom function|PRF]]s (and
-infact these are invertible PRFs) — [[Switching Lemma]]
+- [[pseudorandom-function|PRFs]] imply the existence of large-domain PRPs — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]
+- PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and
+infact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]

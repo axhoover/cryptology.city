@@ -10,7 +10,7 @@ title: NTRU
 
 
 ## Related results
-- Any algorithm which can solve [[Ring Learning with Errors|Ring-LWE]] can be used to break the NTRU assumption.
+- Any algorithm which can solve [[learning-with-errors#Ring LWE|Ring-LWE]] can be used to break the NTRU assumption.
 	- TODO citation
 
 

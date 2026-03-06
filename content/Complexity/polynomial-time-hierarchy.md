@@ -1,9 +1,11 @@
 ---
 aliases:
   - PH
-title: PH
+  - Polynomial-Time Hierarchy
+  - Polynomial Hierarchy
+title: Polynomial Hierarchy
 ---
-# Polynomial Hierarchy (PH)
+# Polynomial Hierarchy
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#ph).
 

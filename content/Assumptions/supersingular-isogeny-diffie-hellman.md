@@ -1,9 +1,10 @@
 ---
 aliases:
   - SIDH
-title: SIDH
+  - Supersingular Isogeny Diffie-Hellman
+title: Supersingular Isogeny Diffie-Hellman
 ---
-# Supersingular Isogeny Diffie-Hellman (SIDH)
+# Supersingular Isogeny Diffie-Hellman
 TODO
 
 ## Assumption
