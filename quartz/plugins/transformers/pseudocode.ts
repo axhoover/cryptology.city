@@ -240,6 +240,13 @@ export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
                     col.className = "oracle-column";
                     wrapper.appendChild(col);
                     for (var k = 1; k < ctrs.length; k++) col.appendChild(ctrs[k]);
+
+                    var splitMatch = (sources[grp[0]] || "").match(/^\\s*%\\s*oracle-split:\\s*(\\d+)/m);
+                    if (splitMatch) {
+                      var oraclePct = parseInt(splitMatch[1], 10);
+                      ctrs[0].style.flex = String(100 - oraclePct);
+                      col.style.flex = String(oraclePct);
+                    }
                   });
 
                   var macrosArea = document.getElementById("macros-copy-area");
