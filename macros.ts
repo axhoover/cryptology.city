@@ -65,14 +65,19 @@ export const customMacros: Record<string, string> = {
   "\\stA": "\\mathsf{st}_{\\mathcal{A}}",
   "\\stB": "\\mathsf{st}_{\\mathcal{B}}",
   "\\stS": "\\mathsf{st}_{\\mathcal{S}}",
-  // Key names
+  "\\View": "\\mathsf{V}",
+  // Variable names
+  "\\pp": "\\mathsf{pp}",
+  "\\crs": "\\mathsf{crs}",
   "\\sk": "\\mathsf{sk}",
   "\\pk": "\\mathsf{pk}",
   "\\vk": "\\mathsf{vk}",
+  "\\td": "\\mathsf{td}",
   // Crypto shorthand
   "\\bits": "\\{0,1\\}",
   "\\negl": "\\mathrm{negl}",
   "\\poly": "\\mathrm{poly}",
+  "\\polylog": "\\mathrm{polylog}",
   "\\PPT": "\\mathrm{PPT}",
   "\\secpar": "\\lambda",
   "\\getsr": "\\overset{\\$}{\\gets}",

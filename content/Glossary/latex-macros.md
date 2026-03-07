@@ -69,6 +69,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\stA` | $\stA$ |
 | `\stB` | $\stB$ |
 | `\stS` | $\stS$ |
+| `\View` | $\View$ |
 
 ### Crypto shorthand
 

@@ -13,8 +13,9 @@ title: Private Information Retrieval
 The protocol where the client downloads the entire database is known as the *trivial PIR*.
 
 ## Syntax
-A PIR scheme is a triple of efficient algorithms $\PIR = (\Query, \Answer, \Decode)$ with respect to database size $n$, modeled as a bit-string $D\in \bits^n$:
-- $\Query(1^\secpar, i) \to (q, \st),$ is a randomized algorithm that takes an index $i \in [n]$, outputting a query $q$ to send to the server and a client state $\st,$
+A PIR scheme is a tuple of efficient algorithms $\PIR = (\Setup, \Query, \Answer, \Decode)$ with respect to database size $n$, modeled as a bit-string $D\in \bits^n$:
+- $\Setup(1^\secpar, 1^n) \to \pp,$ is a randomized algorithm that generates public parameters encoding the database size $n,$
+- $\Query(\pp, i) \to (q, \st),$ is a randomized algorithm that takes an index $i \in [n]$, outputting a query $q$ to send to the server and a client state $\st,$
 - $\Answer(D, q) \to a,$ is a deterministic algorithm that takes a database
 $D \in \bits^n$ and query $q$, outputting an answer $a,$
 - $\Decode(\st, a) \to x,$ is a deterministic algorithm that takes client state $\st$ and answer $a$, outputting a value $x \in \bits.$
@@ -25,6 +26,11 @@ transformation between the two. In particular, on can treat any $w$-width
 word database as a bit-string and just query for the $w$ consecutive bits
 the client is interested in.
 
+In general, PIR may be any arbitrary-round
+[[interactive-protocol|two-party protocol]]. However, most practical schemes 
+to-date require only a single round of interaction, so it is more standard
+to present the protocol in the 1-round notation with explicit functions.
+
 ## Properties
 
 ### Correctness
@@ -33,7 +39,7 @@ $D \in \bits^n$ and $i \in [n]$,
 $$
 \Pr\!\left[\Decode(\st, \Answer(D, q)) = D[i]\right] \ge 1 - \varepsilon,
 $$
-where $(q, \st) \gets \Query(1^\secpar, i)$.
+where $\pp \gets \Setup(1^\secpar, 1^n)$ and $(q, \st) \gets \Query(\pp, i)$.
 
 ### Query Privacy
 The server's view — the query $q$ — should reveal nothing about the queried index $i$. The following game captures this: the adversary picks two indices, a challenge bit selects one, and the adversary sees only the resulting query.
@@ -43,9 +49,10 @@ The server's view — the query $q$ — should reveal nothing about the queried 
 \algname{Game}
 \caption{$\Game^{\mathrm{priv}}_{\PIR,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(i_0, i_1, \stA) \gets \calA(1^\secpar, 1^n)$
+\State $\pp \gets \Setup(1^\secpar, 1^n)$
+\State $(i_0, i_1, \stA) \gets \calA(\pp)$
 \State $b \getsr \bits$
-\State $(q, \st) \gets \Query(1^\secpar, i_b)$
+\State $(q, \st) \gets \Query(\pp, i_b)$
 \State $b' \gets \calA(q, \stA)$
 \Return $[b' = b]$
 \end{algorithmic}
