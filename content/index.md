@@ -9,9 +9,9 @@ them. It is meant to serve as a large repository of cryptographic information
 and make it easy to understand the relationships between different primitives. 
 If you'd like to contribute, feel free to contribute to the
 [repo](https://github.com/axhoover/cryptology.city)!
-See the [[latex-macros]] pages for a summary of some of the notation used
-on the website, which can also be copied into your own LaTeX/KaTeX/MathJax
-projects!
+See the [[latex-macros|LaTeX Macros]] pages for a summary of some of the
+notation used on the website, which can also be copied into your own
+LaTeX/KaTeX/MathJax projects!
 
 
 Errors? Omissions? Misattributions? Your favorite primitive/assumption not here? Then please contribute to the city by submitting a pull request on [GitHub](https://github.com/axhoover/cryptology.city). The site is built with [Quartz](https://quartz.jzhao.xyz) and hosted on [Cloudflare Pages](https://pages.cloudflare.com), with content written in Markdown — contributing via GitHub is the best way to make modifications. For any other recommendations or issues, please reach out to the Cryptology City [Bluesky](https://bsky.app/profile/cryptology.city), [Twitter](https://twitter.com/cryptologycity), or [email](mailto:cryptologycity@gmail.com).
