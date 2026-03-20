@@ -134,5 +134,4 @@ is negligible.
 
 
 # Other results
-- If [[hash-function| OWFs]] exist, then Digital Signatures exist
-— Lamport signature citation
+- [[hash-function|OWFs]] imply the existence of digital signatures — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]

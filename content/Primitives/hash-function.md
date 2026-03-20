@@ -11,7 +11,7 @@ title: Hash function
 ---
 # Hash functions
 A *hash function* is function which can have a number of different properties
-in cryptography. Most often, it is requried that the hash function is *one-way*
+in cryptography. Most often, it is required that the hash function is *one-way*
 or preimage resistant. If such a hash function exists, then many other
 primitives are known to exist. In other settings, it's important that the hash
 function is *collision resistant*, meaning that it is hard to find two
@@ -24,13 +24,13 @@ $\calK$ is the key space, $\calD$ is the domain, and $\calR$ is the range.
 ## Properties
 There are a number of different properties that different cryptographic
 protocols require of hash functions. Sometimes, even the particular assumptions
-are insufficient to prove security of a protocol. In this casee, there is
+are insufficient to prove security of a protocol. In this case, there is
 sometimes still hope to prove security when modeling a hash function as a
 [[random oracle]].
 
 ### Preimage resistance (one-wayness)
 One of the most fundamental properties is preimage resistant or
-one-way. This is important in many computaitonal complexity analyses.
+one-way. This is important in many computational complexity analyses.
 
 ```pseudocode
 \begin{algorithm}
@@ -68,8 +68,8 @@ preimage resistance.
 \caption{$\Game^{\mathrm{cr}}_{\hash,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $k \getsr \calK$
-\State $(\hat{x}_0, \hat{x}_1) \gets \calA(k,y)$
-\Return $[\hash(k,\hat{x}_0) = \hash(k,\hat{x}_1)]$
+\State $(\hat{x}_0, \hat{x}_1) \gets \calA(k)$
+\Return $[\hash(k,\hat{x}_0) = \hash(k,\hat{x}_1) \wedge \hat{x}_0 \neq \hat{x}_1]$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -101,4 +101,4 @@ is negligible.
 
 
 ## Unknown results
-- It's unkonwn if one-way functions imply collision resistant hash functions.
+- It's unknown if one-way functions imply collision resistant hash functions.
