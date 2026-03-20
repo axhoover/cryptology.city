@@ -7,7 +7,7 @@ title: Digital signature
 ---
 # Digital signature
 
-TODO: high level description
+A **digital signature (DS)** scheme allows a signer holding a secret signing key to produce an unforgeable signature on a message, which anyone can verify using the corresponding public verification key. Digital signatures are the public-key analogue of [[message-authentication-code|MACs]].
 
 ## Syntax
 A Digital Signature scheme is a tuple of efficient algorithms
