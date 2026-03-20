@@ -22,4 +22,4 @@ TODO: Enhanced trapdoor permutations
 # Other results
 - [[public-key-encryption|PKE]] can be built from trapdoor permutations
 - [[oblivious-transfer|OT]] can be built from enhanced trapdoor permutations
-- The [[RSA Assumption]] implies the existence of a OWP.
+- The [[rsa-assumption|RSA assumption]] implies the existence of a OWP — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]

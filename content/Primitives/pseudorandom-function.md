@@ -103,4 +103,4 @@ TODO: define these and say how they relate to PRPs
 ## Puncturable PRFs
 
 # Other results
-- [[hash-function|OWF]] implies the existence of PRFs - TODO
+- [[hash-function|OWF]] implies the existence of PRFs — [[GGM86 - How to construct random functions|GGM86]]
