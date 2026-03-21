@@ -39,6 +39,12 @@ export const customMacros: Record<string, string> = {
   "\\classIP": "\\mathbf{IP}",
   "\\classAM": "\\mathbf{AM}",
   "\\classMA": "\\mathbf{MA}",
+  "\\classcoAM": "\\mathbf{coAM}",
+  "\\classPP": "\\mathbf{PP}",
+  "\\classPpoly": "\\mathbf{P/poly}",
+  "\\classEXP": "\\mathbf{EXP}",
+  "\\classTFNP": "\\mathbf{TFNP}",
+  "\\classsharpP": "\\mathbf{\\#P}",
   // Common algorithms
   "\\Gen": "\\mathsf{Gen}",
   "\\GrGen": "\\mathsf{GrGen}",
@@ -105,4 +111,4 @@ export const customMacros: Record<string, string> = {
   "\\MAC": "\\mathsf{MAC}",
   "\\PIR": "\\mathsf{PIR}",
   "\\hash": "\\mathsf{H}",
-}
+};
