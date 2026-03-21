@@ -27,7 +27,15 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 - $\classQMA \subseteq \classPP \subseteq \classPSPACE$: QMA is contained in PP (Marriott-Watrous — TODO citation), and thus in PSPACE.
 - QMA is closed under complement: $\mathbf{coQMA} = \classQMA$. This uses the quantum error reduction technique (applying the swap test), and contrasts with the classical case where it is unknown whether $\classMA = \mathbf{coMA}$.
 - $\classQMA$ and $\classAM$ are believed incomparable.
-- **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA — TODO citation. It is not even known whether QMA(2) $\subseteq$ NEXP.
+- **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA. It is not even known whether QMA(2) $\subseteq$ NEXP.
+
+## Variants
+
+Recent work has studied how modifications to the proof model change QMA's power:
+
+- **QMA+** (proofs with non-negative amplitudes): restricting quantum proofs to have non-negative amplitudes (no relative phase between basis states) dramatically changes the class. With one constant completeness-soundness gap, $\classQMA+ = \mathbf{NEXP}$; with a different gap, $\classQMA+ = \classQMA$ — [[BFM24 - Quantum Merlin-Arthur and Proofs Without Relative Phase|BFM24]]. This shows that _relative phase_ is at least as important a source of proof power as entanglement (since $\mathbf{QMA}(2) \subseteq \mathbf{NEXP}$, removing phase collapses the class further than removing entanglement might).
+- **QMA with a non-collapsing measurement**: if the verifier may apply a single measurement that does not disturb the quantum state (a "non-collapsing" measurement), then QMA equals NEXP — [[BM25 - Superposition Detection and QMA with Non-Collapsing Measurements|BM25]], resolving an open question of Aaronson.
+- **QMA with internally separable proofs**: a variant where each proof must be "internally separable" (after tracing out one register, a small number of qubits are separable from the rest) is strictly less powerful than QMA(2), assuming EXP $\neq$ NEXP — [[BFL+24 - Quantum Merlin-Arthur with an Internally Separable Proof|BFL+24]]. This provides a new route toward proving QMA(2) = NEXP.
 
 ## Relevance to cryptography
 
