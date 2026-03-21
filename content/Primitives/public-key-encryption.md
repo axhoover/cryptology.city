@@ -4,11 +4,15 @@ aliases:
   - Public key encryption
 title: Public key encryption
 ---
+
 # Public key encryption
+
 A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[symmetric-key-encryption|SKE]].
 
 ## Syntax
+
 A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ with respect to secret keyspace $\calK_{\mathrm{sk}}$, public keyspace $\calK_{\mathrm{pk}}$, message space $\calM$, and ciphertext space $\calC$:
+
 - $\KeyGen(1^\secpar) \to (\sk, \pk),$ is a randomized algorithm which samples a secret key $\sk \in \calK_{\mathrm{sk}}$ and public key $\pk \in \calK_{\mathrm{pk}}$,
 - $\Enc(\pk, m) \to c,$ is a randomized algorithm which takes a public key $\pk \in \calK_{\mathrm{pk}}$ and message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk, c) \to m,$ is a deterministic algorithm which takes a secret key $\sk \in \calK_{\mathrm{sk}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
@@ -16,6 +20,7 @@ A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ w
 ## Properties
 
 ### Correctness
+
 A PKE scheme $\PKE = (\KeyGen, \Enc, \Dec)$ is $(1-\varepsilon)$-**correct**
 if for all $\secpar \in \mathbb{N}$ and $m \in \calM$,
 
@@ -26,10 +31,11 @@ $$
 over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is perfectly correct.
 
 ### CPA Security
+
 The CPA game therefore takes the form of a single challenge:
 the adversary receives $\pk$, submits two messages, and tries to determine
 which was encrypted. Note that the adversary themselves can encrypt messages
-with $\pk.$ 
+with $\pk.$
 
 ```pseudocode
 \begin{algorithm}
@@ -54,6 +60,7 @@ $$
 is negligible.
 
 ### CCA Security
+
 In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. To avoid a trivial win, $\calA$ is **admissible**: it may not query $\calD$ on $c^*$ itself.
 
 ```pseudocode
@@ -84,13 +91,17 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 # Variations
 
 ## CCA1 Security
-**CCA1** (also called the *lunchtime attack*) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
+
+**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
 
 ## Key-hiding
+
 TODO
 
 # Other results
+
 - PKE implies [[hash-function|OWF]]
 - [[trapdoor-permutation|TDP]] implies PKE
-- PKE can be built assuming [[decisional-diffie-hellman|DDH]] is hard — [[DH76 - New Directions in Cryptography|DH76]]
+- PKE from [[decisional-diffie-hellman|DDH]]: the ElGamal scheme encrypts $m$ as $(g^r, m \cdot y^r)$ under public key $y = g^x$, and is CPA-secure under DDH — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] (see also [[DH76 - New Directions in Cryptography|DH76]] for the underlying key-exchange)
+- PKE from [[learning-with-errors|LWE]]: Regev's encryption scheme is CPA-secure under the LWE assumption, with security rooted in worst-case lattice hardness — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]
 - PKE can be built assuming [[learning-parity-with-noise#Noise Level|Mid-noise LPN]]

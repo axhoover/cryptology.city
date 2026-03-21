@@ -5,23 +5,28 @@ aliases:
   - Symmetric key encryption
 title: Symmetric key encryption
 ---
+
 # Symmetric key encryption
+
 A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages, such that an adversary who does not know the key cannot learn anything about the plaintext from the ciphertext.
 
 ## Syntax
+
 A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ with respect to keyspace $\calK,$ message space $\calM,$ and ciphertext space $\calC$:
+
 - $\KeyGen(1^\secpar) \to k,$ is a randomized algorithm which
-samples a key $k \in \calK$,
+  samples a key $k \in \calK$,
 - $\Enc(k, m) \to c,$ is a randomized algorithm which takes a
-key $k \in \calK$ and message $m \in \calM$, outputting a ciphertext
-$c \in \calC$,
+  key $k \in \calK$ and message $m \in \calM$, outputting a ciphertext
+  $c \in \calC$,
 - $\Dec(k, c) \to m,$ is a deterministic algorith which
-takes a key $k \in \calK$ and ciphertext $c \in \calC$,
-outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
+  takes a key $k \in \calK$ and ciphertext $c \in \calC$,
+  outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
 ## Properties
 
 ### Correctness
+
 A SKE scheme $\SKE = (\KeyGen, \Enc, \Dec)$ is
 $(1-\varepsilon)$-**correct** if for all
 $\secpar \in \mathbb{N}$ and $m \in \calM$,
@@ -29,10 +34,12 @@ $\secpar \in \mathbb{N}$ and $m \in \calM$,
 $$
 \Pr\!\left[\Dec(k, \Enc(k, m)) = m\right] \ge 1 - \varepsilon,
 $$
+
 over the choice of $k \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When
 $\varepsilon=0$, we say $\SKE$ is perfectly correct.
 
 ### CPA Security
+
 In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a hidden bit. The adversary wins by guessing $b$.
 
 ```pseudocode
@@ -58,6 +65,7 @@ $$
 is negligible.
 
 ### IND$-CPA Security
+
 **Indistinguishability from random (IND$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random ciphertexts, rather than encryptions of two chosen messages. The oracle in world 0 encrypts the query; in world 1 it returns a fresh uniform random ciphertext regardless of the input.
 
 ```pseudocode
@@ -84,7 +92,8 @@ $$
 is negligible. IND\$-CPA implies CPA security, but not vice versa.
 
 ### CCA Security
-In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has access to a decryption oracle. To avoid a trivial win, $\calA$ is *admissible*: it may not query $\calD$ on any ciphertext output by the encryption oracle $\calO_b$.
+
+In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has access to a decryption oracle. To avoid a trivial win, $\calA$ is _admissible_: it may not query $\calD$ on any ciphertext output by the encryption oracle $\calO_b$.
 
 ```pseudocode
 \begin{algorithm}
@@ -110,5 +119,7 @@ $$
 is negligible. The admissibility restriction is necessary: without it, $\calA$ could query $\calO_b(0,1)$ and then decrypt the result to trivially learn $b$.
 
 # Other results
-- (Both [[#CPA Security|CPA]] and [[#CCA Security|CCA]]) SKE can be built in a black-box way from a [[hash-function|OWF]] — Folklore?
+
+- CPA-secure SKE from [[hash-function|OWF]]: the stream cipher $\Enc(k,m) = \PRF(k,r) \oplus m$ (using a fresh nonce $r$) is CPA-secure whenever $\PRF$ is a PRF. Since OWFs imply PRFs via HILL+GGM, SKE follows — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GGM86 - How to construct random functions|GGM86]]
+- CCA-secure SKE can be built from OWF: combine a CPA-secure SKE with a [[message-authentication-code|MAC]] using the encrypt-then-MAC paradigm
 - CPA-secure SKE can be boosted to CCA-secure SKE using a [[message-authentication-code|MAC]]
