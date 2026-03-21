@@ -38,6 +38,11 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\classEXP`    | $\classEXP$    |
 | `\classTFNP`   | $\classTFNP$   |
 | `\classsharpP` | $\classsharpP$ |
+| `\classBQP`    | $\classBQP$    |
+| `\classQMA`    | $\classQMA$    |
+| `\classQCMA`   | $\classQCMA$   |
+| `\classQIP`    | $\classQIP$    |
+| `\classQSZK`   | $\classQSZK$   |
 
 ### Common algorithms
 

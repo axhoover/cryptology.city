@@ -45,6 +45,11 @@ export const customMacros: Record<string, string> = {
   "\\classEXP": "\\mathbf{EXP}",
   "\\classTFNP": "\\mathbf{TFNP}",
   "\\classsharpP": "\\mathbf{\\#P}",
+  "\\classBQP": "\\mathbf{BQP}",
+  "\\classQMA": "\\mathbf{QMA}",
+  "\\classQCMA": "\\mathbf{QCMA}",
+  "\\classQIP": "\\mathbf{QIP}",
+  "\\classQSZK": "\\mathbf{QSZK}",
   // Common algorithms
   "\\Gen": "\\mathsf{Gen}",
   "\\GrGen": "\\mathsf{GrGen}",
