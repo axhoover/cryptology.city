@@ -4,6 +4,7 @@ aliases:
   - Oblivious Transfer
 title: Oblivious transfer
 ---
+
 # Oblivious transfer
 
 **Oblivious Transfer (OT)** is a two-party protocol between a **sender** $S$ and a **receiver** $R$. In the basic 1-out-of-2 variant, the sender holds two messages and the receiver holds a choice bit; at the end, the receiver learns the chosen message while the sender learns nothing about the choice, and the receiver learns nothing about the unchosen message.
@@ -12,6 +13,7 @@ title: Oblivious transfer
 
 A 1-out-of-2 OT is a pair $\OT = (\Setup, \langle S, R \rangle)$ with message
 space $\calM$, following the [[interactive-protocol|two-party protocol]] syntax:
+
 - $\Setup(1^\secpar) \to \pp,$ is a randomized algorithm generating public parameters,
 - $S$ and $R$ are stateful interactive algorithms with:
   - $S$ input: a pair of messages $(x_0, x_1) \in \calM^2,$
@@ -116,6 +118,7 @@ OT from public-key primitives requires expensive operations per transfer. **OT e
 In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
 
 # Other results
+
 - OT is implied by non-trivial [[single-server-private-information-retrieval|PIR]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
 - OT implies [[commitment-scheme|commitment schemes]]
 - OT can be constructed from [[public-key-encryption|PKE]]
