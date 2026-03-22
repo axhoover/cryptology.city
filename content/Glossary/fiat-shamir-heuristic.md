@@ -4,46 +4,29 @@ aliases:
   - Fiat-Shamir Heuristic
 title: Fiat-Shamir Heuristic
 ---
-
 # Fiat-Shamir Heuristic
+The *Fiat-Shamir heuristic* (or *Fiat-Shamir transform*) is a technique for compiling a public-coin interactive protocol into a non-interactive one by replacing the verifier's random challenges with the output of a hash function applied to the transcript so far. The transform is proven secure when the hash function is modeled as a [[random-oracle-model|random oracle]], but is known to fail in important settings when instantiated with concrete hash functions.
 
-The **Fiat-Shamir heuristic** is a general method for converting a public-coin interactive proof (specifically, a **Sigma protocol** / $\Sigma$-protocol) into a non-interactive proof or signature scheme by replacing the verifier's random challenge with a cryptographic hash of the prover's commitment. Introduced in — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
+## Description
 
-## Sigma protocols
+Given a $(2k+1)$-message public-coin interactive protocol $\Pi = (P, V)$ with messages $a_1, c_1, \ldots, a_k, c_k, a_{k+1}$, the Fiat-Shamir transform produces a non-interactive protocol $\Pi_\mathsf{FS}$ as follows: the prover computes each verifier challenge itself as
 
-A **$\Sigma$-protocol** for a relation $R = \{(x, w)\}$ (where $x$ is the statement and $w$ is the witness) is a three-message public-coin protocol:
+$$c_i := H(a_1, c_1, \ldots, a_{i-1}, c_{i-1}, a_i),$$
 
-1. **Commitment**: the prover $P(x, w)$ sends a commitment $a$
-2. **Challenge**: the verifier $V(x)$ sends a uniformly random challenge $e \getsr \{0,1\}^\secpar$
-3. **Response**: the prover sends a response $z$; the verifier accepts or rejects based on $(x, a, e, z)$
+where $H$ is a hash function modeled as a random oracle. The resulting proof $(a_1, c_1, \ldots, a_{k+1})$ can be verified by any party who recomputes the same hash challenges.
 
-A $\Sigma$-protocol must satisfy:
+The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir), and for building non-interactive zero-knowledge proofs and succinct arguments.
 
-- **Completeness**: an honest prover with a valid witness always convinces the verifier
-- **Special soundness**: given two accepting transcripts $(a, e, z)$ and $(a, e', z')$ with the same commitment but different challenges $e \neq e'$, one can efficiently extract a witness $w$
-- **Honest-verifier zero-knowledge (HVZK)**: there is a simulator that, given only $x$ and $e$, produces a transcript $(a, e, z)$ indistinguishable from a real interaction
+## Security in the ROM
 
-## The transform
+In the [[random-oracle-model|random oracle model]], the Fiat-Shamir transform preserves soundness and zero-knowledge (and simulation-extractability) for a broad class of protocols. This is the primary justification for its widespread use.
 
-The **Fiat-Shamir transform** makes a $\Sigma$-protocol non-interactive by replacing the verifier's random challenge with $e = H(\mathbf{x}, a)$, where $H$ is a hash function modeled as a [[random-oracle-model|random oracle]]:
+## Known Failures
 
-$$
-\pi = (a,\, z) \quad \text{where} \quad e = H(x, a), \quad z = P.\mathsf{Respond}(x, w, a, e)
-$$
+### Standard Model (GK03)
+Goldwasser and Kalai showed that the Fiat-Shamir transform is uninstantiable in the standard model [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. They constructed a 3-round public-coin identification scheme that is secure in the ROM, yet whose Fiat-Shamir transform is existentially forgeable under *every* concrete hash function. This demonstrates that the random oracle cannot always be replaced by an actual hash function, even a cryptographically strong one.
 
-Verification checks whether the fixed challenge $e = H(x, a)$ yields an accepting transcript $(a, e, z)$.
+$$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{for all } H.$$
 
-For signatures, the message $m$ is included in the hash: $e = H(x, a, m)$.
-
-## Security
-
-In the [[random-oracle-model|random oracle model (ROM)]], the Fiat-Shamir transform produces:
-
-- **Non-interactive zero-knowledge (NIZK)** proofs: secure against any adversary that treats $H$ as a random oracle
-- **Signatures** (when applied to an identification protocol): existentially unforgeable under chosen-message attacks (EUF-CMA) — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
-  - Example: applying Fiat-Shamir to the Schnorr identification protocol yields **Schnorr signatures**
-
-## Limitations
-
-- **Insecure in the standard model**: for certain $\Sigma$-protocols and hash functions, the Fiat-Shamir transform does not produce a secure scheme when $H$ is an explicit function rather than a random oracle. There exist artificial protocols for which the transform fails for any explicit hash function
-- **Non-black-box techniques**: some proof systems (e.g., SNARKs) use Fiat-Shamir in non-standard ways that require careful analysis beyond the classical $\Sigma$-protocol setting
+### Natural Protocols (KRS25)
+Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a *standard, widely-studied* protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove *false* statements for explicit families of circuits. This raises serious questions about the security of deployed non-interactive succinct arguments based on Fiat-Shamir.
