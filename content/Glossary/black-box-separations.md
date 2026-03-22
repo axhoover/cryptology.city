@@ -52,7 +52,7 @@ The landmark result of [[IR89 - Limits on the provable consequences of one-way p
 **Corollaries.**
 1. No fully black-box construction of KA from OWP can exist.
 2. Any proof that $\mathrm{OWP} \Rightarrow \mathrm{KA}$ must use non-black-box techniques.
-3. Such a proof would be as hard as proving $\classP \neq \classNP$: the oracle separation shows that in the random permutation world, any black-box security argument must rule out a concrete polynomial-time eavesdropper, which is equivalent to proving $\classP \neq \classNP$ relative to that oracle.
+3. Any proof that OWP $\Rightarrow$ KA would simultaneously establish that $\classNP \not\subseteq \classBPP$: KA security requires that no BPP algorithm recovers the shared key, yet if $\classNP \subseteq \classBPP$ an adversary could search non-deterministically for the shared key and verify it in polynomial time, breaking any KA protocol. This is a strictly stronger consequence than OWP $\Rightarrow$ $\classP \neq \classNP$ and is equally out of reach with current techniques.
 
 **Proof sketch.**
 Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$. The argument proceeds in two parts:
@@ -63,7 +63,9 @@ Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$. The a
 
 A black-box security reduction would convert this eavesdropper (which is efficient relative to $O$) into an inverter for $\pi$ — contradicting one-wayness. Hence no such reduction can exist.
 
-**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper from $O(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by Merkle's Puzzles [[Mer78]]. This shows that Merkle's Puzzles are *query-complexity optimal*: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper. Together, IR89 and BM09 give a complete picture of the complexity of key agreement in the random oracle model.
+**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper from $O(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by [[Mer78 - Secure Communications Over Insecure Channels|Merkle's Puzzles]]. This shows that Merkle's Puzzles are *query-complexity optimal*: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper.
+
+**Connection to $\classNP \not\subseteq \classBPP$.** The oracle separation above (Corollaries 1–2) follows from information-theoretic OWP hardness combined with the efficient eavesdropper. Corollary 3 captures a complementary point: the oracle world can be viewed as one where parties additionally hold an NP oracle. OWP remains hard in this world — inverting a random permutation is an oracle-relative NP problem ($\classNP^{\pi}$), not solvable by a base NP oracle. KA is however insecure: an NP-powered adversary can search for the shared key. A BB proof, which must relativize, would need to produce secure KA even in this world — forcing it to establish that NP power cannot recover keys, i.e., $\classNP \not\subseteq \classBPP$.
 
 ## Other Notable Separations
 
