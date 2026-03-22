@@ -3,7 +3,9 @@ aliases:
   - LaTeX macros
 title: LaTeX macros
 ---
+
 # LaTeX macros
+
 All pseudocode and math on this site uses custom LaTeX macros for common cryptographic notation. You can copy them below to use in your own LaTeX documents or KaTeX/MathJax configurations.
 
 <div id="macros-copy-area"></div>
@@ -12,97 +14,109 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 ### Caligraphic letters
 
-| Macro | Renders as |
-|-------|-----------|
+| Macro             | Renders as                           |
+| ----------------- | ------------------------------------ |
 | `\calA` … `\calZ` | $\calA, \calB, \calC, \ldots, \calZ$ |
 
 ### Complexity classes
 
-| Macro | Renders as |
-|-------|-----------|
-| `\classP` | $\classP$ |
-| `\classNP` | $\classNP$ |
-| `\classcoNP` | $\classcoNP$ |
-| `\classBPP` | $\classBPP$ |
-| `\classRP` | $\classRP$ |
-| `\classZPP` | $\classZPP$ |
+| Macro          | Renders as     |
+| -------------- | -------------- |
+| `\classP`      | $\classP$      |
+| `\classNP`     | $\classNP$     |
+| `\classcoNP`   | $\classcoNP$   |
+| `\classBPP`    | $\classBPP$    |
+| `\classRP`     | $\classRP$     |
+| `\classZPP`    | $\classZPP$    |
 | `\classPSPACE` | $\classPSPACE$ |
-| `\classSZK` | $\classSZK$ |
-| `\classCZK` | $\classCZK$ |
+| `\classSZK`    | $\classSZK$    |
+| `\classCZK`    | $\classCZK$    |
+| `\classMA`     | $\classMA$     |
+| `\classcoAM`   | $\classcoAM$   |
+| `\classPP`     | $\classPP$     |
+| `\classPpoly`  | $\classPpoly$  |
+| `\classEXP`    | $\classEXP$    |
+| `\classTFNP`   | $\classTFNP$   |
+| `\classsharpP` | $\classsharpP$ |
+| `\classBQP`    | $\classBQP$    |
+| `\classQMA`    | $\classQMA$    |
+| `\classQCMA`   | $\classQCMA$   |
+| `\classQIP`    | $\classQIP$    |
+| `\classQSZK`   | $\classQSZK$   |
 
 ### Common algorithms
 
-| Macro | Renders as |
-|-------|-----------|
-| `\KeyGen` | $\KeyGen$ |
-| `\Gen` | $\Gen$ |
-| `\Enc` | $\Enc$ |
-| `\Dec` | $\Dec$ |
-| `\Setup` | $\Setup$ |
-| `\Query` | $\Query$ |
-| `\Eval` | $\Eval$ |
-| `\Invert` | $\Invert$ |
+| Macro     | Renders as |
+| --------- | ---------- |
+| `\KeyGen` | $\KeyGen$  |
+| `\Gen`    | $\Gen$     |
+| `\Enc`    | $\Enc$     |
+| `\Dec`    | $\Dec$     |
+| `\Setup`  | $\Setup$   |
+| `\Query`  | $\Query$   |
+| `\Eval`   | $\Eval$    |
+| `\Invert` | $\Invert$  |
 
 ### Key names
 
 | Macro | Renders as |
-|-------|-----------|
-| `\sk` | $\sk$ |
-| `\pk` | $\pk$ |
-| `\vk` | $\vk$ |
+| ----- | ---------- |
+| `\sk` | $\sk$      |
+| `\pk` | $\pk$      |
+| `\vk` | $\vk$      |
 
 ### Number sets
 
 | Macro | Renders as |
-|-------|-----------|
-| `\NN` | $\NN$ |
-| `\ZZ` | $\ZZ$ |
-| `\FF` | $\FF$ |
-| `\GG` | $\GG$ |
+| ----- | ---------- |
+| `\NN` | $\NN$      |
+| `\ZZ` | $\ZZ$      |
+| `\FF` | $\FF$      |
+| `\GG` | $\GG$      |
 
 ### Simulators and state
 
-| Macro | Renders as |
-|-------|-----------|
-| `\Sim` | $\Sim$ |
-| `\st` | $\st$ |
-| `\stA` | $\stA$ |
-| `\stB` | $\stB$ |
-| `\stS` | $\stS$ |
-| `\View` | $\View$ |
+| Macro   | Renders as |
+| ------- | ---------- |
+| `\Sim`  | $\Sim$     |
+| `\st`   | $\st$      |
+| `\stA`  | $\stA$     |
+| `\stB`  | $\stB$     |
+| `\stS`  | $\stS$     |
+| `\View` | $\View$    |
 
 ### Crypto shorthand
 
-| Macro | Renders as |
-|-------|-----------|
-| `\bits` | $\bits$ |
-| `\negl` | $\negl$ |
-| `\poly` | $\poly$ |
-| `\PPT` | $\PPT$ |
-| `\secpar` | $\secpar$ |
-| `\getsr` | $\getsr$ |
-| `\Funcs` | $\Funcs$ |
+| Macro     | Renders as |
+| --------- | ---------- |
+| `\bits`   | $\bits$    |
+| `\negl`   | $\negl$    |
+| `\poly`   | $\poly$    |
+| `\PPT`    | $\PPT$     |
+| `\secpar` | $\secpar$  |
+| `\getsr`  | $\getsr$   |
+| `\Funcs`  | $\Funcs$   |
 
 ### Advantages and games
 
-| Macro | Renders as |
-|-------|-----------|
-| `\Adv` | $\Adv$ |
-| `\Expt` | $\Expt$ |
-| `\Game` | $\Game$ |
-| `\indcpa` | $\indcpa$ |
-| `\indcca` | $\indcca$ |
-| `\eufcma` | $\eufcma$ |
-| `\sufcma` | $\sufcma$ |
+| Macro     | Renders as |
+| --------- | ---------- |
+| `\Adv`    | $\Adv$     |
+| `\Expt`   | $\Expt$    |
+| `\Game`   | $\Game$    |
+| `\indcpa` | $\indcpa$  |
+| `\indcca` | $\indcca$  |
+| `\eufcma` | $\eufcma$  |
+| `\sufcma` | $\sufcma$  |
 
 ### Primitives
 
-| Macro | Renders as |
-|-------|-----------|
-| `\PRF` | $\PRF$ |
-| `\RO` | $\RO$ |
-| `\PRG` | $\PRG$ |
-| `\PRP` | $\PRP$ |
-| `\OT` | $\OT$ |
-| `\SKE` | $\SKE$ |
-| `\PKE` | $\PKE$ |
+| Macro  | Renders as |
+| ------ | ---------- |
+| `\PRF` | $\PRF$     |
+| `\RO`  | $\RO$      |
+| `\PRG` | $\PRG$     |
+| `\PRP` | $\PRP$     |
+| `\OT`  | $\OT$      |
+| `\SKE` | $\SKE$     |
+| `\PKE` | $\PKE$     |
