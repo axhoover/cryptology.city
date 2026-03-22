@@ -5,29 +5,33 @@ aliases:
   - Digital signature
 title: Digital signature
 ---
+
 # Digital signature
 
 A **digital signature (DS)** scheme allows a signer holding a secret signing key to produce an unforgeable signature on a message, which anyone can verify using the corresponding public verification key. Digital signatures are the public-key analogue of [[message-authentication-code|MACs]].
 
 ## Syntax
+
 A Digital Signature scheme is a tuple of efficient algorithms
 $\DS = (\KeyGen, \Sign, \Vrfy)$ with respect to signing keyspace
 $\calK_{\mathrm{sk}}$, verification (or public) keyspace $\calK_{\mathrm{pk}}$,
 message space $\calM$, and signature space $\calS$:
+
 - $\KeyGen(1^\secpar) \to (\sk, \vk),$ is a randomized algorithm which samples
-a signing key $\sk \in \calK_{\mathrm{sk}}$ and verification (or public)
-key $\vk \in \calK_{\mathrm{pk}}$,
+  a signing key $\sk \in \calK_{\mathrm{sk}}$ and verification (or public)
+  key $\vk \in \calK_{\mathrm{pk}}$,
 - $\Sign(\sk, m) \to c,$ is a (possibly) randomized algorithm which takes a
-signing key $\sk \in \calK_{\mathrm{sk}}$ and message $m \in \calM$,
-outputting signature $\sigma \in \calS$,
+  signing key $\sk \in \calK_{\mathrm{sk}}$ and message $m \in \calM$,
+  outputting signature $\sigma \in \calS$,
 - $\Vrfy(\vk, m, \sigma) \to b,$ is a deterministic algorithm which takes a
-verification key $\vk \in \calK_{\mathrm{vk}},$ a message $m\in \calM,$ and
-a signature $\sigma\in\calS$, outputting a bit $b \in \bits$ indicating
-whether the signature is valid or not.
+  verification key $\vk \in \calK_{\mathrm{vk}},$ a message $m\in \calM,$ and
+  a signature $\sigma\in\calS$, outputting a bit $b \in \bits$ indicating
+  whether the signature is valid or not.
 
 ## Properties
 
 ### Correctness
+
 A Digital Signature scheme $\DS = (\KeyGen, \Sign, \Vrfy)$ is
 $(1-\varepsilon)$**-correct** if for all $m \in \calM$,
 
@@ -38,8 +42,8 @@ $$
 over the randomness of $(\sk, \vk) \leftarrow \KeyGen(1^\secpar)$ and
 possibly $\Sign.$
 
-
 ### Existential Unforgeability
+
 The following is the **existential unforgeability under chosen
 message attacks (EUF-CMA)** game. This security notion requires that an
 adversary cannot find a message signature pair $(\hat{m},\hat{\sigma})$ even
@@ -82,8 +86,8 @@ $$
 
 is negligible.
 
-
 ### Strong Unforgeability
+
 The following is the **strongly unforgeability under chosen
 message attacks (SUF-CMA)** game. This security notion strenghtens the above
 EUF-CMA notation and requires $\DS$ to prevent an adversary from "mauling"
@@ -127,11 +131,12 @@ $$
 
 is negligible.
 
-
 # Variations
 
-
-
-
 # Other results
-- [[hash-function|OWFs]] imply the existence of digital signatures — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
+
+- [[hash-function|OWFs]] imply one-time digital signatures via Lamport's scheme — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
+  - Lamport signatures are single-use; a single key pair signs at most one message securely
+- Many-time signatures from OWFs are obtained by authenticating a collection of one-time verification keys using a Merkle hash tree, giving $O(\secpar)$-size signatures with a $\poly(\secpar)$-size public key — [[Mer89 - A Certified Digital Signature|Mer89]]
+- The foundational EUF-CMA security definition was introduced alongside the first construction of a many-time signature scheme secure under adaptive chosen-message attacks, based on factoring — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]
+- Digital signatures imply [[hash-function|OWFs]]: if signing is hard to forge, the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)

@@ -5,11 +5,15 @@ aliases:
   - Pseudorandom permutation
 title: Pseudorandom permutation
 ---
+
 # Pseudorandom permutation
+
 A **Pseudorandom Permutation (PRP)** allows someone to succinctly represent a permutation that is indistinguishable from a uniformly random permutation. A user generates a key and uses it to evaluate the permutation forward and backward at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random permutation. PRPs are the formal model behind block ciphers such as [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
 
 ## Syntax
+
 A PRP is a triple of efficient algorithms $\PRP = (\KeyGen, \Eval, \Invert)$ with respect to keyspace $\calK$ and domain $\calD$:
+
 - $\KeyGen(1^\secpar) \to k,$ is a randomized algorithm that samples a key $k \in \calK,$
 - $\Eval(k, x) \to y,$ is a deterministic algorithm that takes a key $k \in \calK$ and input $x \in \calD$, outputting $y \in \calD,$
 - $\Invert(k, y) \to x,$ is a deterministic algorithm that takes a key $k \in \calK$ and input $y \in \calD$, outputting $x \in \calD.$
@@ -19,7 +23,9 @@ For every key $k$, $\Eval(k, \cdot)$ is a bijection on $\calD$.
 ## Properties
 
 ### Correctness
+
 A PRP $\PRP$ is **correct** if for all $k \in \calK$ and $x \in \calD$,
+
 $$
 \Invert(k, \Eval(k, x)) = x.
 $$
@@ -51,6 +57,7 @@ $$
 is negligible.
 
 ### Strong Security
+
 In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. This is a strictly stronger notion than standard PRP security.
 
 ```pseudocode
@@ -80,9 +87,11 @@ is negligible.
 # Variations
 
 ## Small-domain PRPs
+
 Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that a brute-force enumeration of $\calD$ is infeasible. When $|\calD|$ is instead polynomial in $\secpar$, the primitive is called a **small-domain PRP** and requires additional care, as some standard constructions and security reductions no longer apply.
 
 # Other results
+
 - [[pseudorandom-function|PRFs]] imply the existence of large-domain PRPs — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]
 - PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and
-infact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
+  infact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
