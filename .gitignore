@@ -4,3 +4,4 @@ node_modules/
 public/
 quartz/.quartz-cache/
 *.tsbuildinfo
+tsconfig.tsbuildinfo
