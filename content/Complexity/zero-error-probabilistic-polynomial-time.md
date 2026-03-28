@@ -4,7 +4,9 @@ aliases:
   - Zero-error probabilistic polynomial-time
 title: Zero-error probabilistic polynomial-time
 ---
+
 # Zero-error probabilistic polynomial-time
+
 The class of decision problems solvable by a probabilistic polynomial-time algorithm that always outputs the correct answer but may occasionally output "?" (i.e., a Las Vegas algorithm with expected polynomial running time). Equivalently,
 
 $$
@@ -16,6 +18,7 @@ A machine for a ZPP problem accepts all "yes" instances with probability at leas
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Z#zpp).
 
 ## Known relationships
+
 - $\classP \subseteq \classZPP \subseteq \classRP \subseteq \classBPP$.
 - If $\classP = \classBPP$ (the derandomization hypothesis), then $\classP = \classZPP = \classRP = \classBPP$.
 - ZPP is closed under complement: $\classZPP = \mathbf{coZPP}$.

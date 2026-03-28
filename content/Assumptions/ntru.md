@@ -3,9 +3,10 @@ aliases:
   - NTRU
 title: NTRU
 ---
+
 # NTRU
 
-The *NTRU assumption* is a lattice-based hardness assumption over polynomial rings, introduced alongside the NTRU public-key cryptosystem — [[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]. The public key looks like a ratio $h = g \cdot f^{-1} \bmod q$ of two short polynomials, and hardness asserts that recovering $f$ (or $g$) from $h$ alone is computationally infeasible.
+The _NTRU assumption_ is a lattice-based hardness assumption over polynomial rings, introduced alongside the NTRU public-key cryptosystem — [[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]. The public key looks like a ratio $h = g \cdot f^{-1} \bmod q$ of two short polynomials, and hardness asserts that recovering $f$ (or $g$) from $h$ alone is computationally infeasible.
 
 ## Assumption
 
