@@ -47,13 +47,16 @@ is negligible.
 
 ## Attacks
 
-- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Therefore, this is optimal in the [[generic-group-model|GGM]] — TODO citation
+- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Therefore, this is optimal in the [[generic-group-model|GGM]] — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field) and in the Jacobians of hyperelliptic curves of high genus. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$.
+- **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups.
+- **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$; best known algorithm with complexity $L_p[1/3, (64/9)^{1/3}]$.
 
-# Vairations
+# Variations
 
 ## One-more Discrete Logarithm
 
-In some works (TODO-cite), it is important to consider adversaires
+In some works, it is important to consider adversaries
 
 ```pseudocode
 \begin{algorithm}

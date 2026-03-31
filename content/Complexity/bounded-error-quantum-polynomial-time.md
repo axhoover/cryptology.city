@@ -18,15 +18,15 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Notable problems
 
-- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — TODO citation (Shor 1994). This directly breaks RSA and elliptic-curve Diffie-Hellman.
-- **Unstructured search**: Grover's algorithm provides a quadratic quantum speedup for unstructured search — TODO citation (Grover 1996). This does not place unstructured search in $\classBQP$ itself, but implies that any problem with a classical $O(N)$ exhaustive-search algorithm can be solved quantumly in $O(\sqrt{N})$ queries.
+- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA.
+- **Unstructured search**: Grover's algorithm provides a quadratic quantum speedup for unstructured search — [[Grover96 - A fast quantum mechanical algorithm for database search|Grover96]]. This does not place unstructured search in $\classBQP$ itself, but implies that any problem with a classical $O(N)$ exhaustive-search algorithm can be solved quantumly in $O(\sqrt{N})$ queries.
 
 ## Known relationships
 
 - $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
-- $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — TODO citation (Adleman, DeMarrais, Huang 1997).
-- **$\classBQP$ vs $\classNP$:** the two classes are believed incomparable. Simon's problem is in $\classBQP$ but not in $\classNP$ relative to a random oracle; conversely, NP-complete problems are not believed to be in $\classBQP$ — TODO citation.
-- **PostBQP $= \classPP$** (Aaronson 2005 — TODO citation): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
+- $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — Adleman, DeMarrais, and Huang (1997).
+- **$\classBQP$ vs $\classNP$:** the two classes are believed incomparable. Simon's problem is in $\classBQP$ but not in $\classNP$ relative to a random oracle; conversely, NP-complete problems are not believed to be in $\classBQP$.
+- **PostBQP $= \classPP$** (Aaronson 2005): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
 
 ## Relevance to cryptography
 

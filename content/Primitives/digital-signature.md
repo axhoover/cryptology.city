@@ -133,6 +133,43 @@ is negligible.
 
 # Variations
 
+## Schnorr signatures
+
+Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. To sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
+
+Schnorr signatures are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself|FS86]]. They are the basis for **EdDSA** (Ed25519, the standard in TLS, SSH, and Signal) and support efficient **multi-signatures** and **threshold signatures**.
+
+## BLS signatures
+
+BLS signatures (Boneh-Lynn-Shacham) use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
+
+Key properties:
+
+- **Deterministic**: no per-signature randomness needed
+- **Short**: one group element ($\approx 48$ bytes on BLS12-381)
+- **Aggregatable**: $n$ signatures on different messages can be aggregated into one signature verifiable with $n$ pairings
+- **Security**: EUF-CMA under the co-CDH assumption in the random oracle model
+
+BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.
+
+## Hash-based signatures
+
+Hash-based signatures achieve **post-quantum security** from collision-resistant hash functions alone — no number-theoretic assumptions.
+
+- **Lamport signatures** (one-time): sign one bit per hash chain; $O(\secpar)$-size signatures, keys usable only once — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
+- **XMSS** (eXtended Merkle Signature Scheme): stateful many-time scheme; uses a Merkle tree of Lamport/Winternitz one-time keys; standardized in RFC 8391
+- **SPHINCS+**: stateless hash-based signatures; uses a hyper-tree of XMSS instances and a few-time signature at the leaves; standardized by NIST as SLH-DSA (FIPS 205); signatures are $\sim 8$–50 KB
+
+Security reduces to second-preimage resistance and pseudorandomness of the underlying hash function — no lattice or number-theoretic assumptions.
+
+## Lattice-based signatures
+
+Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
+
+- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - On the hardness of LWE with binary error|LS15]]
+- **Falcon**: based on NTRU lattices; smaller signatures than Dilithium ($\sim 666$ bytes) but more complex to implement securely
+- **GPV signatures**: hash-and-sign paradigm using trapdoor lattice sampling; security in the ROM from SIS — standard
+
 # Other results
 
 - [[hash-function|OWFs]] imply one-time digital signatures via Lamport's scheme — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
