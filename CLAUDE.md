@@ -191,16 +191,16 @@ Oracles immediately follow the game block they belong to:
 
 ### Pseudocode commands
 
-| Command | Usage |
-|---|---|
-| `\State` | A statement line |
-| `\Return` | Return statement |
-| `\If{cond}` / `\EndIf` | Conditional |
-| `\For{...}` / `\EndFor` | Loop |
-| `\Comment{text}` | Right-aligned comment (rendered with ▸) |
-| `:=` | Oracle/function definition |
-| `\getsr` | Uniform random sampling |
-| `;` | Separate two statements on one `\State` line |
+| Command                 | Usage                                        |
+| ----------------------- | -------------------------------------------- |
+| `\State`                | A statement line                             |
+| `\Return`               | Return statement                             |
+| `\If{cond}` / `\EndIf`  | Conditional                                  |
+| `\For{...}` / `\EndFor` | Loop                                         |
+| `\Comment{text}`        | Right-aligned comment (rendered with ▸)      |
+| `:=`                    | Oracle/function definition                   |
+| `\getsr`                | Uniform random sampling                      |
+| `;`                     | Separate two statements on one `\State` line |
 
 ### Custom features
 
@@ -268,9 +268,10 @@ When a game has a constraint that makes the adversary non-trivial (e.g., CCA adv
 
 1. State the constraint in prose before or after the game block.
 2. Include a `\Comment{...}` annotation on the relevant line in the pseudocode.
-3. Explain *why* the constraint is necessary (one sentence).
+3. Explain _why_ the constraint is necessary (one sentence).
 
 **Example (CCA):**
+
 ```
 \Comment{Phase 2: $\calA$ may not query $\calD$ on $c^*$}
 ```
@@ -332,26 +333,31 @@ Multi-author keys use initials of up to ~4 authors, then the year. Papers are ci
 
 Below is a minimal but complete example following all conventions, based on the real `pseudorandom-function.md`:
 
-```markdown
+````markdown
 ---
 aliases:
   - PRF
   - Pseudorandom function
 title: Pseudorandom function
 ---
+
 # Pseudorandom function
+
 [One-sentence definition accessible to a new reader.]
 
 ## Syntax
+
 A PRF is a pair of efficient algorithms $\PRF = (\KeyGen, \Eval)$ with respect
 to keyspace $\calK$, domain $\calD$, and range $\calR$:
+
 - $\KeyGen(1^\secpar) \to k,$ is a randomized function that samples a key $k \in \calK,$
 - $\Eval(k, x) \to y,$ is a deterministic function that takes a key $k \in \calK$
-and an input $x \in \calD$, outputting $y \in \calR.$
+  and an input $x \in \calD$, outputting $y \in \calR.$
 
 ## Properties
 
 ### Correctness
+
 [If applicable.]
 
 ### Security
@@ -383,11 +389,13 @@ is negligible.
 # Variations
 
 ## [Variant name]
+
 [Definition.]
 
 # Other results
+
 - [[primitive-slug|Primitive]] implies/is implied by [[other-primitive-slug|OtherPrimitive]] — [[CITATIONKEY - Title|CITATIONKEY]]
-```
+````
 
 ---
 

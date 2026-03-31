@@ -4,8 +4,8 @@ export const escapeHTML = (unsafe: string) => {
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;")
-}
+    .replaceAll("'", "&#039;");
+};
 
 export const unescapeHTML = (html: string) => {
   return html
@@ -13,5 +13,5 @@ export const unescapeHTML = (html: string) => {
     .replaceAll("&lt;", "<")
     .replaceAll("&gt;", ">")
     .replaceAll("&quot;", '"')
-    .replaceAll("&#039;", "'")
-}
+    .replaceAll("&#039;", "'");
+};

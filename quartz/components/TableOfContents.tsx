@@ -1,36 +1,40 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import legacyStyle from "./styles/legacyToc.scss"
-import modernStyle from "./styles/toc.scss"
-import { classNames } from "../util/lang"
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types";
+import legacyStyle from "./styles/legacyToc.scss";
+import modernStyle from "./styles/toc.scss";
+import { classNames } from "../util/lang";
 
 // @ts-ignore
-import script from "./scripts/toc.inline"
-import { i18n } from "../i18n"
-import OverflowListFactory from "./OverflowList"
-import { concatenateResources } from "../util/resources"
+import script from "./scripts/toc.inline";
+import { i18n } from "../i18n";
+import OverflowListFactory from "./OverflowList";
+import { concatenateResources } from "../util/resources";
 
 interface Options {
-  layout: "modern" | "legacy"
+  layout: "modern" | "legacy";
 }
 
 const defaultOptions: Options = {
   layout: "modern",
-}
+};
 
-let numTocs = 0
+let numTocs = 0;
 export default ((opts?: Partial<Options>) => {
-  const layout = opts?.layout ?? defaultOptions.layout
-  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
+  const layout = opts?.layout ?? defaultOptions.layout;
+  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory();
   const TableOfContents: QuartzComponent = ({
     fileData,
     displayClass,
     cfg,
   }: QuartzComponentProps) => {
     if (!fileData.toc) {
-      return null
+      return null;
     }
 
-    const id = `toc-${numTocs++}`
+    const id = `toc-${numTocs++}`;
     return (
       <div class={classNames(displayClass, "toc")}>
         <button
@@ -68,15 +72,21 @@ export default ((opts?: Partial<Options>) => {
           ))}
         </OverflowList>
       </div>
-    )
-  }
+    );
+  };
 
-  TableOfContents.css = modernStyle
-  TableOfContents.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
+  TableOfContents.css = modernStyle;
+  TableOfContents.afterDOMLoaded = concatenateResources(
+    script,
+    overflowListAfterDOMLoaded,
+  );
 
-  const LegacyTableOfContents: QuartzComponent = ({ fileData, cfg }: QuartzComponentProps) => {
+  const LegacyTableOfContents: QuartzComponent = ({
+    fileData,
+    cfg,
+  }: QuartzComponentProps) => {
     if (!fileData.toc) {
-      return null
+      return null;
     }
     return (
       <details class="toc" open={!fileData.collapseToc}>
@@ -93,9 +103,9 @@ export default ((opts?: Partial<Options>) => {
           ))}
         </ul>
       </details>
-    )
-  }
-  LegacyTableOfContents.css = legacyStyle
+    );
+  };
+  LegacyTableOfContents.css = legacyStyle;
 
-  return layout === "modern" ? TableOfContents : LegacyTableOfContents
-}) satisfies QuartzComponentConstructor
+  return layout === "modern" ? TableOfContents : LegacyTableOfContents;
+}) satisfies QuartzComponentConstructor;

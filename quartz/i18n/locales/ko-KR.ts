@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -82,4 +82,4 @@ export default {
       totalTags: ({ count }) => `총 ${count}개의 태그를 찾았습니다.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

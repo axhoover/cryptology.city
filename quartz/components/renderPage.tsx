@@ -1,34 +1,39 @@
-import { render } from "preact-render-to-string"
-import { QuartzComponent, QuartzComponentProps } from "./types"
-import HeaderConstructor from "./Header"
-import BodyConstructor from "./Body"
-import { JSResourceToScriptElement, StaticResources } from "../util/resources"
-import { FullSlug, RelativeURL, joinSegments, normalizeHastElement } from "../util/path"
-import { clone } from "../util/clone"
-import { visit } from "unist-util-visit"
-import { Root, Element, ElementContent } from "hast"
-import { GlobalConfiguration } from "../cfg"
-import { i18n } from "../i18n"
-import { styleText } from "util"
+import { render } from "preact-render-to-string";
+import { QuartzComponent, QuartzComponentProps } from "./types";
+import HeaderConstructor from "./Header";
+import BodyConstructor from "./Body";
+import { JSResourceToScriptElement, StaticResources } from "../util/resources";
+import {
+  FullSlug,
+  RelativeURL,
+  joinSegments,
+  normalizeHastElement,
+} from "../util/path";
+import { clone } from "../util/clone";
+import { visit } from "unist-util-visit";
+import { Root, Element, ElementContent } from "hast";
+import { GlobalConfiguration } from "../cfg";
+import { i18n } from "../i18n";
+import { styleText } from "util";
 
 interface RenderComponents {
-  head: QuartzComponent
-  header: QuartzComponent[]
-  beforeBody: QuartzComponent[]
-  pageBody: QuartzComponent
-  afterBody: QuartzComponent[]
-  left: QuartzComponent[]
-  right: QuartzComponent[]
-  footer: QuartzComponent
+  head: QuartzComponent;
+  header: QuartzComponent[];
+  beforeBody: QuartzComponent[];
+  pageBody: QuartzComponent;
+  afterBody: QuartzComponent[];
+  left: QuartzComponent[];
+  right: QuartzComponent[];
+  footer: QuartzComponent;
 }
 
-const headerRegex = new RegExp(/h[1-6]/)
+const headerRegex = new RegExp(/h[1-6]/);
 export function pageResources(
   baseDir: FullSlug | RelativeURL,
   staticResources: StaticResources,
 ): StaticResources {
-  const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json")
-  const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`
+  const contentIndexPath = joinSegments(baseDir, "static/contentIndex.json");
+  const contentIndexScript = `const fetchData = fetch("${contentIndexPath}").then(data => data.json())`;
 
   const resources: StaticResources = {
     css: [
@@ -52,16 +57,16 @@ export function pageResources(
       ...staticResources.js,
     ],
     additionalHead: staticResources.additionalHead,
-  }
+  };
 
   resources.js.push({
     src: joinSegments(baseDir, "postscript.js"),
     loadTime: "afterDOMReady",
     moduleType: "module",
     contentType: "external",
-  })
+  });
 
-  return resources
+  return resources;
 }
 
 function renderTranscludes(
@@ -74,17 +79,18 @@ function renderTranscludes(
   // process transcludes in componentData
   visit(root, "element", (node, _index, _parent) => {
     if (node.tagName === "blockquote") {
-      const classNames = (node.properties?.className ?? []) as string[]
+      const classNames = (node.properties?.className ?? []) as string[];
       if (classNames.includes("transclude")) {
-        const inner = node.children[0] as Element
-        const transcludeTarget = (inner.properties["data-slug"] ?? slug) as FullSlug
+        const inner = node.children[0] as Element;
+        const transcludeTarget = (inner.properties["data-slug"] ??
+          slug) as FullSlug;
         if (visited.has(transcludeTarget)) {
           console.warn(
             styleText(
               "yellow",
               `Warning: Skipping circular transclusion: ${slug} -> ${transcludeTarget}`,
             ),
-          )
+          );
           node.children = [
             {
               type: "element",
@@ -97,21 +103,23 @@ function renderTranscludes(
                 },
               ],
             },
-          ]
-          return
+          ];
+          return;
         }
-        visited.add(transcludeTarget)
+        visited.add(transcludeTarget);
 
-        const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
+        const page = componentData.allFiles.find(
+          (f) => f.slug === transcludeTarget,
+        );
         if (!page) {
-          return
+          return;
         }
 
-        let blockRef = node.properties.dataBlock as string | undefined
+        let blockRef = node.properties.dataBlock as string | undefined;
         if (blockRef?.startsWith("#^")) {
           // block transclude
-          blockRef = blockRef.slice("#^".length)
-          let blockNode = page.blocks?.[blockRef]
+          blockRef = blockRef.slice("#^".length);
+          let blockNode = page.blocks?.[blockRef];
           if (blockNode) {
             if (blockNode.tagName === "li") {
               blockNode = {
@@ -119,7 +127,7 @@ function renderTranscludes(
                 tagName: "ul",
                 properties: {},
                 children: [blockNode],
-              }
+              };
             }
 
             node.children = [
@@ -127,55 +135,71 @@ function renderTranscludes(
               {
                 type: "element",
                 tagName: "a",
-                properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
+                properties: {
+                  href: inner.properties?.href,
+                  class: ["internal", "transclude-src"],
+                },
                 children: [
-                  { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
+                  {
+                    type: "text",
+                    value: i18n(cfg.locale).components.transcludes
+                      .linkToOriginal,
+                  },
                 ],
               },
-            ]
+            ];
           }
         } else if (blockRef?.startsWith("#") && page.htmlAst) {
           // header transclude
-          blockRef = blockRef.slice(1)
-          let startIdx = undefined
-          let startDepth = undefined
-          let endIdx = undefined
+          blockRef = blockRef.slice(1);
+          let startIdx = undefined;
+          let startDepth = undefined;
+          let endIdx = undefined;
           for (const [i, el] of page.htmlAst.children.entries()) {
             // skip non-headers
-            if (!(el.type === "element" && el.tagName.match(headerRegex))) continue
-            const depth = Number(el.tagName.substring(1))
+            if (!(el.type === "element" && el.tagName.match(headerRegex)))
+              continue;
+            const depth = Number(el.tagName.substring(1));
 
             // lookin for our blockref
             if (startIdx === undefined || startDepth === undefined) {
               // skip until we find the blockref that matches
               if (el.properties?.id === blockRef) {
-                startIdx = i
-                startDepth = depth
+                startIdx = i;
+                startDepth = depth;
               }
             } else if (depth <= startDepth) {
               // looking for new header that is same level or higher
-              endIdx = i
-              break
+              endIdx = i;
+              break;
             }
           }
 
           if (startIdx === undefined) {
-            return
+            return;
           }
 
           node.children = [
-            ...(page.htmlAst.children.slice(startIdx, endIdx) as ElementContent[]).map((child) =>
+            ...(
+              page.htmlAst.children.slice(startIdx, endIdx) as ElementContent[]
+            ).map((child) =>
               normalizeHastElement(child as Element, slug, transcludeTarget),
             ),
             {
               type: "element",
               tagName: "a",
-              properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
+              properties: {
+                href: inner.properties?.href,
+                class: ["internal", "transclude-src"],
+              },
               children: [
-                { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
+                {
+                  type: "text",
+                  value: i18n(cfg.locale).components.transcludes.linkToOriginal,
+                },
               ],
             },
-          ]
+          ];
         } else if (page.htmlAst) {
           // page transclude
           node.children = [
@@ -200,16 +224,22 @@ function renderTranscludes(
             {
               type: "element",
               tagName: "a",
-              properties: { href: inner.properties?.href, class: ["internal", "transclude-src"] },
+              properties: {
+                href: inner.properties?.href,
+                class: ["internal", "transclude-src"],
+              },
               children: [
-                { type: "text", value: i18n(cfg.locale).components.transcludes.linkToOriginal },
+                {
+                  type: "text",
+                  value: i18n(cfg.locale).components.transcludes.linkToOriginal,
+                },
               ],
             },
-          ]
+          ];
         }
       }
     }
-  })
+  });
 }
 
 export function renderPage(
@@ -221,12 +251,12 @@ export function renderPage(
 ): string {
   // make a deep copy of the tree so we don't remove the transclusion references
   // for the file cached in contentMap in build.ts
-  const root = clone(componentData.tree) as Root
-  const visited = new Set<FullSlug>([slug])
-  renderTranscludes(root, cfg, slug, componentData, visited)
+  const root = clone(componentData.tree) as Root;
+  const visited = new Set<FullSlug>([slug]);
+  renderTranscludes(root, cfg, slug, componentData, visited);
 
   // set componentData.tree to the edited html that has transclusions rendered
-  componentData.tree = root
+  componentData.tree = root;
 
   const {
     head: Head,
@@ -237,9 +267,9 @@ export function renderPage(
     left,
     right,
     footer: Footer,
-  } = components
-  const Header = HeaderConstructor()
-  const Body = BodyConstructor()
+  } = components;
+  const Header = HeaderConstructor();
+  const Body = BodyConstructor();
 
   const LeftComponent = (
     <div class="left sidebar">
@@ -247,7 +277,7 @@ export function renderPage(
         <BodyComponent {...componentData} />
       ))}
     </div>
-  )
+  );
 
   const RightComponent = (
     <div class="right sidebar">
@@ -255,10 +285,13 @@ export function renderPage(
         <BodyComponent {...componentData} />
       ))}
     </div>
-  )
+  );
 
-  const lang = componentData.fileData.frontmatter?.lang ?? cfg.locale?.split("-")[0] ?? "en"
-  const direction = i18n(cfg.locale).direction ?? "ltr"
+  const lang =
+    componentData.fileData.frontmatter?.lang ??
+    cfg.locale?.split("-")[0] ??
+    "en";
+  const direction = i18n(cfg.locale).direction ?? "ltr";
   const doc = (
     <html lang={lang} dir={direction}>
       <Head {...componentData} />
@@ -296,7 +329,7 @@ export function renderPage(
         .filter((resource) => resource.loadTime === "afterDOMReady")
         .map((res) => JSResourceToScriptElement(res, true))}
     </html>
-  )
+  );
 
-  return "<!DOCTYPE html>\n" + render(doc)
+  return "<!DOCTYPE html>\n" + render(doc);
 }

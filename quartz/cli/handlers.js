@@ -1,28 +1,28 @@
-import { promises } from "fs"
-import path from "path"
-import esbuild from "esbuild"
-import { styleText } from "util"
-import { sassPlugin } from "esbuild-sass-plugin"
-import fs from "fs"
-import { intro, outro, select, text } from "@clack/prompts"
-import { rm } from "fs/promises"
-import chokidar from "chokidar"
-import prettyBytes from "pretty-bytes"
-import { execSync, spawnSync } from "child_process"
-import http from "http"
-import serveHandler from "serve-handler"
-import { WebSocketServer } from "ws"
-import { randomUUID } from "crypto"
-import { Mutex } from "async-mutex"
-import { CreateArgv } from "./args.js"
-import { globby } from "globby"
+import { promises } from "fs";
+import path from "path";
+import esbuild from "esbuild";
+import { styleText } from "util";
+import { sassPlugin } from "esbuild-sass-plugin";
+import fs from "fs";
+import { intro, outro, select, text } from "@clack/prompts";
+import { rm } from "fs/promises";
+import chokidar from "chokidar";
+import prettyBytes from "pretty-bytes";
+import { execSync, spawnSync } from "child_process";
+import http from "http";
+import serveHandler from "serve-handler";
+import { WebSocketServer } from "ws";
+import { randomUUID } from "crypto";
+import { Mutex } from "async-mutex";
+import { CreateArgv } from "./args.js";
+import { globby } from "globby";
 import {
   exitIfCancel,
   escapePath,
   gitPull,
   popContentFolder,
   stashContentFolder,
-} from "./helpers.js"
+} from "./helpers.js";
 import {
   UPSTREAM_NAME,
   QUARTZ_SOURCE_BRANCH,
@@ -31,15 +31,15 @@ import {
   fp,
   cacheFile,
   cwd,
-} from "./constants.js"
+} from "./constants.js";
 
 /**
  * Resolve content directory path
  * @param contentPath path to resolve
  */
 function resolveContentPath(contentPath) {
-  if (path.isAbsolute(contentPath)) return path.relative(cwd, contentPath)
-  return path.join(cwd, contentPath)
+  if (path.isAbsolute(contentPath)) return path.relative(cwd, contentPath);
+  return path.join(cwd, contentPath);
 }
 
 /**
@@ -47,12 +47,12 @@ function resolveContentPath(contentPath) {
  * @param {*} argv arguments for `create`
  */
 export async function handleCreate(argv) {
-  console.log()
-  intro(styleText(["bgGreen", "black"], ` Quartz v${version} `))
-  const contentFolder = resolveContentPath(argv.directory)
-  let setupStrategy = argv.strategy?.toLowerCase()
-  let linkResolutionStrategy = argv.links?.toLowerCase()
-  const sourceDirectory = argv.source
+  console.log();
+  intro(styleText(["bgGreen", "black"], ` Quartz v${version} `));
+  const contentFolder = resolveContentPath(argv.directory);
+  let setupStrategy = argv.strategy?.toLowerCase();
+  let linkResolutionStrategy = argv.links?.toLowerCase();
+  const sourceDirectory = argv.source;
 
   // If all cmd arguments were provided, check if they're valid
   if (setupStrategy && linkResolutionStrategy) {
@@ -74,8 +74,8 @@ export async function handleCreate(argv) {
               `-${CreateArgv.source.alias[0]}`,
             )}') to be set`,
           ),
-        )
-        process.exit(1)
+        );
+        process.exit(1);
       } else {
         if (!fs.existsSync(sourceDirectory)) {
           outro(
@@ -86,8 +86,8 @@ export async function handleCreate(argv) {
                 sourceDirectory,
               )}', invalid argument "${styleText("yellow", `-${CreateArgv.source.alias[0]}`)})`,
             ),
-          )
-          process.exit(1)
+          );
+          process.exit(1);
         } else if (!fs.lstatSync(sourceDirectory).isDirectory()) {
           outro(
             styleText(
@@ -97,8 +97,8 @@ export async function handleCreate(argv) {
                 sourceDirectory,
               )}', invalid argument ${styleText("yellow", `-${CreateArgv.source.alias[0]}`)}")`,
             ),
-          )
-          process.exit(1)
+          );
+          process.exit(1);
         }
       }
     }
@@ -111,7 +111,11 @@ export async function handleCreate(argv) {
         message: `Choose how to initialize the content in \`${contentFolder}\``,
         options: [
           { value: "new", label: "Empty Quartz" },
-          { value: "copy", label: "Copy an existing folder", hint: "overwrites `content`" },
+          {
+            value: "copy",
+            label: "Copy an existing folder",
+            hint: "overwrites `content`",
+          },
           {
             value: "symlink",
             label: "Symlink an existing folder",
@@ -119,24 +123,24 @@ export async function handleCreate(argv) {
           },
         ],
       }),
-    )
+    );
   }
 
   async function rmContentFolder() {
-    const contentStat = await fs.promises.lstat(contentFolder)
+    const contentStat = await fs.promises.lstat(contentFolder);
     if (contentStat.isSymbolicLink()) {
-      await fs.promises.unlink(contentFolder)
+      await fs.promises.unlink(contentFolder);
     } else {
-      await rm(contentFolder, { recursive: true, force: true })
+      await rm(contentFolder, { recursive: true, force: true });
     }
   }
 
-  const gitkeepPath = path.join(contentFolder, ".gitkeep")
+  const gitkeepPath = path.join(contentFolder, ".gitkeep");
   if (fs.existsSync(gitkeepPath)) {
-    await fs.promises.unlink(gitkeepPath)
+    await fs.promises.unlink(gitkeepPath);
   }
   if (setupStrategy === "copy" || setupStrategy === "symlink") {
-    let originalFolder = sourceDirectory
+    let originalFolder = sourceDirectory;
 
     // If input directory was not passed, use cli
     if (!sourceDirectory) {
@@ -147,26 +151,26 @@ export async function handleCreate(argv) {
             placeholder:
               "On most terminal emulators, you can drag and drop a folder into the window and it will paste the full path",
             validate(fp) {
-              const fullPath = escapePath(fp)
+              const fullPath = escapePath(fp);
               if (!fs.existsSync(fullPath)) {
-                return "The given path doesn't exist"
+                return "The given path doesn't exist";
               } else if (!fs.lstatSync(fullPath).isDirectory()) {
-                return "The given path is not a folder"
+                return "The given path is not a folder";
               }
             },
           }),
         ),
-      )
+      );
     }
 
-    await rmContentFolder()
+    await rmContentFolder();
     if (setupStrategy === "copy") {
       await fs.promises.cp(originalFolder, contentFolder, {
         recursive: true,
         preserveTimestamps: true,
-      })
+      });
     } else if (setupStrategy === "symlink") {
-      await fs.promises.symlink(originalFolder, contentFolder, "dir")
+      await fs.promises.symlink(originalFolder, contentFolder, "dir");
     }
   } else if (setupStrategy === "new") {
     await fs.promises.writeFile(
@@ -178,7 +182,7 @@ title: Welcome to Quartz
 This is a blank Quartz installation.
 See the [documentation](https://quartz.jzhao.xyz) for how to get started.
 `,
-    )
+    );
   }
 
   // Use cli process if cmd args werent provided
@@ -203,29 +207,31 @@ See the [documentation](https://quartz.jzhao.xyz) for how to get started.
           },
         ],
       }),
-    )
+    );
   }
 
   // now, do config changes
-  const configFilePath = path.join(cwd, "quartz.config.ts")
-  let configContent = await fs.promises.readFile(configFilePath, { encoding: "utf-8" })
+  const configFilePath = path.join(cwd, "quartz.config.ts");
+  let configContent = await fs.promises.readFile(configFilePath, {
+    encoding: "utf-8",
+  });
   configContent = configContent.replace(
     /markdownLinkResolution: '(.+)'/,
     `markdownLinkResolution: '${linkResolutionStrategy}'`,
-  )
-  await fs.promises.writeFile(configFilePath, configContent)
+  );
+  await fs.promises.writeFile(configFilePath, configContent);
 
   // setup remote
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
     { stdio: "ignore" },
-  )
+  );
 
   outro(`You're all set! Not sure what to do next? Try:
   • Customizing Quartz a bit more by editing \`quartz.config.ts\`
   • Running \`npx quartz build --serve\` to preview your Quartz locally
   • Hosting your Quartz online (see: https://quartz.jzhao.xyz/hosting)
-`)
+`);
 }
 
 /**
@@ -234,10 +240,12 @@ See the [documentation](https://quartz.jzhao.xyz) for how to get started.
  */
 export async function handleBuild(argv) {
   if (argv.serve) {
-    argv.watch = true
+    argv.watch = true;
   }
 
-  console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`)
+  console.log(
+    `\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`,
+  );
   const ctx = await esbuild.context({
     entryPoints: [fp],
     outfile: cacheFile,
@@ -267,14 +275,14 @@ export async function handleBuild(argv) {
         name: "inline-script-loader",
         setup(build) {
           build.onLoad({ filter: /\.inline\.(ts|js)$/ }, async (args) => {
-            let text = await promises.readFile(args.path, "utf8")
+            let text = await promises.readFile(args.path, "utf8");
 
             // remove default exports that we manually inserted
-            text = text.replace("export default", "")
-            text = text.replace("export", "")
+            text = text.replace("export default", "");
+            text = text.replace("export", "");
 
-            const sourcefile = path.relative(path.resolve("."), args.path)
-            const resolveDir = path.dirname(sourcefile)
+            const sourcefile = path.relative(path.resolve("."), args.path);
+            const resolveDir = path.dirname(sourcefile);
             const transpiled = await esbuild.build({
               stdin: {
                 contents: text,
@@ -287,72 +295,83 @@ export async function handleBuild(argv) {
               minify: true,
               platform: "browser",
               format: "esm",
-            })
-            const rawMod = transpiled.outputFiles[0].text
+            });
+            const rawMod = transpiled.outputFiles[0].text;
             return {
               contents: rawMod,
               loader: "text",
-            }
-          })
+            };
+          });
         },
       },
     ],
-  })
+  });
 
-  const buildMutex = new Mutex()
-  let lastBuildMs = 0
-  let cleanupBuild = null
+  const buildMutex = new Mutex();
+  let lastBuildMs = 0;
+  let cleanupBuild = null;
   const build = async (clientRefresh) => {
-    const buildStart = new Date().getTime()
-    lastBuildMs = buildStart
-    const release = await buildMutex.acquire()
+    const buildStart = new Date().getTime();
+    lastBuildMs = buildStart;
+    const release = await buildMutex.acquire();
     if (lastBuildMs > buildStart) {
-      release()
-      return
+      release();
+      return;
     }
 
     if (cleanupBuild) {
-      console.log(styleText("yellow", "Detected a source code change, doing a hard rebuild..."))
-      await cleanupBuild()
+      console.log(
+        styleText(
+          "yellow",
+          "Detected a source code change, doing a hard rebuild...",
+        ),
+      );
+      await cleanupBuild();
     }
 
     const result = await ctx.rebuild().catch((err) => {
-      console.error(`${styleText("red", "Couldn't parse Quartz configuration:")} ${fp}`)
-      console.log(`Reason: ${styleText("gray", err)}`)
-      process.exit(1)
-    })
-    release()
+      console.error(
+        `${styleText("red", "Couldn't parse Quartz configuration:")} ${fp}`,
+      );
+      console.log(`Reason: ${styleText("gray", err)}`);
+      process.exit(1);
+    });
+    release();
 
     if (argv.bundleInfo) {
-      const outputFileName = "quartz/.quartz-cache/transpiled-build.mjs"
-      const meta = result.metafile.outputs[outputFileName]
+      const outputFileName = "quartz/.quartz-cache/transpiled-build.mjs";
+      const meta = result.metafile.outputs[outputFileName];
       console.log(
         `Successfully transpiled ${Object.keys(meta.inputs).length} files (${prettyBytes(
           meta.bytes,
         )})`,
-      )
-      console.log(await esbuild.analyzeMetafile(result.metafile, { color: true }))
+      );
+      console.log(
+        await esbuild.analyzeMetafile(result.metafile, { color: true }),
+      );
     }
 
     // bypass module cache
     // https://github.com/nodejs/modules/issues/307
-    const { default: buildQuartz } = await import(`../../${cacheFile}?update=${randomUUID()}`)
+    const { default: buildQuartz } = await import(
+      `../../${cacheFile}?update=${randomUUID()}`
+    );
     // ^ this import is relative, so base "cacheFile" path can't be used
 
-    cleanupBuild = await buildQuartz(argv, buildMutex, clientRefresh)
-    clientRefresh()
-  }
+    cleanupBuild = await buildQuartz(argv, buildMutex, clientRefresh);
+    clientRefresh();
+  };
 
-  let clientRefresh = () => {}
+  let clientRefresh = () => {};
   if (argv.serve) {
-    const connections = []
-    clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"))
+    const connections = [];
+    clientRefresh = () => connections.forEach((conn) => conn.send("rebuild"));
 
     if (argv.baseDir !== "" && !argv.baseDir.startsWith("/")) {
-      argv.baseDir = "/" + argv.baseDir
+      argv.baseDir = "/" + argv.baseDir;
     }
 
-    await build(clientRefresh)
+    await build(clientRefresh);
     const server = http.createServer(async (req, res) => {
       if (argv.baseDir && !req.url?.startsWith(argv.baseDir)) {
         console.log(
@@ -360,17 +379,17 @@ export async function handleBuild(argv) {
             "red",
             `[404] ${req.url} (warning: link outside of site, this is likely a Quartz bug)`,
           ),
-        )
-        res.writeHead(404)
-        res.end()
-        return
+        );
+        res.writeHead(404);
+        res.end();
+        return;
       }
 
       // strip baseDir prefix
-      req.url = req.url?.slice(argv.baseDir.length)
+      req.url = req.url?.slice(argv.baseDir.length);
 
       const serve = async () => {
-        const release = await buildMutex.acquire()
+        const release = await buildMutex.acquire();
         await serveHandler(req, res, {
           public: argv.output,
           directoryListing: false,
@@ -389,82 +408,84 @@ export async function handleBuild(argv) {
               headers: [{ key: "Content-Type", value: "image/avif" }],
             },
           ],
-        })
-        const status = res.statusCode
+        });
+        const status = res.statusCode;
         const statusString =
           status >= 200 && status < 300
             ? styleText("green", `[${status}]`)
-            : styleText("red", `[${status}]`)
-        console.log(statusString + styleText("gray", ` ${argv.baseDir}${req.url}`))
-        release()
-      }
+            : styleText("red", `[${status}]`);
+        console.log(
+          statusString + styleText("gray", ` ${argv.baseDir}${req.url}`),
+        );
+        release();
+      };
 
       const redirect = (newFp) => {
-        newFp = argv.baseDir + newFp
+        newFp = argv.baseDir + newFp;
         res.writeHead(302, {
           Location: newFp,
-        })
+        });
         console.log(
           styleText("yellow", "[302]") +
             styleText("gray", ` ${argv.baseDir}${req.url} -> ${newFp}`),
-        )
-        res.end()
-      }
+        );
+        res.end();
+      };
 
-      let fp = req.url?.split("?")[0] ?? "/"
+      let fp = req.url?.split("?")[0] ?? "/";
 
       // handle redirects
       if (fp.endsWith("/")) {
         // /trailing/
         // does /trailing/index.html exist? if so, serve it
-        const indexFp = path.posix.join(fp, "index.html")
+        const indexFp = path.posix.join(fp, "index.html");
         if (fs.existsSync(path.posix.join(argv.output, indexFp))) {
-          req.url = fp
-          return serve()
+          req.url = fp;
+          return serve();
         }
 
         // does /trailing.html exist? if so, redirect to /trailing
-        let base = fp.slice(0, -1)
+        let base = fp.slice(0, -1);
         if (path.extname(base) === "") {
-          base += ".html"
+          base += ".html";
         }
         if (fs.existsSync(path.posix.join(argv.output, base))) {
-          return redirect(fp.slice(0, -1))
+          return redirect(fp.slice(0, -1));
         }
       } else {
         // /regular
         // does /regular.html exist? if so, serve it
-        let base = fp
+        let base = fp;
         if (path.extname(base) === "") {
-          base += ".html"
+          base += ".html";
         }
         if (fs.existsSync(path.posix.join(argv.output, base))) {
-          req.url = fp
-          return serve()
+          req.url = fp;
+          return serve();
         }
 
         // does /regular/index.html exist? if so, redirect to /regular/
-        let indexFp = path.posix.join(fp, "index.html")
+        let indexFp = path.posix.join(fp, "index.html");
         if (fs.existsSync(path.posix.join(argv.output, indexFp))) {
-          return redirect(fp + "/")
+          return redirect(fp + "/");
         }
       }
 
-      return serve()
-    })
+      return serve();
+    });
 
-    server.listen(argv.port)
-    const wss = new WebSocketServer({ port: argv.wsPort })
-    wss.on("connection", (ws) => connections.push(ws))
+    server.listen(argv.port);
+    const wss = new WebSocketServer({ port: argv.wsPort });
+    wss.on("connection", (ws) => connections.push(ws));
     console.log(
       styleText(
         "cyan",
         `Started a Quartz server listening at http://localhost:${argv.port}${argv.baseDir}`,
       ),
-    )
+    );
   } else {
-    await build(clientRefresh)
-    ctx.dispose()
+    await build(clientRefresh);
+    ctx.dispose();
   }
 
   if (argv.watch) {
@@ -475,14 +496,14 @@ export async function handleBuild(argv) {
       "**/*.tsx",
       "**/*.scss",
       "package.json",
-    ])
+    ]);
     chokidar
       .watch(paths, { ignoreInitial: true })
       .on("add", () => build(clientRefresh))
       .on("change", () => build(clientRefresh))
-      .on("unlink", () => build(clientRefresh))
+      .on("unlink", () => build(clientRefresh));
 
-    console.log(styleText("gray", "hint: exit with ctrl+c"))
+    console.log(styleText("gray", "hint: exit with ctrl+c"));
   }
 }
 
@@ -491,27 +512,31 @@ export async function handleBuild(argv) {
  * @param {*} argv arguments for `update`
  */
 export async function handleUpdate(argv) {
-  const contentFolder = resolveContentPath(argv.directory)
-  console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`)
-  console.log("Backing up your content")
+  const contentFolder = resolveContentPath(argv.directory);
+  console.log(
+    `\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)} \n`,
+  );
+  console.log("Backing up your content");
   execSync(
     `git remote show upstream || git remote add upstream https://github.com/jackyzha0/quartz.git`,
-  )
-  await stashContentFolder(contentFolder)
+  );
+  await stashContentFolder(contentFolder);
   console.log(
     "Pulling updates... you may need to resolve some `git` conflicts if you've made changes to components or plugins.",
-  )
+  );
 
   try {
-    gitPull(UPSTREAM_NAME, QUARTZ_SOURCE_BRANCH)
+    gitPull(UPSTREAM_NAME, QUARTZ_SOURCE_BRANCH);
   } catch {
-    console.log(styleText("red", "An error occurred above while pulling updates."))
-    await popContentFolder(contentFolder)
-    return
+    console.log(
+      styleText("red", "An error occurred above while pulling updates."),
+    );
+    await popContentFolder(contentFolder);
+    return;
   }
 
-  await popContentFolder(contentFolder)
-  console.log("Ensuring dependencies are up to date")
+  await popContentFolder(contentFolder);
+  console.log("Ensuring dependencies are up to date");
 
   /*
   On Windows, if the command `npm` is really `npm.cmd', this call fails
@@ -525,16 +550,21 @@ export async function handleUpdate(argv) {
   See: https://nodejs.org/api/child_process.html#spawning-bat-and-cmd-files-on-windows
   */
 
-  const opts = { stdio: "inherit" }
+  const opts = { stdio: "inherit" };
   if (process.platform === "win32") {
-    opts.shell = true
+    opts.shell = true;
   }
 
-  const res = spawnSync("npm", ["i"], opts)
+  const res = spawnSync("npm", ["i"], opts);
   if (res.status === 0) {
-    console.log(styleText("green", "Done!"))
+    console.log(styleText("green", "Done!"));
   } else {
-    console.log(styleText("red", "An error occurred above while installing dependencies."))
+    console.log(
+      styleText(
+        "red",
+        "An error occurred above while installing dependencies.",
+      ),
+    );
   }
 }
 
@@ -543,8 +573,8 @@ export async function handleUpdate(argv) {
  * @param {*} argv arguments for `restore`
  */
 export async function handleRestore(argv) {
-  const contentFolder = resolveContentPath(argv.directory)
-  await popContentFolder(contentFolder)
+  const contentFolder = resolveContentPath(argv.directory);
+  await popContentFolder(contentFolder);
 }
 
 /**
@@ -552,69 +582,81 @@ export async function handleRestore(argv) {
  * @param {*} argv arguments for `sync`
  */
 export async function handleSync(argv) {
-  const contentFolder = resolveContentPath(argv.directory)
-  console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)}\n`)
-  console.log("Backing up your content")
+  const contentFolder = resolveContentPath(argv.directory);
+  console.log(`\n${styleText(["bgGreen", "black"], ` Quartz v${version} `)}\n`);
+  console.log("Backing up your content");
 
   if (argv.commit) {
-    const contentStat = await fs.promises.lstat(contentFolder)
+    const contentStat = await fs.promises.lstat(contentFolder);
     if (contentStat.isSymbolicLink()) {
-      const linkTarg = await fs.promises.readlink(contentFolder)
-      console.log(styleText("yellow", "Detected symlink, trying to dereference before committing"))
+      const linkTarg = await fs.promises.readlink(contentFolder);
+      console.log(
+        styleText(
+          "yellow",
+          "Detected symlink, trying to dereference before committing",
+        ),
+      );
 
       // stash symlink file
-      await stashContentFolder(contentFolder)
+      await stashContentFolder(contentFolder);
 
       // follow symlink and copy content
       await fs.promises.cp(linkTarg, contentFolder, {
         recursive: true,
         preserveTimestamps: true,
-      })
+      });
     }
 
     const currentTimestamp = new Date().toLocaleString("en-US", {
       dateStyle: "medium",
       timeStyle: "short",
-    })
-    const commitMessage = argv.message ?? `Quartz sync: ${currentTimestamp}`
-    spawnSync("git", ["add", "."], { stdio: "inherit" })
-    spawnSync("git", ["commit", "-m", commitMessage], { stdio: "inherit" })
+    });
+    const commitMessage = argv.message ?? `Quartz sync: ${currentTimestamp}`;
+    spawnSync("git", ["add", "."], { stdio: "inherit" });
+    spawnSync("git", ["commit", "-m", commitMessage], { stdio: "inherit" });
 
     if (contentStat.isSymbolicLink()) {
       // put symlink back
-      await popContentFolder(contentFolder)
+      await popContentFolder(contentFolder);
     }
   }
 
-  await stashContentFolder(contentFolder)
+  await stashContentFolder(contentFolder);
 
   if (argv.pull) {
     console.log(
       "Pulling updates from your repository. You may need to resolve some `git` conflicts if you've made changes to components or plugins.",
-    )
+    );
     try {
-      gitPull(ORIGIN_NAME, QUARTZ_SOURCE_BRANCH)
+      gitPull(ORIGIN_NAME, QUARTZ_SOURCE_BRANCH);
     } catch {
-      console.log(styleText("red", "An error occurred above while pulling updates."))
-      await popContentFolder(contentFolder)
-      return
+      console.log(
+        styleText("red", "An error occurred above while pulling updates."),
+      );
+      await popContentFolder(contentFolder);
+      return;
     }
   }
 
-  await popContentFolder(contentFolder)
+  await popContentFolder(contentFolder);
   if (argv.push) {
-    console.log("Pushing your changes")
-    const currentBranch = execSync("git rev-parse --abbrev-ref HEAD").toString().trim()
+    console.log("Pushing your changes");
+    const currentBranch = execSync("git rev-parse --abbrev-ref HEAD")
+      .toString()
+      .trim();
     const res = spawnSync("git", ["push", "-uf", ORIGIN_NAME, currentBranch], {
       stdio: "inherit",
-    })
+    });
     if (res.status !== 0) {
       console.log(
-        styleText("red", `An error occurred above while pushing to remote ${ORIGIN_NAME}.`),
-      )
-      return
+        styleText(
+          "red",
+          `An error occurred above while pushing to remote ${ORIGIN_NAME}.`,
+        ),
+      );
+      return;
     }
   }
 
-  console.log(styleText("green", "Done!"))
+  console.log(styleText("green", "Done!"));
 }

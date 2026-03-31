@@ -4,9 +4,10 @@ aliases:
   - RSA assumption
 title: RSA Assumption
 ---
+
 # RSA Assumption
 
-The *RSA assumption* states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a value $y$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$. It was introduced alongside the RSA cryptosystem — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
+The _RSA assumption_ states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a value $y$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$. It was introduced alongside the RSA cryptosystem — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
 
 ## Assumption
 
@@ -41,7 +42,7 @@ is negligible.
 ## Known Results
 
 - RSA implies the existence of [[trapdoor-permutation|trapdoor permutations]], which in turn imply [[public-key-encryption|PKE]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
-- **Factoring reduces to RSA**: an algorithm that inverts $x^e \bmod n$ for *all* $e$ can be used to factor $n$. The converse direction — whether factoring reduces to RSA for a *fixed* $e$ — is not known.
+- **Factoring reduces to RSA**: an algorithm that inverts $x^e \bmod n$ for _all_ $e$ can be used to factor $n$. The converse direction — whether factoring reduces to RSA for a _fixed_ $e$ — is not known.
 - Search–decision equivalence: distinguishing RSA outputs from uniform reduces to inverting RSA.
 
 # Variations

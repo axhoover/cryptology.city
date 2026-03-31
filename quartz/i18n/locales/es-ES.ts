@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,20 @@ export default {
     folderContent: {
       folder: "Carpeta",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 artículo en esta carpeta." : `${count} artículos en esta carpeta.`,
+        count === 1
+          ? "1 artículo en esta carpeta."
+          : `${count} artículos en esta carpeta.`,
     },
     tagContent: {
       tag: "Etiqueta",
       tagIndex: "Índice de Etiquetas",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 artículo con esta etiqueta." : `${count} artículos con esta etiqueta.`,
+        count === 1
+          ? "1 artículo con esta etiqueta."
+          : `${count} artículos con esta etiqueta.`,
       showingFirst: ({ count }) => `Mostrando las primeras ${count} etiquetas.`,
-      totalTags: ({ count }) => `Se han encontrado ${count} etiquetas en total.`,
+      totalTags: ({ count }) =>
+        `Se han encontrado ${count} etiquetas en total.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

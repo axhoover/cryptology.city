@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -58,13 +58,15 @@ export default {
       title: "Indice",
     },
     contentMeta: {
-      readingTime: ({ minutes }) => (minutes === 1 ? "1 minuto" : `${minutes} minuti`),
+      readingTime: ({ minutes }) =>
+        minutes === 1 ? "1 minuto" : `${minutes} minuti`,
     },
   },
   pages: {
     rss: {
       recentNotes: "Note recenti",
-      lastFewNotes: ({ count }) => (count === 1 ? "Ultima nota" : `Ultime ${count} note`),
+      lastFewNotes: ({ count }) =>
+        count === 1 ? "Ultima nota" : `Ultime ${count} note`,
     },
     error: {
       title: "Non trovato",
@@ -74,16 +76,23 @@ export default {
     folderContent: {
       folder: "Cartella",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 oggetto in questa cartella." : `${count} oggetti in questa cartella.`,
+        count === 1
+          ? "1 oggetto in questa cartella."
+          : `${count} oggetti in questa cartella.`,
     },
     tagContent: {
       tag: "Etichetta",
       tagIndex: "Indice etichette",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 oggetto con questa etichetta." : `${count} oggetti con questa etichetta.`,
-      showingFirst: ({ count }) => (count === 1 ? "Prima etichetta." : `Prime ${count} etichette.`),
+        count === 1
+          ? "1 oggetto con questa etichetta."
+          : `${count} oggetti con questa etichetta.`,
+      showingFirst: ({ count }) =>
+        count === 1 ? "Prima etichetta." : `Prime ${count} etichette.`,
       totalTags: ({ count }) =>
-        count === 1 ? "Trovata 1 etichetta in totale." : `Trovate ${count} etichette totali.`,
+        count === 1
+          ? "Trovata 1 etichetta in totale."
+          : `Trovate ${count} etichette totali.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

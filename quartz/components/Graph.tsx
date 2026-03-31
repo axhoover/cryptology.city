@@ -1,29 +1,33 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types";
 // @ts-ignore
-import script from "./scripts/graph.inline"
-import style from "./styles/graph.scss"
-import { i18n } from "../i18n"
-import { classNames } from "../util/lang"
+import script from "./scripts/graph.inline";
+import style from "./styles/graph.scss";
+import { i18n } from "../i18n";
+import { classNames } from "../util/lang";
 
 export interface D3Config {
-  drag: boolean
-  zoom: boolean
-  depth: number
-  scale: number
-  repelForce: number
-  centerForce: number
-  linkDistance: number
-  fontSize: number
-  opacityScale: number
-  removeTags: string[]
-  showTags: boolean
-  focusOnHover?: boolean
-  enableRadial?: boolean
+  drag: boolean;
+  zoom: boolean;
+  depth: number;
+  scale: number;
+  repelForce: number;
+  centerForce: number;
+  linkDistance: number;
+  fontSize: number;
+  opacityScale: number;
+  removeTags: string[];
+  showTags: boolean;
+  focusOnHover?: boolean;
+  enableRadial?: boolean;
 }
 
 interface GraphOptions {
-  localGraph: Partial<D3Config> | undefined
-  globalGraph: Partial<D3Config> | undefined
+  localGraph: Partial<D3Config> | undefined;
+  globalGraph: Partial<D3Config> | undefined;
 }
 
 const defaultOptions: GraphOptions = {
@@ -57,17 +61,23 @@ const defaultOptions: GraphOptions = {
     focusOnHover: true,
     enableRadial: true,
   },
-}
+};
 
 export default ((opts?: Partial<GraphOptions>) => {
-  const Graph: QuartzComponent = ({ displayClass, cfg }: QuartzComponentProps) => {
-    const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph }
-    const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph }
+  const Graph: QuartzComponent = ({
+    displayClass,
+    cfg,
+  }: QuartzComponentProps) => {
+    const localGraph = { ...defaultOptions.localGraph, ...opts?.localGraph };
+    const globalGraph = { ...defaultOptions.globalGraph, ...opts?.globalGraph };
     return (
       <div class={classNames(displayClass, "graph")}>
         <h3>{i18n(cfg.locale).components.graph.title}</h3>
         <div class="graph-outer">
-          <div class="graph-container" data-cfg={JSON.stringify(localGraph)}></div>
+          <div
+            class="graph-container"
+            data-cfg={JSON.stringify(localGraph)}
+          ></div>
           <button class="global-graph-icon" aria-label="Global Graph">
             <svg
               version="1.1"
@@ -96,14 +106,17 @@ export default ((opts?: Partial<GraphOptions>) => {
           </button>
         </div>
         <div class="global-graph-outer">
-          <div class="global-graph-container" data-cfg={JSON.stringify(globalGraph)}></div>
+          <div
+            class="global-graph-container"
+            data-cfg={JSON.stringify(globalGraph)}
+          ></div>
         </div>
       </div>
-    )
-  }
+    );
+  };
 
-  Graph.css = style
-  Graph.afterDOMLoaded = script
+  Graph.css = style;
+  Graph.afterDOMLoaded = script;
 
-  return Graph
-}) satisfies QuartzComponentConstructor
+  return Graph;
+}) satisfies QuartzComponentConstructor;

@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,20 @@ export default {
     folderContent: {
       folder: "Dossier",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 élément sous ce dossier." : `${count} éléments sous ce dossier.`,
+        count === 1
+          ? "1 élément sous ce dossier."
+          : `${count} éléments sous ce dossier.`,
     },
     tagContent: {
       tag: "Étiquette",
       tagIndex: "Index des étiquettes",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 élément avec cette étiquette." : `${count} éléments avec cette étiquette.`,
-      showingFirst: ({ count }) => `Affichage des premières ${count} étiquettes.`,
+        count === 1
+          ? "1 élément avec cette étiquette."
+          : `${count} éléments avec cette étiquette.`,
+      showingFirst: ({ count }) =>
+        `Affichage des premières ${count} étiquettes.`,
       totalTags: ({ count }) => `Trouvé ${count} étiquettes au total.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

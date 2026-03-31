@@ -9,13 +9,14 @@ aliases:
   - BHMW21
 tags:
   - preprint
-
 ---
+
 # [BHMW21] On the Security of Doubly Efficient PIR
 
 **Authors:** Elette Boyle, Justin Holmgren, Fermi Ma, Mor Weiss | **Venue:** preprint | [Source](https://eprint.iacr.org/2021/1113)
 
 ## Abstract
+
 Doubly Efficient Private Information Retrieval (DEPIR) enables queries to an externally held database while hiding the identity of the queried indices, strengthening standard Private Information Retrieval (Chor, Goldreich, Kushilevitz, Sudan FOCS'95) with an efficiency requirement that the computational demands of both client and server are sublinear in the database size.
 The first DEPIR candidate constructions were recently put forth, based on a new type of assumption relating to indistinguishability of moderate-degree polynomials from random functions when given permuted versions of their evaluation graphs (Boyle, Ishai, Pass,
 Wootters TCC'17 and Canetti, Holmgren, Richelson TCC'17).

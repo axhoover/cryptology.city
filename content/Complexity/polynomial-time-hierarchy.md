@@ -5,6 +5,7 @@ aliases:
   - Polynomial Hierarchy
 title: Polynomial Hierarchy
 ---
+
 # Polynomial Hierarchy
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#ph).
@@ -12,4 +13,3 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 ## Notable problems
 
 ## Known relationships
-

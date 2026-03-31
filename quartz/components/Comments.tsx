@@ -1,38 +1,47 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types";
+import { classNames } from "../util/lang";
 // @ts-ignore
-import script from "./scripts/comments.inline"
+import script from "./scripts/comments.inline";
 
 type Options = {
-  provider: "giscus"
+  provider: "giscus";
   options: {
-    repo: `${string}/${string}`
-    repoId: string
-    category: string
-    categoryId: string
-    themeUrl?: string
-    lightTheme?: string
-    darkTheme?: string
-    mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname"
-    strict?: boolean
-    reactionsEnabled?: boolean
-    inputPosition?: "top" | "bottom"
-    lang?: string
-  }
-}
+    repo: `${string}/${string}`;
+    repoId: string;
+    category: string;
+    categoryId: string;
+    themeUrl?: string;
+    lightTheme?: string;
+    darkTheme?: string;
+    mapping?: "url" | "title" | "og:title" | "specific" | "number" | "pathname";
+    strict?: boolean;
+    reactionsEnabled?: boolean;
+    inputPosition?: "top" | "bottom";
+    lang?: string;
+  };
+};
 
 function boolToStringBool(b: boolean): string {
-  return b ? "1" : "0"
+  return b ? "1" : "0";
 }
 
 export default ((opts: Options) => {
-  const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
+  const Comments: QuartzComponent = ({
+    displayClass,
+    fileData,
+    cfg,
+  }: QuartzComponentProps) => {
     // check if comments should be displayed according to frontmatter
     const disableComment: boolean =
       typeof fileData.frontmatter?.comments !== "undefined" &&
-      (!fileData.frontmatter?.comments || fileData.frontmatter?.comments === "false")
+      (!fileData.frontmatter?.comments ||
+        fileData.frontmatter?.comments === "false");
     if (disableComment) {
-      return <></>
+      return <></>;
     }
 
     return (
@@ -44,19 +53,22 @@ export default ((opts: Options) => {
         data-category-id={opts.options.categoryId}
         data-mapping={opts.options.mapping ?? "url"}
         data-strict={boolToStringBool(opts.options.strict ?? true)}
-        data-reactions-enabled={boolToStringBool(opts.options.reactionsEnabled ?? true)}
+        data-reactions-enabled={boolToStringBool(
+          opts.options.reactionsEnabled ?? true,
+        )}
         data-input-position={opts.options.inputPosition ?? "bottom"}
         data-light-theme={opts.options.lightTheme ?? "light"}
         data-dark-theme={opts.options.darkTheme ?? "dark"}
         data-theme-url={
-          opts.options.themeUrl ?? `https://${cfg.baseUrl ?? "example.com"}/static/giscus`
+          opts.options.themeUrl ??
+          `https://${cfg.baseUrl ?? "example.com"}/static/giscus`
         }
         data-lang={opts.options.lang ?? "en"}
       ></div>
-    )
-  }
+    );
+  };
 
-  Comments.afterDOMLoaded = script
+  Comments.afterDOMLoaded = script;
 
-  return Comments
-}) satisfies QuartzComponentConstructor<Options>
+  return Comments;
+}) satisfies QuartzComponentConstructor<Options>;

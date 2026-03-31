@@ -1,26 +1,30 @@
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import style from "./styles/explorer.scss"
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types";
+import style from "./styles/explorer.scss";
 
 // @ts-ignore
-import script from "./scripts/explorer.inline"
-import { classNames } from "../util/lang"
-import { pathToRoot } from "../util/path"
-import { i18n } from "../i18n"
-import { FileTrieNode } from "../util/fileTrie"
-import OverflowListFactory from "./OverflowList"
-import { concatenateResources } from "../util/resources"
+import script from "./scripts/explorer.inline";
+import { classNames } from "../util/lang";
+import { pathToRoot } from "../util/path";
+import { i18n } from "../i18n";
+import { FileTrieNode } from "../util/fileTrie";
+import OverflowListFactory from "./OverflowList";
+import { concatenateResources } from "../util/resources";
 
-type OrderEntries = "sort" | "filter" | "map"
+type OrderEntries = "sort" | "filter" | "map";
 
 export interface Options {
-  title?: string
-  folderDefaultState: "collapsed" | "open"
-  folderClickBehavior: "collapse" | "link"
-  useSavedState: boolean
-  sortFn: (a: FileTrieNode, b: FileTrieNode) => number
-  filterFn: (node: FileTrieNode) => boolean
-  mapFn: (node: FileTrieNode) => void
-  order: OrderEntries[]
+  title?: string;
+  folderDefaultState: "collapsed" | "open";
+  folderClickBehavior: "collapse" | "link";
+  useSavedState: boolean;
+  sortFn: (a: FileTrieNode, b: FileTrieNode) => number;
+  filterFn: (node: FileTrieNode) => boolean;
+  mapFn: (node: FileTrieNode) => void;
+  order: OrderEntries[];
 }
 
 const defaultOptions: Options = {
@@ -28,7 +32,7 @@ const defaultOptions: Options = {
   folderClickBehavior: "link",
   useSavedState: true,
   mapFn: (node) => {
-    return node
+    return node;
   },
   sortFn: (a, b) => {
     // Sort order: folders first, then files. Sort folders and files alphabeticall
@@ -38,31 +42,35 @@ const defaultOptions: Options = {
       return a.displayName.localeCompare(b.displayName, undefined, {
         numeric: true,
         sensitivity: "base",
-      })
+      });
     }
 
     if (!a.isFolder && b.isFolder) {
-      return 1
+      return 1;
     } else {
-      return -1
+      return -1;
     }
   },
   filterFn: (node) => node.slugSegment !== "tags",
   order: ["filter", "map", "sort"],
-}
+};
 
 export type FolderState = {
-  path: string
-  collapsed: boolean
-}
+  path: string;
+  collapsed: boolean;
+};
 
-let numExplorers = 0
+let numExplorers = 0;
 export default ((userOpts?: Partial<Options>) => {
-  const opts: Options = { ...defaultOptions, ...userOpts }
-  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory()
+  const opts: Options = { ...defaultOptions, ...userOpts };
+  const { OverflowList, overflowListAfterDOMLoaded } = OverflowListFactory();
 
-  const Explorer: QuartzComponent = ({ cfg, fileData, displayClass }: QuartzComponentProps) => {
-    const id = `explorer-${numExplorers++}`
+  const Explorer: QuartzComponent = ({
+    cfg,
+    fileData,
+    displayClass,
+  }: QuartzComponentProps) => {
+    const id = `explorer-${numExplorers++}`;
 
     return (
       <div
@@ -120,7 +128,12 @@ export default ((userOpts?: Partial<Options>) => {
             <polyline points="6 9 12 15 18 9"></polyline>
           </svg>
         </button>
-        <div id={id} class="explorer-content" aria-expanded={false} role="group">
+        <div
+          id={id}
+          class="explorer-content"
+          aria-expanded={false}
+          role="group"
+        >
           <a href={pathToRoot(fileData.slug!)} class="explorer-site-title">
             {cfg.pageTitle}
           </a>
@@ -160,10 +173,13 @@ export default ((userOpts?: Partial<Options>) => {
           </li>
         </template>
       </div>
-    )
-  }
+    );
+  };
 
-  Explorer.css = style
-  Explorer.afterDOMLoaded = concatenateResources(script, overflowListAfterDOMLoaded)
-  return Explorer
-}) satisfies QuartzComponentConstructor
+  Explorer.css = style;
+  Explorer.afterDOMLoaded = concatenateResources(
+    script,
+    overflowListAfterDOMLoaded,
+  );
+  return Explorer;
+}) satisfies QuartzComponentConstructor;

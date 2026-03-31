@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,20 @@ export default {
     folderContent: {
       folder: "Kansio",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 kohde tässä kansiossa." : `${count} kohdetta tässä kansiossa.`,
+        count === 1
+          ? "1 kohde tässä kansiossa."
+          : `${count} kohdetta tässä kansiossa.`,
     },
     tagContent: {
       tag: "Tunniste",
       tagIndex: "Tunnisteluettelo",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 kohde tällä tunnisteella." : `${count} kohdetta tällä tunnisteella.`,
-      showingFirst: ({ count }) => `Näytetään ensimmäiset ${count} tunnistetta.`,
+        count === 1
+          ? "1 kohde tällä tunnisteella."
+          : `${count} kohdetta tällä tunnisteella.`,
+      showingFirst: ({ count }) =>
+        `Näytetään ensimmäiset ${count} tunnistetta.`,
       totalTags: ({ count }) => `Löytyi yhteensä ${count} tunnistetta.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

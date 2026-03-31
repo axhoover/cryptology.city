@@ -4,9 +4,12 @@ aliases:
   - Nondeterministic Polynomial-Time
 title: Nondeterministic Polynomial-Time
 ---
+
 # Nondeterministic Polynomial-Time
+
 An "NP machine" is a nondeterministic polynomial-time Turing machine.
 Then NP is the class of decision problems solvable by an NP machine such that
+
 1. If the answer is "yes," at least one computation path accepts.
 2. If the answer is "no," all computation paths reject.
 
@@ -15,7 +18,9 @@ Equivalently, NP is the class of decision problems such that, if the answer is "
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#np) and its complement class [coNP here](https://complexityzoo.net/Complexity_Zoo:C#conp)
 
 ## Notable problems
+
 - SAT is complete for NP — TODO citation
 
 ## Known relationships
+
 - If [[nondeterministic-polynomial-time|NP]] = coNP, then any inconsistent Boolean formula of size n has a proof of inconsistency of size polynomial in n.

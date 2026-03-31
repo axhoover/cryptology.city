@@ -8,11 +8,12 @@ aliases:
   - GGM86
 tags:
   - JACM
-
 ---
+
 # [GGM86] How to construct random functions
 
 **Authors:** Oded Goldreich, Shafi Goldwasser, Silvio Micali | **Venue:** Journal of the ACM 1986 | [Source](https://dl.acm.org/doi/abs/10.1145/6490.6503)
 
 ## Abstract
+
 A constructive theory of randomness for functions, based on computational complexity, is developed, and a pseudorandom function generator is presented. This generator is a deterministic polynomial-time algorithm that transforms pairs ($g$, $r$), where $g$ is \textit{any} one-way function and $r$ is a random $k$-bit string, to polynomial-time computable functions $ƒ_r$: {1, …, $2^k$} → {1, …, $2^k$}. These $ƒ_r$'s cannot be distinguished from \textit{random} functions by any probabilistic polynomial-time algorithm that asks and receives the value of a function at arguments of its choice. The result has applications in cryptography, random constructions, and complexity theory.

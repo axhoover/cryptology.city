@@ -1,20 +1,23 @@
-import { QuartzTransformerPlugin } from "../types"
-import { PluggableList } from "unified"
-import { visit } from "unist-util-visit"
-import { ReplaceFunction, findAndReplace as mdastFindReplace } from "mdast-util-find-and-replace"
-import { Root, Html, Paragraph, Text, Link, Parent } from "mdast"
-import { BuildVisitor } from "unist-util-visit"
+import { QuartzTransformerPlugin } from "../types";
+import { PluggableList } from "unified";
+import { visit } from "unist-util-visit";
+import {
+  ReplaceFunction,
+  findAndReplace as mdastFindReplace,
+} from "mdast-util-find-and-replace";
+import { Root, Html, Paragraph, Text, Link, Parent } from "mdast";
+import { BuildVisitor } from "unist-util-visit";
 
 export interface Options {
-  orComponent: boolean
-  TODOComponent: boolean
-  DONEComponent: boolean
-  videoComponent: boolean
-  audioComponent: boolean
-  pdfComponent: boolean
-  blockquoteComponent: boolean
-  tableComponent: boolean
-  attributeComponent: boolean
+  orComponent: boolean;
+  TODOComponent: boolean;
+  DONEComponent: boolean;
+  videoComponent: boolean;
+  audioComponent: boolean;
+  pdfComponent: boolean;
+  blockquoteComponent: boolean;
+  tableComponent: boolean;
+  attributeComponent: boolean;
 }
 
 const defaultOptions: Options = {
@@ -27,33 +30,35 @@ const defaultOptions: Options = {
   blockquoteComponent: true,
   tableComponent: true,
   attributeComponent: true,
-}
+};
 
-const orRegex = new RegExp(/{{or:(.*?)}}/, "g")
-const TODORegex = new RegExp(/{{.*?\bTODO\b.*?}}/, "g")
-const DONERegex = new RegExp(/{{.*?\bDONE\b.*?}}/, "g")
+const orRegex = new RegExp(/{{or:(.*?)}}/, "g");
+const TODORegex = new RegExp(/{{.*?\bTODO\b.*?}}/, "g");
+const DONERegex = new RegExp(/{{.*?\bDONE\b.*?}}/, "g");
 
-const blockquoteRegex = new RegExp(/(\[\[>\]\])\s*(.*)/, "g")
-const roamHighlightRegex = new RegExp(/\^\^(.+)\^\^/, "g")
-const roamItalicRegex = new RegExp(/__(.+)__/, "g")
+const blockquoteRegex = new RegExp(/(\[\[>\]\])\s*(.*)/, "g");
+const roamHighlightRegex = new RegExp(/\^\^(.+)\^\^/, "g");
+const roamItalicRegex = new RegExp(/__(.+)__/, "g");
 
 function isSpecialEmbed(node: Paragraph): boolean {
-  if (node.children.length !== 2) return false
+  if (node.children.length !== 2) return false;
 
-  const [textNode, linkNode] = node.children
+  const [textNode, linkNode] = node.children;
   return (
     textNode.type === "text" &&
     textNode.value.startsWith("{{[[") &&
     linkNode.type === "link" &&
     linkNode.children[0].type === "text" &&
     linkNode.children[0].value.endsWith("}}")
-  )
+  );
 }
 
 function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
-  const [textNode, linkNode] = node.children as [Text, Link]
-  const embedType = textNode.value.match(/\{\{\[\[(.*?)\]\]:/)?.[1]?.toLowerCase()
-  const url = linkNode.url.slice(0, -2) // Remove the trailing '}}'
+  const [textNode, linkNode] = node.children as [Text, Link];
+  const embedType = textNode.value
+    .match(/\{\{\[\[(.*?)\]\]:/)?.[1]
+    ?.toLowerCase();
+  const url = linkNode.url.slice(0, -2); // Remove the trailing '}}'
 
   switch (embedType) {
     case "audio":
@@ -66,17 +71,17 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
           Your browser does not support the audio tag.
         </audio>`,
           }
-        : null
+        : null;
     case "video":
-      if (!opts.videoComponent) return null
+      if (!opts.videoComponent) return null;
       // Check if it's a YouTube video
       const youtubeMatch = url.match(
         /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com|youtu\.be)\/(?:watch\?v=)?(.+)/,
-      )
+      );
       if (youtubeMatch) {
-        const videoId = youtubeMatch[1].split("&")[0] // Remove additional parameters
-        const playlistMatch = url.match(/[?&]list=([^#\&\?]*)/)
-        const playlistId = playlistMatch ? playlistMatch[1] : null
+        const videoId = youtubeMatch[1].split("&")[0]; // Remove additional parameters
+        const playlistMatch = url.match(/[?&]list=([^#\&\?]*)/);
+        const playlistId = playlistMatch ? playlistMatch[1] : null;
 
         return {
           type: "html",
@@ -88,7 +93,7 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
             frameborder="0"
             allow="fullscreen"
           ></iframe>`,
-        }
+        };
       } else {
         return {
           type: "html",
@@ -97,7 +102,7 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
             <source src="${url}" type="video/webm">
             Your browser does not support the video tag.
           </video>`,
-        }
+        };
       }
     case "pdf":
       return opts.pdfComponent
@@ -105,36 +110,40 @@ function transformSpecialEmbed(node: Paragraph, opts: Options): Html | null {
             type: "html",
             value: `<embed src="${url}" type="application/pdf" width="100%" height="600px" />`,
           }
-        : null
+        : null;
     default:
-      return null
+      return null;
   }
 }
 
-export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | undefined> = (
-  userOpts,
-) => {
-  const opts = { ...defaultOptions, ...userOpts }
+export const RoamFlavoredMarkdown: QuartzTransformerPlugin<
+  Partial<Options> | undefined
+> = (userOpts) => {
+  const opts = { ...defaultOptions, ...userOpts };
 
   return {
     name: "RoamFlavoredMarkdown",
     markdownPlugins() {
-      const plugins: PluggableList = []
+      const plugins: PluggableList = [];
 
       plugins.push(() => {
         return (tree: Root) => {
-          const replacements: [RegExp, ReplaceFunction][] = []
+          const replacements: [RegExp, ReplaceFunction][] = [];
 
           // Handle special embeds (audio, video, PDF)
           if (opts.audioComponent || opts.videoComponent || opts.pdfComponent) {
-            visit(tree, "paragraph", ((node: Paragraph, index: number, parent: Parent | null) => {
+            visit(tree, "paragraph", ((
+              node: Paragraph,
+              index: number,
+              parent: Parent | null,
+            ) => {
               if (isSpecialEmbed(node)) {
-                const transformedNode = transformSpecialEmbed(node, opts)
+                const transformedNode = transformSpecialEmbed(node, opts);
                 if (transformedNode && parent) {
-                  parent.children[index] = transformedNode
+                  parent.children[index] = transformedNode;
                 }
               }
-            }) as BuildVisitor<Root, "paragraph">)
+            }) as BuildVisitor<Root, "paragraph">);
           }
 
           // Roam italic syntax
@@ -144,7 +153,7 @@ export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | un
               type: "emphasis",
               children: [{ type: "text", value: match }],
             }),
-          ])
+          ]);
 
           // Roam highlight syntax
           replacements.push([
@@ -153,22 +162,22 @@ export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | un
               type: "html",
               value: `<span class="text-highlight">${inner}</span>`,
             }),
-          ])
+          ]);
 
           if (opts.orComponent) {
             replacements.push([
               orRegex,
               (match: string) => {
-                const matchResult = match.match(/{{or:(.*?)}}/)
+                const matchResult = match.match(/{{or:(.*?)}}/);
                 if (matchResult === null) {
-                  return { type: "html", value: "" }
+                  return { type: "html", value: "" };
                 }
-                const optionsString: string = matchResult[1]
-                const options: string[] = optionsString.split("|")
-                const selectHtml: string = `<select>${options.map((option: string) => `<option value="${option}">${option}</option>`).join("")}</select>`
-                return { type: "html", value: selectHtml }
+                const optionsString: string = matchResult[1];
+                const options: string[] = optionsString.split("|");
+                const selectHtml: string = `<select>${options.map((option: string) => `<option value="${option}">${option}</option>`).join("")}</select>`;
+                return { type: "html", value: selectHtml };
               },
-            ])
+            ]);
           }
 
           if (opts.TODOComponent) {
@@ -178,7 +187,7 @@ export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | un
                 type: "html",
                 value: `<input type="checkbox" disabled>`,
               }),
-            ])
+            ]);
           }
 
           if (opts.DONEComponent) {
@@ -188,7 +197,7 @@ export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | un
                 type: "html",
                 value: `<input type="checkbox" checked disabled>`,
               }),
-            ])
+            ]);
           }
 
           if (opts.blockquoteComponent) {
@@ -198,14 +207,14 @@ export const RoamFlavoredMarkdown: QuartzTransformerPlugin<Partial<Options> | un
                 type: "html",
                 value: `<blockquote>${content.trim()}</blockquote>`,
               }),
-            ])
+            ]);
           }
 
-          mdastFindReplace(tree, replacements)
-        }
-      })
+          mdastFindReplace(tree, replacements);
+        };
+      });
 
-      return plugins
+      return plugins;
     },
-  }
-}
+  };
+};

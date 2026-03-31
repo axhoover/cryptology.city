@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -79,15 +79,19 @@ export default {
     folderContent: {
       folder: "مجلد",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "يوجد عنصر واحد فقط تحت هذا المجلد" : `يوجد ${count} عناصر تحت هذا المجلد.`,
+        count === 1
+          ? "يوجد عنصر واحد فقط تحت هذا المجلد"
+          : `يوجد ${count} عناصر تحت هذا المجلد.`,
     },
     tagContent: {
       tag: "الوسم",
       tagIndex: "مؤشر الوسم",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "يوجد عنصر واحد فقط تحت هذا الوسم" : `يوجد ${count} عناصر تحت هذا الوسم.`,
+        count === 1
+          ? "يوجد عنصر واحد فقط تحت هذا الوسم"
+          : `يوجد ${count} عناصر تحت هذا الوسم.`,
       showingFirst: ({ count }) => `إظهار أول ${count} أوسمة.`,
       totalTags: ({ count }) => `يوجد ${count} أوسمة.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

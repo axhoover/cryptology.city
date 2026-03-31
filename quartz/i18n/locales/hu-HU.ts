@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -43,7 +43,8 @@ export default {
     },
     recentNotes: {
       title: "Legutóbbi jegyzetek",
-      seeRemainingMore: ({ remaining }) => `${remaining} további megtekintése →`,
+      seeRemainingMore: ({ remaining }) =>
+        `${remaining} további megtekintése →`,
     },
     transcludes: {
       transcludeOf: ({ targetSlug }) => `${targetSlug} áthivatkozása`,
@@ -72,7 +73,8 @@ export default {
     },
     folderContent: {
       folder: "Mappa",
-      itemsUnderFolder: ({ count }) => `Ebben a mappában ${count} elem található.`,
+      itemsUnderFolder: ({ count }) =>
+        `Ebben a mappában ${count} elem található.`,
     },
     tagContent: {
       tag: "Címke",
@@ -82,4 +84,4 @@ export default {
       totalTags: ({ count }) => `Összesen ${count} címke található.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;
