@@ -9,13 +9,14 @@ aliases:
   - GJL+25
 tags:
   - Eurocrypt
-
 ---
+
 # [GJL+25] Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN
 
 **Authors:** Riddhi Ghosal, Aayush Jain, Paul Lou, Amit Sahai, Neekon Vafa | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2025/844)
 
 ## Abstract
+
 Noisy linear algebraic assumptions with respect to random matrices, in particular Learning with Errors ($\mathsf{LWE}$) and Alekhnovich Learning Parity with Noise (Alekhnovich $\mathsf{LPN}$), are among the most investigated assumptions that imply post-quantum public-key encryption (PKE). They enjoy elegant mathematical structure. Indeed, efforts to build post-quantum PKE and advanced primitives such as homomorphic encryption and indistinguishability obfuscation have increasingly focused their attention on these two assumptions and their variants.
 
 Unfortunately, this increasing reliance on these two assumptions for building post-quantum cryptography leaves us vulnerable to potential quantum (and classical) attacks on Alekhnovich $\mathsf{LPN}$ and $\mathsf{LWE}$. Quantum algorithms is a rapidly advancing area, and we must stay prepared for unexpected cryptanalytic breakthroughs. Just three decades ago, a short time frame in the development of our field, Shor's algorithm rendered most then-popular number theoretic and algebraic assumptions quantumly broken. Furthermore, within the last several years, we have witnessed major classical and quantum breaks on several assumptions previously introduced for post-quantum cryptography. Therefore, we ask the following question:

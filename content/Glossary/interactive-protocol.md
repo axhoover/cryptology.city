@@ -7,9 +7,11 @@ aliases:
   - transcript
 title: Interactive protocol
 ---
+
 # Interactive protocols
 
 A **two-party protocol** $\Pi = (\Setup, P_1, P_2)$ consists of:
+
 - $\Setup(1^\secpar) \to \pp,$ a randomized algorithm generating public parameters,
 - $P_1, P_2,$ two stateful interactive algorithms (the **parties**).
 
@@ -45,7 +47,7 @@ The **transcript** of an execution is the ordered sequence of all messages excha
 
 Security of a protocol is analyzed under one of two standard adversary models:
 
-- **Semi-honest** (*honest-but-curious*): the adversary follows the protocol specification exactly but tries to learn additional information from its view alone.
+- **Semi-honest** (_honest-but-curious_): the adversary follows the protocol specification exactly but tries to learn additional information from its view alone.
 - **Malicious**: the adversary may deviate from the protocol arbitrarily, sending any messages it chooses.
 
 Note: A protocol secure against malicious parties implies security against

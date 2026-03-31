@@ -9,13 +9,14 @@ aliases:
   - AHY25
 tags:
   - Eurocrypt
-
 ---
+
 # [AHY25] Fine-Grained Complexity in a World without Cryptography
 
 **Authors:** Josh Alman, Yizhi Huang, Kevin Yeo | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2025/324)
 
 ## Abstract
+
 The study of fine-grained cryptography has proliferated in recent years due to its allure of potentially relying on weaker assumptions compared to standard cryptography. As fine-grained cryptography only requires polynomial gaps between the adversary and honest parties, it seems plausible to build primitives relying upon popular hardness assumptions about problems in $\mathbf{P}$ such as $k$-$\mathsf{SUM}$ or $\mathsf{Zero}$-$k$-$\mathsf{Clique}$. The ultimate hope is that fine-grained cryptography could still be viable even if all current cryptographic assumptions are false, such as if $\mathbf{P} = \mathbf{NP}$ or if we live in Pessiland where one-way functions do not exist.
 
 In our work, we consider whether this approach is viable by studying fine-grained complexity when all standard cryptographic assumptions are false. As our main result, we show that many popular fine-grained complexity problems are easy to solve in the average-case when one-way functions do not exist. In other words, many candidate hardness assumptions for building fine-grained cryptography are no longer options in Pessiland. As an example, we prove that the average-case $k$-$\mathsf{SUM}$ and $\mathsf{Zero}$-$k$-$\mathsf{Clique}$ conjectures are false for sufficiently large constant $k$ when no one-way functions exist. The average-case $\mathsf{Zero}$-$k$-$\mathsf{Clique}$ assumption was used to build fine-grained key-exchange by Lavigne et al. [CRYPTO'19].

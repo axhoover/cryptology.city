@@ -8,13 +8,14 @@ aliases:
   - Wul09
 tags:
   - TCC
-
 ---
+
 # [Wul09] Oblivious Transfer from Weak Noisy Channels
 
 **Authors:** Jürg Wullschleger | **Venue:** TCC 2009 | [Source](https://eprint.iacr.org/2008/420)
 
 ## Abstract
+
 Various results show that oblivious transfer can be implemented using the assumption of noisy channels. Unfortunately, this assumption is not as weak as one might think, because in a cryptographic setting, these noisy channels must satisfy very strong security requirements.
 
 Unfair noisy channels, introduced by Damgard, Kilian and Salvail [Eurocrypt '99], reduce these limitations: They give the adversary an unfair advantage over the honest player, and therefore weaken the security requirements on the noisy channel. However, this model still has many shortcomings: For example, the adversary's advantage is only allowed to have a very special form, and no error is allowed in the implementation.

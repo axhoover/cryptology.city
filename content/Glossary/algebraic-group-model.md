@@ -4,9 +4,10 @@ aliases:
   - Algebraic Group Model
 title: Algebraic Group Model
 ---
+
 # Algebraic Group Model
 
-The *Algebraic Group Model (AGM)* [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] is a model of computation that lies between the standard model and the [[generic-group-model|Generic Group Model (GGM)]]. In it, adversaries are restricted to being *algebraic*: they can perform arbitrary group computations, but must be able to account for every group element they produce by explaining it as a linear combination of previously seen elements.
+The _Algebraic Group Model (AGM)_ [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] is a model of computation that lies between the standard model and the [[generic-group-model|Generic Group Model (GGM)]]. In it, adversaries are restricted to being _algebraic_: they can perform arbitrary group computations, but must be able to account for every group element they produce by explaining it as a linear combination of previously seen elements.
 
 ## Definition
 
@@ -35,10 +36,10 @@ These reductions, combined with the $\Omega(\sqrt{p})$ GGM lower bound of [[Sho9
 
 The relationship between the AGM and the [[generic-group-model|GGM]] has been the subject of significant study.
 
-[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is *strictly weaker* than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every GGM-secure scheme is AGM-secure, and AGM lower bounds lift to the GGM.
+[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every GGM-secure scheme is AGM-secure, and AGM lower bounds lift to the GGM.
 
 [[KZ22 - An Analysis of the Algebraic Group Model|Katz and Zhang (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM. The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
 
 ## Comparison with the Standard Model
 
-In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. In this sense, the AGM is a *conservative idealization*: it rules out adversaries that could exploit the representation of group elements in a way that a real-world adversary plausibly cannot.
+In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. In this sense, the AGM is a _conservative idealization_: it rules out adversaries that could exploit the representation of group elements in a way that a real-world adversary plausibly cannot.

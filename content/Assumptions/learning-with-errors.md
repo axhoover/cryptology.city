@@ -99,6 +99,41 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 ## Ring LWE
 
+**Ring LWE (RLWE)** restricts LWE to the polynomial ring $R_q = \ZZ_q[x]/\langle\Phi_n(x)\rangle$, where $\Phi_n$ is the $n$-th cyclotomic polynomial (typically $\Phi_n(x) = x^n + 1$ for $n$ a power of 2). A Ring LWE sample is a pair $(a, b) \in R_q \times R_q$ where $a \getsr R_q$ is a random ring element and $b = a \cdot s + e$ for a secret $s \in R_q$ and small error $e \gets \chi^R$ drawn from an error distribution over $R_q$.
+
+The key advantage is efficiency: the random matrix $\mathbf{A} \in \ZZ_q^{m \times n}$ in plain LWE (requiring $O(n^2)$ space) is replaced by a single ring element $a \in R_q$ (requiring $O(n \log q)$ space), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
+
+- **Key size**: $O(n \log q)$ bits (vs. $O(n^2 \log q)$ for plain LWE)
+- **Computation**: $O(n \log n)$ per operation (vs. $O(n^2)$)
+
+Ring LWE admits a quantum worst-case to average-case reduction from the **Ideal-SVP** problem (shortest vector in ideal lattices), giving a hardness foundation analogous to LWE's reduction from SVP — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].
+
+Ring LWE is the basis for NewHope and is closely related to the NTRU cryptosystem.
+
 ## Module LWE
 
+**Module LWE (MLWE)** interpolates between plain LWE (large random matrices, no algebraic structure) and Ring LWE (maximum structure, ring elements) by considering **rank-$k$ modules over $R_q$**. A Module LWE sample is:
+$$\mathbf{b} = \mathbf{A} \cdot \mathbf{s} + \mathbf{e} \in R_q^m,$$
+where $\mathbf{A} \in R_q^{m \times k}$ is a random module matrix, $\mathbf{s} \in R_q^k$ is the secret vector, and $\mathbf{e} \in R_q^m$ is a small error vector.
+
+- When $k = 1$: recovers Ring LWE (one ring element per equation)
+- When $k = n$: recovers plain LWE (fully unstructured, ring $R_q \cong \ZZ_q^n$)
+
+The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). Module LWE is the basis for the NIST post-quantum standards:
+
+- **Kyber / ML-KEM** (FIPS 203): IND-CCA [[key-encapsulation-mechanism|KEM]] from Module LWE with $k = 2, 3, 4$
+- **Dilithium / ML-DSA** (FIPS 204): EUF-CMA [[digital-signature|digital signatures]] from Module LWE/SIS
+
+Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - On the hardness of LWE with binary error|LS15]].
+
 ## Hint LWE
+
+**Hint LWE** augments the standard LWE problem with auxiliary "hint" information about the secret $\mathbf{s}$. Concretely, the adversary receives, in addition to LWE samples $(\mathbf{A}, \mathbf{b} = \mathbf{A}\mathbf{s} + \mathbf{e})$, one or more noisy inner products $\langle \mathbf{v}_i, \mathbf{s} \rangle + e'_i$ for known hint vectors $\mathbf{v}_i$.
+
+Hint LWE arises in:
+
+- **Amortized bootstrapping for FHE**: refreshing many ciphertexts simultaneously leaks hints about the bootstrapping key
+- **Attacks on LWE with side channels**: partial key leakage reduces to Hint LWE
+- **Leftover hash lemma applications**: certain compressed LWE constructions produce hint-like structures
+
+The hardness of Hint LWE is closely related to LWE: mild hints (few, low-precision) can be handled by modifying the error distribution, but many exact hints break LWE entirely (since enough linear equations determine $\mathbf{s}$).

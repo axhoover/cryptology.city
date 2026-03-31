@@ -9,13 +9,14 @@ aliases:
   - BIP+18
 tags:
   - TCC
-
 ---
+
 # [BIP+18] Exploring Crypto Dark Matter: New Simple PRF Candidates and Their Applications
 
 **Authors:** Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu | **Venue:** TCC 2018 | [Source](https://eprint.iacr.org/2018/1218)
 
 ## Abstract
+
 Pseudorandom functions (PRFs) are one of the fundamental building blocks in cryptography. We explore a new space of plausible PRF candidates that are obtained by mixing linear functions over different small moduli. Our candidates are motivated by the goals of maximizing simplicity and minimizing complexity measures that are relevant to cryptographic applications such as secure multiparty computation.
 
 We present several concrete new PRF candidates that follow the above approach. Our main candidate is a weak PRF candidate (whose conjectured pseudorandomness only holds for uniformly random inputs) that first applies a secret mod-2 linear mapping to the input, and then a public mod-3 linear mapping to the result. This candidate can be implemented by depth-2 $\text{ACC}^0$ circuits. We also put forward a similar depth-3 strong PRF candidate. Finally, we present a different weak PRF candidate that can be viewed as a deterministic variant of "Learning Parity with Noise" (LPN) where the noise is obtained via a mod-3 inner product of the input and the key.

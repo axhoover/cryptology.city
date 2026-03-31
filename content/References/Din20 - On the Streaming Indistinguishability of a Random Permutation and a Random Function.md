@@ -10,12 +10,14 @@ tags:
 aliases:
   - Din20
 ---
+
 # [Din20] On the Streaming Indistinguishability of a Random Permutation and a Random Function
 
 **Authors:** Itai Dinur | **Venue:** Eurocrypt 2020 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15)
 
 ## Abstract
-An adversary with _S_ bits of memory obtains a stream of _Q_ elements that are uniformly drawn from the set , either with or without replacement. This corresponds to sampling _Q_ elements using either a random function or a random permutation. The adversary’s goal is to distinguish between these two cases.
+
+An adversary with *S* bits of memory obtains a stream of *Q* elements that are uniformly drawn from the set , either with or without replacement. This corresponds to sampling *Q* elements using either a random function or a random permutation. The adversary’s goal is to distinguish between these two cases.
 
 This problem was first considered by Jaeger and Tessaro (EUROCRYPT 2019), which proved that the adversary’s advantage is upper bounded by . Jaeger and Tessaro used this bound as a streaming switching lemma which allowed proving that known time-memory tradeoff attacks on several modes of operation (such as counter-mode) are optimal up to a factor of  if . However, the bound’s proof assumed an unproven combinatorial conjecture. Moreover, if  there is a gap between the upper bound of  and the  advantage obtained by known attacks.
 

@@ -4,13 +4,14 @@ aliases:
   - Generic Group Model
 title: Generic Group Model
 ---
+
 # Generic Group Model
 
-The *Generic Group Model (GGM)* is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model was independently proposed by Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] and Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]]; the two formulations differ in important ways.
+The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model was independently proposed by Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] and Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]]; the two formulations differ in important ways.
 
 ## Shoup's Formulation
 
-Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \{0,1\}^n$, which assigns each group element a unique opaque bit-string called a *handle*. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
+Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \{0,1\}^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
 
 - **Group operation:** $\calO_{\mathsf{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
 - **Inversion:** $\calO_{\mathsf{inv}}(\sigma(X)) \to \sigma(X^{-1})$
@@ -27,7 +28,7 @@ This captures a different notion of independence from the group representation, 
 
 ## Comparing the Two Formulations
 
-Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across *all* known elements at once), whereas Maurer's label-based approach encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy.
+Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-based approach encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy.
 
 ## The Structured GGM
 
@@ -41,4 +42,4 @@ This yields tight subexponential lower bounds applicable to index-calculus algor
 
 ## Comparison with the AGM
 
-The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly *weaker* idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
+The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.

@@ -51,8 +51,9 @@ is negligible.
 
 ## Attacks
 
-- TODO — baby step, giant step
-- TODO — DDH is easy in certain groups (e.g., groups of non-prime order)
+- **Baby-step giant-step**: a generic algorithm for the underlying discrete logarithm problem. Given $X = g^x$, it finds $x$ in $O(\sqrt{p})$ time and $O(\sqrt{p})$ space by writing $x = im + j$ (where $m = \lceil\sqrt{p}\rceil$) and matching $g^{im} = X \cdot g^{-j}$ across a hash table. Since DDH reduces to DLOG, this attack applies: any DDH distinguisher that computes $g^{xy}$ by solving DLOG runs in $O(\sqrt{p})$.
+- **DDH is easy in groups with efficient pairings**: in groups $\GG$ that admit an efficient bilinear pairing $e: \GG \times \GG \to \GG_T$ (symmetric/Type-1 pairings, e.g., certain supersingular elliptic curves), DDH is trivially broken. Given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$; this holds iff $z = xy$. DDH is therefore **not** a reasonable assumption in Type-1 pairing groups — see [[bilinear-map-assumptions|bilinear map assumptions]].
+- **Pohlig-Hellman**: if the group order $p$ is smooth (factors into small primes), discrete log (and hence DDH) is easy via the Chinese Remainder Theorem on the prime-order subgroups. This is why DDH is only assumed in **prime-order** groups or carefully chosen subgroups.
 
 # Variations
 
