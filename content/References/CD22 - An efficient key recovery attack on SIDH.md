@@ -7,7 +7,9 @@ publish date: 2022
 aliases:
   - CD22
 ---
+
 # An Efficient Key Recovery Attack on SIDH
+
 URL: https://eprint.iacr.org/2022/975
 Authors: Wouter Castryck, Thomas Decru
 

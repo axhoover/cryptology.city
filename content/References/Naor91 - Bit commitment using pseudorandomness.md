@@ -7,7 +7,9 @@ publish date: 1991
 aliases:
   - Naor91
 ---
+
 # Bit Commitment Using Pseudorandomness
+
 URL: https://link.springer.com/article/10.1007/BF00191386
 Authors: Moni Naor
 

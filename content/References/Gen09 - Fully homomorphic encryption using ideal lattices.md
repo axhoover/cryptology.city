@@ -7,7 +7,9 @@ publish date: 2009
 aliases:
   - Gen09
 ---
+
 # Fully Homomorphic Encryption Using Ideal Lattices
+
 URL: https://dl.acm.org/doi/10.1145/1536414.1536440
 Authors: Craig Gentry
 

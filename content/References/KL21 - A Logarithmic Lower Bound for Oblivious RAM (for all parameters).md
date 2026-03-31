@@ -9,18 +9,19 @@ aliases:
   - KL21
 tags:
   - CRYPTO
-
 ---
+
 # [KL21] A Logarithmic Lower Bound for Oblivious RAM (for all parameters)
 
 **Authors:** Ilan Komargodski, Wei-Kai Lin | **Venue:** CRYPTO 2021 | [Source](https://eprint.iacr.org/2020/1132)
 
 ## Abstract
+
 An Oblivious RAM (ORAM), introduced by Goldreich and Ostrovsky (J. ACM 1996), is a probabilistic RAM that hides its access pattern; i.e., for every input the observed locations accessed are similarly distributed. In recent years there has been great progress both in terms of upper bounds as well as in terms of lower bounds, essentially pinning down the smallest overhead possible in various settings of parameters.
 
 We observe that there is a very natural setting of parameters in which no non-trivial lower bound is known, even not ones in restricted models of computation (like the so-called balls and bins model). Let $N$ and $w$ be the number of cells and bit-size of cells, respectively, in the RAM that we wish to simulate obliviously. Denote by $b$ the cell bit-size of the ORAM. All previous ORAM lower bounds have a multiplicative $w/b$ factor which makes them trivial in many settings of parameters of interest.
 
-In this work, we prove a new ORAM lower bound that captures this setting (and in all other settings it is at least as good as previous ones, quantitatively). We show that any ORAM must make (amortized) 
+In this work, we prove a new ORAM lower bound that captures this setting (and in all other settings it is at least as good as previous ones, quantitatively). We show that any ORAM must make (amortized)
 $\Omega\left(\log \left(\frac{Nw}{m}\right)/\log\left(\frac{b}{w}\right)\right)$
 memory probes for every logical operation. Here, $m$ denotes the bit-size of the local storage of the ORAM. Our lower bound implies that logarithmic overhead in accesses is necessary, even if $b \gg w$. Our lower bound is tight for all settings of parameters, up to the $\log(b/w)$ factor. Our bound also extends to the non-colluding multi-server setting.
 

@@ -7,7 +7,9 @@ publish date: 1979
 aliases:
   - Bla79
 ---
+
 # Safeguarding Cryptographic Keys
+
 URL: https://ieeexplore.ieee.org/document/4356614
 Authors: G.R. Blakley
 

@@ -9,11 +9,12 @@ aliases:
   - Ost91
 tags:
   - Complexity
-
 ---
+
 # [Ost91] One-way functions, hard on average problems, and statistical zero-knowledge proofs
 
 **Authors:** Rafail Ostrovsky | **Venue:** IEEE Complexity 1991 | [Source](https://ieeexplore.ieee.org/document/160253)
 
 ## Abstract
+
 In this paper, we study connections among one-way functions, hard on the average problems, and statistical zero-knowledge proofs. In particular, we show how these three notions are related and how the third notion can be better characterized, assuming the rst one

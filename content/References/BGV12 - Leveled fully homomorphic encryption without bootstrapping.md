@@ -7,7 +7,9 @@ publish date: 2012
 aliases:
   - BGV12
 ---
+
 # (Leveled) Fully Homomorphic Encryption without Bootstrapping
+
 URL: https://dl.acm.org/doi/10.1145/2090236.2090262
 Authors: Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan
 

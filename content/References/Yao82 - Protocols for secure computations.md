@@ -7,7 +7,9 @@ publish date: 1982
 aliases:
   - Yao82
 ---
+
 # Protocols for Secure Computations
+
 URL: https://ieeexplore.ieee.org/document/4568388
 Authors: Andrew C. Yao
 

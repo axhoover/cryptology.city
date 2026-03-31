@@ -16,6 +16,7 @@ A _zero-knowledge proof_ is an interactive protocol between a prover $P$ and a v
 ## Syntax
 
 A zero-knowledge proof system for a language $L \subseteq \bits^*$ is an interactive protocol $(P, V)$ where:
+
 - $P$ receives as input $(x, w)$ where $w$ is a witness for $x \in L$
 - $V$ receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
 - The transcript of the interaction is a sequence of messages $(\alpha_1, \beta_1, \ldots, \alpha_k, \beta_k)$

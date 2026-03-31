@@ -7,7 +7,9 @@ publish date: 2021
 aliases:
   - JLS21
 ---
+
 # Indistinguishability Obfuscation from Well-Founded Assumptions
+
 URL: https://dl.acm.org/doi/10.1145/3406325.3451093
 Authors: Aayush Jain, Huijia Lin, Amit Sahai
 

@@ -7,7 +7,9 @@ publish date: 1988
 aliases:
   - BFM88
 ---
+
 # Non-Interactive Zero-Knowledge and Its Applications
+
 URL: https://dl.acm.org/doi/10.1145/62212.62222
 Authors: Manuel Blum, Paul Feldman, Silvio Micali
 

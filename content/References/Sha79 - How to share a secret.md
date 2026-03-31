@@ -7,7 +7,9 @@ publish date: 1979
 aliases:
   - Sha79
 ---
+
 # How to Share a Secret
+
 URL: https://dl.acm.org/doi/10.1145/359168.359176
 Authors: Adi Shamir
 

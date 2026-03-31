@@ -7,7 +7,9 @@ publish date: 1985
 aliases:
   - GMR85
 ---
+
 # The Knowledge Complexity of Interactive Proof-Systems
+
 URL: https://dl.acm.org/doi/10.1145/22145.22178
 Authors: Shafi Goldwasser, Silvio Micali, Charles Rackoff
 

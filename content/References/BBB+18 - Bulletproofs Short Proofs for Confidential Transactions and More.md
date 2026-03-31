@@ -10,13 +10,14 @@ aliases:
   - Bulletproofs
 tags:
   - IEEE-SP
-
 ---
+
 # [BBB+18] Bulletproofs: Short Proofs for Confidential Transactions and More
 
 **Authors:** Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell | **Venue:** S&P 2018 | [Source](https://eprint.iacr.org/2017/1066)
 
 ## Abstract
+
 We propose Bulletproofs, a new non-interactive zero-knowledge proof protocol with very short proofs and without a trusted setup; the proof size is only logarithmic in the witness size. Bulletproofs are especially well suited for efficient range proofs on committed values: they enable proving that a committed value is in a range using only $2\log_2(n) + 9$ group and field elements, where $n$ is the bit length of the range. Proof generation and verification times are linear in $n$.
 
 Bulletproofs greatly improve on the linear (in $n$) sized range proofs in existing proposals for confidential transactions in Bitcoin and other cryptocurrencies. Moreover, Bulletproofs supports aggregation of range proofs, so that a party can prove that $m$ commitments lie in a given range by providing only an additive $O(\log(m))$ group elements over the length of a single proof. To aggregate proofs from multiple parties, we enable the parties to generate a single proof without revealing their inputs to each other via a simple multi-party computation (MPC) protocol for constructing Bulletproofs. This MPC protocol uses either a constant number of rounds and linear communication, or a logarithmic number of rounds and logarithmic communication. We show that verification time, while asymptotically linear, is very efficient in practice. Moreover, the verification of multiple Bulletproofs can be batched for further speed-up. Concretely, the marginal time to verify an aggregation of 16 range proofs is about the same as the time to verify 16 ECDSA signatures.

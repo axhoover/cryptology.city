@@ -8,11 +8,12 @@ aliases:
   - BGG+90
 tags:
   - CRYPTO
-
 ---
+
 # [BGG+90] Everything Provable is Provable in Zero-Knowledge
 
 **Authors:** Michael Ben-Or, Oded Goldreich, Shafi Goldwasser, Johan Håstad, Joe Kilian, Silvio Micali, Phillip Rogaway | **Venue:** CRYPTO 1988 | [Source](https://link.springer.com/chapter/10.1007/0-387-34799-2_4)
 
 ## Abstract
+
 Assuming the existence of a secure probabilistic encryption scheme, we show that every language that admits an interactive proof admits a (computational) zero-knowledge interactive proof. This result extends the result of Goldreich, Micali and Wigderson, that, under the same assumption, all of \textit{NP} admits zero-knowledge interactive proofs. Assuming envelopes for bit commitment, we show that every language that admits an interactive proof admits a perfect zero-knowledge interactive proof.

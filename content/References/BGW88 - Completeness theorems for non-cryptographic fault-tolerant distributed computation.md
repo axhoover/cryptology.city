@@ -7,7 +7,9 @@ publish date: 1988
 aliases:
   - BGW88
 ---
+
 # Completeness Theorems for Non-Cryptographic Fault-Tolerant Distributed Computation
+
 URL: https://dl.acm.org/doi/10.1145/62212.62213
 Authors: Michael Ben-Or, Shafi Goldwasser, Avi Wigderson
 

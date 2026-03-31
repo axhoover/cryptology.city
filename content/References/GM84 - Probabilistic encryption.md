@@ -7,7 +7,9 @@ publish date: 1984
 aliases:
   - GM84
 ---
+
 # Probabilistic Encryption
+
 URL: https://www.sciencedirect.com/science/article/pii/0022000084900709
 Authors: Shafi Goldwasser, Silvio Micali
 

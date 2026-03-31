@@ -7,7 +7,9 @@ publish date: 2013
 aliases:
   - GGHRSW13
 ---
+
 # Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits
+
 URL: https://eprint.iacr.org/2013/451
 Authors: Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters
 
