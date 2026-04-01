@@ -88,6 +88,6 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - STARKs are post-quantum secure; security reduces to the collision resistance of the hash function used — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
 - Any succinct non-interactive argument implies collision-resistant hash functions — standard
 - [[non-interactive-zero-knowledge|NIZK]] proofs can be made succinct using [[polynomial-commitment|polynomial commitments]] and [[arithmetization]] — standard
-- The Fiat-Shamir transform converts interactive proofs to non-interactive SNARKs in the random oracle model — [[FS86 - How to Prove Yourself|FS86]]
+- The Fiat-Shamir transform converts interactive proofs to non-interactive SNARKs in the random oracle model — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
 - SNARKs are constructed via two steps: (1) [[arithmetization]] — convert the computation to polynomial constraints; (2) a [[polynomial-commitment|polynomial commitment scheme]] — commit and open evaluations — standard
 - Knowledge soundness requires non-falsifiable assumptions (like KEA) in the standard model; in the algebraic group model (AGM) or generic group model, it can be based on falsifiable assumptions — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]

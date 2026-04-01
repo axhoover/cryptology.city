@@ -30,7 +30,7 @@ There are a number of different properties that different cryptographic
 protocols require of hash functions. Sometimes, even the particular assumptions
 are insufficient to prove security of a protocol. In this case, there is
 sometimes still hope to prove security when modeling a hash function as a
-[[random oracle]].
+[[random-oracle-model|random oracle]].
 
 ### Preimage resistance (one-wayness)
 

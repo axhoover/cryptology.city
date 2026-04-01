@@ -31,8 +31,11 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\classPSPACE` | $\classPSPACE$ |
 | `\classSZK`    | $\classSZK$    |
 | `\classCZK`    | $\classCZK$    |
+| `\classIP`     | $\classIP$     |
+| `\classAM`     | $\classAM$     |
 | `\classMA`     | $\classMA$     |
 | `\classcoAM`   | $\classcoAM$   |
+| `\classFP`     | $\classFP$     |
 | `\classPP`     | $\classPP$     |
 | `\classPpoly`  | $\classPpoly$  |
 | `\classEXP`    | $\classEXP$    |
@@ -50,12 +53,23 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | ----------- | ----------- |
 | `\KeyGen`   | $\KeyGen$   |
 | `\Gen`      | $\Gen$      |
+| `\GrGen`    | $\GrGen$    |
 | `\Enc`      | $\Enc$      |
 | `\Dec`      | $\Dec$      |
 | `\Setup`    | $\Setup$    |
 | `\Query`    | $\Query$    |
 | `\Eval`     | $\Eval$     |
 | `\Invert`   | $\Invert$   |
+| `\Sign`     | $\Sign$     |
+| `\Vrfy`     | $\Vrfy$     |
+| `\Prove`    | $\Prove$    |
+| `\Com`      | $\Com$      |
+| `\Open`     | $\Open$     |
+| `\Share`    | $\Share$    |
+| `\Recon`    | $\Recon$    |
+| `\Tag`      | $\Tag$      |
+| `\Answer`   | $\Answer$   |
+| `\Decode`   | $\Decode$   |
 | `\Extract`  | $\Extract$  |
 | `\Delegate` | $\Delegate$ |
 
@@ -68,6 +82,9 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\vk`  | $\vk$      |
 | `\msk` | $\msk$     |
 | `\mpk` | $\mpk$     |
+| `\pp`  | $\pp$      |
+| `\crs` | $\crs$     |
+| `\td`  | $\td$      |
 
 ### Number sets
 
@@ -94,12 +111,14 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | Macro     | Renders as |
 | --------- | ---------- |
 | `\bits`   | $\bits$    |
-| `\negl`   | $\negl$    |
-| `\poly`   | $\poly$    |
-| `\PPT`    | $\PPT$     |
-| `\secpar` | $\secpar$  |
-| `\getsr`  | $\getsr$   |
-| `\Funcs`  | $\Funcs$   |
+| `\negl`    | $\negl$    |
+| `\poly`    | $\poly$    |
+| `\polylog` | $\polylog$ |
+| `\PPT`     | $\PPT$     |
+| `\secpar`  | $\secpar$  |
+| `\getsr`   | $\getsr$   |
+| `\Funcs`   | $\Funcs$   |
+| `\Perms`   | $\Perms$   |
 
 ### Advantages and games
 
@@ -110,6 +129,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\Game`   | $\Game$    |
 | `\indcpa` | $\indcpa$  |
 | `\indcca` | $\indcca$  |
+| `\ufcma`  | $\ufcma$   |
 | `\eufcma` | $\eufcma$  |
 | `\sufcma` | $\sufcma$  |
 
@@ -124,6 +144,10 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\OT`   | $\OT$      |
 | `\SKE`  | $\SKE$     |
 | `\PKE`  | $\PKE$     |
+| `\DS`   | $\DS$      |
+| `\MAC`  | $\MAC$     |
+| `\PIR`  | $\PIR$     |
+| `\hash` | $\hash$    |
 | `\IBE`  | $\IBE$     |
 | `\HIBE` | $\HIBE$    |
 | `\ABE`  | $\ABE$     |
