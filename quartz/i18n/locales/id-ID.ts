@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,19 @@ export default {
     folderContent: {
       folder: "Folder",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 item di bawah folder ini." : `${count} item di bawah folder ini.`,
+        count === 1
+          ? "1 item di bawah folder ini."
+          : `${count} item di bawah folder ini.`,
     },
     tagContent: {
       tag: "Tag",
       tagIndex: "Indeks Tag",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 item dengan tag ini." : `${count} item dengan tag ini.`,
+        count === 1
+          ? "1 item dengan tag ini."
+          : `${count} item dengan tag ini.`,
       showingFirst: ({ count }) => `Menampilkan ${count} tag pertama.`,
       totalTags: ({ count }) => `Ditemukan total ${count} tag.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

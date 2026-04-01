@@ -1,11 +1,11 @@
-import { QuartzEmitterPlugin } from "../types"
-import { write } from "./helpers"
-import { styleText } from "util"
-import { FullSlug } from "../../util/path"
+import { QuartzEmitterPlugin } from "../types";
+import { write } from "./helpers";
+import { styleText } from "util";
+import { FullSlug } from "../../util/path";
 
 export function extractDomainFromBaseUrl(baseUrl: string) {
-  const url = new URL(`https://${baseUrl}`)
-  return url.hostname
+  const url = new URL(`https://${baseUrl}`);
+  return url.hostname;
 }
 
 export const CNAME: QuartzEmitterPlugin = () => ({
@@ -13,13 +13,16 @@ export const CNAME: QuartzEmitterPlugin = () => ({
   async emit(ctx) {
     if (!ctx.cfg.configuration.baseUrl) {
       console.warn(
-        styleText("yellow", "CNAME emitter requires `baseUrl` to be set in your configuration"),
-      )
-      return []
+        styleText(
+          "yellow",
+          "CNAME emitter requires `baseUrl` to be set in your configuration",
+        ),
+      );
+      return [];
     }
-    const content = extractDomainFromBaseUrl(ctx.cfg.configuration.baseUrl)
+    const content = extractDomainFromBaseUrl(ctx.cfg.configuration.baseUrl);
     if (!content) {
-      return []
+      return [];
     }
 
     const path = await write({
@@ -27,8 +30,8 @@ export const CNAME: QuartzEmitterPlugin = () => ({
       content,
       slug: "CNAME" as FullSlug,
       ext: "",
-    })
-    return [path]
+    });
+    return [path];
   },
   async *partialEmit() {},
-})
+});

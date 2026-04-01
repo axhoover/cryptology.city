@@ -46,24 +46,28 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 ### Common algorithms
 
-| Macro     | Renders as |
-| --------- | ---------- |
-| `\KeyGen` | $\KeyGen$  |
-| `\Gen`    | $\Gen$     |
-| `\Enc`    | $\Enc$     |
-| `\Dec`    | $\Dec$     |
-| `\Setup`  | $\Setup$   |
-| `\Query`  | $\Query$   |
-| `\Eval`   | $\Eval$    |
-| `\Invert` | $\Invert$  |
+| Macro       | Renders as  |
+| ----------- | ----------- |
+| `\KeyGen`   | $\KeyGen$   |
+| `\Gen`      | $\Gen$      |
+| `\Enc`      | $\Enc$      |
+| `\Dec`      | $\Dec$      |
+| `\Setup`    | $\Setup$    |
+| `\Query`    | $\Query$    |
+| `\Eval`     | $\Eval$     |
+| `\Invert`   | $\Invert$   |
+| `\Extract`  | $\Extract$  |
+| `\Delegate` | $\Delegate$ |
 
 ### Key names
 
-| Macro | Renders as |
-| ----- | ---------- |
-| `\sk` | $\sk$      |
-| `\pk` | $\pk$      |
-| `\vk` | $\vk$      |
+| Macro  | Renders as |
+| ------ | ---------- |
+| `\sk`  | $\sk$      |
+| `\pk`  | $\pk$      |
+| `\vk`  | $\vk$      |
+| `\msk` | $\msk$     |
+| `\mpk` | $\mpk$     |
 
 ### Number sets
 
@@ -111,12 +115,15 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 ### Primitives
 
-| Macro  | Renders as |
-| ------ | ---------- |
-| `\PRF` | $\PRF$     |
-| `\RO`  | $\RO$      |
-| `\PRG` | $\PRG$     |
-| `\PRP` | $\PRP$     |
-| `\OT`  | $\OT$      |
-| `\SKE` | $\SKE$     |
-| `\PKE` | $\PKE$     |
+| Macro   | Renders as |
+| ------- | ---------- |
+| `\PRF`  | $\PRF$     |
+| `\RO`   | $\RO$      |
+| `\PRG`  | $\PRG$     |
+| `\PRP`  | $\PRP$     |
+| `\OT`   | $\OT$      |
+| `\SKE`  | $\SKE$     |
+| `\PKE`  | $\PKE$     |
+| `\IBE`  | $\IBE$     |
+| `\HIBE` | $\HIBE$    |
+| `\ABE`  | $\ABE$     |

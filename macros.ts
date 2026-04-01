@@ -65,6 +65,8 @@ export const customMacros: Record<string, string> = {
   "\\Tag": "\\mathsf{Tag}",
   "\\Answer": "\\mathsf{Answer}",
   "\\Decode": "\\mathsf{Decode}",
+  "\\Extract": "\\mathsf{Extract}",
+  "\\Delegate": "\\mathsf{Delegate}",
   // Number sets
   "\\NN": "\\mathbb{N}",
   "\\ZZ": "\\mathbb{Z}",
@@ -84,6 +86,8 @@ export const customMacros: Record<string, string> = {
   "\\pk": "\\mathsf{pk}",
   "\\vk": "\\mathsf{vk}",
   "\\td": "\\mathsf{td}",
+  "\\msk": "\\mathsf{msk}",
+  "\\mpk": "\\mathsf{mpk}",
   // Crypto shorthand
   "\\bits": "\\{0,1\\}",
   "\\negl": "\\mathrm{negl}",
@@ -116,4 +120,7 @@ export const customMacros: Record<string, string> = {
   "\\MAC": "\\mathsf{MAC}",
   "\\PIR": "\\mathsf{PIR}",
   "\\hash": "\\mathsf{H}",
+  "\\IBE": "\\mathsf{IBE}",
+  "\\HIBE": "\\mathsf{HIBE}",
+  "\\ABE": "\\mathsf{ABE}",
 };

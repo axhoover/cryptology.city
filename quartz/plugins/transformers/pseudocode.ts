@@ -1,18 +1,18 @@
-import { QuartzTransformerPlugin } from "../types"
-import { visit } from "unist-util-visit"
+import { QuartzTransformerPlugin } from "../types";
+import { visit } from "unist-util-visit";
 
 export interface Options {
-  lineNumber?: boolean
-  noEnd?: boolean
-  commentDelimiter?: string
-  macros?: Record<string, string>
+  lineNumber?: boolean;
+  noEnd?: boolean;
+  commentDelimiter?: string;
+  macros?: Record<string, string>;
 }
 
 export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
-  const lineNumber = opts?.lineNumber ?? true
-  const noEnd = opts?.noEnd ?? false
-  const commentDelimiter = opts?.commentDelimiter ?? "▸"
-  const macros = opts?.macros ?? {}
+  const lineNumber = opts?.lineNumber ?? true;
+  const noEnd = opts?.noEnd ?? false;
+  const commentDelimiter = opts?.commentDelimiter ?? "▸";
+  const macros = opts?.macros ?? {};
 
   return {
     name: "Pseudocode",
@@ -25,26 +25,27 @@ export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
               node.children?.length === 1 &&
               node.children[0].tagName === "code"
             ) {
-              const codeNode = node.children[0]
-              const classes: string[] = codeNode.properties?.className ?? []
+              const codeNode = node.children[0];
+              const classes: string[] = codeNode.properties?.className ?? [];
               if (classes.includes("language-pseudocode")) {
-                const content: string = codeNode.children?.[0]?.value ?? ""
-                node.properties = { className: ["pseudocode"] }
-                node.children = [{ type: "text", value: content }]
+                const content: string = codeNode.children?.[0]?.value ?? "";
+                node.properties = { className: ["pseudocode"] };
+                node.children = [{ type: "text", value: content }];
               }
             }
-          })
+          });
         },
-      ]
+      ];
     },
     externalResources() {
-      const cdnUrl = "/static/pseudocode.js"
-      const renderOpts = `{ lineNumber: ${lineNumber}, noEnd: ${noEnd}, commentDelimiter: ${JSON.stringify(commentDelimiter)} }`
-      const macrosJson = JSON.stringify(macros)
+      const cdnUrl = "/static/pseudocode.js";
+      const renderOpts = `{ lineNumber: ${lineNumber}, noEnd: ${noEnd}, commentDelimiter: ${JSON.stringify(commentDelimiter)} }`;
+      const macrosJson = JSON.stringify(macros);
       return {
         css: [
           {
-            content: "https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.css",
+            content:
+              "https://cdn.jsdelivr.net/npm/pseudocode@2.4.1/build/pseudocode.min.css",
             spaPreserve: true,
           },
           {
@@ -266,7 +267,7 @@ export const Pseudocode: QuartzTransformerPlugin<Partial<Options>> = (opts) => {
             contentType: "inline" as const,
           },
         ],
-      }
+      };
     },
-  }
-}
+  };
+};

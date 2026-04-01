@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,19 @@ export default {
     folderContent: {
       folder: "Klasör",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "Bu klasör altında 1 öğe." : `Bu klasör altındaki ${count} öğe.`,
+        count === 1
+          ? "Bu klasör altında 1 öğe."
+          : `Bu klasör altındaki ${count} öğe.`,
     },
     tagContent: {
       tag: "Etiket",
       tagIndex: "Etiket Sırası",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "Bu etikete sahip 1 öğe." : `Bu etiket altındaki ${count} öğe.`,
+        count === 1
+          ? "Bu etikete sahip 1 öğe."
+          : `Bu etiket altındaki ${count} öğe.`,
       showingFirst: ({ count }) => `İlk ${count} etiket gösteriliyor.`,
       totalTags: ({ count }) => `Toplam ${count} adet etiket bulundu.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,19 @@ export default {
     folderContent: {
       folder: "Složka",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 položka v této složce." : `${count} položek v této složce.`,
+        count === 1
+          ? "1 položka v této složce."
+          : `${count} položek v této složce.`,
     },
     tagContent: {
       tag: "Tag",
       tagIndex: "Rejstřík tagů",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 položka s tímto tagem." : `${count} položek s tímto tagem.`,
+        count === 1
+          ? "1 položka s tímto tagem."
+          : `${count} položek s tímto tagem.`,
       showingFirst: ({ count }) => `Zobrazují se první ${count} tagy.`,
       totalTags: ({ count }) => `Nalezeno celkem ${count} tagů.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

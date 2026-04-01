@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -74,7 +74,9 @@ export default {
     folderContent: {
       folder: "پوشه",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? ".یک مطلب در این پوشه است" : `${count} مطلب در این پوشه است.`,
+        count === 1
+          ? ".یک مطلب در این پوشه است"
+          : `${count} مطلب در این پوشه است.`,
     },
     tagContent: {
       tag: "برچسب",
@@ -85,4 +87,4 @@ export default {
       totalTags: ({ count }) => `${count} برچسب یافت شد.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

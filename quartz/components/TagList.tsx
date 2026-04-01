@@ -1,28 +1,38 @@
-import { FullSlug, resolveRelative } from "../util/path"
-import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
-import { classNames } from "../util/lang"
+import { FullSlug, resolveRelative } from "../util/path";
+import {
+  QuartzComponent,
+  QuartzComponentConstructor,
+  QuartzComponentProps,
+} from "./types";
+import { classNames } from "../util/lang";
 
-const TagList: QuartzComponent = ({ fileData, displayClass }: QuartzComponentProps) => {
-  const tags = fileData.frontmatter?.tags
+const TagList: QuartzComponent = ({
+  fileData,
+  displayClass,
+}: QuartzComponentProps) => {
+  const tags = fileData.frontmatter?.tags;
   if (tags && tags.length > 0) {
     return (
       <ul class={classNames(displayClass, "tags")}>
         {tags.map((tag) => {
-          const linkDest = resolveRelative(fileData.slug!, `tags/${tag}` as FullSlug)
+          const linkDest = resolveRelative(
+            fileData.slug!,
+            `tags/${tag}` as FullSlug,
+          );
           return (
             <li>
               <a href={linkDest} class="internal tag-link">
                 {tag}
               </a>
             </li>
-          )
+          );
         })}
       </ul>
-    )
+    );
   } else {
-    return null
+    return null;
   }
-}
+};
 
 TagList.css = `
 .tags {
@@ -51,6 +61,6 @@ a.internal.tag-link {
   padding: 0.2rem 0.4rem;
   margin: 0 0.1rem;
 }
-`
+`;
 
-export default (() => TagList) satisfies QuartzComponentConstructor
+export default (() => TagList) satisfies QuartzComponentConstructor;

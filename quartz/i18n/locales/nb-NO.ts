@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,15 +73,19 @@ export default {
     folderContent: {
       folder: "Mappe",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "1 gjenstand i denne mappen." : `${count} gjenstander i denne mappen.`,
+        count === 1
+          ? "1 gjenstand i denne mappen."
+          : `${count} gjenstander i denne mappen.`,
     },
     tagContent: {
       tag: "Tagg",
       tagIndex: "Tagg Indeks",
       itemsUnderTag: ({ count }) =>
-        count === 1 ? "1 gjenstand med denne taggen." : `${count} gjenstander med denne taggen.`,
+        count === 1
+          ? "1 gjenstand med denne taggen."
+          : `${count} gjenstander med denne taggen.`,
       showingFirst: ({ count }) => `Viser første ${count} tagger.`,
       totalTags: ({ count }) => `Fant totalt ${count} tagger.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

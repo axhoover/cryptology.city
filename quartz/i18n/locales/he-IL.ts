@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -74,7 +74,9 @@ export default {
     folderContent: {
       folder: "תיקייה",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "פריט אחד תחת תיקייה זו." : `${count} פריטים תחת תיקייה זו.`,
+        count === 1
+          ? "פריט אחד תחת תיקייה זו."
+          : `${count} פריטים תחת תיקייה זו.`,
     },
     tagContent: {
       tag: "תגית",
@@ -85,4 +87,4 @@ export default {
       totalTags: ({ count }) => `${count} תגיות נמצאו סך הכל.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

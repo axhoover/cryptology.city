@@ -1,6 +1,6 @@
-import { QuartzConfig } from "./quartz/cfg"
-import * as Plugin from "./quartz/plugins"
-import { customMacros } from "./macros"
+import { QuartzConfig } from "./quartz/cfg";
+import * as Plugin from "./quartz/plugins";
+import { customMacros } from "./macros";
 
 const config: QuartzConfig = {
   configuration: {
@@ -79,9 +79,9 @@ const config: QuartzConfig = {
       Plugin.ContentPage(),
       Plugin.FolderPage({
         sort: (f1, f2) => {
-          const t1 = f1.frontmatter?.title?.toLowerCase() ?? ""
-          const t2 = f2.frontmatter?.title?.toLowerCase() ?? ""
-          return t1.localeCompare(t2)
+          const t1 = f1.frontmatter?.title?.toLowerCase() ?? "";
+          const t2 = f2.frontmatter?.title?.toLowerCase() ?? "";
+          return t1.localeCompare(t2);
         },
       }),
       Plugin.TagPage(),
@@ -95,6 +95,6 @@ const config: QuartzConfig = {
       Plugin.NotFoundPage(),
     ],
   },
-}
+};
 
-export default config
+export default config;

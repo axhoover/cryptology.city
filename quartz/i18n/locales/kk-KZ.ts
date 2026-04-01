@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -73,7 +73,9 @@ export default {
     folderContent: {
       folder: "Қалта",
       itemsUnderFolder: ({ count }) =>
-        count === 1 ? "Бұл қалтада 1 элемент бар." : `Бұл қалтада ${count} элемент бар.`,
+        count === 1
+          ? "Бұл қалтада 1 элемент бар."
+          : `Бұл қалтада ${count} элемент бар.`,
     },
     tagContent: {
       tag: "Тег",
@@ -84,4 +86,4 @@ export default {
       totalTags: ({ count }) => `Барлығы ${count} тег табылды.`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;

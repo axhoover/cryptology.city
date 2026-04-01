@@ -1,4 +1,4 @@
-import { Translation } from "./definition"
+import { Translation } from "./definition";
 
 export default {
   propertyDefaults: {
@@ -82,4 +82,4 @@ export default {
       totalTags: ({ count }) => `总共有${count}个标签。`,
     },
   },
-} as const satisfies Translation
+} as const satisfies Translation;
