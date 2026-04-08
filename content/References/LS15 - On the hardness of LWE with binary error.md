@@ -1,7 +1,7 @@
 ---
 aliases:
   - LS15
-title: "LS15 - On the hardness of LWE with binary error"
+title: "LS15 - Worst-case to average-case reductions for module lattices"
 ---
 
 Adeline Langlois and Damien Stehlé. "Worst-case to average-case reductions for module lattices." _Designs, Codes and Cryptography_, 75(3):565–599, 2015.

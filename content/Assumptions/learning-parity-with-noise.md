@@ -13,7 +13,7 @@ The _learning parity with noise (LPN)_ assumptions is a post-quantum candidate a
 
 For parameters $k \in \mathbb{N}$ and $0 < \varepsilon < 1$, we say the _$(k,\varepsilon,m)$-LPN advantage_ of an adversary $\mathcal{A}$ as
 $$\text{Adv}^{(k,\varepsilon)\text{-lpn}}_{\mathcal{A}}(\lambda) = \Pr[\mathcal{A}(1^{\lambda},\mathbf{A},\mathbf{v}_b)=b],$$
-where $\mathbf{A} \gets \mathbb{F}_2^{m\times k}$, $\mathbf{v}_0 \gets \mathbb{F}_2^{m}$, and $\mathbb{v}_1 := \mathbf{A}\cdot \mathbf{s} + \mathbf{r}$, where $\mathbf{s} \gets \mathbb{F}_2^k$ and $\mathbf{r} = (\text{Ber}(\varepsilon))_{i \in [m]}$.
+where $\mathbf{A} \gets \mathbb{F}_2^{m\times k}$, $\mathbf{v}_0 \gets \mathbb{F}_2^{m}$, and $\mathbf{v}_1 := \mathbf{A}\cdot \mathbf{s} + \mathbf{r}$, where $\mathbf{s} \gets \mathbb{F}_2^k$ and $\mathbf{r} = (\text{Ber}(\varepsilon))_{i \in [m]}$.
 
 Then, we say that _$(k,\varepsilon)$-LPN is hard_ if there exists a negligible function $\nu$ such that for all efficient adversaries $\mathcal{A}$ and all polynomials $m:= m(\lambda)$, $$\text{Adv}^{(k,\varepsilon)\text{-lpn}}_{\mathcal{A}}(\lambda) \le \nu(\lambda).$$
 

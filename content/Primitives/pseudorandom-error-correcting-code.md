@@ -30,11 +30,11 @@ A PRC is _pseudorandom_ if for all efficient $D$, there exists a negligible func
 
 ### Completeness/Robustness
 
-A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\mathsf{De}c_k(\mathcal{E}(\mathsf{En}c_k(m))) \ne m] \le \nu(\lambda),$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $\mathcal{E}$ is any $\varepsilon$-bounded channel. Meaning that $\mathcal{E}$ is a length preserving function with the property that for every $n$-bit string $c$, $|\mathcal{E}(c) - c| \le \varepsilon \cdot n$.
+A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\mathsf{Dec}_k(\mathcal{E}(\mathsf{Enc}_k(m))) \ne m] \le \nu(\lambda),$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $\mathcal{E}$ is any $\varepsilon$-bounded channel. Meaning that $\mathcal{E}$ is a length preserving function with the property that for every $n$-bit string $c$, $|\mathcal{E}(c) - c| \le \varepsilon \cdot n$.
 
 ### Soundness
 
-A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \mathsf{Gen}({1^{\lambda})}}[\mathsf{Dec}_k(\hat{c}) = \bot] \le \nu(\lambda).$$
+A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \mathsf{Gen}(1^{\lambda})}[\mathsf{Dec}_k(\hat{c}) = \bot] \le \nu(\lambda).$$
 
 # Variations
 
