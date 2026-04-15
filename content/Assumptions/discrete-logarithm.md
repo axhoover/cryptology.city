@@ -43,7 +43,7 @@ is negligible.
 ## Related results
 
 - It is easy to see that if $\calA$ can compute $x$ for a random $g^x$, then $\calA$ can compute both $x$ and $y$ from $g^{x}$ and $g^{y}$ and find $g^{xy}$ easily. This establishes that DLOG is not easier than [[computational-diffie-hellman|CDH]].
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\mathcal{A}$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
 
 ## Attacks
 

@@ -12,7 +12,7 @@ Private Information Retrieval (PIR) is a primitive that allows a client to acces
 
 ## Syntax
 
-A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a tuple of efficient functions $(\mathsf{Query}, \mathsf{Answer}, \mathsf{Compute})$, with respect to randomness space $R$ such that:
+A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a tuple of efficient functions $(\Query, \Answer, \mathsf{Compute})$, with respect to randomness space $R$ such that:
 
 - Generally, we consider the size of the initial queries to be $u$ bits each and the answers to be $d$ bits each.
 - In general, we can consider the total communication of a PIR as $k(u + d)$.
@@ -22,11 +22,11 @@ A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a
 
 ### Correctness
 
-A PIR is correct if for all $D \in \{0, 1\}^n$, $i \in [n]$, and $r \in R$ $$\mathsf{Recon}(i,a_1,\ldots,a_k ; r) = D[i]$$ where each $a_s \leftarrow \mathsf{Answer}(s, q_s, D)$ and $(q_1, \ldots, q_k) \leftarrow \mathsf{Query}(i; r)$.
+A PIR is correct if for all $D \in \{0, 1\}^n$, $i \in [n]$, and $r \in R$ $$\Recon(i,a_1,\ldots,a_k ; r) = D[i]$$ where each $a_s \leftarrow \Answer(s, q_s, D)$ and $(q_1, \ldots, q_k) \leftarrow \Query(i; r)$.
 
 ### Privacy
 
-A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \{0, 1\}^u$, $$\Pr_r[\mathsf{Query}(i; r)[s] = q] = \Pr_r[\mathsf{Query}(j; r)[s] = q].$$
+A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \{0, 1\}^u$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
 
 Intuitively, this means that each server observes the same query uploaded with the same probability.
 

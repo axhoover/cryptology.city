@@ -13,18 +13,18 @@ A _homomorphic encryption (HE)_ scheme allows computation on encrypted data: giv
 
 ## Syntax
 
-A _homomorphic encryption scheme_ is a tuple of efficient algorithms $\mathsf{HE} = (\KeyGen, \Enc, \Dec, \Eval)$ with respect to message space $\calM$ and a supported function class $\mathcal{F}$:
+A _homomorphic encryption scheme_ is a tuple of efficient algorithms $\mathsf{HE} = (\KeyGen, \Enc, \Dec, \Eval)$ with respect to message space $\calM$ and a supported function class $\calF$:
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk),$ outputs a public key and secret key,
 - $\Enc(\pk, m) \to c,$ encrypts a message $m \in \calM$ under the public key,
 - $\Dec(\sk, c) \to m,$ decrypts a ciphertext under the secret key,
-- $\Eval(\pk, f, c_1, \ldots, c_k) \to c,$ homomorphically evaluates $f \in \mathcal{F}$ on ciphertexts, producing $c$ such that $\Dec(\sk, c) = f(m_1, \ldots, m_k)$.
+- $\Eval(\pk, f, c_1, \ldots, c_k) \to c,$ homomorphically evaluates $f \in \calF$ on ciphertexts, producing $c$ such that $\Dec(\sk, c) = f(m_1, \ldots, m_k)$.
 
 ## Properties
 
 ### Correctness
 
-For all $m_1, \ldots, m_k \in \calM$ and all $f \in \mathcal{F}$, decryption of the evaluated ciphertext returns the correct output:
+For all $m_1, \ldots, m_k \in \calM$ and all $f \in \calF$, decryption of the evaluated ciphertext returns the correct output:
 $$\Pr\!\left[\Dec(\sk, \Eval(\pk, f, \Enc(\pk, m_1), \ldots, \Enc(\pk, m_k))) = f(m_1, \ldots, m_k)\right] \ge 1 - \negl(\secpar).$$
 
 ### Security

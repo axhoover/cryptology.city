@@ -11,23 +11,23 @@ _Indistinguishability obfuscation (iO)_ is a form of program obfuscation in whic
 
 ## Syntax
 
-An _indistinguishability obfuscator_ $i\mathcal{O}$ is an efficient randomized algorithm such that:
+An _indistinguishability obfuscator_ $i\calO$ is an efficient randomized algorithm such that:
 
-- $i\mathcal{O}(1^\secpar, C) \to \tilde{C}$, takes a circuit $C$ and outputs an obfuscated circuit $\tilde{C}$,
+- $i\calO(1^\secpar, C) \to \tilde{C}$, takes a circuit $C$ and outputs an obfuscated circuit $\tilde{C}$,
 - $\tilde{C}(x) = C(x)$ for all inputs $x$ (functionality preservation).
 
 ## Properties
 
 ### Correctness
 
-For all $\secpar \in \NN$, circuits $C$, and inputs $x$: $i\mathcal{O}(1^\secpar, C)(x) = C(x)$ with probability 1.
+For all $\secpar \in \NN$, circuits $C$, and inputs $x$: $i\calO(1^\secpar, C)(x) = C(x)$ with probability 1.
 
 ### Indistinguishability
 
 For all pairs of circuits $C_0, C_1$ of the same size that compute the same function (i.e., $C_0(x) = C_1(x)$ for all $x$), and all efficient adversaries $\calA$:
 
 $$
-\Adv^{i\mathcal{O}}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(i\mathcal{O}(1^\secpar, C_b)) = b\right] - 1\right|
+\Adv^{i\calO}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(i\calO(1^\secpar, C_b)) = b\right] - 1\right|
 $$
 
 is negligible, where $b \getsr \bits$.

@@ -13,17 +13,17 @@ Fingerprinting codes were first introduced by [[BS98 - Collusion-secure fingerpr
 
 For fingerprinting codes, it is useful to define the **descendants function** $\mathsf{desc}(\cdot)$, which maps subsets of codewords in $\Sigma^\ell$ to other subsets in the same space. Formally, if index $i$ as character $\sigma$, then there must be some $x_j$ which also has that character at index $i$. This captures the idea that a group of colluding pirates may be able to selectively choose their codewords, but they cannot forge characters at indices they didn't have access to.
 
-A _fingerprinting code_ is a tuple of functions $(\mathsf{Gen}, \mathsf{Trace})$ with respect to a keyspace $\mathcal{K}$, alphabet $\Sigma$, number of users $n$, and codeword length $\ell = \ell(\epsilon, c)$, which depends on the error threshold such that:
+A _fingerprinting code_ is a tuple of functions $(\Gen, \mathsf{Trace})$ with respect to a keyspace $\calK$, alphabet $\Sigma$, number of users $n$, and codeword length $\ell = \ell(\epsilon, c)$, which depends on the error threshold such that:
 
-Note: The fingerprinting code functions are not strictly "efficient," since for example $\mathsf{G}_\mathsf{en}$ can take in $\mathcal{O}(\log n)$ bits and outputs $\Omega(n)$ bits. However, we generally require that both functions run in time that is polynomial in $n$ and $\log |\Sigma|$.
+Note: The fingerprinting code functions are not strictly "efficient," since for example $\Gen$ can take in $O(\log n)$ bits and outputs $\Omega(n)$ bits. However, we generally require that both functions run in time that is polynomial in $n$ and $\log |\Sigma|$.
 
 ## Properties
 
 ### Correctness
 
-A fingerprinting code is correct if for any $0 \leq \epsilon \leq 1$, set of colluding users $\mathcal{C} \subseteq [n]$, and $y \in \mathsf{desc}(\{x_i: i \in \mathcal{C}\})$, we have that:
+A fingerprinting code is correct if for any $0 \leq \epsilon \leq 1$, set of colluding users $\calC \subseteq [n]$, and $y \in \mathsf{desc}(\{x_i: i \in \calC\})$, we have that:
 
-$$\mathsf{Gen}(\epsilon, |\mathcal{C}|) = (k, x_1, \ldots, x_n) \implies \Pr[\mathsf{Trace}(y, x_1, \ldots, x_n) \in \mathcal{C}] \geq 1 - \epsilon$$
+$$\Gen(\epsilon, |\calC|) = (k, x_1, \ldots, x_n) \implies \Pr[\mathsf{Trace}(y, x_1, \ldots, x_n) \in \calC] \geq 1 - \epsilon$$
 
 In more plain English, this definition means that the fingerprinting code is useful and correct with probability at least $1 - \epsilon$ as long as code generation is given the maximum size of the possible collusion as input. The first condition in the probability means that the trace does not accuse an innocent (non-colluding) user. The second condition makes sure that the trace algorithm does at least accuse some user though.
 

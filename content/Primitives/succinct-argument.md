@@ -15,22 +15,22 @@ A **succinct non-interactive argument of knowledge** (SNARK) is a proof system i
 
 ## Syntax
 
-A succinct argument system for a relation $\mathcal{R}$ is a tuple of efficient algorithms $(\Setup, \Prove, \Vrfy)$:
+A succinct argument system for a relation $\calR$ is a tuple of efficient algorithms $(\Setup, \Prove, \Vrfy)$:
 
-- $\Setup(1^\secpar, C) \to \mathsf{crs},$ takes a security parameter and a circuit $C$ (or a bound on circuit size for universal schemes) and produces a common reference string $\mathsf{crs}$. For transparent systems, $\Setup$ is public-coin (no trapdoor).
-- $\Prove(\mathsf{crs}, x, w) \to \pi,$ takes the CRS, instance $x$, and witness $w$ with $(x, w) \in \mathcal{R}$, and produces a proof $\pi$.
-- $\Vrfy(\mathsf{crs}, x, \pi) \to \{0, 1\},$ verifies the proof.
+- $\Setup(1^\secpar, C) \to \crs,$ takes a security parameter and a circuit $C$ (or a bound on circuit size for universal schemes) and produces a common reference string $\crs$. For transparent systems, $\Setup$ is public-coin (no trapdoor).
+- $\Prove(\crs, x, w) \to \pi,$ takes the CRS, instance $x$, and witness $w$ with $(x, w) \in \calR$, and produces a proof $\pi$.
+- $\Vrfy(\crs, x, \pi) \to \{0, 1\},$ verifies the proof.
 
 ## Properties
 
 ### Completeness
 
-For all $(x, w) \in \mathcal{R}$ and all $(\mathsf{crs}) \gets \Setup(1^\secpar, C)$:
-$$\Pr[\Vrfy(\mathsf{crs}, x, \Prove(\mathsf{crs}, x, w)) = 1] = 1.$$
+For all $(x, w) \in \calR$ and all $(\crs) \gets \Setup(1^\secpar, C)$:
+$$\Pr[\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1] = 1.$$
 
 ### Knowledge soundness
 
-There exists a polynomial-time extractor $\calE$ such that for all efficient $\calA$: if $\calA(\mathsf{crs})$ outputs $(x, \pi)$ with $\Vrfy(\mathsf{crs}, x, \pi) = 1$, then $\calE^{\calA}(\mathsf{crs})$ outputs $w$ with $(x, w) \in \mathcal{R}$, except with negligible probability. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
+There exists a polynomial-time extractor $\calE$ such that for all efficient $\calA$: if $\calA(\crs)$ outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE^{\calA}(\crs)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
 
 ### Succinctness
 
@@ -47,11 +47,11 @@ A **zk-SNARK** additionally satisfies zero-knowledge: there exists a simulator t
 \algname{Game}
 \caption{$\Game^{\mathrm{ks}}_{\calA,\calE}(\secpar)$}
 \begin{algorithmic}
-\State $\mathsf{crs} \gets \Setup(1^\secpar)$
-\State $(x, \pi) \gets \calA(\mathsf{crs})$
-\State $w \gets \calE^{\calA}(\mathsf{crs})$
+\State $\crs \gets \Setup(1^\secpar)$
+\State $(x, \pi) \gets \calA(\crs)$
+\State $w \gets \calE^{\calA}(\crs)$
 \Comment{Extractor runs $\calA$ as a subroutine}
-\If{$\Vrfy(\mathsf{crs}, x, \pi) = 1$ and $(x, w) \notin \calR$}
+\If{$\Vrfy(\crs, x, \pi) = 1$ and $(x, w) \notin \calR$}
 \Return $1$
 \Comment{$\calA$ wins: valid proof but extractor failed}
 \EndIf

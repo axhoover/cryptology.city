@@ -77,7 +77,7 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 # Variations
 
 - [[multi-server-private-information-retrieval|Multi-server PIR]] is an information theoretic variant, which requires multiple servers
-- [[symmetric-private-information-retrieval-single-server|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
+- [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
 - PIR with client-side preprocessing
 - Keyword PIR
 
