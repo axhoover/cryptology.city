@@ -12,7 +12,7 @@ A one-way permutation is a permutation which is easy to compute in one direction
 
 ## Properties
 
-A _one-way permutation_ is a family of efficiently computable permutations $\{\pi_{\secpar} : \calD \to \calD\}_{\secpar \in \mathbb{N}}$ and a distribution $X$ over $\calD$, such that there is some negligible function $\nu$, where, for every $\secpar$ and efficient algorithm $\calA$: $$\Pr_{x\sim X}[\pi_{\secpar}(x') = \pi_{\secpar}(x) : x' \gets \calA(1^{\secpar}, \pi_{\secpar}(x))] \le \nu(\secpar).$$
+A _one-way permutation_ is a family of efficiently computable permutations $\{\pi_{\secpar} : \calD \to \calD\}_{\secpar \in \NN}$ and a distribution $X$ over $\calD$, such that there is some negligible function $\nu$, where, for every $\secpar$ and efficient algorithm $\calA$: $$\Pr_{x\sim X}[\pi_{\secpar}(x') = \pi_{\secpar}(x) : x' \gets \calA(1^{\secpar}, \pi_{\secpar}(x))] \le \nu(\secpar).$$
 
 # Other results
 

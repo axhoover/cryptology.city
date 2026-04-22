@@ -29,7 +29,7 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
 
 A SKE scheme $\SKE = (\KeyGen, \Enc, \Dec)$ is
 $(1-\varepsilon)$-**correct** if for all
-$\secpar \in \mathbb{N}$ and $m \in \calM$,
+$\secpar \in \NN$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(k, \Enc(k, m)) = m\right] \ge 1 - \varepsilon,

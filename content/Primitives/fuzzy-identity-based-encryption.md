@@ -12,7 +12,7 @@ title: Fuzzy identity-based encryption
 
 ## Syntax
 
-A Fuzzy IBE scheme is a tuple of efficient algorithms $\mathsf{FIBE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, threshold $t \in \mathbb{N}$, message space $\calM$, and ciphertext space $\calC$:
+A Fuzzy IBE scheme is a tuple of efficient algorithms $\mathsf{FIBE} = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, threshold $t \in \NN$, message space $\calM$, and ciphertext space $\calC$:
 
 - $\Setup(1^\secpar, \calU, t) \to (\pp, \msk),$ is a randomized algorithm that outputs public parameters $\pp$ and master secret key $\msk$,
 - $\KeyGen(\msk, \omega) \to \sk_\omega,$ is a (possibly randomized) algorithm that takes $\msk$ and an attribute set $\omega \subseteq \calU$, outputting a secret key $\sk_\omega$,
@@ -25,7 +25,7 @@ Decryption succeeds if and only if $|\omega \cap \omega'| \ge t$.
 
 ### Correctness
 
-A Fuzzy IBE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, attribute sets $\omega, \omega' \subseteq \calU$ with $|\omega \cap \omega'| \ge t$, and $m \in \calM$,
+A Fuzzy IBE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, attribute sets $\omega, \omega' \subseteq \calU$ with $|\omega \cap \omega'| \ge t$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\KeyGen(\msk, \omega),\, \Enc(\pp, \omega', m)) = m\right] \ge 1 - \varepsilon,

@@ -8,7 +8,7 @@ title: "#P"
 
 # #P
 
-The class of counting problems associated with NP decision problems. Formally, a function $f : \{0,1\}^* \to \mathbb{N}$ is in $\classsharpP$ if there exists a nondeterministic polynomial-time Turing machine $M$ such that $f(x)$ equals the number of accepting computation paths of $M$ on input $x$.
+The class of counting problems associated with NP decision problems. Formally, a function $f : \{0,1\}^* \to \NN$ is in $\classsharpP$ if there exists a nondeterministic polynomial-time Turing machine $M$ such that $f(x)$ equals the number of accepting computation paths of $M$ on input $x$.
 
 Where NP asks "does a solution exist?", $\classsharpP$ asks "how many solutions exist?" The counting version of a problem can be dramatically harder than the decision version.
 

@@ -1,5 +1,5 @@
 # cryptology.city — TODO Summary
-_Last updated: 2026-04-15_
+_Last updated: 2026-04-22_
 
 ---
 
@@ -47,17 +47,36 @@ _Last updated: 2026-04-15_
 - [ ] [Math] 10 caligraphic letter macros in `macros.ts` are defined but never used in any content file: `\calG`, `\calH`, `\calJ`, `\calL`, `\calN`, `\calP`, `\calV`, `\calW`, `\calX`, `\calY` — _source: macros.ts_
 - [ ] [Content] `content/Primitives/multi-server-private-information-retrieval.md` uses `\mathsf{Compute}` for a function that does not appear in macros.ts; the Syntax section is informal and inconsistent with single-server PIR's `(\Setup, \Query, \Answer, \Decode)` tuple — _source: content/Primitives/multi-server-private-information-retrieval.md:15_
 - [ ] [Content] `content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md` mixes informal research notes (first-person commentary, speculative questions) into a reference page — consider separating notes from bibliographic content — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md_
-- [ ] [Content] `content/Primitives/single-server-private-information-retrieval.md:73` — advantage definition uses `$\Game^{\mathrm{pir}}$` but the game caption above (line 57) uses `$\Game^{\mathrm{priv}}$` — naming mismatch — _source: content/Primitives/single-server-private-information-retrieval.md:57,73_
+- [ ] [Math] Several primitive pages use `\mathsf{...}` directly for primitive-level names that lack macros in `macros.ts`, violating the "use defined macros" convention. The following require new macros to be added to both `macros.ts` and `content/Glossary/latex-macros.md`:
+  - `\mathsf{BE}` in `content/Primitives/broadcast-encryption.md` (lines 14, 40, 54, 57) — needs `\BE`
+  - `\mathsf{HVE}` in `content/Primitives/hidden-vector-encryption.md` (lines 14, 42, 56, 59, 71, 85, 88) — needs `\HVE`
+  - `\mathsf{IPPE}` in `content/Primitives/inner-product-predicate-encryption.md` (lines 15, 43, 57, 60) — needs `\IPPE`
+  - `\mathsf{FIBE}` in `content/Primitives/fuzzy-identity-based-encryption.md` (lines 15, 43, 57) — needs `\FIBE`
+  - `\mathsf{TDP}` in `content/Primitives/trapdoor-permutation.md` (line 16) — needs `\TDP`
+  - `\mathsf{COM}` in `content/Primitives/commitment-scheme.md` (lines 15, 31, 41) — needs `\COM`
+  - `\mathsf{KE}` in `content/Primitives/key-exchange.md` (lines 16, 18) — needs `\KE`
+  - `\mathsf{Encap}`, `\mathsf{Decap}` in `content/Primitives/key-encapsulation-mechanism.md` (multiple lines) — need `\Encap`, `\Decap`
+  - `\mathsf{Qry}`, `\mathsf{Rsp}`, `\mathsf{Fin}` in `content/Primitives/doubly-efficient-pir.md` (multiple lines) — need `\Qry`, `\Rsp`, `\Fin`
+  - _source: various Primitive files_
 
 ---
 
 ## Low Priority / Inferred
 
 - [ ] [Content] Most Complexity class pages (14+ of 24) are stubs with only a definition and a citation gap — systematically filling these would significantly improve the wiki
-- [ ] [Math] `content/Glossary/random-oracle-model.md:17` uses `\mathsf{IP}^A` and `\mathsf{PSPACE}^A` directly instead of `\classIP` / `\classPSPACE` macros — _source: content/Glossary/random-oracle-model.md:17_
 - [ ] [External] `content/References/Rabin81 - How to Exchange Secrets with Oblivious Transfer.md` source URL has `.pdf` extension (`https://eprint.iacr.org/2005/187.pdf`) — canonical eprint URL without `.pdf` is preferred style — _source: content/References/Rabin81 - How to Exchange Secrets with Oblivious Transfer.md:3_
 - [ ] [Content] `content/Glossary/fiat-shamir-heuristic.md:14` uses `\Pi_\mathsf{FS}` as a subscript for the Fiat-Shamir transform — no macro; acceptable one-off but worth noting — _source: content/Glossary/fiat-shamir-heuristic.md:14_
 - [ ] [Math] `content/Glossary/generic-group-model.md:16,17` uses `\calO_{\mathsf{op}}` and `\calO_{\mathsf{inv}}` with `\mathsf` subscripts for oracle labels — style is reasonable but not covered by macros — _source: content/Glossary/generic-group-model.md:16,17_
+- [ ] [Math] Remaining `\{0,1\}` usages (should be `\bits`) in Complexity/Glossary/Assumptions files — minor style inconsistency, lower priority than Primitives fixes:
+  - `content/Complexity/p-poly.md:10,13` — in the formal definition of P/poly
+  - `content/Complexity/total-function-np.md:24` — in PPP problem description
+  - `content/Complexity/quantum-classical-merlin-arthur.md:13,14` — in QCMA definition
+  - `content/Glossary/arithmetization.md:53` — in Boolean circuit constraint description
+  - `content/Glossary/generic-group-model.md:14` — in handle function definition
+  - `content/Assumptions/decisional-diffie-hellman.md:49` — in NR PRF description
+  - `content/Assumptions/crypto-dark-matter.md:16` — in CDM assumption definition
+  - `content/Complexity/sharp-p.md:11` — domain `\{0,1\}^*` in function type (codomain `\NN` already fixed)
+  - _source: various_
 
 ---
 
@@ -74,13 +93,21 @@ _Last updated: 2026-04-15_
 
 | File | Change | Confidence |
 |------|--------|------------|
-| `content/Assumptions/learning-parity-with-noise.md` | Replaced `\mathcal{A}` → `\calA` (×2), `\text{Adv}` → `\Adv` (×2), `\lambda` → `\secpar` (×4), `\mathbb{N}` → `\NN`, `\mathbb{F}_2` → `\FF_2` (×3) | High |
-| `content/Folklore/switching-lemma.md` | Replaced `\mathcal{D}` → `\calD` (×4) | High |
-| `content/Primitives/indistinguishability-obfuscation.md` | Replaced `i\mathcal{O}` → `i\calO` (×4) | High |
-| `content/Primitives/multi-server-private-information-retrieval.md` | Replaced `\mathsf{Query}` → `\Query`, `\mathsf{Answer}` → `\Answer`, `\mathsf{Recon}` → `\Recon` (all have macros) | High |
-| `content/Primitives/succinct-argument.md` | Replaced `\mathcal{R}` → `\calR` (×4), `\mathsf{crs}` → `\crs` (×6) | High |
-| `content/Primitives/fingerprinting-code.md` | Replaced `\mathcal{K}` → `\calK`, `\mathcal{C}` → `\calC` (×2); fixed malformed `\mathsf{G}_\mathsf{en}` → `\Gen`; replaced `\mathsf{Gen}` → `\Gen`; replaced `\mathcal{O}(\log n)` → `O(\log n)` for big-O | High |
-| `content/Assumptions/discrete-logarithm.md` | Replaced `\mathcal{A}` → `\calA` in GGM bound statement | High |
-| `content/Primitives/homomorphic-encryption.md` | Replaced `\mathcal{F}` → `\calF` (×2) | High |
-| `content/Primitives/single-server-private-information-retrieval.md` | Fixed broken wikilink `[[symmetric-private-information-retrieval-single-server\|…]]` → self-page anchor `[[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)\|…]]` | High |
-| `content/References/GKM+00 - The relationship between public key encryption and oblivious transfer.md` | Removed broken `PDF: [[GKM+00.pdf]]` line (no PDF asset exists; paper already linked via ieeexplore source URL) | High |
+| `content/Primitives/single-server-private-information-retrieval.md` | Fixed game name mismatch in advantage definition: `\Game^{\mathrm{pir}}` → `\Game^{\mathrm{priv}}` to match the caption above (line 57) | High |
+| `content/Primitives/identity-based-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/hierarchical-identity-based-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/broadcast-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/attribute-based-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/hidden-vector-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/public-key-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/inner-product-predicate-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/one-way-permutation.md` | `\mathbb{N}` → `\NN` in OWP family index | High |
+| `content/Primitives/symmetric-key-encryption.md` | `\secpar \in \mathbb{N}` → `\secpar \in \NN` (correctness statement) | High |
+| `content/Primitives/fuzzy-identity-based-encryption.md` | `\mathbb{N}` → `\NN` (×2: threshold `t \in \NN` and `\secpar \in \NN` in correctness) | High |
+| `content/Complexity/sharp-p.md` | `\mathbb{N}` → `\NN` in function codomain `f : \{0,1\}^* \to \NN` | High |
+| `content/Primitives/doubly-efficient-pir.md` | Comprehensive macro fixes: `\mathcal{K}` → `\calK` (×4), `\mathcal{A}` → `\calA` (×2), `\mathsf{Setup}` → `\Setup` (×4), `\text{Adv}` → `\Adv` (×2), `\text{priv}` → `\mathrm{priv}`, `\text{sk-priv}` → `\mathrm{sk\text{-}priv}`, `1^{\lambda}` → `1^\secpar` (×5), `\lambda \in \mathbb{N}` → `\secpar \in \NN`, `\{0,1\}` → `\bits` (×10), `b\gets \{0,1\}` → `b \getsr \bits` (×2); also fixed prose typo "introduced by Introduced by" → "introduced by" | High |
+| `content/Primitives/pseudorandom-error-correcting-code.md` | Comprehensive macro fixes: `\mathsf{Gen}` → `\Gen` (×4), `\mathsf{Enc}` → `\Enc` (×6), `\mathsf{Dec}` → `\Dec` (×4), `\mathcal{K}` → `\calK` (×4), `\mathcal{E}` → `\calE` (×4), `\lambda` → `\secpar` (×9), `\text{Adv}` → `\Adv` (×2), `\text{prc}` → `\mathrm{prc}`, `\{0,1\}` → `\bits` (×6) | High |
+| `content/Primitives/pseudorandom-generator.md` | `$b \getsr \{0,1\}$` → `$b \getsr \bits$` in pseudocode game block | High |
+| `content/Primitives/pseudorandom-function.md` | `$b \getsr \{0,1\}$` → `$b \getsr \bits$` (×2 in pseudocode blocks); `\{0,1\}^n` → `\bits^n` (×2 in GGM and NR construction descriptions) | High |
+| `content/Primitives/distributed-point-function.md` | `$b \in \{0,1\}$` → `$b \in \bits$` in hiding property | High |
+| `content/Glossary/random-oracle-model.md` | `\mathsf{IP}^A \neq \mathsf{PSPACE}^A` → `\classIP^A \neq \classPSPACE^A`; `\mathsf{IP} = \mathsf{PSPACE}` → `\classIP = \classPSPACE` (both in Known Results bullet) | High |

@@ -28,7 +28,7 @@ A PRF is a pair of efficient algorithms $\PRF= (\KeyGen, \Eval)$ with respect to
 \algname{Game}
 \caption{$\Game^{\mathrm{prf}}_{\PRF,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \{0,1\}$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$
@@ -77,7 +77,7 @@ $y\in \calR$.
 \algname{Game}
 \caption{$\Game^{\mathrm{iprf}}_{\mathsf{iPRF},\calA}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \{0,1\}$
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $R \getsr \Funcs(\calD,\calR)$
 \Comment{Can be sampled lazily for efficiency}
 \State $\calO_0(x) := \Eval(k,x)$ ; $\calO_0^{-1}(y) := \Invert(k,y)$
@@ -111,7 +111,7 @@ TODO: define these and say how they relate to PRPs
 # Other results
 
 - [[hash-function|OWF]]s imply PRFs via a two-step construction: OWF → PRG ([[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]) → PRF via the GGM binary-tree construction ([[GGM86 - How to construct random functions|GGM86]])
-  - The GGM tree construction: given a length-doubling PRG $G : \{0,1\}^n \to \{0,1\}^{2n}$, define $\Eval(k, x_1\cdots x_\ell)$ by starting from $k$ and at each bit $x_i$ applying either the left or right half of $G$
-- PRF from [[decisional-diffie-hellman|DDH]]: the Naor-Reingold construction maps $(x_1,\ldots,x_n) \in \{0,1\}^n$ to $g^{a_0 \cdot a_1^{x_1} \cdots a_n^{x_n}}$ and is secure under DDH — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
+  - The GGM tree construction: given a length-doubling PRG $G : \bits^n \to \bits^{2n}$, define $\Eval(k, x_1\cdots x_\ell)$ by starting from $k$ and at each bit $x_i$ applying either the left or right half of $G$
+- PRF from [[decisional-diffie-hellman|DDH]]: the Naor-Reingold construction maps $(x_1,\ldots,x_n) \in \bits^n$ to $g^{a_0 \cdot a_1^{x_1} \cdots a_n^{x_n}}$ and is secure under DDH — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
 - PRF implies CPA-secure [[symmetric-key-encryption|SKE]]: CTR-mode encryption $\Enc(k, m_1 \cdots m_\ell) = \PRF(k,1)\|{\cdots}\|\PRF(k,\ell) \oplus m_1\|{\cdots}\|m_\ell$
 - PRF implies [[message-authentication-code|MAC]]: $\Tag(k, m) = \PRF(k, m)$ is a secure one-time MAC; extending to many messages uses standard domain-extension techniques

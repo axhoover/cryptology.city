@@ -22,7 +22,7 @@ An IBE scheme is a tuple of efficient algorithms $\IBE = (\Setup, \Extract, \Enc
 
 ### Correctness
 
-An IBE scheme $\IBE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, $\mathit{id} \in \calI$, and $m \in \calM$,
+An IBE scheme $\IBE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $\mathit{id} \in \calI$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\Extract(\msk, \mathit{id}),\, \Enc(\pp, \mathit{id}, m)) = m\right] \ge 1 - \varepsilon,

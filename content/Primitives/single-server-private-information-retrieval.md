@@ -69,7 +69,7 @@ The server's view — the query $q$ — should reveal nothing about the queried 
 A PIR $\PIR$ has **query privacy** if for all efficient $\calA$,
 
 $$
-\Adv^{\mathrm{priv}}_{\PIR,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pir}}_{\PIR,\calA}(\secpar)=1\right]-1\right|
+\Adv^{\mathrm{priv}}_{\PIR,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{priv}}_{\PIR,\calA}(\secpar)=1\right]-1\right|
 $$
 
 is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing the challenge indices, then guessing the bit after seeing the query.

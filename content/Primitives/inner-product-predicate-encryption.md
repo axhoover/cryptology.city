@@ -25,7 +25,7 @@ Decryption succeeds if and only if $\langle v, x \rangle = 0 \pmod{p}$.
 
 ### Correctness
 
-An IPPE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, $v, x \in \ZZ_p^n$ with $\langle v, x \rangle = 0 \pmod{p}$, and $m \in \calM$,
+An IPPE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $v, x \in \ZZ_p^n$ with $\langle v, x \rangle = 0 \pmod{p}$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\KeyGen(\msk, v),\, \Enc(\pp, x, m)) = m\right] \ge 1 - \varepsilon,

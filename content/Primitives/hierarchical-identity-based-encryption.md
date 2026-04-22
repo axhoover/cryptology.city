@@ -25,7 +25,7 @@ Correctness requires that a ciphertext encrypted for $\vec{\mathit{id}}$ can be 
 
 ### Correctness
 
-An HIBE scheme $\HIBE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, $\vec{\mathit{id}} \in \Sigma^{\le d}$, and $m \in \calM$,
+An HIBE scheme $\HIBE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $\vec{\mathit{id}} \in \Sigma^{\le d}$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\Extract(\msk, \vec{\mathit{id}}),\, \Enc(\pp, \vec{\mathit{id}}, m)) = m\right] \ge 1 - \varepsilon,

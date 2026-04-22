@@ -22,7 +22,7 @@ A BE scheme is a tuple of efficient algorithms $\mathsf{BE} = (\Setup, \KeyGen, 
 
 ### Correctness
 
-A BE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, $S \subseteq [n]$, $i \in S$, and $m \in \calM$,
+A BE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $S \subseteq [n]$, $i \in S$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\pp, \sk_i, \Enc(\pp, S, m)) = m\right] \ge 1 - \varepsilon,

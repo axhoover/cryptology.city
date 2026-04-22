@@ -12,39 +12,39 @@ A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encrypti
 
 ## Syntax
 
-A $L$-bit PRC is a tuple of efficient algorithms $(\mathsf{Gen}, \mathsf{Enc}, \mathsf{Dec})$, with respect to key space $\mathcal{K}$, message space $\{0,1\}^L$, and ciphertext space $\{0,1\}^n$ such that
+A $L$-bit PRC is a tuple of efficient algorithms $(\Gen, \Enc, \Dec)$, with respect to key space $\calK$, message space $\bits^L$, and ciphertext space $\bits^n$ such that
 
-- $\mathsf{Gen}(1^{\lambda}) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \mathcal{K}$,
-- $\mathsf{Enc}_k(m) \to c$, is a randomized algorithm that takes a key $k\in \mathcal{K}$ and message $m\in \{0,1\}^L$, and outputs a ciphertext $c \in \{0,1\}^n$,
-- $\mathsf{Dec}_k(c) \to \{m,\bot\}$, is a deterministic algorithm that takes a key $k \in \mathcal{K}$ and candidate ciphertext $c \in \{0,1\}^n$, and outputs either a message $m\in \{0,1\}^L$ or $\bot$
+- $\Gen(1^\secpar) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \calK$,
+- $\Enc_k(m) \to c$, is a randomized algorithm that takes a key $k\in \calK$ and message $m\in \bits^L$, and outputs a ciphertext $c \in \bits^n$,
+- $\Dec_k(c) \to \{m,\bot\}$, is a deterministic algorithm that takes a key $k \in \calK$ and candidate ciphertext $c \in \bits^n$, and outputs either a message $m\in \bits^L$ or $\bot$
 
-A _zero-bit_ PRC, has the same requirements as a $L$-bit PRC, except that the message space is just the singleton set $\{1\}$, which means that $\mathsf{Enc}$ takes no input and just outputs codewords. Then, $\mathsf{Dec}$ simply detects whether or not the candidate ciphertext is close to a codeword.
+A _zero-bit_ PRC, has the same requirements as a $L$-bit PRC, except that the message space is just the singleton set $\{1\}$, which means that $\Enc$ takes no input and just outputs codewords. Then, $\Dec$ simply detects whether or not the candidate ciphertext is close to a codeword.
 
 ## Properties
 
 ### Pseudorandomness
 
-We define the advantage of a distinguisher $D$ as $$\text{Adv}^{\text{prc}}_D(\lambda) \le \left|\Pr[D^{\mathsf{Enc}_k}(1^{\lambda}) = 1] - \Pr[D^{R}(1^{\lambda}) = 1]\right|,$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $R$ is a random response oracle, which on each query gives a uniformly random $n$-bit string (even on the same input, unlike a random oracle).
+We define the advantage of a distinguisher $D$ as $$\Adv^{\mathrm{prc}}_D(\secpar) \le \left|\Pr[D^{\Enc_k}(1^\secpar) = 1] - \Pr[D^{R}(1^\secpar) = 1]\right|,$$where $k \gets \Gen(1^\secpar)$ and $R$ is a random response oracle, which on each query gives a uniformly random $n$-bit string (even on the same input, unlike a random oracle).
 
-A PRC is _pseudorandom_ if for all efficient $D$, there exists a negligible function $\nu$, such that: $\text{Adv}^{\text{prc}}_D(\lambda)\le \nu(\lambda)$.
+A PRC is _pseudorandom_ if for all efficient $D$, there exists a negligible function $\nu$, such that: $\Adv^{\mathrm{prc}}_D(\secpar)\le \nu(\secpar)$.
 
 ### Completeness/Robustness
 
-A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\mathsf{Dec}_k(\mathcal{E}(\mathsf{Enc}_k(m))) \ne m] \le \nu(\lambda),$$where $k \gets \mathsf{Gen}(1^{\lambda})$ and $\mathcal{E}$ is any $\varepsilon$-bounded channel. Meaning that $\mathcal{E}$ is a length preserving function with the property that for every $n$-bit string $c$, $|\mathcal{E}(c) - c| \le \varepsilon \cdot n$.
+A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\Dec_k(\calE(\Enc_k(m))) \ne m] \le \nu(\secpar),$$where $k \gets \Gen(1^\secpar)$ and $\calE$ is any $\varepsilon$-bounded channel. Meaning that $\calE$ is a length preserving function with the property that for every $n$-bit string $c$, $|\calE(c) - c| \le \varepsilon \cdot n$.
 
 ### Soundness
 
-A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \mathsf{Gen}(1^{\lambda})}[\mathsf{Dec}_k(\hat{c}) = \bot] \le \nu(\lambda).$$
+A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \Gen(1^\secpar)}[\Dec_k(\hat{c}) = \bot] \le \nu(\secpar).$$
 
 # Variations
 
 ## Adaptive robustness
 
-A PRC with **adaptive robustness** strengthens the robustness property to allow the channel $\mathcal{E}$ to be chosen _after_ seeing the codeword $c = \mathsf{Enc}_k(m)$, rather than being fixed in advance. Formally, the adversarial channel $\mathcal{E}$ may depend on $c$ (but not on $k$ or $m$ directly). This models a stronger adversary who can tailor the corruption pattern to the specific codeword.
+A PRC with **adaptive robustness** strengthens the robustness property to allow the channel $\calE$ to be chosen _after_ seeing the codeword $c = \Enc_k(m)$, rather than being fixed in advance. Formally, the adversarial channel $\calE$ may depend on $c$ (but not on $k$ or $m$ directly). This models a stronger adversary who can tailor the corruption pattern to the specific codeword.
 
 ## Ideal PRC
 
-An **ideal PRC** additionally requires that codewords are indistinguishable from uniformly random strings even to an adversary who holds the decoding key $k$. That is, the joint distribution $(k, \mathsf{Enc}_k(m))$ is computationally indistinguishable from $(k, U_n)$ where $U_n$ is a uniformly random $n$-bit string. This is strictly stronger than pseudorandomness (which only requires indistinguishability without the key). Ideal PRCs support watermarking schemes where even a user who knows the watermarking key cannot detect whether a given string is a codeword.
+An **ideal PRC** additionally requires that codewords are indistinguishable from uniformly random strings even to an adversary who holds the decoding key $k$. That is, the joint distribution $(k, \Enc_k(m))$ is computationally indistinguishable from $(k, U_n)$ where $U_n$ is a uniformly random $n$-bit string. This is strictly stronger than pseudorandomness (which only requires indistinguishability without the key). Ideal PRCs support watermarking schemes where even a user who knows the watermarking key cannot detect whether a given string is a codeword.
 
 ## Zero-bit PRC
 

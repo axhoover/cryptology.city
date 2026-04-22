@@ -26,7 +26,7 @@ The ratio $\ell = |r|/|s|$ is called the **stretch** of the PRG. A PRG with stre
 \algname{Game}
 \caption{$\Game^{\mathrm{prg}}_{G,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $s \getsr \calS$; $b \getsr \{0,1\}$
+\State $s \getsr \calS$; $b \getsr \bits$
 \State $r_0 \gets G(s)$; $r_1 \getsr \calR$
 \State $b' \gets \calA(1^\secpar, r_b)$
 \Return $[b' = b]$

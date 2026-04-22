@@ -35,7 +35,7 @@ Decryption succeeds if and only if the associated $(f, x)$ pair satisfies $f(x) 
 
 ### Correctness
 
-An ABE scheme $\ABE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, policy-attribute pairs $(f, x)$ with $f(x) = 1$, and $m \in \calM$,
+An ABE scheme $\ABE$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, policy-attribute pairs $(f, x)$ with $f(x) = 1$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\KeyGen(\msk, f_{\mathrm{key}}),\; \Enc(\pp, f_{\mathrm{ct}}, m)) = m\right] \ge 1 - \varepsilon,

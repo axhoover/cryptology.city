@@ -24,7 +24,7 @@ Decryption succeeds if and only if $v$ matches $x$: for all $i \in [n]$, either 
 
 ### Correctness
 
-An HVE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \mathbb{N}$, $v \in (\Sigma \cup \{*\})^n$, $x \in \Sigma^n$ with $v$ matching $x$, and $m \in \calM$,
+An HVE scheme is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$, $v \in (\Sigma \cup \{*\})^n$, $x \in \Sigma^n$ with $v$ matching $x$, and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\KeyGen(\msk, v),\, \Enc(\pp, x, m)) = m\right] \ge 1 - \varepsilon,

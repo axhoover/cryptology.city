@@ -14,7 +14,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 
 # Known Results
 
-- **[[interactive-proof-systems|IP]] $\neq$ [[polynomial-space|PSPACE]] relative to a random oracle** — For almost all oracles $A$, $\mathsf{IP}^A \neq \mathsf{PSPACE}^A$ [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since Shamir proved $\mathsf{IP} = \mathsf{PSPACE}$ unrelativized, this is among the most compelling counterexamples to the Random Oracle Hypothesis.
+- **[[interactive-proof-systems|IP]] $\neq$ [[polynomial-space|PSPACE]] relative to a random oracle** — For almost all oracles $A$, $\classIP^A \neq \classPSPACE^A$ [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since Shamir proved $\classIP = \classPSPACE$ unrelativized, this is among the most compelling counterexamples to the Random Oracle Hypothesis.
 
 - **[[fiat-shamir-heuristic|Fiat-Shamir]] is uninstantiable in the standard model** — Goldwasser and Kalai constructed a 3-round public-coin protocol whose Fiat-Shamir transform is existentially forgeable under every concrete hash function, even though it is secure in the ROM [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. This shows the random oracle cannot always be replaced by a concrete function.
 

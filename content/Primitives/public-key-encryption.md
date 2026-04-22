@@ -22,7 +22,7 @@ A PKE scheme is a tuple of efficient algorithms $\PKE = (\KeyGen, \Enc, \Dec)$ w
 ### Correctness
 
 A PKE scheme $\PKE = (\KeyGen, \Enc, \Dec)$ is $(1-\varepsilon)$-**correct**
-if for all $\secpar \in \mathbb{N}$ and $m \in \calM$,
+if for all $\secpar \in \NN$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\Dec(\sk, \Enc(\pk, m)) = m\right] \ge 1 - \varepsilon,

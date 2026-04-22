@@ -27,7 +27,7 @@ where $f_{\alpha,\beta}(x) = \beta$ if $x = \alpha$ and $0$ otherwise.
 
 ### Hiding (Security)
 
-For $b \in \{0,1\}$, key $k_b$ reveals nothing about $(\alpha, \beta)$: for all efficient $\calA$,
+For $b \in \bits$, key $k_b$ reveals nothing about $(\alpha, \beta)$: for all efficient $\calA$,
 $$\left|2\Pr\!\left[\calA(1^\secpar, k_b) = \alpha\right] - 1\right| \le \negl(\secpar).$$
 
 # Variations
