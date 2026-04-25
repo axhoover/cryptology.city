@@ -124,7 +124,7 @@ The module structure provides a flexible trade-off between efficiency (like Ring
 - **Kyber / ML-KEM** (FIPS 203): IND-CCA [[key-encapsulation-mechanism|KEM]] from Module LWE with $k = 2, 3, 4$
 - **Dilithium / ML-DSA** (FIPS 204): EUF-CMA [[digital-signature|digital signatures]] from Module LWE/SIS
 
-Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - On the hardness of LWE with binary error|LS15]].
+Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
 ## Hint LWE
 

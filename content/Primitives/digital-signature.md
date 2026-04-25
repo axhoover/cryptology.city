@@ -166,7 +166,7 @@ Security reduces to second-preimage resistance and pseudorandomness of the under
 
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
-- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - On the hardness of LWE with binary error|LS15]]
+- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]
 - **Falcon**: based on NTRU lattices; smaller signatures than Dilithium ($\sim 666$ bytes) but more complex to implement securely
 - **GPV signatures**: hash-and-sign paradigm using trapdoor lattice sampling; security in the ROM from SIS — standard
 
