@@ -1,0 +1,1638 @@
+{
+  "version": 1,
+  "updated_at": "2026-04-25T00:00:00Z",
+  "updated_at_sha": "07e40557ec94fc8caf06ccf96434886b109a27ac",
+  "pages": {
+    "content/Primitives/attribute-based-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "ca477e2edaff169ef7e2b4c6fe6ea4db9262b017",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ca477e2edaff169ef7e2b4c6fe6ea4db9262b017",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/broadcast-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "79dc0ba210ad5d301248441df5d8dd776bbef2e7",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "79dc0ba210ad5d301248441df5d8dd776bbef2e7",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/commitment-scheme.md": {
+      "status": "unreviewed",
+      "blob_sha": "a2be68003a24bc796369b90973b6c77028b8d13b",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "a2be68003a24bc796369b90973b6c77028b8d13b",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/digital-signature.md": {
+      "status": "bot_flagged",
+      "blob_sha": "82879d285853a3d56dc19759a00145d8a908bfec",
+      "verified_at_sha": null,
+      "last_checked_at": "2026-04-25T00:00:00Z",
+      "last_checked_by": "claude-factcheck",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "EUF-CMA game (lines 53-67) and SUF-CMA game (lines 99-112)",
+          "description": "Both game blocks include the spurious line `b \\getsr \\bits` after KeyGen. EUF-CMA and SUF-CMA are non-bit-guessing forgery games \u2014 there is no challenge bit `b`, and `b` is never read again. The line should be removed.",
+          "suggested_fix": "Delete `; $b \\getsr \\bits$` from line 57 (EUF-CMA) and line 102 (SUF-CMA).",
+          "sources_consulted": [
+            "GMR88 abstract (content/References/GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks.md)",
+            "Katz-Lindell, Introduction to Modern Cryptography 3rd ed., Def. 13.2"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Variations / BLS signatures (lines 142-153)",
+          "description": "BLS signatures are described and security is asserted (`EUF-CMA under co-CDH in the random oracle model`) but no reference is given. The standard citation is Boneh, Lynn, Shacham, \"Short Signatures from the Weil Pairing\" (Asiacrypt 2001 / J. Cryptology 2004).",
+          "suggested_fix": "Add a [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] citation; create the corresponding reference file.",
+          "sources_consulted": [
+            "Boneh-Shoup, A Graduate Course in Applied Cryptography v0.6, \u00a715.5 (BLS signatures)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Variations / Schnorr signatures (line 140)",
+          "description": "Page asserts Schnorr signatures are EUF-CMA secure in the ROM citing only Sch91 (which constructs the scheme) and FS86 (which gives the heuristic). The EUF-CMA proof in the ROM is due to Pointcheval-Stern (\"Security Proofs for Signature Schemes\", Eurocrypt 1996, J. Cryptology 2000) via the forking lemma. Sch91 itself does not contain a ROM EUF-CMA reduction.",
+          "suggested_fix": "Add a citation to Pointcheval-Stern 1996/2000 alongside Sch91/FS86.",
+          "sources_consulted": [
+            "Sch91 reference note",
+            "FS86 reference note",
+            "Katz-Lindell 3rd ed. \u00a713.5.1"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "Lattice-based signatures (line 169)",
+          "description": "The cite `[[LS15 - On the hardness of LWE with binary error|LS15]]` for Dilithium / Module-LWE points to a reference file whose filename is `LS15 - On the hardness of LWE with binary error.md` but whose contents describe Langlois\u2013Stehl\u00e9, \"Worst-case to average-case reductions for module lattices\", DCC 2015 (the actual basis for Module-LWE). The filename and corresponding wikilink-target text are wrong; \"On the hardness of LWE with binary error\" is a different paper (Buchmann\u2013G\u00f6pfert\u2013Player\u2013Wunderer 2016).",
+          "suggested_fix": "Rename `content/References/LS15 - On the hardness of LWE with binary error.md` \u2192 `content/References/LS15 - Worst-case to average-case reductions for module lattices.md` and update both wikilinks (digital-signature.md L169, learning-with-errors.md L127).",
+          "sources_consulted": [
+            "content/References/LS15 - On the hardness of LWE with binary error.md (frontmatter+body describe the Langlois\u2013Stehl\u00e9 module-lattice paper)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Other results / final bullet (line 179)",
+          "description": "The claim \"Digital signatures imply OWFs\" is asserted without citation. The canonical reference is Rompel 1990 (\"One-way functions are necessary and sufficient for secure signatures\", STOC 1990), which proves the converse direction (OWF \u21d2 DS). The implication DS \u21d2 OWF is standard and follows because secure signing requires a one-way mapping from secret randomness to verification key. The argument given (\"the signing algorithm is a one-way function\") is informal and slightly misstates the OWF candidate.",
+          "suggested_fix": "Cite Rompel90 and tighten the argument: e.g., \"the map (r) \u21a6 vk where (sk, vk) = KeyGen(r) is a one-way function \u2014 inverting it would yield a forgery.\"",
+          "sources_consulted": [
+            "Goldreich, Foundations of Cryptography Vol. 2, \u00a76.4 (Rompel's theorem)"
+          ]
+        },
+        {
+          "severity": "notation",
+          "location": "Advantage definitions (lines 84, 129) and correctness (line 39)",
+          "description": "CLAUDE.md requires `\\Pr\\!\\left[...\\right]` for probabilities; both advantage definitions and the correctness statement use plain `\\Pr[...]`.",
+          "suggested_fix": "Replace `\\Pr[...]` with `\\Pr\\!\\left[...\\right]` in lines 39, 84, 129.",
+          "sources_consulted": [
+            "CLAUDE.md, Security Definition Conventions"
+          ]
+        },
+        {
+          "severity": "nit",
+          "location": "Sign signature output (line 25)",
+          "description": "Sign is described as outputting `c` in prose (\"$\\Sign(\\sk, m) \\to c,$\") but the variable is then immediately renamed to `\\sigma` (\"outputting signature $\\sigma \\in \\calS$\"). Inconsistent.",
+          "suggested_fix": "Change `\\Sign(\\sk, m) \\to c,` \u2192 `\\Sign(\\sk, m) \\to \\sigma,`.",
+          "sources_consulted": []
+        },
+        {
+          "severity": "nit",
+          "location": "SU-CMA naming (line 126)",
+          "description": "Section heading says \"Strong Unforgeability\" and game macro is `\\sufcma` (rendering `suf-cma`) but the prose label says \"**SU-CMA unforgeable**\" \u2014 inconsistent abbreviation. The standard literature uses sUF-CMA / SUF-CMA.",
+          "suggested_fix": "Use **SUF-CMA unforgeable** (matching the macro and section heading).",
+          "sources_consulted": []
+        },
+        {
+          "severity": "nit",
+          "location": "Existential Unforgeability intro (line 50)",
+          "description": "Prose ends mid-sentence: \"...even given many samples\" \u2014 missing trailing period and the noun is unclear (samples of what?).",
+          "suggested_fix": "Reword to: \"...even given oracle access to signatures on adversarially-chosen messages.\"",
+          "sources_consulted": []
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "82879d285853a3d56dc19759a00145d8a908bfec",
+          "note": "initial queue entry"
+        },
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "flagged",
+          "sha": "82879d285853a3d56dc19759a00145d8a908bfec",
+          "note": "8 findings (1 error, 3 missing_citation, 1 notation, 3 nit, 1 error)"
+        }
+      ]
+    },
+    "content/Primitives/distributed-point-function.md": {
+      "status": "unreviewed",
+      "blob_sha": "65e05cc88e33b43beaf1f7819125b91827bc0ed7",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "65e05cc88e33b43beaf1f7819125b91827bc0ed7",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/doubly-efficient-pir.md": {
+      "status": "unreviewed",
+      "blob_sha": "2b3f4eb2ddf6b5f7b9e14a83eccd51917f35dfbd",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "2b3f4eb2ddf6b5f7b9e14a83eccd51917f35dfbd",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/fingerprinting-code.md": {
+      "status": "unreviewed",
+      "blob_sha": "94c11304b351464709a07f5fa477a589b1177693",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "94c11304b351464709a07f5fa477a589b1177693",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/fuzzy-identity-based-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "d6a45339d75e6bec1d8808bfff276cade9a91a6f",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "d6a45339d75e6bec1d8808bfff276cade9a91a6f",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/hash-function.md": {
+      "status": "unreviewed",
+      "blob_sha": "a4fe8e575191b91facafcc25c254101ef1527a49",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "a4fe8e575191b91facafcc25c254101ef1527a49",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/hidden-vector-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "dc5ca6d5013d76d65a2439b5e2616303f00bbdc4",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "dc5ca6d5013d76d65a2439b5e2616303f00bbdc4",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/hierarchical-identity-based-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "2cdbe8b648b3f979ebe0deac151af9afa2fd6ec7",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "2cdbe8b648b3f979ebe0deac151af9afa2fd6ec7",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/homomorphic-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "aa56768f8b899b3f1f615f1a9212a0f591091b4c",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "aa56768f8b899b3f1f615f1a9212a0f591091b4c",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/identity-based-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "3115a70207c0cd45562cc4b5095ae5df93e7c660",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "3115a70207c0cd45562cc4b5095ae5df93e7c660",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/indistinguishability-obfuscation.md": {
+      "status": "unreviewed",
+      "blob_sha": "b25d39e8f31352e96dc44bf5cbf979ee1a13c3fa",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "b25d39e8f31352e96dc44bf5cbf979ee1a13c3fa",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/inner-product-predicate-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "9fe2dfb9f58a7e5b99ee3c5b671b79da3969ffaf",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "9fe2dfb9f58a7e5b99ee3c5b671b79da3969ffaf",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/key-encapsulation-mechanism.md": {
+      "status": "unreviewed",
+      "blob_sha": "46852b21f4e71b5a07653fa5528999444b817350",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "46852b21f4e71b5a07653fa5528999444b817350",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/key-exchange.md": {
+      "status": "unreviewed",
+      "blob_sha": "25302fa6f749b3695821fdf4e5c7f9480bb17fe6",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "25302fa6f749b3695821fdf4e5c7f9480bb17fe6",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/message-authentication-code.md": {
+      "status": "unreviewed",
+      "blob_sha": "c7cc58b8f6d10041276a2979cd77d4f51e1b7e06",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c7cc58b8f6d10041276a2979cd77d4f51e1b7e06",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/multi-server-private-information-retrieval.md": {
+      "status": "unreviewed",
+      "blob_sha": "a12e61f1a7161d2b918892c238795c014c3ecffb",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "a12e61f1a7161d2b918892c238795c014c3ecffb",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/non-interactive-zero-knowledge.md": {
+      "status": "unreviewed",
+      "blob_sha": "10238d33842b03cdbae8d08e662f68ea0796bfbf",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "10238d33842b03cdbae8d08e662f68ea0796bfbf",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/oblivious-ram.md": {
+      "status": "unreviewed",
+      "blob_sha": "bb52d1bc60a052b5eb9a5fd8e7294761ce4c7f38",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "bb52d1bc60a052b5eb9a5fd8e7294761ce4c7f38",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/oblivious-transfer.md": {
+      "status": "unreviewed",
+      "blob_sha": "ca46044434045f4012ef0b54368b24273adcacf5",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ca46044434045f4012ef0b54368b24273adcacf5",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/one-way-permutation.md": {
+      "status": "unreviewed",
+      "blob_sha": "ebf8550a5d9eee0632020976d4e3aec99b9401ea",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ebf8550a5d9eee0632020976d4e3aec99b9401ea",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/polynomial-commitment.md": {
+      "status": "unreviewed",
+      "blob_sha": "c34878eadbf8f121048b4f3920382ba5cc96af8b",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c34878eadbf8f121048b4f3920382ba5cc96af8b",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/pseudorandom-error-correcting-code.md": {
+      "status": "unreviewed",
+      "blob_sha": "154decdacd0761e426727771d2f42d177e0eeea4",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "154decdacd0761e426727771d2f42d177e0eeea4",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/pseudorandom-function.md": {
+      "status": "unreviewed",
+      "blob_sha": "9c242228bc1b9971646e8bc999c7ace010521376",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "9c242228bc1b9971646e8bc999c7ace010521376",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/pseudorandom-generator.md": {
+      "status": "unreviewed",
+      "blob_sha": "7c5ab94f6dfe07597a097a4af89f0506fa3ceed9",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "7c5ab94f6dfe07597a097a4af89f0506fa3ceed9",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/pseudorandom-permutation.md": {
+      "status": "unreviewed",
+      "blob_sha": "2b24e8d88cae664251d9017fef7c8ef2a8a99fd8",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "2b24e8d88cae664251d9017fef7c8ef2a8a99fd8",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/public-key-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "73bf1853a057a61572ab4d9eb258930521471d84",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "73bf1853a057a61572ab4d9eb258930521471d84",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/secret-sharing.md": {
+      "status": "unreviewed",
+      "blob_sha": "14d629d75d0615a222613851345963aba9af3771",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "14d629d75d0615a222613851345963aba9af3771",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/secure-multi-party-computation.md": {
+      "status": "unreviewed",
+      "blob_sha": "95ece8dad6d0221310af916a3402ecc809cb079e",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "95ece8dad6d0221310af916a3402ecc809cb079e",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/single-server-private-information-retrieval.md": {
+      "status": "unreviewed",
+      "blob_sha": "62f366f77904e64227913488b7dc7a78abc2485c",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "62f366f77904e64227913488b7dc7a78abc2485c",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/succinct-argument.md": {
+      "status": "unreviewed",
+      "blob_sha": "067ad794e571245793bbf936162a63a848430171",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "067ad794e571245793bbf936162a63a848430171",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/symmetric-key-encryption.md": {
+      "status": "unreviewed",
+      "blob_sha": "8999f24f6aa406f0771a6b7004ece3289ac41e2f",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "8999f24f6aa406f0771a6b7004ece3289ac41e2f",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/symmetric-private-information-retrieval-multi-server.md": {
+      "status": "unreviewed",
+      "blob_sha": "c352890e58434f72e0568d8dbadf2b7a839903b4",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c352890e58434f72e0568d8dbadf2b7a839903b4",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/trapdoor-hash-function.md": {
+      "status": "unreviewed",
+      "blob_sha": "c19ea516cc9ec06b6be0aa0fd953323bdc0596d6",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c19ea516cc9ec06b6be0aa0fd953323bdc0596d6",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/trapdoor-permutation.md": {
+      "status": "unreviewed",
+      "blob_sha": "4653f2926b11ae7ba3d47551e4c0a9d09d1aca0b",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "4653f2926b11ae7ba3d47551e4c0a9d09d1aca0b",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Primitives/zero-knowledge-proof.md": {
+      "status": "unreviewed",
+      "blob_sha": "3937fba40f05c635acc00eeb7e2e8186f0e3c8a0",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "3937fba40f05c635acc00eeb7e2e8186f0e3c8a0",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/arthur-merlin.md": {
+      "status": "unreviewed",
+      "blob_sha": "ebd2aa2b5f63c5168d7c1aca6978140283d02a70",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ebd2aa2b5f63c5168d7c1aca6978140283d02a70",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/bounded-error-probabilistic-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "5cbea69621e33231944b90032795455047d57035",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "5cbea69621e33231944b90032795455047d57035",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/bounded-error-quantum-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "34b2c117b160d7e35e5cc811ddcbfac15d1bc884",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "34b2c117b160d7e35e5cc811ddcbfac15d1bc884",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/co-arthur-merlin.md": {
+      "status": "unreviewed",
+      "blob_sha": "01a95bc7b68186dd30a22cb4ad2b419d58f6d447",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "01a95bc7b68186dd30a22cb4ad2b419d58f6d447",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/co-nondeterministic-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "008a8ee6257c4d5fe33d4e52c7c87c69afbfec1c",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "008a8ee6257c4d5fe33d4e52c7c87c69afbfec1c",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/computational-zero-knowledge.md": {
+      "status": "unreviewed",
+      "blob_sha": "1fb88ae6f76ff19c90a82d96944a5208a9fdfdb3",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "1fb88ae6f76ff19c90a82d96944a5208a9fdfdb3",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/exponential-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "0e7dcdc9bc9051e9fbc6a3c5265365a67a54a4c9",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "0e7dcdc9bc9051e9fbc6a3c5265365a67a54a4c9",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/interactive-proof-systems.md": {
+      "status": "unreviewed",
+      "blob_sha": "01bb84ba5e2f7cf105dba38efab28518c718ca1f",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "01bb84ba5e2f7cf105dba38efab28518c718ca1f",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/merlin-arthur.md": {
+      "status": "unreviewed",
+      "blob_sha": "47ffbf803760b80e665cb41ba9eec2014a83c886",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "47ffbf803760b80e665cb41ba9eec2014a83c886",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/nondeterministic-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "3a9e4a2fbcdf06cba139bf78ee5fcb41a96bd243",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "3a9e4a2fbcdf06cba139bf78ee5fcb41a96bd243",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/p-poly.md": {
+      "status": "unreviewed",
+      "blob_sha": "6065c8c52fb423b0e6c2840685a4b1d9df4966aa",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "6065c8c52fb423b0e6c2840685a4b1d9df4966aa",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/polynomial-space.md": {
+      "status": "unreviewed",
+      "blob_sha": "12aa61b187ec2b4c5a9a742c0ddc31dfe12ee450",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "12aa61b187ec2b4c5a9a742c0ddc31dfe12ee450",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/polynomial-time-hierarchy.md": {
+      "status": "unreviewed",
+      "blob_sha": "89d1c081a0a3cb9ab3b5f56035a6b4426b3ca634",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "89d1c081a0a3cb9ab3b5f56035a6b4426b3ca634",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "d88c33569b595e046177c19a8e8244f7fedc6cf7",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "d88c33569b595e046177c19a8e8244f7fedc6cf7",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/probabilistic-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "70d3f95a79ce947844220dfe01f7ba630af9b850",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "70d3f95a79ce947844220dfe01f7ba630af9b850",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/quantum-classical-merlin-arthur.md": {
+      "status": "unreviewed",
+      "blob_sha": "315ff99d4f2cb5394c5f20945a4be158e3a9d8f2",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "315ff99d4f2cb5394c5f20945a4be158e3a9d8f2",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/quantum-interactive-proofs.md": {
+      "status": "unreviewed",
+      "blob_sha": "c088dcc80672556a70d66dd5b8566737f50b5f06",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c088dcc80672556a70d66dd5b8566737f50b5f06",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/quantum-merlin-arthur.md": {
+      "status": "unreviewed",
+      "blob_sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/quantum-statistical-zero-knowledge.md": {
+      "status": "unreviewed",
+      "blob_sha": "ca278dbf7c12ff1c7dceb90efed5bc598ed1231b",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ca278dbf7c12ff1c7dceb90efed5bc598ed1231b",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/randomized-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "cacb54c3d67b441a4abaf308a511ef29309e2d59",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "cacb54c3d67b441a4abaf308a511ef29309e2d59",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/sharp-p.md": {
+      "status": "unreviewed",
+      "blob_sha": "a9529048de0541fe9c04e28ee538c196752e60cb",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "a9529048de0541fe9c04e28ee538c196752e60cb",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/statistical-zero-knowledge.md": {
+      "status": "unreviewed",
+      "blob_sha": "b7535f08f173986ce94e4033bbc8b34a41a8b4ca",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "b7535f08f173986ce94e4033bbc8b34a41a8b4ca",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/total-function-np.md": {
+      "status": "unreviewed",
+      "blob_sha": "e6491901d44799a81510fc52c2fc2ded60fdf3d7",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "e6491901d44799a81510fc52c2fc2ded60fdf3d7",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Complexity/zero-error-probabilistic-polynomial-time.md": {
+      "status": "unreviewed",
+      "blob_sha": "eb46a843f3e5511ed1c6b7f1b67a1ce39d6ce042",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "eb46a843f3e5511ed1c6b7f1b67a1ce39d6ce042",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/bilinear-map-assumptions.md": {
+      "status": "unreviewed",
+      "blob_sha": "7869a1822498f4840e2b3a8b61003fce657d51dc",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "7869a1822498f4840e2b3a8b61003fce657d51dc",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/computational-diffie-hellman.md": {
+      "status": "unreviewed",
+      "blob_sha": "c54208a678b0e2b773d7a4680d11c604483010bf",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c54208a678b0e2b773d7a4680d11c604483010bf",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/crypto-dark-matter.md": {
+      "status": "unreviewed",
+      "blob_sha": "eed40f90554318a43f5fe8ad1f4599e35aaa52de",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "eed40f90554318a43f5fe8ad1f4599e35aaa52de",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/decisional-composite-residuosity.md": {
+      "status": "unreviewed",
+      "blob_sha": "75b53aa82b580bf6c488d13d289a2231397588e6",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "75b53aa82b580bf6c488d13d289a2231397588e6",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/decisional-diffie-hellman.md": {
+      "status": "unreviewed",
+      "blob_sha": "70ab55117c9e2ee7759924524a0ba911f4670f93",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "70ab55117c9e2ee7759924524a0ba911f4670f93",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/discrete-logarithm.md": {
+      "status": "unreviewed",
+      "blob_sha": "84dd256a8839611e824d683afdffefe7752bdb92",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "84dd256a8839611e824d683afdffefe7752bdb92",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/factoring.md": {
+      "status": "unreviewed",
+      "blob_sha": "ac7deb3941f2daed391fc28992ccd3ce133fa121",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "ac7deb3941f2daed391fc28992ccd3ce133fa121",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/knowledge-of-exponent.md": {
+      "status": "unreviewed",
+      "blob_sha": "c91ab14c552067566a8f5e5d9aa68d4581234e1f",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c91ab14c552067566a8f5e5d9aa68d4581234e1f",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/learning-parity-with-noise.md": {
+      "status": "unreviewed",
+      "blob_sha": "aff130bb20b5b64fc6b283e8c3890386de5e81bb",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "aff130bb20b5b64fc6b283e8c3890386de5e81bb",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/learning-with-errors.md": {
+      "status": "bot_flagged",
+      "blob_sha": "c0563a0e0df9834b752b7bdbb201094c0bb4fd5d",
+      "verified_at_sha": null,
+      "last_checked_at": "2026-04-25T00:00:00Z",
+      "last_checked_by": "claude-factcheck",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "Module LWE citation (line 127)",
+          "description": "The cite `[[LS15 - On the hardness of LWE with binary error|LS15]]` for Module-LWE worst-case-to-average-case hardness points at a reference file whose filename advertises a different paper (Buchmann\u2013G\u00f6pfert\u2013Player\u2013Wunderer's binary-error LWE hardness, ~2016). The file body actually describes Langlois\u2013Stehl\u00e9, \"Worst-case to average-case reductions for module lattices\", DCC 75(3):565\u2013599, 2015 \u2014 which is the correct attribution. Filename/path is misleading.",
+          "suggested_fix": "Coordinate with the ds-page fix: rename the reference file and update this wikilink.",
+          "sources_consulted": [
+            "content/References/LS15 - On the hardness of LWE with binary error.md (file body)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Reduction to lattice problems (line 86)",
+          "description": "Page says \"Classical reductions (without quantum steps) are known for certain parameter regimes \u2014 see subsequent work by Peikert\" without an explicit citation. The standard reference is Peikert, \"Public-key cryptosystems from the worst-case shortest vector problem\" (STOC 2009) and Brakerski\u2013Langlois\u2013Peikert\u2013Regev\u2013Stehl\u00e9, \"Classical hardness of learning with errors\" (STOC 2013).",
+          "suggested_fix": "Add citations [[Pei09 ...|Pei09]] and [[BLPRS13 - Classical hardness of learning with errors|BLPRS13]].",
+          "sources_consulted": [
+            "Reg05 reference note (notes that classical reductions came in subsequent work)"
+          ]
+        },
+        {
+          "severity": "notation",
+          "location": "Hardness statements (lines 38, 62)",
+          "description": "Both security statements write the parameter tuple as `(n,q\\chi,m)` \u2014 missing comma between `q` and `\\chi`. Correct: `(n,q,\\chi,m)`. The same tuple appears correctly with all four commas in the game captions and advantage formulas above each statement, so this is clearly a typo.",
+          "suggested_fix": "Replace `(n,q\\chi,m)` with `(n,q,\\chi,m)` on lines 38 and 62.",
+          "sources_consulted": []
+        },
+        {
+          "severity": "notation",
+          "location": "Section structure (lines 80, 88, 92, 94)",
+          "description": "CLAUDE.md mandates assumption pages follow the order: ## Assumption \u2192 ## Known Results \u2192 # Variations \u2192 # Attacks. This page has: ## Assumption \u2192 ## Known Results \u2192 # Reduction to lattice problems (top-level, should be ## under Known Results) \u2192 ## Cryptographic constructions (orphan ## under a #-level section) \u2192 # Attacks \u2192 # Variations (Variations and Attacks are reversed; both Attacks and the empty-Attacks placement violate the spec).",
+          "suggested_fix": "(a) Demote `# Reduction to lattice problems` to `## Reduction to lattice problems` under Known Results. (b) Move `## Cryptographic constructions` somewhere coherent (or promote it). (c) Put `# Variations` before `# Attacks`.",
+          "sources_consulted": [
+            "CLAUDE.md, Page structure for Assumption pages"
+          ]
+        },
+        {
+          "severity": "nit",
+          "location": "Decision LWE game (line 31)",
+          "description": "Two definitions on a single `\\State` line use a literal `;` separator, which is the documented convention \u2014 fine \u2014 but `u_0` on the LHS is followed by `\\mathbf{u}_1 \\getsr \\ZZ_q^m` even though the typesetting in the surrounding tuple uses `\\mathbf{u}` consistently. The first occurrence on the line drops the bold and writes `\\mathbf{u}_0` \u2014 actually correct after re-reading. (No fix needed; recording as a passing check.)",
+          "suggested_fix": null,
+          "sources_consulted": []
+        },
+        {
+          "severity": "nit",
+          "location": "Header level for Search\u2013Decision equivalence (line 73)",
+          "description": "`### Search\u2013Decision equivalence` is the only ### subsection inside Known Results and reads slightly odd as a single subhead under ##. Acceptable but worth promoting/folding for readability.",
+          "suggested_fix": null,
+          "sources_consulted": []
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c0563a0e0df9834b752b7bdbb201094c0bb4fd5d",
+          "note": "initial queue entry"
+        },
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "flagged",
+          "sha": "c0563a0e0df9834b752b7bdbb201094c0bb4fd5d",
+          "note": "6 findings (1 error, 1 missing_citation, 2 notation, 2 nit)"
+        }
+      ]
+    },
+    "content/Assumptions/ntru.md": {
+      "status": "unreviewed",
+      "blob_sha": "1024e197f6a2ae59842cf775289959bd6c5067a8",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "1024e197f6a2ae59842cf775289959bd6c5067a8",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/quadratic-residuosity.md": {
+      "status": "unreviewed",
+      "blob_sha": "2ba9a0a954d9d82c8bc4af0b24a1525cc0c2049c",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "2ba9a0a954d9d82c8bc4af0b24a1525cc0c2049c",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/rsa-assumption.md": {
+      "status": "unreviewed",
+      "blob_sha": "6ad2cb638b9bd8eff461c3d4e02962e80d3e4e6c",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "6ad2cb638b9bd8eff461c3d4e02962e80d3e4e6c",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Assumptions/supersingular-isogeny-diffie-hellman.md": {
+      "status": "unreviewed",
+      "blob_sha": "7daa44eaa08cc5b11b50269615faf69e0905ea46",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "7daa44eaa08cc5b11b50269615faf69e0905ea46",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/algebraic-group-model.md": {
+      "status": "unreviewed",
+      "blob_sha": "44c5873bddd24191a7e0d9b1237141e27032b12e",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "44c5873bddd24191a7e0d9b1237141e27032b12e",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/arithmetization.md": {
+      "status": "unreviewed",
+      "blob_sha": "34553497af5f00e635e6f088c6ff5061684f9608",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "34553497af5f00e635e6f088c6ff5061684f9608",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/black-box-separations.md": {
+      "status": "bot_flagged",
+      "blob_sha": "bc71ce6bd97f2767cb4c579141ae2222cfbbe76a",
+      "verified_at_sha": null,
+      "last_checked_at": "2026-04-25T00:00:00Z",
+      "last_checked_by": "claude-factcheck",
+      "findings": [
+        {
+          "severity": "broken_link",
+          "location": "Barak-Mahmoody strengthening (line 69)",
+          "description": "Wikilink `[[Mer78]]` points to a reference file `content/References/Mer78.md` (or any file with alias `Mer78`) that does not exist. The intended source is Ralph Merkle, \"Secure communications over insecure channels\", CACM 21(4):294\u2013299, 1978.",
+          "suggested_fix": "Create `content/References/Mer78 - Secure communications over insecure channels.md` (with alias `Mer78`) and update the wikilink to `[[Mer78 - Secure communications over insecure channels|Mer78]]`. Also update the same broken `[[Mer78]]` wikilink in `content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md`.",
+          "sources_consulted": [
+            "content/References/BM09 ...md (which references Merkle's 1978 paper)",
+            "ls of content/References/ (no Mer78 file present)"
+          ]
+        },
+        {
+          "severity": "nit",
+          "location": "Barak-Mahmoody strengthening (line 69)",
+          "description": "Page states BM09 \"tightened the query complexity of the eavesdropper from $O(\\ell^6)$ to the optimal $O(\\ell^2)$\". IR89's bound was a polynomial; the BM09 reference note says \"improves on the $\\Omega(n^6)$-query lower bound\". The IR89 lower bound on the eavesdropper queries was indeed $O(\\ell^6)$ in IR89's analysis, so the page is consistent. No change needed; recording as a passing check.",
+          "suggested_fix": null,
+          "sources_consulted": [
+            "content/References/IR89 ...md (abstract)",
+            "content/References/BM09 ...md (abstract)"
+          ]
+        },
+        {
+          "severity": "nit",
+          "location": "Header capitalization",
+          "description": "Page heading style mixes title-case (`# Black-Box Separations`, `## Types of Black-Box Reductions`) with sentence-style elsewhere on the site. Other Glossary pages (`# Algebraic group model`, `# Random oracle model`) use sentence case. Internal consistency is not violated, but cross-page consistency is.",
+          "suggested_fix": "Decide on a sitewide convention; if sentence-case wins, retitle this page accordingly.",
+          "sources_consulted": []
+        },
+        {
+          "severity": "notation",
+          "location": "Theorem statement (line 52)",
+          "description": "`(KA)` is rendered in plain text rather than via a macro. The site does not currently define a `\\KA` macro, but the rest of the page uses `\\PRF`, `\\PRG`, `\\OT` \u2014 using uppercase plain text for one primitive and macros for others is inconsistent.",
+          "suggested_fix": "Either add a `\\KA` macro or wrap occurrences in `\\mathsf{KA}` for consistency.",
+          "sources_consulted": [
+            "macros.ts"
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "bc71ce6bd97f2767cb4c579141ae2222cfbbe76a",
+          "note": "initial queue entry"
+        },
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "flagged",
+          "sha": "bc71ce6bd97f2767cb4c579141ae2222cfbbe76a",
+          "note": "4 findings (1 broken_link, 1 notation, 2 nit)"
+        }
+      ]
+    },
+    "content/Glossary/fiat-shamir-heuristic.md": {
+      "status": "unreviewed",
+      "blob_sha": "390ce02ed28580ada2db1db6f3d73586623bf373",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "390ce02ed28580ada2db1db6f3d73586623bf373",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/generic-group-model.md": {
+      "status": "unreviewed",
+      "blob_sha": "4f64995b39c65c985b162673dc2a1ec4221d2daa",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "4f64995b39c65c985b162673dc2a1ec4221d2daa",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/interactive-protocol.md": {
+      "status": "unreviewed",
+      "blob_sha": "394d2d9b7f34450214c2caa936f05e6035c55b48",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "394d2d9b7f34450214c2caa936f05e6035c55b48",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/latex-macros.md": {
+      "status": "unreviewed",
+      "blob_sha": "e68c9aaf61cba63262c798ac0ff56f956acb7b48",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "e68c9aaf61cba63262c798ac0ff56f956acb7b48",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/random-oracle-model.md": {
+      "status": "unreviewed",
+      "blob_sha": "c69d5e7e5652c61593f761daa56711ee1f84bc6f",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "c69d5e7e5652c61593f761daa56711ee1f84bc6f",
+          "note": "initial queue entry"
+        }
+      ]
+    },
+    "content/Glossary/universal-composability-framework.md": {
+      "status": "unreviewed",
+      "blob_sha": "44bad637ebf2a49b26a3fbb3371ec3b0db992773",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-04-25T00:00:00Z",
+          "by": "claude-factcheck",
+          "action": "created",
+          "sha": "44bad637ebf2a49b26a3fbb3371ec3b0db992773",
+          "note": "initial queue entry"
+        }
+      ]
+    }
+  }
+}
