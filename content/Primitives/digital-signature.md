@@ -54,7 +54,7 @@ given many samples
 \algname{Game}
 \caption{$\Game^{\eufcma}_{\DS,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
 \State $\calQ \gets \{\}$
 \State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
 \If{$\hat{m}\in \calQ$}
@@ -99,7 +99,7 @@ by rerandomizing the signature into another valid signature.
 \algname{Game}
 \caption{$\Game^{\sufcma}_{\DS,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
 \State $\calQ \gets \{\}$
 \State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
 \If{$(\hat{m},\hat{\sigma})\in \calQ$}
