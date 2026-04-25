@@ -35,7 +35,7 @@ In the decision variant, the adversary must distinguish LWE samples $(\mathbf{A}
 \end{algorithm}
 ```
 
-**(Decision) LWE is hard** for the tuple $(n,q\chi,m)$ if for all efficient $\calA,$
+**(Decision) LWE is hard** for the tuple $(n,q,\chi,m)$ if for all efficient $\calA,$
 
 $$
 \Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar)=1\right]-1\right|
@@ -59,7 +59,7 @@ In the search variant, the adversary must recover the secret $\mathbf{s}$ from L
 \end{algorithm}
 ```
 
-**Search LWE is hard** for the tuple $(n,q\chi,m)$ if for all efficient $\calA,$
+**Search LWE is hard** for the tuple $(n,q,\chi,m)$ if for all efficient $\calA,$
 
 $$
 \Adv^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar) := \Pr\!\left[\Game^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar)=1\right]
