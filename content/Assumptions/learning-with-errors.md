@@ -35,7 +35,7 @@ In the decision variant, the adversary must distinguish LWE samples $(\mathbf{A}
 \end{algorithm}
 ```
 
-**(Decision) LWE is hard** for the tuple $(n,q\chi,m)$ if for all efficient $\calA,$
+**(Decision) LWE is hard** for the tuple $(n,q,\chi,m)$ if for all efficient $\calA,$
 
 $$
 \Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar)=1\right]-1\right|
@@ -59,7 +59,7 @@ In the search variant, the adversary must recover the secret $\mathbf{s}$ from L
 \end{algorithm}
 ```
 
-**Search LWE is hard** for the tuple $(n,q\chi,m)$ if for all efficient $\calA,$
+**Search LWE is hard** for the tuple $(n,q,\chi,m)$ if for all efficient $\calA,$
 
 $$
 \Adv^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar) := \Pr\!\left[\Game^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar)=1\right]
@@ -124,7 +124,7 @@ The module structure provides a flexible trade-off between efficiency (like Ring
 - **Kyber / ML-KEM** (FIPS 203): IND-CCA [[key-encapsulation-mechanism|KEM]] from Module LWE with $k = 2, 3, 4$
 - **Dilithium / ML-DSA** (FIPS 204): EUF-CMA [[digital-signature|digital signatures]] from Module LWE/SIS
 
-Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - On the hardness of LWE with binary error|LS15]].
+Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
 ## Hint LWE
 

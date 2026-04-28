@@ -54,7 +54,7 @@ given many samples
 \algname{Game}
 \caption{$\Game^{\eufcma}_{\DS,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
 \State $\calQ \gets \{\}$
 \State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
 \If{$\hat{m}\in \calQ$}
@@ -99,7 +99,7 @@ by rerandomizing the signature into another valid signature.
 \algname{Game}
 \caption{$\Game^{\sufcma}_{\DS,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
 \State $\calQ \gets \{\}$
 \State $(\hat{m},\hat{\sigma}) \gets \calA^{\calO}(1^\secpar, \vk)$
 \If{$(\hat{m},\hat{\sigma})\in \calQ$}
@@ -166,7 +166,7 @@ Security reduces to second-preimage resistance and pseudorandomness of the under
 
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
-- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - On the hardness of LWE with binary error|LS15]]
+- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]
 - **Falcon**: based on NTRU lattices; smaller signatures than Dilithium ($\sim 666$ bytes) but more complex to implement securely
 - **GPV signatures**: hash-and-sign paradigm using trapdoor lattice sampling; security in the ROM from SIS — standard
 
