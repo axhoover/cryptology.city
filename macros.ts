@@ -78,6 +78,9 @@ export const customMacros: Record<string, string> = {
   "\\ZZ": "\\mathbb{Z}",
   "\\FF": "\\mathbb{F}",
   "\\GG": "\\mathbb{G}",
+  // Named sets (used in specific assumptions)
+  "\\QR": "\\mathrm{QR}",
+  "\\J": "\\mathrm{J}",
   // Simulators and state
   "\\Sim": "\\mathcal{S}",
   "\\st": "\\mathsf{st}",

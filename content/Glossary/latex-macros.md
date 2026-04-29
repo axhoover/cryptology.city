@@ -95,6 +95,13 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\FF` | $\FF$      |
 | `\GG` | $\GG$      |
 
+### Named sets
+
+| Macro | Renders as | Notes                                      |
+| ----- | ---------- | ------------------------------------------ |
+| `\QR` | $\QR$      | Set of quadratic residues (QR assumption)  |
+| `\J`  | $\J$       | Jacobi set (elements with Jacobi symbol 1) |
+
 ### Simulators and state
 
 | Macro   | Renders as |
