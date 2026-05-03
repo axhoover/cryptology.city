@@ -25,7 +25,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 - $\classNP \subseteq \classMA \subseteq \classQCMA \subseteq \classQMA$: classical proofs can be checked classically, classically by a quantum machine, or quantumly by a quantum machine.
 - $\classQMA \subseteq \classPP \subseteq \classPSPACE$: QMA is contained in PP (Marriott-Watrous — TODO citation), and thus in PSPACE.
-- QMA is closed under complement: $\mathbf{coQMA} = \classQMA$. This uses the quantum error reduction technique (applying the swap test), and contrasts with the classical case where it is unknown whether $\classMA = \mathbf{coMA}$.
+- QMA is closed under intersection: this uses Marriott-Watrous error reduction (applying the swap test to two independent witnesses) — TODO citation. Closure under complement — i.e., whether $\classQMA = \mathbf{coQMA}$ — is open, analogous to the classical question of $\classMA$ vs $\mathbf{coMA}$.
 - $\classQMA$ and $\classAM$ are believed incomparable.
 - **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA. It is not even known whether QMA(2) $\subseteq$ NEXP.
 

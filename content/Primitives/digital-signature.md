@@ -20,7 +20,7 @@ message space $\calM$, and signature space $\calS$:
 - $\KeyGen(1^\secpar) \to (\sk, \vk),$ is a randomized algorithm which samples
   a signing key $\sk \in \calK_{\mathrm{sk}}$ and verification (or public)
   key $\vk \in \calK_{\mathrm{pk}}$,
-- $\Sign(\sk, m) \to c,$ is a (possibly) randomized algorithm which takes a
+- $\Sign(\sk, m) \to \sigma,$ is a (possibly) randomized algorithm which takes a
   signing key $\sk \in \calK_{\mathrm{sk}}$ and message $m \in \calM$,
   outputting signature $\sigma \in \calS$,
 - $\Vrfy(\vk, m, \sigma) \to b,$ is a deterministic algorithm which takes a
@@ -36,7 +36,7 @@ A Digital Signature scheme $\DS = (\KeyGen, \Sign, \Vrfy)$ is
 $(1-\varepsilon)$**-correct** if for all $m \in \calM$,
 
 $$
-  \Pr[\Vrfy(\vk, m, \Sign(\sk, m)) = 1] \ge 1-\varepsilon,
+  \Pr\!\left[\Vrfy(\vk, m, \Sign(\sk, m)) = 1\right] \ge 1-\varepsilon,
 $$
 
 over the randomness of $(\sk, \vk) \leftarrow \KeyGen(1^\secpar)$ and
@@ -46,8 +46,8 @@ possibly $\Sign.$
 
 The following is the **existential unforgeability under chosen
 message attacks (EUF-CMA)** game. This security notion requires that an
-adversary cannot find a message signature pair $(\hat{m},\hat{\sigma})$ even
-given many samples
+adversary cannot find a message-signature pair $(\hat{m},\hat{\sigma})$ even
+given oracle access to signatures on adversarially-chosen messages.
 
 ```pseudocode
 \begin{algorithm}
@@ -81,7 +81,7 @@ given many samples
 A DS scheme $\DS$ is **EUF-CMA unforgeable** if for all efficient $\calA$,
 
 $$
-\Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1]
+\Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
 is negligible.
@@ -123,10 +123,10 @@ by rerandomizing the signature into another valid signature.
 \end{algorithm}
 ```
 
-A DS scheme $\DS$ is **SU-CMA unforgeable** if for all efficient $\calA$,
+A DS scheme $\DS$ is **SUF-CMA unforgeable** if for all efficient $\calA$,
 
 $$
-\Adv^{\sufcma}_{\DS,\calA}(\secpar) := \Pr[\Game^{\sufcma}_{\DS,\calA}(\secpar) = 1]
+\Adv^{\sufcma}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\sufcma}_{\DS,\calA}(\secpar) = 1\right]
 $$
 
 is negligible.

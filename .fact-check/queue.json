@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-04-25T00:00:00Z",
-  "updated_at_sha": "07e40557ec94fc8caf06ccf96434886b109a27ac",
+  "updated_at": "2026-05-02T10:30:00Z",
+  "updated_at_sha": "872186365a6966132a4f18dcc89e48f7aebd7c9b",
   "pages": {
     "content/Primitives/attribute-based-encryption.md": {
       "status": "unreviewed",
@@ -56,26 +56,16 @@
     },
     "content/Primitives/digital-signature.md": {
       "status": "bot_flagged",
-      "blob_sha": "82879d285853a3d56dc19759a00145d8a908bfec",
+      "blob_sha": "3cb8ed5f66149a5d0c60ba2871918a1a4cd1a839",
       "verified_at_sha": null,
-      "last_checked_at": "2026-04-25T00:00:00Z",
+      "last_checked_at": "2026-05-02T10:30:00Z",
       "last_checked_by": "claude-factcheck",
       "findings": [
         {
-          "severity": "error",
-          "location": "EUF-CMA game (lines 53-67) and SUF-CMA game (lines 99-112)",
-          "description": "Both game blocks include the spurious line `b \\getsr \\bits` after KeyGen. EUF-CMA and SUF-CMA are non-bit-guessing forgery games \u2014 there is no challenge bit `b`, and `b` is never read again. The line should be removed.",
-          "suggested_fix": "Delete `; $b \\getsr \\bits$` from line 57 (EUF-CMA) and line 102 (SUF-CMA).",
-          "sources_consulted": [
-            "GMR88 abstract (content/References/GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks.md)",
-            "Katz-Lindell, Introduction to Modern Cryptography 3rd ed., Def. 13.2"
-          ]
-        },
-        {
           "severity": "missing_citation",
           "location": "Variations / BLS signatures (lines 142-153)",
-          "description": "BLS signatures are described and security is asserted (`EUF-CMA under co-CDH in the random oracle model`) but no reference is given. The standard citation is Boneh, Lynn, Shacham, \"Short Signatures from the Weil Pairing\" (Asiacrypt 2001 / J. Cryptology 2004).",
-          "suggested_fix": "Add a [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] citation; create the corresponding reference file.",
+          "description": "BLS signatures are described and security is asserted ('EUF-CMA under co-CDH in the random oracle model') but no reference is given. The standard citation is Boneh-Lynn-Shacham, 'Short Signatures from the Weil Pairing' (Asiacrypt 2001 / J. Cryptology 17(4):297-319, 2004). Persists from 2026-04-25 run; requires new reference file.",
+          "suggested_fix": "Add a [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] citation and create the corresponding reference file.",
           "sources_consulted": [
             "Boneh-Shoup, A Graduate Course in Applied Cryptography v0.6, \u00a715.5 (BLS signatures)"
           ]
@@ -83,7 +73,7 @@
         {
           "severity": "missing_citation",
           "location": "Variations / Schnorr signatures (line 140)",
-          "description": "Page asserts Schnorr signatures are EUF-CMA secure in the ROM citing only Sch91 (which constructs the scheme) and FS86 (which gives the heuristic). The EUF-CMA proof in the ROM is due to Pointcheval-Stern (\"Security Proofs for Signature Schemes\", Eurocrypt 1996, J. Cryptology 2000) via the forking lemma. Sch91 itself does not contain a ROM EUF-CMA reduction.",
+          "description": "Page asserts Schnorr signatures are EUF-CMA secure in the ROM citing only Sch91 (which constructs the scheme) and FS86 (which gives the heuristic). The EUF-CMA proof in the ROM is due to Pointcheval-Stern, 'Security Proofs for Signature Schemes' (Eurocrypt 1996; J. Cryptology 13(3):361-396, 2000) via the forking lemma. Sch91 itself does not contain a ROM EUF-CMA reduction. Persists from 2026-04-25 run.",
           "suggested_fix": "Add a citation to Pointcheval-Stern 1996/2000 alongside Sch91/FS86.",
           "sources_consulted": [
             "Sch91 reference note",
@@ -92,19 +82,10 @@
           ]
         },
         {
-          "severity": "error",
-          "location": "Lattice-based signatures (line 169)",
-          "description": "The cite `[[LS15 - On the hardness of LWE with binary error|LS15]]` for Dilithium / Module-LWE points to a reference file whose filename is `LS15 - On the hardness of LWE with binary error.md` but whose contents describe Langlois\u2013Stehl\u00e9, \"Worst-case to average-case reductions for module lattices\", DCC 2015 (the actual basis for Module-LWE). The filename and corresponding wikilink-target text are wrong; \"On the hardness of LWE with binary error\" is a different paper (Buchmann\u2013G\u00f6pfert\u2013Player\u2013Wunderer 2016).",
-          "suggested_fix": "Rename `content/References/LS15 - On the hardness of LWE with binary error.md` \u2192 `content/References/LS15 - Worst-case to average-case reductions for module lattices.md` and update both wikilinks (digital-signature.md L169, learning-with-errors.md L127).",
-          "sources_consulted": [
-            "content/References/LS15 - On the hardness of LWE with binary error.md (frontmatter+body describe the Langlois\u2013Stehl\u00e9 module-lattice paper)"
-          ]
-        },
-        {
           "severity": "missing_citation",
           "location": "Other results / final bullet (line 179)",
-          "description": "The claim \"Digital signatures imply OWFs\" is asserted without citation. The canonical reference is Rompel 1990 (\"One-way functions are necessary and sufficient for secure signatures\", STOC 1990), which proves the converse direction (OWF \u21d2 DS). The implication DS \u21d2 OWF is standard and follows because secure signing requires a one-way mapping from secret randomness to verification key. The argument given (\"the signing algorithm is a one-way function\") is informal and slightly misstates the OWF candidate.",
-          "suggested_fix": "Cite Rompel90 and tighten the argument: e.g., \"the map (r) \u21a6 vk where (sk, vk) = KeyGen(r) is a one-way function \u2014 inverting it would yield a forgery.\"",
+          "description": "The claim 'Digital signatures imply OWFs' is asserted without citation. The canonical reference is Rompel, 'One-way functions are necessary and sufficient for secure signatures' (STOC 1990), which proves the converse direction (OWF \u21d2 DS). The implication DS \u21d2 OWF is folklore but the page's argument ('the signing algorithm is a one-way function') is informal and slightly misstates the OWF candidate; cleaner: r \u21a6 vk where (sk, vk) = KeyGen(r). Persists from 2026-04-25 run.",
+          "suggested_fix": "Cite Rompel90 and tighten the argument to use r \u21a6 vk as the OWF candidate.",
           "sources_consulted": [
             "Goldreich, Foundations of Cryptography Vol. 2, \u00a76.4 (Rompel's theorem)"
           ]
@@ -112,31 +93,29 @@
         {
           "severity": "notation",
           "location": "Advantage definitions (lines 84, 129) and correctness (line 39)",
-          "description": "CLAUDE.md requires `\\Pr\\!\\left[...\\right]` for probabilities; both advantage definitions and the correctness statement use plain `\\Pr[...]`.",
-          "suggested_fix": "Replace `\\Pr[...]` with `\\Pr\\!\\left[...\\right]` in lines 39, 84, 129.",
-          "sources_consulted": [
-            "CLAUDE.md, Security Definition Conventions"
-          ]
+          "description": "CLAUDE.md requires `\\Pr\\!\\left[...\\right]` for probabilities; both advantage definitions and the correctness statement use plain `\\Pr[...]`. Persists from 2026-04-25 run.",
+          "suggested_fix": "Replace `\\Pr[...]` with `\\Pr\\!\\left[...\\right]` in lines 39, 84, 129. Proposed as a suggested-fix commit in this run's PR.",
+          "sources_consulted": ["CLAUDE.md, Security Definition Conventions"]
         },
         {
           "severity": "nit",
           "location": "Sign signature output (line 25)",
-          "description": "Sign is described as outputting `c` in prose (\"$\\Sign(\\sk, m) \\to c,$\") but the variable is then immediately renamed to `\\sigma` (\"outputting signature $\\sigma \\in \\calS$\"). Inconsistent.",
-          "suggested_fix": "Change `\\Sign(\\sk, m) \\to c,` \u2192 `\\Sign(\\sk, m) \\to \\sigma,`.",
+          "description": "Sign is described as outputting `c` in prose ('$\\Sign(\\sk, m) \\to c,$') but the variable is then immediately renamed to `\\sigma`. Persists from 2026-04-25 run.",
+          "suggested_fix": "Change `\\Sign(\\sk, m) \\to c,` \u2192 `\\Sign(\\sk, m) \\to \\sigma,`. Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
         },
         {
           "severity": "nit",
           "location": "SU-CMA naming (line 126)",
-          "description": "Section heading says \"Strong Unforgeability\" and game macro is `\\sufcma` (rendering `suf-cma`) but the prose label says \"**SU-CMA unforgeable**\" \u2014 inconsistent abbreviation. The standard literature uses sUF-CMA / SUF-CMA.",
-          "suggested_fix": "Use **SUF-CMA unforgeable** (matching the macro and section heading).",
+          "description": "Section heading says 'Strong Unforgeability' and game macro is `\\sufcma` (rendering `suf-cma`) but the prose label says '**SU-CMA unforgeable**' \u2014 inconsistent abbreviation. Persists from 2026-04-25 run.",
+          "suggested_fix": "Use **SUF-CMA unforgeable** (matching the macro and section heading). Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
         },
         {
           "severity": "nit",
           "location": "Existential Unforgeability intro (line 50)",
-          "description": "Prose ends mid-sentence: \"...even given many samples\" \u2014 missing trailing period and the noun is unclear (samples of what?).",
-          "suggested_fix": "Reword to: \"...even given oracle access to signatures on adversarially-chosen messages.\"",
+          "description": "Prose ends mid-sentence: '...even given many samples' \u2014 missing trailing period and the noun is unclear (samples of what?). Persists from 2026-04-25 run.",
+          "suggested_fix": "Reword to: '...even given oracle access to signatures on adversarially-chosen messages.' Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
         }
       ],
@@ -154,6 +133,13 @@
           "action": "flagged",
           "sha": "82879d285853a3d56dc19759a00145d8a908bfec",
           "note": "8 findings (1 error, 3 missing_citation, 1 notation, 3 nit, 1 error)"
+        },
+        {
+          "at": "2026-05-02T10:30:00Z",
+          "by": "claude-factcheck",
+          "action": "rechecked",
+          "sha": "3cb8ed5f66149a5d0c60ba2871918a1a4cd1a839",
+          "note": "Re-review after fix commits e0173d4 (spurious b) and 77f4adf (LS15 rename). 2 error findings RESOLVED. 7 findings remain (3 missing_citation, 1 notation, 3 nit)."
         }
       ]
     },
@@ -1025,12 +1011,68 @@
       ]
     },
     "content/Complexity/quantum-merlin-arthur.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-05-02T10:30:00Z",
+      "last_checked_by": "claude-factcheck",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "Known relationships (line 28)",
+          "description": "The page states 'QMA is closed under complement: coQMA = QMA. This uses the quantum error reduction technique (applying the swap test).' This is wrong on two counts. (1) Whether QMA = coQMA is an OPEN problem, analogous to NP vs coNP. The literature treats this as a conditional (e.g., Bookatz 2012 phrases results as 'cannot be in QMA unless QMA = coQMA'), and Mendon\u00e7a-Hyland-Markham 2021 'Characterising the intersection of QMA and coQMA' explicitly studies QMA \u2229 coQMA as a non-trivial subclass. (2) Marriott-Watrous's swap-test technique gives error-reduction (amplification) and closure under intersection, NOT under complement \u2014 the swap test compares two purportedly-equal states; it does not flip a verifier's answer.",
+          "suggested_fix": "Replace the claim with: 'QMA is closed under intersection (Marriott-Watrous error reduction via the swap test). Closure under complement \u2014 i.e., whether QMA = coQMA \u2014 is open, analogous to NP vs coNP.' Proposed as a suggested-fix commit in this run's PR.",
+          "sources_consulted": [
+            "Marriott-Watrous, 'Quantum Arthur-Merlin Games' (Computational Complexity 14(2):122-152, 2005; arXiv:cs/0506068) \u2014 amplification + QMA \u2286 PP",
+            "Mendon\u00e7a-Hyland-Markham, 'Characterising the intersection of QMA and coQMA', Quantum Inf. Process. 20(11):396, 2021 (arXiv:2102.03108)",
+            "Bookatz, 'QMA-complete problems', arXiv:1212.6312"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Notable problems / Local Hamiltonian (line 21)",
+          "description": "Local Hamiltonian QMA-completeness is asserted with explicit 'TODO citation (Kitaev 1999)' marker. Standard reference: Kitaev's original argument appeared in his 1999 lectures and was first published in Kitaev-Shen-Vyalyi, 'Classical and Quantum Computation', AMS Graduate Studies in Mathematics 47, 2002 (\u00a714.4).",
+          "suggested_fix": "Replace 'TODO citation (Kitaev 1999)' with a [[KSV02 - Classical and Quantum Computation|KSV02]] wikilink and create the reference file.",
+          "sources_consulted": [
+            "Bookatz, 'QMA-complete problems', arXiv:1212.6312 (survey citing KSV02 as the original Local Hamiltonian QMA-completeness reference)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Notable problems / Consistency of local density matrices (line 22)",
+          "description": "Consistency of local density matrices QMA-completeness is asserted with explicit 'TODO citation' marker. Standard reference: Yi-Kai Liu, 'Consistency of Local Density Matrices is QMA-complete', APPROX-RANDOM 2006 (arXiv:quant-ph/0604166).",
+          "suggested_fix": "Replace 'TODO citation' with [[Liu06 - Consistency of Local Density Matrices is QMA-complete|Liu06]] and create the reference file.",
+          "sources_consulted": [
+            "arXiv:quant-ph/0604166 abstract (search result)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "Known relationships / QMA \u2286 PP (line 27)",
+          "description": "QMA \u2286 PP is attributed to '(Marriott-Watrous \u2014 TODO citation)'. The reference is Marriott-Watrous, 'Quantum Arthur-Merlin Games', Computational Complexity 14(2):122-152, 2005 (arXiv:cs/0506068).",
+          "suggested_fix": "Replace 'TODO citation' with [[MW05 - Quantum Arthur-Merlin Games|MW05]] and create the reference file.",
+          "sources_consulted": [
+            "arXiv:cs/0506068 (Marriott-Watrous), abstract states their work yields 'a simple proof that QMA is contained in PP'"
+          ]
+        },
+        {
+          "severity": "nit",
+          "location": "Complexity-class macros (lines 28, 30, 36, 38)",
+          "description": "The page mostly uses `\\classQMA`, `\\classMA` etc. but inline writes `\\mathbf{coQMA}`, `\\mathbf{QMA}(2)`, `\\mathbf{NEXP}`, `\\mathbf{coMA}` directly. macros.ts lacks `\\classcoQMA` and `\\classNEXP`; either add them or use `\\mathbf{...}` for all complexity classes consistently on this page.",
+          "suggested_fix": "Either add `\\classcoQMA`, `\\classNEXP`, `\\classcoMA` macros and use them, or live with the mixed style. (No fix proposed in this run; flagging only.)",
+          "sources_consulted": ["macros.ts"]
+        },
+        {
+          "severity": "nit",
+          "location": "BFL+24 phrasing (line 38)",
+          "description": "Page says QMA_IS is 'strictly less powerful than QMA(2), assuming EXP \u2260 NEXP'. The actual paper proves QMA_IS \u2286 EXP and QMA_IS(2) = NEXP, giving the strict separation between QMA_IS and QMA_IS(2) (not between QMA_IS and QMA(2)). Both formulations are technically correct under EXP \u2260 NEXP since QMA_IS(2) \u2286 QMA(2), but the cleaner / paper-faithful statement is the QMA_IS vs QMA_IS(2) one.",
+          "suggested_fix": "Optionally restate as 'QMA_IS is strictly less powerful than its two-prover variant QMA_IS(2), assuming EXP \u2260 NEXP (the paper shows QMA_IS \u2286 EXP and QMA_IS(2) = NEXP).' (Flagging only.)",
+          "sources_consulted": [
+            "BFL+24 reference note (in-repo)",
+            "arXiv:2410.19152 abstract (search result)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1038,6 +1080,13 @@
           "action": "created",
           "sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-05-02T10:30:00Z",
+          "by": "claude-factcheck",
+          "action": "flagged",
+          "sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
+          "note": "Initial deep review: 6 findings (1 error, 3 missing_citation, 2 nit)."
         }
       ]
     },
@@ -1298,56 +1347,33 @@
     },
     "content/Assumptions/learning-with-errors.md": {
       "status": "bot_flagged",
-      "blob_sha": "c0563a0e0df9834b752b7bdbb201094c0bb4fd5d",
+      "blob_sha": "51c0ddc8a0cbbf5c8a4ba7aaf9190edf423da6db",
       "verified_at_sha": null,
-      "last_checked_at": "2026-04-25T00:00:00Z",
+      "last_checked_at": "2026-05-02T10:30:00Z",
       "last_checked_by": "claude-factcheck",
       "findings": [
         {
-          "severity": "error",
-          "location": "Module LWE citation (line 127)",
-          "description": "The cite `[[LS15 - On the hardness of LWE with binary error|LS15]]` for Module-LWE worst-case-to-average-case hardness points at a reference file whose filename advertises a different paper (Buchmann\u2013G\u00f6pfert\u2013Player\u2013Wunderer's binary-error LWE hardness, ~2016). The file body actually describes Langlois\u2013Stehl\u00e9, \"Worst-case to average-case reductions for module lattices\", DCC 75(3):565\u2013599, 2015 \u2014 which is the correct attribution. Filename/path is misleading.",
-          "suggested_fix": "Coordinate with the ds-page fix: rename the reference file and update this wikilink.",
-          "sources_consulted": [
-            "content/References/LS15 - On the hardness of LWE with binary error.md (file body)"
-          ]
-        },
-        {
           "severity": "missing_citation",
           "location": "Reduction to lattice problems (line 86)",
-          "description": "Page says \"Classical reductions (without quantum steps) are known for certain parameter regimes \u2014 see subsequent work by Peikert\" without an explicit citation. The standard reference is Peikert, \"Public-key cryptosystems from the worst-case shortest vector problem\" (STOC 2009) and Brakerski\u2013Langlois\u2013Peikert\u2013Regev\u2013Stehl\u00e9, \"Classical hardness of learning with errors\" (STOC 2013).",
-          "suggested_fix": "Add citations [[Pei09 ...|Pei09]] and [[BLPRS13 - Classical hardness of learning with errors|BLPRS13]].",
+          "description": "Page says 'Classical reductions (without quantum steps) are known for certain parameter regimes \u2014 see subsequent work by Peikert' without an explicit citation. The standard references are Peikert, 'Public-key cryptosystems from the worst-case shortest vector problem' (STOC 2009) and Brakerski-Langlois-Peikert-Regev-Stehl\u00e9, 'Classical hardness of learning with errors' (STOC 2013). Persists from 2026-04-25 run.",
+          "suggested_fix": "Add citations [[Pei09 ...|Pei09]] and [[BLPRS13 - Classical hardness of learning with errors|BLPRS13]]; create the corresponding reference files.",
           "sources_consulted": [
             "Reg05 reference note (notes that classical reductions came in subsequent work)"
           ]
         },
         {
           "severity": "notation",
-          "location": "Hardness statements (lines 38, 62)",
-          "description": "Both security statements write the parameter tuple as `(n,q\\chi,m)` \u2014 missing comma between `q` and `\\chi`. Correct: `(n,q,\\chi,m)`. The same tuple appears correctly with all four commas in the game captions and advantage formulas above each statement, so this is clearly a typo.",
-          "suggested_fix": "Replace `(n,q\\chi,m)` with `(n,q,\\chi,m)` on lines 38 and 62.",
-          "sources_consulted": []
-        },
-        {
-          "severity": "notation",
           "location": "Section structure (lines 80, 88, 92, 94)",
-          "description": "CLAUDE.md mandates assumption pages follow the order: ## Assumption \u2192 ## Known Results \u2192 # Variations \u2192 # Attacks. This page has: ## Assumption \u2192 ## Known Results \u2192 # Reduction to lattice problems (top-level, should be ## under Known Results) \u2192 ## Cryptographic constructions (orphan ## under a #-level section) \u2192 # Attacks \u2192 # Variations (Variations and Attacks are reversed; both Attacks and the empty-Attacks placement violate the spec).",
-          "suggested_fix": "(a) Demote `# Reduction to lattice problems` to `## Reduction to lattice problems` under Known Results. (b) Move `## Cryptographic constructions` somewhere coherent (or promote it). (c) Put `# Variations` before `# Attacks`.",
+          "description": "CLAUDE.md mandates assumption pages follow the order: ## Assumption \u2192 ## Known Results \u2192 # Variations \u2192 # Attacks. This page has: ## Assumption \u2192 ## Known Results \u2192 # Reduction to lattice problems (top-level, should be ## under Known Results) \u2192 ## Cryptographic constructions (orphan ## under a #-level section) \u2192 # Attacks \u2192 # Variations (Variations and Attacks are reversed). Persists from 2026-04-25 run.",
+          "suggested_fix": "(a) Demote `# Reduction to lattice problems` to `## Reduction to lattice problems` under Known Results. (b) Move `## Cryptographic constructions` somewhere coherent. (c) Put `# Variations` before `# Attacks`.",
           "sources_consulted": [
             "CLAUDE.md, Page structure for Assumption pages"
           ]
         },
         {
           "severity": "nit",
-          "location": "Decision LWE game (line 31)",
-          "description": "Two definitions on a single `\\State` line use a literal `;` separator, which is the documented convention \u2014 fine \u2014 but `u_0` on the LHS is followed by `\\mathbf{u}_1 \\getsr \\ZZ_q^m` even though the typesetting in the surrounding tuple uses `\\mathbf{u}` consistently. The first occurrence on the line drops the bold and writes `\\mathbf{u}_0` \u2014 actually correct after re-reading. (No fix needed; recording as a passing check.)",
-          "suggested_fix": null,
-          "sources_consulted": []
-        },
-        {
-          "severity": "nit",
           "location": "Header level for Search\u2013Decision equivalence (line 73)",
-          "description": "`### Search\u2013Decision equivalence` is the only ### subsection inside Known Results and reads slightly odd as a single subhead under ##. Acceptable but worth promoting/folding for readability.",
+          "description": "`### Search\u2013Decision equivalence` is the only ### subsection inside Known Results and reads slightly odd as a single subhead under ##. Acceptable but worth promoting/folding for readability. Persists from 2026-04-25 run.",
           "suggested_fix": null,
           "sources_consulted": []
         }
@@ -1366,6 +1392,13 @@
           "action": "flagged",
           "sha": "c0563a0e0df9834b752b7bdbb201094c0bb4fd5d",
           "note": "6 findings (1 error, 1 missing_citation, 2 notation, 2 nit)"
+        },
+        {
+          "at": "2026-05-02T10:30:00Z",
+          "by": "claude-factcheck",
+          "action": "rechecked",
+          "sha": "51c0ddc8a0cbbf5c8a4ba7aaf9190edf423da6db",
+          "note": "Re-review after fix commits 1dff875 (missing comma) and 77f4adf (LS15 rename). 1 error and 1 notation findings RESOLVED. 3 findings remain (1 missing_citation, 1 notation, 1 nit)."
         }
       ]
     },
@@ -1510,9 +1543,7 @@
           "location": "Theorem statement (line 52)",
           "description": "`(KA)` is rendered in plain text rather than via a macro. The site does not currently define a `\\KA` macro, but the rest of the page uses `\\PRF`, `\\PRG`, `\\OT` \u2014 using uppercase plain text for one primitive and macros for others is inconsistent.",
           "suggested_fix": "Either add a `\\KA` macro or wrap occurrences in `\\mathsf{KA}` for consistency.",
-          "sources_consulted": [
-            "macros.ts"
-          ]
+          "sources_consulted": ["macros.ts"]
         }
       ],
       "history": [
@@ -1585,7 +1616,7 @@
     },
     "content/Glossary/latex-macros.md": {
       "status": "unreviewed",
-      "blob_sha": "e68c9aaf61cba63262c798ac0ff56f956acb7b48",
+      "blob_sha": "9a0ebe81aadaa7abb04edf4809882a35abfda80c",
       "verified_at_sha": null,
       "last_checked_at": null,
       "last_checked_by": null,
