@@ -59,7 +59,7 @@ const RENAMES = [
   },
   {
     oldRel: "Assumptions/Crypto Dark Matter.md",
-    newRel: "Assumptions/crypto-dark-matter.md",
+    newRel: "Assumptions/alternating-moduli.md",
   },
   {
     oldRel: "Assumptions/Decisional Diffie-Hellman.md",

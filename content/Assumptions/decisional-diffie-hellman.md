@@ -61,6 +61,17 @@ In the above definition, we implicitly allow $\GrGen$ to choose a _random_
 generator $g$ for the group $\GG$. However, [[BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions|BMZ19]] has explored technical differences between this model and one where $g$ is selected
 deterministically.
 
-[^1]:
-    Succinct means that the tuple $(\GG,g,p)$ is at most
+## DLIN
+
+TODO
+
+## k-Lin
+
+TODO
+
+## Matrix Diffie-Hellman
+
+TODO
+
+[^1]: Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$

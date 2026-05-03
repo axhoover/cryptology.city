@@ -128,12 +128,96 @@ Hardness of Module LWE reduces to worst-case problems on module lattices — [[L
 
 ## Hint LWE
 
-**Hint LWE** augments the standard LWE problem with auxiliary "hint" information about the secret $\mathbf{s}$. Concretely, the adversary receives, in addition to LWE samples $(\mathbf{A}, \mathbf{b} = \mathbf{A}\mathbf{s} + \mathbf{e})$, one or more noisy inner products $\langle \mathbf{v}_i, \mathbf{s} \rangle + e'_i$ for known hint vectors $\mathbf{v}_i$.
+**Hint LWE** augments standard LWE with auxiliary "hint" information about the secret $\mathbf{s}$ — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]. The adversary receives, in addition to the LWE challenge, $\ell$ hint pairs $(\mathbf{v}_i,\, \mathbf{v}_i^\top\mathbf{s} + e'_i)$ for known vectors $\mathbf{v}_i$ and small noise $e'_i \getsr \chi'$. Both the LWE samples and the hints share the same secret $\mathbf{s}$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{hlwe}}_{n,q,\chi,\chi',m,\ell,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\mathbf{A} \getsr \ZZ_q^{m \times n}$; $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$
+\State $\mathbf{v}_1, \ldots, \mathbf{v}_\ell \getsr \ZZ_q^n$; $e'_1, \ldots, e'_\ell \getsr \chi'$
+\State $h_i \gets \mathbf{v}_i^\top \mathbf{s} + e'_i$ for each $i \in [\ell]$
+\Comment{Hints computed from the same $\mathbf{s}$ in both worlds}
+\State $b \getsr \bits$
+\State $\mathbf{u}_0 \gets \mathbf{A}\mathbf{s} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $b' \gets \calA(1^\secpar, \mathbf{A}, \mathbf{u}_b,\, \{(\mathbf{v}_i, h_i)\}_{i \in [\ell]})$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**Hint LWE is hard** for $(n,q,\chi,\chi',m,\ell)$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{hlwe}}_{n,q,\chi,\chi',m,\ell,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hlwe}}_{n,q,\chi,\chi',m,\ell,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 Hint LWE arises in:
 
-- **Amortized bootstrapping for FHE**: refreshing many ciphertexts simultaneously leaks hints about the bootstrapping key
-- **Attacks on LWE with side channels**: partial key leakage reduces to Hint LWE
-- **Leftover hash lemma applications**: certain compressed LWE constructions produce hint-like structures
+- **Amortized FHE bootstrapping**: refreshing many ciphertexts simultaneously leaks hints about the bootstrapping key — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
+- **Side-channel and leakage attacks**: partial key leakage from implementation attacks can be modeled as hint information, enabling lattice reduction with fewer samples — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
 
-The hardness of Hint LWE is closely related to LWE: mild hints (few, low-precision) can be handled by modifying the error distribution, but many exact hints break LWE entirely (since enough linear equations determine $\mathbf{s}$).
+The hardness depends sensitively on the number and precision of hints: few low-precision hints can be absorbed by adjusting the error distribution (LWE remains hard), but enough exact hints determine $\mathbf{s}$ entirely and break the assumption.
+
+## Evasive LWE
+
+**Evasive LWE** strengthens decision LWE by giving the adversary a trapdoor $T$ for a matrix related to the LWE matrix, yet conjecturing that distinguishing is still hard. Introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] and [[attribute-based-encryption|attribute-based encryption]].
+
+Concretely, the public setup produces a matrix $\mathbf{B} \in \ZZ_q^{m \times n}$, an auxiliary matrix $\mathbf{W}$, and a trapdoor $T$ for the concatenated matrix $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$ (where $\otimes$ denotes the Kronecker product and $\ell$ is a parameter). The adversary receives all of $(\mathbf{B}, \mathbf{W}, T)$ as part of its input.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\mathbf{B}, \mathbf{W}, T) \gets \mathrm{TrapGen}(1^\secpar, m, n, \ell)$
+\Comment{$T$ is a trapdoor for $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$}
+\State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$; $b \getsr \bits$
+\State $\mathbf{u}_0 \gets \mathbf{B}\mathbf{s} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $b' \gets \calA(1^\secpar, \mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**Evasive LWE is hard** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. The name "evasive" refers to the fact that the trapdoor information should not help the adversary — the LWE instance "evades" the trapdoor.
+
+The assumption comes in public-coin and private-coin variants. Private-coin variants have known counterexamples — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]. A _circular_ variant of evasive LWE was proposed for ABE for unbounded-depth circuits, but has also been shown vulnerable to zeroizing attacks — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+
+## Succinct LWE
+
+**Succinct LWE** is a strengthening of Evasive LWE introduced by Wee — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]. The $\ell$-succinct LWE assumption uses the same trapdoor setup as Evasive LWE, but the parameter $\ell$ is allowed to be $\poly(\secpar)$ — large enough to encode circuit-depth information succinctly.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\mathbf{B}, \mathbf{W}, T) \gets \mathrm{TrapGen}(1^\secpar, m, n, \ell)$
+\Comment{$T$ trapdoor for $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$; $\ell = \poly(\secpar)$}
+\State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$; $b \getsr \bits$
+\State $\mathbf{u}_0 \gets \mathbf{B}\mathbf{s} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $b' \gets \calA(1^\secpar, \mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**$\ell$-Succinct LWE is hard** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. Succinct LWE implies Evasive LWE (the $\ell = \poly$ regime subsumes the constant-$\ell$ regime). A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+
+The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].

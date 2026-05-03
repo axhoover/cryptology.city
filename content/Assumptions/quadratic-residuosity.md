@@ -13,15 +13,35 @@ The _quadratic residuosity (QR) assumption_ states that it is computationally ha
 
 ## Assumption
 
-Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. The _QR advantage_ of $\calA$ is
+Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. When $p \equiv q \equiv 3 \pmod 4$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$, so membership is information-theoretically hidden.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{qr}}_{\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(p, q) \getsr$ distinct $\secpar$-bit primes with $p \equiv q \equiv 3 \pmod{4}$; $N \gets pq$
+\State $b \getsr \{0,1\}$
+\If{$b = 0$}
+  \State $r \getsr \ZZ_N^*$; $a \gets r^2 \bmod N$
+  \Comment{$a \in \QR_N$}
+\Else
+  \State $a \getsr \J_N \setminus \QR_N$
+  \Comment{$a$ has Jacobi symbol 1 but is not a square}
+\EndIf
+\State $b' \gets \calA(1^\secpar, N, a)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**QR is hard** if for all efficient $\calA$,
 
 $$
-\Adv^{\mathrm{qr}}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(1^\secpar, N, a) = 1\right] - 1\right|,
+\Adv^{\mathrm{qr}}_{\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{qr}}_{\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-where $a$ is uniformly random in $\QR_N$ (with probability 1/2) or uniformly random in $\J_N \setminus \QR_N$ (with probability 1/2).
-
-**QR is hard** if for all efficient $\calA$, $\Adv^{\mathrm{qr}}_{\calA}(\secpar)$ is negligible.
+is negligible.
 
 ## Known Results
 

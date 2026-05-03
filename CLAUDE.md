@@ -326,6 +326,7 @@ Multi-author keys use initials of up to ~4 authors, then the year. Papers are ci
 - **Do not add a new macro** to `macros.ts` without also updating `content/Glossary/latex-macros.md`.
 - **Do not create a new primitive page** without a `## Syntax` and at least one security game — stub pages should use `TODO` placeholders rather than omitting these sections entirely.
 - **Do not use `\mathsf{...}` directly** for primitives or algorithms — use the defined macros (`\PRF`, `\KeyGen`, etc.).
+- **Do not make specific claims without citations** — every factual statement about constructions, implications, applications, or attacks must be followed by a `[[CITATIONKEY - Title|CITATIONKEY]]` wiki link. Do not write unsourced application bullets or result claims. The only exception is results so well-known they qualify as folklore, which must be explicitly labeled "— standard" rather than left bare.
 
 ---
 

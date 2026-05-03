@@ -81,7 +81,7 @@ _Last updated: 2026-04-29_
   - `content/Glossary/arithmetization.md:53`
   - `content/Glossary/generic-group-model.md:14`
   - `content/Assumptions/decisional-diffie-hellman.md:49`
-  - `content/Assumptions/crypto-dark-matter.md:16`
+  - `content/Assumptions/alternating-moduli.md`
   - `content/Complexity/sharp-p.md:11`
 
 ---
