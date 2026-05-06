@@ -64,6 +64,6 @@ Essentially this means that each you take a $k$ subspace fo the $n$ dimentional 
 1. If $\mu < 1-(k/n)^d$, there is a $n^{O(d)}$-time LSN distinguisher
 2. For a constant code rate $\rho = k/n$ and $\eta = 1-\mu = o(1)$, $(k,n,\mu)$-LSN implies LPN with code dimension $k$, code length $k(1+\Omega(\eta))$, and noise rate $\eta$
 3. LPN with noise rate $\varepsilon$ implies a variant of LSN with the following noise pattern: Let $I$ be a random set of $k$ linearly independent columns of $\mathbf{C}$.Then, for each sampled codeword $\mathbf{c}_i$, flip each bit _outside_ $I$ with $\varepsilon$ probability.
-4. [[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]] showed that when $n = k+1$, the _search version_ of the LSN assumption of $\mathbb{F}_2$ is equivalent to teh standard LPN assumption with noise rate $\mu/2$
+4. [[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]] showed that when $n = k+1$, the _search version_ of the LSN assumption of $\mathbb{F}_2$ is equivalent to the standard LPN assumption with noise rate $\mu/2$
 
 ## Split LSN

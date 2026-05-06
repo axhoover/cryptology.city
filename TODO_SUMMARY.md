@@ -1,5 +1,5 @@
 # cryptology.city — TODO Summary
-_Last updated: 2026-04-29_
+_Last updated: 2026-05-06_
 
 ---
 
@@ -17,11 +17,11 @@ _Last updated: 2026-04-29_
 
 - [ ] [Navigation] Dead wikilink `[[DKL09 - On cryptography with auxiliary input|DKL09]]` — no reference page exists; the link resolves to nothing in production — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52_
 - [ ] [Navigation] Dead wikilink `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — no reference page exists for CDV21; used as a citation in CIMR25's LSN facts section — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67_
-- [ ] [Content] `public-key-encryption.md` — Variations section has a bare `TODO` with no content — _source: content/Primitives/public-key-encryption.md:99_
-- [ ] [Content] `pseudorandom-function.md` — Variations section says "TODO: define these and say how they relate to PRPs" — _source: content/Primitives/pseudorandom-function.md:107_
-- [ ] [Content] `multi-server-private-information-retrieval.md` — Other Results section has a bare `TODO`; Doubly-efficient subsection is empty — _source: content/Primitives/multi-server-private-information-retrieval.md:43_
-- [ ] [Content] `learning-parity-with-noise.md` — Known Results section ends with a bare `TODO` (Known Attacks / further results absent) — _source: content/Assumptions/learning-parity-with-noise.md:47_
-- [ ] [Content] `doubly-efficient-pir.md` — Variations section has a bare `TODO` under Multi-server DEPIR — _source: content/Primitives/doubly-efficient-pir.md:51_
+- [ ] [Content] `public-key-encryption.md` — Key-hiding security notion section has a bare `TODO` with no content — _source: content/Primitives/public-key-encryption.md:99_
+- [ ] [Content] `pseudorandom-function.md` — Pseudorandom injective functions subsection says "TODO: define these and say how they relate to PRPs" — _source: content/Primitives/pseudorandom-function.md:107_
+- [ ] [Content] `multi-server-private-information-retrieval.md` — Doubly-efficient multi-server PIR subsection is empty — _source: content/Primitives/multi-server-private-information-retrieval.md:43_
+- [ ] [Content] `learning-parity-with-noise.md` — Attacks section is a bare `TODO` — _source: content/Assumptions/learning-parity-with-noise.md:72_
+- [ ] [Content] `doubly-efficient-pir.md` — Multi-server DEPIR variation section is a bare `TODO` — _source: content/Primitives/doubly-efficient-pir.md:51_
 
 ---
 
@@ -45,7 +45,7 @@ _Last updated: 2026-04-29_
   - `content/Complexity/co-nondeterministic-polynomial-time.md:26` — AKS primality
 - [ ] [Math] `\calJ` is defined in `macros.ts` but is never used in any content file; either use it or remove the definition — _source: macros.ts_
 - [ ] [Math] 9 other caligraphic letter macros defined but apparently unused: `\calG`, `\calH`, `\calL`, `\calN`, `\calP`, `\calV`, `\calW`, `\calX`, `\calY` — audit usage before removing any of these — _source: macros.ts_
-- [ ] [Math] `\mathbb{F}` used directly in CIMR25 reference (3 occurrences) instead of `\FF`; violates site convention — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:25,54,67_
+- [ ] [Math] `\mathbb{F}` used directly in CIMR25 reference instead of `\FF`; violates site convention — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:25,54,67_
 - [ ] [Math] `\mathbf{F}^n` at line 54 of CIMR25 is likely a typo for `\mathbb{F}^n` (= `\FF^n`); adjacent lines use `\mathbb{F}` — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:54_
 - [ ] [Math] Multiple `\mathsf{...}` usages for primitive-specific names that lack macros — violates "do not use `\mathsf{...}` directly" convention; each needs a macro added to `macros.ts` and `content/Glossary/latex-macros.md`:
   - `\mathsf{BE}` — `content/Primitives/broadcast-encryption.md` (needs `\BE`)
@@ -62,17 +62,19 @@ _Last updated: 2026-04-29_
 - [ ] [Content] `symmetric-private-information-retrieval-multi-server.md` — Syntax section has no content and Properties/Known Results sections are empty — _source: content/Primitives/symmetric-private-information-retrieval-multi-server.md_
 - [ ] [Content] `one-way-permutation.md` — missing required `## Syntax` section; skips directly to Properties — _source: content/Primitives/one-way-permutation.md_
 - [ ] [Content] CIMR25 reference contains uncommitted editorial/draft notes: "I guess secret-key PIR that is not doubly efficient could be interesting...?" (l.32) and "**Wait** actually is this just taken from DKL09?" (l.52) — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:32,52_
-- [ ] [Content] CIMR25 reference contains typos: "teh" (l.67), "fo" (l.56), "dimentional" (l.56), "som eof" (l.45), "prepreprocessing" (l.34), and an empty bullet point (l.46) — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md_
+- [ ] [Content] CIMR25 reference contains remaining typos/issues: "fo" (l.56), "dimentional" (l.56), "som eof" (l.45), "prepreprocessing" (l.34), and an empty bullet point (l.46); also uses `\mathbb{F}` and `\mathbf{F}` rather than `\FF` — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md_ (see Math entries above)
 - [ ] [External] 6 reference files are missing a source URL: `BBHR18`, `Grover96`, `KZG10`, `LPR10`, `LS15`, `Sch91` — _source: content/References/ (various)_
 - [ ] [Content] `content/Complexity/polynomial-time.md` stub — has a definition but the `Known relationships` heading has no content — _source: content/Complexity/polynomial-time.md_
 - [ ] [Math] `\mathbf{PH}` used directly in complexity files (no `\classPH` macro exists) — consider adding `\classPH` → `\mathbf{PH}` to macros.ts and latex-macros.md — _source: content/Complexity/probabilistic-polynomial-time.md:19, co-arthur-merlin.md:19, p-poly.md:24, merlin-arthur.md:23_
+- [ ] [Content] DDH assumption page: three empty variation sections (DLIN, k-Lin, Matrix Diffie-Hellman) — _source: content/Assumptions/decisional-diffie-hellman.md:66,70,74_
+- [ ] [Navigation] Citation link `[[CIMR25 - Secret-Key PIR from Random Linear Codes]]` is missing the display-text suffix `|CIMR25` per site convention — _source: content/Assumptions/learning-parity-with-noise.md:66_
 
 ---
 
 ## Low Priority / Inferred
 
 - [ ] [Content] `index.md` contains a user-facing disclaimer "there are a lot of stubs and TODOs" — should be removed once major stubs are filled — _source: content/index.md:7_
-- [ ] [Navigation] Twitter link `https://twitter.com/cryptologycity` — Twitter rebranded to X.com; consider updating to the canonical URL — _source: content/index.md:18_
+- [ ] [Navigation] Twitter/X link in index — consider updating to current canonical URL format — _source: content/index.md_
 - [ ] [External] `content/References/Rabin81 - How to Exchange Secrets with Oblivious Transfer.md` source URL uses `.pdf` extension — canonical ePrint URL (without `.pdf`) is preferred style — _source: content/References/Rabin81 - How to Exchange Secrets with Oblivious Transfer.md:3_
 - [ ] [Math] Remaining `\{0,1\}` usages (should be `\bits`) in Complexity/Glossary/Assumptions files — minor style inconsistency:
   - `content/Complexity/p-poly.md:10,13`
@@ -89,16 +91,25 @@ _Last updated: 2026-04-29_
 ## Cannot Verify (needs human review)
 
 - [ ] [External] All external URLs (ePrint, arXiv, ACM DL, Springer, IEEE, etc.) — network access was unavailable during this audit; spot-check live links, especially recent 2025–2026 preprints — _source: content/References/ (various)_
-- [ ] [External] NIST post-quantum standards URL contains a literal `(` in the path (`security-(evaluation-criteria)`); verify this renders as a working hyperlink — _source: content/Complexity/bounded-error-quantum-polynomial-time.md:35_
+- [ ] [External] NIST post-quantum standards URL contains a literal `(` in the path (`security-(evaluation-criteria)`); verify this renders as a working hyperlink — _source: content/Assumptions/supersingular-isogeny-diffie-hellman.md_
 - [ ] [External] `https://eprint.iacr.org/2026/113` (BH26), `https://eprint.iacr.org/2026/384` (CHW26), and `https://arxiv.org/abs/2602.09385` (BHV26) — 2026 papers; verify identifiers are correct and live — _source: content/References/BH26 - ..., CHW26 - ..., BHV26 - ..._
 - [ ] [Content] `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — referenced alongside "Wait actually is this just taken from DKL09?" suggesting possible misattribution; requires author review — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52,67_
 - [ ] [Navigation] Wikilinks `[[Primitives]]`, `[[Assumptions]]`, `[[References]]`, `[[Folklore]]`, `[[Complexity]]`, `[[Glossary]]` — Quartz generates folder index pages automatically; resolve at build time but not verifiable without running the build — _source: content/index.md_
+- [ ] [Navigation] `[[Oblivious transfer|OT]]` — uses lowercase "t" alias while the registered alias is "Oblivious Transfer" (capital T); verify Quartz alias resolution is case-insensitive in this deployment — _source: content/impagliazzos-five-worlds.md:61_
 
 ---
 
 ## Changes Made This Run
 
-_Run date: 2026-04-29_
+_Run date: 2026-05-06_
+
+| File | Change | Confidence |
+|------|--------|------------|
+| `content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67` | Fixed typo: "teh" → "the" | High |
+
+---
+
+## Changes Made — Previous Run (2026-04-29)
 
 | File | Change | Confidence |
 |------|--------|------------|
