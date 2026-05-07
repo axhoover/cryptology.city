@@ -8,6 +8,7 @@ aliases:
   - Wul07
 tags:
   - Eurocrypt
+cryptobib_key: EC:Wullschleger07
 ---
 
 # [Wul07] Oblivious-Transfer Amplification

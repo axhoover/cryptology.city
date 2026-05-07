@@ -2,6 +2,7 @@
 aliases:
   - Grover96
 title: "Grover96 - A fast quantum mechanical algorithm for database search"
+cryptobib_key: STOC:Grover96
 ---
 
 Lov K. Grover. "A fast quantum mechanical algorithm for database search." In _Proceedings of the 28th Annual ACM Symposium on Theory of Computing (STOC 1996)_, pp. 212–219. ACM, 1996.

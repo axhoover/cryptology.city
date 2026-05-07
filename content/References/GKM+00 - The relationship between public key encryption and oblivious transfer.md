@@ -8,6 +8,7 @@ aliases:
   - GKM+00
 tags:
   - FOCS
+cryptobib_key: FOCS:GKMRV00
 ---
 
 # [GKM+00] The relationship between public key encryption and oblivious transfer

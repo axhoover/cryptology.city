@@ -8,6 +8,7 @@ aliases:
   - LMW25
 tags:
   - Eurocrypt
+cryptobib_key: EC:LinMooWic25
 ---
 
 # [LMW25] Black Box Crypto is Useless for Doubly Efficient PIR

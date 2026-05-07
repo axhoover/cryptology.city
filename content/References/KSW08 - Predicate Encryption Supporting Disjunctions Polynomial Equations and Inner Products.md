@@ -8,6 +8,7 @@ aliases:
   - KSW08
 tags:
   - Eurocrypt
+cryptobib_key: EC:KatSahWat08
 ---
 
 # [KSW08] Predicate Encryption Supporting Disjunctions, Polynomial Equations, and Inner Products

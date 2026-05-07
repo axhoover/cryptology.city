@@ -9,6 +9,7 @@ aliases:
   - KM19
 tags:
   - TCC
+cryptobib_key: TCC:KitMat19
 ---
 
 # [KM19] CPA-to-CCA Transformation for KDM Security

@@ -2,6 +2,7 @@
 aliases:
   - LPR10
 title: "LPR10 - On ideal lattices and learning with errors over rings"
+cryptobib_key: EC:LyuPeiReg10
 ---
 
 Vadim Lyubashevsky, Chris Peikert, and Oded Regev. "On ideal lattices and learning with errors over rings." In _Advances in Cryptology — EUROCRYPT 2010_, Lecture Notes in Computer Science, vol. 6110, pp. 1–23. Springer, 2010.

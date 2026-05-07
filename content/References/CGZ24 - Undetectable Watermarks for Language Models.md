@@ -8,6 +8,7 @@ aliases:
   - CGZ24
 tags:
   - COLT
+cryptobib_key: EPRINT:ChrGunZam23
 ---
 
 # [CGZ24] Undetectable Watermarks for Language Models

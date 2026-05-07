@@ -8,6 +8,7 @@ aliases:
   - GR13
 tags:
   - Journal of Cryptology
+cryptobib_key: JC:GolRot13
 ---
 
 # [GR13] Enhancements of Trapdoor Permutations

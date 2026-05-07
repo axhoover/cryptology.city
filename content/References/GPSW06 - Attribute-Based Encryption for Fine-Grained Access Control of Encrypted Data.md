@@ -8,6 +8,7 @@ aliases:
   - GPSW06
 tags:
   - CCS
+cryptobib_key: CCS:GPSW06
 ---
 
 # [GPSW06] Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data

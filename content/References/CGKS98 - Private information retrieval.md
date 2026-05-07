@@ -8,6 +8,7 @@ aliases:
   - CGKS98
 tags:
   - JACM
+cryptobib_key: FOCS:CGKS95
 ---
 
 # [CGKS98] Private information retrieval

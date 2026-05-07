@@ -8,6 +8,7 @@ aliases:
   - GS86
 tags:
   - STOC
+cryptobib_key: STOC:GolSip86
 ---
 
 # [GS86] Private Coins versus Public Coins in Interactive Proof Systems

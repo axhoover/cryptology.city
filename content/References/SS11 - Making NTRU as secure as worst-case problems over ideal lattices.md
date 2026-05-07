@@ -8,6 +8,7 @@ aliases:
   - SS11
 tags:
   - EUROCRYPT
+cryptobib_key: EC:SteSte11
 ---
 
 # [SS11] Making NTRU as secure as worst-case problems over ideal lattices

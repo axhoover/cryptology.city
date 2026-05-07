@@ -8,6 +8,7 @@ aliases:
   - GL89
 tags:
   - STOC
+cryptobib_key: STOC:GolLev89
 ---
 
 # [GL89] A Hard-Core Predicate for All One-Way Functions

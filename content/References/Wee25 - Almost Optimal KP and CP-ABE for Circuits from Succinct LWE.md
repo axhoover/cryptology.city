@@ -8,6 +8,7 @@ aliases:
   - Wee25
 tags:
   - EUROCRYPT
+cryptobib_key: EC:Wee25
 ---
 
 # [Wee25] Almost Optimal KP and CP-ABE for Circuits from Succinct LWE

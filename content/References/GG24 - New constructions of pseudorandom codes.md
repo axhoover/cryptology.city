@@ -8,6 +8,7 @@ aliases:
   - GG24
 tags:
   - preprint
+cryptobib_key: EPRINT:GheGur24
 ---
 
 # [GG24] New constructions of pseudorandom codes

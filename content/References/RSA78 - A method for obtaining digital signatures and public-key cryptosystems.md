@@ -8,6 +8,7 @@ aliases:
   - RSA78
 tags:
   - CACM
+cryptobib_key: RivShaAdl78
 ---
 
 # [RSA78] A method for obtaining digital signatures and public-key cryptosystems

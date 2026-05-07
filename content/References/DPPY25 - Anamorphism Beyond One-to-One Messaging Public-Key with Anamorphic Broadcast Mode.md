@@ -9,6 +9,7 @@ aliases:
   - DPPY25
 tags:
   - Eurocrypt
+cryptobib_key: EC:DPPY25
 ---
 
 # [DPPY25] Anamorphism Beyond One-to-One Messaging: Public-Key with Anamorphic Broadcast Mode

@@ -9,6 +9,7 @@ aliases:
   - Din24
 tags:
   - Eurocrypt
+cryptobib_key: EC:Dinur24
 ---
 
 # [Din24] Tight Indistinguishability Bounds for the XOR of Independent Random Permutations by Fourier Analysis

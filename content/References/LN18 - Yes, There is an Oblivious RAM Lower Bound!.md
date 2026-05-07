@@ -8,6 +8,7 @@ aliases:
   - LN18
 tags:
   - CRYPTO
+cryptobib_key: C:LarNie18
 ---
 
 # [LN18] Yes, There is an Oblivious RAM Lower Bound!

@@ -9,6 +9,7 @@ aliases:
   - YZ16
 tags:
   - CRYPTO
+cryptobib_key: C:YuZha16
 ---
 
 # [YZ16] Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN

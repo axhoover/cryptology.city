@@ -8,6 +8,7 @@ aliases:
   - BLVW19
 tags:
   - Eurocrypt
+cryptobib_key: EC:BLVW19
 ---
 
 # [BLVW19] Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing

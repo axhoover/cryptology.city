@@ -10,6 +10,7 @@ aliases:
   - XSPIR
 tags:
   - ESORICS
+cryptobib_key: ESORICS:LinLiuMal22
 ---
 
 # [LLM22] XSPIR: Efficient Symmetrically Private Information Retrieval from Ring-LWE

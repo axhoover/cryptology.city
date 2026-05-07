@@ -8,6 +8,7 @@ aliases:
   - FS86
 tags:
   - CRYPTO
+cryptobib_key: C:FiaSha86
 ---
 
 # [FS86] How to Prove Yourself: Practical Solutions to Identification and Signature Problems

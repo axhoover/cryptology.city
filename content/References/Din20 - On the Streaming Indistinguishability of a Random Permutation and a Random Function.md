@@ -9,6 +9,7 @@ tags:
   - Eurocrypt
 aliases:
   - Din20
+cryptobib_key: EC:Dinur20b
 ---
 
 # [Din20] On the Streaming Indistinguishability of a Random Permutation and a Random Function

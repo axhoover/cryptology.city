@@ -8,6 +8,7 @@ aliases:
   - GZSP25
 tags:
   - Eurocrypt
+cryptobib_key: EC:GZSP25
 ---
 
 # [GZSP25] Pseudorandom Functions with Weak Programming Privacy and Applications to Private Information Retrieval

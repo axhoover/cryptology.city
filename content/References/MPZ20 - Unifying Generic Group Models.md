@@ -6,6 +6,7 @@ venue: ePrint 2020/996
 published: 2020-01-01
 aliases:
   - MPZ20
+cryptobib_key: EPRINT:MauPorZhu20
 ---
 
 # [MPZ20] Unifying Generic Group Models

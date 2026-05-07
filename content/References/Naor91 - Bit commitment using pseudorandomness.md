@@ -6,6 +6,7 @@ venue: Journal of Cryptology
 publish date: 1991
 aliases:
   - Naor91
+cryptobib_key: JC:Naor91
 ---
 
 # Bit Commitment Using Pseudorandomness

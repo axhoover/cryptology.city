@@ -6,6 +6,7 @@ venue: FOCS 2013
 publish date: 2013
 aliases:
   - GGHRSW13
+cryptobib_key: FOCS:GGHRSW13
 ---
 
 # Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits

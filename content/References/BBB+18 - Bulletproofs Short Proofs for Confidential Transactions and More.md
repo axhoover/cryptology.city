@@ -10,6 +10,7 @@ aliases:
   - Bulletproofs
 tags:
   - IEEE-SP
+cryptobib_key: SP:BBBPWM18
 ---
 
 # [BBB+18] Bulletproofs: Short Proofs for Confidential Transactions and More

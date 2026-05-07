@@ -9,6 +9,7 @@ aliases:
   - Rab81
 tags:
   - Technical-Report
+cryptobib_key: EPRINT:Rabin05
 ---
 
 # [Rab81] How to Exchange Secrets with Oblivious Transfer

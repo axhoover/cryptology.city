@@ -8,6 +8,7 @@ aliases:
   - Cha82
 tags:
   - CRYPTO
+cryptobib_key: C:Chaum82
 ---
 
 # [Cha82] Blind Signatures for Untraceable Payments

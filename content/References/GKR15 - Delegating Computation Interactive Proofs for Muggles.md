@@ -8,6 +8,7 @@ aliases:
   - GKR15
 tags:
   - STOC
+cryptobib_key: STOC:GolKalRot08
 ---
 
 # [GKR15] Delegating Computation: Interactive Proofs for Muggles

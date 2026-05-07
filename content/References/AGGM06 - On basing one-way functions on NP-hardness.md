@@ -8,6 +8,7 @@ aliases:
   - AGGM06
 tags:
   - STOC
+cryptobib_key: STOC:AGGM06
 ---
 
 # [AGGM06] On basing one-way functions on NP-hardness

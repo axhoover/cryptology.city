@@ -8,6 +8,7 @@ aliases:
   - CK20
 tags:
   - Eurocrypt
+cryptobib_key: EC:CorKog20
 ---
 
 # [CK20] Private Information Retrieval with Sublinear Online Time

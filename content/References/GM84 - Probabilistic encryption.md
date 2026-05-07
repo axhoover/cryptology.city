@@ -6,6 +6,7 @@ venue: Journal of Computer and System Sciences
 publish date: 1984
 aliases:
   - GM84
+cryptobib_key: GolMic84
 ---
 
 # Probabilistic Encryption

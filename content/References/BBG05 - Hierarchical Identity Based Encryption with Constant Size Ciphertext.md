@@ -8,6 +8,7 @@ aliases:
   - BBG05
 tags:
   - Eurocrypt
+cryptobib_key: EC:BonBoyGoh05
 ---
 
 # [BBG05] Hierarchical Identity Based Encryption with Constant Size Ciphertext

@@ -8,6 +8,7 @@ aliases:
   - CGN98
 tags:
   - preprint
+cryptobib_key: EPRINT:ChoGilNao98
 ---
 
 # [CGN98] Private Information Retrieval by Keywords

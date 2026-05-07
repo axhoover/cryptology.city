@@ -9,6 +9,7 @@ tags:
   - CRYPTO
 aliases:
   - DT24
+cryptobib_key: C:DieTes24
 ---
 
 # [DT24] Fully Malicious Authenticated PIR

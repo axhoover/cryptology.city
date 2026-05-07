@@ -8,6 +8,7 @@ aliases:
   - JS08
 tags:
   - ProvSec
+cryptobib_key: PROVSEC:JagSch08
 ---
 
 # [JS08] On the Equivalence of Generic Group Models

@@ -8,6 +8,7 @@ aliases:
   - LMW24
 tags:
   - CRYPTO
+cryptobib_key: C:LinMooWic24
 ---
 
 # [LMW24] Doubly Efficient Cryptography: Commitments, Arguments and RAM MPC

@@ -8,6 +8,7 @@ aliases:
   - CHS25
 tags:
   - IEEE-SP
+cryptobib_key: SP:CohHooSch25
 ---
 
 # [CHS25] Watermarking Language Models for Many Adaptive Users

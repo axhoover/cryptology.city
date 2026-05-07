@@ -9,6 +9,7 @@ aliases:
   - CCGH25
 tags:
   - Eurocrypt
+cryptobib_key: EC:CGGH25
 ---
 
 # [CCGH25] A Meta-Complexity Characterization of Quantum Cryptography

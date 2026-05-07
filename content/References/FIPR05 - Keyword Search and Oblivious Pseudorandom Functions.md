@@ -9,6 +9,7 @@ aliases:
   - FIPR05
 tags:
   - TCC
+cryptobib_key: TCC:FIPR05
 ---
 
 # [FIPR05] Keyword Search and Oblivious Pseudorandom Functions

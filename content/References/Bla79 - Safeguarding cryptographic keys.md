@@ -6,6 +6,7 @@ venue: AFIPS National Computer Conference
 publish date: 1979
 aliases:
   - Bla79
+cryptobib_key: Blakley79
 ---
 
 # Safeguarding Cryptographic Keys

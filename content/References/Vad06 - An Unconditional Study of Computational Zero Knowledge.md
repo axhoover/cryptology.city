@@ -8,6 +8,7 @@ aliases:
   - Vad06
 tags:
   - Journal-on-Computing
+cryptobib_key: FOCS:Vadhan04
 ---
 
 # [Vad06] An Unconditional Study of Computational Zero Knowledge

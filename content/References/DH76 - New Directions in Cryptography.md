@@ -8,6 +8,7 @@ aliases:
   - DH76
 tags:
   - preprint
+cryptobib_key: DifHel76
 ---
 
 # [DH76] New Directions in Cryptography

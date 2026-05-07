@@ -8,6 +8,7 @@ aliases:
   - Lam79
 tags:
   - techreport
+cryptobib_key: Lamport79
 ---
 
 # [Lam79] Constructing digital signatures from a one way function

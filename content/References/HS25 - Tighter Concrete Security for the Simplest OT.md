@@ -9,6 +9,7 @@ tags:
   - preprint
 aliases:
   - HS25
+cryptobib_key: CiC:HaiSeg25
 ---
 
 # [HS25] Tighter Concrete Security for the Simplest OT

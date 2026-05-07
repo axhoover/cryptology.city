@@ -1,0 +1,3 @@
+[submodule "vendor/cryptobib"]
+	path = vendor/cryptobib
+	url = https://github.com/cryptobib/export

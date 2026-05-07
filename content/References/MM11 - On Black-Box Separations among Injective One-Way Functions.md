@@ -8,6 +8,7 @@ aliases:
   - MM11
 tags:
   - TCC
+cryptobib_key: TCC:MatMat11
 ---
 
 # [MM11] On Black-Box Separations among Injective One-Way Functions

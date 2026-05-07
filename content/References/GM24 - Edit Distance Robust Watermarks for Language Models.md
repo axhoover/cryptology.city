@@ -8,6 +8,7 @@ aliases:
   - GM24
 tags:
   - NeurIPS
+cryptobib_key: EPRINT:GolMoi24
 ---
 
 # [GM24] Edit Distance Robust Watermarks for Language Models

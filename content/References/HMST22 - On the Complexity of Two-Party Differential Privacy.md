@@ -9,6 +9,7 @@ aliases:
   - HMST22
 tags:
   - STOC
+cryptobib_key: STOC:HMST22
 ---
 
 # [HMST22] On the Complexity of Two-Party Differential Privacy

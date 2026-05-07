@@ -8,6 +8,7 @@ aliases:
   - NR97
 tags:
   - FOCS
+cryptobib_key: FOCS:NaoRei97
 ---
 
 # [NR97] Number-Theoretic Constructions of Efficient Pseudo-Random Functions

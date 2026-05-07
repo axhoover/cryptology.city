@@ -8,6 +8,7 @@ aliases:
   - Ale03
 tags:
   - FOCS
+cryptobib_key: FOCS:Alekhnovich03
 ---
 
 # [Ale03] More on average case vs approximation complexity

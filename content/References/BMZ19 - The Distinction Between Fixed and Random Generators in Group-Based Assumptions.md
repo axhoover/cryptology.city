@@ -8,6 +8,7 @@ aliases:
   - BMZ19
 tags:
   - CRYPTO
+cryptobib_key: C:BarMaZha19
 ---
 
 # [BMZ19] The Distinction Between Fixed and Random Generators in Group-Based Assumptions

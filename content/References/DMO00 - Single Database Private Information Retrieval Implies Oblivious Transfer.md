@@ -8,6 +8,7 @@ aliases:
   - DMO00
 tags:
   - Eurocrypt
+cryptobib_key: EC:DiCMalOst00
 ---
 
 # [DMO00] Single Database Private Information Retrieval Implies Oblivious Transfer

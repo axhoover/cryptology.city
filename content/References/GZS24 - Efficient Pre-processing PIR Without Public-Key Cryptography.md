@@ -8,6 +8,7 @@ aliases:
   - GZS24
 tags:
   - Eurocrypt
+cryptobib_key: EC:GhoZhoShi24
 ---
 
 # [GZS24] Efficient Pre-processing PIR Without Public-Key Cryptography

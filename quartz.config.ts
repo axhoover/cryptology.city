@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     },
     locale: "en-US",
     baseUrl: "cryptology.city",
-    ignorePatterns: ["private", "Templates", ".obsidian"],
+    ignorePatterns: ["private", "Templates", ".obsidian", "vendor"],
     defaultDateType: "modified",
     theme: {
       fontOrigin: "googleFonts",
@@ -67,6 +67,7 @@ const config: QuartzConfig = {
       }),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
+      Plugin.Bibtex(),
       Plugin.TableOfContents(),
       Plugin.CrawlLinks({ markdownLinkResolution: "shortest" }),
       Plugin.Description(),

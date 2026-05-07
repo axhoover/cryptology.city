@@ -8,6 +8,7 @@ aliases:
   - RTV04
 tags:
   - TCC
+cryptobib_key: TCC:ReiTreVad04
 ---
 
 # [RTV04] Notions of Reducibility between Cryptographic Primitives

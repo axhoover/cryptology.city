@@ -9,6 +9,7 @@ tags:
   - CCS
 aliases:
   - BGI16
+cryptobib_key: CCS:BoyGilIsh16
 ---
 
 # [BGI16] Function Secret Sharing: Improvements and Extensions

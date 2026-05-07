@@ -8,6 +8,7 @@ aliases:
   - SW25
 tags:
   - Eurocrypt
+cryptobib_key: EC:SilWic25
 ---
 
 # [SW25] Binary Codes for Error Detection and Correction in a Computationally Bounded World

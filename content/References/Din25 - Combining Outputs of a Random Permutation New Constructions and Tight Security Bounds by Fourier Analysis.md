@@ -9,6 +9,7 @@ aliases:
   - Din25
 tags:
   - Eurocrypt
+cryptobib_key: EC:Dinur25
 ---
 
 # [Din25] Combining Outputs of a Random Permutation: New Constructions and Tight Security Bounds by Fourier Analysis

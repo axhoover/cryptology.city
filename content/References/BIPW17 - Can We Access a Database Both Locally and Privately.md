@@ -9,6 +9,7 @@ aliases:
   - BIPW17
 tags:
   - TCC
+cryptobib_key: TCC:BIPW17
 ---
 
 # [BIPW17] Can We Access a Database Both Locally and Privately?

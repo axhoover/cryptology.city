@@ -8,6 +8,7 @@ aliases:
   - RW13
 tags:
   - CCS
+cryptobib_key: EPRINT:RouWat12
 ---
 
 # [RW13] New Constructions and Proof Methods for Large Universe Attribute-Based Encryption

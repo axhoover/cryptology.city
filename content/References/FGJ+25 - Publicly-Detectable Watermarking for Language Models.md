@@ -8,6 +8,7 @@ aliases:
   - FGJ+25
 tags:
   - CiC
+cryptobib_key: CiC:FGJMMW24
 ---
 
 # [FGJ+25] Publicly-Detectable Watermarking for Language Models

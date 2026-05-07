@@ -8,6 +8,7 @@ aliases:
   - GK03
 tags:
   - FOCS
+cryptobib_key: FOCS:GolKal03
 ---
 
 # [GK03] On the (In)security of the Fiat-Shamir Paradigm

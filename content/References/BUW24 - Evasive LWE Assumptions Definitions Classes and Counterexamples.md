@@ -8,6 +8,7 @@ aliases:
   - BUW24
 tags:
   - ASIACRYPT
+cryptobib_key: AC:BrzUnaWoo24
 ---
 
 # [BUW24] Evasive LWE Assumptions: Definitions, Classes, and Counterexamples

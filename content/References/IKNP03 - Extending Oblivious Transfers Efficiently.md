@@ -8,6 +8,7 @@ aliases:
   - IKNP03
 tags:
   - CRYPTO
+cryptobib_key: C:IKNP03
 ---
 
 # [IKNP03] Extending Oblivious Transfers Efficiently

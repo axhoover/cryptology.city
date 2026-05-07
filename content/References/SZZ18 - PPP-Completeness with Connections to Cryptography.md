@@ -8,6 +8,7 @@ aliases:
   - SZZ18
 tags:
   - FOCS
+cryptobib_key: FOCS:SotZamZir18
 ---
 
 # [SZZ18] PPP-Completeness with Connections to Cryptography

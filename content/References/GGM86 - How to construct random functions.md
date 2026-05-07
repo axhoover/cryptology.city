@@ -8,6 +8,7 @@ aliases:
   - GGM86
 tags:
   - JACM
+cryptobib_key: GolGolMic86
 ---
 
 # [GGM86] How to construct random functions

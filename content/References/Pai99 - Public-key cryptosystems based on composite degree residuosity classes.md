@@ -6,6 +6,7 @@ venue: EUROCRYPT 1999
 publish date: 1999
 aliases:
   - Pai99
+cryptobib_key: EC:Paillier99
 ---
 
 # Public-Key Cryptosystems Based on Composite Degree Residuosity Classes

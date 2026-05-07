@@ -8,6 +8,7 @@ aliases:
   - KZ22
 tags:
   - ASIACRYPT
+cryptobib_key: AC:ZhaZhoKat22
 ---
 
 # [KZ22] An Analysis of the Algebraic Group Model

@@ -9,6 +9,7 @@ aliases:
   - GJL+25
 tags:
   - Eurocrypt
+cryptobib_key: EC:GJLSV25
 ---
 
 # [GJL+25] Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions: Beyond LWE and Alekhnovich's LPN

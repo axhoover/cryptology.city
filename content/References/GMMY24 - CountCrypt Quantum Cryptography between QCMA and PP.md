@@ -8,6 +8,7 @@ aliases:
   - GMMY24
 tags:
   - preprint
+cryptobib_key: EPRINT:GMMY24
 ---
 
 # [GMMY24] CountCrypt: Quantum Cryptography between QCMA and PP

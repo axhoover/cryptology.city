@@ -8,6 +8,7 @@ aliases:
   - HILL99
 tags:
   - SIAMJC
+cryptobib_key: HILL99
 ---
 
 # [HILL99] A Pseudorandom Generator from Any One-Way Function

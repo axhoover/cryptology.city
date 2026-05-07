@@ -8,6 +8,7 @@ aliases:
   - CG24
 tags:
   - CRYPTO
+cryptobib_key: C:ChrGun24
 ---
 
 # [CG24] Pseudorandom Error-Correcting Codes

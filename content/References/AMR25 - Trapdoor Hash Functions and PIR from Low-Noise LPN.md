@@ -8,6 +8,7 @@ aliases:
   - AMR25
 tags:
   - preprint
+cryptobib_key: EPRINT:AbrMalRoy25c
 ---
 
 # [AMR25] Trapdoor Hash Functions and PIR from Low-Noise LPN
