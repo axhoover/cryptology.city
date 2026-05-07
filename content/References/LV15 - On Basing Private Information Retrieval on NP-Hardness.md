@@ -8,6 +8,7 @@ aliases:
   - LV15
 tags:
   - TCC
+cryptobib_key: TCC:LiuVai16
 ---
 
 # [LV15] On Basing Private Information Retrieval on NP-Hardness

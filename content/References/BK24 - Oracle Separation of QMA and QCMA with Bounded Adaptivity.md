@@ -8,6 +8,7 @@ aliases:
   - BK24
 tags:
   - ICALP
+cryptobib_key: ICALP:BenKun24
 ---
 
 # [BK24] Oracle Separation of QMA and QCMA with Bounded Adaptivity

@@ -9,6 +9,7 @@ aliases:
   - DH24
 tags:
   - Eurocrypt
+cryptobib_key: EC:DujHaj24
 ---
 
 # [DH24] Lower-Bounds on Public-Key Operations in PIR

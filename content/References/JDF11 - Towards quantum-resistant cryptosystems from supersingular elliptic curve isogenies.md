@@ -6,6 +6,7 @@ venue: PQCrypto 2011
 publish date: 2011
 aliases:
   - JDF11
+cryptobib_key: PQCRYPTO:JaoDeF11
 ---
 
 # Towards Quantum-Resistant Cryptosystems from Supersingular Elliptic Curve Isogenies

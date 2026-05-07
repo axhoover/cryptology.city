@@ -9,6 +9,7 @@ aliases:
   - vAH04
 tags:
   - Eurocrypt
+cryptobib_key: EC:vAhHop04
 ---
 
 # [vAH04] Public Key Steganography

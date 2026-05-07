@@ -2,6 +2,7 @@
 aliases:
   - KZG10
 title: "KZG10 - Constant-size commitments to polynomials and their applications"
+cryptobib_key: AC:KatZavGol10
 ---
 
 Aniket Kate, Gregory M. Zaverucha, and Ian Goldberg. "Constant-size commitments to polynomials and their applications." In _Advances in Cryptology — ASIACRYPT 2010_, Lecture Notes in Computer Science, vol. 6477, pp. 177–194. Springer, 2010.

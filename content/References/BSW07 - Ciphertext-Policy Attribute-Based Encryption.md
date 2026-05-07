@@ -8,6 +8,7 @@ aliases:
   - BSW07
 tags:
   - S&P
+cryptobib_key: SP:BetSahWat07
 ---
 
 # [BSW07] Ciphertext-Policy Attribute-Based Encryption

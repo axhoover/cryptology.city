@@ -6,6 +6,7 @@ venue: ITCS 2012
 publish date: 2012
 aliases:
   - BGV12
+cryptobib_key: ITCS:BraGenVai12
 ---
 
 # (Leveled) Fully Homomorphic Encryption without Bootstrapping

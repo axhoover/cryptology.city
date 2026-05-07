@@ -9,6 +9,7 @@ aliases:
   - KL21
 tags:
   - CRYPTO
+cryptobib_key: C:KomLin21
 ---
 
 # [KL21] A Logarithmic Lower Bound for Oblivious RAM (for all parameters)

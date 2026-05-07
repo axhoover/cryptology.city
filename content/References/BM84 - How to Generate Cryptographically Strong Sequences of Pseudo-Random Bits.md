@@ -8,6 +8,7 @@ aliases:
   - BM84
 tags:
   - SIAMJC
+cryptobib_key: FOCS:BluMic82
 ---
 
 # [BM84] How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits

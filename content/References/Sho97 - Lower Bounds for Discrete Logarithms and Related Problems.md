@@ -9,6 +9,7 @@ aliases:
   - Sho97
 tags:
   - Eurocrypt
+cryptobib_key: EC:Shoup97
 ---
 
 # [Shoup97] Lower Bounds for Discrete Logarithms and Related Problems

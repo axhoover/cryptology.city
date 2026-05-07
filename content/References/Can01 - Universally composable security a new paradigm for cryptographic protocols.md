@@ -8,6 +8,7 @@ aliases:
   - Can01
 tags:
   - FOCS
+cryptobib_key: FOCS:Canetti01
 ---
 
 # [Can01] Universally composable security: a new paradigm for cryptographic protocols

@@ -8,6 +8,7 @@ aliases:
   - YZW+19
 tags:
   - Asiacrypt
+cryptobib_key: AC:YZWGL19
 ---
 
 # [YZW+19] Collision Resistant Hashing from Sub-exponential Learning Parity with Noise

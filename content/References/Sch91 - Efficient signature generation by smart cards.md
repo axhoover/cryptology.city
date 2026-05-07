@@ -2,6 +2,7 @@
 aliases:
   - Sch91
 title: "Sch91 - Efficient signature generation by smart cards"
+cryptobib_key: JC:Schnorr91
 ---
 
 Claus-Peter Schnorr. "Efficient signature generation by smart cards." _Journal of Cryptology_, 4(3):161–174, 1991.

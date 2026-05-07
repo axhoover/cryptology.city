@@ -9,6 +9,7 @@ aliases:
   - OptORAMa
 tags:
   - Eurocrypt
+cryptobib_key: EC:AKLNPS20
 ---
 
 # [AKL+20] OptORAMa: Optimal Oblivious RAM

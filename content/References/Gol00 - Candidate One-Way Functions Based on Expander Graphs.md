@@ -10,6 +10,7 @@ aliases:
   - Gol00
 tags:
   - ECCC
+cryptobib_key: EPRINT:Goldreich00b
 ---
 
 # [Gol00] Candidate One-Way Functions Based on Expander Graphs

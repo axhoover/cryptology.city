@@ -8,6 +8,7 @@ aliases:
   - LNO13
 tags:
   - Asiacrypt
+cryptobib_key: AC:LinNisOrl13
 ---
 
 # [LNO13] Hiding the Input-Size in Secure Two-Party Computation

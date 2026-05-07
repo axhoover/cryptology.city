@@ -6,6 +6,7 @@ venue: EUROCRYPT 2023
 publish date: 2022
 aliases:
   - CD22
+cryptobib_key: EC:CasDec23
 ---
 
 # An Efficient Key Recovery Attack on SIDH

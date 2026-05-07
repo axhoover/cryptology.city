@@ -8,6 +8,7 @@ aliases:
   - KRS25
 tags:
   - CRYPTO
+cryptobib_key: C:KhoRotSou25
 ---
 
 # [KRS25] How to Prove False Statements: Practical Attacks on Fiat-Shamir

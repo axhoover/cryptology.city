@@ -9,6 +9,7 @@ aliases:
   - Dac14
 tags:
   - PKC
+cryptobib_key: EPRINT:DachmanSoled13
 ---
 
 # [Dac14] A Black-Box Construction of a CCA2 Encryption Scheme from a Plaintext Aware Encryption Scheme

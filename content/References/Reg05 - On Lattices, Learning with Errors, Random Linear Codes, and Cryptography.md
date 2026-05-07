@@ -8,6 +8,7 @@ aliases:
   - Reg05
 tags:
   - STOC
+cryptobib_key: STOC:Regev05
 ---
 
 # [Reg05] On Lattices, Learning with Errors, Random Linear Codes, and Cryptography

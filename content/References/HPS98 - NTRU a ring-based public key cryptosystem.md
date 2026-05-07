@@ -8,6 +8,7 @@ aliases:
   - HPS98
 tags:
   - ANTS
+cryptobib_key: HofPipSil98
 ---
 
 # [HPS98] NTRU: A ring-based public key cryptosystem

@@ -8,6 +8,7 @@ aliases:
   - Gro16
 tags:
   - Eurocrypt
+cryptobib_key: EC:Groth16
 ---
 
 # [Gro16] On the Size of Pairing-based Non-interactive Arguments

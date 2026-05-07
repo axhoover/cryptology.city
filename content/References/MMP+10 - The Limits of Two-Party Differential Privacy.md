@@ -9,6 +9,7 @@ aliases:
   - MMP+10
 tags:
   - STOC
+cryptobib_key: FOCS:MMPRTV10
 ---
 
 # [MMP+10] The Limits of Two-Party Differential Privacy

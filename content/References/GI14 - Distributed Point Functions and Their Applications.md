@@ -8,6 +8,7 @@ aliases:
   - GI14
 tags:
   - Eurocrypt
+cryptobib_key: EC:GilIsh14
 ---
 
 # [GI14] Distributed Point Functions and Their Applications

@@ -9,6 +9,7 @@ tags:
   - CRYPTO
 aliases:
   - HV16
+cryptobib_key: C:HazVen16
 ---
 
 # [HV16] On the Power of Secure Two-Party Computation

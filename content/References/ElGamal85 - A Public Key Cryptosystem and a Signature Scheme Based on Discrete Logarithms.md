@@ -8,6 +8,7 @@ aliases:
   - ElGamal85
 tags:
   - IEEETransIT
+cryptobib_key: C:ElGamal84
 ---
 
 # [ElGamal85] A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms

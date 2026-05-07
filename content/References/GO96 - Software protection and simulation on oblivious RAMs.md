@@ -8,6 +8,7 @@ aliases:
   - GO96
 tags:
   - JACM
+cryptobib_key: GolOst96
 ---
 
 # [GO96] Software protection and simulation on oblivious RAMs

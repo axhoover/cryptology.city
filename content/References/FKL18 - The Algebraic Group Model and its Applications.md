@@ -8,6 +8,7 @@ aliases:
   - FKL18
 tags:
   - CRYPTO
+cryptobib_key: C:FucKilLos18
 ---
 
 # [FKL18] The Algebraic Group Model and its Applications

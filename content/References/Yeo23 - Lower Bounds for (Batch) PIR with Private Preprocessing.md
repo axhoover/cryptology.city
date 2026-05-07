@@ -9,6 +9,7 @@ aliases:
 tags:
   - preprint
   - Yeo
+cryptobib_key: EC:Yeo23
 ---
 
 # [Yeo23] Lower Bounds for (Batch) PIR with Private Preprocessing

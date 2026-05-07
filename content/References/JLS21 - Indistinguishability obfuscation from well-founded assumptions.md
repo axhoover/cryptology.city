@@ -6,6 +6,7 @@ venue: STOC 2021
 publish date: 2021
 aliases:
   - JLS21
+cryptobib_key: STOC:JaiLinSah21
 ---
 
 # Indistinguishability Obfuscation from Well-Founded Assumptions

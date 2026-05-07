@@ -8,6 +8,7 @@ aliases:
   - BGG+90
 tags:
   - CRYPTO
+cryptobib_key: C:BGGHKM88
 ---
 
 # [BGG+90] Everything Provable is Provable in Zero-Knowledge

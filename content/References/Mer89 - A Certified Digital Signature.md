@@ -8,6 +8,7 @@ aliases:
   - Mer89
 tags:
   - CRYPTO
+cryptobib_key: C:Merkle89a
 ---
 
 # [Mer89] A Certified Digital Signature

@@ -9,6 +9,7 @@ aliases:
   - OPAQUE
 tags:
   - Eurocrypt
+cryptobib_key: EC:JarKraXu18
 ---
 
 # [JKX18] OPAQUE: An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks

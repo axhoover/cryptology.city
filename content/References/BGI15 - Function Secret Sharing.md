@@ -9,6 +9,7 @@ tags:
   - Eurocrypt
 aliases:
   - BGI15
+cryptobib_key: EC:BoyGilIsh15
 ---
 
 # [BGI15] Function Secret Sharing

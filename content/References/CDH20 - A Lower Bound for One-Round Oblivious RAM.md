@@ -8,6 +8,7 @@ aliases:
   - CDH20
 tags:
   - TCC
+cryptobib_key: TCC:CasDruHoo20
 ---
 
 # [CDH20] A Lower Bound for One-Round Oblivious RAM

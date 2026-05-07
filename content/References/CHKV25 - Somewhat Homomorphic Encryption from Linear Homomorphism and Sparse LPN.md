@@ -8,6 +8,7 @@ aliases:
   - CHKV25
 tags:
   - Eurocrypt
+cryptobib_key: EC:CHKV25
 ---
 
 # [CHKV25] Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN

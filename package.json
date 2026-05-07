@@ -18,6 +18,7 @@
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "sync-cryptobib": "tsx scripts/sync-cryptobib.ts",
+    "migrate-cryptobib-keys": "tsx scripts/migrate-cryptobib-keys.ts",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {

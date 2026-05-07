@@ -8,6 +8,7 @@ aliases:
   - Tar08
 tags:
   - JACM
+cryptobib_key: STOC:Tardos03
 ---
 
 # [Tar08] Optimal probabilistic fingerprint codes

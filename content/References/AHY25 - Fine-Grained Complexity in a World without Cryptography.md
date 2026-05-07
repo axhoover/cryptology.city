@@ -9,6 +9,7 @@ aliases:
   - AHY25
 tags:
   - Eurocrypt
+cryptobib_key: EC:AlmHuaYeo25
 ---
 
 # [AHY25] Fine-Grained Complexity in a World without Cryptography

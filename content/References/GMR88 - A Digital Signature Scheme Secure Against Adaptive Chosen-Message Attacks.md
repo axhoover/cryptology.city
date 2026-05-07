@@ -8,6 +8,7 @@ aliases:
   - GMR88
 tags:
   - SIAMJC
+cryptobib_key: GolMicRiv88
 ---
 
 # [GMR88] A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks

@@ -8,6 +8,7 @@ aliases:
   - LMW23
 tags:
   - STOC
+cryptobib_key: STOC:LinMooWic23
 ---
 
 # [LMW23] Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE

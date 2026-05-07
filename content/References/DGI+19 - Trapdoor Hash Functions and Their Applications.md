@@ -8,6 +8,7 @@ aliases:
   - DGI+19
 tags:
   - CRYPTO
+cryptobib_key: C:DGIMMO19
 ---
 
 # [DGI+19] Trapdoor Hash Functions and Their Applications

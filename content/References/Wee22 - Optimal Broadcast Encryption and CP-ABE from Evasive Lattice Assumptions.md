@@ -8,6 +8,7 @@ aliases:
   - Wee22
 tags:
   - EUROCRYPT
+cryptobib_key: EC:Wee22
 ---
 
 # [Wee22] Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions

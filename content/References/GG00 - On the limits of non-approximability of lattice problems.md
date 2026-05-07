@@ -8,6 +8,7 @@ aliases:
   - GG00
 tags:
   - STOC
+cryptobib_key: STOC:GolGol98
 ---
 
 # [GG00] On the limits of non-approximability of lattice problems

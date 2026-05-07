@@ -9,6 +9,7 @@ aliases:
   - Plinko
 tags:
   - Eurocrypt
+cryptobib_key: EC:HPPY25
 ---
 
 # [HPPY25] Plinko: Single-Server PIR with Efficient Updates via Invertible PRFs

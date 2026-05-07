@@ -8,6 +8,7 @@ aliases:
   - BL13
 tags:
   - CRYPTO
+cryptobib_key: C:BogLee13
 ---
 
 # [BL13] Limits of Provable Security for Homomorphic Encryption

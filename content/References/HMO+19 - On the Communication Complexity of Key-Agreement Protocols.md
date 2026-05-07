@@ -9,6 +9,7 @@ aliases:
   - HMO+19
 tags:
   - ITCS
+cryptobib_key: ITCS:HMORY19
 ---
 
 # [HMO+19] On the Communication Complexity of Key-Agreement Protocols

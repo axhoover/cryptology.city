@@ -9,6 +9,7 @@ aliases:
   - HKKS19
 tags:
   - TCC
+cryptobib_key: TCC:HKKS19
 ---
 
 # [HKKS19] Stronger Lower Bounds for Online ORAM

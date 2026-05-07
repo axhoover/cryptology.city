@@ -8,6 +8,7 @@ aliases:
   - SW25
 tags:
   - ITCS
+cryptobib_key: ITCS:SilWic25
 ---
 
 # [SW25] Detecting and Correcting Computationally Bounded Errors: A Simple Construction Under Minimal Assumptions

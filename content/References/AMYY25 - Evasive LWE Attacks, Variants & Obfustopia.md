@@ -9,6 +9,7 @@ aliases:
   - AMYY25
 tags:
   - preprint
+cryptobib_key: EPRINT:AMYY25
 ---
 
 # [AMYY25] Evasive LWE: Attacks, Variants & Obfustopia

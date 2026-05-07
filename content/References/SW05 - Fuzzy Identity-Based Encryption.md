@@ -8,6 +8,7 @@ aliases:
   - SW05
 tags:
   - Eurocrypt
+cryptobib_key: EC:SahWat05
 ---
 
 # [SW05] Fuzzy Identity-Based Encryption

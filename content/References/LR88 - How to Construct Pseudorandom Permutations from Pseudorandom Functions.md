@@ -8,6 +8,7 @@ aliases:
   - LR88
 tags:
   - Journal-on-Computing
+cryptobib_key: LubRac88
 ---
 
 # [LR88] How to Construct Pseudorandom Permutations from Pseudorandom Functions

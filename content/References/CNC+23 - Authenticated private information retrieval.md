@@ -8,6 +8,7 @@ aliases:
   - CNC+23
 tags:
   - USENIX
+cryptobib_key: USENIX:CNCWF23
 ---
 
 # [CNC+23] Authenticated private information retrieval

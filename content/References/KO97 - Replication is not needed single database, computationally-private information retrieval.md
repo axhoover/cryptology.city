@@ -8,6 +8,7 @@ aliases:
   - KO97
 tags:
   - FOCS
+cryptobib_key: FOCS:KusOst97
 ---
 
 # [KO97] Replication is not needed: single database, computationally-private information retrieval

@@ -9,6 +9,7 @@ aliases:
   - BIP+18
 tags:
   - TCC
+cryptobib_key: TCC:BIPSW18
 ---
 
 # [BIP+18] Exploring Crypto Dark Matter: New Simple PRF Candidates and Their Applications

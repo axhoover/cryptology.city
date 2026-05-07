@@ -8,6 +8,7 @@ aliases:
   - DDRG20
 tags:
   - CRYPTO
+cryptobib_key: C:DDGR20
 ---
 
 # [DDRG20] LWE with Side Information: Attacks and Concrete Security Estimation

@@ -8,6 +8,7 @@ aliases:
   - ISW24
 tags:
   - CRYPTO
+cryptobib_key: C:IshShiWic24
 ---
 
 # [ISW24] PIR with Client-Side Preprocessing: Information-Theoretic Constructions and Lower Bounds

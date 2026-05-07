@@ -8,6 +8,7 @@ aliases:
   - Wul09
 tags:
   - TCC
+cryptobib_key: TCC:Wullschleger09
 ---
 
 # [Wul09] Oblivious Transfer from Weak Noisy Channels

@@ -8,6 +8,7 @@ aliases:
   - PPY22
 tags:
   - Eurocrypt
+cryptobib_key: EC:PerPhaYun22
 ---
 
 # [PPY22] Anamorphic Encryption: Private Communication against a Dictator

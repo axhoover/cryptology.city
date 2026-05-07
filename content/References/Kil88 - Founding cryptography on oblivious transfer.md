@@ -8,6 +8,7 @@ aliases:
   - Kil88
 tags:
   - STOC
+cryptobib_key: STOC:Kilian88
 ---
 
 # [Kil88] Founding cryptography on oblivious transfer

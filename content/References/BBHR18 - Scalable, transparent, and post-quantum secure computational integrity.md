@@ -2,6 +2,7 @@
 aliases:
   - BBHR18
 title: "BBHR18 - Scalable, transparent, and post-quantum secure computational integrity"
+cryptobib_key: EPRINT:BBHR18
 ---
 
 Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, and Michael Riabzev. "Scalable, transparent, and post-quantum secure computational integrity." Cryptology ePrint Archive, Report 2018/046, 2018.

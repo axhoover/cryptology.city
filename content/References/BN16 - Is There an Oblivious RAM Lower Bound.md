@@ -9,6 +9,7 @@ aliases:
   - BN16
 tags:
   - ITCS
+cryptobib_key: ITCS:BoyNao16
 ---
 
 # [BN16] Is There an Oblivious RAM Lower Bound?

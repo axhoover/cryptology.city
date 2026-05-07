@@ -8,6 +8,7 @@ aliases:
   - GMW91
 tags:
   - JACM
+cryptobib_key: GolMicWig91
 ---
 
 # [GMW91] Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems

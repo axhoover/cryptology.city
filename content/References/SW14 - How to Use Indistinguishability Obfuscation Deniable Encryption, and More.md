@@ -9,6 +9,7 @@ tags:
   - STOC
 aliases:
   - SW14
+cryptobib_key: STOC:SahWat14
 ---
 
 # [SW14] How to Use Indistinguishability Obfuscation: Deniable Encryption, and More

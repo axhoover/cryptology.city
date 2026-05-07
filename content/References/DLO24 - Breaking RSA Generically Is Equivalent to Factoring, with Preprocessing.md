@@ -8,6 +8,7 @@ aliases:
   - DLO24
 tags:
   - ITC
+cryptobib_key: ITC:DacLosONe24
 ---
 
 # [DLO24] Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing

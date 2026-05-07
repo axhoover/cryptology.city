@@ -6,6 +6,7 @@ venue: STOC 2009
 publish date: 2009
 aliases:
   - Gen09
+cryptobib_key: STOC:Gentry09
 ---
 
 # Fully Homomorphic Encryption Using Ideal Lattices

@@ -8,6 +8,7 @@ aliases:
   - IR89
 tags:
   - STOC
+cryptobib_key: C:ImpRud88
 ---
 
 # [IR89] Limits on the provable consequences of one-way permutations

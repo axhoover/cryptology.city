@@ -8,6 +8,7 @@ aliases:
   - BGW05
 tags:
   - Crypto
+cryptobib_key: C:BonGenWat05
 ---
 
 # [BGW05] Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys
