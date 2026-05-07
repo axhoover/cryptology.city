@@ -43,7 +43,8 @@ scripts/             # Utility scripts (rename-slugs.mjs)
 
 ```bash
 npm install
-npx quartz build --serve   # Builds and serves at http://localhost:8080
+git submodule update --init --recursive   # Fetches vendor/cryptobib for BibTeX lookups
+npx quartz build --serve                  # Builds and serves at http://localhost:8080
 ```
 
 Changes to `content/` rebuild automatically (hot-reload via WebSocket).
@@ -51,9 +52,10 @@ Changes to `content/` rebuild automatically (hot-reload via WebSocket).
 ### Validation
 
 ```bash
-npm run check    # TypeScript type-check + Prettier formatting validation
-npm run format   # Auto-format source files with Prettier
-npm run test     # Run unit tests
+npm run check           # TypeScript type-check + Prettier formatting validation
+npm run format          # Auto-format source files with Prettier
+npm run test            # Run unit tests
+npm run sync-cryptobib  # Validate references against vendor/cryptobib (check mode)
 ```
 
 ### Build output
@@ -314,6 +316,19 @@ Reference files live in `content/References/` and are named `CITATIONKEY - Full 
 Citation key format: `[AUTHOR(S)][YEAR]` — e.g., `BGI15`, `IKNP03`, `AMR25`.
 
 Multi-author keys use initials of up to ~4 authors, then the year. Papers are cited inline as `[[CITATIONKEY - Full Title|CITATIONKEY]]`.
+
+### BibTeX integration (cryptobib)
+
+Each reference page can opt into a "Copy BibTeX" button by setting one of two optional frontmatter fields:
+
+- **`cryptobib_key`** — the paper's [cryptobib](https://cryptobib.di.ens.fr/) citation key, e.g. `C:BonFra01`, `EC:Couteau19`, `EPRINT:BBBPR23`. The build looks up this key in `vendor/cryptobib/crypto.bib` and emits a self-contained BibTeX block (with `@string` macros expanded). **Prefer this** when the paper is in cryptobib.
+- **`bibtex`** — inline BibTeX (YAML block scalar). Use this for theses, blog posts, or papers cryptobib has not yet imported. Ignored if `cryptobib_key` is also set.
+
+Pages with neither field render no button. Adoption is incremental — add `cryptobib_key` to pages as you edit them.
+
+**Validation:** `npm run sync-cryptobib` reports references whose local frontmatter (`title`, `authors`, `venue`, `published`) drifts from the cryptobib entry, plus references whose `cryptobib_key` doesn't resolve. A `rewrite` mode is stubbed for future use (`npm run sync-cryptobib rewrite`).
+
+**Bumping cryptobib:** `cd vendor/cryptobib && git pull origin master && cd - && git add vendor/cryptobib && git commit`. Re-run `npm run sync-cryptobib` afterwards to pick up any new keys or drift.
 
 ---
 

@@ -8,6 +8,7 @@ aliases:
   - Wat09
 tags:
   - Crypto
+cryptobib_key: C:Waters09
 ---
 
 # [Wat09] Dual System Encryption: Realizing Fully Secure IBE and HIBE under Simple Assumptions

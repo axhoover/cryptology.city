@@ -17,6 +17,7 @@
     "check": "tsc --noEmit && npx prettier . --check",
     "format": "npx prettier . --write",
     "test": "tsx --test",
+    "sync-cryptobib": "tsx scripts/sync-cryptobib.ts",
     "profile": "0x -D prof ./quartz/bootstrap-cli.mjs build --concurrency=1"
   },
   "engines": {
@@ -68,7 +69,6 @@
     "pretty-time": "^1.1.0",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
-    "rehype-citation": "^2.3.1",
     "rehype-katex": "^7.0.1",
     "rehype-mathjax": "^7.1.0",
     "rehype-pretty-code": "^0.14.1",
