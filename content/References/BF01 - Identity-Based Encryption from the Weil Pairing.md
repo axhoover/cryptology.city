@@ -8,6 +8,7 @@ aliases:
   - BF01
 tags:
   - Crypto
+cryptobib_key: C:BonFra01
 ---
 
 # [BF01] Identity-Based Encryption from the Weil Pairing
