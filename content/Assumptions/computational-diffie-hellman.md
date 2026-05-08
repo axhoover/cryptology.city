@@ -24,7 +24,7 @@ set, $g$ is a generator for the group, and $p$ is the order of the group.
 \State $(\GG,g,p) \gets \GrGen(1^\secpar)$
 \State $x \getsr [p]$ ; $y \getsr [p]$
 \State $X \gets g^x$ ; $Y \gets g^y$
-\State $\hat{Z} \gets \calA(1^\secpar, \GG, g, p X, Y)$
+\State $\hat{Z} \gets \calA(1^\secpar, \GG, g, p, X, Y)$
 \Return $[\hat{Z} = g^{xy}]$
 \end{algorithmic}
 \end{algorithm}
