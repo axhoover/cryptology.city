@@ -34,7 +34,7 @@ We say that **CDH is hard** for a group generation algorithm $\GrGen$
 if for all efficient $\calA,$
 
 $$
-\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{\text{cdh}}_{\MAC,\calA}(\secpar) = 1\right]
+\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{\text{cdh}}_{\GrGen,\calA}(\secpar) = 1\right]
 $$
 
 is negligible.
