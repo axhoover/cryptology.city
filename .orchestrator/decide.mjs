@@ -38,7 +38,7 @@ const PLAN_PATH = resolve(STATE_DIR, 'plan.json');
 const REPORT_PATH = resolve(STATE_DIR, 'WEEKLY_REPORT.md');
 
 const QUEUE_PATH = resolve(REPO_ROOT, '.fact-check', 'queue.json');
-const TODO_PATH = resolve(REPO_ROOT, 'TODOS_SUMMARY.md'); // adjust if your TODO file lives elsewhere
+const TODO_PATH = resolve(REPO_ROOT, 'TODO_SUMMARY.md'); // adjust if your TODO file lives elsewhere
 
 const CONTENT_DIR = 'content';
 const DEEP_DIRS = [
