@@ -1,11 +1,11 @@
-# Weekly Orchestrator Report — run #1
+# Weekly Orchestrator Report — run #2
 
-- **Head:** `17ec57add313401cda835e10bfcc966d7101f6a9`
-- **Previous:** (first run)
-- **Days since last run:** n/a
+- **Head:** `e71d6d1d752ee1ee71d2975e6e6715e783372440`
+- **Previous:** `17ec57add313401cda835e10bfcc966d7101f6a9`
+- **Days since last run:** 0.015067986111111112
 - **Changed content files:** 0
-- **Open TODOs:** 0
-- **LLM refinement:** no
+- **Open TODOs:** 37
+- **LLM refinement:** no — skipped: ANTHROPIC_API_KEY not set
 
 ## Bot decisions
 
@@ -23,8 +23,9 @@
 
 ### `refactor_simplifier` — skip
 
-- Reason: recent activity and verifications are fresh
+- Reason: no content changes in 0 days
 
-### `todo_triage` — skip
+### `todo_triage` — **RUN**
 
-- Reason: 0 open TODOs (under threshold)
+- Reason: 37 open TODOs exceeds threshold 25
+- Scope: 37
