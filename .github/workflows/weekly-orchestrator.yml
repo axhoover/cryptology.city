@@ -1,0 +1,188 @@
+name: Weekly orchestrator
+
+on:
+  schedule:
+    # Mondays at 12:00 UTC.
+    - cron: "0 3 * * 6"
+  workflow_dispatch:
+    inputs:
+      use_llm:
+        description: "Refine plan with Claude (overrides repo default)"
+        required: false
+        default: "true"
+        type: choice
+        options: ["true", "false"]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+  actions: read
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      run_editor: ${{ steps.decide.outputs.run_editor }}
+      run_reference_fixer: ${{ steps.decide.outputs.run_reference_fixer }}
+      run_skeptical_checker: ${{ steps.decide.outputs.run_skeptical_checker }}
+      run_refactor_simplifier: ${{ steps.decide.outputs.run_refactor_simplifier }}
+      run_todo_triage: ${{ steps.decide.outputs.run_todo_triage }}
+      head_sha: ${{ steps.decide.outputs.head_sha }}
+      run_count: ${{ steps.decide.outputs.run_count }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Need full history for git diff against last_run.sha.
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Decide which bots to run
+        id: decide
+        env:
+          ORCHESTRATOR_LLM: ${{ inputs.use_llm || 'true' }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: node .orchestrator/decide.mjs
+
+      - name: Commit orchestrator state
+        run: |
+          git config user.name "cryptology-city-orchestrator[bot]"
+          git config user.email "orchestrator@cryptology.city"
+          git add .orchestrator/state/
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "orchestrator: weekly run #${{ steps.decide.outputs.run_count }}"
+            git push
+          fi
+
+      - name: Upload plan artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/plan.json
+          retention-days: 30
+
+  editor:
+    needs: plan
+    if: needs.plan.outputs.run_editor == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Run editor bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Follow the instructions in `.orchestrator/prompts/editor.md`.
+            Your scope is the `editor.scope` array in `.orchestrator/state/plan.json`.
+
+  reference_fixer:
+    needs: plan
+    if: needs.plan.outputs.run_reference_fixer == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Run reference-fixer bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Follow the instructions in `.orchestrator/prompts/reference-fixer.md`.
+            Use `.orchestrator/state/plan.json` for scope and mode
+            (`reference_fixer.scope` and `reference_fixer.mode`).
+
+  skeptical_checker:
+    needs: plan
+    if: needs.plan.outputs.run_skeptical_checker == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Run skeptical-checker bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_args: |
+            --max-turns 40
+          prompt: |
+            Follow the instructions in `.orchestrator/prompts/skeptical-checker.md`.
+            The orchestrator has marked `skeptical_checker.scope` in
+            `.orchestrator/state/plan.json` as freshly-changed deep-content
+            files. Prioritize re-checking those before draining the queue.
+
+  refactor_simplifier:
+    needs: plan
+    if: needs.plan.outputs.run_refactor_simplifier == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Run refactor/simplifier bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Follow the instructions in `.orchestrator/prompts/refactor-simplifier.md`.
+            Read `.orchestrator/state/plan.json` for the trigger reason.
+
+  todo_triage:
+    needs: plan
+    if: needs.plan.outputs.run_todo_triage == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Open TODO triage issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          OPEN_TODOS=$(jq -r '.bots.todo_triage.scope' .orchestrator/state/plan.json)
+          gh issue create \
+            --title "TODO triage — ${OPEN_TODOS} open items" \
+            --body "$(printf 'The orchestrator detected %s open TODOs in `TODOS.md`, exceeding the configured threshold.\n\nPlease triage and close, defer, or schedule.\n\nSee `.orchestrator/state/WEEKLY_REPORT.md` for context.' "$OPEN_TODOS")" \
+            --label "triage,orchestrator"
