@@ -1,0 +1,46 @@
+{
+  "run_count": 1,
+  "head_sha": "17ec57add313401cda835e10bfcc966d7101f6a9",
+  "previous_sha": null,
+  "timestamp": "2026-05-11T23:33:53.307Z",
+  "days_since_last_run": null,
+  "changed_files": [],
+  "queue_summary": {
+    "exists": false,
+    "counts": {},
+    "oldestHumanVerifiedDays": null
+  },
+  "open_todos": 0,
+  "bots": {
+    "editor": {
+      "run": false,
+      "scope": [],
+      "reason": "no content changes since last run"
+    },
+    "reference_fixer": {
+      "run": false,
+      "mode": "diff-scoped",
+      "scope": [],
+      "reason": "no reference-touching changes"
+    },
+    "skeptical_checker": {
+      "run": true,
+      "scope": [],
+      "reason": "bootstrapping fact-check queue"
+    },
+    "refactor_simplifier": {
+      "run": false,
+      "scope": "oldest-pages",
+      "reason": "recent activity and verifications are fresh"
+    },
+    "todo_triage": {
+      "run": false,
+      "scope": 0,
+      "reason": "0 open TODOs (under threshold)"
+    }
+  },
+  "llm": {
+    "used": false,
+    "notes": null
+  }
+}
