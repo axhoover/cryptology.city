@@ -1,11 +1,11 @@
-# Weekly Orchestrator Report — run #2
+# Weekly Orchestrator Report — run #3
 
-- **Head:** `e71d6d1d752ee1ee71d2975e6e6715e783372440`
-- **Previous:** `17ec57add313401cda835e10bfcc966d7101f6a9`
-- **Days since last run:** 0.015067986111111112
+- **Head:** `bab94bc63bf775d4cfe997289c3a5dbb937f7744`
+- **Previous:** `e71d6d1d752ee1ee71d2975e6e6715e783372440`
+- **Days since last run:** 0.02006167824074074
 - **Changed content files:** 0
 - **Open TODOs:** 37
-- **LLM refinement:** no — skipped: ANTHROPIC_API_KEY not set
+- **LLM refinement:** no
 
 ## Bot decisions
 
