@@ -55,6 +55,7 @@ jobs:
             echo "No state changes to commit."
           else
             git commit -m "orchestrator: weekly run #${{ steps.decide.outputs.run_count }}"
+            git pull --rebase origin main
             git push
           fi
 
