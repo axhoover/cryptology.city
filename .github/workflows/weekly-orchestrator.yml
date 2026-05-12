@@ -43,8 +43,7 @@ jobs:
       - name: Decide which bots to run
         id: decide
         env:
-          ORCHESTRATOR_LLM: ${{ inputs.use_llm || 'true' }}
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ORCHESTRATOR_LLM: ${{ inputs.use_llm || 'false' }}
         run: node .orchestrator/decide.mjs
 
       - name: Commit orchestrator state
