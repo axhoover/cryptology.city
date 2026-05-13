@@ -84,7 +84,8 @@ jobs:
       - name: Run editor bot
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Follow the instructions in `.orchestrator/prompts/editor.md`.
             Your scope is the `editor.scope` array in `.orchestrator/state/plan.json`.
@@ -107,7 +108,8 @@ jobs:
       - name: Run reference-fixer bot
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Follow the instructions in `.orchestrator/prompts/reference-fixer.md`.
             Use `.orchestrator/state/plan.json` for scope and mode
@@ -131,7 +133,8 @@ jobs:
       - name: Run skeptical-checker bot
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_args: |
             --max-turns 40
           prompt: |
@@ -158,7 +161,8 @@ jobs:
       - name: Run refactor/simplifier bot
         uses: anthropics/claude-code-action@v1
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           prompt: |
             Follow the instructions in `.orchestrator/prompts/refactor-simplifier.md`.
             Read `.orchestrator/state/plan.json` for the trigger reason.

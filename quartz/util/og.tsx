@@ -1,8 +1,8 @@
 import { promises as fs } from "fs";
-import { FontWeight, SatoriOptions } from "satori/wasm";
+import { FontWeight, SatoriOptions } from "satori";
 import { GlobalConfiguration } from "../cfg";
 import { QuartzPluginData } from "../plugins/vfile";
-import { JSXInternal } from "preact/src/jsx";
+import type { JSX as JSXInternal } from "preact";
 import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme";
 import path from "path";
 import { QUARTZ } from "./path";
