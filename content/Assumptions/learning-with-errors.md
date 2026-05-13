@@ -164,60 +164,112 @@ The hardness depends sensitively on the number and precision of hints: few low-p
 
 ## Evasive LWE
 
-**Evasive LWE** strengthens decision LWE by giving the adversary a trapdoor $T$ for a matrix related to the LWE matrix, yet conjecturing that distinguishing is still hard. Introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] and [[attribute-based-encryption|attribute-based encryption]].
+**Evasive LWE** is a non-standard strengthening of decision LWE, introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] and [[attribute-based-encryption|attribute-based encryption]]. Unlike a single-game hardness assumption, it is stated as an **implication** between two indistinguishability conditions, quantified over a PPT sampler.
 
-Concretely, the public setup produces a matrix $\mathbf{B} \in \ZZ_q^{m \times n}$, an auxiliary matrix $\mathbf{W}$, and a trapdoor $T$ for the concatenated matrix $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$ (where $\otimes$ denotes the Kronecker product and $\ell$ is a parameter). The adversary receives all of $(\mathbf{B}, \mathbf{W}, T)$ as part of its input.
+The assumption is parameterized by a PPT sampler $\mathrm{Samp}$ that on input $1^\secpar$ produces:
+
+- $\mathbf{A}' \in \ZZ_q^{n \times m'}$ — an auxiliary LWE matrix,
+- $\mathbf{P} \in \ZZ_q^{n \times t}$ — a target matrix (with $m \le t$, so $\mathbf{P}$ is at least as wide as $\mathbf{B}$),
+- $\mathrm{aux} \in \{0,1\}^*$ — auxiliary information, required to contain $\mathrm{Samp}$'s coin tosses (public-coin restriction).
+
+The matrix $\mathbf{B} \in \ZZ_q^{n \times m}$ (with $m = O(n \log q)$) is produced by $\mathrm{TrapGen}(1^n, q)$, a standard lattice trapdoor algorithm yielding $\mathbf{B} \approx_s \mathrm{Uniform}(\ZZ_q^{n \times m})$ alongside a trapdoor $\tau$. The notation $\mathbf{B}^{-1}(\mathbf{P}, \sigma)$ denotes a matrix $\mathbf{K} \in \ZZ^{m \times t}$ sampled from the discrete Gaussian with parameter $\sigma = O(\sqrt{m \log q})$ conditioned on $\mathbf{B}\mathbf{K} = \mathbf{P} \pmod{q}$; sampling requires $\tau$ but $\tau$ is never given to the adversary.
+
+The two games below use the row-vector convention from [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]], where $\mathbf{s} \in \ZZ_q^n$ acts on the left of $n \times m$ matrices (so LWE samples take the form $\mathbf{sB}+\mathbf{e}$). The **PRE-condition** game gives the adversary $\mathbf{P}$ and an LWE sample under $\mathbf{P}$; the **POST-condition** game replaces $(\mathbf{P},\, \mathbf{sP}+\mathbf{e}'')$ with the short preimage $\mathbf{K}$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{pre}}_{\mathrm{eLWE},\calA_0}(\secpar)$}
 \begin{algorithmic}
-\State $(\mathbf{B}, \mathbf{W}, T) \gets \mathrm{TrapGen}(1^\secpar, m, n, \ell)$
-\Comment{$T$ is a trapdoor for $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$}
-\State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$; $b \getsr \bits$
-\State $\mathbf{u}_0 \gets \mathbf{B}\mathbf{s} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
-\State $b' \gets \calA(1^\secpar, \mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$
+\State $(\mathbf{A}', \mathbf{P}, \mathrm{aux}) \gets \mathrm{Samp}(1^\secpar)$
+\State $(\mathbf{B}, \tau) \gets \mathrm{TrapGen}(1^n, q)$
+\Comment{$\tau$ not given to $\calA_0$}
+\State $\mathbf{s} \getsr \ZZ_q^n$; $b \getsr \bits$
+\State $\mathbf{e} \getsr \chi^m$; $\mathbf{e}' \getsr \chi^{m'}$; $\mathbf{e}'' \getsr \chi^t$
+\State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $\mathbf{v}_0 \gets \mathbf{s}\mathbf{A}' + \mathbf{e}'$; $\mathbf{v}_1 \getsr \ZZ_q^{m'}$
+\State $\mathbf{w}_0 \gets \mathbf{s}\mathbf{P} + \mathbf{e}''$; $\mathbf{w}_1 \getsr \ZZ_q^t$
+\State $b' \gets \calA_0(1^\secpar, \mathbf{A}', \mathbf{B}, \mathbf{P}, \mathrm{aux}, \mathbf{u}_b, \mathbf{v}_b, \mathbf{w}_b)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-**Evasive LWE is hard** if for all efficient $\calA$,
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{post}}_{\mathrm{eLWE},\calA_1}(\secpar)$}
+\begin{algorithmic}
+\State $(\mathbf{A}', \mathbf{P}, \mathrm{aux}) \gets \mathrm{Samp}(1^\secpar)$
+\State $(\mathbf{B}, \tau) \gets \mathrm{TrapGen}(1^n, q)$
+\State $\mathbf{K} \gets \mathbf{B}^{-1}(\mathbf{P}, \sigma)$ using $\tau$
+\Comment{$\mathbf{BK} = \mathbf{P} \pmod{q}$, cols of $\mathbf{K}$ short}
+\State $\mathbf{s} \getsr \ZZ_q^n$; $b \getsr \bits$
+\State $\mathbf{e} \getsr \chi^m$; $\mathbf{e}' \getsr \chi^{m'}$
+\State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $\mathbf{v}_0 \gets \mathbf{s}\mathbf{A}' + \mathbf{e}'$; $\mathbf{v}_1 \getsr \ZZ_q^{m'}$
+\State $b' \gets \calA_1(1^\secpar, \mathbf{A}', \mathbf{B}, \mathbf{K}, \mathrm{aux}, \mathbf{u}_b, \mathbf{v}_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+Define the corresponding advantage functions:
 
 $$
-\Adv^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{elwe}}_{n,q,\chi,m,\ell,\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{\mathrm{pre}}_{\mathrm{eLWE},\calA_0}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pre}}_{\mathrm{eLWE},\calA_0}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The name "evasive" refers to the fact that the trapdoor information should not help the adversary — the LWE instance "evades" the trapdoor.
+$$
+\Adv^{\mathrm{post}}_{\mathrm{eLWE},\calA_1}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{post}}_{\mathrm{eLWE},\calA_1}(\secpar) = 1\right] - 1\right|
+$$
+
+**Evasive LWE is hard** if for every PPT $\mathrm{Samp}$ and every PPT $\calA_1$, there exists a PPT $\calA_0$ and a polynomial $Q$ such that
+
+$$
+\Adv^{\mathrm{pre}}_{\mathrm{eLWE},\calA_0}(\secpar) \;\geq\; \frac{\Adv^{\mathrm{post}}_{\mathrm{eLWE},\calA_1}(\secpar)}{Q(\secpar)} - \negl(\secpar).
+$$
+
+In other words: if standard LWE remains hard even when $\mathbf{P}$ is given in the clear (pre-condition), then it remains hard even when the short preimage $\mathbf{K}$ is given instead (post-condition). The implication is designed to defeat _zeroizing attacks_: an adversary holding $\mathbf{K}$ could attempt to compute $\mathbf{sP} \approx (\mathbf{sB}+\mathbf{e})\mathbf{K}$ and then distinguish — but the pre-condition already asserts that $\mathbf{sP}+\mathbf{e}''$ is pseudorandom, so this route first violates the pre-condition. Evasive LWE posits that $\mathbf{K}$ grants no additional distinguishing power beyond $\mathbf{P}$ itself.
+
+The public-coin restriction — that $\mathrm{aux}$ contains $\mathrm{Samp}$'s coin tosses — prevents obfuscation-based counterexamples where $\mathrm{aux}$ encodes a program with a hidden trapdoor for $\mathbf{P}$ — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
 
 The assumption comes in public-coin and private-coin variants. Private-coin variants have known counterexamples — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]. A _circular_ variant of evasive LWE was proposed for ABE for unbounded-depth circuits, but has also been shown vulnerable to zeroizing attacks — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 
 ## Succinct LWE
 
-**Succinct LWE** is a strengthening of Evasive LWE introduced by Wee — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]. The $\ell$-succinct LWE assumption uses the same trapdoor setup as Evasive LWE, but the parameter $\ell$ is allowed to be $\poly(\secpar)$ — large enough to encode circuit-depth information succinctly.
+**Succinct LWE** is a falsifiable, single-game strengthening of LWE introduced by Wee — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]] — for constructing KP- and CP-ABE for circuits with $O(1)$-size ciphertexts and keys. Unlike [[#Evasive LWE|Evasive LWE]] (an implication between two conditions), it is a standard indistinguishability game: an LWE sample $(\mathbf{B}, \mathbf{s}\mathbf{B}+\mathbf{e})$ is indistinguishable from uniform even when the adversary is given a short matrix $T$ satisfying $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}] \cdot T = I_\ell \otimes \mathbf{G}$, where $\ell = \poly(\secpar)$ and $\mathbf{G}$ is the MP12 gadget matrix.
+
+The public parameters $\mathsf{pp}_\ell = (\mathbf{B}, \mathbf{W}, T)$ are generated in three steps. First, $(\mathbf{B}, T_\mathbf{B}) \gets \mathrm{TrapGen}(1^n, 1^m, q)$ — the Micciancio-Peikert lattice trapdoor algorithm — [[MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller|MP12]] (building on [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]) — outputs $\mathbf{B} \in \ZZ_q^{n \times m}$ statistically close to uniform together with a short trapdoor $T_\mathbf{B}$ satisfying $\mathbf{B} T_\mathbf{B} = \mathbf{G}$. The gadget matrix $\mathbf{G} = \mathbf{G}_n = I_n \otimes \mathbf{g}^\top \in \ZZ_q^{n \times m}$, with $m = n\lceil \log q \rceil$ and $\mathbf{g} = (1, 2, 4, \ldots, 2^{\lceil \log q \rceil - 1})$, has the property that short preimages of any target can be computed efficiently given $T_\mathbf{B}$ — [[MP12]]. Second, $\mathbf{W} \getsr \ZZ_q^{\ell n \times m}$ is sampled uniformly. Third, $T \gets \mathrm{SamplePre}([I_\ell \otimes \mathbf{B} \mid \mathbf{W}],\, I_\ell \otimes T_\mathbf{B},\, I_\ell \otimes \mathbf{G},\, \sigma)$ uses the block trapdoor $I_\ell \otimes T_\mathbf{B}$ (for the $I_\ell \otimes \mathbf{B}$ columns) to sample a short Gaussian matrix $T \in \ZZ^{(\ell+1)m \times \ell m}$ satisfying $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}] \cdot T = I_\ell \otimes \mathbf{G} \pmod{q}$, with $\sigma = O(\sqrt{\ell m \log q})$.
+
+The trapdoor $T_\mathbf{B}$ is discarded after setup; only $\mathsf{pp}_\ell = (\mathbf{B}, \mathbf{W}, T)$ is made public. Because $T \in \ZZ^{(\ell+1)m \times \ell m}$, the parameters have size $O(\ell^2)$ in $\lambda$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\mathbf{B}, \mathbf{W}, T) \gets \mathrm{TrapGen}(1^\secpar, m, n, \ell)$
-\Comment{$T$ trapdoor for $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}]$; $\ell = \poly(\secpar)$}
+\State $(\mathbf{B}, T_\mathbf{B}) \gets \mathrm{TrapGen}(1^n, 1^m, q)$
+\Comment{$\mathbf{B} \approx_s \mathrm{Uniform}(\ZZ_q^{n \times m})$; $\mathbf{B} T_\mathbf{B} = \mathbf{G}$}
+\State $\mathbf{W} \getsr \ZZ_q^{\ell n \times m}$
+\State $T \gets \mathrm{SamplePre}([I_\ell \otimes \mathbf{B} \mid \mathbf{W}],\; I_\ell \otimes T_\mathbf{B},\; I_\ell \otimes \mathbf{G},\; \sigma)$
+\Comment{$[I_\ell \otimes \mathbf{B} \mid \mathbf{W}] \cdot T = I_\ell \otimes \mathbf{G}$; $T$ short, $T_\mathbf{B}$ not given to $\calA$}
 \State $\mathbf{s} \getsr \ZZ_q^n$; $\mathbf{e} \getsr \chi^m$; $b \getsr \bits$
-\State $\mathbf{u}_0 \gets \mathbf{B}\mathbf{s} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
+\State $\mathbf{u}_0 \gets \mathbf{s}\mathbf{B} + \mathbf{e}$; $\mathbf{u}_1 \getsr \ZZ_q^m$
 \State $b' \gets \calA(1^\secpar, \mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
+The game uses the row-vector convention of Wee25 ($\mathbf{s} \in \ZZ_q^n$ acts on the left of $\mathbf{B} \in \ZZ_q^{n \times m}$), matching the [[#Evasive LWE|Evasive LWE]] section above.
+
 **$\ell$-Succinct LWE is hard** if for all efficient $\calA$,
 
 $$
-\Adv^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{slwe}}_{\ell,n,q,\chi,m,\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Succinct LWE implies Evasive LWE (the $\ell = \poly$ regime subsumes the constant-$\ell$ regime). A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to $T_\mathbf{B}$ itself, making the condition equivalent to standard LWE. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE implies Evasive LWE. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
