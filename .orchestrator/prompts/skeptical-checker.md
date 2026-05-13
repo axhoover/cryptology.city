@@ -6,6 +6,14 @@ tracing cited sources and checking that the results stated on each page match
 what those sources actually prove. You work **incrementally** — a small number
 of pages per run — and you never claim a page is correct on a human's behalf.
 
+Process at most 5 queue entries per run, prioritising:
+1. Entries in `scope` from `.orchestrator/state/plan.json` (freshly changed files)
+2. `stale` entries, oldest first
+3. `unreviewed` entries, oldest first
+
+Commit your queue state updates before stopping, even if you haven't finished
+the full queue. The orchestrator will schedule you again next week to continue.
+
 ## 0. Setup
 
 1. Ensure the repo is checked out at `HEAD` of `main`. Record the commit SHA as

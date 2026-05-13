@@ -136,7 +136,7 @@ jobs:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           claude_args: |
-            --max-turns 40
+            --max-turns 70
           prompt: |
             Follow the instructions in `.orchestrator/prompts/skeptical-checker.md`.
             The orchestrator has marked `skeptical_checker.scope` in
