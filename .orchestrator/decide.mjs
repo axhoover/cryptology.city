@@ -16,6 +16,7 @@
 // Pure Node — no dependencies.
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import {
   readFileSync,
   writeFileSync,
@@ -40,6 +41,9 @@ const REPORT_PATH = resolve(STATE_DIR, 'WEEKLY_REPORT.md');
 const QUEUE_PATH = resolve(REPO_ROOT, '.fact-check', 'queue.json');
 const TODO_PATH = resolve(REPO_ROOT, 'TODO_SUMMARY.md'); // adjust if your TODO file lives elsewhere
 
+const MICROCRYPT_GV_PATH = resolve(REPO_ROOT, 'vendor', 'microcrypt-zoo', 'microcrypt.gv');
+const MICROCRYPT_SYNC_STATE_PATH = resolve(STATE_DIR, 'microcrypt-sync.json');
+
 const CONTENT_DIR = 'content';
 const DEEP_DIRS = [
   'content/Primitives',
@@ -59,6 +63,7 @@ const BOT_KEYS = [
   'skeptical_checker',
   'refactor_simplifier',
   'todo_triage',
+  'microcrypt_sync',
 ];
 
 // ----- Small utilities -----------------------------------------------------
@@ -169,6 +174,16 @@ function skepticalCheckerHasWork(queueSummary) {
   return (c.unreviewed ?? 0) + (c.stale ?? 0) + (c.bot_flagged ?? 0) > 0;
 }
 
+function microcryptSyncShouldRun() {
+  if (!existsSync(MICROCRYPT_GV_PATH)) return false;
+  const cur = createHash('sha256')
+    .update(readFileSync(MICROCRYPT_GV_PATH))
+    .digest('hex');
+  const state = readJsonOrNull(MICROCRYPT_SYNC_STATE_PATH);
+  const prev = state?.microcrypt_gv_sha256 ?? null;
+  return cur !== prev;
+}
+
 // ----- Plan construction ---------------------------------------------------
 
 function buildBasePlan({
@@ -182,6 +197,7 @@ function buildBasePlan({
   queueSummary,
   openTodos,
   doRotSweep,
+  microcryptSync,
 }) {
   const oldest = queueSummary.oldestHumanVerifiedDays;
 
@@ -238,12 +254,19 @@ function buildBasePlan({
             : 'recent activity and verifications are fresh',
       },
       todo_triage: {
-        run: openTodos > TODO_TRIAGE_THRESHOLD,
+        run: openTodos > 0,
         scope: openTodos,
         reason:
-          openTodos > TODO_TRIAGE_THRESHOLD
-            ? `${openTodos} open TODOs exceeds threshold ${TODO_TRIAGE_THRESHOLD}`
-            : `${openTodos} open TODOs (under threshold)`,
+          openTodos > 0
+            ? `${openTodos} open TODOs — board refreshes; nag is delta-gated`
+            : 'no open TODOs',
+      },
+      microcrypt_sync: {
+        run: microcryptSync,
+        scope: 'microcrypt-map',
+        reason: microcryptSync
+          ? 'upstream microcrypt.gv hash changed since last sync'
+          : 'microcrypt.gv hash unchanged since last sync',
       },
     },
   };
@@ -301,7 +324,8 @@ Return ONLY a single JSON object with this exact shape (no prose, no markdown fe
     "reference_fixer": { "run": <bool>, "mode": "<same as input>", "scope": <same-or-narrowed>, "reason": "<text>" },
     "skeptical_checker": { "run": <bool>, "scope": <same-or-narrowed list>, "reason": "<text>" },
     "refactor_simplifier": { "run": <bool>, "scope": "oldest-pages", "reason": "<text>" },
-    "todo_triage": { "run": <bool>, "scope": <integer from input>, "reason": "<text>" }
+    "todo_triage": { "run": <bool>, "scope": <integer from input>, "reason": "<text>" },
+    "microcrypt_sync": { "run": <bool>, "scope": "microcrypt-map", "reason": "<text>" }
   },
   "llm_notes": "<1-3 sentences explaining any changes, or confirming the rule plan>"
 }`;
@@ -504,6 +528,7 @@ async function main() {
   const queueSummary = summarizeQueue();
   const openTodos = countOpenTodos();
   const doRotSweep = runCount % ROT_SWEEP_EVERY_N_RUNS === 0;
+  const microcryptSync = microcryptSyncShouldRun();
 
   const basePlan = buildBasePlan({
     runCount,
@@ -516,6 +541,7 @@ async function main() {
     queueSummary,
     openTodos,
     doRotSweep,
+    microcryptSync,
   });
   basePlan.llm = { used: false, notes: null };
 
