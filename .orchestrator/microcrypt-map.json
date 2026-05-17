@@ -1,0 +1,627 @@
+{
+  "_README": "Human-curated bridge between microcrypt-zoo node/citation names and cryptology.city slugs. The sync script NEVER creates a page for a node whose status is \"unmapped\" — it only reports it — so this file is the dedup boundary. Set node.status to \"mapped\" (point slug at an EXISTING content page), \"new\" (let the bot create a stub), or \"ignore\" (out of scope). For citations set the city key, ref_slug (content/References/<ref_slug>.md), cryptobib_key when known, and ref_exists:true once the reference page is in the repo.",
+  "config": {
+    "autostub_new_primitives": false,
+    "content_root": "content",
+    "embed_page": "content/Microcrypt Zoo.md"
+  },
+  "nodes": {
+    "⊥-PRF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "⊥-PRF (a quantum PRF with a recognizable abort)"
+    },
+    "⊥-PRG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "⊥-PRG (a quantum PRG with a recognizable abort)"
+    },
+    "1/poly-QOWF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum One-Way Function with 1/poly error"
+    },
+    "1/poly-QPRF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Pseudorandom Function with 1/poly error"
+    },
+    "1/poly-QPRG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Pseudorandom Generator with 1/poly error"
+    },
+    "1PRS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Single-copy PRS, with m>(1+epsilon)n, for some fixed epsilon, for key-length n and output size m."
+    },
+    "Almost Public Quantum Coins": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Almost Public Quantum Coins"
+    },
+    "CCA1-EO-qPKE": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Reusable CCA1 Encryption Scheme with Quantum Public-Keys and Classical Ciphers"
+    },
+    "CCA1-qPKE with quantum ciphers": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-reusable CCA1 Encryption Scheme with Quantum Public-Keys and Quantum Ciphers"
+    },
+    "CCA2 Sym. Encryption w. Classical Ciphers": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "CCA2 Symmetric Encryption with Classical Ciphers"
+    },
+    "Classically Verifiable Private Quantum Coins": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Classically Verifiable Private Quantum Coins"
+    },
+    "COWF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Classically Computable One-Way Function"
+    },
+    "EFI": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Efficiently samplable, statistically Far but computationally Indistinguishable pairs of mixed quantum states"
+    },
+    "EV-OWPuzzle": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Efficiently Verifiable One-Way Puzzle"
+    },
+    "Garbled Circuits": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Classical Garbled Circuits for P/poly"
+    },
+    "Imperfect MAC": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Imperfect CMA MAC with Classical Tags"
+    },
+    "IV-OWSG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "(Mixed) Inefficiently Verifiable One-way States Generator"
+    },
+    "Long Input PRFS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Long Input Pseudorandom Function-like States. The input size needs to be omega(log(n)) qubits."
+    },
+    "MAC": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Length Restricted CMA MAC with Classical Tags"
+    },
+    "MAC with Quantum Tags": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Reusable (Non-CMA) Length Restricted MAC with Quantum Tags"
+    },
+    "NA-CPA Sym. Encryption w. Classical Ciphers": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-adaptive CPA Symmetric Encryption with Classical Ciphers"
+    },
+    "negl-QPRG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Pseudorandom Generator with negligible error"
+    },
+    "NI-SB-QCOM": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-Interactive Computationally Hiding Statistically Binding Quantum Bit Commitments"
+    },
+    "NI-SH-QCOM": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-Interactive Statistically Hiding Computationally Binding Quantum Bit Commitments"
+    },
+    "Non-adaptive PRU": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-adaptive Long Input Pseudorandom Unitaries"
+    },
+    "nu1PRS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-Uniform single-copy PRS, with m>n, for key-length n and output size m"
+    },
+    "nuQEFID": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Non-Uniform Quantum Efficiently samplable, statistically Far but computationally Indistinguishable Distributions"
+    },
+    "OTS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "One-time Signature with a Classical Public-Key"
+    },
+    "OTS with Quantum Public Keys": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "One-time Signatures with Quantum Public Keys"
+    },
+    "OWPuzzle": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "(Inefficiently Verifiable) One-Way Puzzle"
+    },
+    "OWSG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "(Mixed) One-way States Generator"
+    },
+    "PRFSPD": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Long Input Pseudorandom Function-like States with Proofs of Destruction"
+    },
+    "Private Quantum Coins": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Private Quantum Coins"
+    },
+    "Private Quantum Money": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Private Quantum Money"
+    },
+    "PRS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudorandom States with superlogarithmic outputs size"
+    },
+    "PRSNPD": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudorandom States with Nice Proofs of Destruction"
+    },
+    "PRSPD": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudorandom States with Proofs of Destruction"
+    },
+    "PRU": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudorandom Unitaries"
+    },
+    "Pseudo-encryption": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudo-encryption with Classical Ciphers"
+    },
+    "Pure OWSG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pure One-way States Generator"
+    },
+    "QEFID": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Efficiently samplable, statistically Far but computationally Indistinguishable Distributions"
+    },
+    "QMPC": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum MPC for P/poly with Dishonest Majority"
+    },
+    "QOWF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Computable One-Way Function"
+    },
+    "QSKE": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Selective CPA Symmetric Encryption with Quantum Ciphers"
+    },
+    "QTOWF": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Computable Trapdoor One-Way Function"
+    },
+    "Quantum Garbled Circuits": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Quantum Garbled Circuits for P/poly"
+    },
+    "Quantum Pseudo-encryption": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudo-encryption With Quantum Ciphers"
+    },
+    "SB-COM": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Statistically Binding Computationally Hiding Bit Commitments with Classical Communication"
+    },
+    "SB-QCOM": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Computationally Hiding Statistically Binding Quantum Bit Commitments"
+    },
+    "Short Input PRFS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Short Input Pseudorandom Function-like States with selective security. The input size needs to be Theta(log(n)) qubits."
+    },
+    "Short Output PRFS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Short Output Pseudorandom Function-Like States. The output state needs to have Theta(log(n)) qubits."
+    },
+    "Short Output PRS": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Short Output Pseudorandom States. The output state needs to have c*log(n) qubits for some large enough c."
+    },
+    "SIG": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Chosen Plaintext Attack Secure Digital Signature with imperfect completeness"
+    },
+    "SIG w. Quantum Public Keys": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": ""
+    },
+    "State puzzles": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "State puzzles"
+    },
+    "Strong PRU": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Pseudorandom Unitaries with inverse access"
+    },
+    "Tamper Proof QPKE": {
+      "slug": null,
+      "status": "unmapped",
+      "intro_seed": "Tamper Proof CPA PKE with quantum public keys and classical ciphers"
+    }
+  },
+  "citations": {
+    "AGQY22": {
+      "key": "AGQY22",
+      "ref_slug": "AGQY22 - Pseudorandom (Function-Like) Quantum State Generators: New Definitions and Applications",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Ananth, Gulati, Qian and Yuen",
+      "title": "Pseudorandom (Function-Like) Quantum State Generators: New Definitions and Applications",
+      "venue": "TCC'22",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-22318-1_9"
+    },
+    "ALY23": {
+      "key": "ALY23",
+      "ref_slug": "ALY23 - Pseudorandom Strings from Pseudorandom Quantum States",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Ananth, Lin and Yuen",
+      "title": "Pseudorandom Strings from Pseudorandom Quantum States",
+      "venue": "IACR eprint, 2023",
+      "url": "https://eprint.iacr.org/2023/904"
+    },
+    "AQY22": {
+      "key": "AQY22",
+      "ref_slug": "AQY22 - Cryptography from Pseudorandom Quantum States",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Ananth, Qian and Yuen",
+      "title": "Cryptography from Pseudorandom Quantum States",
+      "venue": "Crypto'22",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-15802-5_8"
+    },
+    "BBO+24": {
+      "key": "BBO+24",
+      "ref_slug": "BBO+24 - Signatures From Pseudorandom States via ⊥-PRFs",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Barhoush, Behera, Ozer, Salvail and Sattath",
+      "title": "Signatures From Pseudorandom States via ⊥-PRFs",
+      "venue": "arXiv, 2024",
+      "url": "https://arxiv.org/abs/2311.00847"
+    },
+    "BBSS23": {
+      "key": "BBSS23",
+      "ref_slug": "BBSS23 - Pseudorandomness with Proof of Destruction and Applications",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Behera, Brakerski, Sattath and Shmueli",
+      "title": "Pseudorandomness with Proof of Destruction and Applications",
+      "venue": "IACR eprint, 2023",
+      "url": "https://eprint.iacr.org/2023/543"
+    },
+    "BCN24": {
+      "key": "BCN24",
+      "ref_slug": "BCN24 - Oracle Separation Between Quantum Commitments and Quantum One-wayness",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Bostanci, Chen, and Nehoran",
+      "title": "Oracle Separation Between Quantum Commitments and Quantum One-wayness",
+      "venue": "arXiv, 2024",
+      "url": "https://eprint.iacr.org/2024/1568"
+    },
+    "BCQ23": {
+      "key": "BCQ23",
+      "ref_slug": "BCQ23 - On the computational hardness needed for quantum cryptography",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Brakerski, Canetti, and Qian",
+      "title": "On the computational hardness needed for quantum cryptography",
+      "venue": "ITCS'23",
+      "url": "https://doi.org/10.4230/LIPIcs.ITCS.2023.24"
+    },
+    "BGH+23": {
+      "key": "BGH+23",
+      "ref_slug": "BGH+23 - Public-Key Encryption with Quantum Keys",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Barooti, Grilo, Huguenin-Dumittan, Malavolta, Sattath, and Vu",
+      "title": "Public-Key Encryption with Quantum Keys",
+      "venue": "IACR eprint, 2023",
+      "url": "https://eprint.iacr.org/2023/877"
+    },
+    "BHMV25": {
+      "key": "BHMV25",
+      "ref_slug": "BHMV25 - On Limits on the Provable Consequences of Quantum Pseudorandomness",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Bouaziz--Ermann, Hhan, Muguruza and Vu",
+      "title": "On Limits on the Provable Consequences of Quantum Pseudorandomness",
+      "venue": "IACR eprint, 2025",
+      "url": "https://eprint.iacr.org/2025/1863"
+    },
+    "BJ24": {
+      "key": "BJ24",
+      "ref_slug": "BJ24 - Commitments are equivalent to statistically-verifiable one-way state generators",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Batra and Jain",
+      "title": "Commitments are equivalent to statistically-verifiable one-way state generators",
+      "venue": "arXiv, 2024",
+      "url": "https://arxiv.org/abs/2404.03220"
+    },
+    "BM24": {
+      "key": "BM24",
+      "ref_slug": "BM24 - Quantum Pseudorandomness Cannot Be Shrunk In a Black-Box Way",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Bouaziz-Ermann and Muguruza",
+      "title": "Quantum Pseudorandomness Cannot Be Shrunk In a Black-Box Way",
+      "venue": "IACR eprint, 2024",
+      "url": "https://eprint.iacr.org/2024/291"
+    },
+    "BMM+24": {
+      "key": "BMM+24",
+      "ref_slug": "BMM+24 - A New World in the Depths of Microcrypt: Separating OWSGs and Quantum Money from QEFID",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Behera, Malavolta, Morimae, Mour and Yamakawa",
+      "title": "A New World in the Depths of Microcrypt: Separating OWSGs and Quantum Money from QEFID",
+      "venue": "arXiv, 2024",
+      "url": "https://arxiv.org/abs/2410.03453"
+    },
+    "BS20": {
+      "key": "BS20",
+      "ref_slug": "BS20 - Almost Public Coins",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Behera and Sattath",
+      "title": "Almost Public Coins",
+      "venue": "QIP'21",
+      "url": "https://arxiv.org/abs/2002.12438"
+    },
+    "BS20b": {
+      "key": "BS20b",
+      "ref_slug": "BS20b - Scalable Pseudorandom Quantum States",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Brakerski and Shmueli",
+      "title": "Scalable Pseudorandom Quantum States",
+      "venue": "CRYPTO'20",
+      "url": "https://doi.org/10.1007/978-3-030-56880-1_15"
+    },
+    "CCC+25": {
+      "key": "CCC+25",
+      "ref_slug": "CCC+25 - A Meta-Complexity Characterization of Minimal Quantum Cryptography",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Cavalar, Chen, Coladangelo, Gray, Hu, Ji, Li",
+      "title": "A Meta-Complexity Characterization of Minimal Quantum Cryptography",
+      "venue": "IACR eprint 2025",
+      "url": "https://eccc.weizmann.ac.il/report/2025/221"
+    },
+    "CCS24": {
+      "key": "CCS24",
+      "ref_slug": "CCS24 - The power of a single Haar random state: constructing and separating quantum pseudorandomness",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Chen, Coladangelo and Sattath",
+      "title": "The power of a single Haar random state: constructing and separating quantum pseudorandomness",
+      "venue": "arXiv, 2024",
+      "url": "https://arxiv.org/abs/2404.03295"
+    },
+    "CGG24": {
+      "key": "CGG24",
+      "ref_slug": "CGG24 - On Central Primitives for Quantum Cryptography with Classical Communication",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Chung, Goldin and Gray",
+      "title": "On Central Primitives for Quantum Cryptography with Classical Communication",
+      "venue": "CRYPTO'24",
+      "url": "https://doi.org/10.1007/978-3-031-68394-7_8"
+    },
+    "CM24": {
+      "key": "CM24",
+      "ref_slug": "CM24 - On black-box separations of quantum digital signatures from pseudorandom states",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Coladangelo and Mutreja",
+      "title": "On black-box separations of quantum digital signatures from pseudorandom states",
+      "venue": "arXiv, 2024",
+      "url": "https://arxiv.org/abs/2402.08194"
+    },
+    "GJMZ23": {
+      "key": "GJMZ23",
+      "ref_slug": "GJMZ23 - Commitments to Quantum States",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Gunn, Ju, Ma, Zhandry",
+      "title": "Commitments to Quantum States",
+      "venue": "STOC'23",
+      "url": "https://dl.acm.org/doi/10.1145/3564246.3585198"
+    },
+    "HMY23": {
+      "key": "HMY23",
+      "ref_slug": "HMY23 - From the Hardness of Detecting Superpositions to Cryptography: Quantum Public Key Encryption and Commitments",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Hhan, Morimae, and Yamakawa",
+      "title": "From the Hardness of Detecting Superpositions to Cryptography: Quantum Public Key Encryption and Commitments",
+      "venue": "EUROCRYPT'23",
+      "url": "https://doi.org/10.1007/978-3-031-30545-0_22"
+    },
+    "JLS18": {
+      "key": "JLS18",
+      "ref_slug": "JLS18 - Pseudorandom quantum states",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Ji, Liu and Song",
+      "title": "Pseudorandom quantum states",
+      "venue": "CRYPTO18",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-319-96878-0_5"
+    },
+    "KQT25": {
+      "key": "KQT25",
+      "ref_slug": "KQT25 - Quantum-Computable One-Way Functions without One-Way Functions",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Kretschmer, Qian and Tal",
+      "title": "Quantum-Computable One-Way Functions without One-Way Functions",
+      "venue": "STOC'25",
+      "url": "https://arxiv.org/abs/2411.02554"
+    },
+    "Kre21": {
+      "key": "Kre21",
+      "ref_slug": "Kre21 - Quantum Pseudorandomness and Classical Complexity",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Kretschmer",
+      "title": "Quantum Pseudorandomness and Classical Complexity",
+      "venue": "TQC21",
+      "url": "https://drops.dagstuhl.de/opus/volltexte/2021/13997"
+    },
+    "KT24": {
+      "key": "KT24",
+      "ref_slug": "KT24 - Commitments from Quantum One-Wayness",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Khurana and Tomer",
+      "title": "Commitments from Quantum One-Wayness",
+      "venue": "STOC'24",
+      "url": "https://arxiv.org/abs/2310.11526"
+    },
+    "KT25": {
+      "key": "KT25",
+      "ref_slug": "KT25 - Founding Quantum Cryptography on Quantum Advantage",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Khurana, Tomer",
+      "title": "Founding Quantum Cryptography on Quantum Advantage",
+      "venue": "STOC'25",
+      "url": "https://arxiv.org/abs/2410.14792"
+    },
+    "MH25": {
+      "key": "MH25",
+      "ref_slug": "MH25 - How To Construct Random Unitaries",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Ma and Huang",
+      "title": "How To Construct Random Unitaries",
+      "venue": "STOC'25",
+      "url": "https://arxiv.org/abs/2410.10116"
+    },
+    "MPSY24": {
+      "key": "MPSY24",
+      "ref_slug": "MPSY24 - Pseudorandom unitaries with non-adaptive security",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Metger, Poremba, Sinha and Yuen",
+      "title": "Pseudorandom unitaries with non-adaptive security",
+      "venue": "IACR eprint, 2024",
+      "url": "https://eprint.iacr.org/2024/302"
+    },
+    "MY22a": {
+      "key": "MY22a",
+      "ref_slug": "MY22a - Quantum Commitments and Signatures Without One-Way Function",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Morimae and Yamakawa",
+      "title": "Quantum Commitments and Signatures Without One-Way Function",
+      "venue": "CRYPTO'22",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-15802-5_10"
+    },
+    "MY22b": {
+      "key": "MY22b",
+      "ref_slug": "MY22b - One-Wayness in Quantum Cryptography",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Morimae and Yamakawa",
+      "title": "One-Wayness in Quantum Cryptography",
+      "venue": "IACR eprint, 2022",
+      "url": "https://eprint.iacr.org/2022/1336"
+    },
+    "Yan22": {
+      "key": "Yan22",
+      "ref_slug": "Yan22 - General Properties of Quantum Bit Commitments",
+      "cryptobib_key": null,
+      "ref_exists": false,
+      "status": "new",
+      "authors": "Jun Yan",
+      "title": "General Properties of Quantum Bit Commitments",
+      "venue": "ASIACRYPT'22",
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-22972-5_22"
+    }
+  }
+}

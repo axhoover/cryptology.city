@@ -1,3 +1,6 @@
 [submodule "vendor/cryptobib"]
 	path = vendor/cryptobib
 	url = https://github.com/cryptobib/export
+[submodule "vendor/microcrypt-zoo"]
+	path = vendor/microcrypt-zoo
+	url = https://github.com/sattath/microcrypt-zoo

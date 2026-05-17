@@ -1,0 +1,7 @@
+{
+  "_README": "Idempotency ledger for the microcrypt-sync lane. Written ONLY by scripts/microcrypt-sync.mjs --write-state, never by hand. microcrypt_gv_sha256 is the sha256 of the upstream microcrypt.gv that was last successfully synced; decide.mjs compares the current upstream file against it to decide whether to wake this lane. synced_edges maps each applied edge's stable hash (kind|src=>dst|key) to the run that applied it, so re-running never re-proposes an implication or separation that already landed.",
+  "microcrypt_commit": null,
+  "microcrypt_gv_sha256": null,
+  "synced_edges": {},
+  "last_run": null
+}

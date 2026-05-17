@@ -29,12 +29,14 @@ jobs:
       run_skeptical_checker: ${{ steps.decide.outputs.run_skeptical_checker }}
       run_refactor_simplifier: ${{ steps.decide.outputs.run_refactor_simplifier }}
       run_todo_triage: ${{ steps.decide.outputs.run_todo_triage }}
+      run_microcrypt_sync: ${{ steps.decide.outputs.run_microcrypt_sync }}
       head_sha: ${{ steps.decide.outputs.head_sha }}
       run_count: ${{ steps.decide.outputs.run_count }}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0  # Need full history for git diff against last_run.sha.
+          submodules: true  # decide.mjs hashes vendor/microcrypt-zoo/microcrypt.gv
 
       - uses: actions/setup-node@v4
         with:
@@ -196,6 +198,84 @@ jobs:
             echo "No triage state change."
           else
             git commit -m "orchestrator: todo board state (run #${{ needs.plan.outputs.run_count }})"
+            git pull --rebase origin main
+            git push
+          fi
+
+  microcrypt_sync:
+    needs: plan
+    if: needs.plan.outputs.run_microcrypt_sync == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+          submodules: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: orchestrator-plan
+          path: .orchestrator/state/
+
+      - name: Install GraphViz
+        run: sudo apt-get update && sudo apt-get install -y graphviz
+
+      - name: Update vendored microcrypt-zoo
+        run: |
+          cd vendor/microcrypt-zoo && git pull origin main && cd ../..
+          echo "MICROCRYPT_COMMIT=$(git -C vendor/microcrypt-zoo rev-parse HEAD)" >> "$GITHUB_ENV"
+
+      - name: Plan microcrypt-sync
+        run: |
+          node scripts/microcrypt-sync.mjs \
+            --gv vendor/microcrypt-zoo/microcrypt.gv \
+            --map .orchestrator/microcrypt-map.json \
+            --state .orchestrator/state/microcrypt-sync.json \
+            --content content \
+            --microcrypt-commit "$MICROCRYPT_COMMIT" \
+            --plan-out .orchestrator/state/microcrypt-plan.json
+
+      - name: Run microcrypt-sync bot
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          prompt: |
+            Follow the instructions in `.orchestrator/prompts/microcrypt-sync.md`.
+            Read `.orchestrator/state/microcrypt-plan.json` for the current sync plan.
+            The upstream commit is available as env var MICROCRYPT_COMMIT.
+
+      - name: Regenerate Microcrypt Zoo embed page
+        run: |
+          node scripts/microcrypt-graph.mjs \
+            --gv vendor/microcrypt-zoo/microcrypt.gv \
+            --map .orchestrator/microcrypt-map.json \
+            --out "content/Microcrypt Zoo.md"
+
+      - name: Record microcrypt-sync state
+        run: |
+          node scripts/microcrypt-sync.mjs \
+            --gv vendor/microcrypt-zoo/microcrypt.gv \
+            --map .orchestrator/microcrypt-map.json \
+            --state .orchestrator/state/microcrypt-sync.json \
+            --content content \
+            --microcrypt-commit "$MICROCRYPT_COMMIT" \
+            --write-state
+
+      - name: Commit microcrypt-sync state
+        run: |
+          git config user.name "cryptology-city-orchestrator[bot]"
+          git config user.email "orchestrator@cryptology.city"
+          git add .orchestrator/state/microcrypt-sync.json
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "orchestrator: microcrypt-sync state (run #${{ needs.plan.outputs.run_count }})"
             git pull --rebase origin main
             git push
           fi
