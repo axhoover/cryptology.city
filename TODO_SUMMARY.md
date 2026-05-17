@@ -1,3 +1,12 @@
+<!--
+  Grammar for the orchestrator's todo-triage parser. Keep this format:
+  ## <Section>   -> Critical | High Priority | Medium Priority |
+                    Low Priority | Cannot Verify (needs human review)
+  - [ ] [Category] description — _source: path[:line][, more]_
+  Category: Navigation | Content | Math | External | FactCheck
+  Only `- [ ]` items count; `- [x]` or deleted lines clear automatically.
+  Changelog goes in TODO_CHANGELOG.md, not here.
+-->
 # cryptology.city — TODO Summary
 _Last updated: 2026-05-06_
 

@@ -238,12 +238,12 @@ function buildBasePlan({
             : 'recent activity and verifications are fresh',
       },
       todo_triage: {
-        run: openTodos > TODO_TRIAGE_THRESHOLD,
+        run: openTodos > 0,
         scope: openTodos,
         reason:
-          openTodos > TODO_TRIAGE_THRESHOLD
-            ? `${openTodos} open TODOs exceeds threshold ${TODO_TRIAGE_THRESHOLD}`
-            : `${openTodos} open TODOs (under threshold)`,
+          openTodos > 0
+            ? `${openTodos} open TODOs — board refreshes; nag is delta-gated`
+            : 'no open TODOs',
       },
     },
   };
