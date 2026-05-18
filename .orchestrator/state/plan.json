@@ -1,69 +1,47 @@
 {
-  "run_count": 5,
-  "head_sha": "a002c948c351ae29c3fd75270f56ee220b302e81",
-  "previous_sha": "500b0868addebf918efca8937cb5a82afd13a390",
-  "timestamp": "2026-05-16T05:54:27.309Z",
-  "days_since_last_run": 2.526952951388889,
-  "changed_files": [
-    "content/Assumptions/learning-with-errors.md",
-    "content/Assumptions/shortest-integer-solution.md",
-    "content/References/Ajt96 - Generating hard instances of lattice problems.md",
-    "content/References/GPV08 - Trapdoors for hard lattices and new cryptographic constructions.md",
-    "content/References/LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md",
-    "content/References/MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller.md",
-    "content/References/Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions.md"
-  ],
+  "run_count": 6,
+  "head_sha": "e849285a6f41a03be62f7f29bc5d325dd60a383f",
+  "previous_sha": "a002c948c351ae29c3fd75270f56ee220b302e81",
+  "timestamp": "2026-05-18T02:06:15.048Z",
+  "days_since_last_run": 1.8415245833333334,
+  "changed_files": [],
   "queue_summary": {
     "exists": false,
     "counts": {},
     "oldestHumanVerifiedDays": null
   },
-  "open_todos": 37,
+  "open_todos": 38,
   "bots": {
     "editor": {
-      "run": true,
-      "scope": [
-        "content/Assumptions/learning-with-errors.md",
-        "content/Assumptions/shortest-integer-solution.md",
-        "content/References/Ajt96 - Generating hard instances of lattice problems.md",
-        "content/References/GPV08 - Trapdoors for hard lattices and new cryptographic constructions.md",
-        "content/References/LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md",
-        "content/References/MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller.md",
-        "content/References/Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions.md"
-      ],
-      "reason": "7 content file(s) changed since last run"
+      "run": false,
+      "scope": [],
+      "reason": "no content changes since last run"
     },
     "reference_fixer": {
-      "run": true,
+      "run": false,
       "mode": "diff-scoped",
-      "scope": [
-        "content/Assumptions/learning-with-errors.md",
-        "content/Assumptions/shortest-integer-solution.md",
-        "content/References/Ajt96 - Generating hard instances of lattice problems.md",
-        "content/References/GPV08 - Trapdoors for hard lattices and new cryptographic constructions.md",
-        "content/References/LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md",
-        "content/References/MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller.md",
-        "content/References/Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions.md"
-      ],
-      "reason": "7 reference-touching change(s)"
+      "scope": [],
+      "reason": "no reference-touching changes"
     },
     "skeptical_checker": {
       "run": true,
-      "scope": [
-        "content/Assumptions/learning-with-errors.md",
-        "content/Assumptions/shortest-integer-solution.md"
-      ],
-      "reason": "2 deep-content file(s) changed"
+      "scope": [],
+      "reason": "bootstrapping fact-check queue"
     },
     "refactor_simplifier": {
       "run": false,
       "scope": "oldest-pages",
-      "reason": "recent activity and verifications are fresh"
+      "reason": "no content changes in 1 days"
     },
     "todo_triage": {
       "run": true,
-      "scope": 37,
-      "reason": "37 open TODOs exceeds threshold 25"
+      "scope": 38,
+      "reason": "38 open TODOs — board refreshes; nag is delta-gated"
+    },
+    "microcrypt_sync": {
+      "run": true,
+      "scope": "microcrypt-map",
+      "reason": "upstream microcrypt.gv hash changed since last sync"
     }
   },
   "llm": {
