@@ -1,8 +1,8 @@
-# Weekly Orchestrator Report — run #6
+# Weekly Orchestrator Report — run #7
 
-- **Head:** `e849285a6f41a03be62f7f29bc5d325dd60a383f`
-- **Previous:** `a002c948c351ae29c3fd75270f56ee220b302e81`
-- **Days since last run:** 1.8415245833333334
+- **Head:** `7ded7ca9bdb65ac66393dd0d82e0e951179f4693`
+- **Previous:** `e849285a6f41a03be62f7f29bc5d325dd60a383f`
+- **Days since last run:** 0.5999494791666666
 - **Changed content files:** 0
 - **Open TODOs:** 38
 - **LLM refinement:** no
@@ -23,7 +23,7 @@
 
 ### `refactor_simplifier` — skip
 
-- Reason: no content changes in 1 days
+- Reason: no content changes in 0 days
 
 ### `todo_triage` — **RUN**
 
