@@ -241,6 +241,7 @@ jobs:
             --plan-out .orchestrator/state/microcrypt-plan.json
 
       - name: Run microcrypt-sync bot
+        id: microcrypt_bot
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
@@ -258,6 +259,7 @@ jobs:
             --out "content/Microcrypt Zoo.md"
 
       - name: Record microcrypt-sync state
+        if: steps.microcrypt_bot.outputs.pr_url != ''
         run: |
           node scripts/microcrypt-sync.mjs \
             --gv vendor/microcrypt-zoo/microcrypt.gv \
@@ -268,6 +270,7 @@ jobs:
             --write-state
 
       - name: Commit microcrypt-sync state
+        if: steps.microcrypt_bot.outputs.pr_url != ''
         run: |
           git config user.name "cryptology-city-orchestrator[bot]"
           git config user.email "orchestrator@cryptology.city"

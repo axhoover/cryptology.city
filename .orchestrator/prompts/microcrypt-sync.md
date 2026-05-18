@@ -49,8 +49,11 @@ You **do not touch**:
      --plan-out .orchestrator/state/microcrypt-plan.json
    ```
 
-2. If `upstream_changed` is `false` and every actionable array is empty, stop.
-   Commit nothing.
+2. If `upstream_changed` is `false` **and** `new_references`, `new_implications`,
+   `flagged_separations`, and `new_primitive_stubs` are all empty lists, stop.
+   Commit nothing. If **any** of those arrays is non-empty, continue even when
+   `upstream_changed` is `false` — a previous run may have been interrupted before
+   it finished writing.
 
 3. **`unmapped_nodes` / `unmapped_citations`** — do **not** create anything for
    these. Append a single grouped entry to `TODO_SUMMARY.md` listing them so a
