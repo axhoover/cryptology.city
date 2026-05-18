@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "issue": 25,
+  "fingerprint": "b77f3e3133c096b5",
+  "counts": {
+    "critical": 5,
+    "high": 7,
+    "medium": 15,
+    "low": 4,
+    "review": 6,
+    "other": 0,
+    "total": 37,
+    "good_first": 12
+  },
+  "hi_keys": [
+    "0|content|stub page — `oblivious-ram.md` has four bare todo placeholders with no content in the security definition, oram types, and offline oram sections|content/Primitives/oblivious-ram.md:24,31,35,40",
+    "0|content|stub page — `trapdoor-hash-function.md` contains only \"introduced by dgi+19. todo\" with empty definition, variations, and other results sections|content/Primitives/trapdoor-hash-function.md:11",
+    "0|content|stub page — `universal-composability-framework.md` has a single `todo — describe the uc framework…` as its entire body|content/Glossary/universal-composability-framework.md:10",
+    "0|navigation|dead wikilink `[[boneh-lynn-shacham-signature|bls]]` — no page exists for bls signatures; the link appears in the agm key results section and renders as a broken link on the live site|content/Glossary/algebraic-group-model.md:30",
+    "0|navigation|dead wikilink `[[mer78]]` — no reference page exists for merkle's 1978 paper \"secure communications over insecure channels\" (cacm 1978); referenced when crediting merkle puzzles as query-complexity optimal|content/Glossary/black-box-separations.md:69, content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md:19",
+    "1|content|`doubly-efficient-pir.md` — multi-server depir variation section is a bare `todo`|content/Primitives/doubly-efficient-pir.md:51",
+    "1|content|`learning-parity-with-noise.md` — attacks section is a bare `todo`|content/Assumptions/learning-parity-with-noise.md:72",
+    "1|content|`multi-server-private-information-retrieval.md` — doubly-efficient multi-server pir subsection is empty|content/Primitives/multi-server-private-information-retrieval.md:43",
+    "1|content|`pseudorandom-function.md` — pseudorandom injective functions subsection says \"todo: define these and say how they relate to prps\"|content/Primitives/pseudorandom-function.md:107",
+    "1|content|`public-key-encryption.md` — key-hiding security notion section has a bare `todo` with no content|content/Primitives/public-key-encryption.md:99",
+    "1|navigation|dead wikilink `[[cdv21 - learning a mixture of two subspaces over finite fields|cdv21]]` — no reference page exists for cdv21; used as a citation in cimr25's lsn facts section|content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67",
+    "1|navigation|dead wikilink `[[dkl09 - on cryptography with auxiliary input|dkl09]]` — no reference page exists; the link resolves to nothing in production|content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52"
+  ],
+  "high_water_total": 37,
+  "last_comment_run": 0,
+  "last_comment_fingerprint": null,
+  "runs": 6,
+  "updated_at": "2026-05-18T02:06:34.895Z"
+}
