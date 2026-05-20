@@ -1,0 +1,133 @@
+name: Paper submission
+
+# Triggered by repository_dispatch from the submission Worker.
+# Payload shape (client_payload):
+#   {
+#     paper: { type: "pdf" | "url", url: "<signed-download-url | eprint-url>" },
+#     notes: "<submitter notes>",
+#     submitted_at: "<ISO timestamp>"
+#   }
+
+on:
+  repository_dispatch:
+    types: [paper_submission]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  id-token: write
+
+concurrency:
+  group: paper-submission-${{ github.event.client_payload.submitted_at }}
+  cancel-in-progress: false
+
+jobs:
+  draft-pr:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Stage submission
+        id: stage
+        env:
+          PAPER_TYPE: ${{ github.event.client_payload.paper.type }}
+          PAPER_URL:  ${{ github.event.client_payload.paper.url }}
+          PAPER_SOURCE_URL: ${{ github.event.client_payload.paper.source_url }}
+          NOTES:      ${{ github.event.client_payload.notes }}
+          SUBMITTED_AT: ${{ github.event.client_payload.submitted_at }}
+        run: |
+          set -euo pipefail
+          STAGE="$RUNNER_TEMP/submission"
+          mkdir -p "$STAGE"
+
+          # Always record metadata for the prompt to read
+          jq -n \
+            --arg type "$PAPER_TYPE" \
+            --arg url "$PAPER_URL" \
+            --arg source_url "$PAPER_SOURCE_URL" \
+            --arg notes "$NOTES" \
+            --arg submitted_at "$SUBMITTED_AT" \
+            '{type:$type, url:$url, source_url:$source_url, notes:$notes, submitted_at:$submitted_at}' \
+            > "$STAGE/submission.json"
+
+          if [ "$PAPER_TYPE" = "pdf" ]; then
+            echo "Downloading PDF from signed URL"
+            curl -fsSL --max-time 60 -o "$STAGE/paper.pdf" "$PAPER_URL"
+            file "$STAGE/paper.pdf" | grep -q "PDF document" || { echo "Downloaded file is not a PDF"; exit 1; }
+          else
+            echo "eprint URL submission; Claude will fetch the paper via WebFetch"
+          fi
+
+          echo "stage_dir=$STAGE" >> "$GITHUB_OUTPUT"
+
+      - name: Compose prompt
+        id: prompt
+        env:
+          STAGE_DIR: ${{ steps.stage.outputs.stage_dir }}
+        run: |
+          set -euo pipefail
+          # The persistent prompt template lives in the repo and is edited by hand.
+          # This step prepends the submission-specific context to it.
+          TEMPLATE_PATH=".github/prompts/paper-submission.md"
+          if [ ! -f "$TEMPLATE_PATH" ]; then
+            echo "Prompt template not found at $TEMPLATE_PATH"; exit 1
+          fi
+
+          PROMPT_FILE="$STAGE_DIR/prompt.md"
+          {
+            echo "# Paper submission task"
+            echo ""
+            echo "A new paper has been submitted via the public intake form. Your task"
+            echo "is described in the template below."
+            echo ""
+            echo "## Submission metadata"
+            echo ""
+            echo '```json'
+            cat "$STAGE_DIR/submission.json"
+            echo ""
+            echo '```'
+            echo ""
+            if [ -f "$STAGE_DIR/paper.pdf" ]; then
+              echo "## Paper location"
+              echo ""
+              echo "- A PDF has been staged at: \`$STAGE_DIR/paper.pdf\`"
+              echo "- Use the Read tool to read the PDF."
+              echo "- If \`source_url\` is set in the metadata above, treat it as the canonical citation URL."
+            else
+              echo "## Paper location"
+              echo ""
+              echo "- No PDF was uploaded. Use WebFetch on the URL in the metadata above."
+              echo "- IACR eprint:  \`/YYYY/N\`        -> PDF at \`/YYYY/N.pdf\` (no trailing slash)."
+              echo "- arXiv:        \`/abs/<id>\`      -> PDF at \`/pdf/<id>\`."
+              echo "- ECCC:         \`/report/YYYY/N/\` -> PDF at \`/report/YYYY/N/download/\`."
+              echo "- ia.cr:        short link, resolves to eprint.iacr.org."
+            fi
+            echo ""
+            echo "## Editorial instructions"
+            echo ""
+            cat "$TEMPLATE_PATH"
+          } > "$PROMPT_FILE"
+
+          echo "prompt_file=$PROMPT_FILE" >> "$GITHUB_OUTPUT"
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Read and follow the instructions in the prompt file at
+            ${{ steps.prompt.outputs.prompt_file }}.
+
+            Create your work on a new branch (do not commit to main), then open a
+            pull request titled with the paper's title and a body that includes
+            the drafted critique, the citation entry, and any flags about
+            uncertainty in your reading. The PR should be marked as a draft.
+          claude_args: |
+            --allowed-tools "Read,Write,Edit,Glob,Grep,Bash(git:*),Bash(gh:*),Bash(find:*),Bash(file:*),Bash(jq:*),WebFetch,WebSearch"
+            --max-turns 40
