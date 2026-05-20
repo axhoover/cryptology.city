@@ -56,3 +56,4 @@ TODO
 - Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
 - SK-DEPIR can be built from a non-standard assumption — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]
   - This was analyzed further in [[BHMW21 - On the Security of Doubly Efficient PIR|BHMW21]], which didn't break the core assumption but broke the generalized proposed assumption
+- SK-PIR with online communication $\tilde{O}(\sqrt{N} \cdot \secpar)$ (server time $O(N \cdot \poly(\secpar))$ per query; sublinear communication but not sublinear computation) follows from one-way functions alone — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]
