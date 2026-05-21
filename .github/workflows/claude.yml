@@ -1,0 +1,48 @@
+name: Claude Code Assistant
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  claude:
+    # Only run when axhoover comments with @claude
+    if: |
+      (
+        github.event.comment.user.login == 'axhoover' ||
+        github.event.review_comment.user.login == 'axhoover'
+      ) && (
+        contains(github.event.comment.body, '@claude') ||
+        contains(github.event.review_comment.body, '@claude')
+      )
+
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write        # push commits to the PR branch
+      pull-requests: write   # post review comments / replies
+      issues: write          # post issue comments
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code
+        uses: anthropics/claude-code-action@v1
+        with:
+          # OAuth token from your Max/Pro subscription.
+          # Generate once locally with: claude setup-token
+          # Then store as a repo secret named CLAUDE_CODE_OAUTH_TOKEN.
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # Default trigger phrase is @claude — keep it consistent
+          trigger_phrase: "@claude"
+
+          # Optional: tighten the tools Claude is allowed to use.
+          # Remove or expand this list as you see fit.
+          claude_args: >-
+            --allowedTools "Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(git:*),Bash(gh:*)"
