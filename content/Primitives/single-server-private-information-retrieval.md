@@ -97,3 +97,4 @@ Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional eff
 - PIR with $\polylog(n)$ bandwidth can be built from [[decisional-diffie-hellman|DDH]], QR, or [[learning-with-errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
   - This result goes through the use of [[trapdoor-hash-function|TDH]], which can be used to build PIR generically
 - Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
+- SK-PIR (preprocessed PIR with a secret key) with online communication $\tilde{O}(\sqrt{N} \cdot \secpar)$ (server time $O(N \cdot \poly(\secpar))$ per query) follows from one-way functions alone — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]
