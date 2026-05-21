@@ -24,6 +24,8 @@ jobs:
       contents: write        # push commits to the PR branch
       pull-requests: write   # post review comments / replies
       issues: write          # post issue comments
+      id-token: write
+
 
     steps:
       - name: Checkout
