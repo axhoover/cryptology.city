@@ -119,6 +119,49 @@ In **small-universe** ABE, all supported attributes are registered at $\Setup$ t
 
 Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is visible in the key, and in CP-ABE the policy $f^*$ is visible in the ciphertext. Hiding the policy from unauthorized parties requires additional techniques. [[inner-product-predicate-encryption|IPPE]] is a key stepping stone toward full policy hiding, since inner-product predicates are both expressive and attribute-hiding.
 
+## Symmetric CP-ABE
+
+In **symmetric CP-ABE** (*secret-key CP-ABE*), there are no public parameters: all parties must hold a key from the authority. Encryption takes the encryptor's key $\sk_{x_e}$ and may only embed a policy $f$ that the encryptor's own attribute set satisfies, $f(x_e) = 1$.
+
+A symmetric CP-ABE scheme is a tuple $\ABE = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, policy class $\calF$, and message space $\calM$:
+
+- $\Setup(1^\secpar) \to \msk,$ outputs a master secret key with no public parameters.
+- $\KeyGen(\msk, x) \to \sk_x,$ takes $\msk$ and $x \subseteq \calU$, outputting a key bound to $x$.
+- $\Enc(\sk_x, f, m) \to c,$ takes an encryptor key $\sk_x$, a policy $f \in \calF$ with $f(x) = 1$, and $m \in \calM$.
+- $\Dec(\sk_{x'}, c) \to m \in \calM$ or $\bot,$ succeeds when the decryptor's attribute set $x'$ satisfies the ciphertext policy.
+
+The IND-CCA2 game adds an encryption oracle $\calO_{\mathrm{enc}}$ absent from standard CP-ABE: since encryption requires a key, the adversary can query encryptions under keys it legitimately holds. The key oracle's admissibility constraint — no queried $\sk_x$ with $f^*(x) = 1$ — also bounds what the adversary can submit to $\calO_{\mathrm{enc}}$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sym\text{-}cca2}}_{\ABE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\msk \gets \Setup(1^\secpar)$; $b \getsr \bits$
+\State $\calO_{\mathrm{key}}(x) := \KeyGen(\msk, x)$
+\State $\calO_{\mathrm{enc}}(\sk_x, f, m) := \Enc(\sk_x, f, m)$
+\Comment{$\sk_x$ must be a prior output of $\calO_{\mathrm{key}}$}
+\State $\calO_{\mathrm{dec}}(\sk_x, c) := \Dec(\sk_x, c)$
+\State $(f^*, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}, \calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(1^\secpar)$
+\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(x)$ for $f^*(x) = 1$}
+\State $\sk_{x_e} \gets \KeyGen(\msk, x_e)$
+\Comment{Challenger-chosen $x_e \subseteq \calU$ with $f^*(x_e) = 1$}
+\State $c^* \gets \Enc(\sk_{x_e}, f^*, m_b)$
+\State $b' \gets \calA^{\calO_{\mathrm{key}}, \calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(c^*, \stA)$
+\Comment{No $\calO_{\mathrm{key}}(x)$ with $f^*(x) = 1$; no $\calO_{\mathrm{dec}}(\cdot, c^*)$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A symmetric CP-ABE scheme $\ABE$ is **sym-CP-IND-CCA2-secure** if for all efficient admissible $\calA$,
+
+$$
+\Adv^{\mathrm{sym\text{-}cca2}}_{\ABE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sym\text{-}cca2}}_{\ABE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
+
 # Other results
 
 - ABE (KP-ABE) generalizes [[fuzzy-identity-based-encryption|Fuzzy IBE]]: threshold-$t$ overlap policies are monotone formulas
