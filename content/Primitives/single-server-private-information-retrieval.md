@@ -78,7 +78,7 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 
 - [[multi-server-private-information-retrieval|Multi-server PIR]] is an information theoretic variant, which requires multiple servers
 - [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
-- PIR with client-side preprocessing
+- [[single-server-private-information-retrieval#Secret-Key PIR (SK-PIR)|Secret-Key PIR (SK-PIR)]] achieves sublinear online communication using client preprocessing with a secret key
 - Keyword PIR
 
 ## Symmetric private information retrieval (Single-server)
@@ -86,6 +86,57 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 Symmetric private information retrieval is a stronger version of PIR that in addition to protecting the querier's privacy, also protects the data privacy. The multi-server, information-theoretic version ([[IT-SPIR]]) was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], but follow-up works showed how to construct computationally secure versions based on assumptions.
 
 Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional efficiency requirement.
+
+## Secret-Key PIR (SK-PIR)
+
+In secret-key PIR, the client holds a short secret key $\sk$ derived from an offline encoding of the database. The server holds an encoded database $D'$; online queries use only $o(N)$ communication, without requiring sublinear server computation (contrast: [[doubly-efficient-pir|SK-DEPIR]], which requires both).
+
+### Syntax
+
+An SK-PIR scheme is a tuple $(\Setup, \Query, \Answer, \Decode)$:
+
+- $\Setup(1^\secpar, D) \to (\sk, D')$: randomized; generates secret key $\sk$ and encoded database $D'$.
+- $\Query(\sk, i) \to (q, \st)$: randomized; outputs online query $q$ and client state $\st$.
+- $\Answer(D', q) \to a$: deterministic server response.
+- $\Decode(\sk, \st, a) \to x$: deterministic; recovers $x \in \bits$.
+
+### Correctness
+
+An SK-PIR scheme is $(1-\varepsilon)$-**correct** if for all $D \in \bits^N$ and $i \in [N]$,
+
+$$
+\Pr\!\left[\Decode(\sk, \st, \Answer(D', q)) = D[i]\right] \ge 1 - \varepsilon,
+$$
+
+where $(\sk, D') \gets \Setup(1^\secpar, D)$ and $(q, \st) \gets \Query(\sk, i)$. When $\varepsilon = 0$, the scheme is **perfectly correct**.
+
+### Security
+
+The adversary acts as the server: it chooses the database and two challenge indices, then sees the encoded database $D'$ and a single online query. Security requires the query to reveal nothing about the index despite the adversary knowing $D'$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sk\text{-}priv}}_{\PIR,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(D, i_0, i_1, \stA) \gets \calA(1^\secpar)$
+\State $(\sk, D') \gets \Setup(1^\secpar, D)$
+\State $b \getsr \bits$
+\State $(q, \st) \gets \Query(\sk, i_b)$
+\State $b' \gets \calA(D', q, \stA)$
+\Comment{$\calA$ sees $D'$ but not $\sk$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+An SK-PIR scheme is **secret-key private** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{sk\text{-}priv}}_{\PIR,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sk\text{-}priv}}_{\PIR,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Other results
 
@@ -97,3 +148,5 @@ Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional eff
 - PIR with $\polylog(n)$ bandwidth can be built from [[decisional-diffie-hellman|DDH]], QR, or [[learning-with-errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
   - This result goes through the use of [[trapdoor-hash-function|TDH]], which can be used to build PIR generically
 - Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
+- SK-PIR with $O(N^\varepsilon)$ online communication for any constant $\varepsilon > 0$ follows from the hardness of decoding random linear codes (LPN in a high-noise regime not known to imply public-key encryption) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]
+- SK-PIR with online communication $\tilde{O}(\sqrt{N} \cdot \secpar)$ (server time $O(N \cdot \poly(\secpar))$ per query) follows from one-way functions alone, matching the minimal known lower bound — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]
