@@ -1664,6 +1664,23 @@
           "note": "initial queue entry"
         }
       ]
+    },
+    "content/Assumptions/planted-clique.md": {
+      "status": "unreviewed",
+      "blob_sha": null,
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-05-27T00:00:00Z",
+          "by": "claude",
+          "action": "created",
+          "sha": null,
+          "note": "initial queue entry — new assumption page for planted clique conjecture"
+        }
+      ]
     }
   }
 }
