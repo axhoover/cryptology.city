@@ -1,29 +1,42 @@
-# Weekly Orchestrator Report — run #8
+# Weekly Orchestrator Report — run #9
 
-- **Head:** `0a13421cb94d3dd280e61c85376adcba2f395c7f`
-- **Previous:** `7ded7ca9bdb65ac66393dd0d82e0e951179f4693`
-- **Days since last run:** 4.5715690162037035
-- **Changed content files:** 0
+- **Head:** `3e48048c197481c0749cb75d4f97c1bac8e9eb61`
+- **Previous:** `0a13421cb94d3dd280e61c85376adcba2f395c7f`
+- **Days since last run:** 7.007704479166667
+- **Changed content files:** 4
 - **Open TODOs:** 38
 - **LLM refinement:** no
 
 ## Bot decisions
 
-### `editor` — skip
+### `editor` — **RUN**
 
-- Reason: no content changes since last run
+- Reason: 4 content file(s) changed since last run
+- Scope (4):
+  - `content/Primitives/attribute-based-encryption.md`
+  - `content/Primitives/single-server-private-information-retrieval.md`
+  - `content/References/BM26 - Secret-Key PIR from One-Way Functions.md`
+  - `content/References/LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions.md`
 
 ### `reference_fixer` — **RUN**
 
-- Reason: periodic link-rot sweep (run #8, every 4 runs)
+- Reason: 4 reference-touching change(s)
+- Scope (4):
+  - `content/Primitives/attribute-based-encryption.md`
+  - `content/Primitives/single-server-private-information-retrieval.md`
+  - `content/References/BM26 - Secret-Key PIR from One-Way Functions.md`
+  - `content/References/LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions.md`
 
 ### `skeptical_checker` — **RUN**
 
-- Reason: bootstrapping fact-check queue
+- Reason: 2 deep-content file(s) changed
+- Scope (2):
+  - `content/Primitives/attribute-based-encryption.md`
+  - `content/Primitives/single-server-private-information-retrieval.md`
 
 ### `refactor_simplifier` — skip
 
-- Reason: no content changes in 4 days
+- Reason: recent activity and verifications are fresh
 
 ### `todo_triage` — **RUN**
 
