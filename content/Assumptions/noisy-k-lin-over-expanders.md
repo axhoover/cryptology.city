@@ -42,7 +42,7 @@ is negligible.
 ## Known Results
 
 - Noisy $k$-LIN over expanders is an $\FF_p$ generalization of [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]; the two names refer to the same family of assumptions specialized to $\FF_2$ vs. $\FF_p$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], footnote 2
-- Jointly with the [[planted-clique|planted clique conjecture]], noisy $k$-LIN over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanders implies [[public-key-encryption|PKE]] secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12
+- Jointly with the [[planted-clique|planted clique conjecture]] against sub-exponential adversaries, noisy $k$-LIN over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanders implies [[public-key-encryption|PKE]] secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12
 - A search variant of noisy $k$-LIN also suffices for the PKE construction under the joint assumption — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8
 
 # Variations

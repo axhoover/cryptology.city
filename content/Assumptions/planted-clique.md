@@ -9,7 +9,7 @@ title: Planted clique assumption
 
 # Planted clique assumption
 
-The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $G(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n \log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root $k$, and in particular the sub-polynomial regime used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]].
+The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $G(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n \log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root clique sizes $k = n^\delta$ for $\delta \in (0, 1/2)$. The variant used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] strengthens this to sub-exponential adversaries.
 
 ## Assumption
 
@@ -42,13 +42,13 @@ $$
 
 is negligible.
 
-The **planted $n^{\log^\alpha n}$-clique conjecture** ([[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Conjecture 4.1) strengthens this to non-uniform polynomial-size circuit families: for some $\alpha \in (0,1)$, no polynomial-size circuit family can achieve non-negligible $\Adv^{\mathrm{pc}}_{n,\, n^{\log^\alpha n},\calA}(\secpar)$. Note that $n^{\log^\alpha n}$ is sub-polynomial in $n$, exceeding $\Theta(\log n)$ (the typical clique size in $G(n,1/2)$) but remaining $o(n^\epsilon)$ for every $\epsilon > 0$.
+The **GHJS25 planted clique conjecture** ([[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Conjecture 4.1) fixes $k = n^\delta$ for any $\delta \in (0, 1/2)$ and asserts that no non-uniform circuit family of size $n^{\log^\alpha n}$ can achieve non-negligible $\Adv^{\mathrm{pc}}_{n,\, n^\delta,\calA}(\secpar)$, for some $\alpha \in (0,1)$. The bound $n^{\log^\alpha n}$ is sub-exponential: it exceeds every fixed polynomial in $n$ but is smaller than $2^{n^\epsilon}$ for every $\epsilon > 0$.
 
 ## Known Results
 
 - For $k = \Omega(\sqrt{n \log n})$, the planted clique can be detected in polynomial time via spectral methods: the top eigenvector of the centered adjacency matrix $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ concentrates on the planted set — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
-- Planted $n^{\log^\alpha n}$-clique hardness (jointly with the [[noisy-k-lin-over-expanders|noisy $k$-LIN]] conjecture over expanders) implies [[public-key-encryption|PKE]] secure against polynomial-size adversaries — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12
-- An alternative PKE construction based on planted clique jointly with the search variant of [[noisy-k-lin-over-expanders|noisy $k$-LIN]] also holds — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8
+- Planted clique hardness against sub-exponential adversaries (jointly with the [[noisy-k-lin-over-expanders|noisy k-LIN]] conjecture over expanders) implies [[public-key-encryption|PKE]] secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12
+- An alternative PKE construction based on planted clique jointly with the search variant of [[noisy-k-lin-over-expanders|noisy k-LIN]] also holds — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8
 
 # Variations
 
