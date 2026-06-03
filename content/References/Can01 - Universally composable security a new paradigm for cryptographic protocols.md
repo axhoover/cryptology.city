@@ -1,6 +1,6 @@
 ---
 title: "Can01"
-source: https://ieeexplore.ieee.org/abstract/document/959888
+source: https://eprint.iacr.org/2000/067
 authors: Ran Canetti
 venue: FOCS 2001, JACM 2020
 published: 2001-06-01
@@ -13,7 +13,7 @@ cryptobib_key: FOCS:Canetti01
 
 # [Can01] Universally composable security: a new paradigm for cryptographic protocols
 
-**Authors:** Ran Canetti | **Venue:** FOCS 2001, JACM 2020 | [Source](https://ieeexplore.ieee.org/abstract/document/959888)
+**Authors:** Ran Canetti | **Venue:** FOCS 2001, JACM 2020 | [Source](https://eprint.iacr.org/2000/067)
 
 ## Abstract
 

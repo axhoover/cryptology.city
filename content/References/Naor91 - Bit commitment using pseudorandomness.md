@@ -1,18 +1,17 @@
 ---
-title: Bit Commitment Using Pseudorandomness
-URL: https://link.springer.com/article/10.1007/BF00191386
+title: "Naor91"
+source: https://link.springer.com/article/10.1007/BF00191386
 authors: Moni Naor
 venue: Journal of Cryptology
-publish date: 1991
+published: 1991
 aliases:
   - Naor91
 cryptobib_key: JC:Naor91
 ---
 
-# Bit Commitment Using Pseudorandomness
+# [Naor91] Bit Commitment Using Pseudorandomness
 
-URL: https://link.springer.com/article/10.1007/BF00191386
-Authors: Moni Naor
+**Authors:** Moni Naor | **Venue:** Journal of Cryptology | [Source](https://link.springer.com/article/10.1007/BF00191386)
 
 ## Abstract
 

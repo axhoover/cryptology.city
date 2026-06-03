@@ -1,18 +1,17 @@
 ---
-title: Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits
-URL: https://eprint.iacr.org/2013/451
+title: "GGHRSW13"
+source: https://eprint.iacr.org/2013/451
 authors: Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters
 venue: FOCS 2013
-publish date: 2013
+published: 2013
 aliases:
   - GGHRSW13
 cryptobib_key: FOCS:GGHRSW13
 ---
 
-# Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits
+# [GGHRSW13] Candidate Indistinguishability Obfuscation and Functional Encryption for All Circuits
 
-URL: https://eprint.iacr.org/2013/451
-Authors: Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters
+**Authors:** Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters | **Venue:** FOCS 2013 | [Source](https://eprint.iacr.org/2013/451)
 
 ## Abstract
 

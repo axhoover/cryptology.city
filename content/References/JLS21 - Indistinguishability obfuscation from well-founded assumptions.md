@@ -1,18 +1,17 @@
 ---
-title: Indistinguishability Obfuscation from Well-Founded Assumptions
-URL: https://dl.acm.org/doi/10.1145/3406325.3451093
+title: "JLS21"
+source: https://eprint.iacr.org/2020/1003
 authors: Aayush Jain, Huijia Lin, Amit Sahai
 venue: STOC 2021
-publish date: 2021
+published: 2021
 aliases:
   - JLS21
 cryptobib_key: STOC:JaiLinSah21
 ---
 
-# Indistinguishability Obfuscation from Well-Founded Assumptions
+# [JLS21] Indistinguishability Obfuscation from Well-Founded Assumptions
 
-URL: https://dl.acm.org/doi/10.1145/3406325.3451093
-Authors: Aayush Jain, Huijia Lin, Amit Sahai
+**Authors:** Aayush Jain, Huijia Lin, Amit Sahai | **Venue:** STOC 2021 | [Source](https://eprint.iacr.org/2020/1003)
 
 ## Abstract
 

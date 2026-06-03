@@ -1,6 +1,6 @@
 ---
 title: "GPV08"
-source: https://dl.acm.org/doi/10.1145/1374376.1374407
+source: https://eprint.iacr.org/2007/432
 authors: Craig Gentry, Chris Peikert, Vinod Vaikuntanathan
 venue: STOC 2008
 published: 2008-05-01
@@ -13,7 +13,7 @@ cryptobib_key: STOC:GenPeiVai08
 
 # [GPV08] Trapdoors for Hard Lattices and New Cryptographic Constructions
 
-**Authors:** Craig Gentry, Chris Peikert, Vinod Vaikuntanathan | **Venue:** STOC 2008 | [Source](https://dl.acm.org/doi/10.1145/1374376.1374407)
+**Authors:** Craig Gentry, Chris Peikert, Vinod Vaikuntanathan | **Venue:** STOC 2008 | [Source](https://eprint.iacr.org/2007/432)
 
 ## Abstract
 

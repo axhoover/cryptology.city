@@ -1,18 +1,17 @@
 ---
-title: Public-Key Cryptosystems Based on Composite Degree Residuosity Classes
-URL: https://link.springer.com/chapter/10.1007/3-540-48910-X_16
+title: "Pai99"
+source: https://link.springer.com/chapter/10.1007/3-540-48910-X_16
 authors: Pascal Paillier
 venue: EUROCRYPT 1999
-publish date: 1999
+published: 1999
 aliases:
   - Pai99
 cryptobib_key: EC:Paillier99
 ---
 
-# Public-Key Cryptosystems Based on Composite Degree Residuosity Classes
+# [Pai99] Public-Key Cryptosystems Based on Composite Degree Residuosity Classes
 
-URL: https://link.springer.com/chapter/10.1007/3-540-48910-X_16
-Authors: Pascal Paillier
+**Authors:** Pascal Paillier | **Venue:** EUROCRYPT 1999 | [Source](https://link.springer.com/chapter/10.1007/3-540-48910-X_16)
 
 ## Abstract
 

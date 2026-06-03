@@ -1,18 +1,17 @@
 ---
-title: (Leveled) Fully Homomorphic Encryption without Bootstrapping
-URL: https://dl.acm.org/doi/10.1145/2090236.2090262
+title: "BGV12"
+source: https://eprint.iacr.org/2011/277
 authors: Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan
 venue: ITCS 2012
-publish date: 2012
+published: 2012
 aliases:
   - BGV12
 cryptobib_key: ITCS:BraGenVai12
 ---
 
-# (Leveled) Fully Homomorphic Encryption without Bootstrapping
+# [BGV12] (Leveled) Fully Homomorphic Encryption without Bootstrapping
 
-URL: https://dl.acm.org/doi/10.1145/2090236.2090262
-Authors: Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan
+**Authors:** Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan | **Venue:** ITCS 2012 | [Source](https://eprint.iacr.org/2011/277)
 
 ## Abstract
 

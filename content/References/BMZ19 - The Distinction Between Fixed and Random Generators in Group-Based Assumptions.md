@@ -1,6 +1,6 @@
 ---
 title: "BMZ19"
-source: https://link.springer.com/chapter/10.1007/978-3-030-26951-7_27
+source: https://eprint.iacr.org/2019/202
 authors: James Bartusek, Fermi Ma, and Mark Zhandry
 venue: CRYPTO 2019
 published: 2019-01-01
@@ -13,7 +13,7 @@ cryptobib_key: C:BarMaZha19
 
 # [BMZ19] The Distinction Between Fixed and Random Generators in Group-Based Assumptions
 
-**Authors:** James Bartusek, Fermi Ma, and Mark Zhandry | **Venue:** CRYPTO 2019 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-26951-7_27)
+**Authors:** James Bartusek, Fermi Ma, and Mark Zhandry | **Venue:** CRYPTO 2019 | [Source](https://eprint.iacr.org/2019/202)
 
 ## Abstract
 

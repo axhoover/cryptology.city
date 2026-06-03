@@ -1,18 +1,17 @@
 ---
-title: How to Share a Secret
-URL: https://dl.acm.org/doi/10.1145/359168.359176
+title: "Sha79"
+source: https://dl.acm.org/doi/10.1145/359168.359176
 authors: Adi Shamir
 venue: Communications of the ACM
-publish date: 1979
+published: 1979
 aliases:
   - Sha79
 cryptobib_key: EC:Mignotte82
 ---
 
-# How to Share a Secret
+# [Sha79] How to Share a Secret
 
-URL: https://dl.acm.org/doi/10.1145/359168.359176
-Authors: Adi Shamir
+**Authors:** Adi Shamir | **Venue:** Communications of the ACM | [Source](https://dl.acm.org/doi/10.1145/359168.359176)
 
 ## Abstract
 

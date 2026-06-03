@@ -1,6 +1,6 @@
 ---
 title: "HKKS19"
-source: https://link.springer.com/chapter/10.1007/978-3-030-36033-7_10
+source: https://arxiv.org/abs/1903.03385
 authors: Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová
 venue: TCC 2019
 published: 2019-11-22
@@ -14,7 +14,7 @@ cryptobib_key: TCC:HKKS19
 
 # [HKKS19] Stronger Lower Bounds for Online ORAM
 
-**Authors:** Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová | **Venue:** TCC 2019 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-36033-7_10)
+**Authors:** Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová | **Venue:** TCC 2019 | [Source](https://arxiv.org/abs/1903.03385)
 
 ## Abstract
 

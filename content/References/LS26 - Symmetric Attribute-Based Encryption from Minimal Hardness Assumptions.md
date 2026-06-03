@@ -1,5 +1,5 @@
 ---
-title: Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions
+title: "LS26"
 aliases:
   - LS26
 authors:

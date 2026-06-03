@@ -1,18 +1,17 @@
 ---
-title: Probabilistic Encryption
-URL: https://www.sciencedirect.com/science/article/pii/0022000084900709
+title: "GM84"
+source: https://www.sciencedirect.com/science/article/pii/0022000084900709
 authors: Shafi Goldwasser, Silvio Micali
 venue: Journal of Computer and System Sciences
-publish date: 1984
+published: 1984
 aliases:
   - GM84
 cryptobib_key: GolMic84
 ---
 
-# Probabilistic Encryption
+# [GM84] Probabilistic Encryption
 
-URL: https://www.sciencedirect.com/science/article/pii/0022000084900709
-Authors: Shafi Goldwasser, Silvio Micali
+**Authors:** Shafi Goldwasser, Silvio Micali | **Venue:** Journal of Computer and System Sciences | [Source](https://www.sciencedirect.com/science/article/pii/0022000084900709)
 
 ## Abstract
 

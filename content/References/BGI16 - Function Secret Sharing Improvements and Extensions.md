@@ -1,6 +1,6 @@
 ---
 title: "BGI16"
-source: https://dl.acm.org/doi/abs/10.1145/2976749.2978429
+source: https://eprint.iacr.org/2016/585
 authors: Elette Boyle, Niv Gilboa, Yuval Ishai
 venue: CCS 2016
 published: 2016-10-24
@@ -14,7 +14,7 @@ cryptobib_key: CCS:BoyGilIsh16
 
 # [BGI16] Function Secret Sharing: Improvements and Extensions
 
-**Authors:** Elette Boyle, Niv Gilboa, Yuval Ishai | **Venue:** CCS 2016 | [Source](https://dl.acm.org/doi/abs/10.1145/2976749.2978429)
+**Authors:** Elette Boyle, Niv Gilboa, Yuval Ishai | **Venue:** CCS 2016 | [Source](https://eprint.iacr.org/2016/585)
 
 ## Abstract
 

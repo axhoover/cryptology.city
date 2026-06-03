@@ -1,18 +1,17 @@
 ---
-title: Towards Quantum-Resistant Cryptosystems from Supersingular Elliptic Curve Isogenies
-URL: https://link.springer.com/chapter/10.1007/978-3-642-25405-5_2
+title: "JDF11"
+source: https://eprint.iacr.org/2011/506
 authors: David Jao, Luca De Feo
 venue: PQCrypto 2011
-publish date: 2011
+published: 2011
 aliases:
   - JDF11
 cryptobib_key: PQCRYPTO:JaoDeF11
 ---
 
-# Towards Quantum-Resistant Cryptosystems from Supersingular Elliptic Curve Isogenies
+# [JDF11] Towards Quantum-Resistant Cryptosystems from Supersingular Elliptic Curve Isogenies
 
-URL: https://link.springer.com/chapter/10.1007/978-3-642-25405-5_2
-Authors: David Jao, Luca De Feo
+**Authors:** David Jao, Luca De Feo | **Venue:** PQCrypto 2011 | [Source](https://eprint.iacr.org/2011/506)
 
 ## Abstract
 

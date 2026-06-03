@@ -1,18 +1,17 @@
 ---
-title: An Efficient Key Recovery Attack on SIDH
-URL: https://eprint.iacr.org/2022/975
+title: "CD22"
+source: https://eprint.iacr.org/2022/975
 authors: Wouter Castryck, Thomas Decru
 venue: EUROCRYPT 2023
-publish date: 2022
+published: 2022
 aliases:
   - CD22
 cryptobib_key: EC:CasDec23
 ---
 
-# An Efficient Key Recovery Attack on SIDH
+# [CD22] An Efficient Key Recovery Attack on SIDH
 
-URL: https://eprint.iacr.org/2022/975
-Authors: Wouter Castryck, Thomas Decru
+**Authors:** Wouter Castryck, Thomas Decru | **Venue:** EUROCRYPT 2023 | [Source](https://eprint.iacr.org/2022/975)
 
 ## Abstract
 

@@ -1,6 +1,6 @@
 ---
 title: "BM09"
-source: https://link.springer.com/chapter/10.1007/978-3-642-03356-8_22
+source: https://eprint.iacr.org/2008/032
 authors: Boaz Barak, Mohammad Mahmoody-Ghidary
 venue: CRYPTO 2009
 published: 2009-08-19
@@ -12,7 +12,7 @@ tags:
 
 # [BM09] Merkle Puzzles Are Optimal — An O(n²)-Query Attack on Any Key Exchange from a Random Oracle
 
-**Authors:** Boaz Barak, Mohammad Mahmoody-Ghidary | **Venue:** CRYPTO 2009 | [Source](https://link.springer.com/chapter/10.1007/978-3-642-03356-8_22)
+**Authors:** Boaz Barak, Mohammad Mahmoody-Ghidary | **Venue:** CRYPTO 2009 | [Source](https://eprint.iacr.org/2008/032)
 
 ## Abstract
 

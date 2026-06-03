@@ -1,6 +1,6 @@
 ---
 title: "Din20"
-source: https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15
+source: https://eprint.iacr.org/2019/413
 authors: Itai Dinur
 venue: Eurocrypt 2020
 published: 2020-01-01
@@ -14,7 +14,7 @@ cryptobib_key: EC:Dinur20b
 
 # [Din20] On the Streaming Indistinguishability of a Random Permutation and a Random Function
 
-**Authors:** Itai Dinur | **Venue:** Eurocrypt 2020 | [Source](https://link.springer.com/chapter/10.1007/978-3-030-45724-2_15)
+**Authors:** Itai Dinur | **Venue:** Eurocrypt 2020 | [Source](https://eprint.iacr.org/2019/413)
 
 ## Abstract
 
