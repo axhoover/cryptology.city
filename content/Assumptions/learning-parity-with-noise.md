@@ -103,7 +103,7 @@ is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so spa
 
 ### Known results
 - Sparse LPN combined with any [[homomorphic-encryption|linearly homomorphic PKE]] (e.g., based on [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) yields [[homomorphic-encryption|Somewhat Homomorphic Encryption]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]
-- Noisy $k$-LIN over $\FF_p$-valued expanding matrices (an $\FF_p$ generalization of Sparse LPN, used as a synonym in some cryptographic literature) combined with the planted clique conjecture yields [[public-key-encryption|PKE]] — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
+- [[noisy-k-lin-over-expanders|Noisy $k$-LIN]] over $\FF_p$-valued expanding matrices (an $\FF_p$ generalization of Sparse LPN, used as a synonym in some cryptographic literature) combined with the [[planted-clique|planted clique conjecture]] yields [[public-key-encryption|PKE]] — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
 
 ## Ring-LPN
 

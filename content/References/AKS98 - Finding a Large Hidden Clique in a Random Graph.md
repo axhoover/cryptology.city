@@ -23,4 +23,4 @@ bibtex: |
 
 ## Abstract
 
-Shows that a clique of size $k = \Omega(\sqrt{n \log n})$ planted in a random graph $G(n,1/2)$ can be detected and recovered in polynomial time using a spectral algorithm: the leading eigenvector of the centered adjacency matrix $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ concentrates on the planted set. This establishes the algorithmic tractability boundary for the [[planted-clique|planted clique]] detection problem.
+We consider the following probabilistic model of a graph on $n$ labeled vertices. First choose a random graph $G(n, 1/2)$, and then choose randomly a subset $Q$ of vertices of size $k$ and force it to be a clique by joining every pair of vertices of $Q$ by an edge. The problem is to give a polynomial time algorithm for finding this hidden clique almost surely for various values of $k$. This question was posed independently, in various variants, by Jerrum and by Kučera. In this paper we present an efficient algorithm for all $k > cn^{0.5}$, for any fixed $c > 0$, thus improving the trivial case $k > cn^{0.5}(\log n)^{0.5}$. The algorithm is based on the spectral properties of the graph.

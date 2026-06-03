@@ -2,23 +2,24 @@
 title: "GHJS25"
 source: https://eprint.iacr.org/2025/1501
 authors: Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai
-venue: Cryptology ePrint Archive
+venue: STOC 2025
 published: 2025
 aliases:
   - GHJS25
 bibtex: |
-  @misc{GHJS25,
-    author = {Riddhi Ghosal and Isaac M. Hair and Aayush Jain and Amit Sahai},
-    title = {Using the Planted Clique Conjecture for Cryptography: {Public-Key} Encryption from Planted Clique and Noisy $k$-{LIN} Over Expanders},
-    howpublished = {Cryptology ePrint Archive, Report 2025/1501},
-    year = {2025},
-    note = {\url{https://eprint.iacr.org/2025/1501}}
+  @inproceedings{GHJS25,
+    author    = {Riddhi Ghosal and Isaac M. Hair and Aayush Jain and Amit Sahai},
+    title     = {Using the Planted Clique Conjecture for Cryptography: {Public-Key} Encryption from Planted Clique and Noisy $k$-{LIN} Over Expanders},
+    booktitle = {Proceedings of the 57th Annual ACM Symposium on Theory of Computing},
+    series    = {STOC 2025},
+    year      = {2025},
+    note      = {Also available as \url{https://eprint.iacr.org/2025/1501}}
   }
 ---
 
 # [GHJS25] Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders
 
-**Authors:** Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai | **Venue:** Cryptology ePrint Archive 2025 | [Source](https://eprint.iacr.org/2025/1501)
+**Authors:** Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai | **Venue:** STOC 2025 | [ePrint](https://eprint.iacr.org/2025/1501)
 
 ## Abstract
 
