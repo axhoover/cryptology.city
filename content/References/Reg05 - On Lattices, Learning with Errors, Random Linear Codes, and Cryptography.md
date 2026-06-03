@@ -1,6 +1,6 @@
 ---
 title: "Reg05"
-source: https://dl.acm.org/doi/10.1145/1060590.1060603
+source: https://arxiv.org/abs/2401.03703
 authors: Oded Regev
 venue: STOC 2005
 published: 2005-05-01
@@ -13,7 +13,7 @@ cryptobib_key: STOC:Regev05
 
 # [Reg05] On Lattices, Learning with Errors, Random Linear Codes, and Cryptography
 
-**Authors:** Oded Regev | **Venue:** STOC 2005 | [Source](https://dl.acm.org/doi/10.1145/1060590.1060603)
+**Authors:** Oded Regev | **Venue:** STOC 2005 | [Source](https://arxiv.org/abs/2401.03703)
 
 ## Abstract
 

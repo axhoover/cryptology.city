@@ -1,6 +1,6 @@
 ---
 title: "SS11"
-source: https://link.springer.com/chapter/10.1007/978-3-642-20465-4_4
+source: https://eprint.iacr.org/2013/004
 authors: Damien Stehlé, Ron Steinfeld
 venue: Advances in Cryptology — EUROCRYPT 2011
 published: 2011-05-15
@@ -13,7 +13,7 @@ cryptobib_key: EC:SteSte11
 
 # [SS11] Making NTRU as secure as worst-case problems over ideal lattices
 
-**Authors:** Damien Stehlé, Ron Steinfeld | **Venue:** EUROCRYPT 2011 | [Source](https://link.springer.com/chapter/10.1007/978-3-642-20465-4_4)
+**Authors:** Damien Stehlé, Ron Steinfeld | **Venue:** EUROCRYPT 2011 | [Source](https://eprint.iacr.org/2013/004)
 
 ## Abstract
 

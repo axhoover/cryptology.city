@@ -1,17 +1,16 @@
 ---
-title: Non-Interactive Zero-Knowledge and Its Applications
-URL: https://dl.acm.org/doi/10.1145/62212.62222
+title: "BFM88"
+source: https://dl.acm.org/doi/10.1145/62212.62222
 authors: Manuel Blum, Paul Feldman, Silvio Micali
 venue: STOC 1988
-publish date: 1988
+published: 1988
 aliases:
   - BFM88
 ---
 
-# Non-Interactive Zero-Knowledge and Its Applications
+# [BFM88] Non-Interactive Zero-Knowledge and Its Applications
 
-URL: https://dl.acm.org/doi/10.1145/62212.62222
-Authors: Manuel Blum, Paul Feldman, Silvio Micali
+**Authors:** Manuel Blum, Paul Feldman, Silvio Micali | **Venue:** STOC 1988 | [Source](https://dl.acm.org/doi/10.1145/62212.62222)
 
 ## Abstract
 

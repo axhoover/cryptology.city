@@ -1,6 +1,6 @@
 ---
 title: "DLO24"
-source: https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITC.2024.8
+source: https://eprint.iacr.org/2022/1261
 authors: Dana Dachman-Soled, Julian Loss, Adam O'Neill
 venue: ITC 2024
 published: 2024
@@ -13,7 +13,7 @@ cryptobib_key: ITC:DacLosONe24
 
 # [DLO24] Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing
 
-**Authors:** Dana Dachman-Soled, Julian Loss, Adam O'Neill | **Venue:** ITC 2024 | [Source](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITC.2024.8)
+**Authors:** Dana Dachman-Soled, Julian Loss, Adam O'Neill | **Venue:** ITC 2024 | [Source](https://eprint.iacr.org/2022/1261)
 
 ## Abstract
 

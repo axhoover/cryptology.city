@@ -1,6 +1,6 @@
 ---
 title: "Wil25"
-source: https://eccc.weizmann.ac.il/report/2025/017/
+source: https://arxiv.org/abs/2502.17779
 authors: Ryan Williams
 venue: STOC 2025
 published: 2025-02-24
@@ -12,7 +12,7 @@ tags:
 
 # [Wil25] Simulating Time in Square-Root Space
 
-**Authors:** Ryan Williams | **Venue:** STOC 2025 | [Source](https://eccc.weizmann.ac.il/report/2025/017/)
+**Authors:** Ryan Williams | **Venue:** STOC 2025 | [Source](https://arxiv.org/abs/2502.17779)
 
 ## Abstract
 

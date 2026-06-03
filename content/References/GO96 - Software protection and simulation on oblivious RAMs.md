@@ -1,9 +1,9 @@
 ---
 title: "GO96"
-URL: https://dl.acm.org/doi/abs/10.1145/233551.233553
+source: https://dl.acm.org/doi/abs/10.1145/233551.233553
 authors: Oded Goldreich, Rafail Ostrovsky
 venue: Journal of the ACM 1996
-publish date: 05/01/2025
+published: 05/01/2025
 aliases:
   - GO96
 tags:

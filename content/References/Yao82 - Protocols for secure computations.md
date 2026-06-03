@@ -1,17 +1,16 @@
 ---
-title: Protocols for Secure Computations
-URL: https://ieeexplore.ieee.org/document/4568388
+title: "Yao82"
+source: https://ieeexplore.ieee.org/document/4568388
 authors: Andrew C. Yao
 venue: FOCS 1982
-publish date: 1982
+published: 1982
 aliases:
   - Yao82
 ---
 
-# Protocols for Secure Computations
+# [Yao82] Protocols for Secure Computations
 
-URL: https://ieeexplore.ieee.org/document/4568388
-Authors: Andrew C. Yao
+**Authors:** Andrew C. Yao | **Venue:** FOCS 1982 | [Source](https://ieeexplore.ieee.org/document/4568388)
 
 ## Abstract
 

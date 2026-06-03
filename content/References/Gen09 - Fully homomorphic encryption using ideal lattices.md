@@ -1,18 +1,17 @@
 ---
-title: Fully Homomorphic Encryption Using Ideal Lattices
-URL: https://dl.acm.org/doi/10.1145/1536414.1536440
+title: "Gen09"
+source: https://dl.acm.org/doi/10.1145/1536414.1536440
 authors: Craig Gentry
 venue: STOC 2009
-publish date: 2009
+published: 2009
 aliases:
   - Gen09
 cryptobib_key: STOC:Gentry09
 ---
 
-# Fully Homomorphic Encryption Using Ideal Lattices
+# [Gen09] Fully Homomorphic Encryption Using Ideal Lattices
 
-URL: https://dl.acm.org/doi/10.1145/1536414.1536440
-Authors: Craig Gentry
+**Authors:** Craig Gentry | **Venue:** STOC 2009 | [Source](https://dl.acm.org/doi/10.1145/1536414.1536440)
 
 ## Abstract
 

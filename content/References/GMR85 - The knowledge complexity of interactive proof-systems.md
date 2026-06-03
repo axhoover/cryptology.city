@@ -1,18 +1,17 @@
 ---
-title: The Knowledge Complexity of Interactive Proof-Systems
-URL: https://dl.acm.org/doi/10.1145/22145.22178
+title: "GMR85"
+source: https://dl.acm.org/doi/10.1145/22145.22178
 authors: Shafi Goldwasser, Silvio Micali, Charles Rackoff
 venue: STOC 1985 / SIAM Journal on Computing, 1989
-publish date: 1985
+published: 1985
 aliases:
   - GMR85
 cryptobib_key: GolMicRac89
 ---
 
-# The Knowledge Complexity of Interactive Proof-Systems
+# [GMR85] The Knowledge Complexity of Interactive Proof-Systems
 
-URL: https://dl.acm.org/doi/10.1145/22145.22178
-Authors: Shafi Goldwasser, Silvio Micali, Charles Rackoff
+**Authors:** Shafi Goldwasser, Silvio Micali, Charles Rackoff | **Venue:** STOC 1985 / SIAM Journal on Computing, 1989 | [Source](https://dl.acm.org/doi/10.1145/22145.22178)
 
 ## Abstract
 
