@@ -20,11 +20,11 @@ A matrix $\mathbf{M} \in \FF_p^{m \times n}$ is _$(\gamma, d, N)$-expanding_ if 
 \algname{Game}
 \caption{$\Game^{\mathrm{nklin}}_{\calA}(\secpar)$}
 \begin{algorithmic}
-\State Sample $\mathbf{M} \in \FF_p^{m \times n}$, $(\gamma, d, N)$-expanding
-\State $\mathbf{s} \getsr \FF_p^n$; $\mathbf{e} \getsr \mathrm{Ber}_p(\varepsilon)^m$
-\Comment{$e_i = 0$ w.p.\ $1-\varepsilon$; uniform in $\FF_p^*$ w.p.\ $\varepsilon$}
+\State $\mathbf{M} \getsr \FF_p^{m \times n}$ with each column $(\gamma, d, N)$-expanding
+\State $\mathbf{s} \getsr \FF_p^n$ ; $\mathbf{e} \getsr \mathrm{Ber}_p(\varepsilon)^m$
+\Comment{Each $e_i = 0$ w.p. $1-\varepsilon$, uniform in $\FF_p^*$ w.p. $\varepsilon$}
 \State $b \getsr \bits$
-\State $\mathbf{v}_0 := \mathbf{M}\mathbf{s} + \mathbf{e}$; $\mathbf{v}_1 \getsr \FF_p^m$
+\State $\mathbf{v}_0 \gets \mathbf{M}\mathbf{s} + \mathbf{e}$ ; $\mathbf{v}_1 \getsr \FF_p^m$
 \State $b' \gets \calA(1^\secpar, \mathbf{M}, \mathbf{v}_b)$
 \Return $[b' = b]$
 \end{algorithmic}

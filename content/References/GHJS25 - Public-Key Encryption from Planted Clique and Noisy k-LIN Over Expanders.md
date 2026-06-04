@@ -7,7 +7,7 @@ published: 2025
 aliases:
   - GHJS25
 bibtex: |
-  @inproceedings{GHJS25,
+  @inproceedings{STOC:GHJS25,
     author    = {Riddhi Ghosal and Isaac M. Hair and Aayush Jain and Amit Sahai},
     title     = {Using the Planted Clique Conjecture for Cryptography: {Public-Key} Encryption from Planted Clique and Noisy $k$-{LIN} Over Expanders},
     booktitle = {Proceedings of the 57th Annual ACM Symposium on Theory of Computing},

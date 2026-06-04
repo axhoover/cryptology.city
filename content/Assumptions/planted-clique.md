@@ -9,11 +9,11 @@ title: Planted clique assumption
 
 # Planted clique assumption
 
-The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $G(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n \log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root clique sizes $k = n^\delta$ for $\delta \in (0, 1/2)$. The variant used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] strengthens this to sub-exponential adversaries.
+The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $\calG(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n \log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root clique sizes $k = n^\delta$ for $\delta \in (0, 1/2)$. The variant used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] strengthens this to sub-exponential adversaries.
 
 ## Assumption
 
-Let $G(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs where each edge appears independently with probability $1/2$. A planted $k$-clique instance is produced by sampling $G \sim G(n,1/2)$ and then forcing all edges within a uniformly random $k$-subset $S \subset [n]$ to be present.
+Let $\calG(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs where each edge appears independently with probability $1/2$. A planted $k$-clique instance is produced by sampling $G \sim \calG(n,1/2)$ and then forcing all edges within a uniformly random $k$-subset $S \subset [n]$ to be present.
 
 ```pseudocode
 \begin{algorithm}
@@ -21,7 +21,7 @@ Let $G(n,1/2)$ denote the Erdős–Rényi distribution on $n$-vertex graphs wher
 \caption{$\Game^{\mathrm{pc}}_{n,k,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $b \getsr \bits$
-\State $\mathbf{G} \getsr G(n, 1/2)$
+\State $\mathbf{G} \getsr \calG(n, 1/2)$
 \If{$b = 0$}
   \State $S \getsr \binom{[n]}{k}$
   \Comment{Uniform random $k$-subset of $[n]$}
