@@ -9,6 +9,14 @@ aliases:
   - AKS83
 tags:
   - STOC
+bibtex: |
+  @inproceedings{AKS83,
+    author    = {Mikl\'{o}s Ajtai and J\'{a}nos Koml\'{o}s and Endre Szemer\'{e}di},
+    title     = {An {$O(n \log n)$} Sorting Network},
+    booktitle = {Proceedings of the 15th Annual ACM Symposium on Theory of Computing (STOC 1983)},
+    pages     = {1--9},
+    year      = {1983}
+  }
 ---
 
 # [AKS83] An 0(n log n) sorting network

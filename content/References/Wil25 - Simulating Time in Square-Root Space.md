@@ -8,6 +8,14 @@ aliases:
   - Wil25
 tags:
   - STOC
+bibtex: |
+  @inproceedings{Wil25,
+    author    = {R. Ryan Williams},
+    title     = {Simulating Time in Square-Root Space},
+    booktitle = {Proceedings of the 57th Annual ACM Symposium on Theory of Computing (STOC 2025)},
+    year      = {2025},
+    url       = {https://arxiv.org/abs/2502.17779}
+  }
 ---
 
 # [Wil25] Simulating Time in Square-Root Space

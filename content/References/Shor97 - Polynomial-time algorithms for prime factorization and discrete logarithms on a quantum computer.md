@@ -8,6 +8,16 @@ aliases:
   - Shor97
 tags:
   - SIAMJC
+bibtex: |
+  @article{Shor97,
+    author  = {Peter W. Shor},
+    title   = {Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer},
+    journal = {SIAM Journal on Computing},
+    volume  = {26},
+    number  = {5},
+    pages   = {1484--1509},
+    year    = {1997}
+  }
 ---
 
 # [Shor97] Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer

@@ -8,6 +8,14 @@ aliases:
   - BHV26
 tags:
   - ECCC
+bibtex: |
+  @misc{BHV26,
+    author       = {John Bostanci and Andrew Huang and Vinod Vaikuntanathan},
+    title        = {Separating Quantum and Classical Advice with Good Codes},
+    howpublished = {arXiv:2602.09385},
+    year         = {2026},
+    url          = {https://arxiv.org/abs/2602.09385}
+  }
 ---
 
 # [BHV26] Separating Quantum and Classical Advice with Good Codes

@@ -8,6 +8,14 @@ aliases:
   - CHW26
 tags:
   - Eurocrypt
+bibtex: |
+  @misc{CHW26,
+    author       = {Henry Corrigan-Gibbs and Alexandra Henzinger and David J. Wu},
+    title        = {The Structured Generic-Group Model},
+    howpublished = {Cryptology ePrint Archive, Paper 2026/384},
+    year         = {2026},
+    url          = {https://eprint.iacr.org/2026/384}
+  }
 ---
 
 # [CHW26] The Structured Generic-Group Model

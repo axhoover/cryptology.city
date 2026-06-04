@@ -6,6 +6,14 @@ venue: STOC 1988
 published: 1988
 aliases:
   - BGW88
+bibtex: |
+  @inproceedings{BGW88,
+    author    = {Michael Ben-Or and Shafi Goldwasser and Avi Wigderson},
+    title     = {Completeness Theorems for Non-Cryptographic Fault-Tolerant Distributed Computation},
+    booktitle = {Proceedings of the 20th Annual ACM Symposium on Theory of Computing (STOC 1988)},
+    pages     = {1--10},
+    year      = {1988}
+  }
 ---
 
 # [BGW88] Completeness Theorems for Non-Cryptographic Fault-Tolerant Distributed Computation

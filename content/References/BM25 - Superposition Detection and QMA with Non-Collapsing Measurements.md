@@ -8,6 +8,14 @@ aliases:
   - BM25
 tags:
   - Quantum
+bibtex: |
+  @article{BM25,
+    author  = {Roozbeh Bassirian and Kunal Marwaha},
+    title   = {Superposition Detection and {QMA} with Non-Collapsing Measurements},
+    journal = {Quantum},
+    year    = {2025},
+    url     = {https://arxiv.org/abs/2403.02532}
+  }
 ---
 
 # [BM25] Superposition Detection and QMA with Non-Collapsing Measurements

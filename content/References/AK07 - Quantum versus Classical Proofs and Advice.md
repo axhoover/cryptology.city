@@ -8,6 +8,17 @@ aliases:
   - AK07
 tags:
   - CCC
+bibtex: |
+  @article{AK07,
+    author  = {Scott Aaronson and Greg Kuperberg},
+    title   = {Quantum versus Classical Proofs and Advice},
+    journal = {Theory of Computing},
+    volume  = {3},
+    pages   = {129--157},
+    year    = {2007},
+    note    = {Preliminary version in CCC 2007},
+    url     = {https://arxiv.org/abs/quant-ph/0604056}
+  }
 ---
 
 # [AK07] Quantum versus Classical Proofs and Advice

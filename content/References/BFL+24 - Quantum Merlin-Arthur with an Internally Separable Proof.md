@@ -8,6 +8,14 @@ aliases:
   - BFL+24
 tags:
   - arXiv
+bibtex: |
+  @misc{BFL+24,
+    author       = {Roozbeh Bassirian and Bill Fefferman and Itai Leigh and Kunal Marwaha and Pei Wu},
+    title        = {Quantum {Merlin-Arthur} with an Internally Separable Proof},
+    howpublished = {arXiv:2410.19152},
+    year         = {2024},
+    url          = {https://arxiv.org/abs/2410.19152}
+  }
 ---
 
 # [BFL+24] Quantum Merlin-Arthur with an Internally Separable Proof

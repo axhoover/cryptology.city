@@ -9,6 +9,16 @@ tags:
   - JCSS
 aliases:
   - Pap94
+bibtex: |
+  @article{Pap94,
+    author  = {Christos H. Papadimitriou},
+    title   = {On the Complexity of the Parity Argument and Other Inefficient Proofs of Existence},
+    journal = {Journal of Computer and System Sciences},
+    volume  = {48},
+    number  = {3},
+    pages   = {498--532},
+    year    = {1994}
+  }
 ---
 
 # [Pap94] On the complexity of the parity argument and other inefficient proofs of existence
