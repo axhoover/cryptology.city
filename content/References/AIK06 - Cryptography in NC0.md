@@ -8,6 +8,16 @@ aliases:
   - AIK06
 tags:
   - Journal-on-Computing
+bibtex: |
+  @article{AIK06,
+    author  = {Benny Applebaum and Yuval Ishai and Eyal Kushilevitz},
+    title   = {Cryptography in {NC0}},
+    journal = {SIAM Journal on Computing},
+    volume  = {36},
+    number  = {4},
+    pages   = {845--888},
+    year    = {2006}
+  }
 ---
 
 # [AIK06] Cryptography in $NC^0$

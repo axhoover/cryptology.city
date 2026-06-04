@@ -8,6 +8,17 @@ aliases:
   - NN23
 tags:
   - CCC
+bibtex: |
+  @inproceedings{NN23,
+    author    = {Anand Natarajan and Chinmay Nirkhe},
+    title     = {A Distribution Testing Oracle Separating {QMA} and {QCMA}},
+    booktitle = {38th Computational Complexity Conference (CCC 2023)},
+    series    = {LIPIcs},
+    volume    = {264},
+    pages     = {22:1--22:27},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2210.15380}
+  }
 ---
 
 # [NN23] A Distribution Testing Oracle Separation between QMA and QCMA

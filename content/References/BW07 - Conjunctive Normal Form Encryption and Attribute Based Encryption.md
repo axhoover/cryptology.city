@@ -8,6 +8,18 @@ aliases:
   - BW07
 tags:
   - TCC
+bibtex: |
+  @inproceedings{BW07,
+    author    = {Dan Boneh and Brent Waters},
+    title     = {Conjunctive, Subset, and Range Queries on Encrypted Data},
+    booktitle = {Theory of Cryptography --- TCC 2007},
+    series    = {Lecture Notes in Computer Science},
+    volume    = {4392},
+    pages     = {535--554},
+    publisher = {Springer},
+    year      = {2007},
+    url       = {https://eprint.iacr.org/2006/465}
+  }
 ---
 
 # [BW07] Conjunctive, Subset, and Range Queries on Encrypted Data

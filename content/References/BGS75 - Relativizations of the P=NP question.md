@@ -8,6 +8,16 @@ aliases:
   - BGS75
 tags:
   - SICOMP
+bibtex: |
+  @article{BGS75,
+    author  = {Theodore Baker and John Gill and Robert Solovay},
+    title   = {Relativizations of the {$\mathcal{P} =? \mathcal{NP}$} Question},
+    journal = {SIAM Journal on Computing},
+    volume  = {4},
+    number  = {4},
+    pages   = {431--442},
+    year    = {1975}
+  }
 ---
 
 # [BGS75] Relativizations of the P=NP question

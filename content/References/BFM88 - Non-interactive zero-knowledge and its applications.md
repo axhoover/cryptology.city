@@ -6,6 +6,14 @@ venue: STOC 1988
 published: 1988
 aliases:
   - BFM88
+bibtex: |
+  @inproceedings{BFM88,
+    author    = {Manuel Blum and Paul Feldman and Silvio Micali},
+    title     = {Non-Interactive Zero-Knowledge and Its Applications},
+    booktitle = {Proceedings of the 20th Annual ACM Symposium on Theory of Computing (STOC 1988)},
+    pages     = {103--112},
+    year      = {1988}
+  }
 ---
 
 # [BFM88] Non-Interactive Zero-Knowledge and Its Applications

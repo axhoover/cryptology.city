@@ -1,19 +1,27 @@
 ---
-title: "GM87"
+title: "GMW87"
 source: https://dl.acm.org/doi/10.1145/28395.28420
 authors: Oded Goldreich, Silvio Micali, Avi Wigderson
-venue: preprint
+venue: STOC 1987
 published: 1987-01-01
 created: 2025-03-01
 aliases:
-  - GM87
+  - GMW87
 tags:
-  - preprint
+  - STOC
+bibtex: |
+  @inproceedings{GMW87,
+    author    = {Oded Goldreich and Silvio Micali and Avi Wigderson},
+    title     = {How to Play {ANY} Mental Game or A Completeness Theorem for Protocols with Honest Majority},
+    booktitle = {Proceedings of the 19th Annual ACM Symposium on Theory of Computing (STOC 1987)},
+    pages     = {218--229},
+    year      = {1987}
+  }
 ---
 
-# [GM87] How to play ANY mental game
+# [GMW87] How to play ANY mental game
 
-**Authors:** Oded Goldreich, Silvio Micali, Avi Wigderson | **Venue:** preprint | [Source](https://dl.acm.org/doi/10.1145/28395.28420)
+**Authors:** Oded Goldreich, Silvio Micali, Avi Wigderson | **Venue:** STOC 1987 | [Source](https://dl.acm.org/doi/10.1145/28395.28420)
 
 ## Abstract
 

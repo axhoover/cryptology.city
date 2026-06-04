@@ -8,6 +8,18 @@ aliases:
   - Wat11
 tags:
   - PKC
+bibtex: |
+  @inproceedings{Wat11,
+    author    = {Brent Waters},
+    title     = {Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization},
+    booktitle = {Public-Key Cryptography --- PKC 2011},
+    series    = {Lecture Notes in Computer Science},
+    volume    = {6571},
+    pages     = {53--70},
+    publisher = {Springer},
+    year      = {2011},
+    url       = {https://eprint.iacr.org/2008/290}
+  }
 ---
 
 # [Wat11] Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization

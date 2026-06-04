@@ -9,6 +9,14 @@ aliases:
   - Impagliazzo's Five Worlds
 tags:
   - Complexity
+bibtex: |
+  @inproceedings{Imp95,
+    author    = {Russell Impagliazzo},
+    title     = {A Personal View of Average-Case Complexity},
+    booktitle = {Proceedings of the 10th Annual Structure in Complexity Theory Conference},
+    pages     = {134--147},
+    year      = {1995}
+  }
 ---
 
 # [Imp95] A personal view of average-case complexity

@@ -8,6 +8,16 @@ aliases:
   - GG21
 tags:
   - Discrete Applied Mathematics
+bibtex: |
+  @article{GG21,
+    author  = {Shoni Gilboa and Shay Gueron},
+    title   = {The Advantage of Truncated Permutations},
+    journal = {Discrete Applied Mathematics},
+    volume  = {294},
+    pages   = {214--223},
+    year    = {2021},
+    url     = {https://arxiv.org/abs/1610.02518}
+  }
 ---
 
 # [GG21] The Advantage of Truncated Permutations

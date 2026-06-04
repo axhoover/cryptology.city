@@ -8,6 +8,14 @@ aliases:
   - BH26
 tags:
   - ePrint
+bibtex: |
+  @misc{BH26,
+    author       = {Cruz Barnum and David Heath},
+    title        = {How to Steal Oblivious Transfer from Minicrypt},
+    howpublished = {Cryptology ePrint Archive, Paper 2026/113},
+    year         = {2026},
+    url          = {https://eprint.iacr.org/2026/113}
+  }
 ---
 
 # [BH26] How to Steal Oblivious Transfer from Minicrypt

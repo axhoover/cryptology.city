@@ -8,6 +8,17 @@ aliases:
   - Zal97
 tags:
   - preprint
+bibtex: |
+  @article{Zal97,
+    author  = {Christof Zalka},
+    title   = {Grover's Quantum Searching Algorithm Is Optimal},
+    journal = {Physical Review A},
+    volume  = {60},
+    number  = {4},
+    pages   = {2746--2751},
+    year    = {1999},
+    url     = {https://arxiv.org/abs/quant-ph/9711070}
+  }
 ---
 
 # [Zal97] Grover's quantum searching algorithm is optimal

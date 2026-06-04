@@ -8,6 +8,15 @@ aliases:
   - BHNZ25
 tags:
   - STOC
+bibtex: |
+  @misc{BHNZ25,
+    author       = {John Bostanci and Jonas Haferkamp and Chinmay Nirkhe and Mark Zhandry},
+    title        = {Separating {QMA} from {QCMA} with a Classical Oracle},
+    howpublished = {arXiv:2511.09551},
+    note         = {To appear, STOC 2026},
+    year         = {2025},
+    url          = {https://arxiv.org/abs/2511.09551}
+  }
 ---
 
 # [BHNZ25] Separating QMA from QCMA with a Classical Oracle

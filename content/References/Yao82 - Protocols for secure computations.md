@@ -6,6 +6,14 @@ venue: FOCS 1982
 published: 1982
 aliases:
   - Yao82
+bibtex: |
+  @inproceedings{Yao82,
+    author    = {Andrew C. Yao},
+    title     = {Protocols for Secure Computations},
+    booktitle = {23rd Annual Symposium on Foundations of Computer Science (FOCS 1982)},
+    pages     = {160--164},
+    year      = {1982}
+  }
 ---
 
 # [Yao82] Protocols for Secure Computations

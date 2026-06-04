@@ -8,6 +8,16 @@ aliases:
   - BS98
 tags:
   - IEEE Transactions on Information Theory
+bibtex: |
+  @article{BS98,
+    author  = {Dan Boneh and James Shaw},
+    title   = {Collusion-Secure Fingerprinting for Digital Data},
+    journal = {IEEE Transactions on Information Theory},
+    volume  = {44},
+    number  = {5},
+    pages   = {1897--1905},
+    year    = {1998}
+  }
 ---
 
 # [BS98] Collusion-secure fingerprinting for digital data

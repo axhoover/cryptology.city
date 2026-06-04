@@ -8,6 +8,17 @@ aliases:
   - Mau05
 tags:
   - IMA
+bibtex: |
+  @inproceedings{Mau05,
+    author    = {Ueli Maurer},
+    title     = {Abstract Models of Computation in Cryptography},
+    booktitle = {Cryptography and Coding --- 10th IMA International Conference},
+    series    = {Lecture Notes in Computer Science},
+    volume    = {3796},
+    pages     = {1--12},
+    publisher = {Springer},
+    year      = {2005}
+  }
 ---
 
 # [Mau05] Abstract Models of Computation in Cryptography

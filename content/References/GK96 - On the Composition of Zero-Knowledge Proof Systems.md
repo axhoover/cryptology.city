@@ -8,6 +8,16 @@ aliases:
   - GK96
 tags:
   - SIAMJC
+bibtex: |
+  @article{GK96,
+    author  = {Oded Goldreich and Hugo Krawczyk},
+    title   = {On the Composition of Zero-Knowledge Proof Systems},
+    journal = {SIAM Journal on Computing},
+    volume  = {25},
+    number  = {1},
+    pages   = {169--192},
+    year    = {1996}
+  }
 ---
 
 # [GK96] On the Composition of Zero-Knowledge Proof Systems

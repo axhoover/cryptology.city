@@ -8,6 +8,16 @@ aliases:
   - CCG+94
 tags:
   - JCSS
+bibtex: |
+  @article{CCG+94,
+    author  = {Richard Chang and Benny Chor and Oded Goldreich and Juris Hartmanis and Johan H{\aa}stad and Desh Ranjan and Pankaj Rohatgi},
+    title   = {The Random Oracle Hypothesis Is False},
+    journal = {Journal of Computer and System Sciences},
+    volume  = {49},
+    number  = {1},
+    pages   = {24--39},
+    year    = {1994}
+  }
 ---
 
 # [CCG+94] The random oracle hypothesis is false

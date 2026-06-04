@@ -3,12 +3,20 @@ title: "Ost91"
 source: https://ieeexplore.ieee.org/document/160253
 authors: Rafail Ostrovsky
 venue: IEEE Complexity 1991
-published: 1991-06-31
+published: 1991-06-30
 created: 2025-02-20
 aliases:
   - Ost91
 tags:
   - Complexity
+bibtex: |
+  @inproceedings{Ost91,
+    author    = {Rafail Ostrovsky},
+    title     = {One-Way Functions, Hard on Average Problems, and Statistical Zero-Knowledge Proofs},
+    booktitle = {Proceedings of the 6th Annual Structure in Complexity Theory Conference},
+    pages     = {133--138},
+    year      = {1991}
+  }
 ---
 
 # [Ost91] One-way functions, hard on average problems, and statistical zero-knowledge proofs

@@ -8,6 +8,14 @@ aliases:
   - GG98
 tags:
   - preprint
+bibtex: |
+  @misc{GG98,
+    author       = {Oded Goldreich and Shafi Goldwasser},
+    title        = {On the Possibility of Basing Cryptography on the Assumption that {$P \neq NP$}},
+    howpublished = {Cryptology ePrint Archive, Paper 1998/005},
+    year         = {1998},
+    url          = {https://eprint.iacr.org/1998/005}
+  }
 ---
 
 # [GG98] On the possibility of basing Cryptography on the assumption that $P \neq NP$

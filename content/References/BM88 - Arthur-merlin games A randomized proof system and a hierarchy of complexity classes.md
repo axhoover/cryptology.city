@@ -8,6 +8,16 @@ aliases:
   - BM88
 tags:
   - JCSS
+bibtex: |
+  @article{BM88,
+    author  = {L\'{a}szl\'{o} Babai and Shlomo Moran},
+    title   = {Arthur-Merlin Games: A Randomized Proof System, and a Hierarchy of Complexity Classes},
+    journal = {Journal of Computer and System Sciences},
+    volume  = {36},
+    number  = {2},
+    pages   = {254--276},
+    year    = {1988}
+  }
 ---
 
 # [BM88] Arthur-merlin games A randomized proof system and a hierarchy of complexity classes

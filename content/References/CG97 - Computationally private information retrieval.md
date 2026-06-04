@@ -9,6 +9,14 @@ aliases:
   - CG97
 tags:
   - STOC
+bibtex: |
+  @inproceedings{CG97,
+    author    = {Benny Chor and Niv Gilboa},
+    title     = {Computationally Private Information Retrieval},
+    booktitle = {Proceedings of the 29th Annual ACM Symposium on Theory of Computing (STOC 1997)},
+    pages     = {304--313},
+    year      = {1997}
+  }
 ---
 
 # [CG97] Computationally private information retrieval

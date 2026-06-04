@@ -8,6 +8,17 @@ aliases:
   - BFM23
 tags:
   - TQC
+bibtex: |
+  @inproceedings{BFM23,
+    author    = {Roozbeh Bassirian and Bill Fefferman and Kunal Marwaha},
+    title     = {On the Power of Nonstandard Quantum Oracles},
+    booktitle = {18th Conference on the Theory of Quantum Computation, Communication and Cryptography (TQC 2023)},
+    series    = {LIPIcs},
+    volume    = {266},
+    pages     = {11:1--11:25},
+    year      = {2023},
+    url       = {https://arxiv.org/abs/2212.00098}
+  }
 ---
 
 # [BFM23] On the Power of Nonstandard Quantum Oracles

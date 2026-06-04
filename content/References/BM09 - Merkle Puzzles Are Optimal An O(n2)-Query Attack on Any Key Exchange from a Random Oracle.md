@@ -8,6 +8,18 @@ aliases:
   - BM09
 tags:
   - CRYPTO
+bibtex: |
+  @inproceedings{BM09,
+    author    = {Boaz Barak and Mohammad Mahmoody-Ghidary},
+    title     = {Merkle Puzzles Are Optimal --- An {$O(n^2)$}-Query Attack on Any Key Exchange from a Random Oracle},
+    booktitle = {Advances in Cryptology --- CRYPTO 2009},
+    series    = {Lecture Notes in Computer Science},
+    volume    = {5677},
+    pages     = {374--390},
+    publisher = {Springer},
+    year      = {2009},
+    url       = {https://eprint.iacr.org/2008/032}
+  }
 ---
 
 # [BM09] Merkle Puzzles Are Optimal — An O(n²)-Query Attack on Any Key Exchange from a Random Oracle

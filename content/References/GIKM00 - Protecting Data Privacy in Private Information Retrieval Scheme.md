@@ -8,6 +8,16 @@ aliases:
   - GIKM00
 tags:
   - STOC
+bibtex: |
+  @article{GIKM00,
+    author  = {Yael Gertner and Yuval Ishai and Eyal Kushilevitz and Tal Malkin},
+    title   = {Protecting Data Privacy in Private Information Retrieval Schemes},
+    journal = {Journal of Computer and System Sciences},
+    volume  = {60},
+    number  = {3},
+    pages   = {592--629},
+    year    = {2000}
+  }
 ---
 
 # [GIKM00] Protecting Data Privacy in Private Information Retrieval Scheme

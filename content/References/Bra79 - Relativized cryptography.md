@@ -9,6 +9,14 @@ aliases:
   - Bra79
 tags:
   - FOCS
+bibtex: |
+  @inproceedings{Bra79,
+    author    = {Gilles Brassard},
+    title     = {Relativized Cryptography},
+    booktitle = {20th Annual Symposium on Foundations of Computer Science (FOCS 1979)},
+    pages     = {383--391},
+    year      = {1979}
+  }
 ---
 
 # [Bra79] Relativized cryptography
