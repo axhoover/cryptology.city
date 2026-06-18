@@ -38,7 +38,7 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 
 ## Symmetric vs. asymmetric pairings
 
-A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). Asymmetric pairings (Type-3) support stronger assumptions (SXDH: DDH is hard in both $\GG_1$ and $\GG_2$) and are used in most modern constructions.
+A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). Asymmetric pairings (Type 3) support stronger assumptions (SXDH: DDH is hard in both $\GG_1$ and $\GG_2$) and are used in most modern constructions. See [[pairings|Pairings]] for the full Type 1/2/3 classification and efficiency trade-offs — [[GPS06 - Pairings for Cryptographers|GPS06]].
 
 ## $k$-Linear assumption
 
