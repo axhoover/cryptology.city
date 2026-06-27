@@ -1,10 +1,14 @@
 {
-  "run_count": 12,
-  "head_sha": "67fd7d2a4f33ac9ed0740c93ea934a408d346c30",
-  "previous_sha": "6bfc6226cd26bf2b58fd7750089e361829f6d000",
-  "timestamp": "2026-06-20T07:01:19.751Z",
-  "days_since_last_run": 7.001750451388889,
-  "changed_files": [],
+  "run_count": 13,
+  "head_sha": "11738c847b5859982bb7bc9ff2d914e5c8b79ebb",
+  "previous_sha": "67fd7d2a4f33ac9ed0740c93ea934a408d346c30",
+  "timestamp": "2026-06-27T06:29:38.875Z",
+  "days_since_last_run": 6.977998877314815,
+  "changed_files": [
+    "content/Assumptions/bilinear-map-assumptions.md",
+    "content/Glossary/pairings.md",
+    "content/References/GPS06 - Pairings for Cryptographers.md"
+  ],
   "queue_summary": {
     "exists": false,
     "counts": {},
@@ -13,25 +17,36 @@
   "open_todos": 38,
   "bots": {
     "editor": {
-      "run": false,
-      "scope": [],
-      "reason": "no content changes since last run"
+      "run": true,
+      "scope": [
+        "content/Assumptions/bilinear-map-assumptions.md",
+        "content/Glossary/pairings.md",
+        "content/References/GPS06 - Pairings for Cryptographers.md"
+      ],
+      "reason": "3 content file(s) changed since last run"
     },
     "reference_fixer": {
       "run": true,
-      "mode": "link-rot-sweep",
-      "scope": [],
-      "reason": "periodic link-rot sweep (run #12, every 4 runs)"
+      "mode": "diff-scoped",
+      "scope": [
+        "content/Assumptions/bilinear-map-assumptions.md",
+        "content/Glossary/pairings.md",
+        "content/References/GPS06 - Pairings for Cryptographers.md"
+      ],
+      "reason": "3 reference-touching change(s)"
     },
     "skeptical_checker": {
       "run": true,
-      "scope": [],
-      "reason": "bootstrapping fact-check queue"
+      "scope": [
+        "content/Assumptions/bilinear-map-assumptions.md",
+        "content/Glossary/pairings.md"
+      ],
+      "reason": "2 deep-content file(s) changed"
     },
     "refactor_simplifier": {
       "run": false,
       "scope": "oldest-pages",
-      "reason": "no content changes in 7 days"
+      "reason": "recent activity and verifications are fresh"
     },
     "todo_triage": {
       "run": true,
