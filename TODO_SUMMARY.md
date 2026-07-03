@@ -76,7 +76,7 @@ _Last updated: 2026-05-06_
 - [ ] [Content] `content/Complexity/polynomial-time.md` stub — has a definition but the `Known relationships` heading has no content — _source: content/Complexity/polynomial-time.md_
 - [ ] [Math] `\mathbf{PH}` used directly in complexity files (no `\classPH` macro exists) — consider adding `\classPH` → `\mathbf{PH}` to macros.ts and latex-macros.md — _source: content/Complexity/probabilistic-polynomial-time.md:19, co-arthur-merlin.md:19, p-poly.md:24, merlin-arthur.md:23_
 - [ ] [Content] DDH assumption page: three empty variation sections (DLIN, k-Lin, Matrix Diffie-Hellman) — _source: content/Assumptions/decisional-diffie-hellman.md:66,70,74_
-- [ ] [Navigation] Citation link `[[CIMR25 - Secret-Key PIR from Random Linear Codes]]` is missing the display-text suffix `|CIMR25` per site convention — _source: content/Assumptions/learning-parity-with-noise.md:66_
+- [x] [Navigation] Citation link `[[CIMR25 - Secret-Key PIR from Random Linear Codes]]` is missing the display-text suffix `|CIMR25` per site convention — _source: content/Assumptions/learning-parity-with-noise.md:66_
 
 ---
 
@@ -91,8 +91,6 @@ _Last updated: 2026-05-06_
   - `content/Complexity/quantum-classical-merlin-arthur.md:13,14`
   - `content/Glossary/arithmetization.md:53`
   - `content/Glossary/generic-group-model.md:14`
-  - `content/Assumptions/decisional-diffie-hellman.md:49`
-  - `content/Assumptions/alternating-moduli.md`
   - `content/Complexity/sharp-p.md:11`
 
 ---

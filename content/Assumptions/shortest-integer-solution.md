@@ -11,7 +11,7 @@ The _Shortest Integer Solution (SIS)_ problem is a lattice problem used as the h
 
 ## Assumption
 
-Informally, SIS asks: given a random matrix $\mathbf{A} \in \ZZ_q^{n \times m}$, find a nonzero short integer vector $\mathbf{z} \in \ZZ^m$ in the kernel of $\mathbf{A}$ modulo $q$. Such a vector always exists when $m > n \log q$ (by a pigeonhole argument), so the hardness lies purely in *finding* one efficiently.
+Informally, SIS asks: given a random matrix $\mathbf{A} \in \ZZ_q^{n \times m}$, find a nonzero short integer vector $\mathbf{z} \in \ZZ^m$ in the kernel of $\mathbf{A}$ modulo $q$. Such a vector always exists when $m > n \log q$ (by a pigeonhole argument), so the hardness lies purely in _finding_ one efficiently.
 
 The assumption is parameterized by a lattice dimension $n$, a column count $m$, a modulus $q$, and a norm bound $\beta$. Typical parameters satisfy $q = \poly(n)$, $m = \Theta(n \log q)$, and $\beta \ll q$.
 
@@ -47,7 +47,7 @@ The function family $\{f_\mathbf{A} : \mathbf{z} \mapsto \mathbf{Az} \bmod q\}$,
 
 ## Attacks
 
-- **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\Lambda^\perp(\mathbf{A}) = \{\mathbf{z} \in \ZZ^m : \mathbf{Az} = \mathbf{0} \pmod q\}$ using BKZ-style block reduction algorithms. Runtime is sub-exponential in the BKZ block size — *standard*.
+- **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\Lambda^\perp(\mathbf{A}) = \{\mathbf{z} \in \ZZ^m : \mathbf{Az} = \mathbf{0} \pmod q\}$ using BKZ-style block reduction algorithms. Runtime is sub-exponential in the BKZ block size — _standard_.
 
 # Variations
 

@@ -7,10 +7,9 @@ aliases:
 title: Alternating moduli assumption
 ---
 
-# Alternating Moduli 
+# Alternating Moduli
 
 The _alternating moduli assumption_ (also called _Crypto Dark Matter_[^1] after [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]) posits that mixing linear operations over different moduli — specifically $\ZZ_2$ (XOR) and $\ZZ_3$ (mod-3 addition) — yields candidate [[pseudorandom-function|PRF]] constructions that are computationally indistinguishable from random, under assumptions not known to reduce to standard assumptions like [[learning-with-errors|LWE]] or [[learning-parity-with-noise|LPN]].
-
 
 ## Assumption
 
@@ -30,7 +29,7 @@ where $A \getsr \ZZ_2^{m \times n}$ is the secret key and $B \getsr \ZZ_3^{\ell 
 \caption{$\Game^{\text{weak-am}}_{\calA}(\secpar)$}
 \begin{algorithmic}
 \State $A \getsr \ZZ_2^{m \times n}$; $B \getsr \ZZ_3^{\ell \times m}$
-\State $b \getsr \{0,1\}$
+\State $b \getsr \bits$
 \State $\calO_0() := (x \getsr \bits^n;\; (x,\; B \cdot (A \cdot x \bmod 2) \bmod 3))$
 \State $\calO_1() := (x \getsr \bits^n;\; y \getsr \ZZ_3^\ell;\; (x, y))$
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
@@ -55,7 +54,7 @@ is negligible.
 \caption{$\Game^{\mathrm{am}}_{\calA}(\secpar)$}
 \begin{algorithmic}
 \State $A \getsr \ZZ_2^{m \times n}$; $B \getsr \ZZ_3^{\ell \times m}$
-\State $b \getsr \{0,1\}$
+\State $b \getsr \bits$
 \State $R \getsr \Funcs(\bits^n, \ZZ_3^\ell)$
 \Comment{Can be sampled lazily}
 \State $\calO_0(x) := B \cdot (A \cdot x \bmod 2) \bmod 3$
@@ -95,6 +94,5 @@ A related paradigm where short seeds expand to long correlated randomness useful
 
 - Ongoing cryptanalytic attention; several early candidates have been partially broken or weakened
 - Algebraic attacks exploiting the mixed-moduli structure (Gröbner basis methods, linearization) remain the primary avenue
-
 
 [^1]: The name "Crypto Dark Matter" reflects the idea that large regions of the cryptographic assumption landscape remain unexplored.

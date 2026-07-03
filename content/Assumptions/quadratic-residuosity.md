@@ -21,7 +21,7 @@ Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or 
 \caption{$\Game^{\mathrm{qr}}_{\calA}(\secpar)$}
 \begin{algorithmic}
 \State $(p, q) \getsr$ distinct $\secpar$-bit primes with $p \equiv q \equiv 3 \pmod{4}$; $N \gets pq$
-\State $b \getsr \{0,1\}$
+\State $b \getsr \bits$
 \If{$b = 0$}
   \State $r \getsr \ZZ_N^*$; $a \gets r^2 \bmod N$
   \Comment{$a \in \QR_N$}

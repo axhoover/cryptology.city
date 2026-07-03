@@ -9,7 +9,7 @@ title: Noisy k-LIN over expanders
 
 # Noisy k-LIN over expanders
 
-The _noisy $k$-LIN over expanders_ conjecture conjectures that no efficient adversary can distinguish $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$ from a uniformly random pair when $\mathbf{M}$ is a sparse expanding matrix over $\FF_p$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Conjecture 4.3. It is an $\FF_p$ generalization of the [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]] assumption; over $\FF_2$, the two coincide. The name "$k$-LIN" also appears in [[bilinear-map-assumptions|bilinear map cryptography]] for the Decision $k$-Linear assumption — a group-theoretic hardness assumption in pairing groups unrelated to the sparse noise structure here.
+The _noisy $k$-LIN over expanders_ conjecture posits that no efficient adversary can distinguish $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$ from a uniformly random pair when $\mathbf{M}$ is a sparse expanding matrix over $\FF_p$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Conjecture 4.3. It is an $\FF_p$ generalization of the [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]] assumption; over $\FF_2$, the two coincide. The name "$k$-LIN" also appears in [[bilinear-map-assumptions|bilinear map cryptography]] for the Decision $k$-Linear assumption — a group-theoretic hardness assumption in pairing groups unrelated to the sparse noise structure here.
 
 ## Assumption
 
