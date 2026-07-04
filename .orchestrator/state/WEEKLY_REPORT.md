@@ -1,40 +1,29 @@
-# Weekly Orchestrator Report — run #13
+# Weekly Orchestrator Report — run #14
 
-- **Head:** `11738c847b5859982bb7bc9ff2d914e5c8b79ebb`
-- **Previous:** `67fd7d2a4f33ac9ed0740c93ea934a408d346c30`
-- **Days since last run:** 6.977998877314815
-- **Changed content files:** 3
+- **Head:** `f2ff380d76ccf5de5a72f8b96fc9187a1d7569b3`
+- **Previous:** `11738c847b5859982bb7bc9ff2d914e5c8b79ebb`
+- **Days since last run:** 6.993409340277778
+- **Changed content files:** 0
 - **Open TODOs:** 38
 - **LLM refinement:** no
 
 ## Bot decisions
 
-### `editor` — **RUN**
+### `editor` — skip
 
-- Reason: 3 content file(s) changed since last run
-- Scope (3):
-  - `content/Assumptions/bilinear-map-assumptions.md`
-  - `content/Glossary/pairings.md`
-  - `content/References/GPS06 - Pairings for Cryptographers.md`
+- Reason: no content changes since last run
 
-### `reference_fixer` — **RUN**
+### `reference_fixer` — skip
 
-- Reason: 3 reference-touching change(s)
-- Scope (3):
-  - `content/Assumptions/bilinear-map-assumptions.md`
-  - `content/Glossary/pairings.md`
-  - `content/References/GPS06 - Pairings for Cryptographers.md`
+- Reason: no reference-touching changes
 
 ### `skeptical_checker` — **RUN**
 
-- Reason: 2 deep-content file(s) changed
-- Scope (2):
-  - `content/Assumptions/bilinear-map-assumptions.md`
-  - `content/Glossary/pairings.md`
+- Reason: bootstrapping fact-check queue
 
 ### `refactor_simplifier` — skip
 
-- Reason: recent activity and verifications are fresh
+- Reason: no content changes in 6 days
 
 ### `todo_triage` — **RUN**
 

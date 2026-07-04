@@ -1,14 +1,10 @@
 {
-  "run_count": 13,
-  "head_sha": "11738c847b5859982bb7bc9ff2d914e5c8b79ebb",
-  "previous_sha": "67fd7d2a4f33ac9ed0740c93ea934a408d346c30",
-  "timestamp": "2026-06-27T06:29:38.875Z",
-  "days_since_last_run": 6.977998877314815,
-  "changed_files": [
-    "content/Assumptions/bilinear-map-assumptions.md",
-    "content/Glossary/pairings.md",
-    "content/References/GPS06 - Pairings for Cryptographers.md"
-  ],
+  "run_count": 14,
+  "head_sha": "f2ff380d76ccf5de5a72f8b96fc9187a1d7569b3",
+  "previous_sha": "11738c847b5859982bb7bc9ff2d914e5c8b79ebb",
+  "timestamp": "2026-07-04T06:20:09.454Z",
+  "days_since_last_run": 6.993409340277778,
+  "changed_files": [],
   "queue_summary": {
     "exists": false,
     "counts": {},
@@ -17,36 +13,25 @@
   "open_todos": 38,
   "bots": {
     "editor": {
-      "run": true,
-      "scope": [
-        "content/Assumptions/bilinear-map-assumptions.md",
-        "content/Glossary/pairings.md",
-        "content/References/GPS06 - Pairings for Cryptographers.md"
-      ],
-      "reason": "3 content file(s) changed since last run"
+      "run": false,
+      "scope": [],
+      "reason": "no content changes since last run"
     },
     "reference_fixer": {
-      "run": true,
+      "run": false,
       "mode": "diff-scoped",
-      "scope": [
-        "content/Assumptions/bilinear-map-assumptions.md",
-        "content/Glossary/pairings.md",
-        "content/References/GPS06 - Pairings for Cryptographers.md"
-      ],
-      "reason": "3 reference-touching change(s)"
+      "scope": [],
+      "reason": "no reference-touching changes"
     },
     "skeptical_checker": {
       "run": true,
-      "scope": [
-        "content/Assumptions/bilinear-map-assumptions.md",
-        "content/Glossary/pairings.md"
-      ],
-      "reason": "2 deep-content file(s) changed"
+      "scope": [],
+      "reason": "bootstrapping fact-check queue"
     },
     "refactor_simplifier": {
       "run": false,
       "scope": "oldest-pages",
-      "reason": "recent activity and verifications are fresh"
+      "reason": "no content changes in 6 days"
     },
     "todo_triage": {
       "run": true,
