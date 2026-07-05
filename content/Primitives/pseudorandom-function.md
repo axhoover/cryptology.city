@@ -60,7 +60,7 @@ Note that for domains much larger than the range, $\Invert$ may return exponenti
 
 ### Correctness
 
-With an inversion function, it also makes sense to restrict an iPRF to be **correct**. Meaning if for all for all $x\in \calD,$
+With an inversion function, it also makes sense to restrict an iPRF to be **correct**. Meaning if for all $x\in \calD,$
 $\Pr[x \in \Invert(k, y): \Eval(k, x) = y] = 1,$
 where the probability is taken over $k \gets \KeyGen(1^{\secpar}).$
 
@@ -97,7 +97,7 @@ $$
 
 is negligible.
 
-### Related results results
+### Related results
 
 - PRFs imply the existence of iPRFs — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]
 - [[pseudorandom-permutation|PRP]]s over large domains are iPRFs — [[switching-lemma|Switching Lemma]]

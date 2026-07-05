@@ -22,11 +22,11 @@ A $k$-server Private Information Retrieval (PIR) for a database of size $n$ is a
 
 ### Correctness
 
-A PIR is correct if for all $D \in \{0, 1\}^n$, $i \in [n]$, and $r \in R$ $$\Recon(i,a_1,\ldots,a_k ; r) = D[i]$$ where each $a_s \leftarrow \Answer(s, q_s, D)$ and $(q_1, \ldots, q_k) \leftarrow \Query(i; r)$.
+A PIR is correct if for all $D \in \bits^n$, $i \in [n]$, and $r \in R$ $$\Recon(i,a_1,\ldots,a_k ; r) = D[i]$$ where each $a_s \leftarrow \Answer(s, q_s, D)$ and $(q_1, \ldots, q_k) \leftarrow \Query(i; r)$.
 
 ### Privacy
 
-A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \{0, 1\}^u$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
+A PIR is private if for every $i, j \in [n]$, $s \in [k]$, and $q \in \bits^u$, $$\Pr_r[\Query(i; r)[s] = q] = \Pr_r[\Query(j; r)[s] = q].$$
 
 Intuitively, this means that each server observes the same query uploaded with the same probability.
 
@@ -45,4 +45,3 @@ TODO
 # Other results
 
 - The typical setting is the 1-bit array (also called database), since you can build a $w$-bit PIR using just $w$ copies of a 1-bit PIR.
--

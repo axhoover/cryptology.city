@@ -2,7 +2,6 @@
 aliases:
   - TDH
   - Trapdoor hash functions
-  - Trapdoor hash functions
 title: Trapdoor hash functions
 ---
 

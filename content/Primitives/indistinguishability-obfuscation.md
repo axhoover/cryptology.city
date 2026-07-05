@@ -50,5 +50,5 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - iO + OWF → functional encryption for all circuits — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]], [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - iO + OWF → [[non-interactive-zero-knowledge|NIZK]] in the plain model (no CRS) — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - iO + OWF → deniable encryption, lossy functions, and many other primitives — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
-- iO is implied by functional encryption for $\mathrm{P}/\mathrm{poly}$ (circuits of any polynomial size) in a strong sense — standard
+- iO is implied by functional encryption for $\classPpoly$ (circuits of any polynomial size) in a strong sense — standard
 - VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard

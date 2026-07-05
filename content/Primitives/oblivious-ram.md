@@ -8,7 +8,7 @@ title: Oblivious RAM
 
 # Oblivious RAM
 
-Oblivious RAM (ORAM) was first introduced by [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. It is a primitive that provides a generic compilation of any random-access memory (RAM) program to one which hides the accesses pattern of the underlying RAM.
+Oblivious RAM (ORAM) was first introduced by [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. It is a primitive that provides a generic compilation of any random-access memory (RAM) program to one which hides the access pattern of the underlying RAM.
 
 **Note**: Oblivious RAM schemes can provide statistical or unconditional security against adversaries who only know which array indices are accessed. However, in practice one almost always needs to deploy ORAM together with standard symmetric encryption.
 
@@ -20,7 +20,7 @@ Throughout, we use the following notation. All oblivious RAM schemes are defined
 - $\mathsf{WrOps}_j = \{(i, b) \mid i \in \mathsf{RdOps}_j, b \in \calB_j\}$
 - $\mathsf{Ops}_j = \mathsf{RdOps}_j \cup \mathsf{WrOps}_j$
   These are the allowed operations for the virtual array ($j = 1$) and the physical array ($j = 2$).
-  An $r$-round Oblivious RAM (ORAM) is a tuple of efficient functions $(\mathsf{Gen}, \mathsf{Acc}_1, \ldots, \mathsf{Acc}_r, \mathsf{Out})$ such that:
+  An $r$-round Oblivious RAM (ORAM) is a tuple of efficient functions $(\Gen, \mathsf{Acc}_1, \ldots, \mathsf{Acc}_r, \mathsf{Out})$ such that:
   TODO
   The above functions describe the processing of the Oblivious RAM query. They are used in the following way to process a query at index $i$, for a physical array $M_2$:
 

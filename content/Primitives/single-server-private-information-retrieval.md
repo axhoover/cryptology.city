@@ -9,7 +9,7 @@ title: Private Information Retrieval
 
 # Private Information Retrieval
 
-(Single-server) PIR is the principle variant of PIR that is studied in the literature, introduced by [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. It is deployed in a setting where a server holds a database (represented as an array) and a client is interested in learning one of the database items. A PIR protocol allows the client to learn the entry without revealing which entry the client is interested in.
+(Single-server) PIR is the principal variant of PIR that is studied in the literature, introduced by [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. It is deployed in a setting where a server holds a database (represented as an array) and a client is interested in learning one of the database items. A PIR protocol allows the client to learn the entry without revealing which entry the client is interested in.
 
 The protocol where the client downloads the entire database is known as the _trivial PIR_.
 
@@ -25,7 +25,7 @@ A PIR scheme is a tuple of efficient algorithms $\PIR = (\Setup, \Query, \Answer
 
 While PIR is typically represented with data-elements as single bits, most
 constructions support words from $\bits^{w}.$ There is also a generic
-transformation between the two. In particular, on can treat any $w$-width
+transformation between the two. In particular, one can treat any $w$-width
 word database as a bit-string and just query for the $w$ consecutive bits
 the client is interested in.
 
@@ -76,7 +76,7 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 
 # Variations
 
-- [[multi-server-private-information-retrieval|Multi-server PIR]] is an information theoretic variant, which requires multiple servers
+- [[multi-server-private-information-retrieval|Multi-server PIR]] is an information-theoretic variant, which requires multiple servers
 - [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
 - [[single-server-private-information-retrieval#Secret-Key PIR (SK-PIR)|Secret-Key PIR (SK-PIR)]] achieves sublinear online communication using client preprocessing with a secret key
 - Keyword PIR

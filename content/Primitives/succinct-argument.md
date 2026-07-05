@@ -19,13 +19,13 @@ A succinct argument system for a relation $\calR$ is a tuple of efficient algori
 
 - $\Setup(1^\secpar, C) \to \crs,$ takes a security parameter and a circuit $C$ (or a bound on circuit size for universal schemes) and produces a common reference string $\crs$. For transparent systems, $\Setup$ is public-coin (no trapdoor).
 - $\Prove(\crs, x, w) \to \pi,$ takes the CRS, instance $x$, and witness $w$ with $(x, w) \in \calR$, and produces a proof $\pi$.
-- $\Vrfy(\crs, x, \pi) \to \{0, 1\},$ verifies the proof.
+- $\Vrfy(\crs, x, \pi) \to \bits,$ verifies the proof.
 
 ## Properties
 
 ### Completeness
 
-For all $(x, w) \in \calR$ and all $(\crs) \gets \Setup(1^\secpar, C)$:
+For all $(x, w) \in \calR$ and all $\crs \gets \Setup(1^\secpar, C)$:
 $$\Pr[\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1] = 1.$$
 
 ### Knowledge soundness
@@ -34,7 +34,7 @@ There exists a polynomial-time extractor $\calE$ such that for all efficient $\c
 
 ### Succinctness
 
-The proof size $|\pi|$ and verifier runtime are $\poly(\secpar, |x|) \cdot \mathrm{polylog}(|w|, |C|)$ — sublinear in the witness and circuit size.
+The proof size $|\pi|$ and verifier runtime are $\poly(\secpar, |x|) \cdot \polylog(|w|, |C|)$ — sublinear in the witness and circuit size.
 
 ### Zero-knowledge (optional)
 
