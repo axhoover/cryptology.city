@@ -10,7 +10,7 @@ The _NTRU assumption_ is a lattice-based hardness assumption over polynomial rin
 
 ## Assumption
 
-The assumption is parameterized by a degree $n$, a large modulus $q$, a small modulus $p$ (typically $p = 3$), and bounds $d_f, d_g$ on the number of nonzero coefficients of the secret polynomials. All arithmetic takes place in the ring $R = \ZZ[x]/(x^n - 1)$, with reductions modulo $q$ taken coefficient-wise into $\{-q/2, \ldots, q/2)$.
+The assumption is parameterized by a degree $n$, a large modulus $q$, a small modulus $p$ (typically $p = 3$), and bounds $d_f, d_g$ on the number of nonzero coefficients of the secret polynomials. All arithmetic takes place in the ring $R = \ZZ[x]/(x^n - 1)$, with reductions modulo $q$ taken coefficient-wise into $[-q/2, q/2)$.
 
 **Key generation.** Sample short polynomials $f, g \in R$ with coefficients in $\{-1, 0, 1\}$ (with $d_f$ ones and $d_f - 1$ negative ones for $f$, and $d_g$ ones and $d_g$ negative ones for $g$). Require that $f$ is invertible modulo both $p$ and $q$. Set
 

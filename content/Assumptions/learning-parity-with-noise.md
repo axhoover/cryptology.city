@@ -20,7 +20,7 @@ For parameters $k \in \NN$, noise rate $0 < \varepsilon < 1$, and sample count $
 \begin{algorithmic}
 \State $\mathbf{A} \getsr \FF_2^{m \times k}$
 \State $\mathbf{s} \getsr \FF_2^k$; $\mathbf{e} \getsr \mathrm{Ber}(\varepsilon)^m$
-\State $b \getsr \{0,1\}$
+\State $b \getsr \bits$
 \State $\mathbf{v}_0 := \mathbf{A} \cdot \mathbf{s} + \mathbf{e}$
 \State $\mathbf{v}_1 \getsr \FF_2^m$
 \State $b' \gets \calA(1^\secpar, \mathbf{A}, \mathbf{v}_b)$
@@ -53,7 +53,7 @@ polynomial time and achieve constant advantage.
 
 ### Subexponential LPN
 
-Some applications require assuming _subexponential LPN_, which means that they assume any algorithm which achieve non-negligible advantage in the LPN game requires running in time $2^{\omega(k^{\varepsilon})}$ for some $\varepsilon > 0$ (often $\varepsilon = 1/2$).
+Some applications require assuming _subexponential LPN_, which means that they assume any algorithm which achieves non-negligible advantage in the LPN game requires running in time $2^{\omega(k^{\varepsilon})}$ for some $\varepsilon > 0$ (often $\varepsilon = 1/2$).
 
 In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has negligible advantage. Whereas, the normal LPN assumption only makes an assumption about polynomial time adversaries. Typically, this assumption is made only in the constant-noise regime, making it incomparable to more standard lower-noise normal LPN assumptions.
 
@@ -61,7 +61,7 @@ In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has ne
 
 - Mid-noise (and hence low-noise) LPN implies [[public-key-encryption|PKE]] — [[Ale03 - More on average case vs approximation complexity|Ale03]]
 - Some works show that Low-noise LPN with $\varepsilon = \log^2 k / k$ implies [[hash-function|OWF]] — [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]], [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]
-- Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[single-server-private-information-retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[trapdoor-hash-function|TDH]])— [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
+- Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[single-server-private-information-retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[trapdoor-hash-function|TDH]]) — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
   - Fully sublinear PIR from any flavor of LPN is open.
 - [[doubly-efficient-pir|SK-DEPIR]] can be built from mid and high-noise LPN — [[CIMR25 - Secret-Key PIR from Random Linear Codes]]
 - [[public-key-encryption|CCA-PKE]] and [[oblivious-transfer|OT]] can be built from subexponential LPN— [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]
@@ -84,7 +84,7 @@ Sparse LPN replaces the uniformly random matrix $\mathbf{A}$ with one whose rows
 \begin{algorithmic}
 \State $\mathbf{A} \getsr \FF_2^{m \times k}$ with each row sampled uniformly from weight-$d$ vectors
 \State $\mathbf{s} \getsr \FF_2^k$; $\mathbf{e} \getsr \mathrm{Ber}(\varepsilon)^m$
-\State $b \getsr \{0,1\}$
+\State $b \getsr \bits$
 \State $\mathbf{v}_0 := \mathbf{A} \cdot \mathbf{s} + \mathbf{e}$
 \State $\mathbf{v}_1 \getsr \FF_2^m$
 \State $b' \gets \calA(1^\secpar, \mathbf{A}, \mathbf{v}_b)$
@@ -102,6 +102,7 @@ $$
 is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so sparse hardness is a stronger assumption for smaller $d$.
 
 ### Known results
+
 - Sparse LPN combined with any [[homomorphic-encryption|linearly homomorphic PKE]] (e.g., based on [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) yields [[homomorphic-encryption|Somewhat Homomorphic Encryption]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]
 - [[noisy-k-lin-over-expanders|Noisy k-LIN]] over $\FF_p$-valued expanding matrices (an $\FF_p$ generalization of Sparse LPN, used as a synonym in some cryptographic literature) combined with the [[planted-clique|planted clique conjecture]] against sub-exponential adversaries yields [[public-key-encryption|PKE]] — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
 
@@ -110,4 +111,3 @@ is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so spa
 Ring-LPN replaces the matrix $\mathbf{A} \in \FF_2^{m \times k}$ with multiplication by a random polynomial $a \in \FF_2[x]/(f(x))$ for a fixed polynomial $f$ of degree $k$. The secret is $s \in \FF_2[x]/(f(x))$ and the LPN sample is $(a, a \cdot s + e)$ for small noise $e$. The ring structure reduces the public key from $O(mk)$ bits to $O(k)$ bits and enables faster computation via polynomial multiplication.
 
 Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficient pseudorandom correlation generator constructions.
-
