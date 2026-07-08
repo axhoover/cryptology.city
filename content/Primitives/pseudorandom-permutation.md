@@ -94,4 +94,4 @@ Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that
 
 - [[pseudorandom-function|PRFs]] imply the existence of large-domain PRPs — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]
 - PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and
-  infact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
+  in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]

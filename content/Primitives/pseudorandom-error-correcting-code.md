@@ -8,17 +8,17 @@ title: Pseudorandom error-correcting code
 
 # Pseudorandom error-correcting code
 
-A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encryption|SKE]] that requires ciphertext decoding to be _robust_ to some modifications edits, introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a _zero-bit PRC_ which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
+A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encryption|SKE]] that requires ciphertext decoding to be _robust_ to some modifications, introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a _zero-bit PRC_ which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
 
 ## Syntax
 
-A $L$-bit PRC is a tuple of efficient algorithms $(\Gen, \Enc, \Dec)$, with respect to key space $\calK$, message space $\bits^L$, and ciphertext space $\bits^n$ such that
+An $L$-bit PRC is a tuple of efficient algorithms $(\Gen, \Enc, \Dec)$, with respect to key space $\calK$, message space $\bits^L$, and ciphertext space $\bits^n$ such that
 
 - $\Gen(1^\secpar) \to k$, is a randomized algorithm that takes a security parameter, and outputs a key $k \in \calK$,
 - $\Enc_k(m) \to c$, is a randomized algorithm that takes a key $k\in \calK$ and message $m\in \bits^L$, and outputs a ciphertext $c \in \bits^n$,
 - $\Dec_k(c) \to \{m,\bot\}$, is a deterministic algorithm that takes a key $k \in \calK$ and candidate ciphertext $c \in \bits^n$, and outputs either a message $m\in \bits^L$ or $\bot$
 
-A _zero-bit_ PRC, has the same requirements as a $L$-bit PRC, except that the message space is just the singleton set $\{1\}$, which means that $\Enc$ takes no input and just outputs codewords. Then, $\Dec$ simply detects whether or not the candidate ciphertext is close to a codeword.
+A _zero-bit_ PRC has the same requirements as an $L$-bit PRC, except that the message space is just the singleton set $\{1\}$, which means that $\Enc$ takes no input and just outputs codewords. Then, $\Dec$ simply detects whether or not the candidate ciphertext is close to a codeword.
 
 ## Properties
 

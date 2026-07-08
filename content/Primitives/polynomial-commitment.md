@@ -14,19 +14,19 @@ A **polynomial commitment scheme** (PCS) allows a prover to commit to a polynomi
 
 ## Syntax
 
-A polynomial commitment scheme is a tuple of efficient algorithms $(\Setup, \mathsf{Commit}, \mathsf{Open}, \Vrfy)$:
+A polynomial commitment scheme is a tuple of efficient algorithms $(\Setup, \mathsf{Commit}, \Open, \Vrfy)$:
 
 - $\Setup(1^\secpar, d) \to \mathsf{srs},$ produces a structured (or transparent) reference string for polynomials of degree $\le d$.
 - $\mathsf{Commit}(\mathsf{srs}, f) \to (C, \mathsf{aux}),$ commits to a polynomial $f$, producing commitment $C$ and auxiliary data $\mathsf{aux}$ (kept by the prover).
-- $\mathsf{Open}(\mathsf{srs}, C, z, y, \mathsf{aux}) \to \pi,$ produces an opening proof $\pi$ for the claim $f(z) = y$.
-- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \{0, 1\},$ verifies the claim $f(z) = y$ against commitment $C$.
+- $\Open(\mathsf{srs}, C, z, y, \mathsf{aux}) \to \pi,$ produces an opening proof $\pi$ for the claim $f(z) = y$.
+- $\Vrfy(\mathsf{srs}, C, z, y, \pi) \to \bits,$ verifies the claim $f(z) = y$ against commitment $C$.
 
 ## Properties
 
 ### Correctness
 
 For all polynomials $f$, all $z \in \FF_p$, and $(C, \mathsf{aux}) \gets \mathsf{Commit}(\mathsf{srs}, f)$:
-$$\Pr[\Vrfy(\mathsf{srs}, C, z, f(z), \mathsf{Open}(\mathsf{srs}, C, z, f(z), \mathsf{aux})) = 1] = 1.$$
+$$\Pr[\Vrfy(\mathsf{srs}, C, z, f(z), \Open(\mathsf{srs}, C, z, f(z), \mathsf{aux})) = 1] = 1.$$
 
 ### Evaluation binding
 

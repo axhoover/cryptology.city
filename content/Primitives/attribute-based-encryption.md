@@ -121,7 +121,7 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 
 ## Symmetric CP-ABE
 
-In **symmetric CP-ABE** (*secret-key CP-ABE*), there are no public parameters: all parties must hold a key from the authority. Encryption takes the encryptor's key $\sk_{x_e}$ and may only embed a policy $f$ that the encryptor's own attribute set satisfies, $f(x_e) = 1$.
+In **symmetric CP-ABE** (_secret-key CP-ABE_), there are no public parameters: all parties must hold a key from the authority. Encryption takes the encryptor's key $\sk_{x_e}$ and may only embed a policy $f$ that the encryptor's own attribute set satisfies, $f(x_e) = 1$.
 
 A symmetric CP-ABE scheme is a tuple $\ABE = (\Setup, \KeyGen, \Enc, \Dec)$ with respect to attribute universe $\calU$, policy class $\calF$, and message space $\calM$:
 

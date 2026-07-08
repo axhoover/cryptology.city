@@ -19,7 +19,7 @@ A SKE scheme is a tuple of efficient algorithms $\SKE = (\KeyGen, \Enc, \Dec)$ w
 - $\Enc(k, m) \to c,$ is a randomized algorithm which takes a
   key $k \in \calK$ and message $m \in \calM$, outputting a ciphertext
   $c \in \calC$,
-- $\Dec(k, c) \to m,$ is a deterministic algorith which
+- $\Dec(k, c) \to m,$ is a deterministic algorithm which
   takes a key $k \in \calK$ and ciphertext $c \in \calC$,
   outputting a message $m \in \calM$ or $\bot$ to indicate an invalid ciphertext.
 
@@ -86,7 +86,7 @@ is negligible.
 A SKE scheme $\SKE$ is **IND\$-CPA-secure** if for all efficient $\calA$,
 
 $$
-\Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
 is negligible. IND\$-CPA implies CPA security, but not vice versa.
