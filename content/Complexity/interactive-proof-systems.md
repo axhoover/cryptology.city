@@ -17,4 +17,4 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#i
 ## Known relationships
 
 - $\classIP = \classPSPACE$ — TODO citation
-- $\classIP \neq \classPSPACE$ relative in the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
+- $\classIP \neq \classPSPACE$ relative to the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]

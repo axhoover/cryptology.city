@@ -17,9 +17,6 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:E#e
 - $\classPSPACE \subseteq \classEXP$: anything computable in polynomial space can be simulated in exponential time.
 - $\classEXP \neq \classP$: this is one of the few known unconditional separations in complexity theory (by the time hierarchy theorem).
 - If $\classPSPACE = \classEXP$, then $\classPSPACE \not\subseteq \classPpoly$ — TODO citation.
-
-## Known relationships
-
 - $\classP \subseteq \classNP \subseteq \classPSPACE \subseteq \classEXP$.
 
 ## Relevance to cryptography

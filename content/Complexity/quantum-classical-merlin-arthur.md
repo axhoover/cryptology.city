@@ -10,8 +10,8 @@ title: Quantum-Classical Merlin-Arthur
 
 Also written MQA (Merlin Quantum Arthur): the class of decision problems verifiable by a protocol where Merlin sends a _classical_ proof string, but Arthur is a polynomial-time _quantum_ algorithm. Formally, a language $L \in \classQCMA$ if there exists a polynomial-time quantum verifier $V$ and polynomials $p, q$ such that:
 
-1. If $x \in L$, there exists a classical string $w \in \{0,1\}^{p(|x|)}$ such that $V$ accepts $(x, w)$ with probability at least 2/3.
-2. If $x \notin L$, then for all $w \in \{0,1\}^{p(|x|)}$, $V$ rejects $(x, w)$ with probability at least 2/3.
+1. If $x \in L$, there exists a classical string $w \in \bits^{p(|x|)}$ such that $V$ accepts $(x, w)$ with probability at least 2/3.
+2. If $x \notin L$, then for all $w \in \bits^{p(|x|)}$, $V$ rejects $(x, w)$ with probability at least 2/3.
 
 QCMA sits between [[merlin-arthur|MA]] (classical verifier) and [[quantum-merlin-arthur|QMA]] (quantum witness allowed) in the hierarchy of proof systems.
 
