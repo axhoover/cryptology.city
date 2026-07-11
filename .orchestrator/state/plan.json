@@ -1,42 +1,118 @@
 {
-  "run_count": 14,
-  "head_sha": "f2ff380d76ccf5de5a72f8b96fc9187a1d7569b3",
-  "previous_sha": "11738c847b5859982bb7bc9ff2d914e5c8b79ebb",
-  "timestamp": "2026-07-04T06:20:09.454Z",
-  "days_since_last_run": 6.993409340277778,
-  "changed_files": [],
+  "run_count": 15,
+  "head_sha": "903040ad2940cf090273a636c2725c8218bb1808",
+  "previous_sha": "f2ff380d76ccf5de5a72f8b96fc9187a1d7569b3",
+  "timestamp": "2026-07-11T05:40:42.906Z",
+  "days_since_last_run": 6.9726087847222225,
+  "changed_files": [
+    "content/Assumptions/alternating-moduli.md",
+    "content/Assumptions/decisional-diffie-hellman.md",
+    "content/Assumptions/learning-parity-with-noise.md",
+    "content/Assumptions/learning-with-errors.md",
+    "content/Assumptions/noisy-k-lin-over-expanders.md",
+    "content/Assumptions/ntru.md",
+    "content/Assumptions/quadratic-residuosity.md",
+    "content/Assumptions/shortest-integer-solution.md",
+    "content/Primitives/attribute-based-encryption.md",
+    "content/Primitives/distributed-point-function.md",
+    "content/Primitives/indistinguishability-obfuscation.md",
+    "content/Primitives/multi-server-private-information-retrieval.md",
+    "content/Primitives/oblivious-ram.md",
+    "content/Primitives/polynomial-commitment.md",
+    "content/Primitives/pseudorandom-error-correcting-code.md",
+    "content/Primitives/pseudorandom-function.md",
+    "content/Primitives/pseudorandom-permutation.md",
+    "content/Primitives/single-server-private-information-retrieval.md",
+    "content/Primitives/succinct-argument.md",
+    "content/Primitives/symmetric-key-encryption.md",
+    "content/Primitives/trapdoor-hash-function.md"
+  ],
   "queue_summary": {
     "exists": false,
     "counts": {},
     "oldestHumanVerifiedDays": null
   },
-  "open_todos": 38,
+  "open_todos": 37,
   "bots": {
     "editor": {
-      "run": false,
-      "scope": [],
-      "reason": "no content changes since last run"
+      "run": true,
+      "scope": [
+        "content/Assumptions/alternating-moduli.md",
+        "content/Assumptions/decisional-diffie-hellman.md",
+        "content/Assumptions/learning-parity-with-noise.md",
+        "content/Assumptions/learning-with-errors.md",
+        "content/Assumptions/noisy-k-lin-over-expanders.md",
+        "content/Assumptions/ntru.md",
+        "content/Assumptions/quadratic-residuosity.md",
+        "content/Assumptions/shortest-integer-solution.md",
+        "content/Primitives/attribute-based-encryption.md",
+        "content/Primitives/distributed-point-function.md",
+        "content/Primitives/indistinguishability-obfuscation.md",
+        "content/Primitives/multi-server-private-information-retrieval.md",
+        "content/Primitives/oblivious-ram.md",
+        "content/Primitives/polynomial-commitment.md",
+        "content/Primitives/pseudorandom-error-correcting-code.md",
+        "content/Primitives/pseudorandom-function.md",
+        "content/Primitives/pseudorandom-permutation.md",
+        "content/Primitives/single-server-private-information-retrieval.md",
+        "content/Primitives/succinct-argument.md",
+        "content/Primitives/symmetric-key-encryption.md",
+        "content/Primitives/trapdoor-hash-function.md"
+      ],
+      "reason": "21 content file(s) changed since last run"
     },
     "reference_fixer": {
-      "run": false,
+      "run": true,
       "mode": "diff-scoped",
-      "scope": [],
-      "reason": "no reference-touching changes"
+      "scope": [
+        "content/Assumptions/decisional-diffie-hellman.md",
+        "content/Assumptions/learning-parity-with-noise.md",
+        "content/Assumptions/learning-with-errors.md",
+        "content/Assumptions/noisy-k-lin-over-expanders.md",
+        "content/Primitives/distributed-point-function.md",
+        "content/Primitives/oblivious-ram.md",
+        "content/Primitives/pseudorandom-error-correcting-code.md",
+        "content/Primitives/pseudorandom-permutation.md",
+        "content/Primitives/single-server-private-information-retrieval.md"
+      ],
+      "reason": "9 reference-touching change(s)"
     },
     "skeptical_checker": {
       "run": true,
-      "scope": [],
-      "reason": "bootstrapping fact-check queue"
+      "scope": [
+        "content/Assumptions/alternating-moduli.md",
+        "content/Assumptions/decisional-diffie-hellman.md",
+        "content/Assumptions/learning-parity-with-noise.md",
+        "content/Assumptions/learning-with-errors.md",
+        "content/Assumptions/noisy-k-lin-over-expanders.md",
+        "content/Assumptions/ntru.md",
+        "content/Assumptions/quadratic-residuosity.md",
+        "content/Assumptions/shortest-integer-solution.md",
+        "content/Primitives/attribute-based-encryption.md",
+        "content/Primitives/distributed-point-function.md",
+        "content/Primitives/indistinguishability-obfuscation.md",
+        "content/Primitives/multi-server-private-information-retrieval.md",
+        "content/Primitives/oblivious-ram.md",
+        "content/Primitives/polynomial-commitment.md",
+        "content/Primitives/pseudorandom-error-correcting-code.md",
+        "content/Primitives/pseudorandom-function.md",
+        "content/Primitives/pseudorandom-permutation.md",
+        "content/Primitives/single-server-private-information-retrieval.md",
+        "content/Primitives/succinct-argument.md",
+        "content/Primitives/symmetric-key-encryption.md",
+        "content/Primitives/trapdoor-hash-function.md"
+      ],
+      "reason": "21 deep-content file(s) changed"
     },
     "refactor_simplifier": {
       "run": false,
       "scope": "oldest-pages",
-      "reason": "no content changes in 6 days"
+      "reason": "recent activity and verifications are fresh"
     },
     "todo_triage": {
       "run": true,
-      "scope": 38,
-      "reason": "38 open TODOs — board refreshes; nag is delta-gated"
+      "scope": 37,
+      "reason": "37 open TODOs — board refreshes; nag is delta-gated"
     },
     "microcrypt_sync": {
       "run": true,
