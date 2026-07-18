@@ -1,83 +1,29 @@
-# Weekly Orchestrator Report — run #15
+# Weekly Orchestrator Report — run #16
 
-- **Head:** `903040ad2940cf090273a636c2725c8218bb1808`
-- **Previous:** `f2ff380d76ccf5de5a72f8b96fc9187a1d7569b3`
-- **Days since last run:** 6.9726087847222225
-- **Changed content files:** 21
+- **Head:** `0620387965f1acf8cc6b2a48cca7e67a5d7265d8`
+- **Previous:** `903040ad2940cf090273a636c2725c8218bb1808`
+- **Days since last run:** 6.9893104398148145
+- **Changed content files:** 0
 - **Open TODOs:** 37
 - **LLM refinement:** no
 
 ## Bot decisions
 
-### `editor` — **RUN**
+### `editor` — skip
 
-- Reason: 21 content file(s) changed since last run
-- Scope (21):
-  - `content/Assumptions/alternating-moduli.md`
-  - `content/Assumptions/decisional-diffie-hellman.md`
-  - `content/Assumptions/learning-parity-with-noise.md`
-  - `content/Assumptions/learning-with-errors.md`
-  - `content/Assumptions/noisy-k-lin-over-expanders.md`
-  - `content/Assumptions/ntru.md`
-  - `content/Assumptions/quadratic-residuosity.md`
-  - `content/Assumptions/shortest-integer-solution.md`
-  - `content/Primitives/attribute-based-encryption.md`
-  - `content/Primitives/distributed-point-function.md`
-  - `content/Primitives/indistinguishability-obfuscation.md`
-  - `content/Primitives/multi-server-private-information-retrieval.md`
-  - `content/Primitives/oblivious-ram.md`
-  - `content/Primitives/polynomial-commitment.md`
-  - `content/Primitives/pseudorandom-error-correcting-code.md`
-  - `content/Primitives/pseudorandom-function.md`
-  - `content/Primitives/pseudorandom-permutation.md`
-  - `content/Primitives/single-server-private-information-retrieval.md`
-  - `content/Primitives/succinct-argument.md`
-  - `content/Primitives/symmetric-key-encryption.md`
-  - `content/Primitives/trapdoor-hash-function.md`
+- Reason: no content changes since last run
 
 ### `reference_fixer` — **RUN**
 
-- Reason: 9 reference-touching change(s)
-- Scope (9):
-  - `content/Assumptions/decisional-diffie-hellman.md`
-  - `content/Assumptions/learning-parity-with-noise.md`
-  - `content/Assumptions/learning-with-errors.md`
-  - `content/Assumptions/noisy-k-lin-over-expanders.md`
-  - `content/Primitives/distributed-point-function.md`
-  - `content/Primitives/oblivious-ram.md`
-  - `content/Primitives/pseudorandom-error-correcting-code.md`
-  - `content/Primitives/pseudorandom-permutation.md`
-  - `content/Primitives/single-server-private-information-retrieval.md`
+- Reason: periodic link-rot sweep (run #16, every 4 runs)
 
 ### `skeptical_checker` — **RUN**
 
-- Reason: 21 deep-content file(s) changed
-- Scope (21):
-  - `content/Assumptions/alternating-moduli.md`
-  - `content/Assumptions/decisional-diffie-hellman.md`
-  - `content/Assumptions/learning-parity-with-noise.md`
-  - `content/Assumptions/learning-with-errors.md`
-  - `content/Assumptions/noisy-k-lin-over-expanders.md`
-  - `content/Assumptions/ntru.md`
-  - `content/Assumptions/quadratic-residuosity.md`
-  - `content/Assumptions/shortest-integer-solution.md`
-  - `content/Primitives/attribute-based-encryption.md`
-  - `content/Primitives/distributed-point-function.md`
-  - `content/Primitives/indistinguishability-obfuscation.md`
-  - `content/Primitives/multi-server-private-information-retrieval.md`
-  - `content/Primitives/oblivious-ram.md`
-  - `content/Primitives/polynomial-commitment.md`
-  - `content/Primitives/pseudorandom-error-correcting-code.md`
-  - `content/Primitives/pseudorandom-function.md`
-  - `content/Primitives/pseudorandom-permutation.md`
-  - `content/Primitives/single-server-private-information-retrieval.md`
-  - `content/Primitives/succinct-argument.md`
-  - `content/Primitives/symmetric-key-encryption.md`
-  - `content/Primitives/trapdoor-hash-function.md`
+- Reason: bootstrapping fact-check queue
 
 ### `refactor_simplifier` — skip
 
-- Reason: recent activity and verifications are fresh
+- Reason: no content changes in 6 days
 
 ### `todo_triage` — **RUN**
 
