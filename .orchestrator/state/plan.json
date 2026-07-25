@@ -1,9 +1,9 @@
 {
-  "run_count": 16,
-  "head_sha": "0620387965f1acf8cc6b2a48cca7e67a5d7265d8",
-  "previous_sha": "903040ad2940cf090273a636c2725c8218bb1808",
-  "timestamp": "2026-07-18T05:25:19.338Z",
-  "days_since_last_run": 6.9893104398148145,
+  "run_count": 17,
+  "head_sha": "619e25fd26612e9338a61468e2c5cb14d72e3db8",
+  "previous_sha": "0620387965f1acf8cc6b2a48cca7e67a5d7265d8",
+  "timestamp": "2026-07-25T05:42:36.510Z",
+  "days_since_last_run": 7.0120041782407405,
   "changed_files": [],
   "queue_summary": {
     "exists": false,
@@ -18,10 +18,10 @@
       "reason": "no content changes since last run"
     },
     "reference_fixer": {
-      "run": true,
-      "mode": "link-rot-sweep",
+      "run": false,
+      "mode": "diff-scoped",
       "scope": [],
-      "reason": "periodic link-rot sweep (run #16, every 4 runs)"
+      "reason": "no reference-touching changes"
     },
     "skeptical_checker": {
       "run": true,
@@ -31,7 +31,7 @@
     "refactor_simplifier": {
       "run": false,
       "scope": "oldest-pages",
-      "reason": "no content changes in 6 days"
+      "reason": "no content changes in 7 days"
     },
     "todo_triage": {
       "run": true,
