@@ -1,8 +1,8 @@
-# Weekly Orchestrator Report — run #17
+# Weekly Orchestrator Report — run #18
 
-- **Head:** `619e25fd26612e9338a61468e2c5cb14d72e3db8`
-- **Previous:** `0620387965f1acf8cc6b2a48cca7e67a5d7265d8`
-- **Days since last run:** 7.0120041782407405
+- **Head:** `636635185585ff83203e0f2efbb7c553a633971b`
+- **Previous:** `619e25fd26612e9338a61468e2c5cb14d72e3db8`
+- **Days since last run:** 7.008069548611111
 - **Changed content files:** 0
 - **Open TODOs:** 37
 - **LLM refinement:** no
