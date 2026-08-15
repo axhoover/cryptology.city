@@ -1,8 +1,8 @@
-# Weekly Orchestrator Report — run #19
+# Weekly Orchestrator Report — run #20
 
-- **Head:** `69d4d2a2e98206d0a10ca84ef8b58dc95cf2b4a4`
-- **Previous:** `636635185585ff83203e0f2efbb7c553a633971b`
-- **Days since last run:** 6.927977650462963
+- **Head:** `0a0a473d79468e582976c2918ed3198b271c6cdb`
+- **Previous:** `69d4d2a2e98206d0a10ca84ef8b58dc95cf2b4a4`
+- **Days since last run:** 6.977099976851852
 - **Changed content files:** 0
 - **Open TODOs:** 37
 - **LLM refinement:** no
@@ -13,9 +13,9 @@
 
 - Reason: no content changes since last run
 
-### `reference_fixer` — skip
+### `reference_fixer` — **RUN**
 
-- Reason: no reference-touching changes
+- Reason: periodic link-rot sweep (run #20, every 4 runs)
 
 ### `skeptical_checker` — **RUN**
 
