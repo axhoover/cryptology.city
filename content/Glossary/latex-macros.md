@@ -117,9 +117,9 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 ### Crypto shorthand
 
-| Macro     | Renders as |
-| --------- | ---------- |
-| `\bits`   | $\bits$    |
+| Macro      | Renders as |
+| ---------- | ---------- |
+| `\bits`    | $\bits$    |
 | `\negl`    | $\negl$    |
 | `\poly`    | $\poly$    |
 | `\polylog` | $\polylog$ |

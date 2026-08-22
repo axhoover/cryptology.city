@@ -13,7 +13,7 @@ The _Generic Group Model (GGM)_ is a model for analyzing the security of group-b
 
 ## Shoup's Formulation
 
-Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \{0,1\}^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
+Let $(\GG, g, p) \gets \GrGen(1^\secpar)$ be a cyclic group of prime order $p$. A **handle function** is a random injection $\sigma: \GG \to \bits^n$, which assigns each group element a unique opaque bit-string called a _handle_. The adversary is only ever given handles — never actual group elements — and must compute via oracle queries:
 
 - **Group operation:** $\calO_{\mathsf{op}}(\sigma(X), \sigma(Y)) \to \sigma(X \cdot Y)$
 - **Inversion:** $\calO_{\mathsf{inv}}(\sigma(X)) \to \sigma(X^{-1})$
