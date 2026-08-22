@@ -86,13 +86,23 @@ type Drift = {
 
 function compareEntry(page: RefPage, entry: BibEntry): Drift[] {
   const drifts: Drift[] = [];
-  const localTitle = String(page.data.title ?? "").trim();
+  // Frontmatter `title` holds the citation key by convention; the paper title
+  // lives in the filename ("KEY - Full Title.md"). Compare that instead.
+  const localTitle = path
+    .basename(page.filePath, ".md")
+    .split(" - ")
+    .slice(1)
+    .join(" - ")
+    .trim();
   const cbTitle = entry.fields.title ?? "";
-  if (
-    localTitle &&
-    cbTitle &&
-    normalizeForCompare(localTitle) !== normalizeForCompare(cbTitle)
-  ) {
+  // Filenames cannot carry colons and often drop subtitle punctuation, so
+  // compare titles on letters/digits only, ignoring an "(extended abstract)"
+  // suffix on the cryptobib side.
+  const squash = (s: string) =>
+    normalizeForCompare(s)
+      .replace(/[^a-z0-9]/gi, "")
+      .replace(/extendedabstract$/i, "");
+  if (localTitle && cbTitle && squash(localTitle) !== squash(cbTitle)) {
     drifts.push({ field: "title", local: localTitle, cryptobib: cbTitle });
   }
 
