@@ -9,10 +9,10 @@ title: P/poly
 
 # P/poly
 
-The class of decision problems solvable by polynomial-size Boolean circuits — equivalently, by a polynomial-time Turing machine with access to a polynomial-length _advice string_ that depends only on the input length (not on the particular input). Formally, a language $L \in \classPpoly$ if there exist polynomials $p, q$ and a polynomial-time algorithm $A$ such that for every input length $n$, there is an advice string $a_n \in \{0,1\}^{q(n)}$ with
+The class of decision problems solvable by polynomial-size Boolean circuits — equivalently, by a polynomial-time Turing machine with access to a polynomial-length _advice string_ that depends only on the input length (not on the particular input). Formally, a language $L \in \classPpoly$ if there exist polynomials $p, q$ and a polynomial-time algorithm $A$ such that for every input length $n$, there is an advice string $a_n \in \bits^{q(n)}$ with
 
 $$
-x \in L \iff A(x, a_n) = 1 \quad \text{for all } x \in \{0,1\}^n.
+x \in L \iff A(x, a_n) = 1 \quad \text{for all } x \in \bits^n.
 $$
 
 P/poly is a _non-uniform_ class: the "algorithm" (circuit) can be different for each input length, and is not required to be uniformly generated.

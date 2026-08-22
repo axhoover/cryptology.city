@@ -23,13 +23,13 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:T#t
 TFNP contains several important subclasses defined by the combinatorial principle guaranteeing existence of a solution:
 
 - **PPAD** (Polynomial Parity Argument, Directed): contains Nash equilibrium computation. Hardness of PPAD is the basis for cryptographic constructions of collision-resistant hash functions from worst-case assumptions — TODO citation.
-- **PPP** (Polynomial Pigeonhole Principle): contains the problem of finding a collision in a function $f : \{0,1\}^n \to \{0,1\}^n$ (pigeonhole guarantees one exists). Integer factorization is in PPP — TODO citation.
+- **PPP** (Polynomial Pigeonhole Principle): contains the problem of finding a collision in a function $f : \bits^n \to \bits^n$ (pigeonhole guarantees one exists). Integer factorization is in PPP — TODO citation.
 - **PPA** (Polynomial Parity Argument): related to graph parity arguments. Discrete logarithm over groups of unknown order has connections to PPA — TODO citation.
 - **PLS** (Polynomial Local Search): finding local optima. Contains many optimization problems.
 
 ## Known relationships
 
-- $\classP \subseteq \mathbf{FP} \subseteq \mathbf{TFNP} \subseteq \mathbf{FNP}$.
+- $\classP \subseteq \classFP \subseteq \classTFNP \subseteq \mathbf{FNP}$.
 - TFNP problems are unlikely to be NP-hard, since NP-hardness would require instances with no solution, contradicting totality (unless NP = coNP).
 
 ## Relevance to cryptography
