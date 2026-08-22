@@ -2,6 +2,7 @@
 type: reference
 status: draft
 title: "BM26"
+source: https://eprint.iacr.org/2026/865
 authors: Nir Bitansky, Noam Mazor
 venue: Preprint
 published: 2026-05-08

@@ -2,6 +2,7 @@
 type: reference
 status: draft
 title: "AKS98"
+source: https://doi.org/10.1002/(SICI)1098-2418(199810)13:3/4%3C457::AID-RSA14%3E3.0.CO;2-W
 authors: Noga Alon, Michael Krivelevich, Benny Sudakov
 venue: Random Structures & Algorithms
 published: 1998

@@ -2,6 +2,7 @@
 type: reference
 status: stub
 title: "LS26"
+source: https://eprint.iacr.org/2026/1018
 aliases:
   - LS26
 authors: Riccardo Longo, Enrico Sorbera

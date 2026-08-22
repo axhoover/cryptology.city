@@ -2,6 +2,7 @@
 type: note
 status: draft
 title: Cryptology City
+aliases: []
 ---
 
 # Cryptology City
