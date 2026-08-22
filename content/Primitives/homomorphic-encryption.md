@@ -64,3 +64,4 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 - Multiplicatively homomorphic encryption from [[rsa-assumption|RSA]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
 - HE → rerandomizable encryption → [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
+- Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
