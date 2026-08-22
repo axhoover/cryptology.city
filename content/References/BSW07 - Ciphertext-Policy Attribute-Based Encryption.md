@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BSW07"
 source: https://eprint.iacr.org/2007/203
 authors: John Bethencourt, Amit Sahai, Brent Waters

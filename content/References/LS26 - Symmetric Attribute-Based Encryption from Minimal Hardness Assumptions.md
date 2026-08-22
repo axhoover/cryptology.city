@@ -1,4 +1,6 @@
 ---
+type: reference
+status: stub
 title: "LS26"
 aliases:
   - LS26

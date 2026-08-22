@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MMP+10"
 source: https://ieeexplore.ieee.org/abstract/document/5670946
 authors: Andrew McGregor, Ilya Mironov, Toniann Pitassi, Omer Reingold, Kunal Talwar, Salil Vadhan

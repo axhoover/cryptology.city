@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KO97"
 source: https://ieeexplore.ieee.org/abstract/document/646125
 authors: Eyal Kushilevitz, Rafail Ostrovsky

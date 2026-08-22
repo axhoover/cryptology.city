@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Vad06"
 source: https://epubs.siam.org/doi/abs/10.1137/S0097539705447207
 authors: Salil P. Vadhan

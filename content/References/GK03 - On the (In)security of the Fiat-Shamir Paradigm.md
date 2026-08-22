@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GK03"
 source: https://eprint.iacr.org/2003/034
 authors: Shafi Goldwasser, Yael Tauman Kalai

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GKR15"
 source: https://dl.acm.org/doi/abs/10.1145/2699436
 authors: Shafi Goldwasser, Yael Tauman Kalai, Guy N. Rothblum

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGV12"
 source: https://eprint.iacr.org/2011/277
 authors: Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan

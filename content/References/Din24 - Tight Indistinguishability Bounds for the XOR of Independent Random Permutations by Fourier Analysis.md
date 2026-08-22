@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Din24"
 source: https://eprint.iacr.org/2024/338
 authors: Itai Dinur

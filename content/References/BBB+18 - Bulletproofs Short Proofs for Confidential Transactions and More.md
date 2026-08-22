@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BBB+18"
 source: https://eprint.iacr.org/2017/1066
 authors: Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell

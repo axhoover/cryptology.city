@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AK07"
 source: https://arxiv.org/abs/quant-ph/0604056
 authors: Scott Aaronson, Greg Kuperberg

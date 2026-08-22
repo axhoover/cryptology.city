@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DPPY25"
 source: https://link.springer.com/chapter/10.1007/978-3-031-91131-6_15
 authors: "Xuan Thanh Do, Giuseppe Persiano, Duong Hieu Phan, Moti Yung "

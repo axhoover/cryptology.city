@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGKS98"
 source: https://dl.acm.org/doi/abs/10.1145/293347.293350
 authors: Benny Chor, Oded Goldreich, Eyal Kushilevitz, Madhu Sudan

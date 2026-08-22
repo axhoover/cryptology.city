@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CG24"
 source: https://eprint.iacr.org/2024/235
 authors: Miranda Christ, Sam Gunn

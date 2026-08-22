@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: stub
 aliases:
   - UC framework
   - Universal Composability Framework

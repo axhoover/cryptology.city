@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG98"
 source: https://eprint.iacr.org/1998/005
 authors: Oded Goldreich, Shafi Goldwasser

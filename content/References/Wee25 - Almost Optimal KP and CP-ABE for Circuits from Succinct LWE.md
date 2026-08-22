@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wee25"
 source: https://eprint.iacr.org/2025/509
 authors: Hoeteck Wee

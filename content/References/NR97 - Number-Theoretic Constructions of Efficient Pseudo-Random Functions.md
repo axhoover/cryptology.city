@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "NR97"
 source: https://dl.acm.org/doi/10.1145/258533.258556
 authors: Moni Naor, Omer Reingold

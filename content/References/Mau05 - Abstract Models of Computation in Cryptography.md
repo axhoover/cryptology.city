@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Mau05"
 source: https://link.springer.com/chapter/10.1007/11586821_1
 authors: Maurer, Ueli

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "ISW24"
 source: https://eprint.iacr.org/2024/976
 authors: Yuval Ishai, Elaine Shi, Daniel Wichs

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Bra79"
 source: https://ieeexplore.ieee.org/abstract/document/1056754
 authors: Gilles Brassard

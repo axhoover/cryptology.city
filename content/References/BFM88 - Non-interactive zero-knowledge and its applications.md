@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BFM88"
 source: https://dl.acm.org/doi/10.1145/62212.62222
 authors: Manuel Blum, Paul Feldman, Silvio Micali

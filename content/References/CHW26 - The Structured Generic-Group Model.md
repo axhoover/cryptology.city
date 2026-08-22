@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHW26"
 source: https://eprint.iacr.org/2026/384
 authors: Corrigan-Gibbs, Henry; Henzinger, Alexandra; Wu, David J.

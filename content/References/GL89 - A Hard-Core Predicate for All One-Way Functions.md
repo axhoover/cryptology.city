@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GL89"
 source: https://dl.acm.org/doi/10.1145/73007.73010
 authors: Oded Goldreich, Leonid A. Levin

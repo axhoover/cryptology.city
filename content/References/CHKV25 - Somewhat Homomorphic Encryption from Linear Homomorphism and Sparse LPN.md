@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHKV25"
 source: https://eprint.iacr.org/2024/1760
 authors: Henry Corrigan-Gibbs, Alexandra Henzinger, Yael Tauman Kalai, Vinod Vaikuntanathan

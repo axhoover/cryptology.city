@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - Black-box separation
   - Oracle separation

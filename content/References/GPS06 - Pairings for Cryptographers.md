@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GPS06"
 source: https://eprint.iacr.org/2006/165
 authors: Steven D. Galbraith, Kenneth G. Paterson, Nigel P. Smart

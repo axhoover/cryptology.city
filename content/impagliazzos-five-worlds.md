@@ -1,4 +1,6 @@
 ---
+type: note
+status: draft
 aliases:
   - Five worlds
   - Impagliazzo's Five Worlds

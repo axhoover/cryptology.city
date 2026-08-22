@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DDRG20"
 source: https://eprint.iacr.org/2020/292
 authors: Dana Dachman-Soled, Léo Ducas, Huijing Gong, Mélissa Rossi

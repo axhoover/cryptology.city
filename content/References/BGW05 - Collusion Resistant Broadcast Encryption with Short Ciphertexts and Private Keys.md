@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGW05"
 source: https://eprint.iacr.org/2005/018
 authors: Dan Boneh, Craig Gentry, Brent Waters

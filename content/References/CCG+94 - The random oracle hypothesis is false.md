@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CCG+94"
 source: https://www.sciencedirect.com/science/article/pii/S0022000005800844
 authors: Richard Chang, Benny Chor, Oded Goldreich, Juris Hartmanis, Johan Håstad, Desh Ranjan, Pankaj Rohatgi

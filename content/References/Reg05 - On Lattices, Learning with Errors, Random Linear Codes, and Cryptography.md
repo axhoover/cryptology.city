@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Reg05"
 source: https://arxiv.org/abs/2401.03703
 authors: Oded Regev

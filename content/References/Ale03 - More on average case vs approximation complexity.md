@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Ale03"
 source: https://ieeexplore.ieee.org/document/1238204
 authors: Michael Alekhnovich

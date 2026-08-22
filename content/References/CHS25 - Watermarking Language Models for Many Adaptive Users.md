@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHS25"
 source: https://eprint.iacr.org/2024/759
 authors: Aloni Cohen, Alexander Hoover, Gabe Schoenbach

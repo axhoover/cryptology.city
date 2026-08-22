@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HMO+19"
 source: https://arxiv.org/abs/2105.01958
 authors: Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff

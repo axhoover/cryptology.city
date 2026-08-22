@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BFM23"
 source: https://arxiv.org/abs/2212.00098
 authors: Roozbeh Bassirian, Bill Fefferman, Kunal Marwaha

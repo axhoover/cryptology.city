@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LMW24"
 source: https://eprint.iacr.org/2025/235
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs

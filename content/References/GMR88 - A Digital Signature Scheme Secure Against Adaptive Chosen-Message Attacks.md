@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GMR88"
 source: https://epubs.siam.org/doi/10.1137/0217017
 authors: Shafi Goldwasser, Silvio Micali, Ronald L. Rivest

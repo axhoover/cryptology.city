@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AMYY25"
 source: https://eprint.iacr.org/2025/375
 authors: Shweta Agrawal, Anuja Modi, Anshu Yadav, Shota Yamada

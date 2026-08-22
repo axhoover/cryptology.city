@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG00"
 source: https://dl.acm.org/doi/abs/10.1145/276698.276704
 authors: Oded Goldreich, Shafi Goldwasser

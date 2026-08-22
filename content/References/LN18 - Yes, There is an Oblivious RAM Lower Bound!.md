@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LN18"
 source: https://eprint.iacr.org/2018/423
 authors: Kasper Green Larsen, Jesper Buus Nielsen

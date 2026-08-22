@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 source: https://arxiv.org/abs/quant-ph/9605043
 aliases:
   - Grover96

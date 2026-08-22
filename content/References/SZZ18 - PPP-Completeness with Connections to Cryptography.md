@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SZZ18"
 source: https://eprint.iacr.org/2018/778
 authors: Katerina Sotiraki, Manolis Zampetakis, Giorgos Zirdelis

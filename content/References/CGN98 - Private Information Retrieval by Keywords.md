@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGN98"
 source: https://eprint.iacr.org/1998/003
 authors: Benny Chor, Niv Gilboa, Moni Naor

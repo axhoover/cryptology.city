@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DH24"
 source: https://eprint.iacr.org/2024/694
 authors: Jesko Dujmovic, Mohammad Hajiabadi

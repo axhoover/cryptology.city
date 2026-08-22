@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Tar08"
 source: https://dl.acm.org/doi/abs/10.1145/1346330.1346335
 authors: Gábor Tardos

@@ -1,4 +1,6 @@
 ---
+type: folklore
+status: stub
 aliases:
   - Switching Lemma
 title: Switching Lemma

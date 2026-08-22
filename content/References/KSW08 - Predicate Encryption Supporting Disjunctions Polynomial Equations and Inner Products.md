@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KSW08"
 source: https://eprint.iacr.org/2007/397
 authors: Jonathan Katz, Amit Sahai, Brent Waters

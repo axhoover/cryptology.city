@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CIMR25"
 source: https://eprint.iacr.org/2025/646
 authors: Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen

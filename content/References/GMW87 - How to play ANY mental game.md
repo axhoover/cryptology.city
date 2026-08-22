@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GMW87"
 source: https://dl.acm.org/doi/10.1145/28395.28420
 authors: Oded Goldreich, Silvio Micali, Avi Wigderson

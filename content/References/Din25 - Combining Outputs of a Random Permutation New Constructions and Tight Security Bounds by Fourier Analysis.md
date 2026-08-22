@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Din25"
 source: https://eprint.iacr.org/2024/929
 authors: Itai Dinur

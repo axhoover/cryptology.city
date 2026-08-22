@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM88"
 source: https://core.ac.uk/download/pdf/82807618.pdf
 authors: Lázló Babai, Shlomo Moran

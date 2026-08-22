@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "FGJ+25"
 source: https://cic.iacr.org/p/1/4/31
 authors: Jaiden Fairoze, Sanjam Garg, Somesh Jha, Saeed Mahloujifar, Mohammad Mahmoody, Mingyuan Wang

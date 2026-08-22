@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BFL+24"
 source: https://arxiv.org/abs/2410.19152
 authors: Roozbeh Bassirian, Bill Fefferman, Itai Leigh, Kunal Marwaha, Pei Wu

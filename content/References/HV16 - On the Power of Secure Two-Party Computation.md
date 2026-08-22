@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HV16"
 source: https://eprint.iacr.org/2016/074
 authors: Carmit Hazay, Muthuramakrishnan Venkitasubramaniam

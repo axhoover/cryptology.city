@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GM84"
 source: https://www.sciencedirect.com/science/article/pii/0022000084900709
 authors: Shafi Goldwasser, Silvio Micali

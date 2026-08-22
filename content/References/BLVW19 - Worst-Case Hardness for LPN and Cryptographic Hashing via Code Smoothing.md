@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BLVW19"
 source: https://eprint.iacr.org/2018/279
 authors: Zvika Brakerski, Vadim Lyubashevsky, Vinod Vaikuntanathan, Daniel Wichs

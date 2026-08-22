@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BS98"
 source: https://ieeexplore.ieee.org/abstract/document/705568
 authors: Dan Boneh, James Shaw

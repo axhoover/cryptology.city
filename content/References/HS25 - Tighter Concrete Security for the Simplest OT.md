@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HS25"
 source: https://eprint.iacr.org/2025/493
 authors: Iftach Haitner, Gil Segev

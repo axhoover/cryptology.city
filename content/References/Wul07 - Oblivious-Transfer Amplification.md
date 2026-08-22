@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wul07"
 source: https://arxiv.org/abs/cs/0608076
 authors: Jürg Wullschleger

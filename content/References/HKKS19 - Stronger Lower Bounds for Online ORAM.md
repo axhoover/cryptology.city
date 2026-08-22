@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HKKS19"
 source: https://arxiv.org/abs/1903.03385
 authors: Pavel Hubáček, Michal Koucký, Karel Král, Veronika Slívová

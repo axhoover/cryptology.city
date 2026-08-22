@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM84"
 source: https://epubs.siam.org/doi/10.1137/0213053
 authors: Manuel Blum, Silvio Micali

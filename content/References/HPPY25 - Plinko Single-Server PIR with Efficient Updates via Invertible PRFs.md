@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HPPY25"
 source: https://eprint.iacr.org/2024/318
 authors: Alexander Hoover, Sarvar Patel, Giuseppe Persiano, Kevin Yeo

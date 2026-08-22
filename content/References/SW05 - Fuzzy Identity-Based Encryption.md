@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SW05"
 source: https://eprint.iacr.org/2004/086
 authors: Amit Sahai, Brent Waters

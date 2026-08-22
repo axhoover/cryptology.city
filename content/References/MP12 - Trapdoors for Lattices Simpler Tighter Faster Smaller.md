@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MP12"
 source: https://eprint.iacr.org/2011/501
 authors: Daniele Micciancio, Chris Peikert

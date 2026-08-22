@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Ajt96"
 source: https://dl.acm.org/doi/10.1145/237814.237838
 authors: Miklós Ajtai

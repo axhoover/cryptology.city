@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GZS24"
 source: https://eprint.iacr.org/2023/1574
 authors: Ashrujit Ghoshal, Mingxun Zhou, Elaine Shi

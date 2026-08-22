@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AKS98"
 authors: Noga Alon, Michael Krivelevich, Benny Sudakov
 venue: Random Structures & Algorithms

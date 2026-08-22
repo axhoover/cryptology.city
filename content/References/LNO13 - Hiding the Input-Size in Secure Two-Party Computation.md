@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LNO13"
 source: https://eprint.iacr.org/2012/679
 authors: Yehuda Lindell, Kobbi Nissim, Claudio Orlandi

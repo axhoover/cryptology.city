@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: stub
 aliases:
   - PSPACE
   - Polynomial-Space

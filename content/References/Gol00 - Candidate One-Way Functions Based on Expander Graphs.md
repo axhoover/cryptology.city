@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Gol00"
 source: https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10
 authors: Oded Goldreich

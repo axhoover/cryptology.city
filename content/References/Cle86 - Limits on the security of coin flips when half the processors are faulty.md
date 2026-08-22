@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Cle86"
 source: https://dl.acm.org/doi/abs/10.1145/12130.12168
 authors: Richard Cleve

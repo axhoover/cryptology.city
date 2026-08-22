@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DT24"
 source: https://eprint.iacr.org/2023/1804
 authors: Marian Dietz, Stefano Tessaro

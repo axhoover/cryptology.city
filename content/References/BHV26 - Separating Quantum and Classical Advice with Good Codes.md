@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BHV26"
 source: https://arxiv.org/abs/2602.09385
 authors: John Bostanci, Andrew Huang, Vinod Vaikuntanathan

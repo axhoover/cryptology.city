@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "vAH04"
 source: https://eprint.iacr.org/2003/233
 authors: Luis von Ahn, Nicholas J. Hopper

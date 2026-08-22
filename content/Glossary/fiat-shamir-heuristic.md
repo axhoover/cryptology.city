@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - Fiat-Shamir
   - Fiat-Shamir Heuristic

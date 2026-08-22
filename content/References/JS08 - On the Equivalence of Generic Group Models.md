@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JS08"
 source: https://link.springer.com/chapter/10.1007/978-3-540-88733-1_14
 authors: Jager, Tibor; Schwenk, Jörg

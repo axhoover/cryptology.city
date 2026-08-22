@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GMMY24"
 source: https://eprint.iacr.org/2024/1707
 authors: Eli Goldin, Tomoyuki Morimae, Saachi Mutreja, Takashi Yamakawa

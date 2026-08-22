@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SW25"
 source: https://eprint.iacr.org/2025/190
 authors: Jad Silbak, Daniel Wichs

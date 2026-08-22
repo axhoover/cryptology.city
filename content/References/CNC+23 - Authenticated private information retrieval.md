@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CNC+23"
 source: https://eprint.iacr.org/2023/297
 authors: Simone Colombo, Kirill Nikitin, Henry Corrigan-Gibbs, David J. Wu, Bryan Ford

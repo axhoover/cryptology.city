@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM26"
 authors: Nir Bitansky, Noam Mazor
 venue: Preprint

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Imp95"
 source: https://ieeexplore.ieee.org/document/514853
 authors: Russell Impagliazzo

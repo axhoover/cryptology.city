@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Pap94"
 source: https://www.sciencedirect.com/science/article/pii/S0022000005800637
 authors: Christos H. Papadimitriou

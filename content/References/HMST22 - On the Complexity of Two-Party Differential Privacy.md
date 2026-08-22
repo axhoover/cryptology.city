@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HMST22"
 source: https://arxiv.org/abs/2108.07664
 authors: Iftach Haitner, Noam Mazor, Jad Silbak, Eliad Tsfadia

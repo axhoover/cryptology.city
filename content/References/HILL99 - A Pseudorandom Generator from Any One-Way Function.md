@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HILL99"
 source: https://epubs.siam.org/doi/10.1137/S0097539793244708
 authors: Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby

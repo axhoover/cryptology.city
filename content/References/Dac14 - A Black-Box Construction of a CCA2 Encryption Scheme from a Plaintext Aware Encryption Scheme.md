@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Dac14"
 source: https://eprint.iacr.org/2013/680
 authors: Dana Dachman-Soled

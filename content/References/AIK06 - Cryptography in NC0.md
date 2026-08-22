@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AIK06"
 source: https://epubs.siam.org/doi/abs/10.1137/S0097539705446950
 authors: Benny Applebaum, Yuval Ishai, Eyal Kushilevitz

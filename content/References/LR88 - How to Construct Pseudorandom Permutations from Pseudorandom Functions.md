@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LR88"
 source: https://epubs.siam.org/doi/abs/10.1137/0217022
 authors: Michael Luby, Charles Rackoff

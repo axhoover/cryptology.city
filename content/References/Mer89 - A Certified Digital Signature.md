@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Mer89"
 source: https://link.springer.com/chapter/10.1007/0-387-34805-0_21
 authors: Ralph C. Merkle

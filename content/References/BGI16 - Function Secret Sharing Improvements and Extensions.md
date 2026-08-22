@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGI16"
 source: https://eprint.iacr.org/2016/585
 authors: Elette Boyle, Niv Gilboa, Yuval Ishai

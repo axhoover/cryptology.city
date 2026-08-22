@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "RW13"
 source: https://eprint.iacr.org/2012/583
 authors: Yannis Rouselakis, Brent Waters

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KRS25"
 source: https://eprint.iacr.org/2025/118
 authors: Dmitry Khovratovich, Ron Rothblum, Oleg Soukhanov

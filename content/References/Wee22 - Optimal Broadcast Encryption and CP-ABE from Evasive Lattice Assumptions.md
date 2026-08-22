@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wee22"
 source: https://eprint.iacr.org/2023/906
 authors: Hoeteck Wee

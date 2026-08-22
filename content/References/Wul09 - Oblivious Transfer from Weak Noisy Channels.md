@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wul09"
 source: https://eprint.iacr.org/2008/420
 authors: Jürg Wullschleger

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BN16"
 source: https://eprint.iacr.org/2015/863
 authors: Elette Boyle, Moni Naor

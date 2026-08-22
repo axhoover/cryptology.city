@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGI15"
 source: https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12
 authors: Elette Boyle, Niv Gilboa, Yuval Ishai

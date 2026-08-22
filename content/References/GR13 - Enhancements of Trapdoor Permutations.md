@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GR13"
 source: https://link.springer.com/article/10.1007/s00145-012-9131-8
 authors: Oded Goldreich, Ron D. Rothblum

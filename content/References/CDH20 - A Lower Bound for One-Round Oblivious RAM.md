@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CDH20"
 source: https://eprint.iacr.org/2020/1195
 authors: David Cash, Andrew Drucker, Alexander Hoover

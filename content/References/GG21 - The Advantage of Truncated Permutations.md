@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG21"
 source: https://arxiv.org/abs/1610.02518
 authors: Shoni Gilboa, Shay Gueron

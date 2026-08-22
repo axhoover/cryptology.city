@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LV15"
 source: https://eprint.iacr.org/2015/1061
 authors: Tianren Liu, Vinod Vaikuntanathan

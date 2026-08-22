@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "NN23"
 source: https://arxiv.org/abs/2210.15380
 authors: Anand Natarajan, Chinmay Nirkhe

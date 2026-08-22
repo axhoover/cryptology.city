@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GK96"
 source: https://epubs.siam.org/doi/10.1137/S0097539791220688
 authors: Oded Goldreich, Hugo Krawczyk

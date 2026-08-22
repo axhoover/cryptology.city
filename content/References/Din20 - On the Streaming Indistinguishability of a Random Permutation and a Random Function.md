@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Din20"
 source: https://eprint.iacr.org/2019/413
 authors: Itai Dinur

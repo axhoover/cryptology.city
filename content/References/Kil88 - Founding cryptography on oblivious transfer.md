@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Kil88"
 source: https://dl.acm.org/doi/10.1145/62212.62215
 authors: Joe Kilian

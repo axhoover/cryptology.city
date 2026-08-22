@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Lam79"
 source: https://www.microsoft.com/en-us/research/publication/constructing-digital-signatures-one-way-function/
 authors: Leslie Lamport

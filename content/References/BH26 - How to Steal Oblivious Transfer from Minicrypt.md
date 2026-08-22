@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BH26"
 source: https://eprint.iacr.org/2026/113
 authors: Cruz Barnum, David Heath

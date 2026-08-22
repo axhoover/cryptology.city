@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Ost91"
 source: https://ieeexplore.ieee.org/document/160253
 authors: Rafail Ostrovsky

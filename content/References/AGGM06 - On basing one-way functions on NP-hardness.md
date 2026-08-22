@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AGGM06"
 source: https://dl.acm.org/doi/abs/10.1145/1132516.1132614
 authors: Adi Akavia, Oded Goldreich, Shafi Goldwasser, Dana Moshkovitz

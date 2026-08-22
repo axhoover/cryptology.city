@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wat11"
 source: https://eprint.iacr.org/2008/290
 authors: Brent Waters

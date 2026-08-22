@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GPSW06"
 source: https://eprint.iacr.org/2006/309
 authors: Vipul Goyal, Omkant Pandey, Amit Sahai, Brent Waters

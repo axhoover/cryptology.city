@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Gro16"
 source: https://eprint.iacr.org/2016/260
 authors: Jens Groth

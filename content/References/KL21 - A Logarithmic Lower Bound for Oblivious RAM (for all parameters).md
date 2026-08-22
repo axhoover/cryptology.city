@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KL21"
 source: https://eprint.iacr.org/2020/1132
 authors: Ilan Komargodski, Wei-Kai Lin

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGS75"
 source: https://epubs.siam.org/doi/10.1137/0204037
 authors: Theodore Baker, John Gill, Robert Solovay

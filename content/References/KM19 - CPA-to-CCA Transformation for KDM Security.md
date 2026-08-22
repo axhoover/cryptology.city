@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KM19"
 source: https://eprint.iacr.org/2019/609
 authors: Fuyuki Kitagawa, Takahiro Matsuda

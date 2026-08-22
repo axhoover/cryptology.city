@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CK20"
 source: https://eprint.iacr.org/2019/1075
 authors: Henry Corrigan-Gibbs, Dmitry Kogan

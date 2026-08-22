@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JKX18"
 source: https://eprint.iacr.org/2018/163
 authors: Stanislaw Jarecki, Hugo Krawczyk, Jiayu Xu

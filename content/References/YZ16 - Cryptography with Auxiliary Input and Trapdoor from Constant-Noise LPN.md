@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "YZ16"
 source: https://eprint.iacr.org/2016/514
 authors: Yu Yu, Jiang Zhang

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AHY25"
 source: https://eprint.iacr.org/2025/324
 authors: Josh Alman, Yizhi Huang, Kevin Yeo

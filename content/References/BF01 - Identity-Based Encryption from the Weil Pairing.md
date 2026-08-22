@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BF01"
 source: https://eprint.iacr.org/2001/090
 authors: Dan Boneh, Matthew Franklin

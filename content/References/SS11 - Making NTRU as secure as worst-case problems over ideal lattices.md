@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SS11"
 source: https://eprint.iacr.org/2013/004
 authors: Damien Stehlé, Ron Steinfeld

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "ElGamal85"
 source: https://ieeexplore.ieee.org/document/1057074
 authors: Taher ElGamal

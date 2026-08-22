@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Zal97"
 source: https://arxiv.org/abs/quant-ph/9711070
 authors: Christof Zalka

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BW07"
 source: https://eprint.iacr.org/2006/465
 authors: Dan Boneh, Brent Waters

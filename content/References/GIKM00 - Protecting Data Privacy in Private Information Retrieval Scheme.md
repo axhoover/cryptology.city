@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GIKM00"
 source: https://dl.acm.org/doi/pdf/10.1145/276698.276723
 authors: Yael Gertner, Yuval Ishai, Eyal Kushilevitz, Tal Malkin

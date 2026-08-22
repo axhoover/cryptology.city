@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Bla79"
 source: https://ieeexplore.ieee.org/document/4356614
 authors: G.R. Blakley

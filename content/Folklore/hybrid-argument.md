@@ -1,4 +1,6 @@
 ---
+type: folklore
+status: draft
 aliases:
   - Hybrid argument
 title: Hybrid argument

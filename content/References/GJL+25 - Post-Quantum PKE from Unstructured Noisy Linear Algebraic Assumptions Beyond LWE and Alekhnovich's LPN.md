@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GJL+25"
 source: https://eprint.iacr.org/2025/844
 authors: Riddhi Ghosal, Aayush Jain, Paul Lou, Amit Sahai, Neekon Vafa

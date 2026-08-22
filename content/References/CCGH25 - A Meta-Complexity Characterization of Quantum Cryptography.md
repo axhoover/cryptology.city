@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CCGH25"
 source: https://eprint.iacr.org/2025/642
 authors: Bruno P. Cavalar, Eli Goldin, Matthew Gray, Peter Hall

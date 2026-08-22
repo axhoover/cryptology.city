@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "RTV04"
 source: https://link.springer.com/chapter/10.1007/978-3-540-24638-1_1
 authors: Omer Reingold, Luca Trevisan, Salil Vadhan

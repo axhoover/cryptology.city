@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GM24"
 source: https://eprint.iacr.org/2024/898
 authors: Noah Golowich, Ankur Moitra

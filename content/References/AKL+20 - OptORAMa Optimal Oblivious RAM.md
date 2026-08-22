@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AKL+20"
 source: https://eprint.iacr.org/2018/892
 authors: Gilad Asharov, Ilan Komargodski, Wei-Kai Lin, Kartik Nayak, Enoch Peserico, Elaine Shi

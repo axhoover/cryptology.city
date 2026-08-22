@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "YZW+19"
 source: https://eprint.iacr.org/2017/1260
 authors: Yu Yu, Jiang Zhang, Jian Weng, Chun Guo, Xiangxue Li

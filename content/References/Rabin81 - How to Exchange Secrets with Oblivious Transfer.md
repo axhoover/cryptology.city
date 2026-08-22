@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Rab81"
 source: https://eprint.iacr.org/2005/187.pdf
 authors: Michael O. Rabin

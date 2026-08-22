@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GPV08"
 source: https://eprint.iacr.org/2007/432
 authors: Craig Gentry, Chris Peikert, Vinod Vaikuntanathan

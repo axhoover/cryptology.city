@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BIP+18"
 source: https://eprint.iacr.org/2018/1218
 authors: Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MPZ20"
 source: https://eprint.iacr.org/2020/996
 authors: Maurer, Ueli; Portmann, Christopher; Zhu, Jiamin

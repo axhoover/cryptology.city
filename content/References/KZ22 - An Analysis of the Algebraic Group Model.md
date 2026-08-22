@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KZ22"
 source: https://eprint.iacr.org/2022/210
 authors: Katz, Jonathan; Zhang, Cong

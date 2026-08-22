@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGZ24"
 source: https://eprint.iacr.org/2023/763
 authors: Miranda Christ, Sam Gunn, Or Zamir

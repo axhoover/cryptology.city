@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BUW24"
 source: https://eprint.iacr.org/2024/2000
 authors: Chris Brzuska, Akin Ünal, Ivy K. Y. Woo

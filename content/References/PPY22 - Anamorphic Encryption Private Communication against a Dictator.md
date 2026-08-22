@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "PPY22"
 source: https://eprint.iacr.org/2022/639
 authors: Giuseppe Persiano, Duong Hieu Phan, Moti Yung

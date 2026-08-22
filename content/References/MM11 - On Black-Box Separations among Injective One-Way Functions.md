@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MM11"
 source: https://iacr.org/archive/tcc2011/65970593/65970593.pdf
 authors: Takahiro Matsuda, Kanta Matsuura

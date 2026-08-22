@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BIPW17"
 source: https://eprint.iacr.org/2017/567
 authors: Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters

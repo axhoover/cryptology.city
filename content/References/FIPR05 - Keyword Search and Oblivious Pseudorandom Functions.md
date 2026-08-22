@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "FIPR05"
 source: https://iacr.org/archive/tcc2005/3378_304/3378_304.pdf
 authors: Michael J. Freedman, Yuval Ishai, Benny Pinkas, and Omer Reingold

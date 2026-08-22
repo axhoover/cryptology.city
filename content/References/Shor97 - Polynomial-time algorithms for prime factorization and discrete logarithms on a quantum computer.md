@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Shor97"
 source: https://epubs.siam.org/doi/10.1137/S0097539795293172
 authors: Peter W. Shor

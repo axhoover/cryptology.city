@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HPS98"
 source: https://link.springer.com/chapter/10.1007/BFb0054868
 authors: Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG24"
 source: https://arxiv.org/abs/2409.07580
 authors: Surendra Ghentiyala, Venkatesan Guruswami

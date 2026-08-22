@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: stub
 aliases:
   - ZKP
   - ZK proof

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LM06"
 source: https://eprint.iacr.org/2004/261
 authors: Vadim Lyubashevsky, Daniele Micciancio

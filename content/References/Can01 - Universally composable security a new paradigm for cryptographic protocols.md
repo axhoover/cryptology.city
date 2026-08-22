@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Can01"
 source: https://eprint.iacr.org/2000/067
 authors: Ran Canetti

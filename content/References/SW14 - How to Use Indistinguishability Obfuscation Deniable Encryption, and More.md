@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SW14"
 source: https://eprint.iacr.org/2013/454
 authors: Amit Sahai, Brent Waters

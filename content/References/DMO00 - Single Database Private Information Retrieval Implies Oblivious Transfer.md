@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DMO00"
 source: https://link.springer.com/chapter/10.1007/3-540-45539-6_10
 authors: Giovanni Di Crescenzo, Tal Malkin, Rafail Ostrovsky

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Shoup97"
 source: https://link.springer.com/chapter/10.1007/3-540-69053-0_18
 authors: Shoup, Victor

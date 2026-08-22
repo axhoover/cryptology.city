@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "FS86"
 source: https://link.springer.com/chapter/10.1007/3-540-47721-7_12
 authors: Amos Fiat, Adi Shamir

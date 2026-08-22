@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BBG05"
 source: https://eprint.iacr.org/2005/015
 authors: Dan Boneh, Xavier Boyen, Eu-Jin Goh

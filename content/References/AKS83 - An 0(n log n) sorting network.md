@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AKS83"
 source: https://dl.acm.org/doi/10.1145/800061.808726
 authors: M. Ajtai, J. Komlós, E. Szemerédi

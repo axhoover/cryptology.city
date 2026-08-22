@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CG97"
 source: https://dl.acm.org/doi/abs/10.1145/258533.258609
 authors: Benny Chor, Niv Gilboa

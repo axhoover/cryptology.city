@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DLO24"
 source: https://eprint.iacr.org/2022/1261
 authors: Dana Dachman-Soled, Julian Loss, Adam O'Neill

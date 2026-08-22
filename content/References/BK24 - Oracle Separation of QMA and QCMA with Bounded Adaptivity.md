@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BK24"
 source: https://arxiv.org/abs/2402.00298
 authors: Shalev Ben-David, Srijita Kundu

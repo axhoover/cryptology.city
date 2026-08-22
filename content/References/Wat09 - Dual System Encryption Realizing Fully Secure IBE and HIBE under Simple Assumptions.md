@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wat09"
 source: https://eprint.iacr.org/2009/385
 authors: Brent Waters

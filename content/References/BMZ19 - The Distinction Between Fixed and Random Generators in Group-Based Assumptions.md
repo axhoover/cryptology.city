@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BMZ19"
 source: https://eprint.iacr.org/2019/202
 authors: James Bartusek, Fermi Ma, and Mark Zhandry

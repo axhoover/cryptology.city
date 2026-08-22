@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Yao82"
 source: https://ieeexplore.ieee.org/document/4568388
 authors: Andrew C. Yao

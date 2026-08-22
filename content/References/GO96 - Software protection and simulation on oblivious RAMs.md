@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GO96"
 source: https://dl.acm.org/doi/abs/10.1145/233551.233553
 authors: Oded Goldreich, Rafail Ostrovsky

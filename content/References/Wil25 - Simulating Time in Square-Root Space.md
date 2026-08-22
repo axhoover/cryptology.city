@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wil25"
 source: https://arxiv.org/abs/2502.17779
 authors: Ryan Williams

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AMR25"
 source: https://eprint.iacr.org/2025/416
 authors: Damiano Abram, Giulio Malavolta, Lawrence Roy

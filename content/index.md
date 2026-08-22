@@ -1,4 +1,6 @@
 ---
+type: note
+status: draft
 title: Cryptology City
 ---
 
