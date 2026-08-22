@@ -15,6 +15,7 @@
     "quartz": "./quartz/bootstrap-cli.mjs",
     "docs": "npx quartz build --serve -d docs",
     "check": "tsc --noEmit && npx prettier . --check",
+    "lint": "node scripts/lint.mjs",
     "format": "npx prettier . --write",
     "test": "tsx --test",
     "sync-cryptobib": "tsx scripts/sync-cryptobib.ts",
