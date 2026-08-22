@@ -8,8 +8,6 @@ venue: CRYPTO 2024
 published: 2024-06-17
 aliases:
   - ISW24
-tags:
-  - CRYPTO
 cryptobib_key: C:IshShiWic24
 ---
 

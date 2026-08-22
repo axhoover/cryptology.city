@@ -8,8 +8,6 @@ venue: Eurocrypt 2024
 published: 2023-10-11
 aliases:
   - GZS24
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GhoZhoShi24
 ---
 

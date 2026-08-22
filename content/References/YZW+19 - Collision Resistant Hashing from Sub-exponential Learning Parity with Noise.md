@@ -8,8 +8,6 @@ venue: ASIACRYPT 2019
 published: 2017-12-30
 aliases:
   - YZW+19
-tags:
-  - Asiacrypt
 cryptobib_key: AC:YZWGL19
 ---
 

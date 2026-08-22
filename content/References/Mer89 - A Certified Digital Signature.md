@@ -8,8 +8,6 @@ venue: CRYPTO 1989
 published: 1989-08-01
 aliases:
   - Mer89
-tags:
-  - CRYPTO
 cryptobib_key: C:Merkle89a
 ---
 

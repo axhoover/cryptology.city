@@ -8,8 +8,6 @@ venue: Asiacrypt 2013
 published: 2012-12-10
 aliases:
   - LNO13
-tags:
-  - Asiacrypt
 cryptobib_key: AC:LinNisOrl13
 ---
 

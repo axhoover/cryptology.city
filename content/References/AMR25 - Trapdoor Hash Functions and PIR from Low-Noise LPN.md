@@ -8,8 +8,6 @@ venue: preprint
 published: 2025-03-04
 aliases:
   - AMR25
-tags:
-  - preprint
 cryptobib_key: EPRINT:AbrMalRoy25c
 ---
 

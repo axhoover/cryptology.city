@@ -9,8 +9,6 @@ published: 2003-11-08
 created: 2025-03-20
 aliases:
   - vAH04
-tags:
-  - Eurocrypt
 cryptobib_key: EC:vAhHop04
 ---
 

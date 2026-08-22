@@ -8,8 +8,6 @@ venue: Journal of Cryptology 2013
 published: 2012-09-12
 aliases:
   - GR13
-tags:
-  - Journal of Cryptology
 cryptobib_key: JC:GolRot13
 ---
 

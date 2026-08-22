@@ -9,8 +9,6 @@ published: 2024-02-23
 aliases:
   - HPPY25
   - Plinko
-tags:
-  - Eurocrypt
 cryptobib_key: EC:HPPY25
 ---
 

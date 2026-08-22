@@ -9,8 +9,6 @@ published: 1991-06-30
 created: 2025-02-20
 aliases:
   - Ost91
-tags:
-  - Complexity
 bibtex: |
   @inproceedings{Ost91,
     author    = {Rafail Ostrovsky},

@@ -9,8 +9,6 @@ published: 1995-06-01
 aliases:
   - Imp95
   - Impagliazzo's Five Worlds
-tags:
-  - Complexity
 bibtex: |
   @inproceedings{Imp95,
     author    = {Russell Impagliazzo},

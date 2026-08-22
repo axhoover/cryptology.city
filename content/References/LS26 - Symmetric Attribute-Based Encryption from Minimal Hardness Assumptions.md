@@ -4,11 +4,9 @@ status: stub
 title: "LS26"
 aliases:
   - LS26
-authors:
-  - Riccardo Longo
-  - Enrico Sorbera
+authors: Riccardo Longo, Enrico Sorbera
 venue: Cryptology ePrint Archive
-published: "2026"
+published: 2026
 bibtex: |
   @misc{LS26,
     author       = {Riccardo Longo and Enrico Sorbera},

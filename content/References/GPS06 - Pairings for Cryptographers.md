@@ -5,11 +5,9 @@ title: "GPS06"
 source: https://eprint.iacr.org/2006/165
 authors: Steven D. Galbraith, Kenneth G. Paterson, Nigel P. Smart
 venue: IACR ePrint 2006/165
-published: "2006"
+published: 2006
 aliases:
   - GPS06
-tags:
-  - ePrint
 bibtex: |
   @misc{GPS06,
     author       = {Galbraith, Steven D. and Paterson, Kenneth G. and Smart, Nigel P.},

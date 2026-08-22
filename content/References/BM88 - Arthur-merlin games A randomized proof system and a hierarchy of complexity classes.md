@@ -8,8 +8,6 @@ venue: JCSS 1988
 published: 1987-08-03
 aliases:
   - BM88
-tags:
-  - JCSS
 bibtex: |
   @article{BM88,
     author  = {L\'{a}szl\'{o} Babai and Shlomo Moran},

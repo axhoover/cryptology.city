@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing 1988
 published: 1988
 aliases:
   - LR88
-tags:
-  - Journal-on-Computing
 cryptobib_key: LubRac88
 ---
 

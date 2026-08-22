@@ -9,8 +9,6 @@ published: 2024-05-06
 created: 2025-02-07
 aliases:
   - DH24
-tags:
-  - Eurocrypt
 cryptobib_key: EC:DujHaj24
 ---
 

@@ -8,8 +8,6 @@ venue: Eurocrypt 2016
 published: 2016-03-08
 aliases:
   - Gro16
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Groth16
 ---
 

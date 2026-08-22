@@ -8,8 +8,6 @@ venue: CRYPTO 1988
 published: 2000-01-01
 aliases:
   - BGG+90
-tags:
-  - CRYPTO
 cryptobib_key: C:BGGHKM88
 ---
 

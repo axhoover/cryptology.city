@@ -8,8 +8,6 @@ venue: Crypto 2005
 published: 2005-08-01
 aliases:
   - BGW05
-tags:
-  - Crypto
 cryptobib_key: C:BonGenWat05
 ---
 

@@ -8,8 +8,6 @@ venue: Eurocrypt 2025
 published: 2025-03-25
 aliases:
   - LMW25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:LinMooWic25
 ---
 

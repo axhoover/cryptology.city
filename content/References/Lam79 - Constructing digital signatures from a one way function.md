@@ -8,8 +8,6 @@ venue: SRI International Technical Report CSL-98, 1979
 published: 1979-10-18
 aliases:
   - Lam79
-tags:
-  - techreport
 cryptobib_key: Lamport79
 ---
 

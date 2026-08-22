@@ -8,8 +8,6 @@ venue: FOCS 2000
 published: 2000-04-01
 aliases:
   - GKM+00
-tags:
-  - FOCS
 cryptobib_key: FOCS:GKMRV00
 ---
 

@@ -8,8 +8,6 @@ venue: TQC 2023
 published: 2022-12-01
 aliases:
   - BFM23
-tags:
-  - TQC
 bibtex: |
   @inproceedings{BFM23,
     author    = {Roozbeh Bassirian and Bill Fefferman and Kunal Marwaha},

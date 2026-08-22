@@ -8,8 +8,6 @@ venue: preprint
 published: 1976-06-03
 aliases:
   - DH76
-tags:
-  - preprint
 cryptobib_key: DifHel76
 ---
 

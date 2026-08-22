@@ -8,8 +8,6 @@ venue: STOC 2025
 published: 2025-02-24
 aliases:
   - Wil25
-tags:
-  - STOC
 bibtex: |
   @inproceedings{Wil25,
     author    = {R. Ryan Williams},

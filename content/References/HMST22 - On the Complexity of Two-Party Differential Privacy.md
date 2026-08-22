@@ -9,8 +9,6 @@ published: 2021-08-17
 created: 2025-03-07
 aliases:
   - HMST22
-tags:
-  - STOC
 cryptobib_key: STOC:HMST22
 ---
 

@@ -8,8 +8,6 @@ venue: arXiv 2024
 published: 2024-10-24
 aliases:
   - BFL+24
-tags:
-  - arXiv
 bibtex: |
   @misc{BFL+24,
     author       = {Roozbeh Bassirian and Bill Fefferman and Itai Leigh and Kunal Marwaha and Pei Wu},

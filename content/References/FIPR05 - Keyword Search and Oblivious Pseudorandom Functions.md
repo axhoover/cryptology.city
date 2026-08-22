@@ -9,8 +9,6 @@ published: 2005-04-01
 created: 2025-01-07
 aliases:
   - FIPR05
-tags:
-  - TCC
 cryptobib_key: TCC:FIPR05
 ---
 

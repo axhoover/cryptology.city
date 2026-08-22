@@ -8,8 +8,6 @@ venue: EUROCRYPT 2025
 published: 2025
 aliases:
   - Wee25
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:Wee25
 ---
 

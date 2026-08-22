@@ -9,8 +9,6 @@ published: 2025-02-27
 created: 2025-03-04
 aliases:
   - AMYY25
-tags:
-  - preprint
 cryptobib_key: EPRINT:AMYY25
 ---
 

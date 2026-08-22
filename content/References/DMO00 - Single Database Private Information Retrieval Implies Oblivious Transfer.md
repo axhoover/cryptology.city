@@ -8,8 +8,6 @@ venue: Eurocrypt 2000
 published: 2000-01-01
 aliases:
   - DMO00
-tags:
-  - Eurocrypt
 cryptobib_key: EC:DiCMalOst00
 ---
 

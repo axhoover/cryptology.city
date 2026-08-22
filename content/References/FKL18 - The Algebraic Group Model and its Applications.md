@@ -8,8 +8,6 @@ venue: CRYPTO 2018
 published: 2018-01-01
 aliases:
   - FKL18
-tags:
-  - CRYPTO
 cryptobib_key: C:FucKilLos18
 ---
 

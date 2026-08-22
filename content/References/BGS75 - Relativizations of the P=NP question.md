@@ -8,8 +8,6 @@ venue: SICOMP 1975
 published: 1975-01-01
 aliases:
   - BGS75
-tags:
-  - SICOMP
 bibtex: |
   @article{BGS75,
     author  = {Theodore Baker and John Gill and Robert Solovay},

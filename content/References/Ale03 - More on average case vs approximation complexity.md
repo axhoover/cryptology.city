@@ -8,8 +8,6 @@ venue: FOCS 2003
 published: 2003-06-01
 aliases:
   - Ale03
-tags:
-  - FOCS
 cryptobib_key: FOCS:Alekhnovich03
 ---
 

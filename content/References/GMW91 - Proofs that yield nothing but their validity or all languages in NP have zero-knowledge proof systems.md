@@ -8,8 +8,6 @@ venue: JACM 1991
 published: 1991-07-01
 aliases:
   - GMW91
-tags:
-  - JACM
 cryptobib_key: GolMicWig91
 ---
 

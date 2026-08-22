@@ -5,11 +5,9 @@ title: "CCG+94"
 source: https://www.sciencedirect.com/science/article/pii/S0022000005800844
 authors: Richard Chang, Benny Chor, Oded Goldreich, Juris Hartmanis, Johan Håstad, Desh Ranjan, Pankaj Rohatgi
 venue: Journal of Computer and System Sciences
-published:
+published: 1994
 aliases:
   - CCG+94
-tags:
-  - JCSS
 bibtex: |
   @article{CCG+94,
     author  = {Richard Chang and Benny Chor and Oded Goldreich and Juris Hartmanis and Johan H{\aa}stad and Desh Ranjan and Pankaj Rohatgi},

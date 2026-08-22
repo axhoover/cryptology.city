@@ -8,8 +8,6 @@ venue: Journal on Computing 2006
 published: 2006-08-01
 aliases:
   - AIK06
-tags:
-  - Journal-on-Computing
 bibtex: |
   @article{AIK06,
     author  = {Benny Applebaum and Yuval Ishai and Eyal Kushilevitz},

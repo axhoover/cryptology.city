@@ -8,8 +8,6 @@ venue: CRYPTO 2003
 published: 2003-08-17
 aliases:
   - IKNP03
-tags:
-  - CRYPTO
 cryptobib_key: C:IKNP03
 ---
 

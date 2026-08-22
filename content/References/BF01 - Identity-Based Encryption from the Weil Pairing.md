@@ -8,8 +8,6 @@ venue: Crypto 2001
 published: 2001-08-01
 aliases:
   - BF01
-tags:
-  - Crypto
 cryptobib_key: C:BonFra01
 ---
 

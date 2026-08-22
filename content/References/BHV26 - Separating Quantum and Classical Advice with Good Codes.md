@@ -8,8 +8,6 @@ venue: ECCC 2026
 published: 2026-02-01
 aliases:
   - BHV26
-tags:
-  - ECCC
 bibtex: |
   @misc{BHV26,
     author       = {John Bostanci and Andrew Huang and Vinod Vaikuntanathan},

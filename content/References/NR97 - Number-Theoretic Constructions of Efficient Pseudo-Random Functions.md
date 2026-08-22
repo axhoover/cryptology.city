@@ -8,8 +8,6 @@ venue: FOCS 1997
 published: 1997-10-01
 aliases:
   - NR97
-tags:
-  - FOCS
 cryptobib_key: FOCS:NaoRei97
 ---
 

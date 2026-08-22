@@ -8,8 +8,6 @@ venue: Discrete Applied Mathematics 2021
 published: 2021-01-19
 aliases:
   - GG21
-tags:
-  - Discrete Applied Mathematics
 bibtex: |
   @article{GG21,
     author  = {Shoni Gilboa and Shay Gueron},

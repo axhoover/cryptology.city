@@ -8,8 +8,6 @@ venue: Communications of the ACM, 1978
 published: 1978-02-01
 aliases:
   - RSA78
-tags:
-  - CACM
 cryptobib_key: RivShaAdl78
 ---
 

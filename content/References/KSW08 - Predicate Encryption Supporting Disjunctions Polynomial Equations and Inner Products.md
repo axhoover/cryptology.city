@@ -8,8 +8,6 @@ venue: Eurocrypt 2008
 published: 2008-04-01
 aliases:
   - KSW08
-tags:
-  - Eurocrypt
 cryptobib_key: EC:KatSahWat08
 ---
 

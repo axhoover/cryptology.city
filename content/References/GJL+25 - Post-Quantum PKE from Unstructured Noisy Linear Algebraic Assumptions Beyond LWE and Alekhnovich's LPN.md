@@ -9,8 +9,6 @@ published: 2025-05-12
 created: 2025-05-16
 aliases:
   - GJL+25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GJLSV25
 ---
 

@@ -8,8 +8,6 @@ venue: Advances in Cryptology — EUROCRYPT 2011
 published: 2011-05-15
 aliases:
   - SS11
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:SteSte11
 ---
 

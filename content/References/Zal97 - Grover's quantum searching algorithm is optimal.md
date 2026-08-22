@@ -8,8 +8,6 @@ venue: arXiv
 published: 1997-11-26
 aliases:
   - Zal97
-tags:
-  - preprint
 bibtex: |
   @article{Zal97,
     author  = {Christof Zalka},

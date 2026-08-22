@@ -9,8 +9,6 @@ published: 2010-06-01
 created: 2025-03-07
 aliases:
   - MMP+10
-tags:
-  - STOC
 cryptobib_key: FOCS:MMPRTV10
 ---
 

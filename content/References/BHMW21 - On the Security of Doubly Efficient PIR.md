@@ -9,8 +9,6 @@ published: 2021-09-03
 created: 2025-02-17
 aliases:
   - BHMW21
-tags:
-  - preprint
 cryptobib_key: EPRINT:BHMW21
 ---
 

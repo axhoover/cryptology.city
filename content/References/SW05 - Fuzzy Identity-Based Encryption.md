@@ -8,8 +8,6 @@ venue: Eurocrypt 2005
 published: 2005-05-01
 aliases:
   - SW05
-tags:
-  - Eurocrypt
 cryptobib_key: EC:SahWat05
 ---
 

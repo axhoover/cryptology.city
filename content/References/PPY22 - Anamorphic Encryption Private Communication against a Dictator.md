@@ -8,8 +8,6 @@ venue: Eurocrypt 2022
 published: 2022-05-24
 aliases:
   - PPY22
-tags:
-  - Eurocrypt
 cryptobib_key: EC:PerPhaYun22
 ---
 

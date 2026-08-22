@@ -8,8 +8,6 @@ venue: Theory of Cryptography Library
 published: 1998-02-25
 aliases:
   - GG98
-tags:
-  - preprint
 bibtex: |
   @misc{GG98,
     author       = {Oded Goldreich and Shafi Goldwasser},

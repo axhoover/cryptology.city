@@ -8,8 +8,6 @@ venue: CRYPTO 2019
 published: 2019-01-01
 aliases:
   - BMZ19
-tags:
-  - CRYPTO
 cryptobib_key: C:BarMaZha19
 ---
 

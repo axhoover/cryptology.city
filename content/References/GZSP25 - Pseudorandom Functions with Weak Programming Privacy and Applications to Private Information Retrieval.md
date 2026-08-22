@@ -8,8 +8,6 @@ venue: Eurocrypt 2025
 published: 2025-02-20
 aliases:
   - GZSP25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GZSP25
 ---
 

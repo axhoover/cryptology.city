@@ -8,8 +8,6 @@ venue: CRYPTO 2009
 published: 2009-08-19
 aliases:
   - BM09
-tags:
-  - CRYPTO
 bibtex: |
   @inproceedings{BM09,
     author    = {Boaz Barak and Mohammad Mahmoody-Ghidary},

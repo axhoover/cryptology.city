@@ -8,8 +8,6 @@ venue: TCC 2020
 published: 2020-06-10
 aliases:
   - CDH20
-tags:
-  - TCC
 cryptobib_key: TCC:CasDruHoo20
 ---
 

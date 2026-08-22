@@ -9,8 +9,6 @@ published: 1997-01-01
 aliases:
   - Shoup97
   - Sho97
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Shoup97
 ---
 

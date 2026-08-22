@@ -8,8 +8,6 @@ venue: STOC 2008
 published: 2008-05-01
 aliases:
   - GPV08
-tags:
-  - STOC
 cryptobib_key: STOC:GenPeiVai08
 ---
 

@@ -10,8 +10,6 @@ created: 2025-01-24
 aliases:
   - BBB+18
   - Bulletproofs
-tags:
-  - IEEE-SP
 cryptobib_key: SP:BBBPWM18
 ---
 

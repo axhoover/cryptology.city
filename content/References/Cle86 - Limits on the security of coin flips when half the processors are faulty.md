@@ -9,8 +9,6 @@ published: 1986-11-01
 created: 2025-05-05
 aliases:
   - Cle86
-tags:
-  - STOC
 bibtex: |
   @inproceedings{Cle86,
     author    = {Richard Cleve},

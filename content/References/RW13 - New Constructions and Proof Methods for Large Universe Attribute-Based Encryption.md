@@ -8,8 +8,6 @@ venue: CCS 2013
 published: 2013-11-01
 aliases:
   - RW13
-tags:
-  - CCS
 cryptobib_key: EPRINT:RouWat12
 ---
 

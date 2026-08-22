@@ -8,8 +8,6 @@ venue: CRYPTO 1986
 published: 1986-08-01
 aliases:
   - FS86
-tags:
-  - CRYPTO
 cryptobib_key: C:FiaSha86
 ---
 

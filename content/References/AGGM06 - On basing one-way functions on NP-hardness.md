@@ -8,8 +8,6 @@ venue: STOC 2006
 published: 2006-05-21
 aliases:
   - AGGM06
-tags:
-  - STOC
 cryptobib_key: STOC:AGGM06
 ---
 

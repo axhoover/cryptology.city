@@ -8,8 +8,6 @@ venue: ASIACRYPT 2022
 published: 2022-01-01
 aliases:
   - KZ22
-tags:
-  - ASIACRYPT
 cryptobib_key: AC:ZhaZhoKat22
 ---
 

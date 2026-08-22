@@ -8,8 +8,6 @@ venue: Journal of the ACM 1986
 published: 1986-09-10
 aliases:
   - GGM86
-tags:
-  - JACM
 cryptobib_key: GolGolMic86
 ---
 

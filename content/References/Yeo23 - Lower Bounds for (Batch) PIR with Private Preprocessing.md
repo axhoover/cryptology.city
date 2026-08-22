@@ -8,9 +8,6 @@ venue: preprint
 published: 2022-06-23
 aliases:
   - Yeo23
-tags:
-  - preprint
-  - Yeo
 cryptobib_key: EC:Yeo23
 ---
 

@@ -8,8 +8,6 @@ venue: CRYPTO 2024
 published: 2025-02-14
 aliases:
   - LMW24
-tags:
-  - CRYPTO
 cryptobib_key: C:LinMooWic24
 ---
 

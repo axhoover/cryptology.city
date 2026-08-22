@@ -8,8 +8,6 @@ venue: Algorithmic Number Theory Symposium (ANTS-III), 1998
 published: 1998-06-21
 aliases:
   - HPS98
-tags:
-  - ANTS
 cryptobib_key: HofPipSil98
 ---
 

@@ -7,8 +7,6 @@ authors: Carmit Hazay, Muthuramakrishnan Venkitasubramaniam
 venue: CRYPTO 2016
 published: 2016-01-27
 created: 2025-02-11
-tags:
-  - CRYPTO
 aliases:
   - HV16
 cryptobib_key: C:HazVen16

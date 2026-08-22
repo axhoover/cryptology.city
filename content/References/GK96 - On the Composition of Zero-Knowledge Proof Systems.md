@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing 1996
 published: 1996-01-01
 aliases:
   - GK96
-tags:
-  - SIAMJC
 bibtex: |
   @article{GK96,
     author  = {Oded Goldreich and Hugo Krawczyk},

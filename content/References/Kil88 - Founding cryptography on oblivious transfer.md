@@ -8,8 +8,6 @@ venue: Proceedings of the 20th Annual ACM Symposium on Theory of Computing (STOC
 published: 1988-01-01
 aliases:
   - Kil88
-tags:
-  - STOC
 cryptobib_key: STOC:Kilian88
 ---
 

@@ -8,8 +8,6 @@ venue: CRYPTO 2020
 published: 2020
 aliases:
   - DDRG20
-tags:
-  - CRYPTO
 cryptobib_key: C:DDGR20
 ---
 

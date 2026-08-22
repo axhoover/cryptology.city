@@ -8,8 +8,6 @@ venue: ASIACRYPT 2024
 published: 2024
 aliases:
   - BUW24
-tags:
-  - ASIACRYPT
 cryptobib_key: AC:BrzUnaWoo24
 ---
 

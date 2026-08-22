@@ -8,8 +8,6 @@ venue: TCC 2011
 published: 2011-01-01
 aliases:
   - MM11
-tags:
-  - TCC
 cryptobib_key: TCC:MatMat11
 ---
 

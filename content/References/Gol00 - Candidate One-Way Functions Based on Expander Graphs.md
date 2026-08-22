@@ -10,8 +10,6 @@ created: 2025-02-19
 aliases:
   - Goldreich's PRF
   - Gol00
-tags:
-  - ECCC
 cryptobib_key: EPRINT:Goldreich00b
 ---
 

@@ -9,8 +9,6 @@ published: 2019-11-22
 created: 2025-04-22
 aliases:
   - HKKS19
-tags:
-  - TCC
 cryptobib_key: TCC:HKKS19
 ---
 

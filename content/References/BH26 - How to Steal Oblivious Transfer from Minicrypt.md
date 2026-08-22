@@ -8,8 +8,6 @@ venue: ePrint 2026
 published: 2026-02-13
 aliases:
   - BH26
-tags:
-  - ePrint
 bibtex: |
   @misc{BH26,
     author       = {Cruz Barnum and David Heath},

@@ -8,8 +8,6 @@ venue: IEEE Transactions on Information Theory 1985
 published: 1985-07-01
 aliases:
   - ElGamal85
-tags:
-  - IEEETransIT
 cryptobib_key: C:ElGamal84
 ---
 

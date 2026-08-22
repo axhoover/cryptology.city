@@ -8,8 +8,6 @@ venue: Eurocrypt 2014
 published: 2014-05-01
 aliases:
   - GI14
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GilIsh14
 ---
 

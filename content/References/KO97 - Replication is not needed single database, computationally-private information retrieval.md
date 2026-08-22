@@ -8,8 +8,6 @@ venue: FOCS 1997
 published: 1997-10-20
 aliases:
   - KO97
-tags:
-  - FOCS
 cryptobib_key: FOCS:KusOst97
 ---
 

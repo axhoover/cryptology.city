@@ -8,8 +8,6 @@ venue: CRYPTO 2019
 published: 2019-06-03
 aliases:
   - DGI+19
-tags:
-  - CRYPTO
 cryptobib_key: C:DGIMMO19
 ---
 

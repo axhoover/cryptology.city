@@ -8,8 +8,6 @@ venue: STOC 2005
 published: 2005-05-01
 aliases:
   - Reg05
-tags:
-  - STOC
 cryptobib_key: STOC:Regev05
 ---
 

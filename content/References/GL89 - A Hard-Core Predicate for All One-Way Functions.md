@@ -8,8 +8,6 @@ venue: STOC 1989
 published: 1989-02-01
 aliases:
   - GL89
-tags:
-  - STOC
 cryptobib_key: STOC:GolLev89
 ---
 

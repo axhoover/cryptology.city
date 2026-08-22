@@ -8,8 +8,6 @@ venue: preprint
 published: 2024-09-11
 aliases:
   - GG24
-tags:
-  - preprint
 cryptobib_key: EPRINT:GheGur24
 ---
 

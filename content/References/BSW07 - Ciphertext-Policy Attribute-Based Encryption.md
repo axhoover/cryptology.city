@@ -8,8 +8,6 @@ venue: IEEE S&P 2007
 published: 2007-05-01
 aliases:
   - BSW07
-tags:
-  - S&P
 cryptobib_key: SP:BetSahWat07
 ---
 

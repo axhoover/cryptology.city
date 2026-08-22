@@ -8,8 +8,6 @@ venue: Quantum 2025
 published: 2024-03-05
 aliases:
   - BM25
-tags:
-  - Quantum
 bibtex: |
   @article{BM25,
     author  = {Roozbeh Bassirian and Kunal Marwaha},

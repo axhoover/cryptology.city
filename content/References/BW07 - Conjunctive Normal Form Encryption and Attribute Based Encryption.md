@@ -8,8 +8,6 @@ venue: TCC 2007
 published: 2007-02-01
 aliases:
   - BW07
-tags:
-  - TCC
 bibtex: |
   @inproceedings{BW07,
     author    = {Dan Boneh and Brent Waters},

@@ -7,8 +7,6 @@ authors: Itai Dinur
 venue: Eurocrypt 2020
 published: 2020-01-01
 created: 2025-07-24
-tags:
-  - Eurocrypt
 aliases:
   - Din20
 cryptobib_key: EC:Dinur20b

@@ -8,8 +8,6 @@ venue: Eurocrypt 2025
 published: 2025-02-09
 aliases:
   - SW25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:SilWic25
 ---
 

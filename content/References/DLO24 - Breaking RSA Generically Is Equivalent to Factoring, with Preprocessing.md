@@ -8,8 +8,6 @@ venue: ITC 2024
 published: 2024
 aliases:
   - DLO24
-tags:
-  - ITC
 cryptobib_key: ITC:DacLosONe24
 ---
 

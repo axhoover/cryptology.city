@@ -8,8 +8,6 @@ venue: CCS 2006
 published: 2006-11-01
 aliases:
   - GPSW06
-tags:
-  - CCS
 cryptobib_key: CCS:GPSW06
 ---
 

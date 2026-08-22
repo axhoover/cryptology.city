@@ -8,8 +8,6 @@ venue: COLT 2024
 published: 2023-05-25
 aliases:
   - CGZ24
-tags:
-  - COLT
 cryptobib_key: EPRINT:ChrGunZam23
 ---
 

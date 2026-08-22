@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing, 1997
 published: 1997-10-01
 aliases:
   - Shor97
-tags:
-  - SIAMJC
 bibtex: |
   @article{Shor97,
     author  = {Peter W. Shor},

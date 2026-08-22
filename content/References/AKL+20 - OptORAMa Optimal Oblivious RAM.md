@@ -9,8 +9,6 @@ published: 2018-09-23
 aliases:
   - AKL+20
   - OptORAMa
-tags:
-  - Eurocrypt
 cryptobib_key: EC:AKLNPS20
 ---
 

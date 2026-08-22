@@ -9,8 +9,6 @@ published: 2018-12-30
 created: 2025-02-10
 aliases:
   - BIP+18
-tags:
-  - TCC
 cryptobib_key: TCC:BIPSW18
 ---
 

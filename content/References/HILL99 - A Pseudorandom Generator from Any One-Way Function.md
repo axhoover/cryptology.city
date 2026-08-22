@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing 1999
 published: 1999-01-01
 aliases:
   - HILL99
-tags:
-  - SIAMJC
 cryptobib_key: HILL99
 ---
 

@@ -9,8 +9,6 @@ published: 1983-12-01
 created: 2025-04-22
 aliases:
   - AKS83
-tags:
-  - STOC
 bibtex: |
   @inproceedings{AKS83,
     author    = {Mikl\'{o}s Ajtai and J\'{a}nos Koml\'{o}s and Endre Szemer\'{e}di},

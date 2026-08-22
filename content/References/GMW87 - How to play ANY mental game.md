@@ -9,8 +9,6 @@ published: 1987-01-01
 created: 2025-03-01
 aliases:
   - GMW87
-tags:
-  - STOC
 bibtex: |
   @inproceedings{GMW87,
     author    = {Oded Goldreich and Silvio Micali and Avi Wigderson},

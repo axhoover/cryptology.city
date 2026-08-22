@@ -8,8 +8,6 @@ venue: ProvSec 2008
 published: 2008-01-01
 aliases:
   - JS08
-tags:
-  - ProvSec
 cryptobib_key: PROVSEC:JagSch08
 ---
 

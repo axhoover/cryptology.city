@@ -8,8 +8,6 @@ venue: CiC Vol 1, No 4 (2025)
 published: 2023-10-27
 aliases:
   - FGJ+25
-tags:
-  - CiC
 cryptobib_key: CiC:FGJMMW24
 ---
 

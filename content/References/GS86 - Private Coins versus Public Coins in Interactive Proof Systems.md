@@ -8,8 +8,6 @@ venue: STOC 1986
 published: 1986-06-01
 aliases:
   - GS86
-tags:
-  - STOC
 cryptobib_key: STOC:GolSip86
 ---
 

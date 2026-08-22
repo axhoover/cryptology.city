@@ -9,8 +9,6 @@ published: 2019-06-02
 created: 2025-04-30
 aliases:
   - KM19
-tags:
-  - TCC
 cryptobib_key: TCC:KitMat19
 ---
 

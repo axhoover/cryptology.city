@@ -8,8 +8,6 @@ venue: CRYPTO 2018
 published: 2018-05-18
 aliases:
   - LN18
-tags:
-  - CRYPTO
 cryptobib_key: C:LarNie18
 ---
 

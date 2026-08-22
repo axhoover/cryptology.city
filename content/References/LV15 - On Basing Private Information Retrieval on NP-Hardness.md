@@ -8,8 +8,6 @@ venue: TCC 2015
 published: 2015-10-30
 aliases:
   - LV15
-tags:
-  - TCC
 cryptobib_key: TCC:LiuVai16
 ---
 

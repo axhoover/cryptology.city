@@ -9,8 +9,6 @@ published: 2024-06-10
 created: 2025-05-05
 aliases:
   - Din25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Dinur25
 ---
 

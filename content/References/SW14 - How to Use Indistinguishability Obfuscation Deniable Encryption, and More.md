@@ -7,8 +7,6 @@ authors: Amit Sahai, Brent Waters
 venue: STOC 2014
 published: 2013-07-23
 created: 2025-01-10
-tags:
-  - STOC
 aliases:
   - SW14
 cryptobib_key: STOC:SahWat14

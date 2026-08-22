@@ -9,8 +9,6 @@ published: 2015-09-08
 created: 2025-04-29
 aliases:
   - BN16
-tags:
-  - ITCS
 cryptobib_key: ITCS:BoyNao16
 ---
 

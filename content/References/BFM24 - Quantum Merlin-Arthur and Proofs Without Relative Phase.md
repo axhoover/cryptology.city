@@ -8,8 +8,6 @@ venue: ITCS 2024
 published: 2023-06-22
 aliases:
   - BFM24
-tags:
-  - ITCS
 cryptobib_key: ITCS:BasFefMar24
 ---
 

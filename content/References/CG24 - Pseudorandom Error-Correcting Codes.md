@@ -8,8 +8,6 @@ venue: CRYPTO 2024
 published: 2024-02-14
 aliases:
   - CG24
-tags:
-  - CRYPTO
 cryptobib_key: C:ChrGun24
 ---
 

@@ -8,8 +8,6 @@ venue: Theory of Cryptography Library
 published: 1998-02-02
 aliases:
   - CGN98
-tags:
-  - preprint
 cryptobib_key: EPRINT:ChoGilNao98
 ---
 

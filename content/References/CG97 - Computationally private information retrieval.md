@@ -9,8 +9,6 @@ published: 1997-05-04
 created: 2025-02-13
 aliases:
   - CG97
-tags:
-  - STOC
 bibtex: |
   @inproceedings{CG97,
     author    = {Benny Chor and Niv Gilboa},

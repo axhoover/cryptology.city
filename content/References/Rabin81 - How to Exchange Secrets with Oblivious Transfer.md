@@ -9,8 +9,6 @@ published: 1981-05-20
 aliases:
   - Rabin81
   - Rab81
-tags:
-  - Technical-Report
 cryptobib_key: EPRINT:Rabin05
 ---
 

@@ -8,8 +8,6 @@ venue: Eurocrypt 2007
 published: 2007-04-12
 aliases:
   - Wul07
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Wullschleger07
 ---
 

@@ -8,8 +8,6 @@ venue: Journal of the ACM 2008
 published: 2008-05-15
 aliases:
   - Tar08
-tags:
-  - JACM
 cryptobib_key: STOC:Tardos03
 ---
 

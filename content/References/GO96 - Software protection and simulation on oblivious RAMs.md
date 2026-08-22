@@ -5,11 +5,9 @@ title: "GO96"
 source: https://dl.acm.org/doi/abs/10.1145/233551.233553
 authors: Oded Goldreich, Rafail Ostrovsky
 venue: Journal of the ACM 1996
-published: 05/01/2025
+published: 1996
 aliases:
   - GO96
-tags:
-  - JACM
 cryptobib_key: GolOst96
 ---
 

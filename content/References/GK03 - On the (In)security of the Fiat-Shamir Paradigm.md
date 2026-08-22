@@ -8,8 +8,6 @@ venue: FOCS 2003
 published: 2003-01-01
 aliases:
   - GK03
-tags:
-  - FOCS
 cryptobib_key: FOCS:GolKal03
 ---
 

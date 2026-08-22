@@ -8,8 +8,6 @@ venue: PKC 2011
 published: 2011-03-01
 aliases:
   - Wat11
-tags:
-  - PKC
 bibtex: |
   @inproceedings{Wat11,
     author    = {Brent Waters},

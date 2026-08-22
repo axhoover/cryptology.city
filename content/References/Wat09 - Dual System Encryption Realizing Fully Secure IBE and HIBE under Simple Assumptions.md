@@ -8,8 +8,6 @@ venue: Crypto 2009
 published: 2009-08-01
 aliases:
   - Wat09
-tags:
-  - Crypto
 cryptobib_key: C:Waters09
 ---
 

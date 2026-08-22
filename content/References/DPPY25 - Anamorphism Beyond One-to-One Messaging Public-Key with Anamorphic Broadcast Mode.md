@@ -9,8 +9,6 @@ published: 2025-04-28
 created: 2025-05-06
 aliases:
   - DPPY25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:DPPY25
 ---
 

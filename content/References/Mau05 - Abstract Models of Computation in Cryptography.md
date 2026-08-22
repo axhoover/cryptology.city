@@ -8,8 +8,6 @@ venue: IMA Cryptography and Coding 2005
 published: 2005-01-01
 aliases:
   - Mau05
-tags:
-  - IMA
 bibtex: |
   @inproceedings{Mau05,
     author    = {Ueli Maurer},

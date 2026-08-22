@@ -10,8 +10,6 @@ created: 2025-04-13
 aliases:
   - CIMR25
   - LSN
-tags:
-  - preprint
 cryptobib_key: EPRINT:CIMR25
 ---
 

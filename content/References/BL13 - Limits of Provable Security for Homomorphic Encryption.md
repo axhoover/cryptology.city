@@ -8,8 +8,6 @@ venue: CRYPTO 2013
 published: 2013-01-01
 aliases:
   - BL13
-tags:
-  - CRYPTO
 cryptobib_key: C:BogLee13
 ---
 

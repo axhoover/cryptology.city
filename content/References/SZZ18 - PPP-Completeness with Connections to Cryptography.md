@@ -8,8 +8,6 @@ venue: FOCS 2018
 published: 2018-08-31
 aliases:
   - SZZ18
-tags:
-  - FOCS
 cryptobib_key: FOCS:SotZamZir18
 ---
 

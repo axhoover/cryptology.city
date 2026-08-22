@@ -8,8 +8,6 @@ venue: ITCS 2025
 published: 2024-09-18
 aliases:
   - SW25
-tags:
-  - ITCS
 cryptobib_key: ITCS:SilWic25
 ---
 

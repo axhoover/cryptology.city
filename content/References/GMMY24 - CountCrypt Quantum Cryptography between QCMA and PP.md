@@ -8,8 +8,6 @@ venue: preprint
 published: 2024-10-18
 aliases:
   - GMMY24
-tags:
-  - preprint
 cryptobib_key: EPRINT:GMMY24
 ---
 

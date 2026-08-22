@@ -8,8 +8,6 @@ venue: STOC 2008, JACM 2015
 published: 2015-09-11
 aliases:
   - GKR15
-tags:
-  - STOC
 cryptobib_key: STOC:GolKalRot08
 ---
 

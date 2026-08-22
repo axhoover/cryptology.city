@@ -8,8 +8,6 @@ venue: STOC 1998, JACM 2000
 published: 1998-05-23
 aliases:
   - GG00
-tags:
-  - STOC
 cryptobib_key: STOC:GolGol98
 ---
 

@@ -7,8 +7,6 @@ authors: Elette Boyle, Niv Gilboa, Yuval Ishai
 venue: Eurocrypt 2015
 published: 2015-01-01
 created: 2025-04-22
-tags:
-  - Eurocrypt
 aliases:
   - BGI15
 cryptobib_key: EC:BoyGilIsh15

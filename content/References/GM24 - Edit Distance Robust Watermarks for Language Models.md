@@ -8,8 +8,6 @@ venue: NeurIPS 2024
 published: 2024-06-05
 aliases:
   - GM24
-tags:
-  - NeurIPS
 cryptobib_key: EPRINT:GolMoi24
 ---
 

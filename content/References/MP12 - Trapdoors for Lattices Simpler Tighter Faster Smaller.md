@@ -8,8 +8,6 @@ venue: EUROCRYPT 2012
 published: 2012
 aliases:
   - MP12
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:MicPei12
 ---
 

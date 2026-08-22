@@ -8,8 +8,6 @@ venue: IEEE Transactions on Information Theory
 published: 1998-09-30
 aliases:
   - BS98
-tags:
-  - IEEE Transactions on Information Theory
 bibtex: |
   @article{BS98,
     author  = {Dan Boneh and James Shaw},

@@ -8,8 +8,6 @@ venue: STOC 1996
 published: 1996-05-01
 aliases:
   - Ajt96
-tags:
-  - STOC
 cryptobib_key: STOC:Ajtai96
 ---
 

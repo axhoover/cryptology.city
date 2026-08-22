@@ -8,8 +8,6 @@ venue: CRYPTO 1982
 published: 1983-01-01
 aliases:
   - Cha82
-tags:
-  - CRYPTO
 cryptobib_key: C:Chaum82
 ---
 

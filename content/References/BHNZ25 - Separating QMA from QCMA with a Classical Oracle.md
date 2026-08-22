@@ -8,8 +8,6 @@ venue: STOC 2026
 published: 2025-11-14
 aliases:
   - BHNZ25
-tags:
-  - STOC
 bibtex: |
   @misc{BHNZ25,
     author       = {John Bostanci and Jonas Haferkamp and Chinmay Nirkhe and Mark Zhandry},

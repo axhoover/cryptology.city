@@ -8,8 +8,6 @@ venue: STOC 1998, JCSS 2000
 published: 1998-06-01
 aliases:
   - GIKM00
-tags:
-  - STOC
 bibtex: |
   @article{GIKM00,
     author  = {Yael Gertner and Yuval Ishai and Eyal Kushilevitz and Tal Malkin},

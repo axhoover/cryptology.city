@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing 2006
 published: 2006-06-01
 aliases:
   - Vad06
-tags:
-  - Journal-on-Computing
 cryptobib_key: FOCS:Vadhan04
 ---
 

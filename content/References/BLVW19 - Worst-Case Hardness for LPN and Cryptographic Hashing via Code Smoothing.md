@@ -8,8 +8,6 @@ venue: Eurocrypt 2019
 published: 2018-03-22
 aliases:
   - BLVW19
-tags:
-  - Eurocrypt
 cryptobib_key: EC:BLVW19
 ---
 

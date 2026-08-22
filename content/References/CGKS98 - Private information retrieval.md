@@ -8,8 +8,6 @@ venue: Journal of the ACM 1998
 published: 1998-11-01
 aliases:
   - CGKS98
-tags:
-  - JACM
 cryptobib_key: FOCS:CGKS95
 ---
 

@@ -8,8 +8,6 @@ venue: USENIX 2023
 published: 2023-02-27
 aliases:
   - CNC+23
-tags:
-  - USENIX
 cryptobib_key: USENIX:CNCWF23
 ---
 

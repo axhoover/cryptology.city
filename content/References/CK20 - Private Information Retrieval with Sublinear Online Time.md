@@ -8,8 +8,6 @@ venue: Eurocrypt 2020
 published: 2019-09-23
 aliases:
   - CK20
-tags:
-  - Eurocrypt
 cryptobib_key: EC:CorKog20
 ---
 

@@ -8,8 +8,6 @@ venue: TCC 2004
 published: 2004-01-01
 aliases:
   - RTV04
-tags:
-  - TCC
 cryptobib_key: TCC:ReiTreVad04
 ---
 

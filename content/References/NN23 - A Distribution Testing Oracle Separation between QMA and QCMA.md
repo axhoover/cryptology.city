@@ -8,8 +8,6 @@ venue: CCC 2023
 published: 2022-10-27
 aliases:
   - NN23
-tags:
-  - CCC
 bibtex: |
   @inproceedings{NN23,
     author    = {Anand Natarajan and Chinmay Nirkhe},

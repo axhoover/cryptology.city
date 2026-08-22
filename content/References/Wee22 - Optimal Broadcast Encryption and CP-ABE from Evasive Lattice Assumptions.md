@@ -8,8 +8,6 @@ venue: EUROCRYPT 2022
 published: 2022
 aliases:
   - Wee22
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:Wee22
 ---
 

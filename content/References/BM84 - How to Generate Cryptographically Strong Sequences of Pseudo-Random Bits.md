@@ -8,8 +8,6 @@ venue: SIAM Journal on Computing 1984
 published: 1984-01-01
 aliases:
   - BM84
-tags:
-  - SIAMJC
 cryptobib_key: FOCS:BluMic82
 ---
 

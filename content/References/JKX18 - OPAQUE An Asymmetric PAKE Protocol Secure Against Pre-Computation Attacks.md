@@ -9,8 +9,6 @@ published: 2018-02-11
 aliases:
   - JKX18
   - OPAQUE
-tags:
-  - Eurocrypt
 cryptobib_key: EC:JarKraXu18
 ---
 
