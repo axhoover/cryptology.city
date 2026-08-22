@@ -15,7 +15,7 @@ _Last updated: 2026-05-06_
 ## Critical
 
 - [ ] [Navigation] Dead wikilink `[[boneh-lynn-shacham-signature|BLS]]` — no page exists for BLS signatures; the link appears in the AGM Key Results section and renders as a broken link on the live site — _source: content/Glossary/algebraic-group-model.md:30_
-- [ ] [Navigation] Dead wikilink `[[Mer78]]` — no reference page exists for Merkle's 1978 paper "Secure Communications Over Insecure Channels" (CACM 1978); referenced when crediting Merkle Puzzles as query-complexity optimal — _source: content/Glossary/black-box-separations.md:69, content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md:19_
+- [x] [Navigation] Dead wikilink `[[Mer78]]` — no reference page exists for Merkle's 1978 paper "Secure Communications Over Insecure Channels" (CACM 1978); referenced when crediting Merkle Puzzles as query-complexity optimal — _source: content/Glossary/black-box-separations.md:69, content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md:19_
 - [ ] [Content] Stub page — `trapdoor-hash-function.md` contains only "Introduced by DGI+19. TODO" with empty Definition, Variations, and Other Results sections — _source: content/Primitives/trapdoor-hash-function.md:11_
 - [ ] [Content] Stub page — `oblivious-ram.md` has four bare TODO placeholders with no content in the security definition, ORAM types, and offline ORAM sections — _source: content/Primitives/oblivious-ram.md:24,31,35,40_
 - [ ] [Content] Stub page — `universal-composability-framework.md` has a single `TODO — describe the UC framework…` as its entire body — _source: content/Glossary/universal-composability-framework.md:10_
@@ -24,8 +24,8 @@ _Last updated: 2026-05-06_
 
 ## High Priority
 
-- [ ] [Navigation] Dead wikilink `[[DKL09 - On cryptography with auxiliary input|DKL09]]` — no reference page exists; the link resolves to nothing in production — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52_
-- [ ] [Navigation] Dead wikilink `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — no reference page exists for CDV21; used as a citation in CIMR25's LSN facts section — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67_
+- [x] [Navigation] Dead wikilink `[[DKL09 - On cryptography with auxiliary input|DKL09]]` — no reference page exists; the link resolves to nothing in production — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52_
+- [x] [Navigation] Dead wikilink `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — no reference page exists for CDV21; used as a citation in CIMR25's LSN facts section — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67_
 - [ ] [Content] `public-key-encryption.md` — Key-hiding security notion section has a bare `TODO` with no content — _source: content/Primitives/public-key-encryption.md:99_
 - [ ] [Content] `pseudorandom-function.md` — Pseudorandom injective functions subsection says "TODO: define these and say how they relate to PRPs" — _source: content/Primitives/pseudorandom-function.md:107_
 - [ ] [Content] `multi-server-private-information-retrieval.md` — Doubly-efficient multi-server PIR subsection is empty — _source: content/Primitives/multi-server-private-information-retrieval.md:43_
