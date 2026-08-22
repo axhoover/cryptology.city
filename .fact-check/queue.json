@@ -174,9 +174,7 @@
           "location": "Advantage definitions (lines 84, 129) and correctness (line 39)",
           "description": "CLAUDE.md requires `\\Pr\\!\\left[...\\right]` for probabilities; both advantage definitions and the correctness statement use plain `\\Pr[...]`. Persists from 2026-04-25 run.",
           "suggested_fix": "Replace `\\Pr[...]` with `\\Pr\\!\\left[...\\right]` in lines 39, 84, 129. Proposed as a suggested-fix commit in this run's PR.",
-          "sources_consulted": [
-            "CLAUDE.md, Security Definition Conventions"
-          ]
+          "sources_consulted": ["CLAUDE.md, Security Definition Conventions"]
         },
         {
           "severity": "nit",
@@ -1818,9 +1816,7 @@
           "location": "Complexity-class macros (lines 28, 30, 36, 38)",
           "description": "The page mostly uses `\\classQMA`, `\\classMA` etc. but inline writes `\\mathbf{coQMA}`, `\\mathbf{QMA}(2)`, `\\mathbf{NEXP}`, `\\mathbf{coMA}` directly. macros.ts lacks `\\classcoQMA` and `\\classNEXP`; either add them or use `\\mathbf{...}` for all complexity classes consistently on this page.",
           "suggested_fix": "Either add `\\classcoQMA`, `\\classNEXP`, `\\classcoMA` macros and use them, or live with the mixed style. (No fix proposed in this run; flagging only.)",
-          "sources_consulted": [
-            "macros.ts"
-          ]
+          "sources_consulted": ["macros.ts"]
         },
         {
           "severity": "nit",
@@ -2751,9 +2747,7 @@
           "location": "Theorem statement (line 52)",
           "description": "`(KA)` is rendered in plain text rather than via a macro. The site does not currently define a `\\KA` macro, but the rest of the page uses `\\PRF`, `\\PRG`, `\\OT` — using uppercase plain text for one primitive and macros for others is inconsistent.",
           "suggested_fix": "Either add a `\\KA` macro or wrap occurrences in `\\mathsf{KA}` for consistency.",
-          "sources_consulted": [
-            "macros.ts"
-          ]
+          "sources_consulted": ["macros.ts"]
         }
       ],
       "history": [
