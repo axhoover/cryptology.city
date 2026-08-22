@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LR88"
 source: https://epubs.siam.org/doi/abs/10.1137/0217022
 authors: Michael Luby, Charles Rackoff
@@ -6,8 +8,6 @@ venue: SIAM Journal on Computing 1988
 published: 1988
 aliases:
   - LR88
-tags:
-  - Journal-on-Computing
 cryptobib_key: LubRac88
 ---
 

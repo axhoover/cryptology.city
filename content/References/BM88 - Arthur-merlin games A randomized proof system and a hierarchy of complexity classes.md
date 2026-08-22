@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM88"
 source: https://core.ac.uk/download/pdf/82807618.pdf
 authors: Lázló Babai, Shlomo Moran
@@ -6,8 +8,6 @@ venue: JCSS 1988
 published: 1987-08-03
 aliases:
   - BM88
-tags:
-  - JCSS
 bibtex: |
   @article{BM88,
     author  = {L\'{a}szl\'{o} Babai and Shlomo Moran},

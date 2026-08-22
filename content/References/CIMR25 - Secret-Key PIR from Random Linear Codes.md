@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CIMR25"
 source: https://eprint.iacr.org/2025/646
 authors: Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen
@@ -8,8 +10,6 @@ created: 2025-04-13
 aliases:
   - CIMR25
   - LSN
-tags:
-  - preprint
 cryptobib_key: EPRINT:CIMR25
 ---
 

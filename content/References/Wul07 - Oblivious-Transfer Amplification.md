@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wul07"
 source: https://arxiv.org/abs/cs/0608076
 authors: Jürg Wullschleger
@@ -6,8 +8,6 @@ venue: Eurocrypt 2007
 published: 2007-04-12
 aliases:
   - Wul07
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Wullschleger07
 ---
 

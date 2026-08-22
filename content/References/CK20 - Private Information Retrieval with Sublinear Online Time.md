@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CK20"
 source: https://eprint.iacr.org/2019/1075
 authors: Henry Corrigan-Gibbs, Dmitry Kogan
@@ -6,8 +8,6 @@ venue: Eurocrypt 2020
 published: 2019-09-23
 aliases:
   - CK20
-tags:
-  - Eurocrypt
 cryptobib_key: EC:CorKog20
 ---
 

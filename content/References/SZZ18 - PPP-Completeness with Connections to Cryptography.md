@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SZZ18"
 source: https://eprint.iacr.org/2018/778
 authors: Katerina Sotiraki, Manolis Zampetakis, Giorgos Zirdelis
@@ -6,8 +8,6 @@ venue: FOCS 2018
 published: 2018-08-31
 aliases:
   - SZZ18
-tags:
-  - FOCS
 cryptobib_key: FOCS:SotZamZir18
 ---
 

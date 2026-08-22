@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KRS25"
 source: https://eprint.iacr.org/2025/118
 authors: Dmitry Khovratovich, Ron Rothblum, Oleg Soukhanov
@@ -6,8 +8,6 @@ venue: CRYPTO 2025
 published: 2025-01-01
 aliases:
   - KRS25
-tags:
-  - CRYPTO
 cryptobib_key: C:KhoRotSou25
 ---
 

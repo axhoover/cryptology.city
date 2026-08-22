@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "FKL18"
 source: https://eprint.iacr.org/2017/620
 authors: Fuchsbauer, Georg; Kiltz, Eike; Loss, Julian
@@ -6,8 +8,6 @@ venue: CRYPTO 2018
 published: 2018-01-01
 aliases:
   - FKL18
-tags:
-  - CRYPTO
 cryptobib_key: C:FucKilLos18
 ---
 

@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - ZPP
   - Zero-error probabilistic polynomial-time

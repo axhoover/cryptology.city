@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GJL+25"
 source: https://eprint.iacr.org/2025/844
 authors: Riddhi Ghosal, Aayush Jain, Paul Lou, Amit Sahai, Neekon Vafa
@@ -7,8 +9,6 @@ published: 2025-05-12
 created: 2025-05-16
 aliases:
   - GJL+25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GJLSV25
 ---
 

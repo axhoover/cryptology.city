@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Naor91"
 source: https://link.springer.com/article/10.1007/BF00191386
 authors: Moni Naor

@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: stub
 aliases:
   - SS
   - Secret sharing

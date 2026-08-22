@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Gen09"
 source: https://dl.acm.org/doi/10.1145/1536414.1536440
 authors: Craig Gentry

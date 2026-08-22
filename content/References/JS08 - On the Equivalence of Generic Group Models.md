@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JS08"
 source: https://link.springer.com/chapter/10.1007/978-3-540-88733-1_14
 authors: Jager, Tibor; Schwenk, Jörg
@@ -6,8 +8,6 @@ venue: ProvSec 2008
 published: 2008-01-01
 aliases:
   - JS08
-tags:
-  - ProvSec
 cryptobib_key: PROVSEC:JagSch08
 ---
 

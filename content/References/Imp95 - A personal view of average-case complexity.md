@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Imp95"
 source: https://ieeexplore.ieee.org/document/514853
 authors: Russell Impagliazzo
@@ -6,9 +8,6 @@ venue: Structure in Complexity Theory
 published: 1995-06-01
 aliases:
   - Imp95
-  - Impagliazzo's Five Worlds
-tags:
-  - Complexity
 bibtex: |
   @inproceedings{Imp95,
     author    = {Russell Impagliazzo},

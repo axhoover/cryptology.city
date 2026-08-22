@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Can01"
 source: https://eprint.iacr.org/2000/067
 authors: Ran Canetti
@@ -6,8 +8,6 @@ venue: FOCS 2001, JACM 2020
 published: 2001-06-01
 aliases:
   - Can01
-tags:
-  - FOCS
 cryptobib_key: FOCS:Canetti01
 ---
 

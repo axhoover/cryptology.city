@@ -1,12 +1,12 @@
 ---
+type: reference
+status: draft
 title: "BGI16"
 source: https://eprint.iacr.org/2016/585
 authors: Elette Boyle, Niv Gilboa, Yuval Ishai
 venue: CCS 2016
 published: 2016-10-24
 created: 2025-04-22
-tags:
-  - CCS
 aliases:
   - BGI16
 cryptobib_key: CCS:BoyGilIsh16

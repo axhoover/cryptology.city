@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHKV25"
 source: https://eprint.iacr.org/2024/1760
 authors: Henry Corrigan-Gibbs, Alexandra Henzinger, Yael Tauman Kalai, Vinod Vaikuntanathan
@@ -6,8 +8,6 @@ venue: Eurocrypt 2025
 published: 2025
 aliases:
   - CHKV25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:CHKV25
 ---
 

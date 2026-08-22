@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "RSA78"
 source: https://dl.acm.org/doi/10.1145/359340.359342
 authors: Ron Rivest, Adi Shamir, Leonard Adleman
@@ -6,8 +8,6 @@ venue: Communications of the ACM, 1978
 published: 1978-02-01
 aliases:
   - RSA78
-tags:
-  - CACM
 cryptobib_key: RivShaAdl78
 ---
 

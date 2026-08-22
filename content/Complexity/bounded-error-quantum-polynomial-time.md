@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - BQP
   - Bounded-Error Quantum Polynomial-Time

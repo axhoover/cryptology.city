@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AMR25"
 source: https://eprint.iacr.org/2025/416
 authors: Damiano Abram, Giulio Malavolta, Lawrence Roy
@@ -6,8 +8,6 @@ venue: preprint
 published: 2025-03-04
 aliases:
   - AMR25
-tags:
-  - preprint
 cryptobib_key: EPRINT:AbrMalRoy25c
 ---
 

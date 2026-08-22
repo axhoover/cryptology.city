@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BF01"
 source: https://eprint.iacr.org/2001/090
 authors: Dan Boneh, Matthew Franklin
@@ -6,8 +8,6 @@ venue: Crypto 2001
 published: 2001-08-01
 aliases:
   - BF01
-tags:
-  - Crypto
 cryptobib_key: C:BonFra01
 ---
 

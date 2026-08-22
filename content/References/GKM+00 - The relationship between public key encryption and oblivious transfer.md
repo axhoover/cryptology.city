@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GKM+00"
 source: https://ieeexplore.ieee.org/abstract/document/892121
 authors: Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingolds, Mahesh Viswanathan
@@ -6,8 +8,6 @@ venue: FOCS 2000
 published: 2000-04-01
 aliases:
   - GKM+00
-tags:
-  - FOCS
 cryptobib_key: FOCS:GKMRV00
 ---
 

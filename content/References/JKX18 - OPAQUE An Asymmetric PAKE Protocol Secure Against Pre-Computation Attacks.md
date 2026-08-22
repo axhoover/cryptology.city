@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JKX18"
 source: https://eprint.iacr.org/2018/163
 authors: Stanislaw Jarecki, Hugo Krawczyk, Jiayu Xu
@@ -7,8 +9,6 @@ published: 2018-02-11
 aliases:
   - JKX18
   - OPAQUE
-tags:
-  - Eurocrypt
 cryptobib_key: EC:JarKraXu18
 ---
 

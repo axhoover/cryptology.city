@@ -7,15 +7,17 @@
   Only `- [ ]` items count; `- [x]` or deleted lines clear automatically.
   Changelog goes in TODO_CHANGELOG.md, not here.
 -->
+
 # cryptology.city — TODO Summary
-_Last updated: 2026-05-06_
+
+_Last updated: 2026-08-21_
 
 ---
 
 ## Critical
 
 - [ ] [Navigation] Dead wikilink `[[boneh-lynn-shacham-signature|BLS]]` — no page exists for BLS signatures; the link appears in the AGM Key Results section and renders as a broken link on the live site — _source: content/Glossary/algebraic-group-model.md:30_
-- [ ] [Navigation] Dead wikilink `[[Mer78]]` — no reference page exists for Merkle's 1978 paper "Secure Communications Over Insecure Channels" (CACM 1978); referenced when crediting Merkle Puzzles as query-complexity optimal — _source: content/Glossary/black-box-separations.md:69, content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md:19_
+- [x] [Navigation] Dead wikilink `[[Mer78]]` — no reference page exists for Merkle's 1978 paper "Secure Communications Over Insecure Channels" (CACM 1978); referenced when crediting Merkle Puzzles as query-complexity optimal — _source: content/Glossary/black-box-separations.md:69, content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md:19_
 - [ ] [Content] Stub page — `trapdoor-hash-function.md` contains only "Introduced by DGI+19. TODO" with empty Definition, Variations, and Other Results sections — _source: content/Primitives/trapdoor-hash-function.md:11_
 - [ ] [Content] Stub page — `oblivious-ram.md` has four bare TODO placeholders with no content in the security definition, ORAM types, and offline ORAM sections — _source: content/Primitives/oblivious-ram.md:24,31,35,40_
 - [ ] [Content] Stub page — `universal-composability-framework.md` has a single `TODO — describe the UC framework…` as its entire body — _source: content/Glossary/universal-composability-framework.md:10_
@@ -24,8 +26,15 @@ _Last updated: 2026-05-06_
 
 ## High Priority
 
-- [ ] [Navigation] Dead wikilink `[[DKL09 - On cryptography with auxiliary input|DKL09]]` — no reference page exists; the link resolves to nothing in production — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52_
-- [ ] [Navigation] Dead wikilink `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — no reference page exists for CDV21; used as a citation in CIMR25's LSN facts section — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67_
+- [ ] [Math] Suspected error (audit 2026-08-21, medium, review-only): '**PRF security via lazy sampling**: The hybrid argument replaces a PRF $F_k$ with a truly random function $R$ one input at a time, using the fact that the PRF and a random oracle are indistinguishable on any polynomial number of queries.' This is circular — PRF/random-function indistinguishability is the statement being proven, and lazy sampling is not an input-by-input hybrid over a PRF (input-b — _source: content/Folklore/hybrid-argument.md_
+- [ ] [Math] Suspected error (audit 2026-08-21, high, review-only): Paraphrased text presented under '## Abstract' contains claims that are likely false: Yao82's 'abstract' says 'The paper also introduces the technique of garbled circuits' — garbled circuits are attributed to Yao's 1986 FOCS paper ('How to Generate and Exchange Secrets') and oral tradition, not the 1982 paper. Wat11's 'abstract' claims the scheme 'achieves selective security under the Decisional B — _source: content/References/Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover.md_
+- [ ] [Math] Suspected error (audit 2026-08-21, high, review-only): Paraphrased text presented under '## Abstract' contains claims that are likely false: Yao82's 'abstract' says 'The paper also introduces the technique of garbled circuits' — garbled circuits are attributed to Yao's 1986 FOCS paper ('How to Generate and Exchange Secrets') and oral tradition, not the 1982 paper. Wat11's 'abstract' claims the scheme 'achieves selective security under the Decisional B — _source: content/References/Yao82 - Protocols for secure computations.md_
+- [ ] [Math] Suspected error (audit 2026-08-21, high, review-only): Pessiland is mischaracterized. The world list defines "**Pessiland**: $\classP\neq \classNP$ but OWFs do not exist" (overlapping Heuristica), and the '## A note on hardness' section says: "This gap explains why Pessiland exists: a world where NP is hard in the worst case (so $\classP \neq \classNP$) but NP is easy on average — meaning random instances of NP problems are tractable — so OWFs cannot — _source: content/impagliazzos-five-worlds.md_
+- [ ] [Math] Suspected error (audit 2026-08-21, high, review-only): In '## Breaking up Cryptomania': "TDPs (equivalently, the existence of PKE or OT) unlock the full power of asymmetric cryptography." TDP, PKE, and OT are not known to be equivalent — TDP implies PKE and OT, but not conversely, and the GKM+00 paper cited in the same paragraph proves black-box separations among exactly these primitives. 'equivalently' is wrong as stated. — _source: content/impagliazzos-five-worlds.md_
+- [ ] [Math] Suspected error (audit 2026-08-21, medium, review-only): In '## Obfustopia': "iO ... can exist even in a world where $\classP = \classNP$: the definition of iO does not require any computational hardness beyond the existence of OWFs." Self-contradictory as written — if P = NP then OWFs do not exist, so 'beyond the existence of OWFs' cannot be the reason iO survives P = NP. The standard statement is that iO _by itself_ (without OWFs) implies no hardness — _source: content/impagliazzos-five-worlds.md_
+
+- [x] [Navigation] Dead wikilink `[[DKL09 - On cryptography with auxiliary input|DKL09]]` — no reference page exists; the link resolves to nothing in production — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:52_
+- [x] [Navigation] Dead wikilink `[[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]]` — no reference page exists for CDV21; used as a citation in CIMR25's LSN facts section — _source: content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67_
 - [ ] [Content] `public-key-encryption.md` — Key-hiding security notion section has a bare `TODO` with no content — _source: content/Primitives/public-key-encryption.md:99_
 - [ ] [Content] `pseudorandom-function.md` — Pseudorandom injective functions subsection says "TODO: define these and say how they relate to PRPs" — _source: content/Primitives/pseudorandom-function.md:107_
 - [ ] [Content] `multi-server-private-information-retrieval.md` — Doubly-efficient multi-server PIR subsection is empty — _source: content/Primitives/multi-server-private-information-retrieval.md:43_

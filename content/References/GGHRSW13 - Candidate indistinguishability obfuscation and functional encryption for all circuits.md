@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GGHRSW13"
 source: https://eprint.iacr.org/2013/451
 authors: Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters

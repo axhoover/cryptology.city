@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Reg05"
 source: https://arxiv.org/abs/2401.03703
 authors: Oded Regev
@@ -6,8 +8,6 @@ venue: STOC 2005
 published: 2005-05-01
 aliases:
   - Reg05
-tags:
-  - STOC
 cryptobib_key: STOC:Regev05
 ---
 

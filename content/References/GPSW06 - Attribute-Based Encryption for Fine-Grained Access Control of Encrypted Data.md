@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GPSW06"
 source: https://eprint.iacr.org/2006/309
 authors: Vipul Goyal, Omkant Pandey, Amit Sahai, Brent Waters
@@ -6,8 +8,6 @@ venue: CCS 2006
 published: 2006-11-01
 aliases:
   - GPSW06
-tags:
-  - CCS
 cryptobib_key: CCS:GPSW06
 ---
 

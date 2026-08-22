@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "NN23"
 source: https://arxiv.org/abs/2210.15380
 authors: Anand Natarajan, Chinmay Nirkhe
@@ -6,8 +8,6 @@ venue: CCC 2023
 published: 2022-10-27
 aliases:
   - NN23
-tags:
-  - CCC
 bibtex: |
   @inproceedings{NN23,
     author    = {Anand Natarajan and Chinmay Nirkhe},

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BHMW21"
 source: https://eprint.iacr.org/2021/1113
 authors: Elette Boyle, Justin Holmgren, Fermi Ma, Mor Weiss
@@ -7,8 +9,6 @@ published: 2021-09-03
 created: 2025-02-17
 aliases:
   - BHMW21
-tags:
-  - preprint
 cryptobib_key: EPRINT:BHMW21
 ---
 

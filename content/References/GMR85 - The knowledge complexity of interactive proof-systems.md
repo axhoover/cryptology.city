@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GMR85"
 source: https://dl.acm.org/doi/10.1145/22145.22178
 authors: Shafi Goldwasser, Silvio Micali, Charles Rackoff

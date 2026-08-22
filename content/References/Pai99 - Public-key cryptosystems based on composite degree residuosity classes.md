@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Pai99"
 source: https://link.springer.com/chapter/10.1007/3-540-48910-X_16
 authors: Pascal Paillier

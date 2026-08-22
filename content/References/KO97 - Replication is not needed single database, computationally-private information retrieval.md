@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KO97"
 source: https://ieeexplore.ieee.org/abstract/document/646125
 authors: Eyal Kushilevitz, Rafail Ostrovsky
@@ -6,8 +8,6 @@ venue: FOCS 1997
 published: 1997-10-20
 aliases:
   - KO97
-tags:
-  - FOCS
 cryptobib_key: FOCS:KusOst97
 ---
 

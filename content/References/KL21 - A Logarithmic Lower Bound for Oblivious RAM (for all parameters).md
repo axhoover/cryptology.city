@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KL21"
 source: https://eprint.iacr.org/2020/1132
 authors: Ilan Komargodski, Wei-Kai Lin
@@ -7,8 +9,6 @@ published: 2020-09-21
 created: 2025-04-21
 aliases:
   - KL21
-tags:
-  - CRYPTO
 cryptobib_key: C:KomLin21
 ---
 

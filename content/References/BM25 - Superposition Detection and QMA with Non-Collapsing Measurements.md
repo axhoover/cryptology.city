@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM25"
 source: https://arxiv.org/abs/2403.02532
 authors: Roozbeh Bassirian, Kunal Marwaha
@@ -6,8 +8,6 @@ venue: Quantum 2025
 published: 2024-03-05
 aliases:
   - BM25
-tags:
-  - Quantum
 bibtex: |
   @article{BM25,
     author  = {Roozbeh Bassirian and Kunal Marwaha},

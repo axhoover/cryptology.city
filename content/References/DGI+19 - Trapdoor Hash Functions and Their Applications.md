@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DGI+19"
 source: https://eprint.iacr.org/2019/639
 authors: Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, and Rafail Ostrovsky
@@ -6,8 +8,6 @@ venue: CRYPTO 2019
 published: 2019-06-03
 aliases:
   - DGI+19
-tags:
-  - CRYPTO
 cryptobib_key: C:DGIMMO19
 ---
 

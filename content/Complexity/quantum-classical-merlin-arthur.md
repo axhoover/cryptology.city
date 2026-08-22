@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - QCMA
   - Quantum-Classical Merlin-Arthur

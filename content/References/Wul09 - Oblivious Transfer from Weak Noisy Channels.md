@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wul09"
 source: https://eprint.iacr.org/2008/420
 authors: Jürg Wullschleger
@@ -6,8 +8,6 @@ venue: TCC 2009
 published: 2008-10-01
 aliases:
   - Wul09
-tags:
-  - TCC
 cryptobib_key: TCC:Wullschleger09
 ---
 

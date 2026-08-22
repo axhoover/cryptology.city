@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Cha82"
 source: https://link.springer.com/chapter/10.1007/978-1-4757-0602-4_18
 authors: David Chaum
@@ -6,8 +8,6 @@ venue: CRYPTO 1982
 published: 1983-01-01
 aliases:
   - Cha82
-tags:
-  - CRYPTO
 cryptobib_key: C:Chaum82
 ---
 

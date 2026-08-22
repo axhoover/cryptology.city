@@ -1,6 +1,7 @@
 ---
+type: primitive
+status: draft
 aliases:
-  - PIR
   - cPIR
   - Single-Server Private Information Retrieval
   - Single-server Private Information Retrieval

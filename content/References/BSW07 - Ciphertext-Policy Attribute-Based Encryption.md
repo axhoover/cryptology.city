@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BSW07"
 source: https://eprint.iacr.org/2007/203
 authors: John Bethencourt, Amit Sahai, Brent Waters
@@ -6,8 +8,6 @@ venue: IEEE S&P 2007
 published: 2007-05-01
 aliases:
   - BSW07
-tags:
-  - S&P
 cryptobib_key: SP:BetSahWat07
 ---
 

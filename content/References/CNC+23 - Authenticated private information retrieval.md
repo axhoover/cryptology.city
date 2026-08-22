@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CNC+23"
 source: https://eprint.iacr.org/2023/297
 authors: Simone Colombo, Kirill Nikitin, Henry Corrigan-Gibbs, David J. Wu, Bryan Ford
@@ -6,8 +8,6 @@ venue: USENIX 2023
 published: 2023-02-27
 aliases:
   - CNC+23
-tags:
-  - USENIX
 cryptobib_key: USENIX:CNCWF23
 ---
 

@@ -1,17 +1,17 @@
 ---
-title: "SW25"
+type: reference
+status: draft
+title: "SW25a"
 source: https://eprint.iacr.org/2024/1461
 authors: Jad Silbak, Daniel Wichs
 venue: ITCS 2025
 published: 2024-09-18
 aliases:
-  - SW25
-tags:
-  - ITCS
+  - SW25a
 cryptobib_key: ITCS:SilWic25
 ---
 
-# [SW25] Detecting and Correcting Computationally Bounded Errors: A Simple Construction Under Minimal Assumptions
+# [SW25a] Detecting and Correcting Computationally Bounded Errors: A Simple Construction Under Minimal Assumptions
 
 **Authors:** Jad Silbak, Daniel Wichs | **Venue:** ITCS 2025 | [Source](https://eprint.iacr.org/2024/1461)
 

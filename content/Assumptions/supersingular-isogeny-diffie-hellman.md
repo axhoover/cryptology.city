@@ -1,4 +1,6 @@
 ---
+type: assumption
+status: draft
 aliases:
   - SIDH
   - Supersingular Isogeny Diffie-Hellman

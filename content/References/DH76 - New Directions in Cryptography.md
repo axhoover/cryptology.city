@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DH76"
 source: https://dl.acm.org/doi/abs/10.1145/3549993.3550007
 authors: Whitfield Diffie, Martin E. Hellman
@@ -6,8 +8,6 @@ venue: preprint
 published: 1976-06-03
 aliases:
   - DH76
-tags:
-  - preprint
 cryptobib_key: DifHel76
 ---
 

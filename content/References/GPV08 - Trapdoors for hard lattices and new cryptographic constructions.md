@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GPV08"
 source: https://eprint.iacr.org/2007/432
 authors: Craig Gentry, Chris Peikert, Vinod Vaikuntanathan
@@ -6,8 +8,6 @@ venue: STOC 2008
 published: 2008-05-01
 aliases:
   - GPV08
-tags:
-  - STOC
 cryptobib_key: STOC:GenPeiVai08
 ---
 

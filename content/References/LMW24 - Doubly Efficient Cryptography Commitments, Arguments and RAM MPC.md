@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LMW24"
 source: https://eprint.iacr.org/2025/235
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
@@ -6,8 +8,6 @@ venue: CRYPTO 2024
 published: 2025-02-14
 aliases:
   - LMW24
-tags:
-  - CRYPTO
 cryptobib_key: C:LinMooWic24
 ---
 

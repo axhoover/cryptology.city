@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - QSZK
   - Quantum Statistical Zero-Knowledge

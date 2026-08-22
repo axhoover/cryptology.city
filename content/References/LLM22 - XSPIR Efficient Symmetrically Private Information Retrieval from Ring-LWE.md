@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LLM22"
 source: https://link.springer.com/chapter/10.1007/978-3-031-17140-6_11
 authors: Chengyu Lin, Zeyu Liu, Tal Malkin
@@ -8,8 +10,6 @@ created: 2025-02-25
 aliases:
   - LLM22
   - XSPIR
-tags:
-  - ESORICS
 cryptobib_key: ESORICS:LinLiuMal22
 ---
 

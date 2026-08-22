@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGS75"
 source: https://epubs.siam.org/doi/10.1137/0204037
 authors: Theodore Baker, John Gill, Robert Solovay
@@ -6,8 +8,6 @@ venue: SICOMP 1975
 published: 1975-01-01
 aliases:
   - BGS75
-tags:
-  - SICOMP
 bibtex: |
   @article{BGS75,
     author  = {Theodore Baker and John Gill and Robert Solovay},

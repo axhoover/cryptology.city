@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LMW23"
 source: https://eprint.iacr.org/2022/1703
 authors: Wei-Kai Lin, Ethan Mook, Daniel Wichs
@@ -6,8 +8,6 @@ venue: STOC 2023
 published: 2022-12-08
 aliases:
   - LMW23
-tags:
-  - STOC
 cryptobib_key: STOC:LinMooWic23
 ---
 

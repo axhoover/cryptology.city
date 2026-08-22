@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Sha79"
 source: https://dl.acm.org/doi/10.1145/359168.359176
 authors: Adi Shamir

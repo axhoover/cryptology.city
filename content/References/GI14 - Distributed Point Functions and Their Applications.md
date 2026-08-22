@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GI14"
 source: https://link.springer.com/chapter/10.1007/978-3-642-55220-5_35
 authors: Niv Gilboa, Yuval Ishai
@@ -6,8 +8,6 @@ venue: Eurocrypt 2014
 published: 2014-05-01
 aliases:
   - GI14
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GilIsh14
 ---
 

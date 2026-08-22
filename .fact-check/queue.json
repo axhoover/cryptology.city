@@ -1,15 +1,43 @@
 {
   "version": 1,
-  "updated_at": "2026-05-02T10:30:00Z",
-  "updated_at_sha": "872186365a6966132a4f18dcc89e48f7aebd7c9b",
+  "updated_at": "2026-08-21T00:00:00Z",
+  "updated_at_sha": "370800c335216f3a8a9ca930e7f0c5e8e7082ef0",
   "pages": {
     "content/Primitives/attribute-based-encryption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "ca477e2edaff169ef7e2b4c6fe6ea4db9262b017",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Symmetric CP-ABE IND-CCA2 game: both oracles take the secret key as adversary-supplied input — \"\\State $\\calO_{\\mathrm{enc}}(\\sk_x, f, m) := \\Enc(\\sk_x, f, m)$\" and \"\\State $\\calO_{\\mathrm{dec}}(\\sk_x, c) := \\Dec(\\sk_x, c)$\". Since $\\Enc$ and $\\Dec$ are efficient public algorithms and $\\calO_{\\mathrm{enc}}$'s comment requires \"$\\sk_x$ must be a prior output of $\\calO_{\\mathrm{key}}$\" (a key the adversary already holds), both oracles add no power and the game degenerates to the key-oracle-only game; a meaningful CCA2/encryption oracle should use challenger-held keys the adversary does NOT receive. $\\calO_{\\mathrm{dec}}$ has no constraint at all on where $\\sk_x$ comes from. Additionally the challenge line \"\\State $\\sk_{x_e} \\gets \\KeyGen(\\msk, x_e)$ \\Comment{Challenger-chosen $x_e \\subseteq \\calU$ with $f^*(x_e) = 1$}\" leaves the distribution of $x_e$ unspecified, which changes the meaning of the definition.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ### Selective Security: \"complexity leveraging converts one to the other at a polynomial cost in $|\\calU|$ for KP-ABE\". The leveraging loss is the number of possible challenge attribute sets, $2^{|\\calU|}$ — exponential in $|\\calU|$, not polynomial. Compare the sibling page hierarchical-identity-based-encryption.md which (correctly) speaks of exponential loss. Relatedly, identity-based-encryption.md says \"the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\\calI|$\" — the loss factor is $|\\calI|$ itself, which is exponential in $\\secpar$ for arbitrary-string identity spaces; the phrasing 'polynomial security loss' is at best misleading (leveraging requires subexponential hardness).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Intro: \"Policies are typically expressed as monotone Boolean formulas (or equivalently, as Linear Secret-Sharing Schemes (LSSS))\" — these are not equivalent: monotone formulas embed into LSSS/monotone span programs, but MSPs are strictly more expressive (known separations). Also intro type mismatch: \"The decryption relation is a pair $(f, x) \\in \\calF \\times \\calU^*$\" but everywhere else $x \\subseteq \\calU$ (i.e., $x \\in 2^{\\calU}$, not a string in $\\calU^*$).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -17,6 +45,13 @@
           "action": "created",
           "sha": "ca477e2edaff169ef7e2b4c6fe6ea4db9262b017",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "b33c10be01d4200244eeb7f3a341d61f0571176d",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
@@ -38,12 +73,49 @@
       ]
     },
     "content/Primitives/commitment-scheme.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "a2be68003a24bc796369b90973b6c77028b8d13b",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Hiding game (prose, under '### Hiding') hands the adversary the decommitment: 'receives $(m_0, m_1)$ from $\\calA$, picks $b \\getsr \\bits$, sends $(c, d) \\gets \\Com(\\pp, m_b; r)$ to $\\calA$'. Sending $d$ (the decommitment) lets $\\calA$ open the commitment and win trivially; only $c$ should be sent. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] 'Statistically hiding COM is equivalent to [[statistical-zero-knowledge|SZK]] $\\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — standard': no such standard equivalence exists (statistically hiding commitments follow from OWFs, Haitner et al.; SZK characterizations concern instance-dependent commitments). The '— standard' label is also misused for a specific attributable theorem claim. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] The '**Note:**' paragraph is internally inconsistent: it says 'Perfect (simultaneously statistically hiding and statistically binding) commitment schemes are impossible', conflating perfect with statistical, then the four-regime list marks only regime '(4) perfectly binding / perfectly hiding — which is impossible', implying statistically-hiding + statistically-binding (regime not listed) might be fine — but that combination is also impossible. Regimes (1)-(3) also omit the standard stat-binding/comp-hiding regime. An automated contributor could draw the wrong conclusion. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] Correctness: '$(c, d) \\gets \\Com(\\pp, m; r)$ with $r \\getsr \\bits^*$' — uniform sampling from the infinite set $\\bits^*$ is not well-defined; randomness space should be $\\bits^{\\poly(\\secpar)}$ or left implicit. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -51,6 +123,13 @@
           "action": "created",
           "sha": "a2be68003a24bc796369b90973b6c77028b8d13b",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "e7641f2acd64065349c1c0af12cc28b87c82e37f",
+          "note": "schema-cleanup audit attached 4 suspected-error finding(s)"
         }
       ]
     },
@@ -58,8 +137,8 @@
       "status": "bot_flagged",
       "blob_sha": "3cb8ed5f66149a5d0c60ba2871918a1a4cd1a839",
       "verified_at_sha": null,
-      "last_checked_at": "2026-05-02T10:30:00Z",
-      "last_checked_by": "claude-factcheck",
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
       "findings": [
         {
           "severity": "missing_citation",
@@ -67,7 +146,7 @@
           "description": "BLS signatures are described and security is asserted ('EUF-CMA under co-CDH in the random oracle model') but no reference is given. The standard citation is Boneh-Lynn-Shacham, 'Short Signatures from the Weil Pairing' (Asiacrypt 2001 / J. Cryptology 17(4):297-319, 2004). Persists from 2026-04-25 run; requires new reference file.",
           "suggested_fix": "Add a [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] citation and create the corresponding reference file.",
           "sources_consulted": [
-            "Boneh-Shoup, A Graduate Course in Applied Cryptography v0.6, \u00a715.5 (BLS signatures)"
+            "Boneh-Shoup, A Graduate Course in Applied Cryptography v0.6, §15.5 (BLS signatures)"
           ]
         },
         {
@@ -78,16 +157,16 @@
           "sources_consulted": [
             "Sch91 reference note",
             "FS86 reference note",
-            "Katz-Lindell 3rd ed. \u00a713.5.1"
+            "Katz-Lindell 3rd ed. §13.5.1"
           ]
         },
         {
           "severity": "missing_citation",
           "location": "Other results / final bullet (line 179)",
-          "description": "The claim 'Digital signatures imply OWFs' is asserted without citation. The canonical reference is Rompel, 'One-way functions are necessary and sufficient for secure signatures' (STOC 1990), which proves the converse direction (OWF \u21d2 DS). The implication DS \u21d2 OWF is folklore but the page's argument ('the signing algorithm is a one-way function') is informal and slightly misstates the OWF candidate; cleaner: r \u21a6 vk where (sk, vk) = KeyGen(r). Persists from 2026-04-25 run.",
-          "suggested_fix": "Cite Rompel90 and tighten the argument to use r \u21a6 vk as the OWF candidate.",
+          "description": "The claim 'Digital signatures imply OWFs' is asserted without citation. The canonical reference is Rompel, 'One-way functions are necessary and sufficient for secure signatures' (STOC 1990), which proves the converse direction (OWF ⇒ DS). The implication DS ⇒ OWF is folklore but the page's argument ('the signing algorithm is a one-way function') is informal and slightly misstates the OWF candidate; cleaner: r ↦ vk where (sk, vk) = KeyGen(r). Persists from 2026-04-25 run.",
+          "suggested_fix": "Cite Rompel90 and tighten the argument to use r ↦ vk as the OWF candidate.",
           "sources_consulted": [
-            "Goldreich, Foundations of Cryptography Vol. 2, \u00a76.4 (Rompel's theorem)"
+            "Goldreich, Foundations of Cryptography Vol. 2, §6.4 (Rompel's theorem)"
           ]
         },
         {
@@ -101,22 +180,40 @@
           "severity": "nit",
           "location": "Sign signature output (line 25)",
           "description": "Sign is described as outputting `c` in prose ('$\\Sign(\\sk, m) \\to c,$') but the variable is then immediately renamed to `\\sigma`. Persists from 2026-04-25 run.",
-          "suggested_fix": "Change `\\Sign(\\sk, m) \\to c,` \u2192 `\\Sign(\\sk, m) \\to \\sigma,`. Proposed as a suggested-fix commit in this run's PR.",
+          "suggested_fix": "Change `\\Sign(\\sk, m) \\to c,` → `\\Sign(\\sk, m) \\to \\sigma,`. Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
         },
         {
           "severity": "nit",
           "location": "SU-CMA naming (line 126)",
-          "description": "Section heading says 'Strong Unforgeability' and game macro is `\\sufcma` (rendering `suf-cma`) but the prose label says '**SU-CMA unforgeable**' \u2014 inconsistent abbreviation. Persists from 2026-04-25 run.",
+          "description": "Section heading says 'Strong Unforgeability' and game macro is `\\sufcma` (rendering `suf-cma`) but the prose label says '**SU-CMA unforgeable**' — inconsistent abbreviation. Persists from 2026-04-25 run.",
           "suggested_fix": "Use **SUF-CMA unforgeable** (matching the macro and section heading). Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
         },
         {
           "severity": "nit",
           "location": "Existential Unforgeability intro (line 50)",
-          "description": "Prose ends mid-sentence: '...even given many samples' \u2014 missing trailing period and the noun is unclear (samples of what?). Persists from 2026-04-25 run.",
+          "description": "Prose ends mid-sentence: '...even given many samples' — missing trailing period and the noun is unclear (samples of what?). Persists from 2026-04-25 run.",
           "suggested_fix": "Reword to: '...even given oracle access to signatures on adversarially-chosen messages.' Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": []
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] '# Other results' Merkle bullet has the sizes reversed: 'authenticating a collection of one-time verification keys using a Merkle hash tree, giving $O(\\secpar)$-size signatures with a $\\poly(\\secpar)$-size public key — [[Mer89 ...]]'. Merkle trees give an $O(\\secpar)$-size public key (the root hash) and poly-size signatures (one-time key + authentication path). Also under '## Hash-based signatures': 'Lamport signatures (one-time): sign one bit per hash chain; $O(\\secpar)$-size signatures' — Lamport uses no hash chains (that is Winternitz) and Lamport signatures are $\\Theta(\\secpar^2)$ bits. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] BLS section: 'Aggregatable: $n$ signatures on different messages can be aggregated into one signature verifiable with $n$ pairings' — verifying an aggregate over $n$ distinct messages takes $n+1$ pairings ($e(\\sigma, g_2) = \\prod_i e(H(m_i), \\pk_i)$). Also 'Digital signatures imply [[hash-function|OWFs]]: ... the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)' — the parenthetical is not the actual argument (standard proof is via Rompel/OWF equivalence) and the bullet is uncited. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
         }
       ],
       "history": [
@@ -140,16 +237,33 @@
           "action": "rechecked",
           "sha": "3cb8ed5f66149a5d0c60ba2871918a1a4cd1a839",
           "note": "Re-review after fix commits e0173d4 (spurious b) and 77f4adf (LS15 rename). 2 error findings RESOLVED. 7 findings remain (3 missing_citation, 1 notation, 3 nit)."
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "7c86210b68560c0d84ae164842714f74edc18e7c",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/distributed-point-function.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "65e05cc88e33b43beaf1f7819125b91827bc0ed7",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Under '### Hiding (Security)' the advantage is defined as $\\left|2\\Pr\\!\\left[\\calA(1^\\secpar, k_b) = \\alpha\\right] - 1\\right| \\le \\negl(\\secpar)$. This applies the bit-guessing shape |2Pr[...]-1| to the event that the adversary outputs the special point $\\alpha$, which is not a bit-guessing event: Pr[A outputs alpha] is near 0 for a secure DPF, making this 'advantage' near 1. Hiding should be an indistinguishability game over two adversarially chosen pairs $(\\alpha_0,\\beta_0),(\\alpha_1,\\beta_1)$ with the adversary guessing $b$ (as in GI14/BGI15). Also 'reveals nothing about $(\\alpha,\\beta)$' does not match the stated event, which mentions only $\\alpha$.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -157,16 +271,33 @@
           "action": "created",
           "sha": "65e05cc88e33b43beaf1f7819125b91827bc0ed7",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "a7989a81a8b071e16ec1e8c09b275d440ca6a999",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/doubly-efficient-pir.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "2b3f4eb2ddf6b5f7b9e14a83eccd51917f35dfbd",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Advantages are 'defined' with an inequality instead of ':='. doubly-efficient-pir.md '### Public-key DEPIR': '$$\\Adv^{\\mathrm{priv}}_{\\calA}(\\secpar) \\le 2\\left|\\Pr[\\calA(1^\\secpar,k,EDB,q) = b] - \\frac{1}{2}\\right|$$' (and the same '\\le' in '### Secret-key DEPIR'). pseudorandom-error-correcting-code.md '### Pseudorandomness': 'We define the advantage of a distinguisher $D$ as $$\\Adv^{\\mathrm{prc}}_D(\\secpar) \\le \\left|\\Pr[D^{\\Enc_k}(1^\\secpar) = 1] - \\Pr[D^{R}(1^\\secpar) = 1]\\right|$$'. A definition via '\\le' is vacuous/ill-formed; house convention (Security Definition Conventions) uses ':='. Additionally, the DEPIR sections define the advantage but never state the security condition ('... is negligible' sentence is absent for both PK and SK variants).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -174,16 +305,51 @@
           "action": "created",
           "sha": "2b3f4eb2ddf6b5f7b9e14a83eccd51917f35dfbd",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "67c7d1bf372734c03bf741c23376c743e9508247",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/fingerprinting-code.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "94c11304b351464709a07f5fa477a589b1177693",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] The Correctness display '$$\\Gen(\\epsilon, |\\calC|) = (k, x_1, \\ldots, x_n) \\implies \\Pr[\\mathsf{Trace}(y, x_1, \\ldots, x_n) \\in \\calC] \\geq 1 - \\epsilon$$' has several problems: (a) a randomized algorithm is used in an equality inside a logical implication with no quantification over its randomness; (b) $y \\in \\mathsf{desc}(\\{x_i: i \\in \\calC\\})$ is quantified BEFORE the $x_i$ are generated by $\\Gen$; (c) $\\mathsf{Trace}$ never receives the key $k$ that $\\Gen$ outputs; (d) the following prose refers to 'The first condition in the probability' and 'The second condition' but the displayed probability contains a single condition ($\\in \\calC$) — the false-accusation vs. must-accuse decomposition it describes is absent from the formula.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] The descendants-function definition in '## Syntax' is garbled and never actually defined: 'Formally, if index $i$ as character $\\sigma$, then there must be some $x_j$ which also has that character at index $i$.' The sentence is missing its subject (presumably 'if the word $y$ has at index $i$ character $\\sigma$') and $x_j$'s membership in the colluding set is not stated, so $\\mathsf{desc}(\\cdot)$ — on which Correctness depends — has no formal definition.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] The Correctness 'Note' reads: 'One can also define fingerprinting codes with respect to a security parameter $1/\\lambda$ and require error that is negligible in the security parameter. ... setting $\\epsilon = 2^{-\\lambda}$.' The security parameter is $\\lambda$, not $1/\\lambda$ (the $1/\\lambda$ appears to conflate parameter with error). Raw '$\\lambda$' is also used instead of the required '\\secpar' macro.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -191,6 +357,13 @@
           "action": "created",
           "sha": "94c11304b351464709a07f5fa477a589b1177693",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "505a66e6c63164e5130f2690fda8af5dc000f49e",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
@@ -212,12 +385,22 @@
       ]
     },
     "content/Primitives/hash-function.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "a4fe8e575191b91facafcc25c254101ef1527a49",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] Intro: collision resistance 'implies one-wayness'; '### Collision resistance' prose: 'Collision resistant hash functions are strictly stronger than preimage resistance.' CR implies preimage resistance only for compressing functions (e.g. the identity on equal-length domains is CR but not one-way), and 'strictly stronger' additionally asserts a separation — stated with no citation and no folklore flag. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -225,16 +408,33 @@
           "action": "created",
           "sha": "a4fe8e575191b91facafcc25c254101ef1527a49",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "e385d847795347d8e64d79ce1fd1d5728e12e3d7",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/hidden-vector-encryption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "dc5ca6d5013d76d65a2439b5e2616303f00bbdc4",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Both attribute-hiding games omit the clause that if any queried key satisfies the predicate on both challenge attributes, then $m_0 = m_1$. HVE game comment: \"For all queried $v$: $v$ matches $x_0$ iff $v$ matches $x_1$\"; IPPE game comment: \"For all queried $v$: $\\langle v, x_0 \\rangle = 0$ iff $\\langle v, x_1 \\rangle = 0$ (mod $p$)\". As written, an adversary may query a key matching BOTH $x_0$ and $x_1$ (constraint satisfied), decrypt $c^*$, and compare against $m_0, m_1$ — the game is trivially winnable, so no scheme satisfies the definition. KSW08's full attribute-hiding definition adds: if some queried predicate evaluates to 1 on both, then $m_0 = m_1$. Consequently HVE's remark \"Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$)\" is also broken under the written game: with $x_0 = x_1 = x^*$ the constraint is vacuous and does not enforce payload-hiding admissibility.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -242,6 +442,13 @@
           "action": "created",
           "sha": "dc5ca6d5013d76d65a2439b5e2616303f00bbdc4",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "4e2f4ca099c68d0baca7f031550af2ffc08d94a2",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -263,12 +470,22 @@
       ]
     },
     "content/Primitives/homomorphic-encryption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "aa56768f8b899b3f1f615f1a9212a0f591091b4c",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ### Security: \"(CCA security is incompatible with homomorphism.)\" — only IND-CCA2 is incompatible; IND-CCA1-secure homomorphic (even somewhat-homomorphic FHE-style) schemes exist. The claim is also uncited and unflagged. Additionally, ## Syntax intro says \"one can produce $\\Enc(f(m_1, m_2))$ for some function class $f$\" — $f$ is a function, the class is $\\calF$; and '## Compact FHE' says \"compact if the ciphertext and the evaluation circuit's output have bounded size, independent of the circuit being evaluated\" — the evaluated ciphertext IS the output, and the bound should be polynomial in $\\secpar$; as written 'bounded size' is vacuous.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -276,6 +493,13 @@
           "action": "created",
           "sha": "aa56768f8b899b3f1f615f1a9212a0f591091b4c",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "b9b5fcdf53a00346973d04ff421cc5cc019b8411",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -297,12 +521,22 @@
       ]
     },
     "content/Primitives/indistinguishability-obfuscation.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "b25d39e8f31352e96dc44bf5cbf979ee1a13c3fa",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] JLS21 assumption list appears wrong: \"First iO from well-founded assumptions: sub-exponential [[learning-with-errors|LWE]], [[learning-parity-with-noise|LPN]], pseudorandom generators in $\\mathrm{NC}^1$, and [[decisional-diffie-hellman|DDH]]\". JLS21 uses Boolean PRGs in $\\mathrm{NC}^0$ (not $\\mathrm{NC}^1$) and SXDH on bilinear groups (not plain DDH).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -310,16 +544,33 @@
           "action": "created",
           "sha": "b25d39e8f31352e96dc44bf5cbf979ee1a13c3fa",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "8d4a9b473a83ce98ec804900b5b797c2d30f3672",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/inner-product-predicate-encryption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "9fe2dfb9f58a7e5b99ee3c5b671b79da3969ffaf",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Both attribute-hiding games omit the clause that if any queried key satisfies the predicate on both challenge attributes, then $m_0 = m_1$. HVE game comment: \"For all queried $v$: $v$ matches $x_0$ iff $v$ matches $x_1$\"; IPPE game comment: \"For all queried $v$: $\\langle v, x_0 \\rangle = 0$ iff $\\langle v, x_1 \\rangle = 0$ (mod $p$)\". As written, an adversary may query a key matching BOTH $x_0$ and $x_1$ (constraint satisfied), decrypt $c^*$, and compare against $m_0, m_1$ — the game is trivially winnable, so no scheme satisfies the definition. KSW08's full attribute-hiding definition adds: if some queried predicate evaluates to 1 on both, then $m_0 = m_1$. Consequently HVE's remark \"Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$)\" is also broken under the written game: with $x_0 = x_1 = x^*$ the constraint is vacuous and does not enforce payload-hiding admissibility.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -327,16 +578,51 @@
           "action": "created",
           "sha": "9fe2dfb9f58a7e5b99ee3c5b671b79da3969ffaf",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "c7f3bf6f0b212631bddf5f1ca1b33af60290d87e",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/key-encapsulation-mechanism.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "46852b21f4e71b5a07653fa5528999444b817350",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] The '## KEM-DEM hybrid encryption' section claims: \"Given an IND-CCA KEM and an IND-CPA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]\" and \"This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is IND-CPA secure (or even OT-secure for a one-time pad).\" This is false as stated: an IND-CPA (malleable) DEM breaks CCA security of the hybrid — the adversary mauls $c_2$ and queries decryption on $(c_1, c_2')$. The standard theorem (Cramer–Shoup) requires the DEM to be one-time IND-CCA / authenticated encryption. The same error is repeated in # Other results: \"KEM-DEM achieves IND-CCA PKE from IND-CCA KEM + IND-CPA SKE — standard\".",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Several # Other results bullets misstate facts: (a) \"The Fujisaki-Okamoto (FO) transform converts any IND-CPA KEM to an IND-CCA KEM in the random oracle model; used in all NIST PQC KEM standards (Kyber, NTRU) — standard\" — FO converts an IND-CPA PKE (not KEM) into an IND-CCA KEM, and NTRU is not a NIST PQC standard (NIST standardized ML-KEM/Kyber, and later HQC); (b) \"KEM implies [[key-exchange|key exchange]]: running Encap with the sender's public key gives an authenticated key exchange — standard\" — Encap runs on the receiver's public key, and a plain KEM yields a passively secure (unauthenticated) key exchange, not an AKE; (c) \"KEM with re-randomizable ciphertexts gives anonymous PKE — standard\" — re-randomizability does not imply key privacy/anonymity in general. Also '## RSA-KEM / RSAES-OAEP' says \"RSA-based KEM using OAEP padding\" — RSA-KEM specifically uses no padding (it encrypts a random element and hashes it); RSAES-OAEP is a PKE, not a KEM.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] '## Lattice-based KEM (Kyber / ML-KEM)': \"Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (rank-3 module over a polynomial ring)\" — the module rank is parameter-set dependent (2 for Kyber-512, 3 for Kyber-768, 4 for Kyber-1024); stating 'rank-3' flatly is inaccurate for two of the three parameter sets.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -344,16 +630,33 @@
           "action": "created",
           "sha": "46852b21f4e71b5a07653fa5528999444b817350",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "b79631225bf1c38b0abe17de6ebcc417dc5a1428",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/key-exchange.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "25302fa6f749b3695821fdf4e5c7f9480bb17fe6",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Two # Other results bullets misstate known results: (a) \"Any KE protocol from a random oracle requires $\\Omega(n)$ queries; Merkle puzzles achieve $O(n^2)$ security and are optimal — [[BM09 ...|BM09]]\" — the BM09 theorem is that any KE in which the parties make $n$ oracle queries can be broken by an eavesdropper making $O(n^2)$ queries (Merkle puzzles show this quadratic gap is optimal); 'requires $\\Omega(n)$ queries' is not the statement. (b) \"KE implies [[public-key-encryption|PKE]] (the session key can be used with a symmetric cipher) — [[DH76 ...|DH76]]\" — only 2-message key exchange is equivalent to PKE; general multi-round KE does not directly give (non-interactive) PKE, and the parenthetical describes hybrid usage, not the implication.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -361,16 +664,33 @@
           "action": "created",
           "sha": "25302fa6f749b3695821fdf4e5c7f9480bb17fe6",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "b0da84238b58305e7f687c13940b6b43c87144b3",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/message-authentication-code.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "c7cc58b8f6d10041276a2979cd77d4f51e1b7e06",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Contradictory PRF-to-MAC claims: pseudorandom-function.md says '$\\Tag(k, m) = \\PRF(k, m)$ is a secure one-time MAC; extending to many messages uses standard domain-extension techniques', but message-authentication-code.md '## PRF-based MACs' says 'The UF-CMA security of the resulting MAC follows directly from the PRF's pseudorandomness' (many-time). The PRF-as-MAC is many-time UF-CMA for messages in the PRF domain; the limitation is message length, not one-time-ness. Both claims are uncited with no folklore flag.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -378,6 +698,13 @@
           "action": "created",
           "sha": "c7cc58b8f6d10041276a2979cd77d4f51e1b7e06",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "c9696f0fd1d64ee84738deb60ac4932a058dced3",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -399,12 +726,31 @@
       ]
     },
     "content/Primitives/non-interactive-zero-knowledge.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "10238d33842b03cdbae8d08e662f68ea0796bfbf",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] \"NIZK for all NP from trapdoor permutations (hence from [[rsa-assumption|RSA]] or [[discrete-logarithm|DL]]) in the CRS model — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]\": NIZK from TDPs is Feige-Lapidot-Shamir (FLS90), not BFM88 (which used quadratic residuosity); and discrete log is not known to yield a trapdoor permutation, so \"hence from DL\" is unsupported.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Soundness statement has an unbound variable: \"For all efficient $P^*$: $\\Pr[\\Vrfy(\\crs, x, P^*(\\crs, x)) = 1 \\wedge x \\notin L] \\le \\negl(\\secpar).$\" — $x$ is never quantified or output by $P^*$ (adaptive soundness would have $P^*(\\crs)$ output $(x, \\pi)$), and the sampling of $\\crs$ is not stated. The heading \"### Soundness / Argument\" is also a nonstandard compound heading.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -412,6 +758,13 @@
           "action": "created",
           "sha": "10238d33842b03cdbae8d08e662f68ea0796bfbf",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "ce6e86a4d72390066c1f2e4327f8a9d7e8016b93",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
@@ -433,12 +786,22 @@
       ]
     },
     "content/Primitives/oblivious-transfer.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "ca46044434045f4012ef0b54368b24273adcacf5",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] \"# Other results\" bullet: \"OT can be constructed from [[public-key-encryption|PKE]]\" — false as a general claim and uncited. GKM+00 (cited on trapdoor-permutation.md as \"The relationship between public key encryption and oblivious transfer\") shows a black-box separation between PKE and OT; OT requires PKE with extra structure. The adjacent bullet \"OT implies [[commitment-scheme|commitment schemes]]\" is also uncited with no folklore flag.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -446,16 +809,33 @@
           "action": "created",
           "sha": "ca46044434045f4012ef0b54368b24273adcacf5",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "e43754a09ac1621cb63a621a9b5dfcd8534046f9",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/one-way-permutation.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "ebf8550a5d9eee0632020976d4e3aec99b9401ea",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Quantifier order in the OWP definition is inverted: 'such that there is some negligible function $\\nu$, where, for every $\\secpar$ and efficient algorithm $\\calA$: $$\\Pr_{x\\sim X}[...] \\le \\nu(\\secpar)$$'. This demands one negligible $\\nu$ uniform over ALL efficient adversaries; the standard definition is for all efficient $\\calA$ there exists negligible $\\nu$ (equivalently, the advantage of each $\\calA$ is negligible). Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -463,16 +843,33 @@
           "action": "created",
           "sha": "ebf8550a5d9eee0632020976d4e3aec99b9401ea",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "f13ee04d597d3e9bbcb7ce6c6837010363a8ac89",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/polynomial-commitment.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "c34878eadbf8f121048b4f3920382ba5cc96af8b",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] \"# Other results\" bullet: \"Any polynomial commitment with $O(1)$ proof size implies the existence of a succinct NIZK for NP — standard\" — dubious under a folklore flag: a PCS alone yields neither NP-completeness nor zero-knowledge; a SNARK additionally needs arithmetization/IOP and Fiat-Shamir, and ZK needs more. The neighboring bullet \"Polynomial commitments are equivalent to vector commitments with position-binding under certain reductions — standard\" is similarly vague (\"under certain reductions\") for a flagged-folklore claim.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -480,16 +877,51 @@
           "action": "created",
           "sha": "c34878eadbf8f121048b4f3920382ba5cc96af8b",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "b06c910e4adbd697737662f179a532ddde75b3f4",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/pseudorandom-error-correcting-code.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "154decdacd0761e426727771d2f42d177e0eeea4",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] '### Soundness' states: 'A PRC is _sound_ if there is a negligible function $\\nu$, such that for all $\\hat{c}$, $$\\Pr_{k \\gets \\Gen(1^\\secpar)}[\\Dec_k(\\hat{c}) = \\bot] \\le \\nu(\\secpar).$$' The event appears inverted: as written, EVERY string decodes to a message with overwhelming probability, which contradicts soundness (and robustness would then be vacuous). CG24 soundness requires $\\Pr[\\Dec_k(\\hat{c}) \\ne \\bot] \\le \\negl$ for any fixed $\\hat{c}$ (false positives are rare).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Advantages are 'defined' with an inequality instead of ':='. doubly-efficient-pir.md '### Public-key DEPIR': '$$\\Adv^{\\mathrm{priv}}_{\\calA}(\\secpar) \\le 2\\left|\\Pr[\\calA(1^\\secpar,k,EDB,q) = b] - \\frac{1}{2}\\right|$$' (and the same '\\le' in '### Secret-key DEPIR'). pseudorandom-error-correcting-code.md '### Pseudorandomness': 'We define the advantage of a distinguisher $D$ as $$\\Adv^{\\mathrm{prc}}_D(\\secpar) \\le \\left|\\Pr[D^{\\Enc_k}(1^\\secpar) = 1] - \\Pr[D^{R}(1^\\secpar) = 1]\\right|$$'. A definition via '\\le' is vacuous/ill-formed; house convention (Security Definition Conventions) uses ':='. Additionally, the DEPIR sections define the advantage but never state the security condition ('... is negligible' sentence is absent for both PK and SK variants).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] '### Completeness/Robustness' defines the channel bound as: 'for every $n$-bit string $c$, $|\\calE(c) - c| \\le \\varepsilon \\cdot n$.' Subtraction/absolute value of bit-strings is undefined; this should be Hamming distance (e.g. the Hamming weight of $\\calE(c) \\oplus c$). Also the property is named '$\\varepsilon$-robust' in prose while the heading says 'Completeness/Robustness'.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -497,16 +929,51 @@
           "action": "created",
           "sha": "154decdacd0761e426727771d2f42d177e0eeea4",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "a2a37aaa2557f729da490096a84b0078dacc2cf5",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/pseudorandom-function.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "9c242228bc1b9971646e8bc999c7ace010521376",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] '# Other results' bullet: 'PRF implies CPA-secure [[symmetric-key-encryption|SKE]]: CTR-mode encryption $\\Enc(k, m_1 \\cdots m_\\ell) = \\PRF(k,1)\\|{\\cdots}\\|\\PRF(k,\\ell) \\oplus m_1\\|{\\cdots}\\|m_\\ell$'. With fixed counters $1..\\ell$ the scheme is deterministic and reuses the same pad for every message, so it is not CPA-secure (needs a random nonce/counter offset in the ciphertext). Also uncited with no folklore flag, and the XOR/concatenation precedence is ambiguous. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Contradictory PRF-to-MAC claims: pseudorandom-function.md says '$\\Tag(k, m) = \\PRF(k, m)$ is a secure one-time MAC; extending to many messages uses standard domain-extension techniques', but message-authentication-code.md '## PRF-based MACs' says 'The UF-CMA security of the resulting MAC follows directly from the PRF's pseudorandomness' (many-time). The PRF-as-MAC is many-time UF-CMA for messages in the PRF domain; the limitation is message length, not one-time-ness. Both claims are uncited with no folklore flag.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] pseudorandom-permutation.md: 'PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]'; pseudorandom-function.md: '[[pseudorandom-permutation|PRP]]s over large domains are iPRFs'. The iPRF security game gives the adversary an inversion oracle, so plain PRP security does not suffice — strong PRP (sPRP) security is needed, and the two-sided (inverse-oracle) variant of the switching lemma. The stated Switching Lemma covers only the forward-oracle case. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -514,16 +981,42 @@
           "action": "created",
           "sha": "9c242228bc1b9971646e8bc999c7ace010521376",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "1edf022498f10855b64d195970c30a4b90ea6684",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/pseudorandom-generator.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "7c5ab94f6dfe07597a097a4af89f0506fa3ceed9",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] '# Other results' bullet: 'PRG implies CPA-secure [[symmetric-key-encryption|SKE]]: the stream cipher $\\Enc(k, m) = G(k) \\oplus m$ is CPA-secure whenever $G$ is a PRG with stretch $|m|$'. This scheme is deterministic and stateless, so it is not CPA-secure under the site's own left-right CPA game (query $\\calO_b(0^n,0^n)$ then $\\calO_b(0^n,1^n)$ and XOR); it is only one-time (EAV) secure. Also 'stretch $|m|$' uses stretch as an absolute length, contradicting the page's own ratio definition '$\\ell = |r|/|s|$'.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] Trapdoor PRG completeness has a broken/double-bound quantifier: '$(1-\\varepsilon)$-**complete**: meaning $k \\in \\calK,$ $$\\Pr[\\Invert(t, \\Eval(t,k)) = 1 : (t,k) \\getsr \\Gen(1^{\\secpar})] \\ge 1 - \\varepsilon$$' — $k$ appears both as an (incompletely stated) universal quantifier and as sampled inside the probability. Also '$\\Eval(t,k) \\to r$' makes evaluation require the trapdoor, which is unusual for a trapdoor primitive — possibly intended, report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -531,16 +1024,33 @@
           "action": "created",
           "sha": "7c5ab94f6dfe07597a097a4af89f0506fa3ceed9",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "5fbb818dd6387993e39cb7808c5d6ec7cea7e3b3",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/pseudorandom-permutation.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "2b24e8d88cae664251d9017fef7c8ef2a8a99fd8",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] pseudorandom-permutation.md: 'PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]'; pseudorandom-function.md: '[[pseudorandom-permutation|PRP]]s over large domains are iPRFs'. The iPRF security game gives the adversary an inversion oracle, so plain PRP security does not suffice — strong PRP (sPRP) security is needed, and the two-sided (inverse-oracle) variant of the switching lemma. The stated Switching Lemma covers only the forward-oracle case. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -548,6 +1058,13 @@
           "action": "created",
           "sha": "2b24e8d88cae664251d9017fef7c8ef2a8a99fd8",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "0fda82862477875dae819566398781e7c5c17a5d",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -569,12 +1086,31 @@
       ]
     },
     "content/Primitives/secret-sharing.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "14d629d75d0615a222613851345963aba9af3771",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Privacy definition reuses $s_1$ for two objects: \"any two secrets $s_0, s_1 \\in \\calS$: $\\left\\{(s_i)_{i \\in T} : (s_1, \\ldots, s_n) \\gets \\Share(s_0)\\right\\} = \\left\\{(s_i)_{i \\in T} : (s_1, \\ldots, s_n) \\gets \\Share(s_1)\\right\\}$\" — $s_1$ denotes both the second challenge secret and the first share, so $\\Share(s_1)$ is ambiguous.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] \"## Computational secret sharing\": \"Allows secret sharing below the information-theoretic threshold (e.g., $(1, n)$-sharing, i.e., encryption).\" — $(1,n)$ means any single party reconstructs, which has no privacy and is not encryption; encryption-as-sharing is 2-out-of-2 (key + ciphertext). The intended point (share size below the Shannon bound, à la Krawczyk) is garbled.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -582,16 +1118,33 @@
           "action": "created",
           "sha": "14d629d75d0615a222613851345963aba9af3771",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "287a57fc66b4d3b663754f912ddabc09bedcca9b",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/secure-multi-party-computation.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "95ece8dad6d0221310af916a3402ecc809cb079e",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] \"# Other results\" bullet: \"[[commitment-scheme|COM]] is complete for two-party computation in the semi-honest model — [[GMW87 - How to play ANY mental game|GMW87]]\" — suspected false. Semi-honest 2PC for general functions requires OT (Cryptomania); commitments are Minicrypt, so they cannot be complete for it, and GMW87's semi-honest protocol is built from OT. In the semi-honest model commitments are not even needed.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -599,6 +1152,13 @@
           "action": "created",
           "sha": "95ece8dad6d0221310af916a3402ecc809cb079e",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "540ce2f8aa65f97993d479ca11e60a90f457ea42",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -620,12 +1180,22 @@
       ]
     },
     "content/Primitives/succinct-argument.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "067ad794e571245793bbf936162a63a848430171",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Contradictory extractor quantifier order within the same page. \"### Knowledge soundness\" says \"There exists a polynomial-time extractor $\\calE$ such that for all efficient $\\calA$\" (universal extractor), but the statement after the game says \"for all efficient $\\calA$ there exists a polynomial-time extractor $\\calE$\" (per-adversary extractor). These are different definitions; the per-adversary order is standard for SNARKs.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -633,16 +1203,33 @@
           "action": "created",
           "sha": "067ad794e571245793bbf936162a63a848430171",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "05bca5100693449e8532fb9e5cf863cba9d46c48",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/symmetric-key-encryption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "8999f24f6aa406f0771a6b7004ece3289ac41e2f",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] '# Other results': 'the stream cipher $\\Enc(k,m) = \\PRF(k,r) \\oplus m$ (using a fresh nonce $r$) is CPA-secure' — as written the ciphertext omits $r$, so decryption is impossible; it should be $c = (r, \\PRF(k,r) \\oplus m)$. Also uses functional notation $\\PRF(k,r)$ where the PRF page defines evaluation as $\\Eval(k,\\cdot)$. Report-only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -650,6 +1237,13 @@
           "action": "created",
           "sha": "8999f24f6aa406f0771a6b7004ece3289ac41e2f",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "378344125ff09e9e3b78e9517854c8cee02cb6fc",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -688,12 +1282,31 @@
       ]
     },
     "content/Primitives/trapdoor-permutation.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "4653f2926b11ae7ba3d47551e4c0a9d09d1aca0b",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] One-wayness quantifier order is reversed: \"A TDP is **one-way** if there is some negligible function $\\nu$ such that for every efficient $\\calA$: $\\Pr_{...}[...] \\le \\nu(\\secpar)$.\" Standard order is: for every efficient $\\calA$ there exists a negligible $\\nu$ (equivalently, the probability is negligible). As written a single $\\nu$ must dominate all adversaries. Also drifts from house style, which uses \\negl and \"is negligible\", not a named function $\\nu$; and the Pr statement mixes subscript sampling with an \"event : sampling\" colon inside the brackets.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Under \"## Lossy trapdoor functions\": \"Lossy TDFs imply TDPs and are useful for constructing CCA-secure encryption.\" Lossy TDFs (Peikert-Waters) imply injective trapdoor *functions*, not trapdoor *permutations*; no construction of TDPs from lossy TDFs is known. The claim is also uncited (PW08 is the natural reference).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -701,16 +1314,33 @@
           "action": "created",
           "sha": "4653f2926b11ae7ba3d47551e4c0a9d09d1aca0b",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "6ead8e0b96a5f3e9ce70ed19c1311e3726b3ff74",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Primitives/zero-knowledge-proof.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "3937fba40f05c635acc00eeb7e2e8186f0e3c8a0",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Zero-knowledge definition has reversed quantifier order: \"there exists an efficient **simulator** $\\Sim$ such that for all $x \\in L$, the distribution of $\\Sim(x)$ is computationally (or statistically, or perfectly) indistinguishable from the real interaction transcript $\\langle P(x, w), V^*(x) \\rangle$ for any $V^*$.\" The standard definition is: for all (efficient) $V^*$ there exists a simulator $\\Sim$ (with access to $V^*$). As written, one universal simulator ignorant of $V^*$ must handle every malicious verifier, which is a different (and unachievable) statement.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -718,6 +1348,13 @@
           "action": "created",
           "sha": "3937fba40f05c635acc00eeb7e2e8186f0e3c8a0",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "9dab4b99fd453e8fe704b466aefa710201d3074e",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -739,12 +1376,22 @@
       ]
     },
     "content/Complexity/bounded-error-probabilistic-polynomial-time.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "5cbea69621e33231944b90032795455047d57035",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Under '## Relevance to cryptography': 'a PRG secure against all $\\classPpoly$ adversaries implies $\\classBPP = \\classP$'. A cryptographic PRG (poly-length seed) does not imply BPP = P; full derandomization needs Nisan–Wigderson-style PRGs with $O(\\log n)$ seed length. Cryptographic PRGs only give subexponential-time simulations. Claim is also uncited with no folklore flag.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -752,16 +1399,33 @@
           "action": "created",
           "sha": "5cbea69621e33231944b90032795455047d57035",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "dc0d073d62738df22d89c38309e52ac7650c7ef5",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Complexity/bounded-error-quantum-polynomial-time.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "34b2c117b160d7e35e5cc811ddcbfac15d1bc884",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Dubious and uncited: 'Simon's problem is in $\\classBQP$ but not in $\\classNP$ relative to a random oracle'. Simon's problem is the standard BQP-vs-BPP oracle separation; the BQP-vs-NP/PH separations use different problems (e.g. Forrelation, Raz–Tal). No citation and no TODO flag on this line.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -769,16 +1433,33 @@
           "action": "created",
           "sha": "34b2c117b160d7e35e5cc811ddcbfac15d1bc884",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "7598429c54365359191decc10754e117929f9b31",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Complexity/co-arthur-merlin.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "01a95bc7b68186dd30a22cb4ad2b419d58f6d447",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Garbled collapse statement: '...so if GI were NP-complete then $\\classNP \\subseteq \\classcoAM$, collapsing AM to $\\mathbf{\\Sigma_2^P}$'. The Boppana–Håstad–Zachos result collapses PH to $\\Sigma_2^P$; 'collapsing AM to $\\Sigma_2^P$' is not the statement (AM is already inside $\\Pi_2^P$).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -786,6 +1467,13 @@
           "action": "created",
           "sha": "01a95bc7b68186dd30a22cb4ad2b419d58f6d447",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "d793547cb0f9ab7f2170253c1c152f3494e6b8d0",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -807,12 +1495,22 @@
       ]
     },
     "content/Complexity/computational-zero-knowledge.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "1fb88ae6f76ff19c90a82d96944a5208a9fdfdb3",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Overbroad claim: 'any constant-round proof system for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]'. GK96 proves this for 3-round protocols and for constant-round PUBLIC-COIN protocols; Goldreich–Kahan give a constant-round (5-round) black-box ZK proof for NP, contradicting the claim as stated. The follow-up 'This explains why practical ZK protocols (e.g., Sigma protocols) require a super-constant number of rounds' is also dubious (Sigma protocols are 3-round).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -820,6 +1518,13 @@
           "action": "created",
           "sha": "1fb88ae6f76ff19c90a82d96944a5208a9fdfdb3",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "6877866e72fbfc562243b4dfa9a051707e0a299b",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -858,12 +1563,22 @@
       ]
     },
     "content/Complexity/merlin-arthur.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "47ffbf803760b80e665cb41ba9eec2014a83c886",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] MA ⊆ AM justification is wrong as stated: 'any MA protocol can be converted to an AM protocol by having Arthur send random coins first (Merlin's optimal strategy is independent of those coins for a constant-round protocol)'. Merlin's strategy CAN depend on coins he sees; the actual proof first amplifies the MA error so a union bound over coins works. The parenthetical is not a correct reason.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -871,6 +1586,13 @@
           "action": "created",
           "sha": "47ffbf803760b80e665cb41ba9eec2014a83c886",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "98c99c9436dbf353f3b2e204604aa4ef53e809bc",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -892,12 +1614,22 @@
       ]
     },
     "content/Complexity/p-poly.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "6065c8c52fb423b0e6c2840685a4b1d9df4966aa",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Garbled claim under '## Relevance to cryptography': 'The existence of one-way functions implies $\\classP \\neq \\classPpoly \\cap \\classNP$ in a certain oracle-relativized sense (one-way functions separate uniform and non-uniform worlds)'. As written this is not a recognizable theorem (P/poly ∩ NP vs P, 'oracle-relativized sense' unspecified); uncited and unfalsifiable as stated.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -905,6 +1637,13 @@
           "action": "created",
           "sha": "6065c8c52fb423b0e6c2840685a4b1d9df4966aa",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "ffdfef6688e93a5a8e5e7a574446eff3c563669d",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -994,12 +1733,22 @@
       ]
     },
     "content/Complexity/quantum-interactive-proofs.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "c088dcc80672556a70d66dd5b8566737f50b5f06",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] '$\\classQIP(2)$ ... strictly contains $\\classSZK$ and is believed to contain problems outside $\\classAM$ — TODO citation'. Containment QIP(2) ⊇ SZK is known; STRICT containment is not known unconditionally. 'strictly' should be verified or dropped.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1007,6 +1756,13 @@
           "action": "created",
           "sha": "c088dcc80672556a70d66dd5b8566737f50b5f06",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "f97b87c83c69d54e0f618ab253000ac97cda05be",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -1014,24 +1770,24 @@
       "status": "bot_flagged",
       "blob_sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
       "verified_at_sha": null,
-      "last_checked_at": "2026-05-02T10:30:00Z",
-      "last_checked_by": "claude-factcheck",
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
       "findings": [
         {
           "severity": "error",
           "location": "Known relationships (line 28)",
-          "description": "The page states 'QMA is closed under complement: coQMA = QMA. This uses the quantum error reduction technique (applying the swap test).' This is wrong on two counts. (1) Whether QMA = coQMA is an OPEN problem, analogous to NP vs coNP. The literature treats this as a conditional (e.g., Bookatz 2012 phrases results as 'cannot be in QMA unless QMA = coQMA'), and Mendon\u00e7a-Hyland-Markham 2021 'Characterising the intersection of QMA and coQMA' explicitly studies QMA \u2229 coQMA as a non-trivial subclass. (2) Marriott-Watrous's swap-test technique gives error-reduction (amplification) and closure under intersection, NOT under complement \u2014 the swap test compares two purportedly-equal states; it does not flip a verifier's answer.",
-          "suggested_fix": "Replace the claim with: 'QMA is closed under intersection (Marriott-Watrous error reduction via the swap test). Closure under complement \u2014 i.e., whether QMA = coQMA \u2014 is open, analogous to NP vs coNP.' Proposed as a suggested-fix commit in this run's PR.",
+          "description": "The page states 'QMA is closed under complement: coQMA = QMA. This uses the quantum error reduction technique (applying the swap test).' This is wrong on two counts. (1) Whether QMA = coQMA is an OPEN problem, analogous to NP vs coNP. The literature treats this as a conditional (e.g., Bookatz 2012 phrases results as 'cannot be in QMA unless QMA = coQMA'), and Mendonça-Hyland-Markham 2021 'Characterising the intersection of QMA and coQMA' explicitly studies QMA ∩ coQMA as a non-trivial subclass. (2) Marriott-Watrous's swap-test technique gives error-reduction (amplification) and closure under intersection, NOT under complement — the swap test compares two purportedly-equal states; it does not flip a verifier's answer.",
+          "suggested_fix": "Replace the claim with: 'QMA is closed under intersection (Marriott-Watrous error reduction via the swap test). Closure under complement — i.e., whether QMA = coQMA — is open, analogous to NP vs coNP.' Proposed as a suggested-fix commit in this run's PR.",
           "sources_consulted": [
-            "Marriott-Watrous, 'Quantum Arthur-Merlin Games' (Computational Complexity 14(2):122-152, 2005; arXiv:cs/0506068) \u2014 amplification + QMA \u2286 PP",
-            "Mendon\u00e7a-Hyland-Markham, 'Characterising the intersection of QMA and coQMA', Quantum Inf. Process. 20(11):396, 2021 (arXiv:2102.03108)",
+            "Marriott-Watrous, 'Quantum Arthur-Merlin Games' (Computational Complexity 14(2):122-152, 2005; arXiv:cs/0506068) — amplification + QMA ⊆ PP",
+            "Mendonça-Hyland-Markham, 'Characterising the intersection of QMA and coQMA', Quantum Inf. Process. 20(11):396, 2021 (arXiv:2102.03108)",
             "Bookatz, 'QMA-complete problems', arXiv:1212.6312"
           ]
         },
         {
           "severity": "missing_citation",
           "location": "Notable problems / Local Hamiltonian (line 21)",
-          "description": "Local Hamiltonian QMA-completeness is asserted with explicit 'TODO citation (Kitaev 1999)' marker. Standard reference: Kitaev's original argument appeared in his 1999 lectures and was first published in Kitaev-Shen-Vyalyi, 'Classical and Quantum Computation', AMS Graduate Studies in Mathematics 47, 2002 (\u00a714.4).",
+          "description": "Local Hamiltonian QMA-completeness is asserted with explicit 'TODO citation (Kitaev 1999)' marker. Standard reference: Kitaev's original argument appeared in his 1999 lectures and was first published in Kitaev-Shen-Vyalyi, 'Classical and Quantum Computation', AMS Graduate Studies in Mathematics 47, 2002 (§14.4).",
           "suggested_fix": "Replace 'TODO citation (Kitaev 1999)' with a [[KSV02 - Classical and Quantum Computation|KSV02]] wikilink and create the reference file.",
           "sources_consulted": [
             "Bookatz, 'QMA-complete problems', arXiv:1212.6312 (survey citing KSV02 as the original Local Hamiltonian QMA-completeness reference)"
@@ -1048,8 +1804,8 @@
         },
         {
           "severity": "missing_citation",
-          "location": "Known relationships / QMA \u2286 PP (line 27)",
-          "description": "QMA \u2286 PP is attributed to '(Marriott-Watrous \u2014 TODO citation)'. The reference is Marriott-Watrous, 'Quantum Arthur-Merlin Games', Computational Complexity 14(2):122-152, 2005 (arXiv:cs/0506068).",
+          "location": "Known relationships / QMA ⊆ PP (line 27)",
+          "description": "QMA ⊆ PP is attributed to '(Marriott-Watrous — TODO citation)'. The reference is Marriott-Watrous, 'Quantum Arthur-Merlin Games', Computational Complexity 14(2):122-152, 2005 (arXiv:cs/0506068).",
           "suggested_fix": "Replace 'TODO citation' with [[MW05 - Quantum Arthur-Merlin Games|MW05]] and create the reference file.",
           "sources_consulted": [
             "arXiv:cs/0506068 (Marriott-Watrous), abstract states their work yields 'a simple proof that QMA is contained in PP'"
@@ -1065,11 +1821,29 @@
         {
           "severity": "nit",
           "location": "BFL+24 phrasing (line 38)",
-          "description": "Page says QMA_IS is 'strictly less powerful than QMA(2), assuming EXP \u2260 NEXP'. The actual paper proves QMA_IS \u2286 EXP and QMA_IS(2) = NEXP, giving the strict separation between QMA_IS and QMA_IS(2) (not between QMA_IS and QMA(2)). Both formulations are technically correct under EXP \u2260 NEXP since QMA_IS(2) \u2286 QMA(2), but the cleaner / paper-faithful statement is the QMA_IS vs QMA_IS(2) one.",
-          "suggested_fix": "Optionally restate as 'QMA_IS is strictly less powerful than its two-prover variant QMA_IS(2), assuming EXP \u2260 NEXP (the paper shows QMA_IS \u2286 EXP and QMA_IS(2) = NEXP).' (Flagging only.)",
+          "description": "Page says QMA_IS is 'strictly less powerful than QMA(2), assuming EXP ≠ NEXP'. The actual paper proves QMA_IS ⊆ EXP and QMA_IS(2) = NEXP, giving the strict separation between QMA_IS and QMA_IS(2) (not between QMA_IS and QMA(2)). Both formulations are technically correct under EXP ≠ NEXP since QMA_IS(2) ⊆ QMA(2), but the cleaner / paper-faithful statement is the QMA_IS vs QMA_IS(2) one.",
+          "suggested_fix": "Optionally restate as 'QMA_IS is strictly less powerful than its two-prover variant QMA_IS(2), assuming EXP ≠ NEXP (the paper shows QMA_IS ⊆ EXP and QMA_IS(2) = NEXP).' (Flagging only.)",
           "sources_consulted": [
             "BFL+24 reference note (in-repo)",
             "arXiv:2410.19152 abstract (search result)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Internal contradiction: under '## Known relationships' the page says 'It is not even known whether QMA(2) $\\subseteq$ NEXP.' but under '## Variants' the BFM24 bullet says '(since $\\mathbf{QMA}(2) \\subseteq \\mathbf{NEXP}$, removing phase collapses the class further than removing entanglement might)'. These cannot both hold; QMA(2) ⊆ NEXP is in fact known (Kobayashi–Matsumoto–Yamakami), so the 'not even known' line appears to be the error.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] Questionable justification: 'QMA is closed under intersection: this uses Marriott-Watrous error reduction (applying the swap test to two independent witnesses) — TODO citation.' Closure under intersection follows by concatenating witnesses and verifying both; the swap test is not the standard tool here (it belongs to QMA(2)-style arguments). The parenthetical looks confabulated.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
           ]
         }
       ],
@@ -1087,6 +1861,13 @@
           "action": "flagged",
           "sha": "4df236a8703d1fb31664c4a72e01ebf691715e43",
           "note": "Initial deep review: 6 findings (1 error, 3 missing_citation, 2 nit)."
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "5cb2489b6c9840163dd2044863ebb6f043582e1e",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
@@ -1142,12 +1923,22 @@
       ]
     },
     "content/Complexity/statistical-zero-knowledge.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "b7535f08f173986ce94e4033bbc8b34a41a8b4ca",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "missing_citation",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Wrong citation: 'SZK is closed under complement — [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]'. GS86 is the private-vs-public-coins paper; closure of SZK under complement is due to Okamoto (1996) (see also Sahai–Vadhan). The GS86 attribution is a substantive miscitation, not a formatting issue.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1155,16 +1946,42 @@
           "action": "created",
           "sha": "b7535f08f173986ce94e4033bbc8b34a41a8b4ca",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "96ae926a79a2cb7f62f8327cd8c9775ff6910784",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Complexity/total-function-np.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "e6491901d44799a81510fc52c2fc2ded60fdf3d7",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Under '## Subclasses': 'PPP ... contains the problem of finding a collision in a function $f : \\{0,1\\}^n \\to \\{0,1\\}^n$ (pigeonhole guarantees one exists)'. Pigeonhole does NOT guarantee a collision for a length-preserving function (f could be a permutation); the PPP-complete PIGEON problem asks for a collision OR a preimage of $0^n$ (equivalently uses a shrinking range).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Direction reversed: 'Hardness of PPAD is the basis for cryptographic constructions of collision-resistant hash functions from worst-case assumptions — TODO citation'. The known results go the other way: cryptographic assumptions (iO, FHE-related) are used to construct hard PPAD instances; PPAD-hardness is not a known basis for building CRHFs.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1172,16 +1989,33 @@
           "action": "created",
           "sha": "e6491901d44799a81510fc52c2fc2ded60fdf3d7",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "4d8f61abd7e6544df9690e5e01743cbe61bcbac9",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Complexity/zero-error-probabilistic-polynomial-time.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "eb46a843f3e5511ed1c6b7f1b67a1ce39d6ce042",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, low] Muddled definition paragraph: 'A machine for a ZPP problem accepts all \"yes\" instances with probability at least 1/2 and accepts no \"no\" instances (RP condition), and also rejects all \"no\" instances with probability at least 1/2 and rejects no \"yes\" instances (coRP condition).' A single two-output machine cannot satisfy both; the RP and coRP conditions belong to two different machines, and the following sentence ('Running both machines and taking the definitive answer whenever one gives a non-\"?\" response') refers to \"?\" outputs those machines were never defined to produce.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1189,16 +2023,51 @@
           "action": "created",
           "sha": "eb46a843f3e5511ed1c6b7f1b67a1ce39d6ce042",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "991736a55f29b7d088ae7a8b80f5e98ced4ad97a",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/bilinear-map-assumptions.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "7869a1822498f4840e2b3a8b61003fce657d51dc",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Known Results line 32: \"BDDH → short signatures (Boneh-Lynn-Shacham BLS), VRFs, and anonymous credential schemes — standard\". BLS signatures are proven under co-CDH/gap-Diffie-Hellman in gap groups, not BDDH. Also flagged \"— standard\" although BLS01 is an attributable origin.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Internal contradiction on DLIN. Line 34: \"DLIN (Decision Linear) assumption: a generalization of BDDH\", but the page's own \"$k$-Linear assumption\" section (line 45) says \"For $k = 1$: DDH; for $k = 2$: DLIN\" — DLIN generalizes/weakens DDH, not BDDH.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Line 33: \"BDH is implied by [[computational-diffie-hellman|CDH]] in the generic group model, but no standard-model reduction is known\" — uncited, and the direction is at best unclear: the elementary known relation is BDH-hardness ⟹ CDH-hardness in $\\GG$ (a CDH solver yields $g^{ab}$, then $e(g^{ab}, g^c) = e(g,g)^{abc}$).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1206,16 +2075,33 @@
           "action": "created",
           "sha": "7869a1822498f4840e2b3a8b61003fce657d51dc",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "a74e95079205ed30ba7ede1cd1b2bd088acd8358",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/computational-diffie-hellman.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "c54208a678b0e2b773d7a4680d11c604483010bf",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Mirrored intro claims invert assumption strength. CDH line 10: \"It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption\"; DLOG line 10: \"It is a natural strengthening of the [[computational-diffie-hellman|CDH]] assumption.\" As assumptions these are weakenings (DDH hard ⟹ CDH hard ⟹ DLOG hard). Each intro's next sentence (\"an adversary which can solve the X problem can also solve Y\") proves exactly the opposite of \"strengthening\".",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1223,16 +2109,33 @@
           "action": "created",
           "sha": "c54208a678b0e2b773d7a4680d11c604483010bf",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "cc92561fcefa26df3bee9ea1a1b2c739c3538483",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/alternating-moduli.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "eed40f90554318a43f5fe8ad1f4599e35aaa52de",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ## Known Results: \"Low-complexity PRG in $\\mathrm{NC}^1$ is required by the iO construction from well-founded assumptions — [[JLS21 ...]]\". JLS21 uses a Boolean PRG in $\\mathrm{NC}^0$ (constant locality), not $\\mathrm{NC}^1$. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1240,16 +2143,42 @@
           "action": "created",
           "sha": "eed40f90554318a43f5fe8ad1f4599e35aaa52de",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "f6865906a94cc361bd1521f2d41a809d6c357348",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/decisional-composite-residuosity.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "75b53aa82b580bf6c488d13d289a2231397588e6",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] decisional-composite-residuosity.md lines 28-29: \"DCR follows from [[factoring|factoring hardness]] — Pai99\" then \"The converse is open: it is not known whether DCR implies factoring\". The two directions are exactly swapped: DCR ⟹ factoring is the trivial known direction (factoring breaks DCR, as the page's own Attacks section says); factoring ⟹ DCR is open. Same wrong direction repeated in factoring.md line 29 (\"The DCR assumption (Paillier) follows from factoring hardness — Pai99\").",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Advantage definition (lines 17-21) is mathematically wrong: \"$\\Adv^{\\mathrm{dcr}}_{\\calA}(\\secpar) := \\left|2\\Pr\\!\\left[\\calA(1^\\secpar, n, g, c) = 1\\right] - 1\\right|$, where $c$ is either a uniformly random $n$-th power ... or a uniformly random element of $\\ZZ_{n^2}^*$, each with probability $1/2$.\" With Pr taken over the mixture, an adversary that always outputs 1 attains \"advantage\" |2·1−1| = 1. The |2Pr−1| form requires a Game whose output checks b'=b (house convention), or the difference-of-probabilities form. Also, $g$ (\"a random element of $\\ZZ_{n^2}^*$ of order $n \\lambda(n)$\") is given to the adversary but plays no role in the challenge, and a random element does not generally have that order.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1257,16 +2186,33 @@
           "action": "created",
           "sha": "75b53aa82b580bf6c488d13d289a2231397588e6",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "a00722a348e1564f53f0fc868c227e43778b30d1",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/decisional-diffie-hellman.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "70ab55117c9e2ee7759924524a0ba911f4670f93",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Intro (line 10): \"It is implied by the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.\" The implication is backwards: a CDH solver breaking DDH means DDH hardness implies CDH hardness, not the reverse. CDH hardness does NOT imply DDH hardness — the page's own Attacks section notes DDH is easy in Type-1 pairing groups where CDH is believed hard.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1274,16 +2220,33 @@
           "action": "created",
           "sha": "70ab55117c9e2ee7759924524a0ba911f4670f93",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "cf5e0acd860ad88358af371cf1e730f52b260140",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/discrete-logarithm.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "84dd256a8839611e824d683afdffefe7752bdb92",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Mirrored intro claims invert assumption strength. CDH line 10: \"It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption\"; DLOG line 10: \"It is a natural strengthening of the [[computational-diffie-hellman|CDH]] assumption.\" As assumptions these are weakenings (DDH hard ⟹ CDH hard ⟹ DLOG hard). Each intro's next sentence (\"an adversary which can solve the X problem can also solve Y\") proves exactly the opposite of \"strengthening\".",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1291,16 +2254,51 @@
           "action": "created",
           "sha": "84dd256a8839611e824d683afdffefe7752bdb92",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "716592dfd300a7227a2ecfd386907b316d5456bf",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/factoring.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "ac7deb3941f2daed391fc28992ccd3ce133fa121",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] factoring.md line 27: \"The [[rsa-assumption|RSA assumption]] (hardness of computing $e$-th roots mod $N$) is implied by the factoring assumption — RSA78; the converse is open (factoring may be harder than RSA)\". Directions are swapped: the known direction is RSA-hardness ⟹ factoring-hardness (factoring N breaks RSA); factoring ⟹ RSA is the open one. This also contradicts rsa-assumption.md line 45 (\"The converse direction — whether factoring reduces to RSA for a _fixed_ $e$ — is not known\"). RSA78 does not prove the claimed implication.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Both pages state \"QR ... follows from factoring hardness\" (factoring.md line 28: \"The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — GM84\"; quadratic-residuosity.md line 50: \"QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols...\"). Direction is backwards: the cited justification (factoring N lets you decide residuosity) proves QR-hardness ⟹ factoring-hardness; whether factoring hardness implies QR hardness is open.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] decisional-composite-residuosity.md lines 28-29: \"DCR follows from [[factoring|factoring hardness]] — Pai99\" then \"The converse is open: it is not known whether DCR implies factoring\". The two directions are exactly swapped: DCR ⟹ factoring is the trivial known direction (factoring breaks DCR, as the page's own Attacks section says); factoring ⟹ DCR is open. Same wrong direction repeated in factoring.md line 29 (\"The DCR assumption (Paillier) follows from factoring hardness — Pai99\").",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1308,16 +2306,33 @@
           "action": "created",
           "sha": "ac7deb3941f2daed391fc28992ccd3ce133fa121",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "e63300239ad3f530724d5b14b08d3052a1e7db65",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/knowledge-of-exponent.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "c91ab14c552067566a8f5e5d9aa68d4581234e1f",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] The formal KEA statement (line 19) is under-specified: \"$$\\Pr\\!\\left[B = A^\\alpha \\wedge A \\ne g^{\\calE_\\calA(\\cdot)}\\right] \\le \\negl(\\secpar).$$\" The extractor's argument is elided as $(\\cdot)$, $A$ and $B$ are unbound in the event (they should be outputs of $\\calA$ on stated inputs/coins), and the probability space (over $\\alpha$ and the shared coins of $\\calA$/$\\calE_\\calA$) is never given. The group $\\GG$ and order $q$ (used via $\\ZZ_q^*$) are also never introduced. No \\Game block or \\Adv definition per house template.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1325,16 +2340,42 @@
           "action": "created",
           "sha": "c91ab14c552067566a8f5e5d9aa68d4581234e1f",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "62fbcb3a3dfef5ec3b23710c6619f4ba4907e1e6",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/learning-parity-with-noise.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "aff130bb20b5b64fc6b283e8c3890386de5e81bb",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Sparsity direction is transposed between two pages that assert they define the same assumption. noisy-k-lin-over-expanders.md ## Assumption: \"each column has exactly $d$ nonzero entries drawn from $\\FF_p^*$\" (and game line \"$\\mathbf{M} \\getsr \\FF_p^{m \\times n}$ with each column $(\\gamma, d, N)$-expanding\", plus \"the column-$k$-sparse structure of $\\mathbf{M}$\" in Variations). learning-parity-with-noise.md ## Sparse Learning Parity with Noise: \"one whose rows are $d$-sparse: each row is sampled uniformly from all binary vectors of Hamming weight exactly $d$\". For samples $\\mathbf{Ms}+\\mathbf{e}$ each equation touching d secret coordinates means d-sparse rows; one of the two pages has rows/columns swapped. The Variations line also mixes $k$ and $d$ for the same sparsity parameter (\"column-$k$-sparse\" while the definition uses $d$; the parameter $k$ of the name never appears in the formal definition).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ### Noise Level: \"**Mid-noise**: $\\varepsilon = 1/k^\\gamma$ for every $\\gamma < 1$\" — 'for every' is garbled (a single $\\varepsilon$ cannot equal $1/k^\\gamma$ for every $\\gamma$), and as written the mid-noise range subsumes rather than sits between high-noise ($0<\\gamma<1/2$) and low-noise. Probably intended: 'for some $1/2 \\le \\gamma < 1$'. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1342,6 +2383,13 @@
           "action": "created",
           "sha": "aff130bb20b5b64fc6b283e8c3890386de5e81bb",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "1c5924f645f169dc2cedc0d6d851f6bc8f13c4fd",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
@@ -1349,13 +2397,13 @@
       "status": "bot_flagged",
       "blob_sha": "51c0ddc8a0cbbf5c8a4ba7aaf9190edf423da6db",
       "verified_at_sha": null,
-      "last_checked_at": "2026-05-02T10:30:00Z",
-      "last_checked_by": "claude-factcheck",
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
       "findings": [
         {
           "severity": "missing_citation",
           "location": "Reduction to lattice problems (line 86)",
-          "description": "Page says 'Classical reductions (without quantum steps) are known for certain parameter regimes \u2014 see subsequent work by Peikert' without an explicit citation. The standard references are Peikert, 'Public-key cryptosystems from the worst-case shortest vector problem' (STOC 2009) and Brakerski-Langlois-Peikert-Regev-Stehl\u00e9, 'Classical hardness of learning with errors' (STOC 2013). Persists from 2026-04-25 run.",
+          "description": "Page says 'Classical reductions (without quantum steps) are known for certain parameter regimes — see subsequent work by Peikert' without an explicit citation. The standard references are Peikert, 'Public-key cryptosystems from the worst-case shortest vector problem' (STOC 2009) and Brakerski-Langlois-Peikert-Regev-Stehlé, 'Classical hardness of learning with errors' (STOC 2013). Persists from 2026-04-25 run.",
           "suggested_fix": "Add citations [[Pei09 ...|Pei09]] and [[BLPRS13 - Classical hardness of learning with errors|BLPRS13]]; create the corresponding reference files.",
           "sources_consulted": [
             "Reg05 reference note (notes that classical reductions came in subsequent work)"
@@ -1364,7 +2412,7 @@
         {
           "severity": "notation",
           "location": "Section structure (lines 80, 88, 92, 94)",
-          "description": "CLAUDE.md mandates assumption pages follow the order: ## Assumption \u2192 ## Known Results \u2192 # Variations \u2192 # Attacks. This page has: ## Assumption \u2192 ## Known Results \u2192 # Reduction to lattice problems (top-level, should be ## under Known Results) \u2192 ## Cryptographic constructions (orphan ## under a #-level section) \u2192 # Attacks \u2192 # Variations (Variations and Attacks are reversed). Persists from 2026-04-25 run.",
+          "description": "CLAUDE.md mandates assumption pages follow the order: ## Assumption → ## Known Results → # Variations → # Attacks. This page has: ## Assumption → ## Known Results → # Reduction to lattice problems (top-level, should be ## under Known Results) → ## Cryptographic constructions (orphan ## under a #-level section) → # Attacks → # Variations (Variations and Attacks are reversed). Persists from 2026-04-25 run.",
           "suggested_fix": "(a) Demote `# Reduction to lattice problems` to `## Reduction to lattice problems` under Known Results. (b) Move `## Cryptographic constructions` somewhere coherent. (c) Put `# Variations` before `# Attacks`.",
           "sources_consulted": [
             "CLAUDE.md, Page structure for Assumption pages"
@@ -1372,10 +2420,46 @@
         },
         {
           "severity": "nit",
-          "location": "Header level for Search\u2013Decision equivalence (line 73)",
-          "description": "`### Search\u2013Decision equivalence` is the only ### subsection inside Known Results and reads slightly odd as a single subhead under ##. Acceptable but worth promoting/folding for readability. Persists from 2026-04-25 run.",
+          "location": "Header level for Search–Decision equivalence (line 73)",
+          "description": "`### Search–Decision equivalence` is the only ### subsection inside Known Results and reads slightly odd as a single subhead under ##. Acceptable but worth promoting/folding for readability. Persists from 2026-04-25 run.",
           "suggested_fix": null,
           "sources_consulted": []
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] ## Ring LWE: \"$R_q = \\ZZ_q[x]/\\langle\\Phi_n(x)\\rangle$, where $\\Phi_n$ is the $n$-th cyclotomic polynomial (typically $\\Phi_n(x) = x^n + 1$ for $n$ a power of 2)\". For $n$ a power of 2, $x^n+1$ is the $2n$-th cyclotomic polynomial ($\\Phi_{2n}$), not the $n$-th. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Module interpolation claims: learning-with-errors.md ## Module LWE: \"When $k = n$: recovers plain LWE (fully unstructured, ring $R_q \\cong \\ZZ_q^n$)\"; shortest-integer-solution.md ## Module-SIS: \"setting $k = n$ recovers plain SIS\". Increasing module rank alone does not remove the ring structure; plain LWE/SIS is recovered when the ring degree is 1 (R = Z), and $R_q \\cong \\ZZ_q^n$ (a CRT ring isomorphism, valid only for split q) does not make MLWE samples into LWE samples. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ## Succinct LWE: \"When $\\ell = 1$ there is no $\\mathbf{W}$ block and $T$ reduces to $T_\\mathbf{B}$ itself, making the condition equivalent to standard LWE.\" This contradicts the game on the same page, which samples $\\mathbf{W} \\getsr \\ZZ_q^{\\ell n \\times m}$ for every $\\ell$, including $\\ell = 1$ (where $[\\mathbf{B} \\mid \\mathbf{W}] \\in \\ZZ_q^{n \\times 2m}$ and $T \\in \\ZZ^{2m \\times m}$, not $T_\\mathbf{B}$). Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "missing_citation",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] \"### Search–Decision equivalence\" has no citation and no folklore/standard flag anywhere: \"The search and decision variants of LWE are equivalent — breaking one suffices to break the other\", including the concrete claim \"Running over all $n \\cdot q$ pairs uses $O(q \\cdot n \\cdot m)$ samples in total\" (Reg05 or a folklore flag is needed). Also \"Classical reductions (without quantum steps) are known for certain parameter regimes — see subsequent work by Peikert\" names no [[KEY - Title|KEY]] citation (Pei09 missing from References).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
         }
       ],
       "history": [
@@ -1399,6 +2483,13 @@
           "action": "rechecked",
           "sha": "51c0ddc8a0cbbf5c8a4ba7aaf9190edf423da6db",
           "note": "Re-review after fix commits 1dff875 (missing comma) and 77f4adf (LS15 rename). 1 error and 1 notation findings RESOLVED. 3 findings remain (1 missing_citation, 1 notation, 1 nit)."
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "dcc9a2b9b100db264a5e059144a61919f050a350",
+          "note": "schema-cleanup audit attached 4 suspected-error finding(s)"
         }
       ]
     },
@@ -1420,12 +2511,31 @@
       ]
     },
     "content/Assumptions/quadratic-residuosity.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "2ba9a0a954d9d82c8bc4af0b24a1525cc0c2049c",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Both pages state \"QR ... follows from factoring hardness\" (factoring.md line 28: \"The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — GM84\"; quadratic-residuosity.md line 50: \"QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols...\"). Direction is backwards: the cited justification (factoring N lets you decide residuosity) proves QR-hardness ⟹ factoring-hardness; whether factoring hardness implies QR hardness is open.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Lines 12 and 16 claim information-theoretic hiding: \"The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden\" and \"so membership is information-theoretically hidden\". Membership in $\\QR_N$ is fully determined by $(N, a)$, so it is not information-theoretically hidden; the correct statement is that the Jacobi symbol reveals nothing (the two cases are equinumerous in $\\J_N$). Separately, line 49 calls Goldwasser-Micali \"multiplicatively homomorphic: $\\Enc(b_1) \\cdot \\Enc(b_2) = \\Enc(b_1 \\oplus b_2 \\bmod 2)$\" — the homomorphism is XOR (the ciphertext-side operation is multiplication), the \"=\" overstates (the product decrypts to $b_1 \\oplus b_2$), and \"$\\bmod 2$\" after $\\oplus$ is redundant.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1433,16 +2543,51 @@
           "action": "created",
           "sha": "2ba9a0a954d9d82c8bc4af0b24a1525cc0c2049c",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "eb2f3d0981319ceac0547ae715e800e123c84359",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/rsa-assumption.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "6ad2cb638b9bd8eff461c3d4e02962e80d3e4e6c",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] factoring.md line 27: \"The [[rsa-assumption|RSA assumption]] (hardness of computing $e$-th roots mod $N$) is implied by the factoring assumption — RSA78; the converse is open (factoring may be harder than RSA)\". Directions are swapped: the known direction is RSA-hardness ⟹ factoring-hardness (factoring N breaks RSA); factoring ⟹ RSA is the open one. This also contradicts rsa-assumption.md line 45 (\"The converse direction — whether factoring reduces to RSA for a _fixed_ $e$ — is not known\"). RSA78 does not prove the claimed implication.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Known Results line 47: \"Search–decision equivalence: distinguishing RSA outputs from uniform reduces to inverting RSA.\" For $x \\getsr \\ZZ_n^*$, $x \\mapsto x^e$ is a permutation of $\\ZZ_n^*$, so $y = x^e$ is exactly uniform — the decision problem as stated is information-theoretically vacuous. The claim is also uncited.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Known Results line 45: \"**Factoring reduces to RSA**: an algorithm that inverts $x^e \\bmod n$ for _all_ $e$ can be used to factor $n$.\" Uncited, and it is unclear which theorem is intended (computing $d$ from $e$ is equivalent to factoring, which is different from an all-$e$ inverter). It also directly conflicts with factoring.md's (mis-stated) claim about the same relationship — the two pages disagree.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1450,16 +2595,42 @@
           "action": "created",
           "sha": "6ad2cb638b9bd8eff461c3d4e02962e80d3e4e6c",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "892613f8d947efe71a4d433c4d5351f7f433fdf9",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/supersingular-isogeny-diffie-hellman.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "7daa44eaa08cc5b11b50269615faf69e0905ea46",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] The SIDH problem statement (line 16) mixes torsion orders: \"the image curve $E' = E / \\langle P \\rangle$ where $P$ is a random $\\ell$-torsion point, and auxiliary torsion-point images $\\phi(Q)$ for a basis $\\{P, Q\\}$ of the $\\ell^n$-torsion subgroup\" — $P$ is called an $\\ell$-torsion point but sits in a basis of the $\\ell^n$-torsion; in actual SIDH the revealed images are of the basis of the *other* prime-power torsion ($\\phi_A(P_B), \\phi_A(Q_B)$), not of the same-basis $Q$. Step 2's \"secret $\\ell_A$-isogeny\" uses undefined $\\ell_A$ (only $2^{e_A} 3^{e_B}$ was introduced), and step 4 applies isogenies to curves: \"$j(E_{AB}) = j(\\phi_B(E_A)) = j(\\phi_A(E_B))$\".",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Two Known Results/Attacks claims are wrong as stated. Line 27: \"SIDH is not broken by quantum computers (unlike [[discrete-logarithm|discrete log]] or [[factoring|factoring]] assumptions) — JDF11\" — present tense, yet the page itself records a classical polynomial-time break (CD22); SIDH IS broken. Line 45: \"**Quantum sub-exponential attack on CSIDH**: Ciphertext-only quantum attack using the hidden shift problem structure; runs in quantum time $\\tilde{O}(p^{1/4})$\" — $\\tilde{O}(p^{1/4})$ is exponential in $\\log p$, contradicting \"sub-exponential\" (Kuperberg-style hidden-shift attacks are $L_p[1/2]$-type); \"ciphertext-only\" is also out of place for a key-exchange assumption. Both uncited.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1467,6 +2638,13 @@
           "action": "created",
           "sha": "7daa44eaa08cc5b11b50269615faf69e0905ea46",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "9f0aa16fb95e42eb3274d9d10bc9b89d0c109ce2",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
@@ -1488,12 +2666,31 @@
       ]
     },
     "content/Glossary/arithmetization.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "34553497af5f00e635e6f088c6ff5061684f9608",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] R1CS constraint is ill-formed as written: \"$\\mathbf{a}_i \\cdot \\mathbf{z} \\cdot \\mathbf{b}_i \\cdot \\mathbf{z} = \\mathbf{c}_i \\cdot \\mathbf{z} \\quad \\forall i \\in [m]$\" chains dot products without parentheses; it should read $(\\mathbf{a}_i \\cdot \\mathbf{z})\\,(\\mathbf{b}_i \\cdot \\mathbf{z}) = \\mathbf{c}_i \\cdot \\mathbf{z}$. Also $\\mathbf{a}_i, \\mathbf{b}_i, \\mathbf{c}_i \\in \\FF_p^{n}$ uses an undefined $n$ (presumably $1+\\ell+k$).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] QAP section: \"encode the coefficient vectors as polynomials $A(X), B(X), C(X)$ via interpolation. The witness $\\mathbf{z}$ satisfies all constraints if and only if: $t(X) \\mid A(X) \\cdot B(X) - C(X)$.\" As defined, $A, B, C$ interpolate the public coefficient vectors and do not depend on $\\mathbf{z}$, so the divisibility condition cannot be equivalent to the witness satisfying the constraints. The standard formulation sets $A(X) = \\sum_j z_j A_j(X)$ (and similarly $B, C$) with one interpolated polynomial per witness coordinate.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1501,6 +2698,13 @@
           "action": "created",
           "sha": "34553497af5f00e635e6f088c6ff5061684f9608",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "1bdfd93569e0c7d9dbb6e46d1ca124528a01c590",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
@@ -1514,7 +2718,7 @@
         {
           "severity": "broken_link",
           "location": "Barak-Mahmoody strengthening (line 69)",
-          "description": "Wikilink `[[Mer78]]` points to a reference file `content/References/Mer78.md` (or any file with alias `Mer78`) that does not exist. The intended source is Ralph Merkle, \"Secure communications over insecure channels\", CACM 21(4):294\u2013299, 1978.",
+          "description": "Wikilink `[[Mer78]]` points to a reference file `content/References/Mer78.md` (or any file with alias `Mer78`) that does not exist. The intended source is Ralph Merkle, \"Secure communications over insecure channels\", CACM 21(4):294–299, 1978.",
           "suggested_fix": "Create `content/References/Mer78 - Secure communications over insecure channels.md` (with alias `Mer78`) and update the wikilink to `[[Mer78 - Secure communications over insecure channels|Mer78]]`. Also update the same broken `[[Mer78]]` wikilink in `content/References/BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle.md`.",
           "sources_consulted": [
             "content/References/BM09 ...md (which references Merkle's 1978 paper)",
@@ -1541,7 +2745,7 @@
         {
           "severity": "notation",
           "location": "Theorem statement (line 52)",
-          "description": "`(KA)` is rendered in plain text rather than via a macro. The site does not currently define a `\\KA` macro, but the rest of the page uses `\\PRF`, `\\PRG`, `\\OT` \u2014 using uppercase plain text for one primitive and macros for others is inconsistent.",
+          "description": "`(KA)` is rendered in plain text rather than via a macro. The site does not currently define a `\\KA` macro, but the rest of the page uses `\\PRF`, `\\PRG`, `\\OT` — using uppercase plain text for one primitive and macros for others is inconsistent.",
           "suggested_fix": "Either add a `\\KA` macro or wrap occurrences in `\\mathsf{KA}` for consistency.",
           "sources_consulted": ["macros.ts"]
         }
@@ -1581,12 +2785,22 @@
       ]
     },
     "content/Glossary/generic-group-model.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "4f64995b39c65c985b162673dc2a1ec4221d2daa",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Maurer's formulation may be misdescribed: \"A group of order $p$ is presented to the adversary via a surjective group homomorphism $\\phi: \\ZZ_p^n \\to \\GG$ ... The adversary sees only labels (elements of $\\ZZ_p^n$)\". In Maurer's model the adversary receives no element representations at all — it manipulates opaque registers via operation queries and receives only equality-check bits; 'sees only labels in $\\ZZ_p^n$' describes something closer to the algebraic/label-free characterization used in later unifying work. Report only — verify against Mau05/MPZ20.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1594,16 +2808,33 @@
           "action": "created",
           "sha": "4f64995b39c65c985b162673dc2a1ec4221d2daa",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "9cd4487ff2777127a19de67d1c8de594ca3423b4",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
     "content/Glossary/interactive-protocol.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": "394d2d9b7f34450214c2caa936f05e6035c55b48",
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Final line: \"Note: A protocol secure against malicious parties implies security against semi-honest parties.\" This folklore-sounding claim is false in general — malicious security implies security against *augmented* semi-honest adversaries, not plain semi-honest ones (a maliciously secure protocol can fail semi-honest security because the semi-honest adversary must use prescribed randomness). It is also uncited and carries no '— folklore/standard' flag, and starts with the 'Note:' throat-clearing anti-pattern.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-04-25T00:00:00Z",
@@ -1611,6 +2842,13 @@
           "action": "created",
           "sha": "394d2d9b7f34450214c2caa936f05e6035c55b48",
           "note": "initial queue entry"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "c1cc407082f73da4f8eb67b62851c1b985338436",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
         }
       ]
     },
@@ -1666,12 +2904,31 @@
       ]
     },
     "content/Assumptions/planted-clique.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": null,
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Attacks section, Degree threshold bullet: \"Vertices in the planted clique have expected degree $\\tfrac{n-1}{2} + k - 1$ versus $\\tfrac{n-1}{2}$ for unplanted vertices\". Planting only forces the ~(k-1)/2 previously-absent edges inside S, so the expected degree of a clique vertex is (k-1) + (n-k)/2 = (n-1)/2 + (k-1)/2, not (n-1)/2 + (k-1). Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Intro: \"For $k = \\Omega(\\sqrt{n \\log n})$, efficient spectral algorithms solve the detection problem\" and Known Results/Attacks attribute the $\\Omega(\\sqrt{n \\log n})$ spectral threshold to AKS98. AKS98's spectral algorithm works for $k = \\Omega(\\sqrt{n})$ (e.g. $k \\ge c\\sqrt{n}$); $\\sqrt{n \\log n}$ is the degree-thresholding (Kucera) regime. The page's own ## Standard planted clique section correctly says spectral methods succeed at $k = c\\sqrt{n}$ for large $c$, contradicting the intro. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-05-27T00:00:00Z",
@@ -1679,16 +2936,33 @@
           "action": "created",
           "sha": null,
           "note": "initial queue entry — new assumption page for planted clique conjecture"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "0c2971d39e798e37a9574c47c7336983bd3c6ef4",
+          "note": "schema-cleanup audit attached 2 suspected-error finding(s)"
         }
       ]
     },
     "content/Assumptions/noisy-k-lin-over-expanders.md": {
-      "status": "unreviewed",
+      "status": "bot_flagged",
       "blob_sha": null,
       "verified_at_sha": null,
-      "last_checked_at": null,
-      "last_checked_by": null,
-      "findings": [],
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, high] Sparsity direction is transposed between two pages that assert they define the same assumption. noisy-k-lin-over-expanders.md ## Assumption: \"each column has exactly $d$ nonzero entries drawn from $\\FF_p^*$\" (and game line \"$\\mathbf{M} \\getsr \\FF_p^{m \\times n}$ with each column $(\\gamma, d, N)$-expanding\", plus \"the column-$k$-sparse structure of $\\mathbf{M}$\" in Variations). learning-parity-with-noise.md ## Sparse Learning Parity with Noise: \"one whose rows are $d$-sparse: each row is sampled uniformly from all binary vectors of Hamming weight exactly $d$\". For samples $\\mathbf{Ms}+\\mathbf{e}$ each equation touching d secret coordinates means d-sparse rows; one of the two pages has rows/columns swapped. The Variations line also mixes $k$ and $d$ for the same sparsity parameter (\"column-$k$-sparse\" while the definition uses $d$; the parameter $k$ of the name never appears in the formal definition).",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
       "history": [
         {
           "at": "2026-06-03T00:00:00Z",
@@ -1696,6 +2970,82 @@
           "action": "created",
           "sha": null,
           "note": "initial queue entry — new assumption page for noisy k-LIN over expanders (GHJS25 Conjecture 4.3)"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "56e142839097e6d3f36f3972a99dd0e10db19d65",
+          "note": "schema-cleanup audit attached 1 suspected-error finding(s)"
+        }
+      ]
+    },
+    "content/Assumptions/shortest-integer-solution.md": {
+      "status": "bot_flagged",
+      "blob_sha": "2e8124b1f2cb213600d1d8f3346d6b4930a12b3c",
+      "verified_at_sha": null,
+      "last_checked_at": "2026-08-21T00:00:00Z",
+      "last_checked_by": "claude-schema-cleanup",
+      "findings": [
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] Module interpolation claims: learning-with-errors.md ## Module LWE: \"When $k = n$: recovers plain LWE (fully unstructured, ring $R_q \\cong \\ZZ_q^n$)\"; shortest-integer-solution.md ## Module-SIS: \"setting $k = n$ recovers plain SIS\". Increasing module rank alone does not remove the ring structure; plain LWE/SIS is recovered when the ring degree is 1 (R = Z), and $R_q \\cong \\ZZ_q^n$ (a CRT ring isomorphism, valid only for split q) does not make MLWE samples into LWE samples. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ## Ring-SIS: \"the matrix is the negacyclic convolution matrix of a random $a \\getsr R_q$, and a Ring-SIS solution is a short polynomial $z \\in R$ with $a \\cdot z = 0$ in $R_q$\". The standard Ring-SIS (as in LM06) samples $m$ ring elements $a_1,\\dots,a_m$ and asks for short $z_1,\\dots,z_m$ with $\\sum_i a_i z_i = 0$; the single-element version stated here is a different (degenerate) problem. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        },
+        {
+          "severity": "error",
+          "location": "see description",
+          "description": "[schema-cleanup audit 2026-08-21, medium] ### Collision-resistant hash functions: \"restricted to inputs $\\mathbf{z} \\in \\{0, \\ldots, \\lfloor \\beta/2 \\rfloor\\}^m$ ... yields $\\mathbf{A}(\\mathbf{z} - \\mathbf{z}') = \\mathbf{0} \\pmod q$ with $\\|\\mathbf{z} - \\mathbf{z}'\\| \\leq \\beta$\". The bound holds only in the $\\ell_\\infty$ norm; in $\\ell_2$ (the norm the SIS game presumably uses, unspecified on the page) the difference can have norm up to $(\\beta/2)\\sqrt{m}$. The page never states which norm $\\|\\cdot\\|$ denotes. Report only.",
+          "suggested_fix": "Human review required. Flagged report-only by the cleanup/schema audit; verify against the cited sources before changing any mathematical content.",
+          "sources_consulted": [
+            "cleanup/schema Phase-1 audit (model knowledge; not verified against primary sources)"
+          ]
+        }
+      ],
+      "history": [
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "created",
+          "sha": "2e8124b1f2cb213600d1d8f3346d6b4930a12b3c",
+          "note": "added missing queue entry during schema cleanup"
+        },
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "flagged",
+          "sha": "2e8124b1f2cb213600d1d8f3346d6b4930a12b3c",
+          "note": "schema-cleanup audit attached 3 suspected-error finding(s)"
+        }
+      ]
+    },
+    "content/Glossary/pairings.md": {
+      "status": "unreviewed",
+      "blob_sha": "d1ca612c644c1df94754961e66221d45eb1e5ce8",
+      "verified_at_sha": null,
+      "last_checked_at": null,
+      "last_checked_by": null,
+      "findings": [],
+      "history": [
+        {
+          "at": "2026-08-21T00:00:00Z",
+          "by": "claude-schema-cleanup",
+          "action": "created",
+          "sha": "d1ca612c644c1df94754961e66221d45eb1e5ce8",
+          "note": "added missing queue entry during schema cleanup"
         }
       ]
     }

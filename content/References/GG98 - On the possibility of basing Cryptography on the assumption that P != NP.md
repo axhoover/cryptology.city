@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG98"
 source: https://eprint.iacr.org/1998/005
 authors: Oded Goldreich, Shafi Goldwasser
@@ -6,8 +8,6 @@ venue: Theory of Cryptography Library
 published: 1998-02-25
 aliases:
   - GG98
-tags:
-  - preprint
 bibtex: |
   @misc{GG98,
     author       = {Oded Goldreich and Shafi Goldwasser},

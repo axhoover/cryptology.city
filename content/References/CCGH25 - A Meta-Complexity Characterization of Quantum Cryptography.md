@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CCGH25"
 source: https://eprint.iacr.org/2025/642
 authors: Bruno P. Cavalar, Eli Goldin, Matthew Gray, Peter Hall
@@ -7,8 +9,6 @@ published: 2025-04-08
 created: 2025-04-13
 aliases:
   - CCGH25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:CGGH25
 ---
 

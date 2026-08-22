@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "ISW24"
 source: https://eprint.iacr.org/2024/976
 authors: Yuval Ishai, Elaine Shi, Daniel Wichs
@@ -6,8 +8,6 @@ venue: CRYPTO 2024
 published: 2024-06-17
 aliases:
   - ISW24
-tags:
-  - CRYPTO
 cryptobib_key: C:IshShiWic24
 ---
 

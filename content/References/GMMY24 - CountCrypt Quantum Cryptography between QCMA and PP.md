@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GMMY24"
 source: https://eprint.iacr.org/2024/1707
 authors: Eli Goldin, Tomoyuki Morimae, Saachi Mutreja, Takashi Yamakawa
@@ -6,8 +8,6 @@ venue: preprint
 published: 2024-10-18
 aliases:
   - GMMY24
-tags:
-  - preprint
 cryptobib_key: EPRINT:GMMY24
 ---
 

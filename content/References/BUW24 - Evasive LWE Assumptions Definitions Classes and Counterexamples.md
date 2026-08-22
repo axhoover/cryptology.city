@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BUW24"
 source: https://eprint.iacr.org/2024/2000
 authors: Chris Brzuska, Akin Ünal, Ivy K. Y. Woo
@@ -6,8 +8,6 @@ venue: ASIACRYPT 2024
 published: 2024
 aliases:
   - BUW24
-tags:
-  - ASIACRYPT
 cryptobib_key: AC:BrzUnaWoo24
 ---
 

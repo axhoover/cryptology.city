@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CG97"
 source: https://dl.acm.org/doi/abs/10.1145/258533.258609
 authors: Benny Chor, Niv Gilboa
@@ -7,8 +9,6 @@ published: 1997-05-04
 created: 2025-02-13
 aliases:
   - CG97
-tags:
-  - STOC
 bibtex: |
   @inproceedings{CG97,
     author    = {Benny Chor and Niv Gilboa},

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGG+90"
 source: https://link.springer.com/chapter/10.1007/0-387-34799-2_4
 authors: Michael Ben-Or, Oded Goldreich, Shafi Goldwasser, Johan Håstad, Joe Kilian, Silvio Micali, Phillip Rogaway
@@ -6,8 +8,6 @@ venue: CRYPTO 1988
 published: 2000-01-01
 aliases:
   - BGG+90
-tags:
-  - CRYPTO
 cryptobib_key: C:BGGHKM88
 ---
 

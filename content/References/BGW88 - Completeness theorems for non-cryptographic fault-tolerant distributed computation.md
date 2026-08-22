@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGW88"
 source: https://dl.acm.org/doi/10.1145/62212.62213
 authors: Michael Ben-Or, Shafi Goldwasser, Avi Wigderson

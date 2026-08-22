@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "IKNP03"
 source: https://link.springer.com/chapter/10.1007/978-3-540-45146-4_9
 authors: Yuval Ishai, Joe Kilian, Kobbi Nissim, Eyal Petrank
@@ -6,8 +8,6 @@ venue: CRYPTO 2003
 published: 2003-08-17
 aliases:
   - IKNP03
-tags:
-  - CRYPTO
 cryptobib_key: C:IKNP03
 ---
 

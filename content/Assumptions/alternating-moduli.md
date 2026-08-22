@@ -1,4 +1,6 @@
 ---
+type: assumption
+status: draft
 aliases:
   - Alternating moduli assumption
   - AMA

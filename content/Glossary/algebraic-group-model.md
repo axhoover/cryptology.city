@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - AGM
   - Algebraic Group Model

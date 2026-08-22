@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BGW05"
 source: https://eprint.iacr.org/2005/018
 authors: Dan Boneh, Craig Gentry, Brent Waters
@@ -6,8 +8,6 @@ venue: Crypto 2005
 published: 2005-08-01
 aliases:
   - BGW05
-tags:
-  - Crypto
 cryptobib_key: C:BonGenWat05
 ---
 

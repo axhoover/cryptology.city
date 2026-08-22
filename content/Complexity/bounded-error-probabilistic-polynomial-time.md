@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - BPP
   - Bounded-Error Probabilistic Polynomial-Time

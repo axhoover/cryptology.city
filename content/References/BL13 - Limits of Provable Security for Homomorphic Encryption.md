@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BL13"
 source: https://eprint.iacr.org/2013/344
 authors: Andrej Bogdanov, Chin Ho Lee
@@ -6,8 +8,6 @@ venue: CRYPTO 2013
 published: 2013-01-01
 aliases:
   - BL13
-tags:
-  - CRYPTO
 cryptobib_key: C:BogLee13
 ---
 

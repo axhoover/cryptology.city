@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "IR89"
 source: https://dl.acm.org/doi/abs/10.1145/73007.73012
 authors: Russel Impagliazzo, Steven Rudich
@@ -6,8 +8,6 @@ venue: STOC 1989
 published: 1989-02-01
 aliases:
   - IR89
-tags:
-  - STOC
 cryptobib_key: C:ImpRud88
 ---
 

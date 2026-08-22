@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Mau05"
 source: https://link.springer.com/chapter/10.1007/11586821_1
 authors: Maurer, Ueli
@@ -6,8 +8,6 @@ venue: IMA Cryptography and Coding 2005
 published: 2005-01-01
 aliases:
   - Mau05
-tags:
-  - IMA
 bibtex: |
   @inproceedings{Mau05,
     author    = {Ueli Maurer},

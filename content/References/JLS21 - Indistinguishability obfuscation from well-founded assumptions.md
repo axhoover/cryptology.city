@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JLS21"
 source: https://eprint.iacr.org/2020/1003
 authors: Aayush Jain, Huijia Lin, Amit Sahai

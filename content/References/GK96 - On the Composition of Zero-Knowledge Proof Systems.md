@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GK96"
 source: https://epubs.siam.org/doi/10.1137/S0097539791220688
 authors: Oded Goldreich, Hugo Krawczyk
@@ -6,8 +8,6 @@ venue: SIAM Journal on Computing 1996
 published: 1996-01-01
 aliases:
   - GK96
-tags:
-  - SIAMJC
 bibtex: |
   @article{GK96,
     author  = {Oded Goldreich and Hugo Krawczyk},

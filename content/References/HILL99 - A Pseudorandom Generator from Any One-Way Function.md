@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HILL99"
 source: https://epubs.siam.org/doi/10.1137/S0097539793244708
 authors: Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby
@@ -6,8 +8,6 @@ venue: SIAM Journal on Computing 1999
 published: 1999-01-01
 aliases:
   - HILL99
-tags:
-  - SIAMJC
 cryptobib_key: HILL99
 ---
 

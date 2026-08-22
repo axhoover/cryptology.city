@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LN18"
 source: https://eprint.iacr.org/2018/423
 authors: Kasper Green Larsen, Jesper Buus Nielsen
@@ -6,8 +8,6 @@ venue: CRYPTO 2018
 published: 2018-05-18
 aliases:
   - LN18
-tags:
-  - CRYPTO
 cryptobib_key: C:LarNie18
 ---
 

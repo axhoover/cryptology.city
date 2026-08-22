@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BBG05"
 source: https://eprint.iacr.org/2005/015
 authors: Dan Boneh, Xavier Boyen, Eu-Jin Goh
@@ -6,8 +8,6 @@ venue: Eurocrypt 2005
 published: 2005-05-01
 aliases:
   - BBG05
-tags:
-  - Eurocrypt
 cryptobib_key: EC:BonBoyGoh05
 ---
 

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GGM86"
 source: https://dl.acm.org/doi/abs/10.1145/6490.6503
 authors: Oded Goldreich, Shafi Goldwasser, Silvio Micali
@@ -6,8 +8,6 @@ venue: Journal of the ACM 1986
 published: 1986-09-10
 aliases:
   - GGM86
-tags:
-  - JACM
 cryptobib_key: GolGolMic86
 ---
 

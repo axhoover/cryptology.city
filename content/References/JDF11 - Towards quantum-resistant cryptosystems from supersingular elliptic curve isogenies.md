@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "JDF11"
 source: https://eprint.iacr.org/2011/506
 authors: David Jao, Luca De Feo

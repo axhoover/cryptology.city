@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DPPY25"
 source: https://link.springer.com/chapter/10.1007/978-3-031-91131-6_15
 authors: "Xuan Thanh Do, Giuseppe Persiano, Duong Hieu Phan, Moti Yung "
@@ -7,8 +9,6 @@ published: 2025-04-28
 created: 2025-05-06
 aliases:
   - DPPY25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:DPPY25
 ---
 

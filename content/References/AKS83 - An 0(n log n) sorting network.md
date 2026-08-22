@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AKS83"
 source: https://dl.acm.org/doi/10.1145/800061.808726
 authors: M. Ajtai, J. Komlós, E. Szemerédi
@@ -7,8 +9,6 @@ published: 1983-12-01
 created: 2025-04-22
 aliases:
   - AKS83
-tags:
-  - STOC
 bibtex: |
   @inproceedings{AKS83,
     author    = {Mikl\'{o}s Ajtai and J\'{a}nos Koml\'{o}s and Endre Szemer\'{e}di},

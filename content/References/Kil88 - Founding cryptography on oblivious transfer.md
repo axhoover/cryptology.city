@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Kil88"
 source: https://dl.acm.org/doi/10.1145/62212.62215
 authors: Joe Kilian
@@ -6,8 +8,6 @@ venue: Proceedings of the 20th Annual ACM Symposium on Theory of Computing (STOC
 published: 1988-01-01
 aliases:
   - Kil88
-tags:
-  - STOC
 cryptobib_key: STOC:Kilian88
 ---
 

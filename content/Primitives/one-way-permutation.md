@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: stub
 aliases:
   - OWP
   - One-way permutation

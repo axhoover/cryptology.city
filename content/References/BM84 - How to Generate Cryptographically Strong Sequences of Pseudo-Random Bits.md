@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM84"
 source: https://epubs.siam.org/doi/10.1137/0213053
 authors: Manuel Blum, Silvio Micali
@@ -6,8 +8,6 @@ venue: SIAM Journal on Computing 1984
 published: 1984-01-01
 aliases:
   - BM84
-tags:
-  - SIAMJC
 cryptobib_key: FOCS:BluMic82
 ---
 

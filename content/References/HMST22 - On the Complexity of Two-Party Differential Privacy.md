@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HMST22"
 source: https://arxiv.org/abs/2108.07664
 authors: Iftach Haitner, Noam Mazor, Jad Silbak, Eliad Tsfadia
@@ -7,8 +9,6 @@ published: 2021-08-17
 created: 2025-03-07
 aliases:
   - HMST22
-tags:
-  - STOC
 cryptobib_key: STOC:HMST22
 ---
 

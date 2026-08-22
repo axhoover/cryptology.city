@@ -1,12 +1,12 @@
 ---
+type: reference
+status: draft
 title: "HS25"
 source: https://eprint.iacr.org/2025/493
 authors: Iftach Haitner, Gil Segev
 venue: preprint
 published: 2025-03-15
 created: 2025-03-17
-tags:
-  - preprint
 aliases:
   - HS25
 cryptobib_key: CiC:HaiSeg25

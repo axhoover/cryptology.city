@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BBB+18"
 source: https://eprint.iacr.org/2017/1066
 authors: Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell
@@ -8,8 +10,6 @@ created: 2025-01-24
 aliases:
   - BBB+18
   - Bulletproofs
-tags:
-  - IEEE-SP
 cryptobib_key: SP:BBBPWM18
 ---
 

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GZS24"
 source: https://eprint.iacr.org/2023/1574
 authors: Ashrujit Ghoshal, Mingxun Zhou, Elaine Shi
@@ -6,8 +8,6 @@ venue: Eurocrypt 2024
 published: 2023-10-11
 aliases:
   - GZS24
-tags:
-  - Eurocrypt
 cryptobib_key: EC:GhoZhoShi24
 ---
 

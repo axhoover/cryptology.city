@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG24"
 source: https://arxiv.org/abs/2409.07580
 authors: Surendra Ghentiyala, Venkatesan Guruswami
@@ -6,8 +8,6 @@ venue: preprint
 published: 2024-09-11
 aliases:
   - GG24
-tags:
-  - preprint
 cryptobib_key: EPRINT:GheGur24
 ---
 

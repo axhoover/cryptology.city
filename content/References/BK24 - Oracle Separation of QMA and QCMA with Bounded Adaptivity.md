@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BK24"
 source: https://arxiv.org/abs/2402.00298
 authors: Shalev Ben-David, Srijita Kundu
@@ -6,8 +8,6 @@ venue: ICALP 2024
 published: 2024-02-01
 aliases:
   - BK24
-tags:
-  - ICALP
 cryptobib_key: ICALP:BenKun24
 ---
 

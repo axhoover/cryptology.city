@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wat09"
 source: https://eprint.iacr.org/2009/385
 authors: Brent Waters
@@ -6,8 +8,6 @@ venue: Crypto 2009
 published: 2009-08-01
 aliases:
   - Wat09
-tags:
-  - Crypto
 cryptobib_key: C:Waters09
 ---
 

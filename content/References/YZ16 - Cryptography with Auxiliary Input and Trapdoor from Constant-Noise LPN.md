@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "YZ16"
 source: https://eprint.iacr.org/2016/514
 authors: Yu Yu, Jiang Zhang
@@ -7,8 +9,6 @@ published: 2016-05-29
 created: 2025-05-20
 aliases:
   - YZ16
-tags:
-  - CRYPTO
 cryptobib_key: C:YuZha16
 ---
 

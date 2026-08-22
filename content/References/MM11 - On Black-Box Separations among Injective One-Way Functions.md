@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MM11"
 source: https://iacr.org/archive/tcc2011/65970593/65970593.pdf
 authors: Takahiro Matsuda, Kanta Matsuura
@@ -6,8 +8,6 @@ venue: TCC 2011
 published: 2011-01-01
 aliases:
   - MM11
-tags:
-  - TCC
 cryptobib_key: TCC:MatMat11
 ---
 

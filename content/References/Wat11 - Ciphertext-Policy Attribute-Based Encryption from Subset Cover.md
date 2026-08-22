@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wat11"
 source: https://eprint.iacr.org/2008/290
 authors: Brent Waters
@@ -6,8 +8,6 @@ venue: PKC 2011
 published: 2011-03-01
 aliases:
   - Wat11
-tags:
-  - PKC
 bibtex: |
   @inproceedings{Wat11,
     author    = {Brent Waters},

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SW05"
 source: https://eprint.iacr.org/2004/086
 authors: Amit Sahai, Brent Waters
@@ -6,8 +8,6 @@ venue: Eurocrypt 2005
 published: 2005-05-01
 aliases:
   - SW05
-tags:
-  - Eurocrypt
 cryptobib_key: EC:SahWat05
 ---
 

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Zal97"
 source: https://arxiv.org/abs/quant-ph/9711070
 authors: Christof Zalka
@@ -6,8 +8,6 @@ venue: arXiv
 published: 1997-11-26
 aliases:
   - Zal97
-tags:
-  - preprint
 bibtex: |
   @article{Zal97,
     author  = {Christof Zalka},

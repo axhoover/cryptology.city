@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - Arithmetization
   - R1CS

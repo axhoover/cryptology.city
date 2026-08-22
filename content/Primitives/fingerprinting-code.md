@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: stub
 aliases:
   - FP Code
   - Fingerprinting Code

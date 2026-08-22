@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GHJS25"
 source: https://eprint.iacr.org/2025/1501
 authors: Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai

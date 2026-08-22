@@ -1,12 +1,12 @@
 ---
+type: reference
+status: draft
 title: "HV16"
 source: https://eprint.iacr.org/2016/074
 authors: Carmit Hazay, Muthuramakrishnan Venkitasubramaniam
 venue: CRYPTO 2016
 published: 2016-01-27
 created: 2025-02-11
-tags:
-  - CRYPTO
 aliases:
   - HV16
 cryptobib_key: C:HazVen16

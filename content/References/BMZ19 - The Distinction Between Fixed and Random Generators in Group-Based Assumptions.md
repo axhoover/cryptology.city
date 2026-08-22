@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BMZ19"
 source: https://eprint.iacr.org/2019/202
 authors: James Bartusek, Fermi Ma, and Mark Zhandry
@@ -6,8 +8,6 @@ venue: CRYPTO 2019
 published: 2019-01-01
 aliases:
   - BMZ19
-tags:
-  - CRYPTO
 cryptobib_key: C:BarMaZha19
 ---
 

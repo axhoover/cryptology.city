@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AK07"
 source: https://arxiv.org/abs/quant-ph/0604056
 authors: Scott Aaronson, Greg Kuperberg
@@ -6,8 +8,6 @@ venue: CCC 2007
 published: 2006-04-07
 aliases:
   - AK07
-tags:
-  - CCC
 bibtex: |
   @article{AK07,
     author  = {Scott Aaronson and Greg Kuperberg},

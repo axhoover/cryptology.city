@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HPS98"
 source: https://link.springer.com/chapter/10.1007/BFb0054868
 authors: Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman
@@ -6,8 +8,6 @@ venue: Algorithmic Number Theory Symposium (ANTS-III), 1998
 published: 1998-06-21
 aliases:
   - HPS98
-tags:
-  - ANTS
 cryptobib_key: HofPipSil98
 ---
 

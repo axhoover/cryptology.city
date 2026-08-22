@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GS86"
 source: https://dl.acm.org/doi/pdf/10.1145/12130.12137
 authors: Shafi Goldwasser, Michael Sipser
@@ -6,8 +8,6 @@ venue: STOC 1986
 published: 1986-06-01
 aliases:
   - GS86
-tags:
-  - STOC
 cryptobib_key: STOC:GolSip86
 ---
 

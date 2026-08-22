@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CDH20"
 source: https://eprint.iacr.org/2020/1195
 authors: David Cash, Andrew Drucker, Alexander Hoover
@@ -6,8 +8,6 @@ venue: TCC 2020
 published: 2020-06-10
 aliases:
   - CDH20
-tags:
-  - TCC
 cryptobib_key: TCC:CasDruHoo20
 ---
 

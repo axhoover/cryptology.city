@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Din25"
 source: https://eprint.iacr.org/2024/929
 authors: Itai Dinur
@@ -7,8 +9,6 @@ published: 2024-06-10
 created: 2025-05-05
 aliases:
   - Din25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Dinur25
 ---
 

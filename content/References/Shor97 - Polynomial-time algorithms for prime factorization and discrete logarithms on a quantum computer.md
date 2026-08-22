@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Shor97"
 source: https://epubs.siam.org/doi/10.1137/S0097539795293172
 authors: Peter W. Shor
@@ -6,8 +8,6 @@ venue: SIAM Journal on Computing, 1997
 published: 1997-10-01
 aliases:
   - Shor97
-tags:
-  - SIAMJC
 bibtex: |
   @article{Shor97,
     author  = {Peter W. Shor},

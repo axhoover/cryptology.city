@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BW07"
 source: https://eprint.iacr.org/2006/465
 authors: Dan Boneh, Brent Waters
@@ -6,8 +8,6 @@ venue: TCC 2007
 published: 2007-02-01
 aliases:
   - BW07
-tags:
-  - TCC
 bibtex: |
   @inproceedings{BW07,
     author    = {Dan Boneh and Brent Waters},

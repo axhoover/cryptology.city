@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: draft
 aliases:
   - SNARK
   - STARK

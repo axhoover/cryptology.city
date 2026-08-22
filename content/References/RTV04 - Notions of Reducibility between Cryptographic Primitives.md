@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "RTV04"
 source: https://link.springer.com/chapter/10.1007/978-3-540-24638-1_1
 authors: Omer Reingold, Luca Trevisan, Salil Vadhan
@@ -6,8 +8,6 @@ venue: TCC 2004
 published: 2004-01-01
 aliases:
   - RTV04
-tags:
-  - TCC
 cryptobib_key: TCC:ReiTreVad04
 ---
 

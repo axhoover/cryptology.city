@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Din24"
 source: https://eprint.iacr.org/2024/338
 authors: Itai Dinur
@@ -7,8 +9,6 @@ published: 2024-02-26
 created: 2025-03-04
 aliases:
   - Din24
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Dinur24
 ---
 

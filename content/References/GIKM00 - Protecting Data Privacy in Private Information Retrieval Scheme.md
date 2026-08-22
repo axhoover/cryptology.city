@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GIKM00"
 source: https://dl.acm.org/doi/pdf/10.1145/276698.276723
 authors: Yael Gertner, Yuval Ishai, Eyal Kushilevitz, Tal Malkin
@@ -6,8 +8,6 @@ venue: STOC 1998, JCSS 2000
 published: 1998-06-01
 aliases:
   - GIKM00
-tags:
-  - STOC
 bibtex: |
   @article{GIKM00,
     author  = {Yael Gertner and Yuval Ishai and Eyal Kushilevitz and Tal Malkin},

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wee22"
 source: https://eprint.iacr.org/2023/906
 authors: Hoeteck Wee
@@ -6,8 +8,6 @@ venue: EUROCRYPT 2022
 published: 2022
 aliases:
   - Wee22
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:Wee22
 ---
 

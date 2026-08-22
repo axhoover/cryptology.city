@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "FGJ+25"
 source: https://cic.iacr.org/p/1/4/31
 authors: Jaiden Fairoze, Sanjam Garg, Somesh Jha, Saeed Mahloujifar, Mohammad Mahmoody, Mingyuan Wang
@@ -6,8 +8,6 @@ venue: CiC Vol 1, No 4 (2025)
 published: 2023-10-27
 aliases:
   - FGJ+25
-tags:
-  - CiC
 cryptobib_key: CiC:FGJMMW24
 ---
 

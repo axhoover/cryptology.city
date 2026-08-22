@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AHY25"
 source: https://eprint.iacr.org/2025/324
 authors: Josh Alman, Yizhi Huang, Kevin Yeo
@@ -7,8 +9,6 @@ published: 2025-02-22
 created: 2025-02-23
 aliases:
   - AHY25
-tags:
-  - Eurocrypt
 cryptobib_key: EC:AlmHuaYeo25
 ---
 

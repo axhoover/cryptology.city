@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GKR15"
 source: https://dl.acm.org/doi/abs/10.1145/2699436
 authors: Shafi Goldwasser, Yael Tauman Kalai, Guy N. Rothblum
@@ -6,8 +8,6 @@ venue: STOC 2008, JACM 2015
 published: 2015-09-11
 aliases:
   - GKR15
-tags:
-  - STOC
 cryptobib_key: STOC:GolKalRot08
 ---
 

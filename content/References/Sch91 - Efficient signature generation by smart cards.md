@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 source: https://link.springer.com/article/10.1007/BF00196725
 aliases:
   - Sch91

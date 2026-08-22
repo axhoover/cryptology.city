@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 source: https://eprint.iacr.org/2012/230
 aliases:
   - LPR10

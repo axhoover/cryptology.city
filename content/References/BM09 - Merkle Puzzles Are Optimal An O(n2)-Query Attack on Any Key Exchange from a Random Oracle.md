@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BM09"
 source: https://eprint.iacr.org/2008/032
 authors: Boaz Barak, Mohammad Mahmoody-Ghidary
@@ -6,8 +8,6 @@ venue: CRYPTO 2009
 published: 2009-08-19
 aliases:
   - BM09
-tags:
-  - CRYPTO
 bibtex: |
   @inproceedings{BM09,
     author    = {Boaz Barak and Mohammad Mahmoody-Ghidary},

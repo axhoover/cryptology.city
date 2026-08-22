@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HMO+19"
 source: https://arxiv.org/abs/2105.01958
 authors: Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff
@@ -7,8 +9,6 @@ published: 2021-05-05
 created: 2025-04-09
 aliases:
   - HMO+19
-tags:
-  - ITCS
 cryptobib_key: ITCS:HMORY19
 ---
 

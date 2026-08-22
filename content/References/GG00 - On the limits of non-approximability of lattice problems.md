@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GG00"
 source: https://dl.acm.org/doi/abs/10.1145/276698.276704
 authors: Oded Goldreich, Shafi Goldwasser
@@ -6,8 +8,6 @@ venue: STOC 1998, JACM 2000
 published: 1998-05-23
 aliases:
   - GG00
-tags:
-  - STOC
 cryptobib_key: STOC:GolGol98
 ---
 

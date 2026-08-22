@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "SS11"
 source: https://eprint.iacr.org/2013/004
 authors: Damien Stehlé, Ron Steinfeld
@@ -6,8 +8,6 @@ venue: Advances in Cryptology — EUROCRYPT 2011
 published: 2011-05-15
 aliases:
   - SS11
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:SteSte11
 ---
 

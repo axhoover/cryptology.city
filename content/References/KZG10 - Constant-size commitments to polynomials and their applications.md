@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 source: https://link.springer.com/chapter/10.1007/978-3-642-17373-8_11
 aliases:
   - KZG10

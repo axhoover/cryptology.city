@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Gol00"
 source: https://link.springer.com/chapter/10.1007/978-3-642-22670-0_10
 authors: Oded Goldreich
@@ -8,8 +10,6 @@ created: 2025-02-19
 aliases:
   - Goldreich's PRF
   - Gol00
-tags:
-  - ECCC
 cryptobib_key: EPRINT:Goldreich00b
 ---
 

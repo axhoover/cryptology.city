@@ -1,4 +1,6 @@
 ---
+type: primitive
+status: stub
 aliases:
   - NIZK
   - Non-interactive zero-knowledge

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "AIK06"
 source: https://epubs.siam.org/doi/abs/10.1137/S0097539705446950
 authors: Benny Applebaum, Yuval Ishai, Eyal Kushilevitz
@@ -6,8 +8,6 @@ venue: Journal on Computing 2006
 published: 2006-08-01
 aliases:
   - AIK06
-tags:
-  - Journal-on-Computing
 bibtex: |
   @article{AIK06,
     author  = {Benny Applebaum and Yuval Ishai and Eyal Kushilevitz},

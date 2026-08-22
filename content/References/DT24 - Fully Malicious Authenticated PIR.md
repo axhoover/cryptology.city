@@ -1,12 +1,12 @@
 ---
+type: reference
+status: draft
 title: "DT24"
 source: https://eprint.iacr.org/2023/1804
 authors: Marian Dietz, Stefano Tessaro
 venue: CRYPTO 2024
 published: 2023-11-22
 created: 2025-01-23
-tags:
-  - CRYPTO
 aliases:
   - DT24
 cryptobib_key: C:DieTes24

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Wee25"
 source: https://eprint.iacr.org/2025/509
 authors: Hoeteck Wee
@@ -6,8 +8,6 @@ venue: EUROCRYPT 2025
 published: 2025
 aliases:
   - Wee25
-tags:
-  - EUROCRYPT
 cryptobib_key: EC:Wee25
 ---
 

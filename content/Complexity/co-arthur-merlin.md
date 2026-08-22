@@ -1,4 +1,6 @@
 ---
+type: complexity-class
+status: draft
 aliases:
   - coAM
   - Co-Arthur-Merlin

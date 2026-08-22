@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "vAH04"
 source: https://eprint.iacr.org/2003/233
 authors: Luis von Ahn, Nicholas J. Hopper
@@ -7,8 +9,6 @@ published: 2003-11-08
 created: 2025-03-20
 aliases:
   - vAH04
-tags:
-  - Eurocrypt
 cryptobib_key: EC:vAhHop04
 ---
 

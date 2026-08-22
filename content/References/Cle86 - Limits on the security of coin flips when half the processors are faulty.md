@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Cle86"
 source: https://dl.acm.org/doi/abs/10.1145/12130.12168
 authors: Richard Cleve
@@ -7,8 +9,6 @@ published: 1986-11-01
 created: 2025-05-05
 aliases:
   - Cle86
-tags:
-  - STOC
 bibtex: |
   @inproceedings{Cle86,
     author    = {Richard Cleve},

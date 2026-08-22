@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CD22"
 source: https://eprint.iacr.org/2022/975
 authors: Wouter Castryck, Thomas Decru

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GL89"
 source: https://dl.acm.org/doi/10.1145/73007.73010
 authors: Oded Goldreich, Leonid A. Levin
@@ -6,8 +8,6 @@ venue: STOC 1989
 published: 1989-02-01
 aliases:
   - GL89
-tags:
-  - STOC
 cryptobib_key: STOC:GolLev89
 ---
 

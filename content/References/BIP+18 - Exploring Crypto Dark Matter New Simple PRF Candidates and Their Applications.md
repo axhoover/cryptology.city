@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BIP+18"
 source: https://eprint.iacr.org/2018/1218
 authors: Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu
@@ -7,8 +9,6 @@ published: 2018-12-30
 created: 2025-02-10
 aliases:
   - BIP+18
-tags:
-  - TCC
 cryptobib_key: TCC:BIPSW18
 ---
 

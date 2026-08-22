@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHW26"
 source: https://eprint.iacr.org/2026/384
 authors: Corrigan-Gibbs, Henry; Henzinger, Alexandra; Wu, David J.
@@ -6,8 +8,6 @@ venue: Eurocrypt 2026
 published: 2026-01-01
 aliases:
   - CHW26
-tags:
-  - Eurocrypt
 bibtex: |
   @misc{CHW26,
     author       = {Henry Corrigan-Gibbs and Alexandra Henzinger and David J. Wu},

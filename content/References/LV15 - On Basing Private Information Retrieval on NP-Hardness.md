@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LV15"
 source: https://eprint.iacr.org/2015/1061
 authors: Tianren Liu, Vinod Vaikuntanathan
@@ -6,8 +8,6 @@ venue: TCC 2015
 published: 2015-10-30
 aliases:
   - LV15
-tags:
-  - TCC
 cryptobib_key: TCC:LiuVai16
 ---
 

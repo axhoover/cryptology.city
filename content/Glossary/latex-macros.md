@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - LaTeX macros
 title: LaTeX macros

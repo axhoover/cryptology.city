@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "MMP+10"
 source: https://ieeexplore.ieee.org/abstract/document/5670946
 authors: Andrew McGregor, Ilya Mironov, Toniann Pitassi, Omer Reingold, Kunal Talwar, Salil Vadhan
@@ -7,8 +9,6 @@ published: 2010-06-01
 created: 2025-03-07
 aliases:
   - MMP+10
-tags:
-  - STOC
 cryptobib_key: FOCS:MMPRTV10
 ---
 

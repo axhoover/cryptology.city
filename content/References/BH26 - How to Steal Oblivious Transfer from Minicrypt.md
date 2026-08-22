@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BH26"
 source: https://eprint.iacr.org/2026/113
 authors: Cruz Barnum, David Heath
@@ -6,8 +8,6 @@ venue: ePrint 2026
 published: 2026-02-13
 aliases:
   - BH26
-tags:
-  - ePrint
 bibtex: |
   @misc{BH26,
     author       = {Cruz Barnum and David Heath},

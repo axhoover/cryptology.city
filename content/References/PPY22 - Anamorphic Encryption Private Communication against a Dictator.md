@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "PPY22"
 source: https://eprint.iacr.org/2022/639
 authors: Giuseppe Persiano, Duong Hieu Phan, Moti Yung
@@ -6,8 +8,6 @@ venue: Eurocrypt 2022
 published: 2022-05-24
 aliases:
   - PPY22
-tags:
-  - Eurocrypt
 cryptobib_key: EC:PerPhaYun22
 ---
 

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "GM24"
 source: https://eprint.iacr.org/2024/898
 authors: Noah Golowich, Ankur Moitra
@@ -6,8 +8,6 @@ venue: NeurIPS 2024
 published: 2024-06-05
 aliases:
   - GM24
-tags:
-  - NeurIPS
 cryptobib_key: EPRINT:GolMoi24
 ---
 

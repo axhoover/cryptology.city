@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "HPPY25"
 source: https://eprint.iacr.org/2024/318
 authors: Alexander Hoover, Sarvar Patel, Giuseppe Persiano, Kevin Yeo
@@ -7,8 +9,6 @@ published: 2024-02-23
 aliases:
   - HPPY25
   - Plinko
-tags:
-  - Eurocrypt
 cryptobib_key: EC:HPPY25
 ---
 

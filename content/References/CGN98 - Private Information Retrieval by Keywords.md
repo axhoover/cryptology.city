@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGN98"
 source: https://eprint.iacr.org/1998/003
 authors: Benny Chor, Niv Gilboa, Moni Naor
@@ -6,8 +8,6 @@ venue: Theory of Cryptography Library
 published: 1998-02-02
 aliases:
   - CGN98
-tags:
-  - preprint
 cryptobib_key: EPRINT:ChoGilNao98
 ---
 

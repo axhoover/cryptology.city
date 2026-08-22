@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "KZ22"
 source: https://eprint.iacr.org/2022/210
 authors: Katz, Jonathan; Zhang, Cong
@@ -6,8 +8,6 @@ venue: ASIACRYPT 2022
 published: 2022-01-01
 aliases:
   - KZ22
-tags:
-  - ASIACRYPT
 cryptobib_key: AC:ZhaZhoKat22
 ---
 

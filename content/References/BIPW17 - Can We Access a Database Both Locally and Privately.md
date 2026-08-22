@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "BIPW17"
 source: https://eprint.iacr.org/2017/567
 authors: Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters
@@ -7,8 +9,6 @@ published: 2017-06-14
 created: 2025-02-17
 aliases:
   - BIPW17
-tags:
-  - TCC
 cryptobib_key: TCC:BIPW17
 ---
 

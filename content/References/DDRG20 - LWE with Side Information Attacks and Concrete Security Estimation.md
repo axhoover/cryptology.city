@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "DDRG20"
 source: https://eprint.iacr.org/2020/292
 authors: Dana Dachman-Soled, Léo Ducas, Huijing Gong, Mélissa Rossi
@@ -6,8 +8,6 @@ venue: CRYPTO 2020
 published: 2020
 aliases:
   - DDRG20
-tags:
-  - CRYPTO
 cryptobib_key: C:DDGR20
 ---
 

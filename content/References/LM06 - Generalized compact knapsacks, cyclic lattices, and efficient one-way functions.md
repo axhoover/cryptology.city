@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "LM06"
 source: https://eprint.iacr.org/2004/261
 authors: Vadim Lyubashevsky, Daniele Micciancio
@@ -6,8 +8,6 @@ venue: ICALP 2006
 published: 2006-07-01
 aliases:
   - LM06
-tags:
-  - ICALP
 cryptobib_key: ICALP:LyuMic06
 ---
 

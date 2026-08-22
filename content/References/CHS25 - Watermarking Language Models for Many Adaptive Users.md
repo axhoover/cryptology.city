@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CHS25"
 source: https://eprint.iacr.org/2024/759
 authors: Aloni Cohen, Alexander Hoover, Gabe Schoenbach
@@ -6,8 +8,6 @@ venue: S&P 2025
 published: 2024-05-17
 aliases:
   - CHS25
-tags:
-  - IEEE-SP
 cryptobib_key: SP:CohHooSch25
 ---
 

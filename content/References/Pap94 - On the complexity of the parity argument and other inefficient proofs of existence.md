@@ -1,12 +1,12 @@
 ---
+type: reference
+status: draft
 title: "Pap94"
 source: https://www.sciencedirect.com/science/article/pii/S0022000005800637
 authors: Christos H. Papadimitriou
 venue: JCSS 1994
 published: 1994-06-01
 created: 2025-03-04
-tags:
-  - JCSS
 aliases:
   - Pap94
 bibtex: |

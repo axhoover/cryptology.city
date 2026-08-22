@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGZ24"
 source: https://eprint.iacr.org/2023/763
 authors: Miranda Christ, Sam Gunn, Or Zamir
@@ -6,8 +8,6 @@ venue: COLT 2024
 published: 2023-05-25
 aliases:
   - CGZ24
-tags:
-  - COLT
 cryptobib_key: EPRINT:ChrGunZam23
 ---
 

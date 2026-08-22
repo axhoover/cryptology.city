@@ -1,4 +1,6 @@
 ---
+type: glossary
+status: draft
 aliases:
   - ROM
   - Random oracle

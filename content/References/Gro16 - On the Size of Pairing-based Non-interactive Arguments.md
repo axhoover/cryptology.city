@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Gro16"
 source: https://eprint.iacr.org/2016/260
 authors: Jens Groth
@@ -6,8 +8,6 @@ venue: Eurocrypt 2016
 published: 2016-03-08
 aliases:
   - Gro16
-tags:
-  - Eurocrypt
 cryptobib_key: EC:Groth16
 ---
 

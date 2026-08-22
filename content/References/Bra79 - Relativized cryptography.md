@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "Bra79"
 source: https://ieeexplore.ieee.org/abstract/document/1056754
 authors: Gilles Brassard
@@ -7,8 +9,6 @@ published: 1979-06-01
 created: 2025-03-03
 aliases:
   - Bra79
-tags:
-  - FOCS
 bibtex: |
   @inproceedings{Bra79,
     author    = {Gilles Brassard},

@@ -1,4 +1,6 @@
 ---
+type: reference
+status: draft
 title: "CGKS98"
 source: https://dl.acm.org/doi/abs/10.1145/293347.293350
 authors: Benny Chor, Oded Goldreich, Eyal Kushilevitz, Madhu Sudan
@@ -6,8 +8,6 @@ venue: Journal of the ACM 1998
 published: 1998-11-01
 aliases:
   - CGKS98
-tags:
-  - JACM
 cryptobib_key: FOCS:CGKS95
 ---
 
