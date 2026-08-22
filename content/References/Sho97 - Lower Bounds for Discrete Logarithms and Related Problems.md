@@ -1,18 +1,18 @@
 ---
 type: reference
 status: draft
-title: "Shoup97"
+title: "Sho97"
 source: https://link.springer.com/chapter/10.1007/3-540-69053-0_18
 authors: Shoup, Victor
 venue: Eurocrypt 1997
 published: 1997-01-01
 aliases:
-  - Shoup97
   - Sho97
+  - Shoup97
 cryptobib_key: EC:Shoup97
 ---
 
-# [Shoup97] Lower Bounds for Discrete Logarithms and Related Problems
+# [Sho97] Lower Bounds for Discrete Logarithms and Related Problems
 
 **Authors:** Shoup, Victor | **Venue:** Eurocrypt 1997 | [Source](https://link.springer.com/chapter/10.1007/3-540-69053-0_18)
 

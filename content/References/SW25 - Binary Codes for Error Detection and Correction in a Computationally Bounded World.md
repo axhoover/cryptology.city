@@ -1,17 +1,17 @@
 ---
 type: reference
 status: draft
-title: "SW25"
+title: "SW25b"
 source: https://eprint.iacr.org/2025/190
 authors: Jad Silbak, Daniel Wichs
 venue: Eurocrypt 2025
 published: 2025-02-09
 aliases:
-  - SW25
+  - SW25b
 cryptobib_key: EC:SilWic25
 ---
 
-# [SW25] Binary Codes for Error Detection and Correction in a Computationally Bounded World
+# [SW25b] Binary Codes for Error Detection and Correction in a Computationally Bounded World
 
 **Authors:** Jad Silbak, Daniel Wichs | **Venue:** Eurocrypt 2025 | [Source](https://eprint.iacr.org/2025/190)
 

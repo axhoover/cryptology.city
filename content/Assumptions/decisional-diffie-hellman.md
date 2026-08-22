@@ -46,7 +46,7 @@ is negligible.
 ## Known Results
 
 - It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that [[computational-diffie-hellman|CDH]] is not easier than DDH.
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 - DDH implies [[public-key-encryption|PKE]] via the ElGamal encryption scheme: encrypt $m$ under public key $y = g^x$ as $(g^r, m \cdot y^r)$; decryption uses $x$ to compute $y^r$ and recover $m$ — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
 - DDH is easy in groups that admit efficient bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$

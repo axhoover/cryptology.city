@@ -1,7 +1,7 @@
 ---
 type: reference
 status: draft
-title: "Rab81"
+title: "Rabin81"
 source: https://eprint.iacr.org/2005/187.pdf
 authors: Michael O. Rabin
 venue: Technical Report TR-81, Harvard University
@@ -12,7 +12,7 @@ aliases:
 cryptobib_key: EPRINT:Rabin05
 ---
 
-# [Rab81] How to Exchange Secrets with Oblivious Transfer
+# [Rabin81] How to Exchange Secrets with Oblivious Transfer
 
 **Authors:** Michael O. Rabin | **Venue:** Technical Report TR-81, Harvard University, 1981 | [Source](https://eprint.iacr.org/2005/187.pdf)
 

@@ -8,7 +8,6 @@ venue: Structure in Complexity Theory
 published: 1995-06-01
 aliases:
   - Imp95
-  - Impagliazzo's Five Worlds
 bibtex: |
   @inproceedings{Imp95,
     author    = {Russell Impagliazzo},

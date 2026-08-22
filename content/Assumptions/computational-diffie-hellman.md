@@ -44,7 +44,7 @@ is negligible.
 ## Known Results
 
 - It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is not easier than [[decisional-diffie-hellman|DDH]].
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Shoup97]]
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 # Variations
 

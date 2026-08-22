@@ -2,7 +2,6 @@
 type: primitive
 status: stub
 aliases:
-  - PIR
   - IT-PIR
   - Multi-server Private Information Retrieval
 title: Multi-server Private Information Retrieval

@@ -3,8 +3,6 @@ type: primitive
 status: stub
 aliases:
   - DEPIR
-  - SK-PIR
-  - PK-PIR
   - SK-DEPIR
   - PK-DEPIR
   - Doubly-efficient PIR
