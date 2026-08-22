@@ -89,11 +89,14 @@ Changes to `content/` rebuild automatically (hot-reload via WebSocket).
 ### Validation
 
 ```bash
+npm run lint            # Content lint: frontmatter schema, wikilinks, aliases, macros
 npm run check           # TypeScript type-check + Prettier formatting validation
 npm run format          # Auto-format source files with Prettier
 npm run test            # Run unit tests
 npm run sync-cryptobib  # Validate references against vendor/cryptobib (check mode)
 ```
+
+Run `npm run lint` before every commit that touches `content/` — CI enforces it (plus a full Quartz build) on every PR. Its errors name the file, line, and what a valid value looks like.
 
 ### Build output
 
@@ -151,10 +154,12 @@ Assumption pages follow:
 
 ### Frontmatter
 
-Every content page must include a YAML frontmatter block:
+Every content page must include a YAML frontmatter block validated by `npm run lint`:
 
 ```yaml
 ---
+type: primitive # matches the directory: primitive | assumption | complexity-class | glossary | folklore | reference | note
+status: draft # stub | draft | complete (complete is a human judgment; the lint then forbids TODOs)
 aliases:
   - ABBREV
   - Full name variant
@@ -162,7 +167,7 @@ title: Full primitive name
 ---
 ```
 
-Use the canonical abbreviation (e.g. `PRF`, `SKE`, `LWE`) as the primary alias. This enables wiki links like `[[pseudorandom-function|PRF]]` to resolve correctly.
+Use the canonical abbreviation (e.g. `PRF`, `SKE`, `LWE`) as the primary alias. This enables wiki links like `[[pseudorandom-function|PRF]]` to resolve correctly. Aliases are unique site-wide — the lint rejects an alias claimed by two pages. Reference pages carry additional required fields; see `CONTRIBUTING.md` for the full schema.
 
 ### Cross-linking
 
@@ -365,6 +370,8 @@ For two-party protocols, use the `\OT`, `\Setup`, `\langle S, R \rangle` syntax 
 Reference files live in `content/References/` and are named `CITATIONKEY - Full Title.md`.
 
 Citation key format: `[AUTHOR(S)][YEAR]` — e.g. `BGI15`, `IKNP03`, `AMR25`. Multi-author keys use initials of up to ~4 authors, then the year. Papers are cited inline as `[[CITATIONKEY - Full Title|CITATIONKEY]]`.
+
+Frontmatter `title` on a reference page holds the **citation key** (e.g. `title: "AMR25"`), not the paper title — the paper title lives in the filename and in the H1 `# [KEY] Full Title`. If a key collides with an existing different paper, disambiguate with a letter suffix (`SW25a`, `SW25b`) in `title`, the H1, and `aliases`; never rename the file, since filenames are live URLs.
 
 ### BibTeX integration (cryptobib)
 
