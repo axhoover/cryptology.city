@@ -14,7 +14,7 @@ them. It is meant to serve as a large repository of cryptographic information
 and make it easy to understand the relationships between different primitives.
 If you'd like to contribute, feel free to contribute to the
 [repo](https://github.com/axhoover/cryptology.city)!
-See the [[latex-macros|LaTeX Macros]] pages for a summary of some of the
+See the [[latex-macros|LaTeX Macros]] page for a summary of some of the
 notation used on the website, which can also be copied into your own
 LaTeX/KaTeX/MathJax projects!
 

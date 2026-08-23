@@ -52,4 +52,4 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - QAP enables the Pinocchio protocol and Groth16 — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
 - PLONKish arithmetization enables universal SNARKs with a single trusted setup for all circuits of bounded size — standard
 - AIR + FRI = STARK; the FRI protocol achieves transparent verification of AIR constraints — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
-- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$); NOT and XOR are linear and free — standard
+- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \bits$); NOT and XOR are linear and free — standard
