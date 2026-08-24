@@ -8,7 +8,9 @@ description: House style and mechanical contract for cryptology.city wiki pages.
 Reference wiki for working cryptographers. Definition-first, no motivation
 paragraphs, no recaps. Full style guide: `CLAUDE.md`; mechanical contract:
 `CONTRIBUTING.md`. **Run `npm run lint` before every commit** — CI enforces it
-plus `npx quartz build` on every PR.
+plus `node scripts/generate-relations.mjs --check`, `npm test`, and
+`npx quartz build` on every PR. If `--check` fails, run the script without the
+flag and commit what it changes.
 
 ## Frontmatter schema (lint-enforced)
 
@@ -16,8 +18,8 @@ Every page: `type`, `status`, `title`, `aliases`.
 
 - `type` matches the directory: `primitive` (Primitives/), `assumption`
   (Assumptions/), `complexity-class` (Complexity/), `glossary`, `folklore`,
-  `reference` (References/), `note` (root). Reserved for future use:
-  `reduction`, `separation`.
+  `reference` (References/), `note` (root), `reduction` (Reductions/),
+  `barrier` (Barriers/).
 - `status`: `stub` | `draft` | `complete`. Only a human sets `complete`; the
   lint then forbids TODO markers and requires the full section contract.
 - Aliases are unique site-wide; the canonical abbreviation (`PRF`, `LWE`) is
@@ -28,6 +30,48 @@ References additionally: `authors` (one comma-separated string), `venue`,
 arXiv abs > DOI), and exactly one of `cryptobib_key` | `bibtex`. Frontmatter
 `title` is the **citation key** (`"AMR25"`), never the paper title — the paper
 title lives in the filename `KEY - Full Title.md` and the H1 `# [KEY] Title`.
+
+## Relations are data, not prose
+
+**This is the rule that most often gets broken.** A reduction is a HYPEREDGE: a
+_set_ of hypotheses implying _one_ conclusion, of some reduction class.
+
+```
+{A_1, ..., A_n}  ==>  B   of class C
+```
+
+- **Never hand-author relation fields on an object page.** `implies`,
+  `implied-by`, `reductions`, `from`, `to` are a hard lint error there. An edge
+  list cannot express `{DDH, CRHF} => B` without misrepresenting each
+  hypothesis. Create a page under `content/Reductions/` instead.
+- **Never hand-edit a `<!-- BEGIN GENERATED participates-in ... -->` region.**
+  It carries a checksum. Edit the reduction pages and run
+  `node scripts/generate-relations.mjs`.
+- **Conjunction vs disjunction.** Assumptions each _independently_ sufficient
+  are separate pages with one hypothesis each (`{lwe} => pke` and
+  `{ddh} => pke`). Assumptions _jointly_ required are one page with several
+  hypotheses (`{sparse-lpn, ddh} => she`). Disjunction is never encoded inside
+  a page.
+- **Split composite chains.** "OWF -> PRG (HILL99) -> PRF via GGM (GGM86)" is
+  TWO pages, each with its own `source` — never one OWF => PRF page.
+- **Do not invent a class.** `class` comes from `schema/reduction-classes.yaml`
+  (the RTV04 taxonomy as a partial order); use `unstated` when the source does
+  not say which notion it means. Recording a class the wiki does not state adds
+  a mathematical claim. `black-box` and `non-black-box` are rejected values —
+  the lint message names the notion to use instead.
+- **Do not invent a citation.** `source` is either `[[KEY - Full Title|KEY]]`
+  wikilinks or the bare token `folklore`. `standard` is not a provenance value.
+- Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`.
+
+A **barrier** generalizes separations: `(exists a reduction of class C from
+{A_i} to B) => Q`, where Q is `contradiction`, an object, a complexity claim
+(a key of `schema/propositions.yaml`), or another hyperedge. `consequences` is a
+LIST — one theorem can carry several framings over one hyperedge.
+
+Object pages declare **identity**, which is allowed because it is not an edge:
+`id` (stable, survives renames — the formalization repo joins on it) and
+`variants` (named sub-objects living as sections, e.g. `ring-lwe` on the LWE
+page). Full contract: `schema/README.md`; worked examples: `CONTRIBUTING.md`.
 
 ## Page structure
 

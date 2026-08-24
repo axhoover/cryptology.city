@@ -23,11 +23,11 @@ These pages are reference material for working cryptographers and graduate stude
 
 **Definition-first.** State the formal object before discussing properties, history, applications, or constructions. The intro paragraph should be an informal version of the definition that follows in the next section, not a motivation or hook.
 
-**Voice.** Use active voice for actors (the adversary, simulator, challenger, scheme). Use impersonal voice for properties: *"A PRF is secure if…"*, not *"We say a PRF is secure if…"*. Reserve *we* for theorem and proof prose where it tracks a specific argument.
+**Voice.** Use active voice for actors (the adversary, simulator, challenger, scheme). Use impersonal voice for properties: _"A PRF is secure if…"_, not _"We say a PRF is secure if…"_. Reserve _we_ for theorem and proof prose where it tracks a specific argument.
 
-**Quantifiers and probability.** Match the formal definition. *For all efficient $\calA$* — not *for any adversary*. *$\Pr[E]$ is negligible* — not *$E$ is unlikely* or *$E$ rarely happens*. When the formal statement uses $\forall$, the surrounding prose should too.
+**Quantifiers and probability.** Match the formal definition. _For all efficient $\calA$_ — not _for any adversary_. _$\Pr[E]$ is negligible_ — not _$E$ is unlikely_ or _$E$ rarely happens_. When the formal statement uses $\forall$, the surrounding prose should too.
 
-**Hedging.** Hedge only when the hedge carries information. *It is widely believed that LWE is hard* is fine — the belief is the point. *It seems that LWE is hard* is not. *Conjecturally* beats *possibly*. When in doubt, drop the hedge.
+**Hedging.** Hedge only when the hedge carries information. _It is widely believed that LWE is hard_ is fine — the belief is the point. _It seems that LWE is hard_ is not. _Conjecturally_ beats _possibly_. When in doubt, drop the hedge.
 
 **Brevity.** Prefer a sentence to a paragraph, a phrase to a sentence, a symbol to a phrase. Do not summarize or recap.
 
@@ -35,14 +35,14 @@ These pages are reference material for working cryptographers and graduate stude
 
 These show up in AI-written prose and should be removed on sight:
 
-- Closing recap paragraphs (*In summary…*, *To recap…*, *Putting it all together…*).
-- Marketing adjectives: *powerful*, *elegant*, *celebrated*, *fundamental*, *important*.
-- Throat-clearing: *It is important to note that…*, *Interestingly…*, *Note that…*, *Crucially…*.
+- Closing recap paragraphs (_In summary…_, _To recap…_, _Putting it all together…_).
+- Marketing adjectives: _powerful_, _elegant_, _celebrated_, _fundamental_, _important_.
+- Throat-clearing: _It is important to note that…_, _Interestingly…_, _Note that…_, _Crucially…_.
 - Bulleted lists where two semicolons would do.
 - Restating a definition at the end of a section.
-- *This means that…* or *In other words…* introducing a rephrase that adds no precision.
-- *Recall that…* before a definition the reader does not need reminding of.
-- Filler conjunctions (*Furthermore*, *Moreover*, *Additionally*) at the start of paragraphs. Just start the next sentence.
+- _This means that…_ or _In other words…_ introducing a rephrase that adds no precision.
+- _Recall that…_ before a definition the reader does not need reminding of.
+- Filler conjunctions (_Furthermore_, _Moreover_, _Additionally_) at the start of paragraphs. Just start the next sentence.
 - Reaching for a calligraphic letter or macro for emphasis rather than to denote a specific named object.
 
 ---
@@ -89,7 +89,8 @@ Changes to `content/` rebuild automatically (hot-reload via WebSocket).
 ### Validation
 
 ```bash
-npm run lint            # Content lint: frontmatter schema, wikilinks, aliases, macros
+npm run lint            # Content lint: schema, hyperedges, wikilinks, aliases, macros
+node scripts/generate-relations.mjs --check   # generated sections + relations.json current
 npm run check           # TypeScript type-check + Prettier formatting validation
 npm run format          # Auto-format source files with Prettier
 npm run test            # Run unit tests
@@ -110,12 +111,12 @@ The repository is maintained by both humans and automated bots. The weekly orche
 
 ### The four bot lanes
 
-| Bot                   | Owns                                                                                                       | Does not touch                          |
-| --------------------- | ---------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| `editor`              | typos, grammar, KaTeX syntax, markdown formatting                                                          | math claims, references, page structure |
-| `reference-fixer`     | wikilinks, external URLs, citation keys, eprint/arXiv canonicalization, link rot                           | prose, math claims                      |
+| Bot                   | Owns                                                                                                                   | Does not touch                          |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| `editor`              | typos, grammar, KaTeX syntax, markdown formatting                                                                      | math claims, references, page structure |
+| `reference-fixer`     | wikilinks, external URLs, citation keys, eprint/arXiv canonicalization, link rot                                       | prose, math claims                      |
 | `skeptical-checker`   | correctness of claims, theorem statements, and definitions in `Primitives` / `Complexity` / `Assumptions` / `Glossary` | typos, links, structure                 |
-| `refactor-simplifier` | issue-only suggestions for structural changes to old pages                                                 | direct edits to content                 |
+| `refactor-simplifier` | issue-only suggestions for structural changes to old pages                                                             | direct edits to content                 |
 
 Prompts for each bot live in `.orchestrator/prompts/`. When making a manual edit that overlaps with a bot's lane, finish the bot's job in the same commit — do not leave half-fixed state behind for the next weekly run to chase.
 
@@ -138,7 +139,7 @@ The weekly cadence is the right default. To invoke bots off-cycle (e.g. before p
 All primitive pages must follow this section order:
 
 1. **YAML frontmatter** — `title` and `aliases`.
-2. **Intro paragraph** — one or two sentences stating *what the object is*, in informal language matching the formal definition that follows. Not a motivation, not an application sketch, not a history note.
+2. **Intro paragraph** — one or two sentences stating _what the object is_, in informal language matching the formal definition that follows. Not a motivation, not an application sketch, not a history note.
 3. **## Syntax** — the tuple of algorithms with typed signatures.
 4. **## Properties** — correctness + one subsection per security notion.
 5. **# Variations** — stronger/weaker variants of the primitive.
@@ -158,7 +159,7 @@ Every content page must include a YAML frontmatter block validated by `npm run l
 
 ```yaml
 ---
-type: primitive # matches the directory: primitive | assumption | complexity-class | glossary | folklore | reference | note
+type: primitive # matches the directory: primitive | assumption | complexity-class | glossary | folklore | reference | note | reduction | barrier
 status: draft # stub | draft | complete (complete is a human judgment; the lint then forbids TODOs)
 aliases:
   - ABBREV
@@ -168,6 +169,30 @@ title: Full primitive name
 ```
 
 Use the canonical abbreviation (e.g. `PRF`, `SKE`, `LWE`) as the primary alias. This enables wiki links like `[[pseudorandom-function|PRF]]` to resolve correctly. Aliases are unique site-wide — the lint rejects an alias claimed by two pages. Reference pages carry additional required fields; see `CONTRIBUTING.md` for the full schema.
+
+### Relations are data
+
+Relationships between objects are **pages**, not prose bullets and not
+frontmatter lists. A reduction is a hyperedge — a _set_ of hypotheses implying
+_one_ conclusion, of some reduction class — and lives in `content/Reductions/`.
+A barrier states what the existence of such a reduction would imply, and lives
+in `content/Barriers/`.
+
+Three rules, all lint-enforced:
+
+- Relation fields (`implies`, `implied-by`, `from`, `to`, …) are forbidden on
+  object pages. They get a **generated** "Participates in" section instead,
+  rebuilt by `node scripts/generate-relations.mjs`; hand edits inside the
+  region are an error.
+- Assumptions each independently sufficient are separate reduction pages with
+  one hypothesis each; assumptions jointly required are one page with several.
+  Disjunction is never encoded inside a page.
+- Composite chains are split, one page per link, each with its own citation.
+
+`schema/README.md` is the full contract and `CONTRIBUTING.md` has a worked
+example of each type. `schema/reduction-classes.yaml` holds the class
+vocabulary as a partial order (RTV04); `docs/relations-json.md` documents the
+`relations.json` manifest as an interface for CCwiki and the formalization repo.
 
 ### Cross-linking
 
@@ -191,7 +216,7 @@ Slugs are kebab-case filenames without `.md`. Always link primitives and assumpt
 
 ## LaTeX Macros
 
-All macros are defined in `macros.ts`. The macros below are available site-wide. Some are **required**: using a raw LaTeX equivalent will fail review. The rest are **available**: use when applicable but do not force them. For example, write `\calA` only when you mean *the adversary*; do not introduce a fresh calligraphic letter just because the macro exists.
+All macros are defined in `macros.ts`. The macros below are available site-wide. Some are **required**: using a raw LaTeX equivalent will fail review. The rest are **available**: use when applicable but do not force them. For example, write `\calA` only when you mean _the adversary_; do not introduce a fresh calligraphic letter just because the macro exists.
 
 **Required in their domains:**
 
@@ -264,7 +289,7 @@ Oracles immediately follow the game block they belong to:
 
 - **`% oracle-split: N`** — place this comment in the game block to set the column split ratio (integer, default auto).
 - Comments float right and appear with a ▸ delimiter.
-- Copy buttons: *Copy LaTeX (macros)* preserves macro names; *Copy LaTeX (no macros)* expands them.
+- Copy buttons: _Copy LaTeX (macros)_ preserves macro names; _Copy LaTeX (no macros)_ expands them.
 
 ---
 
@@ -301,7 +326,7 @@ Use `\Pr\!\left[...\right]` (with `\!` for tight spacing) consistently.
 
 ### Security statement template
 
-After the advantage definition, end with: *"is negligible."*
+After the advantage definition, end with: _"is negligible."_
 
 For primitives: `A $\Primitive$ scheme $\Primitive$ is **Security-Name-secure** if for all efficient $\calA$,`
 
@@ -326,7 +351,7 @@ When a game has a constraint that makes the adversary non-trivial (e.g. a CCA ad
 
 1. State the constraint in prose before or after the game block.
 2. Include a `\Comment{...}` annotation on the relevant line in the pseudocode.
-3. Explain *why* the constraint is necessary in one sentence.
+3. Explain _why_ the constraint is necessary in one sentence.
 
 **Example (CCA):**
 
@@ -347,7 +372,7 @@ For games where the oracle is complex enough to warrant its own block, place a s
 
 ### World 0 / World 1 convention
 
-For indistinguishability games: $b=0$ is the *real* world, $b=1$ is the *ideal* (random/simulated) world. Define oracles as:
+For indistinguishability games: $b=0$ is the _real_ world, $b=1$ is the _ideal_ (random/simulated) world. Define oracles as:
 
 ```
 \State $\calO_0(...) := \text{real operation}$
@@ -375,7 +400,7 @@ Frontmatter `title` on a reference page holds the **citation key** (e.g. `title:
 
 ### BibTeX integration (cryptobib)
 
-Each reference page can opt into a *Copy BibTeX* button by setting one of two optional frontmatter fields:
+Each reference page can opt into a _Copy BibTeX_ button by setting one of two optional frontmatter fields:
 
 - **`cryptobib_key`** — the paper's [cryptobib](https://cryptobib.di.ens.fr/) citation key, e.g. `C:BonFra01`, `EC:Couteau19`, `EPRINT:BBBPR23`. The build looks up this key in `vendor/cryptobib/crypto.bib` and emits a self-contained BibTeX block (with `@string` macros expanded). **Prefer this** when the paper is in cryptobib.
 - **`bibtex`** — inline BibTeX (YAML block scalar). Use for theses, blog posts, or papers cryptobib has not yet imported. Ignored if `cryptobib_key` is also set.
@@ -398,15 +423,15 @@ Every factual claim about a construction, implication, separation, application, 
 
 Citations are required in (non-exhaustive):
 
-- *Other results* bullets on primitive and assumption pages.
+- _Other results_ bullets on primitive and assumption pages.
 - Statements of theorems, lemmas, or propositions not originally proved in this wiki.
-- Concrete efficiency or parameter claims (e.g. *"…has ciphertext length $O(\secpar^2)$"*).
+- Concrete efficiency or parameter claims (e.g. _"…has ciphertext length $O(\secpar^2)$"_).
 - Any application of a primitive to a named use case.
 - Known attacks and the regimes in which they apply.
 
 ### Folklore exception
 
-A claim that is genuinely folklore — known and used routinely but without an attributable origin — may be left uncited, but must be explicitly flagged. End the sentence with *— standard* or *— folklore*; the label is the citation. *Obvious to a working cryptographer* is **not** a folklore claim and still needs a reference.
+A claim that is genuinely folklore — known and used routinely but without an attributable origin — may be left uncited, but must be explicitly flagged. End the sentence with _— standard_ or _— folklore_; the label is the citation. _Obvious to a working cryptographer_ is **not** a folklore claim and still needs a reference.
 
 ### Missing references
 
@@ -431,9 +456,11 @@ The reference-fixer bot will normalize anything else and may revert non-canonica
 - **Do not modify `quartz/`** without a clear reason — it is the SSG engine and changes can break the build.
 - **Do not use raw LaTeX** when a macro in `macros.ts` exists for the symbol.
 - **Do not add a new macro** to `macros.ts` without also updating `content/Glossary/latex-macros.md`.
+- **Do not hand-author relation fields** (`implies`, `from`, `to`, …) on an
+  object page, and do not edit inside a `BEGIN GENERATED` region.
 - **Do not create a new primitive page** without a `## Syntax` and at least one security game — stub pages should use `TODO` placeholders rather than omitting these sections entirely.
 - **Do not use `\mathsf{...}` directly** for primitives or algorithms — use the defined macros.
-- **Do not hand-edit `.orchestrator/state/` or `.fact-check/queue.json`** outside of the rules described in *Bots & Automation*.
+- **Do not hand-edit `.orchestrator/state/` or `.fact-check/queue.json`** outside of the rules described in _Bots & Automation_.
 
 ---
 
@@ -503,7 +530,7 @@ is negligible.
 - [[primitive-slug|Primitive]] implies/is implied by [[other-primitive-slug|OtherPrimitive]] — [[CITATIONKEY - Title|CITATIONKEY]]
 ````
 
-Note the intro paragraph: an informal version of the formal definition, not a motivation. No *"PRFs are a fundamental primitive in cryptography"* opener.
+Note the intro paragraph: an informal version of the formal definition, not a motivation. No _"PRFs are a fundamental primitive in cryptography"_ opener.
 
 ---
 
