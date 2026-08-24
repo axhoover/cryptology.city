@@ -14,3 +14,11 @@ unlisted: true
 MIP is the class of languages with an interactive proof in which a probabilistic polynomial-time verifier interacts with two or more computationally unbounded provers who cannot communicate with one another; MIP = NEXP.
 
 TODO: syntax and security definition.
+
+<!-- BEGIN GENERATED participates-in b08e661e7e5b -->
+## Participates in
+
+**Barriers**
+
+- [[no-mip-to-multi-prover-extensions|No reduction from MIP to Multi-prover extensions]]
+<!-- END GENERATED participates-in -->

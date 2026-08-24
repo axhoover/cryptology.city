@@ -90,3 +90,23 @@ robust to noise.
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - [[prg-to-ske|PRG ⇒ SKE]]
+
+<!-- BEGIN GENERATED participates-in 75e9b47825c9 -->
+## Participates in
+
+**Builds on Pseudorandom generator**
+
+- [[prg-to-com-naor91|PRG ⇒ COM]]
+- [[prg-to-dpf-gi14|PRG ⇒ DPF]]
+- [[prg-to-hash-function|PRG ⇒ Hash function]]
+- [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prg-to-ske|PRG ⇒ SKE]]
+
+**Produces Pseudorandom generator**
+
+- [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
+- [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
+- [[trapdoor-pseudorandom-generators-to-prg|Trapdoor pseudorandom generators ⇔ PRG]]
+<!-- END GENERATED participates-in -->

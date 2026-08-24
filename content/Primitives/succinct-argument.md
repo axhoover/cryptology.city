@@ -100,3 +100,34 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - SNARKs are constructed via two steps: (1) [[arithmetization]] — convert the computation to polynomial constraints; (2) a [[polynomial-commitment|polynomial commitment scheme]] — commit and open evaluations — standard
 - [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
+
+<!-- BEGIN GENERATED participates-in d9a546747064 -->
+## Participates in
+
+**Builds on Succinct argument**
+
+- [[snark-to-hash-function|SNARK ⇒ Hash function]]
+- [[snark-to-nizk|SNARK ⇒ NIZK]]
+- [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
+
+**Produces Succinct argument**
+
+- [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
+- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
+- [[arithmetization-and-pcs-to-snark-kzg10|Arithmetization + PCS ⇒ SNARK]]
+- [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ SNARK]]
+- [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
+- [[fri-fast-reed-solomon-iop-of-proximity-to-snark|FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
+- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
+- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
+- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
+- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
+- [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
+- [[pcs-to-snark|PCS ⇒ SNARK]]
+
+**Barriers**
+
+- [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
+<!-- END GENERATED participates-in -->

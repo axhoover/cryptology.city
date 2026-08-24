@@ -132,3 +132,20 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[hash-function-to-mac|Hash function ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
 - [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
+
+<!-- BEGIN GENERATED participates-in fc578ab06145 -->
+## Participates in
+
+**Builds on Symmetric key encryption**
+
+- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
+- [[secret-key-pir-sk-pir-and-ske-to-depir|Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR]]
+
+**Produces Symmetric key encryption**
+
+- [[hash-function-to-ske|Hash function ⇒ SKE]]
+- [[prc-to-ske-cg24|PRC ⇒ SKE]]
+- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+- [[prg-to-ske|PRG ⇒ SKE]]
+<!-- END GENERATED participates-in -->

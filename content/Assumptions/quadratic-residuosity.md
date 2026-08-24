@@ -70,3 +70,19 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 
 - QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols
 - Quantum attacks: Shor's algorithm factors $N$ and breaks QR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
+
+<!-- BEGIN GENERATED participates-in 19fc7b24644e -->
+## Participates in
+
+**Builds on Quadratic residuosity assumption**
+
+- [[qr-to-com|QR ⇒ COM]]
+- [[qr-to-he-gm84|QR ⇒ HE]]
+- [[qr-to-pke-gm84|QR ⇒ PKE]]
+- [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
+- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+
+**Produces Quadratic residuosity assumption**
+
+- [[fac-to-qr-gm84|FAC ⇒ QR]]
+<!-- END GENERATED participates-in -->

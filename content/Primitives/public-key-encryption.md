@@ -117,3 +117,41 @@ TODO
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[lpn-to-pke|LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+
+<!-- BEGIN GENERATED participates-in 9eef4d0e803b -->
+## Participates in
+
+**Builds on Public key encryption**
+
+- [[pke-to-com|PKE ⇒ COM]]
+- [[pke-to-hash-function|PKE ⇒ Hash function]]
+- [[pke-to-ke|PKE ⇒ KE]]
+- [[pke-to-kem|PKE ⇒ KEM]]
+- [[pke-to-ot|PKE ⇒ OT]]
+
+**Produces Public key encryption**
+
+- [[dcr-to-pke-pai99|DCR ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[hash-function-and-io-to-pke-sw14|Hash function + iO ⇒ PKE]]
+- [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
+- [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ke-to-pke-dh76|KE ⇒ PKE]]
+- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ PKE]]
+- [[lpn-to-pke|LPN ⇒ PKE]]
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[noise-level-to-pke-ale03|Noise Level ⇒ PKE]]
+- [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
+- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+- [[qr-to-pke-gm84|QR ⇒ PKE]]
+- [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
+- [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ PKE]]
+- [[tdp-to-pke|TDP ⇒ PKE]]
+
+**Barriers**
+
+- [[no-hash-function-to-pke-gkm-00|No fully-black-box reduction from Hash function to PKE]]
+- [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
+<!-- END GENERATED participates-in -->

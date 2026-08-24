@@ -123,3 +123,19 @@ is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so spa
 Ring-LPN replaces the matrix $\mathbf{A} \in \FF_2^{m \times k}$ with multiplication by a random polynomial $a \in \FF_2[x]/(f(x))$ for a fixed polynomial $f$ of degree $k$. The secret is $s \in \FF_2[x]/(f(x))$ and the LPN sample is $(a, a \cdot s + e)$ for small noise $e$. The ring structure reduces the public key from $O(mk)$ bits to $O(k)$ bits and enables faster computation via polynomial multiplication.
 
 Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficient pseudorandom correlation generator constructions.
+
+<!-- BEGIN GENERATED participates-in ca3941503e99 -->
+## Participates in
+
+**Builds on Learning parity with noise**
+
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
+- [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
+- [[lpn-to-pke|LPN ⇒ PKE]]
+- [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
+
+**Produces Learning parity with noise**
+
+- [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
+- [[sparse-learning-parity-with-noise-to-lpn|Sparse Learning Parity with Noise ⇒ LPN]]
+<!-- END GENERATED participates-in -->

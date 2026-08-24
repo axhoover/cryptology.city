@@ -75,3 +75,19 @@ Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now r
 **Module-SIS** interpolates between plain SIS (unstructured) and Ring-SIS (fully structured) by using rank-$k$ modules over $R_q$. The random matrix $\mathbf{A} \in R_q^{n \times k}$ has ring elements as entries, and a Module-SIS solution is a short vector $\mathbf{z} \in R^k$ with $\mathbf{Az} = \mathbf{0}$ in $R_q^n$. Setting $k = 1$ recovers Ring-SIS; setting $k = n$ recovers plain SIS.
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Module-SIS is the hardness assumption underlying the NIST post-quantum signature standard Dilithium (ML-DSA, FIPS 204).
+
+<!-- BEGIN GENERATED participates-in b42b3578a60e -->
+## Participates in
+
+**Builds on Shortest Integer Solution**
+
+- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[sis-to-ds|SIS ⇒ DS]]
+- [[sis-to-hash-function-ajt96|SIS ⇒ Hash function]]
+
+**Produces Shortest Integer Solution**
+
+- [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]]
+- [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]
+- [[sivp-to-sis-ajt96|SIVP ⇒ SIS]]
+<!-- END GENERATED participates-in -->

@@ -57,3 +57,25 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
+
+<!-- BEGIN GENERATED participates-in 3dc717f7466f -->
+## Participates in
+
+**Builds on Key exchange**
+
+- [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]]
+- [[ke-to-pke-dh76|KE ⇒ PKE]]
+
+**Produces Key exchange**
+
+- [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
+- [[ddh-to-ke-dh76|DDH ⇒ KE]]
+- [[kem-to-ke|KEM ⇒ KE]]
+- [[pke-to-ke|PKE ⇒ KE]]
+- [[sidh-to-ke-jdf11|SIDH ⇒ KE]]
+
+**Barriers**
+
+- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
+<!-- END GENERATED participates-in -->

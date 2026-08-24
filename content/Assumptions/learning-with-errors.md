@@ -288,3 +288,30 @@ $$
 is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to $T_\mathbf{B}$ itself, making the condition equivalent to standard LWE. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE implies Evasive LWE. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
+
+<!-- BEGIN GENERATED participates-in ee23fd2eed4a -->
+## Participates in
+
+**Builds on Learning with errors**
+
+- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
+- [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
+- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
+- [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
+- [[lwe-to-ind-cpa-kem|LWE ⇒ IND-CPA KEM]]
+- [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
+- [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[lwe-to-prc-cg24|LWE ⇒ PRC]]
+- [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
+- [[lwe-to-zero-bit-prc-cg24|LWE ⇒ Zero-bit PRC]]
+
+**Produces Learning with errors**
+
+- [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
+- [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]]
+- [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
+- [[succinct-lwe-to-lwe|Succinct LWE ⇔ LWE]]
+<!-- END GENERATED participates-in -->

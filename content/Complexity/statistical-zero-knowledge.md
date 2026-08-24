@@ -22,3 +22,11 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 - Non-trivial SZK implies [[hash-function|OWFs]]: if there is a language in SZK that is not in BPP, then one-way functions exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
   - This is a converse direction: SZK ⊄ BPP $\Rightarrow$ OWF exist
 - The complete problem for SZK is the **Statistical Difference (SD)** problem: given two circuits sampling distributions $D_0$ and $D_1$, decide whether $\|D_0 - D_1\|_{\mathrm{TV}} \geq 2/3$ or $\leq 1/3$
+
+<!-- BEGIN GENERATED participates-in 3b8f8cbf2755 -->
+## Participates in
+
+**Barriers**
+
+- [[no-he-to-szk-bl13|No reduction from HE to SZK]]
+<!-- END GENERATED participates-in -->

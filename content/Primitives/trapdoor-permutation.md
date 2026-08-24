@@ -60,3 +60,24 @@ A generalization where there are two modes: an injective mode (standard TDP) and
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+
+<!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
+## Participates in
+
+**Builds on Trapdoor permutation**
+
+- [[tdp-to-hash-function|TDP ⇒ Hash function]]
+- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
+- [[tdp-to-ot|TDP ⇔ OT]]
+- [[tdp-to-pke|TDP ⇒ PKE]]
+
+**Produces Trapdoor permutation**
+
+- [[dlog-to-tdp|DLOG ⇒ TDP]]
+- [[lossy-trapdoor-functions-to-tdp|Lossy trapdoor functions ⇒ TDP]]
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+
+**Barriers**
+
+- [[no-tdp-to-ot|No reduction from TDP to OT]]
+<!-- END GENERATED participates-in -->

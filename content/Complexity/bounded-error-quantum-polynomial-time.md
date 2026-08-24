@@ -35,4 +35,12 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 BQP defines the power of a quantum adversary. All post-quantum cryptographic schemes — lattice-based, hash-based, code-based, isogeny-based — are designed to resist $\classBQP$ adversaries. Shor's algorithm shows that the number-theoretic hardness assumptions underlying RSA, Diffie-Hellman, DSA, and ECDSA are all broken by $\classBQP$ machines.
 
-Grover's algorithm gives a generic quadratic speedup on unstructured search, implying that symmetric-key schemes need security parameters roughly twice as large (e.g., AES-256 instead of AES-128) to maintain $\secpar$-bit post-quantum security. However, [NIST post-quantum standards](<https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)>) suggest that this may not be necessary. Primarily, this is because Grover's algorithm cannot be parallelized ([[Zal97 - Grover's quantum searching algorithm is optimal|Zal97]]), and therefore the speedup requires a very long serial computation that may be infeasible.
+Grover's algorithm gives a generic quadratic speedup on unstructured search, implying that symmetric-key schemes need security parameters roughly twice as large (e.g., AES-256 instead of AES-128) to maintain $\secpar$-bit post-quantum security. However, based on [NIST post-quantum standards](<https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)>) suggest that this may not be necessary. Primarily, this is because Grover's algorithm cannot be parallelized ([[Zal97 - Grover's quantum searching algorithm is optimal | Zal97]]), and therefore the speedup requires a very long serial computation that may be infeasible.
+
+<!-- BEGIN GENERATED participates-in a9dcb0d18b33 -->
+## Participates in
+
+**Barriers**
+
+- [[no-bqp-to-np|No reduction from BQP to NP]]
+<!-- END GENERATED participates-in -->

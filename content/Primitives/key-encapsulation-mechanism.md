@@ -88,3 +88,18 @@ RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|ra
 - Hybrid encryption (KEM-DEM) is the standard approach in TLS 1.3, Signal, age, and OpenPGP
 - KEM with re-randomizable ciphertexts gives anonymous PKE — standard
 - [[kem-to-ke|KEM ⇒ KE]]
+
+<!-- BEGIN GENERATED participates-in 4960c8d92081 -->
+## Participates in
+
+**Builds on Key encapsulation mechanism**
+
+- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[kem-to-ke|KEM ⇒ KE]]
+
+**Produces Key encapsulation mechanism**
+
+- [[module-lwe-to-kem|Module LWE ⇒ KEM]]
+- [[ntru-to-kem|NTRU ⇒ KEM]]
+- [[pke-to-kem|PKE ⇒ KEM]]
+<!-- END GENERATED participates-in -->

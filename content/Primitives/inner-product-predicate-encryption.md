@@ -83,3 +83,20 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 - [[ippe-to-hve|IPPE ⇒ HVE]]
 - [[no-ippe-to-abe|No reduction from IPPE to ABE]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
+
+<!-- BEGIN GENERATED participates-in 99ea01756488 -->
+## Participates in
+
+**Builds on Inner-product predicate encryption**
+
+- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]]
+
+**Produces Inner-product predicate encryption**
+
+- [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
+
+**Barriers**
+
+- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+<!-- END GENERATED participates-in -->

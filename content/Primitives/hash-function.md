@@ -108,3 +108,51 @@ is negligible.
 ## Unknown results
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
+
+<!-- BEGIN GENERATED participates-in 95161fbc8d2c -->
+## Participates in
+
+**Builds on Hash function**
+
+- [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[hash-function-and-io-to-deniable-encryption-sw14|Hash function + iO ⇒ Deniable encryption]]
+- [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
+- [[hash-function-and-io-to-fe-sw14|Hash function + iO ⇒ FE]]
+- [[hash-function-and-io-to-lossy-trapdoor-functions-sw14|Hash function + iO ⇒ Lossy trapdoor functions]]
+- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
+- [[hash-function-and-io-to-pke-sw14|Hash function + iO ⇒ PKE]]
+- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[hash-function-to-dpf-gi14|Hash function ⇒ DPF]]
+- [[hash-function-to-ds|Hash function ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-to-mac|Hash function ⇒ MAC]]
+- [[hash-function-to-pcs-bbhr18|Hash function ⇒ PCS]]
+- [[hash-function-to-prf|Hash function ⇒ PRF]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
+- [[hash-function-to-ske|Hash function ⇒ SKE]]
+- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
+- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
+
+**Produces Hash function**
+
+- [[ds-to-hash-function|DS ⇒ Hash function]]
+- [[noise-level-to-hash-function-blvw19|Noise Level ⇒ Hash function]]
+- [[owp-to-hash-function|OWP ⇒ Hash function]]
+- [[pke-to-hash-function|PKE ⇒ Hash function]]
+- [[prg-to-hash-function|PRG ⇒ Hash function]]
+- [[sis-to-hash-function-ajt96|SIS ⇒ Hash function]]
+- [[snark-to-hash-function|SNARK ⇒ Hash function]]
+- [[subclasses-to-hash-function|Subclasses ⇒ Hash function]]
+- [[tdp-to-hash-function|TDP ⇒ Hash function]]
+- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
+
+**Barriers**
+
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-hash-function-to-pke-gkm-00|No fully-black-box reduction from Hash function to PKE]]
+- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
+<!-- END GENERATED participates-in -->

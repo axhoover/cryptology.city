@@ -59,3 +59,25 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[hash-function-and-io-to-lossy-trapdoor-functions-sw14|Hash function + iO ⇒ Lossy trapdoor functions]]
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard
+
+<!-- BEGIN GENERATED participates-in ded64884c22c -->
+## Participates in
+
+**Builds on Indistinguishability Obfuscation**
+
+- [[hash-function-and-io-to-deniable-encryption-sw14|Hash function + iO ⇒ Deniable encryption]]
+- [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
+- [[hash-function-and-io-to-fe-sw14|Hash function + iO ⇒ FE]]
+- [[hash-function-and-io-to-lossy-trapdoor-functions-sw14|Hash function + iO ⇒ Lossy trapdoor functions]]
+- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
+- [[hash-function-and-io-to-pke-sw14|Hash function + iO ⇒ PKE]]
+
+**Produces Indistinguishability Obfuscation**
+
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
+- [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇔ iO]]
+- [[fe-to-io|FE ⇒ iO]]
+- [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
+- [[mmap-to-io-gghrsw13|MMap ⇒ iO]]
+- [[prg-in-nc1-to-io-jls21|PRG in NC1 ⇒ iO]]
+<!-- END GENERATED participates-in -->

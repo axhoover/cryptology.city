@@ -57,3 +57,12 @@ Security of a protocol is analyzed under one of two standard adversary models:
 
 Note: A protocol secure against malicious parties implies security against
 semi-honest parties.
+
+<!-- BEGIN GENERATED participates-in 88369e71969d -->
+## Participates in
+
+**Builds on Interactive protocol**
+
+- [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
+- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
+<!-- END GENERATED participates-in -->

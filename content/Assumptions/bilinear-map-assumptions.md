@@ -61,3 +61,24 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric pairing. Strong
 - The MOV/Frey-Rück attack reduces the discrete log in $\GG$ to discrete log in $\GG_T$ via the pairing; for small embedding degree this is devastating
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
+
+<!-- BEGIN GENERATED participates-in 5bc22da2b15f -->
+## Participates in
+
+**Builds on Bilinear map assumptions**
+
+- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-ac|BDH ⇒ AC]]
+- [[bdh-to-be-bgw05|BDH ⇒ BE]]
+- [[bdh-to-ds|BDH ⇒ DS]]
+- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[bdh-to-hve-bw07|BDH ⇒ HVE]]
+- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
+- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
+- [[bdh-to-vrf|BDH ⇒ VRF]]
+
+**Produces Bilinear map assumptions**
+
+- [[cdh-to-bdh|CDH ⇒ BDH]]
+- [[sxdh-symmetric-external-diffie-hellman-to-bdh|SXDH (Symmetric External Diffie-Hellman) ⇒ BDH]]
+<!-- END GENERATED participates-in -->

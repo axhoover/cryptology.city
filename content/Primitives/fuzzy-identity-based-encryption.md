@@ -80,3 +80,15 @@ In **small-universe** Fuzzy IBE, the attribute universe $\calU$ is fixed and enc
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - SW05 introduced Fuzzy IBE and gave the first construction under the Selective-ID security model — [[SW05 - Fuzzy Identity-Based Encryption|SW05]]
+
+<!-- BEGIN GENERATED participates-in 9f4fd1ab577d -->
+## Participates in
+
+**Builds on Fuzzy identity-based encryption**
+
+- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
+
+**Produces Fuzzy identity-based encryption**
+
+- [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
+<!-- END GENERATED participates-in -->

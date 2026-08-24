@@ -53,3 +53,19 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 - [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
 - DPFs generalize to FSS for richer function classes including intervals, halfspaces, and decision trees — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
 - DPF key size lower bound: any 2-server DPF for $N$-element domain has keys of size $\Omega(\secpar + \log N)$ — standard
+
+<!-- BEGIN GENERATED participates-in f00f8ec6860c -->
+## Participates in
+
+**Builds on Distributed Point Functions**
+
+- [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
+- [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
+- [[dpf-to-multi-point-functions|DPF ⇒ Multi-point functions]]
+
+**Produces Distributed Point Functions**
+
+- [[function-secret-sharing-fss-to-dpf-bgi15|Function secret sharing (FSS) ⇒ DPF]]
+- [[hash-function-to-dpf-gi14|Hash function ⇒ DPF]]
+- [[prg-to-dpf-gi14|PRG ⇒ DPF]]
+<!-- END GENERATED participates-in -->

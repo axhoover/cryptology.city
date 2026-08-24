@@ -132,3 +132,34 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[pke-to-ot|PKE ⇒ OT]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
+
+<!-- BEGIN GENERATED participates-in 5d78a77787e7 -->
+## Participates in
+
+**Builds on Oblivious transfer**
+
+- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
+- [[ot-to-com|OT ⇒ COM]]
+- [[ot-to-mpc-kil88|OT ⇒ MPC]]
+
+**Produces Oblivious transfer**
+
+- [[com-to-ot-kil88|COM ⇒ OT]]
+- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
+- [[mpc-to-ot-bh26|MPC ⇒ OT]]
+- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[pke-to-ot|PKE ⇒ OT]]
+- [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
+- [[random-ot-to-ot|Random OT ⇒ OT]]
+- [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
+- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇔ OT]]
+- [[tdp-to-ot|TDP ⇔ OT]]
+
+**Barriers**
+
+- [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
+- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
+- [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
+- [[no-tdp-to-ot|No reduction from TDP to OT]]
+<!-- END GENERATED participates-in -->

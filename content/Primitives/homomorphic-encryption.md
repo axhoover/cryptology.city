@@ -72,4 +72,27 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 - [[he-to-re-bl13|HE ⇒ RE]]
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
-- Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
+
+<!-- BEGIN GENERATED participates-in 601301307e28 -->
+## Participates in
+
+**Builds on Homomorphic encryption**
+
+- [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
+- [[he-to-mpc-with-preprocessing-spdz-etc|HE ⇒ MPC with preprocessing (SPDZ, etc.)]]
+- [[he-to-re-bl13|HE ⇒ RE]]
+
+**Produces Homomorphic encryption**
+
+- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
+- [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE]]
+- [[d-th-composite-residuosity-to-he|$d$-th Composite Residuosity ⇒ HE]]
+- [[dcr-to-he-pai99|DCR ⇒ HE]]
+- [[qr-to-he-gm84|QR ⇒ HE]]
+- [[somewhat-homomorphic-encryption-she-to-he-gen09|Somewhat homomorphic encryption (SHE) ⇒ HE]]
+
+**Barriers**
+
+- [[no-he-to-cca-security|No reduction from HE to CCA Security]]
+- [[no-he-to-szk-bl13|No reduction from HE to SZK]]
+<!-- END GENERATED participates-in -->

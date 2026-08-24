@@ -67,3 +67,12 @@ Planted dense subgraph generalizes planted clique: a random $k$-vertex subgraph 
 
 - **Spectral**: For $k = \Omega(\sqrt{n \log n})$, the top eigenvector of $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ (where $\mathbf{J}$ is the all-ones matrix) concentrates on $S$, enabling detection and recovery in $O(n^2)$ time — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
 - **Degree threshold**: Vertices in the planted clique have expected degree $\tfrac{n-1}{2} + k - 1$ versus $\tfrac{n-1}{2}$ for unplanted vertices; thresholding on degree finds $S$ when $k = \Omega(\sqrt{n \log n})$
+
+<!-- BEGIN GENERATED participates-in 708b4adc986a -->
+## Participates in
+
+**Builds on Planted clique assumption**
+
+- [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+<!-- END GENERATED participates-in -->

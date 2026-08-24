@@ -46,3 +46,15 @@ The relationship between the AGM and the [[generic-group-model|GGM]] has been th
 ## Comparison with the Standard Model
 
 In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. In this sense, the AGM is a _conservative idealization_: it rules out adversaries that could exploit the representation of group elements in a way that a real-world adversary plausibly cannot.
+
+<!-- BEGIN GENERATED participates-in 3450b391e6ac -->
+## Participates in
+
+**Builds on Algebraic Group Model**
+
+- [[agm-to-kea|AGM ⇒ KEA]]
+
+**Barriers**
+
+- [[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]
+<!-- END GENERATED participates-in -->

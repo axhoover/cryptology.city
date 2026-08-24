@@ -102,3 +102,29 @@ is negligible.
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
+
+<!-- BEGIN GENERATED participates-in bc81cdd4c197 -->
+## Participates in
+
+**Builds on Discrete logarithm**
+
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG + ROM ⇒ Schnorr signatures]]
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
+- [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
+- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
+- [[dlog-to-ds-sch91|DLOG ⇒ DS]]
+- [[dlog-to-pcs|DLOG ⇒ PCS]]
+- [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
+- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[dlog-to-tdp|DLOG ⇒ TDP]]
+- [[dlog-to-zkp|DLOG ⇒ ZKP]]
+
+**Produces Discrete logarithm**
+
+- [[cdh-to-dlog|CDH ⇒ DLOG]]
+
+**Barriers**
+
+- [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
+- [[no-the-structured-ggm-to-dlog-chw26|No free reduction from The Structured GGM to DLOG]]
+<!-- END GENERATED participates-in -->

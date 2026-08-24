@@ -42,3 +42,14 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 ## Standard instantiations
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
+
+<!-- BEGIN GENERATED participates-in 27d61ee032b1 -->
+## Participates in
+
+**Builds on Pairings**
+
+- [[bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10|Bilinear pairing + q-SDH ⇒ KZG (Kate-Zaverucha-Goldberg)]]
+- [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
+- [[bilinear-pairing-to-ds|Bilinear pairing ⇒ DS]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ SNARK]]
+<!-- END GENERATED participates-in -->

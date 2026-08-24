@@ -45,3 +45,19 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 - No concrete attack on KEA is known; the assumption is believed to be heuristically sound in natural cryptographic groups
 - KEA can fail in adversarially constructed groups (generic groups with special structures)
 - The non-falsifiable nature means KEA's "attacks" are philosophical: one cannot rule out adversaries who produce valid pairs without knowledge
+
+<!-- BEGIN GENERATED participates-in 711358f8b8f1 -->
+## Participates in
+
+**Builds on Knowledge of exponent assumption**
+
+- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
+
+**Produces Knowledge of exponent assumption**
+
+- [[agm-to-kea|AGM ⇒ KEA]]
+
+**Barriers**
+
+- [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
+<!-- END GENERATED participates-in -->

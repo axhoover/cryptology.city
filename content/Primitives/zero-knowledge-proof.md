@@ -81,3 +81,24 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
 - [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
 - [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
+
+<!-- BEGIN GENERATED participates-in ac519d22a12c -->
+## Participates in
+
+**Builds on Zero-knowledge proof**
+
+- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
+- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
+- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
+- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+
+**Produces Zero-knowledge proof**
+
+- [[dlog-to-zkp|DLOG ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
+- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+
+**Barriers**
+
+- [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
+<!-- END GENERATED participates-in -->

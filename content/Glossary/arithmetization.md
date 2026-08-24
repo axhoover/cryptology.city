@@ -53,4 +53,16 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - [[arithmetization-to-zk-snark-gro16|Arithmetization ⇒ zk-SNARK]]
 - [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
 - [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \bits$); NOT and XOR are linear and free — standard
+- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$); NOT and XOR are linear and free — standard
+
+<!-- BEGIN GENERATED participates-in 2c4480f0a436 -->
+## Participates in
+
+**Builds on Arithmetization**
+
+- [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
+- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
+- [[arithmetization-and-pcs-to-snark-kzg10|Arithmetization + PCS ⇒ SNARK]]
+- [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
+- [[arithmetization-to-zk-snark-gro16|Arithmetization ⇒ zk-SNARK]]
+<!-- END GENERATED participates-in -->

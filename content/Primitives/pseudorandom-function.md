@@ -119,3 +119,25 @@ TODO: define these and say how they relate to PRPs
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
+
+<!-- BEGIN GENERATED participates-in 4a0f125ffa3b -->
+## Participates in
+
+**Builds on Pseudorandom function**
+
+- [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
+- [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-prp-lr88|PRF ⇒ PRP]]
+- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+
+**Produces Pseudorandom function**
+
+- [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
+- [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
+- [[hash-function-to-prf|Hash function ⇒ PRF]]
+- [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
+- [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prp-to-prf|PRP ⇒ PRF]]
+<!-- END GENERATED participates-in -->

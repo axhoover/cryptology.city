@@ -191,3 +191,38 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ Hash function]]
+
+<!-- BEGIN GENERATED participates-in 98a79d714c0e -->
+## Participates in
+
+**Builds on Digital signature**
+
+- [[ds-to-hash-function|DS ⇒ Hash function]]
+
+**Produces Digital signature**
+
+- [[bdh-to-ds|BDH ⇒ DS]]
+- [[bilinear-pairing-to-ds|Bilinear pairing ⇒ DS]]
+- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[dlog-to-ds-sch91|DLOG ⇒ DS]]
+- [[fac-to-ds-gmr88|FAC ⇒ DS]]
+- [[fiat-shamir-and-schnorr-signatures-to-ds|Fiat-Shamir + Schnorr signatures ⇒ DS]]
+- [[hash-based-signatures-and-hash-based-signatures-to-ds|Hash-based signatures + Hash-based signatures ⇒ DS]]
+- [[hash-based-signatures-to-ds-mer89|Hash-based signatures ⇒ DS]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
+- [[hash-function-to-ds|Hash function ⇒ DS]]
+- [[id-and-rom-to-ds|ID + ROM ⇒ DS]]
+- [[isis-inhomogeneous-sis-to-ds-gpv08|ISIS (Inhomogeneous SIS) ⇒ DS]]
+- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-sis-to-ds|Module-SIS ⇒ DS]]
+- [[ntru-to-ds|NTRU ⇒ DS]]
+- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
+- [[sis-to-ds|SIS ⇒ DS]]
+- [[strong-rsa-to-ds|Strong RSA ⇒ DS]]
+
+**Barriers**
+
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
+<!-- END GENERATED participates-in -->

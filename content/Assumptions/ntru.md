@@ -66,3 +66,17 @@ The original NTRU submissions to NIST PQC standardization include **NTRUEncrypt*
 - **Lattice reduction (BKZ)**: the NTRU public key $h$ defines a $2n$-dimensional lattice containing short vectors $(f, g)$; BKZ-style algorithms attack this lattice. Parameter sizes have been revised upward over time to maintain security margins against improved BKZ variants.
 - **Meet-in-the-middle**: applies when $d_f$ or $d_g$ is small relative to $n$.
 - NTRU has no known quantum speedup beyond the generic square-root speedup of Grover's algorithm applied to brute-force lattice search.
+
+<!-- BEGIN GENERATED participates-in 8ca584637ed9 -->
+## Participates in
+
+**Builds on NTRU**
+
+- [[ntru-to-ds|NTRU ⇒ DS]]
+- [[ntru-to-kem|NTRU ⇒ KEM]]
+- [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
+
+**Produces NTRU**
+
+- [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ NTRU]]
+<!-- END GENERATED participates-in -->

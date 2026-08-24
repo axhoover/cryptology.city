@@ -70,3 +70,20 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e$, it is hard 
 - **Wiener's attack**: when the private exponent satisfies $d < n^{1/4}$, RSA can be broken via continued-fraction approximation of $e/n$.
 - **Small-exponent attacks**: encrypting the same short message under many independent RSA public keys with a small exponent $e$ (e.g., $e = 3$) allows recovery via the Chinese Remainder Theorem (Håstad's broadcast attack).
 - **Chosen-ciphertext attacks**: textbook RSA (without padding) is not CCA-secure; OAEP padding is required in practice.
+
+<!-- BEGIN GENERATED participates-in 83500d687079 -->
+## Participates in
+
+**Builds on RSA Assumption**
+
+- [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
+- [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA security]]
+- [[rsa-to-partially-homomorphic-encryption-phe-rsa78|RSA ⇒ Partially homomorphic encryption (PHE)]]
+- [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+
+**Produces RSA Assumption**
+
+- [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
+- [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
+<!-- END GENERATED participates-in -->

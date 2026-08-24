@@ -184,3 +184,27 @@ is negligible.
 - [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+
+<!-- BEGIN GENERATED participates-in 9ef6d6c03cce -->
+## Participates in
+
+**Builds on Attribute-based encryption**
+
+- [[abe-to-be|ABE ⇒ BE]]
+- [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
+- [[abe-to-hibe|ABE ⇒ HIBE]]
+- [[abe-to-ibe|ABE ⇒ IBE]]
+
+**Produces Attribute-based encryption**
+
+- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[evasive-lwe-to-abe|Evasive LWE ⇒ ABE]]
+- [[evasive-lwe-to-abe-wee22|Evasive LWE ⇒ ABE]]
+- [[ggm-to-abe-bsw07|GGM ⇒ ABE]]
+- [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
+- [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]]
+
+**Barriers**
+
+- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+<!-- END GENERATED participates-in -->

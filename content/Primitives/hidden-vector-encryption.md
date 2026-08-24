@@ -107,3 +107,16 @@ The BW07 paper also formalizes subset predicates (is $x_i \in T_i$ for some set 
 
 - [[ippe-to-hve|IPPE ⇒ HVE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
+
+<!-- BEGIN GENERATED participates-in 5b1bb7387bd4 -->
+## Participates in
+
+**Builds on Hidden vector encryption**
+
+- [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]]
+
+**Produces Hidden vector encryption**
+
+- [[bdh-to-hve-bw07|BDH ⇒ HVE]]
+- [[ippe-to-hve|IPPE ⇒ HVE]]
+<!-- END GENERATED participates-in -->

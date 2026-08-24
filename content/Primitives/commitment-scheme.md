@@ -72,3 +72,29 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - Statistically hiding COM is equivalent to [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — standard
 - [[ddh-to-com|DDH ⇒ COM]]
+
+<!-- BEGIN GENERATED participates-in 591ac2af1d63 -->
+## Participates in
+
+**Builds on Commitment scheme**
+
+- [[com-and-ss-to-verifiable-secret-sharing-vss|COM + SS ⇒ Verifiable secret sharing (VSS)]]
+- [[com-to-mpc-gmw87|COM ⇒ MPC]]
+- [[com-to-ot-kil88|COM ⇒ OT]]
+- [[com-to-two-party-computation-2pc-gmw87|COM ⇒ Two-party computation (2PC)]]
+
+**Produces Commitment scheme**
+
+- [[dcr-to-com|DCR ⇒ COM]]
+- [[ddh-to-com|DDH ⇒ COM]]
+- [[nizk-to-com|NIZK ⇒ COM]]
+- [[ot-to-com|OT ⇒ COM]]
+- [[pke-to-com|PKE ⇒ COM]]
+- [[prg-to-com-naor91|PRG ⇒ COM]]
+- [[qr-to-com|QR ⇒ COM]]
+- [[strong-rsa-to-com|Strong RSA ⇒ COM]]
+
+**Barriers**
+
+- [[no-binding-and-hiding-to-com|No reduction from Binding + Hiding to COM]]
+<!-- END GENERATED participates-in -->

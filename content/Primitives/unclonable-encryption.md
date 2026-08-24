@@ -13,3 +13,11 @@ unlisted: true
 An unclonable encryption scheme encrypts a classical message into a quantum ciphertext that cannot be split between two parties in a way that lets both of them recover the message once the decryption key is later revealed.
 
 TODO: syntax and security definition.
+
+<!-- BEGIN GENERATED participates-in a3d8fc850d43 -->
+## Participates in
+
+**Produces Unclonable encryption**
+
+- [[owsg-to-unclonable-encryption|OWSG ⇒ Unclonable encryption]]
+<!-- END GENERATED participates-in -->

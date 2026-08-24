@@ -103,3 +103,13 @@ A related paradigm where short seeds expand to long correlated randomness useful
 - Algebraic attacks exploiting the mixed-moduli structure (Gröbner basis methods, linearization) remain the primary avenue
 
 [^1]: The name "Crypto Dark Matter" reflects the idea that large regions of the cryptographic assumption landscape remain unexplored.
+
+<!-- BEGIN GENERATED participates-in b6ef03ec6f82 -->
+## Participates in
+
+**Builds on Alternating moduli assumption**
+
+- [[alternating-moduli-assumption-to-mpc-bip-18|Alternating moduli assumption ⇒ MPC]]
+- [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
+- [[alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg|Alternating moduli assumption ⇒ Pseudorandom correlation generators (PCG)]]
+<!-- END GENERATED participates-in -->

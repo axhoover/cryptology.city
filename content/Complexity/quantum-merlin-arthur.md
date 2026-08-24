@@ -49,3 +49,11 @@ QMA is the quantum analogue of NP-hardness. In post-quantum cryptography:
 - Lattice problems such as approximate SVP are believed to be in QMA (quantum witnesses can encode short vectors), though QMA-hardness of lattice problems would give extremely strong hardness guarantees.
 - A quantum reduction from a QMA-hard problem to a cryptographic assumption would mean breaking the scheme is at least as hard as Local Hamiltonian — far stronger than any known assumption.
 - The question of whether lattice problems are QMA-hard (or merely in TFNP) has direct implications for the confidence we can place in post-quantum assumptions.
+
+<!-- BEGIN GENERATED participates-in 8b897264fb4d -->
+## Participates in
+
+**Barriers**
+
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+<!-- END GENERATED participates-in -->

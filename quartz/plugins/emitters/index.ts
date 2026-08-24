@@ -2,6 +2,7 @@ export { ContentPage } from "./contentPage";
 export { TagPage } from "./tagPage";
 export { FolderPage } from "./folderPage";
 export { ContentIndex as ContentIndex } from "./contentIndex";
+export { Relations } from "./relations";
 export { AliasRedirects } from "./aliases";
 export { Assets } from "./assets";
 export { Static } from "./static";

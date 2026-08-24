@@ -48,3 +48,19 @@ Generalizes DCR to $d$-th powers modulo $n^{d+1}$. Gives homomorphism for messag
 - DCR is broken if [[factoring|factoring]] $n$ is easy — knowing $p$ and $q$ determines the group structure
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
+
+<!-- BEGIN GENERATED participates-in 4fad64553ebb -->
+## Participates in
+
+**Builds on Decisional composite residuosity assumption**
+
+- [[dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DCR + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
+- [[dcr-to-com|DCR ⇒ COM]]
+- [[dcr-to-he-pai99|DCR ⇒ HE]]
+- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Partially homomorphic encryption (PHE)]]
+- [[dcr-to-pke-pai99|DCR ⇒ PKE]]
+
+**Produces Decisional composite residuosity assumption**
+
+- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
+<!-- END GENERATED participates-in -->
