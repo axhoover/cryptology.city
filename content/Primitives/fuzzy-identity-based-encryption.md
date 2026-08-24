@@ -77,6 +77,6 @@ In **small-universe** Fuzzy IBE, the attribute universe $\calU$ is fixed and enc
 
 # Other results
 
-- Fuzzy IBE generalizes [[identity-based-encryption|IBE]]: setting $t = 1$ and $|\omega| = |\omega'| = 1$ recovers exact-identity matching
-- Fuzzy IBE is subsumed by [[attribute-based-encryption|KP-ABE]]: a threshold-$t$ formula over $|\calU|$ attributes is expressible as a monotone Boolean formula
+- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
+- [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - SW05 introduced Fuzzy IBE and gave the first construction under the Selective-ID security model — [[SW05 - Fuzzy Identity-Based Encryption|SW05]]

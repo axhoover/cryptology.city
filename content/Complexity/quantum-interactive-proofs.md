@@ -29,7 +29,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 ## Multi-prover extensions
 
 - **$\mathbf{MIP^*}$** (multiple quantum-entangled provers): provers share arbitrary prior entanglement but cannot communicate during the protocol. Remarkably, $\mathbf{MIP^*} = \mathbf{RE}$ (the class of recursively enumerable languages) — TODO citation (Ji, Natarajan, Vidick, Wright, Yuen 2020). This means entangled provers can convince a classical verifier of undecidable statements! This result resolved the Connes embedding conjecture in the negative.
-- **$\mathbf{MIP^*}$** vs **$\mathbf{MIP}$**: the classical multi-prover class $\mathbf{MIP} = \mathbf{NEXP}$, so entanglement exponentially (in fact, incomparably) increases prover power.
+- [[no-mip-to-multi-prover-extensions|No reduction from MIP to Multi-prover extensions]]
 
 ## Relevance to cryptography
 

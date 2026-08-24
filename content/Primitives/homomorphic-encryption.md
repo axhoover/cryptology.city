@@ -64,11 +64,12 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 
 # Other results
 
-- First fully homomorphic encryption scheme from ideal lattices using bootstrapping — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]
-- Leveled FHE without bootstrapping from [[learning-with-errors|LWE]] using modulus switching — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]
-- FHE + [[doubly-efficient-pir|DEPIR]]: doubly-efficient PIR and RAM computation from Ring-LWE — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
-- Additively homomorphic encryption from [[decisional-composite-residuosity|DCR]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
-- Multiplicatively homomorphic encryption from [[rsa-assumption|RSA]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
-- HE → rerandomizable encryption → [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]
+- [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE]]
+- [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
+- [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
+- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Partially homomorphic encryption (PHE)]]
+- [[rsa-to-partially-homomorphic-encryption-phe-rsa78|RSA ⇒ Partially homomorphic encryption (PHE)]]
+- [[he-to-re-bl13|HE ⇒ RE]]
+- [[no-he-to-szk-bl13|No reduction from HE to SZK]]
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]

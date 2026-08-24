@@ -127,6 +127,8 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 
 # Other results
 
-- CPA-secure SKE from [[hash-function|OWF]]: the stream cipher $\Enc(k,m) = \PRF(k,r) \oplus m$ (using a fresh nonce $r$) is CPA-secure whenever $\PRF$ is a PRF. Since OWFs imply PRFs via HILL+GGM, SKE follows — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GGM86 - How to construct random functions|GGM86]]
-- CCA-secure SKE can be built from OWF: combine a CPA-secure SKE with a [[message-authentication-code|MAC]] using the encrypt-then-MAC paradigm
-- CPA-secure SKE can be boosted to CCA-secure SKE using a [[message-authentication-code|MAC]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[hash-function-to-ske|Hash function ⇒ SKE]]
+- [[hash-function-to-mac|Hash function ⇒ MAC]]
+- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
+- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]

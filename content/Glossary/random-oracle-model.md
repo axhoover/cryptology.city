@@ -17,10 +17,12 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 
 # Known Results
 
-- **[[interactive-proof-systems|IP]] $\neq$ [[polynomial-space|PSPACE]] relative to a random oracle** — For almost all oracles $A$, $\classIP^A \neq \classPSPACE^A$ [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since Shamir proved $\classIP = \classPSPACE$ unrelativized, this is among the most compelling counterexamples to the Random Oracle Hypothesis.
+- [[no-rom-to-roh-ccg-94|No relativizing reduction from ROM to ROH]]
 
 - **[[fiat-shamir-heuristic|Fiat-Shamir]] is uninstantiable in the standard model** — Goldwasser and Kalai constructed a 3-round public-coin protocol whose Fiat-Shamir transform is existentially forgeable under every concrete hash function, even though it is secure in the ROM [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. This shows the random oracle cannot always be replaced by a concrete function.
 
-- **Fiat-Shamir fails for the GKR protocol** — Khovratovich, Rothblum, and Soukhanov showed that the [[fiat-shamir-heuristic|Fiat-Shamir]] transform fails for the GKR succinct interactive argument — a standard, widely-studied protocol, not a contrived one [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They exhibit families of circuits for which the non-interactive GKR argument proves false statements.
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
 
-- **OIHFs bridge Minicrypt and Cryptomania non-black-box** — Barnum and Heath introduced _Oblivious Interactive Hash Functions_ (OIHFs), a primitive that can be constructed from a random oracle, yet implies [[oblivious-transfer|OT]] via a non-black-box reduction [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]. This partially bridges the classical separation between Minicrypt (one-way functions, PRFs, etc.) and Cryptomania (public-key primitives including OT), though the non-black-box OT construction from a standard-model OIHF currently requires Cryptomania assumptions.
+- [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
+- [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]

@@ -9870,5 +9870,11 @@
    "blockedByRepointOnly": 28,
    "blockedByUnknownOnly": 0
   }
- }
+ },
+ "displayOverrides": {
+  "hash-function": "Hash function"
+ },
+ "ambiguousEndpoints": [
+  "hash-function"
+ ]
 }

@@ -82,9 +82,9 @@ RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|ra
 
 # Other results
 
-- Any IND-CCA PKE scheme immediately gives an IND-CCA KEM by encapsulating a random key — standard
-- The Fujisaki-Okamoto (FO) transform converts any IND-CPA KEM to an IND-CCA KEM in the random oracle model; used in all NIST PQC KEM standards (Kyber, NTRU) — standard
-- KEM-DEM achieves IND-CCA PKE from IND-CCA KEM + IND-CPA SKE — standard
+- [[pke-to-kem|PKE ⇒ KEM]]
+- [[ind-cpa-kem-to-ind-cca-security|IND-CPA KEM ⇒ IND-CCA security]]
+- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - Hybrid encryption (KEM-DEM) is the standard approach in TLS 1.3, Signal, age, and OpenPGP
 - KEM with re-randomizable ciphertexts gives anonymous PKE — standard
-- KEM implies [[key-exchange|key exchange]]: running Encap with the sender's public key gives an authenticated key exchange — standard
+- [[kem-to-ke|KEM ⇒ KE]]

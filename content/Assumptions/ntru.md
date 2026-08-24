@@ -48,8 +48,8 @@ is negligible.
 
 ## Related results
 
-- Under a suitable choice of parameters, the NTRU problem reduces to the [[learning-with-errors#Ring LWE|Ring-LWE]] problem: Ring-LWE hardness implies NTRU hardness — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]
-- NTRU implies [[public-key-encryption|PKE]] — [[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]
+- [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ NTRU]]
+- [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 
 # Variations
 

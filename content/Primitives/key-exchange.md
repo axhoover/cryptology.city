@@ -50,9 +50,10 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 # Other results
 
-- Diffie-Hellman key exchange from [[decisional-diffie-hellman|DDH]] — [[DH76 - New Directions in Cryptography|DH76]]
-- KE implies [[public-key-encryption|PKE]] (the session key can be used with a symmetric cipher) — [[DH76 - New Directions in Cryptography|DH76]]
-- No black-box construction of KE from one-way permutations — standard separation (no KE from symmetric primitives)
-- Any KE protocol from a random oracle requires $\Omega(n)$ queries; Merkle puzzles achieve $O(n^2)$ security and are optimal — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]
-- KE from [[learning-with-errors|LWE]]: follows as a special case of PKE from LWE — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]
-- Communication complexity lower bounds for information-theoretic key agreement — [[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]]
+- [[ddh-to-ke-dh76|DDH ⇒ KE]]
+- [[ke-to-pke-dh76|KE ⇒ PKE]]
+- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[pke-to-ke|PKE ⇒ KE]]
+- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]

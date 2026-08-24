@@ -78,6 +78,6 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 
 # Other results
 
-- BE is a special case of [[attribute-based-encryption|CP-ABE]] with set-membership policies: the access policy $f^*(x) = [x \in S^*]$ is a monotone DNF formula
+- [[abe-to-be|ABE ⇒ BE]]
 - BE is orthogonal to [[identity-based-encryption|IBE]] in expressiveness: IBE matches a single identity exactly, while BE handles arbitrary subsets; neither is a special case of the other
-- BGW05 achieves $O(1)$ ciphertext size (independent of $|S|$ or $n$) under a bilinear Diffie-Hellman variant — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]
+- [[bdh-to-be-bgw05|BDH ⇒ BE]]

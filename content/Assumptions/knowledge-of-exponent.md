@@ -25,10 +25,10 @@ In the pairing-based setting (**$q$-Power Knowledge of Exponent**, used in Groth
 
 ## Known Results
 
-- KEA enables constructing [[succinct-argument|SNARKs]] with constant-size proofs for NP — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
 - KEA is non-falsifiable: no polynomial-time game can witness a KEA violation, because checking "knowledge" requires inspecting internal state — standard
-- KEA-like assumptions cannot be derived from falsifiable assumptions via black-box reductions — standard
-- Groth16 achieves proofs of size 3 group elements, verified with $O(1)$ pairing operations, under a $q$-PKE assumption — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+- [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
+- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
 
 # Variations
 

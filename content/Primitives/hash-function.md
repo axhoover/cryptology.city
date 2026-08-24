@@ -98,14 +98,12 @@ is negligible.
 
 # Other results
 
-- If one-way functions exist, then many "Minicrypt" primitives exist, via the chain OWF → PRG ([[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]) → PRF ([[GGM86 - How to construct random functions|GGM86]]):
-  - [[symmetric-key-encryption|Symmetric Key Encryption]]
-  - [[pseudorandom-function|Pseudorandom Functions]]
-  - [[pseudorandom-permutation|Pseudorandom Permutations]]
-  - [[message-authentication-code|Message Authentication Codes]]
-  - [[digital-signature|Digital Signatures]] (via Lamport one-time signatures [[Lam79 - Constructing digital signatures from a one way function|Lam79]] + Merkle trees [[Mer89 - A Certified Digital Signature|Mer89]])
-- One-way functions exist if [[one-way-permutation|OWP]]s exist
-- Basing OWFs on worst-case NP-hardness is unlikely: any black-box reduction would imply a collapse of the polynomial hierarchy — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[prf-to-prp-lr88|PRF ⇒ PRP]]
+- [[hash-based-signatures-to-ds-mer89|Hash-based signatures ⇒ DS]]
+- [[owp-to-hash-function|OWP ⇒ Hash function]]
+- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
 
 ## Unknown results
 

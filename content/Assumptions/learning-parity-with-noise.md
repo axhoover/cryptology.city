@@ -54,10 +54,7 @@ LPN is naturally stated over $\FF_2$. However, it generalizes to any finite fiel
 
 Depending on the setting of $\varepsilon$ relative to $k$, the $(k,\varepsilon)$-LPN problem has different regimes which are generally known to imply different results.
 
-- **Constant-noise:** $0 < \varepsilon < 1/2$ (weakest assumption)
-- **High-noise**: $\varepsilon = 1/k^\gamma$ for $0 < \gamma < 1/2$
-- **Mid-noise**: $\varepsilon = 1/k^\gamma$ for every $\gamma < 1$
-- **Low-noise**: $\varepsilon = \log^c(k) / k$ for some $c > 1$. (strongest assumption)
+- [[noise-level-to-noise-level|Noise Level ⇒ Noise Level]]
 
 If noise drops to $O(\log(k) / k)$, then there are folklore attacks which run in
 polynomial time and achieve constant advantage.
@@ -70,13 +67,15 @@ In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has ne
 
 # Known results
 
-- Mid-noise (and hence low-noise) LPN implies [[public-key-encryption|PKE]] — [[Ale03 - More on average case vs approximation complexity|Ale03]]
-- Some works show that Low-noise LPN with $\varepsilon = \log^2 k / k$ implies [[hash-function|OWF]] — [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]], [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]
-- Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[single-server-private-information-retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[trapdoor-hash-function|TDH]]) — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
-  - Fully sublinear PIR from any flavor of LPN is open.
-- [[doubly-efficient-pir|SK-DEPIR]] can be built from mid and high-noise LPN — [[CIMR25 - Secret-Key PIR from Random Linear Codes]]
-- [[public-key-encryption|CCA-PKE]] and [[oblivious-transfer|OT]] can be built from subexponential LPN— [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]
-- [[pseudorandom-error-correcting-code|Public-key PRCs]] can be built from subexponential LPN — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
+- [[noise-level-to-pke-ale03|Noise Level ⇒ PKE]]
+- [[noise-level-to-hash-function-blvw19|Noise Level ⇒ Hash function]]
+- [[noise-level-to-tdh-amr25|Noise Level ⇒ TDH]]
+- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
+- [[noise-level-to-depir-cimr25|Noise Level ⇒ DEPIR]]
+- [[noise-level-to-depir-cimr25-2|Noise Level ⇒ DEPIR]]
+- [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ PKE]]
+- [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
+- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
 
 ## Attacks
 
@@ -114,8 +113,10 @@ is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so spa
 
 ### Known results
 
-- Sparse LPN combined with any [[homomorphic-encryption|linearly homomorphic PKE]] (e.g., based on [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) yields [[homomorphic-encryption|Somewhat Homomorphic Encryption]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]
-- [[noisy-k-lin-over-expanders|Noisy k-LIN]] over $\FF_p$-valued expanding matrices (an $\FF_p$ generalization of Sparse LPN, used as a synonym in some cryptographic literature) combined with the [[planted-clique|planted clique conjecture]] against sub-exponential adversaries yields [[public-key-encryption|PKE]] — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
+- [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
+- [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
+- [[dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DCR + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
+- [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
 ## Ring-LPN
 

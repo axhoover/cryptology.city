@@ -160,7 +160,7 @@ Key properties:
 - **Deterministic**: no per-signature randomness needed
 - **Short**: one group element ($\approx 48$ bytes on BLS12-381)
 - **Aggregatable**: $n$ signatures on different messages can be aggregated into one signature verifiable with $n$ pairings
-- **Security**: EUF-CMA under the co-CDH assumption in the random oracle model
+- [[co-cdh-to-ds|co-CDH ⇒ DS]]
 
 BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.
 
@@ -168,9 +168,11 @@ BLS signatures are used in Ethereum 2.0 for validator attestations and threshold
 
 Hash-based signatures achieve **post-quantum security** from collision-resistant hash functions alone — no number-theoretic assumptions.
 
-- **Lamport signatures** (one-time): sign one bit per hash chain; $O(\secpar)$-size signatures, keys usable only once — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
-- **XMSS** (eXtended Merkle Signature Scheme): stateful many-time scheme; uses a Merkle tree of Lamport/Winternitz one-time keys; standardized in RFC 8391
-- **SPHINCS+**: stateless hash-based signatures; uses a hyper-tree of XMSS instances and a few-time signature at the leaves; standardized by NIST as SLH-DSA (FIPS 205); signatures are $\sim 8$–50 KB
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function ⇒ Hash-based signatures]]
+- [[hash-based-signatures-and-hash-based-signatures-to-ds|Hash-based signatures + Hash-based signatures ⇒ DS]]
 
 Security reduces to second-preimage resistance and pseudorandomness of the underlying hash function — no lattice or number-theoretic assumptions.
 
@@ -178,14 +180,14 @@ Security reduces to second-preimage resistance and pseudorandomness of the under
 
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
-- **Dilithium / ML-DSA** (FIPS 204): NIST post-quantum standard; based on Module LWE and Module SIS; "Fiat-Shamir with aborts" paradigm — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]
-- **Falcon**: based on NTRU lattices; smaller signatures than Dilithium ($\sim 666$ bytes) but more complex to implement securely
-- **GPV signatures**: hash-and-sign paradigm using trapdoor lattice sampling; security in the ROM from SIS — standard
+- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[ntru-to-ds|NTRU ⇒ DS]]
+- [[sis-to-ds|SIS ⇒ DS]]
 
 # Other results
 
-- [[hash-function|OWFs]] imply one-time digital signatures via Lamport's scheme — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]
-  - Lamport signatures are single-use; a single key pair signs at most one message securely
-- Many-time signatures from OWFs are obtained by authenticating a collection of one-time verification keys using a Merkle hash tree, giving $O(\secpar)$-size signatures with a $\poly(\secpar)$-size public key — [[Mer89 - A Certified Digital Signature|Mer89]]
-- The foundational EUF-CMA security definition was introduced alongside the first construction of a many-time signature scheme secure under adaptive chosen-message attacks, based on factoring — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]
-- Digital signatures imply [[hash-function|OWFs]]: if signing is hard to forge, the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[fac-to-ds-gmr88|FAC ⇒ DS]]
+- [[ds-to-hash-function|DS ⇒ Hash function]]

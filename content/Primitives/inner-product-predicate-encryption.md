@@ -80,6 +80,6 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 
 # Other results
 
-- IPPE generalizes [[hidden-vector-encryption|HVE]]: a conjunctive pattern predicate over $\Sigma^n$ can be encoded as an inner-product predicate by choosing an alphabet embedding into $\ZZ_p$
-- IPPE is incomparable to [[attribute-based-encryption|KP-ABE and CP-ABE]]: IPPE achieves full attribute-hiding but only captures inner-product predicates, while KP/CP-ABE supports arbitrary monotone Boolean formulas but leaks the access policy
-- KSW08 introduced IPPE and showed that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; the scheme is proved attribute-hiding under the decisional linear assumption — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
+- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+- [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]

@@ -29,12 +29,12 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 The question of whether $\classQCMA = \classQMA$ — i.e., whether quantum proofs are strictly more powerful than classical proofs for quantum verifiers — was resolved in the oracle model through a sequence of increasingly general results:
 
-- **[[AK07 - Quantum versus Classical Proofs and Advice|AK07]]**: First oracle separation, using a quantum unitary oracle. Also showed a corresponding separation between $\classBQP/\mathrm{qpoly}$ and $\classBQP/\mathrm{poly}$.
-- **[[BFM23 - On the Power of Nonstandard Quantum Oracles|BFM23]]**: Studied the separation in the in-place quantum oracle model using representation theory of the symmetric group, showing that no classical witness suffices for a graph connectivity problem relative to such an oracle.
-- **[[NN23 - A Distribution Testing Oracle Separation between QMA and QCMA|NN23]]**: First separation relative to a _classical_ oracle (distributional), testing connectivity of a random graph. A key restriction: the honest quantum witness depends only on the distribution over oracles, not the specific sample.
-- **[[BK24 - Oracle Separation of QMA and QCMA with Bounded Adaptivity|BK24]]**: Separation relative to a standard classical oracle under bounded-adaptivity restrictions (polynomially many queries per round, few rounds).
-- **[[BHNZ25 - Separating QMA from QCMA with a Classical Oracle|BHNZ25]]**: Unconditional separation relative to a standard classical oracle, fully resolving the oracle separation question. The separating problem is _spectral Forrelation_. The key insight: a QCMA verifier can reuse its classical witness across many verification runs to generate many samples, while a quantum witness is use-once (measuring it collapses the state); this asymmetry is formalized via a "second quantization" (bosonic) compression argument.
-- **[[BHV26 - Separating Quantum and Classical Advice with Good Codes|BHV26]]**: Simpler proof of the same classical oracle separation via good error-correcting codes. Also gives the first unconditional classical oracle separation between $\classBQP/\mathrm{qpoly}$ and $\classBQP/\mathrm{poly}$.
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
 
 Note that all of these are oracle separations; whether $\classQCMA = \classQMA$ holds in the unrelativized world remains open.
 

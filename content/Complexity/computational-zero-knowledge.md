@@ -19,7 +19,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 ## Notable problems
 
-- 3-coloring — assuming [[hash-function|OWFs]] exist
+- [[hash-function-to-czk|Hash function ⇒ CZK]]
 
 ## Known relationships
 

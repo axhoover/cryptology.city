@@ -35,5 +35,5 @@ Finally, a central contribution of our work is the first proposal of an OLDC can
   - Then, the client can then use the obfuscated program to obtain the index set, query the indices, and the decode to get the answer (since the returned indices are encrypted)
 - This was ==later recast== as _secret-key DEPIR_ — where instead of obfuscation, the client is just trusted with the secret keys I think
   - Maybe, this could be a useful variant for structured encryption, if it's practically efficient
-  - I think this version of PIR might get around the [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]] barrier, because it's not clear how to do the preprocessing — sender needs to keep DBs private, but sender needs to keep secret key secret
+  - [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
 -

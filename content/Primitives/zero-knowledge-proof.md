@@ -72,10 +72,12 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 # Other results
 
-- ZK proofs were introduced and shown for quadratic residuosity — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
-- All NP languages have computational ZK proofs assuming [[hash-function|OWF]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
+- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
 - All languages in IP (= [[polynomial-space|PSPACE]]) have statistical ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
-- ZK proofs for NP imply OWF in the plain model — standard
+- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
-- The Schnorr protocol is a sigma protocol for discrete log compiled to a [[digital-signature|digital signature]] via Fiat-Shamir — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
-- ZK proofs can be compiled to [[non-interactive-zero-knowledge|NIZK]] in the CRS model or the random oracle model — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
+- [[dlog-to-zkp|DLOG ⇒ ZKP]]
+- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
+- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]

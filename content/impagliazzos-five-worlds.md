@@ -28,7 +28,7 @@ In his paper, Impagliazzo illustrates the differences between "worst-case" and "
 
 These worlds follow from the following chain of implications:
 
-- [[trapdoor-permutation|TDFs]] exist → [[hash-function|OWFs]] exist
+- [[tdp-to-hash-function|TDP ⇒ Hash function]]
 - [[hash-function|OWFs]] exist → [[nondeterministic-polynomial-time|NP]] is hard on average
 - [[nondeterministic-polynomial-time|NP]] is hard on average → $\classP \neq \classNP$
 
@@ -79,7 +79,8 @@ A surprising recent development is the discovery that cryptographic tasks may be
 
 The key insight is that quantum **unclonability** (the no-cloning theorem) can serve as a cryptographic resource even without computational hardness assumptions. For example:
 
-- **Quantum money** and **unclonable encryption** can be constructed from one-way state generators (OWSGs), a quantum analogue of OWFs that may be weaker
+- [[owsg-to-qm|OWSG ⇒ QM]]
+- [[owsg-to-unclonable-encryption|OWSG ⇒ Unclonable encryption]]
 - **Pseudorandom quantum states** (PRS) can exist even if $\classP = \classNP$, since no efficient quantum algorithm can distinguish a PRS from a Haar-random state
 
 The landscape of quantum cryptography without OWFs is mapped out in [[GMMY24 - CountCrypt Quantum Cryptography between QCMA and PP|GMMY24]], which identifies a rich hierarchy of quantum cryptographic primitives that may separate Pessiland from Minicrypt in the quantum setting.

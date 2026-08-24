@@ -56,7 +56,7 @@ A generalization where there are two modes: an injective mode (standard TDP) and
 
 # Other results
 
-- [[public-key-encryption|PKE]] can be constructed from trapdoor permutations — standard (TDP + hard-core predicate → PKE)
-- [[oblivious-transfer|OT]] can be constructed from enhanced trapdoor permutations — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]
-- The [[rsa-assumption|RSA assumption]] implies the existence of a trapdoor permutation (RSA function) — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
-- A OWP cannot be constructed from an injective one-way function in a black-box way — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]]
+- [[tdp-to-pke|TDP ⇒ PKE]]
+- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]

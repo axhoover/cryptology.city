@@ -77,8 +77,8 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 
 # Other results
 
-- KZG is the polynomial commitment underlying most practical pairing-based SNARKs (Groth16, Plonk, Marlin) — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]], [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+- [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
 - FRI-based polynomial commitments give the only known transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
-- Any polynomial commitment with $O(1)$ proof size implies the existence of a succinct NIZK for NP — standard
+- [[pcs-to-nizk|PCS ⇒ NIZK]]
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
-- Polynomial commitments are equivalent to vector commitments with position-binding under certain reductions — standard
+- [[pcs-to-vector-commitments|PCS ⇔ Vector commitments]]

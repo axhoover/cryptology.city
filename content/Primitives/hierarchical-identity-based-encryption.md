@@ -83,7 +83,7 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 
 # Other results
 
-- HIBE strictly generalizes [[identity-based-encryption|IBE]]: depth-1 hierarchies reduce to IBE (ignoring the $\Delegate$ algorithm)
-- HIBE is subsumed by [[attribute-based-encryption|KP-ABE]]: a tree access policy can encode hierarchical delegation, but KP-ABE does not natively expose a $\Delegate$ interface for producing fresh delegated keys
+- [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[abe-to-hibe|ABE ⇒ HIBE]]
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]

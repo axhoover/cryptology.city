@@ -172,13 +172,15 @@ is negligible.
 
 # Other results
 
-- ABE (KP-ABE) generalizes [[fuzzy-identity-based-encryption|Fuzzy IBE]]: threshold-$t$ overlap policies are monotone formulas
-- ABE (KP-ABE) subsumes [[hierarchical-identity-based-encryption|HIBE]]: tree-structured delegation can be expressed as a depth-bounded formula, though KP-ABE does not expose a native $\Delegate$ algorithm
-- ABE (CP-ABE) subsumes [[broadcast-encryption|BE]]: set-membership policies $f^*(x) = [x \in S^*]$ are a special case of monotone DNF
+- [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
+- [[abe-to-hibe|ABE ⇒ HIBE]]
+- [[abe-to-be|ABE ⇒ BE]]
 - ABE is incomparable to [[inner-product-predicate-encryption|IPPE]]: IPPE achieves attribute-hiding but only captures inner-product predicates; KP/CP-ABE handles arbitrary monotone formulas but leaks the policy
-- GPSW06 introduced KP-ABE and gave the first construction for monotone formulas, proving selective security under DBDH — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]
-- BSW07 introduced CP-ABE with a construction proved secure in the generic group model — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]
-- Wat11 gave the first CP-ABE with a standard-model proof of selective security under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]
-- The dual system encryption technique of Wat09 gives adaptively secure IBE, HIBE, and ABE under simple pairing-based assumptions — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
-- RW13 gives large-universe KP-ABE and CP-ABE constructions for any monotone formula under variants of the $k$-linear assumption — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
-- Symmetric CP-ABE, where also the encryptor must hold attributes satisfying the ciphertext policy, admits an IND-CCA2-secure open-universe construction from collision-resistant hash functions and a $\PRF$, with no bilinear map or lattice hardness assumption — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]
+- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[ggm-to-abe-bsw07|GGM ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
+- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
+- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]

@@ -104,9 +104,9 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 
 # Other results
 
-- IBE implies [[public-key-encryption|PKE]]: set the public key to $\pp$ and the per-user public key to $\mathit{id}$; the KGC plays the role of a CA but without issuing certificates
-- IBE is generalized by [[hierarchical-identity-based-encryption|HIBE]], which adds a delegation algorithm allowing any identity to issue keys for its sub-identities
-- IBE is generalized by [[fuzzy-identity-based-encryption|Fuzzy IBE]], which allows partial identity matching via a threshold overlap condition
-- IBE is a special case of both [[attribute-based-encryption|KP-ABE]] and [[attribute-based-encryption|CP-ABE]] with singleton policies
+- [[ibe-to-pke|IBE ⇒ PKE]]
+- [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
+- [[abe-to-ibe|ABE ⇒ IBE]]
 - The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]

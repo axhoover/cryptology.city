@@ -28,9 +28,9 @@ Informally, an algebraic adversary must "explain" every group element it uses. I
 
 The following results are due to [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] for algebraic adversaries in cyclic groups:
 
-- **CDH $\equiv_{\mathrm{AGM}}$ DLOG:** any algebraic CDH adversary can be converted into a DLOG adversary with the same advantage and essentially the same running time.
-- **DDH $\leq_{\mathrm{AGM}}$ DLOG:** DDH reduces tightly to DLOG in the AGM.
-- **BLS security:** unforgeability of [[boneh-lynn-shacham-signature|BLS]] signatures reduces tightly to DLOG in the AGM.
+- [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
+- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - **Groth's SNARK:** the knowledge-soundness of Groth's zero-knowledge SNARK holds in the AGM.
 
 These reductions, combined with the $\Omega(\sqrt{p})$ GGM lower bound of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], yield tight concrete lower bounds for CDH and related problems against algebraic-and-generic adversaries.

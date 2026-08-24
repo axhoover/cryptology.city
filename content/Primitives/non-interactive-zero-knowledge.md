@@ -62,10 +62,13 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 
 # Other results
 
-- NIZK for all NP from trapdoor permutations (hence from [[rsa-assumption|RSA]] or [[discrete-logarithm|DL]]) in the CRS model — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
-- NIZK from [[indistinguishability-obfuscation|iO]] and [[hash-function|OWF]] in the plain model (no CRS) — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
-- Fiat-Shamir compiles sigma protocols to NIZK in the ROM — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]; but is insecure for general interactive proofs — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]
-- NIZK → [[commitment-scheme|COM]]: every NIZK scheme gives a non-interactive commitment
-- Pairing-based NIZK (Groth-Sahai proofs, Groth16) achieves constant or logarithmic proof size — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
+- [[dlog-to-tdp|DLOG ⇒ TDP]]
+- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
+- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[nizk-to-com|NIZK ⇒ COM]]
+- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
-- NIZK from [[learning-with-errors|LWE]] via hash-and-sign signatures and SIS-based commitments — standard
+- [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]

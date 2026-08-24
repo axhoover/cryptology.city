@@ -25,7 +25,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:T#t
 
 TFNP contains several important subclasses defined by the combinatorial principle guaranteeing existence of a solution:
 
-- **PPAD** (Polynomial Parity Argument, Directed): contains Nash equilibrium computation. Hardness of PPAD is the basis for cryptographic constructions of collision-resistant hash functions from worst-case assumptions — TODO citation.
+- [[subclasses-to-hash-function|Subclasses ⇒ Hash function]]
 - **PPP** (Polynomial Pigeonhole Principle): contains the problem of finding a collision in a function $f : \bits^n \to \bits^n$ (pigeonhole guarantees one exists). Integer factorization is in PPP — TODO citation.
 - **PPA** (Polynomial Parity Argument): related to graph parity arguments. Discrete logarithm over groups of unknown order has connections to PPA — TODO citation.
 - **PLS** (Polynomial Local Search): finding local optima. Contains many optimization problems.

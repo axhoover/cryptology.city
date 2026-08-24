@@ -50,8 +50,8 @@ The **GHJS25 planted clique conjecture** ([[GHJS25 - Public-Key Encryption from 
 ## Known Results
 
 - For $k = \Omega(\sqrt{n \log n})$, the planted clique can be detected in polynomial time via spectral methods: the top eigenvector of the centered adjacency matrix $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ concentrates on the planted set — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
-- Planted clique hardness against sub-exponential adversaries (jointly with the [[noisy-k-lin-over-expanders|noisy k-LIN]] conjecture over expanders) implies [[public-key-encryption|PKE]] secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12
-- An alternative PKE construction based on planted clique jointly with the search variant of [[noisy-k-lin-over-expanders|noisy k-LIN]] also holds — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8
+- [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
 
 # Variations
 

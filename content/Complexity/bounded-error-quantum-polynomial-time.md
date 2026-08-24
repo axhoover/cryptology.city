@@ -28,7 +28,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 - $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
 - $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — Adleman, DeMarrais, and Huang (1997).
-- **$\classBQP$ vs $\classNP$:** the two classes are believed incomparable. Simon's problem is in $\classBQP$ but not in $\classNP$ relative to a random oracle; conversely, NP-complete problems are not believed to be in $\classBQP$.
+- [[no-bqp-to-np|No reduction from BQP to NP]]
 - **PostBQP $= \classPP$** (Aaronson 2005): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
 
 ## Relevance to cryptography

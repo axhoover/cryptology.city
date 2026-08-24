@@ -82,7 +82,7 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 # Variations
 
 - [[multi-server-private-information-retrieval|Multi-server PIR]] is an information-theoretic variant, which requires multiple servers
-- [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
+- [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[single-server-private-information-retrieval#Secret-Key PIR (SK-PIR)|Secret-Key PIR (SK-PIR)]] achieves sublinear online communication using client preprocessing with a secret key
 - Keyword PIR
 
@@ -145,13 +145,15 @@ is negligible.
 
 # Other results
 
-- Non-trivial PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
-- Single-round PIR cannot be based on NP-hardness unless [[polynomial-time-hierarchy|PH]] collapses to the second level — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]
+- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[no-np-to-cpir-lv15|No reduction from NP to cPIR]]
 
 ## Constructions
 
-- PIR with $\polylog(n)$ bandwidth can be built from [[decisional-diffie-hellman|DDH]], QR, or [[learning-with-errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
-  - This result goes through the use of [[trapdoor-hash-function|TDH]], which can be used to build PIR generically
+- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
+- [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
+- [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
+- [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
 - Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
-- SK-PIR with $O(N^\varepsilon)$ online communication for any constant $\varepsilon > 0$ follows from the hardness of decoding random linear codes (LPN in a high-noise regime not known to imply public-key encryption) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]
-- SK-PIR with online communication $\tilde{O}(\sqrt{N} \cdot \secpar)$ (server time $O(N \cdot \poly(\secpar))$ per query) follows from one-way functions alone, matching the minimal known lower bound — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]
+- [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]

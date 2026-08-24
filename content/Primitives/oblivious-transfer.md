@@ -128,7 +128,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 # Other results
 
-- OT is implied by non-trivial [[single-server-private-information-retrieval|PIR]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
-- OT implies [[commitment-scheme|commitment schemes]]
-- OT can be constructed from [[public-key-encryption|PKE]]
-- OT is complete for [[secure-multi-party-computation|secure computation]] — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]
+- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[ot-to-com|OT ⇒ COM]]
+- [[pke-to-ot|PKE ⇒ OT]]
+- [[ot-to-mpc-kil88|OT ⇒ MPC]]

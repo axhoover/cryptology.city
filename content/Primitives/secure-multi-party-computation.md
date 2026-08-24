@@ -63,11 +63,11 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 
 # Other results
 
-- MPC with perfect security for any function when fewer than $n/3$ parties are corrupt (no cryptographic assumptions) — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]
-- MPC with computational security for any function from [[oblivious-transfer|OT]] — [[GMW87 - How to play ANY mental game|GMW87]], [[Yao82 - Protocols for secure computations|Yao82]]
-- [[oblivious-transfer|OT]] is complete for (dishonest-majority) MPC — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]
+- [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC]]
+- [[ot-to-mpc-kil88|OT ⇒ MPC]]
+- [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - OT extension: $O(1)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
-- MPC implies OT in a black-box way for certain non-trivial functionalities — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]
-- [[commitment-scheme|COM]] is complete for two-party computation in the semi-honest model — [[GMW87 - How to play ANY mental game|GMW87]]
-- Doubly-efficient RAM-MPC (computation sublinear in the database size) from [[learning-with-errors|LWE]] — [[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]
+- [[mpc-to-ot-bh26|MPC ⇒ OT]]
+- [[com-to-two-party-computation-2pc-gmw87|COM ⇒ Two-party computation (2PC)]]
+- [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]

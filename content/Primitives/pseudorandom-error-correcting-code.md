@@ -60,6 +60,6 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 # Other results
 
 - PRCs were introduced in [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] motivated by undetectable watermarking of AI-generated content
-- Zero-bit PRCs give a watermarking scheme for language model outputs that is undetectable (codewords look like random tokens) and robust to paraphrasing attacks — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
-- PRCs can be constructed from [[learning-with-errors|LWE]]: the LWE ciphertext structure naturally yields a pseudorandom, decodable code robust to bounded noise — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
-- The zero-bit PRC construction from LWE has codewords of length $n = O(\secpar^2 / \log \secpar)$ and is robust to $\varepsilon$-fraction bit flips for $\varepsilon < 1/2 - 1/\poly(\secpar)$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
+- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
+- [[lwe-to-prc-cg24|LWE ⇒ PRC]]
+- [[lwe-to-zero-bit-prc-cg24|LWE ⇒ Zero-bit PRC]]

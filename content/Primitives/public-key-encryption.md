@@ -111,9 +111,9 @@ TODO
 
 # Other results
 
-- PKE implies [[hash-function|OWF]]
-- [[trapdoor-permutation|TDP]] implies PKE
-- PKE from [[decisional-diffie-hellman|DDH]]: the ElGamal scheme encrypts $m$ as $(g^r, m \cdot y^r)$ under public key $y = g^x$, and is CPA-secure under DDH — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] (see also [[DH76 - New Directions in Cryptography|DH76]] for the underlying key-exchange)
-- PKE from [[learning-with-errors|LWE]]: Regev's encryption scheme is CPA-secure under the LWE assumption, with security rooted in worst-case lattice hardness — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]
-- PKE can be built assuming [[learning-parity-with-noise#Noise Level|Mid-noise LPN]]
-- $\PKE$ secure against non-uniform polynomial-size circuits from the [[planted-clique|planted clique conjecture]] against sub-exponential adversaries and [[noisy-k-lin-over-expanders|noisy k-LIN]] over expanders — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]
+- [[pke-to-hash-function|PKE ⇒ Hash function]]
+- [[tdp-to-pke|TDP ⇒ PKE]]
+- [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
+- [[lpn-to-pke|LPN ⇒ PKE]]
+- [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]

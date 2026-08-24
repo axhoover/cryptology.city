@@ -34,10 +34,12 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 
 ## Known Results
 
-- BDH → IBE from the Weil pairing (Boneh-Franklin scheme) — standard
-- BDDH → short signatures (Boneh-Lynn-Shacham BLS), VRFs, and anonymous credential schemes — standard
-- BDH is implied by [[computational-diffie-hellman|CDH]] in the generic group model, but no standard-model reduction is known
-- DLIN (Decision Linear) assumption: a generalization of BDDH; more conservative and used in e.g. Groth-Sahai proofs — standard
+- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
+- [[bdh-to-ds|BDH ⇒ DS]]
+- [[bdh-to-vrf|BDH ⇒ VRF]]
+- [[bdh-to-ac|BDH ⇒ AC]]
+- [[cdh-to-bdh|CDH ⇒ BDH]]
+- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
 - Quantum computers break all pairing-based assumptions by running Shor's algorithm on $\GG_T$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 # Variations

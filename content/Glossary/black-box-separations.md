@@ -73,15 +73,15 @@ A black-box security reduction would convert this eavesdropper (which is efficie
 
 ## Other Notable Separations
 
-- **OWP from injective OWF** — A [[one-way-permutation|OWP]] cannot be black-box constructed from an injective one-way function — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]].
+- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
 
 - **Relativized cryptography** — [[Bra79 - Relativized cryptography|Bra79]] was among the first systematic treatments of oracle separations in a cryptographic setting, predating IR89.
 
-- **PKE, OT, and related primitives** — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] establishes implications and oracle separations among public-key encryption, oblivious transfer, and related primitives, mapping out the landscape of what can and cannot be black-box reduced to what.
+- [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
 
 - **Black-box crypto and doubly-efficient PIR** — Black-box access to most standard cryptographic primitives is insufficient for constructing doubly-efficient PIR — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]].
 
-- **Communication complexity of KA in the ROM** — [[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]] studies the communication lower bounds for KA in the random oracle model, complementing the query complexity picture established by IR89 and BM09.
+- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
 ## Limitations
 
@@ -89,7 +89,7 @@ Oracle separations are a powerful tool but have important limitations:
 
 - **They rule out fully BB proofs, not the implication itself.** An oracle separation between $A$ and $B$ does not mean that $B$ cannot be built from $A$ — only that no fully black-box proof can establish it. Non-black-box techniques can sometimes circumvent oracle separations entirely.
 
-- **Non-black-box constructions exist.** Barak's non-black-box zero-knowledge construction uses the circuit of the adversary to achieve constant-round ZK arguments, bypassing oracle-separation impossibilities that apply to fully BB zero-knowledge protocols.
+- [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
 
 - **The RTV04 taxonomy makes this precise.** An oracle separation rules out only fully black-box reductions (Type 1 in RTV04's taxonomy). Types 2–4, which permit non-black-box constructions or non-black-box proofs, may remain open and are not addressed by the oracle separation.
 

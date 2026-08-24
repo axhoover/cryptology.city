@@ -1,0 +1,5047 @@
+{
+ "ids": [],
+ "variants": [],
+ "newPages": [],
+ "propositions": [],
+ "reductions": [
+  {
+   "id": "red-alternating-moduli-assumption-to-prf-bip-18",
+   "file": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Alternating moduli assumption ⇒ PRF",
+   "sourceEdge": "red-am-to-pf-bip+18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
+   "file": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption",
+   "sourceEdge": "red-ams-to-amw",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-alternating-moduli-assumption-to-mpc-bip-18",
+   "file": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Alternating moduli assumption ⇒ MPC",
+   "sourceEdge": "red-am-to-smpc-bip+18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prg-in-nc1-to-io-jls21",
+   "file": "content/Reductions/prg-in-nc1-to-io-jls21.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PRG in NC1 ⇒ iO",
+   "sourceEdge": "red-lcpn-to-io-jls21",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+   "file": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Alternating moduli assumption ⇒ Pseudorandom correlation generators (PCG)",
+   "sourceEdge": "red-am-to-pcg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-ibe-wat09",
+   "file": "content/Reductions/bdh-to-ibe-wat09.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ IBE",
+   "sourceEdge": "red-bma-to-ibe-wat09",
+   "mergedFrom": [
+    "red-bma-to-ibe-wat09",
+    "red-bdh-to-ibe"
+   ]
+  },
+  {
+   "id": "red-bdh-to-ds",
+   "file": "content/Reductions/bdh-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "BDH ⇒ DS",
+   "sourceEdge": "red-bma-to-ds",
+   "mergedFrom": [
+    "red-bma-to-ds",
+    "red-bddh-to-ds"
+   ]
+  },
+  {
+   "id": "red-bdh-to-vrf",
+   "file": "content/Reductions/bdh-to-vrf.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "BDH ⇒ VRF",
+   "sourceEdge": "red-bddh-to-vrf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-ac",
+   "file": "content/Reductions/bdh-to-ac.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "BDH ⇒ AC",
+   "sourceEdge": "red-bddh-to-ac",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cdh-to-bdh",
+   "file": "content/Reductions/cdh-to-bdh.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "CDH ⇒ BDH",
+   "sourceEdge": "red-cdh-to-bdh",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-nizk-gro16",
+   "file": "content/Reductions/bdh-to-nizk-gro16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ NIZK",
+   "sourceEdge": "red-dlin-to-nizk",
+   "mergedFrom": [
+    "red-dlin-to-nizk",
+    "red-pa-to-nizk-gro16"
+   ]
+  },
+  {
+   "id": "red-sxdh-symmetric-external-diffie-hellman-to-bdh",
+   "file": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ BDH",
+   "sourceEdge": "red-sxdh-to-bddh",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",
+   "file": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK",
+   "sourceEdge": "red-sxdh-to-nizk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-cdh",
+   "file": "content/Reductions/ddh-to-cdh.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DDH ⇒ CDH",
+   "sourceEdge": "red-ddh-to-cdh",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dcr-to-he-pai99",
+   "file": "content/Reductions/dcr-to-he-pai99.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DCR ⇒ HE",
+   "sourceEdge": "red-dcr-to-he-pai99",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fac-to-dcr-pai99",
+   "file": "content/Reductions/fac-to-dcr-pai99.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "FAC ⇒ DCR",
+   "sourceEdge": "red-factoring-to-dcr-pai99",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dcr-to-pke-pai99",
+   "file": "content/Reductions/dcr-to-pke-pai99.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DCR ⇒ PKE",
+   "sourceEdge": "red-dcr-to-pke-pai99",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dcr-to-com",
+   "file": "content/Reductions/dcr-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DCR ⇒ COM",
+   "sourceEdge": "red-dcr-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dkg-and-he-to-tpke",
+   "file": "content/Reductions/dkg-and-he-to-tpke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DKG + HE ⇒ TPKE",
+   "sourceEdge": "red-dkg+he-to-te",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-d-th-composite-residuosity-to-he",
+   "file": "content/Reductions/d-th-composite-residuosity-to-he.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "$d$-th Composite Residuosity ⇒ HE",
+   "sourceEdge": "red-dtcr-to-he",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-ke-dh76",
+   "file": "content/Reductions/ddh-to-ke-dh76.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DDH ⇒ KE",
+   "sourceEdge": "red-ddh-to-ke-dh76",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cdh-to-ddh",
+   "file": "content/Reductions/cdh-to-ddh.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "CDH ⇒ DDH",
+   "sourceEdge": "red-cdh-to-ddh",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-pke-elgamal85",
+   "file": "content/Reductions/ddh-to-pke-elgamal85.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DDH ⇒ PKE",
+   "sourceEdge": "red-ddh-to-pke-elgamal85",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cdh-to-dlog",
+   "file": "content/Reductions/cdh-to-dlog.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "CDH ⇒ DLOG",
+   "sourceEdge": "red-cdh-to-dl",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fac-to-rsa-rsa78",
+   "file": "content/Reductions/fac-to-rsa-rsa78.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "FAC ⇒ RSA",
+   "sourceEdge": "red-factoring-to-ra-rsa78",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fac-to-qr-gm84",
+   "file": "content/Reductions/fac-to-qr-gm84.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "FAC ⇒ QR",
+   "sourceEdge": "red-factoring-to-qr-gm84",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-strong-rsa-to-rsa",
+   "file": "content/Reductions/strong-rsa-to-rsa.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Strong RSA ⇒ RSA",
+   "sourceEdge": "red-sra-to-ra",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-factoring-with-known-factor-structure-to-prg",
+   "file": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Factoring with known factor structure ⇒ PRG",
+   "sourceEdge": "red-fbi-to-pg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-kea-to-snark-gro16",
+   "file": "content/Reductions/kea-to-snark-gro16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "KEA ⇒ SNARK",
+   "sourceEdge": "red-koe-to-sa-gro16",
+   "mergedFrom": [
+    "red-koe-to-sa-gro16",
+    "red-qp-to-sa-gro16"
+   ]
+  },
+  {
+   "id": "red-agm-to-kea",
+   "file": "content/Reductions/agm-to-kea.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "AGM ⇒ KEA",
+   "sourceEdge": "red-agm-to-koe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-noise-level",
+   "file": "content/Reductions/noise-level-to-noise-level.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Noise Level ⇒ Noise Level",
+   "sourceEdge": "red-lln-to-lcn",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-pke-ale03",
+   "file": "content/Reductions/noise-level-to-pke-ale03.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Noise Level ⇒ PKE",
+   "sourceEdge": "red-lmn-to-pke-ale03",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-hash-function-blvw19",
+   "file": "content/Reductions/noise-level-to-hash-function-blvw19.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Noise Level ⇒ Hash function",
+   "sourceEdge": "red-lln-to-hf-blvw19",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-tdh-amr25",
+   "file": "content/Reductions/noise-level-to-tdh-amr25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Noise Level ⇒ TDH",
+   "sourceEdge": "red-lln-to-thf-amr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-tdh-to-cpir-amr25",
+   "file": "content/Reductions/tdh-to-cpir-amr25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "TDH ⇒ cPIR",
+   "sourceEdge": "red-thf-to-sspir-amr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-depir-cimr25",
+   "file": "content/Reductions/noise-level-to-depir-cimr25.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Noise Level ⇒ DEPIR",
+   "sourceEdge": "red-lmn-to-dep-cimr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noise-level-to-depir-cimr25-2",
+   "file": "content/Reductions/noise-level-to-depir-cimr25-2.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Noise Level ⇒ DEPIR",
+   "sourceEdge": "red-lhn-to-dep-cimr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-subexponential-lpn-to-pke-yz16",
+   "file": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Subexponential LPN ⇒ PKE",
+   "sourceEdge": "red-sl-to-pke-yz16",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-subexponential-lpn-to-ot-yz16",
+   "file": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Subexponential LPN ⇒ OT",
+   "sourceEdge": "red-sl-to-ot-yz16",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-subexponential-lpn-to-prc-cg24",
+   "file": "content/Reductions/subexponential-lpn-to-prc-cg24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Subexponential LPN ⇒ PRC",
+   "sourceEdge": "red-sl-to-pecc-cg24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
+   "file": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)",
+   "sourceEdge": "red-sl-to-pcg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sparse-learning-parity-with-noise-to-lpn",
+   "file": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Sparse Learning Parity with Noise ⇒ LPN",
+   "sourceEdge": "red-sl-to-lpwn",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "file": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)",
+   "sourceEdge": "red-lhp+sl-to-she-chkv25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "file": "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)",
+   "sourceEdge": "red-ddh+sl-to-she-chkv25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "file": "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DCR + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)",
+   "sourceEdge": "red-dcr+sl-to-she-chkv25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
+   "file": "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Noisy k-LIN + PC ⇒ PKE",
+   "sourceEdge": "red-nkloe+pc-to-pke-ghjs25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ring-lpn-to-mac",
+   "file": "content/Reductions/ring-lpn-to-mac.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Ring-LPN ⇒ MAC",
+   "sourceEdge": "red-rl-to-mac",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ring-lpn-to-pseudorandom-correlation-generators-pcg",
+   "file": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Ring-LPN ⇒ Pseudorandom correlation generators (PCG)",
+   "sourceEdge": "red-rl-to-pcg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-search-lwe-to-decision-lwe",
+   "file": "content/Reductions/search-lwe-to-decision-lwe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Search LWE ⇒ Decision LWE",
+   "sourceEdge": "red-sl-to-dl",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-decision-lwe-to-search-lwe",
+   "file": "content/Reductions/decision-lwe-to-search-lwe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Decision LWE ⇒ Search LWE",
+   "sourceEdge": "red-dl-to-sl",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-gapsvp-to-lwe-reg05",
+   "file": "content/Reductions/gapsvp-to-lwe-reg05.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "GapSVP ⇒ LWE",
+   "sourceEdge": "red-gapsvp-to-lwe-reg05",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sivp-to-lwe-reg05",
+   "file": "content/Reductions/sivp-to-lwe-reg05.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "SIVP ⇒ LWE",
+   "sourceEdge": "red-sivp-to-lwe-reg05",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-pke-reg05",
+   "file": "content/Reductions/lwe-to-pke-reg05.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ PKE",
+   "sourceEdge": "red-lwe-to-pke-reg05",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ideal-svp-to-ring-lwe-lpr10",
+   "file": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Ideal-SVP ⇒ Ring LWE",
+   "sourceEdge": "red-is-to-rl-lpr10",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-lwe-to-kem",
+   "file": "content/Reductions/module-lwe-to-kem.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Module LWE ⇒ KEM",
+   "sourceEdge": "red-ml-to-kem",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-lwe-and-module-sis-to-ds",
+   "file": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Module LWE + Module-SIS ⇒ DS",
+   "sourceEdge": "red-ml+ms-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-svp-to-module-lwe-ls15",
+   "file": "content/Reductions/module-svp-to-module-lwe-ls15.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Module-SVP ⇒ Module LWE",
+   "sourceEdge": "red-wcmlp-to-ml-ls15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-evasive-lwe-to-be-wee22",
+   "file": "content/Reductions/evasive-lwe-to-be-wee22.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Evasive LWE ⇒ BE",
+   "sourceEdge": "red-el-to-be-wee22",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-evasive-lwe-to-abe-wee22",
+   "file": "content/Reductions/evasive-lwe-to-abe-wee22.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Evasive LWE ⇒ ABE",
+   "sourceEdge": "red-el-to-abe-wee22",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-evasive-lwe-to-abe",
+   "file": "content/Reductions/evasive-lwe-to-abe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Evasive LWE ⇒ ABE",
+   "sourceEdge": "red-cel-to-abe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-succinct-lwe-to-abe-wee25",
+   "file": "content/Reductions/succinct-lwe-to-abe-wee25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Succinct LWE ⇒ ABE",
+   "sourceEdge": "red-sl-to-abe-wee25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-succinct-lwe-to-lwe",
+   "file": "content/Reductions/succinct-lwe-to-lwe.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "Succinct LWE ⇔ LWE",
+   "sourceEdge": "red-sl-to-lwe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-succinct-lwe-to-evasive-lwe",
+   "file": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Succinct LWE ⇒ Evasive LWE",
+   "sourceEdge": "red-sl-to-el",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pc-and-search-noisy-k-lin-to-pke-ghjs25",
+   "file": "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PC + Search noisy $k$-LIN ⇒ PKE",
+   "sourceEdge": "red-pc+snkl-to-pke-ghjs25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ntru-to-pke-hps98",
+   "file": "content/Reductions/ntru-to-pke-hps98.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "NTRU ⇒ PKE",
+   "sourceEdge": "red-ntru-to-pke-hps98",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ring-lwe-to-ntru-ss11",
+   "file": "content/Reductions/ring-lwe-to-ntru-ss11.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Ring LWE ⇒ NTRU",
+   "sourceEdge": "red-rl-to-ntru-ss11",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ntru-to-kem",
+   "file": "content/Reductions/ntru-to-kem.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "NTRU ⇒ KEM",
+   "sourceEdge": "red-ntru-to-kem",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-qr-to-pke-gm84",
+   "file": "content/Reductions/qr-to-pke-gm84.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "QR ⇒ PKE",
+   "sourceEdge": "red-qr-to-pke-gm84",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-qr-to-he-gm84",
+   "file": "content/Reductions/qr-to-he-gm84.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "QR ⇒ HE",
+   "sourceEdge": "red-qr-to-he-gm84",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-qr-to-com",
+   "file": "content/Reductions/qr-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "QR ⇒ COM",
+   "sourceEdge": "red-qr-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-higher-residuosity-to-pke",
+   "file": "content/Reductions/higher-residuosity-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Higher residuosity ⇒ PKE",
+   "sourceEdge": "red-hr-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rsa-to-pke-rsa78",
+   "file": "content/Reductions/rsa-to-pke-rsa78.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "RSA ⇒ PKE",
+   "sourceEdge": "red-ra-to-pke-rsa78",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rsa-to-tdp-rsa78",
+   "file": "content/Reductions/rsa-to-tdp-rsa78.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "RSA ⇒ TDP",
+   "sourceEdge": "red-ra-to-tp-rsa78",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-tdp-to-pke",
+   "file": "content/Reductions/tdp-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "TDP ⇒ PKE",
+   "sourceEdge": "red-tp-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rsa-to-fac-dlo24",
+   "file": "content/Reductions/rsa-to-fac-dlo24.md",
+   "status": "draft",
+   "kind": "equivalence",
+   "title": "RSA ⇔ FAC",
+   "sourceEdge": "red-ra-to-factoring-dlo24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-strong-rsa-to-ds",
+   "file": "content/Reductions/strong-rsa-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Strong RSA ⇒ DS",
+   "sourceEdge": "red-sr-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-strong-rsa-to-com",
+   "file": "content/Reductions/strong-rsa-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Strong RSA ⇒ COM",
+   "sourceEdge": "red-sr-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hiding-to-cpir",
+   "file": "content/Reductions/hiding-to-cpir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Φ-Hiding ⇒ cPIR",
+   "sourceEdge": "red-ph-to-sspir",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sis-to-hash-function-ajt96",
+   "file": "content/Reductions/sis-to-hash-function-ajt96.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "SIS ⇒ Hash function",
+   "sourceEdge": "red-sis-to-crhf-ajt96",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sis-to-ds",
+   "file": "content/Reductions/sis-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SIS ⇒ DS",
+   "sourceEdge": "red-sis-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-gapsvp-to-sis-ajt96",
+   "file": "content/Reductions/gapsvp-to-sis-ajt96.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "GapSVP ⇒ SIS",
+   "sourceEdge": "red-gapsvp-to-sis-ajt96",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sivp-to-sis-ajt96",
+   "file": "content/Reductions/sivp-to-sis-ajt96.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "SIVP ⇒ SIS",
+   "sourceEdge": "red-sivp-to-sis-ajt96",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-isis-inhomogeneous-sis-to-sis",
+   "file": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "ISIS (Inhomogeneous SIS) ⇔ SIS",
+   "sourceEdge": "red-is-to-sis",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-isis-inhomogeneous-sis-to-ds-gpv08",
+   "file": "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "ISIS (Inhomogeneous SIS) ⇒ DS",
+   "sourceEdge": "red-is-to-ds-gpv08",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ideal-svp-to-ring-sis-lm06",
+   "file": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Ideal-SVP ⇒ Ring-SIS",
+   "sourceEdge": "red-is-to-rs-lm06",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-svp-to-module-sis-ls15",
+   "file": "content/Reductions/module-svp-to-module-sis-ls15.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Module-SVP ⇒ Module-SIS",
+   "sourceEdge": "red-wcmlp-to-ms-ls15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-sis-to-ds",
+   "file": "content/Reductions/module-sis-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Module-SIS ⇒ DS",
+   "sourceEdge": "red-ms-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-sidh-to-ke-jdf11",
+   "file": "content/Reductions/sidh-to-ke-jdf11.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "SIDH ⇒ KE",
+   "sourceEdge": "red-sidh-to-ke-jdf11",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-czk",
+   "file": "content/Reductions/hash-function-to-czk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ CZK",
+   "sourceEdge": "red-hf-to-czk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-subclasses-to-hash-function",
+   "file": "content/Reductions/subclasses-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Subclasses ⇒ Hash function",
+   "sourceEdge": "red-ph-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-cdh-fkl18",
+   "file": "content/Reductions/dlog-to-cdh-fkl18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG ⇒ CDH",
+   "sourceEdge": "red-dl-to-cdh-fkl18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-ddh-fkl18",
+   "file": "content/Reductions/dlog-to-ddh-fkl18.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DLOG ⇒ DDH",
+   "sourceEdge": "red-dl-to-ddh-fkl18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-bls-signatures-fkl18",
+   "file": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG ⇒ BLS signatures",
+   "sourceEdge": "red-dl-to-blss-fkl18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-arithmetization-to-snark-bbhr18",
+   "file": "content/Reductions/arithmetization-to-snark-bbhr18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Arithmetization ⇒ SNARK",
+   "sourceEdge": "red-air-to-sa-bbhr18",
+   "mergedFrom": [
+    "red-air-to-sa-bbhr18",
+    "red-plonkish-to-sa"
+   ]
+  },
+  {
+   "id": "red-arithmetization-to-zk-snark-gro16",
+   "file": "content/Reductions/arithmetization-to-zk-snark-gro16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Arithmetization ⇒ zk-SNARK",
+   "sourceEdge": "red-qap-to-groth16-gro16",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
+   "file": "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK",
+   "sourceEdge": "red-air+fri-to-stark-bbhr18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-interactive-protocol-and-rom-to-nizk",
+   "file": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "interactive protocol + ROM ⇒ NIZK",
+   "sourceEdge": "red-ip+rom-to-nizk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-id-and-rom-to-ds",
+   "file": "content/Reductions/id-and-rom-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ID + ROM ⇒ DS",
+   "sourceEdge": "red-is+rom-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-interactive-protocol-and-rom-to-snark",
+   "file": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "interactive protocol + ROM ⇒ SNARK",
+   "sourceEdge": "red-ip+rom-to-sa",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-adversary-models-to-privacy-semi-honest",
+   "file": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Adversary models ⇒ Privacy (semi-honest)",
+   "sourceEdge": "red-ms-to-shs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rom-to-oihf-bh26",
+   "file": "content/Reductions/rom-to-oihf-bh26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "ROM ⇒ OIHF",
+   "sourceEdge": "red-rom-to-oihf-bh26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-oihf-to-ot-bh26",
+   "file": "content/Reductions/oihf-to-ot-bh26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "OIHF ⇒ OT",
+   "sourceEdge": "red-oihf-to-ot-bh26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cpa-security-to-cpa-security",
+   "file": "content/Reductions/cpa-security-to-cpa-security.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "CPA Security ⇔ CPA Security",
+   "sourceEdge": "red-ics-to-ss",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-tdp-to-hash-function",
+   "file": "content/Reductions/tdp-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "TDP ⇒ Hash function",
+   "sourceEdge": "red-tp-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-prg-hill99",
+   "file": "content/Reductions/hash-function-to-prg-hill99.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ PRG",
+   "sourceEdge": "red-hf-to-pg-hill99",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-prf",
+   "file": "content/Reductions/hash-function-to-prf.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ PRF",
+   "sourceEdge": "red-hf-to-pf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-ske",
+   "file": "content/Reductions/hash-function-to-ske.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ SKE",
+   "sourceEdge": "red-hf-to-ske",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-mac",
+   "file": "content/Reductions/hash-function-to-mac.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ MAC",
+   "sourceEdge": "red-hf-to-mac",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-ds",
+   "file": "content/Reductions/hash-function-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ DS",
+   "sourceEdge": "red-hf-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-tdp-to-ot",
+   "file": "content/Reductions/tdp-to-ot.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "TDP ⇔ OT",
+   "sourceEdge": "red-tp-to-ot",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ot-to-mpc-kil88",
+   "file": "content/Reductions/ot-to-mpc-kil88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "OT ⇒ MPC",
+   "sourceEdge": "red-ot-to-smpc-kil88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-circular-security-and-lwe-to-he",
+   "file": "content/Reductions/circular-security-and-lwe-to-he.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Circular security + LWE ⇒ HE",
+   "sourceEdge": "red-cs+lwe-to-he",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-pke-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ PKE",
+   "sourceEdge": "red-hf+io-to-pke-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-ds-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ DS",
+   "sourceEdge": "red-hf+io-to-ds-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-nizk-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ NIZK",
+   "sourceEdge": "red-hf+io-to-nizk-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-fe-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ FE",
+   "sourceEdge": "red-hf+io-to-fe-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-deniable-encryption-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ Deniable encryption",
+   "sourceEdge": "red-hf+io-to-de-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-mmap-to-io-gghrsw13",
+   "file": "content/Reductions/mmap-to-io-gghrsw13.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "MMap ⇒ iO",
+   "sourceEdge": "red-mm-to-io-gghrsw13",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "file": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LPN + LWE + NC1-PRG ⇒ iO",
+   "sourceEdge": "red-lpwn+lwe+pin-to-io-jls21",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-owsg-to-qm",
+   "file": "content/Reductions/owsg-to-qm.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "OWSG ⇒ QM",
+   "sourceEdge": "red-owsg-to-qm",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-owsg-to-unclonable-encryption",
+   "file": "content/Reductions/owsg-to-unclonable-encryption.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "OWSG ⇒ Unclonable encryption",
+   "sourceEdge": "red-owsg-to-ue",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-abe-to-ibe",
+   "file": "content/Reductions/abe-to-ibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ABE ⇒ IBE",
+   "sourceEdge": "red-abe-to-ibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-abe-to-fuzzy-ibe",
+   "file": "content/Reductions/abe-to-fuzzy-ibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ABE ⇒ Fuzzy IBE",
+   "sourceEdge": "red-abe-to-fibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-abe-to-hibe",
+   "file": "content/Reductions/abe-to-hibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ABE ⇒ HIBE",
+   "sourceEdge": "red-abe-to-hibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-abe-to-be",
+   "file": "content/Reductions/abe-to-be.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ABE ⇒ BE",
+   "sourceEdge": "red-abe-to-be",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-abe-gpsw06",
+   "file": "content/Reductions/bdh-to-abe-gpsw06.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ ABE",
+   "sourceEdge": "red-bma-to-abe-gpsw06",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ggm-to-abe-bsw07",
+   "file": "content/Reductions/ggm-to-abe-bsw07.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "GGM ⇒ ABE",
+   "sourceEdge": "red-ggm-to-abe-bsw07",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-hibe-wat09",
+   "file": "content/Reductions/bdh-to-hibe-wat09.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ HIBE",
+   "sourceEdge": "red-bma-to-hibe-wat09",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-k-linear-assumption-to-abe-rw13",
+   "file": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "$k$-Linear assumption ⇒ ABE",
+   "sourceEdge": "red-kla-to-abe-rw13",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+   "file": "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + PRF ⇒ Symmetric CP-ABE",
+   "sourceEdge": "red-hf+pf-to-sca-ls26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-be-bgw05",
+   "file": "content/Reductions/bdh-to-be-bgw05.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ BE",
+   "sourceEdge": "red-bma-to-be-bgw05",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prg-to-com-naor91",
+   "file": "content/Reductions/prg-to-com-naor91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PRG ⇒ COM",
+   "sourceEdge": "red-pg-to-cs-naor91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-com-to-mpc-gmw87",
+   "file": "content/Reductions/com-to-mpc-gmw87.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "COM ⇒ MPC",
+   "sourceEdge": "red-cs-to-smpc-gmw87",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-com-to-ot-kil88",
+   "file": "content/Reductions/com-to-ot-kil88.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "COM ⇒ OT",
+   "sourceEdge": "red-cs-to-ot-kil88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pke-to-com",
+   "file": "content/Reductions/pke-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PKE ⇒ COM",
+   "sourceEdge": "red-pke-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-com",
+   "file": "content/Reductions/ddh-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DDH ⇒ COM",
+   "sourceEdge": "red-ddh-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fiat-shamir-and-schnorr-signatures-to-ds",
+   "file": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Fiat-Shamir + Schnorr signatures ⇒ DS",
+   "sourceEdge": "red-fsh+sip-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-ds-sch91",
+   "file": "content/Reductions/dlog-to-ds-sch91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG ⇒ DS",
+   "sourceEdge": "red-dl-to-ds-sch91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bilinear-pairing-to-ds",
+   "file": "content/Reductions/bilinear-pairing-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Bilinear pairing ⇒ DS",
+   "sourceEdge": "red-pairings-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-co-cdh-to-ds",
+   "file": "content/Reductions/co-cdh-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "co-CDH ⇒ DS",
+   "sourceEdge": "red-cc-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-hash-based-signatures-lam79",
+   "file": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ Hash-based signatures",
+   "sourceEdge": "red-hf-to-ots-lam79",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
+   "file": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function + Hash-based signatures ⇒ DS",
+   "sourceEdge": "red-hf+ots-to-ds-mer89",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-hash-based-signatures",
+   "file": "content/Reductions/hash-function-to-hash-based-signatures.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function ⇒ Hash-based signatures",
+   "sourceEdge": "red-hf-to-xmss",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-based-signatures-and-hash-based-signatures-to-ds",
+   "file": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash-based signatures + Hash-based signatures ⇒ DS",
+   "sourceEdge": "red-fts+xmss-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-and-sis-to-ds-ls15",
+   "file": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE + SIS ⇒ DS",
+   "sourceEdge": "red-lwe+sis-to-ds-ls15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ntru-to-ds",
+   "file": "content/Reductions/ntru-to-ds.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "NTRU ⇒ DS",
+   "sourceEdge": "red-ntru-to-ds",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fac-to-ds-gmr88",
+   "file": "content/Reductions/fac-to-ds-gmr88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "FAC ⇒ DS",
+   "sourceEdge": "red-factoring-to-ds-gmr88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ds-to-hash-function",
+   "file": "content/Reductions/ds-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DS ⇒ Hash function",
+   "sourceEdge": "red-ds-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-function-secret-sharing-fss-to-dpf-bgi15",
+   "file": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Function secret sharing (FSS) ⇒ DPF",
+   "sourceEdge": "red-fss-to-dpf-bgi15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dpf-to-multi-point-functions",
+   "file": "content/Reductions/dpf-to-multi-point-functions.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DPF ⇒ Multi-point functions",
+   "sourceEdge": "red-dpf-to-mpfss",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prg-to-dpf-gi14",
+   "file": "content/Reductions/prg-to-dpf-gi14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PRG ⇒ DPF",
+   "sourceEdge": "red-pg-to-dpf-gi14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dpf-to-it-pir-gi14",
+   "file": "content/Reductions/dpf-to-it-pir-gi14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DPF ⇒ IT-PIR",
+   "sourceEdge": "red-dpf-to-mspir-gi14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-depir-to-cpir",
+   "file": "content/Reductions/depir-to-cpir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DEPIR ⇒ cPIR",
+   "sourceEdge": "red-dep-to-sspir",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-unkeyed-depir-to-depir",
+   "file": "content/Reductions/unkeyed-depir-to-depir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Unkeyed DEPIR ⇒ DEPIR",
+   "sourceEdge": "red-ud-to-pd",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-depir-lmw23",
+   "file": "content/Reductions/lwe-to-depir-lmw23.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ DEPIR",
+   "sourceEdge": "red-lwe-to-dep-lmw23",
+   "mergedFrom": [
+    "red-lwe-to-dep-lmw23",
+    "red-rlwe-to-dep-lmw23"
+   ]
+  },
+  {
+   "id": "red-permuted-puzzles-to-depir-bipw17",
+   "file": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Permuted puzzles ⇒ DEPIR",
+   "sourceEdge": "red-bppa-to-sd-bipw17",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fuzzy-ibe-to-ibe",
+   "file": "content/Reductions/fuzzy-ibe-to-ibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Fuzzy IBE ⇒ IBE",
+   "sourceEdge": "red-fibe-to-ibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prf-to-prp-lr88",
+   "file": "content/Reductions/prf-to-prp-lr88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PRF ⇒ PRP",
+   "sourceEdge": "red-pf-to-pp-lr88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-based-signatures-to-ds-mer89",
+   "file": "content/Reductions/hash-based-signatures-to-ds-mer89.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash-based signatures ⇒ DS",
+   "sourceEdge": "red-ots-to-ds-mer89",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-owp-to-hash-function",
+   "file": "content/Reductions/owp-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "OWP ⇒ Hash function",
+   "sourceEdge": "red-owp-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hve-to-subset-and-range-queries",
+   "file": "content/Reductions/hve-to-subset-and-range-queries.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "HVE ⇒ Subset and range queries",
+   "sourceEdge": "red-hve-to-rqe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-attribute-hiding-security-to-payload-hiding-security",
+   "file": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Attribute-Hiding Security ⇒ Payload-Hiding Security",
+   "sourceEdge": "red-hah-to-hph",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ippe-to-hve",
+   "file": "content/Reductions/ippe-to-hve.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IPPE ⇒ HVE",
+   "sourceEdge": "red-ippe-to-hve",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bdh-to-hve-bw07",
+   "file": "content/Reductions/bdh-to-hve-bw07.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "BDH ⇒ HVE",
+   "sourceEdge": "red-bddh+dlin-to-hve-bw07",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hibe-to-ibe",
+   "file": "content/Reductions/hibe-to-ibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "HIBE ⇒ IBE",
+   "sourceEdge": "red-hibe-to-ibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-anonymous-hibe-to-hibe",
+   "file": "content/Reductions/anonymous-hibe-to-hibe.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Anonymous HIBE ⇒ HIBE",
+   "sourceEdge": "red-ah-to-hibe",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
+   "file": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DCR ⇒ Partially homomorphic encryption (PHE)",
+   "sourceEdge": "red-dcr-to-ahe-pai99",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rsa-to-partially-homomorphic-encryption-phe-rsa78",
+   "file": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "RSA ⇒ Partially homomorphic encryption (PHE)",
+   "sourceEdge": "red-ra-to-mhe-rsa78",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-somewhat-homomorphic-encryption-she-to-he-gen09",
+   "file": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Somewhat homomorphic encryption (SHE) ⇒ HE",
+   "sourceEdge": "red-she-to-he",
+   "mergedFrom": [
+    "red-she-to-he",
+    "red-she-to-fhe-gen09"
+   ]
+  },
+  {
+   "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bgv12",
+   "file": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ Leveled fully homomorphic encryption",
+   "sourceEdge": "red-lwe-to-lfhe-bgv12",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
+   "file": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE",
+   "sourceEdge": "red-cs+she-to-fhe-gen09",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-he-to-re-bl13",
+   "file": "content/Reductions/he-to-re-bl13.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "HE ⇒ RE",
+   "sourceEdge": "red-he-to-re-bl13",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ind-id-cpa-security-to-ind-sid-cpa-security-selective",
+   "file": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)",
+   "sourceEdge": "red-iic-to-isc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ind-sid-cpa-security-selective-to-ind-id-cpa-security",
+   "file": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security",
+   "sourceEdge": "red-isc-to-iic",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ibe-to-pke",
+   "file": "content/Reductions/ibe-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IBE ⇒ PKE",
+   "sourceEdge": "red-ibe-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-differing-inputs-obfuscation-dio-to-io",
+   "file": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "Differing-inputs obfuscation (diO) ⇔ iO",
+   "sourceEdge": "red-dio-to-io",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "file": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DDH + LPN + LWE + NC1-PRG ⇒ iO",
+   "sourceEdge": "red-ddh+lpwn+lwe+pin-to-io-jls21",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+   "file": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Hash function + iO ⇒ Lossy trapdoor functions",
+   "sourceEdge": "red-hf+io-to-lf-sw14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fe-to-io",
+   "file": "content/Reductions/fe-to-io.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "FE ⇒ iO",
+   "sourceEdge": "red-fe-to-io",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ippe-to-payload-only-hiding",
+   "file": "content/Reductions/ippe-to-payload-only-hiding.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IPPE ⇒ Payload-only hiding",
+   "sourceEdge": "red-ippe-to-phi",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlin-to-ippe-ksw08",
+   "file": "content/Reductions/dlin-to-ippe-ksw08.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DLIN ⇒ IPPE",
+   "sourceEdge": "red-dl-to-ippe-ksw08",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-kem-and-ske-to-pke",
+   "file": "content/Reductions/kem-and-ske-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "KEM + SKE ⇒ PKE",
+   "sourceEdge": "red-kem+ske-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ind-cca-security-to-ind-cpa-kem",
+   "file": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IND-CCA security ⇒ IND-CPA KEM",
+   "sourceEdge": "red-ick-to-ick",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-ind-cpa-kem",
+   "file": "content/Reductions/lwe-to-ind-cpa-kem.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "LWE ⇒ IND-CPA KEM",
+   "sourceEdge": "red-lwe-to-ick",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ind-cpa-kem-to-ind-cca-security",
+   "file": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IND-CPA KEM ⇒ IND-CCA security",
+   "sourceEdge": "red-ick-to-ick-2",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rsa-to-ind-cca-security",
+   "file": "content/Reductions/rsa-to-ind-cca-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "RSA ⇒ IND-CCA security",
+   "sourceEdge": "red-ra-to-ick",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pke-to-kem",
+   "file": "content/Reductions/pke-to-kem.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PKE ⇒ KEM",
+   "sourceEdge": "red-pke-to-kem",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-kem-to-ke",
+   "file": "content/Reductions/kem-to-ke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "KEM ⇒ KE",
+   "sourceEdge": "red-kem-to-ke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-non-interactive-key-exchange-nike",
+   "file": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DDH ⇒ Non-interactive key exchange (NIKE)",
+   "sourceEdge": "red-ddh-to-nike",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-authenticated-key-exchange-ake-to-ke",
+   "file": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Authenticated key exchange (AKE) ⇒ KE",
+   "sourceEdge": "red-ake-to-ke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ke-to-multi-party-key-exchange",
+   "file": "content/Reductions/ke-to-multi-party-key-exchange.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "KE ⇒ Multi-party key exchange",
+   "sourceEdge": "red-ke-to-mpke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ke-to-pke-dh76",
+   "file": "content/Reductions/ke-to-pke-dh76.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "KE ⇒ PKE",
+   "sourceEdge": "red-ke-to-pke-dh76",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pke-to-ke",
+   "file": "content/Reductions/pke-to-ke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PKE ⇒ KE",
+   "sourceEdge": "red-pke-to-ke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-it-pir-to-computational-multi-server-pir",
+   "file": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IT-PIR ⇒ Computational Multi-server PIR",
+   "sourceEdge": "red-mspir-to-cmsp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-dpf-gi14",
+   "file": "content/Reductions/hash-function-to-dpf-gi14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ DPF",
+   "sourceEdge": "red-hf-to-dpf-gi14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dpf-to-computational-multi-server-pir-gi14",
+   "file": "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DPF ⇒ Computational Multi-server PIR",
+   "sourceEdge": "red-dpf-to-cmsp-gi14",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-snark-to-nizk",
+   "file": "content/Reductions/snark-to-nizk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SNARK ⇒ NIZK",
+   "sourceEdge": "red-sa-to-nizk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-zkp-to-nizk-fs86",
+   "file": "content/Reductions/zkp-to-nizk-fs86.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "ZKP ⇒ NIZK",
+   "sourceEdge": "red-zkp-to-nizk-fs86",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-tdp-to-nizk-bfm88",
+   "file": "content/Reductions/tdp-to-nizk-bfm88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "TDP ⇒ NIZK",
+   "sourceEdge": "red-tp-to-nizk-bfm88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-tdp",
+   "file": "content/Reductions/dlog-to-tdp.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DLOG ⇒ TDP",
+   "sourceEdge": "red-dl-to-tp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-nizk-to-com",
+   "file": "content/Reductions/nizk-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "NIZK ⇒ COM",
+   "sourceEdge": "red-nizk-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-lattice-based-signatures",
+   "file": "content/Reductions/lwe-to-lattice-based-signatures.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "LWE ⇒ Lattice-based signatures",
+   "sourceEdge": "red-lwe-to-hass",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rabin-ot-to-ot",
+   "file": "content/Reductions/rabin-ot-to-ot.md",
+   "status": "draft",
+   "kind": "equivalence",
+   "title": "Rabin OT ⇔ OT",
+   "sourceEdge": "red-ro-to-ot-rab81",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-k-out-of-n-ot-to-cpir",
+   "file": "content/Reductions/k-out-of-n-ot-to-cpir.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "$k$-out-of-$n$ OT ⇔ cPIR",
+   "sourceEdge": "red-ooono-to-sspir",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-random-ot-to-ot",
+   "file": "content/Reductions/random-ot-to-ot.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Random OT ⇒ OT",
+   "sourceEdge": "red-ro-to-ot",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cpir-to-ot-dmo00",
+   "file": "content/Reductions/cpir-to-ot-dmo00.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "cPIR ⇒ OT",
+   "sourceEdge": "red-sspir-to-ot-dmo00",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ot-to-com",
+   "file": "content/Reductions/ot-to-com.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "OT ⇒ COM",
+   "sourceEdge": "red-ot-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pke-to-ot",
+   "file": "content/Reductions/pke-to-ot.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PKE ⇒ OT",
+   "sourceEdge": "red-pke-to-ot",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pcs-to-snark",
+   "file": "content/Reductions/pcs-to-snark.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PCS ⇒ SNARK",
+   "sourceEdge": "red-pc-to-sa",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-sdh-to-pcs-kzg10",
+   "file": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Bilinear pairing + q-SDH ⇒ PCS",
+   "sourceEdge": "red-pairings+qsdh-to-pc-kzg10",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-pcs-bbhr18",
+   "file": "content/Reductions/hash-function-to-pcs-bbhr18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ PCS",
+   "sourceEdge": "red-hf-to-pc-bbhr18",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-pcs",
+   "file": "content/Reductions/dlog-to-pcs.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DLOG ⇒ PCS",
+   "sourceEdge": "red-dl-to-pc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+   "file": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK",
+   "sourceEdge": "red-kpc-to-sa-kzg10",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pcs-to-nizk",
+   "file": "content/Reductions/pcs-to-nizk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PCS ⇒ NIZK",
+   "sourceEdge": "red-pc-to-nizk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pcs-to-vector-commitments",
+   "file": "content/Reductions/pcs-to-vector-commitments.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "PCS ⇔ Vector commitments",
+   "sourceEdge": "red-pc-to-vc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prc-to-ske-cg24",
+   "file": "content/Reductions/prc-to-ske-cg24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PRC ⇒ SKE",
+   "sourceEdge": "red-pecc-to-ske-cg24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-adaptive-robustness-to-prc",
+   "file": "content/Reductions/adaptive-robustness-to-prc.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Adaptive robustness ⇒ PRC",
+   "sourceEdge": "red-arp-to-pecc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ideal-prc-to-prc",
+   "file": "content/Reductions/ideal-prc-to-prc.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Ideal PRC ⇒ PRC",
+   "sourceEdge": "red-ip-to-pecc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-zero-bit-prc-to-watermarking-cg24",
+   "file": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Zero-bit PRC ⇒ Watermarking",
+   "sourceEdge": "red-zbp-to-lmw-cg24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-prc-cg24",
+   "file": "content/Reductions/lwe-to-prc-cg24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ PRC",
+   "sourceEdge": "red-lwe-to-pecc-cg24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-zero-bit-prc-cg24",
+   "file": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ Zero-bit PRC",
+   "sourceEdge": "red-lwe-to-zbp-cg24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-invertible-prfs-to-prf",
+   "file": "content/Reductions/invertible-prfs-to-prf.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Invertible PRFs ⇒ PRF",
+   "sourceEdge": "red-ip-to-pf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-trapdoor-pseudorandom-generators-to-prg",
+   "file": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "Trapdoor pseudorandom generators ⇔ PRG",
+   "sourceEdge": "red-tpg-to-pg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
+   "file": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Zero-bit PRC ⇒ Trapdoor pseudorandom generators",
+   "sourceEdge": "red-zbp-to-tpg",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prg-to-hash-function",
+   "file": "content/Reductions/prg-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PRG ⇒ Hash function",
+   "sourceEdge": "red-pg-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-prg-bm84",
+   "file": "content/Reductions/dlog-to-prg-bm84.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG ⇒ PRG",
+   "sourceEdge": "red-dl-to-pg-bm84",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prg-to-ske",
+   "file": "content/Reductions/prg-to-ske.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PRG ⇒ SKE",
+   "sourceEdge": "red-pg-to-ske",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-strong-security-to-prp",
+   "file": "content/Reductions/strong-security-to-prp.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Strong Security ⇒ PRP",
+   "sourceEdge": "red-spp-to-pp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-prp-to-prf",
+   "file": "content/Reductions/prp-to-prf.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "PRP ⇒ PRF",
+   "sourceEdge": "red-pp-to-pf-switchinglemma",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cca-security-to-cca1-security",
+   "file": "content/Reductions/cca-security-to-cca1-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "CCA Security ⇒ CCA1 Security",
+   "sourceEdge": "red-pcs-to-pcs",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-cca1-security-to-cpa-security",
+   "file": "content/Reductions/cca1-security-to-cpa-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "CCA1 Security ⇒ CPA Security",
+   "sourceEdge": "red-pcs-to-pcs-2",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-pke-to-hash-function",
+   "file": "content/Reductions/pke-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "PKE ⇒ Hash function",
+   "sourceEdge": "red-pke-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lpn-to-pke",
+   "file": "content/Reductions/lpn-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "LPN ⇒ PKE",
+   "sourceEdge": "red-lpwn-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-com-and-ss-to-verifiable-secret-sharing-vss",
+   "file": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "COM + SS ⇒ Verifiable secret sharing (VSS)",
+   "sourceEdge": "red-cs+ss-to-vss",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-verifiable-secret-sharing-vss-to-mpc-bgw88",
+   "file": "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Verifiable secret sharing (VSS) ⇒ MPC",
+   "sourceEdge": "red-vss-to-smpc-bgw88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
+   "file": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "Linear secret sharing schemes (LSSS) ⇔ MSP",
+   "sourceEdge": "red-lsss-to-msp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ss-to-it-pir-cgks98",
+   "file": "content/Reductions/ss-to-it-pir-cgks98.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "SS ⇒ IT-PIR",
+   "sourceEdge": "red-ss-to-mspir-cgks98",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-gc-and-ot-to-two-party-computation-2pc",
+   "file": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "GC + OT ⇒ Two-party computation (2PC)",
+   "sourceEdge": "red-gc+ot-to-tpc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+   "file": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC",
+   "sourceEdge": "red-hmtlno3-to-smpc-bgw88",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ot-extension-to-mpc-with-preprocessing-spdz-etc",
+   "file": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)",
+   "sourceEdge": "red-oe-to-mwp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
+   "file": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "HE ⇒ MPC with preprocessing (SPDZ, etc.)",
+   "sourceEdge": "red-he-to-mwp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-mpc-to-ot-bh26",
+   "file": "content/Reductions/mpc-to-ot-bh26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "MPC ⇒ OT",
+   "sourceEdge": "red-smpc-to-ot-bh26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-com-to-two-party-computation-2pc-gmw87",
+   "file": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "COM ⇒ Two-party computation (2PC)",
+   "sourceEdge": "red-cs-to-tpc-gmw87",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-de-ram-mpc-lmw24",
+   "file": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ DE-RAM-MPC",
+   "sourceEdge": "red-lwe-to-derm-lmw24",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-symmetric-private-information-retrieval-single-server-to-cpir",
+   "file": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Symmetric private information retrieval (Single-server) ⇒ cPIR",
+   "sourceEdge": "red-sssp-to-sspir",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-symmetric-private-information-retrieval-single-server-to-ot",
+   "file": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
+   "status": "stub",
+   "kind": "equivalence",
+   "title": "Symmetric private information retrieval (Single-server) ⇔ OT",
+   "sourceEdge": "red-sssp-to-ot",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ddh-to-tdh-dgi-19",
+   "file": "content/Reductions/ddh-to-tdh-dgi-19.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DDH ⇒ TDH",
+   "sourceEdge": "red-ddh-to-thf-dgi+19",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-qr-to-tdh-dgi-19",
+   "file": "content/Reductions/qr-to-tdh-dgi-19.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "QR ⇒ TDH",
+   "sourceEdge": "red-qr-to-thf-dgi+19",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lwe-to-tdh-dgi-19",
+   "file": "content/Reductions/lwe-to-tdh-dgi-19.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LWE ⇒ TDH",
+   "sourceEdge": "red-lwe-to-thf-dgi+19",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lpn-to-secret-key-pir-sk-pir-cimr25",
+   "file": "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LPN ⇒ Secret-Key PIR (SK-PIR)",
+   "sourceEdge": "red-lpwn-to-skp-cimr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-secret-key-pir-sk-pir-bm26",
+   "file": "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ Secret-Key PIR (SK-PIR)",
+   "sourceEdge": "red-hf-to-skp-bm26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-snark-bbhr18",
+   "file": "content/Reductions/hash-function-to-snark-bbhr18.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ SNARK",
+   "sourceEdge": "red-hf-to-sa-bbhr18",
+   "mergedFrom": [
+    "red-hf-to-sa-bbhr18",
+    "red-crhf-to-stark-bbhr18"
+   ]
+  },
+  {
+   "id": "red-bilinear-pairing-to-snark-gro16",
+   "file": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Bilinear pairing ⇒ SNARK",
+   "sourceEdge": "red-pairings-to-sa-gro16",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fri-fast-reed-solomon-iop-of-proximity-to-snark",
+   "file": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK",
+   "sourceEdge": "red-fri-to-sa",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-arithmetization-and-pcs-to-snark-kzg10",
+   "file": "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Arithmetization + PCS ⇒ SNARK",
+   "sourceEdge": "red-arithmetiz+pc-to-sa-kzg10",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-snark-to-recursive-snarks",
+   "file": "content/Reductions/snark-to-recursive-snarks.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SNARK ⇒ Recursive SNARKs",
+   "sourceEdge": "red-sa-to-ivc",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-snark-to-hash-function",
+   "file": "content/Reductions/snark-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SNARK ⇒ Hash function",
+   "sourceEdge": "red-sa-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-arithmetization-and-nizk-and-pcs-to-snark",
+   "file": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Arithmetization + NIZK + PCS ⇒ SNARK",
+   "sourceEdge": "red-arithmetiz+nizk+pc-to-sa",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ip-and-rom-to-snark-fs86",
+   "file": "content/Reductions/ip-and-rom-to-snark-fs86.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "IP + ROM ⇒ SNARK",
+   "sourceEdge": "red-ips+rom-to-sa-fs86",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-falsifiable-assumption-to-snark-gro16",
+   "file": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Falsifiable assumption ⇒ SNARK",
+   "sourceEdge": "red-fa-to-sa-gro16",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-mac-and-ske-to-cca-security",
+   "file": "content/Reductions/mac-and-ske-to-cca-security.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "MAC + SKE ⇒ CCA Security",
+   "sourceEdge": "red-mac+ske-to-csske",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-spir-to-it-pir",
+   "file": "content/Reductions/spir-to-it-pir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "SPIR ⇒ IT-PIR",
+   "sourceEdge": "red-spirms-to-mspir",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-enhanced-trapdoor-permutations-to-ot-gkm-00",
+   "file": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Enhanced trapdoor permutations ⇒ OT",
+   "sourceEdge": "red-etp-to-ot-gkm+00",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lossy-trapdoor-functions-to-tdp",
+   "file": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Lossy trapdoor functions ⇒ TDP",
+   "sourceEdge": "red-ltf-to-tp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lossy-trapdoor-functions-to-pke",
+   "file": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Lossy trapdoor functions ⇒ PKE",
+   "sourceEdge": "red-ltf-to-pke",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
+   "file": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK",
+   "sourceEdge": "red-fsh+hvzk-to-nizk",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-zkp",
+   "file": "content/Reductions/dlog-to-zkp.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "DLOG ⇒ ZKP",
+   "sourceEdge": "red-dl-to-sp",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-qr-to-zkp-gmr85",
+   "file": "content/Reductions/qr-to-zkp-gmr85.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "QR ⇒ ZKP",
+   "sourceEdge": "red-qr-to-zkp-gmr85",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-hash-function-to-zkp-gmw91",
+   "file": "content/Reductions/hash-function-to-zkp-gmw91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Hash function ⇒ ZKP",
+   "sourceEdge": "red-hf-to-zkp-gmw91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-zkp-to-hash-function",
+   "file": "content/Reductions/zkp-to-hash-function.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "ZKP ⇒ Hash function",
+   "sourceEdge": "red-zkp-to-hf",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rom-and-zkp-to-ds-fs86",
+   "file": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "ROM + ZKP ⇒ DS",
+   "sourceEdge": "red-rom+sp-to-ds-fs86",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-rom-and-zkp-to-nizk-fs86",
+   "file": "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "ROM + ZKP ⇒ NIZK",
+   "sourceEdge": "red-rom+zkp-to-nizk-fs86",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lsn-to-secret-key-pir-sk-pir-cimr25",
+   "file": "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LSN ⇒ Secret-Key PIR (SK-PIR)",
+   "sourceEdge": "red-lswn-to-skp-cimr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-secret-key-pir-sk-pir-to-depir-bipw17",
+   "file": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Secret-Key PIR (SK-PIR) ⇒ DEPIR",
+   "sourceEdge": "red-skp-to-dep-bipw17",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-secret-key-pir-sk-pir-and-ske-to-depir",
+   "file": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR",
+   "sourceEdge": "red-skp+ske-to-sd",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-lsn-to-lpn-cimr25",
+   "file": "content/Reductions/lsn-to-lpn-cimr25.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "LSN ⇒ LPN",
+   "sourceEdge": "red-lswn-to-lpwn-cimr25",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
+   "file": "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Bilinear pairing + q-SDH ⇒ KZG (Kate-Zaverucha-Goldberg)",
+   "sourceEdge": "red-pairings+qsdh-to-kpc-kzg10",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-lwe-to-ring-lwe-ls15",
+   "file": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
+   "status": "draft",
+   "kind": "equivalence",
+   "title": "Module LWE ⇔ Ring LWE",
+   "sourceEdge": "red-mlr1-to-rl-ls15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-module-lwe-to-lwe-ls15",
+   "file": "content/Reductions/module-lwe-to-lwe-ls15.md",
+   "status": "draft",
+   "kind": "equivalence",
+   "title": "Module LWE ⇔ LWE",
+   "sourceEdge": "red-mlrn-to-lwe-ls15",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+   "file": "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "AE + Hash function + PRF ⇒ Symmetric CP-ABE",
+   "sourceEdge": "red-ae+crhf+pf-to-sca-ls26",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-to-schnorr-signatures-sch91",
+   "file": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG ⇒ Schnorr signatures",
+   "sourceEdge": "red-dl-to-sip-sch91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "file": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures",
+   "sourceEdge": "red-fsh+sip-to-ss-sch91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",
+   "file": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
+   "status": "draft",
+   "kind": "implication",
+   "title": "DLOG + ROM ⇒ Schnorr signatures",
+   "sourceEdge": "red-dl+rom-to-ss-sch91",
+   "mergedFrom": []
+  },
+  {
+   "id": "red-schnorr-signatures-to-schnorr-signatures",
+   "file": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
+   "status": "stub",
+   "kind": "implication",
+   "title": "Schnorr signatures ⇒ Schnorr signatures",
+   "sourceEdge": "red-ss-to-eddsa",
+   "mergedFrom": []
+  }
+ ],
+ "barriers": [
+  {
+   "id": "bar-falsifiable-assumption-to-kea",
+   "file": "content/Barriers/no-falsifiable-assumption-to-kea.md",
+   "status": "stub",
+   "title": "No reduction from Falsifiable assumption to KEA",
+   "sourceEdge": "bar-fa-to-koe",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-evasive-lwe-to-evasive-lwe-buw24",
+   "file": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
+   "status": "draft",
+   "title": "No reduction from Evasive LWE to Evasive LWE",
+   "sourceEdge": "bar-pcel-to-contradict-buw24",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-search-noisy-k-lin-to-noisy-k-lin",
+   "file": "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
+   "status": "stub",
+   "title": "No reduction from Search noisy $k$-LIN to Noisy k-LIN",
+   "sourceEdge": "bar-snkl-to-nkloe",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-bqp-to-np",
+   "file": "content/Barriers/no-bqp-to-np.md",
+   "status": "stub",
+   "title": "No reduction from BQP to NP",
+   "sourceEdge": "bar-beqpt-to-npt",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-qcma-to-qma-ak07",
+   "file": "content/Barriers/no-qcma-to-qma-ak07.md",
+   "status": "draft",
+   "title": "No reduction from QCMA to QMA",
+   "sourceEdge": "bar-qcma-to-qma-ak07",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-mip-to-multi-prover-extensions",
+   "file": "content/Barriers/no-mip-to-multi-prover-extensions.md",
+   "status": "stub",
+   "title": "No reduction from MIP to Multi-prover extensions",
+   "sourceEdge": "bar-mip-to-ms",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-agm-to-ggm-kz22",
+   "file": "content/Barriers/no-agm-to-ggm-kz22.md",
+   "status": "draft",
+   "title": "No reduction from AGM to GGM",
+   "sourceEdge": "bar-agm-to-ggm-kz22",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-owp-to-ke-ir89",
+   "file": "content/Barriers/no-owp-to-ke-ir89.md",
+   "status": "draft",
+   "title": "No reduction from OWP to KE",
+   "sourceEdge": "bar-owp-to-ke-ir89",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-rom-to-merkle-puzzles-bm09",
+   "file": "content/Barriers/no-rom-to-merkle-puzzles-bm09.md",
+   "status": "draft",
+   "title": "No reduction from ROM to Merkle puzzles",
+   "sourceEdge": "bar-rom-to-mp-bm09",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-injective-owf-to-owp-mm11",
+   "file": "content/Barriers/no-injective-owf-to-owp-mm11.md",
+   "status": "draft",
+   "title": "No reduction from Injective OWF to OWP",
+   "sourceEdge": "bar-iowf-to-owp-mm11",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-pke-to-ot-gkm-00",
+   "file": "content/Barriers/no-pke-to-ot-gkm-00.md",
+   "status": "stub",
+   "title": "No reduction from PKE to OT",
+   "sourceEdge": "bar-pke-to-ot-gkm+00",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-rom-to-ke-hmo-19",
+   "file": "content/Barriers/no-rom-to-ke-hmo-19.md",
+   "status": "stub",
+   "title": "No reduction from ROM to KE",
+   "sourceEdge": "bar-rom-to-ke-hmo+19",
+   "mergedFrom": [
+    "bar-rom-to-ke-hmo+19",
+    "bar-ro-to-ke-bm09"
+   ]
+  },
+  {
+   "id": "bar-fiat-shamir-and-hash-function-to-ds-gk03",
+   "file": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
+   "status": "draft",
+   "title": "No reduction from Fiat-Shamir + Hash function to DS",
+   "sourceEdge": "bar-fsh+hf-to-contradict-gk03",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ggm-to-dlog-sho97",
+   "file": "content/Barriers/no-ggm-to-dlog-sho97.md",
+   "status": "draft",
+   "title": "No free reduction from GGM to DLOG",
+   "sourceEdge": "bar-ggm-to-dl-sho97",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ggm-to-cdh-sho97",
+   "file": "content/Barriers/no-ggm-to-cdh-sho97.md",
+   "status": "draft",
+   "title": "No free reduction from GGM to CDH",
+   "sourceEdge": "bar-ggm-to-cdh-sho97",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ggm-to-ddh-sho97",
+   "file": "content/Barriers/no-ggm-to-ddh-sho97.md",
+   "status": "draft",
+   "title": "No free reduction from GGM to DDH",
+   "sourceEdge": "bar-ggm-to-ddh-sho97",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-the-structured-ggm-to-dlog-chw26",
+   "file": "content/Barriers/no-the-structured-ggm-to-dlog-chw26.md",
+   "status": "draft",
+   "title": "No free reduction from The Structured GGM to DLOG",
+   "sourceEdge": "bar-sggm-to-dl-chw26",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-hash-function-to-pke-gkm-00",
+   "file": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
+   "status": "draft",
+   "title": "No fully-black-box reduction from Hash function to PKE",
+   "sourceEdge": "bar-hf-to-pke-gkm+00",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-np-to-hash-function-aggm06",
+   "file": "content/Barriers/no-np-to-hash-function-aggm06.md",
+   "status": "draft",
+   "title": "No reduction from NP to Hash function",
+   "sourceEdge": "bar-npt-to-hf-aggm06",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
+   "file": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
+   "status": "stub",
+   "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security",
+   "sourceEdge": "bar-hss-to-has",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-he-to-cca-security",
+   "file": "content/Barriers/no-he-to-cca-security.md",
+   "status": "stub",
+   "title": "No reduction from HE to CCA Security",
+   "sourceEdge": "bar-he-to-ics",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ippe-to-abe",
+   "file": "content/Barriers/no-ippe-to-abe.md",
+   "status": "stub",
+   "title": "No reduction from IPPE to ABE",
+   "sourceEdge": "bar-ippe-to-abe",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-fiat-shamir-to-nizk-gk03",
+   "file": "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
+   "status": "draft",
+   "title": "No reduction from Fiat-Shamir to NIZK",
+   "sourceEdge": "bar-fsh-to-contradict-gk03",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-np-to-cpir-lv15",
+   "file": "content/Barriers/no-np-to-cpir-lv15.md",
+   "status": "draft",
+   "title": "No reduction from NP to cPIR",
+   "sourceEdge": "bar-npt-to-sspir-lv15",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-cpa-security-to-ind-cpa-security",
+   "file": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
+   "status": "stub",
+   "title": "No reduction from CPA Security to IND$-CPA Security",
+   "sourceEdge": "bar-cs-to-idcs",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-tdp-to-ot",
+   "file": "content/Barriers/no-tdp-to-ot.md",
+   "status": "stub",
+   "title": "No reduction from TDP to OT",
+   "sourceEdge": "bar-tp-to-ot",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-depir-to-ot-dmo00",
+   "file": "content/Barriers/no-depir-to-ot-dmo00.md",
+   "status": "stub",
+   "title": "No reduction from DEPIR to OT",
+   "sourceEdge": "bar-sd-to-ot-dmo00",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-zkp-to-argument-systems",
+   "file": "content/Barriers/no-zkp-to-argument-systems.md",
+   "status": "stub",
+   "title": "No fully-black-box reduction from ZKP to Argument systems",
+   "sourceEdge": "bar-zkp-to-crza",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-he-to-szk-bl13",
+   "file": "content/Barriers/no-he-to-szk-bl13.md",
+   "status": "draft",
+   "title": "No reduction from HE to SZK",
+   "sourceEdge": "bar-he-to-szk-bl13",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-binding-and-hiding-to-com",
+   "file": "content/Barriers/no-binding-and-hiding-to-com.md",
+   "status": "stub",
+   "title": "No reduction from Binding + Hiding to COM",
+   "sourceEdge": "bar-sbc+shc-to-cs",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-rom-to-roh-ccg-94",
+   "file": "content/Barriers/no-rom-to-roh-ccg-94.md",
+   "status": "draft",
+   "title": "No relativizing reduction from ROM to ROH",
+   "sourceEdge": "bar-ro-to-roh-ccg+94",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-fiat-shamir-and-gkr-to-snark-krs25",
+   "file": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
+   "status": "draft",
+   "title": "No reduction from Fiat-Shamir + GKR to SNARK",
+   "sourceEdge": "bar-fsh+gp-to-sa-krs25",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-oihf-to-ot-bh26",
+   "file": "content/Barriers/no-oihf-to-ot-bh26.md",
+   "status": "draft",
+   "title": "No fully-black-box reduction from OIHF to OT",
+   "sourceEdge": "bar-oihf-to-ot-bh26",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-falsifiable-assumption-to-snark-gro16",
+   "file": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
+   "status": "draft",
+   "title": "No fully-black-box reduction from Falsifiable assumption to SNARK",
+   "sourceEdge": "bar-fa-to-sa-gro16",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+   "file": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
+   "status": "stub",
+   "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security",
+   "sourceEdge": "bar-shs-to-ahs",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
+   "file": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
+   "status": "stub",
+   "title": "No reduction from Selective Security to CP-ABE: IND-CPA Security",
+   "sourceEdge": "bar-kass-to-caas",
+   "mergedFrom": []
+  },
+  {
+   "id": "bar-evasive-lwe-to-evasive-lwe-buw24-2",
+   "file": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
+   "status": "draft",
+   "title": "No reduction from Evasive LWE to Evasive LWE",
+   "sourceEdge": "bar-elpc-to-el-buw24",
+   "mergedFrom": []
+  }
+ ],
+ "pointers": [
+  {
+   "file": "content/Assumptions/alternating-moduli.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Assumptions/bilinear-map-assumptions.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Primitives/attribute-based-encryption.md",
+   "replaced": 9
+  },
+  {
+   "file": "content/Assumptions/computational-diffie-hellman.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Assumptions/decisional-diffie-hellman.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Assumptions/decisional-composite-residuosity.md",
+   "replaced": 5
+  },
+  {
+   "file": "content/Assumptions/factoring.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/key-exchange.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Primitives/public-key-encryption.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Assumptions/discrete-logarithm.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Assumptions/quadratic-residuosity.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Assumptions/knowledge-of-exponent.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/succinct-argument.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Assumptions/learning-parity-with-noise.md",
+   "replaced": 9
+  },
+  {
+   "file": "content/Primitives/single-server-private-information-retrieval.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Assumptions/noisy-k-lin-over-expanders.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Assumptions/learning-with-errors.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Assumptions/ntru.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Assumptions/rsa-assumption.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/non-interactive-zero-knowledge.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Primitives/trapdoor-permutation.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/impagliazzos-five-worlds.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/digital-signature.md",
+   "replaced": 11
+  },
+  {
+   "file": "content/Complexity/computational-zero-knowledge.md",
+   "replaced": 1
+  },
+  {
+   "file": "content/Complexity/total-function-np.md",
+   "replaced": 1
+  },
+  {
+   "file": "content/Glossary/algebraic-group-model.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Glossary/arithmetization.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Glossary/random-oracle-model.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "replaced": 5
+  },
+  {
+   "file": "content/Primitives/distributed-point-function.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/hash-function.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/pseudorandom-generator.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Primitives/symmetric-key-encryption.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/oblivious-transfer.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Primitives/secure-multi-party-computation.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Primitives/indistinguishability-obfuscation.md",
+   "replaced": 7
+  },
+  {
+   "file": "content/Primitives/identity-based-encryption.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Primitives/fuzzy-identity-based-encryption.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/broadcast-encryption.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/doubly-efficient-pir.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/pseudorandom-permutation.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/one-way-permutation.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/hidden-vector-encryption.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Primitives/inner-product-predicate-encryption.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/homomorphic-encryption.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Primitives/key-encapsulation-mechanism.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/Primitives/multi-server-private-information-retrieval.md",
+   "replaced": 1
+  },
+  {
+   "file": "content/Primitives/zero-knowledge-proof.md",
+   "replaced": 5
+  },
+  {
+   "file": "content/Primitives/polynomial-commitment.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/pseudorandom-error-correcting-code.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/Primitives/secret-sharing.md",
+   "replaced": 3
+  },
+  {
+   "file": "content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md",
+   "replaced": 2
+  },
+  {
+   "file": "content/Complexity/bounded-error-quantum-polynomial-time.md",
+   "replaced": 1
+  },
+  {
+   "file": "content/Complexity/quantum-classical-merlin-arthur.md",
+   "replaced": 6
+  },
+  {
+   "file": "content/Complexity/quantum-interactive-proofs.md",
+   "replaced": 1
+  },
+  {
+   "file": "content/Glossary/black-box-separations.md",
+   "replaced": 4
+  },
+  {
+   "file": "content/References/BIPW17 - Can We Access a Database Both Locally and Privately.md",
+   "replaced": 1
+  }
+ ],
+ "skipped": [
+  {
+   "what": "reduction",
+   "id": "red-am-to-lrp-bip+18",
+   "why": "unresolved endpoints: leakage-resilient-prf"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ddh-to-pf-nr97",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-lpwn-to-drlc",
+   "why": "unresolved endpoints: decoding-random-linear-codes"
+  },
+  {
+   "what": "reduction",
+   "id": "red-rifae-to-factoring",
+   "why": "unresolved endpoints: rsa-inversion-for-all-exponents"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ra-to-dr",
+   "why": "unresolved endpoints: decisional-rsa"
+  },
+  {
+   "what": "reduction",
+   "id": "red-iau-to-ds",
+   "why": "unresolved endpoints: isogeny-assumption-unnamed"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pg-to-peb",
+   "why": "unresolved endpoints: p-equals-bpp"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf-to-nic-gmw91",
+   "why": "unresolved endpoints: np-in-czk"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf-to-cei-bgg+90",
+   "why": "unresolved endpoints: czk-equals-ip"
+  },
+  {
+   "what": "reduction",
+   "id": "red-cpflob-to-hf-ost91",
+   "why": "unresolved endpoints: czk-proof-for-language-outside-bpp"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf-to-pnpcn",
+   "why": "unresolved endpoints: p-neq-ppoly-cap-np"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pg-to-pg",
+   "why": "self-loop on prg"
+  },
+  {
+   "what": "reduction",
+   "id": "red-lh-to-cag",
+   "why": "unresolved endpoints: cryptographic-assumption-generic"
+  },
+  {
+   "what": "reduction",
+   "id": "red-sncib-to-hf-ost91",
+   "why": "unresolved endpoints: szk-not-contained-in-bpp"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ph-to-cpg",
+   "why": "unresolved endpoints: cryptographic-primitives-generic"
+  },
+  {
+   "what": "reduction",
+   "id": "red-none-to-gs-fkl18",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pc+pcs-to-sa",
+   "why": "unresolved endpoints: polynomial-constraint-system"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pairings+spdc-to-groth16",
+   "why": "unresolved endpoints: single-point-divisibility-check"
+  },
+  {
+   "what": "reduction",
+   "id": "red-fri+rspt-to-acv-bbhr18",
+   "why": "unresolved endpoints: reed-solomon-proximity-test, air-constraint-verification"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pg-to-pf-ggm86",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-rpo-to-owp",
+   "why": "unresolved endpoints: random-permutation-oracle"
+  },
+  {
+   "what": "reduction",
+   "id": "red-nbbt-to-zkp",
+   "why": "unresolved endpoints: non-black-box-technique"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ca+oihf-to-ot-bh26",
+   "why": "unresolved endpoints: cryptomania-assumptions"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pf-to-rf",
+   "why": "unresolved endpoints: random-function"
+  },
+  {
+   "what": "reduction",
+   "id": "red-sih-to-mih",
+   "why": "unresolved endpoints: single-instance-hardness, multi-instance-hardness"
+  },
+  {
+   "what": "reduction",
+   "id": "red-rp-to-rf-din20",
+   "why": "unresolved endpoints: random-permutation, random-function"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf-to-nhoa",
+   "why": "unresolved endpoints: np-hard-on-average"
+  },
+  {
+   "what": "reduction",
+   "id": "red-neoa-to-no",
+   "why": "unresolved endpoints: np-easy-on-average, no-owf"
+  },
+  {
+   "what": "reduction",
+   "id": "red-cryptomani-to-ot",
+   "why": "unresolved endpoints: cryptomania"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ass-to-aas",
+   "why": "unresolved endpoints: abe-adaptive-security"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pf+spr-to-ds",
+   "why": "unresolved endpoints: second-preimage-resistance"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pd-to-sd",
+   "why": "self-loop on depir"
+  },
+  {
+   "what": "reduction",
+   "id": "red-none-to-fc-tar08",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "reduction",
+   "id": "red-none-to-fibe-sw05",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf-to-hf",
+   "why": "self-loop on hash-function"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pf-to-ske",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pf-to-mac",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-bma-to-hibe-bbg05",
+   "why": "unresolved endpoints: bilinear-map-assumption"
+  },
+  {
+   "what": "reduction",
+   "id": "red-sa-to-hibe-wat09",
+   "why": "unresolved endpoints: simple-assumptions"
+  },
+  {
+   "what": "reduction",
+   "id": "red-il-to-he-gen09",
+   "why": "unresolved endpoints: ideal-lattices"
+  },
+  {
+   "what": "reduction",
+   "id": "red-il-to-she-gen09",
+   "why": "unresolved endpoints: ideal-lattices"
+  },
+  {
+   "what": "reduction",
+   "id": "red-cbdh-to-ibe-bf01",
+   "why": "unresolved endpoints: computational-bilinear-diffie-hellman"
+  },
+  {
+   "what": "reduction",
+   "id": "red-sa-to-ibe-wat09",
+   "why": "unresolved endpoints: simple-assumptions"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hf+io-to-mp",
+   "why": "unresolved endpoints: many-primitives"
+  },
+  {
+   "what": "reduction",
+   "id": "red-wfa-to-io-jls21",
+   "why": "unresolved endpoints: well-founded-assumptions"
+  },
+  {
+   "what": "reduction",
+   "id": "red-zi-to-ni",
+   "why": "unresolved endpoints: zero-ippe"
+  },
+  {
+   "what": "reduction",
+   "id": "red-rk-to-apke",
+   "why": "unresolved endpoints: rerandomizable-kem"
+  },
+  {
+   "what": "reduction",
+   "id": "red-mac+ske-to-ske",
+   "why": "self-loop on ske"
+  },
+  {
+   "what": "reduction",
+   "id": "red-obp-to-mspir",
+   "why": "unresolved endpoints: one-bit-pir"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pke+ssn-to-pke",
+   "why": "self-loop on pke"
+  },
+  {
+   "what": "reduction",
+   "id": "red-nizk+pke-to-pke-bfm88",
+   "why": "self-loop on pke"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hass+sc-to-nizk",
+   "why": "unresolved endpoints: sis-commitment"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ot+skp-to-ot-iknp03",
+   "why": "unresolved endpoints: symmetric-key-primitives"
+  },
+  {
+   "what": "reduction",
+   "id": "red-fpc-to-tsa-bbhr18",
+   "why": "unresolved endpoints: fri-polynomial-commitment"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pecc-to-gaw",
+   "why": "unresolved endpoints: generative-ai-watermarking"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ip-to-khuw",
+   "why": "unresolved endpoints: key-holder-undetectable-watermarking"
+  },
+  {
+   "what": "reduction",
+   "id": "red-zbp-to-gaw-cg24",
+   "why": "unresolved endpoints: generative-ai-watermarking"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pf-to-ip-hppy25",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pp-to-ip-switchinglemma",
+   "why": "hyperedge already has a hand-authored page"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pioff-to-ss",
+   "why": "unresolved endpoints: polynomial-interpolation-over-finite-field"
+  },
+  {
+   "what": "reduction",
+   "id": "red-hgoff-to-ss-bla79",
+   "why": "unresolved endpoints: hyperplane-geometry-over-finite-field"
+  },
+  {
+   "what": "reduction",
+   "id": "red-none-to-ss-sha79",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "reduction",
+   "id": "red-bc+hmtlno2-to-smpc-bgw88",
+   "why": "unresolved endpoints: broadcast-channel"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ot-to-ot-iknp03",
+   "why": "self-loop on ot"
+  },
+  {
+   "what": "reduction",
+   "id": "red-none-to-spirms-gikm00",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "reduction",
+   "id": "red-uca-to-sssp",
+   "why": "unresolved endpoints: unspecified-computational-assumption"
+  },
+  {
+   "what": "reduction",
+   "id": "red-pc+pi-to-sa",
+   "why": "unresolved endpoints: polynomial-iop"
+  },
+  {
+   "what": "reduction",
+   "id": "red-tp-to-pkc",
+   "why": "unresolved endpoints: public-key-cryptography"
+  },
+  {
+   "what": "reduction",
+   "id": "red-oldc+owf+vbbo-to-pkp-bipw17",
+   "why": "unresolved endpoints: public-key-pir"
+  },
+  {
+   "what": "reduction",
+   "id": "red-lpwn-to-lvnoics-cimr25",
+   "why": "unresolved endpoints: lsn-variant-noise-outside-independent-column-set"
+  },
+  {
+   "what": "reduction",
+   "id": "red-slnekp1o-to-lpwn-cdv21",
+   "why": "unresolved endpoints: search-lsn-n-equals-k-plus-1-over-f2"
+  },
+  {
+   "what": "reduction",
+   "id": "red-ess+ndp-to-owf-gol00",
+   "why": "unresolved endpoints: expanding-set-system, non-degenerate-predicate"
+  },
+  {
+   "what": "reduction",
+   "id": "red-rspt-to-fpc-bbhr18",
+   "why": "unresolved endpoints: reed-solomon-proximity-test, fri-polynomial-commitment"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-obc-to-pcel-wee22",
+   "why": "unresolved endpoints: obfuscation-based-counterexample"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-rafe-to-factoring",
+   "why": "unresolved endpoints: rsa-assumption-fixed-e"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-factoring+ra-to-nssigrm-dlo24",
+   "why": "conclusion slot holds a consequence (\"no-superpolynomial-separation-in-generic-ring-model\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ctpa-to-csidh",
+   "why": "unresolved endpoints: cd22-torsion-point-attack"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nic-to-pcts2p",
+   "why": "conclusion slot holds a consequence (\"ph-collapses-to-sigma-2-p\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ncpic-to-nec",
+   "why": "conclusion slot holds a consequence (\"np-equals-conp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-crbbzfn-to-nib-gk96",
+   "why": "conclusion slot holds a consequence (\"np-in-bpp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-zkp-to-zkp-gk96",
+   "why": "self-loop on zkp"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-mnen-to-clb",
+   "why": "conclusion slot holds a consequence (\"circuit-lower-bounds\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nip-to-pcts2p",
+   "why": "conclusion slot holds a consequence (\"ph-collapses-to-sigma-2-p\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-bp-to-bq-ak07",
+   "why": "conclusion slot holds a consequence (\"bqp-qpoly\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-enn-to-qissbq2-bfl+24",
+   "why": "conclusion slot holds a consequence (\"qma-internally-separable-strictly-below-qma-2\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ncpis-to-phc",
+   "why": "conclusion slot holds a consequence (\"polynomial-hierarchy-collapses\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-tpinc-to-nec",
+   "why": "conclusion slot holds a consequence (\"np-equals-conp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-tpinh-to-nec",
+   "why": "conclusion slot holds a consequence (\"np-equals-conp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-none-to-dl-sho97",
+   "why": "no hypotheses; an unconditional claim is not a hyperedge"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-os-to-nfbbr-rtv04",
+   "why": "conclusion slot holds a consequence (\"no-fully-black-box-reduction\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-rp-to-pvn-bgs75",
+   "why": "unresolved endpoints: relativizing-proof, p-vs-np"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-owp-to-pvn",
+   "why": "unresolved endpoints: p-vs-np"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-kee+owp-to-contradict",
+   "why": "unresolved endpoints: key-exchange-eavesdropper"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-scp-to-dep-lmw25",
+   "why": "unresolved endpoints: standard-cryptographic-primitives"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sg-to-mg-mpz20",
+   "why": "unresolved endpoints: maurer-ggm"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sggm-to-ic",
+   "why": "conclusion slot holds a consequence (\"index-calculus\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-t3p-to-pbspf-gps06",
+   "why": "conclusion slot holds a consequence (\"pairing-based-scheme-proof-failure\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-roh-to-contradict-ccg+94",
+   "why": "self-loop on random-oracle-hypothesis"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-fsh-to-fssmi-gk03",
+   "why": "conclusion slot holds a consequence (\"fiat-shamir-standard-model-instantiation\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-minicrypt-to-cryptomani",
+   "why": "unresolved endpoints: minicrypt, cryptomania"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ha-to-phcr",
+   "why": "conclusion slot holds a consequence (\"polynomial-hybrid-count-requirement\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-pnn-to-hf-gg98",
+   "why": "unresolved endpoints: p-neq-np"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-pessiland-to-minicrypt-gmmy24",
+   "why": "unresolved endpoints: pessiland, minicrypt"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-aas-to-ass",
+   "why": "unresolved endpoints: abe-adaptive-security"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ka-to-ca",
+   "why": "self-loop on abe"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-pcs-to-contradict",
+   "why": "unresolved endpoints: perfect-commitment-scheme"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-dpf-to-kslb",
+   "why": "conclusion slot holds a consequence (\"key-size-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-mcp-to-sd-lmw25",
+   "why": "unresolved endpoints: many-cryptographic-primitives"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-fc-to-llb",
+   "why": "conclusion slot holds a consequence (\"length-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-hf-to-hf",
+   "why": "self-loop on hash-function"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-re-to-snb-bl13",
+   "why": "conclusion slot holds a consequence (\"szk-neq-bpp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sa-to-cs",
+   "why": "unresolved endpoints: standard-assumptions"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-vbbo-to-contradict",
+   "why": "self-loop on virtual-black-box-obfuscation"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-itka-to-clb-hmo+19",
+   "why": "conclusion slot holds a consequence (\"communication-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-or-to-olnaolb-go96",
+   "why": "conclusion slot holds a consequence (\"omega-log-n-amortized-overhead-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-orbibo-to-osnooslb-cdh20",
+   "why": "conclusion slot holds a consequence (\"omega-sqrt-n-overhead-or-storage-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-gbos-to-mos",
+   "why": "unresolved endpoints: game-based-ot-security"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-smpc-to-car",
+   "why": "conclusion slot holds a consequence (\"computational-assumptions-required\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sspir-to-onpko-dh24",
+   "why": "conclusion slot holds a consequence (\"omega-n-public-key-operations\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sa-to-nfar-gro16",
+   "why": "conclusion slot holds a consequence (\"non-falsifiable-assumption-required\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-zkp-to-pcpz-gk96",
+   "why": "conclusion slot holds a consequence (\"parallel-composition-preserves-zk\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ppp-to-contradict-gps06",
+   "why": "unresolved endpoints: pairing-property-profile"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-usqs-to-qqlbsn",
+   "why": "conclusion slot holds a consequence (\"quantum-query-lower-bound-sqrt-n\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-rpt-to-pnn-bgs75",
+   "why": "conclusion slot holds a consequence (\"p-neq-np\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-none-to-unknown-bra79",
+   "why": "conclusion slot holds a consequence (\"\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ke+ot+pke+tp-to-unknown-gkm+00",
+   "why": "conclusion slot holds a consequence (\"\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-gmg+io+ke+ot+ro+vbbo-to-dep-lmw25",
+   "why": "unresolved endpoints: generic-multilinear-group"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-gcp-to-dep-lmw25",
+   "why": "unresolved endpoints: generic-cryptographic-primitives"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-bbzks+crpsfncl-to-zkp-gk96",
+   "why": "unresolved endpoints: black-box-zero-knowledge-simulation, constant-round-proof-system-for-np-complete-language"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-pc+zkp-to-zkp-gk96",
+   "why": "unresolved endpoints: parallel-composition"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-czk+lob-to-hf-ost91",
+   "why": "unresolved endpoints: language-outside-bpp"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nhwc-to-hf-aggm06",
+   "why": "unresolved endpoints: np-hardness-worst-case"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nh-to-sspir-lv15",
+   "why": "unresolved endpoints: np-hardness"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-sspir-to-pkollb-dh24",
+   "why": "conclusion slot holds a consequence (\"public-key-operations-linear-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-or-to-lnbolb-go96",
+   "why": "conclusion slot holds a consequence (\"log-n-bandwidth-overhead-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-bib+nd+or+or-to-snbocmlb-cdh20",
+   "why": "conclusion slot holds a consequence (\"sqrt-n-bandwidth-or-client-memory-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-or+offline+ue-to-ssclb-bn16",
+   "why": "conclusion slot holds a consequence (\"superlinear-sorting-circuit-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-gc+vbbo-to-vbbo",
+   "why": "unresolved endpoints: general-circuits"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-smpc-to-ot-bh26",
+   "why": "conditional but no conditional-on"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nta+tpdp-to-ke-hmst22",
+   "why": "unresolved endpoints: non-trivial-accuracy"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-chf+fsh-to-fsh-gk03",
+   "why": "unresolved endpoints: concrete-hash-function"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-none-to-qnq",
+   "why": "conclusion slot holds a consequence (\"qcma-neq-qma\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-factoring+ra-to-rfs-dlo24",
+   "why": "conclusion slot holds a consequence (\"rsa-factoring-separation\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-mggm+sggm-to-ge-js08",
+   "why": "conclusion slot holds a consequence (\"ggm-equivalence\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-dpf-to-dkslb",
+   "why": "conclusion slot holds a consequence (\"dpf-key-size-lower-bound\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-tp-to-he",
+   "why": "conditional but no conditional-on"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-none-to-enp",
+   "why": "conclusion slot holds a consequence (\"exp-neq-p\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-nc+tfn-to-nec",
+   "why": "conclusion slot holds a consequence (\"np-eq-conp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-cnpt+nc-to-nec",
+   "why": "conclusion slot holds a consequence (\"np-eq-conp\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-ptmnn-to-clb",
+   "why": "conclusion slot holds a consequence (\"circuit-lower-bounds\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-hf-to-pnpcn",
+   "why": "conclusion slot holds a consequence (\"p-neq-ppoly-cap-np\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "barrier",
+   "id": "bar-qqa+us-to-go-zal97",
+   "why": "conclusion slot holds a consequence (\"grover-optimality\"), not an object; the real conclusion is not recoverable from the source bullet"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/alternating-moduli.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/alternating-moduli.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/alternating-moduli.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/bilinear-map-assumptions.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/bilinear-map-assumptions.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/attribute-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/attribute-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/computational-diffie-hellman.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/decisional-diffie-hellman.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/decisional-composite-residuosity.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/decisional-composite-residuosity.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/factoring.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/factoring.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-exchange.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-exchange.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-exchange.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/public-key-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/discrete-logarithm.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/quadratic-residuosity.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/quadratic-residuosity.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/knowledge-of-exponent.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/knowledge-of-exponent.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/succinct-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-parity-with-noise.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-parity-with-noise.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-parity-with-noise.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/single-server-private-information-retrieval.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/single-server-private-information-retrieval.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/noisy-k-lin-over-expanders.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/learning-with-errors.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/LPR10 - On ideal lattices and learning with errors over rings.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/LS15 - Worst-case to average-case reductions for module lattices.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/ntru.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/ntru.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/rsa-assumption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/rsa-assumption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/rsa-assumption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/non-interactive-zero-knowledge.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/non-interactive-zero-knowledge.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/trapdoor-permutation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/trapdoor-permutation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/trapdoor-permutation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/impagliazzos-five-worlds.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/impagliazzos-five-worlds.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/impagliazzos-five-worlds.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/impagliazzos-five-worlds.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/shortest-integer-solution.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/digital-signature.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/digital-signature.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/digital-signature.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/digital-signature.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/algebraic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/algebraic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/algebraic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/arithmetization.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/fiat-shamir-heuristic.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/fiat-shamir-heuristic.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/fiat-shamir-heuristic.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/fiat-shamir-heuristic.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/fiat-shamir-heuristic.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/interactive-protocol.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Folklore/hybrid-argument.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/commitment-scheme.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/distributed-point-function.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/distributed-point-function.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hash-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hash-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hash-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hash-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hash-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-function.md",
+   "why": "verbatim no longer matches the page byte-for-byte; bullet left as-is"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-function.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-generator.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-generator.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/symmetric-key-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/oblivious-transfer.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/oblivious-transfer.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/oblivious-transfer.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secure-multi-party-computation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secure-multi-party-computation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secure-multi-party-computation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secure-multi-party-computation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/indistinguishability-obfuscation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/indistinguishability-obfuscation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/fuzzy-identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/doubly-efficient-pir.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/doubly-efficient-pir.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-permutation.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hidden-vector-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hidden-vector-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/hidden-vector-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/inner-product-predicate-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/inner-product-predicate-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/homomorphic-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/homomorphic-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/homomorphic-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/homomorphic-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/homomorphic-encryption.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-encapsulation-mechanism.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-encapsulation-mechanism.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-encapsulation-mechanism.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-encapsulation-mechanism.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/key-encapsulation-mechanism.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/multi-server-private-information-retrieval.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/zero-knowledge-proof.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/zero-knowledge-proof.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/polynomial-commitment.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/polynomial-commitment.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/polynomial-commitment.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/polynomial-commitment.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/polynomial-commitment.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/KZG10 - Constant-size commitments to polynomials and their applications.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-error-correcting-code.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-error-correcting-code.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/pseudorandom-error-correcting-code.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secret-sharing.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/secret-sharing.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Primitives/symmetric-private-information-retrieval-multi-server.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/BBHR18 - Scalable, transparent, and post-quantum secure computational integrity.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/References/Sch91 - Efficient signature generation by smart cards.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Complexity/quantum-classical-merlin-arthur.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/generic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/generic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/generic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/generic-group-model.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  },
+  {
+   "what": "pointer",
+   "id": "content/Glossary/black-box-separations.md",
+   "why": "statement is prose, not a bullet; left in place for a human to rewrite"
+  }
+ ],
+ "warnings": [],
+ "ambiguous": [
+  {
+   "edge": "red-lln-to-hf-blvw19",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-sis-to-crhf-ajt96",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-czk",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-nic-gmw91",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-cei-bgg+90",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-cpflob-to-hf-ost91",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-pnpcn",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-sncib-to-hf-ost91",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-ph-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-tp-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-nhoa",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-pg-hill99",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-pf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-ske",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-mac",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-ds",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-pke-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-ds-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-nizk-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-fe-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-de-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+pf-to-sca-ls26",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-ots-lam79",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+ots-to-ds-mer89",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-xmss",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-ds-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-hf",
+   "endpoints": [
+    "hash-function",
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-owp-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-mp",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf+io-to-lf-sw14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-dpf-gi14",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-pc-bbhr18",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-pg-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-pke-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-skp-bm26",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-sa-bbhr18",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-sa-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-hf-to-zkp-gmw91",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-zkp-to-hf",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-oldc+owf+vbbo-to-pkp-bipw17",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-ess+ndp-to-owf-gol00",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "red-ae+crhf+pf-to-sca-ls26",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-fsh+hf-to-contradict-gk03",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-pnn-to-hf-gg98",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-hf-to-pke-gkm+00",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-hf-to-hf",
+   "endpoints": [
+    "hash-function",
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-npt-to-hf-aggm06",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-czk+lob-to-hf-ost91",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  },
+  {
+   "edge": "bar-nhwc-to-hf-aggm06",
+   "endpoints": [
+    "hash-function"
+   ],
+   "why": "resolves to a page that covers two distinct objects; needs the variant id instead"
+  }
+ ]
+}

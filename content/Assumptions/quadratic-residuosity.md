@@ -50,10 +50,10 @@ is negligible.
 
 ## Known Results
 
-- QR → CPA-secure [[public-key-encryption|PKE]]: Goldwasser-Micali encryption (the first IND-CPA PKE scheme) encrypts one bit at a time — [[GM84 - Probabilistic encryption|GM84]]
-- Goldwasser-Micali is multiplicatively homomorphic: $\Enc(b_1) \cdot \Enc(b_2) = \Enc(b_1 \oplus b_2 \bmod 2)$ — [[GM84 - Probabilistic encryption|GM84]]
-- QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols $\left(\frac{a}{p}\right)$ and $\left(\frac{a}{q}\right)$ — [[GM84 - Probabilistic encryption|GM84]]
-- QR → statistically hiding [[commitment-scheme|commitment scheme]] — standard
+- [[qr-to-pke-gm84|QR ⇒ PKE]]
+- [[qr-to-he-gm84|QR ⇒ HE]]
+- [[fac-to-qr-gm84|FAC ⇒ QR]]
+- [[qr-to-com|QR ⇒ COM]]
 - The original [[zero-knowledge-proof|ZK proof]] of GMR85 was for quadratic residuosity — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 
 # Variations

@@ -65,9 +65,10 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 
 # Other results
 
-- COM from [[pseudorandom-generator|PRG]] (and hence from [[hash-function|OWF]]): Naor's construction uses a PRG to commit to a single bit in a statistically binding, computationally hiding scheme — [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
-- COM is complete for [[secure-multi-party-computation|MPC]] in the semi-honest model: any two-party functionality can be computed given a commitment scheme — [[GMW87 - How to play ANY mental game|GMW87]]
-- [[oblivious-transfer|OT]] can be constructed from any non-trivial commitment scheme — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]
-- COM from any CPA-secure [[public-key-encryption|PKE]] scheme: encrypt $m$ under a freshly generated public key; the ciphertext is a statistically binding commitment
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[prg-to-com-naor91|PRG ⇒ COM]]
+- [[com-to-mpc-gmw87|COM ⇒ MPC]]
+- [[com-to-ot-kil88|COM ⇒ OT]]
+- [[pke-to-com|PKE ⇒ COM]]
 - Statistically hiding COM is equivalent to [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — standard
-- COM from [[decisional-diffie-hellman|DDH]]: the Pedersen commitment scheme is perfectly hiding and computationally binding
+- [[ddh-to-com|DDH ⇒ COM]]

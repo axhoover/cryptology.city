@@ -29,9 +29,9 @@ $$
 
 ## Known Results
 
-- The [[rsa-assumption|RSA assumption]] (hardness of computing $e$-th roots mod $N$) is implied by the factoring assumption — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open (factoring may be harder than RSA)
-- The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — [[GM84 - Probabilistic encryption|GM84]]
-- The [[decisional-composite-residuosity|DCR assumption]] (Paillier) follows from factoring hardness — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
+- [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
+- [[fac-to-qr-gm84|FAC ⇒ QR]]
+- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
 - Quantum computers can factor in polynomial time via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 # Variations

@@ -98,11 +98,11 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 
 - Solving decision (or search) LWE on a noticeable fraction of inputs is at least as hard as quantum-approximating the **Shortest Vector Problem (GapSVP)** and the **Shortest Independent Vectors Problem (SIVP)** to within polynomial factors in the worst case
 - Because GapSVP and SIVP are believed hard even for quantum computers, this gives a strong post-quantum security guarantee for LWE-based schemes
-- Classical reductions (without quantum steps) are known for certain parameter regimes — see subsequent work by Peikert
+- [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
 
 ## Cryptographic constructions
 
-- **PKE from LWE**: to encrypt a bit $b$, send a random linear combination of the LWE samples plus $b \cdot \lfloor q/2 \rfloor$; decryption uses $\mathbf{s}$ to remove the LWE component — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 
 # Attacks
 
@@ -136,8 +136,8 @@ where $\mathbf{A} \in R_q^{m \times k}$ is a random module matrix, $\mathbf{s} \
 
 The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). Module LWE is the basis for the NIST post-quantum standards:
 
-- **Kyber / ML-KEM** (FIPS 203): IND-CCA [[key-encapsulation-mechanism|KEM]] from Module LWE with $k = 2, 3, 4$
-- **Dilithium / ML-DSA** (FIPS 204): EUF-CMA [[digital-signature|digital signatures]] from Module LWE/SIS
+- [[module-lwe-to-kem|Module LWE ⇒ KEM]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 
 Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 

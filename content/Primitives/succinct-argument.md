@@ -92,10 +92,11 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 
 # Other results
 
-- Groth16 achieves constant proof size (3 $\GG_1$ elements + 1 $\GG_2$ element) and is the most proof-size-efficient pairing-based zk-SNARK; relies on the [[knowledge-of-exponent|knowledge-of-exponent assumption]] — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
-- STARKs are post-quantum secure; security reduces to the collision resistance of the hash function used — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
-- Any succinct non-interactive argument implies collision-resistant hash functions — standard
-- [[non-interactive-zero-knowledge|NIZK]] proofs can be made succinct using [[polynomial-commitment|polynomial commitments]] and [[arithmetization]] — standard
-- The Fiat-Shamir transform converts interactive proofs to non-interactive SNARKs in the random oracle model — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
+- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
+- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
+- [[snark-to-hash-function|SNARK ⇒ Hash function]]
+- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
+- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
 - SNARKs are constructed via two steps: (1) [[arithmetization]] — convert the computation to polynomial constraints; (2) a [[polynomial-commitment|polynomial commitment scheme]] — commit and open evaluations — standard
-- Knowledge soundness requires non-falsifiable assumptions (like KEA) in the standard model; in the algebraic group model (AGM) or generic group model, it can be based on falsifiable assumptions — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+- [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
+- [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]

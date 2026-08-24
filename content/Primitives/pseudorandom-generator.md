@@ -85,8 +85,8 @@ robust to noise.
 
 # Other results
 
-- [[hash-function|OWF]]s imply PRGs, via the Goldreich-Levin hard-core predicate — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]
-  - Conversely, any PRG is a one-way function (the seed is a preimage of the output), so OWF $\Leftrightarrow$ PRG
-- The first PRG from a concrete assumption: discrete-log hardness implies a PRG — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+  - [[prg-to-hash-function|PRG ⇒ Hash function]]
+- [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
-- PRG implies CPA-secure [[symmetric-key-encryption|SKE]]: the stream cipher $\Enc(k, m) = G(k) \oplus m$ is CPA-secure whenever $G$ is a PRG with stretch $|m|$
+- [[prg-to-ske|PRG ⇒ SKE]]

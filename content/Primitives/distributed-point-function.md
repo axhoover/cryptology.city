@@ -48,7 +48,8 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 
 # Other results
 
-- DPFs can be constructed from [[hash-function|OWFs]] (concretely, from PRGs) with key size $O(\secpar \log N)$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]]
-- [[multi-server-private-information-retrieval#Computational Multi-server PIR|Computational 2-server PIR]] can be built from DPFs (the query is a DPF key pair, and each server evaluates its share) — [[GI14 - Distributed Point Functions and Their Applications|GI14]]
+- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[prg-to-dpf-gi14|PRG ⇒ DPF]]
+- [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
 - DPFs generalize to FSS for richer function classes including intervals, halfspaces, and decision trees — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
 - DPF key size lower bound: any 2-server DPF for $N$-element domain has keys of size $\Omega(\secpar + \log N)$ — standard

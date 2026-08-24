@@ -105,5 +105,5 @@ The BW07 paper also formalizes subset predicates (is $x_i \in T_i$ for some set 
 
 # Other results
 
-- HVE is generalized by [[inner-product-predicate-encryption|IPPE]]: a conjunctive pattern predicate over $\Sigma^n$ can be encoded as an inner product over $\ZZ_p$ with an appropriate alphabet embedding
-- BW07 introduced HVE and gave constructions for conjunctive, subset, and range queries, proved attribute-hiding under the decisional bilinear Diffie-Hellman and decisional linear assumptions — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]
+- [[ippe-to-hve|IPPE ⇒ HVE]]
+- [[bdh-to-hve-bw07|BDH ⇒ HVE]]

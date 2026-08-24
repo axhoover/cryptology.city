@@ -29,12 +29,13 @@ where $c$ is either a uniformly random $n$-th power (i.e., $c = r^n \bmod n^2$ f
 
 ## Known Results
 
-- DCR implies the Paillier cryptosystem, which achieves additive homomorphism: given $\Enc(m_1)$ and $\Enc(m_2)$, one can compute $\Enc(m_1 + m_2 \bmod n)$ without decryption — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
-- DCR follows from [[factoring|factoring hardness]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
+- [[dcr-to-he-pai99|DCR ⇒ HE]]
+- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
 - The converse is open: it is not known whether DCR implies factoring
-- DCR → CPA-secure [[public-key-encryption|PKE]] with additive homomorphism — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
-- DCR → [[commitment-scheme|COM]] (statistically hiding, computationally binding) — standard
-- DCR → threshold encryption (via Paillier with distributed key generation) — standard
+- [[dcr-to-pke-pai99|DCR ⇒ PKE]]
+- [[dcr-to-com|DCR ⇒ COM]]
+- [[dcr-to-he-pai99|DCR ⇒ HE]]
+- [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
 
 # Variations
 
