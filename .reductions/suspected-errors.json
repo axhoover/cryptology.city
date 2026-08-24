@@ -1,0 +1,785 @@
+{
+ "note": "Suspected mathematical and attribution errors found while auditing the prose relations. RECORDED, NEVER FIXED — this pass moved claims, it did not change them. Owned by the skeptical-checker lane.",
+ "count": 80,
+ "bySeverity": {
+  "high": 38,
+  "medium": 32,
+  "low": 10
+ },
+ "entries": [
+  {
+   "file": "content/Assumptions/bilinear-map-assumptions.md",
+   "line": 34,
+   "claim": "- BDDH → short signatures (Boneh-Lynn-Shacham BLS), VRFs, and anonymous credential schemes — standard",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: BLS short signatures are proved under (co-)CDH / gap-DH in pairing groups, not under decisional BDH; a decisional assumption is the wrong hypothesis for an unforgeability result.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-bddh-to-ds",
+    "red-bddh-to-vrf",
+    "red-bddh-to-ac"
+   ]
+  },
+  {
+   "file": "content/Assumptions/computational-diffie-hellman.md",
+   "line": 12,
+   "claim": "The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group.",
+   "problem": "SUSPECTED DIRECTION CONFUSION: the text calls CDH a natural strengthening of the DDH assumption, but DDH is the stronger assumption (DDH hard implies CDH hard). The gloss that follows (an adversary solving CDH also solves DDH) is correct and describes the opposite framing.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-ddh-to-cdh"
+   ]
+  },
+  {
+   "file": "content/Assumptions/decisional-composite-residuosity.md",
+   "line": 30,
+   "claim": "- DCR follows from [[factoring|factoring hardness]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: DCR is not known to follow from the hardness of factoring. The known direction is the converse — factoring n breaks DCR — so DCR hardness implies factoring hardness. Pai99 does not prove factoring implies DCR.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-factoring-to-dcr-pai99"
+   ]
+  },
+  {
+   "file": "content/Assumptions/decisional-composite-residuosity.md",
+   "line": 31,
+   "claim": "- The converse is open: it is not known whether DCR implies factoring",
+   "problem": "SUSPECTED ERROR: it is not known whether DCR implies factoring is false under the usual reading — DCR hardness does imply factoring hardness. The genuinely open direction is factoring hardness implying DCR hardness.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/decisional-diffie-hellman.md",
+   "line": 12,
+   "claim": "The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It is implied by the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: It is implied by the CDH assumption is backwards — DDH hardness implies CDH hardness, not the reverse. The very next sentence (an adversary solving CDH also solves DDH) states the correct relation and contradicts it.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-ddh-to-ke-dh76",
+    "red-cdh-to-ddh"
+   ]
+  },
+  {
+   "file": "content/Assumptions/discrete-logarithm.md",
+   "line": 12,
+   "claim": "The _discrete logarithm (DLOG)_ assumption is used throughout cryptography. It is a natural strengthening of the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[computational-diffie-hellman|CDH]] in the same group.",
+   "problem": "SUSPECTED DIRECTION CONFUSION: calling DLOG a natural strengthening of the CDH assumption inverts assumption strength — CDH hardness implies DLOG hardness, so the DLOG assumption is the weaker one. The following gloss (an adversary solving DLOG also solves CDH) is correct.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-cdh-to-dl"
+   ]
+  },
+  {
+   "file": "content/Assumptions/factoring.md",
+   "line": 29,
+   "claim": "- The [[rsa-assumption|RSA assumption]] (hardness of computing $e$-th roots mod $N$) is implied by the factoring assumption — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open (factoring may be harder than RSA)",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: The RSA assumption is implied by the factoring assumption is backwards. Factoring N breaks RSA, so RSA hardness implies factoring hardness; RSA hardness is not known to follow from factoring hardness.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-factoring-to-ra-rsa78"
+   ]
+  },
+  {
+   "file": "content/Assumptions/factoring.md",
+   "line": 30,
+   "claim": "- The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — [[GM84 - Probabilistic encryption|GM84]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: QR hardness does not follow from factoring hardness; factoring N breaks QR, so QR hardness implies factoring hardness.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-factoring-to-qr-gm84"
+   ]
+  },
+  {
+   "file": "content/Assumptions/factoring.md",
+   "line": 31,
+   "claim": "- The [[decisional-composite-residuosity|DCR assumption]] (Paillier) follows from factoring hardness — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: same inverted direction as line 30 and as decisional-composite-residuosity.md line 30. Factoring hardness is implied by DCR hardness, not the other way round.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-factoring-to-dcr-pai99"
+   ]
+  },
+  {
+   "file": "content/Assumptions/learning-parity-with-noise.md",
+   "line": 104,
+   "claim": "is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so sparse hardness is a stronger assumption for smaller $d$.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: with d = k every row of Hamming weight exactly d is the all-ones vector, which is not the uniformly random matrix of standard LPN; the intended statement is presumably about d near k/2 or an asymptotic approximation.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-sl-to-lpwn"
+   ]
+  },
+  {
+   "file": "content/Assumptions/ntru.md",
+   "line": 50,
+   "claim": "- Under a suitable choice of parameters, the NTRU problem reduces to the [[learning-with-errors#Ring LWE|Ring-LWE]] problem: Ring-LWE hardness implies NTRU hardness — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]",
+   "problem": "SUSPECTED DIRECTION ERROR (report only): the bullet says \"the NTRU problem reduces to the Ring-LWE problem\", which under the standard convention means NTRU <= Ring-LWE (a Ring-LWE solver breaks NTRU) and therefore NTRU hardness implies Ring-LWE hardness. That is the OPPOSITE of the gloss that immediately follows it (\"Ring-LWE hardness implies NTRU hardness\"). One of the two halves of this bullet is wrong; SS11 supports the gloss, so the \"reduces to\" phrasing is the error.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-rl-to-ntru-ss11"
+   ]
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "line": 68,
+   "claim": "- **Degree threshold**: Vertices in the planted clique have expected degree $\\tfrac{n-1}{2} + k - 1$ versus $\\tfrac{n-1}{2}$ for unplanted vertices; thresholding on degree finds $S$ when $k = \\Omega(\\sqrt{n \\log n})$",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): the expected degree of a planted-clique vertex is (n-1)/2 + (k-1)/2, not (n-1)/2 + k - 1 as written. A clique vertex gains k-1 forced edges but gives up the (k-1)/2 it would have had in expectation from those same pairs, so the excess is (k-1)/2. The stated excess is off by a factor of two, which is exactly what makes the sqrt(n log n) threshold come out right, so the error is load-bearing for the bullet.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/quadratic-residuosity.md",
+   "line": 14,
+   "claim": "The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\\left(\\frac{a}{N}\\right) = 1$ is a quadratic residue modulo $N = pq$. The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard. It underlies the first provably CPA-",
+   "problem": "SUSPECTED ERROR (report only): \"The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard\" is self-contradictory — if residuosity were information-theoretically hidden no assumption would be needed. The intended statement is that the Jacobi symbol alone does not reveal residuosity.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-qr-to-pke-gm84"
+   ]
+  },
+  {
+   "file": "content/Assumptions/quadratic-residuosity.md",
+   "line": 52,
+   "claim": "- QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols $\\left(\\frac{a}{p}\\right)$ and $\\left(\\frac{a}{q}\\right)$ — [[GM84 - Probabilistic encryption|GM84]]",
+   "problem": "SUSPECTED DIRECTION ERROR (report only, high confidence): \"QR follows from factoring hardness\" is backwards. The justification given on the same bullet — knowing p and q lets you compute the Legendre symbols — shows that a FACTORING ALGORITHM BREAKS QR, i.e. QR hardness implies factoring hardness, making QR the STRONGER assumption. QR does not follow from factoring hardness; no reduction in that direction is known.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-factoring-to-qr-gm84"
+   ]
+  },
+  {
+   "file": "content/Complexity/bounded-error-probabilistic-polynomial-time.md",
+   "line": 33,
+   "claim": "Crucially, pseudorandom generators ([[pseudorandom-generator|PRG]]s) can be viewed as a crypto-primitive that _witnesses_ $\\classBPP = \\classP$: a PRG secure against all $\\classPpoly$ adversaries implies $\\classBPP = \\classP$.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): a cryptographic PRG secure against P/poly does not imply BPP = P. Full derandomization needs a Nisan-Wigderson-style PRG with logarithmic seed length (exponential stretch) fooling circuits; a cryptographic PRG with polynomial stretch only yields BPP in subexponential deterministic time.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-pg-to-peb"
+   ]
+  },
+  {
+   "file": "content/Complexity/co-arthur-merlin.md",
+   "line": 21,
+   "claim": "- If graph isomorphism is $\\classNP$-complete, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\\mathbf{\\Sigma_2^P}$. This uses the fact that graph non-isomorphism is in $\\classcoAM$, so if GI were NP-complete then $\\classNP \\subseteq \\classcoAM$, collapsing AM to $\\mathbf{\\Sigma_2^P}$ — TODO citation.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): the supporting fact should be 'graph ISOMORPHISM is in coAM' (equivalently, graph non-isomorphism is in AM). As written ('graph non-isomorphism is in coAM') the stated derivation of NP in coAM does not follow.",
+   "severity": "high",
+   "affectsEdges": [
+    "bar-nic-to-pcts2p"
+   ]
+  },
+  {
+   "file": "content/Complexity/co-arthur-merlin.md",
+   "line": 25,
+   "claim": "- **Graph non-isomorphism**: given two graphs $G_0, G_1$, are they non-isomorphic? This is in coAM: Arthur picks a random bit $b$ and a random permutation $\\pi$, sends $\\pi(G_b)$ to Merlin, and Merlin must identify which original graph it came from. If the graphs are non-isomorphic, Merlin (with unbounded power) can always identify $b$ correctly.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): the protocol described is a 2-message public-coin proof that the graphs ARE non-isomorphic, i.e. it places graph non-isomorphism in AM, not in coAM. Equivalently it places graph ISOMORPHISM in coAM. Placing GNI in coAM would put GI in AM, which is not known.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/co-nondeterministic-polynomial-time.md",
+   "line": 20,
+   "claim": "- $\\classcoNP \\subseteq \\classAM$: this follows from the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] showing that coNP has Arthur-Merlin protocols.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): coNP contained in AM is NOT known — it would collapse the polynomial hierarchy to AM (in particular to the second level). GS86 proves the private-coin/public-coin equivalence, not that coNP has AM protocols.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/co-nondeterministic-polynomial-time.md",
+   "line": 27,
+   "claim": "- **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\\classSZK$ and $\\classcoAM$).",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): graph non-isomorphism in coAM would put graph isomorphism in AM, which is not known. The standard facts are GNI in AM and GI in coAM. Same error as content/Complexity/co-arthur-merlin.md:25, and it contradicts content/Complexity/arthur-merlin.md:27.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/p-poly.md",
+   "line": 27,
+   "claim": "- $\\classPpoly$ contains undecidable languages: since circuit families need not be uniformly generated, a circuit family can solve the halting problem for all inputs up to length $n$.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): the justification is wrong as written. A polynomial-size circuit on n-bit inputs cannot decide the halting problem for ALL inputs up to length n (that would need ~2^n bits of advice). The correct standard statement is that P/poly contains undecidable UNARY languages, e.g. the unary encoding of the halting problem, where one advice bit per length suffices.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/p-poly.md",
+   "line": 34,
+   "claim": "- The existence of one-way functions implies $\\classP \\neq \\classPpoly \\cap \\classNP$ in a certain oracle-relativized sense (one-way functions separate uniform and non-uniform worlds).",
+   "problem": "SUSPECTED MATHEMATICAL ERROR / MEANINGLESS AS STATED (report only): 'P != P/poly intersect NP' is not a standard statement, and OWF existence does not obviously imply it. What OWFs do imply is P != NP (and, for non-uniform security, hardness against P/poly). The parenthetical gloss 'one-way functions separate uniform and non-uniform worlds' does not match the formula either.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-hf-to-pnpcn",
+    "bar-hf-to-pnpcn"
+   ]
+  },
+  {
+   "file": "content/Complexity/quantum-interactive-proofs.md",
+   "line": 23,
+   "claim": "- $\\classQIP(2)$ (two-message quantum IP: verifier sends a quantum challenge, prover responds) strictly contains $\\classSZK$ and is believed to contain problems outside $\\classAM$ — TODO citation.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: 'strictly contains SZK'. SZK ⊆ QIP(2) is known (Watrous), but STRICT containment is not known unconditionally — it would separate SZK from a class known to sit inside PSPACE, which is open. Reported, not corrected.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/quantum-merlin-arthur.md",
+   "line": 32,
+   "claim": "- **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA. It is not even known whether QMA(2) $\\subseteq$ NEXP.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR / INTERNAL CONTRADICTION: 'It is not even known whether QMA(2) ⊆ NEXP' contradicts line 38 of the same page, which asserts '$\\mathbf{QMA}(2) \\subseteq \\mathbf{NEXP}$' as an established fact used in an argument. QMA(2) ⊆ NEXP is in fact known (Kobayashi-Matsumoto-Yamakami); the open question is whether QMA(2) = NEXP. Reported, not corrected.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/total-function-np.md",
+   "line": 25,
+   "claim": "- **PPAD** (Polynomial Parity Argument, Directed): contains Nash equilibrium computation. Hardness of PPAD is the basis for cryptographic constructions of collision-resistant hash functions from worst-case assumptions — TODO citation.",
+   "problem": "SUSPECTED DIRECTION ERROR (high-value): the known literature goes the other way — collision-resistant hashing / iO / LWE-style assumptions are used to prove HARDNESS of PPAD (Bitansky-Paneth-Rosen; Choudhuri-Hubáček-Kamath-Pietrzak-Rosen-Rosen), not 'PPAD hardness is the basis for constructing CRHFs'. As written the reduction is inverted. Reported, not corrected.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-ph-to-hf"
+   ]
+  },
+  {
+   "file": "content/Complexity/total-function-np.md",
+   "line": 37,
+   "claim": "Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are \"hard search problems with guaranteed solutions.\" Recent work has used TFNP subclass hardness (especially PPAD) as a basis for constructing cryptographic primitives from weaker or more structured assumptions.",
+   "problem": "SUSPECTED DIRECTION ERROR (same as line 25): the literature derives TFNP/PPAD hardness FROM cryptographic assumptions, not cryptographic primitives from PPAD hardness. Reported, not corrected.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-ph-to-cpg"
+   ]
+  },
+  {
+   "file": "content/Glossary/algebraic-group-model.md",
+   "line": 31,
+   "claim": "- **DDH $\\leq_{\\mathrm{AGM}}$ DLOG:** DDH reduces tightly to DLOG in the AGM.",
+   "problem": "SUSPECTED MATHEMATICAL / ATTRIBUTION ERROR (reported, not fixed): AGM reductions work by extracting a representation from the group elements an adversary outputs. A DDH distinguisher outputs only a bit, so the standard AGM extraction does not apply, and 'DDH reduces tightly to DLOG in the AGM' is not a straightforward FKL18 result. This is precisely the kind of AGM claim KZ22 (cited at line 43 of this same page) argues does not go through. Verify against FKL18 before migrating.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-dl-to-ddh-fkl18"
+   ]
+  },
+  {
+   "file": "content/Glossary/algebraic-group-model.md",
+   "line": 41,
+   "claim": "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every GGM-secure scheme is AGM-secure, and AGM lower bounds lift to the GGM.",
+   "problem": "SUSPECTED LOGICAL ERROR (reported, not fixed): the sentence asserts 'hardness for algebraic adversaries implies hardness for generic adversaries' and then glosses it as 'every GGM-secure scheme is AGM-secure'. These are converses of each other. AGM-hard => GGM-hard means every AGM-secure scheme is GGM-secure, not the other way round.",
+   "severity": "high",
+   "affectsEdges": [
+    "bar-agm-to-ggm-kz22"
+   ]
+  },
+  {
+   "file": "content/impagliazzos-five-worlds.md",
+   "line": 63,
+   "claim": "Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption. TDPs (equivalently, the existence of PKE or OT) unlock the full power o",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: \"TDPs (equivalently, the existence of PKE or OT)\" asserts TDP ≡ PKE ≡ OT. PKE is not known to imply TDPs, and PKE is black-box separated from OT (Gertner–Kannan–Malkin–Reingold–Viswanathan, i.e. the very GKM+00 cited two sentences earlier). Recorded, not fixed. || SUSPECTED MATHEMATICAL ERROR: OT is not known to imply TDPs. Recorded, not fixed.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-tp-to-pke",
+    "red-hf-to-pg-hill99",
+    "red-hf-to-pf",
+    "red-hf-to-ske",
+    "red-hf-to-mac",
+    "red-hf-to-ds",
+    "red-tp-to-ot",
+    "red-ot-to-smpc-kil88",
+    "red-cryptomani-to-ot",
+    "bar-hf-to-pke-gkm+00"
+   ]
+  },
+  {
+   "file": "content/impagliazzos-five-worlds.md",
+   "line": 69,
+   "claim": "**[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS,",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: \"NIZK proofs without a CRS\" — NIZK for non-trivial languages is impossible with no setup at all, and the iO-based construction places the obfuscated program in the CRS. Recorded, not fixed.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-hf+io-to-pke-sw14",
+    "red-hf+io-to-ds-sw14",
+    "red-hf+io-to-nizk-sw14",
+    "red-hf+io-to-fe-sw14",
+    "red-hf+io-to-de-sw14"
+   ]
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "line": 64,
+   "claim": "- COM is complete for [[secure-multi-party-computation|MPC]] in the semi-honest model: any two-party functionality can be computed given a commitment scheme — [[GMW87 - How to play ANY mental game|GMW87]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): GMW87's semi-honest two-party protocol is built from OBLIVIOUS TRANSFER, not from commitments; commitments appear in the GMW compiler that lifts semi-honest security to malicious security. As stated, 'commitments imply semi-honest 2PC' would place OT inside Minicrypt (commitments follow from OWFs), contradicting the Impagliazzo-Rudich black-box separation.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-cs-to-smpc-gmw87"
+   ]
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "line": 65,
+   "claim": "- [[oblivious-transfer|OT]] can be constructed from any non-trivial commitment scheme — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR / INVERTED CITATION (reported, not fixed): Kilian's 'Founding cryptography on oblivious transfer' proves that OT is COMPLETE for secure computation (OT => everything), not that OT can be built FROM commitments. Building OT from commitments would place OT in Minicrypt, contradicting Impagliazzo-Rudich. The edge is almost certainly reversed.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-cs-to-ot-kil88"
+   ]
+  },
+  {
+   "file": "content/Primitives/hash-function.md",
+   "line": 20,
+   "claim": "In other settings, it's important that the hash function is _collision resistant_, meaning that it is hard to find two colliding inputs and implies one-wayness.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): collision resistance implies one-wayness only for COMPRESSING (shrinking) hash functions. For the general $\\hash : \\calK \\times \\calD \\to \\calR$ of this page's Syntax section, the implication is false (e.g. the identity map is collision resistant and trivially invertible). The needed hypothesis $|\\calD| \\gg |\\calR|$ is never stated.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-hf-to-hf"
+   ]
+  },
+  {
+   "file": "content/Primitives/polynomial-commitment.md",
+   "line": 78,
+   "claim": "- Any polynomial commitment with $O(1)$ proof size implies the existence of a succinct NIZK for NP — standard",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): an O(1)-proof-size polynomial commitment does not by itself imply a succinct NIZK for NP — a polynomial IOP/PIOP (and a setup/ROM for non-interactivity, plus zero-knowledge, which evaluation binding does not provide) is also required. This is not folklore-obvious and should not carry the '— standard' label.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-pc-to-nizk"
+   ]
+  },
+  {
+   "file": "content/Primitives/pseudorandom-function.md",
+   "line": 118,
+   "claim": "- PRF implies CPA-secure [[symmetric-key-encryption|SKE]]: CTR-mode encryption $\\Enc(k, m_1 \\cdots m_\\ell) = \\PRF(k,1)\\|{\\cdots}\\|\\PRF(k,\\ell) \\oplus m_1\\|{\\cdots}\\|m_\\ell$",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): the displayed construction is deterministic — Enc(k, m_1...m_l) = PRF(k,1)||...||PRF(k,l) XOR m uses a FIXED counter sequence starting at 1 for every message, so encrypting the same message twice repeats the ciphertext and the scheme cannot be CPA-secure. Real CTR mode samples a fresh random IV/nonce per encryption, which the formula omits.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-pf-to-ske"
+   ]
+  },
+  {
+   "file": "content/Primitives/pseudorandom-generator.md",
+   "line": 89,
+   "claim": "- PRG implies CPA-secure [[symmetric-key-encryption|SKE]]: the stream cipher $\\Enc(k, m) = G(k) \\oplus m$ is CPA-secure whenever $G$ is a PRG with stretch $|m|$",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): Enc(k, m) = G(k) XOR m is deterministic and reuses the same pad for every message, so it is NOT CPA-secure — it achieves only one-time/eavesdropper security. CPA security requires fresh randomness per encryption (e.g. Enc(k,m) = (r, G(k,r) XOR m) with a PRF, or a fresh seed per message).",
+   "severity": "high",
+   "affectsEdges": [
+    "red-pg-to-ske"
+   ]
+  },
+  {
+   "file": "content/Primitives/secure-multi-party-computation.md",
+   "line": 64,
+   "claim": "- [[commitment-scheme|COM]] is complete for two-party computation in the semi-honest model — [[GMW87 - How to play ANY mental game|GMW87]]",
+   "problem": "SUSPECTED ERROR (reported, not fixed): commitments are complete for compiling semi-honest protocols into malicious-secure ones (the GMW compiler); the completeness result for semi-honest two-party computation is OT, not commitment. Commitments live in Minicrypt and are not believed to imply 2PC/OT, so 'COM is complete for two-party computation in the semi-honest model' looks wrong as stated.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-cs-to-tpc-gmw87"
+   ]
+  },
+  {
+   "file": "content/Primitives/succinct-argument.md",
+   "line": 93,
+   "claim": "- The Fiat-Shamir transform converts interactive proofs to non-interactive SNARKs in the random oracle model — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
+   "problem": "SUSPECTED ERROR: Fiat-Shamir removes interaction from PUBLIC-COIN protocols; it does not create succinctness. An interactive proof compiled with FS is non-interactive but not succinct unless the starting protocol is already succinct (an IOP/PCP). 'converts interactive proofs to non-interactive SNARKs' is wrong as stated. Reported, not fixed.",
+   "severity": "high",
+   "affectsEdges": [
+    "red-ips+rom-to-sa-fs86"
+   ]
+  },
+  {
+   "file": "content/Primitives/zero-knowledge-proof.md",
+   "line": 73,
+   "claim": "- All languages in IP (= [[polynomial-space|PSPACE]]) have statistical ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): as written this says IP = PSPACE is contained in SZK. But SZK is contained in AM \\cap coAM, so SZK = PSPACE would collapse the polynomial hierarchy. The actual BGG+90 result is that every language in IP has a COMPUTATIONAL zero-knowledge proof ASSUMING one-way functions exist (with statistical/perfect ZK obtained only in the multi-prover or argument settings). The bullet drops the OWF hypothesis AND upgrades computational ZK to statistical ZK.",
+   "severity": "high",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/bilinear-map-assumptions.md",
+   "line": 35,
+   "claim": "- BDH is implied by [[computational-diffie-hellman|CDH]] in the generic group model, but no standard-model reduction is known",
+   "problem": "SUSPECTED ERROR: hardness of BDH in the generic (bilinear) group model is an unconditional lower bound, not a reduction from CDH.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-cdh-to-bdh"
+   ]
+  },
+  {
+   "file": "content/Assumptions/bilinear-map-assumptions.md",
+   "line": 36,
+   "claim": "- DLIN (Decision Linear) assumption: a generalization of BDDH; more conservative and used in e.g. Groth-Sahai proofs — standard",
+   "problem": "SUSPECTED ERROR: DLIN (Decision Linear) is standardly a generalization of DDH, not of BDDH.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-dlin-to-nizk"
+   ]
+  },
+  {
+   "file": "content/Assumptions/discrete-logarithm.md",
+   "line": 52,
+   "claim": "- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\\cdot T \\ge p$. Therefore, this is optimal in the [[generic-group-model|GGM]] — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]",
+   "problem": "SUSPECTED IMPRECISION: BSGS is described as requiring space S and time T with S*T >= p and therefore optimal in the GGM, but Shoup lower bound is on time alone (T = Omega(sqrt p)); generic time-space tradeoff optimality is a different statement (with preprocessing the known bound is S*T^2 >= p).",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/knowledge-of-exponent.md",
+   "line": 29,
+   "claim": "- KEA-like assumptions cannot be derived from falsifiable assumptions via black-box reductions — standard",
+   "problem": "SUSPECTED IMPRECISION: GW11 rules out black-box reductions proving succinct non-interactive arguments sound from falsifiable assumptions; KEA-like assumptions cannot be derived from falsifiable assumptions is a vaguer and different claim.",
+   "severity": "medium",
+   "affectsEdges": [
+    "bar-fa-to-koe"
+   ]
+  },
+  {
+   "file": "content/Assumptions/learning-parity-with-noise.md",
+   "line": 48,
+   "claim": "- **Constant-noise:** $0 < \\varepsilon < 1/2$ (weakest assumption) - **High-noise**: $\\varepsilon = 1/k^\\gamma$ for $0 < \\gamma < 1/2$ - **Mid-noise**: $\\varepsilon = 1/k^\\gamma$ for every $\\gamma < 1$ - **Low-noise**: $\\varepsilon = \\log^c(k) / k$ for some $c > 1$. (strongest assumption)",
+   "problem": "SUSPECTED DEFINITION ERROR: High-noise is epsilon = 1/k^gamma for 0 < gamma < 1/2 while Mid-noise is epsilon = 1/k^gamma for every gamma < 1, so the mid-noise range strictly contains the high-noise range — the regimes are not disjoint as presented.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-lln-to-lcn"
+   ]
+  },
+  {
+   "file": "content/Assumptions/learning-with-errors.md",
+   "line": 122,
+   "claim": "- When $k = n$: recovers plain LWE (fully unstructured, ring $R_q \\cong \\ZZ_q^n$)",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (report only): \"When k = n: recovers plain LWE (fully unstructured, ring R_q = Z_q^n)\" conflates two different degeneracies. Plain LWE is recovered by taking the ring to be Z (degree 1) with rank n. If instead R_q splits as Z_q^n (a fully-split cyclotomic mod q), rank-n Module-LWE is n^2 structured samples, not plain LWE.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "line": 51,
+   "claim": "- For $k = \\Omega(\\sqrt{n \\log n})$, the planted clique can be detected in polynomial time via spectral methods: the top eigenvector of the centered adjacency matrix $\\mathbf{G} - \\tfrac{1}{2}\\mathbf{J}$ concentrates on the planted set — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]",
+   "problem": "SUSPECTED IMPRECISION (report only): the AKS98 spectral algorithm succeeds for k = Omega(sqrt(n)); Omega(sqrt(n log n)) is the threshold for the DEGREE-THRESHOLDING attack. This page quotes sqrt(n log n) for the spectral algorithm at lines 14, 51 and 67.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "line": 59,
+   "claim": "The most-studied regime takes $k = c\\sqrt{n}$ for a constant $c$. At $c$ large enough, spectral and combinatorial algorithms succeed; for $c$ small, no efficient algorithm is known. This $\\sqrt{n}$ threshold is widely believed to be the computational barrier and has been used as an average-case hardness assumption in complexity theory and statistics.",
+   "problem": "SUSPECTED IMPRECISION (report only): \"At c large enough, spectral and combinatorial algorithms succeed; for c small, no efficient algorithm is known.\" Polynomial-time algorithms are known for k = c sqrt(n) for EVERY constant c > 0 (AKS98 plus follow-up work); the believed-hard regime is k = n^{1/2 - epsilon}, not small constant c.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "line": 67,
+   "claim": "- **Spectral**: For $k = \\Omega(\\sqrt{n \\log n})$, the top eigenvector of $\\mathbf{G} - \\tfrac{1}{2}\\mathbf{J}$ (where $\\mathbf{J}$ is the all-ones matrix) concentrates on $S$, enabling detection and recovery in $O(n^2)$ time — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]",
+   "problem": "SUSPECTED IMPRECISION (report only): the AKS98 spectral algorithm succeeds for k = Omega(sqrt(n)); Omega(sqrt(n log n)) is the threshold for the DEGREE-THRESHOLDING attack. This page quotes sqrt(n log n) for the spectral algorithm at lines 14, 51 and 67.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/quadratic-residuosity.md",
+   "line": 53,
+   "claim": "- QR → statistically hiding [[commitment-scheme|commitment scheme]] — standard",
+   "problem": "SUSPECTED ERROR (report only): the textbook QR commitment (commit to b as r^2 y^b for y in J_N minus QR_N) is PERFECTLY BINDING and COMPUTATIONALLY HIDING, not statistically hiding. A statistically hiding commitment from QR needs a different construction, so the folklore label may be covering an incorrect claim.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-qr-to-cs"
+   ]
+  },
+  {
+   "file": "content/Assumptions/rsa-assumption.md",
+   "line": 49,
+   "claim": "- Search–decision equivalence: distinguishing RSA outputs from uniform reduces to inverting RSA.",
+   "problem": "SUSPECTED ERROR (report only): as literally phrased the decision problem is trivial. x -> x^e is a permutation of Z_n^*, so for uniform x the value x^e is uniform and \"distinguishing RSA outputs from uniform\" is not a hard problem at all. The intended statement is presumably about hardcore bits or RSA-based pseudorandomness, and the decision object is undefined on this page.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-ra-to-dr"
+   ]
+  },
+  {
+   "file": "content/Assumptions/shortest-integer-solution.md",
+   "line": 52,
+   "claim": "- **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\\Lambda^\\perp(\\mathbf{A}) = \\{\\mathbf{z} \\in \\ZZ^m : \\mathbf{Az} = \\mathbf{0} \\pmod q\\}$ using BKZ-style block reduction algorithms. Runtime is sub-exponential in the BKZ block size — _standard_.",
+   "problem": "SUSPECTED ERROR (report only): \"Runtime is sub-exponential in the BKZ block size\" inverts the standard cost model. BKZ with block size b costs 2^{Theta(b)} — EXPONENTIAL in the block size; it is sub-exponential in the lattice DIMENSION when b = o(m).",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
+   "line": 20,
+   "claim": "The SIDH key exchange works as follows: 1. Both parties fix supersingular $E / \\FF_{p^2}$ with $\\#E(\\FF_{p^2}) = (p+1)^2$, chosen so that $p + 1 = 2^{e_A} 3^{e_B}$ 2. Alice chooses a secret $\\ell_A$-isogeny $\\phi_A : E \\to E_A$; Bob chooses $\\phi_B : E \\to E_B$ 3. They exchange $E_A$, $E_B$ and images of each other's torsion points 4. Shared key: $j(E_{AB}) = j(\\phi_B(E_A)) = j(\\phi_A(E_B))$, the ",
+   "problem": "SUSPECTED ERROR (report only): the shared-key line \"j(E_AB) = j(phi_B(E_A)) = j(phi_A(E_B))\" applies each party’s OWN isogeny to the other party’s curve. The correct objects are the pushed-forward isogenies (phi_B′ : E_A -> E_AB and phi_A′ : E_B -> E_AB) computed from the transmitted torsion-point images; as written the composition is not defined. || SUSPECTED ERROR (report only) at line 18: the SIDH problem is stated with E′ = E/<P> for \"a random l-torsion point\" P while {P, Q} is called a basis of the l^n-torsion, and the auxiliary images are written phi(Q) for that basis. In SIDH the kernel is <P + [s]Q> for a secret s and BOTH basis images of the OTHER party’s torsion group are published; the statement as written is inconsistent about l vs l^n and about which points are revealed.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-sidh-to-ke-jdf11"
+   ]
+  },
+  {
+   "file": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
+   "line": 47,
+   "claim": "- **Quantum sub-exponential attack on CSIDH**: Ciphertext-only quantum attack using the hidden shift problem structure; runs in quantum time $\\tilde{O}(p^{1/4})$",
+   "problem": "SUSPECTED ERROR (report only): a runtime of O~(p^{1/4}) is EXPONENTIAL in log p, so it contradicts the bullet’s own \"sub-exponential\" label and the claim at line 38. Kuperberg-style quantum attacks on CSIDH run in 2^{O(sqrt(log p))}; O~(p^{1/4}) is the classical meet-in-the-middle cost.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/probabilistic-polynomial-time.md",
+   "line": 19,
+   "claim": "- $\\classNP \\subseteq \\classPP$: given an NP machine, accept iff strictly more than half the nondeterministic paths lead to accepting, which is a PP criterion.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR in the proof sketch (the inclusion itself is correct, do not fix): an NP machine on a yes-instance may have as few as one accepting path out of exponentially many, so 'accept iff strictly more than half the nondeterministic paths accept' does not decide the NP language. The standard argument first pads the machine (e.g. add a coin flip that accepts on half the paths) so that yes-instances cross the 1/2 threshold. Reported, not corrected.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Complexity/statistical-zero-knowledge.md",
+   "line": 20,
+   "claim": "- SZK ⊆ [[arthur-merlin|AM]] ∩ coAM, so if AM = coAM then SZK ⊆ AM; in particular SZK does not contain NP-complete problems unless PH collapses",
+   "problem": "SUSPECTED LOGICAL ERROR: 'so if AM = coAM then SZK ⊆ AM' is vacuous — SZK ⊆ AM ∩ coAM already gives SZK ⊆ AM unconditionally. The intended statement is probably about coAM-hardness or about NP ⊆ coAM collapsing PH. Reported, not corrected.",
+   "severity": "medium",
+   "affectsEdges": [
+    "bar-ncpis-to-phc"
+   ]
+  },
+  {
+   "file": "content/Glossary/arithmetization.md",
+   "line": 31,
+   "claim": "A QAP encodes an R1CS instance into a polynomial divisibility check. Given an R1CS with $m$ constraints and evaluation points $\\omega_1, \\ldots, \\omega_m \\in \\FF_p$, define the **target polynomial** $t(X) = \\prod_{i=1}^m (X - \\omega_i)$ and encode the coefficient vectors as polynomials $A(X), B(X), C(X)$ via interpolation. The witness $\\mathbf{z}$ satisfies all constraints if and only if: $$t(X) \\",
+   "problem": "SUSPECTED MATHEMATICAL ERROR upstream at line 24 (reported, not fixed): the R1CS constraint is typeset as '$\\mathbf{a}_i \\cdot \\mathbf{z} \\cdot \\mathbf{b}_i \\cdot \\mathbf{z} = \\mathbf{c}_i \\cdot \\mathbf{z}$', i.e. a chain of four dot products, which is not well formed. It should be $(\\mathbf{a}_i \\cdot \\mathbf{z})(\\mathbf{b}_i \\cdot \\mathbf{z}) = \\mathbf{c}_i \\cdot \\mathbf{z}$. The iff statement recorded here depends on that constraint.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Glossary/interactive-protocol.md",
+   "line": 46,
+   "claim": "The **transcript** of an execution is the ordered sequence of all messages exchanged by both parties. The views $\\View_{P_1}$ and $\\View_{P_2}$ together determine the transcript (and vice versa, up to each party's private randomness and inputs).",
+   "problem": "SUSPECTED ERROR (reported, not fixed): 'The views $\\View_{P_1}$ and $\\View_{P_2}$ together determine the transcript (and vice versa, up to each party's private randomness and inputs)'. The forward direction is right, but the converse is false in a strong sense — a view is $(\\mathbf{x}_i, \\rho_i, \\mathbf{m}_i)$, and the transcript determines only $\\mathbf{m}_i$; the parenthetical 'up to each party's private randomness and inputs' quietly excludes two of the three components, leaving the 'vice versa' contentless.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/impagliazzos-five-worlds.md",
+   "line": 82,
+   "claim": "- **Pseudorandom quantum states** (PRS) can exist even if $\\classP = \\classNP$, since no efficient quantum algorithm can distinguish a PRS from a Haar-random state",
+   "problem": "SUSPECTED ERROR / CIRCULAR JUSTIFICATION: \"Pseudorandom quantum states (PRS) can exist even if $\\classP = \\classNP$, since no efficient quantum algorithm can distinguish a PRS from a Haar-random state\" — the stated reason is just the definition of PRS, so it justifies nothing. The real result (Kretschmer) is an ORACLE separation (PRS exist relative to an oracle where BQP = QMA), not an unconditional claim. Recorded, not fixed.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Primitives/attribute-based-encryption.md",
+   "line": 108,
+   "claim": "In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\\Setup$ runs. Selective security is strictly weaker than adaptive security; complexity leveraging converts one to the other at a polynomial cost in $|\\calU|$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.",
+   "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): complexity leveraging for KP-ABE guesses the challenge attribute set $x^* \\subseteq \\calU$, which costs a factor $2^{|\\calU|}$ — exponential in $|\\calU|$, not 'a polynomial cost in $|\\calU|$'. The CP-ABE half of the same sentence correctly says 'exponential loss in the formula size', making the KP-ABE half look wrong.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-ass-to-aas",
+    "bar-aas-to-ass"
+   ]
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "line": 66,
+   "claim": "- COM from any CPA-secure [[public-key-encryption|PKE]] scheme: encrypt $m$ under a freshly generated public key; the ciphertext is a statistically binding commitment",
+   "problem": "SUSPECTED IMPRECISION: 'statistically binding' holds only if the PKE has perfect correctness AND the public key is honestly generated. Since the committer generates the key here, a malicious committer may pick a malformed key admitting two decryptions — binding is then not statistical. The bullet states the strong property unconditionally.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-pke-to-cs"
+   ]
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "line": 67,
+   "claim": "- Statistically hiding COM is equivalent to [[statistical-zero-knowledge|SZK]] $\\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — standard",
+   "problem": "SUSPECTED IMPRECISION: the known equivalence involves average-case hardness of SZK (a hard-on-average problem in SZK), not the worst-case separation $\\SZK \\ne \\BPP$ as literally written.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Primitives/commitment-scheme.md",
+   "line": 68,
+   "claim": "- COM from [[decisional-diffie-hellman|DDH]]: the Pedersen commitment scheme is perfectly hiding and computationally binding",
+   "problem": "SUSPECTED IMPRECISION: Pedersen commitments are perfectly hiding unconditionally and computationally binding under the DISCRETE LOGARITHM assumption; DDH is not needed. The hypothesis should very likely be [[discrete-logarithm]], which is a strictly weaker requirement.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-ddh-to-cs"
+   ]
+  },
+  {
+   "file": "content/Primitives/digital-signature.md",
+   "line": 161,
+   "claim": "- **Lamport signatures** (one-time): sign one bit per hash chain; $O(\\secpar)$-size signatures, keys usable only once — [[Lam79 - Constructing digital signatures from a one way function|Lam79]]",
+   "problem": "SUSPECTED ERROR (reported, not fixed): 'sign one bit per hash chain' describes WINTERNITZ, not Lamport. Lamport publishes two hash images per message bit and reveals one preimage per bit; there are no chains. || SUSPECTED EFFICIENCY ERROR: Lamport signatures are $O(\\secpar \\cdot |m|)$ bits for an $|m|$-bit message (typically $O(\\secpar^2)$ with hashed messages), not $O(\\secpar)$.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-hf-to-ots-lam79"
+   ]
+  },
+  {
+   "file": "content/Primitives/digital-signature.md",
+   "line": 179,
+   "claim": "- Many-time signatures from OWFs are obtained by authenticating a collection of one-time verification keys using a Merkle hash tree, giving $O(\\secpar)$-size signatures with a $\\poly(\\secpar)$-size public key — [[Mer89 - A Certified Digital Signature|Mer89]]",
+   "problem": "SUSPECTED EFFICIENCY ERROR: Merkle-tree signatures are $O(\\secpar \\cdot \\log T)$ (or $O(\\secpar^2)$) in size, and the public key is a single hash value of size $O(\\secpar)$ — the bullet's '$O(\\secpar)$-size signatures with a $\\poly(\\secpar)$-size public key' looks reversed/wrong.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-hf-to-ots-lam79",
+    "red-hf+ots-to-ds-mer89"
+   ]
+  },
+  {
+   "file": "content/Primitives/polynomial-commitment.md",
+   "line": 76,
+   "claim": "- KZG is the polynomial commitment underlying most practical pairing-based SNARKs (Groth16, Plonk, Marlin) — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]], [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]",
+   "problem": "SUSPECTED FACTUAL ERROR (recorded, not fixed): Groth16 is not built on a KZG polynomial commitment — it is a QAP/pairing-based SNARK with a linear-PCP-style proof; listing it alongside Plonk and Marlin as 'underlain by KZG' misattributes the construction.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-kpc-to-sa-kzg10"
+   ]
+  },
+  {
+   "file": "content/Primitives/polynomial-commitment.md",
+   "line": 77,
+   "claim": "- FRI-based polynomial commitments give the only known transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]",
+   "problem": "SUSPECTED FACTUAL ERROR (recorded, not fixed): 'the only known transparent SNARKs with sublinear proof size' is false as stated — Bulletproofs/IPA give transparent logarithmic-size arguments, and hash-based schemes such as Ligero/Brakedown/Orion are also transparent with sublinear proofs (the IPA section on this same page contradicts it with 'Proof size: O(log d)').",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-fpc-to-tsa-bbhr18"
+   ]
+  },
+  {
+   "file": "content/Primitives/pseudorandom-function.md",
+   "line": 119,
+   "claim": "- PRF implies [[message-authentication-code|MAC]]: $\\Tag(k, m) = \\PRF(k, m)$ is a secure one-time MAC; extending to many messages uses standard domain-extension techniques",
+   "problem": "SUSPECTED ERROR (recorded, not fixed): Tag(k,m) = PRF(k,m) is a secure MANY-time (EUF-CMA) fixed-length MAC, not merely a 'one-time' MAC; the 'one-time' qualifier understates the standard result. The clause about extending 'to many messages' via domain extension conflates message COUNT with message LENGTH (domain extension buys long messages, not more queries).",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-pf-to-mac"
+   ]
+  },
+  {
+   "file": "content/Primitives/secret-sharing.md",
+   "line": 49,
+   "claim": "Relaxes perfect privacy to computational indistinguishability. Allows secret sharing below the information-theoretic threshold (e.g., $(1, n)$-sharing, i.e., encryption).",
+   "problem": "SUSPECTED ERROR (recorded, not fixed): '(1, n)-sharing, i.e., encryption' is confused — in the (t,n) notation used on this page, t=1 means any single party reconstructs, which is neither encryption nor 'below the information-theoretic threshold'. The intended statement is presumably about share size below the secret size (Krawczyk-style: encrypt, share the key, disperse the ciphertext), i.e. an (n,n)- or (t,n)-scheme with short shares.",
+   "severity": "medium",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Primitives/secure-multi-party-computation.md",
+   "line": 62,
+   "claim": "- OT extension: $O(1)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]",
+   "problem": "SUSPECTED QUANTITATIVE ERROR: IKNP03 needs $O(\\secpar)$ (security-parameter many) base OTs, not $O(1)$. Reported, not fixed.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-ot-to-ot-iknp03"
+   ]
+  },
+  {
+   "file": "content/Primitives/succinct-argument.md",
+   "line": 89,
+   "claim": "- Groth16 achieves constant proof size (3 $\\GG_1$ elements + 1 $\\GG_2$ element) and is the most proof-size-efficient pairing-based zk-SNARK; relies on the [[knowledge-of-exponent|knowledge-of-exponent assumption]] — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]",
+   "problem": "SUSPECTED MATHEMATICAL ERROR: '3 $\\GG_1$ elements + 1 $\\GG_2$ element' is 4 group elements; Groth16 proofs are 2 $\\GG_1$ + 1 $\\GG_2$ = 3 elements, which is also what line 71 of this same page says. Internal contradiction. Reported, not fixed.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-koe-to-sa-gro16"
+   ]
+  },
+  {
+   "file": "content/Primitives/trapdoor-permutation.md",
+   "line": 50,
+   "claim": "A generalization where there are two modes: an injective mode (standard TDP) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply TDPs and are useful for constructing CCA-secure encryption.",
+   "problem": "SUSPECTED IMPRECISION: lossy TDFs yield injective trapdoor FUNCTIONS, not trapdoor PERMUTATIONS (the injective branch need not be a bijection on the domain). 'Lossy TDFs imply TDPs' is likely wrong as stated. Reported, not fixed.",
+   "severity": "medium",
+   "affectsEdges": [
+    "red-ltf-to-tp",
+    "red-ltf-to-pke"
+   ]
+  },
+  {
+   "file": "content/Assumptions/bilinear-map-assumptions.md",
+   "line": 51,
+   "claim": "Assumes DDH is hard in both $\\GG_1$ and $\\GG_2$ of an asymmetric pairing. Stronger than BDDH; used for efficiently instantiating Groth-Sahai proofs.",
+   "problem": "SUSPECTED IMPRECISION: SXDH is stated for asymmetric (Type 3) pairings whereas BDDH is stated on this page for symmetric pairings, so the two are not directly comparable.",
+   "severity": "low",
+   "affectsEdges": [
+    "red-sxdh-to-bddh",
+    "red-sxdh-to-nizk"
+   ]
+  },
+  {
+   "file": "content/Assumptions/decisional-composite-residuosity.md",
+   "line": 33,
+   "claim": "- DCR → [[commitment-scheme|COM]] (statistically hiding, computationally binding) — standard",
+   "problem": "SUSPECTED IMPRECISION: the hiding/binding flavours claimed (statistically hiding, computationally binding) should be checked against the standard DCR-based construction.",
+   "severity": "low",
+   "affectsEdges": [
+    "red-dcr-to-cs"
+   ]
+  },
+  {
+   "file": "content/Assumptions/knowledge-of-exponent.md",
+   "line": 45,
+   "claim": "- KEA can fail in adversarially constructed groups (generic groups with special structures)",
+   "problem": "SUSPECTED WORDING ERROR: generic groups with special structures is self-contradictory — generic groups by definition expose no structure; the intended claim is presumably about concrete groups with extra structure (e.g. pairings).",
+   "severity": "low",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/planted-clique.md",
+   "line": 14,
+   "claim": "The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $\\calG(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \\Omega(\\sqrt{n \\log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root clique sizes $k = n^\\delta$ for $\\delta \\in (0, 1/2)$. The variant us",
+   "problem": "SUSPECTED IMPRECISION (report only): the AKS98 spectral algorithm succeeds for k = Omega(sqrt(n)); Omega(sqrt(n log n)) is the threshold for the DEGREE-THRESHOLDING attack. This page quotes sqrt(n log n) for the spectral algorithm at lines 14, 51 and 67.",
+   "severity": "low",
+   "affectsEdges": []
+  },
+  {
+   "file": "content/Assumptions/shortest-integer-solution.md",
+   "line": 48,
+   "claim": "The function family $\\{f_\\mathbf{A} : \\mathbf{z} \\mapsto \\mathbf{Az} \\bmod q\\}$, restricted to inputs $\\mathbf{z} \\in \\{0, \\ldots, \\lfloor \\beta/2 \\rfloor\\}^m$, is a [[collision-resistant-hash-function|collision-resistant hash function]] family under SIS hardness — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Any collision $f_\\mathbf{A}(\\mathbf{z}) = f_\\mathbf{A}(\\mathbf{z}')$ ",
+   "problem": "SUSPECTED NORM ERROR (report only): with inputs in {0,...,floor(beta/2)}^m the difference z - z′ has entries in [-beta/2, beta/2], so ||z - z′|| <= beta holds for the L-infinity norm. The game defined at line 27 of this page writes ||z|| <= beta without naming a norm, and under the usual L2 reading the bound would be (beta/2)sqrt(m), not beta.",
+   "severity": "low",
+   "affectsEdges": [
+    "red-sis-to-crhf-ajt96"
+   ]
+  },
+  {
+   "file": "content/Complexity/bounded-error-quantum-polynomial-time.md",
+   "line": 30,
+   "claim": "- **$\\classBQP$ vs $\\classNP$:** the two classes are believed incomparable. Simon's problem is in $\\classBQP$ but not in $\\classNP$ relative to a random oracle; conversely, NP-complete problems are not believed to be in $\\classBQP$.",
+   "problem": "SUSPECTED IMPRECISION (report only): Simon's problem is defined relative to a random 2-to-1 function with a hidden XOR mask, not a uniformly random oracle; 'relative to a random oracle' overstates what the Simon separation gives. The random-oracle statement usually cited in this direction is BBBV (NP not in BQP relative to a random oracle), which is the OTHER direction.",
+   "severity": "low",
+   "affectsEdges": [
+    "bar-beqpt-to-npt"
+   ]
+  },
+  {
+   "file": "content/Complexity/total-function-np.md",
+   "line": 17,
+   "claim": "Totality means the problem cannot be NP-complete (unless NP = coNP), since NP-completeness requires instances with no solution. This makes TFNP a natural home for problems believed to be hard but not NP-hard.",
+   "problem": "SUSPECTED IMPRECISION: 'NP-completeness requires instances with no solution' is a loose gloss; the standard argument is that a total problem whose associated decision problem is NP-complete (under Karp/Levin reductions) yields NP = coNP. As stated it reads as a definitional requirement, which it is not. Reported, not corrected.",
+   "severity": "low",
+   "affectsEdges": [
+    "bar-tpinc-to-nec",
+    "bar-nc+tfn-to-nec"
+   ]
+  },
+  {
+   "file": "content/Complexity/total-function-np.md",
+   "line": 33,
+   "claim": "- TFNP problems are unlikely to be NP-hard, since NP-hardness would require instances with no solution, contradicting totality (unless NP = coNP).",
+   "problem": "SUSPECTED IMPRECISION: NP-hardness does not 'require instances with no solution'; the standard barrier is stated for Karp-reduction-completeness of the associated decision problem. Reported, not corrected.",
+   "severity": "low",
+   "affectsEdges": [
+    "bar-tpinh-to-nec"
+   ]
+  },
+  {
+   "file": "content/Primitives/digital-signature.md",
+   "line": 181,
+   "claim": "- Digital signatures imply [[hash-function|OWFs]]: if signing is hard to forge, the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)",
+   "problem": "SUSPECTED ERROR IN THE SKETCH (reported, not fixed): the parenthetical 'knowing the message and signature reveals nothing useful about the key' is a secrecy statement, which is not what one-wayness of signing means and is not the argument. The real argument builds a OWF from $\\KeyGen$'s randomness (or from $(\\sk, m) \\mapsto \\Sign(\\sk,m)$ for a fixed $m$) and inverts it to forge.",
+   "severity": "low",
+   "affectsEdges": [
+    "red-ds-to-hf"
+   ]
+  },
+  {
+   "file": "content/Primitives/succinct-argument.md",
+   "line": 77,
+   "claim": "The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, which is a transparent polynomial commitment scheme based on proximity testing to Reed-Solomon codes.",
+   "problem": "SUSPECTED TERMINOLOGY ERROR: FRI is an IOP of proximity (a low-degree/proximity test), not itself a polynomial commitment scheme; a polynomial commitment is built FROM FRI plus Merkle commitments. Reported, not fixed.",
+   "severity": "low",
+   "affectsEdges": [
+    "red-fri-to-sa"
+   ]
+  }
+ ]
+}

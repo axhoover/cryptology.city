@@ -1,0 +1,2968 @@
+{
+ "note": "Hyperedges in the audited worklist that were NOT turned into pages. Reported, never guessed at.",
+ "count": 228,
+ "entries": [
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "alternating-moduli"
+   ],
+   "conclusion": "leakage-resilient-prf",
+   "reason": "endpoint does not resolve: leakage-resilient-prf",
+   "sources": [
+    "BIP+18"
+   ],
+   "statedOn": [
+    "content/Assumptions/alternating-moduli.md:81"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "learning-parity-with-noise"
+   ],
+   "conclusion": "decoding-random-linear-codes",
+   "reason": "endpoint does not resolve: decoding-random-linear-codes",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/learning-parity-with-noise.md:12"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "rsa-inversion-for-all-exponents"
+   ],
+   "conclusion": "factoring",
+   "reason": "endpoint does not resolve: rsa-inversion-for-all-exponents",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/rsa-assumption.md:47"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "rsa-assumption"
+   ],
+   "conclusion": "decisional-rsa",
+   "reason": "endpoint does not resolve: decisional-rsa",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/rsa-assumption.md:49"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "isogeny-assumption-unnamed"
+   ],
+   "conclusion": "digital-signature",
+   "reason": "endpoint does not resolve: isogeny-assumption-unnamed",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/supersingular-isogeny-diffie-hellman.md:42"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pseudorandom-generator"
+   ],
+   "conclusion": "p-equals-bpp",
+   "reason": "endpoint does not resolve: p-equals-bpp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/bounded-error-probabilistic-polynomial-time.md:33"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "np-in-czk",
+   "reason": "endpoint does not resolve: np-in-czk",
+   "sources": [
+    "GMW91"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:27"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "czk-equals-ip",
+   "reason": "endpoint does not resolve: czk-equals-ip",
+   "sources": [
+    "BGG+90"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:27"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "czk-proof-for-language-outside-bpp"
+   ],
+   "conclusion": "hash-function",
+   "reason": "endpoint does not resolve: czk-proof-for-language-outside-bpp",
+   "sources": [
+    "Ost91"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:33"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "p-neq-ppoly-cap-np",
+   "reason": "endpoint does not resolve: p-neq-ppoly-cap-np",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:34"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pseudorandom-generator"
+   ],
+   "conclusion": "pseudorandom-generator",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:35",
+    "content/Folklore/hybrid-argument.md:31"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "local-hamiltonian"
+   ],
+   "conclusion": "cryptographic-assumption-generic",
+   "reason": "endpoint does not resolve: cryptographic-assumption-generic",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:47"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "szk-not-contained-in-bpp"
+   ],
+   "conclusion": "hash-function",
+   "reason": "endpoint does not resolve: szk-not-contained-in-bpp",
+   "sources": [
+    "Ost91"
+   ],
+   "statedOn": [
+    "content/Complexity/statistical-zero-knowledge.md:21"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "ppad-hardness"
+   ],
+   "conclusion": "cryptographic-primitives-generic",
+   "reason": "endpoint does not resolve: cryptographic-primitives-generic",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:37"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [],
+   "conclusion": "groth16-snark",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "FKL18"
+   ],
+   "statedOn": [
+    "content/Glossary/algebraic-group-model.md:33"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "polynomial-commitment",
+    "polynomial-constraint-system"
+   ],
+   "conclusion": "succinct-argument",
+   "reason": "endpoint does not resolve: polynomial-constraint-system",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/arithmetization.md:15"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pairings",
+    "single-point-divisibility-check"
+   ],
+   "conclusion": "groth16",
+   "reason": "endpoint does not resolve: single-point-divisibility-check",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/arithmetization.md:34"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "fri",
+    "reed-solomon-proximity-test"
+   ],
+   "conclusion": "air-constraint-verification",
+   "reason": "endpoint does not resolve: reed-solomon-proximity-test, air-constraint-verification",
+   "sources": [
+    "BBHR18"
+   ],
+   "statedOn": [
+    "content/Glossary/arithmetization.md:47"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "random-permutation-oracle"
+   ],
+   "conclusion": "one-way-permutation",
+   "reason": "endpoint does not resolve: random-permutation-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:65"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "non-black-box-technique"
+   ],
+   "conclusion": "zero-knowledge-proof",
+   "reason": "endpoint does not resolve: non-black-box-technique",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:91"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "cryptomania-assumptions",
+    "oblivious-interactive-hash-function"
+   ],
+   "conclusion": "oblivious-transfer",
+   "reason": "endpoint does not resolve: cryptomania-assumptions",
+   "sources": [
+    "BH26"
+   ],
+   "statedOn": [
+    "content/Glossary/random-oracle-model.md:25"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pseudorandom-function"
+   ],
+   "conclusion": "random-function",
+   "reason": "endpoint does not resolve: random-function",
+   "sources": [],
+   "statedOn": [
+    "content/Folklore/hybrid-argument.md:33"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "single-instance-hardness"
+   ],
+   "conclusion": "multi-instance-hardness",
+   "reason": "endpoint does not resolve: single-instance-hardness, multi-instance-hardness",
+   "sources": [],
+   "statedOn": [
+    "content/Folklore/hybrid-argument.md:37"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "random-permutation"
+   ],
+   "conclusion": "random-function",
+   "reason": "endpoint does not resolve: random-permutation, random-function",
+   "sources": [
+    "Din20"
+   ],
+   "statedOn": [
+    "content/Folklore/switching-lemma.md:11",
+    "content/Folklore/switching-lemma.md:15"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "np-hard-on-average",
+   "reason": "endpoint does not resolve: np-hard-on-average",
+   "sources": [],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:31"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "np-easy-on-average"
+   ],
+   "conclusion": "no-owf",
+   "reason": "endpoint does not resolve: np-easy-on-average, no-owf",
+   "sources": [],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:44"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "cryptomania"
+   ],
+   "conclusion": "oblivious-transfer",
+   "reason": "endpoint does not resolve: cryptomania",
+   "sources": [],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:63"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "abe-selective-security"
+   ],
+   "conclusion": "abe-adaptive-security",
+   "reason": "endpoint does not resolve: abe-adaptive-security",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/attribute-based-encryption.md:108"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pseudorandom-function",
+    "second-preimage-resistance"
+   ],
+   "conclusion": "digital-signature",
+   "reason": "endpoint does not resolve: second-preimage-resistance",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/digital-signature.md:165"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pk-depir"
+   ],
+   "conclusion": "sk-depir",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/doubly-efficient-pir.md:14"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [],
+   "conclusion": "fingerprinting-code",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "Tar08"
+   ],
+   "statedOn": [
+    "content/Primitives/fingerprinting-code.md:42"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [],
+   "conclusion": "fuzzy-identity-based-encryption",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "SW05"
+   ],
+   "statedOn": [
+    "content/Primitives/fuzzy-identity-based-encryption.md:81"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "hash-function",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/hash-function.md:20"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "bilinear-map-assumption"
+   ],
+   "conclusion": "hierarchical-identity-based-encryption",
+   "reason": "endpoint does not resolve: bilinear-map-assumption",
+   "sources": [
+    "BBG05"
+   ],
+   "statedOn": [
+    "content/Primitives/hierarchical-identity-based-encryption.md:81"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "simple-assumptions"
+   ],
+   "conclusion": "hierarchical-identity-based-encryption",
+   "reason": "endpoint does not resolve: simple-assumptions",
+   "sources": [
+    "Wat09"
+   ],
+   "statedOn": [
+    "content/Primitives/hierarchical-identity-based-encryption.md:82"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "ideal-lattices"
+   ],
+   "conclusion": "homomorphic-encryption",
+   "reason": "endpoint does not resolve: ideal-lattices",
+   "sources": [
+    "Gen09"
+   ],
+   "statedOn": [
+    "content/Primitives/homomorphic-encryption.md:14"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "ideal-lattices"
+   ],
+   "conclusion": "fully-homomorphic-encryption",
+   "reason": "endpoint does not resolve: ideal-lattices",
+   "sources": [
+    "Gen09"
+   ],
+   "statedOn": [
+    "content/Primitives/homomorphic-encryption.md:52"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "ideal-lattices"
+   ],
+   "conclusion": "somewhat-homomorphic-encryption",
+   "reason": "endpoint does not resolve: ideal-lattices",
+   "sources": [
+    "Gen09"
+   ],
+   "statedOn": [
+    "content/Primitives/homomorphic-encryption.md:60"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "computational-bilinear-diffie-hellman"
+   ],
+   "conclusion": "identity-based-encryption",
+   "reason": "endpoint does not resolve: computational-bilinear-diffie-hellman",
+   "sources": [
+    "BF01"
+   ],
+   "statedOn": [
+    "content/Primitives/identity-based-encryption.md:107"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "simple-assumptions"
+   ],
+   "conclusion": "identity-based-encryption",
+   "reason": "endpoint does not resolve: simple-assumptions",
+   "sources": [
+    "Wat09"
+   ],
+   "statedOn": [
+    "content/Primitives/identity-based-encryption.md:108"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-function",
+    "indistinguishability-obfuscation"
+   ],
+   "conclusion": "many-primitives",
+   "reason": "endpoint does not resolve: many-primitives",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/indistinguishability-obfuscation.md:12"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "well-founded-assumptions"
+   ],
+   "conclusion": "indistinguishability-obfuscation",
+   "reason": "endpoint does not resolve: well-founded-assumptions",
+   "sources": [
+    "JLS21"
+   ],
+   "statedOn": [
+    "content/Primitives/indistinguishability-obfuscation.md:12"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "zero-ippe"
+   ],
+   "conclusion": "nonzero-ippe",
+   "reason": "endpoint does not resolve: zero-ippe",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/inner-product-predicate-encryption.md:75"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "rerandomizable-kem"
+   ],
+   "conclusion": "anonymous-public-key-encryption",
+   "reason": "endpoint does not resolve: rerandomizable-kem",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/key-encapsulation-mechanism.md:85"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "message-authentication-code",
+    "symmetric-key-encryption"
+   ],
+   "conclusion": "symmetric-key-encryption",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/message-authentication-code.md:86"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "one-bit-pir"
+   ],
+   "conclusion": "multi-server-private-information-retrieval",
+   "reason": "endpoint does not resolve: one-bit-pir",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/multi-server-private-information-retrieval.md:48"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "public-key-encryption",
+    "simulation-sound-nizk"
+   ],
+   "conclusion": "public-key-encryption",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/non-interactive-zero-knowledge.md:44"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "non-interactive-zero-knowledge",
+    "public-key-encryption"
+   ],
+   "conclusion": "public-key-encryption",
+   "reason": "self-loop",
+   "sources": [
+    "BFM88"
+   ],
+   "statedOn": [
+    "content/Primitives/non-interactive-zero-knowledge.md:67"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hash-and-sign-signature",
+    "sis-commitment"
+   ],
+   "conclusion": "non-interactive-zero-knowledge",
+   "reason": "endpoint does not resolve: sis-commitment",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/non-interactive-zero-knowledge.md:68"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "oblivious-transfer",
+    "symmetric-key-primitives"
+   ],
+   "conclusion": "oblivious-transfer",
+   "reason": "endpoint does not resolve: symmetric-key-primitives",
+   "sources": [
+    "IKNP03"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-transfer.md:116"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "fri-polynomial-commitment"
+   ],
+   "conclusion": "transparent-succinct-argument",
+   "reason": "endpoint does not resolve: fri-polynomial-commitment",
+   "sources": [
+    "BBHR18"
+   ],
+   "statedOn": [
+    "content/Primitives/polynomial-commitment.md:77",
+    "content/References/BBHR18 - Scalable, transparent, and post-quantum secure computational integrity.md:18"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "pseudorandom-error-correcting-code"
+   ],
+   "conclusion": "generative-ai-watermarking",
+   "reason": "endpoint does not resolve: generative-ai-watermarking",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/pseudorandom-error-correcting-code.md:13"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "ideal-prc"
+   ],
+   "conclusion": "key-holder-undetectable-watermarking",
+   "reason": "endpoint does not resolve: key-holder-undetectable-watermarking",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/pseudorandom-error-correcting-code.md:49"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "zero-bit-prc"
+   ],
+   "conclusion": "generative-ai-watermarking",
+   "reason": "endpoint does not resolve: generative-ai-watermarking",
+   "sources": [
+    "CG24"
+   ],
+   "statedOn": [
+    "content/Primitives/pseudorandom-error-correcting-code.md:53"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "polynomial-interpolation-over-finite-field"
+   ],
+   "conclusion": "secret-sharing",
+   "reason": "endpoint does not resolve: polynomial-interpolation-over-finite-field",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/secret-sharing.md:41"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "hyperplane-geometry-over-finite-field"
+   ],
+   "conclusion": "secret-sharing",
+   "reason": "endpoint does not resolve: hyperplane-geometry-over-finite-field",
+   "sources": [
+    "Bla79"
+   ],
+   "statedOn": [
+    "content/Primitives/secret-sharing.md:45"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [],
+   "conclusion": "secret-sharing",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "Sha79",
+    "Bla79"
+   ],
+   "statedOn": [
+    "content/Primitives/secret-sharing.md:61",
+    "content/Primitives/secret-sharing.md:62"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "broadcast-channel",
+    "honest-majority-t-lt-n-over-2"
+   ],
+   "conclusion": "secure-multi-party-computation",
+   "reason": "endpoint does not resolve: broadcast-channel",
+   "sources": [
+    "BGW88"
+   ],
+   "statedOn": [
+    "content/Primitives/secure-multi-party-computation.md:43"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "oblivious-transfer"
+   ],
+   "conclusion": "oblivious-transfer",
+   "reason": "self-loop",
+   "sources": [
+    "IKNP03"
+   ],
+   "statedOn": [
+    "content/Primitives/secure-multi-party-computation.md:62"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [],
+   "conclusion": "symmetric-private-information-retrieval-multi-server",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "GIKM00"
+   ],
+   "statedOn": [
+    "content/Primitives/single-server-private-information-retrieval.md:87",
+    "content/Primitives/symmetric-private-information-retrieval-multi-server.md:15"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "unspecified-computational-assumption"
+   ],
+   "conclusion": "single-server-symmetric-pir",
+   "reason": "endpoint does not resolve: unspecified-computational-assumption",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/single-server-private-information-retrieval.md:87"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "polynomial-commitment",
+    "polynomial-iop"
+   ],
+   "conclusion": "succinct-argument",
+   "reason": "endpoint does not resolve: polynomial-iop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/succinct-argument.md:94"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "trapdoor-permutation"
+   ],
+   "conclusion": "public-key-cryptography",
+   "reason": "endpoint does not resolve: public-key-cryptography",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/trapdoor-permutation.md:14"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "oblivious-locally-decodable-code",
+    "one-way-function",
+    "virtual-black-box-obfuscation"
+   ],
+   "conclusion": "public-key-pir",
+   "reason": "endpoint does not resolve: public-key-pir",
+   "sources": [
+    "BIPW17"
+   ],
+   "statedOn": [
+    "content/References/BIPW17 - Can We Access a Database Both Locally and Privately.md:32"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "learning-parity-with-noise"
+   ],
+   "conclusion": "lsn-variant-noise-outside-independent-column-set",
+   "reason": "endpoint does not resolve: lsn-variant-noise-outside-independent-column-set",
+   "sources": [
+    "CIMR25"
+   ],
+   "statedOn": [
+    "content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:67"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "search-lsn-n-equals-k-plus-1-over-f2"
+   ],
+   "conclusion": "learning-parity-with-noise",
+   "reason": "endpoint does not resolve: search-lsn-n-equals-k-plus-1-over-f2",
+   "sources": [
+    "CDV21"
+   ],
+   "statedOn": [
+    "content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md:68"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "expanding-set-system",
+    "non-degenerate-predicate"
+   ],
+   "conclusion": "one-way-function",
+   "reason": "endpoint does not resolve: expanding-set-system, non-degenerate-predicate",
+   "sources": [
+    "Gol00"
+   ],
+   "statedOn": [
+    "content/References/Gol00 - Candidate One-Way Functions Based on Expander Graphs.md:30"
+   ]
+  },
+  {
+   "bucket": "reduction",
+   "hypotheses": [
+    "reed-solomon-proximity-test"
+   ],
+   "conclusion": "fri-polynomial-commitment",
+   "reason": "endpoint does not resolve: reed-solomon-proximity-test, fri-polynomial-commitment",
+   "sources": [
+    "BBHR18"
+   ],
+   "statedOn": [
+    "content/References/BBHR18 - Scalable, transparent, and post-quantum secure computational integrity.md:18"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "obfuscation-based-counterexample"
+   ],
+   "conclusion": "private-coin-evasive-lwe",
+   "reason": "endpoint does not resolve: obfuscation-based-counterexample",
+   "sources": [
+    "Wee22"
+   ],
+   "statedOn": [
+    "content/Assumptions/learning-with-errors.md:237"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "private-coin-evasive-lwe"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: contradiction",
+   "sources": [
+    "BUW24",
+    "AMYY25"
+   ],
+   "statedOn": [
+    "content/Assumptions/learning-with-errors.md:239"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "rsa-assumption-fixed-e"
+   ],
+   "conclusion": "factoring",
+   "reason": "endpoint does not resolve: rsa-assumption-fixed-e",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/rsa-assumption.md:47"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "factoring",
+    "rsa-assumption"
+   ],
+   "conclusion": "no-superpolynomial-separation-in-generic-ring-model",
+   "reason": "endpoint does not resolve: no-superpolynomial-separation-in-generic-ring-model",
+   "sources": [
+    "DLO24"
+   ],
+   "statedOn": [
+    "content/Assumptions/rsa-assumption.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "cd22-torsion-point-attack"
+   ],
+   "conclusion": "csidh",
+   "reason": "endpoint does not resolve: cd22-torsion-point-attack",
+   "sources": [],
+   "statedOn": [
+    "content/Assumptions/supersingular-isogeny-diffie-hellman.md:38"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-in-coam"
+   ],
+   "conclusion": "ph-collapses-to-sigma-2-p",
+   "reason": "endpoint does not resolve: np-in-coam, ph-collapses-to-sigma-2-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-arthur-merlin.md:21"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-complete-problem-in-conp"
+   ],
+   "conclusion": "np-equals-conp",
+   "reason": "endpoint does not resolve: np-complete-problem-in-conp, np-equals-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "constant-round-black-box-zk-for-np"
+   ],
+   "conclusion": "np-in-bpp",
+   "reason": "endpoint does not resolve: constant-round-black-box-zk-for-np, np-in-bpp",
+   "sources": [
+    "GK96"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:35"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "zero-knowledge-proof"
+   ],
+   "conclusion": "zero-knowledge-proof",
+   "reason": "self-loop",
+   "sources": [
+    "GK96"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:37"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "ma-not-equal-np"
+   ],
+   "conclusion": "circuit-lower-bounds",
+   "reason": "endpoint does not resolve: ma-not-equal-np, circuit-lower-bounds",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/merlin-arthur.md:26"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-in-ppoly"
+   ],
+   "conclusion": "ph-collapses-to-sigma-2-p",
+   "reason": "endpoint does not resolve: np-in-ppoly, ph-collapses-to-sigma-2-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:26"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "bqp-poly"
+   ],
+   "conclusion": "bqp-qpoly",
+   "reason": "endpoint does not resolve: bqp-poly, bqp-qpoly",
+   "sources": [
+    "AK07",
+    "BHV26"
+   ],
+   "statedOn": [
+    "content/Complexity/quantum-classical-merlin-arthur.md:31",
+    "content/Complexity/quantum-classical-merlin-arthur.md:36"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "exp-neq-nexp"
+   ],
+   "conclusion": "qma-internally-separable-strictly-below-qma-2",
+   "reason": "endpoint does not resolve: exp-neq-nexp, qma-internally-separable-strictly-below-qma-2",
+   "sources": [
+    "BFL+24"
+   ],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:40"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-complete-problem-in-szk"
+   ],
+   "conclusion": "polynomial-hierarchy-collapses",
+   "reason": "endpoint does not resolve: np-complete-problem-in-szk, polynomial-hierarchy-collapses",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/statistical-zero-knowledge.md:20"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "tfnp-problem-is-np-complete"
+   ],
+   "conclusion": "np-equals-conp",
+   "reason": "endpoint does not resolve: tfnp-problem-is-np-complete, np-equals-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:17"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "tfnp-problem-is-np-hard"
+   ],
+   "conclusion": "np-equals-conp",
+   "reason": "endpoint does not resolve: tfnp-problem-is-np-hard, np-equals-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:33"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "discrete-logarithm",
+   "reason": "no hypotheses (an unconditional claim is not a hyperedge)",
+   "sources": [
+    "Sho97"
+   ],
+   "statedOn": [
+    "content/Glossary/algebraic-group-model.md:35"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "oracle-separation"
+   ],
+   "conclusion": "no-fully-black-box-reduction",
+   "reason": "endpoint does not resolve: no-fully-black-box-reduction",
+   "sources": [
+    "RTV04"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:46",
+    "content/Glossary/black-box-separations.md:89",
+    "content/Glossary/black-box-separations.md:93"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "relativizing-proof"
+   ],
+   "conclusion": "p-vs-np",
+   "reason": "endpoint does not resolve: relativizing-proof, p-vs-np",
+   "sources": [
+    "BGS75"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "one-way-permutation"
+   ],
+   "conclusion": "p-vs-np",
+   "reason": "endpoint does not resolve: p-vs-np",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:60"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "key-exchange-eavesdropper",
+    "one-way-permutation"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: key-exchange-eavesdropper, contradiction",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:69"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "standard-cryptographic-primitives"
+   ],
+   "conclusion": "doubly-efficient-pir",
+   "reason": "endpoint does not resolve: standard-cryptographic-primitives",
+   "sources": [
+    "LMW25"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:81"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "fiat-shamir-heuristic",
+    "hash-function"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: contradiction",
+   "sources": [
+    "GK03"
+   ],
+   "statedOn": [
+    "content/Glossary/fiat-shamir-heuristic.md:32"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "shoup-ggm"
+   ],
+   "conclusion": "maurer-ggm",
+   "reason": "endpoint does not resolve: maurer-ggm",
+   "sources": [
+    "MPZ20"
+   ],
+   "statedOn": [
+    "content/Glossary/generic-group-model.md:33"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "structured-generic-group-model"
+   ],
+   "conclusion": "index-calculus",
+   "reason": "endpoint does not resolve: index-calculus",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/generic-group-model.md:43"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "type-3-pairing"
+   ],
+   "conclusion": "pairing-based-scheme-proof-failure",
+   "reason": "endpoint does not resolve: pairing-based-scheme-proof-failure",
+   "sources": [
+    "GPS06"
+   ],
+   "statedOn": [
+    "content/Glossary/pairings.md:37"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "random-oracle-hypothesis"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: contradiction",
+   "sources": [
+    "CCG+94"
+   ],
+   "statedOn": [
+    "content/Glossary/random-oracle-model.md:15"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "fiat-shamir-heuristic"
+   ],
+   "conclusion": "fiat-shamir-standard-model-instantiation",
+   "reason": "endpoint does not resolve: fiat-shamir-standard-model-instantiation",
+   "sources": [
+    "GK03"
+   ],
+   "statedOn": [
+    "content/Glossary/random-oracle-model.md:21"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "minicrypt"
+   ],
+   "conclusion": "cryptomania",
+   "reason": "endpoint does not resolve: minicrypt, cryptomania",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/random-oracle-model.md:25"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "hybrid-argument"
+   ],
+   "conclusion": "polynomial-hybrid-count-requirement",
+   "reason": "endpoint does not resolve: polynomial-hybrid-count-requirement",
+   "sources": [],
+   "statedOn": [
+    "content/Folklore/hybrid-argument.md:46"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "p-neq-np"
+   ],
+   "conclusion": "hash-function",
+   "reason": "endpoint does not resolve: p-neq-np",
+   "sources": [
+    "GG98",
+    "AGGM06"
+   ],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:42",
+    "content/impagliazzos-five-worlds.md:46"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "pessiland"
+   ],
+   "conclusion": "minicrypt",
+   "reason": "endpoint does not resolve: pessiland, minicrypt",
+   "sources": [
+    "GMMY24"
+   ],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:84"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "abe-adaptive-security"
+   ],
+   "conclusion": "abe-selective-security",
+   "reason": "endpoint does not resolve: abe-adaptive-security",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/attribute-based-encryption.md:108"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "kp-abe"
+   ],
+   "conclusion": "cp-abe",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/attribute-based-encryption.md:114"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "perfect-commitment-scheme"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: perfect-commitment-scheme, contradiction",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/commitment-scheme.md:49"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "distributed-point-function"
+   ],
+   "conclusion": "key-size-lower-bound",
+   "reason": "endpoint does not resolve: key-size-lower-bound",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/distributed-point-function.md:50"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "many-cryptographic-primitives"
+   ],
+   "conclusion": "sk-depir",
+   "reason": "endpoint does not resolve: many-cryptographic-primitives",
+   "sources": [
+    "LMW25"
+   ],
+   "statedOn": [
+    "content/Primitives/doubly-efficient-pir.md:56"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "fingerprinting-code"
+   ],
+   "conclusion": "length-lower-bound",
+   "reason": "endpoint does not resolve: length-lower-bound",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/fingerprinting-code.md:43"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "hash-function",
+   "reason": "self-loop",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/hash-function.md:68",
+    "content/Primitives/hash-function.md:108",
+    "content/Primitives/hash-function.md:108"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "rerandomizable-encryption"
+   ],
+   "conclusion": "szk-neq-bpp",
+   "reason": "endpoint does not resolve: szk-neq-bpp",
+   "sources": [
+    "BL13"
+   ],
+   "statedOn": [
+    "content/Primitives/homomorphic-encryption.md:65"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "standard-assumptions"
+   ],
+   "conclusion": "circular-security",
+   "reason": "endpoint does not resolve: standard-assumptions",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/homomorphic-encryption.md:66"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "virtual-black-box-obfuscation"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: contradiction",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/indistinguishability-obfuscation.md:41",
+    "content/Primitives/indistinguishability-obfuscation.md:56"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "information-theoretic-key-agreement"
+   ],
+   "conclusion": "communication-lower-bound",
+   "reason": "endpoint does not resolve: information-theoretic-key-agreement, communication-lower-bound",
+   "sources": [
+    "HMO+19"
+   ],
+   "statedOn": [
+    "content/Primitives/key-exchange.md:53"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "fiat-shamir-heuristic"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: contradiction",
+   "sources": [
+    "GK03"
+   ],
+   "statedOn": [
+    "content/Primitives/non-interactive-zero-knowledge.md:64"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "oblivious-ram"
+   ],
+   "conclusion": "omega-log-n-amortized-overhead-lower-bound",
+   "reason": "endpoint does not resolve: omega-log-n-amortized-overhead-lower-bound",
+   "sources": [
+    "GO96",
+    "LN18"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-ram.md:46"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "one-round-balls-in-bins-oram"
+   ],
+   "conclusion": "omega-sqrt-n-overhead-or-storage-lower-bound",
+   "reason": "endpoint does not resolve: one-round-balls-in-bins-oram, omega-sqrt-n-overhead-or-storage-lower-bound",
+   "sources": [
+    "CDH20"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-ram.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "game-based-ot-security"
+   ],
+   "conclusion": "malicious-ot-security",
+   "reason": "endpoint does not resolve: game-based-ot-security",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/oblivious-transfer.md:100"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "secure-multi-party-computation"
+   ],
+   "conclusion": "computational-assumptions-required",
+   "reason": "endpoint does not resolve: computational-assumptions-required",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/secure-multi-party-computation.md:47"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "single-server-private-information-retrieval"
+   ],
+   "conclusion": "omega-n-public-key-operations",
+   "reason": "endpoint does not resolve: omega-n-public-key-operations",
+   "sources": [
+    "DH24"
+   ],
+   "statedOn": [
+    "content/Primitives/single-server-private-information-retrieval.md:151"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "succinct-argument"
+   ],
+   "conclusion": "non-falsifiable-assumption-required",
+   "reason": "endpoint does not resolve: non-falsifiable-assumption-required",
+   "sources": [
+    "Gro16"
+   ],
+   "statedOn": [
+    "content/Primitives/succinct-argument.md:95"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "zero-knowledge-proof"
+   ],
+   "conclusion": "parallel-composition-preserves-zk",
+   "reason": "endpoint does not resolve: parallel-composition-preserves-zk",
+   "sources": [
+    "GK96"
+   ],
+   "statedOn": [
+    "content/Primitives/zero-knowledge-proof.md:75"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "pairing-property-profile"
+   ],
+   "conclusion": "contradiction",
+   "reason": "endpoint does not resolve: pairing-property-profile, contradiction",
+   "sources": [
+    "GPS06"
+   ],
+   "statedOn": [
+    "content/References/GPS06 - Pairings for Cryptographers.md:25"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "unstructured-search-quadratic-speedup"
+   ],
+   "conclusion": "quantum-query-lower-bound-sqrt-n",
+   "reason": "endpoint does not resolve: unstructured-search-quadratic-speedup, quantum-query-lower-bound-sqrt-n",
+   "sources": [],
+   "statedOn": [
+    "content/References/Grover96 - A fast quantum mechanical algorithm for database search.md:18"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "relativizing-proof-technique"
+   ],
+   "conclusion": "p-neq-np",
+   "reason": "endpoint does not resolve: relativizing-proof-technique, p-neq-np",
+   "sources": [
+    "BGS75"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "",
+   "reason": "endpoint does not resolve: ",
+   "sources": [
+    "Bra79"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:77"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "key-exchange",
+    "oblivious-transfer",
+    "public-key-encryption",
+    "trapdoor-permutation"
+   ],
+   "conclusion": "",
+   "reason": "endpoint does not resolve: ",
+   "sources": [
+    "GKM+00"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:79"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "generic-multilinear-group",
+    "indistinguishability-obfuscation",
+    "key-exchange",
+    "oblivious-transfer",
+    "random-oracle",
+    "virtual-black-box-obfuscation"
+   ],
+   "conclusion": "doubly-efficient-pir",
+   "reason": "endpoint does not resolve: generic-multilinear-group",
+   "sources": [
+    "LMW25"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:81"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "generic-cryptographic-primitives"
+   ],
+   "conclusion": "doubly-efficient-pir",
+   "reason": "endpoint does not resolve: generic-cryptographic-primitives",
+   "sources": [
+    "LMW25"
+   ],
+   "statedOn": [
+    "content/Primitives/doubly-efficient-pir.md:56"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "black-box-zero-knowledge-simulation",
+    "constant-round-proof-system-for-np-complete-language"
+   ],
+   "conclusion": "zero-knowledge-proof",
+   "reason": "endpoint does not resolve: black-box-zero-knowledge-simulation, constant-round-proof-system-for-np-complete-language",
+   "sources": [
+    "GK96"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:35"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "parallel-composition",
+    "zero-knowledge-proof"
+   ],
+   "conclusion": "zero-knowledge-proof",
+   "reason": "endpoint does not resolve: parallel-composition",
+   "sources": [
+    "GK96"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:37"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "computational-zero-knowledge",
+    "language-outside-bpp"
+   ],
+   "conclusion": "hash-function",
+   "reason": "endpoint does not resolve: language-outside-bpp",
+   "sources": [
+    "Ost91"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:33"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-hardness-worst-case"
+   ],
+   "conclusion": "hash-function",
+   "reason": "endpoint does not resolve: np-hardness-worst-case",
+   "sources": [
+    "AGGM06",
+    "GG98"
+   ],
+   "statedOn": [
+    "content/Primitives/hash-function.md:104",
+    "content/impagliazzos-five-worlds.md:46"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-hardness"
+   ],
+   "conclusion": "single-server-private-information-retrieval",
+   "reason": "endpoint does not resolve: np-hardness",
+   "sources": [
+    "LV15"
+   ],
+   "statedOn": [
+    "content/Primitives/single-server-private-information-retrieval.md:145"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "single-server-private-information-retrieval"
+   ],
+   "conclusion": "public-key-operations-linear-lower-bound",
+   "reason": "endpoint does not resolve: public-key-operations-linear-lower-bound",
+   "sources": [
+    "DH24"
+   ],
+   "statedOn": [
+    "content/Primitives/single-server-private-information-retrieval.md:151"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "oblivious-ram"
+   ],
+   "conclusion": "log-n-bandwidth-overhead-lower-bound",
+   "reason": "endpoint does not resolve: log-n-bandwidth-overhead-lower-bound",
+   "sources": [
+    "GO96",
+    "LN18"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-ram.md:46"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "balls-in-bins",
+    "no-duplication",
+    "oblivious-ram",
+    "one-round"
+   ],
+   "conclusion": "sqrt-n-bandwidth-or-client-memory-lower-bound",
+   "reason": "endpoint does not resolve: balls-in-bins, no-duplication, one-round, sqrt-n-bandwidth-or-client-memory-lower-bound",
+   "sources": [
+    "CDH20"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-ram.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "oblivious-ram",
+    "offline",
+    "unrestricted-encoding"
+   ],
+   "conclusion": "superlinear-sorting-circuit-lower-bound",
+   "reason": "endpoint does not resolve: offline, unrestricted-encoding, superlinear-sorting-circuit-lower-bound",
+   "sources": [
+    "BN16"
+   ],
+   "statedOn": [
+    "content/Primitives/oblivious-ram.md:42"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "general-circuits",
+    "virtual-black-box-obfuscation"
+   ],
+   "conclusion": "virtual-black-box-obfuscation",
+   "reason": "endpoint does not resolve: general-circuits",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/indistinguishability-obfuscation.md:41",
+    "content/Primitives/indistinguishability-obfuscation.md:56"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "non-trivial-accuracy",
+    "two-party-differential-privacy"
+   ],
+   "conclusion": "key-exchange",
+   "reason": "endpoint does not resolve: non-trivial-accuracy",
+   "sources": [
+    "HMST22"
+   ],
+   "statedOn": [
+    "content/Primitives/secure-multi-party-computation.md:66"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "concrete-hash-function",
+    "fiat-shamir-heuristic"
+   ],
+   "conclusion": "fiat-shamir-heuristic",
+   "reason": "endpoint does not resolve: concrete-hash-function",
+   "sources": [
+    "GK03"
+   ],
+   "statedOn": [
+    "content/Glossary/random-oracle-model.md:21",
+    "content/Glossary/fiat-shamir-heuristic.md:30"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "qcma-neq-qma",
+   "reason": "endpoint does not resolve: qcma-neq-qma",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-classical-merlin-arthur.md:38"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "factoring",
+    "rsa-assumption"
+   ],
+   "conclusion": "rsa-factoring-separation",
+   "reason": "endpoint does not resolve: rsa-factoring-separation",
+   "sources": [
+    "DLO24"
+   ],
+   "statedOn": [
+    "content/Assumptions/rsa-assumption.md:48"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "maurer-generic-group-model",
+    "shoup-generic-group-model"
+   ],
+   "conclusion": "ggm-equivalence",
+   "reason": "endpoint does not resolve: ggm-equivalence",
+   "sources": [
+    "JS08",
+    "MPZ20"
+   ],
+   "statedOn": [
+    "content/Glossary/generic-group-model.md:33"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "distributed-point-function"
+   ],
+   "conclusion": "dpf-key-size-lower-bound",
+   "reason": "endpoint does not resolve: dpf-key-size-lower-bound",
+   "sources": [],
+   "statedOn": [
+    "content/Primitives/distributed-point-function.md:50"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "trapdoor-permutation"
+   ],
+   "conclusion": "homomorphic-encryption",
+   "reason": "structural (see migration report)",
+   "sources": [],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:65"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "exp-neq-p",
+   "reason": "endpoint does not resolve: exp-neq-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/exponential-time.md:20"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "np-completeness",
+    "total-function-np"
+   ],
+   "conclusion": "np-eq-conp",
+   "reason": "endpoint does not resolve: np-completeness, np-eq-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:17"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "co-nondeterministic-polynomial-time",
+    "np-completeness"
+   ],
+   "conclusion": "np-eq-conp",
+   "reason": "endpoint does not resolve: np-completeness, np-eq-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "proof-that-ma-neq-np"
+   ],
+   "conclusion": "circuit-lower-bounds",
+   "reason": "endpoint does not resolve: proof-that-ma-neq-np, circuit-lower-bounds",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/merlin-arthur.md:26"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "hash-function"
+   ],
+   "conclusion": "p-neq-ppoly-cap-np",
+   "reason": "endpoint does not resolve: p-neq-ppoly-cap-np",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:34"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [
+    "quantum-query-algorithm",
+    "unstructured-search"
+   ],
+   "conclusion": "grover-optimality",
+   "reason": "endpoint does not resolve: quantum-query-algorithm, unstructured-search, grover-optimality",
+   "sources": [
+    "Zal97"
+   ],
+   "statedOn": [
+    "content/Complexity/bounded-error-quantum-polynomial-time.md:37"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "",
+   "reason": "endpoint does not resolve: ",
+   "sources": [
+    "RTV04"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:85"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "",
+   "reason": "endpoint does not resolve: ",
+   "sources": [
+    "RTV04"
+   ],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:16"
+   ]
+  },
+  {
+   "bucket": "barrier",
+   "hypotheses": [],
+   "conclusion": "",
+   "reason": "endpoint does not resolve: ",
+   "sources": [],
+   "statedOn": [
+    "content/Glossary/black-box-separations.md:37"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "private-coin-interactive-proof-constant-round"
+   ],
+   "conclusion": "arthur-merlin",
+   "reason": "endpoint does not resolve: private-coin-interactive-proof-constant-round",
+   "sources": [
+    "GS86"
+   ],
+   "statedOn": [
+    "content/Complexity/arthur-merlin.md:19"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "am-k-rounds"
+   ],
+   "conclusion": "am-2-rounds",
+   "reason": "endpoint does not resolve: am-k-rounds, am-2-rounds",
+   "sources": [
+    "BM88"
+   ],
+   "statedOn": [
+    "content/Complexity/arthur-merlin.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "am-2-rounds"
+   ],
+   "conclusion": "arthur-merlin",
+   "reason": "endpoint does not resolve: am-2-rounds",
+   "sources": [
+    "BM88"
+   ],
+   "statedOn": [
+    "content/Complexity/arthur-merlin.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "arthur-merlin",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/arthur-merlin.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "e-requires-exponential-size-circuits"
+   ],
+   "conclusion": "p-equals-bpp",
+   "reason": "endpoint does not resolve: e-requires-exponential-size-circuits, p-equals-bpp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/bounded-error-probabilistic-polynomial-time.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "plausible-hardness-assumptions"
+   ],
+   "conclusion": "bpp-subexponential-simulation",
+   "reason": "endpoint does not resolve: plausible-hardness-assumptions, bpp-subexponential-simulation",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/bounded-error-probabilistic-polynomial-time.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "bounded-error-quantum-polynomial-time"
+   ],
+   "conclusion": "integer-factorization",
+   "reason": "endpoint does not resolve: integer-factorization",
+   "sources": [
+    "Shor97"
+   ],
+   "statedOn": [
+    "content/Complexity/bounded-error-quantum-polynomial-time.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "postbqp"
+   ],
+   "conclusion": "probabilistic-polynomial-time",
+   "reason": "endpoint does not resolve: postbqp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/bounded-error-quantum-polynomial-time.md:31"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-isomorphism"
+   ],
+   "conclusion": "co-arthur-merlin",
+   "reason": "endpoint does not resolve: graph-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-arthur-merlin.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-isomorphism-is-np-complete",
+    "graph-isomorphism-in-coam"
+   ],
+   "conclusion": "np-in-coam",
+   "reason": "endpoint does not resolve: graph-isomorphism-is-np-complete, graph-isomorphism-in-coam, np-in-coam",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-arthur-merlin.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "co-arthur-merlin",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-arthur-merlin.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "problem-is-np-complete",
+    "problem-in-conp"
+   ],
+   "conclusion": "np-equals-conp",
+   "reason": "endpoint does not resolve: problem-is-np-complete, problem-in-conp, np-equals-conp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:19"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "integer-factorization"
+   ],
+   "conclusion": "nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: integer-factorization",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "integer-factorization"
+   ],
+   "conclusion": "co-nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: integer-factorization",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "tautology"
+   ],
+   "conclusion": "co-nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: tautology",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "co-nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "co-arthur-merlin",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "compositeness"
+   ],
+   "conclusion": "nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: compositeness",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "compositeness"
+   ],
+   "conclusion": "co-nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: compositeness",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "primality"
+   ],
+   "conclusion": "polynomial-time",
+   "reason": "endpoint does not resolve: primality",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/co-nondeterministic-polynomial-time.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "honest-verifier-czk"
+   ],
+   "conclusion": "computational-zero-knowledge",
+   "reason": "endpoint does not resolve: honest-verifier-czk",
+   "sources": [
+    "Vad06"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "public-coin-czk"
+   ],
+   "conclusion": "computational-zero-knowledge",
+   "reason": "endpoint does not resolve: public-coin-czk",
+   "sources": [
+    "Vad06"
+   ],
+   "statedOn": [
+    "content/Complexity/computational-zero-knowledge.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-time"
+   ],
+   "conclusion": "exponential-time",
+   "reason": "structural (see migration report)",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/exponential-time.md:20"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "pspace-equals-exp"
+   ],
+   "conclusion": "pspace-not-in-ppoly",
+   "reason": "endpoint does not resolve: pspace-equals-exp, pspace-not-in-ppoly",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/exponential-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "merlin-arthur"
+   ],
+   "conclusion": "sigma-2-p",
+   "reason": "endpoint does not resolve: sigma-2-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/merlin-arthur.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "merlin-arthur"
+   ],
+   "conclusion": "pi-2-p",
+   "reason": "endpoint does not resolve: pi-2-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/merlin-arthur.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sat"
+   ],
+   "conclusion": "nondeterministic-polynomial-time",
+   "reason": "endpoint does not resolve: sat",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/nondeterministic-polynomial-time.md:24"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "e-requires-exponential-size-circuits"
+   ],
+   "conclusion": "p-equals-bpp",
+   "reason": "endpoint does not resolve: e-requires-exponential-size-circuits, p-equals-bpp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "undecidable-languages"
+   ],
+   "conclusion": "p-poly",
+   "reason": "endpoint does not resolve: undecidable-languages",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/p-poly.md:27"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-time-hierarchy"
+   ],
+   "conclusion": "p-with-sharp-p-oracle",
+   "reason": "endpoint does not resolve: p-with-sharp-p-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/probabilistic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sharp-p"
+   ],
+   "conclusion": "fp-with-pp-oracle",
+   "reason": "endpoint does not resolve: fp-with-pp-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/probabilistic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-time-hierarchy"
+   ],
+   "conclusion": "p-with-pp-oracle",
+   "reason": "endpoint does not resolve: p-with-pp-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/probabilistic-polynomial-time.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "statistical-zero-knowledge"
+   ],
+   "conclusion": "qip-2",
+   "reason": "endpoint does not resolve: qip-2",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-interactive-proofs.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "qip-1"
+   ],
+   "conclusion": "quantum-merlin-arthur",
+   "reason": "endpoint does not resolve: qip-1",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-interactive-proofs.md:24"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "mip-star"
+   ],
+   "conclusion": "recursively-enumerable",
+   "reason": "endpoint does not resolve: recursively-enumerable",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-interactive-proofs.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "mip"
+   ],
+   "conclusion": "nexp",
+   "reason": "endpoint does not resolve: nexp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-interactive-proofs.md:29"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "consistency-of-local-density-matrices"
+   ],
+   "conclusion": "quantum-merlin-arthur",
+   "reason": "endpoint does not resolve: consistency-of-local-density-matrices",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:24"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "qma-2"
+   ],
+   "conclusion": "nexp",
+   "reason": "endpoint does not resolve: qma-2, nexp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:32"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "qma-plus"
+   ],
+   "conclusion": "nexp",
+   "reason": "endpoint does not resolve: qma-plus, nexp",
+   "sources": [
+    "BFM24"
+   ],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:38"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "qma-plus"
+   ],
+   "conclusion": "quantum-merlin-arthur",
+   "reason": "endpoint does not resolve: qma-plus",
+   "sources": [
+    "BFM24"
+   ],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:38"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "qma-2"
+   ],
+   "conclusion": "nexp",
+   "reason": "endpoint does not resolve: qma-2, nexp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:38"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "approximate-svp"
+   ],
+   "conclusion": "quantum-merlin-arthur",
+   "reason": "endpoint does not resolve: approximate-svp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-merlin-arthur.md:46"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "quantum-state-distinguishability"
+   ],
+   "conclusion": "quantum-statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: quantum-state-distinguishability",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-statistical-zero-knowledge.md:18"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "statistical-difference"
+   ],
+   "conclusion": "statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: statistical-difference",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-statistical-zero-knowledge.md:18"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "quantum-statistical-zero-knowledge"
+   ],
+   "conclusion": "co-quantum-statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: co-quantum-statistical-zero-knowledge",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-statistical-zero-knowledge.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "statistical-zero-knowledge"
+   ],
+   "conclusion": "co-statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: co-statistical-zero-knowledge",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/quantum-statistical-zero-knowledge.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "randomized-polynomial-time",
+    "co-randomized-polynomial-time"
+   ],
+   "conclusion": "zero-error-probabilistic-polynomial-time",
+   "reason": "endpoint does not resolve: co-randomized-polynomial-time",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "e-requires-exponential-size-circuits"
+   ],
+   "conclusion": "rp-equals-p",
+   "reason": "endpoint does not resolve: e-requires-exponential-size-circuits, rp-equals-p",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-identity-testing"
+   ],
+   "conclusion": "co-randomized-polynomial-time",
+   "reason": "endpoint does not resolve: polynomial-identity-testing, co-randomized-polynomial-time",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:30"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "compositeness"
+   ],
+   "conclusion": "randomized-polynomial-time",
+   "reason": "endpoint does not resolve: compositeness",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:31"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "primality"
+   ],
+   "conclusion": "co-randomized-polynomial-time",
+   "reason": "endpoint does not resolve: primality, co-randomized-polynomial-time",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:31"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "primality"
+   ],
+   "conclusion": "polynomial-time",
+   "reason": "endpoint does not resolve: primality",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/randomized-polynomial-time.md:31"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sharp-p"
+   ],
+   "conclusion": "fp-with-pp-oracle",
+   "reason": "endpoint does not resolve: fp-with-pp-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:21"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-time-hierarchy"
+   ],
+   "conclusion": "p-with-sharp-p-oracle",
+   "reason": "endpoint does not resolve: p-with-sharp-p-oracle",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:22"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sharp-p-hardness"
+   ],
+   "conclusion": "np-hardness",
+   "reason": "endpoint does not resolve: sharp-p-hardness, np-hardness",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "permanent-0-1-matrix"
+   ],
+   "conclusion": "sharp-p",
+   "reason": "endpoint does not resolve: permanent-0-1-matrix",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "determinant"
+   ],
+   "conclusion": "polynomial-time",
+   "reason": "endpoint does not resolve: determinant",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sharp-sat"
+   ],
+   "conclusion": "sharp-p",
+   "reason": "endpoint does not resolve: sharp-sat",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:29"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "sharp-perfect-matchings"
+   ],
+   "conclusion": "sharp-p",
+   "reason": "endpoint does not resolve: sharp-perfect-matchings",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/sharp-p.md:30"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "graph-non-isomorphism"
+   ],
+   "conclusion": "statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: graph-non-isomorphism",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/statistical-zero-knowledge.md:18"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "statistical-difference"
+   ],
+   "conclusion": "statistical-zero-knowledge",
+   "reason": "endpoint does not resolve: statistical-difference",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/statistical-zero-knowledge.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "ppad"
+   ],
+   "conclusion": "total-function-np",
+   "reason": "endpoint does not resolve: ppad",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "ppp"
+   ],
+   "conclusion": "total-function-np",
+   "reason": "endpoint does not resolve: ppp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "ppa"
+   ],
+   "conclusion": "total-function-np",
+   "reason": "endpoint does not resolve: ppa",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "pls"
+   ],
+   "conclusion": "total-function-np",
+   "reason": "endpoint does not resolve: pls",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:23"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "nash-equilibrium"
+   ],
+   "conclusion": "ppad",
+   "reason": "endpoint does not resolve: nash-equilibrium, ppad",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "collision-finding"
+   ],
+   "conclusion": "ppp",
+   "reason": "endpoint does not resolve: collision-finding, ppp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "factoring"
+   ],
+   "conclusion": "ppp",
+   "reason": "endpoint does not resolve: ppp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:26"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "optimization-problems"
+   ],
+   "conclusion": "pls",
+   "reason": "endpoint does not resolve: optimization-problems, pls",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:28"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "polynomial-time"
+   ],
+   "conclusion": "fp",
+   "reason": "endpoint does not resolve: fp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:32"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "fp"
+   ],
+   "conclusion": "total-function-np",
+   "reason": "endpoint does not resolve: fp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:32"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "total-function-np"
+   ],
+   "conclusion": "fnp",
+   "reason": "endpoint does not resolve: fnp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/total-function-np.md:32"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "randomized-polynomial-time",
+    "co-randomized-polynomial-time"
+   ],
+   "conclusion": "zero-error-probabilistic-polynomial-time",
+   "reason": "endpoint does not resolve: co-randomized-polynomial-time",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/zero-error-probabilistic-polynomial-time.md:14"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "p-equals-bpp"
+   ],
+   "conclusion": "p-equals-zpp-equals-rp-equals-bpp",
+   "reason": "endpoint does not resolve: p-equals-bpp, p-equals-zpp-equals-rp-equals-bpp",
+   "sources": [],
+   "statedOn": [
+    "content/Complexity/zero-error-probabilistic-polynomial-time.md:25"
+   ]
+  },
+  {
+   "bucket": "class-inclusion",
+   "hypotheses": [
+    "np-hard-on-average"
+   ],
+   "conclusion": "p-neq-np",
+   "reason": "endpoint does not resolve: np-hard-on-average, p-neq-np",
+   "sources": [],
+   "statedOn": [
+    "content/impagliazzos-five-worlds.md:32"
+   ]
+  }
+ ]
+}
