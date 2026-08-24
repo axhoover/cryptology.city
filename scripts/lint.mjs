@@ -44,7 +44,9 @@ const TYPES = {
   glossary: { dir: "Glossary", object: true },
   folklore: { dir: "Folklore", object: true },
   reference: { dir: "References" },
-  note: { dir: "" }, // root pages
+  // Root notes host object ids too — content/impagliazzos-five-worlds.md is
+  // where minicrypt / cryptomania / pessiland are defined.
+  note: { dir: "", object: true }, // root pages
   reduction: {
     dir: "Reductions",
     required: [
