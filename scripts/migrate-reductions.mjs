@@ -133,8 +133,42 @@ for (const f of walkMd(CONTENT).filter((f) => path.dirname(f) === CONTENT)) {
   pageOf.set(path.relative(ROOT, f), { fm: data, body: content, file: f });
 }
 
-const displayFor = (fm, fallback) =>
-  (Array.isArray(fm?.aliases) && fm.aliases[0]) || fm?.title || fallback;
+// "## Somewhat homomorphic encryption (SHE)" -> "Somewhat homomorphic encryption (SHE)"
+const headingDisplay = (heading, fallback) => {
+  const h = String(heading ?? "")
+    .replace(/^#+\s*/, "")
+    .trim();
+  if (h && h.length <= 60) return h;
+  // Fall back to titleizing the id. Short tokens are usually acronyms (prf,
+  // abe, ot) but not always, so common words stay lowercase.
+  const LOWER = new Set([
+    "with", "from", "over", "and", "or", "to", "in", "of", "for", "the", "a",
+    "an", "on", "by", "via", "per", "vs",
+  ]);
+  return String(fallback)
+    .split("-")
+    .map((w, i) =>
+      LOWER.has(w) && i > 0 ? w : w.length <= 4 ? w.toUpperCase() : w,
+    )
+    .join("-")
+    .replace(/^./, (c) => c.toUpperCase());
+};
+
+// Hyperedge titles use each object's canonical abbreviation (its first alias),
+// which is what a cryptographer reads fastest. A page whose first alias names
+// only PART of what the page covers gets an override: hash-function aliases
+// both OWF and CRH, so an edge about one-wayness would otherwise be titled
+// "CRH => PRG" — the exact conflation the variants exist to prevent.
+const DISPLAY_OVERRIDE = decisions.displayOverrides ?? {};
+const displayFor = (fm, fallback, id) =>
+  DISPLAY_OVERRIDE[id] ??
+  ((Array.isArray(fm?.aliases) && fm.aliases[0]) || fm?.title || fallback);
+
+// Variant headings live in the decisions file; a variant already written to a
+// page's frontmatter carries only its anchor, so recover the display name here.
+const variantHeading = new Map(
+  (decisions.variants ?? []).map((v) => [v.variantId, v.anchorHeading]),
+);
 
 // Existing ids (the pilot already placed seven).
 for (const [relFile, p] of pageOf) {
@@ -142,14 +176,14 @@ for (const [relFile, p] of pageOf) {
     nodes.set(p.fm.id, {
       file: relFile,
       kind: "page",
-      display: displayFor(p.fm, p.fm.id),
+      display: displayFor(p.fm, p.fm.id, p.fm.id),
     });
   for (const [vid, v] of Object.entries(p.fm.variants ?? {})) {
     nodes.set(vid, {
       file: relFile,
       kind: "variant",
       anchor: typeof v === "string" ? v : v?.anchor,
-      display: vid,
+      display: headingDisplay(variantHeading.get(vid), vid),
     });
   }
 }
@@ -175,7 +209,7 @@ if (STAGES.has("ids")) {
     nodes.set(row.id, {
       file: rel,
       kind: "page",
-      display: displayFor(p.fm, row.id),
+      display: displayFor(p.fm, row.id, row.id),
     });
   }
   for (const [rel, id] of pending) {
@@ -222,7 +256,9 @@ if (STAGES.has("nodes")) {
       file: rel,
       kind: "variant",
       anchor: "#" + want,
-      display: v.variantId,
+      // A variant's display name is the heading it points at, so titles read
+      // "Ring-LWE" rather than the raw id "ring-lwe".
+      display: headingDisplay(v.anchorHeading, v.variantId),
     });
   }
   for (const [rel, vs] of byPage) {
@@ -344,9 +380,44 @@ const propositionKeys = new Set();
 
 // --------------------------------------------------------- edge emission ----
 const CITEKEY = /\[\[[^\]|]*\|([^\]]+)\]\]/;
+
+// The house citation form is [[<filename minus .md, byte-for-byte>|<key>]].
+// The audit recorded bare keys ("GGM86"), so build the key -> filename index
+// from disk. Reconstructing a filename from a paper title is not possible —
+// case, commas, and double spaces are all unrecoverable — so this must come
+// from the real directory listing.
+const refIndex = new Map();
+for (const f of fs.existsSync(path.join(CONTENT, "References"))
+  ? fs.readdirSync(path.join(CONTENT, "References"))
+  : []) {
+  if (!f.endsWith(".md")) continue;
+  const stem = f.slice(0, -3);
+  const filePrefix = stem.split(" - ")[0];
+  const { data } = matter(
+    fs.readFileSync(path.join(CONTENT, "References", f), "utf8"),
+  );
+  const key = String(data.title ?? filePrefix);
+  if (!refIndex.has(key)) refIndex.set(key, stem);
+  if (!refIndex.has(filePrefix)) refIndex.set(filePrefix, stem);
+}
+
+const missingRefs = new Set();
+const asCitation = (src) => {
+  const v = String(src).trim();
+  if (/^\[\[.+\|.+\]\]$/.test(v)) return v; // already the house form
+  if (v === "folklore") return null;
+  const stem = refIndex.get(v);
+  if (!stem) {
+    missingRefs.add(v);
+    return null; // never invent a reference page
+  }
+  return `[[${stem}|${v}]]`;
+};
+
 const citeKeyOf = (src) => {
-  const m = String(src).match(CITEKEY);
-  return m ? m[1].trim() : null;
+  const v = String(src).trim();
+  const m = v.match(CITEKEY);
+  return m ? m[1].trim() : refIndex.has(v) ? v : null;
 };
 
 const abbrev = (id) => {
@@ -355,7 +426,58 @@ const abbrev = (id) => {
   return kebab(d) || kebab(id);
 };
 
+// The audit recorded class values that are not classes: vague ones the wiki
+// never disambiguated, and idealized MODELS mis-filed on the class axis. Map
+// them conservatively — always toward the weaker claim, so the migration never
+// asserts more than the source did.
+//
+//   For a REDUCTION the weaker claim is the broader class (`free` claims least
+//   about the proof technique). For a BARRIER it is the opposite: ruling out a
+//   broader class is a STRONGER barrier, so anything unclear becomes
+//   `unstated`, which the contradiction check treats as comparable to nothing.
+const CLASS_MODEL = {
+  "generic-group-model": "generic-group",
+  "generic-ring-model": "other",
+  "algebraic-group-model": "algebraic-group",
+};
+function normalizeClass(raw, isBarrier) {
+  const c = String(raw ?? "").trim();
+  if (CLASS_MODEL[c]) return { class: "free", model: CLASS_MODEL[c] };
+  if (!c || c === "unstated" || c === "any") return { class: "unstated" };
+  if (c === "non-black-box")
+    return { class: isBarrier ? "unstated" : "free" };
+  // "black-box", "black-box-construction", "black-box-simulator", ... — real
+  // information, but not enough to name an RTV notion.
+  if (c.includes("black-box")) {
+    const known = [
+      "fully-black-box",
+      "semi-black-box",
+      "weakly-black-box",
+      "forall-exists-semi-black-box",
+      "forall-exists-weakly-black-box",
+    ];
+    return { class: known.includes(c) ? c : "unstated" };
+  }
+  if (c === "relativizing" || c === "free") return { class: c };
+  return { class: "unstated" };
+}
+
 const usedIds = new Set();
+const usedFiles = new Set();
+// A reduction and a barrier can share a hyperedge, so `red-pke-to-ot` and
+// `bar-pke-to-ot` would both want the filename `pke-to-ot`. Barrier files read
+// as what they assert — "no reduction from X to Y" — and collisions are broken
+// globally rather than per-type.
+function fileStem(id) {
+  const base = id.startsWith("bar-")
+    ? "no-" + id.slice(4)
+    : id.replace(/^red-/, "");
+  let stem = base,
+    i = 2;
+  while (usedFiles.has(stem)) stem = `${base}-${i++}`;
+  usedFiles.add(stem);
+  return stem;
+}
 function edgeId(prefix, hyps, concl, sources) {
   const key = sources.map(citeKeyOf).find(Boolean);
   const base = [
@@ -392,8 +514,9 @@ const yamlList = (xs) =>
     : xs.map((x) => `  - ${JSON.stringify(String(x))}`);
 
 function sourceBlock(sources) {
-  if (!sources.length) return ["source: folklore"];
-  return ["source:", ...sources.map((s) => `  - ${JSON.stringify(String(s))}`)];
+  const cited = sources.map(asCitation).filter(Boolean);
+  if (!cited.length) return ["source: folklore"];
+  return ["source:", ...cited.map((s) => `  - ${JSON.stringify(s)}`)];
 }
 
 // The verbatim statements a page carries, quoted with provenance.
@@ -406,7 +529,11 @@ function statementSection(edge) {
     seen.add(v);
     const rel = st.sourcePage.replace(/^content\//, "").replace(/\.md$/, "");
     const slug = path.basename(rel);
-    const sect = st.section ? ` § ${String(st.section).replace(/^#+\s*/, "")}` : "";
+    const raw = String(st.section ?? "").replace(/^#+\s*/, "").trim();
+    // The audit sometimes recorded a note where a heading belongs, e.g.
+    // "(bare paragraph; page has NO H1 ...)". Only real headings are labels.
+    const sect =
+      raw && raw.length <= 48 && !/[();]/.test(raw) ? ` § ${raw}` : "";
     out.push(`Migrated verbatim from [[${slug}]]${sect}:`, "");
     out.push(
       ...v
@@ -439,7 +566,7 @@ function notesSection(edge, extra = []) {
       "Recorded during migration and **not fixed** — these are claims about the",
       "source text, not changes to it:",
       "",
-      ...problems.map((p) => `- ${p.replace(/\n+/g, " ").trim()}`),
+      ...problems.map((p) => `- ${deLink(p)}`),
       "",
     );
   }
@@ -482,9 +609,81 @@ const remap = (id) => {
   return mapped ?? id;
 };
 
+// Audit commentary frequently *mentions* the citation form, e.g. "should be
+// cited as [[KEY - Full Title|KEY]]". Rendered as-is those become live links to
+// nothing. They are prose about links, not links, so they become inline code.
+const deLink = (t) =>
+  String(t)
+    .replace(/\[\[([^\]]+)\]\]/g, "`[[$1]]`")
+    .replace(/\n+/g, " ")
+    .trim();
+
+const AMBIGUOUS = new Set(decisions.ambiguousEndpoints ?? []);
+
+// Hyperedges already on disk. The pilot pages were hand-authored and carry
+// judgements the generator cannot reproduce (a verified class, the folklore/via
+// decision, flagged math errors), so a generated page never overwrites or
+// duplicates one.
+const existingEdges = new Set();
+for (const d of ["Reductions", "Barriers"]) {
+  const dir = path.join(CONTENT, d);
+  if (!fs.existsSync(dir)) continue;
+  for (const f of fs.readdirSync(dir)) {
+    if (!f.endsWith(".md")) continue;
+    const { data } = matter(fs.readFileSync(path.join(dir, f), "utf8"));
+    existingEdges.add(
+      `${d}|${[...(data.hypotheses ?? [])].sort().join("+")}=>${data.conclusion}`,
+    );
+  }
+}
+
+// The canonicalizer keyed edges by (hypotheses, conclusion, CLASS), so one
+// hyperedge stated with two different class guesses became two pages. Merge on
+// the hyperedge alone — the class is a property of the claim, not part of its
+// identity — unioning sources, statements and problems.
+function mergeByHyperedge(edges, dirLabel) {
+  const byKey = new Map();
+  for (const raw of edges) {
+    const hyps = [...new Set((raw.hypotheses ?? []).map(remap))].sort();
+    const concl = remap(raw.conclusion);
+    const key = `${dirLabel}|${hyps.join("+")}=>${concl}`;
+    const prev = byKey.get(key);
+    if (!prev) {
+      byKey.set(key, { ...raw, __key: key });
+      continue;
+    }
+    prev.sources = [...new Set([...(prev.sources ?? []), ...(raw.sources ?? [])])];
+    prev.statedOn = [...(prev.statedOn ?? []), ...(raw.statedOn ?? [])];
+    prev.problems = [...new Set([...(prev.problems ?? []), ...(raw.problems ?? [])])];
+    prev.__mergedFrom = [...(prev.__mergedFrom ?? [prev.id]), raw.id];
+    // Prefer a stated class/model over an unstated one.
+    if ((!prev.class || prev.class === "unstated") && raw.class) prev.class = raw.class;
+    if ((!prev.model || prev.model === "unstated") && raw.model) prev.model = raw.model;
+    if (!prev.sketchVerbatim && raw.sketchVerbatim)
+      prev.sketchVerbatim = raw.sketchVerbatim;
+  }
+  return [...byKey.values()];
+}
+
 function emitEdge(edge, kindLabel) {
   const hyps = [...new Set((edge.hypotheses ?? []).map(remap))];
   const concl = remap(edge.conclusion);
+  if (!hyps.length) {
+    skip(kindLabel, edge.id, "no hypotheses; an unconditional claim is not a hyperedge");
+    return null;
+  }
+  if (!concl) {
+    skip(kindLabel, edge.id, "no conclusion");
+    return null;
+  }
+  const amb = [...hyps, concl].filter((o) => AMBIGUOUS.has(o));
+  if (amb.length) {
+    (report.ambiguous ??= []).push({
+      edge: edge.id,
+      endpoints: amb,
+      why: "resolves to a page that covers two distinct objects; needs the variant id instead",
+    });
+  }
   const unresolved = [...hyps, concl].filter((o) => !o || !nodes.has(o));
   if (unresolved.length) {
     skip(kindLabel, edge.id, `unresolved endpoints: ${unresolved.join(", ")}`);
@@ -495,7 +694,11 @@ function emitEdge(edge, kindLabel) {
 
 // ------------------------------------------------------ stage: reductions ----
 if (STAGES.has("reductions")) {
-  for (const edge of worklist.reductions ?? []) {
+  for (const edge of mergeByHyperedge(worklist.reductions ?? [], "Reductions")) {
+    if (existingEdges.has(edge.__key)) {
+      skip("reduction", edge.id, "hyperedge already has a hand-authored page");
+      continue;
+    }
     const r = emitEdge(edge, "reduction");
     if (!r) continue;
     const { hyps, concl } = r;
@@ -504,6 +707,7 @@ if (STAGES.has("reductions")) {
       continue;
     }
     const sources = edge.sources ?? [];
+    const norm = normalizeClass(edge.class, false);
     const kind =
       edge.direction === "equivalent" && hyps.length === 1
         ? "equivalence"
@@ -525,8 +729,8 @@ if (STAGES.has("reductions")) {
       `kind: ${kind}`,
       `hypotheses: [${hyps.join(", ")}]`,
       `conclusion: ${concl}`,
-      `class: ${edge.class && edge.class !== "unstated" ? edge.class : "unstated"}`,
-      `model: ${edge.model && edge.model !== "unstated" ? edge.model : "standard"}`,
+      `class: ${norm.class}`,
+      `model: ${norm.model ?? (edge.model && edge.model !== "unstated" ? edge.model : "standard")}`,
       ...sourceBlock(sources),
       'security-loss: ""',
       "---",
@@ -557,7 +761,7 @@ if (STAGES.has("reductions")) {
       extra.push(`Class disagrees across pages: ${edge.classConflict}`, "");
     const notes = notesSection(edge, extra);
     if (notes.length) body.push("## Notes", "", ...notes);
-    const file = path.join(CONTENT, "Reductions", `${id.replace(/^red-/, "")}.md`);
+    const file = path.join(CONTENT, "Reductions", `${fileStem(id)}.md`);
     write(file, body.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n");
     report.reductions.push({
       id,
@@ -566,6 +770,7 @@ if (STAGES.has("reductions")) {
       kind,
       title,
       sourceEdge: edge.id,
+      mergedFrom: edge.__mergedFrom ?? [],
     });
   }
 }
@@ -588,8 +793,12 @@ const propositionSlots = new Set(
 );
 
 if (STAGES.has("barriers")) {
-  for (const raw of worklist.barriers ?? []) {
+  for (const raw of mergeByHyperedge(worklist.barriers ?? [], "Barriers")) {
     let edge = raw;
+    if (existingEdges.has(edge.__key)) {
+      skip("barrier", edge.id, "hyperedge already has a hand-authored page");
+      continue;
+    }
     const fix = conclusionFix.get(edge.id);
     if (fix) {
       edge = {
@@ -634,10 +843,12 @@ if (STAGES.has("barriers")) {
       skip("barrier", edge.id, `consequence target ${target} does not resolve to an object`);
       continue;
     }
-    const cls =
-      edge.class && edge.class !== "unstated" && edge.class !== "any"
-        ? edge.class
-        : "unstated";
+    if (hyps.includes(concl)) {
+      skip("barrier", edge.id, `self-loop on ${concl}`);
+      continue;
+    }
+    const bnorm = normalizeClass(edge.class, true);
+    const cls = bnorm.class;
     const strength = edge.strength === "conditional" ? "conditional" : "unconditional";
     const condOn = Array.isArray(edge.conditionalOn) ? edge.conditionalOn : [];
     if (strength === "conditional" && !condOn.length) {
@@ -681,7 +892,7 @@ if (STAGES.has("barriers")) {
     ];
     const notes = notesSection(edge);
     if (notes.length) body.push("## Notes", "", ...notes);
-    const file = path.join(CONTENT, "Barriers", `${id.replace(/^bar-/, "")}.md`);
+    const file = path.join(CONTENT, "Barriers", `${fileStem(id)}.md`);
     write(file, body.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n");
     report.barriers.push({
       id,
@@ -689,6 +900,7 @@ if (STAGES.has("barriers")) {
       status,
       title,
       sourceEdge: edge.id,
+      mergedFrom: edge.__mergedFrom ?? [],
     });
   }
 }
@@ -700,8 +912,10 @@ if (STAGES.has("barriers")) {
 if (STAGES.has("pointers")) {
   // worklist edge id -> the page we actually emitted for it
   const emitted = new Map();
-  for (const p of [...report.reductions, ...report.barriers])
+  for (const p of [...report.reductions, ...report.barriers]) {
     emitted.set(p.sourceEdge, p);
+    for (const alsoFrom of p.mergedFrom ?? []) emitted.set(alsoFrom, p);
+  }
 
   // A single bullet can be the source of several hyperedges (a composite chain
   // splits into one page per link), so group by page and then by verbatim.
@@ -737,16 +951,24 @@ if (STAGES.has("pointers")) {
         );
         continue;
       }
-      // The recorded verbatim starts at the bullet text, after the "- " marker,
-      // so the replacement is the pointer text without its own marker; extra
-      // pointers become sibling bullets at the same indentation.
-      const indent = (src.slice(0, src.indexOf(verbatim)).match(/(^|\n)([ \t]*)-[ \t]+$/) || [])[2] ?? "";
+      // Only BULLETS are rewritten. A recorded verbatim can also be a prose
+      // sentence in the middle of a paragraph; swapping that for a bare link
+      // mangles the surrounding text, so those are left in place and reported.
+      const marker = verbatim.match(/^([ \t]*)-[ \t]+/);
+      if (!marker) {
+        skip(
+          "pointer",
+          rel,
+          "statement is prose, not a bullet; left in place for a human to rewrite",
+        );
+        continue;
+      }
+      const indent = marker[1];
       const pointer = pages
-        .map((p, i) => {
-          const slug = path.basename(p.file, ".md");
-          const link = `[[${slug}|${p.title ?? slug}]]`;
-          return i === 0 ? link : `${indent}- ${link}`;
-        })
+        .map(
+          (p) =>
+            `${indent}- [[${path.basename(p.file, ".md")}|${p.title ?? path.basename(p.file, ".md")}]]`,
+        )
         .join("\n");
       src = src.replace(verbatim, pointer);
       changed++;
@@ -785,4 +1007,11 @@ fs.writeFileSync(
   path.join(ROOT, ".reductions", "migration-report.json"),
   JSON.stringify(report, null, 1),
 );
+if (missingRefs.size) {
+  report.missingReferences = [...missingRefs].sort();
+  console.log(
+    `\n${missingRefs.size} citation key(s) with no page under content/References/ — recorded as uncited, never invented:`,
+  );
+  console.log("  " + [...missingRefs].sort().join(", "));
+}
 console.log("\nfull report: .reductions/migration-report.json");

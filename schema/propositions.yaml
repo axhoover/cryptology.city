@@ -73,3 +73,99 @@ propositions:
     note: >-
       Reserved. Do NOT use as a consequence.target -- set
       consequence.kind: contradiction with an empty target instead.
+
+  circuit-lower-bounds:
+    title: "Superpolynomial circuit lower bounds beyond what is currently known"
+    believed: true
+
+  czk-eq-ip:
+    title: ""
+    believed: true
+
+  czk-neq-bpp:
+    title: "$\\classCZK \\neq \\classBPP$"
+    believed: true
+
+  dpf-key-size-lower-bound:
+    title: ""
+    believed: true
+
+  exp-neq-nexp:
+    title: "$\\classEXP \\neq \\mathbf{NEXP}$"
+    believed: true
+
+  exp-neq-p:
+    title: "$\\classEXP \\neq \\classP$"
+    believed: true
+
+  grover-optimal:
+    title: "Grover's algorithm is query-optimal for unstructured search"
+    believed: true
+
+  np-complete-in-conp:
+    title: "Some $\\classNP$-complete problem lies in $\\classcoNP$"
+    believed: false
+
+  np-complete-in-szk:
+    title: "Some $\\classNP$-complete problem lies in $\\classSZK$"
+    believed: false
+
+  np-easy-on-average:
+    title: "$\\classNP$ is easy on average"
+    believed: false
+
+  np-hard-on-average:
+    title: "$\\classNP$ is hard on average"
+    believed: true
+
+  np-subset-czk:
+    title: "$\\classNP \\subseteq \\classCZK$"
+    believed: true
+
+  np-subset-ppoly:
+    title: "$\\classNP \\subseteq \\classPpoly$"
+    believed: false
+
+  one-round-oram-omega-sqrt-n:
+    title: "Every one-round balls-in-bins ORAM has $\\Omega(\\sqrt{n})$ overhead or storage"
+    believed: true
+
+  oram-omega-log-n-overhead:
+    title: "Every ORAM incurs $\\Omega(\\log n)$ amortized overhead"
+    believed: true
+
+  p-eq-bpp:
+    title: "$\\classP = \\classBPP$"
+    believed: true
+
+  p-neq-ppoly-cap-np:
+    title: "$\\classP \\neq \\classPpoly \\cap \\classNP$"
+    believed: true
+
+  ph-collapse-second-level:
+    title: "The polynomial hierarchy collapses to its second level"
+    believed: false
+
+  pir-omega-n-public-key-ops:
+    title: "Every single-server PIR requires $\\Omega(n)$ public-key operations"
+    believed: true
+
+  qcma-neq-qma:
+    title: "$\\classQCMA \\neq \\classQMA$"
+    believed: true
+
+  qcma-neq-qma-relative-to-oracle:
+    title: "$\\classQCMA \\neq \\classQMA$ relative to a quantum oracle"
+    believed: true
+
+  qma-internally-separable-below-qma-2:
+    title: "$\\classQMA$ with internally separable proofs is strictly weaker than $\\classQMA(2)$"
+    believed: true
+
+  superlinear-sorting-circuit-lower-bound:
+    title: ""
+    believed: true
+
+  tfnp-np-hard:
+    title: ""
+    believed: false
