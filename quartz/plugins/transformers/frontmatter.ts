@@ -176,6 +176,7 @@ declare module "vfile" {
         lang: string;
         enableToc: string;
         cssclasses: string[];
+        unlisted: boolean;
         socialImage: string;
         comments: boolean | string;
       }>;

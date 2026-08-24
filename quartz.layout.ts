@@ -40,7 +40,15 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      // `unlisted: true` pages stay built and linkable but out of the tree.
+      // The Reductions/ and Barriers/ directories outnumber the object pages,
+      // and the long tail of object pages that exist only so a hyperedge
+      // endpoint resolves would otherwise bury the wiki proper.
+      // Serialized and run client-side, so it must stay self-contained.
+      filterFn: (node) =>
+        node.slugSegment !== "tags" && node.data?.unlisted !== true,
+    }),
   ],
   right: [
     Component.Graph(),
@@ -64,7 +72,15 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({
+      // `unlisted: true` pages stay built and linkable but out of the tree.
+      // The Reductions/ and Barriers/ directories outnumber the object pages,
+      // and the long tail of object pages that exist only so a hyperedge
+      // endpoint resolves would otherwise bury the wiki proper.
+      // Serialized and run client-side, so it must stay self-contained.
+      filterFn: (node) =>
+        node.slugSegment !== "tags" && node.data?.unlisted !== true,
+    }),
   ],
   right: [],
 };

@@ -15,6 +15,10 @@
 //                  defined in macros.ts; no \newcommand/\def in content
 //   status         `complete` pages carry no TODO markers and have the
 //                  mandated sections for their type
+//   hyperedges     reduction/barrier pages are well-formed: >=1 hypothesis,
+//                  exactly one conclusion, every endpoint resolves to an object
+//                  id or variant, class is in schema/reduction-classes.yaml, no
+//                  self-loops; object pages never hand-author relation fields
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -23,6 +27,7 @@ import path from "node:path";
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
+const yaml = require("js-yaml");
 
 const ROOT = path.resolve(
   path.dirname(new URL(import.meta.url).pathname),
@@ -33,16 +38,29 @@ const STUB_INVENTORY = path.join(ROOT, "scripts", "stub-inventory.json");
 
 // ---------------------------------------------------------------- schema ----
 const TYPES = {
-  primitive: { dir: "Primitives" },
-  assumption: { dir: "Assumptions" },
-  "complexity-class": { dir: "Complexity" },
-  glossary: { dir: "Glossary" },
-  folklore: { dir: "Folklore" },
+  primitive: { dir: "Primitives", object: true },
+  assumption: { dir: "Assumptions", object: true },
+  "complexity-class": { dir: "Complexity", object: true },
+  glossary: { dir: "Glossary", object: true },
+  folklore: { dir: "Folklore", object: true },
   reference: { dir: "References" },
   note: { dir: "" }, // root pages
-  // Reserved for the reduction-page refactor; no pages of these types yet.
-  reduction: { dir: null, required: ["from", "to", "model", "source"] },
-  separation: { dir: null, required: ["between", "model", "source"] },
+  reduction: {
+    dir: "Reductions",
+    required: ["id", "hypotheses", "conclusion", "class", "model", "source"],
+  },
+  barrier: {
+    dir: "Barriers",
+    required: [
+      "id",
+      "hypotheses",
+      "conclusion",
+      "class",
+      "consequences",
+      "strength",
+      "source",
+    ],
+  },
 };
 const STATUSES = ["stub", "draft", "complete"];
 const COMMON_REQUIRED = ["type", "status", "title", "aliases"];
@@ -56,16 +74,102 @@ const OPTIONAL_KEYS = new Set([
   "bibtex",
   "cryptobib_pending",
   "draft", // Quartz: draft: true unpublishes the page
+  "unlisted", // built and linkable, hidden from the explorer and folder listings
+  "id", // stable object id, independent of the slug
+  "variants", // named sub-objects living as sections of this page
+  "model",
+  "security-loss",
+  "via",
+  "oracle",
+  "conditional-on",
+  "source",
+]);
+// Relation fields may never be hand-authored on an object page: an edge list
+// cannot express {DDH, CRHF} => B without misrepresenting each hypothesis.
+// Object pages get generated sections instead.
+const FORBIDDEN_ON_OBJECTS = [
+  "implies",
+  "implied-by",
+  "implied_by",
+  "reductions",
+  "barriers",
+  "separations",
   "from",
   "to",
   "between",
-  "model",
-  "black-box",
-  "security-loss",
-  "source",
-]);
-const REDUCTION_MODELS = ["standard", "rom", "crs", "ggm", "agm", "other"];
+  "hypotheses",
+  "conclusion",
+];
+const MODELS = [
+  "standard",
+  "rom",
+  "crs",
+  "generic-group",
+  "algebraic-group",
+  "quantum",
+  "other",
+];
+const STRENGTHS = ["unconditional", "conditional"];
+const CONSEQUENCE_KINDS = [
+  "contradiction",
+  "object",
+  "complexity",
+  "reduction",
+];
 const CITATION_KEY = /^[A-Za-z][A-Za-z+]*\d{2}[a-z]?$/; // AGGM06, BFL+24, vAH04, SW25a, ElGamal85
+const OBJECT_ID = /^[a-z0-9]+(-[a-z0-9]+)*$/;
+
+// ------------------------------------------------------- schema vocabulary ----
+const SCHEMA_DIR = path.join(ROOT, "schema");
+const loadYaml = (f) => {
+  const p = path.join(SCHEMA_DIR, f);
+  if (!fs.existsSync(p)) return null;
+  try {
+    return yaml.load(fs.readFileSync(p, "utf8"));
+  } catch (e) {
+    console.error(`error: schema/${f}: does not parse: ${e.message}`);
+    process.exit(1);
+  }
+};
+const CLASS_SCHEMA = loadYaml("reduction-classes.yaml") ?? {
+  classes: {},
+  sentinels: {},
+  rejected: {},
+};
+const PROPOSITIONS = loadYaml("propositions.yaml")?.propositions ?? {};
+const CLASSES = CLASS_SCHEMA.classes ?? {};
+const CLASS_SENTINELS = CLASS_SCHEMA.sentinels ?? {};
+const CLASS_REJECTED = CLASS_SCHEMA.rejected ?? {};
+const CLASS_VALUES = [...Object.keys(CLASSES), ...Object.keys(CLASS_SENTINELS)];
+
+// Transitive closure of `implies`, narrower -> broader. Used by the Phase-5
+// contradiction check; computed here so a cycle in the vocabulary is caught the
+// moment the file is edited, not the first time a barrier is written.
+const classClosure = (name, seen = new Set()) => {
+  for (const next of CLASSES[name]?.implies ?? []) {
+    if (!seen.has(next)) {
+      seen.add(next);
+      classClosure(next, seen);
+    }
+  }
+  return seen;
+};
+for (const name of Object.keys(CLASSES)) {
+  for (const next of CLASSES[name].implies ?? []) {
+    if (!CLASSES[next]) {
+      console.error(
+        `error: schema/reduction-classes.yaml: class "${name}" implies "${next}", which is not a defined class.`,
+      );
+      process.exit(1);
+    }
+  }
+  if (classClosure(name).has(name)) {
+    console.error(
+      `error: schema/reduction-classes.yaml: the "implies" graph has a cycle through "${name}"; the partial order must be acyclic.`,
+    );
+    process.exit(1);
+  }
+}
 
 // ------------------------------------------------------------- utilities ----
 function walk(dir) {
@@ -199,7 +303,11 @@ for (const p of pages) {
       ...(fm.type === "reference" ? REFERENCE_REQUIRED : []),
       ...(TYPES[fm.type]?.required ?? []),
     ]);
-    if (!required.has(k) && !OPTIONAL_KEYS.has(k)) {
+    // Relation keys on an object page get the specific object-relation-field
+    // message below; don't also report them as typos.
+    const handledElsewhere =
+      TYPES[fm.type]?.object && FORBIDDEN_ON_OBJECTS.includes(k);
+    if (!required.has(k) && !OPTIONAL_KEYS.has(k) && !handledElsewhere) {
       err(
         f,
         1,
@@ -309,18 +417,253 @@ for (const p of pages) {
     }
   }
 
-  if (fm.type === "reduction" || fm.type === "separation") {
-    for (const k of TYPES[fm.type].required) {
-      if (fm[k] === undefined)
-        err(f, 1, "schema-required", `type "${fm.type}" requires "${k}".`);
+  if (fm.unlisted !== undefined && typeof fm.unlisted !== "boolean") {
+    err(
+      f,
+      1,
+      "schema-unlisted",
+      `unlisted must be true or false, got ${JSON.stringify(fm.unlisted)}. "unlisted: true" keeps the page built and linkable but hides it from the explorer and folder listings.`,
+    );
+  }
+
+  const isEdge = fm.type === "reduction" || fm.type === "barrier";
+
+  // Object pages declare identity (id, variants) but never relations.
+  if (TYPES[fm.type]?.object) {
+    for (const k of FORBIDDEN_ON_OBJECTS) {
+      if (fm[k] !== undefined) {
+        err(
+          f,
+          1,
+          "object-relation-field",
+          `"${k}" may not be hand-authored on a ${fm.type} page. A reduction is a hyperedge — a SET of hypotheses implying one conclusion — and an edge list on an object page cannot express {DDH, CRHF} => B without misrepresenting each hypothesis. Create a page under content/Reductions/ instead (see schema/README.md); this page's relations are generated into its "Participates in" section.`,
+        );
+      }
     }
-    if (fm.model !== undefined && !REDUCTION_MODELS.includes(fm.model)) {
+  }
+
+  if (fm.id !== undefined && !OBJECT_ID.test(String(fm.id))) {
+    err(
+      f,
+      1,
+      "schema-id",
+      `id "${fm.id}" must be lowercase kebab-case (e.g. "prf", "learning-with-errors", "red-ddh-to-prf-nr97").`,
+    );
+  }
+
+  if (fm.variants !== undefined) {
+    if (
+      typeof fm.variants !== "object" ||
+      fm.variants === null ||
+      Array.isArray(fm.variants)
+    ) {
       err(
         f,
         1,
-        "schema-model",
-        `model "${fm.model}" is not valid. Valid models: ${REDUCTION_MODELS.join(" | ")}.`,
+        "schema-variants",
+        `variants must be a YAML mapping of id -> anchor, e.g.\n  variants:\n    ring-lwe: "#ring-lwe"`,
       );
+    } else {
+      for (const [vid, v] of Object.entries(fm.variants)) {
+        if (!OBJECT_ID.test(vid))
+          err(
+            f,
+            1,
+            "schema-variants",
+            `variant id "${vid}" must be lowercase kebab-case (e.g. "ring-lwe").`,
+          );
+        const anchor = typeof v === "string" ? v : v?.anchor;
+        if (typeof anchor !== "string" || !anchor.startsWith("#"))
+          err(
+            f,
+            1,
+            "schema-variants",
+            `variant "${vid}" must map to an anchor on this page, e.g. "#ring-lwe" (or a mapping with an "anchor" key). Got ${JSON.stringify(v)}.`,
+          );
+      }
+    }
+  }
+
+  if (isEdge) {
+    for (const k of TYPES[fm.type].required) {
+      if (fm[k] === undefined || fm[k] === null || fm[k] === "")
+        err(
+          f,
+          1,
+          "schema-required",
+          `type "${fm.type}" requires "${k}". See schema/README.md for a worked example.`,
+        );
+    }
+
+    if (fm.hypotheses !== undefined) {
+      if (!Array.isArray(fm.hypotheses) || fm.hypotheses.length === 0) {
+        err(
+          f,
+          1,
+          "edge-hypotheses",
+          `hypotheses must be a non-empty YAML list of object ids, e.g.\n  hypotheses: [ddh]\nor, for a genuine conjunction,\n  hypotheses: [sparse-lpn, ddh]\nSeveral assumptions each independently sufficient are SEPARATE pages, one hypothesis each — never a list.`,
+        );
+      } else if (new Set(fm.hypotheses).size !== fm.hypotheses.length) {
+        err(
+          f,
+          1,
+          "edge-hypotheses",
+          `hypotheses contains a duplicate. Each hypothesis appears once: hypotheses: [${[...new Set(fm.hypotheses)].join(", ")}].`,
+        );
+      }
+    }
+
+    if (fm.conclusion !== undefined && typeof fm.conclusion !== "string") {
+      err(
+        f,
+        1,
+        "edge-conclusion",
+        `conclusion must be exactly one object id (a string), e.g.\n  conclusion: prf\nA claim with two conclusions is two pages.`,
+      );
+    }
+
+    if (
+      Array.isArray(fm.hypotheses) &&
+      typeof fm.conclusion === "string" &&
+      fm.hypotheses.includes(fm.conclusion)
+    ) {
+      err(
+        f,
+        1,
+        "edge-self-loop",
+        `"${fm.conclusion}" is both a hypothesis and the conclusion. If the claim is a security upgrade (e.g. {mac, ske} => authenticated-encryption), give the upgraded notion its own id — declare it under "variants:" on the page that defines it.`,
+      );
+    }
+
+    if (fm.class !== undefined) {
+      const c = String(fm.class);
+      if (CLASS_REJECTED[c]) {
+        err(
+          f,
+          1,
+          "edge-class",
+          `class "${c}" is not a class. ${String(CLASS_REJECTED[c].message).trim()}`,
+        );
+      } else if (!CLASS_VALUES.includes(c)) {
+        err(
+          f,
+          1,
+          "edge-class",
+          `class "${c}" is not in schema/reduction-classes.yaml. Valid: ${CLASS_VALUES.join(" | ")}. Use "unstated" when the source does not say.`,
+        );
+      }
+    }
+
+    if (fm.model !== undefined && !MODELS.includes(String(fm.model))) {
+      err(
+        f,
+        1,
+        "edge-model",
+        `model "${fm.model}" is not valid. Valid models: ${MODELS.join(" | ")}. Idealized models belong here, never in "class" — a generic-group lower bound is class: free, model: generic-group.`,
+      );
+    }
+
+    if (fm.source !== undefined) {
+      const srcs = Array.isArray(fm.source) ? fm.source : [fm.source];
+      if (srcs.length === 0)
+        err(
+          f,
+          1,
+          "edge-source",
+          `source must name a citation or the token "folklore". Example:\n  source: ["[[GGM86 - How to construct random functions|GGM86]]"]\nNever invent a citation; "folklore" is the honest value when there is none.`,
+        );
+      for (const s of srcs) {
+        const v = String(s).trim();
+        if (v === "folklore") continue;
+        if (!/^\[\[.+\|.+\]\]$/.test(v))
+          err(
+            f,
+            1,
+            "edge-source",
+            `source entry ${JSON.stringify(s)} must be a citation wikilink "[[KEY - Full Title|KEY]]" (byte-for-byte the reference filename) or the bare token folklore. "standard" is not a provenance value.`,
+          );
+      }
+    }
+  }
+
+  if (fm.type === "barrier") {
+    if (fm.strength !== undefined && !STRENGTHS.includes(String(fm.strength))) {
+      err(
+        f,
+        1,
+        "barrier-strength",
+        `strength "${fm.strength}" is not valid. Valid: ${STRENGTHS.join(" | ")}.`,
+      );
+    }
+    if (
+      String(fm.strength) === "conditional" &&
+      (!Array.isArray(fm["conditional-on"]) ||
+        fm["conditional-on"].length === 0)
+    ) {
+      err(
+        f,
+        1,
+        "barrier-conditional",
+        `strength: conditional requires a non-empty "conditional-on" list naming the oracle or assumption the barrier rests on, e.g.\n  conditional-on: [lwe]`,
+      );
+    }
+    if (fm.consequences !== undefined) {
+      if (!Array.isArray(fm.consequences) || fm.consequences.length === 0) {
+        err(
+          f,
+          1,
+          "barrier-consequences",
+          `consequences must be a non-empty YAML list. One barrier can carry several framings over the same hyperedge — Impagliazzo-Rudich is both "no relativizing reduction exists" and "a proof would give P != NP". Example:\n  consequences:\n    - kind: complexity\n      target: p-neq-np\n      class: relativizing`,
+        );
+      } else {
+        fm.consequences.forEach((c, i) => {
+          const where = `consequences[${i}]`;
+          if (typeof c !== "object" || c === null) {
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where} must be a mapping with keys kind, target, class.`,
+            );
+            return;
+          }
+          if (!CONSEQUENCE_KINDS.includes(String(c.kind)))
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where}.kind "${c.kind}" is not valid. Valid: ${CONSEQUENCE_KINDS.join(" | ")}.`,
+            );
+          if (c.kind === "contradiction" && c.target)
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where}.kind is "contradiction", so target must be empty (got "${c.target}"). A contradiction has no target.`,
+            );
+          if (c.kind !== "contradiction" && !c.target)
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where}.kind is "${c.kind}", which needs a target: an object id, a key in schema/propositions.yaml (for kind: complexity), or a reduction id (for kind: reduction).`,
+            );
+          if (c.kind === "complexity" && c.target && !PROPOSITIONS[c.target])
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where}.target "${c.target}" is not in schema/propositions.yaml. Add it there (with a title and a "believed" flag) rather than inventing a page. Known: ${Object.keys(PROPOSITIONS).join(", ")}.`,
+            );
+          if (c.class !== undefined && !CLASS_VALUES.includes(String(c.class)))
+            err(
+              f,
+              1,
+              "barrier-consequences",
+              `${where}.class "${c.class}" is not in schema/reduction-classes.yaml. Valid: ${CLASS_VALUES.join(" | ")}.`,
+            );
+        });
+      }
     }
   }
 }
@@ -345,6 +688,90 @@ for (const [slug, files] of claims) {
       "alias-collision",
       `"${slug}" is claimed by ${[...files].map(rel).join(" and ")} (as filename slug or alias). Every alias must resolve to exactly one page; remove it from all but one.`,
     );
+  }
+}
+
+// --------------------------------------------------------- object id graph ----
+// The node namespace a hyperedge endpoint resolves against: page ids, variant
+// ids declared by a page, and (for barrier consequences only) propositions.
+const objectIds = new Map(); // id -> {file, kind, anchor?}
+const declareId = (id, file, kind, anchor) => {
+  if (!id) return;
+  const prev = objectIds.get(id);
+  if (prev && prev.file !== file) {
+    err(
+      file,
+      1,
+      "id-collision",
+      `object id "${id}" is claimed by both ${rel(prev.file)} and ${rel(file)}. Every id resolves to exactly one node; rename one, or declare it as a variant of the page that defines it.`,
+    );
+    return;
+  }
+  objectIds.set(id, { file, kind, anchor });
+};
+for (const p of pages) {
+  if (!TYPES[p.fm.type]?.object) continue;
+  declareId(p.fm.id, p.file, "page");
+  if (p.fm.variants && typeof p.fm.variants === "object") {
+    for (const [vid, v] of Object.entries(p.fm.variants)) {
+      const anchor = typeof v === "string" ? v : v?.anchor;
+      declareId(vid, p.file, "variant", anchor);
+      // The anchor must be a real heading on the declaring page.
+      if (typeof anchor === "string" && anchor.startsWith("#")) {
+        const want = anchor.slice(1).toLowerCase();
+        const headings = [...p.body.matchAll(/^#{1,6}\s+(.+?)\s*$/gm)].map(
+          (m) =>
+            m[1]
+              .replace(/[^\w\s-]/g, "")
+              .trim()
+              .toLowerCase()
+              .replace(/\s+/g, "-"),
+        );
+        if (!headings.includes(want))
+          err(
+            p.file,
+            1,
+            "variant-anchor",
+            `variant "${vid}" points at "${anchor}", which is not a heading on this page. Headings here: ${headings.map((h) => "#" + h).join(", ") || "(none)"}.`,
+          );
+      }
+    }
+  }
+}
+for (const id of Object.keys(PROPOSITIONS)) {
+  if (objectIds.has(id))
+    err(
+      objectIds.get(id).file,
+      1,
+      "id-collision",
+      `object id "${id}" collides with a proposition of the same name in schema/propositions.yaml. Rename one.`,
+    );
+}
+
+// Every hyperedge endpoint must resolve.
+const resolveEndpoint = (p, id, field) => {
+  if (typeof id !== "string" || !id) return;
+  if (objectIds.has(id)) return;
+  const near = [...objectIds.keys()]
+    .filter((k) => k.includes(id) || id.includes(k))
+    .slice(0, 3);
+  err(
+    p.file,
+    1,
+    "edge-unresolved-id",
+    `${field} "${id}" does not resolve to any object id. Declare "id: ${id}" in the frontmatter of the page that defines it, or — if it is a notion documented as a section of an existing page — add it under that page's "variants:" (e.g. variants:\n    ${id}: "#${id}"). ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+  );
+};
+for (const p of pages) {
+  if (p.fm.type !== "reduction" && p.fm.type !== "barrier") continue;
+  if (Array.isArray(p.fm.hypotheses))
+    for (const h of new Set(p.fm.hypotheses))
+      resolveEndpoint(p, h, "hypothesis");
+  if (typeof p.fm.conclusion === "string")
+    resolveEndpoint(p, p.fm.conclusion, "conclusion");
+  for (const c of Array.isArray(p.fm.consequences) ? p.fm.consequences : []) {
+    if (c && c.kind === "object" && c.target)
+      resolveEndpoint(p, c.target, "consequence target");
   }
 }
 

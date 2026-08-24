@@ -25,6 +25,10 @@ export type ContentDetails = {
   richContent?: string;
   date?: Date;
   description?: string;
+  // `unlisted: true` keeps a page built and linkable but out of the explorer,
+  // folder listings, and the graph's default view. Used for the long tail of
+  // object pages that exist only so a hyperedge endpoint resolves.
+  unlisted?: boolean;
 };
 
 interface Options {
@@ -137,6 +141,8 @@ export const ContentIndex: QuartzEmitterPlugin<Partial<Options>> = (opts) => {
               : undefined,
             date: date,
             description: file.data.description ?? "",
+            unlisted:
+              file.data.frontmatter?.unlisted === true ? true : undefined,
           });
         }
       }

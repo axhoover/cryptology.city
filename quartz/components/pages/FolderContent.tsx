@@ -92,11 +92,14 @@ export default ((opts?: Partial<FolderContentOptions>) => {
               frontmatter: {
                 title: node.displayName,
                 tags: [],
+                // synthetic entry for a subfolder; folders are always listed
+                unlisted: false,
               },
             };
           }
         })
-        .filter((page) => page !== undefined) ?? [];
+        .filter((page) => page !== undefined)
+        .filter((page) => page.frontmatter?.unlisted !== true) ?? [];
     const cssClasses: string[] = fileData.frontmatter?.cssclasses ?? [];
     const classes = cssClasses.join(" ");
 
