@@ -21,6 +21,8 @@ import {
   FullSlug,
   SimpleSlug,
   getFullSlug,
+  joinSegments,
+  pathToRoot,
   resolveRelative,
   simplifySlug,
 } from "../../util/path";
@@ -33,20 +35,37 @@ type GraphicsInfo = {
   active: boolean;
 };
 
+// In the bipartite relationship graph a node is an OBJECT (a primitive,
+// assumption, or class), a REDUCTION (a hyperedge), or a BARRIER. Everything
+// else — reference pages, notes — stays "page".
+type NodeKind = "page" | "object" | "reduction" | "barrier";
+
+// A link is either an ordinary wikilink, or one of the three typed edges of the
+// hypergraph. `hypothesis` and `conclusion` are the two halves of a hyperedge:
+// drawing them as one object-to-object arrow is exactly the misrepresentation
+// the bipartite layout exists to prevent.
+type LinkKind = "link" | "hypothesis" | "conclusion" | "barrier";
+
 type NodeData = {
   id: SimpleSlug;
   text: string;
   tags: string[];
+  kind?: NodeKind;
 } & SimulationNodeDatum;
 
 type SimpleLinkData = {
   source: SimpleSlug;
   target: SimpleSlug;
+  kind?: LinkKind;
+  /** barrier links only: "unconditional" draws solid, "conditional" dashed */
+  strength?: string;
 };
 
 type LinkData = {
   source: NodeData;
   target: NodeData;
+  kind?: LinkKind;
+  strength?: string;
 } & SimulationLinkDatum<NodeData>;
 
 type LinkRenderData = GraphicsInfo & {
@@ -93,6 +112,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     showTags,
     focusOnHover,
     enableRadial,
+    relations: useRelations,
   } = JSON.parse(graph.dataset["cfg"]!) as D3Config;
 
   const data: Map<SimpleSlug, ContentDetails> = new Map(
@@ -128,6 +148,105 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     }
   }
 
+  // ---------------------------------------------------------------- relations
+  // The hypergraph replaces every link incident to a reduction or barrier page
+  // with its TYPED edges. Ordinary wikilinks between other pages are untouched,
+  // so reference pages keep a useful local graph.
+  const nodeKind = new Map<SimpleSlug, NodeKind>();
+  if (useRelations) {
+    try {
+      // Same addressing Quartz uses for static/contentIndex.json: relative to
+      // the page root, so it resolves from any depth and under a subpath.
+      const res = await fetch(
+        joinSegments(pathToRoot(fullSlug), "static/relations.json"),
+      );
+      const manifest = res.ok ? await res.json() : null;
+      if (manifest) {
+        const asSlug = (g: string) => simplifySlug(g as FullSlug);
+        for (const o of manifest.objects ?? []) {
+          if (o.kind === "variant") continue; // variants live on their host page
+          nodeKind.set(asSlug(o.graphSlug), "object");
+        }
+        for (const r of manifest.reductions ?? [])
+          nodeKind.set(asSlug(r.graphSlug), "reduction");
+        for (const b of manifest.barriers ?? [])
+          nodeKind.set(asSlug(b.graphSlug), "barrier");
+
+        // Where an endpoint is a variant, the edge attaches to its host page.
+        const hostOf = new Map<string, SimpleSlug>();
+        for (const o of manifest.objects ?? [])
+          hostOf.set(o.id, asSlug(o.graphSlug));
+
+        const typed: SimpleLinkData[] = [];
+        for (const r of manifest.reductions ?? []) {
+          const self = asSlug(r.graphSlug);
+          for (const h of r.hypotheses ?? []) {
+            const from = hostOf.get(h);
+            if (from && from !== self)
+              typed.push({ source: from, target: self, kind: "hypothesis" });
+          }
+          const to = hostOf.get(r.conclusion);
+          if (to && to !== self)
+            typed.push({ source: self, target: to, kind: "conclusion" });
+        }
+        for (const b of manifest.barriers ?? []) {
+          const self = asSlug(b.graphSlug);
+          // A barrier constrains an ARROW, never a pair of objects. When a
+          // reduction page exists for the same hyperedge the barrier attaches
+          // to it. When none does — the usual case, since a barrier normally
+          // rules out a reduction nobody has — the BARRIER NODE ITSELF occupies
+          // the arrow position, so the drawn shape is still
+          // object — barrier — object and never a direct object-to-object edge,
+          // which would read as the implication the barrier denies.
+          const key =
+            [...(b.hypotheses ?? [])].sort().join("+") + "=>" + b.conclusion;
+          const target = (manifest.reductions ?? []).find(
+            (r: any) =>
+              [...(r.hypotheses ?? [])].sort().join("+") +
+                "=>" +
+                r.conclusion ===
+              key,
+          );
+          if (target) {
+            typed.push({
+              source: self,
+              target: asSlug(target.graphSlug),
+              kind: "barrier",
+              strength: b.strength,
+            });
+          } else {
+            for (const o of [...(b.hypotheses ?? []), b.conclusion]) {
+              const other = hostOf.get(o);
+              if (other && other !== self)
+                typed.push({
+                  source: self,
+                  target: other,
+                  kind: "barrier",
+                  strength: b.strength,
+                });
+            }
+          }
+        }
+
+        // Drop untyped links that touch the reduction layer, then add ours.
+        const isEdgeNode = (s: SimpleSlug) => {
+          const k = nodeKind.get(s);
+          return k === "reduction" || k === "barrier";
+        };
+        for (let i = links.length - 1; i >= 0; i--) {
+          if (isEdgeNode(links[i].source) || isEdgeNode(links[i].target))
+            links.splice(i, 1);
+        }
+        for (const t of typed) {
+          if (validLinks.has(t.source) && validLinks.has(t.target))
+            links.push(t);
+        }
+      }
+    } catch {
+      // A missing or malformed manifest degrades to the ordinary link graph.
+    }
+  }
+
   const neighbourhood = new Set<SimpleSlug>();
   const wl: (SimpleSlug | "__SENTINEL")[] = [slug, "__SENTINEL"];
   if (depth >= 0) {
@@ -160,6 +279,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       id: url,
       text,
       tags: data.get(url)?.tags ?? [],
+      kind: nodeKind.get(url) ?? "page",
     };
   });
   const graphData: { nodes: NodeData[]; links: LinkData[] } = {
@@ -169,6 +289,8 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       .map((l) => ({
         source: nodes.find((n) => n.id === l.source)!,
         target: nodes.find((n) => n.id === l.target)!,
+        kind: l.kind ?? "link",
+        strength: l.strength,
       })),
   };
 
@@ -217,6 +339,9 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     const isCurrent = d.id === slug;
     if (isCurrent) {
       return computedStyleMap["--secondary"];
+    } else if (d.kind === "reduction" || d.kind === "barrier") {
+      // The reduction layer reads as structure, not content.
+      return computedStyleMap["--lightgray"];
     } else if (visited.has(d.id) || d.id.startsWith("tags/")) {
       return computedStyleMap["--tertiary"];
     } else {
@@ -224,7 +349,40 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     }
   };
 
+  // Link styling. `hypothesis` and `conclusion` are the two halves of one
+  // hyperedge and are deliberately drawn differently, so a reader can see which
+  // way the arrow runs without arrowheads at this node size.
+  const linkStyle = (kind?: LinkKind, active?: boolean) => {
+    switch (kind) {
+      case "hypothesis":
+        return {
+          width: 1,
+          color: computedStyleMap[active ? "--darkgray" : "--gray"],
+        };
+      case "conclusion":
+        return {
+          width: 1.6,
+          color: computedStyleMap[active ? "--secondary" : "--tertiary"],
+        };
+      case "barrier":
+        return {
+          width: 1.4,
+          color: computedStyleMap[active ? "--darkgray" : "--gray"],
+        };
+      default:
+        return {
+          width: 1,
+          color: computedStyleMap[active ? "--gray" : "--lightgray"],
+        };
+    }
+  };
+
   function nodeRadius(d: NodeData) {
+    // A hyperedge is not an object, so it does not grow with its degree — a
+    // reduction always has exactly (hypotheses + 1) links, and sizing it like an
+    // object would make the two layers hard to tell apart.
+    if (d.kind === "reduction") return 2.5;
+    if (d.kind === "barrier") return 3;
     const numLinks = graphData.links.filter(
       (l) => l.source.id === d.id || l.target.id === d.id,
     ).length;
@@ -286,9 +444,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
         alpha = l.active ? 1 : 0.2;
       }
 
-      l.color = l.active
-        ? computedStyleMap["--gray"]
-        : computedStyleMap["--lightgray"];
+      l.color = linkStyle(l.simulationData.kind, l.active).color;
       tweenGroup.add(new Tweened<LinkRenderData>(l).to({ alpha }, 200));
     }
 
@@ -428,15 +584,27 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
     let oldLabelOpacity = 0;
     const isTagNode = nodeId.startsWith("tags/");
+    const r = nodeRadius(n);
     const gfx = new Graphics({
       interactive: true,
       label: nodeId,
       eventMode: "static",
-      hitArea: new Circle(0, 0, nodeRadius(n)),
+      hitArea: new Circle(0, 0, Math.max(r, 4)),
       cursor: "pointer",
-    })
-      .circle(0, 0, nodeRadius(n))
-      .fill({ color: isTagNode ? computedStyleMap["--light"] : color(n) })
+    });
+    // Shape carries the node kind: objects are discs, reductions are squares
+    // (a hyperedge, not a thing), barriers are hollow rings.
+    if (n.kind === "reduction") gfx.rect(-r, -r, r * 2, r * 2);
+    else if (n.kind === "barrier") gfx.circle(0, 0, r);
+    else gfx.circle(0, 0, r);
+    gfx
+      .fill({
+        color: isTagNode
+          ? computedStyleMap["--light"]
+          : n.kind === "barrier"
+            ? computedStyleMap["--light"]
+            : color(n),
+      })
       .on("pointerover", (e) => {
         updateHoverInfo(e.target.label);
         oldLabelOpacity = label.alpha;
@@ -454,6 +622,10 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
     if (isTagNode) {
       gfx.stroke({ width: 2, color: computedStyleMap["--tertiary"] });
+    } else if (n.kind === "barrier") {
+      // Hollow ring: a barrier is a statement ABOUT edges, not a node in the
+      // implication structure.
+      gfx.stroke({ width: 1.5, color: computedStyleMap["--darkgray"] });
     }
 
     nodesContainer.addChild(gfx);
@@ -478,7 +650,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
     const linkRenderDatum: LinkRenderData = {
       simulationData: l,
       gfx,
-      color: computedStyleMap["--lightgray"],
+      color: linkStyle(l.kind).color,
       alpha: 1,
       active: false,
     };
@@ -580,14 +752,32 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
 
     for (const l of linkRenderData) {
       const linkData = l.simulationData;
+      const style = linkStyle(linkData.kind, l.active);
+      const x1 = linkData.source.x! + width / 2;
+      const y1 = linkData.source.y! + height / 2;
+      const x2 = linkData.target.x! + width / 2;
+      const y2 = linkData.target.y! + height / 2;
       l.gfx.clear();
-      l.gfx.moveTo(
-        linkData.source.x! + width / 2,
-        linkData.source.y! + height / 2,
-      );
-      l.gfx
-        .lineTo(linkData.target.x! + width / 2, linkData.target.y! + height / 2)
-        .stroke({ alpha: l.alpha, width: 1, color: l.color });
+      // A CONDITIONAL barrier rests on an oracle or an unproven assumption, so
+      // it is drawn dashed: the reader should not read it as settled.
+      if (linkData.kind === "barrier" && linkData.strength === "conditional") {
+        const dx = x2 - x1;
+        const dy = y2 - y1;
+        const len = Math.hypot(dx, dy) || 1;
+        const dash = 4;
+        const gap = 3;
+        for (let d = 0; d < len; d += dash + gap) {
+          const e = Math.min(d + dash, len);
+          l.gfx.moveTo(x1 + (dx * d) / len, y1 + (dy * d) / len);
+          l.gfx.lineTo(x1 + (dx * e) / len, y1 + (dy * e) / len);
+        }
+        l.gfx.stroke({ alpha: l.alpha, width: style.width, color: l.color });
+      } else {
+        l.gfx.moveTo(x1, y1);
+        l.gfx
+          .lineTo(x2, y2)
+          .stroke({ alpha: l.alpha, width: style.width, color: l.color });
+      }
     }
 
     tweens.forEach((t) => t.update(time));

@@ -71,6 +71,12 @@ for (const f of walk(CONTENT)) {
     file: f,
     rel: path.relative(ROOT, f),
     slug: path.basename(f, ".md"),
+    // The slug Quartz addresses this page by, which is what the graph joins on.
+    graphSlug: path
+      .relative(CONTENT, f)
+      .replace(/\.md$/, "")
+      .split(path.sep)
+      .join("/"),
     fm: data,
     body: content,
   });
@@ -95,6 +101,7 @@ for (const p of pages) {
       type: p.fm.type,
       page: p.rel,
       slug: p.slug,
+      graphSlug: p.graphSlug,
       title: p.fm.title ?? p.slug,
       aliases: p.fm.aliases ?? [],
       unlisted: p.fm.unlisted === true,
@@ -107,6 +114,7 @@ for (const p of pages) {
       type: p.fm.type,
       page: p.rel,
       slug: p.slug,
+      graphSlug: p.graphSlug,
       anchor,
       of: p.fm.id,
       title: vid,
@@ -134,6 +142,7 @@ for (const p of pages) {
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,
+      graphSlug: p.graphSlug,
       title: p.fm.title,
     });
   } else if (p.fm.type === "barrier") {
@@ -149,6 +158,7 @@ for (const p of pages) {
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,
+      graphSlug: p.graphSlug,
       title: p.fm.title,
     });
   }

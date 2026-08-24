@@ -223,6 +223,7 @@
    "type": "primitive",
    "page": "content/Primitives/attribute-based-encryption.md",
    "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
    "title": "Attribute-based encryption",
    "aliases": [
     "ABE",
@@ -240,6 +241,7 @@
    "type": "primitive",
    "page": "content/Primitives/attribute-based-encryption.md",
    "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#selective-security",
    "of": "abe",
    "title": "abe-selective-security",
@@ -252,6 +254,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-hibe-cpa-security",
    "of": "hibe",
    "title": "adaptive-hibe-security",
@@ -264,6 +267,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-error-correcting-code.md",
    "slug": "pseudorandom-error-correcting-code",
+   "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#adaptive-robustness",
    "of": "prc",
    "title": "adaptively-robust-prc",
@@ -276,6 +280,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#partially-homomorphic-encryption-phe",
    "of": "he",
    "title": "additively-homomorphic-encryption",
@@ -288,6 +293,7 @@
    "type": "glossary",
    "page": "content/Glossary/algebraic-group-model.md",
    "slug": "algebraic-group-model",
+   "graphSlug": "Glossary/algebraic-group-model",
    "title": "Algebraic Group Model",
    "aliases": [
     "AGM",
@@ -301,6 +307,7 @@
    "type": "assumption",
    "page": "content/Assumptions/alternating-moduli.md",
    "slug": "alternating-moduli",
+   "graphSlug": "Assumptions/alternating-moduli",
    "title": "Alternating moduli assumption",
    "aliases": [
     "Alternating moduli assumption",
@@ -316,6 +323,7 @@
    "type": "assumption",
    "page": "content/Assumptions/alternating-moduli.md",
    "slug": "alternating-moduli",
+   "graphSlug": "Assumptions/alternating-moduli",
    "anchor": "#strong-alternating-moduli-chosen-input-assumption",
    "of": "alternating-moduli-assumption",
    "title": "alternating-moduli-strong",
@@ -328,6 +336,7 @@
    "type": "assumption",
    "page": "content/Assumptions/alternating-moduli.md",
    "slug": "alternating-moduli",
+   "graphSlug": "Assumptions/alternating-moduli",
    "anchor": "#weak-alternating-moduli-random-input-assumption",
    "of": "alternating-moduli-assumption",
    "title": "alternating-moduli-weak",
@@ -340,6 +349,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/arthur-merlin.md",
    "slug": "arthur-merlin",
+   "graphSlug": "Complexity/arthur-merlin",
    "title": "Arthur-Merlin",
    "aliases": [
     "AM",
@@ -353,6 +363,7 @@
    "type": "primitive",
    "page": "content/Primitives/anonymous-credentials.md",
    "slug": "anonymous-credentials",
+   "graphSlug": "Primitives/anonymous-credentials",
    "title": "Anonymous credentials",
    "aliases": [
     "AC",
@@ -366,6 +377,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#anonymous-hibe",
    "of": "hibe",
    "title": "anonymous-hibe",
@@ -378,6 +390,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#key-hiding",
    "of": "pke",
    "title": "anonymous-public-key-encryption",
@@ -390,6 +403,7 @@
    "type": "glossary",
    "page": "content/Glossary/arithmetization.md",
    "slug": "arithmetization",
+   "graphSlug": "Glossary/arithmetization",
    "title": "Arithmetization",
    "aliases": [
     "Arithmetization",
@@ -406,6 +420,7 @@
    "type": "primitive",
    "page": "content/Primitives/authenticated-encryption.md",
    "slug": "authenticated-encryption",
+   "graphSlug": "Primitives/authenticated-encryption",
    "title": "Authenticated encryption",
    "aliases": [
     "AE",
@@ -419,6 +434,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-exchange.md",
    "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
    "anchor": "#authenticated-key-exchange-ake",
    "of": "ke",
    "title": "authenticated-key-exchange",
@@ -431,6 +447,7 @@
    "type": "assumption",
    "page": "content/Assumptions/bilinear-map-assumptions.md",
    "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
    "title": "Bilinear map assumptions",
    "aliases": [
     "BDH",
@@ -449,6 +466,7 @@
    "type": "primitive",
    "page": "content/Primitives/broadcast-encryption.md",
    "slug": "broadcast-encryption",
+   "graphSlug": "Primitives/broadcast-encryption",
    "title": "Broadcast encryption",
    "aliases": [
     "BE",
@@ -462,6 +480,7 @@
    "type": "glossary",
    "page": "content/Glossary/pairings.md",
    "slug": "pairings",
+   "graphSlug": "Glossary/pairings",
    "title": "Pairings",
    "aliases": [
     "Bilinear pairing",
@@ -477,6 +496,7 @@
    "type": "assumption",
    "page": "content/Assumptions/permuted-puzzles.md",
    "slug": "permuted-puzzles",
+   "graphSlug": "Assumptions/permuted-puzzles",
    "title": "Permuted puzzles assumption",
    "aliases": [
     "Permuted puzzles",
@@ -490,6 +510,7 @@
    "type": "glossary",
    "page": "content/Glossary/black-box-separations.md",
    "slug": "black-box-separations",
+   "graphSlug": "Glossary/black-box-separations",
    "title": "Black-Box Separations",
    "aliases": [
     "Black-box separation",
@@ -505,6 +526,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#bls-signatures",
    "of": "ds",
    "title": "boneh-lynn-shacham-signature",
@@ -517,6 +539,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/bounded-error-probabilistic-polynomial-time.md",
    "slug": "bounded-error-probabilistic-polynomial-time",
+   "graphSlug": "Complexity/bounded-error-probabilistic-polynomial-time",
    "title": "Bounded-Error Probabilistic Polynomial-Time",
    "aliases": [
     "BPP",
@@ -530,6 +553,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/bounded-error-quantum-polynomial-time.md",
    "slug": "bounded-error-quantum-polynomial-time",
+   "graphSlug": "Complexity/bounded-error-quantum-polynomial-time",
    "title": "Bounded-Error Quantum Polynomial-Time",
    "aliases": [
     "BQP",
@@ -543,6 +567,7 @@
    "type": "primitive",
    "page": "content/Primitives/symmetric-key-encryption.md",
    "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#cca-security",
    "of": "ske",
    "title": "cca-secure-symmetric-key-encryption",
@@ -555,6 +580,7 @@
    "type": "assumption",
    "page": "content/Assumptions/computational-diffie-hellman.md",
    "slug": "computational-diffie-hellman",
+   "graphSlug": "Assumptions/computational-diffie-hellman",
    "title": "Computational Diffie-Hellman",
    "aliases": [
     "CDH",
@@ -568,6 +594,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#evasive-lwe",
    "of": "lwe",
    "title": "circular-evasive-lwe",
@@ -580,6 +607,7 @@
    "type": "assumption",
    "page": "content/Assumptions/circular-security.md",
    "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
    "title": "Circular security",
    "aliases": [
     "Circular security"
@@ -592,6 +620,7 @@
    "type": "assumption",
    "page": "content/Assumptions/co-computational-diffie-hellman.md",
    "slug": "co-computational-diffie-hellman",
+   "graphSlug": "Assumptions/co-computational-diffie-hellman",
    "title": "co-Computational Diffie-Hellman",
    "aliases": [
     "co-CDH",
@@ -605,6 +634,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/co-arthur-merlin.md",
    "slug": "co-arthur-merlin",
+   "graphSlug": "Complexity/co-arthur-merlin",
    "title": "Co-Arthur-Merlin",
    "aliases": [
     "coAM",
@@ -618,6 +648,7 @@
    "type": "primitive",
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
    "title": "Commitment scheme",
    "aliases": [
     "COM",
@@ -632,6 +663,7 @@
    "type": "primitive",
    "page": "content/Primitives/multi-server-private-information-retrieval.md",
    "slug": "multi-server-private-information-retrieval",
+   "graphSlug": "Primitives/multi-server-private-information-retrieval",
    "anchor": "#computational-multi-server-pir",
    "of": "it-pir",
    "title": "computational-multi-server-pir",
@@ -644,6 +676,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/co-nondeterministic-polynomial-time.md",
    "slug": "co-nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/co-nondeterministic-polynomial-time",
    "title": "Co-nondeterministic polynomial-time",
    "aliases": [
     "coNP",
@@ -657,6 +690,7 @@
    "type": "primitive",
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
    "anchor": "#argument-systems",
    "of": "zkp",
    "title": "constant-round-zk-argument",
@@ -669,6 +703,7 @@
    "type": "primitive",
    "page": "content/Primitives/attribute-based-encryption.md",
    "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#cp-abe-ind-cpa-security",
    "of": "abe",
    "title": "cp-abe-adaptive-security",
@@ -681,6 +716,7 @@
    "type": "primitive",
    "page": "content/Primitives/symmetric-key-encryption.md",
    "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#cpa-security",
    "of": "ske",
    "title": "cpa-security",
@@ -693,6 +729,7 @@
    "type": "primitive",
    "page": "content/Primitives/single-server-private-information-retrieval.md",
    "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
    "title": "Private Information Retrieval",
    "aliases": [
     "cPIR",
@@ -707,6 +744,7 @@
    "type": "primitive",
    "page": "content/Primitives/hash-function.md",
    "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
    "anchor": "#collision-resistance",
    "of": "hash-function",
    "title": "crhf",
@@ -719,6 +757,7 @@
    "type": "assumption",
    "page": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
    "slug": "supersingular-isogeny-diffie-hellman",
+   "graphSlug": "Assumptions/supersingular-isogeny-diffie-hellman",
    "anchor": "#csidh",
    "of": "sidh",
    "title": "csidh",
@@ -731,6 +770,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/computational-zero-knowledge.md",
    "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
    "title": "Computational zero-knowledge",
    "aliases": [
     "CZK",
@@ -744,6 +784,7 @@
    "type": "assumption",
    "page": "content/Assumptions/decisional-composite-residuosity.md",
    "slug": "decisional-composite-residuosity",
+   "graphSlug": "Assumptions/decisional-composite-residuosity",
    "anchor": "#d-th-composite-residuosity",
    "of": "dcr",
    "title": "d-th-composite-residuosity",
@@ -756,6 +797,7 @@
    "type": "assumption",
    "page": "content/Assumptions/decisional-composite-residuosity.md",
    "slug": "decisional-composite-residuosity",
+   "graphSlug": "Assumptions/decisional-composite-residuosity",
    "title": "Decisional composite residuosity assumption",
    "aliases": [
     "DCR",
@@ -770,6 +812,7 @@
    "type": "assumption",
    "page": "content/Assumptions/decisional-diffie-hellman.md",
    "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
    "title": "Decisional Diffie-Hellman",
    "aliases": [
     "DDH",
@@ -783,6 +826,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#decision-lwe",
    "of": "lwe",
    "title": "decision-lwe",
@@ -795,6 +839,7 @@
    "type": "assumption",
    "page": "content/Assumptions/decisional-diffie-hellman.md",
    "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
    "anchor": "#dlin",
    "of": "ddh",
    "title": "decisional-linear",
@@ -807,6 +852,7 @@
    "type": "primitive",
    "page": "content/Primitives/deniable-encryption.md",
    "slug": "deniable-encryption",
+   "graphSlug": "Primitives/deniable-encryption",
    "title": "Deniable encryption",
    "aliases": [
     "Deniable encryption"
@@ -819,6 +865,7 @@
    "type": "primitive",
    "page": "content/Primitives/doubly-efficient-pir.md",
    "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
    "title": "Doubly-efficient PIR",
    "aliases": [
     "DEPIR",
@@ -834,6 +881,7 @@
    "type": "primitive",
    "page": "content/Primitives/indistinguishability-obfuscation.md",
    "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
    "anchor": "#differing-inputs-obfuscation-dio",
    "of": "io",
    "title": "differing-inputs-obfuscation",
@@ -846,6 +894,7 @@
    "type": "primitive",
    "page": "content/Primitives/distributed-key-generation.md",
    "slug": "distributed-key-generation",
+   "graphSlug": "Primitives/distributed-key-generation",
    "title": "Distributed key generation",
    "aliases": [
     "DKG",
@@ -859,6 +908,7 @@
    "type": "assumption",
    "page": "content/Assumptions/discrete-logarithm.md",
    "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
    "title": "Discrete logarithm",
    "aliases": [
     "DLOG",
@@ -872,6 +922,7 @@
    "type": "primitive",
    "page": "content/Primitives/doubly-efficient-ram-mpc.md",
    "slug": "doubly-efficient-ram-mpc",
+   "graphSlug": "Primitives/doubly-efficient-ram-mpc",
    "title": "Doubly-efficient RAM MPC",
    "aliases": [
     "DE-RAM-MPC",
@@ -885,6 +936,7 @@
    "type": "primitive",
    "page": "content/Primitives/distributed-point-function.md",
    "slug": "distributed-point-function",
+   "graphSlug": "Primitives/distributed-point-function",
    "title": "Distributed Point Functions",
    "aliases": [
     "DPF",
@@ -899,6 +951,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "title": "Digital signature",
    "aliases": [
     "DS",
@@ -913,6 +966,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#schnorr-signatures",
    "of": "ds",
    "title": "eddsa",
@@ -925,6 +979,7 @@
    "type": "primitive",
    "page": "content/Primitives/trapdoor-permutation.md",
    "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
    "anchor": "#enhanced-trapdoor-permutations",
    "of": "tdp",
    "title": "enhanced-trapdoor-permutation",
@@ -937,6 +992,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#evasive-lwe",
    "of": "lwe",
    "title": "evasive-lwe",
@@ -949,6 +1005,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#evasive-lwe",
    "of": "lwe",
    "title": "evasive-lwe-private-coin",
@@ -961,6 +1018,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/exponential-time.md",
    "slug": "exponential-time",
+   "graphSlug": "Complexity/exponential-time",
    "title": "Exponential time",
    "aliases": [
     "EXP",
@@ -975,6 +1033,7 @@
    "type": "assumption",
    "page": "content/Assumptions/factoring.md",
    "slug": "factoring",
+   "graphSlug": "Assumptions/factoring",
    "title": "Factoring assumption",
    "aliases": [
     "FAC",
@@ -991,6 +1050,7 @@
    "type": "assumption",
    "page": "content/Assumptions/factoring.md",
    "slug": "factoring",
+   "graphSlug": "Assumptions/factoring",
    "anchor": "#factoring-with-known-factor-structure",
    "of": "fac",
    "title": "factoring-blum-integers",
@@ -1003,6 +1063,7 @@
    "type": "glossary",
    "page": "content/Glossary/falsifiable-assumptions.md",
    "slug": "falsifiable-assumptions",
+   "graphSlug": "Glossary/falsifiable-assumptions",
    "title": "Falsifiable assumptions",
    "aliases": [
     "Falsifiable assumption",
@@ -1016,6 +1077,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#hash-based-signatures",
    "of": "ds",
    "title": "few-time-signature",
@@ -1028,6 +1090,7 @@
    "type": "glossary",
    "page": "content/Glossary/fiat-shamir-heuristic.md",
    "slug": "fiat-shamir-heuristic",
+   "graphSlug": "Glossary/fiat-shamir-heuristic",
    "title": "Fiat-Shamir Heuristic",
    "aliases": [
     "Fiat-Shamir",
@@ -1041,6 +1104,7 @@
    "type": "note",
    "page": "content/impagliazzos-five-worlds.md",
    "slug": "impagliazzos-five-worlds",
+   "graphSlug": "impagliazzos-five-worlds",
    "title": "Impagliazzo's Five Worlds",
    "aliases": [
     "Five worlds",
@@ -1054,6 +1118,7 @@
    "type": "primitive",
    "page": "content/Primitives/fingerprinting-code.md",
    "slug": "fingerprinting-code",
+   "graphSlug": "Primitives/fingerprinting-code",
    "title": "Fingerprinting Code",
    "aliases": [
     "FP Code",
@@ -1067,6 +1132,7 @@
    "type": "primitive",
    "page": "content/Primitives/polynomial-commitment.md",
    "slug": "polynomial-commitment",
+   "graphSlug": "Primitives/polynomial-commitment",
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
    "title": "fri",
@@ -1079,6 +1145,7 @@
    "type": "primitive",
    "page": "content/Primitives/distributed-point-function.md",
    "slug": "distributed-point-function",
+   "graphSlug": "Primitives/distributed-point-function",
    "anchor": "#function-secret-sharing-fss",
    "of": "dpf",
    "title": "function-secret-sharing",
@@ -1091,6 +1158,7 @@
    "type": "primitive",
    "page": "content/Primitives/functional-encryption.md",
    "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
    "title": "Functional encryption",
    "aliases": [
     "FE",
@@ -1104,6 +1172,7 @@
    "type": "primitive",
    "page": "content/Primitives/fuzzy-identity-based-encryption.md",
    "slug": "fuzzy-identity-based-encryption",
+   "graphSlug": "Primitives/fuzzy-identity-based-encryption",
    "title": "Fuzzy identity-based encryption",
    "aliases": [
     "Fuzzy IBE",
@@ -1118,6 +1187,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-vector-problem.md",
    "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
    "title": "Shortest Vector Problem",
    "aliases": [
     "GapSVP",
@@ -1131,6 +1201,7 @@
    "type": "primitive",
    "page": "content/Primitives/garbled-circuit.md",
    "slug": "garbled-circuit",
+   "graphSlug": "Primitives/garbled-circuit",
    "title": "Garbled circuit",
    "aliases": [
     "GC",
@@ -1144,6 +1215,7 @@
    "type": "glossary",
    "page": "content/Glossary/generic-group-model.md",
    "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
    "title": "Generic Group Model",
    "aliases": [
     "GGM",
@@ -1157,6 +1229,7 @@
    "type": "glossary",
    "page": "content/Glossary/gkr-protocol.md",
    "slug": "gkr-protocol",
+   "graphSlug": "Glossary/gkr-protocol",
    "title": "GKR protocol",
    "aliases": [
     "GKR",
@@ -1170,6 +1243,7 @@
    "type": "primitive",
    "page": "content/Primitives/succinct-argument.md",
    "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
    "anchor": "#zk-snark",
    "of": "snark",
    "title": "groth16",
@@ -1182,6 +1256,7 @@
    "type": "primitive",
    "page": "content/Primitives/succinct-argument.md",
    "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
    "anchor": "#zk-snark",
    "of": "snark",
    "title": "groth16-snark",
@@ -1194,6 +1269,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#lattice-based-signatures",
    "of": "ds",
    "title": "hash-and-sign-signature",
@@ -1206,6 +1282,7 @@
    "type": "primitive",
    "page": "content/Primitives/hash-function.md",
    "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
    "title": "Hash function",
    "aliases": [
     "CRH",
@@ -1224,6 +1301,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "title": "Homomorphic encryption",
    "aliases": [
     "HE",
@@ -1239,6 +1317,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "title": "Hierarchical identity-based encryption",
    "aliases": [
     "HIBE",
@@ -1252,6 +1331,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-hibe-cpa-security",
    "of": "hibe",
    "title": "hibe-adaptive-security",
@@ -1264,6 +1344,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-shibe-cpa-security-selective",
    "of": "hibe",
    "title": "hibe-selective-security",
@@ -1276,6 +1357,7 @@
    "type": "assumption",
    "page": "content/Assumptions/quadratic-residuosity.md",
    "slug": "quadratic-residuosity",
+   "graphSlug": "Assumptions/quadratic-residuosity",
    "anchor": "#higher-residuosity",
    "of": "qr",
    "title": "higher-residuosity",
@@ -1288,6 +1370,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#honest-majority-t-n3-or-t-n2",
    "of": "mpc",
    "title": "honest-majority-t-lt-n-over-2",
@@ -1300,6 +1383,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#honest-majority-t-n3-or-t-n2",
    "of": "mpc",
    "title": "honest-majority-t-lt-n-over-3",
@@ -1312,6 +1396,7 @@
    "type": "primitive",
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
    "anchor": "#honest-verifier-zk-hvzk",
    "of": "zkp",
    "title": "honest-verifier-zero-knowledge",
@@ -1324,6 +1409,7 @@
    "type": "primitive",
    "page": "content/Primitives/hidden-vector-encryption.md",
    "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
    "title": "Hidden vector encryption",
    "aliases": [
     "HVE",
@@ -1337,6 +1423,7 @@
    "type": "primitive",
    "page": "content/Primitives/hidden-vector-encryption.md",
    "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#attribute-hiding-security",
    "of": "hve",
    "title": "hve-attribute-hiding",
@@ -1349,6 +1436,7 @@
    "type": "primitive",
    "page": "content/Primitives/hidden-vector-encryption.md",
    "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#payload-hiding-security",
    "of": "hve",
    "title": "hve-payload-hiding",
@@ -1361,6 +1449,7 @@
    "type": "folklore",
    "page": "content/Folklore/hybrid-argument.md",
    "slug": "hybrid-argument",
+   "graphSlug": "Folklore/hybrid-argument",
    "title": "Hybrid argument",
    "aliases": [
     "Hybrid argument"
@@ -1373,6 +1462,7 @@
    "type": "primitive",
    "page": "content/Primitives/identity-based-encryption.md",
    "slug": "identity-based-encryption",
+   "graphSlug": "Primitives/identity-based-encryption",
    "title": "Identity-based encryption",
    "aliases": [
     "IBE",
@@ -1386,6 +1476,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-error-correcting-code.md",
    "slug": "pseudorandom-error-correcting-code",
+   "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#ideal-prc",
    "of": "prc",
    "title": "ideal-prc",
@@ -1398,6 +1489,7 @@
    "type": "assumption",
    "page": "content/Assumptions/ideal-svp.md",
    "slug": "ideal-svp",
+   "graphSlug": "Assumptions/ideal-svp",
    "title": "Ideal Shortest Vector Problem",
    "aliases": [
     "Ideal-SVP",
@@ -1411,6 +1503,7 @@
    "type": "primitive",
    "page": "content/Primitives/identification-scheme.md",
    "slug": "identification-scheme",
+   "graphSlug": "Primitives/identification-scheme",
    "title": "Identification scheme",
    "aliases": [
     "ID",
@@ -1424,6 +1517,7 @@
    "type": "primitive",
    "page": "content/Primitives/succinct-argument.md",
    "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
    "anchor": "#recursive-snarks",
    "of": "snark",
    "title": "incremental-verifiable-computation",
@@ -1436,6 +1530,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-encapsulation-mechanism.md",
    "slug": "key-encapsulation-mechanism",
+   "graphSlug": "Primitives/key-encapsulation-mechanism",
    "anchor": "#ind-cca-security",
    "of": "kem",
    "title": "ind-cca-kem",
@@ -1448,6 +1543,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cca-security",
    "of": "pke",
    "title": "ind-cca-security",
@@ -1460,6 +1556,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-encapsulation-mechanism.md",
    "slug": "key-encapsulation-mechanism",
+   "graphSlug": "Primitives/key-encapsulation-mechanism",
    "anchor": "#ind-cpa-kem",
    "of": "kem",
    "title": "ind-cpa-kem",
@@ -1472,6 +1569,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "ind-cpa-security",
@@ -1484,6 +1582,7 @@
    "type": "primitive",
    "page": "content/Primitives/symmetric-key-encryption.md",
    "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#ind-cpa-security",
    "of": "ske",
    "title": "ind-dollar-cpa-security",
@@ -1496,6 +1595,7 @@
    "type": "primitive",
    "page": "content/Primitives/identity-based-encryption.md",
    "slug": "identity-based-encryption",
+   "graphSlug": "Primitives/identity-based-encryption",
    "anchor": "#ind-id-cpa-security",
    "of": "ibe",
    "title": "ind-id-cpa",
@@ -1508,6 +1608,7 @@
    "type": "primitive",
    "page": "content/Primitives/identity-based-encryption.md",
    "slug": "identity-based-encryption",
+   "graphSlug": "Primitives/identity-based-encryption",
    "anchor": "#ind-sid-cpa-security-selective",
    "of": "ibe",
    "title": "ind-sid-cpa",
@@ -1520,6 +1621,7 @@
    "type": "note",
    "page": "content/index.md",
    "slug": "index",
+   "graphSlug": "index",
    "title": "Cryptology City",
    "aliases": [],
    "unlisted": false
@@ -1530,6 +1632,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-integer-solution.md",
    "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#isis-inhomogeneous-sis",
    "of": "sis",
    "title": "inhomogeneous-sis",
@@ -1542,6 +1645,7 @@
    "type": "primitive",
    "page": "content/Primitives/injective-one-way-function.md",
    "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
    "title": "Injective one-way function",
    "aliases": [
     "Injective OWF",
@@ -1555,6 +1659,7 @@
    "type": "glossary",
    "page": "content/Glossary/interactive-protocol.md",
    "slug": "interactive-protocol",
+   "graphSlug": "Glossary/interactive-protocol",
    "title": "Interactive protocol",
    "aliases": [
     "interactive protocol",
@@ -1571,6 +1676,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-function.md",
    "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
    "anchor": "#invertible-prfs",
    "of": "prf",
    "title": "invertible-prf",
@@ -1583,6 +1689,7 @@
    "type": "primitive",
    "page": "content/Primitives/indistinguishability-obfuscation.md",
    "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
    "title": "Indistinguishability Obfuscation",
    "aliases": [
     "iO",
@@ -1596,6 +1703,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/interactive-proof-systems.md",
    "slug": "interactive-proof-systems",
+   "graphSlug": "Complexity/interactive-proof-systems",
    "title": "Interactive Proof Systems",
    "aliases": [
     "IP",
@@ -1609,6 +1717,7 @@
    "type": "primitive",
    "page": "content/Primitives/inner-product-predicate-encryption.md",
    "slug": "inner-product-predicate-encryption",
+   "graphSlug": "Primitives/inner-product-predicate-encryption",
    "title": "Inner-product predicate encryption",
    "aliases": [
     "IPPE",
@@ -1623,6 +1732,7 @@
    "type": "primitive",
    "page": "content/Primitives/multi-server-private-information-retrieval.md",
    "slug": "multi-server-private-information-retrieval",
+   "graphSlug": "Primitives/multi-server-private-information-retrieval",
    "title": "Multi-server Private Information Retrieval",
    "aliases": [
     "IT-PIR",
@@ -1636,6 +1746,7 @@
    "type": "assumption",
    "page": "content/Assumptions/bilinear-map-assumptions.md",
    "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
    "anchor": "#k-linear-assumption",
    "of": "bdh",
    "title": "k-linear-assumption",
@@ -1648,6 +1759,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-exchange.md",
    "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
    "title": "Key exchange",
    "aliases": [
     "KE",
@@ -1663,6 +1775,7 @@
    "type": "assumption",
    "page": "content/Assumptions/knowledge-of-exponent.md",
    "slug": "knowledge-of-exponent",
+   "graphSlug": "Assumptions/knowledge-of-exponent",
    "title": "Knowledge of exponent assumption",
    "aliases": [
     "KEA",
@@ -1679,6 +1792,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-encapsulation-mechanism.md",
    "slug": "key-encapsulation-mechanism",
+   "graphSlug": "Primitives/key-encapsulation-mechanism",
    "title": "Key encapsulation mechanism",
    "aliases": [
     "KEM",
@@ -1695,6 +1809,7 @@
    "type": "primitive",
    "page": "content/Primitives/attribute-based-encryption.md",
    "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#selective-security",
    "of": "abe",
    "title": "kp-abe-selective-security",
@@ -1707,6 +1822,7 @@
    "type": "primitive",
    "page": "content/Primitives/polynomial-commitment.md",
    "slug": "polynomial-commitment",
+   "graphSlug": "Primitives/polynomial-commitment",
    "anchor": "#kzg-kate-zaverucha-goldberg",
    "of": "pcs",
    "title": "kzg-polynomial-commitment",
@@ -1719,6 +1835,7 @@
    "type": "primitive",
    "page": "content/Primitives/language-model-watermarking.md",
    "slug": "language-model-watermarking",
+   "graphSlug": "Primitives/language-model-watermarking",
    "title": "Language model watermarking",
    "aliases": [
     "Watermarking",
@@ -1732,6 +1849,7 @@
    "type": "glossary",
    "page": "content/Glossary/latex-macros.md",
    "slug": "latex-macros",
+   "graphSlug": "Glossary/latex-macros",
    "title": "LaTeX macros",
    "aliases": [
     "LaTeX macros"
@@ -1744,6 +1862,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-subspace-with-noise.md",
    "slug": "learning-subspace-with-noise",
+   "graphSlug": "Assumptions/learning-subspace-with-noise",
    "title": "Learning subspace with noise",
    "aliases": [
     "LSN",
@@ -1757,6 +1876,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#leveled-fully-homomorphic-encryption",
    "of": "he",
    "title": "leveled-fully-homomorphic-encryption",
@@ -1769,6 +1889,7 @@
    "type": "primitive",
    "page": "content/Primitives/secret-sharing.md",
    "slug": "secret-sharing",
+   "graphSlug": "Primitives/secret-sharing",
    "anchor": "#linear-secret-sharing-schemes-lsss",
    "of": "ss",
    "title": "linear-secret-sharing-scheme",
@@ -1781,6 +1902,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#partially-homomorphic-encryption-phe",
    "of": "he",
    "title": "linearly-homomorphic-pke",
@@ -1793,6 +1915,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-merlin-arthur.md",
    "slug": "quantum-merlin-arthur",
+   "graphSlug": "Complexity/quantum-merlin-arthur",
    "anchor": "#notable-problems",
    "of": "qma",
    "title": "local-hamiltonian",
@@ -1805,6 +1928,7 @@
    "type": "primitive",
    "page": "content/Primitives/trapdoor-permutation.md",
    "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
    "anchor": "#lossy-trapdoor-functions",
    "of": "tdp",
    "title": "lossy-functions",
@@ -1817,6 +1941,7 @@
    "type": "primitive",
    "page": "content/Primitives/trapdoor-permutation.md",
    "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
    "anchor": "#lossy-trapdoor-functions",
    "of": "tdp",
    "title": "lossy-trapdoor-function",
@@ -1829,6 +1954,7 @@
    "type": "primitive",
    "page": "content/Primitives/low-complexity-prg.md",
    "slug": "low-complexity-prg",
+   "graphSlug": "Primitives/low-complexity-prg",
    "title": "Low-complexity pseudorandom generator",
    "aliases": [
     "PRG in NC1",
@@ -1842,6 +1968,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "title": "Learning parity with noise",
    "aliases": [
     "LPN",
@@ -1855,6 +1982,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#noise-level",
    "of": "lpn",
    "title": "lpn-constant-noise",
@@ -1867,6 +1995,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#noise-level",
    "of": "lpn",
    "title": "lpn-high-noise",
@@ -1879,6 +2008,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#noise-level",
    "of": "lpn",
    "title": "lpn-low-noise",
@@ -1891,6 +2021,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#noise-level",
    "of": "lpn",
    "title": "lpn-mid-noise",
@@ -1903,6 +2034,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "title": "Learning with errors",
    "aliases": [
     "LWE",
@@ -1918,6 +2050,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/merlin-arthur.md",
    "slug": "merlin-arthur",
+   "graphSlug": "Complexity/merlin-arthur",
    "title": "Merlin-Arthur",
    "aliases": [
     "MA",
@@ -1931,6 +2064,7 @@
    "type": "primitive",
    "page": "content/Primitives/message-authentication-code.md",
    "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
    "title": "Message authentication code",
    "aliases": [
     "MAC",
@@ -1944,6 +2078,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#malicious-security",
    "of": "ot",
    "title": "malicious-ot-security",
@@ -1956,6 +2091,7 @@
    "type": "glossary",
    "page": "content/Glossary/interactive-protocol.md",
    "slug": "interactive-protocol",
+   "graphSlug": "Glossary/interactive-protocol",
    "anchor": "#adversary-models",
    "of": "interactive-protocol",
    "title": "malicious-security",
@@ -1968,6 +2104,7 @@
    "type": "glossary",
    "page": "content/Glossary/generic-group-model.md",
    "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
    "anchor": "#maurers-formulation",
    "of": "ggm",
    "title": "maurer-generic-group-model",
@@ -1980,6 +2117,7 @@
    "type": "primitive",
    "page": "content/Primitives/merkle-puzzles.md",
    "slug": "merkle-puzzles",
+   "graphSlug": "Primitives/merkle-puzzles",
    "title": "Merkle puzzles",
    "aliases": [
     "Merkle puzzles"
@@ -1992,6 +2130,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/multi-prover-interactive-proofs.md",
    "slug": "multi-prover-interactive-proofs",
+   "graphSlug": "Complexity/multi-prover-interactive-proofs",
    "title": "Multi-prover interactive proofs",
    "aliases": [
     "MIP",
@@ -2005,6 +2144,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-interactive-proofs.md",
    "slug": "quantum-interactive-proofs",
+   "graphSlug": "Complexity/quantum-interactive-proofs",
    "anchor": "#multi-prover-extensions",
    "of": "qip",
    "title": "mip-star",
@@ -2017,6 +2157,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#module-lwe",
    "of": "lwe",
    "title": "module-lwe",
@@ -2029,6 +2170,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#module-lwe",
    "of": "lwe",
    "title": "module-lwe-rank-1",
@@ -2041,6 +2183,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#module-lwe",
    "of": "lwe",
    "title": "module-lwe-rank-n",
@@ -2053,6 +2196,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-integer-solution.md",
    "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#module-sis",
    "of": "sis",
    "title": "module-sis",
@@ -2065,6 +2209,7 @@
    "type": "glossary",
    "page": "content/Glossary/monotone-span-program.md",
    "slug": "monotone-span-program",
+   "graphSlug": "Glossary/monotone-span-program",
    "title": "Monotone span program",
    "aliases": [
     "MSP",
@@ -2078,6 +2223,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "title": "Secure multi-party computation",
    "aliases": [
     "MPC",
@@ -2094,6 +2240,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#mpc-with-preprocessing-spdz-etc",
    "of": "mpc",
    "title": "mpc-with-preprocessing",
@@ -2106,6 +2253,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-exchange.md",
    "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
    "anchor": "#multi-party-key-exchange",
    "of": "ke",
    "title": "multi-party-key-exchange",
@@ -2118,6 +2266,7 @@
    "type": "primitive",
    "page": "content/Primitives/distributed-point-function.md",
    "slug": "distributed-point-function",
+   "graphSlug": "Primitives/distributed-point-function",
    "anchor": "#multi-point-functions",
    "of": "dpf",
    "title": "multi-point-function-secret-sharing",
@@ -2130,6 +2279,7 @@
    "type": "glossary",
    "page": "content/Glossary/multilinear-maps.md",
    "slug": "multilinear-maps",
+   "graphSlug": "Glossary/multilinear-maps",
    "title": "Multilinear maps",
    "aliases": [
     "MMap",
@@ -2143,6 +2293,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#partially-homomorphic-encryption-phe",
    "of": "he",
    "title": "multiplicatively-homomorphic-encryption",
@@ -2155,6 +2306,7 @@
    "type": "primitive",
    "page": "content/Primitives/non-interactive-zero-knowledge.md",
    "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
    "title": "Non-interactive zero-knowledge",
    "aliases": [
     "NIZK",
@@ -2170,6 +2322,7 @@
    "type": "assumption",
    "page": "content/Assumptions/noisy-k-lin-over-expanders.md",
    "slug": "noisy-k-lin-over-expanders",
+   "graphSlug": "Assumptions/noisy-k-lin-over-expanders",
    "title": "Noisy k-LIN over expanders",
    "aliases": [
     "Noisy k-LIN",
@@ -2185,6 +2338,7 @@
    "type": "primitive",
    "page": "content/Primitives/key-exchange.md",
    "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
    "anchor": "#non-interactive-key-exchange-nike",
    "of": "ke",
    "title": "non-interactive-key-exchange",
@@ -2197,6 +2351,7 @@
    "type": "primitive",
    "page": "content/Primitives/inner-product-predicate-encryption.md",
    "slug": "inner-product-predicate-encryption",
+   "graphSlug": "Primitives/inner-product-predicate-encryption",
    "anchor": "#zero-inner-product-vs-non-zero",
    "of": "ippe",
    "title": "nonzero-ippe",
@@ -2209,6 +2364,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/nondeterministic-polynomial-time.md",
    "slug": "nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/nondeterministic-polynomial-time",
    "title": "Nondeterministic Polynomial-Time",
    "aliases": [
     "NP",
@@ -2222,6 +2378,7 @@
    "type": "assumption",
    "page": "content/Assumptions/ntru.md",
    "slug": "ntru",
+   "graphSlug": "Assumptions/ntru",
    "title": "NTRU",
    "aliases": [
     "NTRU"
@@ -2234,6 +2391,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-interactive-hash-function.md",
    "slug": "oblivious-interactive-hash-function",
+   "graphSlug": "Primitives/oblivious-interactive-hash-function",
    "title": "Oblivious interactive hash function",
    "aliases": [
     "OIHF",
@@ -2247,6 +2405,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-locally-decodable-code.md",
    "slug": "oblivious-locally-decodable-code",
+   "graphSlug": "Primitives/oblivious-locally-decodable-code",
    "title": "Oblivious locally decodable code",
    "aliases": [
     "OLDC",
@@ -2260,6 +2419,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#k-out-of-n-ot",
    "of": "ot",
    "title": "one-out-of-n-ot",
@@ -2272,6 +2432,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#hash-based-signatures",
    "of": "ds",
    "title": "one-time-signature",
@@ -2284,6 +2445,7 @@
    "type": "primitive",
    "page": "content/Primitives/one-way-state-generator.md",
    "slug": "one-way-state-generator",
+   "graphSlug": "Primitives/one-way-state-generator",
    "title": "One-way state generator",
    "aliases": [
     "OWSG",
@@ -2297,6 +2459,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-ram.md",
    "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
    "title": "Oblivious RAM",
    "aliases": [
     "ORAM",
@@ -2311,6 +2474,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "title": "Oblivious transfer",
    "aliases": [
     "OT",
@@ -2324,6 +2488,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#ot-extension",
    "of": "ot",
    "title": "ot-extension",
@@ -2336,6 +2501,7 @@
    "type": "primitive",
    "page": "content/Primitives/hash-function.md",
    "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
    "anchor": "#preimage-resistance-one-wayness",
    "of": "hash-function",
    "title": "owf",
@@ -2348,6 +2514,7 @@
    "type": "primitive",
    "page": "content/Primitives/one-way-permutation.md",
    "slug": "one-way-permutation",
+   "graphSlug": "Primitives/one-way-permutation",
    "title": "One-way permutations",
    "aliases": [
     "OWP",
@@ -2362,6 +2529,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/polynomial-time.md",
    "slug": "polynomial-time",
+   "graphSlug": "Complexity/polynomial-time",
    "title": "Polynomial-Time",
    "aliases": [
     "P",
@@ -2375,6 +2543,7 @@
    "type": "primitive",
    "page": "content/Primitives/inner-product-predicate-encryption.md",
    "slug": "inner-product-predicate-encryption",
+   "graphSlug": "Primitives/inner-product-predicate-encryption",
    "anchor": "#payload-only-hiding",
    "of": "ippe",
    "title": "payload-hiding-ippe",
@@ -2387,6 +2556,7 @@
    "type": "assumption",
    "page": "content/Assumptions/planted-clique.md",
    "slug": "planted-clique",
+   "graphSlug": "Assumptions/planted-clique",
    "title": "Planted clique assumption",
    "aliases": [
     "PC",
@@ -2402,6 +2572,7 @@
    "type": "primitive",
    "page": "content/Primitives/polynomial-commitment.md",
    "slug": "polynomial-commitment",
+   "graphSlug": "Primitives/polynomial-commitment",
    "title": "Polynomial commitment scheme",
    "aliases": [
     "PCS",
@@ -2418,6 +2589,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/polynomial-time-hierarchy.md",
    "slug": "polynomial-time-hierarchy",
+   "graphSlug": "Complexity/polynomial-time-hierarchy",
    "title": "Polynomial Hierarchy",
    "aliases": [
     "PH",
@@ -2432,6 +2604,7 @@
    "type": "assumption",
    "page": "content/Assumptions/rsa-assumption.md",
    "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
    "anchor": "#-hiding",
    "of": "rsa",
    "title": "phi-hiding",
@@ -2444,6 +2617,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "title": "Public key encryption",
    "aliases": [
     "PKE",
@@ -2457,6 +2631,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cca1-security",
    "of": "pke",
    "title": "pke-cca1-security",
@@ -2469,6 +2644,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cca-security",
    "of": "pke",
    "title": "pke-cca2-security",
@@ -2481,6 +2657,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "pke-cpa-security",
@@ -2493,6 +2670,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/probabilistic-polynomial-time.md",
    "slug": "probabilistic-polynomial-time",
+   "graphSlug": "Complexity/probabilistic-polynomial-time",
    "title": "Probabilistic polynomial-time",
    "aliases": [
     "PP",
@@ -2506,6 +2684,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/total-function-np.md",
    "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
    "anchor": "#subclasses",
    "of": "tfnp",
    "title": "ppad-hardness",
@@ -2518,6 +2697,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/p-poly.md",
    "slug": "p-poly",
+   "graphSlug": "Complexity/p-poly",
    "title": "P/poly",
    "aliases": [
     "P/poly",
@@ -2531,6 +2711,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-error-correcting-code.md",
    "slug": "pseudorandom-error-correcting-code",
+   "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "title": "Pseudorandom error-correcting code",
    "aliases": [
     "PRC",
@@ -2545,6 +2726,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-function.md",
    "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
    "title": "Pseudorandom function",
    "aliases": [
     "PRF",
@@ -2559,6 +2741,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-generator.md",
    "slug": "pseudorandom-generator",
+   "graphSlug": "Primitives/pseudorandom-generator",
    "title": "Pseudorandom generator",
    "aliases": [
     "PRG",
@@ -2572,6 +2755,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-generator-in-nc1.md",
    "slug": "pseudorandom-generator-in-nc1",
+   "graphSlug": "Primitives/pseudorandom-generator-in-nc1",
    "title": "Pseudorandom generator in $\\mathrm{NC}^1$",
    "aliases": [
     "NC1-PRG",
@@ -2585,6 +2769,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#evasive-lwe",
    "of": "lwe",
    "title": "private-coin-evasive-lwe",
@@ -2597,6 +2782,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-permutation.md",
    "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
    "title": "Pseudorandom permutation",
    "aliases": [
     "PRP",
@@ -2611,6 +2797,7 @@
    "type": "assumption",
    "page": "content/Assumptions/alternating-moduli.md",
    "slug": "alternating-moduli",
+   "graphSlug": "Assumptions/alternating-moduli",
    "anchor": "#pseudorandom-correlation-generators-pcg",
    "of": "alternating-moduli-assumption",
    "title": "pseudorandom-correlation-generator",
@@ -2623,6 +2810,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/polynomial-space.md",
    "slug": "polynomial-space",
+   "graphSlug": "Complexity/polynomial-space",
    "title": "Polynomial-Space",
    "aliases": [
     "PSPACE",
@@ -2636,6 +2824,7 @@
    "type": "assumption",
    "page": "content/Assumptions/q-strong-diffie-hellman.md",
    "slug": "q-strong-diffie-hellman",
+   "graphSlug": "Assumptions/q-strong-diffie-hellman",
    "title": "$q$-Strong Diffie-Hellman assumption",
    "aliases": [
     "q-SDH",
@@ -2649,6 +2838,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-classical-merlin-arthur.md",
    "slug": "quantum-classical-merlin-arthur",
+   "graphSlug": "Complexity/quantum-classical-merlin-arthur",
    "title": "Quantum-Classical Merlin-Arthur",
    "aliases": [
     "QCMA",
@@ -2663,6 +2853,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-interactive-proofs.md",
    "slug": "quantum-interactive-proofs",
+   "graphSlug": "Complexity/quantum-interactive-proofs",
    "title": "Quantum Interactive Proofs",
    "aliases": [
     "QIP",
@@ -2676,6 +2867,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-merlin-arthur.md",
    "slug": "quantum-merlin-arthur",
+   "graphSlug": "Complexity/quantum-merlin-arthur",
    "title": "Quantum Merlin-Arthur",
    "aliases": [
     "QMA",
@@ -2689,6 +2881,7 @@
    "type": "assumption",
    "page": "content/Assumptions/quadratic-residuosity.md",
    "slug": "quadratic-residuosity",
+   "graphSlug": "Assumptions/quadratic-residuosity",
    "title": "Quadratic residuosity assumption",
    "aliases": [
     "QR",
@@ -2704,6 +2897,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/quantum-statistical-zero-knowledge.md",
    "slug": "quantum-statistical-zero-knowledge",
+   "graphSlug": "Complexity/quantum-statistical-zero-knowledge",
    "title": "Quantum Statistical Zero-Knowledge",
    "aliases": [
     "QSZK",
@@ -2717,6 +2911,7 @@
    "type": "primitive",
    "page": "content/Primitives/quantum-money.md",
    "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
    "title": "Quantum money",
    "aliases": [
     "QM",
@@ -2730,6 +2925,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#rabin-ot",
    "of": "ot",
    "title": "rabin-ot",
@@ -2742,6 +2938,7 @@
    "type": "glossary",
    "page": "content/Glossary/random-oracle-hypothesis.md",
    "slug": "random-oracle-hypothesis",
+   "graphSlug": "Glossary/random-oracle-hypothesis",
    "title": "Random Oracle Hypothesis",
    "aliases": [
     "ROH",
@@ -2755,6 +2952,7 @@
    "type": "primitive",
    "page": "content/Primitives/oblivious-transfer.md",
    "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#random-ot",
    "of": "ot",
    "title": "random-ot",
@@ -2767,6 +2965,7 @@
    "type": "primitive",
    "page": "content/Primitives/hidden-vector-encryption.md",
    "slug": "hidden-vector-encryption",
+   "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#subset-and-range-queries",
    "of": "hve",
    "title": "range-query-encryption",
@@ -2779,6 +2978,7 @@
    "type": "primitive",
    "page": "content/Primitives/rerandomizable-encryption.md",
    "slug": "rerandomizable-encryption",
+   "graphSlug": "Primitives/rerandomizable-encryption",
    "title": "Rerandomizable encryption",
    "aliases": [
     "RE",
@@ -2792,6 +2992,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#ring-lpn",
    "of": "lpn",
    "title": "ring-lpn",
@@ -2804,6 +3005,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#ring-lwe",
    "of": "lwe",
    "title": "ring-lwe",
@@ -2816,6 +3018,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-integer-solution.md",
    "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#ring-sis",
    "of": "sis",
    "title": "ring-sis",
@@ -2828,6 +3031,7 @@
    "type": "glossary",
    "page": "content/Glossary/random-oracle-model.md",
    "slug": "random-oracle-model",
+   "graphSlug": "Glossary/random-oracle-model",
    "title": "Random Oracle Model",
    "aliases": [
     "ROM",
@@ -2842,6 +3046,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/randomized-polynomial-time.md",
    "slug": "randomized-polynomial-time",
+   "graphSlug": "Complexity/randomized-polynomial-time",
    "title": "Randomized polynomial-time",
    "aliases": [
     "RP",
@@ -2855,6 +3060,7 @@
    "type": "assumption",
    "page": "content/Assumptions/rsa-assumption.md",
    "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
    "title": "RSA Assumption",
    "aliases": [
     "RSA",
@@ -2868,6 +3074,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#schnorr-signatures",
    "of": "ds",
    "title": "schnorr-identification-protocol",
@@ -2880,6 +3087,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#schnorr-signatures",
    "of": "ds",
    "title": "schnorr-signature",
@@ -2892,6 +3100,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#search-lwe",
    "of": "lwe",
    "title": "search-lwe",
@@ -2904,6 +3113,7 @@
    "type": "assumption",
    "page": "content/Assumptions/noisy-k-lin-over-expanders.md",
    "slug": "noisy-k-lin-over-expanders",
+   "graphSlug": "Assumptions/noisy-k-lin-over-expanders",
    "anchor": "#search-noisy-k-lin",
    "of": "noisy-k-lin",
    "title": "search-noisy-k-lin",
@@ -2916,6 +3126,7 @@
    "type": "primitive",
    "page": "content/Primitives/single-server-private-information-retrieval.md",
    "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
    "anchor": "#secret-key-pir-sk-pir",
    "of": "cpir",
    "title": "secret-key-pir",
@@ -2928,6 +3139,7 @@
    "type": "primitive",
    "page": "content/Primitives/hierarchical-identity-based-encryption.md",
    "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-shibe-cpa-security-selective",
    "of": "hibe",
    "title": "selective-hibe-security",
@@ -2940,6 +3152,7 @@
    "type": "primitive",
    "page": "content/Primitives/public-key-encryption.md",
    "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "semantic-security",
@@ -2952,6 +3165,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#privacy-semi-honest",
    "of": "mpc",
    "title": "semi-honest-security",
@@ -2964,6 +3178,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/sharp-p.md",
    "slug": "sharp-p",
+   "graphSlug": "Complexity/sharp-p",
    "title": "#P",
    "aliases": [
     "#P",
@@ -2978,6 +3193,7 @@
    "type": "glossary",
    "page": "content/Glossary/generic-group-model.md",
    "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
    "anchor": "#shoups-formulation",
    "of": "ggm",
    "title": "shoup-generic-group-model",
@@ -2990,6 +3206,7 @@
    "type": "glossary",
    "page": "content/Glossary/generic-group-model.md",
    "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
    "anchor": "#shoups-formulation",
    "of": "ggm",
    "title": "shoup-ggm",
@@ -3002,6 +3219,7 @@
    "type": "assumption",
    "page": "content/Assumptions/supersingular-isogeny-diffie-hellman.md",
    "slug": "supersingular-isogeny-diffie-hellman",
+   "graphSlug": "Assumptions/supersingular-isogeny-diffie-hellman",
    "title": "Supersingular Isogeny Diffie-Hellman",
    "aliases": [
     "SIDH",
@@ -3015,6 +3233,7 @@
    "type": "primitive",
    "page": "content/Primitives/non-interactive-zero-knowledge.md",
    "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
    "anchor": "#simulation-sound-nizk-ss-nizk",
    "of": "nizk",
    "title": "simulation-sound-nizk",
@@ -3027,6 +3246,7 @@
    "type": "primitive",
    "page": "content/Primitives/single-server-private-information-retrieval.md",
    "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
    "anchor": "#symmetric-private-information-retrieval-single-server",
    "of": "cpir",
    "title": "single-server-symmetric-pir",
@@ -3039,6 +3259,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-integer-solution.md",
    "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
    "title": "Shortest Integer Solution",
    "aliases": [
     "SIS",
@@ -3052,6 +3273,7 @@
    "type": "assumption",
    "page": "content/Assumptions/shortest-independent-vectors-problem.md",
    "slug": "shortest-independent-vectors-problem",
+   "graphSlug": "Assumptions/shortest-independent-vectors-problem",
    "title": "Shortest Independent Vectors Problem",
    "aliases": [
     "SIVP",
@@ -3065,6 +3287,7 @@
    "type": "primitive",
    "page": "content/Primitives/symmetric-key-encryption.md",
    "slug": "symmetric-key-encryption",
+   "graphSlug": "Primitives/symmetric-key-encryption",
    "title": "Symmetric key encryption",
    "aliases": [
     "SKE",
@@ -3079,6 +3302,7 @@
    "type": "primitive",
    "page": "content/Primitives/succinct-argument.md",
    "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
    "title": "Succinct argument",
    "aliases": [
     "SNARK",
@@ -3096,6 +3320,7 @@
    "type": "primitive",
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#somewhat-homomorphic-encryption-she",
    "of": "he",
    "title": "somewhat-homomorphic-encryption",
@@ -3108,6 +3333,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#sparse-learning-parity-with-noise",
    "of": "lpn",
    "title": "sparse-lpn",
@@ -3120,6 +3346,7 @@
    "type": "primitive",
    "page": "content/Primitives/symmetric-private-information-retrieval-multi-server.md",
    "slug": "symmetric-private-information-retrieval-multi-server",
+   "graphSlug": "Primitives/symmetric-private-information-retrieval-multi-server",
    "title": "Multi-server Symmetric private information retrieval",
    "aliases": [
     "SPIR",
@@ -3136,6 +3363,7 @@
    "type": "primitive",
    "page": "content/Primitives/secret-sharing.md",
    "slug": "secret-sharing",
+   "graphSlug": "Primitives/secret-sharing",
    "title": "Secret sharing",
    "aliases": [
     "SS",
@@ -3151,6 +3379,7 @@
    "type": "primitive",
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#binding",
    "of": "com",
    "title": "statistically-binding-commitment",
@@ -3163,6 +3392,7 @@
    "type": "primitive",
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#hiding",
    "of": "com",
    "title": "statistically-hiding-commitment",
@@ -3175,6 +3405,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-permutation.md",
    "slug": "pseudorandom-permutation",
+   "graphSlug": "Primitives/pseudorandom-permutation",
    "anchor": "#strong-security",
    "of": "prp",
    "title": "strong-pseudorandom-permutation",
@@ -3187,6 +3418,7 @@
    "type": "assumption",
    "page": "content/Assumptions/rsa-assumption.md",
    "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
    "anchor": "#strong-rsa",
    "of": "rsa",
    "title": "strong-rsa",
@@ -3199,6 +3431,7 @@
    "type": "assumption",
    "page": "content/Assumptions/rsa-assumption.md",
    "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
    "anchor": "#strong-rsa",
    "of": "rsa",
    "title": "strong-rsa-assumption",
@@ -3211,6 +3444,7 @@
    "type": "glossary",
    "page": "content/Glossary/generic-group-model.md",
    "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
    "anchor": "#the-structured-ggm",
    "of": "ggm",
    "title": "structured-generic-group-model",
@@ -3223,6 +3457,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-parity-with-noise.md",
    "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#subexponential-lpn",
    "of": "lpn",
    "title": "subexponential-lpn",
@@ -3235,6 +3470,7 @@
    "type": "assumption",
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#succinct-lwe",
    "of": "lwe",
    "title": "succinct-lwe",
@@ -3247,6 +3483,7 @@
    "type": "folklore",
    "page": "content/Folklore/switching-lemma.md",
    "slug": "switching-lemma",
+   "graphSlug": "Folklore/switching-lemma",
    "title": "Switching Lemma",
    "aliases": [
     "Switching Lemma"
@@ -3259,6 +3496,7 @@
    "type": "assumption",
    "page": "content/Assumptions/bilinear-map-assumptions.md",
    "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
    "anchor": "#sxdh-symmetric-external-diffie-hellman",
    "of": "bdh",
    "title": "sxdh",
@@ -3271,6 +3509,7 @@
    "type": "primitive",
    "page": "content/Primitives/attribute-based-encryption.md",
    "slug": "attribute-based-encryption",
+   "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#symmetric-cp-abe",
    "of": "abe",
    "title": "symmetric-cp-abe",
@@ -3283,6 +3522,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/statistical-zero-knowledge.md",
    "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
    "title": "Statistical zero-knowledge",
    "aliases": [
     "SZK",
@@ -3296,6 +3536,7 @@
    "type": "primitive",
    "page": "content/Primitives/trapdoor-hash-function.md",
    "slug": "trapdoor-hash-function",
+   "graphSlug": "Primitives/trapdoor-hash-function",
    "title": "Trapdoor hash functions",
    "aliases": [
     "TDH",
@@ -3309,6 +3550,7 @@
    "type": "primitive",
    "page": "content/Primitives/trapdoor-permutation.md",
    "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
    "title": "Trapdoor permutation",
    "aliases": [
     "TDP",
@@ -3324,6 +3566,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/total-function-np.md",
    "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
    "title": "Total function NP",
    "aliases": [
     "TFNP",
@@ -3337,6 +3580,7 @@
    "type": "primitive",
    "page": "content/Primitives/threshold-encryption.md",
    "slug": "threshold-encryption",
+   "graphSlug": "Primitives/threshold-encryption",
    "title": "Threshold encryption",
    "aliases": [
     "TPKE",
@@ -3350,6 +3594,7 @@
    "type": "primitive",
    "page": "content/Primitives/succinct-argument.md",
    "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
    "anchor": "#stark",
    "of": "snark",
    "title": "transparent-succinct-argument",
@@ -3362,6 +3607,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-generator.md",
    "slug": "pseudorandom-generator",
+   "graphSlug": "Primitives/pseudorandom-generator",
    "anchor": "#trapdoor-pseudorandom-generators",
    "of": "prg",
    "title": "trapdoor-pseudorandom-generator",
@@ -3374,6 +3620,7 @@
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#two-party-computation-2pc",
    "of": "mpc",
    "title": "two-party-computation",
@@ -3386,6 +3633,7 @@
    "type": "primitive",
    "page": "content/Primitives/two-party-differential-privacy.md",
    "slug": "two-party-differential-privacy",
+   "graphSlug": "Primitives/two-party-differential-privacy",
    "title": "Two-party differential privacy",
    "aliases": [
     "2PDP",
@@ -3399,6 +3647,7 @@
    "type": "glossary",
    "page": "content/Glossary/pairings.md",
    "slug": "pairings",
+   "graphSlug": "Glossary/pairings",
    "anchor": "#types",
    "of": "bilinear-pairing",
    "title": "type-3-pairing",
@@ -3411,6 +3660,7 @@
    "type": "glossary",
    "page": "content/Glossary/universal-composability-framework.md",
    "slug": "universal-composability-framework",
+   "graphSlug": "Glossary/universal-composability-framework",
    "title": "UC Framework",
    "aliases": [
     "UC framework",
@@ -3424,6 +3674,7 @@
    "type": "primitive",
    "page": "content/Primitives/unclonable-encryption.md",
    "slug": "unclonable-encryption",
+   "graphSlug": "Primitives/unclonable-encryption",
    "title": "Unclonable encryption",
    "aliases": [
     "Unclonable encryption"
@@ -3436,6 +3687,7 @@
    "type": "primitive",
    "page": "content/Primitives/doubly-efficient-pir.md",
    "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
    "anchor": "#unkeyed-depir",
    "of": "depir",
    "title": "unkeyed-depir",
@@ -3448,6 +3700,7 @@
    "type": "primitive",
    "page": "content/Primitives/commitment-scheme.md",
    "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#vector-commitments",
    "of": "com",
    "title": "vector-commitment",
@@ -3460,6 +3713,7 @@
    "type": "primitive",
    "page": "content/Primitives/verifiable-random-function.md",
    "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
    "title": "Verifiable random function",
    "aliases": [
     "VRF",
@@ -3473,6 +3727,7 @@
    "type": "primitive",
    "page": "content/Primitives/secret-sharing.md",
    "slug": "secret-sharing",
+   "graphSlug": "Primitives/secret-sharing",
    "anchor": "#verifiable-secret-sharing-vss",
    "of": "ss",
    "title": "verifiable-secret-sharing",
@@ -3485,6 +3740,7 @@
    "type": "primitive",
    "page": "content/Primitives/indistinguishability-obfuscation.md",
    "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
    "anchor": "#virtual-black-box-obfuscation-vbb",
    "of": "io",
    "title": "virtual-black-box-obfuscation",
@@ -3497,6 +3753,7 @@
    "type": "assumption",
    "page": "content/Assumptions/module-lattice-problems.md",
    "slug": "module-lattice-problems",
+   "graphSlug": "Assumptions/module-lattice-problems",
    "title": "Module lattice problems",
    "aliases": [
     "Module-SVP",
@@ -3510,6 +3767,7 @@
    "type": "primitive",
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
    "anchor": "#hash-based-signatures",
    "of": "ds",
    "title": "xmss",
@@ -3522,6 +3780,7 @@
    "type": "primitive",
    "page": "content/Primitives/pseudorandom-error-correcting-code.md",
    "slug": "pseudorandom-error-correcting-code",
+   "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#zero-bit-prc",
    "of": "prc",
    "title": "zero-bit-prc",
@@ -3534,6 +3793,7 @@
    "type": "primitive",
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
    "title": "Zero-knowledge proof",
    "aliases": [
     "ZKP",
@@ -3551,6 +3811,7 @@
    "type": "complexity-class",
    "page": "content/Complexity/zero-error-probabilistic-polynomial-time.md",
    "slug": "zero-error-probabilistic-polynomial-time",
+   "graphSlug": "Complexity/zero-error-probabilistic-polynomial-time",
    "title": "Zero-error probabilistic polynomial-time",
    "aliases": [
     "ZPP",
@@ -3577,6 +3838,7 @@
    "status": "stub",
    "page": "content/Reductions/abe-to-be.md",
    "slug": "abe-to-be",
+   "graphSlug": "Reductions/abe-to-be",
    "title": "ABE ⇒ BE"
   },
   {
@@ -3596,6 +3858,7 @@
    "status": "stub",
    "page": "content/Reductions/abe-to-fuzzy-ibe.md",
    "slug": "abe-to-fuzzy-ibe",
+   "graphSlug": "Reductions/abe-to-fuzzy-ibe",
    "title": "ABE ⇒ Fuzzy IBE"
   },
   {
@@ -3615,6 +3878,7 @@
    "status": "stub",
    "page": "content/Reductions/abe-to-hibe.md",
    "slug": "abe-to-hibe",
+   "graphSlug": "Reductions/abe-to-hibe",
    "title": "ABE ⇒ HIBE"
   },
   {
@@ -3634,6 +3898,7 @@
    "status": "stub",
    "page": "content/Reductions/abe-to-ibe.md",
    "slug": "abe-to-ibe",
+   "graphSlug": "Reductions/abe-to-ibe",
    "title": "ABE ⇒ IBE"
   },
   {
@@ -3653,6 +3918,7 @@
    "status": "stub",
    "page": "content/Reductions/adaptive-robustness-to-prc.md",
    "slug": "adaptive-robustness-to-prc",
+   "graphSlug": "Reductions/adaptive-robustness-to-prc",
    "title": "Adaptive robustness ⇒ PRC"
   },
   {
@@ -3672,6 +3938,7 @@
    "status": "stub",
    "page": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
    "slug": "adversary-models-to-privacy-semi-honest",
+   "graphSlug": "Reductions/adversary-models-to-privacy-semi-honest",
    "title": "Adversary models ⇒ Privacy (semi-honest)"
   },
   {
@@ -3693,6 +3960,7 @@
    "status": "draft",
    "page": "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
    "slug": "ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+   "graphSlug": "Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
    "title": "AE + Hash function + PRF ⇒ Symmetric CP-ABE"
   },
   {
@@ -3712,6 +3980,7 @@
    "status": "stub",
    "page": "content/Reductions/agm-to-kea.md",
    "slug": "agm-to-kea",
+   "graphSlug": "Reductions/agm-to-kea",
    "title": "AGM ⇒ KEA"
   },
   {
@@ -3731,6 +4000,7 @@
    "status": "stub",
    "page": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
    "slug": "alternating-moduli-assumption-to-mpc-bip-18",
+   "graphSlug": "Reductions/alternating-moduli-assumption-to-mpc-bip-18",
    "title": "Alternating moduli assumption ⇒ MPC"
   },
   {
@@ -3750,6 +4020,7 @@
    "status": "draft",
    "page": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
    "slug": "alternating-moduli-assumption-to-prf-bip-18",
+   "graphSlug": "Reductions/alternating-moduli-assumption-to-prf-bip-18",
    "title": "Alternating moduli assumption ⇒ PRF"
   },
   {
@@ -3769,6 +4040,7 @@
    "status": "stub",
    "page": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+   "graphSlug": "Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
    "title": "Alternating moduli assumption ⇒ Pseudorandom correlation generators (PCG)"
   },
   {
@@ -3788,6 +4060,7 @@
    "status": "stub",
    "page": "content/Reductions/anonymous-hibe-to-hibe.md",
    "slug": "anonymous-hibe-to-hibe",
+   "graphSlug": "Reductions/anonymous-hibe-to-hibe",
    "title": "Anonymous HIBE ⇒ HIBE"
   },
   {
@@ -3808,6 +4081,7 @@
    "status": "draft",
    "page": "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
    "slug": "arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
+   "graphSlug": "Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
    "title": "Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK"
   },
   {
@@ -3829,6 +4103,7 @@
    "status": "stub",
    "page": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
    "slug": "arithmetization-and-nizk-and-pcs-to-snark",
+   "graphSlug": "Reductions/arithmetization-and-nizk-and-pcs-to-snark",
    "title": "Arithmetization + NIZK + PCS ⇒ SNARK"
   },
   {
@@ -3849,6 +4124,7 @@
    "status": "draft",
    "page": "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
    "slug": "arithmetization-and-pcs-to-snark-kzg10",
+   "graphSlug": "Reductions/arithmetization-and-pcs-to-snark-kzg10",
    "title": "Arithmetization + PCS ⇒ SNARK"
   },
   {
@@ -3868,6 +4144,7 @@
    "status": "draft",
    "page": "content/Reductions/arithmetization-to-snark-bbhr18.md",
    "slug": "arithmetization-to-snark-bbhr18",
+   "graphSlug": "Reductions/arithmetization-to-snark-bbhr18",
    "title": "Arithmetization ⇒ SNARK"
   },
   {
@@ -3887,6 +4164,7 @@
    "status": "draft",
    "page": "content/Reductions/arithmetization-to-zk-snark-gro16.md",
    "slug": "arithmetization-to-zk-snark-gro16",
+   "graphSlug": "Reductions/arithmetization-to-zk-snark-gro16",
    "title": "Arithmetization ⇒ zk-SNARK"
   },
   {
@@ -3906,6 +4184,7 @@
    "status": "stub",
    "page": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
    "slug": "attribute-hiding-security-to-payload-hiding-security",
+   "graphSlug": "Reductions/attribute-hiding-security-to-payload-hiding-security",
    "title": "Attribute-Hiding Security ⇒ Payload-Hiding Security"
   },
   {
@@ -3925,6 +4204,7 @@
    "status": "stub",
    "page": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
    "slug": "authenticated-key-exchange-ake-to-ke",
+   "graphSlug": "Reductions/authenticated-key-exchange-ake-to-ke",
    "title": "Authenticated key exchange (AKE) ⇒ KE"
   },
   {
@@ -3946,6 +4226,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-abe-gpsw06.md",
    "slug": "bdh-to-abe-gpsw06",
+   "graphSlug": "Reductions/bdh-to-abe-gpsw06",
    "title": "BDH ⇒ ABE"
   },
   {
@@ -3965,6 +4246,7 @@
    "status": "stub",
    "page": "content/Reductions/bdh-to-ac.md",
    "slug": "bdh-to-ac",
+   "graphSlug": "Reductions/bdh-to-ac",
    "title": "BDH ⇒ AC"
   },
   {
@@ -3984,6 +4266,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-be-bgw05.md",
    "slug": "bdh-to-be-bgw05",
+   "graphSlug": "Reductions/bdh-to-be-bgw05",
    "title": "BDH ⇒ BE"
   },
   {
@@ -4003,6 +4286,7 @@
    "status": "stub",
    "page": "content/Reductions/bdh-to-ds.md",
    "slug": "bdh-to-ds",
+   "graphSlug": "Reductions/bdh-to-ds",
    "title": "BDH ⇒ DS"
   },
   {
@@ -4022,6 +4306,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-hibe-wat09.md",
    "slug": "bdh-to-hibe-wat09",
+   "graphSlug": "Reductions/bdh-to-hibe-wat09",
    "title": "BDH ⇒ HIBE"
   },
   {
@@ -4041,6 +4326,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-hve-bw07.md",
    "slug": "bdh-to-hve-bw07",
+   "graphSlug": "Reductions/bdh-to-hve-bw07",
    "title": "BDH ⇒ HVE"
   },
   {
@@ -4060,6 +4346,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-wat09.md",
    "slug": "bdh-to-ibe-wat09",
+   "graphSlug": "Reductions/bdh-to-ibe-wat09",
    "title": "BDH ⇒ IBE"
   },
   {
@@ -4079,6 +4366,7 @@
    "status": "draft",
    "page": "content/Reductions/bdh-to-nizk-gro16.md",
    "slug": "bdh-to-nizk-gro16",
+   "graphSlug": "Reductions/bdh-to-nizk-gro16",
    "title": "BDH ⇒ NIZK"
   },
   {
@@ -4098,6 +4386,7 @@
    "status": "stub",
    "page": "content/Reductions/bdh-to-vrf.md",
    "slug": "bdh-to-vrf",
+   "graphSlug": "Reductions/bdh-to-vrf",
    "title": "BDH ⇒ VRF"
   },
   {
@@ -4118,6 +4407,7 @@
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md",
    "slug": "bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
    "title": "Bilinear pairing + q-SDH ⇒ KZG (Kate-Zaverucha-Goldberg)"
   },
   {
@@ -4138,6 +4428,7 @@
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
    "slug": "bilinear-pairing-and-q-sdh-to-pcs-kzg10",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10",
    "title": "Bilinear pairing + q-SDH ⇒ PCS"
   },
   {
@@ -4157,6 +4448,7 @@
    "status": "stub",
    "page": "content/Reductions/bilinear-pairing-to-ds.md",
    "slug": "bilinear-pairing-to-ds",
+   "graphSlug": "Reductions/bilinear-pairing-to-ds",
    "title": "Bilinear pairing ⇒ DS"
   },
   {
@@ -4176,6 +4468,7 @@
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
    "slug": "bilinear-pairing-to-snark-gro16",
+   "graphSlug": "Reductions/bilinear-pairing-to-snark-gro16",
    "title": "Bilinear pairing ⇒ SNARK"
   },
   {
@@ -4195,6 +4488,7 @@
    "status": "stub",
    "page": "content/Reductions/cca-security-to-cca1-security.md",
    "slug": "cca-security-to-cca1-security",
+   "graphSlug": "Reductions/cca-security-to-cca1-security",
    "title": "CCA Security ⇒ CCA1 Security"
   },
   {
@@ -4214,6 +4508,7 @@
    "status": "stub",
    "page": "content/Reductions/cca1-security-to-cpa-security.md",
    "slug": "cca1-security-to-cpa-security",
+   "graphSlug": "Reductions/cca1-security-to-cpa-security",
    "title": "CCA1 Security ⇒ CPA Security"
   },
   {
@@ -4233,6 +4528,7 @@
    "status": "stub",
    "page": "content/Reductions/cdh-to-bdh.md",
    "slug": "cdh-to-bdh",
+   "graphSlug": "Reductions/cdh-to-bdh",
    "title": "CDH ⇒ BDH"
   },
   {
@@ -4252,6 +4548,7 @@
    "status": "stub",
    "page": "content/Reductions/cdh-to-ddh.md",
    "slug": "cdh-to-ddh",
+   "graphSlug": "Reductions/cdh-to-ddh",
    "title": "CDH ⇒ DDH"
   },
   {
@@ -4271,6 +4568,7 @@
    "status": "stub",
    "page": "content/Reductions/cdh-to-dlog.md",
    "slug": "cdh-to-dlog",
+   "graphSlug": "Reductions/cdh-to-dlog",
    "title": "CDH ⇒ DLOG"
   },
   {
@@ -4291,6 +4589,7 @@
    "status": "stub",
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
    "slug": "circular-security-and-lwe-to-he",
+   "graphSlug": "Reductions/circular-security-and-lwe-to-he",
    "title": "Circular security + LWE ⇒ HE"
   },
   {
@@ -4311,6 +4610,7 @@
    "status": "draft",
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
+   "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "title": "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE"
   },
   {
@@ -4330,6 +4630,7 @@
    "status": "stub",
    "page": "content/Reductions/co-cdh-to-ds.md",
    "slug": "co-cdh-to-ds",
+   "graphSlug": "Reductions/co-cdh-to-ds",
    "title": "co-CDH ⇒ DS"
   },
   {
@@ -4350,6 +4651,7 @@
    "status": "stub",
    "page": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
    "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
+   "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
    "title": "COM + SS ⇒ Verifiable secret sharing (VSS)"
   },
   {
@@ -4369,6 +4671,7 @@
    "status": "stub",
    "page": "content/Reductions/com-to-mpc-gmw87.md",
    "slug": "com-to-mpc-gmw87",
+   "graphSlug": "Reductions/com-to-mpc-gmw87",
    "title": "COM ⇒ MPC"
   },
   {
@@ -4388,6 +4691,7 @@
    "status": "stub",
    "page": "content/Reductions/com-to-ot-kil88.md",
    "slug": "com-to-ot-kil88",
+   "graphSlug": "Reductions/com-to-ot-kil88",
    "title": "COM ⇒ OT"
   },
   {
@@ -4407,6 +4711,7 @@
    "status": "stub",
    "page": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
    "slug": "com-to-two-party-computation-2pc-gmw87",
+   "graphSlug": "Reductions/com-to-two-party-computation-2pc-gmw87",
    "title": "COM ⇒ Two-party computation (2PC)"
   },
   {
@@ -4426,6 +4731,7 @@
    "status": "stub",
    "page": "content/Reductions/cpa-security-to-cpa-security.md",
    "slug": "cpa-security-to-cpa-security",
+   "graphSlug": "Reductions/cpa-security-to-cpa-security",
    "title": "CPA Security ⇔ CPA Security"
   },
   {
@@ -4445,6 +4751,7 @@
    "status": "draft",
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
+   "graphSlug": "Reductions/cpir-to-ot-dmo00",
    "title": "cPIR ⇒ OT"
   },
   {
@@ -4464,6 +4771,7 @@
    "status": "stub",
    "page": "content/Reductions/d-th-composite-residuosity-to-he.md",
    "slug": "d-th-composite-residuosity-to-he",
+   "graphSlug": "Reductions/d-th-composite-residuosity-to-he",
    "title": "$d$-th Composite Residuosity ⇒ HE"
   },
   {
@@ -4484,6 +4792,7 @@
    "status": "draft",
    "page": "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
    "slug": "dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "graphSlug": "Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
    "title": "DCR + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)"
   },
   {
@@ -4503,6 +4812,7 @@
    "status": "stub",
    "page": "content/Reductions/dcr-to-com.md",
    "slug": "dcr-to-com",
+   "graphSlug": "Reductions/dcr-to-com",
    "title": "DCR ⇒ COM"
   },
   {
@@ -4522,6 +4832,7 @@
    "status": "draft",
    "page": "content/Reductions/dcr-to-he-pai99.md",
    "slug": "dcr-to-he-pai99",
+   "graphSlug": "Reductions/dcr-to-he-pai99",
    "title": "DCR ⇒ HE"
   },
   {
@@ -4541,6 +4852,7 @@
    "status": "draft",
    "page": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
    "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
+   "graphSlug": "Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99",
    "title": "DCR ⇒ Partially homomorphic encryption (PHE)"
   },
   {
@@ -4560,6 +4872,7 @@
    "status": "draft",
    "page": "content/Reductions/dcr-to-pke-pai99.md",
    "slug": "dcr-to-pke-pai99",
+   "graphSlug": "Reductions/dcr-to-pke-pai99",
    "title": "DCR ⇒ PKE"
   },
   {
@@ -4582,6 +4895,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
    "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "graphSlug": "Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
    "title": "DDH + LPN + LWE + NC1-PRG ⇒ iO"
   },
   {
@@ -4602,6 +4916,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
    "slug": "ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "graphSlug": "Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
    "title": "DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)"
   },
   {
@@ -4621,6 +4936,7 @@
    "status": "stub",
    "page": "content/Reductions/ddh-to-cdh.md",
    "slug": "ddh-to-cdh",
+   "graphSlug": "Reductions/ddh-to-cdh",
    "title": "DDH ⇒ CDH"
   },
   {
@@ -4640,6 +4956,7 @@
    "status": "stub",
    "page": "content/Reductions/ddh-to-com.md",
    "slug": "ddh-to-com",
+   "graphSlug": "Reductions/ddh-to-com",
    "title": "DDH ⇒ COM"
   },
   {
@@ -4659,6 +4976,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-to-ke-dh76.md",
    "slug": "ddh-to-ke-dh76",
+   "graphSlug": "Reductions/ddh-to-ke-dh76",
    "title": "DDH ⇒ KE"
   },
   {
@@ -4678,6 +4996,7 @@
    "status": "stub",
    "page": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
    "slug": "ddh-to-non-interactive-key-exchange-nike",
+   "graphSlug": "Reductions/ddh-to-non-interactive-key-exchange-nike",
    "title": "DDH ⇒ Non-interactive key exchange (NIKE)"
   },
   {
@@ -4698,6 +5017,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
    "slug": "ddh-to-pke-elgamal85",
+   "graphSlug": "Reductions/ddh-to-pke-elgamal85",
    "title": "DDH ⇒ PKE"
   },
   {
@@ -4717,6 +5037,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-to-prf-nr97.md",
    "slug": "ddh-to-prf-nr97",
+   "graphSlug": "Reductions/ddh-to-prf-nr97",
    "title": "DDH ⇒ PRF (Naor–Reingold)"
   },
   {
@@ -4736,6 +5057,7 @@
    "status": "draft",
    "page": "content/Reductions/ddh-to-tdh-dgi-19.md",
    "slug": "ddh-to-tdh-dgi-19",
+   "graphSlug": "Reductions/ddh-to-tdh-dgi-19",
    "title": "DDH ⇒ TDH"
   },
   {
@@ -4755,6 +5077,7 @@
    "status": "stub",
    "page": "content/Reductions/decision-lwe-to-search-lwe.md",
    "slug": "decision-lwe-to-search-lwe",
+   "graphSlug": "Reductions/decision-lwe-to-search-lwe",
    "title": "Decision LWE ⇒ Search LWE"
   },
   {
@@ -4774,6 +5097,7 @@
    "status": "stub",
    "page": "content/Reductions/depir-to-cpir.md",
    "slug": "depir-to-cpir",
+   "graphSlug": "Reductions/depir-to-cpir",
    "title": "DEPIR ⇒ cPIR"
   },
   {
@@ -4793,6 +5117,7 @@
    "status": "stub",
    "page": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
    "slug": "differing-inputs-obfuscation-dio-to-io",
+   "graphSlug": "Reductions/differing-inputs-obfuscation-dio-to-io",
    "title": "Differing-inputs obfuscation (diO) ⇔ iO"
   },
   {
@@ -4813,6 +5138,7 @@
    "status": "stub",
    "page": "content/Reductions/dkg-and-he-to-tpke.md",
    "slug": "dkg-and-he-to-tpke",
+   "graphSlug": "Reductions/dkg-and-he-to-tpke",
    "title": "DKG + HE ⇒ TPKE"
   },
   {
@@ -4832,6 +5158,7 @@
    "status": "stub",
    "page": "content/Reductions/dlin-to-ippe-ksw08.md",
    "slug": "dlin-to-ippe-ksw08",
+   "graphSlug": "Reductions/dlin-to-ippe-ksw08",
    "title": "DLIN ⇒ IPPE"
   },
   {
@@ -4852,6 +5179,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
    "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
+   "graphSlug": "Reductions/dlog-and-rom-to-schnorr-signatures-sch91",
    "title": "DLOG + ROM ⇒ Schnorr signatures"
   },
   {
@@ -4871,6 +5199,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
    "slug": "dlog-to-bls-signatures-fkl18",
+   "graphSlug": "Reductions/dlog-to-bls-signatures-fkl18",
    "title": "DLOG ⇒ BLS signatures"
   },
   {
@@ -4890,6 +5219,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-to-cdh-fkl18.md",
    "slug": "dlog-to-cdh-fkl18",
+   "graphSlug": "Reductions/dlog-to-cdh-fkl18",
    "title": "DLOG ⇒ CDH"
   },
   {
@@ -4909,6 +5239,7 @@
    "status": "stub",
    "page": "content/Reductions/dlog-to-ddh-fkl18.md",
    "slug": "dlog-to-ddh-fkl18",
+   "graphSlug": "Reductions/dlog-to-ddh-fkl18",
    "title": "DLOG ⇒ DDH"
   },
   {
@@ -4929,6 +5260,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-to-ds-sch91.md",
    "slug": "dlog-to-ds-sch91",
+   "graphSlug": "Reductions/dlog-to-ds-sch91",
    "title": "DLOG ⇒ DS"
   },
   {
@@ -4948,6 +5280,7 @@
    "status": "stub",
    "page": "content/Reductions/dlog-to-pcs.md",
    "slug": "dlog-to-pcs",
+   "graphSlug": "Reductions/dlog-to-pcs",
    "title": "DLOG ⇒ PCS"
   },
   {
@@ -4967,6 +5300,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
    "slug": "dlog-to-prg-bm84",
+   "graphSlug": "Reductions/dlog-to-prg-bm84",
    "title": "DLOG ⇒ PRG"
   },
   {
@@ -4986,6 +5320,7 @@
    "status": "draft",
    "page": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
    "slug": "dlog-to-schnorr-signatures-sch91",
+   "graphSlug": "Reductions/dlog-to-schnorr-signatures-sch91",
    "title": "DLOG ⇒ Schnorr signatures"
   },
   {
@@ -5005,6 +5340,7 @@
    "status": "stub",
    "page": "content/Reductions/dlog-to-tdp.md",
    "slug": "dlog-to-tdp",
+   "graphSlug": "Reductions/dlog-to-tdp",
    "title": "DLOG ⇒ TDP"
   },
   {
@@ -5024,6 +5360,7 @@
    "status": "stub",
    "page": "content/Reductions/dlog-to-zkp.md",
    "slug": "dlog-to-zkp",
+   "graphSlug": "Reductions/dlog-to-zkp",
    "title": "DLOG ⇒ ZKP"
   },
   {
@@ -5043,6 +5380,7 @@
    "status": "draft",
    "page": "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
    "slug": "dpf-to-computational-multi-server-pir-gi14",
+   "graphSlug": "Reductions/dpf-to-computational-multi-server-pir-gi14",
    "title": "DPF ⇒ Computational Multi-server PIR"
   },
   {
@@ -5062,6 +5400,7 @@
    "status": "draft",
    "page": "content/Reductions/dpf-to-it-pir-gi14.md",
    "slug": "dpf-to-it-pir-gi14",
+   "graphSlug": "Reductions/dpf-to-it-pir-gi14",
    "title": "DPF ⇒ IT-PIR"
   },
   {
@@ -5081,6 +5420,7 @@
    "status": "stub",
    "page": "content/Reductions/dpf-to-multi-point-functions.md",
    "slug": "dpf-to-multi-point-functions",
+   "graphSlug": "Reductions/dpf-to-multi-point-functions",
    "title": "DPF ⇒ Multi-point functions"
   },
   {
@@ -5100,6 +5440,7 @@
    "status": "stub",
    "page": "content/Reductions/ds-to-hash-function.md",
    "slug": "ds-to-hash-function",
+   "graphSlug": "Reductions/ds-to-hash-function",
    "title": "DS ⇒ Hash function"
   },
   {
@@ -5119,6 +5460,7 @@
    "status": "draft",
    "page": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
    "slug": "enhanced-trapdoor-permutations-to-ot-gkm-00",
+   "graphSlug": "Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00",
    "title": "Enhanced trapdoor permutations ⇒ OT"
   },
   {
@@ -5138,6 +5480,7 @@
    "status": "stub",
    "page": "content/Reductions/evasive-lwe-to-abe.md",
    "slug": "evasive-lwe-to-abe",
+   "graphSlug": "Reductions/evasive-lwe-to-abe",
    "title": "Evasive LWE ⇒ ABE"
   },
   {
@@ -5157,6 +5500,7 @@
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-abe-wee22.md",
    "slug": "evasive-lwe-to-abe-wee22",
+   "graphSlug": "Reductions/evasive-lwe-to-abe-wee22",
    "title": "Evasive LWE ⇒ ABE"
   },
   {
@@ -5176,6 +5520,7 @@
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-be-wee22.md",
    "slug": "evasive-lwe-to-be-wee22",
+   "graphSlug": "Reductions/evasive-lwe-to-be-wee22",
    "title": "Evasive LWE ⇒ BE"
   },
   {
@@ -5195,6 +5540,7 @@
    "status": "draft",
    "page": "content/Reductions/fac-to-dcr-pai99.md",
    "slug": "fac-to-dcr-pai99",
+   "graphSlug": "Reductions/fac-to-dcr-pai99",
    "title": "FAC ⇒ DCR"
   },
   {
@@ -5214,6 +5560,7 @@
    "status": "draft",
    "page": "content/Reductions/fac-to-ds-gmr88.md",
    "slug": "fac-to-ds-gmr88",
+   "graphSlug": "Reductions/fac-to-ds-gmr88",
    "title": "FAC ⇒ DS"
   },
   {
@@ -5233,6 +5580,7 @@
    "status": "draft",
    "page": "content/Reductions/fac-to-qr-gm84.md",
    "slug": "fac-to-qr-gm84",
+   "graphSlug": "Reductions/fac-to-qr-gm84",
    "title": "FAC ⇒ QR"
   },
   {
@@ -5252,6 +5600,7 @@
    "status": "draft",
    "page": "content/Reductions/fac-to-rsa-rsa78.md",
    "slug": "fac-to-rsa-rsa78",
+   "graphSlug": "Reductions/fac-to-rsa-rsa78",
    "title": "FAC ⇒ RSA"
   },
   {
@@ -5271,6 +5620,7 @@
    "status": "stub",
    "page": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
    "slug": "factoring-with-known-factor-structure-to-prg",
+   "graphSlug": "Reductions/factoring-with-known-factor-structure-to-prg",
    "title": "Factoring with known factor structure ⇒ PRG"
   },
   {
@@ -5290,6 +5640,7 @@
    "status": "stub",
    "page": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
    "slug": "falsifiable-assumption-to-snark-gro16",
+   "graphSlug": "Reductions/falsifiable-assumption-to-snark-gro16",
    "title": "Falsifiable assumption ⇒ SNARK"
   },
   {
@@ -5309,6 +5660,7 @@
    "status": "stub",
    "page": "content/Reductions/fe-to-io.md",
    "slug": "fe-to-io",
+   "graphSlug": "Reductions/fe-to-io",
    "title": "FE ⇒ iO"
   },
   {
@@ -5329,6 +5681,7 @@
    "status": "stub",
    "page": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
    "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
+   "graphSlug": "Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "title": "Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK"
   },
   {
@@ -5349,6 +5702,7 @@
    "status": "stub",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-ds",
+   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-ds",
    "title": "Fiat-Shamir + Schnorr signatures ⇒ DS"
   },
   {
@@ -5369,6 +5723,7 @@
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
    "title": "Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures"
   },
   {
@@ -5388,6 +5743,7 @@
    "status": "stub",
    "page": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
    "slug": "fri-fast-reed-solomon-iop-of-proximity-to-snark",
+   "graphSlug": "Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark",
    "title": "FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK"
   },
   {
@@ -5408,6 +5764,7 @@
    "status": "draft",
    "page": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
    "slug": "function-secret-sharing-fss-to-dpf-bgi15",
+   "graphSlug": "Reductions/function-secret-sharing-fss-to-dpf-bgi15",
    "title": "Function secret sharing (FSS) ⇒ DPF"
   },
   {
@@ -5427,6 +5784,7 @@
    "status": "stub",
    "page": "content/Reductions/fuzzy-ibe-to-ibe.md",
    "slug": "fuzzy-ibe-to-ibe",
+   "graphSlug": "Reductions/fuzzy-ibe-to-ibe",
    "title": "Fuzzy IBE ⇒ IBE"
   },
   {
@@ -5446,6 +5804,7 @@
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-lwe-reg05.md",
    "slug": "gapsvp-to-lwe-reg05",
+   "graphSlug": "Reductions/gapsvp-to-lwe-reg05",
    "title": "GapSVP ⇒ LWE"
   },
   {
@@ -5465,6 +5824,7 @@
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-sis-ajt96.md",
    "slug": "gapsvp-to-sis-ajt96",
+   "graphSlug": "Reductions/gapsvp-to-sis-ajt96",
    "title": "GapSVP ⇒ SIS"
   },
   {
@@ -5485,6 +5845,7 @@
    "status": "stub",
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
    "slug": "gc-and-ot-to-two-party-computation-2pc",
+   "graphSlug": "Reductions/gc-and-ot-to-two-party-computation-2pc",
    "title": "GC + OT ⇒ Two-party computation (2PC)"
   },
   {
@@ -5504,6 +5865,7 @@
    "status": "draft",
    "page": "content/Reductions/ggm-to-abe-bsw07.md",
    "slug": "ggm-to-abe-bsw07",
+   "graphSlug": "Reductions/ggm-to-abe-bsw07",
    "title": "GGM ⇒ ABE"
   },
   {
@@ -5524,6 +5886,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
    "slug": "hash-based-signatures-and-hash-based-signatures-to-ds",
+   "graphSlug": "Reductions/hash-based-signatures-and-hash-based-signatures-to-ds",
    "title": "Hash-based signatures + Hash-based signatures ⇒ DS"
   },
   {
@@ -5543,6 +5906,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-based-signatures-to-ds-mer89",
+   "graphSlug": "Reductions/hash-based-signatures-to-ds-mer89",
    "title": "Hash-based signatures ⇒ DS"
   },
   {
@@ -5563,6 +5927,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
+   "graphSlug": "Reductions/hash-function-and-hash-based-signatures-to-ds-mer89",
    "title": "Hash function + Hash-based signatures ⇒ DS"
   },
   {
@@ -5583,6 +5948,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
    "slug": "hash-function-and-io-to-deniable-encryption-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-deniable-encryption-sw14",
    "title": "Hash function + iO ⇒ Deniable encryption"
   },
   {
@@ -5603,6 +5969,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
    "slug": "hash-function-and-io-to-ds-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-ds-sw14",
    "title": "Hash function + iO ⇒ DS"
   },
   {
@@ -5624,6 +5991,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
    "slug": "hash-function-and-io-to-fe-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-fe-sw14",
    "title": "Hash function + iO ⇒ FE"
   },
   {
@@ -5644,6 +6012,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
    "slug": "hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14",
    "title": "Hash function + iO ⇒ Lossy trapdoor functions"
   },
   {
@@ -5664,6 +6033,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
    "slug": "hash-function-and-io-to-nizk-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-nizk-sw14",
    "title": "Hash function + iO ⇒ NIZK"
   },
   {
@@ -5684,6 +6054,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
    "slug": "hash-function-and-io-to-pke-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-pke-sw14",
    "title": "Hash function + iO ⇒ PKE"
   },
   {
@@ -5704,6 +6075,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
    "slug": "hash-function-and-prf-to-symmetric-cp-abe-ls26",
+   "graphSlug": "Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26",
    "title": "Hash function + PRF ⇒ Symmetric CP-ABE"
   },
   {
@@ -5723,6 +6095,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-czk.md",
    "slug": "hash-function-to-czk",
+   "graphSlug": "Reductions/hash-function-to-czk",
    "title": "Hash function ⇒ CZK"
   },
   {
@@ -5742,6 +6115,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-dpf-gi14.md",
    "slug": "hash-function-to-dpf-gi14",
+   "graphSlug": "Reductions/hash-function-to-dpf-gi14",
    "title": "Hash function ⇒ DPF"
   },
   {
@@ -5761,6 +6135,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-ds.md",
    "slug": "hash-function-to-ds",
+   "graphSlug": "Reductions/hash-function-to-ds",
    "title": "Hash function ⇒ DS"
   },
   {
@@ -5780,6 +6155,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
+   "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
    "title": "Hash function ⇒ Hash-based signatures"
   },
   {
@@ -5799,6 +6175,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
    "slug": "hash-function-to-hash-based-signatures-lam79",
+   "graphSlug": "Reductions/hash-function-to-hash-based-signatures-lam79",
    "title": "Hash function ⇒ Hash-based signatures"
   },
   {
@@ -5818,6 +6195,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-mac.md",
    "slug": "hash-function-to-mac",
+   "graphSlug": "Reductions/hash-function-to-mac",
    "title": "Hash function ⇒ MAC"
   },
   {
@@ -5837,6 +6215,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-pcs-bbhr18.md",
    "slug": "hash-function-to-pcs-bbhr18",
+   "graphSlug": "Reductions/hash-function-to-pcs-bbhr18",
    "title": "Hash function ⇒ PCS"
   },
   {
@@ -5856,6 +6235,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-prf.md",
    "slug": "hash-function-to-prf",
+   "graphSlug": "Reductions/hash-function-to-prf",
    "title": "Hash function ⇒ PRF"
   },
   {
@@ -5876,6 +6256,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-prg-hill99.md",
    "slug": "hash-function-to-prg-hill99",
+   "graphSlug": "Reductions/hash-function-to-prg-hill99",
    "title": "Hash function ⇒ PRG"
   },
   {
@@ -5895,6 +6276,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
    "slug": "hash-function-to-secret-key-pir-sk-pir-bm26",
+   "graphSlug": "Reductions/hash-function-to-secret-key-pir-sk-pir-bm26",
    "title": "Hash function ⇒ Secret-Key PIR (SK-PIR)"
   },
   {
@@ -5914,6 +6296,7 @@
    "status": "stub",
    "page": "content/Reductions/hash-function-to-ske.md",
    "slug": "hash-function-to-ske",
+   "graphSlug": "Reductions/hash-function-to-ske",
    "title": "Hash function ⇒ SKE"
   },
   {
@@ -5933,6 +6316,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-snark-bbhr18.md",
    "slug": "hash-function-to-snark-bbhr18",
+   "graphSlug": "Reductions/hash-function-to-snark-bbhr18",
    "title": "Hash function ⇒ SNARK"
   },
   {
@@ -5952,6 +6336,7 @@
    "status": "draft",
    "page": "content/Reductions/hash-function-to-zkp-gmw91.md",
    "slug": "hash-function-to-zkp-gmw91",
+   "graphSlug": "Reductions/hash-function-to-zkp-gmw91",
    "title": "Hash function ⇒ ZKP"
   },
   {
@@ -5971,6 +6356,7 @@
    "status": "stub",
    "page": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
    "slug": "he-to-mpc-with-preprocessing-spdz-etc",
+   "graphSlug": "Reductions/he-to-mpc-with-preprocessing-spdz-etc",
    "title": "HE ⇒ MPC with preprocessing (SPDZ, etc.)"
   },
   {
@@ -5990,6 +6376,7 @@
    "status": "draft",
    "page": "content/Reductions/he-to-re-bl13.md",
    "slug": "he-to-re-bl13",
+   "graphSlug": "Reductions/he-to-re-bl13",
    "title": "HE ⇒ RE"
   },
   {
@@ -6009,6 +6396,7 @@
    "status": "stub",
    "page": "content/Reductions/hibe-to-ibe.md",
    "slug": "hibe-to-ibe",
+   "graphSlug": "Reductions/hibe-to-ibe",
    "title": "HIBE ⇒ IBE"
   },
   {
@@ -6028,6 +6416,7 @@
    "status": "stub",
    "page": "content/Reductions/hiding-to-cpir.md",
    "slug": "hiding-to-cpir",
+   "graphSlug": "Reductions/hiding-to-cpir",
    "title": "Φ-Hiding ⇒ cPIR"
   },
   {
@@ -6047,6 +6436,7 @@
    "status": "stub",
    "page": "content/Reductions/higher-residuosity-to-pke.md",
    "slug": "higher-residuosity-to-pke",
+   "graphSlug": "Reductions/higher-residuosity-to-pke",
    "title": "Higher residuosity ⇒ PKE"
   },
   {
@@ -6066,6 +6456,7 @@
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
    "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+   "graphSlug": "Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
    "title": "Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC"
   },
   {
@@ -6085,6 +6476,7 @@
    "status": "stub",
    "page": "content/Reductions/hve-to-subset-and-range-queries.md",
    "slug": "hve-to-subset-and-range-queries",
+   "graphSlug": "Reductions/hve-to-subset-and-range-queries",
    "title": "HVE ⇒ Subset and range queries"
   },
   {
@@ -6104,6 +6496,7 @@
    "status": "stub",
    "page": "content/Reductions/ibe-to-pke.md",
    "slug": "ibe-to-pke",
+   "graphSlug": "Reductions/ibe-to-pke",
    "title": "IBE ⇒ PKE"
   },
   {
@@ -6124,6 +6517,7 @@
    "status": "stub",
    "page": "content/Reductions/id-and-rom-to-ds.md",
    "slug": "id-and-rom-to-ds",
+   "graphSlug": "Reductions/id-and-rom-to-ds",
    "title": "ID + ROM ⇒ DS"
   },
   {
@@ -6143,6 +6537,7 @@
    "status": "stub",
    "page": "content/Reductions/ideal-prc-to-prc.md",
    "slug": "ideal-prc-to-prc",
+   "graphSlug": "Reductions/ideal-prc-to-prc",
    "title": "Ideal PRC ⇒ PRC"
   },
   {
@@ -6162,6 +6557,7 @@
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
    "slug": "ideal-svp-to-ring-lwe-lpr10",
+   "graphSlug": "Reductions/ideal-svp-to-ring-lwe-lpr10",
    "title": "Ideal-SVP ⇒ Ring LWE"
   },
   {
@@ -6181,6 +6577,7 @@
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
    "slug": "ideal-svp-to-ring-sis-lm06",
+   "graphSlug": "Reductions/ideal-svp-to-ring-sis-lm06",
    "title": "Ideal-SVP ⇒ Ring-SIS"
   },
   {
@@ -6200,6 +6597,7 @@
    "status": "stub",
    "page": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
    "slug": "ind-cca-security-to-ind-cpa-kem",
+   "graphSlug": "Reductions/ind-cca-security-to-ind-cpa-kem",
    "title": "IND-CCA security ⇒ IND-CPA KEM"
   },
   {
@@ -6219,6 +6617,7 @@
    "status": "stub",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
    "slug": "ind-cpa-kem-to-ind-cca-security",
+   "graphSlug": "Reductions/ind-cpa-kem-to-ind-cca-security",
    "title": "IND-CPA KEM ⇒ IND-CCA security"
   },
   {
@@ -6238,6 +6637,7 @@
    "status": "stub",
    "page": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
    "slug": "ind-id-cpa-security-to-ind-sid-cpa-security-selective",
+   "graphSlug": "Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective",
    "title": "IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)"
   },
   {
@@ -6257,6 +6657,7 @@
    "status": "stub",
    "page": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
    "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
+   "graphSlug": "Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security",
    "title": "IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security"
   },
   {
@@ -6277,6 +6678,7 @@
    "status": "stub",
    "page": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
    "slug": "interactive-protocol-and-rom-to-nizk",
+   "graphSlug": "Reductions/interactive-protocol-and-rom-to-nizk",
    "title": "interactive protocol + ROM ⇒ NIZK"
   },
   {
@@ -6297,6 +6699,7 @@
    "status": "stub",
    "page": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
    "slug": "interactive-protocol-and-rom-to-snark",
+   "graphSlug": "Reductions/interactive-protocol-and-rom-to-snark",
    "title": "interactive protocol + ROM ⇒ SNARK"
   },
   {
@@ -6316,6 +6719,7 @@
    "status": "stub",
    "page": "content/Reductions/invertible-prfs-to-prf.md",
    "slug": "invertible-prfs-to-prf",
+   "graphSlug": "Reductions/invertible-prfs-to-prf",
    "title": "Invertible PRFs ⇒ PRF"
   },
   {
@@ -6336,6 +6740,7 @@
    "status": "stub",
    "page": "content/Reductions/ip-and-rom-to-snark-fs86.md",
    "slug": "ip-and-rom-to-snark-fs86",
+   "graphSlug": "Reductions/ip-and-rom-to-snark-fs86",
    "title": "IP + ROM ⇒ SNARK"
   },
   {
@@ -6355,6 +6760,7 @@
    "status": "stub",
    "page": "content/Reductions/ippe-to-hve.md",
    "slug": "ippe-to-hve",
+   "graphSlug": "Reductions/ippe-to-hve",
    "title": "IPPE ⇒ HVE"
   },
   {
@@ -6374,6 +6780,7 @@
    "status": "stub",
    "page": "content/Reductions/ippe-to-payload-only-hiding.md",
    "slug": "ippe-to-payload-only-hiding",
+   "graphSlug": "Reductions/ippe-to-payload-only-hiding",
    "title": "IPPE ⇒ Payload-only hiding"
   },
   {
@@ -6393,6 +6800,7 @@
    "status": "draft",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
    "slug": "isis-inhomogeneous-sis-to-ds-gpv08",
+   "graphSlug": "Reductions/isis-inhomogeneous-sis-to-ds-gpv08",
    "title": "ISIS (Inhomogeneous SIS) ⇒ DS"
   },
   {
@@ -6412,6 +6820,7 @@
    "status": "stub",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
    "slug": "isis-inhomogeneous-sis-to-sis",
+   "graphSlug": "Reductions/isis-inhomogeneous-sis-to-sis",
    "title": "ISIS (Inhomogeneous SIS) ⇔ SIS"
   },
   {
@@ -6431,6 +6840,7 @@
    "status": "stub",
    "page": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
    "slug": "it-pir-to-computational-multi-server-pir",
+   "graphSlug": "Reductions/it-pir-to-computational-multi-server-pir",
    "title": "IT-PIR ⇒ Computational Multi-server PIR"
   },
   {
@@ -6450,6 +6860,7 @@
    "status": "draft",
    "page": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
    "slug": "k-linear-assumption-to-abe-rw13",
+   "graphSlug": "Reductions/k-linear-assumption-to-abe-rw13",
    "title": "$k$-Linear assumption ⇒ ABE"
   },
   {
@@ -6469,6 +6880,7 @@
    "status": "stub",
    "page": "content/Reductions/k-out-of-n-ot-to-cpir.md",
    "slug": "k-out-of-n-ot-to-cpir",
+   "graphSlug": "Reductions/k-out-of-n-ot-to-cpir",
    "title": "$k$-out-of-$n$ OT ⇔ cPIR"
   },
   {
@@ -6488,6 +6900,7 @@
    "status": "stub",
    "page": "content/Reductions/ke-to-multi-party-key-exchange.md",
    "slug": "ke-to-multi-party-key-exchange",
+   "graphSlug": "Reductions/ke-to-multi-party-key-exchange",
    "title": "KE ⇒ Multi-party key exchange"
   },
   {
@@ -6507,6 +6920,7 @@
    "status": "stub",
    "page": "content/Reductions/ke-to-pke-dh76.md",
    "slug": "ke-to-pke-dh76",
+   "graphSlug": "Reductions/ke-to-pke-dh76",
    "title": "KE ⇒ PKE"
   },
   {
@@ -6526,6 +6940,7 @@
    "status": "draft",
    "page": "content/Reductions/kea-to-snark-gro16.md",
    "slug": "kea-to-snark-gro16",
+   "graphSlug": "Reductions/kea-to-snark-gro16",
    "title": "KEA ⇒ SNARK"
   },
   {
@@ -6546,6 +6961,7 @@
    "status": "stub",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
+   "graphSlug": "Reductions/kem-and-ske-to-pke",
    "title": "KEM + SKE ⇒ PKE"
   },
   {
@@ -6565,6 +6981,7 @@
    "status": "stub",
    "page": "content/Reductions/kem-to-ke.md",
    "slug": "kem-to-ke",
+   "graphSlug": "Reductions/kem-to-ke",
    "title": "KEM ⇒ KE"
   },
   {
@@ -6585,6 +7002,7 @@
    "status": "draft",
    "page": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
    "slug": "kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+   "graphSlug": "Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10",
    "title": "KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK"
   },
   {
@@ -6604,6 +7022,7 @@
    "status": "stub",
    "page": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
    "slug": "linear-secret-sharing-schemes-lsss-to-msp",
+   "graphSlug": "Reductions/linear-secret-sharing-schemes-lsss-to-msp",
    "title": "Linear secret sharing schemes (LSSS) ⇔ MSP"
   },
   {
@@ -6623,6 +7042,7 @@
    "status": "stub",
    "page": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
    "slug": "lossy-trapdoor-functions-to-pke",
+   "graphSlug": "Reductions/lossy-trapdoor-functions-to-pke",
    "title": "Lossy trapdoor functions ⇒ PKE"
   },
   {
@@ -6642,6 +7062,7 @@
    "status": "stub",
    "page": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
    "slug": "lossy-trapdoor-functions-to-tdp",
+   "graphSlug": "Reductions/lossy-trapdoor-functions-to-tdp",
    "title": "Lossy trapdoor functions ⇒ TDP"
   },
   {
@@ -6663,6 +7084,7 @@
    "status": "draft",
    "page": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
    "slug": "lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "graphSlug": "Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21",
    "title": "LPN + LWE + NC1-PRG ⇒ iO"
   },
   {
@@ -6682,6 +7104,7 @@
    "status": "stub",
    "page": "content/Reductions/lpn-to-pke.md",
    "slug": "lpn-to-pke",
+   "graphSlug": "Reductions/lpn-to-pke",
    "title": "LPN ⇒ PKE"
   },
   {
@@ -6701,6 +7124,7 @@
    "status": "draft",
    "page": "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
    "slug": "lpn-to-secret-key-pir-sk-pir-cimr25",
+   "graphSlug": "Reductions/lpn-to-secret-key-pir-sk-pir-cimr25",
    "title": "LPN ⇒ Secret-Key PIR (SK-PIR)"
   },
   {
@@ -6720,6 +7144,7 @@
    "status": "draft",
    "page": "content/Reductions/lsn-to-lpn-cimr25.md",
    "slug": "lsn-to-lpn-cimr25",
+   "graphSlug": "Reductions/lsn-to-lpn-cimr25",
    "title": "LSN ⇒ LPN"
   },
   {
@@ -6739,6 +7164,7 @@
    "status": "draft",
    "page": "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
    "slug": "lsn-to-secret-key-pir-sk-pir-cimr25",
+   "graphSlug": "Reductions/lsn-to-secret-key-pir-sk-pir-cimr25",
    "title": "LSN ⇒ Secret-Key PIR (SK-PIR)"
   },
   {
@@ -6759,6 +7185,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
    "slug": "lwe-and-sis-to-ds-ls15",
+   "graphSlug": "Reductions/lwe-and-sis-to-ds-ls15",
    "title": "LWE + SIS ⇒ DS"
   },
   {
@@ -6778,6 +7205,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
    "slug": "lwe-to-de-ram-mpc-lmw24",
+   "graphSlug": "Reductions/lwe-to-de-ram-mpc-lmw24",
    "title": "LWE ⇒ DE-RAM-MPC"
   },
   {
@@ -6797,6 +7225,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-depir-lmw23.md",
    "slug": "lwe-to-depir-lmw23",
+   "graphSlug": "Reductions/lwe-to-depir-lmw23",
    "title": "LWE ⇒ DEPIR"
   },
   {
@@ -6816,6 +7245,7 @@
    "status": "stub",
    "page": "content/Reductions/lwe-to-ind-cpa-kem.md",
    "slug": "lwe-to-ind-cpa-kem",
+   "graphSlug": "Reductions/lwe-to-ind-cpa-kem",
    "title": "LWE ⇒ IND-CPA KEM"
   },
   {
@@ -6835,6 +7265,7 @@
    "status": "stub",
    "page": "content/Reductions/lwe-to-lattice-based-signatures.md",
    "slug": "lwe-to-lattice-based-signatures",
+   "graphSlug": "Reductions/lwe-to-lattice-based-signatures",
    "title": "LWE ⇒ Lattice-based signatures"
   },
   {
@@ -6854,6 +7285,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
+   "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "title": "LWE ⇒ Leveled fully homomorphic encryption"
   },
   {
@@ -6873,6 +7305,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-pke-reg05.md",
    "slug": "lwe-to-pke-reg05",
+   "graphSlug": "Reductions/lwe-to-pke-reg05",
    "title": "LWE ⇒ PKE"
   },
   {
@@ -6892,6 +7325,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-prc-cg24.md",
    "slug": "lwe-to-prc-cg24",
+   "graphSlug": "Reductions/lwe-to-prc-cg24",
    "title": "LWE ⇒ PRC"
   },
   {
@@ -6911,6 +7345,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
    "slug": "lwe-to-tdh-dgi-19",
+   "graphSlug": "Reductions/lwe-to-tdh-dgi-19",
    "title": "LWE ⇒ TDH"
   },
   {
@@ -6930,6 +7365,7 @@
    "status": "draft",
    "page": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
    "slug": "lwe-to-zero-bit-prc-cg24",
+   "graphSlug": "Reductions/lwe-to-zero-bit-prc-cg24",
    "title": "LWE ⇒ Zero-bit PRC"
   },
   {
@@ -6950,6 +7386,7 @@
    "status": "stub",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
    "slug": "mac-and-ske-to-cca-security",
+   "graphSlug": "Reductions/mac-and-ske-to-cca-security",
    "title": "MAC + SKE ⇒ CCA Security"
   },
   {
@@ -6969,6 +7406,7 @@
    "status": "draft",
    "page": "content/Reductions/mmap-to-io-gghrsw13.md",
    "slug": "mmap-to-io-gghrsw13",
+   "graphSlug": "Reductions/mmap-to-io-gghrsw13",
    "title": "MMap ⇒ iO"
   },
   {
@@ -6989,6 +7427,7 @@
    "status": "stub",
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
    "slug": "module-lwe-and-module-sis-to-ds",
+   "graphSlug": "Reductions/module-lwe-and-module-sis-to-ds",
    "title": "Module LWE + Module-SIS ⇒ DS"
   },
   {
@@ -7008,6 +7447,7 @@
    "status": "stub",
    "page": "content/Reductions/module-lwe-to-kem.md",
    "slug": "module-lwe-to-kem",
+   "graphSlug": "Reductions/module-lwe-to-kem",
    "title": "Module LWE ⇒ KEM"
   },
   {
@@ -7027,6 +7467,7 @@
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-lwe-ls15.md",
    "slug": "module-lwe-to-lwe-ls15",
+   "graphSlug": "Reductions/module-lwe-to-lwe-ls15",
    "title": "Module LWE ⇔ LWE"
   },
   {
@@ -7046,6 +7487,7 @@
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
    "slug": "module-lwe-to-ring-lwe-ls15",
+   "graphSlug": "Reductions/module-lwe-to-ring-lwe-ls15",
    "title": "Module LWE ⇔ Ring LWE"
   },
   {
@@ -7065,6 +7507,7 @@
    "status": "stub",
    "page": "content/Reductions/module-sis-to-ds.md",
    "slug": "module-sis-to-ds",
+   "graphSlug": "Reductions/module-sis-to-ds",
    "title": "Module-SIS ⇒ DS"
   },
   {
@@ -7084,6 +7527,7 @@
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-lwe-ls15.md",
    "slug": "module-svp-to-module-lwe-ls15",
+   "graphSlug": "Reductions/module-svp-to-module-lwe-ls15",
    "title": "Module-SVP ⇒ Module LWE"
   },
   {
@@ -7103,6 +7547,7 @@
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-sis-ls15.md",
    "slug": "module-svp-to-module-sis-ls15",
+   "graphSlug": "Reductions/module-svp-to-module-sis-ls15",
    "title": "Module-SVP ⇒ Module-SIS"
   },
   {
@@ -7122,6 +7567,7 @@
    "status": "draft",
    "page": "content/Reductions/mpc-to-ot-bh26.md",
    "slug": "mpc-to-ot-bh26",
+   "graphSlug": "Reductions/mpc-to-ot-bh26",
    "title": "MPC ⇒ OT"
   },
   {
@@ -7141,6 +7587,7 @@
    "status": "stub",
    "page": "content/Reductions/nizk-to-com.md",
    "slug": "nizk-to-com",
+   "graphSlug": "Reductions/nizk-to-com",
    "title": "NIZK ⇒ COM"
   },
   {
@@ -7160,6 +7607,7 @@
    "status": "stub",
    "page": "content/Reductions/noise-level-to-depir-cimr25.md",
    "slug": "noise-level-to-depir-cimr25",
+   "graphSlug": "Reductions/noise-level-to-depir-cimr25",
    "title": "Noise Level ⇒ DEPIR"
   },
   {
@@ -7179,6 +7627,7 @@
    "status": "stub",
    "page": "content/Reductions/noise-level-to-depir-cimr25-2.md",
    "slug": "noise-level-to-depir-cimr25-2",
+   "graphSlug": "Reductions/noise-level-to-depir-cimr25-2",
    "title": "Noise Level ⇒ DEPIR"
   },
   {
@@ -7199,6 +7648,7 @@
    "status": "draft",
    "page": "content/Reductions/noise-level-to-hash-function-blvw19.md",
    "slug": "noise-level-to-hash-function-blvw19",
+   "graphSlug": "Reductions/noise-level-to-hash-function-blvw19",
    "title": "Noise Level ⇒ Hash function"
   },
   {
@@ -7218,6 +7668,7 @@
    "status": "stub",
    "page": "content/Reductions/noise-level-to-noise-level.md",
    "slug": "noise-level-to-noise-level",
+   "graphSlug": "Reductions/noise-level-to-noise-level",
    "title": "Noise Level ⇒ Noise Level"
   },
   {
@@ -7237,6 +7688,7 @@
    "status": "draft",
    "page": "content/Reductions/noise-level-to-pke-ale03.md",
    "slug": "noise-level-to-pke-ale03",
+   "graphSlug": "Reductions/noise-level-to-pke-ale03",
    "title": "Noise Level ⇒ PKE"
   },
   {
@@ -7256,6 +7708,7 @@
    "status": "draft",
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
    "slug": "noise-level-to-tdh-amr25",
+   "graphSlug": "Reductions/noise-level-to-tdh-amr25",
    "title": "Noise Level ⇒ TDH"
   },
   {
@@ -7276,6 +7729,7 @@
    "status": "draft",
    "page": "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
    "slug": "noisy-k-lin-and-pc-to-pke-ghjs25",
+   "graphSlug": "Reductions/noisy-k-lin-and-pc-to-pke-ghjs25",
    "title": "Noisy k-LIN + PC ⇒ PKE"
   },
   {
@@ -7295,6 +7749,7 @@
    "status": "stub",
    "page": "content/Reductions/ntru-to-ds.md",
    "slug": "ntru-to-ds",
+   "graphSlug": "Reductions/ntru-to-ds",
    "title": "NTRU ⇒ DS"
   },
   {
@@ -7314,6 +7769,7 @@
    "status": "stub",
    "page": "content/Reductions/ntru-to-kem.md",
    "slug": "ntru-to-kem",
+   "graphSlug": "Reductions/ntru-to-kem",
    "title": "NTRU ⇒ KEM"
   },
   {
@@ -7333,6 +7789,7 @@
    "status": "draft",
    "page": "content/Reductions/ntru-to-pke-hps98.md",
    "slug": "ntru-to-pke-hps98",
+   "graphSlug": "Reductions/ntru-to-pke-hps98",
    "title": "NTRU ⇒ PKE"
   },
   {
@@ -7352,6 +7809,7 @@
    "status": "draft",
    "page": "content/Reductions/oihf-to-ot-bh26.md",
    "slug": "oihf-to-ot-bh26",
+   "graphSlug": "Reductions/oihf-to-ot-bh26",
    "title": "OIHF ⇒ OT"
   },
   {
@@ -7371,6 +7829,7 @@
    "status": "stub",
    "page": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
    "slug": "ot-extension-to-mpc-with-preprocessing-spdz-etc",
+   "graphSlug": "Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc",
    "title": "OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)"
   },
   {
@@ -7390,6 +7849,7 @@
    "status": "stub",
    "page": "content/Reductions/ot-to-com.md",
    "slug": "ot-to-com",
+   "graphSlug": "Reductions/ot-to-com",
    "title": "OT ⇒ COM"
   },
   {
@@ -7411,6 +7871,7 @@
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
    "slug": "ot-to-mpc-kil88",
+   "graphSlug": "Reductions/ot-to-mpc-kil88",
    "title": "OT ⇒ MPC"
   },
   {
@@ -7431,6 +7892,7 @@
    "status": "draft",
    "page": "content/Reductions/owf-to-prg-hill99.md",
    "slug": "owf-to-prg-hill99",
+   "graphSlug": "Reductions/owf-to-prg-hill99",
    "title": "OWF ⇒ PRG"
   },
   {
@@ -7450,6 +7912,7 @@
    "status": "stub",
    "page": "content/Reductions/owp-to-hash-function.md",
    "slug": "owp-to-hash-function",
+   "graphSlug": "Reductions/owp-to-hash-function",
    "title": "OWP ⇒ Hash function"
   },
   {
@@ -7469,6 +7932,7 @@
    "status": "stub",
    "page": "content/Reductions/owsg-to-qm.md",
    "slug": "owsg-to-qm",
+   "graphSlug": "Reductions/owsg-to-qm",
    "title": "OWSG ⇒ QM"
   },
   {
@@ -7488,6 +7952,7 @@
    "status": "stub",
    "page": "content/Reductions/owsg-to-unclonable-encryption.md",
    "slug": "owsg-to-unclonable-encryption",
+   "graphSlug": "Reductions/owsg-to-unclonable-encryption",
    "title": "OWSG ⇒ Unclonable encryption"
   },
   {
@@ -7508,6 +7973,7 @@
    "status": "draft",
    "page": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
    "slug": "partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+   "graphSlug": "Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
    "title": "Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)"
   },
   {
@@ -7528,6 +7994,7 @@
    "status": "draft",
    "page": "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md",
    "slug": "pc-and-search-noisy-k-lin-to-pke-ghjs25",
+   "graphSlug": "Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25",
    "title": "PC + Search noisy $k$-LIN ⇒ PKE"
   },
   {
@@ -7547,6 +8014,7 @@
    "status": "stub",
    "page": "content/Reductions/pcs-to-nizk.md",
    "slug": "pcs-to-nizk",
+   "graphSlug": "Reductions/pcs-to-nizk",
    "title": "PCS ⇒ NIZK"
   },
   {
@@ -7566,6 +8034,7 @@
    "status": "stub",
    "page": "content/Reductions/pcs-to-snark.md",
    "slug": "pcs-to-snark",
+   "graphSlug": "Reductions/pcs-to-snark",
    "title": "PCS ⇒ SNARK"
   },
   {
@@ -7585,6 +8054,7 @@
    "status": "stub",
    "page": "content/Reductions/pcs-to-vector-commitments.md",
    "slug": "pcs-to-vector-commitments",
+   "graphSlug": "Reductions/pcs-to-vector-commitments",
    "title": "PCS ⇔ Vector commitments"
   },
   {
@@ -7604,6 +8074,7 @@
    "status": "draft",
    "page": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
    "slug": "permuted-puzzles-to-depir-bipw17",
+   "graphSlug": "Reductions/permuted-puzzles-to-depir-bipw17",
    "title": "Permuted puzzles ⇒ DEPIR"
   },
   {
@@ -7623,6 +8094,7 @@
    "status": "stub",
    "page": "content/Reductions/pke-to-com.md",
    "slug": "pke-to-com",
+   "graphSlug": "Reductions/pke-to-com",
    "title": "PKE ⇒ COM"
   },
   {
@@ -7642,6 +8114,7 @@
    "status": "stub",
    "page": "content/Reductions/pke-to-hash-function.md",
    "slug": "pke-to-hash-function",
+   "graphSlug": "Reductions/pke-to-hash-function",
    "title": "PKE ⇒ Hash function"
   },
   {
@@ -7661,6 +8134,7 @@
    "status": "stub",
    "page": "content/Reductions/pke-to-ke.md",
    "slug": "pke-to-ke",
+   "graphSlug": "Reductions/pke-to-ke",
    "title": "PKE ⇒ KE"
   },
   {
@@ -7680,6 +8154,7 @@
    "status": "stub",
    "page": "content/Reductions/pke-to-kem.md",
    "slug": "pke-to-kem",
+   "graphSlug": "Reductions/pke-to-kem",
    "title": "PKE ⇒ KEM"
   },
   {
@@ -7699,6 +8174,7 @@
    "status": "stub",
    "page": "content/Reductions/pke-to-ot.md",
    "slug": "pke-to-ot",
+   "graphSlug": "Reductions/pke-to-ot",
    "title": "PKE ⇒ OT"
   },
   {
@@ -7718,6 +8194,7 @@
    "status": "draft",
    "page": "content/Reductions/prc-to-ske-cg24.md",
    "slug": "prc-to-ske-cg24",
+   "graphSlug": "Reductions/prc-to-ske-cg24",
    "title": "PRC ⇒ SKE"
   },
   {
@@ -7737,6 +8214,7 @@
    "status": "draft",
    "page": "content/Reductions/prf-to-invertible-prf-hppy25.md",
    "slug": "prf-to-invertible-prf-hppy25",
+   "graphSlug": "Reductions/prf-to-invertible-prf-hppy25",
    "title": "PRF ⇒ iPRF"
   },
   {
@@ -7756,6 +8234,7 @@
    "status": "stub",
    "page": "content/Reductions/prf-to-mac.md",
    "slug": "prf-to-mac",
+   "graphSlug": "Reductions/prf-to-mac",
    "title": "PRF ⇒ MAC"
   },
   {
@@ -7775,6 +8254,7 @@
    "status": "draft",
    "page": "content/Reductions/prf-to-prp-lr88.md",
    "slug": "prf-to-prp-lr88",
+   "graphSlug": "Reductions/prf-to-prp-lr88",
    "title": "PRF ⇒ PRP"
   },
   {
@@ -7794,6 +8274,7 @@
    "status": "stub",
    "page": "content/Reductions/prf-to-ske.md",
    "slug": "prf-to-ske",
+   "graphSlug": "Reductions/prf-to-ske",
    "title": "PRF ⇒ CPA-secure SKE"
   },
   {
@@ -7813,6 +8294,7 @@
    "status": "stub",
    "page": "content/Reductions/prg-in-nc1-to-io-jls21.md",
    "slug": "prg-in-nc1-to-io-jls21",
+   "graphSlug": "Reductions/prg-in-nc1-to-io-jls21",
    "title": "PRG in NC1 ⇒ iO"
   },
   {
@@ -7832,6 +8314,7 @@
    "status": "draft",
    "page": "content/Reductions/prg-to-com-naor91.md",
    "slug": "prg-to-com-naor91",
+   "graphSlug": "Reductions/prg-to-com-naor91",
    "title": "PRG ⇒ COM"
   },
   {
@@ -7851,6 +8334,7 @@
    "status": "draft",
    "page": "content/Reductions/prg-to-dpf-gi14.md",
    "slug": "prg-to-dpf-gi14",
+   "graphSlug": "Reductions/prg-to-dpf-gi14",
    "title": "PRG ⇒ DPF"
   },
   {
@@ -7870,6 +8354,7 @@
    "status": "stub",
    "page": "content/Reductions/prg-to-hash-function.md",
    "slug": "prg-to-hash-function",
+   "graphSlug": "Reductions/prg-to-hash-function",
    "title": "PRG ⇒ Hash function"
   },
   {
@@ -7889,6 +8374,7 @@
    "status": "draft",
    "page": "content/Reductions/prg-to-prf-ggm86.md",
    "slug": "prg-to-prf-ggm86",
+   "graphSlug": "Reductions/prg-to-prf-ggm86",
    "title": "PRG ⇒ PRF (GGM)"
   },
   {
@@ -7908,6 +8394,7 @@
    "status": "stub",
    "page": "content/Reductions/prg-to-ske.md",
    "slug": "prg-to-ske",
+   "graphSlug": "Reductions/prg-to-ske",
    "title": "PRG ⇒ SKE"
   },
   {
@@ -7929,6 +8416,7 @@
    "status": "stub",
    "page": "content/Reductions/prp-to-invertible-prf.md",
    "slug": "prp-to-invertible-prf",
+   "graphSlug": "Reductions/prp-to-invertible-prf",
    "title": "PRP ⇒ iPRF (large domains)"
   },
   {
@@ -7948,6 +8436,7 @@
    "status": "draft",
    "page": "content/Reductions/prp-to-prf.md",
    "slug": "prp-to-prf",
+   "graphSlug": "Reductions/prp-to-prf",
    "title": "PRP ⇒ PRF"
   },
   {
@@ -7967,6 +8456,7 @@
    "status": "stub",
    "page": "content/Reductions/qr-to-com.md",
    "slug": "qr-to-com",
+   "graphSlug": "Reductions/qr-to-com",
    "title": "QR ⇒ COM"
   },
   {
@@ -7986,6 +8476,7 @@
    "status": "draft",
    "page": "content/Reductions/qr-to-he-gm84.md",
    "slug": "qr-to-he-gm84",
+   "graphSlug": "Reductions/qr-to-he-gm84",
    "title": "QR ⇒ HE"
   },
   {
@@ -8005,6 +8496,7 @@
    "status": "draft",
    "page": "content/Reductions/qr-to-pke-gm84.md",
    "slug": "qr-to-pke-gm84",
+   "graphSlug": "Reductions/qr-to-pke-gm84",
    "title": "QR ⇒ PKE"
   },
   {
@@ -8024,6 +8516,7 @@
    "status": "draft",
    "page": "content/Reductions/qr-to-tdh-dgi-19.md",
    "slug": "qr-to-tdh-dgi-19",
+   "graphSlug": "Reductions/qr-to-tdh-dgi-19",
    "title": "QR ⇒ TDH"
   },
   {
@@ -8043,6 +8536,7 @@
    "status": "stub",
    "page": "content/Reductions/qr-to-zkp-gmr85.md",
    "slug": "qr-to-zkp-gmr85",
+   "graphSlug": "Reductions/qr-to-zkp-gmr85",
    "title": "QR ⇒ ZKP"
   },
   {
@@ -8062,6 +8556,7 @@
    "status": "draft",
    "page": "content/Reductions/rabin-ot-to-ot.md",
    "slug": "rabin-ot-to-ot",
+   "graphSlug": "Reductions/rabin-ot-to-ot",
    "title": "Rabin OT ⇔ OT"
   },
   {
@@ -8081,6 +8576,7 @@
    "status": "stub",
    "page": "content/Reductions/random-ot-to-ot.md",
    "slug": "random-ot-to-ot",
+   "graphSlug": "Reductions/random-ot-to-ot",
    "title": "Random OT ⇒ OT"
   },
   {
@@ -8100,6 +8596,7 @@
    "status": "stub",
    "page": "content/Reductions/ring-lpn-to-mac.md",
    "slug": "ring-lpn-to-mac",
+   "graphSlug": "Reductions/ring-lpn-to-mac",
    "title": "Ring-LPN ⇒ MAC"
   },
   {
@@ -8119,6 +8616,7 @@
    "status": "stub",
    "page": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "ring-lpn-to-pseudorandom-correlation-generators-pcg",
+   "graphSlug": "Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg",
    "title": "Ring-LPN ⇒ Pseudorandom correlation generators (PCG)"
   },
   {
@@ -8138,6 +8636,7 @@
    "status": "draft",
    "page": "content/Reductions/ring-lwe-to-ntru-ss11.md",
    "slug": "ring-lwe-to-ntru-ss11",
+   "graphSlug": "Reductions/ring-lwe-to-ntru-ss11",
    "title": "Ring LWE ⇒ NTRU"
   },
   {
@@ -8158,6 +8657,7 @@
    "status": "draft",
    "page": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
    "slug": "rom-and-zkp-to-ds-fs86",
+   "graphSlug": "Reductions/rom-and-zkp-to-ds-fs86",
    "title": "ROM + ZKP ⇒ DS"
   },
   {
@@ -8178,6 +8678,7 @@
    "status": "draft",
    "page": "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
    "slug": "rom-and-zkp-to-nizk-fs86",
+   "graphSlug": "Reductions/rom-and-zkp-to-nizk-fs86",
    "title": "ROM + ZKP ⇒ NIZK"
   },
   {
@@ -8197,6 +8698,7 @@
    "status": "draft",
    "page": "content/Reductions/rom-to-oihf-bh26.md",
    "slug": "rom-to-oihf-bh26",
+   "graphSlug": "Reductions/rom-to-oihf-bh26",
    "title": "ROM ⇒ OIHF"
   },
   {
@@ -8216,6 +8718,7 @@
    "status": "draft",
    "page": "content/Reductions/rsa-to-fac-dlo24.md",
    "slug": "rsa-to-fac-dlo24",
+   "graphSlug": "Reductions/rsa-to-fac-dlo24",
    "title": "RSA ⇔ FAC"
   },
   {
@@ -8235,6 +8738,7 @@
    "status": "stub",
    "page": "content/Reductions/rsa-to-ind-cca-security.md",
    "slug": "rsa-to-ind-cca-security",
+   "graphSlug": "Reductions/rsa-to-ind-cca-security",
    "title": "RSA ⇒ IND-CCA security"
   },
   {
@@ -8254,6 +8758,7 @@
    "status": "draft",
    "page": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
    "slug": "rsa-to-partially-homomorphic-encryption-phe-rsa78",
+   "graphSlug": "Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78",
    "title": "RSA ⇒ Partially homomorphic encryption (PHE)"
   },
   {
@@ -8273,6 +8778,7 @@
    "status": "draft",
    "page": "content/Reductions/rsa-to-pke-rsa78.md",
    "slug": "rsa-to-pke-rsa78",
+   "graphSlug": "Reductions/rsa-to-pke-rsa78",
    "title": "RSA ⇒ PKE"
   },
   {
@@ -8292,6 +8798,7 @@
    "status": "draft",
    "page": "content/Reductions/rsa-to-tdp-rsa78.md",
    "slug": "rsa-to-tdp-rsa78",
+   "graphSlug": "Reductions/rsa-to-tdp-rsa78",
    "title": "RSA ⇒ TDP"
   },
   {
@@ -8311,6 +8818,7 @@
    "status": "stub",
    "page": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
    "slug": "schnorr-signatures-to-schnorr-signatures",
+   "graphSlug": "Reductions/schnorr-signatures-to-schnorr-signatures",
    "title": "Schnorr signatures ⇒ Schnorr signatures"
   },
   {
@@ -8330,6 +8838,7 @@
    "status": "stub",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
    "slug": "search-lwe-to-decision-lwe",
+   "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
   },
   {
@@ -8350,6 +8859,7 @@
    "status": "stub",
    "page": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
    "slug": "secret-key-pir-sk-pir-and-ske-to-depir",
+   "graphSlug": "Reductions/secret-key-pir-sk-pir-and-ske-to-depir",
    "title": "Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR"
   },
   {
@@ -8369,6 +8879,7 @@
    "status": "stub",
    "page": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
    "slug": "secret-key-pir-sk-pir-to-depir-bipw17",
+   "graphSlug": "Reductions/secret-key-pir-sk-pir-to-depir-bipw17",
    "title": "Secret-Key PIR (SK-PIR) ⇒ DEPIR"
   },
   {
@@ -8388,6 +8899,7 @@
    "status": "draft",
    "page": "content/Reductions/sidh-to-ke-jdf11.md",
    "slug": "sidh-to-ke-jdf11",
+   "graphSlug": "Reductions/sidh-to-ke-jdf11",
    "title": "SIDH ⇒ KE"
   },
   {
@@ -8407,6 +8919,7 @@
    "status": "stub",
    "page": "content/Reductions/sis-to-ds.md",
    "slug": "sis-to-ds",
+   "graphSlug": "Reductions/sis-to-ds",
    "title": "SIS ⇒ DS"
   },
   {
@@ -8426,6 +8939,7 @@
    "status": "draft",
    "page": "content/Reductions/sis-to-hash-function-ajt96.md",
    "slug": "sis-to-hash-function-ajt96",
+   "graphSlug": "Reductions/sis-to-hash-function-ajt96",
    "title": "SIS ⇒ Hash function"
   },
   {
@@ -8445,6 +8959,7 @@
    "status": "draft",
    "page": "content/Reductions/sivp-to-lwe-reg05.md",
    "slug": "sivp-to-lwe-reg05",
+   "graphSlug": "Reductions/sivp-to-lwe-reg05",
    "title": "SIVP ⇒ LWE"
   },
   {
@@ -8464,6 +8979,7 @@
    "status": "draft",
    "page": "content/Reductions/sivp-to-sis-ajt96.md",
    "slug": "sivp-to-sis-ajt96",
+   "graphSlug": "Reductions/sivp-to-sis-ajt96",
    "title": "SIVP ⇒ SIS"
   },
   {
@@ -8483,6 +8999,7 @@
    "status": "stub",
    "page": "content/Reductions/snark-to-hash-function.md",
    "slug": "snark-to-hash-function",
+   "graphSlug": "Reductions/snark-to-hash-function",
    "title": "SNARK ⇒ Hash function"
   },
   {
@@ -8502,6 +9019,7 @@
    "status": "stub",
    "page": "content/Reductions/snark-to-nizk.md",
    "slug": "snark-to-nizk",
+   "graphSlug": "Reductions/snark-to-nizk",
    "title": "SNARK ⇒ NIZK"
   },
   {
@@ -8521,6 +9039,7 @@
    "status": "stub",
    "page": "content/Reductions/snark-to-recursive-snarks.md",
    "slug": "snark-to-recursive-snarks",
+   "graphSlug": "Reductions/snark-to-recursive-snarks",
    "title": "SNARK ⇒ Recursive SNARKs"
   },
   {
@@ -8540,6 +9059,7 @@
    "status": "stub",
    "page": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
+   "graphSlug": "Reductions/somewhat-homomorphic-encryption-she-to-he-gen09",
    "title": "Somewhat homomorphic encryption (SHE) ⇒ HE"
   },
   {
@@ -8559,6 +9079,7 @@
    "status": "stub",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
    "slug": "sparse-learning-parity-with-noise-to-lpn",
+   "graphSlug": "Reductions/sparse-learning-parity-with-noise-to-lpn",
    "title": "Sparse Learning Parity with Noise ⇒ LPN"
   },
   {
@@ -8578,6 +9099,7 @@
    "status": "stub",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
+   "graphSlug": "Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
    "title": "Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)"
   },
   {
@@ -8597,6 +9119,7 @@
    "status": "stub",
    "page": "content/Reductions/spir-to-it-pir.md",
    "slug": "spir-to-it-pir",
+   "graphSlug": "Reductions/spir-to-it-pir",
    "title": "SPIR ⇒ IT-PIR"
   },
   {
@@ -8616,6 +9139,7 @@
    "status": "draft",
    "page": "content/Reductions/ss-to-it-pir-cgks98.md",
    "slug": "ss-to-it-pir-cgks98",
+   "graphSlug": "Reductions/ss-to-it-pir-cgks98",
    "title": "SS ⇒ IT-PIR"
   },
   {
@@ -8635,6 +9159,7 @@
    "status": "stub",
    "page": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
    "slug": "strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
+   "graphSlug": "Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
    "title": "Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption"
   },
   {
@@ -8654,6 +9179,7 @@
    "status": "stub",
    "page": "content/Reductions/strong-rsa-to-com.md",
    "slug": "strong-rsa-to-com",
+   "graphSlug": "Reductions/strong-rsa-to-com",
    "title": "Strong RSA ⇒ COM"
   },
   {
@@ -8673,6 +9199,7 @@
    "status": "stub",
    "page": "content/Reductions/strong-rsa-to-ds.md",
    "slug": "strong-rsa-to-ds",
+   "graphSlug": "Reductions/strong-rsa-to-ds",
    "title": "Strong RSA ⇒ DS"
   },
   {
@@ -8692,6 +9219,7 @@
    "status": "stub",
    "page": "content/Reductions/strong-rsa-to-rsa.md",
    "slug": "strong-rsa-to-rsa",
+   "graphSlug": "Reductions/strong-rsa-to-rsa",
    "title": "Strong RSA ⇒ RSA"
   },
   {
@@ -8711,6 +9239,7 @@
    "status": "stub",
    "page": "content/Reductions/strong-security-to-prp.md",
    "slug": "strong-security-to-prp",
+   "graphSlug": "Reductions/strong-security-to-prp",
    "title": "Strong Security ⇒ PRP"
   },
   {
@@ -8730,6 +9259,7 @@
    "status": "stub",
    "page": "content/Reductions/subclasses-to-hash-function.md",
    "slug": "subclasses-to-hash-function",
+   "graphSlug": "Reductions/subclasses-to-hash-function",
    "title": "Subclasses ⇒ Hash function"
   },
   {
@@ -8749,6 +9279,7 @@
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
    "slug": "subexponential-lpn-to-ot-yz16",
+   "graphSlug": "Reductions/subexponential-lpn-to-ot-yz16",
    "title": "Subexponential LPN ⇒ OT"
   },
   {
@@ -8768,6 +9299,7 @@
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
    "slug": "subexponential-lpn-to-pke-yz16",
+   "graphSlug": "Reductions/subexponential-lpn-to-pke-yz16",
    "title": "Subexponential LPN ⇒ PKE"
   },
   {
@@ -8787,6 +9319,7 @@
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-prc-cg24.md",
    "slug": "subexponential-lpn-to-prc-cg24",
+   "graphSlug": "Reductions/subexponential-lpn-to-prc-cg24",
    "title": "Subexponential LPN ⇒ PRC"
   },
   {
@@ -8806,6 +9339,7 @@
    "status": "draft",
    "page": "content/Reductions/succinct-lwe-to-abe-wee25.md",
    "slug": "succinct-lwe-to-abe-wee25",
+   "graphSlug": "Reductions/succinct-lwe-to-abe-wee25",
    "title": "Succinct LWE ⇒ ABE"
   },
   {
@@ -8825,6 +9359,7 @@
    "status": "stub",
    "page": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
    "slug": "succinct-lwe-to-evasive-lwe",
+   "graphSlug": "Reductions/succinct-lwe-to-evasive-lwe",
    "title": "Succinct LWE ⇒ Evasive LWE"
   },
   {
@@ -8844,6 +9379,7 @@
    "status": "stub",
    "page": "content/Reductions/succinct-lwe-to-lwe.md",
    "slug": "succinct-lwe-to-lwe",
+   "graphSlug": "Reductions/succinct-lwe-to-lwe",
    "title": "Succinct LWE ⇔ LWE"
   },
   {
@@ -8863,6 +9399,7 @@
    "status": "stub",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
    "slug": "sxdh-symmetric-external-diffie-hellman-to-bdh",
+   "graphSlug": "Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh",
    "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ BDH"
   },
   {
@@ -8882,6 +9419,7 @@
    "status": "stub",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
    "slug": "sxdh-symmetric-external-diffie-hellman-to-nizk",
+   "graphSlug": "Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk",
    "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK"
   },
   {
@@ -8901,6 +9439,7 @@
    "status": "stub",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-cpir",
+   "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-cpir",
    "title": "Symmetric private information retrieval (Single-server) ⇒ cPIR"
   },
   {
@@ -8920,6 +9459,7 @@
    "status": "stub",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
+   "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-ot",
    "title": "Symmetric private information retrieval (Single-server) ⇔ OT"
   },
   {
@@ -8940,6 +9480,7 @@
    "status": "draft",
    "page": "content/Reductions/tdh-to-cpir-amr25.md",
    "slug": "tdh-to-cpir-amr25",
+   "graphSlug": "Reductions/tdh-to-cpir-amr25",
    "title": "TDH ⇒ cPIR"
   },
   {
@@ -8959,6 +9500,7 @@
    "status": "stub",
    "page": "content/Reductions/tdp-to-hash-function.md",
    "slug": "tdp-to-hash-function",
+   "graphSlug": "Reductions/tdp-to-hash-function",
    "title": "TDP ⇒ Hash function"
   },
   {
@@ -8978,6 +9520,7 @@
    "status": "draft",
    "page": "content/Reductions/tdp-to-nizk-bfm88.md",
    "slug": "tdp-to-nizk-bfm88",
+   "graphSlug": "Reductions/tdp-to-nizk-bfm88",
    "title": "TDP ⇒ NIZK"
   },
   {
@@ -8997,6 +9540,7 @@
    "status": "stub",
    "page": "content/Reductions/tdp-to-ot.md",
    "slug": "tdp-to-ot",
+   "graphSlug": "Reductions/tdp-to-ot",
    "title": "TDP ⇔ OT"
   },
   {
@@ -9016,6 +9560,7 @@
    "status": "stub",
    "page": "content/Reductions/tdp-to-pke.md",
    "slug": "tdp-to-pke",
+   "graphSlug": "Reductions/tdp-to-pke",
    "title": "TDP ⇒ PKE"
   },
   {
@@ -9035,6 +9580,7 @@
    "status": "stub",
    "page": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
    "slug": "trapdoor-pseudorandom-generators-to-prg",
+   "graphSlug": "Reductions/trapdoor-pseudorandom-generators-to-prg",
    "title": "Trapdoor pseudorandom generators ⇔ PRG"
   },
   {
@@ -9054,6 +9600,7 @@
    "status": "stub",
    "page": "content/Reductions/unkeyed-depir-to-depir.md",
    "slug": "unkeyed-depir-to-depir",
+   "graphSlug": "Reductions/unkeyed-depir-to-depir",
    "title": "Unkeyed DEPIR ⇒ DEPIR"
   },
   {
@@ -9073,6 +9620,7 @@
    "status": "draft",
    "page": "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
    "slug": "verifiable-secret-sharing-vss-to-mpc-bgw88",
+   "graphSlug": "Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88",
    "title": "Verifiable secret sharing (VSS) ⇒ MPC"
   },
   {
@@ -9092,6 +9640,7 @@
    "status": "stub",
    "page": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
    "slug": "zero-bit-prc-to-trapdoor-pseudorandom-generators",
+   "graphSlug": "Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators",
    "title": "Zero-bit PRC ⇒ Trapdoor pseudorandom generators"
   },
   {
@@ -9111,6 +9660,7 @@
    "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
    "slug": "zero-bit-prc-to-watermarking-cg24",
+   "graphSlug": "Reductions/zero-bit-prc-to-watermarking-cg24",
    "title": "Zero-bit PRC ⇒ Watermarking"
   },
   {
@@ -9130,6 +9680,7 @@
    "status": "stub",
    "page": "content/Reductions/zkp-to-hash-function.md",
    "slug": "zkp-to-hash-function",
+   "graphSlug": "Reductions/zkp-to-hash-function",
    "title": "ZKP ⇒ Hash function"
   },
   {
@@ -9150,6 +9701,7 @@
    "status": "draft",
    "page": "content/Reductions/zkp-to-nizk-fs86.md",
    "slug": "zkp-to-nizk-fs86",
+   "graphSlug": "Reductions/zkp-to-nizk-fs86",
    "title": "ZKP ⇒ NIZK"
   }
  ],
@@ -9177,6 +9729,7 @@
    "status": "draft",
    "page": "content/Barriers/no-agm-to-ggm-kz22.md",
    "slug": "no-agm-to-ggm-kz22",
+   "graphSlug": "Barriers/no-agm-to-ggm-kz22",
    "title": "No reduction from AGM to GGM"
   },
   {
@@ -9202,6 +9755,7 @@
    "status": "stub",
    "page": "content/Barriers/no-binding-and-hiding-to-com.md",
    "slug": "no-binding-and-hiding-to-com",
+   "graphSlug": "Barriers/no-binding-and-hiding-to-com",
    "title": "No reduction from Binding + Hiding to COM"
   },
   {
@@ -9226,6 +9780,7 @@
    "status": "stub",
    "page": "content/Barriers/no-bqp-to-np.md",
    "slug": "no-bqp-to-np",
+   "graphSlug": "Barriers/no-bqp-to-np",
    "title": "No reduction from BQP to NP"
   },
   {
@@ -9250,6 +9805,7 @@
    "status": "stub",
    "page": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
    "slug": "no-cpa-security-to-ind-cpa-security",
+   "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
    "title": "No reduction from CPA Security to IND$-CPA Security"
   },
   {
@@ -9274,6 +9830,7 @@
    "status": "stub",
    "page": "content/Barriers/no-depir-to-ot-dmo00.md",
    "slug": "no-depir-to-ot-dmo00",
+   "graphSlug": "Barriers/no-depir-to-ot-dmo00",
    "title": "No reduction from DEPIR to OT"
   },
   {
@@ -9299,6 +9856,7 @@
    "status": "draft",
    "page": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
    "slug": "no-evasive-lwe-to-evasive-lwe-buw24",
+   "graphSlug": "Barriers/no-evasive-lwe-to-evasive-lwe-buw24",
    "title": "No reduction from Evasive LWE to Evasive LWE"
   },
   {
@@ -9325,6 +9883,7 @@
    "status": "draft",
    "page": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
    "slug": "no-evasive-lwe-to-evasive-lwe-buw24-2",
+   "graphSlug": "Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2",
    "title": "No reduction from Evasive LWE to Evasive LWE"
   },
   {
@@ -9349,6 +9908,7 @@
    "status": "stub",
    "page": "content/Barriers/no-falsifiable-assumption-to-kea.md",
    "slug": "no-falsifiable-assumption-to-kea",
+   "graphSlug": "Barriers/no-falsifiable-assumption-to-kea",
    "title": "No reduction from Falsifiable assumption to KEA"
   },
   {
@@ -9373,6 +9933,7 @@
    "status": "draft",
    "page": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
    "slug": "no-falsifiable-assumption-to-snark-gro16",
+   "graphSlug": "Barriers/no-falsifiable-assumption-to-snark-gro16",
    "title": "No fully-black-box reduction from Falsifiable assumption to SNARK"
   },
   {
@@ -9399,6 +9960,7 @@
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
    "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
+   "graphSlug": "Barriers/no-fiat-shamir-and-gkr-to-snark-krs25",
    "title": "No reduction from Fiat-Shamir + GKR to SNARK"
   },
   {
@@ -9424,6 +9986,7 @@
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
    "slug": "no-fiat-shamir-and-hash-function-to-ds-gk03",
+   "graphSlug": "Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03",
    "title": "No reduction from Fiat-Shamir + Hash function to DS"
   },
   {
@@ -9448,6 +10011,7 @@
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
    "slug": "no-fiat-shamir-to-nizk-gk03",
+   "graphSlug": "Barriers/no-fiat-shamir-to-nizk-gk03",
    "title": "No reduction from Fiat-Shamir to NIZK"
   },
   {
@@ -9472,6 +10036,7 @@
    "status": "draft",
    "page": "content/Barriers/no-ggm-to-cdh-sho97.md",
    "slug": "no-ggm-to-cdh-sho97",
+   "graphSlug": "Barriers/no-ggm-to-cdh-sho97",
    "title": "No free reduction from GGM to CDH"
   },
   {
@@ -9496,6 +10061,7 @@
    "status": "draft",
    "page": "content/Barriers/no-ggm-to-ddh-sho97.md",
    "slug": "no-ggm-to-ddh-sho97",
+   "graphSlug": "Barriers/no-ggm-to-ddh-sho97",
    "title": "No free reduction from GGM to DDH"
   },
   {
@@ -9520,6 +10086,7 @@
    "status": "draft",
    "page": "content/Barriers/no-ggm-to-dlog-sho97.md",
    "slug": "no-ggm-to-dlog-sho97",
+   "graphSlug": "Barriers/no-ggm-to-dlog-sho97",
    "title": "No free reduction from GGM to DLOG"
   },
   {
@@ -9544,6 +10111,7 @@
    "status": "draft",
    "page": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
    "slug": "no-hash-function-to-pke-gkm-00",
+   "graphSlug": "Barriers/no-hash-function-to-pke-gkm-00",
    "title": "No fully-black-box reduction from Hash function to PKE"
   },
   {
@@ -9568,6 +10136,7 @@
    "status": "stub",
    "page": "content/Barriers/no-he-to-cca-security.md",
    "slug": "no-he-to-cca-security",
+   "graphSlug": "Barriers/no-he-to-cca-security",
    "title": "No reduction from HE to CCA Security"
   },
   {
@@ -9595,6 +10164,7 @@
    "status": "draft",
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
+   "graphSlug": "Barriers/no-he-to-szk-bl13",
    "title": "No reduction from HE to SZK"
   },
   {
@@ -9619,6 +10189,7 @@
    "status": "stub",
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
    "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
+   "graphSlug": "Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
    "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security"
   },
   {
@@ -9643,6 +10214,7 @@
    "status": "stub",
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
    "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+   "graphSlug": "Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
    "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security"
   },
   {
@@ -9667,6 +10239,7 @@
    "status": "draft",
    "page": "content/Barriers/no-injective-owf-to-owp-mm11.md",
    "slug": "no-injective-owf-to-owp-mm11",
+   "graphSlug": "Barriers/no-injective-owf-to-owp-mm11",
    "title": "No reduction from Injective OWF to OWP"
   },
   {
@@ -9691,6 +10264,7 @@
    "status": "stub",
    "page": "content/Barriers/no-ippe-to-abe.md",
    "slug": "no-ippe-to-abe",
+   "graphSlug": "Barriers/no-ippe-to-abe",
    "title": "No reduction from IPPE to ABE"
   },
   {
@@ -9715,6 +10289,7 @@
    "status": "stub",
    "page": "content/Barriers/no-mip-to-multi-prover-extensions.md",
    "slug": "no-mip-to-multi-prover-extensions",
+   "graphSlug": "Barriers/no-mip-to-multi-prover-extensions",
    "title": "No reduction from MIP to Multi-prover extensions"
   },
   {
@@ -9739,6 +10314,7 @@
    "status": "draft",
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
+   "graphSlug": "Barriers/no-np-to-cpir-lv15",
    "title": "No reduction from NP to cPIR"
   },
   {
@@ -9763,6 +10339,7 @@
    "status": "draft",
    "page": "content/Barriers/no-np-to-hash-function-aggm06.md",
    "slug": "no-np-to-hash-function-aggm06",
+   "graphSlug": "Barriers/no-np-to-hash-function-aggm06",
    "title": "No reduction from NP to Hash function"
   },
   {
@@ -9789,6 +10366,7 @@
    "status": "draft",
    "page": "content/Barriers/no-oihf-to-ot-bh26.md",
    "slug": "no-oihf-to-ot-bh26",
+   "graphSlug": "Barriers/no-oihf-to-ot-bh26",
    "title": "No fully-black-box reduction from OIHF to OT"
   },
   {
@@ -9813,6 +10391,7 @@
    "status": "draft",
    "page": "content/Barriers/no-owp-to-ke-ir89.md",
    "slug": "no-owp-to-ke-ir89",
+   "graphSlug": "Barriers/no-owp-to-ke-ir89",
    "title": "No reduction from OWP to KE"
   },
   {
@@ -9837,6 +10416,7 @@
    "status": "stub",
    "page": "content/Barriers/no-pke-to-ot-gkm-00.md",
    "slug": "no-pke-to-ot-gkm-00",
+   "graphSlug": "Barriers/no-pke-to-ot-gkm-00",
    "title": "No reduction from PKE to OT"
   },
   {
@@ -9866,6 +10446,7 @@
    "status": "draft",
    "page": "content/Barriers/no-qcma-to-qma-ak07.md",
    "slug": "no-qcma-to-qma-ak07",
+   "graphSlug": "Barriers/no-qcma-to-qma-ak07",
    "title": "No reduction from QCMA to QMA"
   },
   {
@@ -9892,6 +10473,7 @@
    "status": "stub",
    "page": "content/Barriers/no-rom-to-ke-hmo-19.md",
    "slug": "no-rom-to-ke-hmo-19",
+   "graphSlug": "Barriers/no-rom-to-ke-hmo-19",
    "title": "No reduction from ROM to KE"
   },
   {
@@ -9917,6 +10499,7 @@
    "status": "draft",
    "page": "content/Barriers/no-rom-to-merkle-puzzles-bm09.md",
    "slug": "no-rom-to-merkle-puzzles-bm09",
+   "graphSlug": "Barriers/no-rom-to-merkle-puzzles-bm09",
    "title": "No reduction from ROM to Merkle puzzles"
   },
   {
@@ -9941,6 +10524,7 @@
    "status": "draft",
    "page": "content/Barriers/no-rom-to-roh-ccg-94.md",
    "slug": "no-rom-to-roh-ccg-94",
+   "graphSlug": "Barriers/no-rom-to-roh-ccg-94",
    "title": "No relativizing reduction from ROM to ROH"
   },
   {
@@ -9965,6 +10549,7 @@
    "status": "stub",
    "page": "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
    "slug": "no-search-noisy-k-lin-to-noisy-k-lin",
+   "graphSlug": "Barriers/no-search-noisy-k-lin-to-noisy-k-lin",
    "title": "No reduction from Search noisy $k$-LIN to Noisy k-LIN"
   },
   {
@@ -9989,6 +10574,7 @@
    "status": "stub",
    "page": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
    "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
+   "graphSlug": "Barriers/no-selective-security-to-cp-abe-ind-cpa-security",
    "title": "No reduction from Selective Security to CP-ABE: IND-CPA Security"
   },
   {
@@ -10013,6 +10599,7 @@
    "status": "stub",
    "page": "content/Barriers/no-tdp-to-ot.md",
    "slug": "no-tdp-to-ot",
+   "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No reduction from TDP to OT"
   },
   {
@@ -10037,6 +10624,7 @@
    "status": "draft",
    "page": "content/Barriers/no-the-structured-ggm-to-dlog-chw26.md",
    "slug": "no-the-structured-ggm-to-dlog-chw26",
+   "graphSlug": "Barriers/no-the-structured-ggm-to-dlog-chw26",
    "title": "No free reduction from The Structured GGM to DLOG"
   },
   {
@@ -10061,6 +10649,7 @@
    "status": "stub",
    "page": "content/Barriers/no-zkp-to-argument-systems.md",
    "slug": "no-zkp-to-argument-systems",
+   "graphSlug": "Barriers/no-zkp-to-argument-systems",
    "title": "No fully-black-box reduction from ZKP to Argument systems"
   }
  ]

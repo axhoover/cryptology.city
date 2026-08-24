@@ -23,6 +23,12 @@ export interface D3Config {
   showTags: boolean;
   focusOnHover?: boolean;
   enableRadial?: boolean;
+  // Render the relationship hypergraph as BIPARTITE: object nodes and
+  // reduction nodes, with edges into and out of each reduction. Flattening a
+  // hyperedge into pairwise object-to-object edges would silently redraw
+  // {DDH, CRHF} => B as two independent implications, so this is a correctness
+  // feature, not decoration. Barriers attach to the reduction layer.
+  relations?: boolean;
 }
 
 interface GraphOptions {
@@ -45,6 +51,7 @@ const defaultOptions: GraphOptions = {
     removeTags: [],
     focusOnHover: false,
     enableRadial: false,
+    relations: true,
   },
   globalGraph: {
     drag: true,
@@ -60,6 +67,7 @@ const defaultOptions: GraphOptions = {
     removeTags: [],
     focusOnHover: true,
     enableRadial: true,
+    relations: true,
   },
 };
 
