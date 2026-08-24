@@ -5,6 +5,7 @@ aliases:
   - PRG
   - Pseudorandom generator
 title: Pseudorandom generator
+id: prg
 ---
 
 # Pseudorandom generator

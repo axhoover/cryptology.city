@@ -5,6 +5,7 @@ aliases:
   - MAC
   - Message authentication code
 title: Message authentication code
+id: mac
 ---
 
 # Message authentication code

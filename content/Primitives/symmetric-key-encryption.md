@@ -6,6 +6,7 @@ aliases:
   - SE
   - Symmetric key encryption
 title: Symmetric key encryption
+id: ske
 ---
 
 # Symmetric key encryption

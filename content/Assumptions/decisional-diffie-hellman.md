@@ -5,6 +5,7 @@ aliases:
   - DDH
   - Decisional Diffie-Hellman
 title: Decisional Diffie-Hellman
+id: ddh
 ---
 
 # Decisional Diffie-Hellman

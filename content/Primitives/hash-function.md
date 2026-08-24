@@ -10,6 +10,10 @@ aliases:
   - One-way function
   - Collision-resistant hash function
 title: Hash function
+id: hash-function
+variants:
+  owf: "#preimage-resistance-one-wayness"
+  crhf: "#collision-resistance"
 ---
 
 # Hash functions

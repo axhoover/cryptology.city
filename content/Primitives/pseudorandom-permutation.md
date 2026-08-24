@@ -6,6 +6,7 @@ aliases:
   - sPRP
   - Pseudorandom permutation
 title: Pseudorandom permutation
+id: prp
 ---
 
 # Pseudorandom permutation
