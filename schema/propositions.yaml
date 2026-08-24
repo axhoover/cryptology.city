@@ -1,0 +1,75 @@
+# schema/propositions.yaml
+#
+# Proposition-typed nodes: things a barrier's `consequence` can point at that are
+# NOT wiki objects. The Phase-1 audit found 17 barrier records with
+# consequence.kind: complexity and NOT ONE of their targets resolved to a page.
+# Rather than create 17 content pages, they resolve here.
+#
+# The lint resolves consequence.target against, in order:
+#   kind: object      -> a page slug or alias under content/
+#   kind: complexity  -> a key in this file
+#   kind: reduction   -> a reduction `id` under content/Reductions/
+#   kind: contradiction -> target must be empty
+#
+# `believed:` records the community's working belief, and is what the lint's SOFT
+# FLAG reads: a reduction whose existence a barrier says would imply something
+# with believed: false is "this would be a major result -- confirm the class",
+# never a hard error.
+
+version: 1
+
+propositions:
+  p-neq-np:
+    title: $\classP \neq \classNP$
+    believed: true
+    page: Complexity/nondeterministic-polynomial-time
+    note: >-
+      The consequence of Impagliazzo-Rudich in its general form: a proof that
+      one-way permutations imply key agreement would prove P != NP.
+
+  p-eq-np:
+    title: $\classP = \classNP$
+    believed: false
+    page: Complexity/nondeterministic-polynomial-time
+
+  np-subset-bpp:
+    title: $\classNP \subseteq \classBPP$
+    believed: false
+    page: Complexity/bounded-error-probabilistic-polynomial-time
+
+  np-eq-conp:
+    title: $\classNP = \classcoNP$
+    believed: false
+    page: Complexity/co-nondeterministic-polynomial-time
+
+  conp-subset-am:
+    title: $\classcoNP \subseteq \classAM$
+    believed: false
+    page: Complexity/arthur-merlin
+    note: >-
+      The actual AGGM06 consequence. content/Primitives/hash-function.md:104
+      currently states it as "a collapse of the polynomial hierarchy", which is
+      the downstream corollary, not the theorem.
+
+  ph-collapse:
+    title: The polynomial hierarchy collapses
+    believed: false
+    page: Complexity/polynomial-time-hierarchy
+
+  szk-neq-bpp:
+    title: $\classSZK \neq \classBPP$
+    believed: true
+    page: Complexity/statistical-zero-knowledge
+
+  ma-neq-np:
+    title: $\classMA \neq \classNP$
+    believed: true
+    page: Complexity/merlin-arthur
+    note: Requires circuit lower bounds; see content/Complexity/merlin-arthur.md:26.
+
+  contradiction:
+    title: Contradiction
+    believed: false
+    note: >-
+      Reserved. Do NOT use as a consequence.target -- set
+      consequence.kind: contradiction with an empty target instead.

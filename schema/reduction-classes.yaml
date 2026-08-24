@@ -1,0 +1,167 @@
+# schema/reduction-classes.yaml
+#
+# The reduction-class vocabulary, as an explicit PARTIAL ORDER OF GENERALITY.
+# The lint reads this file; it is the single source of truth for `class:` values
+# on reduction and barrier pages.
+#
+# Taxonomy follows Reingold-Trevisan-Vadhan, "Notions of Reducibility between
+# Cryptographic Primitives", TCC 2004 (content/References/RTV04 - Notions of
+# Reducibility between Cryptographic Primitives.md), using the formal
+# restatement and hierarchy diagram of Baecher-Brzuska-Fischlin, "Notions of
+# Black-Box Reductions, Revisited", Asiacrypt 2013 (eprint 2013/101), Figure 1(a)
+# and Figure 3.
+#
+# ORIENTATION, stated once so it cannot be misread ------------------------------
+# A reduction here is  {hypotheses} => conclusion: the hypotheses are the
+# primitive(s) USED, the conclusion is the primitive BUILT. In RTV/BBF notation a
+# "(P <-> Q)-reduction" builds P from Q, i.e. hypotheses = Q, conclusion = P.
+#
+# `implies:` lists the classes that a reduction of THIS class also satisfies.
+# Read it as set containment on reductions:  reductions(X) subset-of reductions(Y)
+# for every Y in X.implies. So `implies` points from the NARROWER (more
+# restrictive, harder to achieve) notion to the BROADER one. `fully-black-box` is
+# the narrowest; `free` is the broadest.
+#
+# THE CONTRADICTION RULE the lint implements, stated in one direction only:
+#   A barrier that rules out class B (consequence.kind: contradiction) on a
+#   hyperedge H contradicts a reduction of class C on the same hyperedge
+#   IF AND ONLY IF  C is in transitive-closure(implies)(C) union {C} containing B
+#   -- i.e. iff every C-reduction is also a B-reduction, iff C implies* B.
+# Worked both ways:
+#   - Barrier rules out `relativizing` (IR89); reduction claims `fully-black-box`.
+#     fully-black-box implies* relativizing  =>  CONTRADICTION. Fires. (Correct:
+#     this is exactly the Impagliazzo-Rudich argument.)
+#   - Barrier rules out `fully-black-box`; reduction claims `free`.
+#     free does NOT imply fully-black-box  =>  no contradiction. Must NOT fire.
+# ------------------------------------------------------------------------------
+
+version: 1
+
+classes:
+  fully-black-box:
+    rtv_name: fully
+    bbf_cap: BBB
+    title: Fully black-box
+    summary: >-
+      One construction G and one reduction S, both fixed in advance. G uses the
+      hypothesis primitive only as an oracle, and S breaks the hypothesis given
+      oracle access to any adversary against the conclusion. The most restrictive
+      notion, and the one essentially all standard cryptographic reductions meet.
+    quantifiers: "exists PPT G, exists PPT S, forall f in F_Q, forall A"
+    implies: [semi-black-box, relativizing]
+    defined_in: RTV04
+
+  semi-black-box:
+    rtv_name: semi
+    bbf_cap: BNN
+    title: Semi black-box
+    summary: >-
+      The construction G is black-box in the hypothesis, but the security
+      reduction S may depend on the adversary's code. S and the adversary both
+      get oracle access to the hypothesis implementation.
+    quantifiers: "exists PPT G, forall f in F_Q, forall A, exists PPT S"
+    implies: [weakly-black-box, forall-exists-semi-black-box]
+    defined_in: RTV04
+
+  forall-exists-semi-black-box:
+    rtv_name: "forall-exists-semi"
+    bbf_cap: NNN
+    title: ∀∃ semi black-box
+    summary: >-
+      The construction may depend on the hypothesis implementation itself (not
+      merely on oracle access to it); the reduction may depend on the adversary's
+      code. RTV04 place this immediately below `relativizing`.
+    quantifiers: "forall f in F_Q, exists PPT G, forall A, exists PPT S"
+    implies: [forall-exists-weakly-black-box]
+    defined_in: RTV04
+
+  weakly-black-box:
+    rtv_name: weakly
+    aliases_in_literature: [mildly-black-box]
+    title: Weakly black-box
+    summary: >-
+      As semi black-box, but the adversary is efficient and is NOT given oracle
+      access to the hypothesis implementation (it may still depend on it).
+      RTV04 note this is close to a free reduction. Some versions of RTV04 call
+      this notion "mildly black-box"; the two names denote the same class.
+    quantifiers: "exists PPT G, forall A, forall f in F_Q, exists PPT S"
+    implies: [forall-exists-weakly-black-box, free]
+    defined_in: RTV04
+
+  forall-exists-weakly-black-box:
+    rtv_name: "forall-exists-weakly"
+    title: ∀∃ weakly black-box
+    summary: >-
+      The ∀∃ variant of weakly black-box: the construction may depend on the
+      hypothesis implementation.
+    quantifiers: "forall f in F_Q, exists PPT G, forall A, exists PPT S"
+    implies: [free]
+    defined_in: RTV04
+
+  relativizing:
+    rtv_name: relativizing
+    title: Relativizing
+    summary: >-
+      For every oracle Pi, the conclusion primitive exists relative to Pi
+      whenever the hypothesis primitives exist relative to Pi. This is the class
+      an oracle separation actually rules out, which is why a barrier stated
+      against `relativizing` also kills every fully-black-box reduction.
+    quantifiers: "forall oracles Pi"
+    implies: [forall-exists-semi-black-box]
+    defined_in: RTV04
+
+  free:
+    rtv_name: free
+    title: Free
+    summary: >-
+      An implication with no restriction on the proof technique: the conclusion
+      primitive exists whenever the hypothesis primitives do, by any argument
+      whatsoever. The broadest class; a barrier against `free` rules out the
+      implication itself, not merely a proof technique.
+    implies: []
+    defined_in: RTV04
+
+# `unstated` is a SENTINEL, not a class. It sits outside the order and is
+# comparable to nothing, so the contradiction check never fires on it. The lint
+# emits a soft flag (never an error) asking for a real class.
+sentinels:
+  unstated:
+    title: Unstated
+    summary: >-
+      The wiki text does not say which class of reduction is meant. Legal, and
+      the honest value when the source is silent -- but it buys no protection
+      from the contradiction check.
+
+# Values authors reach for that are NOT classes. The lint rejects each with the
+# message below, so a failing PR can be fixed from lint output alone.
+rejected:
+  black-box:
+    message: >-
+      "black-box" alone does not name a class. Say which: fully-black-box |
+      semi-black-box | weakly-black-box | forall-exists-semi-black-box |
+      forall-exists-weakly-black-box | relativizing. If the source does not say,
+      use `unstated`.
+  non-black-box:
+    message: >-
+      RTV04 has no class called "non-black-box". A non-black-box *construction*
+      is one of the forall-exists notions; a non-black-box *proof* is
+      semi-black-box or weakly-black-box. If the source says only "non-black-box"
+      without saying which, use `free`.
+  mildly-black-box:
+    message: >-
+      Use `weakly-black-box`. RTV04's "weakly" is called "mildly" in some
+      versions of the paper; this vocabulary keeps one name per class.
+  generic-group:
+    message: >-
+      Idealized computation models are the `model:` axis, not the `class:` axis.
+      Set model: generic-group and class: free (a generic-group lower bound rules
+      out every algorithm in that model, which is the `free` class scoped by the
+      model).
+  generic-ring:
+    message: >-
+      See `generic-group`: set model: other, class: free, and name the ring model
+      in `security-loss` or the page body.
+  rom:
+    message: >-
+      Idealized computation models are the `model:` axis. Set model: rom and pick
+      a class.
