@@ -46,6 +46,7 @@ is negligible.
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 # Variations
 

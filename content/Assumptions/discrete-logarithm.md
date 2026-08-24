@@ -47,6 +47,7 @@ is negligible.
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
+- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 ## Attacks
 

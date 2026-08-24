@@ -72,6 +72,7 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 - [[he-to-re-bl13|HE ⇒ RE]]
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
+- Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
 <!-- BEGIN GENERATED participates-in 601301307e28 -->
 
