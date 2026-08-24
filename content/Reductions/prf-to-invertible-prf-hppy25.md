@@ -4,6 +4,7 @@ status: draft
 title: PRF ⇒ iPRF
 aliases: []
 id: red-prf-to-invertible-prf-hppy25
+kind: implication
 hypotheses: [prf]
 conclusion: invertible-prf
 class: unstated

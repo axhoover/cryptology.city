@@ -5,6 +5,7 @@ title: PRG ⇒ PRF (GGM)
 aliases:
   - GGM construction
 id: red-prg-to-prf-ggm86
+kind: implication
 hypotheses: [prg]
 conclusion: prf
 class: fully-black-box

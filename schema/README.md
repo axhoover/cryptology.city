@@ -30,7 +30,22 @@ A classical black-box separation is the case `Q = contradiction`.
 Impagliazzo–Rudich is the general case (`Q = P != NP`). Same theorem shape, same
 type, one page each.
 
-Two rules follow, and the lint enforces both:
+### What the hyperedge asserts: `kind`
+
+`kind` is required on every reduction, because implicit typing is exactly how the
+prose lost information. "AM[k] = AM[2] = AM" and "QIP = PSPACE" are _equalities_;
+split into hyperedges without a `kind`, both read as one-way implications.
+
+| `kind`        | Means                                                     | Hypotheses  |
+| ------------- | --------------------------------------------------------- | ----------- |
+| `implication` | the hypotheses jointly imply the conclusion               | one or more |
+| `inclusion`   | the conclusion contains the hypothesis (`IP ⊆ PSPACE`)    | exactly one |
+| `equivalence` | hypothesis and conclusion are equivalent, both directions | exactly one |
+
+`inclusion` and `equivalence` relate exactly two objects, so they take exactly
+one hypothesis; a conjunction of hypotheses is always an `implication`.
+
+Two further rules follow, and the lint enforces both:
 
 - **Disjunction and conjunction must stay distinguishable.** Several
   assumptions each independently sufficient — LWE ⇒ PKE, DDH ⇒ PKE — are

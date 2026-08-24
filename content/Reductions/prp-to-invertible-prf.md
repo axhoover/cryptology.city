@@ -4,6 +4,7 @@ status: stub
 title: PRP ⇒ iPRF (large domains)
 aliases: []
 id: red-prp-to-invertible-prf
+kind: implication
 hypotheses: [prp]
 conclusion: invertible-prf
 class: unstated

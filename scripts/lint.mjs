@@ -47,7 +47,15 @@ const TYPES = {
   note: { dir: "" }, // root pages
   reduction: {
     dir: "Reductions",
-    required: ["id", "hypotheses", "conclusion", "class", "model", "source"],
+    required: [
+      "id",
+      "kind",
+      "hypotheses",
+      "conclusion",
+      "class",
+      "model",
+      "source",
+    ],
   },
   barrier: {
     dir: "Barriers",
@@ -77,6 +85,7 @@ const OPTIONAL_KEYS = new Set([
   "unlisted", // built and linkable, hidden from the explorer and folder listings
   "id", // stable object id, independent of the slug
   "variants", // named sub-objects living as sections of this page
+  "kind",
   "model",
   "security-loss",
   "via",
@@ -109,6 +118,14 @@ const MODELS = [
   "quantum",
   "other",
 ];
+// What the hyperedge asserts. Implicit typing is how the prose lost equalities:
+// "AM[k] = AM[2] = AM" and "QIP = PSPACE" both read as one-way implications once
+// split into sub-edges. `kind` makes the assertion explicit.
+//   implication  the hypotheses jointly imply the conclusion
+//   inclusion    the conclusion contains the hypothesis (IP subset-of PSPACE)
+//   equivalence  hypothesis and conclusion are equivalent, both directions
+const KINDS = ["implication", "inclusion", "equivalence"];
+const BINARY_KINDS = ["inclusion", "equivalence"]; // exactly one hypothesis
 const STRENGTHS = ["unconditional", "conditional"];
 const CONSEQUENCE_KINDS = [
   "contradiction",
@@ -519,6 +536,27 @@ for (const p of pages) {
         1,
         "edge-conclusion",
         `conclusion must be exactly one object id (a string), e.g.\n  conclusion: prf\nA claim with two conclusions is two pages.`,
+      );
+    }
+
+    if (fm.kind !== undefined && !KINDS.includes(String(fm.kind))) {
+      err(
+        f,
+        1,
+        "edge-kind",
+        `kind "${fm.kind}" is not valid. Valid: ${KINDS.join(" | ")}. Use "implication" for a construction, "inclusion" for a class containment (IP subset-of PSPACE), "equivalence" when both directions hold.`,
+      );
+    }
+    if (
+      BINARY_KINDS.includes(String(fm.kind)) &&
+      Array.isArray(fm.hypotheses) &&
+      fm.hypotheses.length !== 1
+    ) {
+      err(
+        f,
+        1,
+        "edge-kind",
+        `kind "${fm.kind}" relates exactly two objects, so it takes exactly one hypothesis (got ${fm.hypotheses.length}). A conjunction of hypotheses is an "implication".`,
       );
     }
 

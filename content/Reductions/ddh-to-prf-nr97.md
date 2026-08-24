@@ -5,6 +5,7 @@ title: DDH ⇒ PRF (Naor–Reingold)
 aliases:
   - Naor-Reingold PRF
 id: red-ddh-to-prf-nr97
+kind: implication
 hypotheses: [ddh]
 conclusion: prf
 class: unstated

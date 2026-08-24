@@ -4,6 +4,7 @@ status: draft
 title: OWF ⇒ PRG
 aliases: []
 id: red-owf-to-prg-hill99
+kind: implication
 hypotheses: [owf]
 conclusion: prg
 class: unstated

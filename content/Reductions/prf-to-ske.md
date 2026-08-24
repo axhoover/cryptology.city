@@ -4,6 +4,7 @@ status: stub
 title: PRF ⇒ CPA-secure SKE
 aliases: []
 id: red-prf-to-ske
+kind: implication
 hypotheses: [prf]
 conclusion: ske
 class: unstated

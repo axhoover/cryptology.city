@@ -4,6 +4,7 @@ status: stub
 title: PRF ⇒ MAC
 aliases: []
 id: red-prf-to-mac
+kind: implication
 hypotheses: [prf]
 conclusion: mac
 class: unstated
