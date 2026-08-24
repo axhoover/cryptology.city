@@ -32,14 +32,29 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          # The prompt greps vendor/cryptobib/crypto.bib for the paper's
+          # citation key. Without this the path does not exist and every
+          # lookup silently misses.
+          submodules: recursive
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      # scripts/lint.mjs and scripts/generate-relations.mjs need gray-matter
+      # and js-yaml, and the agent has to be able to run them before opening a
+      # PR — the repository's PR checks workflow is disabled, so this run is
+      # the only gate a submission passes through.
+      - run: npm ci
 
       - name: Stage submission
         id: stage
         env:
           PAPER_TYPE: ${{ github.event.client_payload.paper.type }}
-          PAPER_URL:  ${{ github.event.client_payload.paper.url }}
+          PAPER_URL: ${{ github.event.client_payload.paper.url }}
           PAPER_SOURCE_URL: ${{ github.event.client_payload.paper.source_url }}
-          NOTES:      ${{ github.event.client_payload.notes }}
+          NOTES: ${{ github.event.client_payload.notes }}
           SUBMITTED_AT: ${{ github.event.client_payload.submitted_at }}
         run: |
           set -euo pipefail
@@ -130,5 +145,71 @@ jobs:
             the drafted critique, the citation entry, and any flags about
             uncertainty in your reading. The PR should be marked as a draft.
           claude_args: |
-            --allowed-tools "Read,Write,Edit,Glob,Grep,Bash(git:*),Bash(gh:*),Bash(find:*),Bash(file:*),Bash(jq:*),WebFetch,WebSearch"
-            --max-turns 40
+            --allowed-tools "Read,Write,Edit,Glob,Grep,Bash(git:*),Bash(gh:*),Bash(find:*),Bash(file:*),Bash(jq:*),Bash(npm:*),Bash(npx:*),Bash(node:*),WebFetch,WebSearch"
+            --max-turns 60
+
+      # Deterministic gate. The prompt asks the agent to run these before
+      # opening the PR; this re-runs them on whatever it actually committed, so
+      # a submission cannot land content that fails the schema, leaves the
+      # generated manifest stale, or breaks the build. Same principle as
+      # docs/microcrypt-sync.md: the checks a model could silently get wrong
+      # are done in code, not in prose.
+      - name: Verify what the agent committed
+        if: always()
+        run: |
+          set -uo pipefail
+          echo "Verifying on branch: $(git rev-parse --abbrev-ref HEAD)"
+          status=0
+
+          echo "::group::Content lint"
+          node scripts/lint.mjs || status=1
+          echo "::endgroup::"
+
+          echo "::group::Generated regions and relations.json"
+          node scripts/generate-relations.mjs --check || status=1
+          echo "::endgroup::"
+
+          echo "::group::Quartz build"
+          npx quartz build || status=1
+          echo "::endgroup::"
+
+          if [ "$status" -ne 0 ]; then
+            echo "::error::A submission PR was produced that does not pass the repository checks. Treat the PR as unmergeable and read the groups above; the lint names the file, the field, and a valid example."
+          fi
+          echo "verify_status=$status" >> "$GITHUB_OUTPUT"
+          exit $status
+        id: verify
+
+      # Say so on the PR itself. A reviewer should not have to open the Actions
+      # log to learn that the draft in front of them does not build.
+      - name: Flag a failing submission on its PR
+        if: always() && steps.verify.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+          PR="$(gh pr list --head "$BRANCH" --json number --jq '.[0].number' 2>/dev/null || true)"
+          if [ -z "${PR:-}" ]; then
+            echo "No PR for $BRANCH; nothing to annotate."
+            exit 0
+          fi
+          # printf, not a heredoc: this block is indented inside the YAML, and a
+          # heredoc would carry the leading spaces into the comment, rendering
+          # the whole body as one code block.
+          BODY_FILE="$RUNNER_TEMP/pr-comment.md"
+          printf '%s\n' \
+            '**This draft does not pass the repository checks and is not mergeable as-is.**' \
+            '' \
+            'The workflow re-runs `scripts/lint.mjs`, `scripts/generate-relations.mjs --check`' \
+            'and `npx quartz build` against whatever the agent committed. One of them failed;' \
+            'the job log shows which, grouped by check.' \
+            '' \
+            'Common causes, in order of likelihood:' \
+            '' \
+            '- a reduction names an object id that does not exist (`edge-unresolved-id`)' \
+            '- `class` is `black-box`, or another value that is not an RTV notion' \
+            '- `.reductions/relations.json` is stale - run `node scripts/generate-relations.mjs`' \
+            '- a generated `participates-in` region was hand-edited' \
+            > "$BODY_FILE"
+          gh pr comment "$PR" --body-file "$BODY_FILE"
