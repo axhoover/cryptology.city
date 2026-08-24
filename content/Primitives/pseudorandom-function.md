@@ -121,6 +121,7 @@ TODO: define these and say how they relate to PRPs
 - [[prf-to-mac|PRF ⇒ MAC]]
 
 <!-- BEGIN GENERATED participates-in 4a0f125ffa3b -->
+
 ## Participates in
 
 **Builds on Pseudorandom function**
@@ -140,4 +141,5 @@ TODO: define these and say how they relate to PRPs
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prp-to-prf|PRP ⇒ PRF]]
+
 <!-- END GENERATED participates-in -->

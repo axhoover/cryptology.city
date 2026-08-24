@@ -63,6 +63,7 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric pairing. Strong
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 <!-- BEGIN GENERATED participates-in 5bc22da2b15f -->
+
 ## Participates in
 
 **Builds on Bilinear map assumptions**
@@ -81,4 +82,5 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric pairing. Strong
 
 - [[cdh-to-bdh|CDH ⇒ BDH]]
 - [[sxdh-symmetric-external-diffie-hellman-to-bdh|SXDH (Symmetric External Diffie-Hellman) ⇒ BDH]]
+
 <!-- END GENERATED participates-in -->

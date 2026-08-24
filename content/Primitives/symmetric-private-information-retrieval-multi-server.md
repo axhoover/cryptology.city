@@ -22,9 +22,11 @@ Symmetric private information retrieval is a stronger version of [[multi-server-
 # Known results
 
 <!-- BEGIN GENERATED participates-in abb06b978648 -->
+
 ## Participates in
 
 **Builds on Multi-server Symmetric private information retrieval**
 
 - [[spir-to-it-pir|SPIR ⇒ IT-PIR]]
+
 <!-- END GENERATED participates-in -->

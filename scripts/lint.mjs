@@ -818,7 +818,7 @@ for (const p of pages) {
 const GEN_BEGIN = "<!-- BEGIN GENERATED participates-in";
 const GEN_END = "<!-- END GENERATED participates-in -->";
 const GEN_RE =
-  /<!-- BEGIN GENERATED participates-in ([0-9a-f]+) -->\n([\s\S]*?)\n<!-- END GENERATED participates-in -->/g;
+  /<!-- BEGIN GENERATED participates-in ([0-9a-f]+) -->([\s\S]*?)<!-- END GENERATED participates-in -->/g;
 for (const p of pages) {
   const opens = p.body.split(GEN_BEGIN).length - 1;
   const closes = p.body.split(GEN_END).length - 1;
@@ -834,7 +834,7 @@ for (const p of pages) {
   for (const m of p.body.matchAll(GEN_RE)) {
     const actual = crypto
       .createHash("sha256")
-      .update(m[2], "utf8")
+      .update(m[2].trim(), "utf8")
       .digest("hex")
       .slice(0, 12);
     if (actual !== m[1]) {

@@ -305,16 +305,13 @@ const digest = (s) =>
 function regionFor(id) {
   const inner = participatesIn(id);
   if (!inner) return null;
-  return `${BEGIN} ${digest(inner)} -->\n${inner}\n${END}`;
+  // Blank lines around the markers so `prettier --write` leaves the region
+  // byte-identical; otherwise formatting alone would break every checksum.
+  return `${BEGIN} ${digest(inner)} -->\n\n${inner}\n\n${END}`;
 }
 
-const REGION_RE = new RegExp(
-  `${BEGIN.replace(/[.*+?^${}()|[\\]\\\\]/g, "\\\\$&")}[^>]*-->\\n?[\\s\\S]*?${END.replace(
-    /[.*+?^${}()|[\]\\]/g,
-    "\\$&",
-  )}`,
-  "g",
-);
+const REGION_RE =
+  /<!-- BEGIN GENERATED participates-in [0-9a-f]+ -->[\s\S]*?<!-- END GENERATED participates-in -->/g;
 
 let changed = [];
 for (const p of pages) {

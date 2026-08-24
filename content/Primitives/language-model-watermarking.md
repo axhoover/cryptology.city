@@ -15,9 +15,11 @@ A language model watermarking scheme embeds a hidden signal in a model's output 
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in cdceda700463 -->
+
 ## Participates in
 
 **Produces Language model watermarking**
 
 - [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
+
 <!-- END GENERATED participates-in -->

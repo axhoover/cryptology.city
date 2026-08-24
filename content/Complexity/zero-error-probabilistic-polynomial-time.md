@@ -25,3 +25,17 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Z#z
 - $\classP \subseteq \classZPP \subseteq \classRP \subseteq \classBPP$.
 - If $\classP = \classBPP$ (the derandomization hypothesis), then $\classP = \classZPP = \classRP = \classBPP$.
 - ZPP is closed under complement: $\classZPP = \mathbf{coZPP}$.
+
+<!-- BEGIN GENERATED participates-in 5c075c6a297a -->
+
+## Participates in
+
+**Builds on Zero-error probabilistic polynomial-time**
+
+- [[zpp-to-rp|ZPP ⊆ RP]]
+
+**Produces Zero-error probabilistic polynomial-time**
+
+- [[p-to-zpp|P ⊆ ZPP]]
+
+<!-- END GENERATED participates-in -->

@@ -56,6 +56,7 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$); NOT and XOR are linear and free — standard
 
 <!-- BEGIN GENERATED participates-in 2c4480f0a436 -->
+
 ## Participates in
 
 **Builds on Arithmetization**
@@ -65,4 +66,5 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - [[arithmetization-and-pcs-to-snark-kzg10|Arithmetization + PCS ⇒ SNARK]]
 - [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
 - [[arithmetization-to-zk-snark-gro16|Arithmetization ⇒ zk-SNARK]]
+
 <!-- END GENERATED participates-in -->

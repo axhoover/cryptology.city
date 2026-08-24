@@ -34,3 +34,14 @@ Non-uniform security is the standard model in modern cryptography. When we say a
 - Security reductions are often stated in the non-uniform setting.
 - The existence of one-way functions implies $\classP \neq \classPpoly \cap \classNP$ in a certain oracle-relativized sense (one-way functions separate uniform and non-uniform worlds).
 - PRG constructions that fool $\classPpoly$ are strictly stronger than those that fool only uniform algorithms.
+
+<!-- BEGIN GENERATED participates-in cde6fbbdc1db -->
+
+## Participates in
+
+**Produces P/poly**
+
+- [[bpp-to-p-poly|BPP ⊆ P/poly]]
+- [[p-to-p-poly|P ⊆ P/poly]]
+
+<!-- END GENERATED participates-in -->

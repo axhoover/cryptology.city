@@ -16,9 +16,11 @@ The CDH problem across the two groups of an asymmetric bilinear pairing: given $
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 9cadd5930700 -->
+
 ## Participates in
 
 **Builds on co-Computational Diffie-Hellman**
 
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
+
 <!-- END GENERATED participates-in -->

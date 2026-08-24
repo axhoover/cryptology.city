@@ -15,9 +15,11 @@ An unclonable encryption scheme encrypts a classical message into a quantum ciph
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in a3d8fc850d43 -->
+
 ## Participates in
 
 **Produces Unclonable encryption**
 
 - [[owsg-to-unclonable-encryption|OWSG ⇒ Unclonable encryption]]
+
 <!-- END GENERATED participates-in -->

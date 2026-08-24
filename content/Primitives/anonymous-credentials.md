@@ -16,9 +16,11 @@ A credential system in which a user obtains a credential from an issuer and late
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 14fc8516b086 -->
+
 ## Participates in
 
 **Produces Anonymous credentials**
 
 - [[bdh-to-ac|BDH ⇒ AC]]
+
 <!-- END GENERATED participates-in -->

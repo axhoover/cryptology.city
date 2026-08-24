@@ -125,6 +125,7 @@ Ring-LPN replaces the matrix $\mathbf{A} \in \FF_2^{m \times k}$ with multiplica
 Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficient pseudorandom correlation generator constructions.
 
 <!-- BEGIN GENERATED participates-in ca3941503e99 -->
+
 ## Participates in
 
 **Builds on Learning parity with noise**
@@ -138,4 +139,5 @@ Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficien
 
 - [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
 - [[sparse-learning-parity-with-noise-to-lpn|Sparse Learning Parity with Noise ⇒ LPN]]
+
 <!-- END GENERATED participates-in -->

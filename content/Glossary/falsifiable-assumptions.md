@@ -15,6 +15,7 @@ An assumption is falsifiable if a violation of it can be witnessed by a polynomi
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 1ab3ff6fb29d -->
+
 ## Participates in
 
 **Builds on Falsifiable assumptions**
@@ -25,4 +26,5 @@ TODO: syntax and security definition.
 
 - [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
+
 <!-- END GENERATED participates-in -->

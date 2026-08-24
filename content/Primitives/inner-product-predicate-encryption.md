@@ -85,6 +85,7 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
 <!-- BEGIN GENERATED participates-in 99ea01756488 -->
+
 ## Participates in
 
 **Builds on Inner-product predicate encryption**
@@ -99,4 +100,5 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 **Barriers**
 
 - [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+
 <!-- END GENERATED participates-in -->

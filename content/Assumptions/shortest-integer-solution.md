@@ -77,6 +77,7 @@ Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now r
 Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Module-SIS is the hardness assumption underlying the NIST post-quantum signature standard Dilithium (ML-DSA, FIPS 204).
 
 <!-- BEGIN GENERATED participates-in b42b3578a60e -->
+
 ## Participates in
 
 **Builds on Shortest Integer Solution**
@@ -90,4 +91,5 @@ Hardness of Module-SIS reduces to worst-case problems on module lattices — [[L
 - [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]]
 - [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]
 - [[sivp-to-sis-ajt96|SIVP ⇒ SIS]]
+
 <!-- END GENERATED participates-in -->

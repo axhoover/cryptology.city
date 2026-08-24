@@ -102,6 +102,7 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
 <!-- BEGIN GENERATED participates-in d9a546747064 -->
+
 ## Participates in
 
 **Builds on Succinct argument**
@@ -130,4 +131,5 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 - [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
+
 <!-- END GENERATED participates-in -->

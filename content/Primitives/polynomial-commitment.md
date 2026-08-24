@@ -84,6 +84,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - [[pcs-to-vector-commitments|PCS ⇔ Vector commitments]]
 
 <!-- BEGIN GENERATED participates-in 05d1dda535f9 -->
+
 ## Participates in
 
 **Builds on Polynomial commitment scheme**
@@ -99,4 +100,5 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[hash-function-to-pcs-bbhr18|Hash function ⇒ PCS]]
+
 <!-- END GENERATED participates-in -->

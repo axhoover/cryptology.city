@@ -16,9 +16,11 @@ A monotone span program over a field F is a matrix whose rows are labeled by par
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 912fe70d1b03 -->
+
 ## Participates in
 
 **Produces Monotone span program**
 
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
+
 <!-- END GENERATED participates-in -->

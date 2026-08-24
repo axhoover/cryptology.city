@@ -22,10 +22,22 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#i
 - $\classIP = \classPSPACE$ — TODO citation
 - $\classIP \neq \classPSPACE$ relative in the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
 
-<!-- BEGIN GENERATED participates-in 1d957d8fa484 -->
+<!-- BEGIN GENERATED participates-in cee5d09e61ee -->
+
 ## Participates in
 
 **Builds on Interactive Proof Systems**
 
 - [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
+- [[ip-to-am-gs86|IP ⊆ AM]]
+- [[ip-to-pspace-ccg-94|IP ⊆ PSPACE]]
+- [[ip-to-qip|IP ⊆ QIP]]
+- [[ip-to-szk-bgg-90|IP ⊆ SZK]]
+
+**Produces Interactive Proof Systems**
+
+- [[czk-to-ip-bgg-90|CZK = IP]]
+- [[qip-to-ip|QIP = IP]]
+- [[szk-to-ip|SZK ⊆ IP]]
+
 <!-- END GENERATED participates-in -->

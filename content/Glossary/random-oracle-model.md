@@ -28,6 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
 <!-- BEGIN GENERATED participates-in 8cb591afce1b -->
+
 ## Participates in
 
 **Builds on Random Oracle Model**
@@ -46,4 +47,5 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[no-rom-to-merkle-puzzles-bm09|No reduction from ROM to Merkle puzzles]]
 - [[no-rom-to-roh-ccg-94|No relativizing reduction from ROM to ROH]]
+
 <!-- END GENERATED participates-in -->

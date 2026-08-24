@@ -72,6 +72,7 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e$, it is hard 
 - **Chosen-ciphertext attacks**: textbook RSA (without padding) is not CCA-secure; OAEP padding is required in practice.
 
 <!-- BEGIN GENERATED participates-in 83500d687079 -->
+
 ## Participates in
 
 **Builds on RSA Assumption**
@@ -86,4 +87,5 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e$, it is hard 
 
 - [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
+
 <!-- END GENERATED participates-in -->

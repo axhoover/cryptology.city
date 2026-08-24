@@ -16,9 +16,11 @@ A threshold encryption scheme distributes the decryption key of a public-key enc
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in d8992360f8ce -->
+
 ## Participates in
 
 **Produces Threshold encryption**
 
 - [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
+
 <!-- END GENERATED participates-in -->

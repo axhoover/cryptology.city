@@ -16,10 +16,12 @@ For a uniformly random rank-$k$ secret matrix $\mathbf{C} \in \FF^{k \times n}$,
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 109da4c9ef65 -->
+
 ## Participates in
 
 **Builds on Learning subspace with noise**
 
 - [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
 - [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]]
+
 <!-- END GENERATED participates-in -->

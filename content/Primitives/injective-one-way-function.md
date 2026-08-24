@@ -16,9 +16,11 @@ An injective one-way function is a one-way function that is injective but need n
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 6da4acd9ad1f -->
+
 ## Participates in
 
 **Barriers**
 
 - [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+
 <!-- END GENERATED participates-in -->

@@ -60,6 +60,7 @@ TODO
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ DEPIR]]
 
 <!-- BEGIN GENERATED participates-in e4fb5401558e -->
+
 ## Participates in
 
 **Builds on Doubly-efficient PIR**
@@ -79,4 +80,5 @@ TODO
 **Barriers**
 
 - [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
+
 <!-- END GENERATED participates-in -->

@@ -37,10 +37,17 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
   - This explains why practical ZK protocols (e.g., Sigma protocols) require a super-constant number of rounds or use non-black-box techniques
 - **Parallel composition breaks ZK**: repeating a ZK protocol in parallel to reduce soundness error may destroy the zero-knowledge property — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 
-<!-- BEGIN GENERATED participates-in 63aca3353cda -->
+<!-- BEGIN GENERATED participates-in 089be31ff60f -->
+
 ## Participates in
+
+**Builds on Computational zero-knowledge**
+
+- [[czk-to-ip-bgg-90|CZK = IP]]
 
 **Produces Computational zero-knowledge**
 
 - [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[szk-to-czk|SZK ⊆ CZK]]
+
 <!-- END GENERATED participates-in -->

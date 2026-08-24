@@ -35,3 +35,19 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 - $\classQIP = \classPSPACE$ implies that quantum zero-knowledge protocols with multiple rounds are no more expressive than classical ones from a language-recognition standpoint.
 - The $\mathbf{MIP^*} = \mathbf{RE}$ result has profound implications: it shows that quantum entanglement can be used to certify computations in ways that are fundamentally unverifiable by classical means — raising both opportunities and challenges for quantum cryptographic protocols.
+
+<!-- BEGIN GENERATED participates-in cee58615c231 -->
+
+## Participates in
+
+**Builds on Quantum Interactive Proofs**
+
+- [[qip-to-ip|QIP = IP]]
+- [[qip-to-pspace|QIP = PSPACE]]
+
+**Produces Quantum Interactive Proofs**
+
+- [[ip-to-qip|IP ⊆ QIP]]
+- [[qszk-to-qip|QSZK ⊆ QIP]]
+
+<!-- END GENERATED participates-in -->

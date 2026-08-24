@@ -27,3 +27,21 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - **Tautology**: given a Boolean formula, is every assignment satisfying? (The complement of SAT, which is NP-complete.)
 - **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\classSZK$ and $\classcoAM$).
 - **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — TODO citation).
+
+<!-- BEGIN GENERATED participates-in af0b9d6ea3dd -->
+
+## Participates in
+
+**Builds on Co-nondeterministic polynomial-time**
+
+- [[conp-to-am-gs86|coNP ⊆ AM]]
+- [[conp-to-coam|coNP ⊆ coAM]]
+- [[conp-to-pspace|coNP ⊆ PSPACE]]
+
+**Produces Co-nondeterministic polynomial-time**
+
+- [[dlog-to-conp|DLOG ⊆ coNP]]
+- [[np-to-conp|NP = coNP]]
+- [[p-to-conp|P ⊆ coNP]]
+
+<!-- END GENERATED participates-in -->

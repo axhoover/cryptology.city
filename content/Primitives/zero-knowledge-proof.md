@@ -83,6 +83,7 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
 
 <!-- BEGIN GENERATED participates-in ac519d22a12c -->
+
 ## Participates in
 
 **Builds on Zero-knowledge proof**
@@ -101,4 +102,5 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 **Barriers**
 
 - [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
+
 <!-- END GENERATED participates-in -->

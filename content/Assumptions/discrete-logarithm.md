@@ -103,7 +103,8 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in bc81cdd4c197 -->
+<!-- BEGIN GENERATED participates-in 0d4eceec60e8 -->
+
 ## Participates in
 
 **Builds on Discrete logarithm**
@@ -111,20 +112,25 @@ is negligible.
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG + ROM ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
+- [[dlog-to-conp|DLOG ⊆ coNP]]
 - [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
 - [[dlog-to-ds-sch91|DLOG ⇒ DS]]
+- [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-tdp|DLOG ⇒ TDP]]
+- [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[dlog-to-zkp|DLOG ⇒ ZKP]]
 
 **Produces Discrete logarithm**
 
+- [[bqp-to-dlog-shor97|BQP ⊆ DLOG]]
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 
 **Barriers**
 
 - [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
 - [[no-the-structured-ggm-to-dlog-chw26|No free reduction from The Structured GGM to DLOG]]
+
 <!-- END GENERATED participates-in -->

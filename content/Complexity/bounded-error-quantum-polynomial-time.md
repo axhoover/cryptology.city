@@ -37,10 +37,21 @@ BQP defines the power of a quantum adversary. All post-quantum cryptographic sch
 
 Grover's algorithm gives a generic quadratic speedup on unstructured search, implying that symmetric-key schemes need security parameters roughly twice as large (e.g., AES-256 instead of AES-128) to maintain $\secpar$-bit post-quantum security. However, based on [NIST post-quantum standards](<https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)>) suggest that this may not be necessary. Primarily, this is because Grover's algorithm cannot be parallelized ([[Zal97 - Grover's quantum searching algorithm is optimal | Zal97]]), and therefore the speedup requires a very long serial computation that may be infeasible.
 
-<!-- BEGIN GENERATED participates-in a9dcb0d18b33 -->
+<!-- BEGIN GENERATED participates-in 2d42e5639c47 -->
+
 ## Participates in
+
+**Builds on Bounded-Error Quantum Polynomial-Time**
+
+- [[bqp-to-dlog-shor97|BQP ⊆ DLOG]]
+- [[bqp-to-pp|BQP ⊆ PP]]
+
+**Produces Bounded-Error Quantum Polynomial-Time**
+
+- [[bpp-to-bqp|BPP ⊆ BQP]]
 
 **Barriers**
 
 - [[no-bqp-to-np|No reduction from BQP to NP]]
+
 <!-- END GENERATED participates-in -->

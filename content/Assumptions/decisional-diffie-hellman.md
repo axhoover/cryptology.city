@@ -83,6 +83,7 @@ TODO
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
 <!-- BEGIN GENERATED participates-in 5dc512cb01b6 -->
+
 ## Participates in
 
 **Builds on Decisional Diffie-Hellman**
@@ -105,4 +106,5 @@ TODO
 **Barriers**
 
 - [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
+
 <!-- END GENERATED participates-in -->

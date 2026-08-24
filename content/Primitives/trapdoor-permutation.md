@@ -62,6 +62,7 @@ A generalization where there are two modes: an injective mode (standard TDP) and
 - [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
 
 <!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
+
 ## Participates in
 
 **Builds on Trapdoor permutation**
@@ -80,4 +81,5 @@ A generalization where there are two modes: an injective mode (standard TDP) and
 **Barriers**
 
 - [[no-tdp-to-ot|No reduction from TDP to OT]]
+
 <!-- END GENERATED participates-in -->

@@ -58,6 +58,7 @@ deterministically.
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
 <!-- BEGIN GENERATED participates-in 2823d6b232cf -->
+
 ## Participates in
 
 **Builds on Computational Diffie-Hellman**
@@ -74,4 +75,5 @@ deterministically.
 **Barriers**
 
 - [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
+
 <!-- END GENERATED participates-in -->

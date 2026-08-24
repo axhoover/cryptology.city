@@ -69,10 +69,12 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
 
 <!-- BEGIN GENERATED participates-in 173a79eddc53 -->
+
 ## Participates in
 
 **Builds on Secret sharing**
 
 - [[com-and-ss-to-verifiable-secret-sharing-vss|COM + SS ⇒ Verifiable secret sharing (VSS)]]
 - [[ss-to-it-pir-cgks98|SS ⇒ IT-PIR]]
+
 <!-- END GENERATED participates-in -->

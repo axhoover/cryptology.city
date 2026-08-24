@@ -90,6 +90,7 @@ RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|ra
 - [[kem-to-ke|KEM ⇒ KE]]
 
 <!-- BEGIN GENERATED participates-in 4960c8d92081 -->
+
 ## Participates in
 
 **Builds on Key encapsulation mechanism**
@@ -102,4 +103,5 @@ RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|ra
 - [[module-lwe-to-kem|Module LWE ⇒ KEM]]
 - [[ntru-to-kem|NTRU ⇒ KEM]]
 - [[pke-to-kem|PKE ⇒ KEM]]
+
 <!-- END GENERATED participates-in -->

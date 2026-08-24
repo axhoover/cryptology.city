@@ -24,3 +24,16 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#c
 ## Notable problems
 
 - **Graph non-isomorphism**: given two graphs $G_0, G_1$, are they non-isomorphic? This is in coAM: Arthur picks a random bit $b$ and a random permutation $\pi$, sends $\pi(G_b)$ to Merlin, and Merlin must identify which original graph it came from. If the graphs are non-isomorphic, Merlin (with unbounded power) can always identify $b$ correctly.
+
+<!-- BEGIN GENERATED participates-in e017f03e9d23 -->
+
+## Participates in
+
+**Produces Co-Arthur-Merlin**
+
+- [[am-to-coam|AM = coAM]]
+- [[bpp-to-coam-gs86|BPP ⊆ coAM]]
+- [[conp-to-coam|coNP ⊆ coAM]]
+- [[szk-to-coam|SZK ⊆ coAM]]
+
+<!-- END GENERATED participates-in -->

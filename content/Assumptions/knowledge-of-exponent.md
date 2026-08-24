@@ -47,6 +47,7 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 - The non-falsifiable nature means KEA's "attacks" are philosophical: one cannot rule out adversaries who produce valid pairs without knowledge
 
 <!-- BEGIN GENERATED participates-in 711358f8b8f1 -->
+
 ## Participates in
 
 **Builds on Knowledge of exponent assumption**
@@ -60,4 +61,5 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 **Barriers**
 
 - [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
+
 <!-- END GENERATED participates-in -->

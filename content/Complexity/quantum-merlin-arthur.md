@@ -50,10 +50,21 @@ QMA is the quantum analogue of NP-hardness. In post-quantum cryptography:
 - A quantum reduction from a QMA-hard problem to a cryptographic assumption would mean breaking the scheme is at least as hard as Local Hamiltonian — far stronger than any known assumption.
 - The question of whether lattice problems are QMA-hard (or merely in TFNP) has direct implications for the confidence we can place in post-quantum assumptions.
 
-<!-- BEGIN GENERATED participates-in 8b897264fb4d -->
+<!-- BEGIN GENERATED participates-in c5ee7e37d9be -->
+
 ## Participates in
+
+**Builds on Quantum Merlin-Arthur**
+
+- [[qma-to-pp|QMA ⊆ PP]]
+
+**Produces Quantum Merlin-Arthur**
+
+- [[notable-problems-to-qma|Notable problems = QMA]]
+- [[qcma-to-qma|QCMA ⊆ QMA]]
 
 **Barriers**
 
 - [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+
 <!-- END GENERATED participates-in -->

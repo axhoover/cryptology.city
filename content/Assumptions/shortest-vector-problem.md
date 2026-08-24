@@ -15,10 +15,12 @@ The promise problem of deciding, given a lattice basis and a parameter $d$, whet
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in bf6414718578 -->
+
 ## Participates in
 
 **Builds on Shortest Vector Problem**
 
 - [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
 - [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]]
+
 <!-- END GENERATED participates-in -->

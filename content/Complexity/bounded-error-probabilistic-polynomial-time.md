@@ -32,3 +32,23 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 In cryptography, efficient adversaries are modeled as probabilistic polynomial-time ($\PPT$) algorithms — the uniform version of BPP. Security definitions quantify over all $\PPT$ adversaries.
 
 If $\classP = \classBPP$ (the derandomization conjecture), then any cryptographic protocol secure against deterministic polynomial-time adversaries is also secure against randomized ones — but this would not render cryptography trivial, since it says nothing about the hardness of breaking schemes. Crucially, pseudorandom generators ([[pseudorandom-generator|PRG]]s) can be viewed as a crypto-primitive that _witnesses_ $\classBPP = \classP$: a PRG secure against all $\classPpoly$ adversaries implies $\classBPP = \classP$.
+
+<!-- BEGIN GENERATED participates-in e25b9fe6b4a8 -->
+
+## Participates in
+
+**Builds on Bounded-Error Probabilistic Polynomial-Time**
+
+- [[bpp-to-am-gs86|BPP ⊆ AM]]
+- [[bpp-to-bqp|BPP ⊆ BQP]]
+- [[bpp-to-coam-gs86|BPP ⊆ coAM]]
+- [[bpp-to-p-poly|BPP ⊆ P/poly]]
+- [[bpp-to-pp|BPP ⊆ PP]]
+- [[bpp-to-pspace|BPP ⊆ PSPACE]]
+
+**Produces Bounded-Error Probabilistic Polynomial-Time**
+
+- [[p-to-bpp|P ⊆ BPP]]
+- [[rp-to-bpp|RP ⊆ BPP]]
+
+<!-- END GENERATED participates-in -->

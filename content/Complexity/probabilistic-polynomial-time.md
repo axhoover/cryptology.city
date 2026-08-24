@@ -21,3 +21,22 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 - $\classBQP \subseteq \classPP$: quantum polynomial-time is contained in PP — TODO citation (Adleman, DeMarrais, Huang 1997). This is the key relationship placing quantum computing within classical complexity.
 - **Toda's theorem**: $\mathbf{PH} \subseteq \classP^{\classsharpP}$, the polynomial hierarchy is contained in polynomial time with a $\classsharpP$ oracle — TODO citation (Toda 1991). Since $\classsharpP \subseteq \classFP^{\classPP}$, this also implies $\mathbf{PH} \subseteq \classP^{\classPP}$.
 - PP is closed under complement, union, and intersection — TODO citation (Beigel, Reingold, Spielman 1995).
+
+<!-- BEGIN GENERATED participates-in ac109cae1a45 -->
+
+## Participates in
+
+**Builds on Probabilistic polynomial-time**
+
+- [[pp-to-pspace|PP ⊆ PSPACE]]
+
+**Produces Probabilistic polynomial-time**
+
+- [[bpp-to-pp|BPP ⊆ PP]]
+- [[bqp-to-pp|BQP ⊆ PP]]
+- [[ma-to-pp|MA ⊆ PP]]
+- [[np-to-pp|NP ⊆ PP]]
+- [[qcma-to-pp|QCMA ⊆ PP]]
+- [[qma-to-pp|QMA ⊆ PP]]
+
+<!-- END GENERATED participates-in -->

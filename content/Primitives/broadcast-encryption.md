@@ -83,6 +83,7 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 - [[bdh-to-be-bgw05|BDH ⇒ BE]]
 
 <!-- BEGIN GENERATED participates-in 9b1d412da796 -->
+
 ## Participates in
 
 **Produces Broadcast encryption**
@@ -90,4 +91,5 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 - [[abe-to-be|ABE ⇒ BE]]
 - [[bdh-to-be-bgw05|BDH ⇒ BE]]
 - [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]]
+
 <!-- END GENERATED participates-in -->

@@ -16,10 +16,12 @@ A pseudorandom generator whose output is computable by a logarithmic-depth boole
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 3a17f8ba55e4 -->
+
 ## Participates in
 
 **Builds on Pseudorandom generator in $\mathrm{NC}^1$**
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
 - [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
+
 <!-- END GENERATED participates-in -->

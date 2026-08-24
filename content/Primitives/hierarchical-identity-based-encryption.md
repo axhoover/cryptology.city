@@ -89,6 +89,7 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
 <!-- BEGIN GENERATED participates-in 833c8e964344 -->
+
 ## Participates in
 
 **Builds on Hierarchical identity-based encryption**
@@ -100,4 +101,5 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 - [[abe-to-hibe|ABE ⇒ HIBE]]
 - [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]]
 - [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+
 <!-- END GENERATED participates-in -->

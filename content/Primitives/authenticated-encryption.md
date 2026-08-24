@@ -15,9 +15,11 @@ A symmetric-key encryption scheme that provides both message confidentiality and
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 2ae93ea9695c -->
+
 ## Participates in
 
 **Builds on Authenticated encryption**
 
 - [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
+
 <!-- END GENERATED participates-in -->

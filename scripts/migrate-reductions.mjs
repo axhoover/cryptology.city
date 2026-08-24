@@ -34,7 +34,15 @@ const WRITE = process.argv.includes("--write");
 const onlyArg = process.argv.find((a) => a.startsWith("--only="));
 const STAGES = onlyArg
   ? new Set(onlyArg.slice("--only=".length).split(","))
-  : new Set(["ids", "nodes", "props", "reductions", "barriers", "pointers"]);
+  : new Set([
+      "ids",
+      "nodes",
+      "props",
+      "reductions",
+      "inclusions",
+      "barriers",
+      "pointers",
+    ]);
 
 const read = (p) => JSON.parse(fs.readFileSync(p, "utf8"));
 const worklist = read(path.join(ROOT, ".reductions", "worklist.json"));
@@ -142,8 +150,23 @@ const headingDisplay = (heading, fallback) => {
   // Fall back to titleizing the id. Short tokens are usually acronyms (prf,
   // abe, ot) but not always, so common words stay lowercase.
   const LOWER = new Set([
-    "with", "from", "over", "and", "or", "to", "in", "of", "for", "the", "a",
-    "an", "on", "by", "via", "per", "vs",
+    "with",
+    "from",
+    "over",
+    "and",
+    "or",
+    "to",
+    "in",
+    "of",
+    "for",
+    "the",
+    "a",
+    "an",
+    "on",
+    "by",
+    "via",
+    "per",
+    "vs",
   ]);
   return String(fallback)
     .split("-")
@@ -234,7 +257,11 @@ if (STAGES.has("nodes")) {
       continue;
     }
     if (nodes.has(v.variantId)) {
-      skip("variant", v.variantId, `already an id on ${nodes.get(v.variantId).file}`);
+      skip(
+        "variant",
+        v.variantId,
+        `already an id on ${nodes.get(v.variantId).file}`,
+      );
       continue;
     }
     // The anchor must be a real heading, or the lint rejects it at emit time.
@@ -266,10 +293,7 @@ if (STAGES.has("nodes")) {
     const existing = pageOf.get(rel).fm.variants ?? {};
     const lines = Object.keys(existing).length
       ? vs.map((v) => `  ${v.variantId}: "${v.anchor}"`)
-      : [
-          "variants:",
-          ...vs.map((v) => `  ${v.variantId}: "${v.anchor}"`),
-        ];
+      : ["variants:", ...vs.map((v) => `  ${v.variantId}: "${v.anchor}"`)];
     // When the page already has a variants block we must splice into it, not
     // re-declare the key.
     let out;
@@ -277,7 +301,9 @@ if (STAGES.has("nodes")) {
       const src = fs.readFileSync(file, "utf8");
       const m = src.match(/^variants:\n((?:[ \t]+.*\n)+)/m);
       if (!m) {
-        warn(`${rel}: has variants in frontmatter but no literal block; skipped`);
+        warn(
+          `${rel}: has variants in frontmatter but no literal block; skipped`,
+        );
         continue;
       }
       out = src.replace(m[0], m[0] + lines.join("\n") + "\n");
@@ -294,8 +320,16 @@ if (STAGES.has("nodes")) {
   // aliases: an id that is simply another spelling of a real one
   for (const a of decisions.aliases ?? []) {
     if (nodes.has(a.canonicalId))
-      nodes.set(a.objectId, { ...nodes.get(a.canonicalId), aliasOf: a.canonicalId });
-    else skip("alias", a.objectId, `canonical id ${a.canonicalId} does not resolve`);
+      nodes.set(a.objectId, {
+        ...nodes.get(a.canonicalId),
+        aliasOf: a.canonicalId,
+      });
+    else
+      skip(
+        "alias",
+        a.objectId,
+        `canonical id ${a.canonicalId} does not resolve`,
+      );
   }
 
   // new unlisted stub pages
@@ -304,7 +338,11 @@ if (STAGES.has("nodes")) {
     const file = path.join(ROOT, rel);
     if (fs.existsSync(file)) {
       skip("new-page", n.objectId, `${rel} already exists`);
-      nodes.set(n.objectId, { file: rel, kind: "page", display: n.abbrev || n.title });
+      nodes.set(n.objectId, {
+        file: rel,
+        kind: "page",
+        display: n.abbrev || n.title,
+      });
       continue;
     }
     const type = {
@@ -318,7 +356,9 @@ if (STAGES.has("nodes")) {
       skip("new-page", n.objectId, `unknown directory ${n.directory}`);
       continue;
     }
-    const aliases = [n.abbrev, n.title].filter(Boolean).filter((a, i, xs) => xs.indexOf(a) === i);
+    const aliases = [n.abbrev, n.title]
+      .filter(Boolean)
+      .filter((a, i, xs) => xs.indexOf(a) === i);
     const fm = [
       "---",
       `type: ${type}`,
@@ -338,7 +378,11 @@ if (STAGES.has("nodes")) {
       "",
     ].join("\n");
     write(file, fm);
-    nodes.set(n.objectId, { file: rel, kind: "page", display: n.abbrev || n.title });
+    nodes.set(n.objectId, {
+      file: rel,
+      kind: "page",
+      display: n.abbrev || n.title,
+    });
     report.newPages.push({ file: rel, id: n.objectId, title: n.title });
   }
 }
@@ -351,7 +395,8 @@ const propositionKeys = new Set();
 {
   const pf = path.join(ROOT, "schema", "propositions.yaml");
   const src = fs.readFileSync(pf, "utf8");
-  for (const m of src.matchAll(/^  ([a-z0-9-]+):$/gm)) propositionKeys.add(m[1]);
+  for (const m of src.matchAll(/^  ([a-z0-9-]+):$/gm))
+    propositionKeys.add(m[1]);
 
   if (STAGES.has("props")) {
     const add = [];
@@ -444,8 +489,7 @@ function normalizeClass(raw, isBarrier) {
   const c = String(raw ?? "").trim();
   if (CLASS_MODEL[c]) return { class: "free", model: CLASS_MODEL[c] };
   if (!c || c === "unstated" || c === "any") return { class: "unstated" };
-  if (c === "non-black-box")
-    return { class: isBarrier ? "unstated" : "free" };
+  if (c === "non-black-box") return { class: isBarrier ? "unstated" : "free" };
   // "black-box", "black-box-construction", "black-box-simulator", ... — real
   // information, but not enough to name an RTV notion.
   if (c.includes("black-box")) {
@@ -529,18 +573,15 @@ function statementSection(edge) {
     seen.add(v);
     const rel = st.sourcePage.replace(/^content\//, "").replace(/\.md$/, "");
     const slug = path.basename(rel);
-    const raw = String(st.section ?? "").replace(/^#+\s*/, "").trim();
+    const raw = String(st.section ?? "")
+      .replace(/^#+\s*/, "")
+      .trim();
     // The audit sometimes recorded a note where a heading belongs, e.g.
     // "(bare paragraph; page has NO H1 ...)". Only real headings are labels.
     const sect =
       raw && raw.length <= 48 && !/[();]/.test(raw) ? ` § ${raw}` : "";
     out.push(`Migrated verbatim from [[${slug}]]${sect}:`, "");
-    out.push(
-      ...v
-        .split("\n")
-        .map((l) => (l.trim() ? `> ${l}` : ">")),
-      "",
-    );
+    out.push(...v.split("\n").map((l) => (l.trim() ? `> ${l}` : ">")), "");
   }
   return out;
 }
@@ -652,13 +693,19 @@ function mergeByHyperedge(edges, dirLabel) {
       byKey.set(key, { ...raw, __key: key });
       continue;
     }
-    prev.sources = [...new Set([...(prev.sources ?? []), ...(raw.sources ?? [])])];
+    prev.sources = [
+      ...new Set([...(prev.sources ?? []), ...(raw.sources ?? [])]),
+    ];
     prev.statedOn = [...(prev.statedOn ?? []), ...(raw.statedOn ?? [])];
-    prev.problems = [...new Set([...(prev.problems ?? []), ...(raw.problems ?? [])])];
+    prev.problems = [
+      ...new Set([...(prev.problems ?? []), ...(raw.problems ?? [])]),
+    ];
     prev.__mergedFrom = [...(prev.__mergedFrom ?? [prev.id]), raw.id];
     // Prefer a stated class/model over an unstated one.
-    if ((!prev.class || prev.class === "unstated") && raw.class) prev.class = raw.class;
-    if ((!prev.model || prev.model === "unstated") && raw.model) prev.model = raw.model;
+    if ((!prev.class || prev.class === "unstated") && raw.class)
+      prev.class = raw.class;
+    if ((!prev.model || prev.model === "unstated") && raw.model)
+      prev.model = raw.model;
     if (!prev.sketchVerbatim && raw.sketchVerbatim)
       prev.sketchVerbatim = raw.sketchVerbatim;
   }
@@ -669,7 +716,11 @@ function emitEdge(edge, kindLabel) {
   const hyps = [...new Set((edge.hypotheses ?? []).map(remap))];
   const concl = remap(edge.conclusion);
   if (!hyps.length) {
-    skip(kindLabel, edge.id, "no hypotheses; an unconditional claim is not a hyperedge");
+    skip(
+      kindLabel,
+      edge.id,
+      "no hypotheses; an unconditional claim is not a hyperedge",
+    );
     return null;
   }
   if (!concl) {
@@ -694,7 +745,10 @@ function emitEdge(edge, kindLabel) {
 
 // ------------------------------------------------------ stage: reductions ----
 if (STAGES.has("reductions")) {
-  for (const edge of mergeByHyperedge(worklist.reductions ?? [], "Reductions")) {
+  for (const edge of mergeByHyperedge(
+    worklist.reductions ?? [],
+    "Reductions",
+  )) {
     if (existingEdges.has(edge.__key)) {
       skip("reduction", edge.id, "hyperedge already has a hand-authored page");
       continue;
@@ -715,7 +769,8 @@ if (STAGES.has("reductions")) {
           ? "inclusion"
           : "implication";
     const id = edgeId("red", hyps, concl, sources);
-    const arrow = kind === "equivalence" ? "⇔" : kind === "inclusion" ? "⊆" : "⇒";
+    const arrow =
+      kind === "equivalence" ? "⇔" : kind === "inclusion" ? "⊆" : "⇒";
     const title = `${hyps.map(display).join(" + ")} ${arrow} ${display(concl)}`;
     const status =
       sources.length && edge.confidence !== "low" ? "draft" : "stub";
@@ -762,7 +817,13 @@ if (STAGES.has("reductions")) {
     const notes = notesSection(edge, extra);
     if (notes.length) body.push("## Notes", "", ...notes);
     const file = path.join(CONTENT, "Reductions", `${fileStem(id)}.md`);
-    write(file, body.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n");
+    write(
+      file,
+      body
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trimEnd() + "\n",
+    );
     report.reductions.push({
       id,
       file: path.relative(ROOT, file),
@@ -770,6 +831,133 @@ if (STAGES.has("reductions")) {
       kind,
       title,
       sourceEdge: edge.id,
+      mergedFrom: edge.__mergedFrom ?? [],
+    });
+  }
+}
+
+// ------------------------------------------------------ stage: inclusions ----
+// Containments and equalities between complexity classes. They were held back
+// from the first pass because they have no adversary and no primitive, so the
+// reduction-class axis does not discriminate — but they ARE hyperedges, and
+// leaving them in prose is what let "AM[k] = AM[2] = AM" read as a one-way
+// implication in the first place.
+//
+// `class: free` is the honest value, not `unstated`: a containment is proved by
+// any argument whatsoever, which is exactly what `free` denotes. It also makes
+// a complexity separation expressible as a barrier ruling out `free`.
+if (STAGES.has("inclusions")) {
+  const KIND_OF = {
+    "class-inclusion": "inclusion",
+    equivalent: "equivalence",
+    implies: "implication",
+  };
+  const flat = (worklist.deferred?.classInclusions ?? []).map((e) => ({
+    ...e,
+    sources: e.sources ?? [],
+    statedOn: [
+      {
+        sourcePage: e.sourcePage,
+        line: e.line,
+        section: e.section,
+        verbatim: e.verbatim,
+        sources: e.sources ?? [],
+      },
+    ],
+  }));
+  for (const edge of mergeByHyperedge(flat, "Reductions")) {
+    if (existingEdges.has(edge.__key)) {
+      skip(
+        "inclusion",
+        edge.id ?? edge.recordId,
+        "hyperedge already has a page",
+      );
+      continue;
+    }
+    const kind = KIND_OF[edge.direction];
+    if (!kind) {
+      skip(
+        "inclusion",
+        edge.recordId,
+        `direction "${edge.direction}" is not a containment; a separation belongs in content/Barriers/`,
+      );
+      continue;
+    }
+    const r = emitEdge(edge, "inclusion");
+    if (!r) continue;
+    const { hyps, concl } = r;
+    if (hyps.includes(concl)) {
+      skip("inclusion", edge.recordId, `self-loop on ${concl}`);
+      continue;
+    }
+    // inclusion and equivalence relate exactly two objects.
+    if (kind !== "implication" && hyps.length !== 1) {
+      skip(
+        "inclusion",
+        edge.recordId,
+        `kind ${kind} needs exactly one hypothesis, got ${hyps.length}`,
+      );
+      continue;
+    }
+    const sources = edge.sources ?? [];
+    const id = edgeId("red", hyps, concl, sources);
+    const arrow =
+      kind === "equivalence" ? "=" : kind === "inclusion" ? "⊆" : "⇒";
+    const title = `${hyps.map(display).join(" + ")} ${arrow} ${display(concl)}`;
+    const status =
+      sources.length && edge.confidence !== "low" ? "draft" : "stub";
+    const body = [
+      "---",
+      "type: reduction",
+      `status: ${status}`,
+      `title: ${JSON.stringify(title)}`,
+      "aliases: []",
+      `id: ${id}`,
+      `kind: ${kind}`,
+      `hypotheses: [${hyps.join(", ")}]`,
+      `conclusion: ${concl}`,
+      "class: free",
+      `model: ${edge.model === "quantum" ? "quantum" : "standard"}`,
+      ...sourceBlock(sources),
+      'security-loss: ""',
+      "---",
+      "",
+      `# ${title}`,
+      "",
+      `${linkTo(hyps[0])} ${
+        kind === "equivalence"
+          ? "is equal to"
+          : kind === "inclusion"
+            ? "is contained in"
+            : "implies"
+      } ${linkTo(concl)}.`,
+      "",
+      "## Statement",
+      "",
+      ...statementSection(edge),
+    ];
+    const notes = notesSection(edge, [
+      "`class: free` because a containment between complexity classes is proved",
+      "by any argument at all; the reduction-class axis does not discriminate",
+      "here, and `unstated` would wrongly suggest the information is missing.",
+      "",
+    ]);
+    if (notes.length) body.push("## Notes", "", ...notes);
+    const file = path.join(CONTENT, "Reductions", `${fileStem(id)}.md`);
+    write(
+      file,
+      body
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trimEnd() + "\n",
+    );
+    report.reductions.push({
+      id,
+      file: path.relative(ROOT, file),
+      status,
+      kind,
+      title,
+      sourceEdge: edge.recordId,
       mergedFrom: edge.__mergedFrom ?? [],
     });
   }
@@ -825,22 +1013,34 @@ if (STAGES.has("barriers")) {
     const sources = edge.sources ?? [];
     const id = edgeId("bar", hyps, concl, sources);
     const kindRaw = edge.consequenceKind;
-    const cKind = ["contradiction", "object", "complexity", "reduction"].includes(
-      kindRaw,
-    )
+    const cKind = [
+      "contradiction",
+      "object",
+      "complexity",
+      "reduction",
+    ].includes(kindRaw)
       ? kindRaw
       : "contradiction";
-    const target = cKind === "contradiction" ? "" : (edge.consequenceTarget ?? "");
+    const target =
+      cKind === "contradiction" ? "" : (edge.consequenceTarget ?? "");
     if (cKind !== "contradiction" && !target) {
       skip("barrier", edge.id, `consequence kind ${cKind} with no target`);
       continue;
     }
     if (cKind === "complexity" && !propositionKeys.has(target)) {
-      skip("barrier", edge.id, `consequence target ${target} is not in schema/propositions.yaml`);
+      skip(
+        "barrier",
+        edge.id,
+        `consequence target ${target} is not in schema/propositions.yaml`,
+      );
       continue;
     }
     if (cKind === "object" && !nodes.has(target)) {
-      skip("barrier", edge.id, `consequence target ${target} does not resolve to an object`);
+      skip(
+        "barrier",
+        edge.id,
+        `consequence target ${target} does not resolve to an object`,
+      );
       continue;
     }
     if (hyps.includes(concl)) {
@@ -849,16 +1049,19 @@ if (STAGES.has("barriers")) {
     }
     const bnorm = normalizeClass(edge.class, true);
     const cls = bnorm.class;
-    const strength = edge.strength === "conditional" ? "conditional" : "unconditional";
+    const strength =
+      edge.strength === "conditional" ? "conditional" : "unconditional";
     const condOn = Array.isArray(edge.conditionalOn) ? edge.conditionalOn : [];
     if (strength === "conditional" && !condOn.length) {
       skip("barrier", edge.id, "conditional but no conditional-on");
       continue;
     }
-    const title = `No ${cls === "unstated" ? "" : cls + " "}reduction from ${hyps
-      .map(display)
-      .join(" + ")} to ${display(concl)}`.replace(/\s+/g, " ");
-    const status = sources.length && edge.confidence !== "low" ? "draft" : "stub";
+    const title =
+      `No ${cls === "unstated" ? "" : cls + " "}reduction from ${hyps
+        .map(display)
+        .join(" + ")} to ${display(concl)}`.replace(/\s+/g, " ");
+    const status =
+      sources.length && edge.confidence !== "low" ? "draft" : "stub";
     const body = [
       "---",
       "type: barrier",
@@ -893,7 +1096,13 @@ if (STAGES.has("barriers")) {
     const notes = notesSection(edge);
     if (notes.length) body.push("## Notes", "", ...notes);
     const file = path.join(CONTENT, "Barriers", `${fileStem(id)}.md`);
-    write(file, body.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n");
+    write(
+      file,
+      body
+        .join("\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trimEnd() + "\n",
+    );
     report.barriers.push({
       id,
       file: path.relative(ROOT, file),
@@ -920,7 +1129,10 @@ if (STAGES.has("pointers")) {
   // A single bullet can be the source of several hyperedges (a composite chain
   // splits into one page per link), so group by page and then by verbatim.
   const byPage = new Map(); // relFile -> Map(verbatim -> [emitted pages])
-  for (const edge of [...(worklist.reductions ?? []), ...(worklist.barriers ?? [])]) {
+  for (const edge of [
+    ...(worklist.reductions ?? []),
+    ...(worklist.barriers ?? []),
+  ]) {
     const page = emitted.get(edge.id);
     if (!page) continue; // never emitted; leave its bullet alone
     for (const st of edge.statedOn ?? []) {

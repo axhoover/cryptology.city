@@ -4044,6 +4044,26 @@
    "title": "Alternating moduli assumption ⇒ Pseudorandom correlation generators (PCG)"
   },
   {
+   "id": "red-am-to-coam",
+   "kind": "equivalence",
+   "hypotheses": [
+    "am"
+   ],
+   "conclusion": "coam",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/am-to-coam.md",
+   "slug": "am-to-coam",
+   "graphSlug": "Reductions/am-to-coam",
+   "title": "AM = coAM"
+  },
+  {
    "id": "red-anonymous-hibe-to-hibe",
    "kind": "implication",
    "hypotheses": [
@@ -4472,6 +4492,166 @@
    "title": "Bilinear pairing ⇒ SNARK"
   },
   {
+   "id": "red-bpp-to-am-gs86",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bpp-to-am-gs86.md",
+   "slug": "bpp-to-am-gs86",
+   "graphSlug": "Reductions/bpp-to-am-gs86",
+   "title": "BPP ⊆ AM"
+  },
+  {
+   "id": "red-bpp-to-bqp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "bqp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/bpp-to-bqp.md",
+   "slug": "bpp-to-bqp",
+   "graphSlug": "Reductions/bpp-to-bqp",
+   "title": "BPP ⊆ BQP"
+  },
+  {
+   "id": "red-bpp-to-coam-gs86",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "coam",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bpp-to-coam-gs86.md",
+   "slug": "bpp-to-coam-gs86",
+   "graphSlug": "Reductions/bpp-to-coam-gs86",
+   "title": "BPP ⊆ coAM"
+  },
+  {
+   "id": "red-bpp-to-p-poly",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "ppoly",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/bpp-to-p-poly.md",
+   "slug": "bpp-to-p-poly",
+   "graphSlug": "Reductions/bpp-to-p-poly",
+   "title": "BPP ⊆ P/poly"
+  },
+  {
+   "id": "red-bpp-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/bpp-to-pp.md",
+   "slug": "bpp-to-pp",
+   "graphSlug": "Reductions/bpp-to-pp",
+   "title": "BPP ⊆ PP"
+  },
+  {
+   "id": "red-bpp-to-pspace",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bpp"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/bpp-to-pspace.md",
+   "slug": "bpp-to-pspace",
+   "graphSlug": "Reductions/bpp-to-pspace",
+   "title": "BPP ⊆ PSPACE"
+  },
+  {
+   "id": "red-bqp-to-dlog-shor97",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bqp"
+   ],
+   "conclusion": "dlog",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bqp-to-dlog-shor97.md",
+   "slug": "bqp-to-dlog-shor97",
+   "graphSlug": "Reductions/bqp-to-dlog-shor97",
+   "title": "BQP ⊆ DLOG"
+  },
+  {
+   "id": "red-bqp-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bqp"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/bqp-to-pp.md",
+   "slug": "bqp-to-pp",
+   "graphSlug": "Reductions/bqp-to-pp",
+   "title": "BQP ⊆ PP"
+  },
+  {
    "id": "red-cca-security-to-cca1-security",
    "kind": "implication",
    "hypotheses": [
@@ -4715,6 +4895,66 @@
    "title": "COM ⇒ Two-party computation (2PC)"
   },
   {
+   "id": "red-conp-to-am-gs86",
+   "kind": "inclusion",
+   "hypotheses": [
+    "conp"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/conp-to-am-gs86.md",
+   "slug": "conp-to-am-gs86",
+   "graphSlug": "Reductions/conp-to-am-gs86",
+   "title": "coNP ⊆ AM"
+  },
+  {
+   "id": "red-conp-to-coam",
+   "kind": "inclusion",
+   "hypotheses": [
+    "conp"
+   ],
+   "conclusion": "coam",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/conp-to-coam.md",
+   "slug": "conp-to-coam",
+   "graphSlug": "Reductions/conp-to-coam",
+   "title": "coNP ⊆ coAM"
+  },
+  {
+   "id": "red-conp-to-pspace",
+   "kind": "inclusion",
+   "hypotheses": [
+    "conp"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/conp-to-pspace.md",
+   "slug": "conp-to-pspace",
+   "graphSlug": "Reductions/conp-to-pspace",
+   "title": "coNP ⊆ PSPACE"
+  },
+  {
    "id": "red-cpa-security-to-cpa-security",
    "kind": "equivalence",
    "hypotheses": [
@@ -4753,6 +4993,26 @@
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
    "title": "cPIR ⇒ OT"
+  },
+  {
+   "id": "red-czk-to-ip-bgg-90",
+   "kind": "equivalence",
+   "hypotheses": [
+    "czk"
+   ],
+   "conclusion": "ip",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/czk-to-ip-bgg-90.md",
+   "slug": "czk-to-ip-bgg-90",
+   "graphSlug": "Reductions/czk-to-ip-bgg-90",
+   "title": "CZK = IP"
   },
   {
    "id": "red-d-th-composite-residuosity-to-he",
@@ -5223,6 +5483,26 @@
    "title": "DLOG ⇒ CDH"
   },
   {
+   "id": "red-dlog-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/dlog-to-conp.md",
+   "slug": "dlog-to-conp",
+   "graphSlug": "Reductions/dlog-to-conp",
+   "title": "DLOG ⊆ coNP"
+  },
+  {
    "id": "red-dlog-to-ddh-fkl18",
    "kind": "implication",
    "hypotheses": [
@@ -5262,6 +5542,26 @@
    "slug": "dlog-to-ds-sch91",
    "graphSlug": "Reductions/dlog-to-ds-sch91",
    "title": "DLOG ⇒ DS"
+  },
+  {
+   "id": "red-dlog-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/dlog-to-np.md",
+   "slug": "dlog-to-np",
+   "graphSlug": "Reductions/dlog-to-np",
+   "title": "DLOG ⊆ NP"
   },
   {
    "id": "red-dlog-to-pcs",
@@ -5342,6 +5642,26 @@
    "slug": "dlog-to-tdp",
    "graphSlug": "Reductions/dlog-to-tdp",
    "title": "DLOG ⇒ TDP"
+  },
+  {
+   "id": "red-dlog-to-tfnp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "tfnp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/dlog-to-tfnp.md",
+   "slug": "dlog-to-tfnp",
+   "graphSlug": "Reductions/dlog-to-tfnp",
+   "title": "DLOG ⊆ TFNP"
   },
   {
    "id": "red-dlog-to-zkp",
@@ -5602,6 +5922,26 @@
    "slug": "fac-to-rsa-rsa78",
    "graphSlug": "Reductions/fac-to-rsa-rsa78",
    "title": "FAC ⇒ RSA"
+  },
+  {
+   "id": "red-fac-to-tfnp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "tfnp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/fac-to-tfnp.md",
+   "slug": "fac-to-tfnp",
+   "graphSlug": "Reductions/fac-to-tfnp",
+   "title": "FAC ⊆ TFNP"
   },
   {
    "id": "red-factoring-with-known-factor-structure-to-prg",
@@ -6744,6 +7084,86 @@
    "title": "IP + ROM ⇒ SNARK"
   },
   {
+   "id": "red-ip-to-am-gs86",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ip"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ip-to-am-gs86.md",
+   "slug": "ip-to-am-gs86",
+   "graphSlug": "Reductions/ip-to-am-gs86",
+   "title": "IP ⊆ AM"
+  },
+  {
+   "id": "red-ip-to-pspace-ccg-94",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ip"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CCG+94 - The random oracle hypothesis is false|CCG+94]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ip-to-pspace-ccg-94.md",
+   "slug": "ip-to-pspace-ccg-94",
+   "graphSlug": "Reductions/ip-to-pspace-ccg-94",
+   "title": "IP ⊆ PSPACE"
+  },
+  {
+   "id": "red-ip-to-qip",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ip"
+   ],
+   "conclusion": "qip",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/ip-to-qip.md",
+   "slug": "ip-to-qip",
+   "graphSlug": "Reductions/ip-to-qip",
+   "title": "IP ⊆ QIP"
+  },
+  {
+   "id": "red-ip-to-szk-bgg-90",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ip"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ip-to-szk-bgg-90.md",
+   "slug": "ip-to-szk-bgg-90",
+   "graphSlug": "Reductions/ip-to-szk-bgg-90",
+   "title": "IP ⊆ SZK"
+  },
+  {
    "id": "red-ippe-to-hve",
    "kind": "implication",
    "hypotheses": [
@@ -7369,6 +7789,66 @@
    "title": "LWE ⇒ Zero-bit PRC"
   },
   {
+   "id": "red-ma-to-am",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ma"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/ma-to-am.md",
+   "slug": "ma-to-am",
+   "graphSlug": "Reductions/ma-to-am",
+   "title": "MA ⊆ AM"
+  },
+  {
+   "id": "red-ma-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ma"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/ma-to-pp.md",
+   "slug": "ma-to-pp",
+   "graphSlug": "Reductions/ma-to-pp",
+   "title": "MA ⊆ PP"
+  },
+  {
+   "id": "red-ma-to-qcma",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ma"
+   ],
+   "conclusion": "qcma",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/ma-to-qcma.md",
+   "slug": "ma-to-qcma",
+   "graphSlug": "Reductions/ma-to-qcma",
+   "title": "MA ⊆ QCMA"
+  },
+  {
    "id": "red-mac-and-ske-to-cca-security",
    "kind": "implication",
    "hypotheses": [
@@ -7733,6 +8213,126 @@
    "title": "Noisy k-LIN + PC ⇒ PKE"
   },
   {
+   "id": "red-notable-problems-to-qma",
+   "kind": "equivalence",
+   "hypotheses": [
+    "local-hamiltonian"
+   ],
+   "conclusion": "qma",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/notable-problems-to-qma.md",
+   "slug": "notable-problems-to-qma",
+   "graphSlug": "Reductions/notable-problems-to-qma",
+   "title": "Notable problems = QMA"
+  },
+  {
+   "id": "red-np-to-am-gs86",
+   "kind": "inclusion",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/np-to-am-gs86.md",
+   "slug": "np-to-am-gs86",
+   "graphSlug": "Reductions/np-to-am-gs86",
+   "title": "NP ⊆ AM"
+  },
+  {
+   "id": "red-np-to-conp",
+   "kind": "equivalence",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/np-to-conp.md",
+   "slug": "np-to-conp",
+   "graphSlug": "Reductions/np-to-conp",
+   "title": "NP = coNP"
+  },
+  {
+   "id": "red-np-to-ma",
+   "kind": "inclusion",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "ma",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/np-to-ma.md",
+   "slug": "np-to-ma",
+   "graphSlug": "Reductions/np-to-ma",
+   "title": "NP ⊆ MA"
+  },
+  {
+   "id": "red-np-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/np-to-pp.md",
+   "slug": "np-to-pp",
+   "graphSlug": "Reductions/np-to-pp",
+   "title": "NP ⊆ PP"
+  },
+  {
+   "id": "red-np-to-pspace",
+   "kind": "inclusion",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/np-to-pspace.md",
+   "slug": "np-to-pspace",
+   "graphSlug": "Reductions/np-to-pspace",
+   "title": "NP ⊆ PSPACE"
+  },
+  {
    "id": "red-ntru-to-ds",
    "kind": "implication",
    "hypotheses": [
@@ -7956,6 +8556,126 @@
    "title": "OWSG ⇒ Unclonable encryption"
   },
   {
+   "id": "red-p-to-bpp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-bpp.md",
+   "slug": "p-to-bpp",
+   "graphSlug": "Reductions/p-to-bpp",
+   "title": "P ⊆ BPP"
+  },
+  {
+   "id": "red-p-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-conp.md",
+   "slug": "p-to-conp",
+   "graphSlug": "Reductions/p-to-conp",
+   "title": "P ⊆ coNP"
+  },
+  {
+   "id": "red-p-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-np.md",
+   "slug": "p-to-np",
+   "graphSlug": "Reductions/p-to-np",
+   "title": "P ⊆ NP"
+  },
+  {
+   "id": "red-p-to-p-poly",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "ppoly",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-p-poly.md",
+   "slug": "p-to-p-poly",
+   "graphSlug": "Reductions/p-to-p-poly",
+   "title": "P ⊆ P/poly"
+  },
+  {
+   "id": "red-p-to-rp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "rp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-rp.md",
+   "slug": "p-to-rp",
+   "graphSlug": "Reductions/p-to-rp",
+   "title": "P ⊆ RP"
+  },
+  {
+   "id": "red-p-to-zpp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "p"
+   ],
+   "conclusion": "zpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/p-to-zpp.md",
+   "slug": "p-to-zpp",
+   "graphSlug": "Reductions/p-to-zpp",
+   "title": "P ⊆ ZPP"
+  },
+  {
    "id": "red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
    "kind": "implication",
    "hypotheses": [
@@ -8176,6 +8896,26 @@
    "slug": "pke-to-ot",
    "graphSlug": "Reductions/pke-to-ot",
    "title": "PKE ⇒ OT"
+  },
+  {
+   "id": "red-pp-to-pspace",
+   "kind": "inclusion",
+   "hypotheses": [
+    "pp"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/pp-to-pspace.md",
+   "slug": "pp-to-pspace",
+   "graphSlug": "Reductions/pp-to-pspace",
+   "title": "PP ⊆ PSPACE"
   },
   {
    "id": "red-prc-to-ske-cg24",
@@ -8440,6 +9180,126 @@
    "title": "PRP ⇒ PRF"
   },
   {
+   "id": "red-pspace-to-exp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "pspace"
+   ],
+   "conclusion": "exp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/pspace-to-exp.md",
+   "slug": "pspace-to-exp",
+   "graphSlug": "Reductions/pspace-to-exp",
+   "title": "PSPACE ⊆ EXP"
+  },
+  {
+   "id": "red-qcma-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qcma"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qcma-to-pp.md",
+   "slug": "qcma-to-pp",
+   "graphSlug": "Reductions/qcma-to-pp",
+   "title": "QCMA ⊆ PP"
+  },
+  {
+   "id": "red-qcma-to-qma",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qcma"
+   ],
+   "conclusion": "qma",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qcma-to-qma.md",
+   "slug": "qcma-to-qma",
+   "graphSlug": "Reductions/qcma-to-qma",
+   "title": "QCMA ⊆ QMA"
+  },
+  {
+   "id": "red-qip-to-ip",
+   "kind": "equivalence",
+   "hypotheses": [
+    "qip"
+   ],
+   "conclusion": "ip",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qip-to-ip.md",
+   "slug": "qip-to-ip",
+   "graphSlug": "Reductions/qip-to-ip",
+   "title": "QIP = IP"
+  },
+  {
+   "id": "red-qip-to-pspace",
+   "kind": "equivalence",
+   "hypotheses": [
+    "qip"
+   ],
+   "conclusion": "pspace",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qip-to-pspace.md",
+   "slug": "qip-to-pspace",
+   "graphSlug": "Reductions/qip-to-pspace",
+   "title": "QIP = PSPACE"
+  },
+  {
+   "id": "red-qma-to-pp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qma"
+   ],
+   "conclusion": "pp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qma-to-pp.md",
+   "slug": "qma-to-pp",
+   "graphSlug": "Reductions/qma-to-pp",
+   "title": "QMA ⊆ PP"
+  },
+  {
    "id": "red-qr-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -8538,6 +9398,26 @@
    "slug": "qr-to-zkp-gmr85",
    "graphSlug": "Reductions/qr-to-zkp-gmr85",
    "title": "QR ⇒ ZKP"
+  },
+  {
+   "id": "red-qszk-to-qip",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qszk"
+   ],
+   "conclusion": "qip",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/qszk-to-qip.md",
+   "slug": "qszk-to-qip",
+   "graphSlug": "Reductions/qszk-to-qip",
+   "title": "QSZK ⊆ QIP"
   },
   {
    "id": "red-rabin-ot-to-ot",
@@ -8700,6 +9580,46 @@
    "slug": "rom-to-oihf-bh26",
    "graphSlug": "Reductions/rom-to-oihf-bh26",
    "title": "ROM ⇒ OIHF"
+  },
+  {
+   "id": "red-rp-to-bpp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "rp"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/rp-to-bpp.md",
+   "slug": "rp-to-bpp",
+   "graphSlug": "Reductions/rp-to-bpp",
+   "title": "RP ⊆ BPP"
+  },
+  {
+   "id": "red-rp-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "rp"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/rp-to-np.md",
+   "slug": "rp-to-np",
+   "graphSlug": "Reductions/rp-to-np",
+   "title": "RP ⊆ NP"
   },
   {
    "id": "red-rsa-to-fac-dlo24",
@@ -9463,6 +10383,106 @@
    "title": "Symmetric private information retrieval (Single-server) ⇔ OT"
   },
   {
+   "id": "red-szk-to-am",
+   "kind": "inclusion",
+   "hypotheses": [
+    "szk"
+   ],
+   "conclusion": "am",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/szk-to-am.md",
+   "slug": "szk-to-am",
+   "graphSlug": "Reductions/szk-to-am",
+   "title": "SZK ⊆ AM"
+  },
+  {
+   "id": "red-szk-to-coam",
+   "kind": "inclusion",
+   "hypotheses": [
+    "szk"
+   ],
+   "conclusion": "coam",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/szk-to-coam.md",
+   "slug": "szk-to-coam",
+   "graphSlug": "Reductions/szk-to-coam",
+   "title": "SZK ⊆ coAM"
+  },
+  {
+   "id": "red-szk-to-czk",
+   "kind": "inclusion",
+   "hypotheses": [
+    "szk"
+   ],
+   "conclusion": "czk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/szk-to-czk.md",
+   "slug": "szk-to-czk",
+   "graphSlug": "Reductions/szk-to-czk",
+   "title": "SZK ⊆ CZK"
+  },
+  {
+   "id": "red-szk-to-ip",
+   "kind": "inclusion",
+   "hypotheses": [
+    "szk"
+   ],
+   "conclusion": "ip",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/szk-to-ip.md",
+   "slug": "szk-to-ip",
+   "graphSlug": "Reductions/szk-to-ip",
+   "title": "SZK ⊆ IP"
+  },
+  {
+   "id": "red-szk-to-qszk",
+   "kind": "inclusion",
+   "hypotheses": [
+    "szk"
+   ],
+   "conclusion": "qszk",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/szk-to-qszk.md",
+   "slug": "szk-to-qszk",
+   "graphSlug": "Reductions/szk-to-qszk",
+   "title": "SZK ⊆ QSZK"
+  },
+  {
    "id": "red-tdh-to-cpir-amr25",
    "kind": "implication",
    "hypotheses": [
@@ -9703,6 +10723,26 @@
    "slug": "zkp-to-nizk-fs86",
    "graphSlug": "Reductions/zkp-to-nizk-fs86",
    "title": "ZKP ⇒ NIZK"
+  },
+  {
+   "id": "red-zpp-to-rp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "zpp"
+   ],
+   "conclusion": "rp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "securityLoss": "",
+   "status": "stub",
+   "page": "content/Reductions/zpp-to-rp.md",
+   "slug": "zpp-to-rp",
+   "graphSlug": "Reductions/zpp-to-rp",
+   "title": "ZPP ⊆ RP"
   }
  ],
  "barriers": [

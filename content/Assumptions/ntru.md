@@ -68,6 +68,7 @@ The original NTRU submissions to NIST PQC standardization include **NTRUEncrypt*
 - NTRU has no known quantum speedup beyond the generic square-root speedup of Grover's algorithm applied to brute-force lattice search.
 
 <!-- BEGIN GENERATED participates-in 8ca584637ed9 -->
+
 ## Participates in
 
 **Builds on NTRU**
@@ -79,4 +80,5 @@ The original NTRU submissions to NIST PQC standardization include **NTRUEncrypt*
 **Produces NTRU**
 
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ NTRU]]
+
 <!-- END GENERATED participates-in -->

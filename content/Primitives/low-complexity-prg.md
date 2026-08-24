@@ -16,9 +16,11 @@ A low-complexity PRG is a pseudorandom generator each of whose output bits is co
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in fb3681663b85 -->
+
 ## Participates in
 
 **Builds on Low-complexity pseudorandom generator**
 
 - [[prg-in-nc1-to-io-jls21|PRG in NC1 ⇒ iO]]
+
 <!-- END GENERATED participates-in -->

@@ -69,10 +69,12 @@ Planted dense subgraph generalizes planted clique: a random $k$-vertex subgraph 
 - **Degree threshold**: Vertices in the planted clique have expected degree $\tfrac{n-1}{2} + k - 1$ versus $\tfrac{n-1}{2}$ for unplanted vertices; thresholding on degree finds $S$ when $k = \Omega(\sqrt{n \log n})$
 
 <!-- BEGIN GENERATED participates-in 708b4adc986a -->
+
 ## Participates in
 
 **Builds on Planted clique assumption**
 
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+
 <!-- END GENERATED participates-in -->

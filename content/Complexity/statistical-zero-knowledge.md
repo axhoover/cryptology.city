@@ -23,10 +23,24 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
   - This is a converse direction: SZK ⊄ BPP $\Rightarrow$ OWF exist
 - The complete problem for SZK is the **Statistical Difference (SD)** problem: given two circuits sampling distributions $D_0$ and $D_1$, decide whether $\|D_0 - D_1\|_{\mathrm{TV}} \geq 2/3$ or $\leq 1/3$
 
-<!-- BEGIN GENERATED participates-in 3b8f8cbf2755 -->
+<!-- BEGIN GENERATED participates-in 181673040be5 -->
+
 ## Participates in
+
+**Builds on Statistical zero-knowledge**
+
+- [[szk-to-am|SZK ⊆ AM]]
+- [[szk-to-coam|SZK ⊆ coAM]]
+- [[szk-to-czk|SZK ⊆ CZK]]
+- [[szk-to-ip|SZK ⊆ IP]]
+- [[szk-to-qszk|SZK ⊆ QSZK]]
+
+**Produces Statistical zero-knowledge**
+
+- [[ip-to-szk-bgg-90|IP ⊆ SZK]]
 
 **Barriers**
 
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
+
 <!-- END GENERATED participates-in -->

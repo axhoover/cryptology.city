@@ -50,6 +50,7 @@ Generalizes DCR to $d$-th powers modulo $n^{d+1}$. Gives homomorphism for messag
 - No sub-exponential classical attack on DCR independent of factoring is known
 
 <!-- BEGIN GENERATED participates-in 4fad64553ebb -->
+
 ## Participates in
 
 **Builds on Decisional composite residuosity assumption**
@@ -63,4 +64,5 @@ Generalizes DCR to $d$-th powers modulo $n^{d+1}$. Gives homomorphism for messag
 **Produces Decisional composite residuosity assumption**
 
 - [[fac-to-dcr-pai99|FAC ⇒ DCR]]
+
 <!-- END GENERATED participates-in -->

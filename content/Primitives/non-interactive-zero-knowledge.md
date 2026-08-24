@@ -74,6 +74,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
 
 <!-- BEGIN GENERATED participates-in 0236858d93bc -->
+
 ## Participates in
 
 **Builds on Non-interactive zero-knowledge**
@@ -97,4 +98,5 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 **Barriers**
 
 - [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+
 <!-- END GENERATED participates-in -->

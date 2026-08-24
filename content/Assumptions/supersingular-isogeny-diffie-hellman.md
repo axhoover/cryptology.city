@@ -51,9 +51,11 @@ A post-quantum [[digital-signature|digital signature]] scheme based on isogenies
 - The original SIDH assumption (without auxiliary torsion points) may still be hard — this is the basis for exploring modifications
 
 <!-- BEGIN GENERATED participates-in 1159b4484170 -->
+
 ## Participates in
 
 **Builds on Supersingular Isogeny Diffie-Hellman**
 
 - [[sidh-to-ke-jdf11|SIDH ⇒ KE]]
+
 <!-- END GENERATED participates-in -->

@@ -134,6 +134,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
 
 <!-- BEGIN GENERATED participates-in fc578ab06145 -->
+
 ## Participates in
 
 **Builds on Symmetric key encryption**
@@ -148,4 +149,5 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prg-to-ske|PRG ⇒ SKE]]
+
 <!-- END GENERATED participates-in -->

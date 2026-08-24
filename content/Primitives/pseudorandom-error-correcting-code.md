@@ -65,6 +65,7 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 - [[lwe-to-zero-bit-prc-cg24|LWE ⇒ Zero-bit PRC]]
 
 <!-- BEGIN GENERATED participates-in f18ff0dfa797 -->
+
 ## Participates in
 
 **Builds on Pseudorandom error-correcting code**
@@ -77,4 +78,5 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 - [[ideal-prc-to-prc|Ideal PRC ⇒ PRC]]
 - [[lwe-to-prc-cg24|LWE ⇒ PRC]]
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
+
 <!-- END GENERATED participates-in -->

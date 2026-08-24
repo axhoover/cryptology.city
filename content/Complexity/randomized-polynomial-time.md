@@ -30,3 +30,19 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:R#r
 
 - **Polynomial identity testing**: given an arithmetic circuit, does it compute the identically zero polynomial? This problem is in coRP via the Schwartz-Zippel lemma (evaluate at a random point; if the polynomial is nonzero it is detected with high probability).
 - **Miller-Rabin primality test**: the original Miller-Rabin test shows that compositeness is in RP (equivalently, primality is in coRP). This was superseded by the AKS algorithm placing primality in $\classP$ — TODO citation.
+
+<!-- BEGIN GENERATED participates-in 2f23b6add747 -->
+
+## Participates in
+
+**Builds on Randomized polynomial-time**
+
+- [[rp-to-bpp|RP ⊆ BPP]]
+- [[rp-to-np|RP ⊆ NP]]
+
+**Produces Randomized polynomial-time**
+
+- [[p-to-rp|P ⊆ RP]]
+- [[zpp-to-rp|ZPP ⊆ RP]]
+
+<!-- END GENERATED participates-in -->

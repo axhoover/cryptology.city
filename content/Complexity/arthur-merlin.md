@@ -28,3 +28,22 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#a
 - [Graph nonisomorphism](https://complexityzoo.net/Complexity_Garden#graph_isomorphism "Complexity Garden")
 
 ## Known relationships
+
+<!-- BEGIN GENERATED participates-in ed2e7102bd6c -->
+
+## Participates in
+
+**Builds on Arthur-Merlin**
+
+- [[am-to-coam|AM = coAM]]
+
+**Produces Arthur-Merlin**
+
+- [[bpp-to-am-gs86|BPP ⊆ AM]]
+- [[conp-to-am-gs86|coNP ⊆ AM]]
+- [[ip-to-am-gs86|IP ⊆ AM]]
+- [[ma-to-am|MA ⊆ AM]]
+- [[np-to-am-gs86|NP ⊆ AM]]
+- [[szk-to-am|SZK ⊆ AM]]
+
+<!-- END GENERATED participates-in -->

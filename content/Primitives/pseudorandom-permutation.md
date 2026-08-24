@@ -101,6 +101,7 @@ Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that
 - [[prp-to-prf|PRP ⇒ PRF]]
 
 <!-- BEGIN GENERATED participates-in c0a1078dacc7 -->
+
 ## Participates in
 
 **Builds on Pseudorandom permutation**
@@ -112,4 +113,5 @@ Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that
 
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[strong-security-to-prp|Strong Security ⇒ PRP]]
+
 <!-- END GENERATED participates-in -->

@@ -16,9 +16,11 @@ A protocol in which a prover holding a secret key convinces a verifier holding t
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in df9b669158f6 -->
+
 ## Participates in
 
 **Builds on Identification scheme**
 
 - [[id-and-rom-to-ds|ID + ROM ⇒ DS]]
+
 <!-- END GENERATED participates-in -->

@@ -74,6 +74,7 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
 
 <!-- BEGIN GENERATED participates-in 601301307e28 -->
+
 ## Participates in
 
 **Builds on Homomorphic encryption**
@@ -95,4 +96,5 @@ An FHE scheme is **compact** if the ciphertext and the evaluation circuit's outp
 
 - [[no-he-to-cca-security|No reduction from HE to CCA Security]]
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
+
 <!-- END GENERATED participates-in -->

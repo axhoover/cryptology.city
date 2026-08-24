@@ -206,11 +206,7 @@ function parseAttrs(attrText) {
 function unquoteId(tok) {
   tok = tok.trim();
   if (tok.startsWith('"') && tok.endsWith('"')) {
-    return tok
-      .slice(1, -1)
-      .replace(/\\"/g, '"')
-      .replace(/\\n/g, "\n")
-      .trim();
+    return tok.slice(1, -1).replace(/\\"/g, '"').replace(/\\n/g, "\n").trim();
   }
   return tok;
 }
@@ -394,9 +390,7 @@ function indexExistingResults(contentDir) {
         // Heuristic: the last wikilink on a result bullet is the citation;
         // the rest are primitive/assumption endpoints.
         const cite = links[links.length - 1];
-        const citeTokens = new Set(
-          [cite.target, cite.display].filter(Boolean),
-        );
+        const citeTokens = new Set([cite.target, cite.display].filter(Boolean));
         const endpoints = links.slice(0, -1).map((l) => l.target);
         for (let i = 0; i < endpoints.length; i++) {
           for (let j = i + 1; j < endpoints.length; j++) {

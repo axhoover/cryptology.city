@@ -38,3 +38,14 @@ TFNP contains several important subclasses defined by the combinatorial principl
 ## Relevance to cryptography
 
 Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work has used TFNP subclass hardness (especially PPAD) as a basis for constructing cryptographic primitives from weaker or more structured assumptions.
+
+<!-- BEGIN GENERATED participates-in 32249283f30d -->
+
+## Participates in
+
+**Produces Total function NP**
+
+- [[dlog-to-tfnp|DLOG ⊆ TFNP]]
+- [[fac-to-tfnp|FAC ⊆ TFNP]]
+
+<!-- END GENERATED participates-in -->

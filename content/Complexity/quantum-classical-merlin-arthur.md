@@ -45,10 +45,21 @@ The QCMA vs QMA question captures whether quantum witnesses are inherently more 
 - A QCMA-complete problem has a classical proof that a quantum verifier can check, which is useful for constructing quantum zero-knowledge protocols with classical proofs.
 - If QMA = QCMA (in the unrelativized world), quantum witnesses provide no extra power — simplifying the design of post-quantum proof systems. The oracle separations make this unlikely.
 
-<!-- BEGIN GENERATED participates-in 8b897264fb4d -->
+<!-- BEGIN GENERATED participates-in 835302ab2678 -->
+
 ## Participates in
+
+**Builds on Quantum-Classical Merlin-Arthur**
+
+- [[qcma-to-pp|QCMA ⊆ PP]]
+- [[qcma-to-qma|QCMA ⊆ QMA]]
+
+**Produces Quantum-Classical Merlin-Arthur**
+
+- [[ma-to-qcma|MA ⊆ QCMA]]
 
 **Barriers**
 
 - [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+
 <!-- END GENERATED participates-in -->

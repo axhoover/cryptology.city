@@ -74,6 +74,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[ddh-to-com|DDH ⇒ COM]]
 
 <!-- BEGIN GENERATED participates-in 591ac2af1d63 -->
+
 ## Participates in
 
 **Builds on Commitment scheme**
@@ -97,4 +98,5 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 **Barriers**
 
 - [[no-binding-and-hiding-to-com|No reduction from Binding + Hiding to COM]]
+
 <!-- END GENERATED participates-in -->

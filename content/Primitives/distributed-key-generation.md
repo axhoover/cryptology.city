@@ -16,9 +16,11 @@ A protocol in which $n$ parties jointly generate a public key together with a th
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in c2ca691524df -->
+
 ## Participates in
 
 **Builds on Distributed key generation**
 
 - [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
+
 <!-- END GENERATED participates-in -->

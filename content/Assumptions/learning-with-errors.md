@@ -290,6 +290,7 @@ is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
 <!-- BEGIN GENERATED participates-in ee23fd2eed4a -->
+
 ## Participates in
 
 **Builds on Learning with errors**
@@ -314,4 +315,5 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]]
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[succinct-lwe-to-lwe|Succinct LWE ⇔ LWE]]
+
 <!-- END GENERATED participates-in -->

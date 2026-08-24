@@ -159,6 +159,7 @@ is negligible.
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
 
 <!-- BEGIN GENERATED participates-in 2a083aa122bb -->
+
 ## Participates in
 
 **Builds on Private Information Retrieval**
@@ -176,4 +177,5 @@ is negligible.
 **Barriers**
 
 - [[no-np-to-cpir-lv15|No reduction from NP to cPIR]]
+
 <!-- END GENERATED participates-in -->

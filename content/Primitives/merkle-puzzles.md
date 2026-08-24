@@ -15,9 +15,11 @@ Merkle's Puzzles is a key-agreement protocol in the random oracle model in which
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in 0933822bdf1b -->
+
 ## Participates in
 
 **Barriers**
 
 - [[no-rom-to-merkle-puzzles-bm09|No reduction from ROM to Merkle puzzles]]
+
 <!-- END GENERATED participates-in -->

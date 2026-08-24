@@ -112,6 +112,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
 <!-- BEGIN GENERATED participates-in df16b99f0695 -->
+
 ## Participates in
 
 **Builds on Identity-based encryption**
@@ -124,4 +125,5 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
+
 <!-- END GENERATED participates-in -->

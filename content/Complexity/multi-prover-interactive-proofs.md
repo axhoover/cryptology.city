@@ -16,9 +16,11 @@ MIP is the class of languages with an interactive proof in which a probabilistic
 TODO: syntax and security definition.
 
 <!-- BEGIN GENERATED participates-in b08e661e7e5b -->
+
 ## Participates in
 
 **Barriers**
 
 - [[no-mip-to-multi-prover-extensions|No reduction from MIP to Multi-prover extensions]]
+
 <!-- END GENERATED participates-in -->

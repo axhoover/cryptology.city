@@ -72,6 +72,7 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 - Quantum attacks: Shor's algorithm factors $N$ and breaks QR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 <!-- BEGIN GENERATED participates-in 19fc7b24644e -->
+
 ## Participates in
 
 **Builds on Quadratic residuosity assumption**
@@ -85,4 +86,5 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 **Produces Quadratic residuosity assumption**
 
 - [[fac-to-qr-gm84|FAC ⇒ QR]]
+
 <!-- END GENERATED participates-in -->

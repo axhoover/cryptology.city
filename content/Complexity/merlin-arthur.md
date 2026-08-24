@@ -25,3 +25,19 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:M#m
 - $\classMA \subseteq \classPP$ — TODO citation.
 - $\classMA \subseteq \mathbf{\Sigma_2^P} \cap \mathbf{\Pi_2^P}$, placing MA in the second level of the polynomial-time hierarchy.
 - It is not known whether MA = NP or whether MA = AM. Showing MA ≠ NP would require circuit lower bounds beyond what is currently known.
+
+<!-- BEGIN GENERATED participates-in 3ede9aef55db -->
+
+## Participates in
+
+**Builds on Merlin-Arthur**
+
+- [[ma-to-am|MA ⊆ AM]]
+- [[ma-to-pp|MA ⊆ PP]]
+- [[ma-to-qcma|MA ⊆ QCMA]]
+
+**Produces Merlin-Arthur**
+
+- [[np-to-ma|NP ⊆ MA]]
+
+<!-- END GENERATED participates-in -->

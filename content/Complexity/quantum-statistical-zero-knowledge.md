@@ -32,3 +32,17 @@ QSZK is the appropriate complexity class for zero-knowledge proofs that remain s
 - A protocol in QSZK guarantees zero-knowledge even when the verifier has quantum capabilities and can store quantum information between rounds.
 - The QSZK-completeness of QSD means that quantum zero-knowledge proofs are tightly connected to the problem of distinguishing quantum states — a fundamental task in quantum information.
 - Post-quantum zero-knowledge proof systems should be analyzed in the QSZK model rather than the classical SZK model to ensure security against quantum adversaries.
+
+<!-- BEGIN GENERATED participates-in 850c0822579d -->
+
+## Participates in
+
+**Builds on Quantum Statistical Zero-Knowledge**
+
+- [[qszk-to-qip|QSZK ⊆ QIP]]
+
+**Produces Quantum Statistical Zero-Knowledge**
+
+- [[szk-to-qszk|SZK ⊆ QSZK]]
+
+<!-- END GENERATED participates-in -->
