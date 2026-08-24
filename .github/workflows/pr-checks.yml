@@ -20,8 +20,18 @@ jobs:
 
       - run: npm ci
 
-      - name: Content lint (schema, wikilinks, aliases, macros)
+      - name: Content lint (schema, hyperedges, wikilinks, aliases, macros)
         run: node scripts/lint.mjs
+
+      # Generated "Participates in" sections and .reductions/relations.json are
+      # derived from the reduction and barrier pages. If a PR adds a reduction
+      # without regenerating, the committed manifest silently goes stale, so the
+      # check runs before the build rather than after.
+      - name: Generated regions and relations.json are current
+        run: node scripts/generate-relations.mjs --check
+
+      - name: Unit tests
+        run: npm test
 
       - name: Quartz build
         run: npx quartz build

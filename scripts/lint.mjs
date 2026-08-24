@@ -15,6 +15,9 @@
 //                  defined in macros.ts; no \newcommand/\def in content
 //   status         `complete` pages carry no TODO markers and have the
 //                  mandated sections for their type
+//   generated      "Participates in" regions match their checksum (no hand edits)
+//   contradiction  no reduction claims a class a barrier rules out on the same
+//                  hyperedge; the class partial order decides when it bites
 //   hyperedges     reduction/barrier pages are well-formed: >=1 hypothesis,
 //                  exactly one conclusion, every endpoint resolves to an object
 //                  id or variant, class is in schema/reduction-classes.yaml, no
@@ -24,10 +27,12 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import crypto from "node:crypto";
 import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
+import { closure as classClosureOf, bites } from "./reduction-classes.mjs";
 
 const ROOT = path.resolve(
   path.dirname(new URL(import.meta.url).pathname),
@@ -164,15 +169,7 @@ const CLASS_VALUES = [...Object.keys(CLASSES), ...Object.keys(CLASS_SENTINELS)];
 // Transitive closure of `implies`, narrower -> broader. Used by the Phase-5
 // contradiction check; computed here so a cycle in the vocabulary is caught the
 // moment the file is edited, not the first time a barrier is written.
-const classClosure = (name, seen = new Set()) => {
-  for (const next of CLASSES[name]?.implies ?? []) {
-    if (!seen.has(next)) {
-      seen.add(next);
-      classClosure(next, seen);
-    }
-  }
-  return seen;
-};
+const classClosure = (name) => classClosureOf(CLASSES, name);
 for (const name of Object.keys(CLASSES)) {
   for (const next of CLASSES[name].implies ?? []) {
     if (!CLASSES[next]) {
@@ -812,6 +809,89 @@ for (const p of pages) {
   for (const c of Array.isArray(p.fm.consequences) ? p.fm.consequences : []) {
     if (c && c.kind === "object" && c.target)
       resolveEndpoint(p, c.target, "consequence target");
+  }
+}
+
+// ------------------------------------------------- generated region integrity ----
+// Generated sections carry a checksum of their own contents. A hand edit inside
+// one is an error rather than something the next regeneration silently reverts.
+const GEN_BEGIN = "<!-- BEGIN GENERATED participates-in";
+const GEN_END = "<!-- END GENERATED participates-in -->";
+const GEN_RE =
+  /<!-- BEGIN GENERATED participates-in ([0-9a-f]+) -->\n([\s\S]*?)\n<!-- END GENERATED participates-in -->/g;
+for (const p of pages) {
+  const opens = p.body.split(GEN_BEGIN).length - 1;
+  const closes = p.body.split(GEN_END).length - 1;
+  if (opens !== closes) {
+    err(
+      p.file,
+      1,
+      "generated-region",
+      `unbalanced generated-region markers (${opens} BEGIN, ${closes} END). Do not hand-edit the markers; run "node scripts/generate-relations.mjs" to rebuild the region.`,
+    );
+    continue;
+  }
+  for (const m of p.body.matchAll(GEN_RE)) {
+    const actual = crypto
+      .createHash("sha256")
+      .update(m[2], "utf8")
+      .digest("hex")
+      .slice(0, 12);
+    if (actual !== m[1]) {
+      err(
+        p.file,
+        p.fmLines + lineOf(p.body, m.index),
+        "generated-region-edited",
+        `this "Participates in" section was hand-edited (checksum ${m[1]}, contents hash to ${actual}). Generated regions are rebuilt from the reduction and barrier pages — edit those, then run "node scripts/generate-relations.mjs". To add prose about this object, put it outside the BEGIN/END markers.`,
+      );
+    }
+  }
+}
+
+// --------------------------------------------------- barriers vs reductions ----
+// A barrier ruling out class B contradicts a reduction of class C on the same
+// hyperedge IFF C implies* B — iff every C-reduction is also a B-reduction.
+// Stated in one direction only, because the other reading is a live bug: a
+// barrier against a NARROWER class than the reduction claims is not a
+// contradiction and must not fire.
+const hyperKey = (fm) =>
+  `${[...(fm.hypotheses ?? [])].sort().join("+")}=>${fm.conclusion}`;
+
+const barriersByEdge = new Map();
+for (const p of pages) {
+  if (p.fm.type !== "barrier") continue;
+  const k = hyperKey(p.fm);
+  if (!barriersByEdge.has(k)) barriersByEdge.set(k, []);
+  barriersByEdge.get(k).push(p);
+}
+
+for (const p of pages) {
+  if (p.fm.type !== "reduction") continue;
+  const claimed = String(p.fm.class ?? "unstated");
+  // `unstated` sits outside the order and is comparable to nothing.
+  if (!CLASSES[claimed]) continue;
+  for (const b of barriersByEdge.get(hyperKey(p.fm)) ?? []) {
+    for (const c of Array.isArray(b.fm.consequences) ? b.fm.consequences : []) {
+      const ruledOut = String(c.class ?? b.fm.class ?? "unstated");
+      if (!bites(CLASSES, claimed, ruledOut)) continue;
+
+      if (c.kind === "contradiction") {
+        err(
+          p.file,
+          1,
+          "barrier-contradiction",
+          `this page claims a ${claimed} reduction {${(p.fm.hypotheses ?? []).join(", ")}} => ${p.fm.conclusion}, but ${rel(b.file)} rules out ${ruledOut} reductions on the same hyperedge with consequence "contradiction". Every ${claimed} reduction is a ${ruledOut} reduction${claimed === ruledOut ? "" : " (see schema/reduction-classes.yaml)"}, so both cannot hold. Either weaken class (e.g. class: free), correct the barrier, or — if the reduction is real — that is a publishable refutation and belongs in a paper before it belongs here.`,
+        );
+      } else if (c.kind === "complexity") {
+        const prop = PROPOSITIONS[c.target];
+        warn(
+          p.file,
+          1,
+          "barrier-major-result",
+          `this page claims a ${claimed} reduction {${(p.fm.hypotheses ?? []).join(", ")}} => ${p.fm.conclusion}. ${rel(b.file)} says a ${ruledOut} reduction on that hyperedge would prove ${prop?.title ?? c.target}. This would be a major result — confirm the class is really ${claimed} and not something weaker.`,
+        );
+      }
+    }
   }
 }
 
