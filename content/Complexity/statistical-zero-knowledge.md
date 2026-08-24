@@ -5,6 +5,7 @@ aliases:
   - SZK
   - Statistical zero-knowledge
 title: Statistical zero-knowledge
+id: szk
 ---
 
 # Statistical zero-knowledge

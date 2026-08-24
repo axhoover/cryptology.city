@@ -6,6 +6,7 @@ aliases:
   - Sharp-P
   - SharpP
 title: "#P"
+id: sharp-p
 ---
 
 # #P

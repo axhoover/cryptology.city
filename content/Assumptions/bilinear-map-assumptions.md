@@ -10,6 +10,10 @@ aliases:
   - BDH assumption
   - Bilinear Diffie-Hellman
 title: Bilinear map assumptions
+id: bdh
+variants:
+  sxdh: "#sxdh-symmetric-external-diffie-hellman"
+  k-linear-assumption: "#k-linear-assumption"
 ---
 
 # Bilinear map assumptions

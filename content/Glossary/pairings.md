@@ -7,6 +7,9 @@ aliases:
   - Weil pairing
   - Tate pairing
 title: Pairings
+id: bilinear-pairing
+variants:
+  type-3-pairing: "#types"
 ---
 
 # Pairings

@@ -8,6 +8,7 @@ aliases:
   - q-PKE
   - Power knowledge of exponent
 title: Knowledge of exponent assumption
+id: kea
 ---
 
 # Knowledge of exponent assumption

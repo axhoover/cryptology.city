@@ -7,6 +7,7 @@ aliases:
   - Planted clique
   - planted clique conjecture
 title: Planted clique assumption
+id: pc
 ---
 
 # Planted clique assumption

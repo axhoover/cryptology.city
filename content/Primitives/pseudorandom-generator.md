@@ -6,6 +6,8 @@ aliases:
   - Pseudorandom generator
 title: Pseudorandom generator
 id: prg
+variants:
+  trapdoor-pseudorandom-generator: "#trapdoor-pseudorandom-generators"
 ---
 
 # Pseudorandom generator

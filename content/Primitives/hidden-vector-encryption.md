@@ -5,6 +5,11 @@ aliases:
   - HVE
   - Hidden vector encryption
 title: Hidden vector encryption
+id: hve
+variants:
+  hve-attribute-hiding: "#attribute-hiding-security"
+  hve-payload-hiding: "#payload-hiding-security"
+  range-query-encryption: "#subset-and-range-queries"
 ---
 
 # Hidden vector encryption

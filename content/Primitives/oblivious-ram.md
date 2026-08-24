@@ -6,6 +6,7 @@ aliases:
   - ORAMs
   - Oblivious RAM
 title: Oblivious RAM
+id: oram
 ---
 
 # Oblivious RAM

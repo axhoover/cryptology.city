@@ -5,6 +5,7 @@ aliases:
   - Five worlds
   - Impagliazzo's Five Worlds
 title: Impagliazzo's Five Worlds
+id: five-worlds
 ---
 
 # Impagliazzo's Five Worlds

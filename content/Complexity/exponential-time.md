@@ -6,6 +6,7 @@ aliases:
   - EXPTIME
   - Exponential time
 title: Exponential time
+id: exp
 ---
 
 # Exponential time

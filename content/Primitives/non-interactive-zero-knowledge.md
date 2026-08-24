@@ -7,6 +7,9 @@ aliases:
   - NIZK proof
   - NIZK argument
 title: Non-interactive zero-knowledge
+id: nizk
+variants:
+  simulation-sound-nizk: "#simulation-sound-nizk-ss-nizk"
 ---
 
 # Non-interactive zero-knowledge

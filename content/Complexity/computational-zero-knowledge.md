@@ -5,6 +5,7 @@ aliases:
   - CZK
   - Computational zero-knowledge
 title: Computational zero-knowledge
+id: czk
 ---
 
 # Computational zero-knowledge

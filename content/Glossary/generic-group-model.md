@@ -5,6 +5,12 @@ aliases:
   - GGM
   - Generic Group Model
 title: Generic Group Model
+id: ggm
+variants:
+  structured-generic-group-model: "#the-structured-ggm"
+  maurer-generic-group-model: "#maurers-formulation"
+  shoup-generic-group-model: "#shoups-formulation"
+  shoup-ggm: "#shoups-formulation"
 ---
 
 # Generic Group Model

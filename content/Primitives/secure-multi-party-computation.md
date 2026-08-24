@@ -8,6 +8,13 @@ aliases:
   - 2PC
   - Secure multi-party computation
 title: Secure multi-party computation
+id: mpc
+variants:
+  mpc-with-preprocessing: "#mpc-with-preprocessing-spdz-etc"
+  two-party-computation: "#two-party-computation-2pc"
+  honest-majority-t-lt-n-over-2: "#honest-majority-t-n3-or-t-n2"
+  honest-majority-t-lt-n-over-3: "#honest-majority-t-n3-or-t-n2"
+  semi-honest-security: "#privacy-semi-honest"
 ---
 
 # Secure multi-party computation

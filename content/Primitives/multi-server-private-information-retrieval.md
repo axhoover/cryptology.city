@@ -5,6 +5,9 @@ aliases:
   - IT-PIR
   - Multi-server Private Information Retrieval
 title: Multi-server Private Information Retrieval
+id: it-pir
+variants:
+  computational-multi-server-pir: "#computational-multi-server-pir"
 ---
 
 # Multi-server Private Information Retrieval

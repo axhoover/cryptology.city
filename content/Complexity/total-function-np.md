@@ -5,6 +5,9 @@ aliases:
   - TFNP
   - Total function NP
 title: Total function NP
+id: tfnp
+variants:
+  ppad-hardness: "#subclasses"
 ---
 
 # Total function NP

@@ -5,6 +5,9 @@ aliases:
   - QIP
   - Quantum Interactive Proofs
 title: Quantum Interactive Proofs
+id: qip
+variants:
+  mip-star: "#multi-prover-extensions"
 ---
 
 # Quantum Interactive Proofs

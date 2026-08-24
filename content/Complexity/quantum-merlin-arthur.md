@@ -5,6 +5,9 @@ aliases:
   - QMA
   - Quantum Merlin-Arthur
 title: Quantum Merlin-Arthur
+id: qma
+variants:
+  local-hamiltonian: "#notable-problems"
 ---
 
 # Quantum Merlin-Arthur

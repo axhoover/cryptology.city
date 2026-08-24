@@ -9,6 +9,12 @@ aliases:
   - Succinct argument
   - Succinct non-interactive argument
 title: Succinct argument
+id: snark
+variants:
+  groth16: "#zk-snark"
+  groth16-snark: "#zk-snark"
+  incremental-verifiable-computation: "#recursive-snarks"
+  transparent-succinct-argument: "#stark"
 ---
 
 # Succinct argument

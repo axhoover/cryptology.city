@@ -5,6 +5,7 @@ aliases:
   - NP
   - Nondeterministic Polynomial-Time
 title: Nondeterministic Polynomial-Time
+id: np
 ---
 
 # Nondeterministic Polynomial-Time

@@ -5,6 +5,7 @@ aliases:
   - ZPP
   - Zero-error probabilistic polynomial-time
 title: Zero-error probabilistic polynomial-time
+id: zpp
 ---
 
 # Zero-error probabilistic polynomial-time

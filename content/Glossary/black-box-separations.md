@@ -7,6 +7,7 @@ aliases:
   - Relativization
   - Black-box reduction
 title: Black-Box Separations
+id: black-box-separation
 ---
 
 # Black-Box Separations

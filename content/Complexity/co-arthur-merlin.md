@@ -5,6 +5,7 @@ aliases:
   - coAM
   - Co-Arthur-Merlin
 title: Co-Arthur-Merlin
+id: coam
 ---
 
 # Co-Arthur-Merlin

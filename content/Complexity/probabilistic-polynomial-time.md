@@ -5,6 +5,7 @@ aliases:
   - PP
   - Probabilistic polynomial-time
 title: Probabilistic polynomial-time
+id: pp
 ---
 
 # Probabilistic polynomial-time

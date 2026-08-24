@@ -5,6 +5,7 @@ aliases:
   - MA
   - Merlin-Arthur
 title: Merlin-Arthur
+id: ma
 ---
 
 # Merlin-Arthur

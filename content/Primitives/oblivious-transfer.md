@@ -5,6 +5,13 @@ aliases:
   - OT
   - Oblivious Transfer
 title: Oblivious transfer
+id: ot
+variants:
+  malicious-ot-security: "#malicious-security"
+  one-out-of-n-ot: "#k-out-of-n-ot"
+  ot-extension: "#ot-extension"
+  rabin-ot: "#rabin-ot"
+  random-ot: "#random-ot"
 ---
 
 # Oblivious transfer

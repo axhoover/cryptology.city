@@ -6,6 +6,7 @@ aliases:
   - One-way permutation
   - One-way permutations
 title: One-way permutations
+id: owp
 ---
 
 # One-way permutations

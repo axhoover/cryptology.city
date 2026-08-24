@@ -5,6 +5,7 @@ aliases:
   - P
   - Polynomial-Time
 title: Polynomial-Time
+id: p
 ---
 
 # Polynomial-Time

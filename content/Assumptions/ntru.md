@@ -4,6 +4,7 @@ status: draft
 aliases:
   - NTRU
 title: NTRU
+id: ntru
 ---
 
 # NTRU

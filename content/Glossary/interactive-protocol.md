@@ -8,6 +8,9 @@ aliases:
   - view
   - transcript
 title: Interactive protocol
+id: interactive-protocol
+variants:
+  malicious-security: "#adversary-models"
 ---
 
 # Interactive protocols

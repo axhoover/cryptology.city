@@ -7,6 +7,10 @@ aliases:
   - Shamir secret sharing
   - Threshold secret sharing
 title: Secret sharing
+id: ss
+variants:
+  verifiable-secret-sharing: "#verifiable-secret-sharing-vss"
+  linear-secret-sharing-scheme: "#linear-secret-sharing-schemes-lsss"
 ---
 
 # Secret sharing

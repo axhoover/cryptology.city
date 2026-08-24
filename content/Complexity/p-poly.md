@@ -5,6 +5,7 @@ aliases:
   - P/poly
   - Non-uniform polynomial-time
 title: P/poly
+id: ppoly
 ---
 
 # P/poly

@@ -8,6 +8,10 @@ aliases:
   - KZG commitment
   - Polynomial commitment scheme
 title: Polynomial commitment scheme
+id: pcs
+variants:
+  fri: "#fri-fast-reed-solomon-iop-of-proximity"
+  kzg-polynomial-commitment: "#kzg-kate-zaverucha-goldberg"
 ---
 
 # Polynomial commitment scheme

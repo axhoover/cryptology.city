@@ -5,6 +5,7 @@ aliases:
   - RP
   - Randomized polynomial-time
 title: Randomized polynomial-time
+id: rp
 ---
 
 # Randomized polynomial-time

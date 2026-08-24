@@ -5,6 +5,11 @@ aliases:
   - RSA
   - RSA assumption
 title: RSA Assumption
+id: rsa
+variants:
+  strong-rsa: "#strong-rsa"
+  phi-hiding: "#-hiding"
+  strong-rsa-assumption: "#strong-rsa"
 ---
 
 # RSA Assumption

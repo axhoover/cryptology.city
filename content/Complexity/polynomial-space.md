@@ -5,6 +5,7 @@ aliases:
   - PSPACE
   - Polynomial-Space
 title: Polynomial-Space
+id: pspace
 ---
 
 # Polynomial-Space

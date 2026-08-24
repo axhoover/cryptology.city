@@ -6,6 +6,7 @@ aliases:
   - FIBE
   - Fuzzy identity-based encryption
 title: Fuzzy identity-based encryption
+id: fuzzy-ibe
 ---
 
 # Fuzzy identity-based encryption

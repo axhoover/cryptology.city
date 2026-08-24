@@ -5,6 +5,7 @@ aliases:
   - DLOG
   - Discrete logarithm
 title: Discrete logarithm
+id: dlog
 ---
 
 # Discrete logarithm

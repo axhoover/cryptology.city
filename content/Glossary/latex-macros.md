@@ -4,6 +4,7 @@ status: draft
 aliases:
   - LaTeX macros
 title: LaTeX macros
+id: latex-macros
 ---
 
 # LaTeX macros

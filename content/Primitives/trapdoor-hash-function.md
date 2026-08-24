@@ -5,6 +5,7 @@ aliases:
   - TDH
   - Trapdoor hash functions
 title: Trapdoor hash functions
+id: tdh
 ---
 
 # Trapdoor hash functions

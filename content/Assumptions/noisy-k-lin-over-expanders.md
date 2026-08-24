@@ -7,6 +7,9 @@ aliases:
   - noisy k-LIN over expanders
   - Noisy k-LIN over expanders
 title: Noisy k-LIN over expanders
+id: noisy-k-lin
+variants:
+  search-noisy-k-lin: "#search-noisy-k-lin"
 ---
 
 # Noisy k-LIN over expanders

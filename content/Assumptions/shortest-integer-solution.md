@@ -5,6 +5,11 @@ aliases:
   - SIS
   - Shortest Integer Solution
 title: Shortest Integer Solution
+id: sis
+variants:
+  module-sis: "#module-sis"
+  inhomogeneous-sis: "#isis-inhomogeneous-sis"
+  ring-sis: "#ring-sis"
 ---
 
 # Shortest Integer Solution

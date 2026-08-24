@@ -5,6 +5,13 @@ aliases:
   - HIBE
   - Hierarchical identity-based encryption
 title: Hierarchical identity-based encryption
+id: hibe
+variants:
+  adaptive-hibe-security: "#ind-hibe-cpa-security"
+  anonymous-hibe: "#anonymous-hibe"
+  hibe-adaptive-security: "#ind-hibe-cpa-security"
+  hibe-selective-security: "#ind-shibe-cpa-security-selective"
+  selective-hibe-security: "#ind-shibe-cpa-security-selective"
 ---
 
 # Hierarchical identity-based encryption

@@ -6,6 +6,9 @@ aliases:
   - Paillier assumption
   - Decisional composite residuosity
 title: Decisional composite residuosity assumption
+id: dcr
+variants:
+  d-th-composite-residuosity: "#d-th-composite-residuosity"
 ---
 
 # Decisional composite residuosity assumption

@@ -6,6 +6,10 @@ aliases:
   - DPFs
   - Distributed Point Functions
 title: Distributed Point Functions
+id: dpf
+variants:
+  function-secret-sharing: "#function-secret-sharing-fss"
+  multi-point-function-secret-sharing: "#multi-point-functions"
 ---
 
 # Distributed Point Functions

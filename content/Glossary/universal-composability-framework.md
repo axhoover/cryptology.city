@@ -5,6 +5,7 @@ aliases:
   - UC framework
   - Universal Composability Framework
 title: UC Framework
+id: uc-framework
 ---
 
 # Universal Composability

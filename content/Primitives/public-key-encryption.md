@@ -5,6 +5,15 @@ aliases:
   - PKE
   - Public key encryption
 title: Public key encryption
+id: pke
+variants:
+  pke-cca1-security: "#cca1-security"
+  anonymous-public-key-encryption: "#key-hiding"
+  ind-cca-security: "#cca-security"
+  ind-cpa-security: "#cpa-security"
+  pke-cca2-security: "#cca-security"
+  pke-cpa-security: "#cpa-security"
+  semantic-security: "#cpa-security"
 ---
 
 # Public key encryption

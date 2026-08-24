@@ -5,6 +5,7 @@ aliases:
   - coNP
   - Co-nondeterministic polynomial-time
 title: Co-nondeterministic polynomial-time
+id: conp
 ---
 
 # Co-nondeterministic polynomial-time

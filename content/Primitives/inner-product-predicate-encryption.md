@@ -6,6 +6,10 @@ aliases:
   - Inner-product predicate encryption
   - Predicate encryption
 title: Inner-product predicate encryption
+id: ippe
+variants:
+  nonzero-ippe: "#zero-inner-product-vs-non-zero"
+  payload-hiding-ippe: "#payload-only-hiding"
 ---
 
 # Inner-product predicate encryption

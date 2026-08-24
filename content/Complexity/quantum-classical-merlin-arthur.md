@@ -6,6 +6,7 @@ aliases:
   - Quantum-Classical Merlin-Arthur
   - MQA
 title: Quantum-Classical Merlin-Arthur
+id: qcma
 ---
 
 # Quantum-Classical Merlin-Arthur

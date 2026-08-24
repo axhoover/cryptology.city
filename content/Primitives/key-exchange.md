@@ -7,6 +7,11 @@ aliases:
   - Key agreement
   - DH key exchange
 title: Key exchange
+id: ke
+variants:
+  authenticated-key-exchange: "#authenticated-key-exchange-ake"
+  multi-party-key-exchange: "#multi-party-key-exchange"
+  non-interactive-key-exchange: "#non-interactive-key-exchange-nike"
 ---
 
 # Key exchange

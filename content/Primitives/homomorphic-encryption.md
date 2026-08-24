@@ -7,6 +7,13 @@ aliases:
   - Homomorphic encryption
   - Fully homomorphic encryption
 title: Homomorphic encryption
+id: he
+variants:
+  somewhat-homomorphic-encryption: "#somewhat-homomorphic-encryption-she"
+  additively-homomorphic-encryption: "#partially-homomorphic-encryption-phe"
+  leveled-fully-homomorphic-encryption: "#leveled-fully-homomorphic-encryption"
+  linearly-homomorphic-pke: "#partially-homomorphic-encryption-phe"
+  multiplicatively-homomorphic-encryption: "#partially-homomorphic-encryption-phe"
 ---
 
 # Homomorphic encryption

@@ -5,6 +5,7 @@ aliases:
   - QSZK
   - Quantum Statistical Zero-Knowledge
 title: Quantum Statistical Zero-Knowledge
+id: qszk
 ---
 
 # Quantum Statistical Zero-Knowledge

@@ -8,6 +8,9 @@ aliases:
   - Factoring assumption
   - IFP
 title: Factoring assumption
+id: fac
+variants:
+  factoring-blum-integers: "#factoring-with-known-factor-structure"
 ---
 
 # Factoring assumption

@@ -7,6 +7,19 @@ aliases:
   - RLWE
   - Ring Learning with errors
 title: Learning with errors
+id: lwe
+variants:
+  evasive-lwe: "#evasive-lwe"
+  module-lwe: "#module-lwe"
+  ring-lwe: "#ring-lwe"
+  succinct-lwe: "#succinct-lwe"
+  decision-lwe: "#decision-lwe"
+  private-coin-evasive-lwe: "#evasive-lwe"
+  search-lwe: "#search-lwe"
+  circular-evasive-lwe: "#evasive-lwe"
+  evasive-lwe-private-coin: "#evasive-lwe"
+  module-lwe-rank-1: "#module-lwe"
+  module-lwe-rank-n: "#module-lwe"
 ---
 
 # Learning with errors

@@ -7,6 +7,9 @@ aliases:
   - Quadratic residuosity assumption
   - QRA
 title: Quadratic residuosity assumption
+id: qr
+variants:
+  higher-residuosity: "#higher-residuosity"
 ---
 
 # Quadratic residuosity assumption

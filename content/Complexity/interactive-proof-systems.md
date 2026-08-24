@@ -5,6 +5,7 @@ aliases:
   - IP
   - Interactive Proof Systems
 title: Interactive Proof Systems
+id: ip
 ---
 
 # Interactive Proof Systems

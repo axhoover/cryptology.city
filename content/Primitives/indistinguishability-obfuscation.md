@@ -5,6 +5,10 @@ aliases:
   - iO
   - Indistinguishability Obfuscation
 title: Indistinguishability Obfuscation
+id: io
+variants:
+  virtual-black-box-obfuscation: "#virtual-black-box-obfuscation-vbb"
+  differing-inputs-obfuscation: "#differing-inputs-obfuscation-dio"
 ---
 
 # Indistinguishability Obfuscation

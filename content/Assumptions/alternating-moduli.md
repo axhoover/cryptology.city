@@ -7,6 +7,11 @@ aliases:
   - CDM
   - Crypto Dark Matter
 title: Alternating moduli assumption
+id: alternating-moduli-assumption
+variants:
+  pseudorandom-correlation-generator: "#pseudorandom-correlation-generators-pcg"
+  alternating-moduli-strong: "#strong-alternating-moduli-chosen-input-assumption"
+  alternating-moduli-weak: "#weak-alternating-moduli-random-input-assumption"
 ---
 
 # Alternating Moduli

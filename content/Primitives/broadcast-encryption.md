@@ -5,6 +5,7 @@ aliases:
   - BE
   - Broadcast encryption
 title: Broadcast encryption
+id: be
 ---
 
 # Broadcast encryption

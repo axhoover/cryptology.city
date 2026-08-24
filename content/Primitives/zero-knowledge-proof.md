@@ -9,6 +9,10 @@ aliases:
   - ZK proofs
   - Sigma protocol
 title: Zero-knowledge proof
+id: zkp
+variants:
+  constant-round-zk-argument: "#argument-systems"
+  honest-verifier-zero-knowledge: "#honest-verifier-zk-hvzk"
 ---
 
 # Zero-knowledge proof

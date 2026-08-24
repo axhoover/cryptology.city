@@ -5,6 +5,7 @@ aliases:
   - AM
   - Arthur-Merlin
 title: Arthur-Merlin
+id: am
 ---
 
 # Arthur-Merlin

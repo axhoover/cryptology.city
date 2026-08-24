@@ -4,6 +4,7 @@ status: stub
 aliases:
   - Switching Lemma
 title: Switching Lemma
+id: switching-lemma
 ---
 
 # Switching Lemma

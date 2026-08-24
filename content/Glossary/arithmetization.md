@@ -8,6 +8,7 @@ aliases:
   - PLONKish
   - AIR
 title: Arithmetization
+id: arithmetization
 ---
 
 # Arithmetization

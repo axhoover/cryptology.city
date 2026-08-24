@@ -6,6 +6,11 @@ aliases:
   - Commitment scheme
   - Commitment
 title: Commitment scheme
+id: com
+variants:
+  statistically-binding-commitment: "#binding"
+  statistically-hiding-commitment: "#hiding"
+  vector-commitment: "#vector-commitments"
 ---
 
 # Commitment scheme

@@ -6,6 +6,7 @@ aliases:
   - Random oracle
   - Random Oracle Model
 title: Random Oracle Model
+id: rom
 ---
 
 # Random Oracle Model

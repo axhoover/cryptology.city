@@ -5,6 +5,7 @@ aliases:
   - CDH
   - Computational Diffie-Hellman
 title: Computational Diffie-Hellman
+id: cdh
 ---
 
 # Computational Diffie-Hellman

@@ -9,6 +9,12 @@ aliases:
   - Ciphertext-policy ABE
   - Attribute-based encryption
 title: Attribute-based encryption
+id: abe
+variants:
+  abe-selective-security: "#selective-security"
+  symmetric-cp-abe: "#symmetric-cp-abe"
+  cp-abe-adaptive-security: "#cp-abe-ind-cpa-security"
+  kp-abe-selective-security: "#selective-security"
 ---
 
 # Attribute-based encryption

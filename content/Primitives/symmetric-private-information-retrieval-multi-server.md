@@ -8,6 +8,7 @@ aliases:
   - Symmetric private information retrieval (Multi-server)
   - Symmetric private information retrieval
 title: Multi-server Symmetric private information retrieval
+id: spir
 ---
 
 # Multi-server Symmetric private information retrieval

@@ -6,6 +6,7 @@ aliases:
   - Polynomial-Time Hierarchy
   - Polynomial Hierarchy
 title: Polynomial Hierarchy
+id: ph
 ---
 
 # Polynomial Hierarchy

@@ -7,6 +7,9 @@ aliases:
   - PK-DEPIR
   - Doubly-efficient PIR
 title: Doubly-efficient PIR
+id: depir
+variants:
+  unkeyed-depir: "#unkeyed-depir"
 ---
 
 # Doubly-efficient PIR

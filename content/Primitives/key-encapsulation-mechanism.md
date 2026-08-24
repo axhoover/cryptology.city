@@ -8,6 +8,10 @@ aliases:
   - Key encapsulation mechanism
   - Hybrid encryption
 title: Key encapsulation mechanism
+id: kem
+variants:
+  ind-cca-kem: "#ind-cca-security"
+  ind-cpa-kem: "#ind-cpa-kem"
 ---
 
 # Key encapsulation mechanism

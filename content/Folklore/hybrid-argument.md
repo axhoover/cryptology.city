@@ -4,6 +4,7 @@ status: draft
 aliases:
   - Hybrid argument
 title: Hybrid argument
+id: hybrid-argument
 ---
 
 # Hybrid argument

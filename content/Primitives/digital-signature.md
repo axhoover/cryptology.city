@@ -6,6 +6,16 @@ aliases:
   - Signature
   - Digital signature
 title: Digital signature
+id: ds
+variants:
+  one-time-signature: "#hash-based-signatures"
+  schnorr-identification-protocol: "#schnorr-signatures"
+  schnorr-signature: "#schnorr-signatures"
+  hash-and-sign-signature: "#lattice-based-signatures"
+  xmss: "#hash-based-signatures"
+  boneh-lynn-shacham-signature: "#bls-signatures"
+  eddsa: "#schnorr-signatures"
+  few-time-signature: "#hash-based-signatures"
 ---
 
 # Digital signature

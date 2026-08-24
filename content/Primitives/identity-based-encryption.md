@@ -5,6 +5,10 @@ aliases:
   - IBE
   - Identity-based encryption
 title: Identity-based encryption
+id: ibe
+variants:
+  ind-id-cpa: "#ind-id-cpa-security"
+  ind-sid-cpa: "#ind-sid-cpa-security-selective"
 ---
 
 # Identity-based encryption

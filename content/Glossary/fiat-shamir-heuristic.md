@@ -5,6 +5,7 @@ aliases:
   - Fiat-Shamir
   - Fiat-Shamir Heuristic
 title: Fiat-Shamir Heuristic
+id: fiat-shamir
 ---
 
 # Fiat-Shamir Heuristic

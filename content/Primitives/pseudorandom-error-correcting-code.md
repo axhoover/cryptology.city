@@ -6,6 +6,11 @@ aliases:
   - Pseudorandom Codes
   - Pseudorandom error-correcting code
 title: Pseudorandom error-correcting code
+id: prc
+variants:
+  zero-bit-prc: "#zero-bit-prc"
+  ideal-prc: "#ideal-prc"
+  adaptively-robust-prc: "#adaptive-robustness"
 ---
 
 # Pseudorandom error-correcting code

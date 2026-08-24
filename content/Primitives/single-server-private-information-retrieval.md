@@ -6,6 +6,10 @@ aliases:
   - Single-Server Private Information Retrieval
   - Single-server Private Information Retrieval
 title: Private Information Retrieval
+id: cpir
+variants:
+  secret-key-pir: "#secret-key-pir-sk-pir"
+  single-server-symmetric-pir: "#symmetric-private-information-retrieval-single-server"
 ---
 
 # Private Information Retrieval

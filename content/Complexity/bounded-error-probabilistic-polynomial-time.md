@@ -5,6 +5,7 @@ aliases:
   - BPP
   - Bounded-Error Probabilistic Polynomial-Time
 title: Bounded-Error Probabilistic Polynomial-Time
+id: bpp
 ---
 
 # Bounded-Error Probabilistic Polynomial-Time

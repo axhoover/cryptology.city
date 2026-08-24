@@ -5,6 +5,9 @@ aliases:
   - SIDH
   - Supersingular Isogeny Diffie-Hellman
 title: Supersingular Isogeny Diffie-Hellman
+id: sidh
+variants:
+  csidh: "#csidh"
 ---
 
 # Supersingular Isogeny Diffie-Hellman

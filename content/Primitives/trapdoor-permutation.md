@@ -7,6 +7,11 @@ aliases:
   - Trapdoor function
   - Trapdoor permutation
 title: Trapdoor permutation
+id: tdp
+variants:
+  lossy-trapdoor-function: "#lossy-trapdoor-functions"
+  enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
+  lossy-functions: "#lossy-trapdoor-functions"
 ---
 
 # Trapdoor permutation

@@ -5,6 +5,7 @@ aliases:
   - FP Code
   - Fingerprinting Code
 title: Fingerprinting Code
+id: fp-code
 ---
 
 # Fingerprinting Code

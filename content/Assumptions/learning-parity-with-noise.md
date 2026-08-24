@@ -5,6 +5,15 @@ aliases:
   - LPN
   - Learning parity with noise
 title: Learning parity with noise
+id: lpn
+variants:
+  sparse-lpn: "#sparse-learning-parity-with-noise"
+  lpn-low-noise: "#noise-level"
+  subexponential-lpn: "#subexponential-lpn"
+  lpn-mid-noise: "#noise-level"
+  ring-lpn: "#ring-lpn"
+  lpn-constant-noise: "#noise-level"
+  lpn-high-noise: "#noise-level"
 ---
 
 # Learning parity with noise

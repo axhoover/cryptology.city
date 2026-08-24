@@ -5,6 +5,7 @@ aliases:
   - BQP
   - Bounded-Error Quantum Polynomial-Time
 title: Bounded-Error Quantum Polynomial-Time
+id: bqp
 ---
 
 # Bounded-Error Quantum Polynomial-Time

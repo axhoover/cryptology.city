@@ -7,6 +7,8 @@ aliases:
   - Pseudorandom permutation
 title: Pseudorandom permutation
 id: prp
+variants:
+  strong-pseudorandom-permutation: "#strong-security"
 ---
 
 # Pseudorandom permutation

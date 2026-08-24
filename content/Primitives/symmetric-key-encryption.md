@@ -7,6 +7,10 @@ aliases:
   - Symmetric key encryption
 title: Symmetric key encryption
 id: ske
+variants:
+  cca-secure-symmetric-key-encryption: "#cca-security"
+  cpa-security: "#cpa-security"
+  ind-dollar-cpa-security: "#ind-cpa-security"
 ---
 
 # Symmetric key encryption

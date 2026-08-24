@@ -5,6 +5,7 @@ aliases:
   - AGM
   - Algebraic Group Model
 title: Algebraic Group Model
+id: agm
 ---
 
 # Algebraic Group Model

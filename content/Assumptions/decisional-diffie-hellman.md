@@ -6,6 +6,8 @@ aliases:
   - Decisional Diffie-Hellman
 title: Decisional Diffie-Hellman
 id: ddh
+variants:
+  decisional-linear: "#dlin"
 ---
 
 # Decisional Diffie-Hellman
