@@ -1,0 +1,341 @@
+{
+  "batch": "red-24",
+  "pages": [
+    {
+      "slug": "pcs-to-nizk",
+      "path": "content/Reductions/pcs-to-nizk.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as stated: an arbitrary polynomial commitment with O(1)-size proofs does not imply a succinct NIZK for NP in the standard model. (a) The PIOP-compilation route yields an interactive argument; non-interactivity needs the random-oracle model (Fiat-Shamir) or a structured setup, neither supplied by a PCS. (b) Zero knowledge needs a hiding PCS with zero-knowledge evaluation proofs; evaluation binding provides no hiding. (c) Knowledge soundness needs extractability, not mere evaluation binding. The defensible theorem - an extractable, hiding PCS yields a zkSNARK for NP in the ROM via polynomial-IOP compilation (Marlin, EUROCRYPT 2020, eprint 2019/1047; DARK compilers, EUROCRYPT 2020, eprint 2019/1229) - is exactly the red-pcs-to-snark edge with qualifiers. The migration notes already flagged this bullet as a suspected mathematical error; that flag is correct.",
+      "flags": [
+        "HIGH PRIORITY: page's own migration note flagged SUSPECTED MATHEMATICAL ERROR - confirmed; the '- standard' folklore label on the source bullet was wrong",
+        "recommend folding this page into red-pcs-to-snark (qualified, ROM) or deleting it; also fix the source bullet on content/Primitives/polynomial-commitment.md",
+        "conclusion 'succinct NIZK for NP' spans two wiki objects (nizk and snark), a further sign the edge was never well-typed"
+      ]
+    },
+    {
+      "slug": "pcs-to-snark",
+      "path": "content/Reductions/pcs-to-snark.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CHMMVW20",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CHMMVW20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS",
+          "authors": "Alessandro Chiesa, Yuncong Hu, Mary Maller, Pratyush Mishra, Psi Vesely, Nicholas Ward",
+          "venue": "EUROCRYPT 2020",
+          "year": "2020",
+          "url": "https://eprint.iacr.org/2019/1047",
+          "note": "cryptobib EC:CHMMVW20, DOI 10.1007/978-3-030-45721-1_26 (verified in vendor/cryptobib). Proves the AHP (polynomial IOP) + extractable polynomial commitment compilation theorem yielding preprocessing (zk)SNARKs. Concurrent with BFS20."
+        },
+        {
+          "key": "BFS20",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BFS20 - Transparent SNARKs from DARK Compilers",
+          "authors": "Benedikt Bünz, Ben Fisch, Alan Szepieniec",
+          "venue": "EUROCRYPT 2020",
+          "year": "2020",
+          "url": "https://eprint.iacr.org/2019/1229",
+          "note": "cryptobib EC:BunFisSze20, DOI 10.1007/978-3-030-45721-1_24 (verified in vendor/cryptobib). Proves the generic 'polynomial IOP + polynomial commitment with witness-extended emulation => succinct argument of knowledge' compilation, Fiat-Shamir for non-interactivity. Concurrent with CHMMVW20."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The compiled construction uses the PCS as a black box, but knowledge soundness invokes the PCS's extractor (an extractability property, not oracle use of an adversary) and non-interactivity uses Fiat-Shamir in the ROM; neither source places the compilation in the RTV04 taxonomy, so recording a class would add a claim.",
+      "model": "rom",
+      "model_justification": "The generic PIOP-with-PCS compilation yields a public-coin interactive argument in the standard model; the SNARK (non-interactive) conclusion is obtained by Fiat-Shamir in the random-oracle model in both CHMMVW20 and BFS20. Any setup of the PCS carries over: a transparent PCS gives a transparent SNARK, a structured-setup PCS (e.g. KZG) gives a universal-SRS preprocessing SNARK.",
+      "kind_correct": "implication",
+      "statement": "Any extractable [[polynomial-commitment|polynomial commitment scheme]] with succinct commitments and evaluation proofs yields a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model: a polynomial IOP for NP, which exists unconditionally, is compiled by having the prover commit to each round's polynomials and answer the verifier's evaluation queries with evaluation proofs, and the resulting public-coin argument is made non-interactive via Fiat–Shamir [[CHMMVW20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHMMVW20]], [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]. The PCS's setup carries over to the SNARK: a transparent PCS yields a transparent SNARK.",
+      "sketch": "Each oracle the polynomial-IOP prover would send is replaced by a PCS commitment, and each verifier query by an evaluation opening. Knowledge soundness follows by running the PCS extractor on a convincing prover to recover the committed polynomials and invoking the PIOP's soundness.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "hypothesis as typed is bare `pcs`; the theorem needs extractability (evaluation binding alone does not give knowledge soundness) and succinctness of commitments/evaluation proofs for the conclusion to be succinct - qualifiers are load-bearing and are stated in the statement",
+        "model corrected standard -> rom (Fiat-Shamir step); the interactive compilation itself is standard-model",
+        "the compilation also consumes a polynomial IOP for NP, an unconditional ingredient not visible in the hypothesis set",
+        "two 'original' sources: CHMMVW20 and BFS20 are concurrent EUROCRYPT 2020 papers, both prove the compilation theorem; cite both",
+        "the migrated body text is motivational prose ('key bridge'), replace entirely; the 'FRI is the core component of STARKs' sentence is componenthood prose, not part of this edge"
+      ]
+    },
+    {
+      "slug": "pcs-to-vector-commitments",
+      "path": "content/Reductions/pcs-to-vector-commitments.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The VC algorithms invoke the PCS only as an oracle (Lagrange interpolation over the fixed points is public preprocessing), and a position-binding adversary's output - two accepting openings of different values at the same position i - is verbatim an evaluation-binding break at the point i, so the security reduction runs the adversary once as an oracle and forwards its output. Both the construction and the reduction are fixed in advance, the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[polynomial-commitment|PCS]] over a field $\\FF$ supporting degree bound $n-1$ yields a [[commitment-scheme#vector-commitments|vector commitment]] for vectors in $\\FF^n$: commit to $(v_1, \\dots, v_n)$ as a commitment to the unique polynomial $f$ of degree $< n$ with $f(i) = v_i$, and open position $i$ with an evaluation proof for $f(i) = v_i$. Position binding follows directly from evaluation binding — folklore.",
+      "sketch": "Interpolate the vector into a polynomial and reuse the PCS's evaluation proofs at the fixed interpolation points as position openings; two conflicting position openings are two conflicting evaluation openings at the same point.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "kind corrected equivalence -> implication: only PCS => VC is generic. The converse is not: a VC opens single positions, while evaluating f at a fresh point is a linear combination of all n committed positions, so the trivial VC-based PCS must open every position and is not succinct. I found no sourced generic equivalence; the migrated hedge 'under certain reductions' is untypeable and was dropped. If a sourced converse appears it should be its own page (vector-commitments-to-pcs).",
+        "'vector commitment' is an anchor on commitment-scheme, not a standalone object page (dangling-object note from migration remains true)",
+        "the '- standard' label on the migrated EQUIVALENCE claim was unjustified; the label is honest only for the PCS => VC direction kept here"
+      ]
+    },
+    {
+      "slug": "hiding-to-cpir",
+      "path": "content/Reductions/hiding-to-cpir.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CMS99",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication",
+          "authors": "Christian Cachin, Silvio Micali, Markus Stadler",
+          "venue": "EUROCRYPT 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48910-X_28",
+          "note": "cryptobib EC:CacMicSta99, pp. 402-414 (verified in vendor/cryptobib). Introduces the Phi-hiding assumption and builds the first single-server PIR with polylogarithmic total communication from it."
+        },
+        {
+          "key": "GR05",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "GR05 - Single-Database Private Information Retrieval with Constant Communication Rate",
+          "authors": "Craig Gentry, Zulfikar Ramzan",
+          "venue": "ICALP 2005",
+          "year": "2005",
+          "url": "https://doi.org/10.1007/11523468_65",
+          "note": "cryptobib ICALP:GenRam05, pp. 803-815 (verified in vendor/cryptobib). Constant communication rate single-database PIR from a Phi-hiding-style assumption."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-to-primitive construction; CMS99 do not classify the reduction in RTV04 terms and the taxonomy is defined for primitive-to-primitive reductions, so `unstated` is the honest value.",
+      "model": "standard",
+      "model_justification": "The CMS99 scheme is in the standard model; privacy reduces to the Phi-hiding assumption, correctness is unconditional.",
+      "kind_correct": "implication",
+      "statement": "Under the [[rsa-assumption#-hiding|Φ-hiding]] assumption there is a single-server [[single-server-private-information-retrieval|cPIR]] scheme with total communication polylogarithmic in the database size $n$ [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]. The Φ-hiding assumption was introduced in the same work.",
+      "sketch": "The client maps index $i$ to a prime $p_i$ and sends a modulus $m$ whose totient is divisible by $p_i$ — by Φ-hiding, $m$ reveals nothing about $p_i$ — together with an $x$ that is not a $p_i$-th residue. The server replies with $x^e \\bmod m$ for $e = \\prod_j p_j^{b_j}$, and the client, knowing the factorization of $m$, recovers $b_i$ by testing whether the reply is a $p_i$-th power residue.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Φ-hiding also yields single-database PIR with constant communication rate — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "the migrated text's 'used in some private information retrieval constructions' is now made concrete: this page is the CMS99 result specifically",
+        "source page content/Assumptions/rsa-assumption.md should cite CMS99 for the Phi-hiding paragraph and wikilink single-server-private-information-retrieval (migration TODO remains)"
+      ]
+    },
+    {
+      "slug": "pke-to-com",
+      "path": "content/Reductions/pke-to-com.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 28(4)",
+          "year": "1999",
+          "url": "",
+          "note": "Cited in improvements_text for the generic OWF -> PRG step avoiding the perfect-correctness caveat."
+        },
+        {
+          "key": "Naor91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Naor91 - Bit commitment using pseudorandomness",
+          "authors": "Moni Naor",
+          "venue": "Journal of Cryptology 4(2)",
+          "year": "1991",
+          "url": "",
+          "note": "Cited in improvements_text: statistically binding two-message commitment from any PRG."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The commitment algorithms call $\\KeyGen$ and $\\Enc$ only as oracles; the hiding reduction converts any commitment distinguisher, used as an oracle, into a CPA adversary with the same advantage; binding is information-theoretic given perfect correctness, so no reduction is needed there. Fixed construction, fixed reduction: the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Committing to $m$ as $(\\pk, c)$ with $(\\pk, \\sk) \\gets \\KeyGen(1^\\secpar)$ and $c \\gets \\Enc(\\pk, m; r)$, and opening by revealing $(m, r)$, turns any perfectly correct CPA-secure [[public-key-encryption|PKE]] into a non-interactive [[commitment-scheme|commitment]]: hiding is exactly CPA security, and binding holds because perfect correctness makes the ciphertext determine the plaintext — two accepting openings $(m_0, r_0), (m_1, r_1)$ of $c$ with $m_0 \\neq m_1$ would force $\\Dec(\\sk, c)$ to equal both. Binding by this argument covers only public keys in the support of $\\KeyGen$; a malicious committer choosing a malformed $\\pk$ may evade it unless keys are certifiable — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Without perfect correctness or key certification, PKE still implies commitments generically: PKE implies a one-way function, hence a [[pseudorandom-generator|PRG]] [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], hence a two-message statistically binding commitment [[Naor91 - Bit commitment using pseudorandomness|Naor91]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "migration's SUSPECTED IMPRECISION confirmed and folded into the statement: the source bullet's unconditional 'statistically binding' requires perfect correctness AND honestly generated (or certifiable) keys; the source bullet on content/Primitives/commitment-scheme.md should be qualified accordingly"
+      ]
+    },
+    {
+      "slug": "pke-to-hash-function",
+      "path": "content/Reductions/pke-to-hash-function.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "IL89",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "IL89 - One-way Functions are Essential for Complexity Based Cryptography",
+          "authors": "Russell Impagliazzo, Michael Luby",
+          "venue": "FOCS 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1109/SFCS.1989.63483",
+          "note": "cryptobib FOCS:ImpLub89, pp. 230-235 (verified in vendor/cryptobib). The canonical citation for 'secure encryption (and most other cryptographic tasks) implies one-way functions'; PKE is subsumed."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The one-way function is computed by running the PKE algorithms as oracles (e.g. mapping key-generation randomness to the public key), and the security reduction runs any inverter as an oracle to obtain a key consistent with $\\pk$ and decrypt the CPA challenge. Fixed construction and fixed reduction; OWFs are the standard example of a primitive fully-black-box reducible to essentially every other primitive.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any CPA-secure [[public-key-encryption|PKE]] implies a one-way function ([[hash-function|OWF]]) [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]. This instantiates the general theorem that complexity-based cryptographic tasks — encryption, identification, signatures — require one-way functions.",
+      "sketch": "Map the key-generation randomness to the public key: $f(r) := \\pk$ where $(\\pk, \\sk) = \\KeyGen(1^\\secpar; r)$. Any inverter returns randomness whose key pair $(\\pk, \\sk')$ shares $\\pk$; by correctness $\\sk'$ decrypts the CPA challenge, so noticeable inversion probability gives noticeable CPA advantage.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY conclusion-object issue (migration flag confirmed): the wiki's hash-function page hosts both OWF and CRHF. This edge is PKE => OWF only — PKE is NOT known to imply collision resistance — so the conclusion must target the one-wayness variant (hash-function#preimage-resistance-one-wayness, variant key `owf`), not the page at large, or the edge reads as a false claim.",
+        "IL89 proves the theorem for secure (private-key) encryption and related tasks; PKE is a special case (folklore step). No careful reader should object, but the statement keeps the general-theorem framing for honesty."
+      ]
+    },
+    {
+      "slug": "pke-to-ke",
+      "path": "content/Reductions/pke-to-ke.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The protocol runs $\\KeyGen$ and $\\Enc$ as oracles; the reduction embeds its CPA challenge $(\\pk, c^*)$ as the protocol transcript and runs any eavesdropper on it as an oracle, translating a key-vs-random distinguisher into a CPA distinguisher with the same advantage. Fixed construction, fixed reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any CPA-secure [[public-key-encryption|PKE]] yields a two-message [[key-exchange|KE]] protocol secure against passive eavesdroppers: $B$ sends a fresh $\\pk$ from $\\KeyGen(1^\\secpar)$, $A$ replies with $c \\gets \\Enc(\\pk, k)$ for $k \\getsr \\calK$, and both parties output $k$. Indistinguishability of $k$ from random given the transcript $(\\pk, c)$ is exactly CPA security for a random message — folklore.",
+      "sketch": "The reduction submits two independent uniform keys as its CPA challenge pair, presents the challenge ciphertext as $A$'s message, and outputs whatever the eavesdropper decides about the first key.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "the migrated statement was a composite chain LWE => PKE => KE cited to Reg05; the LWE => PKE link is its own page, and this page now carries only the generic PKE => KE link, which is folklore (Reg05 is NOT a source for this edge and should not be cited here)",
+        "converse page red-ke-to-pke-dh76 exists; both directions stay separate implication pages per convention (do not merge into an equivalence)"
+      ]
+    },
+    {
+      "slug": "pke-to-kem",
+      "path": "content/Reductions/pke-to-kem.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "CS03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack",
+          "authors": "Ronald Cramer, Victor Shoup",
+          "venue": "SIAM Journal on Computing 33(1)",
+          "year": "2003",
+          "url": "https://eprint.iacr.org/2001/108",
+          "note": "cryptobib CraSho03 (journal, pp. 167-226) and EPRINT:CraSho01b (verified in vendor/cryptobib). Formalizes the KEM abstraction and the KEM/DEM hybrid framework; the standard citable form of this folklore transformation."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "$\\mathsf{Encap}$ and $\\mathsf{Decap}$ call $\\Enc$ and $\\Dec$ only as oracles, and the reduction runs any KEM adversary as an oracle, forwarding its decapsulation queries to the decryption oracle with a challenge embedding fixed in advance.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any IND-CCA [[public-key-encryption|PKE]] whose message space contains the key space $\\calK$ yields an IND-CCA [[key-encapsulation-mechanism|KEM]]: $\\mathsf{Encap}(\\pk)$ samples $k \\getsr \\calK$ and outputs $(\\Enc(\\pk, k), k)$, and $\\mathsf{Decap}(\\sk, c) := \\Dec(\\sk, c)$. The KEM game maps query-for-query onto the PKE game — folklore.",
+      "sketch": "The reduction picks independent uniform keys $k_0, k_1 \\getsr \\calK$, submits them as its PKE challenge pair, hands the KEM adversary $(c^*, k_0)$, and answers decapsulation queries with its decryption oracle; when $c^*$ encrypts $k_1$, the shown key $k_0$ is uniform and independent of $c^*$, matching the KEM's random-key world.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The KEM abstraction and the KEM/DEM hybrid framework in which this transformation is the standard first step were formalized by [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "the same transformation gives IND-CPA KEM from IND-CPA PKE",
+        "migration note suggested attributing the reduction itself to CS03; the transformation is immediate and careful papers label it standard, so it stays folklore with CS03 cited for the KEM/DEM framework (per the textbook-vs-folklore rule)"
+      ]
+    },
+    {
+      "slug": "pke-to-ot",
+      "path": "content/Reductions/pke-to-ot.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Not a theorem as stated: OT is not known to follow from generic PKE. GKM+00 (FOCS 2000; already a wiki reference, 'GKM+00 - The relationship between public key encryption and oblivious transfer') prove that PKE and OT are incomparable under black-box reductions — their oracle-separation technique follows IR89, so it rules out the relativizing and hence every fully-black-box construction — and no non-black-box construction is known either. The true, qualified edges are: (semi-honest) OT from PKE with obliviously sampleable public keys or ciphertexts — the Even-Goldreich-Lempel protocol (EGL, 'A Randomized Protocol for Signing Contracts', CACM 28(6), 1985), matching GKM+00's positive result for restricted PKE — and OT from enhanced trapdoor permutations. The right fix is a barrier page (fully-black-box PKE => OT ruled out, GKM+00) plus a qualified reduction page (oblivious-sampleable PKE => OT, EGL85).",
+      "flags": [
+        "HIGH PRIORITY: the edge as typed contradicts a black-box separation already present in the wiki's own references (GKM+00); the source bullet on content/Primitives/oblivious-transfer.md should be rewritten with the oblivious-sampleability qualifier",
+        "migration note ('Suspicious as stated') confirmed"
+      ]
+    },
+    {
+      "slug": "cca1-security-to-cpa-security",
+      "path": "content/Reductions/cca1-security-to-cpa-security.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Notion implication on the same scheme: the construction is the identity (the scheme is used as an oracle, unchanged), and the reduction runs any CPA adversary unchanged as a CCA1 adversary, as an oracle, simply never using the decryption oracle. Fixed construction, fixed reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[public-key-encryption#cca1-security|CCA1]]-secure [[public-key-encryption|PKE]] scheme is [[public-key-encryption#cpa-security|CPA]]-secure: a CPA adversary is a CCA1 adversary that makes no decryption queries, so its CPA advantage equals its CCA1 advantage against the same scheme — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "tight — the adversary and its advantage are unchanged",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "the migrated sentence also asserts strictness ('strictly stronger than CPA'), i.e. a separation CPA-secure-but-not-CCA1 scheme exists; that is a distinct (barrier/separation-type) claim, uncited on the source page, and not covered by this implication page"
+      ]
+    }
+  ]
+}

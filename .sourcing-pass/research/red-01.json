@@ -1,0 +1,369 @@
+{
+  "batch": "red-01",
+  "pages": [
+    {
+      "slug": "am-to-coam",
+      "path": "content/Reductions/am-to-coam.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The migrated text is the definition of coAM as the complement class of AM (L is in coAM iff its complement is in AM), not a theorem that AM = coAM. AM = coAM is not known and is believed false: NP is contained in AM, so AM = coAM would give coNP contained in AM and collapse the polynomial hierarchy to the second level (Boppana-Hastad-Zachos). The page's own migration note already says the source is definitional (complementation) and that a distinct 'complement-of' edge type is wanted. Do not record an equivalence edge.",
+      "flags": [
+        "Recommend converting this page to a definitional 'complement-of' relation or deleting the edge; the underlying prose is a definition, not a claim.",
+        "The current frontmatter (kind: equivalence, class: free) asserts a false class equality; a lint-visible wrong_claim marker is preferable to leaving it."
+      ]
+    },
+    {
+      "slug": "anonymous-hibe-to-hibe",
+      "path": "content/Reductions/anonymous-hibe-to-hibe.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: an anonymous HIBE scheme is syntactically a HIBE scheme. The security reduction forwards any HIBE IND-CPA adversary unchanged to the anonymous security game, whose challenge subsumes payload indistinguishability. Fixed construction, fixed reduction, both black-box in scheme and adversary - the RTV04 fully-black-box shape, trivially.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is a [[hierarchical-identity-based-encryption|HIBE]] whose ciphertexts hide the recipient identity vector $\\vec{\\mathit{id}}$ in addition to the payload. The scheme is unchanged and the anonymous security game subsumes payload indistinguishability, so every anonymous HIBE is a secure HIBE — folklore.",
+      "sketch": "The construction is the identity; a HIBE IND-CPA adversary is forwarded unchanged to the anonymous game, where distinguishing payloads already wins.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "No slug 'anonymous-hibe' exists in content/; the hypothesis resolves via the section anchor on hierarchical-identity-based-encryption."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Strengthening-implies-base edge; folklore label is honest. Class claimed as fully-black-box because the identity construction and forwarding reduction satisfy it trivially."
+      ]
+    },
+    {
+      "slug": "arithmetization-to-zk-snark-gro16",
+      "path": "content/Reductions/arithmetization-to-zk-snark-gro16.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Gro16",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Gro16 - On the Size of Pairing-based Non-interactive Arguments",
+          "authors": "Jens Groth",
+          "venue": "Eurocrypt 2016",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/260",
+          "note": ""
+        },
+        {
+          "key": "FKL18",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FKL18 - The Algebraic Group Model and its Applications",
+          "authors": "Georg Fuchsbauer, Eike Kiltz, Julian Loss",
+          "venue": "Crypto 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2017/620",
+          "note": "Proves knowledge soundness of Groth16 in the algebraic group model under the q-discrete-logarithm assumption; verified via DBLP (conf/crypto/FuchsbauerKL18) and eprint 2017/620."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Gro16's knowledge-soundness proof is an unconditional linear-algebra/counting argument against generic adversaries; no computational hypothesis is reduced to, so no black-box class between primitives applies. `free` scoped by `model: generic-group` follows schema/reduction-classes.yaml (rejected: generic-group guidance) and matches the sibling page red-bilinear-pairing-to-snark-gro16 (class: free, model: generic-group).",
+      "model": "generic-group",
+      "model_justification": "Gro16 proves knowledge soundness in the generic (asymmetric) bilinear group model. The previously recorded `crs` records the trusted setup, which is part of the SNARK's syntax and is stated in the statement text; the single model slot should carry the idealized proof model that makes the recorded edge true.",
+      "kind_correct": "implication",
+      "statement": "Arithmetic-circuit satisfiability arithmetized as a [[arithmetization|QAP]] yields Groth16's pairing-based preprocessing [[succinct-argument#zk-snark|zk-SNARK]]: with a circuit-specific structured reference string, a proof is $3$ group elements and verification is a single pairing-product equation. Knowledge soundness holds unconditionally against generic adversaries in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].",
+      "sketch": "The reference string contains group encodings of powers of a secret evaluation point $\\tau$ together with shifts $\\alpha, \\beta, \\gamma, \\delta$; the prover evaluates the QAP witness polynomials in the exponent to produce elements $A, B, C$, and the verifier's single pairing-product equation enforces the QAP divisibility $A \\cdot B - C = H \\cdot t$ at $\\tau$. Against generic adversaries every proof element is a known linear combination of reference-string elements, and the verification equation forces those combinations to encode a valid witness.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Knowledge soundness of Groth16 proved in the algebraic group model under the $q$-discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Model changed crs -> generic-group: with model crs the edge is false (arithmetization plus a CRS alone do not yield a SNARK); with the GGM supplying soundness the recorded edge is a true unconditional statement. The circuit-specific CRS is preserved in the statement text.",
+        "This page and red-bilinear-pairing-to-snark-gro16 record the two halves of the same theorem ({QAP arithmetization, bilinear pairing} => zk-SNARK, Gro16); consider merging into one conjunctive edge.",
+        "The Pinocchio (PGHR13) half of the original migrated bullet remains uncited and has no edge; a separate page would need a PGHR13 reference stub.",
+        "Hypothesis is a Glossary technique node (arithmetization), not a primitive/assumption."
+      ]
+    },
+    {
+      "slug": "arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
+      "path": "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BBHR18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BBHR18 - Scalable, transparent, and post-quantum secure computational integrity",
+          "authors": "Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, Michael Riabzev",
+          "venue": "ePrint 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2018/046",
+          "note": ""
+        }
+      ],
+      "class": "free",
+      "class_justification": "AIR and FRI are information-theoretic objects, and in the random-oracle model the compiled argument's soundness is unconditional against query-bounded provers; no computational hypothesis is reduced to, so no black-box class between primitives applies. `free` scoped by `model: rom`, by the same convention the repo uses for `free` scoped by `model: generic-group` (cf. red-bilinear-pairing-to-snark-gro16).",
+      "model": "rom",
+      "model_justification": "The STARK is an interactive oracle proof compiled to a non-interactive argument by Merkle-hashing oracles and Fiat-Shamir; BBHR18 analyze it with the hash as a random oracle. The migration already recorded rom as an inference; the source confirms it.",
+      "kind_correct": "implication",
+      "statement": "A computation expressed as an [[arithmetization|AIR]] and combined with the [[polynomial-commitment#fri-fast-reed-solomon-iop-of-proximity|FRI]] proximity test yields the STARK of BBHR18: a transparent [[succinct-argument|succinct argument]] with no trusted setup, prover time $O(T \\log T)$ and proof length $O(\\log^2 T)$ for a computation of size $T$, made non-interactive in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].",
+      "sketch": "The prover Merkle-commits to Reed-Solomon codewords of the execution-trace polynomials; the AIR constraints are reduced to a low-degree proximity claim about a derived codeword, which FRI certifies in logarithmically many halving rounds; hashing the transcript (Fiat-Shamir) makes the interactive oracle proof non-interactive in the random-oracle model.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Genuinely conjunctive ({AIR, FRI} => STARK) — must not be flattened into two single-hypothesis edges."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Both hypotheses are technique/protocol nodes (a Glossary entry and a section of polynomial-commitment), not primitives; in the ROM no computational hypothesis appears, hence class free scoped by model rom. If the free-scoped-by-model convention is meant only for GGM/complexity edges, fall back to unstated.",
+        "BBHR18's post-quantum claim refers to the standard-model instantiation with a collision-resistant hash; the recorded ROM statement is classical query-bounded.",
+        "Conclusion node succinct-argument cannot distinguish transparent STARKs from trusted-setup SNARKs (already noted in migration)."
+      ]
+    },
+    {
+      "slug": "arithmetization-and-nizk-and-pcs-to-snark",
+      "path": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "No theorem consumes a NIZK together with a polynomial commitment scheme and an arithmetization to produce a SNARK: there is no generic transformation making an arbitrary NIZK succinct via PCS + arithmetization. The real construction underlying the migrated sentence builds a SNARK from scratch — arithmetize to a polynomial IOP, compile with an extractable PCS, apply Fiat-Shamir — and does not take a NIZK as an ingredient. That edge is already recorded as red-arithmetization-and-pcs-to-snark-kzg10 (sourced to CHM+20/GWC19/BFS20 in this pass). The NIZK hypothesis is superfluous at best and misrepresents the construction; the '— standard' folklore label was also a misuse (the result is attributable).",
+      "flags": [
+        "Superseded by red-arithmetization-and-pcs-to-snark-kzg10; recommend deleting this edge or merging its text there.",
+        "The page's own migration notes already record the vagueness and the conflicting ingredient list on the source page."
+      ]
+    },
+    {
+      "slug": "arithmetization-and-pcs-to-snark-kzg10",
+      "path": "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CHM+20",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS",
+          "authors": "Alessandro Chiesa, Yuncong Hu, Mary Maller, Pratyush Mishra, Psi Vesely, Nicholas Ward",
+          "venue": "Eurocrypt 2020",
+          "year": "2020",
+          "url": "https://eprint.iacr.org/2019/1047",
+          "note": "States the compiler (algebraic holographic proof + extractable polynomial commitment => preprocessing SNARK) as an explicit theorem; concurrent with BFS20's polynomial-IOP formalization. Verified via DBLP (conf/eurocrypt/ChiesaHMMVW20) and eprint 2019/1047."
+        },
+        {
+          "key": "GWC19",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge",
+          "authors": "Ariel Gabizon, Zachary J. Williamson, Oana Ciobotaru",
+          "venue": "Cryptology ePrint Archive 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/953",
+          "note": "Concurrent: Plonk, the system named in the migrated text. Verified via DBLP (journals/iacr/GabizonWC19) and eprint 2019/953."
+        },
+        {
+          "key": "BFS20",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BFS20 - Transparent SNARKs from DARK Compilers",
+          "authors": "Benedikt Bünz, Ben Fisch, Alan Szepieniec",
+          "venue": "Eurocrypt 2020",
+          "year": "2020",
+          "url": "https://eprint.iacr.org/2019/1229",
+          "note": "Concurrent, independent formalization of polynomial IOPs and their compilation with any polynomial commitment; transparent instantiation from groups of unknown order. Verified via Springer DOI 10.1007/978-3-030-45721-1_24 and eprint 2019/1229."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The compiler uses the polynomial commitment scheme's algorithms as black boxes, but knowledge soundness routes through the PCS extractor, whose black-boxness depends on the instantiation (KZG extraction is proven in the AGM); no source classifies the compiled reduction in RTV04 terms. Left unstated rather than guessed.",
+      "model": "rom",
+      "model_justification": "The compiled SNARK is non-interactive via Fiat-Shamir; CHM+20 prove security of the compiled argument in the random-oracle model. The KZG instantiation additionally requires a universal updatable structured reference string (the previously recorded crs); one model slot cannot carry both, so the SRS is stated in the statement text.",
+      "kind_correct": "implication",
+      "statement": "[[arithmetization|Arithmetizing]] a relation (R1CS, PLONKish) gives a polynomial IOP; compiling it with an extractable [[polynomial-commitment|polynomial commitment scheme]] and applying Fiat–Shamir yields a preprocessing [[succinct-argument|SNARK]]. Instantiated with [[KZG10 - Constant-size commitments to polynomials and their applications|KZG]] commitments, whose structured reference string is universal and updatable, the compiler yields systems such as Plonk and Marlin — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]].",
+      "sketch": "The polynomial IOP verifier only queries prover polynomials at random points; each oracle is replaced by a polynomial commitment and each query by an evaluation proof, and Fiat-Shamir removes interaction. Extractability of the commitment turns the IOP's soundness into knowledge soundness of the argument.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Plonk compiles PLONKish arithmetization, via a permutation argument and KZG commitments, into a universal-setup zk-SNARK — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]\n- Polynomial IOPs and their compilation with any extractable polynomial commitment formalized concurrently, with a transparent instantiation from groups of unknown order — [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]",
+      "notes_to_keep": [
+        "Genuinely conjunctive: Plonk needs BOTH an arithmetization and a polynomial commitment scheme.",
+        "'arithmetization' is a Glossary entry, so a hypothesis slot is filled by a technique rather than a primitive/assumption."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "CITATION REPLACED: the page's sole citation KZG10 is the PCS instantiation, not the compiler theorem (the page's own migration note records the mismatch); original source set to CHM+20, with GWC19 and BFS20 as concurrent works. The slug suffix -kzg10 is now misleading, but filenames are live URLs — do not rename.",
+        "Model set to rom (Fiat-Shamir per CHM+20); the KZG instantiation additionally needs a universal updatable SRS, previously recorded as crs — verifier should confirm which value the repo prefers when both apply."
+      ]
+    },
+    {
+      "slug": "arithmetization-to-snark-bbhr18",
+      "path": "content/Reductions/arithmetization-to-snark-bbhr18.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as stated: an AIR arithmetization alone does not yield a SNARK — the STARK of BBHR18 additionally needs the FRI proximity test and the ROM compilation, and the page's own migration note says the source sentence is about AIR being an ingredient, not an implication. The correct conjunctive edge already exists as red-arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18 (sourced in this pass). The second migrated quote (PLONKish => universal SNARKs, labelled '— standard') belongs to the {arithmetization, pcs} edge and is attributable (GWC19), not folklore.",
+      "flags": [
+        "Duplicate of red-arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18 with the FRI hypothesis dropped; recommend deletion.",
+        "The PLONKish quote should move to red-arithmetization-and-pcs-to-snark-kzg10, where GWC19 is now cited."
+      ]
+    },
+    {
+      "slug": "ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+      "path": "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LS26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions",
+          "authors": "Riccardo Longo, Enrico Sorbera",
+          "venue": "Cryptology ePrint Archive",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/1018",
+          "note": "Existence and bibliographic data re-verified via web search (eprint 2026/1018); the eprint itself is not peer-reviewed."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The construction plausibly uses the three primitives as black boxes (linear secret sharing and polynomial interpolation over PRF/hash outputs, AE for the payload), but the proof shape has not been verified against the paper body; no class is recorded rather than guessed.",
+      "model": "standard",
+      "model_justification": "The construction is stated from concrete standard-model primitives (collision-resistant hash, PRF, IND-CCA2 AE); no idealized model is invoked in the wiki's quote or the abstract.",
+      "kind_correct": "implication",
+      "statement": "A symmetric-key ciphertext-policy [[attribute-based-encryption#symmetric-cp-abe|ABE]], in which both encryptor and decryptor must hold attributes satisfying the ciphertext policy, is constructed from a collision-resistant [[hash-function|hash function]], a [[pseudorandom-function|PRF]], and an IND-CCA2-secure [[authenticated-encryption|authenticated encryption]] scheme; no bilinear-map or lattice assumption is used — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "INVENTORY DISAGREEMENT: Primitives/attribute-based-encryption.md records only [hash-function + pseudorandom-function => symmetric-cp-abe] (two hypotheses); this page states three, including IND-CCA2 authenticated encryption, matching the LS26 text.",
+        "The minimality claim 'with no bilinear map or lattice hardness assumption' is a property of the construction, not an impossibility, and is not recordable as a barrier."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "eprint 2026/1018 is recent and unreviewed (Longo, Sorbera); treat the result as preliminary.",
+        "The abstract highlights only CRHF + PRF as assumptions; IND-CCA2 AE (from the wiki's own quote) is buildable from a PRF, which may explain the ABE page's two-hypothesis record. Three hypotheses kept to match the quoted concrete construction; a human should check the paper body.",
+        "Stale migration note: content/Primitives/authenticated-encryption.md now exists, so the 'NO WIKI PAGE for authenticated-encryption' note should be dropped.",
+        "symmetric-cp-abe still has no page of its own; the conclusion resolves via a section anchor on attribute-based-encryption."
+      ]
+    },
+    {
+      "slug": "authenticated-key-exchange-ake-to-ke",
+      "path": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: an AKE protocol is syntactically a KE protocol. The reduction runs any passive KE eavesdropper unchanged as an AKE adversary that merely observes honest sessions — a passive adversary is a special case of the active network adversary of AKE models. Fixed construction, fixed forwarding reduction, both black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is a [[key-exchange|key exchange]] protocol whose security game additionally gives the adversary control of the network and requires the parties to authenticate each other. A passive eavesdropper is a special case of the AKE adversary, so every secure AKE protocol is, unchanged, a passively secure KE protocol — folklore.",
+      "sketch": "The construction is the identity; a passive eavesdropper against the KE is run unchanged as an AKE adversary that only observes honest protocol executions.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "No slug 'authenticated-key-exchange' exists in content/; the hypothesis resolves via the section anchor on key-exchange."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Strengthening-implies-base edge; folklore label is honest. Class claimed as fully-black-box for the identity construction and forwarding reduction."
+      ]
+    },
+    {
+      "slug": "bdh-to-abe-gpsw06",
+      "path": "content/Reductions/bdh-to-abe-gpsw06.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GPSW06",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data",
+          "authors": "Vipul Goyal, Omkant Pandey, Amit Sahai, Brent Waters",
+          "venue": "CCS 2006",
+          "year": "2006",
+          "url": "https://eprint.iacr.org/2006/309",
+          "note": "Introduces KP-ABE; first construction for monotone access structures, selectively secure under DBDH."
+        },
+        {
+          "key": "Wat11",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover",
+          "authors": "Brent Waters",
+          "venue": "PKC 2011",
+          "year": "2011",
+          "url": "https://eprint.iacr.org/2008/290",
+          "note": "Extends the DBDH edge to ciphertext-policy ABE: first CP-ABE with a standard-model proof of selective security, with a construction proven under DBDH. Note the reference file's title is wrong (actual paper: 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization')."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction in the bilinear group, and one fixed selective-security reduction that embeds the DBDH challenge into the public parameters and challenge ciphertext, answers key queries using the announced target attribute set, and runs any ABE adversary once as an oracle. The hypothesis is an assumption rather than a primitive, so black-boxness refers to the treatment of the adversary; the proof has the standard fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "GPSW06's selective-security proof is in the standard model (no random oracle for the small-universe construction proved under DBDH).",
+      "kind_correct": "implication",
+      "statement": "If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) holds, there is a key-policy [[attribute-based-encryption|ABE]] for monotone access structures (monotone Boolean formulas / LSSS) with selective IND-CPA security — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].",
+      "sketch": "$\\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key for an access structure secret-shares $y$ over its leaves, and a ciphertext for attribute set $\\gamma$ blinds the message by $e(g,g)^{ys}$ with components $T_i^s$. The selective reduction embeds a DBDH challenge $(g^a, g^b, g^c, Z)$ as $y = ab$, $s = c$, and uses the adversary's guess to decide whether $Z = e(g,g)^{abc}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- First ciphertext-policy ABE with selective security in the standard model; among its constructions, one is proven under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]",
+      "notes_to_keep": [
+        "DBDH is named in bare prose with no wikilink; the assumption lives on content/Assumptions/bilinear-map-assumptions.md, whose aliases include 'BDDH' but NOT 'DBDH', so the obvious wikilink would not resolve.",
+        "SURPRISING WIKILINK TARGET: the reference filename says 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover', but that reference page's own H1 and BibTeX title the paper 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization' (PKC 2011, eprint 2008/290). The filename appears to be wrong."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Wat09 REMOVED from sources: dual-system adaptive security in Wat09 covers IBE and HIBE, not ABE; adaptively secure ABE via dual systems is Lewko-Okamoto-Sahai-Takashima-Waters (Eurocrypt 2010, eprint 2010/110) under composite-order subgroup assumptions, not DBDH. The migrated bullet over-attributed; an adaptive-ABE edge would need its own page, hypothesis, and an LOSTW10 reference stub.",
+        "Hypothesis node is the umbrella bilinear-map-assumptions page rather than a dedicated DBDH node; consider adding 'DBDH' as an alias there (editor/reference-fixer lane).",
+        "The conclusion node cannot record 'selective security, key-policy, monotone structures'; those qualifiers are preserved in the statement text.",
+        "Wat11's strongest constructions use decisional q-parallel BDHE; only one of its constructions is under plain DBDH — the improvements bullet is worded accordingly."
+      ]
+    }
+  ]
+}

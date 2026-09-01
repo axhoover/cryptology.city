@@ -1,0 +1,402 @@
+{
+ "batch": "red-10",
+ "pages": [
+  {
+   "slug": "fac-to-rsa-rsa78",
+   "path": "content/Reductions/fac-to-rsa-rsa78.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "Inverted direction. Factoring hardness is NOT known to imply RSA hardness. The known reduction runs the other way: factoring N recovers phi(N) and hence the secret exponent d, so an efficient factoring algorithm breaks RSA, i.e. RSA hardness implies factoring hardness. Whether breaking RSA (computing e-th roots mod N) is as hard as factoring is a long-standing open problem, with evidence against certain reduction types (Boneh-Venkatesan, Eurocrypt 1998, rule out algebraic/straight-line reductions for small e; DLO24 gives an equivalence only in the generic ring model with preprocessing, recorded at red-rsa-to-fac-dlo24). RSA78 proves no implication from factoring to RSA; it introduces the trapdoor permutation whose only known attack route is factoring. The correct edge is RSA => FAC (folklore: factoring breaks RSA).",
+   "flags": [
+    "Matches suspected-errors entry for content/Assumptions/factoring.md:29 (recorded there under id red-factoring-to-ra-rsa78; this page's frontmatter id is red-fac-to-rsa-rsa78 — same claim, spelled differently).",
+    "The wiki records only the generic-ring-model equivalence (content/Reductions/rsa-to-fac-dlo24.md, model: other). A plain standard-model folklore edge RSA => FAC ('factoring N breaks RSA') does not yet exist and is the correct replacement for this page's content.",
+    "The migrated bullet's parenthetical 'factoring may be harder than RSA' is itself backwards for the same reason (RSA may be easier than factoring is the open direction's usual phrasing)."
+   ]
+  },
+  {
+   "slug": "fac-to-tfnp",
+   "path": "content/Reductions/fac-to-tfnp.md",
+   "disposition": "folklore",
+   "sources": [
+    {
+     "key": "Jer16",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "Jer16 - Integer factoring and modular square roots",
+     "authors": "Emil Jeřábek",
+     "venue": "Journal of Computer and System Sciences 82(2), pp. 380–394",
+     "year": "2016",
+     "url": "https://arxiv.org/abs/1207.5220",
+     "note": "DOI 10.1016/j.jcss.2015.08.001 (verified via ACM DL and ScienceDirect). Not in cryptobib; use inline bibtex. Shows factoring is reducible in randomized polynomial time to a PPA problem and to WEAKPIGEON in PPP; derandomizable under GRH."
+    }
+   ],
+   "class": "free",
+   "class_justification": "A containment between complexity classes is proved unconditionally by any argument; per repo convention (see e.g. bpp-to-pspace), proven inclusions take class: free.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "inclusion",
+   "statement": "The search problem underlying [[factoring|FAC]] — given a positive integer $N$, output its prime factorization — lies in [[total-function-np|TFNP]]: every positive integer has a prime factorization, and a candidate factorization is verified in polynomial time by multiplying the factors and testing each for primality — folklore.",
+   "sketch": "Totality is the fundamental theorem of arithmetic; the polynomial-time verifier checks $\\prod_i p_i^{e_i} = N$ and the primality of each $p_i$.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Factoring reduces in randomized polynomial time to a problem in PPA and to $\\text{WeakPigeon} \\in$ PPP, placing it in these TFNP subclasses; both reductions derandomize under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "The second sentence of the migrated quote ('Recent work has used TFNP subclass hardness (especially PPAD) as a basis for constructing cryptographic primitives') carries a suspected direction error tracked in .reductions/suspected-errors.json (total-function-np.md:37, affecting red-ph-to-cpg) — it does not affect this containment and should not be reintroduced here."
+   ]
+  },
+  {
+   "slug": "factoring-with-known-factor-structure-to-prg",
+   "path": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "BBS86",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "BBS86 - A Simple Unpredictable Pseudo-Random Number Generator",
+     "authors": "Lenore Blum, Manuel Blum, Michael Shub",
+     "venue": "SIAM Journal on Computing 15(2), pp. 364–383",
+     "year": "1986",
+     "url": "https://epubs.siam.org/doi/abs/10.1137/0215025",
+     "note": "cryptobib_key: BluBluShu86. DOI 10.1137/0215025. Introduces the x^2 mod N generator over Blum integers; proves unpredictability under the quadratic residuosity assumption. Earlier version: Crypto 1982 (C:BluBluShu82)."
+    },
+    {
+     "key": "VV84",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "VV84 - Efficient and Secure Pseudo-Random Number Generation",
+     "authors": "Umesh V. Vazirani, Vijay V. Vazirani",
+     "venue": "CRYPTO 1984, pp. 193–202",
+     "year": "1984",
+     "url": "https://doi.org/10.1007/3-540-39568-7_17",
+     "note": "cryptobib_key: C:VazVaz84. FOCS 1984 extended abstract: DOI 10.1109/SFCS.1984.715948. Proves the x^2 mod N generator secure assuming only that factoring Blum integers is hard, replacing BBS86's quadratic residuosity assumption; also extracts O(log log N) bits per iteration."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "The generator is one fixed algorithm; the hypothesis enters only as the hard instance $N$ (with its promised factor structure). The security proof is one fixed reduction that runs any PRG distinguisher solely as an oracle: Yao's hybrid argument converts it into a predictor for the parity of a principal square root, which factors $N$. Construction and reduction are both fixed and oracle-respecting — the fully-black-box shape.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] — $N = pq$ with $p \\equiv q \\equiv 3 \\pmod{4}$ — is hard, then a [[pseudorandom-generator|PRG]] exists: the Blum–Blum–Shub generator iterates squaring modulo $N$ and outputs the parity of each state — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. BBS86 prove unpredictability under the quadratic residuosity assumption; [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]] prove it assuming only hardness of factoring Blum integers.",
+   "sketch": "Sample $x \\getsr \\ZZ_N^*$, set $x_0 = x^2 \\bmod N$ and $x_{i+1} = x_i^2 \\bmod N$, and output $\\mathrm{lsb}(x_1), \\ldots, \\mathrm{lsb}(x_m)$. A distinguisher yields a next-bit predictor, i.e. a predictor for the parity of the principal square root of a random quadratic residue; such a predictor extracts square roots modulo $N$, and two distinct square roots of the same residue factor $N$.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Security assuming only hardness of factoring Blum integers (BBS86 assumed quadratic residuosity), and $O(\\log \\log N)$ output bits per squaring — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]",
+   "notes_to_keep": [
+    "factoring-blum-integers has no page; the hypothesis is addressed via the anchor [[factoring#factoring-with-known-factor-structure]]."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": []
+  },
+  {
+   "slug": "falsifiable-assumption-to-snark-gro16",
+   "path": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "The hypothesis 'falsifiable assumption' is a meta-category of assumptions, not a well-defined object, so the hyperedge is untypeable as stated (the migration notes concede this). The underlying bullet is also imprecise about the source: Gro16 proves knowledge soundness of the Groth16 SNARK unconditionally in the generic (bilinear) group model — an idealized-model lower-bound-style argument, not a reduction from a falsifiable assumption — and the frontmatter's model: algebraic-group misattributes it; the AGM analysis of Groth16 (under the q-DLOG assumption, which is falsifiable) is due to FKL18, not Gro16. Correctly typed replacements: a GGM-model edge sourced to Gro16, and a q-dlog => snark edge with model: algebraic-group sourced to FKL18 (both papers have wiki reference pages).",
+   "flags": [
+    "The same migrated bullet also spawned content/Barriers/no-falsifiable-assumption-to-snark-gro16.md; the barrier half (no black-box reduction of SNARG soundness to falsifiable assumptions in the standard model) is the Gentry–Wichs result (GW11, STOC 2011) and should be sourced there, not to Gro16.",
+    "If a positive edge is wanted, the concrete hypotheses are: generic-group model (Gro16) or q-DLOG in the AGM (FKL18) — two records, matching the migration note that the bullet is disjunctive over models."
+   ]
+  },
+  {
+   "slug": "hash-based-signatures-and-hash-based-signatures-to-ds",
+   "path": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "Degenerate hyperedge, malformed beyond repair as typed: the title asserts 'hash-based signatures + hash-based signatures => DS' — the hypothesis set is the conclusion's own subclass listed twice — and the frontmatter hypotheses (few-time-signature, xmss) are concrete scheme artifacts with no pages, not model objects. The migrated text is an architecture description of SPHINCS+ (a hypertree of XMSS instances with a few-time signature at the leaves, standardized as SLH-DSA in FIPS 205), not a reduction between wiki objects. The substantive result — stateless many-time hash-based signatures from hash functions — is the SPHINCS construction (Bernstein, Hopwood, Hülsing, Lange, Niederhagen, Papachristodoulou, Schneider, Schwabe, Wilcox-O'Hearn, Eurocrypt 2015) and SPHINCS+ (Bernstein, Hülsing, Kölbl, Niederhagen, Rijneveld, Schwabe, CCS 2019), and belongs on a hash-function => DS edge.",
+   "flags": [
+    "The correct lane already exists: content/Reductions/hash-function-to-hash-based-signatures.md and content/Reductions/hash-based-signatures-to-ds-mer89.md; a SPHINCS/SPHINCS+ edge (hash-function => ds, stateless) could be added there with reference stubs for the Eurocrypt 2015 SPHINCS paper and the CCS 2019 SPHINCS+ paper.",
+    "If deleted, the SPHINCS+/SLH-DSA (FIPS 205) mention on content/Primitives/digital-signature.md still needs a citation — currently uncited there."
+   ]
+  },
+  {
+   "slug": "fiat-shamir-and-schnorr-signatures-to-ds",
+   "path": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Sch91",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+     "authors": "Claus-Peter Schnorr",
+     "venue": "Journal of Cryptology 4(3)",
+     "year": "1991",
+     "url": "https://doi.org/10.1007/BF00196725",
+     "note": "The identification protocol and the signature scheme."
+    },
+    {
+     "key": "FS86",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+     "authors": "Amos Fiat, Adi Shamir",
+     "venue": "CRYPTO 1986",
+     "year": "1986",
+     "url": "https://doi.org/10.1007/3-540-47721-7_12",
+     "note": "The transform: replace the verifier's challenge by a hash of the commitment and the message."
+    },
+    {
+     "key": "PS96",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+     "authors": "David Pointcheval, Jacques Stern",
+     "venue": "EUROCRYPT 1996, pp. 387–398",
+     "year": "1996",
+     "url": "https://doi.org/10.1007/3-540-68339-9_33",
+     "note": "cryptobib_key: EC:PoiSte96. First EUF-CMA proof for Schnorr signatures in the ROM under DLOG, via the forking lemma. Journal version: Security Arguments for Digital Signatures and Blind Signatures, J. Cryptology 13(3), 2000 (JC:PoiSte00)."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "rom",
+   "model_justification": "The challenge is a hash value modeled as a programmable random oracle; the PS96 EUF-CMA proof rewinds the forger and reprograms the oracle, and no standard-model proof from DLOG is known.",
+   "kind_correct": "implication",
+   "statement": "Applying the [[fiat-shamir-heuristic|Fiat–Shamir transform]] to the Schnorr identification protocol — a three-message public-coin proof of knowledge of a discrete logarithm — yields the Schnorr signature scheme, a [[digital-signature|DS]]: the signer computes the challenge as $c = H(R \\| m)$, so a signature is a non-interactive protocol transcript — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. The scheme is $\\eufcma$-secure in the random-oracle model under the [[discrete-logarithm|DLOG]] assumption — [[PS96 - Security Proofs for Signature Schemes|PS96]].",
+   "sketch": "The reduction runs the forger, then rewinds it to the forking hash query and reprograms the random oracle; two accepting transcripts $(R, c, s)$ and $(R, c', s')$ with $c \\neq c'$ yield the secret key as $x = (s - s')/(c - c')$ (forking lemma).",
+   "pseudocode": "",
+   "security_loss": "Non-tight: the forking-lemma reduction turns a forger with success probability $\\varepsilon$ making $q_H$ random-oracle queries into a DLOG solver with success roughly $\\varepsilon^2/q_H$ (PS96).",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Structural: hypothesis 'fiat-shamir' is a transform, not an object, and 'schnorr-identification-protocol' has no page — the edge does not fit the object/hyperedge model cleanly; class left unstated because the RTV taxonomy does not apply to a transform-plus-concrete-protocol hyperedge and no source assigns a class (the PS96 reduction is black-box in the forger, via rewinding, but programs the random oracle).",
+    "Near-duplicate of red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91 (same hypotheses; conclusion ds vs schnorr-signature) — consider merging into one page."
+   ]
+  },
+  {
+   "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
+   "path": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "FS86",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+     "authors": "Amos Fiat, Adi Shamir",
+     "venue": "CRYPTO 1986",
+     "year": "1986",
+     "url": "https://doi.org/10.1007/3-540-47721-7_12",
+     "note": "Introduced the transform; the NIZK-in-ROM formulation is the standard adaptation, universally cited to this paper."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "rom",
+   "model_justification": "Soundness of the compiled argument and zero knowledge (via oracle programming) are both proved with the hash modeled as a programmable random oracle; in the standard model the transform can fail (see the GK03 barrier pages).",
+   "kind_correct": "implication",
+   "statement": "Applying the [[fiat-shamir-heuristic|Fiat–Shamir transform]] to a constant-round public-coin interactive proof that is [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] and has negligible soundness error yields a [[non-interactive-zero-knowledge|NIZK]] argument in the random-oracle model: each verifier challenge is replaced by a hash of the statement and the transcript so far — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].",
+   "sketch": "Honest-verifier simulation suffices because the compiled challenges are exactly the uniform challenges an honest verifier would send; the simulator runs the HVZK simulator and programs the random oracle so its transcripts verify.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "medium",
+   "wrong_reason": "",
+   "flags": [
+    "The migrated sentence names no conclusion; the migration inferred NIZK with low confidence. The statement records the standard true result, but the load-bearing qualifiers (public-coin, constant rounds, negligible soundness error) are absent from the source text and were added — without them the claim is false (HVZK alone gives no soundness, and FS on super-constant-round proofs loses soundness).",
+    "Hypothesis 'honest-verifier-zero-knowledge' is a property/section anchor, not an object page; 'fiat-shamir' is a transform, not an object.",
+    "Near-duplicates: red-zkp-to-nizk-fs86 and red-rom-and-zkp-to-nizk-fs86 record the same transform — consider consolidating.",
+    "Class left unstated: no source classifies the transform in RTV terms."
+   ]
+  },
+  {
+   "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "path": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Sch91",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+     "authors": "Claus-Peter Schnorr",
+     "venue": "Journal of Cryptology 4(3)",
+     "year": "1991",
+     "url": "https://doi.org/10.1007/BF00196725",
+     "note": "The identification protocol and the signature scheme obtained from it."
+    },
+    {
+     "key": "FS86",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+     "authors": "Amos Fiat, Adi Shamir",
+     "venue": "CRYPTO 1986",
+     "year": "1986",
+     "url": "https://doi.org/10.1007/3-540-47721-7_12",
+     "note": "The transform applied."
+    },
+    {
+     "key": "PS96",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+     "authors": "David Pointcheval, Jacques Stern",
+     "venue": "EUROCRYPT 1996, pp. 387–398",
+     "year": "1996",
+     "url": "https://doi.org/10.1007/3-540-68339-9_33",
+     "note": "cryptobib_key: EC:PoiSte96. First EUF-CMA proof in the ROM under DLOG via the forking lemma. Journal version: J. Cryptology 13(3), 2000 (JC:PoiSte00)."
+    },
+    {
+     "key": "Seu12",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model",
+     "authors": "Yannick Seurin",
+     "venue": "EUROCRYPT 2012, pp. 554–571",
+     "year": "2012",
+     "url": "https://doi.org/10.1007/978-3-642-29011-4_33",
+     "note": "cryptobib_key: EC:Seurin12. Meta-reduction showing the forking lemma's q_H security loss is essentially optimal for algebraic reductions from DLOG."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "rom",
+   "model_justification": "The challenge is a hash value modeled as a programmable random oracle; the PS96 security proof rewinds the forger and reprograms the oracle.",
+   "kind_correct": "implication",
+   "statement": "The Schnorr signature scheme is the [[fiat-shamir-heuristic|Fiat–Shamir transform]] applied to the Schnorr identification protocol: for a generator $g$ of a group of prime order $q$ and key pair $(\\sk, \\pk) = (x, g^x)$, signing $m$ samples $r \\getsr \\ZZ_q$ and sets $R = g^r$, $c = H(R \\| m)$, $s = r + cx$; the signature $(R, s)$ is an accepting transcript with hash-derived challenge, verified by $g^s = R \\cdot \\pk^c$ — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. The scheme is $\\eufcma$-secure in the random-oracle model under the [[discrete-logarithm|DLOG]] assumption — [[PS96 - Security Proofs for Signature Schemes|PS96]].",
+   "sketch": "The reduction runs the forger, rewinds it to the forking hash query, and reprograms the random oracle; two accepting transcripts $(R, c, s)$ and $(R, c', s')$ with $c \\neq c'$ yield $x = (s - s')/(c - c')$ (forking lemma).",
+   "pseudocode": "",
+   "security_loss": "Non-tight: the forking-lemma reduction turns a forger with success probability $\\varepsilon$ making $q_H$ random-oracle queries into a DLOG solver with success roughly $\\varepsilon^2/q_H$ (PS96).",
+   "improvements_text": "- $\\eufcma$ security in the ROM under DLOG, via the forking lemma — [[PS96 - Security Proofs for Signature Schemes|PS96]]\n- The forking lemma's $q_H$ loss is essentially optimal: a meta-reduction rules out tighter algebraic reductions from DLOG — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]",
+   "notes_to_keep": [
+    "The [[Sch91 - Efficient signature generation by smart cards]] reference page says the identification protocol 'is honest-verifier zero-knowledge under the discrete logarithm assumption'; Schnorr's sigma protocol is perfect HVZK unconditionally — DLOG underlies soundness/impersonation resistance, not HVZK.",
+    "The EdDSA/Ed25519 lineage claim in the migrated text is uncited and is not carried by this edge."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Near-duplicate of red-fiat-shamir-and-schnorr-signatures-to-ds (same hypotheses; conclusion schnorr-signature vs ds) — consider merging; if both are kept, this page is the specific instance and that one the generalization.",
+    "Conclusion 'schnorr-signature' has no object page (anchor digital-signature#schnorr-signatures is used); hypothesis 'fiat-shamir' is a transform and 'schnorr-identification-protocol' has no page.",
+    "The migrated quote wrote $r \\getsr \\ZZ_p$ and $s = r + cx \\bmod p$ with $p$ doubling as group order; the statement normalizes to prime order $q$.",
+    "Class left unstated: the RTV taxonomy does not apply to a transform-plus-concrete-protocol hyperedge and no source assigns a class."
+   ]
+  },
+  {
+   "slug": "fri-fast-reed-solomon-iop-of-proximity-to-snark",
+   "path": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "FRI alone does not imply a SNARK, and the migrated sentence carries a flagged terminology error: FRI is an IOP of proximity (a low-degree test for closeness to Reed–Solomon codewords), not a polynomial commitment scheme — a polynomial commitment (and then a SNARK) is built from FRI plus Merkle hashing, and the STARK construction additionally needs arithmetization (AIR/ALI) and the BCS compilation in the ROM. As a single-hypothesis hyperedge 'fri => snark' the claim is false: the hash function and arithmetization hypotheses are missing. The correctly typed edge already exists as content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md (with hash-function-to-snark-bbhr18.md and hash-function-to-pcs-bbhr18.md covering the hash hypothesis), sourced to BBHR18, which has a wiki reference page.",
+   "flags": [
+    "Matches the suspected-errors entry for content/Primitives/succinct-argument.md:77 (affectsEdges: red-fri-to-sa) — FRI mislabeled as a polynomial commitment scheme.",
+    "The FRI protocol's own citation is BBHR18a ('Fast Reed-Solomon Interactive Oracle Proofs of Proximity', ICALP 2018), distinct from the wiki's existing BBHR18 STARK paper; if a FRI object page is ever created, that reference stub is still missing."
+   ]
+  },
+  {
+   "slug": "function-secret-sharing-fss-to-dpf-bgi15",
+   "path": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "BGI15",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "BGI15 - Function Secret Sharing",
+     "authors": "Elette Boyle, Niv Gilboa, Yuval Ishai",
+     "venue": "EUROCRYPT 2015",
+     "year": "2015",
+     "url": "https://doi.org/10.1007/978-3-662-46803-6_12",
+     "note": "Defines FSS as the generalization of DPF (introduced in GI14) to arbitrary function classes; the specialization is definitional."
+    },
+    {
+     "key": "BGI16",
+     "role": "improvement",
+     "exists_in_wiki": true,
+     "ref_file_title": "BGI16 - Function Secret Sharing Improvements and Extensions",
+     "authors": "Elette Boyle, Niv Gilboa, Yuval Ishai",
+     "venue": "CCS 2016",
+     "year": "2016",
+     "url": "https://doi.org/10.1145/2976749.2978429",
+     "note": "Refined FSS definitions and improved concrete DPF/FSS constructions."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "The construction is the identity: a DPF is the FSS scheme itself with its function class restricted to point functions, invoked as-is; any DPF adversary is verbatim an FSS adversary for the same class. Both the construction and the security reduction are fixed and use their objects only as oracles — trivially the fully-black-box shape.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "A [[distributed-point-function|DPF]] is [[distributed-point-function#function-secret-sharing-fss|function secret sharing]] for the class of point functions: an FSS scheme for any function class $\\calF$ containing all point functions $f_{\\alpha,\\beta}$ — where $f_{\\alpha,\\beta}(\\alpha) = \\beta$ and $f_{\\alpha,\\beta}(x) = 0$ for $x \\neq \\alpha$ — is in particular a DPF — [[BGI15 - Function Secret Sharing|BGI15]].",
+   "sketch": "Run the FSS key generation on the point function $f_{\\alpha,\\beta}$; correctness (the keys' outputs add to $f_{\\alpha,\\beta}(x)$) and key privacy restrict verbatim to the subclass.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Refined FSS definitions and improved concrete DPF/FSS constructions — [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]",
+   "notes_to_keep": [
+    "'function-secret-sharing' has no page or slug; FSS is defined only inside the DPF page's Variations section despite being the more general object."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Direction is correctly oriented (FSS => DPF, specialization); the surface phrasing 'DPFs are a special case of FSS' invites inversion, as the migration noted.",
+    "DPFs themselves predate FSS — introduced in GI14 (reference page exists); BGI15 is the right original for this specialization edge since it defines FSS."
+   ]
+  }
+ ]
+}

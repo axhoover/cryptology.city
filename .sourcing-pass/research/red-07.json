@@ -1,0 +1,327 @@
+{
+  "batch": "red-07",
+  "pages": [
+    {
+      "slug": "ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+      "path": "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CHKV25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN",
+          "authors": "Henry Corrigan-Gibbs, Alexandra Henzinger, Yael Tauman Kalai, Vinod Vaikuntanathan",
+          "venue": "EUROCRYPT 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2024/1760",
+          "note": "Abstract explicitly offers DDH as an instantiating assumption for the linearly homomorphic component."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "CHKV25 make no RTV-style claim. The construction uses the linearly homomorphic PKE generically, but the sparse-LPN component is a concrete algebraic scheme; recording a class the source does not state would add a claim.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] together with any linearly homomorphic public-key encryption yields [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]]; instantiating the linearly homomorphic scheme under [[decisional-diffie-hellman|DDH]] gives SHE from DDH and sparse LPN. The scheme evaluates $O(\\log \\secpar / \\log \\log \\secpar)$ homomorphic multiplications followed by $\\poly(\\secpar)$ additions, with ciphertext length a fixed polynomial in $\\secpar$ independent of the supported number of operations — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "OVER-SPLIT (migration note is correct): this edge is the DDH instantiation of the generic theorem recorded on partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25 composed with DDH => linearly homomorphic PKE. CHKV25's abstract does state the DDH instantiation explicitly, so the edge is citable as-is, but the verifier should decide whether the wiki keeps both the generic edge and its DDH/DCR instantiations.",
+        "The genuinely-conjunctive structure (both hypotheses needed) is correct as recorded."
+      ]
+    },
+    {
+      "slug": "ddh-to-tdh-dgi-19",
+      "path": "content/Reductions/ddh-to-tdh-dgi-19.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DGI+19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DGI+19 - Trapdoor Hash Functions and Their Applications",
+          "authors": "Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, Rafail Ostrovsky",
+          "venue": "CRYPTO 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/639",
+          "note": "Abstract: TDH with one-bit hints from DDH, QR, DCR, or LWE; polylog-communication PIR from DDH or QR."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "DGI+19 do not classify the reduction; the construction is a concrete group-based scheme from an assumption, so the RTV primitive-from-primitive taxonomy is not stated by the source.",
+      "model": "standard",
+      "model_justification": "The DDH-based construction is in the standard model (no idealized oracle).",
+      "kind_correct": "implication",
+      "statement": "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]] construct [[trapdoor-hash-function|trapdoor hash functions]] for the class of index predicates $f_i(x) = x_i$, with hints of a single bit, from [[decisional-diffie-hellman|DDH]]; the framework also admits instantiations from QR, DCR, and LWE. The DDH-based TDH yields two-message single-server PIR with $\\polylog(n)$ communication — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].",
+      "sketch": "The hash key is a $2 \\times n$ matrix of group elements and the hash of $x \\in \\bits^n$ is the subset product $\\prod_j g_{j, x_j}$. An encoding key for index $i$ is the entrywise $s$-th power of the hash key with the $i$-th column additionally perturbed by an extra generator, so evaluating on $x$ yields the hashed value's $s$-th power shifted by $x_i$; the trapdoor $s$ recovers $x_i$ from the hash, and DDH hides which column is perturbed, hence the index $i$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "DGI+19's DDH-based TDH has its own rate/parameter constraints (one-bit hints, rate-1 variants) that the edge cannot carry; they are load-bearing for the downstream polylog-communication PIR claim."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "COMPOSITE chain correctly split by migration: DDH => TDH (this page) and TDH => PIR (separate pages, e.g. tdh-to-cpir-amr25) are separate links, both in DGI+19."
+      ]
+    },
+    {
+      "slug": "decision-lwe-to-search-lwe",
+      "path": "content/Reductions/decision-lwe-to-search-lwe.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction side is the identity (the LWE instance is unchanged) and the reduction is one fixed algorithm that runs any search-LWE solver once as an oracle and post-processes its output with a residual check. This is the RTV04 fully-black-box shape, degenerately instantiated for an assumption-to-assumption edge.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[learning-with-errors#decision-lwe|Decision LWE]] is hard for $(n, q, \\chi, m)$ then [[learning-with-errors#search-lwe|Search LWE]] is hard for the same parameters: any efficient algorithm recovering $\\mathbf{s}$ from LWE samples yields a decision distinguisher with essentially the same advantage — folklore.",
+      "sketch": "Given a challenge $(\\mathbf{A}, \\mathbf{u})$, run the search solver to obtain a candidate $\\hat{\\mathbf{s}}$ and accept iff $\\mathbf{u} - \\mathbf{A}\\hat{\\mathbf{s}}$ is a plausible error vector. On LWE samples the check passes whenever the solver succeeds; on uniform samples, for $m$ sufficiently larger than $n$, no candidate secret leaves a small residual except with negligible probability.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY - SWAPPED BODIES: the migrated quote on this page describes the coordinate-by-coordinate reduction that uses a DECISION oracle to solve SEARCH. Under the repo's hardness-implication convention that reduction proves search-hard => decision-hard, i.e. it belongs on the converse page search-lwe-to-decision-lwe (batch red-29), whose own migrated quote (solve-and-check) in turn belongs here. The two pages' Statement quotes must be exchanged; coordinate with red-29.",
+        "The displaced coordinate-recovery reduction is due to Reg05 and requires q = poly(n) (prime q); its O(q n m) sample count and the modulus restriction should travel with it to search-lwe-to-decision-lwe, which should become disposition sourced (Reg05) rather than folklore.",
+        "The solve-and-check distinguisher needs the error distribution to be efficiently recognizable (e.g. bounded or discrete Gaussian with a tail cut) and m large enough that a uniform u is far from every A*s; standard for the parameters on the LWE page."
+      ]
+    },
+    {
+      "slug": "dlin-to-ippe-ksw08",
+      "path": "content/Reductions/dlin-to-ippe-ksw08.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Misattribution, as the page's own SUSPECT note already says. KSW08's inner-product predicate encryption scheme is NOT proven secure under DLIN: the construction lives in a composite-order bilinear group whose order N is a product of three primes, and its attribute-hiding proof rests on two new subgroup-decision-flavoured assumptions that KSW08 justify only in the generic group model (verified against the paper: it introduces the two new assumptions and proves them generically; DLIN appears nowhere as the hypothesis). The claim 'DLIN implies attribute-hiding IPPE' is true but belongs to a different paper: the first adaptively secure, fully attribute-hiding inner-product encryption under DLIN is Okamoto-Takashima, 'Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption', EUROCRYPT 2012 (eprint 2011/543). Correct repair: either re-source this edge as KSW08's actual theorem (composite-order subgroup-decision assumptions => IPPE) or retitle it dlin-to-ippe-ot12 with OT12 as source; the source bullet on inner-product-predicate-encryption.md should be fixed in the same pass.",
+      "flags": [
+        "The migration's SUSPECT note is confirmed correct: KSW08 uses two new assumptions in composite-order (N = pqr) bilinear groups, proven only in the generic group model, not DLIN.",
+        "If the KSW08 variant of this edge is kept, its hypotheses have no wiki page (the two KSW08 assumptions are nonstandard and unnamed); the OT12 variant would let the existing decisional-linear hypothesis stand."
+      ]
+    },
+    {
+      "slug": "depir-to-cpir",
+      "path": "content/Reductions/depir-to-cpir.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction: the cPIR protocol runs the DEPIR algorithms unchanged (the server runs Setup on its own database, the client runs Qry/Fin), and any cPIR privacy adversary is verbatim a DEPIR privacy adversary. Both the construction and the reduction use their objects only as oracles. This justification is scoped to the unkeyed (default) variant; see flags.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[doubly-efficient-pir|DEPIR]] scheme is by definition a [[single-server-private-information-retrieval|single-server PIR]] whose database is preprocessed before queries: in the unkeyed (default) setting the server runs $\\Setup(1^\\secpar, DB)$ itself and the query phase is an ordinary two-message single-server PIR with query-time communication and computation $o(n)$; correctness and query privacy carry over unchanged — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Definitional specialization ('is a type of'), not a theorem with a proof in some paper; the folklore label is the citation."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "SCOPE CAVEAT: the implication is definitional only for the unkeyed variant (and for PK-DEPIR if the honestly generated key is published, since PK-DEPIR privacy holds even given k). For SK-DEPIR it fails: privacy holds only against adversaries not given k, so a server that runs Setup itself gets no guarantee, and a client cannot preprocess a database it does not hold. Consider narrowing the hypothesis to [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] or stating the caveat on the page.",
+        "The migration note 'implication direction is DEPIR => single-server PIR, opposite to the surface word order' is resolved: the recorded orientation (hypotheses: depir, conclusion: cpir) is correct."
+      ]
+    },
+    {
+      "slug": "differing-inputs-obfuscation-dio-to-io",
+      "path": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "BCP14",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCP14 - On Extractability Obfuscation",
+          "authors": "Elette Boyle, Kai-Min Chung, Rafael Pass",
+          "venue": "TCC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/650",
+          "note": "Shows iO implies diO for pairs of circuits differing on at most polynomially many inputs; also the standard citable statement of the trivial diO => iO direction."
+        },
+        {
+          "key": "GGHW14",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input",
+          "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Daniel Wichs",
+          "venue": "CRYPTO 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/860",
+          "note": "Evidence that general diO with arbitrary auxiliary input does not exist, so the blanket equivalence with iO is implausible."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction: the diO obfuscator is used unchanged as the iO obfuscator. The reduction is fixed: an iO distinguisher for a functionally equivalent pair is directly a diO adversary for the constant sampler outputting that pair, which is unconditionally differing-inputs-hard because no differing input exists.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|differing-inputs obfuscator]] for a circuit class is an [[indistinguishability-obfuscation|indistinguishability obfuscator]] for the same class: functionally equivalent circuits admit no differing input, so every pair of equivalent circuits is a trivially differing-inputs-hard sampler and the diO guarantee applies — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- [[indistinguishability-obfuscation|iO]] for a class implies diO for pairs of circuits in the class that differ on at most polynomially many inputs — [[BCP14 - On Extractability Obfuscation|BCP14]]\n- General-purpose diO with arbitrary auxiliary input is implausible: assuming special-purpose obfuscation, there are differing-inputs-hard samplers whose obfuscations are efficiently distinguishable — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY - KIND: the recorded kind: equivalence is unsupported. Blanket diO <=> iO is neither proven nor believed: the converse (iO => diO) is known only for circuits differing on at most polynomially many inputs (BCP14), and general diO with auxiliary input is implausible (GGHW14). Set kind to implication (diO => iO, matching the frontmatter orientation); the vague migrated sentence 'equivalent under certain conditions' refers to the BCP14 restricted case, now recorded in improvements.",
+        "The trivial direction assumes the standard diO definition quantifying over all (non-uniform) differing-inputs samplers (as in ABGSZ13/BCP14), so constant samplers outputting an equivalent pair are admissible.",
+        "If an io-to-dio page restricted to polynomially many differing inputs is ever wanted, it is a separate BCP14-sourced edge, not this one."
+      ]
+    },
+    {
+      "slug": "dkg-and-he-to-tpke",
+      "path": "content/Reductions/dkg-and-he-to-tpke.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Not a well-defined edge, as the page's own migration notes already concede. The hypotheses pair a protocol (distributed key generation) with generic homomorphic encryption, and no theorem anywhere states that generic HE plus a DKG yields threshold PKE: threshold decryption requires scheme-specific key-sharing and partial-decryption structure that generic (even linear) homomorphism does not provide, and both hypothesis identifiers were invented during migration (neither has a wiki page). The migrated sentence is a parenthetical construction sketch of threshold Paillier on the DCR page; the attributable result is DCR => threshold PKE via threshold Paillier, due to Fouque-Poupard-Stern ('Sharing Decryption in the Context of Voting or Lotteries', FC 2000) and Damgard-Jurik ('A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System', PKC 2001), with dealer-free distributed key generation for the modulus a further separate line of work. Correct repair: delete this edge and record dcr-to-tpke sourced to FPS00 and/or DJ01, updating the '- standard' label on decisional-composite-residuosity.md in the same pass.",
+      "flags": [
+        "The '- standard' folklore label on the source bullet is misapplied: threshold Paillier is attributable (FPS00, DJ01), matching the migration note."
+      ]
+    },
+    {
+      "slug": "dlog-to-bls-signatures-fkl18",
+      "path": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FKL18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FKL18 - The Algebraic Group Model and its Applications",
+          "authors": "Georg Fuchsbauer, Eike Kiltz, Julian Loss",
+          "venue": "CRYPTO 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2017/620",
+          "note": "Abstract: tight security reduction for the BLS signature scheme to DLOG in the AGM."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "An AGM reduction reads the algebraic representations the adversary outputs, so it is not black-box in the RTV sense, and FKL18 make no RTV-style classification; the model axis (algebraic-group) carries the restriction.",
+      "model": "algebraic-group",
+      "model_justification": "FKL18's BLS analysis is in the AGM combined with the random-oracle model (BLS hashes messages into the group; H is modeled as a random oracle). The model field can carry one value; algebraic-group is recorded and the ROM component is stated in the statement text.",
+      "kind_correct": "implication",
+      "statement": "In the [[algebraic-group-model|algebraic group model]], with the hash-to-group function modeled as a random oracle, EUF-CMA security of [[digital-signature#bls-signatures|BLS signatures]] reduces tightly to [[discrete-logarithm|DLOG]]: any efficient algebraic forger yields a DLOG solver with essentially the same running time and success probability — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].",
+      "sketch": "The reduction embeds the DLOG challenge in the BLS public key and programs the random oracle on message queries; an algebraic forger outputs its forgery together with a representation in terms of the generator, the public key, and previously seen hash values and signatures, and a valid forgery then yields an equation over the unknown exponent that the reduction solves.",
+      "pseudocode": "",
+      "security_loss": "tight",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The reduction holds only for algebraic adversaries (AGM) and additionally uses the ROM; in the standard model BLS is proven from CDH in the ROM with a non-tight reduction, not from DLOG."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "BROKEN CONCLUSION ID: frontmatter conclusion boneh-lynn-shacham-signature has no page and no alias; BLS signatures live at digital-signature#bls-signatures (which the header prose already links). Repoint the conclusion or create the page.",
+        "MODEL: the single-valued model field cannot express AGM+ROM. The repo elsewhere encodes ROM as an explicit hypothesis object (cf. dlog-and-rom-to-schnorr-signatures-sch91); either add rom as a hypothesis or keep model algebraic-group with the ROM stated in the page body, but be consistent across the FKL18 edges."
+      ]
+    },
+    {
+      "slug": "dlog-to-cdh-fkl18",
+      "path": "content/Reductions/dlog-to-cdh-fkl18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FKL18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FKL18 - The Algebraic Group Model and its Applications",
+          "authors": "Georg Fuchsbauer, Eike Kiltz, Julian Loss",
+          "venue": "CRYPTO 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2017/620",
+          "note": "Abstract: CDH (among other assumptions) shown equivalent to DLOG in the AGM."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The reduction extracts from the algebraic representation the AGM obliges the adversary to output, so it is not black-box in the RTV sense and FKL18 make no RTV-style classification; the model axis carries the restriction.",
+      "model": "algebraic-group",
+      "model_justification": "Load-bearing, as the migration note says: the reduction works only for algebraic adversaries; no standard-model reduction from DLOG hardness to CDH hardness is known.",
+      "kind_correct": "implication",
+      "statement": "In the [[algebraic-group-model|algebraic group model]], [[computational-diffie-hellman|CDH]] is as hard as [[discrete-logarithm|DLOG]]: any algebraic CDH adversary converts into a DLOG solver with the same advantage and essentially the same running time, so DLOG hardness implies CDH hardness for algebraic adversaries — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].",
+      "sketch": "Given a DLOG instance $W = g^z$ in a prime-order group, the reduction runs the algebraic CDH adversary on $(W g^{r}, W g^{s})$ for known random $r, s$. The adversary returns its answer together with coefficients expressing it as a product of powers of the received elements; a correct answer forces a monic quadratic equation in $z$, whose roots the reduction computes over $\\ZZ_p$ and checks against $W$.",
+      "pseudocode": "",
+      "security_loss": "tight: same advantage and essentially the same running time (FKL18)",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "MODEL IS LOAD-BEARING: the reduction holds only for algebraic adversaries; dropping model: algebraic-group would turn a model-relative reduction into a standard-model implication that is not known."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The page's second migrated quote (composing 'these reductions' with the Sho97 generic-group lower bound to get concrete bounds against 'algebraic-and-generic adversaries') is a separate lower-bound statement, not part of this edge; per the migration REPAIR PATCH note it should move to a barrier/lower-bound record, and its AGM-to-GGM transfer step is contested by KZ22 (cf. barrier no-agm-to-ggm-kz22).",
+        "FKL18 state an equivalence (CDH =_AGM DLOG); the converse hardness direction (CDH hard => DLOG hard) is the trivial standard-model edge and exists as the separate page cdh-to-dlog, so kind stays implication on both."
+      ]
+    },
+    {
+      "slug": "dlog-to-conp",
+      "path": "content/Reductions/dlog-to-conp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Membership of a problem in a complexity class is proved by any argument at all; free is the repo convention for proven complexity containments.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "The decision version of [[discrete-logarithm|DLOG]] — given $(\\GG, g, p, X, t)$, decide whether the exponent $x \\in [p]$ with $g^x = X$ satisfies $x \\le t$ — lies in [[co-nondeterministic-polynomial-time|coNP]]: the unique exponent $x$ itself certifies a no-instance, and a certificate for the order of $g$ (its prime factorization with primality certificates) makes uniqueness and the verification polynomial-time checkable — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "`class: free` because a containment between complexity classes is proved by any argument at all; the reduction-class axis does not discriminate here."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated quote states DLOG in NP intersect coNP; this page records the coNP half and the companion dlog-to-np (batch red-08) records the NP half — the statements should mirror each other.",
+        "Stale boilerplate: the Notes still carry the '`class: unstated`' explanation although the frontmatter already says class: free; drop it.",
+        "DLOG is a search/promise problem; the containment is about its natural decision version (threshold on the exponent), which the statement now makes explicit. The certificate needs the group order and generator to be verifiable (Pratt-style primality certificates in concrete groups like Z_p^*); with the wiki's GrGen promise the order p is given."
+      ]
+    }
+  ]
+}

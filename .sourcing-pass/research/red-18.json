@@ -1,0 +1,354 @@
+{
+  "batch": "red-18",
+  "pages": [
+    {
+      "slug": "lossy-trapdoor-functions-to-tdp",
+      "path": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'lossy-trapdoor-function' has no page; it lives only as a section of [[trapdoor-permutation]]."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Lossy trapdoor functions are not known to imply trapdoor permutations. The injective branch of a lossy TDF is an injective trapdoor FUNCTION, not a permutation: in the Peikert-Waters constructions (STOC 2008, 'Lossy Trapdoor Functions and Their Applications', eprint 2007/279) the domain and range differ, and no construction of TDPs from lossy TDFs exists in the literature. The migrated sentence conflates injective TDFs with TDPs, exactly as flagged in .reductions/suspected-errors.json for content/Primitives/trapdoor-permutation.md line 50 (affectsEdges red-ltf-to-tp). The correct edges are: lossy TDF => injective trapdoor function, and lossy TDF => IND-CCA-secure PKE, both due to Peikert-Waters; a PW08 reference page would need to be created for them.",
+      "flags": [
+        "Matches suspected-errors entry for trapdoor-permutation.md:50 ('Lossy TDFs imply TDPs is likely wrong as stated').",
+        "Replacement edges (LTDF => injective TDF, LTDF => CCA-secure PKE) need a PW08 reference page: Chris Peikert, Brent Waters, 'Lossy Trapdoor Functions and Their Applications', STOC 2008 (also SIAM J. Comput. 40(6), 2011), https://eprint.iacr.org/2007/279 — not yet verified online in this pass because eprint is egress-blocked; verify before creating.",
+        "The source prose on trapdoor-permutation.md should also be fixed (skeptical-checker lane)."
+      ]
+    },
+    {
+      "slug": "prg-in-nc1-to-io-jls21",
+      "path": "content/Reductions/prg-in-nc1-to-io-jls21.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "A low-complexity PRG alone is not known to imply iO, and JLS21 does not claim it does. The migrated bullet says the PRG 'is required by' the JLS21 construction — a necessary-ingredient statement, not a reduction. JLS21's theorem is conjunctive: sub-exponential hardness of (1) SXDH on asymmetric bilinear groups of prime order, (2) LWE over Z_p with subexponential modulus-to-noise ratio, (3) LPN over Z_p with inverse-polynomial error rate, and (4) the existence of a Boolean PRG in NC^0 (not NC^1) with stretch n^{1+tau}. Verified against the eprint 2020/1003 / STOC 2021 theorem statement (via web search; eprint direct fetch egress-blocked). The correct four-hypothesis hyperedge already exists as content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md (which itself needs DDH -> SXDH and NC^1 -> NC^0 corrections, as its own notes record). This single-hypothesis page should be deleted or absorbed into that page.",
+      "flags": [
+        "Recommend deleting this page in favor of the four-hypothesis JLS21 edge (ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21).",
+        "JLS21's PRG hypothesis is a Boolean PRG in NC^0 with polynomial stretch, not NC^1; the wiki's JLS21 reference-page abstract is itself a paraphrase containing the same NC^1/DDH errors and should be replaced with the real abstract (reference-fixer lane)."
+      ]
+    },
+    {
+      "slug": "lpn-and-lwe-and-nc1-prg-to-io-jls21",
+      "path": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The hypothesis set omits a load-bearing assumption: JLS21 additionally assumes sub-exponential SXDH on asymmetric bilinear (pairing) groups. {sub-exponential LWE, LPN, PRG} without any bilinear-group assumption is not known to imply iO — every known well-founded iO construction uses a pairing assumption (JLS21 uses SXDH; the follow-up JLS22, eprint 2021/1334, removes LWE but uses DLIN). Also, the PRG in JLS21 is a Boolean PRG in NC^0 (not NC^1) with stretch n^{1+tau}, and the LPN is over Z_p with error rate 1/l^delta. Verified against the eprint 2020/1003 / STOC 2021 theorem statement via web search. The correct four-hypothesis edge already exists as content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md (itself needing DDH -> SXDH and NC^1 -> NC^0 corrections). This three-hypothesis page is an incomplete duplicate and should be deleted or merged into it.",
+      "flags": [
+        "Duplicate (incomplete) of ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21 — recommend a single JLS21 page with hypotheses {SXDH, LWE, LPN over Z_p, Boolean PRG in NC^0}, all sub-exponential.",
+        "The migrated prose on impagliazzos-five-worlds.md also drops SXDH; skeptical-checker lane."
+      ]
+    },
+    {
+      "slug": "lpn-to-pke",
+      "path": "content/Reductions/lpn-to-pke.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Ale03",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ale03 - More on average case vs approximation complexity",
+          "authors": "Michael Alekhnovich",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://ieeexplore.ieee.org/document/1238204",
+          "note": "Existing wiki reference page; cryptobib_key FOCS:Alekhnovich03."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Alekhnovich's construction uses LPN samples generically (the public key is an LPN sample; encryption combines further samples), and the security proof is a straightline reduction that runs any CPA distinguisher as an oracle to distinguish LPN samples from uniform. Fixed construction, fixed reduction, adversary used only as an oracle — the fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#noise-level|Mid-noise LPN]] with noise rate $\\varepsilon = \\Theta(1/\\sqrt{k})$ implies CPA-secure [[public-key-encryption|PKE]] [[Ale03 - More on average case vs approximation complexity|Ale03]]. The noise regime is essential: PKE from constant-noise LPN with polynomial hardness remains open.",
+      "sketch": "Alekhnovich's bit encryption: the public key is an LPN sample $(\\mathbf{A}, \\mathbf{b} = \\mathbf{A}\\mathbf{s}+\\mathbf{e})$ with $\\sqrt{m}$-sparse noise; a ciphertext masks the plaintext bit with $\\mathbf{r}^{\\top}\\mathbf{b}$ for a fresh sparse $\\mathbf{r}$, sending $(\\mathbf{r}^{\\top}\\mathbf{A}, \\mathbf{r}^{\\top}\\mathbf{b} + \\beta)$. Decryption uses $\\mathbf{s}$ to strip $\\mathbf{r}^{\\top}\\mathbf{A}\\mathbf{s}$, leaving $\\mathbf{r}^{\\top}\\mathbf{e} + \\beta$; the inner product of two $\\sqrt{m}$-sparse vectors is biased toward $0$, so the bit is recovered with constant advantage and correctness is amplified by repetition.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The noise regime is part of the assumption's identity; the flat hypothesis identifier lpn should become the mid-noise variant."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DUPLICATE: content/Reductions/noise-level-to-pke-ale03.md (batch red-19) records the same edge with hypothesis lpn-mid-noise and source Ale03. Recommend keeping one page (the regime-qualified one) and deleting this flat-hypothesis duplicate.",
+        "The frontmatter hypothesis [lpn] overstates the claim: unqualified (constant-noise, polynomial-hardness) LPN => PKE is a major open problem. The wiki already records the sub-exponential constant-noise route separately (subexponential-lpn-to-pke-yz16)."
+      ]
+    },
+    {
+      "slug": "lpn-to-secret-key-pir-sk-pir-cimr25",
+      "path": "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CIMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CIMR25 - Secret-Key PIR from Random Linear Codes",
+          "authors": "Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen",
+          "venue": "STOC 2026",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/646",
+          "note": "Now published at STOC 2026 (doi 10.1145/3798129.3800906); the wiki reference page still says venue: preprint."
+        },
+        {
+          "key": "BM26",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM26 - Secret-Key PIR from One-Way Functions",
+          "authors": "Nir Bitansky, Noam Mazor",
+          "venue": "preprint",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/865",
+          "note": "Weakens the assumption to any one-way function, at the cost of higher communication."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "For all constants $\\gamma, \\varepsilon > 0$, hardness of [[learning-parity-with-noise|LPN]] with noise rate $k^{-\\gamma}$ implies secret-key PIR ([[single-server-private-information-retrieval#secret-key-pir-sk-pir|SK-PIR]]) with $O(N^{\\varepsilon})$ communication and $\\poly(N)$ server storage for an $N$-bit database [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]. For $\\gamma < 1/2$ the hypothesis lies in a regime not known to imply public-key encryption, giving evidence that PKE is not necessary for SK-PIR.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- SK-PIR with online communication $\\tilde{O}(\\sqrt{N})$ follows from one-way functions alone — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]",
+      "notes_to_keep": [
+        "The LPN noise regime (rate $k^{-\\gamma}$ with $\\gamma < 1/2$) is load-bearing: it places SK-PIR below the PKE threshold, which is the paper's main point."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CIMR25 is now published at STOC 2026; the wiki reference page's venue field says preprint (reference-fixer lane).",
+        "The CIMR25 reference page's Notes attribute the LSN conjecture's introduction to CIMR25; Learning Subspace with Noise was introduced by DKL09 (as the page itself suspects at its 'Wait actually' line). Affects the LSN edges (red-17), not this one.",
+        "Separate LSN branch correctly lives on lsn-to-secret-key-pir-sk-pir-cimr25; the earlier migration worry about a false conjunction is resolved."
+      ]
+    },
+    {
+      "slug": "noise-level-to-depir-cimr25-2",
+      "path": "content/Reductions/noise-level-to-depir-cimr25-2.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CIMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CIMR25 - Secret-Key PIR from Random Linear Codes",
+          "authors": "Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen",
+          "venue": "STOC 2026",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/646",
+          "note": "Now published at STOC 2026 (doi 10.1145/3798129.3800906)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[learning-parity-with-noise#noise-level|high-noise LPN]] (noise rate $k^{-\\gamma}$ for a constant $0 < \\gamma < 1/2$, a regime not known to imply public-key encryption) implies secret-key [[doubly-efficient-pir|DEPIR]] in a weak sense: for any constant $\\varepsilon > 0$, communication is $O(N^{\\varepsilon})$ and, with server storage $N^{1+\\varepsilon}$, the server reads only $N/\\mathrm{polylog}(N)$ bits of the encoded database per query [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]. Server work is sublinear only by a polylogarithmic factor.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The DEPIR label is generous: CIMR25 itself calls the $N/\\mathrm{polylog}(N)$-probe scheme 'a very weak form of doubly efficient sk-PIR'. It meets the wiki's DEPIR definition (communication and query-time computation o(N)) only barely; a human should confirm the exact theorem parameters against the paper (eprint direct fetch was egress-blocked; theorem shape confirmed via web search of the PDF).",
+        "This page (high-noise) and noise-level-to-depir-cimr25 (mid-noise) record one CIMR25 theorem, which holds for every constant gamma > 0, split across the wiki's two overlapping regimes; the split follows the one-hypothesis-per-sufficient-assumption rule, but the wiki's mid-noise range (gamma < 1) strictly contains high-noise (gamma < 1/2), so consider a single regime-parameterized page."
+      ]
+    },
+    {
+      "slug": "noise-level-to-hash-function-blvw19",
+      "path": "content/Reductions/noise-level-to-hash-function-blvw19.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BLVW19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing",
+          "authors": "Zvika Brakerski, Vadim Lyubashevsky, Vinod Vaikuntanathan, Daniel Wichs",
+          "venue": "Eurocrypt 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2018/279",
+          "note": "Existing wiki reference page; cryptobib_key EC:BLVW19. Abstract confirms: LPN with noise rate log^2(n)/n implies collision resistant hash functions."
+        },
+        {
+          "key": "YZW+19",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise",
+          "authors": "Yu Yu, Jiang Zhang, Jian Weng, Chun Guo, Xiangxue Li",
+          "venue": "ASIACRYPT 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2017/1260",
+          "note": "Concurrent work; different LPN regimes (sub-exponential constant-noise or 1/sqrt(n)-noise), via the bSVP framework."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#noise-level|Low-noise LPN]] with noise rate $\\log^2(k)/k$ implies [[hash-function#collision-resistance|collision-resistant hash functions]] [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]].",
+      "sketch": "The hash family is $h_{\\mathbf{A}}(\\mathbf{x}) = \\mathbf{A}\\mathbf{x}$ restricted to low-Hamming-weight inputs, which compresses by an entropy count; a collision yields a low-weight vector in the kernel of $\\mathbf{A}$, and BLVW19 show via a code-smoothing argument that finding such vectors breaks LPN at noise rate $\\log^2(k)/k$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Concurrent work obtains collision-resistant hashing from constant-noise LPN with $2^{n^{1/2+\\varepsilon}}$ hardness, or from noise rate $1/\\sqrt{n}$ with $2^{\\Omega(\\sqrt{n}/\\log n)}$ hardness, via the binary-SVP framework — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]",
+      "notes_to_keep": [
+        "YZW+19's hypotheses are sub-exponential-hardness LPN regimes (constant-noise or noise rate $1/\\sqrt{n}$), not the $\\log^2(k)/k$ regime; it arguably belongs on a separate edge from the subexponential-lpn variant."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CONCLUSION UPGRADE: the migrated bullet says OWF, but both cited papers prove collision-resistant hashing; the conclusion should be the crhf variant (hash-function#collision-resistance), not one-wayness. LPN in essentially any regime implies OWF trivially, so as written the page cited two strong results for a trivial claim.",
+        "If a verifier prefers strict one-source-per-edge, move YZW+19 to its own subexponential-lpn => CRHF page instead of the improvement bullet."
+      ]
+    },
+    {
+      "slug": "noise-level-to-noise-level",
+      "path": "content/Reductions/noise-level-to-noise-level.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "One fixed sample transformation (add independent Bernoulli noise to each label) and one fixed reduction that runs the constant-noise distinguisher once as an oracle on the transformed samples; the transformation maps rate-epsilon LPN samples exactly to rate-epsilon' LPN samples with the same secret and maps uniform to uniform, so advantage is preserved exactly. This is the fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If $(k,\\varepsilon)$-[[learning-parity-with-noise|LPN]] is hard for noise rate $\\varepsilon = \\log^c(k)/k$ (the low-noise regime), then $(k,\\varepsilon')$-LPN is hard for every constant $\\varepsilon' \\in (\\varepsilon, 1/2)$ (in particular the constant-noise regime): LPN hardness is monotone under increasing the noise rate — folklore.",
+      "sketch": "Given a sample $(\\mathbf{a}, b)$, output $(\\mathbf{a}, b + e')$ for fresh $e' \\getsr \\mathrm{Ber}(\\tau)$ with $\\varepsilon(1-\\tau) + \\tau(1-\\varepsilon) = \\varepsilon'$. Rate-$\\varepsilon$ LPN samples map exactly to rate-$\\varepsilon'$ samples with the same secret, and uniform samples stay uniform, so any distinguisher for the noisier problem breaks the less-noisy one with the same advantage; the same transformation preserves the secret, so it applies to search LPN as well.",
+      "pseudocode": "",
+      "security_loss": "tight: advantage-preserving, one oracle call",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Naming on the LPN page is counterintuitive: the high-noise regime has strictly less noise than the constant-noise regime.",
+        "SUSPECTED DEFINITION ERROR on the LPN page (also in suspected-errors.json): the mid-noise range ($\\gamma < 1$) strictly contains the high-noise range ($\\gamma < 1/2$), so the regimes are not disjoint as presented."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Page title 'Noise Level => Noise Level' is uninformative; it should name the regimes (e.g. 'Low-noise LPN => Constant-noise LPN'). The same monotonicity gives every step low => mid => high => constant; if the wiki wants the full chain, each link is this same folklore reduction.",
+        "Direction verified: low-noise (strongest) implies constant-noise (weakest); a constant-noise adversary is turned into a low-noise adversary by noise padding. Matches the page's hypotheses/conclusion as recorded."
+      ]
+    },
+    {
+      "slug": "noise-level-to-tdh-amr25",
+      "path": "content/Reductions/noise-level-to-tdh-amr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "AMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN",
+          "authors": "Damiano Abram, Giulio Malavolta, Lawrence Roy",
+          "venue": "TCC 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/416",
+          "note": "Published at TCC 2025 (LNCS 16268) under the title 'Slightly Sublinear Trapdoor Hash Functions and PIR from Low-Noise LPN'; the wiki reference page still says venue: preprint."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Quasi-polynomial hardness of [[learning-parity-with-noise#noise-level|low-noise LPN]] with noise rate $\\varepsilon = O(\\log^{1+\\beta}(k)/k)$ for a constant $\\beta > 0$ implies [[trapdoor-hash-function|trapdoor hash functions]] with compression factor $2^{\\Theta(\\log^{1-\\beta} \\secpar)}$ [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]. This is the first TDH construction from a code-based assumption.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The noise-rate parameter $\\varepsilon = O(\\log^{1+\\beta}(k)/k)$ and the quasi-polynomial hardness qualifier are the content of the hypothesis and are not captured by the flat identifier lpn-low-noise."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "AMR25 was published at TCC 2025 as 'Slightly Sublinear Trapdoor Hash Functions and PIR from Low-Noise LPN' (LNCS 16268); reference-fixer should update the reference page's venue (the eprint title differs from the proceedings title — do not rename the file).",
+        "The downstream PIR application ($N/2^{\\Theta(\\log^{1-\\beta} N)}$ communication) is correctly split onto tdh-to-cpir-amr25."
+      ]
+    },
+    {
+      "slug": "noise-level-to-depir-cimr25",
+      "path": "content/Reductions/noise-level-to-depir-cimr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CIMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CIMR25 - Secret-Key PIR from Random Linear Codes",
+          "authors": "Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen",
+          "venue": "STOC 2026",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/646",
+          "note": "Now published at STOC 2026 (doi 10.1145/3798129.3800906)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[learning-parity-with-noise#noise-level|mid-noise LPN]] (noise rate $k^{-\\gamma}$ for a constant $0 < \\gamma < 1$) implies secret-key [[doubly-efficient-pir|DEPIR]] in a weak sense: for any constant $\\varepsilon > 0$, communication is $O(N^{\\varepsilon})$ and, with server storage $N^{1+\\varepsilon}$, the server reads only $N/\\mathrm{polylog}(N)$ bits of the encoded database per query [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]. Server work is sublinear only by a polylogarithmic factor.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The DEPIR label is generous: CIMR25 itself calls the $N/\\mathrm{polylog}(N)$-probe scheme 'a very weak form of doubly efficient sk-PIR'; it meets the wiki's o(N) query-time definition only barely. Confirm exact theorem parameters against the paper (eprint direct fetch was egress-blocked; shape confirmed via web search of the PDF).",
+        "Redundant with the high-noise page noise-level-to-depir-cimr25-2: CIMR25's theorem holds for every constant gamma > 0, and the wiki's mid-noise regime strictly contains high-noise; consider a single regime-parameterized page."
+      ]
+    }
+  ]
+}

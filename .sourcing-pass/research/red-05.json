@@ -1,0 +1,301 @@
+{
+  "batch": "red-05",
+  "pages": [
+    {
+      "slug": "com-to-two-party-computation-2pc-gmw87",
+      "path": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "GMW87's semi-honest two-party protocol is built from oblivious transfer, not from commitments: OT implements the gate-by-gate secure evaluation, while commitments (together with zero-knowledge proofs) enter GMW87 only in the compiler that lifts semi-honest protocols to malicious security. Commitments follow from one-way functions (Naor91), and OT/2PC is black-box separated from OWFs (IR89), so 'COM is complete for two-party computation in the semi-honest model' would collapse Minicrypt into Cryptomania. The page's own SUSPECTED note and .reductions/suspected-errors.json (entries for red-cs-to-smpc-gmw87 / red-cs-to-tpc-gmw87, same underlying prose) record exactly this. The defensible GMW87/Kil88 edges already exist: OT => MPC (red-ot-to-mpc-kil88) and GC + OT => 2PC (red-gc-and-ot-to-two-party-computation-2pc); the correct COM edge would be 'COM (+ZK) compiles semi-honest to malicious security', a different conclusion object.",
+      "flags": [
+        "Sibling page content/Reductions/com-to-mpc-gmw87.md (red-com-to-mpc-gmw87) records the same inverted claim and should receive the same treatment.",
+        "Source prose to fix in the same lane: content/Primitives/commitment-scheme.md:64 and content/Primitives/secure-multi-party-computation.md:64.",
+        "Conclusion 'two-party-computation' is an alias/section of secure-multi-party-computation, not its own page (existing migration note)."
+      ]
+    },
+    {
+      "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
+      "path": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+      "disposition": "undetermined",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "No source found that states the generic reduction, let alone its black-box class.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[secret-sharing|secret sharing]] scheme in which the dealer additionally publishes [[commitment-scheme|commitments]] binding it to the shares (or to the coefficients of the sharing polynomial), so that every party can verify its share is consistent with a single well-defined secret even against a malicious dealer, is a verifiable secret sharing scheme.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'verifiable-secret-sharing' has no page of its own."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Migrated text is a definitional gloss of VSS, not a theorem statement; the hyperedge 'generic COM + generic SS => VSS' has no canonical citation I could find. Tried: vendor/cryptobib lookups and web search; Springer/IACR/ACM full texts are egress-blocked from this environment.",
+        "The attributable results in this neighbourhood are: VSS introduced by Chor-Goldwasser-Micali-Awerbuch (FOCS 1985); non-interactive VSS from homomorphic discrete-log commitments - Feldman (FOCS 1987); statistically hiding non-interactive VSS from Pedersen commitments - Pedersen (CRYPTO 1991). All combine Shamir sharing with HOMOMORPHIC commitments, not an arbitrary commitment scheme.",
+        "A generic COM + SS => computational VSS reduction plausibly holds (dealer commits to shares and proves consistency in zero knowledge, given broadcast), but that route additionally needs ZK from COM and interaction, and no source states the theorem in this generic form. Consider re-scoping the page to Feldman/Pedersen VSS with a homomorphic-commitment hypothesis, which would make it sourceable."
+      ]
+    },
+    {
+      "slug": "conp-to-am-gs86",
+      "path": "content/Reductions/conp-to-am-gs86.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "coNP ⊆ AM is not a theorem - it is a well-known open problem, and coNP ⊆ AM would collapse the polynomial hierarchy to the second level (Boppana-Hastad-Zachos, 'Does co-NP have short interactive proofs?', IPL 1987). GS86 proves the private-coin/public-coin equivalence (every k-round private-coin interactive proof is simulated by a k+2-round Arthur-Merlin protocol); it does not give AM protocols for coNP. The bullet at content/Complexity/co-nondeterministic-polynomial-time.md:21 attaches GS86 to a statement the paper does not make, as this page's own SUSPECTED note and the suspected-errors file already record, and it contradicts co-arthur-merlin.md's collapse argument. Correct neighbouring edges already exist: coNP ⊆ coAM (red-conp-to-coam, from NP ⊆ AM by complementation) and coNP ⊆ PSPACE (red-conp-to-pspace); coNP ⊆ IP holds via LFKN/Shamir and would be a separate sourced page.",
+      "flags": [
+        "Page is currently status: draft with class: free and a GS86 citation attached to a false statement - high-priority removal/repointing; the source bullet co-nondeterministic-polynomial-time.md:21 must be fixed in the same commit."
+      ]
+    },
+    {
+      "slug": "conp-to-coam",
+      "path": "content/Reductions/conp-to-coam.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention such inclusions are class: free (proved unconditionally, no technique restriction).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classcoNP \\subseteq \\classcoAM$: every $\\classNP$ language has an [[arthur-merlin|AM]] protocol in which Arthur ignores his coins and accepts exactly when Merlin's message is an $\\classNP$ witness, so $\\classNP \\subseteq \\classAM$; complementing both sides gives [[co-nondeterministic-polynomial-time|coNP]] $\\subseteq$ [[co-arthur-merlin|coAM]] — folklore.",
+      "sketch": "The inclusion NP ⊆ AM needs no randomness: Merlin sends the witness and Arthur verifies it deterministically. Complementation is definitional: $L \\in \\classcoNP$ iff $\\bar{L} \\in \\classNP \\subseteq \\classAM$ iff $L \\in \\classcoAM$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The GS86 attribution inside the migrated quote is unnecessary and dropped: NP ⊆ AM is immediate (Merlin sends the witness) and does not use the private-coin/public-coin theorem.",
+        "Cross-page contradiction resolved on the other side: co-nondeterministic-polynomial-time.md:21 (coNP ⊆ AM) is flagged wrong via red-conp-to-am-gs86; this page is the correct statement."
+      ]
+    },
+    {
+      "slug": "conp-to-pspace",
+      "path": "content/Reductions/conp-to-pspace.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention such inclusions are class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[co-nondeterministic-polynomial-time|coNP]] $\\subseteq$ [[polynomial-space|PSPACE]]: a polynomial-space machine decides any $\\classNP$ language by enumerating all candidate certificates and reusing space, so $\\classNP \\subseteq \\classPSPACE$, and $\\classPSPACE$ is closed under complement — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": []
+    },
+    {
+      "slug": "cpir-to-ot-dmo00",
+      "path": "content/Reductions/cpir-to-ot-dmo00.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DMO00",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer",
+          "authors": "Giovanni Di Crescenzo, Tal Malkin, Rafail Ostrovsky",
+          "venue": "EUROCRYPT 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/3-540-45539-6_10",
+          "note": "cryptobib key EC:DiCMalOst00 (verified in vendor/cryptobib/crypto.bib); abstract verified via Springer search listing."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The OT protocol invokes the PIR scheme only as a subprotocol (the OT sender plays the database, the parties run the PIR protocol on databases the sender constructs); sender privacy is argued information-theoretically from the sub-linear communication bound, and receiver privacy reduces to PIR user privacy by running any distinguisher as an oracle. Neither direction inspects code. The literature routinely composes this edge with black-box separations (non-trivial PIR implies OT, and OT has no black-box construction from OWFs by IR89, hence no black-box PIR from OWFs), which requires the fully-black-box reading.",
+      "model": "standard",
+      "model_justification": "Plain model; no random oracle or CRS is used.",
+      "kind_correct": "implication",
+      "statement": "Any non-trivial single-server [[single-server-private-information-retrieval|PIR]] — one whose total communication is strictly less than the $n$-bit database — implies [[oblivious-transfer|OT]] [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. In particular, non-trivial single-server PIR is complete for secure two-party and multi-party computation [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].",
+      "sketch": "The parties run the PIR protocol with the OT sender playing the database. Because the total communication is below $n$, the receiver's view information-theoretically misses at least one database position; DMO00 amplify this deficiency into sender privacy, while receiver privacy is inherited directly from PIR user privacy.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'Non-trivial' (total communication strictly less than the $n$-bit database) is a load-bearing qualifier on the hypothesis that the flat slug `cpir` loses; it is preserved in the Statement."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Class fully-black-box is asserted from the construction/proof shape and its standard composition with black-box separations; the full text was unreachable from this environment (iacr.org, springer.com, dl.acm.org all egress-blocked), so the verifier should confirm against the paper - including whether the OT achieved is against honest-but-curious parties and lifted generically."
+      ]
+    },
+    {
+      "slug": "czk-to-ip-bgg-90",
+      "path": "content/Reductions/czk-to-ip-bgg-90.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "As recorded the edge asserts an unconditional equivalence CZK = IP, but on the source page (computational-zero-knowledge.md) the equality is a sub-bullet under 'Assuming OWFs exist' - the migration silently dropped the hypothesis, as this page's own Notes record. BGG+90 prove IP ⊆ CZK assuming one-way functions (their protocol needs bit commitments); unconditionally only the trivial direction CZK ⊆ IP holds. Unconditional CZK = IP is not known, and cannot currently be proved: one-way functions are necessary for non-trivial CZK (Ost91, cited on the same source page). Correct replacement edges: (i) a conditional edge with hypotheses {hash-function (OWF), ip} and conclusion czk, sourced to BGG+90 (cf. red-hash-function-to-czk, which records the GMW91 'OWF => NP ⊆ CZK' analogue), and (ii) the trivial unconditional inclusion CZK ⊆ IP as a folklore page.",
+      "flags": [
+        "Page is currently status: draft, kind: equivalence, class: free - i.e. it presents the unconditional equality as established; high-priority fix.",
+        "Related suspected error on content/Primitives/zero-knowledge-proof.md:73 (BGG+90 upgraded to statistical ZK and stripped of the OWF hypothesis) and the sibling page red-ip-to-szk-bgg-90 share the same root cause."
+      ]
+    },
+    {
+      "slug": "d-th-composite-residuosity-to-he",
+      "path": "content/Reductions/d-th-composite-residuosity-to-he.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DJ01",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System",
+          "authors": "Ivan Damgård, Mats Jurik",
+          "venue": "PKC 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44586-2_9",
+          "note": "cryptobib key PKC:DamJur01 (verified in vendor/cryptobib/crypto.bib, pages 119-136, LNCS); Springer listing confirmed via web search. Cryptobib spells the second author 'Mats Jurik'; keep that spelling so npm run sync-cryptobib passes."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "DJ01 makes no black-box-notion claim, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply cleanly; the honest value is unstated. (The security reduction is black-box in the adversary, as is standard for assumption-based schemes.)",
+      "model": "standard",
+      "model_justification": "Plain model; no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "The degree-$d$ generalization of [[decisional-composite-residuosity#d-th-composite-residuosity|composite residuosity]] yields the Damgård–Jurik cryptosystem: for an RSA modulus $n$, $\\Enc(\\pk, m; r) = (1+n)^m \\cdot r^{n^d} \\bmod n^{d+1}$ encrypts $m \\in \\ZZ_{n^d}$ and is additively homomorphic — the product of two ciphertexts encrypts $m_1 + m_2 \\bmod n^d$ — recovering Paillier at $d = 1$ [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]. Semantic security for every $d$ is equivalent to the base [[decisional-composite-residuosity|DCR]] assumption, so the generalization buys a larger message space at no additional hardness assumption [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].",
+      "sketch": "Ciphertexts multiply to add plaintexts, so $\\Eval$ for addition is multiplication modulo $n^{d+1}$. Decryption raises the ciphertext to $\\lambda = \\mathrm{lcm}(p-1, q-1)$, killing the $r^{n^d}$ component and leaving a power of $1+n$, from which $m$ is extracted digit-by-digit modulo successive powers of $n$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "d-th-composite-residuosity has no page of its own (section of decisional-composite-residuosity)."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Conclusion `he` is coarser than what is proved: the scheme is an additively (partially) homomorphic PKE, not general HE — consider conclusion additively-homomorphic-encryption to match red-dcr-to-partially-homomorphic-encryption-phe-pai99.",
+        "DJ01 proves the degree-$d$ assumption equivalent to base DCR, resolving the migration note 'the relation between the d-th variant and base DCR is never stated'; the edge could equivalently be recorded with hypothesis dcr."
+      ]
+    },
+    {
+      "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
+      "path": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Pai99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Pai99 - Public-key cryptosystems based on composite degree residuosity classes",
+          "authors": "Pascal Paillier",
+          "venue": "EUROCRYPT 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48910-X_16",
+          "note": ""
+        },
+        {
+          "key": "DJ01",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System",
+          "authors": "Ivan Damgård, Mats Jurik",
+          "venue": "PKC 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44586-2_9",
+          "note": "cryptobib key PKC:DamJur01 (verified in vendor/cryptobib/crypto.bib); same reference page as proposed for red-d-th-composite-residuosity-to-he."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Pai99 makes no black-box-notion claim, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply cleanly; the honest value is unstated. (The security reduction is tight and black-box in the adversary.)",
+      "model": "standard",
+      "model_justification": "Plain model; no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "Under [[decisional-composite-residuosity|DCR]], the Paillier cryptosystem is an IND-CPA-secure [[public-key-encryption|PKE]] that is additively homomorphic: for an RSA modulus $n$, $\\Enc(\\pk, m; r) = g^m \\cdot r^n \\bmod n^2$ with $m \\in \\ZZ_n$, $r \\getsr \\ZZ_n^*$, and $g \\in \\ZZ_{n^2}^*$ of order divisible by $n$ (e.g. $g = n+1$), and $\\Enc(\\pk, m_1; r_1) \\cdot \\Enc(\\pk, m_2; r_2) \\bmod n^2$ encrypts $m_1 + m_2 \\bmod n$ [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Semantic security of the scheme is equivalent to DCR [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].",
+      "sketch": "An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge $z$ embeds directly as $c^* = g^{m_b} \\cdot z \\bmod n^2$: if $z$ is an $n$-th residue then $c^*$ is a fresh encryption of $m_b$, and if $z$ is uniform then $c^*$ is independent of $b$. The reduction runs the IND-CPA adversary once, giving a tight equivalence.",
+      "pseudocode": "",
+      "security_loss": "tight: semantic security of the scheme is equivalent to DCR",
+      "improvements_text": "- The Damgård–Jurik generalization works modulo $n^{d+1}$ with message space $\\ZZ_{n^d}$ for any $d \\ge 1$, remains additively homomorphic, and its semantic security is equivalent to the same DCR assumption — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]",
+      "notes_to_keep": [
+        "No wiki slug for 'additively homomorphic encryption' as an object."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Near-duplicate pages red-dcr-to-he-pai99 and red-dcr-to-pke-pai99 record the same Pai99 construction with coarser conclusions (he, pke); consider merging or cross-linking so the additive-homomorphism qualifier lives in exactly one place.",
+        "The migrated bullet also mentions unpadded RSA (multiplicative homomorphism) - that is a separate edge (red-rsa-to-partially-homomorphic-encryption-phe-rsa78 exists), already split as the migration note demands."
+      ]
+    },
+    {
+      "slug": "dcr-to-com",
+      "path": "content/Reductions/dcr-to-com.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "Folklore construction; no source states a black-box class, and the hypothesis is an assumption rather than a primitive.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]]: commit to $m \\in \\ZZ_n$ as the Paillier ciphertext $c = (1+n)^m \\cdot r^n \\bmod n^2$ with $r \\getsr \\ZZ_n^*$, and open by revealing $(m, r)$. For a well-formed RSA modulus $n$ the map $(m, r) \\mapsto c$ is injective, so binding is perfect; hiding is computational under DCR — folklore.",
+      "sketch": "The commitment is Paillier encryption with the public key as commitment key: hiding is exactly IND-CPA of Paillier (ciphertexts of any two messages are indistinguishable under DCR), and binding follows because $(m, r) \\mapsto (1+n)^m r^n \\bmod n^2$ is a bijection $\\ZZ_n \\times \\ZZ_n^* \\to \\ZZ_{n^2}^*$ when $\\gcd(n, \\varphi(n)) = 1$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Commitment flavour is not part of the conclusion identifier."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "FLAVOURS SUSPECTED SWAPPED in the migrated quote (and in decisional-composite-residuosity.md:33): the natural DCR/Paillier commitment is perfectly BINDING and computationally HIDING, the opposite of the claimed 'statistically hiding, computationally binding'. Matches suspected-errors entry red-dcr-to-cs. The statement above records the corrected flavours; the source bullet should be fixed in the same lane.",
+        "If statistically hiding COM from DCR is the intended claim, it holds only generically (DCR => OWF, plus statistically hiding commitments from any OWF, Haitner-Reingold STOC 2007) or via constructions in hidden-order groups under different assumptions; that would be a composite chain needing its own pages and sources.",
+        "The existing migration note attributing statistically hiding DCR commitments to Damgard-Fujisaki is itself imprecise: DF02-style integer commitments live in hidden-order groups under strong-RSA/factoring-type assumptions, not DCR; the note was therefore not kept.",
+        "Binding against a malicious committer needs $n$ well-formed (injectivity uses $\\gcd(n, \\varphi(n)) = 1$); receiver-side checks or a well-formedness argument are required for the perfect-binding claim."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,355 @@
+{
+  "batch": "red-25",
+  "pages": [
+    {
+      "slug": "cca-security-to-cca1-security",
+      "path": "content/Reductions/cca-security-to-cca1-security.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "BDPR98",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes",
+          "authors": "Mihir Bellare, Anand Desai, David Pointcheval, Phillip Rogaway",
+          "venue": "CRYPTO 1998",
+          "year": "1998",
+          "url": "https://doi.org/10.1007/BFb0055718",
+          "note": "cryptobib key C:BDPR98 (verified in vendor/cryptobib/crypto.bib). Web verification unavailable this session (eprint.iacr.org/dblp.org/arxiv.org blocked by egress proxy; WebSearch budget exhausted); bibliographic data verified against the repo's vendored cryptobib (vendor/cryptobib/crypto.bib) and existing wiki reference pages instead."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Notion-restriction implication: the construction is the identity on schemes, and the security reduction runs the CCA1 adversary once, unchanged, as a CCA2 adversary that forwards Phase-1 decryption queries and makes none in Phase 2. Both are fixed and treat scheme and adversary purely as oracles — the RTV04 fully-black-box shape, trivially.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[public-key-encryption#cca-security|CCA2]]-secure [[public-key-encryption|PKE]] scheme is [[public-key-encryption#cca1-security|CCA1]]-secure: a CCA1 adversary is a CCA2 adversary that makes no decryption queries after the challenge ciphertext is revealed, so its advantage is preserved exactly — folklore.",
+      "sketch": "The reduction is the identity: run the CCA1 adversary unchanged in the CCA2 game, answering its Phase-1 decryption queries with the CCA2 decryption oracle and querying nothing in Phase 2. Restricting the adversary's oracle access only shrinks the class of adversaries quantified over.",
+      "pseudocode": "",
+      "security_loss": "none — the CCA1 adversary is run unchanged and its advantage is preserved exactly",
+      "improvements_text": "- The relations among IND-CPA, IND-CCA1, and IND-CCA2 — including the strictness of this implication (a CCA1-secure scheme that is not CCA2-secure) — are proved formally in [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated quote's 'strictly weaker/stronger' claims are separations, not this edge; BDPR98 is the citable source for them if separation pages are ever added."
+      ]
+    },
+    {
+      "slug": "pp-to-pspace",
+      "path": "content/Reductions/pp-to-pspace.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention (cf. bpp-to-pspace) a containment proved by any argument at all is class: free — the reduction-class axis does not discriminate here.",
+      "model": "standard",
+      "model_justification": "Purely classical simulation; the quantum model of some citing parent pages does not apply to this link.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classPP \\subseteq \\classPSPACE$: a deterministic [[polynomial-space|polynomial-space]] machine iterates over all $2^{\\poly(n)}$ coin sequences of the [[probabilistic-polynomial-time|PP]] machine, reusing space across runs and maintaining a $\\poly(n)$-bit count of accepting runs; it accepts iff a strict majority accept — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The slug probabilistic-polynomial-time denotes the counting class PP, while PPT elsewhere on the wiki abbreviates probabilistic polynomial time — a name collision inherited from the migration."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "PP and its containment in PSPACE originate with Gill, 'Computational Complexity of Probabilistic Turing Machines', SIAM J. Comput. 6(4), 1977; not proposed as a source because the venue is outside cryptobib and web verification was unavailable this session. Treated as textbook folklore per repo convention for trivial containments (matches bpp-to-pspace)."
+      ]
+    },
+    {
+      "slug": "subclasses-to-hash-function",
+      "path": "content/Reductions/subclasses-to-hash-function.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Inverted as recorded, and the page's own migration notes already flag it (SUSPECTED DIRECTION ERROR). The literature derives PPAD hardness FROM cryptographic assumptions — indistinguishability obfuscation plus OWFs (Bitansky–Paneth–Rosen, STOC 2015) and Fiat–Shamir for sumcheck under LWE-style assumptions (Choudhuri–Hubáček–Kamath–Pietrzak–Rosen–Rothblum, STOC 2019) — not collision-resistant hash functions (or any primitive) from PPAD hardness; no such construction is known. The hypothesis 'ppad-hardness' is additionally an invented predicate node with no page, and the conclusion collapses to the merged OWF/CRHF hash-function page. The correct edges, if wanted, are of the form iO+OWF ⇒ PPAD-hardness / Fiat–Shamir+LWE ⇒ PPAD-hardness — different hyperedges with different endpoints, which would need their own pages and reference stubs.",
+      "flags": [
+        "HIGH PRIORITY: edge is inverted; recommend deleting or replacing with crypto ⇒ PPAD-hardness edges (BPR15, CHKPRR19) rather than fixing in place — hypothesis and conclusion nodes are both wrong."
+      ]
+    },
+    {
+      "slug": "prc-to-ske-cg24",
+      "path": "content/Reductions/prc-to-ske-cg24.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CG24",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CG24 - Pseudorandom Error-Correcting Codes",
+          "authors": "Miranda Christ, Sam Gunn",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://eprint.iacr.org/2024/235",
+          "note": "Already in wiki (cryptobib C:ChrGun24)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: a PRC already has SKE syntax $(\\Gen, \\Enc, \\Dec)$ and is used only as an oracle. The security reduction is a two-hybrid argument that runs any IND-CPA adversary as an oracle, replacing each challenge world by the uniform-random-response oracle via PRC pseudorandomness.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-error-correcting-code|PRC]] is itself a [[symmetric-key-encryption|SKE]] scheme: $(\\Gen, \\Enc, \\Dec)$ has SKE syntax, robustness against the trivial (identity) channel gives $(1-\\negl(\\secpar))$-correctness, and pseudorandomness of codewords under an encoding oracle implies [[symmetric-key-encryption#cpa-security|CPA]] security, since encryptions of any two messages are each indistinguishable from uniform strings — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].",
+      "sketch": "The identity construction encrypts with $\\Enc_k$ and decrypts with $\\Dec_k$. For CPA security, one pseudorandomness hybrid per world replaces the left-or-right encryption oracle's answers $\\Enc_k(m_b)$ by uniform $n$-bit strings, under which the challenge bit is information-theoretically hidden.",
+      "pseudocode": "",
+      "security_loss": "the IND-CPA advantage is at most twice the PRC pseudorandomness advantage",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The 'is a type of SKE' framing is the wiki's; CG24's abstract defines PRCs as keyed error-correcting codes with pseudorandom codewords and does not state the SKE implication there. The implication is definitional as sketched (IND$-style pseudorandomness implies IND-CPA; robustness with the identity channel gives correctness), but whether CG24's body states it explicitly could not be checked — Web verification unavailable this session (eprint.iacr.org/dblp.org/arxiv.org blocked by egress proxy; WebSearch budget exhausted); bibliographic data verified against the repo's vendored cryptobib (vendor/cryptobib/crypto.bib) and existing wiki reference pages instead."
+      ]
+    },
+    {
+      "slug": "prf-to-invertible-prf-hppy25",
+      "path": "content/Reductions/prf-to-invertible-prf-hppy25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HPPY25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs",
+          "authors": "Alexander Hoover, Sarvar Patel, Giuseppe Persiano, Kevin Yeo",
+          "venue": "Eurocrypt 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2024/318",
+          "note": "Already in wiki (cryptobib EC:HPPY25; also EPRINT 2024/318)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The construction's shape could not be verified (paper inaccessible this session); no class recorded rather than guessed.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Invertible PRFs exist from any one-way function — in particular from any [[pseudorandom-function|PRF]]: [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]] construct an [[pseudorandom-function#invertible-prfs|iPRF]] $(\\KeyGen, \\Eval, \\Invert)$ with forward evaluation in $\\tilde{O}(1)$ time and inversion in time linear in the size of the returned preimage set, the first construction that remains efficient and secure for arbitrary domain and range sizes — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The conclusion invertible-prf is a variant declared on [[pseudorandom-function|PRF]], not a page of its own — the iPRF is defined there under Variations."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HPPY25's stated hypothesis (per the abstract on the wiki reference page) is one-way functions, weaker than the PRF hypothesis this edge records; the recorded edge is true a fortiori, but an OWF (hash-function node) ⇒ iPRF edge would match the paper more closely.",
+        "Construction details and reduction class unverified — Web verification unavailable this session (eprint.iacr.org/dblp.org/arxiv.org blocked by egress proxy; WebSearch budget exhausted); bibliographic data verified against the repo's vendored cryptobib (vendor/cryptobib/crypto.bib) and existing wiki reference pages instead."
+      ]
+    },
+    {
+      "slug": "prf-to-mac",
+      "path": "content/Reductions/prf-to-mac.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The MAC calls the PRF only as an oracle ($\\Tag = \\Eval$, canonical verification); the reduction runs the forger once as an oracle, answering its Tag queries with its own function oracle and testing the forgery with one further query. One fixed construction, one fixed reduction — the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "For a [[pseudorandom-function|PRF]] $\\PRF = (\\KeyGen, \\Eval)$ whose range satisfies $1/|\\calR| = \\negl(\\secpar)$, setting $\\Tag(k, m) := \\Eval(k, m)$ with canonical verification $\\Vrfy(k, m, t) := [t = \\Eval(k, m)]$ gives a UF-CMA-secure [[message-authentication-code|MAC]] for the fixed message space $\\calM = \\calD$ — folklore.",
+      "sketch": "Correctness is immediate since verification recomputes the tag. The reduction replaces $\\Eval(k, \\cdot)$ by a truly random function: there, the tag of an unqueried message is a fresh uniform element of $\\calR$, so any forgery succeeds with probability $1/|\\calR|$; a larger UF-CMA advantage yields a PRF distinguisher.",
+      "pseudocode": "",
+      "security_loss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$, where $\\calB$ makes one query per Tag query plus one for the forgery",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The migrated bullet called this a one-time MAC and attributed many-time security to domain extension; in fact $\\Tag = \\Eval$ is many-time UF-CMA for fixed-length messages, and domain extension buys longer messages, not more queries. Extending to long messages (e.g. CBC-MAC) is a separate reduction."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "A plausible original attribution is Goldreich–Goldwasser–Micali, 'On the Cryptographic Applications of Random Functions', CRYPTO 1984 (cryptobib C:GolGolMic84), whose applications include message authentication; not proposed as a source because its content could not be verified this session. Most careful sources state the implication as standard."
+      ]
+    },
+    {
+      "slug": "prf-to-prp-lr88",
+      "path": "content/Reductions/prf-to-prp-lr88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LR88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions",
+          "authors": "Michael Luby, Charles Rackoff",
+          "venue": "SIAM Journal on Computing 17(2) 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1137/0217022",
+          "note": "Already in wiki (cryptobib LubRac88; preliminary version STOC 1986)."
+        },
+        {
+          "key": "NR99",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited",
+          "authors": "Moni Naor, Omer Reingold",
+          "venue": "Journal of Cryptology 12(1)",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/PL00003817",
+          "note": "cryptobib key JC:NaoRei99 (verified in vendor/cryptobib/crypto.bib). Web verification unavailable this session (eprint.iacr.org/dblp.org/arxiv.org blocked by egress proxy; WebSearch budget exhausted); bibliographic data verified against the repo's vendored cryptobib (vendor/cryptobib/crypto.bib) and existing wiki reference pages instead."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The Feistel construction invokes the round PRFs only as oracles; the proof replaces the three (or four) PRF instances by truly random functions via hybrids whose reductions run any distinguisher as an oracle, then bounds the information-theoretic core by a birthday argument. Fixed construction, fixed reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Three rounds of the Feistel construction, each applying an independently keyed [[pseudorandom-function|PRF]] on $\\bits^n$, yield a [[pseudorandom-permutation|PRP]] on the doubled domain $\\bits^{2n}$; four rounds yield a strong PRP, secure even given the inversion oracle — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].",
+      "sketch": "On input $(L_0, R_0) \\in \\bits^n \\times \\bits^n$, round $i$ sets $(L_i, R_i) \\gets (R_{i-1},\\ L_{i-1} \\oplus F_{k_i}(R_{i-1}))$; this is a permutation regardless of $F$, and $\\Invert$ runs the rounds backwards. Hybrids replace each round function by a truly random one, and the three-round random-function core is indistinguishable from a random permutation up to a birthday bound.",
+      "pseudocode": "",
+      "security_loss": "a $q$-query distinguisher's advantage is at most the sum of the round PRF advantages plus $q^2/2^n$ (birthday term), so the construction is meaningful only for large domains",
+      "improvements_text": "- [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]] simplify and strengthen the analysis: two Feistel rounds sandwiched between pairwise-independent permutations already give a strong PRP.",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The converse direction exists as its own page (prp-to-prf), so kind stays implication.",
+        "The migrated 'large-domain' qualifier is preserved as the doubled domain plus the birthday-term caveat in the loss field."
+      ]
+    },
+    {
+      "slug": "prf-to-ske",
+      "path": "content/Reductions/prf-to-ske.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Randomized counter-mode encryption calls the PRF only as an oracle; the security reduction runs any CPA adversary as an oracle, answering its encryption queries with its own function oracle. Fixed construction, fixed reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-function|PRF]] with range $\\bits^n$ yields a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme via randomized counter mode: $\\Enc(k, m_1 \\cdots m_\\ell) := \\left(r,\\ (\\Eval(k, r{+}1) \\| \\cdots \\| \\Eval(k, r{+}\\ell)) \\oplus (m_1 \\| \\cdots \\| m_\\ell)\\right)$ for a fresh $r \\getsr \\calD$ sampled at each encryption, with $\\Dec$ recomputing the pad from $r$ — folklore.",
+      "sketch": "A hybrid replaces $\\Eval(k, \\cdot)$ by a truly random function, making each pad block a fresh one-time pad unless the counter windows $[r{+}1, r{+}\\ell]$ of two encryption queries overlap — a birthday event over $\\calD$. The reduction inherits the CPA adversary's advantage up to that collision term.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The migrated formula omitted the per-encryption random starting counter $r$, making the scheme deterministic and hence not CPA-secure as written; the fresh nonce is load-bearing."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "As with prf-to-mac, Goldreich–Goldwasser–Micali's CRYPTO 1984 applications paper (cryptobib C:GolGolMic84) is a plausible original attribution, unverifiable this session; careful sources (e.g. Goldreich, Foundations of Cryptography II, Katz–Lindell) present the construction as standard."
+      ]
+    },
+    {
+      "slug": "prg-to-com-naor91",
+      "path": "content/Reductions/prg-to-com-naor91.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Naor91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Naor91 - Bit commitment using pseudorandomness",
+          "authors": "Moni Naor",
+          "venue": "Journal of Cryptology 4(2)",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/BF00196774",
+          "note": "Already in wiki (cryptobib JC:Naor91; preliminary version CRYPTO 1989)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The committer calls the PRG $G$ only as an oracle; hiding turns any distinguisher, used as an oracle, into a PRG distinguisher via two hybrids; binding is statistical and needs no reduction. One fixed construction, one fixed reduction.",
+      "model": "standard",
+      "model_justification": "Plain-model interactive protocol; no trusted setup (the receiver samples the first message).",
+      "kind_correct": "implication",
+      "statement": "A length-tripling [[pseudorandom-generator|PRG]] $G : \\bits^\\secpar \\to \\bits^{3\\secpar}$ yields a statistically binding, computationally hiding bit [[commitment-scheme|commitment]]: the receiver sends a uniform $\\pp \\getsr \\bits^{3\\secpar}$; the committer samples a seed $s \\getsr \\bits^\\secpar$ and sends $G(s)$ to commit to $0$, or $G(s) \\oplus \\pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].",
+      "sketch": "Hiding: each commitment is within two PRG hybrids of a uniform string, so the committed bit is computationally hidden. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \\oplus G(s_1) = \\pp$; at most $2^{2\\secpar}$ of the $2^{3\\secpar}$ strings $\\pp$ admit such a pair, so binding fails with probability at most $2^{-\\secpar}$ over the receiver's message.",
+      "pseudocode": "",
+      "security_loss": "hiding: at most twice the PRG advantage; binding: statistical, failing with probability at most $2^{-\\secpar}$ over the receiver's first message",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Naor's commit phase is interactive: the receiver sends the random string $\\pp$ first. In the page's $(\\Gen, \\Com, \\Open)$ syntax, $\\pp$ plays the role of honestly sampled public parameters; binding holds with high probability over $\\pp$ regardless of the committer.",
+        "The scheme commits to a single bit; length extension is not part of this edge."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated bullet's parenthetical '(and hence from OWF)' belongs to the separate OWF ⇒ PRG edge (HILL99), not this page."
+      ]
+    },
+    {
+      "slug": "prg-to-dpf-gi14",
+      "path": "content/Reductions/prg-to-dpf-gi14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GI14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GI14 - Distributed Point Functions and Their Applications",
+          "authors": "Niv Gilboa, Yuval Ishai",
+          "venue": "Eurocrypt 2014",
+          "year": "2014",
+          "url": "https://doi.org/10.1007/978-3-642-55220-5_35",
+          "note": "Already in wiki (cryptobib EC:GilIsh14)."
+        },
+        {
+          "key": "BGI15",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGI15 - Function Secret Sharing",
+          "authors": "Elette Boyle, Niv Gilboa, Yuval Ishai",
+          "venue": "Eurocrypt 2015",
+          "year": "2015",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12",
+          "note": "Already in wiki."
+        },
+        {
+          "key": "BGI16",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGI16 - Function Secret Sharing Improvements and Extensions",
+          "authors": "Elette Boyle, Niv Gilboa, Yuval Ishai",
+          "venue": "CCS 2016",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/585",
+          "note": "Already in wiki."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "GI14 use the PRG generically — the assumption is stated as the bare existence of a OWF/PRG, keys consist of PRG seeds with correction data expanded at evaluation, and the hiding proof is a hybrid over PRG invocations whose reduction runs the DPF adversary as an oracle. Standard fully-black-box shape; see flag for the caveat.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-generator|PRG]] yields a two-party [[distributed-point-function|DPF]] for domain $[N]$: the key pair $(k_0, k_1)$ individually hides $(\\alpha, \\beta)$ while the shares $\\Eval(b, k_b, \\cdot)$ sum to the point function $f_{\\alpha,\\beta}$, with keys of length $O(\\secpar \\cdot (\\log N)^{\\log_2 3})$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- [[BGI15 - Function Secret Sharing|BGI15]] reduce the key length to $O(\\secpar \\log N)$ with a PRG-based tree construction.\n- [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]] reduce the key size of the BGI15 scheme by roughly a further factor of 4 and optimize its computational cost.",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated bullet's key-size bound O(λ log N) is BGI15/BGI16's, not GI14's: per the BGI15 abstract (on the wiki reference page), GI14's keys are O(λ·(log N)^{log₂ 3}) and BGI15 improves this to O(λ·log N). The statement records the correct attribution.",
+        "Class inferred from the construction's generic use of the PRG; verify against GI14 Section 3 when the paper is accessible — Web verification unavailable this session (eprint.iacr.org/dblp.org/arxiv.org blocked by egress proxy; WebSearch budget exhausted); bibliographic data verified against the repo's vendored cryptobib (vendor/cryptobib/crypto.bib) and existing wiki reference pages instead.",
+        "Parallel edge hash-function-to-dpf-gi14 (OWF ⇒ DPF) records the same theorem's minimal-assumption form; the two edges should be reconciled or cross-noted."
+      ]
+    }
+  ]
+}

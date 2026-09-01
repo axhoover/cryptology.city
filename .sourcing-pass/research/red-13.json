@@ -1,0 +1,487 @@
+{
+  "batch": "red-13",
+  "pages": [
+    {
+      "slug": "hash-function-to-prg-hill99",
+      "path": "content/Reductions/hash-function-to-prg-hill99.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 28(4), 1999",
+          "year": "1999",
+          "url": "",
+          "note": ""
+        },
+        {
+          "key": "GL89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GL89 - A Hard-Core Predicate for All One-Way Functions",
+          "authors": "Oded Goldreich, Leonid A. Levin",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "",
+          "note": "Component, not chronological improvement: supplies the hard-core predicate the construction extracts bits with; on its own it gives a PRG from any one-way permutation. Listed because the page cites it alongside HILL99 and it is referenced in the sketch."
+        },
+        {
+          "key": "HRV13",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HRV13 - Efficiency Improvements in Constructing Pseudorandom Generators from One-Way Functions",
+          "authors": "Iftach Haitner, Omer Reingold, Salil Vadhan",
+          "venue": "SIAM Journal on Computing 42(3), 2013 (prelim. STOC 2010)",
+          "year": "2013",
+          "url": "https://salil.seas.harvard.edu/publications/efficiency-improvements-constructing-pseudorandom-generators-one-way-functions",
+          "note": "Verified via Harvard/TAU publication listings; SICOMP 42(3):1405-1430."
+        },
+        {
+          "key": "VZ12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "VZ12 - Characterizing Pseudoentropy and Simplifying Pseudorandom Generator Constructions",
+          "authors": "Salil Vadhan, Colin Jia Zheng",
+          "venue": "STOC 2012",
+          "year": "2012",
+          "url": "https://dl.acm.org/doi/10.1145/2213977.2214051",
+          "note": "Verified via ACM DL; STOC 2012, pp. 817-836."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The HILL construction invokes the one-way function only as an oracle (evaluating it on many independent inputs, hashing, and extracting Goldreich–Levin bits), and the security proof is a hybrid argument whose reduction runs any PRG distinguisher as an oracle to invert $f$. This is the canonical fully-black-box shape in the RTV04 taxonomy.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "For every [[hash-function|one-way function]] $f$ there is a [[pseudorandom-generator|pseudorandom generator]] $G$: the construction uses $f$ only as a black box, and any efficient distinguisher of $G$'s output from uniform yields an efficient inverter for $f$ — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].",
+      "sketch": "HILL extract bits via universal hashing and the Goldreich–Levin predicate [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] from many independent evaluations of $f$: the pair of $f(x)$ and hash values has pseudoentropy exceeding its real entropy, and hashing across many copies converts that gap into pseudorandom output. A hybrid argument turns any distinguisher into an inverter for $f$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Seed length reduced to $\\tilde{O}(n^4)$ (from HILL's large polynomial), with nonadaptive, parallelizable calls to $f$, via next-block pseudoentropy — [[HRV13 - Efficiency Improvements in Constructing Pseudorandom Generators from One-Way Functions|HRV13]]\n- Simpler construction with seed length $\\tilde{O}(n^3)$, via a KL-hardness characterization of pseudoentropy — [[VZ12 - Characterizing Pseudoentropy and Simplifying Pseudorandom Generator Constructions|VZ12]]",
+      "notes_to_keep": [
+        "The hypothesis slug hash-function is the merged OWF/CRHF page, so the OWF node also owns collision resistance site-wide."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "GL89 is a component (hard-core predicate), not a co-original of OWF ⇒ PRG; kept in sources with role 'improvement' for lack of a 'component' role — the editor should cite it from the sketch, not as a second original.",
+        "The page's Notes contain the literal string 'Citations disagree across pages: [object Object]' — a migration artifact to delete.",
+        "Suspected-errors entry on impagliazzos-five-worlds line 63 lists this edge (as red-hf-to-pg-hill99) but the error concerns the 'TDPs (equivalently, PKE or OT)' clause of that paragraph, not OWF ⇒ PRG; the claim here is unaffected.",
+        "Exact improved seed lengths ($\\tilde{O}(n^4)$ HRV13, $\\tilde{O}(n^3)$ VZ12) are from my knowledge of the abstracts; verifier should confirm when creating the reference stubs."
+      ]
+    },
+    {
+      "slug": "hash-function-to-secret-key-pir-sk-pir-bm26",
+      "path": "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BM26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM26 - Secret-Key PIR from One-Way Functions",
+          "authors": "Nir Bitansky, Noam Mazor",
+          "venue": "Preprint (Cryptology ePrint Archive 2026/865)",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/865",
+          "note": "Existing wiki reference page carries the abstract; eprint.iacr.org is egress-blocked from this environment, so bibliographic data is taken from the wiki page."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BM26 build SK-PIR from garbled circuits satisfying an uncorrelated-input-encoding property; the paper states no RTV class and I could not inspect the construction's black-box shape (eprint unreachable from this environment). Recording a class would add a claim.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[hash-function|One-way functions]] imply [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]]: after an offline phase in which the client processes the $N$-bit database under a short secret key, each online query uses $\\tilde{O}(\\sqrt{N} \\cdot \\secpar)$ communication and $O(N \\cdot \\poly(\\secpar))$ server time; more generally, for any $N_c \\cdot N_s = N$ the scheme achieves client-to-server communication $\\tilde{O}(N_c)$ and server-to-client communication $N_s$ — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'secret-key-pir' is an in-page section of single-server-private-information-retrieval, not its own slug."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The source bullet's 'matching the minimal known lower bound' is a second, uncited claim and is not carried into the statement.",
+        "BM26 is a 2026 preprint (not yet a venue publication); the construction uses garbled circuits with an 'uncorrelated input encoding' property (point-and-permute garbling suffices) per the wiki's abstract — a sketch was omitted because the mechanism could not be verified beyond the abstract."
+      ]
+    },
+    {
+      "slug": "hash-function-to-ske",
+      "path": "content/Reductions/hash-function-to-ske.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 28(4), 1999",
+          "year": "1999",
+          "url": "",
+          "note": "First link of the chain: OWF ⇒ PRG."
+        },
+        {
+          "key": "GGM86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGM86 - How to construct random functions",
+          "authors": "Oded Goldreich, Shafi Goldwasser, Silvio Micali",
+          "venue": "JACM 1986",
+          "year": "1986",
+          "url": "",
+          "note": "Second link of the chain: PRG ⇒ PRF. The final link PRF ⇒ CPA-secure SKE is folklore."
+        },
+        {
+          "key": "BN00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm",
+          "authors": "Mihir Bellare, Chanathip Namprempre",
+          "venue": "ASIACRYPT 2000 (LNCS 1976)",
+          "year": "2000",
+          "url": "https://eprint.iacr.org/2000/025",
+          "note": "Canonical citation for encrypt-then-MAC, upgrading the CPA-secure scheme to CCA security; verified via Springer (DOI 10.1007/3-540-44448-3_41) and ePrint 2000/025 listings."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Every link of the chain is fully black-box: HILL's PRG uses the OWF only as an oracle, GGM's PRF uses the PRG only as an oracle, and $\\Enc(k, m) = (r, \\Eval(k, r) \\oplus m)$ uses the PRF only as an oracle; each security reduction runs its adversary as a black box, and fully-black-box reductions compose (RTV04).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "One-way functions suffice for CPA-secure symmetric-key encryption: any [[hash-function|OWF]] gives a PRG — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] — the PRG gives a PRF — [[GGM86 - How to construct random functions|GGM86]] — and encrypting $m$ as $(r, \\Eval(k, r) \\oplus m)$ for fresh random $r$ gives CPA-secure [[symmetric-key-encryption|SKE]] — folklore. CCA-secure SKE follows by combining the CPA-secure scheme with a [[message-authentication-code|MAC]] (also from the PRF) via encrypt-then-MAC — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The hypothesis slug hash-function is the merged OWF/CRHF page, so the OWF node also owns collision resistance site-wide."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "COMPOSITE: this edge compresses a chain whose links already have their own pages (hash-function-to-prg-hill99, prg-to-prf-ggm86, prf-to-ske, mac-and-ske-to-cca-security); the repo's split rule suggests deciding whether this compressed edge should remain alongside them.",
+        "Suspected-errors entry on impagliazzos-five-worlds line 63 lists this edge (as red-hf-to-ske) but the flagged error is the 'TDPs (equivalently, PKE or OT)' clause, not OWF ⇒ SKE; the claim here is unaffected.",
+        "Encrypt-then-MAC requires a strongly unforgeable MAC for generic IND-CCA (BN00); the PRF-based fixed-length MAC satisfies this."
+      ]
+    },
+    {
+      "slug": "hash-function-to-snark-bbhr18",
+      "path": "content/Reductions/hash-function-to-snark-bbhr18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BBHR18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BBHR18 - Scalable, transparent, and post-quantum secure computational integrity",
+          "authors": "Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, Michael Riabzev",
+          "venue": "Preprint (ePrint 2018/046)",
+          "year": "2018",
+          "url": "",
+          "note": ""
+        },
+        {
+          "key": "BCS16",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCS16 - Interactive Oracle Proofs",
+          "authors": "Eli Ben-Sasson, Alessandro Chiesa, Nicholas Spooner",
+          "venue": "TCC 2016-B (LNCS 9986)",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/116",
+          "note": "Component, not chronological improvement: the ROM compiler from IOPs to succinct non-interactive arguments that BBHR18 use to remove interaction. Verified via ACM DL / IACR archive (TCC 2016-B Part II, pp. 31-60)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BBHR18 state no reduction class. The non-interactive argument's knowledge soundness is proved in the random-oracle model, where soundness is unconditional relative to the oracle, so the RTV black-box axes do not apply cleanly; the standard-model interactive variant's CRHF-based reduction is not classified by the source either.",
+      "model": "rom",
+      "model_justification": "The non-interactive STARK is obtained by compiling a FRI-based IOP with the BCS transform, whose knowledge soundness is proved in the random-oracle model ([[BCS16 - Interactive Oracle Proofs|BCS16]]); instantiating the oracle with a concrete hash is heuristic. The interactive variant uses a collision-resistant hash for Merkle commitments in the standard model, so the frontmatter's `model: rom` is correct for the non-interactive (SNARK) conclusion.",
+      "kind_correct": "implication",
+      "statement": "From a [[hash-function|collision-resistant hash function]] — used for Merkle commitments, and modeled as a random oracle for non-interactivity — BBHR18 construct STARKs: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with prover time $O(T \\log T)$ and proof size $O(\\log^2 T)$ for a computation of size $T$ — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].",
+      "sketch": "The computation trace is arithmetized into Reed–Solomon codewords, Merkle-committed with the hash function, and proximity-tested with the FRI protocol; compiling the resulting IOP with the BCS transform in the random-oracle model removes interaction while preserving knowledge soundness.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The ROM compiler from IOPs to succinct non-interactive arguments, used to remove interaction, is due to [[BCS16 - Interactive Oracle Proofs|BCS16]]",
+      "notes_to_keep": [
+        "'Security relies only on collision-resistant hash functions' in the source pages over-claims: non-interactive soundness needs the ROM, and the post-quantum claim additionally needs a QROM analysis.",
+        "The conclusion is the STARK variant, an alias/section of succinct-argument rather than its own slug."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Duplicate BBHR18-sourced edges exist with different hypothesis sets (arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18, arithmetization-to-snark-bbhr18, fri-fast-reed-solomon-iop-of-proximity-to-snark); this page substitutes CRHF for AIR+FRI as the hypothesis — the family should be reconciled.",
+        "BBHR18's venue: the wiki reference page should be checked — the paper is ePrint 2018/046 (a version appeared as 'Scalable Zero Knowledge with No Trusted Setup', CRYPTO 2019)."
+      ]
+    },
+    {
+      "slug": "hash-function-and-prf-to-symmetric-cp-abe-ls26",
+      "path": "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LS26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions",
+          "authors": "Riccardo Longo, Enrico Sorbera",
+          "venue": "Cryptology ePrint Archive 2026/1018",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/1018",
+          "note": "Existence, authors, and abstract verified via web search (eprint listing + IACR news item 28546); eprint.iacr.org is egress-blocked from this environment."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "LS26 state no reduction class, and the construction could not be inspected from this environment (eprint egress-blocked). Recording a class would add a claim.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Symmetric CP-ABE — ciphertext-policy [[attribute-based-encryption#symmetric-cp-abe|ABE]] in which the encryptor, too, must hold attributes satisfying the ciphertext policy — admits an IND-CCA2-secure open-universe construction from a [[hash-function|collision-resistant hash function]] and a [[pseudorandom-function|PRF]], via linear secret sharing and polynomial interpolation, with no bilinear-map or lattice hardness assumption — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "GENUINELY CONJUNCTIVE: {collision-resistant hash function, PRF} — must not be split into two single-hypothesis reductions.",
+        "Conclusion 'symmetric-cp-abe' has no slug; it is defined only in the Variations section of attribute-based-encryption."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "DUPLICATE at another granularity: ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26 records the same LS26 construction with an explicit IND-CCA2 authenticated-encryption hypothesis (matching the wiki's LS26 summary), while this page's two-hypothesis form matches the paper's own abstract ('minimal assumptions on collision-resistant hash functions and pseudorandom functions' — AE is standard from a PRF). The two pages should be reconciled or one marked as the derived form.",
+        "The 'IND-CCA2-secure open-universe' qualifiers come from the wiki's ABE bullet and could not be checked against the paper (eprint blocked); verifier should confirm."
+      ]
+    },
+    {
+      "slug": "hash-function-to-hash-based-signatures",
+      "path": "content/Reductions/hash-function-to-hash-based-signatures.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BDH11",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions",
+          "authors": "Johannes Buchmann, Erik Dahmen, Andreas Hülsing",
+          "venue": "PQCrypto 2011 (LNCS 7071)",
+          "year": "2011",
+          "url": "https://eprint.iacr.org/2011/484",
+          "note": "Verified via Springer (DOI 10.1007/978-3-642-25405-5_8, pp. 117-129) and ePrint 2011/484 listings. Proves EU-CMA + forward security from a second-preimage-resistant hash function family and a PRF."
+        },
+        {
+          "key": "BHK+19",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BHK+19 - The SPHINCS+ Signature Framework",
+          "authors": "Daniel J. Bernstein, Andreas Hülsing, Stefan Kölbl, Ruben Niederhagen, Joost Rijneveld, Peter Schwabe",
+          "venue": "ACM CCS 2019",
+          "year": "2019",
+          "url": "https://doi.org/10.1145/3319535.3363229",
+          "note": "Verified via ACM DL. Stateless variant (hypertree + FORS), standardized as SLH-DSA in FIPS 205."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "XMSS calls the second-preimage-resistant hash family and the PRF only as oracles (Winternitz chains, L-trees, a Merkle tree), and the security reduction embeds a second-preimage or PRF challenge and runs any EU-CMA forger as a black box — the standard hash-based-signature proof shape.",
+      "model": "standard",
+      "model_justification": "BDH11's proof is in the standard model — the paper's stated selling point is provable security from minimal assumptions without random oracles. Parts of SPHINCS+'s concrete security analysis use the (Q)ROM.",
+      "kind_correct": "implication",
+      "statement": "Hash-based signatures need only symmetric primitives: XMSS is a practical, provably forward-secure many-time [[digital-signature#hash-based-signatures|signature scheme]] whose EU-CMA security reduces to a second-preimage-resistant [[hash-function|hash function]] family and a PRF — [[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]. SPHINCS+ removes the state via a hypertree of XMSS-style subtrees with the few-time signature FORS at the leaves, standardized as SLH-DSA in FIPS 205 — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]].",
+      "sketch": "A Winternitz one-time key signs each message; a Merkle tree over the one-time verification keys authenticates them under a single root public key, and tweaked hash constructions let second-preimage resistance replace collision resistance.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The frontmatter conclusion slug 'xmss' names a concrete scheme with no wiki page; the edge relates named artifacts, not model objects."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Conclusion object mismatch: frontmatter says 'xmss' while the H1 and body link digital-signature#hash-based-signatures; consider a hash-based-signatures variant node or renaming the edge.",
+        "The generic OWF ⇒ signatures result (Lamport/Merkle, NY89/Rom90) is a different edge and is not what this page records; this page is the concrete hash-based-signature family.",
+        "The migrated SPHINCS+ size claim (~8-50 KB) is an uncited concrete claim and was left out of the statement."
+      ]
+    },
+    {
+      "slug": "hash-function-to-zkp-gmw91",
+      "path": "content/Reductions/hash-function-to-zkp-gmw91.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GMW91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems",
+          "authors": "Oded Goldreich, Silvio Micali, Avi Wigderson",
+          "venue": "JACM 1991",
+          "year": "1991",
+          "url": "",
+          "note": ""
+        },
+        {
+          "key": "Naor91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Naor91 - Bit commitment using pseudorandomness",
+          "authors": "Moni Naor",
+          "venue": "Journal of Cryptology 1991",
+          "year": "1991",
+          "url": "",
+          "note": "Component: the statistically binding commitment from a PRG that instantiates GMW's commitment from any OWF."
+        },
+        {
+          "key": "HILL99",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 28(4), 1999",
+          "year": "1999",
+          "url": "",
+          "note": "Component: PRG from any OWF, completing the OWF-only hypothesis."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The protocol uses a statistically binding commitment only as an oracle, and the commitment is built from any OWF via Naor's PRG-based scheme (Naor91 + HILL99), both fully black-box. Soundness is statistical, and the zero-knowledge reduction converts any distinguisher of the simulation into a commitment-hiding distinguisher, hence an OWF inverter, running it as a black box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[hash-function|one-way functions]] exist, every language in $\\classNP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol proves 3-colorability using a statistically binding commitment scheme, which any OWF provides — [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].",
+      "sketch": "The prover commits to a uniformly permuted 3-coloring of the graph; the verifier picks a random edge and the prover opens its two endpoints, which must be distinctly colored. Sequential repetition drives the soundness error $1 - 1/|E|$ down; a simulator that guesses the challenged edge and rewinds gives computational zero knowledge.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The conclusion is 'ZK proofs for all of NP', a language-class-qualified object the flat slug zero-knowledge-proof cannot express."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "GMW91's own theorem assumes a secure commitment/encryption; the OWF-only hypothesis follows by instantiating the commitment via Naor91 + HILL99, which postdate the conference version — this is standard citation practice and the statement is written accordingly.",
+        "The frontmatter class fully-black-box is retained and justified from the construction shape; RTV04 does not formally treat ZK-for-NP as a primitive, so the classification is informal."
+      ]
+    },
+    {
+      "slug": "he-to-mpc-with-preprocessing-spdz-etc",
+      "path": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DPSZ12",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption",
+          "authors": "Ivan Damgård, Valerio Pastro, Nigel P. Smart, Sarah Zakarias",
+          "venue": "CRYPTO 2012 (LNCS 7417)",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2011/535",
+          "note": "SPDZ. Verified via Springer (DOI 10.1007/978-3-642-32009-5_38, pp. 643-662) and ePrint 2011/535 listings."
+        },
+        {
+          "key": "BDOZ11",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation",
+          "authors": "Rikke Bendlin, Ivan Damgård, Claudio Orlandi, Sarah Zakarias",
+          "venue": "EUROCRYPT 2011",
+          "year": "2011",
+          "url": "https://eprint.iacr.org/2010/514",
+          "note": "Earlier: preprocessing from semi-homomorphic (additively homomorphic) encryption, UC-secure against a dishonest majority. Verified via IACR archive / ACM DL (EUROCRYPT 2011, pp. 169-188)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "SPDZ uses a concrete SHE scheme with distributed decryption and zero-knowledge proofs of plaintext knowledge — not an arbitrary HE scheme as an oracle — and neither source states an RTV class.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The offline phase of preprocessing-model [[secure-multi-party-computation|MPC]] can be instantiated from somewhat [[homomorphic-encryption|homomorphic encryption]]: SPDZ generates authenticated Beaver multiplication triples by depth-1 homomorphic evaluation under a shared SHE key with distributed decryption, giving an actively secure dishonest-majority protocol (up to $n-1$ of $n$ corruptions) whose online phase is unconditionally secure — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]. An earlier protocol obtains the preprocessing from semi-homomorphic (additively homomorphic) encryption — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].",
+      "sketch": "Parties encrypt random shares under a joint SHE public key, multiply ciphertexts homomorphically, and jointly decrypt to obtain additively shared, MAC-authenticated triples; the online phase consumes the triples to evaluate the arithmetic circuit information-theoretically.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis 'he' is coarser than the theorem: DPSZ12 needs an SHE scheme supporting one multiplication plus distributed decryption and ZK proofs of plaintext knowledge; the wiki's HE node conflates PHE/SWHE/FHE, so the edge overstates generality.",
+        "Conclusion 'mpc-with-preprocessing' is a section anchor of secure-multi-party-computation, not its own slug.",
+        "The disjunctive sibling ot-extension-to-mpc-with-preprocessing-spdz-etc covers the other branch of the same migrated sentence — correctly split as separate pages."
+      ]
+    },
+    {
+      "slug": "he-to-re-bl13",
+      "path": "content/Reductions/he-to-re-bl13.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BL13",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BL13 - Limits of Provable Security for Homomorphic Encryption",
+          "authors": "Andrej Bogdanov, Chin Ho Lee",
+          "venue": "CRYPTO 2013",
+          "year": "2013",
+          "url": "https://eprint.iacr.org/2013/344",
+          "note": "The rerandomization result verified via web search of the ECCC TR12-156 / CRYPTO 2013 abstract: a STRONG (distribution-preserving) homomorphic evaluator for essentially any boolean function (excluding trivial ones, NOT, AND, OR) converts into a rerandomization algorithm."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BL13 state no reduction class; the rerandomizer runs the scheme's homomorphic evaluator, but the paper does not classify the transformation.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A public-key bit [[homomorphic-encryption|encryption scheme]] with a strong — distribution-preserving — homomorphic evaluator for essentially any boolean function (excluding constants, NOT, AND, and OR) yields rerandomizable encryption: a procedure converting any ciphertext into one statistically close to independent and identically distributed with the original — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. BL13 use rerandomization to bound the provable security of such schemes.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'rerandomizable-encryption' has no wiki page.",
+        "The migrated chain's second arrow (rerandomizable encryption → SZK ≠ BPP) is BL13's barrier content and belongs on a separate barrier page, not on this construction edge."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY: the unqualified edge 'HE ⇒ RE' over-claims. BL13's rerandomization lemma requires a STRONG (distribution-preserving) homomorphic evaluator — a hypothesis that compact/noise-based HE and FHE schemes need not satisfy — and no generic transformation from arbitrary HE is known. The statement adds the load-bearing qualifier; the hypothesis node should be qualified or the edge re-scoped, else demoted to wrong_claim.",
+        "BL13 is chiefly a barrier paper (no provable security beyond AM ∩ coAM via adaptive reductions, or beyond SZK via constant-query reductions, for schemes with weak/compact homomorphic evaluation of 'sensitive' function collections); a companion barrier page would capture its main theorems.",
+        "Direct fetches of eprint/ECCC are egress-blocked from this environment; verification is via search-result snippets of the abstract."
+      ]
+    },
+    {
+      "slug": "hibe-to-ibe",
+      "path": "content/Reductions/hibe-to-ibe.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The IBE scheme is the HIBE scheme run at depth 1 with $\\Delegate$ discarded — the construction uses the HIBE only as an oracle — and the security reduction forwards any IBE adversary verbatim as a depth-1 HIBE adversary with identical advantage.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[hierarchical-identity-based-encryption|HIBE]] scheme yields an [[identity-based-encryption|IBE]] scheme: restrict identities to depth-1 vectors and discard $\\Delegate$; the syntax and the IND-ID-CPA/IND-ID-CCA games then coincide, so any IBE adversary is a depth-1 HIBE adversary with the same advantage — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "tight — advantage-preserving",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'strictly generalizes' on the HIBE page additionally asserts a separation (IBE does not imply HIBE), which is neither cited nor recorded as a barrier — out of scope for this edge."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": []
+    }
+  ]
+}

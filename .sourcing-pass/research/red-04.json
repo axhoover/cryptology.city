@@ -1,0 +1,366 @@
+{
+ "batch": "red-04",
+ "pages": [
+  {
+   "slug": "bqp-to-pp",
+   "path": "content/Reductions/bqp-to-pp.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "ADH97",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "ADH97 - Quantum Computability",
+     "authors": "Leonard M. Adleman, Jonathan DeMarrais, Ming-Deh A. Huang",
+     "venue": "SIAM Journal on Computing 26(5), pp. 1524-1540",
+     "year": "1997",
+     "url": "https://doi.org/10.1137/S0097539795293639",
+     "note": "First proof of BQP ⊆ PP. Verified via Google Scholar lookup / SIAM DOI."
+    },
+    {
+     "key": "Aar05",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "Aar05 - Quantum computing, postselection, and probabilistic polynomial-time",
+     "authors": "Scott Aaronson",
+     "venue": "Proceedings of the Royal Society A 461(2063), pp. 3473-3482",
+     "year": "2005",
+     "url": "https://doi.org/10.1098/rspa.2005.1546",
+     "note": "PostBQP = PP; also arXiv quant-ph/0412187. Verified at royalsocietypublishing.org."
+    }
+   ],
+   "class": "free",
+   "class_justification": "Unconditional, proven complexity-class inclusion; the repo convention (cf. bpp-to-pspace) types proven containments as free.",
+   "model": "quantum",
+   "model_justification": "The theorem itself is unconditional classical mathematics, but the repo convention marks containments involving quantum classes with model: quantum (cf. bpp-to-bqp, qcma-to-pp, qma-to-pp); kept for consistency.",
+   "kind_correct": "inclusion",
+   "statement": "$\\classBQP \\subseteq \\classPP$: every language decidable with bounded error by a polynomial-time quantum algorithm ([[bounded-error-quantum-polynomial-time|BQP]]) lies in [[probabilistic-polynomial-time|PP]] — [[ADH97 - Quantum Computability|ADH97]]. The containment also follows from $\\mathsf{PostBQP} = \\classPP$ — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]].",
+   "sketch": "Writing the acceptance probability of a quantum circuit as a sum over computation paths of products of (rational) amplitudes expresses it as the difference of two $\\classsharpP$ functions; deciding whether this GapP value exceeds the acceptance threshold is exactly a $\\classPP$ predicate.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- $\\mathsf{PostBQP} = \\classPP$ gives a simpler alternative proof of the containment — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "probabilistic-polynomial-time.md (Known relationships) carries a 'TODO citation (Adleman, DeMarrais, Huang 1997)' for this same fact; the new ADH97 reference page resolves it — same-commit cleanup opportunity for the reference-fixer lane."
+   ]
+  },
+  {
+   "slug": "cdh-to-bdh",
+   "path": "content/Reductions/cdh-to-bdh.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "generic-group",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "As stated (CDH hard ⇒ BDH hard), this is not a known theorem in any model. The trivial known direction is the converse: a CDH solver in the base group breaks BDH — from $g^a, g^b$ compute $g^{ab}$, then $e(g^{ab}, g^c) = e(g,g)^{abc}$ — so BDH hardness implies CDH hardness (BDH ⇒ CDH). The migrated bullet's 'BDH is implied by CDH in the generic group model' misreads the unconditional generic-bilinear-group lower bound for BDH (a hardness proof in an idealized model, quantifying over all generic algorithms) as a reduction from CDH; the suspected-errors entry for bilinear-map-assumptions.md line 35 flags exactly this. Correct edge: bdh-to-cdh.",
+   "flags": [
+    "No inverse page bdh-to-cdh exists in content/Reductions/ — worth creating (folklore, fully-black-box: one pairing evaluation turns a base-group CDH solver into a BDH solver).",
+    "The unconditional generic-group hardness of BDH is a different fact (a model-scoped lower bound, not an edge from CDH); if wanted it belongs on the assumption page or as a barrier-style note, not as this reduction."
+   ]
+  },
+  {
+   "slug": "cdh-to-ddh",
+   "path": "content/Reductions/cdh-to-ddh.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "Direction inverted. The true implication is DDH ⇒ CDH: a CDH solver computes $g^{ab}$ from $(g, g^a, g^b)$ and compares it with the challenge element, breaking DDH, so DDH hardness implies CDH hardness. No converse reduction is known, and none can be group-generic: in symmetric pairing groups DDH is easy while CDH is conjectured hard (Joux–Nguyen gap groups). The migrated sentence contradicts its own following gloss, as the suspected-errors entry for decisional-diffie-hellman.md line 12 records. The correct edge already exists as content/Reductions/ddh-to-cdh.md.",
+   "flags": [
+    "Recommend deleting or redirecting this page: ddh-to-cdh.md already covers the true direction, so repairing in place would create a duplicate.",
+    "computational-diffie-hellman.md line 12 and decisional-diffie-hellman.md line 12 carry the mirrored prose confusion — skeptical-checker lane."
+   ]
+  },
+  {
+   "slug": "cdh-to-dlog",
+   "path": "content/Reductions/cdh-to-dlog.md",
+   "disposition": "folklore",
+   "sources": [],
+   "class": "fully-black-box",
+   "class_justification": "The reduction is fixed in advance and treats the DLOG solver only as an oracle: on a CDH instance it makes a single oracle call to recover an exponent and finishes with one exponentiation in the same group. No dependence on the solver's code, no change of instance distribution.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "If [[computational-diffie-hellman|CDH]] is hard in a group family, then [[discrete-logarithm|DLOG]] is hard in the same family: any efficient algorithm computing discrete logarithms yields an efficient CDH solver, so the DLOG assumption is the weaker of the two — folklore.",
+   "sketch": "Given a CDH instance $(g, g^a, g^b)$, run the DLOG solver on $(g, g^a)$ to obtain $a$ and output $(g^b)^a$. A single discrete-log call suffices — $g^a$ is a uniformly random group element in both games — and the reduction succeeds exactly when the solver does.",
+   "pseudocode": "",
+   "security_loss": "tight: one DLOG-oracle call, advantage-preserving",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "The edge is true as stated, but the source prose (discrete-logarithm.md line 12, 'DLOG is a natural strengthening of the CDH assumption') inverts assumption strength — suspected-errors entry stands; skeptical-checker lane.",
+    "The migrated sketch invoked two DLOG calls (on g^x and g^y); one suffices, as the new sketch records."
+   ]
+  },
+  {
+   "slug": "evasive-lwe-to-abe",
+   "path": "content/Reductions/evasive-lwe-to-abe.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "HLL23",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More",
+     "authors": "Yao-Ching Hsieh, Huijia Lin, Ji Luo",
+     "venue": "FOCS 2023, pp. 415-434",
+     "year": "2023",
+     "url": "https://eprint.iacr.org/2023/1716",
+     "note": "Introduces the evasive circular LWE assumption and builds ABE/PE for circuits of unbounded depth and size from it. Journal version in SIAM J. Comput. (DOI 10.1137/24M1629316). Verified via eprint listing and FOCS record."
+    },
+    {
+     "key": "AMYY25",
+     "role": "improvement",
+     "exists_in_wiki": true,
+     "ref_file_title": "AMYY25 - Evasive LWE Attacks, Variants & Obfustopia",
+     "authors": "Shweta Agrawal, Anuja Modi, Anshu Yadav, Shota Yamada",
+     "venue": "preprint",
+     "year": "2025",
+     "url": "https://eprint.iacr.org/2025/375",
+     "note": "NOT an improvement of the reduction: it is the attack on the hypothesis (a sampler for which circular evasive LWE's pre-condition holds but its post-condition fails). Listed here only because the statement cites it; do not render it in an improvements section."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "The hypothesis is an implication-style lattice assumption (quantified over samplers), not a primitive used as an oracle; the RTV taxonomy does not apply and HLL23 do not classify the reduction. Honest value: unstated.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "Assuming the public-coin circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]] (evasive circular LWE), there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth and size — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]. [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]] exhibit a sampler for which the assumption's pre-condition holds but its post-condition fails, so the hypothesis is contested.",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "The hypothesis assumption (circular evasive LWE) has a published counterexample sampler — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; the edge is a conditional theorem whose hypothesis is contested."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Page title says 'Evasive LWE ⇒ ABE' but the frontmatter hypothesis is circular-evasive-lwe; retitle to 'Circular evasive LWE ⇒ ABE' (and consider a -hll23 slug suffix) to distinguish from evasive-lwe-to-abe-wee22.",
+    "The migration note suggesting a 'refuted'/'contested-hypothesis' status marker remains a fair schema question for a human; the reduction itself stands as a conditional theorem.",
+    "HLL23 also builds PE, laconic functional evaluation, 1-key FE and reusable garbling from the same assumption — candidate additional edges, not recorded here."
+   ]
+  },
+  {
+   "slug": "circular-security-and-lwe-to-he",
+   "path": "content/Reductions/circular-security-and-lwe-to-he.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "BV11",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE",
+     "authors": "Zvika Brakerski, Vinod Vaikuntanathan",
+     "venue": "FOCS 2011, pp. 97-106",
+     "year": "2011",
+     "url": "https://eprint.iacr.org/2011/344",
+     "note": "First FHE from plain LWE (leveled unconditionally under LWE; unbounded FHE under the additional circular-security assumption). DOI 10.1109/FOCS.2011.12. Verified via eprint and IEEE/ACM records."
+    },
+    {
+     "key": "BGV12",
+     "role": "improvement",
+     "exists_in_wiki": true,
+     "ref_file_title": "BGV12 - Leveled fully homomorphic encryption without bootstrapping",
+     "authors": "Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan",
+     "venue": "ITCS 2012",
+     "year": "2012",
+     "url": "https://doi.org/10.1145/2090236.2090262",
+     "note": ""
+    },
+    {
+     "key": "GSW13",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based",
+     "authors": "Craig Gentry, Amit Sahai, Brent Waters",
+     "venue": "CRYPTO 2013",
+     "year": "2013",
+     "url": "https://eprint.iacr.org/2013/340",
+     "note": "Approximate-eigenvector FHE from LWE; no relinearization keys. Springer DOI 10.1007/978-3-642-40041-4_5. Verified via eprint and Springer records."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "The hypotheses are assumptions (LWE, and circular security of the constructed scheme itself — a self-referential property), not primitives used as oracles, and the unbounded variant bootstraps by evaluating the scheme's own decryption circuit; no source assigns an RTV class.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "Assuming the hardness of [[learning-with-errors|LWE]], there is a leveled fully homomorphic encryption scheme; assuming in addition [[circular-security|circular security]] — the scheme remains secure when publishing encryptions of its own secret key — bootstrapping yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].",
+   "sketch": "BV11 build an LWE-based scheme whose homomorphic multiplication uses relinearization (key switching) and whose noise growth is tamed by dimension-modulus reduction; publishing encryptions of the secret key (circular security) enables Gentry-style bootstrapping, which refreshes ciphertext noise by homomorphically evaluating the decryption circuit.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Leveled FHE from LWE with better noise management via modulus switching, removing bootstrapping for bounded-depth circuits — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]\n- Conceptually simpler FHE from LWE via the approximate-eigenvector method, with no relinearization keys — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "The migrated quote's 'Current constructions all rely on lattice assumptions' is false (FHE also from iO-based routes etc.) — already recorded in migration notes; drop with the boilerplate.",
+    "content/Assumptions/circular-security.md now exists; the migration note claiming 'circular-security has no wiki page' is outdated."
+   ]
+  },
+  {
+   "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
+   "path": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Gen09",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Gen09 - Fully homomorphic encryption using ideal lattices",
+     "authors": "Craig Gentry",
+     "venue": "STOC 2009",
+     "year": "2009",
+     "url": "https://doi.org/10.1145/1536414.1536440",
+     "note": "Bootstrapping theorem."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "The transformation feeds the scheme's own decryption circuit to $\\Eval$: the construction depends on the hypothesis scheme's code, not merely oracle access, so it is not fully-black-box; neither Gen09 nor follow-up work places it in an RTV class. Honest value: unstated.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "Any bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one able to homomorphically evaluate its own augmented decryption circuit — with [[circular-security|circular security]] yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth (Gentry's bootstrapping theorem) — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Without circular security the transformation gives only leveled FHE, using a chain of independent key pairs.",
+   "sketch": "The public key includes encryptions of the secret key. To refresh a noisy ciphertext $c$, homomorphically evaluate the decryption circuit $\\Dec(\\cdot, c)$ on the encrypted secret key, producing a fresh encryption of the same plaintext with bounded noise; interleaving a refresh with each gate evaluates circuits of any depth.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "The SHE hypothesis anchors to a section of the same page as the conclusion (homomorphic-encryption.md), so the edge renders as a near self-loop until SHE gets its own page."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Bootstrappability is a genuine extra hypothesis on the SHE scheme; it is stated in the statement text but is not capturable in the hypothesis list — schema question flagged during migration remains.",
+    "The migration REPAIR PATCH note (attaching the circular-security bullet to this chain) is resolved by the statement above; the remaining migration boilerplate can be dropped."
+   ]
+  },
+  {
+   "slug": "co-cdh-to-ds",
+   "path": "content/Reductions/co-cdh-to-ds.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "BLS01",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "BLS01 - Short Signatures from the Weil Pairing",
+     "authors": "Dan Boneh, Ben Lynn, Hovav Shacham",
+     "venue": "ASIACRYPT 2001, LNCS 2248, pp. 514-532",
+     "year": "2001",
+     "url": "https://doi.org/10.1007/3-540-45682-1_30",
+     "note": "BLS signatures; EUF-CMA in the ROM in gap (co-)Diffie-Hellman groups. Verified via Springer and iacr.org archive."
+    },
+    {
+     "key": "BLS04",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)",
+     "authors": "Dan Boneh, Ben Lynn, Hovav Shacham",
+     "venue": "Journal of Cryptology 17(4), pp. 297-319",
+     "year": "2004",
+     "url": "https://doi.org/10.1007/s00145-004-0314-9",
+     "note": "Journal version with the general co-GDH framework and the asymmetric-pairing co-CDH formulation. Same title as BLS01; filename disambiguated with venue suffix."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "Fixed construction using only group, hash, and pairing operations; the security reduction runs the forger once as an oracle, programming its random oracle, and extracts a co-CDH solution from the forgery. Standard fully-black-box shape, in the ROM.",
+   "model": "rom",
+   "model_justification": "Security is proved with $H$ modeled as a random oracle (BLS01 Theorem for gap co-DH groups); no standard-model proof is known.",
+   "kind_correct": "implication",
+   "statement": "BLS signatures: in bilinear groups $(\\GG_1, \\GG_2)$ with pairing $e$ and hash $H : \\bits^* \\to \\GG_1$ modeled as a random oracle, the secret key is $x$, the public key is $g_2^x$, and $\\Sign(x, m) = H(m)^x$; verification checks $e(\\sigma, g_2) = e(H(m), \\pk)$. The scheme is EUF-CMA secure under [[co-computational-diffie-hellman|co-CDH]] in the random-oracle model — [[BLS01 - Short Signatures from the Weil Pairing|BLS01]].",
+   "sketch": "The reduction sets $\\pk = g_2^a$ from the co-CDH challenge $(g_2^a, h)$ and programs the random oracle: most hash values are $g_1^{r}$ with known $r$, so signing queries are answerable from $\\psi(g_2^a)^r$, while an occasional value is $h \\cdot g_1^{r}$; a forgery on such a point yields $h^a$, solving co-CDH.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Journal version with the general co-GDH framework and the asymmetric-pairing co-CDH formulation — [[BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)|BLS04]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "content/Assumptions/co-computational-diffie-hellman.md now exists; the migration note claiming co-CDH has no page is outdated.",
+    "Security loss is the Coron-style factor ~e(q_s+1) over the co-CDH advantage; left blank pending verification against the theorem statement in BLS01/BLS04.",
+    "Consider naming BLS in the page title (cf. sibling page dlog-to-bls-signatures-fkl18): the migrated claim is specifically the BLS scheme's security, and the conclusion node 'ds' is generic."
+   ]
+  },
+  {
+   "slug": "com-to-mpc-gmw87",
+   "path": "content/Reductions/com-to-mpc-gmw87.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "GMW87's semi-honest protocol is built from oblivious transfer, not from commitments; commitments (via zero-knowledge proofs for NP) enter only in the GMW compiler lifting semi-honest security to malicious security. As stated, 'COM is complete for MPC in the semi-honest model' is false: commitments follow from OWFs (Naor from PRG/HILL), semi-honest 2PC implies OT, and OT is black-box separated from OWFs (Impagliazzo-Rudich), so the claim would collapse Minicrypt into Cryptomania. The suspected-errors entries for commitment-scheme.md line 64 and secure-multi-party-computation.md line 64 record the same error. Correct GMW87-adjacent edges: OT ⇒ semi-honest MPC (GMW87), and {ZK-from-COM, semi-honest MPC} ⇒ malicious MPC (the GMW compiler) — neither is what this page states.",
+   "flags": [
+    "The citation GMW87 is real but attached to a claim the paper does not make; consider replacing this page with an ot-to-mpc-gmw87 edge and a separate GMW-compiler edge rather than repairing in place.",
+    "content/Reductions/ot-to-mpc-kil88.md already covers OT-completeness via Kilian; check for overlap before creating a GMW87 OT edge."
+   ]
+  },
+  {
+   "slug": "com-to-ot-kil88",
+   "path": "content/Reductions/com-to-ot-kil88.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "Inverted citation. Kil88 ('Founding cryptography on oblivious transfer') proves OT is complete for secure two-party computation — everything, commitments included, can be built from OT — not that OT can be built from commitments. A classical OT-from-COM construction would place OT in Minicrypt (commitments follow from OWFs) and contradict the Impagliazzo-Rudich black-box separation. The suspected-errors entry for commitment-scheme.md line 65 records this. Correct edges already exist: content/Reductions/ot-to-com.md and content/Reductions/ot-to-mpc-kil88.md. (In the quantum model, OT from commitments is achievable — Crépeau-Kilian FOCS 1988 / BBCS92 — a different, true statement this standard-model page does not make.)",
+   "flags": [
+    "Recommend deleting or redirecting this page: both true Kil88 directions already have pages (ot-to-com, ot-to-mpc-kil88).",
+    "If the wiki wants the quantum result (COM ⇒ OT, model: quantum), it is a separate new page citing Crépeau-Kilian FOCS 1988 / BBCS92, with the later proof-repair caveats (e.g. Unruh, DFLSS09) — do not reuse this page's id.",
+    "'any non-trivial commitment scheme' in the migrated bullet is an undefined qualifier; no repaired statement can preserve it."
+   ]
+  }
+ ]
+}

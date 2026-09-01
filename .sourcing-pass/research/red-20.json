@@ -1,0 +1,365 @@
+{
+  "batch": "red-20",
+  "pages": [
+    {
+      "slug": "lwe-to-zero-bit-prc-cg24",
+      "path": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Mis-attributed hypothesis: CG24 contains no LWE-based construction. Per the paper's abstract (eprint 2024/235, verified), pseudorandomness of all its codes rests on LPN-type assumptions — either 2^{O(sqrt(n))}-hardness of LPN, or polynomial hardness of LPN together with the planted XOR assumption at low density. The zero-bit PRC is the LDPC-based construction (Section 5.1 of CG24) and, under those assumptions, tolerates every constant substitution rate p < 1/2. The hypothesis should be an LPN-type assumption, not LWE; the sibling page subexponential-lpn-to-prc-cg24 already records the correct attribution for the L-bit case. The parameter claim in the migrated bullet (codeword length O(secpar^2/log secpar), robustness eps < 1/2 - 1/poly) rides on the same mis-attributed construction and must be re-verified against CG24's LPN parameterization before being re-recorded on a corrected edge.",
+      "flags": [
+        "The sibling edge lwe-to-prc-cg24 carries the same LWE-vs-LPN mis-attribution (its own Notes flag it); both originate from bullets on pseudorandom-error-correcting-code.md § Other results, which need fixing.",
+        "Correct replacement edge: {subexponential-lpn} => zero-bit-prc with source CG24 (or {lpn, planted-xor} => zero-bit-prc for the polynomial-hardness variant).",
+        "Full paper is egress-blocked from this environment (eprint/arxiv 403); assumption structure verified via the paper's abstract and multiple secondary sources."
+      ]
+    },
+    {
+      "slug": "ma-to-am",
+      "path": "content/Reductions/ma-to-am.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BM88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes",
+          "authors": "László Babai, Shlomo Moran",
+          "venue": "JCSS 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1016/0022-0000(88)90028-1",
+          "note": "Journal version of Babai's STOC 1985 paper 'Trading group theory for randomness', which introduced the MA/AM hierarchy; BM88 is the wiki's existing page and the standard citation for MA \u2286 AM."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; by repo convention (cf. bpp-to-am-gs86, qcma-to-qma) such inclusions carry class free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classMA \\subseteq \\classAM$: every language with a [[merlin-arthur|Merlin\u2013Arthur]] proof system has an [[arthur-merlin|Arthur\u2013Merlin]] proof system \u2014 [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].",
+      "sketch": "Amplify the MA verifier's soundness error below $2^{-(\\ell+1)}$ by parallel repetition, where $\\ell$ bounds the length of Merlin's message, then reverse the message order: Arthur sends his coins first and Merlin answers. A union bound over all $2^{\\ell}$ Merlin messages shows the swap costs at most a $2^{\\ell}$ factor in soundness error, which the amplification absorbs.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated parenthetical justification ('Merlin's optimal strategy is independent of those coins') is not a correct proof, as the migration Notes already flag; the statement/sketch above replace it with the standard amplify-then-swap argument.",
+        "MA \u2286 AM is a theorem (Babai 1985 / Babai\u2013Moran 1988), not folklore \u2014 frontmatter source: folklore should become the BM88 citation."
+      ]
+    },
+    {
+      "slug": "ma-to-pp",
+      "path": "content/Reductions/ma-to-pp.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Ver92",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Ver92 - On the Power of PP",
+          "authors": "Nikolai K. Vereshchagin",
+          "venue": "Structure in Complexity Theory Conference 1992",
+          "year": "1992",
+          "url": "https://doi.org/10.1109/SCT.1992.215389",
+          "note": "Proc. 7th Annual Structure in Complexity Theory Conference, pp. 138\u2013143. Proves MA \u2286 PP and gives an oracle relative to which AM \u2284 PP. Not in cryptobib; needs inline bibtex."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; repo convention assigns class free to such inclusions.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classMA \\subseteq \\classPP$: every language with a [[merlin-arthur|Merlin\u2013Arthur]] proof system is decidable in [[probabilistic-polynomial-time|probabilistic polynomial time]] with unbounded error \u2014 [[Ver92 - On the Power of PP|Ver92]].",
+      "sketch": "Amplify the MA verifier's error below $2^{-(\\ell+2)}$, where $\\ell$ bounds the witness length. The PP machine samples a uniformly random witness and runs the amplified verifier: for $x \\in L$ the acceptance probability is at least $2^{-\\ell}(1-2^{-(\\ell+2)})$, while for $x \\notin L$ it is at most $2^{-(\\ell+2)}$; shifting the acceptance threshold between the two bounds decides $L$ in $\\classPP$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the page's explicit 'TODO citation'. Ver92 also shows an oracle relative to which AM is not contained in PP, which may be worth a separate barrier page.",
+        "Ver92 needs a new reference page with inline bibtex (venue not covered by cryptobib): @InProceedings, Proc. 7th Annual Structure in Complexity Theory Conference, IEEE, 1992, pages 138-143, doi 10.1109/SCT.1992.215389."
+      ]
+    },
+    {
+      "slug": "ma-to-qcma",
+      "path": "content/Reductions/ma-to-qcma.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Immediate containment between complexity classes (a probabilistic verifier is a special case of a quantum verifier); repo convention assigns class free to such inclusions.",
+      "model": "quantum",
+      "model_justification": "Matches the repo convention for inclusions among quantum proof-system classes (cf. qcma-to-qma, qma-to-pp, bpp-to-bqp).",
+      "kind_correct": "inclusion",
+      "statement": "$\\classMA \\subseteq \\classQCMA$: any [[merlin-arthur|Merlin\u2013Arthur]] proof system is a [[quantum-classical-merlin-arthur|QCMA]] proof system \u2014 the witness is already classical, and a quantum verifier can run the classical probabilistic verification circuit with unchanged completeness and soundness \u2014 folklore.",
+      "sketch": "The quantum verifier evaluates the classical verification predicate as a quantum circuit, sampling the verifier's coins by measuring qubits prepared in the uniform superposition; acceptance probabilities are preserved exactly.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Genuinely definitional, so folklore is the honest disposition; if a definitional citation is ever wanted, QCMA traces to Aharonov\u2013Naveh, 'Quantum NP - A Survey' (arXiv:quant-ph/0210077)."
+      ]
+    },
+    {
+      "slug": "mac-and-ske-to-cca-security",
+      "path": "content/Reductions/mac-and-ske-to-cca-security.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BN00",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm",
+          "authors": "Mihir Bellare, Chanathip Namprempre",
+          "venue": "ASIACRYPT 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/3-540-44448-3_41",
+          "note": "cryptobib_key: AC:BelNam00 (verified in vendor/cryptobib/crypto.bib, pp. 531\u2013545). Journal version: J. Cryptology 21(4), 2008 (JC:BelNam08). Proves encrypt-then-MAC with a SUF-CMA MAC gives IND-CCA (via INT-CTXT + IND-CPA \u21d2 IND-CCA), and that weak unforgeability does not suffice."
+        },
+        {
+          "key": "KY00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation",
+          "authors": "Jonathan Katz, Moti Yung",
+          "venue": "FSE 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/3-540-44706-7_20",
+          "note": "cryptobib_key: FSE:KatYun00 (verified in vendor/cryptobib/crypto.bib, pp. 284\u2013299). Independent concurrent work: ciphertext unforgeability plus IND-CPA yields IND-CCA for symmetric encryption."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Encrypt-then-MAC is one fixed construction invoking the SKE scheme's $\\Enc$/$\\Dec$ and the MAC's $\\Tag$/$\\Vrfy$ only as oracles; the security reduction runs any IND-CCA adversary as an oracle, answering its decryption queries by rejecting every ciphertext-tag pair not produced by the encryption oracle (an accepted fresh pair is output as a MAC forgery). This is the standard RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Let $\\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\\MAC$ a strongly unforgeable (SUF-CMA) [[message-authentication-code|MAC]]. The encrypt-then-MAC composition, which encrypts under an independent SKE key and tags the ciphertext under an independent MAC key, is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme. Strong unforgeability is required: with a merely UF-CMA MAC the composition can fail to be CCA-secure \u2014 [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].",
+      "sketch": "Strong unforgeability of the MAC forces every decryption query on a pair $(c, t)$ not returned by the encryption oracle to decrypt to $\\bot$ except with negligible probability, so the decryption oracle can be simulated by rejecting all fresh queries; CCA security of the composition then reduces to CPA security of $\\SKE$.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Enc'((k_e, k_m), m)$}\n\\begin{algorithmic}\n\\State $c \\gets \\Enc(k_e, m)$\n\\State $t \\gets \\Tag(k_m, c)$\n\\Return $(c, t)$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "",
+      "improvements_text": "- Independently and concurrently, ciphertext unforgeability plus CPA security was shown to imply CCA security for symmetric encryption \u2014 [[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis 'ske' must be read as CPA-secure SKE and the MAC as strongly unforgeable; the wiki MAC page currently defines only UF-CMA, so the SUF-CMA qualifier lives in prose (a strong-unforgeability variant section on message-authentication-code.md would let it be linked).",
+        "The sibling migrated pages hash-function-to-ske and hash-function-to-mac carry the same OWF-chain bullet; the {CPA-SKE, MAC} => CCA-SKE link recorded here is the correct conjunctive final link of that composite chain.",
+        "Conclusion node cca-secure-symmetric-key-encryption resolves to the #cca-security variant anchor declared in symmetric-key-encryption.md frontmatter, so the edge does not collapse to SKE => SKE (contrary to one migration note)."
+      ]
+    },
+    {
+      "slug": "adversary-models-to-privacy-semi-honest",
+      "path": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as stated under the standard simulation-based definitions: security against malicious adversaries does NOT imply security against (plain) semi-honest adversaries. The malicious-model simulator may substitute the corrupted party's input in the ideal execution, while the semi-honest simulator must reproduce the party's view on its actual input; there are protocols secure against malicious adversaries that are not secure against semi-honest ones. This is documented in Hazay\u2013Lindell, 'A Note on the Relation between the Definitions of Security for Semi-Honest and Malicious Adversaries' (eprint 2010/551, verified) and in Goldreich's Foundations of Cryptography Vol. 2 (augmented semi-honest behavior, \u00a77.4.4.1). The correct nearby edge is: malicious security implies AUGMENTED semi-honest security (semi-honest adversaries additionally allowed to substitute their input before the execution starts). Separately, neither endpoint (malicious-security, semi-honest-security) exists as a wiki object page \u2014 they are bullet definitions on interactive-protocol.md \u2014 so the edge has no addressable endpoints.",
+      "flags": [
+        "If the corrected edge (malicious => augmented semi-honest) is wanted, source it to Goldreich Foundations Vol. 2 \u00a77.4.4 and/or Hazay\u2013Lindell eprint 2010/551, and first create object pages/anchors for the adversary models.",
+        "The source prose on interactive-protocol.md \u00a7 Adversary models states the flat implication and should be corrected or caveated (skeptical-checker lane)."
+      ]
+    },
+    {
+      "slug": "module-lwe-and-module-sis-to-ds",
+      "path": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DKL+18",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme",
+          "authors": "L\u00e9o Ducas, Eike Kiltz, Tancr\u00e8de Lepoint, Vadim Lyubashevsky, Peter Schwabe, Gregor Seiler, Damien Stehl\u00e9",
+          "venue": "TCHES 2018 (1)",
+          "year": "2018",
+          "url": "https://doi.org/10.13154/tches.v2018.i1.238-268",
+          "note": "cryptobib_key: TCHES:DKLLSS18 (verified in vendor/cryptobib/crypto.bib, pp. 238\u2013268). eprint 2017/633. Classical-ROM security from MLWE + MSIS (SelfTargetMSIS reduces to MSIS via the forking lemma); QROM security additionally uses SelfTargetMSIS."
+        },
+        {
+          "key": "KLS18",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KLS18 - A Concrete Treatment of Fiat-Shamir Signatures in the Quantum Random-Oracle Model",
+          "authors": "Eike Kiltz, Vadim Lyubashevsky, Christian Schaffner",
+          "venue": "EUROCRYPT 2018",
+          "year": "2018",
+          "url": "https://doi.org/10.1007/978-3-319-78372-7_18",
+          "note": "cryptobib_key: EC:KilLyuSch18 (verified in vendor/cryptobib/crypto.bib, pp. 552\u2013586). QROM treatment of Fiat\u2013Shamir signatures; Dilithium-QROM variant under MLWE, MSIS, SelfTargetMSIS."
+        },
+        {
+          "key": "BBD+23",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BBD+23 - Fixing and Mechanizing the Security Proof of Fiat-Shamir with Aborts and Dilithium",
+          "authors": "Manuel Barbosa, Gilles Barthe, Christian Doczkal, Jelle Don, Serge Fehr, Benjamin Gr\u00e9goire, Yu-Hsuan Huang, Andreas H\u00fclsing, Yi Lee, Xiaodi Wu",
+          "venue": "CRYPTO 2023",
+          "year": "2023",
+          "url": "https://doi.org/10.1007/978-3-031-38554-4_11",
+          "note": "cryptobib_key: C:BBDDFG23 (verified in vendor/cryptobib/crypto.bib, pp. 358\u2013389). eprint 2023/246."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "No source states an RTV-style class; the ROM proof rewinds the adversary via the forking lemma and is scoped to an idealized model, so recording a class would add a claim the sources do not make.",
+      "model": "rom",
+      "model_justification": "DKL+18 prove unforgeability in the (classical and quantum) random-oracle model \u2014 the challenge hash is modeled as a random oracle (Fiat\u2013Shamir with aborts). Frontmatter currently says standard and must change to rom.",
+      "kind_correct": "implication",
+      "statement": "Dilithium (standardized as ML-DSA in FIPS 204) is a [[digital-signature|digital signature]] scheme obtained by applying Fiat\u2013Shamir with aborts to a module-lattice identification scheme. In the random-oracle model it is strongly \u2014 in particular existentially \u2014 unforgeable under chosen-message attacks assuming hardness of [[learning-with-errors#module-lwe|Module LWE]] and [[shortest-integer-solution#module-sis|Module-SIS]] \u2014 [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].",
+      "sketch": "The signer samples a short masking vector $\\mathbf{y}$, commits to the high bits of $\\mathbf{A}\\mathbf{y}$, derives the challenge $c$ by hashing commitment and message, and reveals $\\mathbf{z} = \\mathbf{y} + c\\mathbf{s}_1$ only if rejection sampling passes, so signatures are independent of the secret. Module LWE makes the public key $(\\mathbf{A}, \\mathbf{t} = \\mathbf{A}\\mathbf{s}_1 + \\mathbf{s}_2)$ pseudorandom, and the forking lemma turns a forger into a short solution for $[\\mathbf{A} \\mid \\mathbf{t}]$, i.e. a Module-SIS solution.",
+      "pseudocode": "",
+      "security_loss": "non-tight: classical-ROM reduction loses a forking-lemma factor over the adversary's random-oracle queries",
+      "improvements_text": "- QROM security of Fiat\u2013Shamir signatures, with a Dilithium variant proved secure under Module LWE, Module-SIS, and SelfTargetMSIS \u2014 [[KLS18 - A Concrete Treatment of Fiat-Shamir Signatures in the Quantum Random-Oracle Model|KLS18]].\n- Gaps in the original Fiat\u2013Shamir-with-aborts proofs (including Dilithium's) identified and repaired with machine-checked proofs \u2014 [[BBD+23 - Fixing and Mechanizing the Security Proof of Fiat-Shamir with Aborts and Dilithium|BBD+23]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "model: standard must change to rom.",
+        "Resolves the migration note on the ambiguous 'Module LWE/SIS' slash: Dilithium's proof uses BOTH assumptions (conjunctive hyperedge is correct); shortest-integer-solution.md line 72, attributing Dilithium to Module-SIS alone, is wrong and should be fixed (skeptical-checker lane).",
+        "Conclusion node 'ds' is the generic digital-signature page; the EUF-CMA/SUF-CMA qualifier lives in the statement."
+      ]
+    },
+    {
+      "slug": "module-lwe-to-kem",
+      "path": "content/Reductions/module-lwe-to-kem.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BDK+18",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM",
+          "authors": "Joppe W. Bos, L\u00e9o Ducas, Eike Kiltz, Tancr\u00e8de Lepoint, Vadim Lyubashevsky, John M. Schanck, Peter Schwabe, Gregor Seiler, Damien Stehl\u00e9",
+          "venue": "IEEE EuroS&P 2018",
+          "year": "2018",
+          "url": "https://doi.org/10.1109/EuroSP.2018.00032",
+          "note": "cryptobib_key: EUROSP:BDKLLSSSS18 (verified in vendor/cryptobib/crypto.bib, pp. 353\u2013367). eprint 2017/634."
+        },
+        {
+          "key": "HHK17",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation",
+          "authors": "Dennis Hofheinz, Kathrin H\u00f6velmanns, Eike Kiltz",
+          "venue": "TCC 2017",
+          "year": "2017",
+          "url": "https://doi.org/10.1007/978-3-319-70500-2_12",
+          "note": "cryptobib_key: TCC:HofHovKil17 (verified in vendor/cryptobib/crypto.bib, pp. 341\u2013371). Companion rather than follow-up: the modular FO analysis (ROM and QROM) that Kyber's IND-CCA proof invokes."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "No source states an RTV-style class; the IND-CCA proof goes through the Fujisaki\u2013Okamoto transform in an idealized (random-oracle) model, which the RTV taxonomy does not classify.",
+      "model": "rom",
+      "model_justification": "The IND-CPA scheme is standard-model from Module LWE, but the IND-CCA KEM claim \u2014 the conclusion of this edge \u2014 is proved via an FO transform with implicit rejection in the random-oracle model (QROM bounds also given). Frontmatter currently says standard and must change to rom.",
+      "kind_correct": "implication",
+      "statement": "Kyber (standardized as ML-KEM in FIPS 203) is an IND-CCA-secure [[key-encapsulation-mechanism|KEM]] in the random-oracle model assuming hardness of [[learning-with-errors#module-lwe|Module LWE]] at module rank $k \\in \\{2,3,4\\}$: an IND-CPA public-key encryption scheme built directly from Module LWE is converted into an IND-CCA KEM by a Fujisaki\u2013Okamoto transform with implicit rejection \u2014 [[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]].",
+      "sketch": "The CPA scheme is LPR-style over a module: the public key is $(\\mathbf{A}, \\mathbf{t} = \\mathbf{A}\\mathbf{s} + \\mathbf{e})$ and a ciphertext is a pair of compressed Module LWE samples encoding the message in the high-order bits, so key and ciphertext are pseudorandom under MLWE. The FO transform derives the encryption randomness and session key by hashing the message, and decapsulation re-encrypts to reject malformed ciphertexts, yielding IND-CCA in the ROM.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Kyber's IND-CCA proof instantiates the modular Fujisaki\u2013Okamoto analysis, which gives the underlying ROM and QROM bounds \u2014 [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "model: standard must change to rom.",
+        "The second migrated quote (the LS15 editorial paragraph, including the incorrect 'k = n recovers plain LWE' claim) belongs to the LS15 reference page discussion, not to this edge, and should be dropped here; its error is handled on module-lwe-to-lwe-ls15."
+      ]
+    },
+    {
+      "slug": "module-lwe-to-ring-lwe-ls15",
+      "path": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LS15",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LS15 - Worst-case to average-case reductions for module lattices",
+          "authors": "Ad\u00e9line Langlois, Damien Stehl\u00e9",
+          "venue": "Designs, Codes and Cryptography 75(3), 2015",
+          "year": "2015",
+          "url": "https://eprint.iacr.org/2012/090",
+          "note": "Defines Module LWE and notes the rank-1 specialization to Ring LWE."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Both directions are the identity reduction: a rank-1 Module LWE instance is literally a Ring LWE instance and vice versa, so instances and adversaries are passed through unchanged \u2014 one fixed construction and one fixed reduction, each using its input only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "[[learning-with-errors#module-lwe|Module LWE]] at module rank $k = 1$ is [[learning-with-errors#ring-lwe|Ring LWE]]: a rank-1 module over $R_q$ is $R_q$ itself, so the rank-1 MLWE distribution coincides with the RLWE distribution and the two problems are identical, with hardness transferring in both directions \u2014 [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].",
+      "sketch": "A rank-1 MLWE sample $(\\mathbf{a}, \\langle \\mathbf{a}, \\mathbf{s} \\rangle + e)$ with $\\mathbf{a}, \\mathbf{s} \\in R_q$ is literally an RLWE sample $(a, a \\cdot s + e)$; the identity map is a reduction in both directions.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Definitional coincidence presumes matching conventions: LS15's M-LWE definition specializes at rank 1 to LPR10's R-LWE (same dual-ring and error-distribution setup).",
+        "Hypothesis node module-lwe-rank-1 resolves via the learning-with-errors frontmatter variant alias to #module-lwe; a dedicated anchor would make the rank-1 qualifier addressable.",
+        "The migrated LS15 editorial quote also contains the incorrect 'k = n recovers plain LWE' claim, handled as wrong_claim on module-lwe-to-lwe-ls15; only the k = 1 half is correct and it is the content of this page."
+      ]
+    },
+    {
+      "slug": "module-lwe-to-lwe-ls15",
+      "path": "content/Reductions/module-lwe-to-lwe-ls15.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The claim 'Module LWE at rank k = n recovers plain LWE' (over a degree-n polynomial ring R_q) is false as stated: a rank-n module over a degree-n ring has total Z_q-dimension n^2, and the sample matrix is block-structured (negacyclic blocks), not uniform, so rank-n MLWE is neither syntactically nor known to be computationally equivalent to plain LWE in dimension n. Plain LWE is the specialization of MLWE at ring DEGREE 1 (R = Z) with arbitrary module rank n \u2014 that is the correct definitional edge, and the one LS15's interpolation actually supports (verified against LS15/eprint 2012/090 secondary descriptions: rank 1 recovers ring problems, degree 1 recovers unstructured problems). The source page learning-with-errors.md line 135 carries the same error \u2014 its parenthetical 'ring $R_q \\cong \\ZZ_q^n$' is a module isomorphism, not a ring isomorphism, and does not remove the multiplicative structure.",
+      "flags": [
+        "Correct replacement edge: MLWE over R = Z (ring degree 1) at rank n <=> LWE, definitional, source LS15; the hypothesis node would need to be redefined (module-lwe-rank-n currently aliases to #module-lwe with the wrong reading).",
+        "learning-with-errors.md \u00a7 Module LWE bullet 'When k = n: recovers plain LWE (fully unstructured, ring R_q \u2245 Z_q^n)' needs the same fix (skeptical-checker lane).",
+        "Nontrivial (non-definitional) relations between MLWE and RLWE/LWE do exist \u2014 e.g. Albrecht\u2013Deo, 'Large Modulus Ring-LWE \u2265 Module-LWE' (ASIACRYPT 2017) \u2014 but they are different edges with different parameters, not this equivalence."
+      ]
+    }
+  ]
+}

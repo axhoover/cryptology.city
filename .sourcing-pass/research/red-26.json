@@ -1,0 +1,339 @@
+{
+  "batch": "red-26",
+  "pages": [
+    {
+      "slug": "prg-to-hash-function",
+      "path": "content/Reductions/prg-to-hash-function.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The constructed OWF is $G$ itself, so the construction uses the hypothesis PRG only as an oracle; the security reduction runs any inverter once as an oracle and accepts iff the returned $\\hat{x}$ satisfies $G(\\hat{x}) = y$. This is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any [[pseudorandom-generator|PRG]] $G : \\bits^n \\to \\bits^m$ with $m > n$ is itself a [[hash-function#preimage-resistance-one-wayness|one-way function]]: an efficient inverter for $G$ yields a distinguisher, since a uniform $y \\in \\bits^m$ has a $G$-preimage with probability at most $2^{n-m}$ — folklore. Only one-wayness follows; a PRG does not generically yield collision resistance.",
+      "sketch": "The OWF is $G$ itself. Given an inverter $\\calA$ succeeding with probability $\\varepsilon$, the distinguisher $D(y)$ runs $\\hat{x} \\gets \\calA(y)$ and outputs $1$ iff $G(\\hat{x}) = y$: on $y = G(s)$ it outputs $1$ with probability $\\varepsilon$, on uniform $y$ with probability at most $2^{n-m}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Conclusion 'hash-function' is the wiki's combined hash/OWF page (alias OWF); the edge is PRG => OWF, and the statement pins the preimage-resistance variant via the page's declared anchor #preimage-resistance-one-wayness. PRG => collision-resistant hashing does NOT hold black-box (Simon, EUROCRYPT 1998 oracle separation) — not proposed as a source because it could not be verified online in this session (eprint/DBLP/arXiv egress-blocked, search budget exhausted).",
+        "The migrated quote's trailing 'so OWF <=> PRG' is a derived equivalence: the converse direction is [[hash-function-to-prg-hill99]] (HILL99). Both directions exist as separate pages, so this page correctly stays kind: implication.",
+        "The length-expansion hypothesis ($m > n$) is load-bearing and is definitional for the wiki's PRG page; the statement carries it explicitly."
+      ]
+    },
+    {
+      "slug": "prg-to-prf-ggm86",
+      "path": "content/Reductions/prg-to-prf-ggm86.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GGM86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGM86 - How to construct random functions",
+          "authors": "Oded Goldreich, Shafi Goldwasser, Silvio Micali",
+          "venue": "Journal of the ACM 33(4)",
+          "year": "1986",
+          "url": "https://doi.org/10.1145/6490.6503",
+          "note": "Verified against vendor/cryptobib entry GolGolMic86 (JACM 33(4):792-807, 1986, doi 10.1145/6490.6503) and the existing wiki reference page."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction invokes the length-doubling PRG only as an oracle (one call per input bit); the security proof is a hybrid argument over the tree levels whose reduction runs any PRF distinguisher as an oracle to build a PRG distinguisher. The wiki's black-box-separations page uses this construction as its worked example of the fully-black-box notion.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A length-doubling [[pseudorandom-generator|PRG]] $G : \\bits^n \\to \\bits^{2n}$ yields a [[pseudorandom-function|PRF]] with keyspace and range $\\bits^n$ and domain $\\bits^\\ell$: writing $G(s) = G_0(s) \\| G_1(s)$, define $\\Eval(k, x_1 \\cdots x_\\ell) := G_{x_\\ell}(G_{x_{\\ell-1}}(\\cdots G_{x_1}(k) \\cdots))$ — [[GGM86 - How to construct random functions|GGM86]].",
+      "sketch": "The construction walks a binary tree of depth $\\ell$: start from $k$ and, on bit $x_i$, keep the left or right half of $G$'s output. A hybrid over the $\\ell$ tree levels reduces any $q$-query PRF distinguisher to a PRG distinguisher, with a factor $q\\ell$ security loss.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Eval(k, x_1 \\cdots x_\\ell)$}\n\\begin{algorithmic}\n\\State $y \\gets k$\n\\Comment{$G(s) = G_0(s) \\,\\|\\, G_1(s)$ with $|G_0(s)| = |G_1(s)| = |s|$}\n\\For{$i = 1, \\ldots, \\ell$}\n\\State $y \\gets G_{x_i}(y)$\n\\EndFor\n\\Return $y$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The factor-$q\\ell$ loss in the sketch is the standard textbook hybrid analysis (e.g. Boneh-Shoup Thm 4.11), not a concrete bound stated in GGM86 itself (which is asymptotic); security_loss left empty for that reason."
+      ]
+    },
+    {
+      "slug": "prg-to-ske",
+      "path": "content/Reductions/prg-to-ske.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Composition of two fully-black-box links: the GGM construction calls the PRG only as an oracle, and PRF-based randomized encryption calls the PRF only as an oracle; each security reduction runs the adversary as an oracle, and fully-black-box reductions compose. The composed construction/reduction pair retains the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-generator|PRG]] implies CPA-secure [[symmetric-key-encryption|SKE]]: a length-doubling PRG yields a [[pseudorandom-function|PRF]] ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]), and encrypting as $\\Enc(k, m) = (r, \\Eval(k, r) \\oplus m)$ with fresh random $r$ is CPA-secure ([[prf-to-ske|PRF ⇒ CPA-secure SKE]]) — folklore. The fixed-pad stream cipher $\\Enc(k, m) = G(k) \\oplus m$ is deterministic and therefore not CPA-secure; it achieves only one-time security.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CONFIRMED ERROR in the migrated statement (not in the edge): $\\Enc(k,m) = G(k) \\oplus m$ reuses one pad for every message, so two left-right oracle queries break CPA security; the scheme is only one-time secure. The edge PRG => CPA-SKE itself is true via the PRF route. The parent page content/Primitives/pseudorandom-generator.md still carries the wrong bullet and is already flagged in .fact-check/queue.json — fix it in the same commit that applies this page.",
+        "Composite-chain page: both links exist as prg-to-prf-ggm86 and prf-to-ske, so per schema/README this edge is derivable; consider deleting it or rescoping to 'PRG => one-time-secure SKE' (direct stream cipher). Rescoping is blocked today because the SKE page defines no one-time/EAV security notion to target."
+      ]
+    },
+    {
+      "slug": "prp-to-invertible-prf",
+      "path": "content/Reductions/prp-to-invertible-prf.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The iPRF is the PRP itself with $\\Invert$ wrapped to return the singleton preimage set; both algorithms call the PRP only as oracles. The security reduction runs any distinguisher unchanged as a PRP distinguisher, absorbing the ideal-world gap into the information-theoretic switching-lemma term.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-permutation|PRP]] over a domain $\\calD$ of superpolynomial size is an [[pseudorandom-function#invertible-prfs|invertible PRF]] with respect to the traditional (forward-oracle) PRF security game: set the iPRF's inversion algorithm to return the singleton $\\{\\Invert(k, y)\\}$, and bound any $q$-query distinguisher's advantage by the PRP advantage plus the [[switching-lemma|Switching Lemma]] term $O(q^2/|\\calD|)$ — folklore. Strong iPRF security, in which the adversary also queries an inversion oracle, does not follow.",
+      "sketch": "A permutation is an iPRF with singleton preimage sets and perfect correctness. For forward queries only, a random permutation is statistically within $O(q^2/|\\calD|)$ of a random function, so PRP security transfers to the traditional PRF game with birthday loss.",
+      "pseudocode": "",
+      "security_loss": "$O(q^2/|\\calD|)$ for $q$ queries, per the switching lemma",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The iPRF strong security game gives $\\calA$ an inversion oracle, so the forward-only switching lemma does not justify the strong reading; the statement above is scoped to the traditional forward-oracle game. This is flagged against both parent pages in the fact-check queue."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The strong-iPRF reading is not merely unproven but FALSE for every PRP under the wiki's $\\Game^{\\mathrm{iprf}}$ as defined on pseudorandom-function.md: the ideal world is a random function with a preimage-SET oracle, and a fresh inversion query returns a singleton for any permutation but the empty set with probability about $1/e$ for a random function on $\\calD \\to \\calD$ — a one-query distinguisher with constant advantage. The existing fact-check suggestion that 'sPRP plus a two-sided switching lemma' would suffice is therefore itself incorrect for this game (a two-sided switching lemma compares against a random permutation with inverse oracle, not a random function with preimage-set oracle). The honest fix is exactly the scoping in the statement above.",
+        "HPPY25 (Plinko), which introduced the iPRF notion cited by the sibling page prf-to-invertible-prf-hppy25, does not state this PRP observation in its abstract; the claim is left folklore with the switching lemma as the technique (kept in via:)."
+      ]
+    },
+    {
+      "slug": "prp-to-prf",
+      "path": "content/Reductions/prp-to-prf.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BKR00",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BKR00 - The Security of the Cipher Block Chaining Message Authentication Code",
+          "authors": "Mihir Bellare, Joe Kilian, Phillip Rogaway",
+          "venue": "Journal of Computer and System Sciences 61(3)",
+          "year": "2000",
+          "url": "",
+          "note": "Verified against vendor/cryptobib entry BelKilRog00 (JCSS 61(3):362-399, 2000; no DOI recorded in cryptobib — suggested cryptobib_key: BelKilRog00). Full version of C:BelKilRog94, CRYPTO 1994, doi:10.1007/3-540-48658-5_32 (also verified in cryptobib). The concrete-security PRP-to-PRF switching bound appears here (Proposition 2.5 in the JCSS version — proposition number from memory, page-verify when network access is available)."
+        },
+        {
+          "key": "BR06",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs",
+          "authors": "Mihir Bellare, Phillip Rogaway",
+          "venue": "Eurocrypt 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1007/11761679_25",
+          "note": "Verified against vendor/cryptobib entry EC:BelRog06 (EUROCRYPT 2006, pp. 409-426, doi 10.1007/11761679_25 — suggested cryptobib_key: EC:BelRog06; eprint 2004/331, eprint number from memory). Names the PRP/PRF Switching Lemma, exhibits the conditioning flaw in the folklore proof, and gives the now-standard game-playing proof."
+        },
+        {
+          "key": "Din20",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function",
+          "authors": "Itai Dinur",
+          "venue": "Eurocrypt 2020",
+          "year": "2020",
+          "url": "",
+          "note": "Already cited on the wiki's switching-lemma page for the memory-bounded improvement."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: the PRP's $\\Eval$ is used unchanged as the PRF (the hypothesis is invoked only as an oracle). The security reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the remaining ideal-world gap (random permutation vs. random function) is the information-theoretic switching-lemma term, needing no access to the adversary's code.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-permutation|PRP]] over a domain $\\calD$ of superpolynomial size is a [[pseudorandom-function|PRF]]: the permutation is used unchanged, and any $q$-query distinguisher's advantage grows by at most the [[switching-lemma|Switching Lemma]] term $O(q^2/|\\calD|)$, which is negligible for superpolynomial $|\\calD|$ — [[BKR00 - The Security of the Cipher Block Chaining Message Authentication Code|BKR00]].",
+      "sketch": "In the ideal worlds, a random permutation and a random function on $\\calD$ are statistically indistinguishable up to the birthday bound $O(q^2/|\\calD|)$ — an output collision is the only distinguishing event — so any PRF distinguisher is a PRP distinguisher with an additive $O(q^2/|\\calD|)$ advantage loss.",
+      "pseudocode": "",
+      "security_loss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + O(q^2/|\\calD|)$ for $q$ queries (birthday bound)",
+      "improvements_text": "- Game-playing proof of the switching lemma, correcting the conditioning flaw in the folklore proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]\n- For streaming distinguishers with $m$ bits of memory the bound improves to $O(mq/|\\calD|)$ — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The birthday switching argument is older folklore (arguably implicit in IR89's key-exchange lower bound); BKR00 is proposed as the first recorded concrete-security statement, following BR06's attribution. Page-verify BKR00's proposition when network access is available — eprint/DBLP/doi were egress-blocked and the WebSearch budget exhausted this session, so cryptobib (vendor/cryptobib/crypto.bib) is the verification source for all bibliographic data here.",
+        "The migrated bullet's parenthetical iPRF claim is handled by the separate page prp-to-invertible-prf; the statement above drops it.",
+        "Consider moving [[switching-lemma]] into a via: field (as on prp-to-invertible-prf) now that a bibliographic source occupies the citation slot.",
+        "The large-domain qualifier belongs on the PRP's domain (hypothesis side); the statement now carries it, resolving the migration note about qualifier placement. Converse direction exists separately as prf-to-prp-lr88, so kind stays implication."
+      ]
+    },
+    {
+      "slug": "pspace-to-exp",
+      "path": "content/Reductions/pspace-to-exp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classPSPACE \\subseteq \\classEXP$: a deterministic machine using space $p(n) = \\poly(n)$ has at most $2^{O(p(n))}$ configurations, so it either halts within $2^{O(p(n))}$ steps or cycles forever; simulating it for that many steps decides its language in exponential time — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migration note about a duplicated '## Known relationships' heading on exponential-time.md is stale — the page now has a single such heading; dropped."
+      ]
+    },
+    {
+      "slug": "qcma-to-pp",
+      "path": "content/Reductions/qcma-to-pp.md",
+      "disposition": "undetermined",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).",
+      "model": "quantum",
+      "model_justification": "Kept as migrated; wiki convention for containments among quantum classes.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classQCMA \\subseteq \\classPP$: the containment composes [[qcma-to-qma|QCMA ⊆ QMA]] with [[qma-to-pp|QMA ⊆ PP]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The containment is certainly true; 'undetermined' is about verified provenance only. The nontrivial ingredient QMA ⊆ PP is Marriott-Watrous, 'Quantum Arthur-Merlin games' (CCC 2004; Computational Complexity 14(2):122-152, 2005; arXiv:cs/0506068), with the containment often attributed to Kitaev-Watrous 2000 (unpublished); Vyalyi 2003 (ECCC TR03-021) strengthened it to QMA ⊆ A0PP ⊆ PP. NONE of this bibliographic data could be verified this session — eprint/DBLP/arXiv/doi/complexityzoo are all egress-blocked and the WebSearch budget was exhausted, and Marriott-Watrous is not in vendor/cryptobib. Verify and cite on qma-to-pp (the right home for the citation), then this page needs no source of its own.",
+        "Composite-chain page: both links exist as qcma-to-qma and qma-to-pp, so per schema/README this edge is derivable and a candidate for deletion."
+      ]
+    },
+    {
+      "slug": "qcma-to-qma",
+      "path": "content/Reductions/qcma-to-qma.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).",
+      "model": "quantum",
+      "model_justification": "Kept as migrated; wiki convention for containments among quantum classes.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classQCMA \\subseteq \\classQMA$: a QCMA verifier becomes a QMA verifier by measuring the witness register in the computational basis and running the QCMA verification on the outcome. Completeness is preserved by sending the classical witness as a basis state; soundness is preserved because measurement turns any quantum witness into a distribution over classical strings and the acceptance probability is the average over that distribution — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": []
+    },
+    {
+      "slug": "qip-to-ip",
+      "path": "content/Reductions/qip-to-ip.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "JJUW10",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "JJUW10 - QIP = PSPACE",
+          "authors": "Rahul Jain, Zhengfeng Ji, Sarvagya Upadhyay, John Watrous",
+          "venue": "STOC 2010",
+          "year": "2010",
+          "url": "https://doi.org/10.1145/1806689.1806768",
+          "note": "Verified against vendor/cryptobib entry STOC:JJUW10 (STOC 2010, pp. 573-582, doi 10.1145/1806689.1806768 — suggested cryptobib_key: STOC:JJUW10). Journal version J. ACM 58(6):30, 2011 and arXiv:0907.4737 are from memory, unverified this session. Provides the QIP ⊆ PSPACE direction."
+        },
+        {
+          "key": "Sha90",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Sha90 - IP = PSPACE",
+          "authors": "Adi Shamir",
+          "venue": "FOCS 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1109/FSCS.1990.89519",
+          "note": "Verified against vendor/cryptobib entry FOCS:Shamir90 (FOCS 1990, pp. 11-15, doi 10.1109/FSCS.1990.89519 — suggested cryptobib_key: FOCS:Shamir90). Journal version J. ACM 39(4):869-877, 1992 (often cited as Sha92) is from memory, unverified this session; cryptobib carries only the FOCS version. Provides IP = PSPACE, giving PSPACE ⊆ IP for the converse direction."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven complexity-class equality; the reduction-class axis does not discriminate here (repo convention for containments).",
+      "model": "quantum",
+      "model_justification": "Kept as migrated; wiki convention for results about quantum classes.",
+      "kind_correct": "equivalence",
+      "statement": "$\\classQIP = \\classIP$. The containment $\\classIP \\subseteq \\classQIP$ is immediate, a classical interactive proof being a quantum one; the converse combines $\\classQIP \\subseteq \\classPSPACE$ — [[JJUW10 - QIP = PSPACE|JJUW10]] — with $\\classPSPACE = \\classIP$ — [[Sha90 - IP = PSPACE|Sha90]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Overlaps [[ip-to-qip]] (IP ⊆ QIP, kind inclusion): with this page recorded as an equivalence, the easy direction is stored twice. Reconcile: either keep this equivalence and drop ip-to-qip, or store two inclusions. Left as equivalence here to match the title 'QIP = IP' and the migrated claim.",
+        "Derived corollary of qip-to-pspace plus ip-to-pspace; JJUW10 themselves state the corollary that quantum interactive proofs equal classical ones in power, so citing JJUW10 + Sha90 directly is faithful.",
+        "New reference filenames contain '=' ('JJUW10 - QIP = PSPACE', 'Sha90 - IP = PSPACE'); confirm the slug sanitizer handles '=' before creating the files."
+      ]
+    },
+    {
+      "slug": "qip-to-pspace",
+      "path": "content/Reductions/qip-to-pspace.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "JJUW10",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "JJUW10 - QIP = PSPACE",
+          "authors": "Rahul Jain, Zhengfeng Ji, Sarvagya Upadhyay, John Watrous",
+          "venue": "STOC 2010",
+          "year": "2010",
+          "url": "https://doi.org/10.1145/1806689.1806768",
+          "note": "Verified against vendor/cryptobib entry STOC:JJUW10 (STOC 2010, pp. 573-582, doi 10.1145/1806689.1806768 — suggested cryptobib_key: STOC:JJUW10). Journal version J. ACM 58(6):30, 2011 and arXiv:0907.4737 are from memory, unverified this session."
+        },
+        {
+          "key": "Sha90",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Sha90 - IP = PSPACE",
+          "authors": "Adi Shamir",
+          "venue": "FOCS 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1109/FSCS.1990.89519",
+          "note": "Verified against vendor/cryptobib entry FOCS:Shamir90 (FOCS 1990, pp. 11-15, doi 10.1109/FSCS.1990.89519 — suggested cryptobib_key: FOCS:Shamir90). Needed for the easy direction PSPACE = IP ⊆ QIP."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven complexity-class equality; the reduction-class axis does not discriminate here (repo convention for containments).",
+      "model": "quantum",
+      "model_justification": "Kept as migrated; wiki convention for results about quantum classes.",
+      "kind_correct": "equivalence",
+      "statement": "$\\classQIP = \\classPSPACE$ — [[JJUW10 - QIP = PSPACE|JJUW10]]. The containment $\\classQIP \\subseteq \\classPSPACE$ is proved by expressing the optimal acceptance probability of a quantum interactive proof as a semidefinite program and approximating its value with a space-efficient parallel implementation of the matrix multiplicative weights update method; $\\classPSPACE \\subseteq \\classQIP$ follows from $\\classIP = \\classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]] — since $\\classIP \\subseteq \\classQIP$.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the parent page's 'TODO citation (Jain, Ji, Upadhyay, Watrous 2010)' at content/Complexity/quantum-interactive-proofs.md — update that bullet in the same commit.",
+        "The migration TYPING LOSS notes (equality read as one-way inclusion) are resolved: kind stays equivalence and the statement names which direction is which. Prior weaker bound QIP ⊆ EXP is Kitaev-Watrous, STOC 2000 (cryptobib STOC:KitWat00, doi 10.1145/335305.335387) — prior work, not listed as an improvement.",
+        "New reference filenames contain '=' — confirm the slug sanitizer handles it."
+      ]
+    }
+  ]
+}

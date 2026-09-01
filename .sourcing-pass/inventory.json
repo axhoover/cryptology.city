@@ -1,0 +1,7277 @@
+[
+ {
+  "path": "content/Reductions/abe-to-be.md",
+  "slug": "abe-to-be",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ABE \u21d2 BE",
+  "id": "red-abe-to-be",
+  "kind": "implication",
+  "hypotheses": [
+   "abe"
+  ],
+  "conclusion": "be",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/abe-to-fuzzy-ibe.md",
+  "slug": "abe-to-fuzzy-ibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ABE \u21d2 Fuzzy IBE",
+  "id": "red-abe-to-fuzzy-ibe",
+  "kind": "implication",
+  "hypotheses": [
+   "abe"
+  ],
+  "conclusion": "fuzzy-ibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/abe-to-hibe.md",
+  "slug": "abe-to-hibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ABE \u21d2 HIBE",
+  "id": "red-abe-to-hibe",
+  "kind": "implication",
+  "hypotheses": [
+   "abe"
+  ],
+  "conclusion": "hibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/abe-to-ibe.md",
+  "slug": "abe-to-ibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ABE \u21d2 IBE",
+  "id": "red-abe-to-ibe",
+  "kind": "implication",
+  "hypotheses": [
+   "abe"
+  ],
+  "conclusion": "ibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/adaptive-robustness-to-prc.md",
+  "slug": "adaptive-robustness-to-prc",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Adaptive robustness \u21d2 PRC",
+  "id": "red-adaptive-robustness-to-prc",
+  "kind": "implication",
+  "hypotheses": [
+   "adaptively-robust-prc"
+  ],
+  "conclusion": "prc",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
+  "slug": "adversary-models-to-privacy-semi-honest",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Adversary models \u21d2 Privacy (semi-honest)",
+  "id": "red-adversary-models-to-privacy-semi-honest",
+  "kind": "implication",
+  "hypotheses": [
+   "malicious-security"
+  ],
+  "conclusion": "semi-honest-security",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+  "slug": "ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "AE + Hash function + PRF \u21d2 Symmetric CP-ABE",
+  "id": "red-ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+  "kind": "implication",
+  "hypotheses": [
+   "authenticated-encryption",
+   "hash-function",
+   "prf"
+  ],
+  "conclusion": "symmetric-cp-abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/agm-to-kea.md",
+  "slug": "agm-to-kea",
+  "type": "reduction",
+  "status": "stub",
+  "title": "AGM \u21d2 KEA",
+  "id": "red-agm-to-kea",
+  "kind": "implication",
+  "hypotheses": [
+   "agm"
+  ],
+  "conclusion": "kea",
+  "class": "unstated",
+  "model": "algebraic-group",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
+  "slug": "alternating-moduli-assumption-to-mpc-bip-18",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Alternating moduli assumption \u21d2 MPC",
+  "id": "red-alternating-moduli-assumption-to-mpc-bip-18",
+  "kind": "implication",
+  "hypotheses": [
+   "alternating-moduli-assumption"
+  ],
+  "conclusion": "mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
+  "slug": "alternating-moduli-assumption-to-prf-bip-18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Alternating moduli assumption \u21d2 PRF",
+  "id": "red-alternating-moduli-assumption-to-prf-bip-18",
+  "kind": "implication",
+  "hypotheses": [
+   "alternating-moduli-assumption"
+  ],
+  "conclusion": "prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
+  "slug": "alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Alternating moduli assumption \u21d2 Pseudorandom correlation generators (PCG)",
+  "id": "red-alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+  "kind": "implication",
+  "hypotheses": [
+   "alternating-moduli-assumption"
+  ],
+  "conclusion": "pseudorandom-correlation-generator",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/am-to-coam.md",
+  "slug": "am-to-coam",
+  "type": "reduction",
+  "status": "stub",
+  "title": "AM = coAM",
+  "id": "red-am-to-coam",
+  "kind": "equivalence",
+  "hypotheses": [
+   "am"
+  ],
+  "conclusion": "coam",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/anonymous-hibe-to-hibe.md",
+  "slug": "anonymous-hibe-to-hibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Anonymous HIBE \u21d2 HIBE",
+  "id": "red-anonymous-hibe-to-hibe",
+  "kind": "implication",
+  "hypotheses": [
+   "anonymous-hibe"
+  ],
+  "conclusion": "hibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
+  "slug": "arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) \u21d2 SNARK",
+  "id": "red-arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18",
+  "kind": "implication",
+  "hypotheses": [
+   "arithmetization",
+   "fri"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
+  "slug": "arithmetization-and-nizk-and-pcs-to-snark",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Arithmetization + NIZK + PCS \u21d2 SNARK",
+  "id": "red-arithmetization-and-nizk-and-pcs-to-snark",
+  "kind": "implication",
+  "hypotheses": [
+   "arithmetization",
+   "nizk",
+   "pcs"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "crs",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
+  "slug": "arithmetization-and-pcs-to-snark-kzg10",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Arithmetization + PCS \u21d2 SNARK",
+  "id": "red-arithmetization-and-pcs-to-snark-kzg10",
+  "kind": "implication",
+  "hypotheses": [
+   "arithmetization",
+   "pcs"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/arithmetization-to-snark-bbhr18.md",
+  "slug": "arithmetization-to-snark-bbhr18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Arithmetization \u21d2 SNARK",
+  "id": "red-arithmetization-to-snark-bbhr18",
+  "kind": "implication",
+  "hypotheses": [
+   "arithmetization"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/arithmetization-to-zk-snark-gro16.md",
+  "slug": "arithmetization-to-zk-snark-gro16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Arithmetization \u21d2 zk-SNARK",
+  "id": "red-arithmetization-to-zk-snark-gro16",
+  "kind": "implication",
+  "hypotheses": [
+   "arithmetization"
+  ],
+  "conclusion": "groth16",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
+  "slug": "attribute-hiding-security-to-payload-hiding-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Attribute-Hiding Security \u21d2 Payload-Hiding Security",
+  "id": "red-attribute-hiding-security-to-payload-hiding-security",
+  "kind": "implication",
+  "hypotheses": [
+   "hve-attribute-hiding"
+  ],
+  "conclusion": "hve-payload-hiding",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
+  "slug": "authenticated-key-exchange-ake-to-ke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Authenticated key exchange (AKE) \u21d2 KE",
+  "id": "red-authenticated-key-exchange-ake-to-ke",
+  "kind": "implication",
+  "hypotheses": [
+   "authenticated-key-exchange"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-abe-gpsw06.md",
+  "slug": "bdh-to-abe-gpsw06",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 ABE",
+  "id": "red-bdh-to-abe-gpsw06",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]",
+   "[[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]",
+   "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/bdh-to-ac.md",
+  "slug": "bdh-to-ac",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BDH \u21d2 AC",
+  "id": "red-bdh-to-ac",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "anonymous-credentials",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/bdh-to-be-bgw05.md",
+  "slug": "bdh-to-be-bgw05",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 BE",
+  "id": "red-bdh-to-be-bgw05",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "be",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-ds.md",
+  "slug": "bdh-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BDH \u21d2 DS",
+  "id": "red-bdh-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/bdh-to-hibe-wat09.md",
+  "slug": "bdh-to-hibe-wat09",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 HIBE",
+  "id": "red-bdh-to-hibe-wat09",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "hibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-hve-bw07.md",
+  "slug": "bdh-to-hve-bw07",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 HVE",
+  "id": "red-bdh-to-hve-bw07",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "hve",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-ibe-wat09.md",
+  "slug": "bdh-to-ibe-wat09",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 IBE",
+  "id": "red-bdh-to-ibe-wat09",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "ibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-nizk-gro16.md",
+  "slug": "bdh-to-nizk-gro16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BDH \u21d2 NIZK",
+  "id": "red-bdh-to-nizk-gro16",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bdh-to-vrf.md",
+  "slug": "bdh-to-vrf",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BDH \u21d2 VRF",
+  "id": "red-bdh-to-vrf",
+  "kind": "implication",
+  "hypotheses": [
+   "bdh"
+  ],
+  "conclusion": "verifiable-random-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md",
+  "slug": "bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Bilinear pairing + q-SDH \u21d2 KZG (Kate-Zaverucha-Goldberg)",
+  "id": "red-bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
+  "kind": "implication",
+  "hypotheses": [
+   "bilinear-pairing",
+   "q-strong-diffie-hellman"
+  ],
+  "conclusion": "kzg-polynomial-commitment",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
+  "slug": "bilinear-pairing-and-q-sdh-to-pcs-kzg10",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Bilinear pairing + q-SDH \u21d2 PCS",
+  "id": "red-bilinear-pairing-and-q-sdh-to-pcs-kzg10",
+  "kind": "implication",
+  "hypotheses": [
+   "bilinear-pairing",
+   "q-strong-diffie-hellman"
+  ],
+  "conclusion": "pcs",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bilinear-pairing-to-ds.md",
+  "slug": "bilinear-pairing-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Bilinear pairing \u21d2 DS",
+  "id": "red-bilinear-pairing-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "bilinear-pairing"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
+  "slug": "bilinear-pairing-to-snark-gro16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Bilinear pairing \u21d2 SNARK",
+  "id": "red-bilinear-pairing-to-snark-gro16",
+  "kind": "implication",
+  "hypotheses": [
+   "bilinear-pairing"
+  ],
+  "conclusion": "snark",
+  "class": "free",
+  "model": "generic-group",
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-am-gs86.md",
+  "slug": "bpp-to-am-gs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BPP \u2286 AM",
+  "id": "red-bpp-to-am-gs86",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-bqp.md",
+  "slug": "bpp-to-bqp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BPP \u2286 BQP",
+  "id": "red-bpp-to-bqp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "bqp",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-coam-gs86.md",
+  "slug": "bpp-to-coam-gs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BPP \u2286 coAM",
+  "id": "red-bpp-to-coam-gs86",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "coam",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-p-poly.md",
+  "slug": "bpp-to-p-poly",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BPP \u2286 P/poly",
+  "id": "red-bpp-to-p-poly",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "ppoly",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-pp.md",
+  "slug": "bpp-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BPP \u2286 PP",
+  "id": "red-bpp-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bpp-to-pspace.md",
+  "slug": "bpp-to-pspace",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BPP \u2286 PSPACE",
+  "id": "red-bpp-to-pspace",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bpp"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bqp-to-dlog-shor97.md",
+  "slug": "bqp-to-dlog-shor97",
+  "type": "reduction",
+  "status": "draft",
+  "title": "BQP \u2286 DLOG",
+  "id": "red-bqp-to-dlog-shor97",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bqp"
+  ],
+  "conclusion": "dlog",
+  "class": "free",
+  "model": "quantum",
+  "source": [
+   "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/bqp-to-pp.md",
+  "slug": "bqp-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "BQP \u2286 PP",
+  "id": "red-bqp-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "bqp"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/cca-security-to-cca1-security.md",
+  "slug": "cca-security-to-cca1-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CCA Security \u21d2 CCA1 Security",
+  "id": "red-cca-security-to-cca1-security",
+  "kind": "implication",
+  "hypotheses": [
+   "pke-cca2-security"
+  ],
+  "conclusion": "pke-cca1-security",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/cca1-security-to-cpa-security.md",
+  "slug": "cca1-security-to-cpa-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CCA1 Security \u21d2 CPA Security",
+  "id": "red-cca1-security-to-cpa-security",
+  "kind": "implication",
+  "hypotheses": [
+   "pke-cca1-security"
+  ],
+  "conclusion": "pke-cpa-security",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/cdh-to-bdh.md",
+  "slug": "cdh-to-bdh",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CDH \u21d2 BDH",
+  "id": "red-cdh-to-bdh",
+  "kind": "implication",
+  "hypotheses": [
+   "cdh"
+  ],
+  "conclusion": "bdh",
+  "class": "unstated",
+  "model": "generic-group",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/cdh-to-ddh.md",
+  "slug": "cdh-to-ddh",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CDH \u21d2 DDH",
+  "id": "red-cdh-to-ddh",
+  "kind": "implication",
+  "hypotheses": [
+   "cdh"
+  ],
+  "conclusion": "ddh",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/cdh-to-dlog.md",
+  "slug": "cdh-to-dlog",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CDH \u21d2 DLOG",
+  "id": "red-cdh-to-dlog",
+  "kind": "implication",
+  "hypotheses": [
+   "cdh"
+  ],
+  "conclusion": "dlog",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/circular-security-and-lwe-to-he.md",
+  "slug": "circular-security-and-lwe-to-he",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Circular security + LWE \u21d2 HE",
+  "id": "red-circular-security-and-lwe-to-he",
+  "kind": "implication",
+  "hypotheses": [
+   "circular-security",
+   "lwe"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
+  "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Circular security + Somewhat homomorphic encryption (SHE) \u21d2 HE",
+  "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
+  "kind": "implication",
+  "hypotheses": [
+   "circular-security",
+   "somewhat-homomorphic-encryption"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/co-cdh-to-ds.md",
+  "slug": "co-cdh-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "co-CDH \u21d2 DS",
+  "id": "red-co-cdh-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "co-cdh"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+  "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
+  "type": "reduction",
+  "status": "stub",
+  "title": "COM + SS \u21d2 Verifiable secret sharing (VSS)",
+  "id": "red-com-and-ss-to-verifiable-secret-sharing-vss",
+  "kind": "implication",
+  "hypotheses": [
+   "com",
+   "ss"
+  ],
+  "conclusion": "verifiable-secret-sharing",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/com-to-mpc-gmw87.md",
+  "slug": "com-to-mpc-gmw87",
+  "type": "reduction",
+  "status": "stub",
+  "title": "COM \u21d2 MPC",
+  "id": "red-com-to-mpc-gmw87",
+  "kind": "implication",
+  "hypotheses": [
+   "com"
+  ],
+  "conclusion": "mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GMW87 - How to play ANY mental game|GMW87]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/com-to-ot-kil88.md",
+  "slug": "com-to-ot-kil88",
+  "type": "reduction",
+  "status": "stub",
+  "title": "COM \u21d2 OT",
+  "id": "red-com-to-ot-kil88",
+  "kind": "implication",
+  "hypotheses": [
+   "com"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
+  "slug": "com-to-two-party-computation-2pc-gmw87",
+  "type": "reduction",
+  "status": "stub",
+  "title": "COM \u21d2 Two-party computation (2PC)",
+  "id": "red-com-to-two-party-computation-2pc-gmw87",
+  "kind": "implication",
+  "hypotheses": [
+   "com"
+  ],
+  "conclusion": "two-party-computation",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GMW87 - How to play ANY mental game|GMW87]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/conp-to-am-gs86.md",
+  "slug": "conp-to-am-gs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "coNP \u2286 AM",
+  "id": "red-conp-to-am-gs86",
+  "kind": "inclusion",
+  "hypotheses": [
+   "conp"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/conp-to-coam.md",
+  "slug": "conp-to-coam",
+  "type": "reduction",
+  "status": "stub",
+  "title": "coNP \u2286 coAM",
+  "id": "red-conp-to-coam",
+  "kind": "inclusion",
+  "hypotheses": [
+   "conp"
+  ],
+  "conclusion": "coam",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/conp-to-pspace.md",
+  "slug": "conp-to-pspace",
+  "type": "reduction",
+  "status": "stub",
+  "title": "coNP \u2286 PSPACE",
+  "id": "red-conp-to-pspace",
+  "kind": "inclusion",
+  "hypotheses": [
+   "conp"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/cpa-security-to-cpa-security.md",
+  "slug": "cpa-security-to-cpa-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "CPA Security \u21d4 CPA Security",
+  "id": "red-cpa-security-to-cpa-security",
+  "kind": "equivalence",
+  "hypotheses": [
+   "ind-cpa-security"
+  ],
+  "conclusion": "semantic-security",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/cpir-to-ot-dmo00.md",
+  "slug": "cpir-to-ot-dmo00",
+  "type": "reduction",
+  "status": "draft",
+  "title": "cPIR \u21d2 OT",
+  "id": "red-cpir-to-ot-dmo00",
+  "kind": "implication",
+  "hypotheses": [
+   "cpir"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/czk-to-ip-bgg-90.md",
+  "slug": "czk-to-ip-bgg-90",
+  "type": "reduction",
+  "status": "draft",
+  "title": "CZK = IP",
+  "id": "red-czk-to-ip-bgg-90",
+  "kind": "equivalence",
+  "hypotheses": [
+   "czk"
+  ],
+  "conclusion": "ip",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/d-th-composite-residuosity-to-he.md",
+  "slug": "d-th-composite-residuosity-to-he",
+  "type": "reduction",
+  "status": "stub",
+  "title": "$d$-th Composite Residuosity \u21d2 HE",
+  "id": "red-d-th-composite-residuosity-to-he",
+  "kind": "implication",
+  "hypotheses": [
+   "d-th-composite-residuosity"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+  "slug": "dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DCR + Sparse Learning Parity with Noise \u21d2 Somewhat homomorphic encryption (SHE)",
+  "id": "red-dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "kind": "implication",
+  "hypotheses": [
+   "dcr",
+   "sparse-lpn"
+  ],
+  "conclusion": "somewhat-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dcr-to-com.md",
+  "slug": "dcr-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DCR \u21d2 COM",
+  "id": "red-dcr-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "dcr"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/dcr-to-he-pai99.md",
+  "slug": "dcr-to-he-pai99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DCR \u21d2 HE",
+  "id": "red-dcr-to-he-pai99",
+  "kind": "implication",
+  "hypotheses": [
+   "dcr"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
+  "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DCR \u21d2 Partially homomorphic encryption (PHE)",
+  "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
+  "kind": "implication",
+  "hypotheses": [
+   "dcr"
+  ],
+  "conclusion": "additively-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dcr-to-pke-pai99.md",
+  "slug": "dcr-to-pke-pai99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DCR \u21d2 PKE",
+  "id": "red-dcr-to-pke-pai99",
+  "kind": "implication",
+  "hypotheses": [
+   "dcr"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+  "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH + LPN + LWE + NC1-PRG \u21d2 iO",
+  "id": "red-ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh",
+   "lpn",
+   "lwe",
+   "prg-in-nc1"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+  "slug": "ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH + Sparse Learning Parity with Noise \u21d2 Somewhat homomorphic encryption (SHE)",
+  "id": "red-ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh",
+   "sparse-lpn"
+  ],
+  "conclusion": "somewhat-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-to-cdh.md",
+  "slug": "ddh-to-cdh",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DDH \u21d2 CDH",
+  "id": "red-ddh-to-cdh",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "cdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/ddh-to-com.md",
+  "slug": "ddh-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DDH \u21d2 COM",
+  "id": "red-ddh-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/ddh-to-ke-dh76.md",
+  "slug": "ddh-to-ke-dh76",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH \u21d2 KE",
+  "id": "red-ddh-to-ke-dh76",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DH76 - New Directions in Cryptography|DH76]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
+  "slug": "ddh-to-non-interactive-key-exchange-nike",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DDH \u21d2 Non-interactive key exchange (NIKE)",
+  "id": "red-ddh-to-non-interactive-key-exchange-nike",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "non-interactive-key-exchange",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-to-pke-elgamal85.md",
+  "slug": "ddh-to-pke-elgamal85",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH \u21d2 PKE",
+  "id": "red-ddh-to-pke-elgamal85",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]",
+   "[[DH76 - New Directions in Cryptography|DH76]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-to-prf-nr97.md",
+  "slug": "ddh-to-prf-nr97",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH \u21d2 PRF (Naor\u2013Reingold)",
+  "id": "red-ddh-to-prf-nr97",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ddh-to-tdh-dgi-19.md",
+  "slug": "ddh-to-tdh-dgi-19",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DDH \u21d2 TDH",
+  "id": "red-ddh-to-tdh-dgi-19",
+  "kind": "implication",
+  "hypotheses": [
+   "ddh"
+  ],
+  "conclusion": "tdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/decision-lwe-to-search-lwe.md",
+  "slug": "decision-lwe-to-search-lwe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Decision LWE \u21d2 Search LWE",
+  "id": "red-decision-lwe-to-search-lwe",
+  "kind": "implication",
+  "hypotheses": [
+   "decision-lwe"
+  ],
+  "conclusion": "search-lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/depir-to-cpir.md",
+  "slug": "depir-to-cpir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DEPIR \u21d2 cPIR",
+  "id": "red-depir-to-cpir",
+  "kind": "implication",
+  "hypotheses": [
+   "depir"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
+  "slug": "differing-inputs-obfuscation-dio-to-io",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Differing-inputs obfuscation (diO) \u21d4 iO",
+  "id": "red-differing-inputs-obfuscation-dio-to-io",
+  "kind": "equivalence",
+  "hypotheses": [
+   "differing-inputs-obfuscation"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dkg-and-he-to-tpke.md",
+  "slug": "dkg-and-he-to-tpke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DKG + HE \u21d2 TPKE",
+  "id": "red-dkg-and-he-to-tpke",
+  "kind": "implication",
+  "hypotheses": [
+   "distributed-key-generation",
+   "he"
+  ],
+  "conclusion": "threshold-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlin-to-ippe-ksw08.md",
+  "slug": "dlin-to-ippe-ksw08",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLIN \u21d2 IPPE",
+  "id": "red-dlin-to-ippe-ksw08",
+  "kind": "implication",
+  "hypotheses": [
+   "decisional-linear"
+  ],
+  "conclusion": "ippe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
+  "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG + ROM \u21d2 Schnorr signatures",
+  "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog",
+   "rom"
+  ],
+  "conclusion": "schnorr-signature",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
+  "slug": "dlog-to-bls-signatures-fkl18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG \u21d2 BLS signatures",
+  "id": "red-dlog-to-bls-signatures-fkl18",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "boneh-lynn-shacham-signature",
+  "class": "unstated",
+  "model": "algebraic-group",
+  "source": [
+   "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-cdh-fkl18.md",
+  "slug": "dlog-to-cdh-fkl18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG \u21d2 CDH",
+  "id": "red-dlog-to-cdh-fkl18",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "cdh",
+  "class": "unstated",
+  "model": "algebraic-group",
+  "source": [
+   "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-conp.md",
+  "slug": "dlog-to-conp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u2286 coNP",
+  "id": "red-dlog-to-conp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "conp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-ddh-fkl18.md",
+  "slug": "dlog-to-ddh-fkl18",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u21d2 DDH",
+  "id": "red-dlog-to-ddh-fkl18",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "ddh",
+  "class": "unstated",
+  "model": "algebraic-group",
+  "source": [
+   "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/dlog-to-ds-sch91.md",
+  "slug": "dlog-to-ds-sch91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG \u21d2 DS",
+  "id": "red-dlog-to-ds-sch91",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
+   "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-np.md",
+  "slug": "dlog-to-np",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u2286 NP",
+  "id": "red-dlog-to-np",
+  "kind": "inclusion",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "np",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-pcs.md",
+  "slug": "dlog-to-pcs",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u21d2 PCS",
+  "id": "red-dlog-to-pcs",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "pcs",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-prg-bm84.md",
+  "slug": "dlog-to-prg-bm84",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG \u21d2 PRG",
+  "id": "red-dlog-to-prg-bm84",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "prg",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
+  "slug": "dlog-to-schnorr-signatures-sch91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DLOG \u21d2 Schnorr signatures",
+  "id": "red-dlog-to-schnorr-signatures-sch91",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "schnorr-identification-protocol",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/dlog-to-tdp.md",
+  "slug": "dlog-to-tdp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u21d2 TDP",
+  "id": "red-dlog-to-tdp",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "tdp",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/dlog-to-tfnp.md",
+  "slug": "dlog-to-tfnp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u2286 TFNP",
+  "id": "red-dlog-to-tfnp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "tfnp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dlog-to-zkp.md",
+  "slug": "dlog-to-zkp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DLOG \u21d2 ZKP",
+  "id": "red-dlog-to-zkp",
+  "kind": "implication",
+  "hypotheses": [
+   "dlog"
+  ],
+  "conclusion": "zkp",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
+  "slug": "dpf-to-computational-multi-server-pir-gi14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DPF \u21d2 Computational Multi-server PIR",
+  "id": "red-dpf-to-computational-multi-server-pir-gi14",
+  "kind": "implication",
+  "hypotheses": [
+   "dpf"
+  ],
+  "conclusion": "computational-multi-server-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dpf-to-it-pir-gi14.md",
+  "slug": "dpf-to-it-pir-gi14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "DPF \u21d2 IT-PIR",
+  "id": "red-dpf-to-it-pir-gi14",
+  "kind": "implication",
+  "hypotheses": [
+   "dpf"
+  ],
+  "conclusion": "it-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/dpf-to-multi-point-functions.md",
+  "slug": "dpf-to-multi-point-functions",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DPF \u21d2 Multi-point functions",
+  "id": "red-dpf-to-multi-point-functions",
+  "kind": "implication",
+  "hypotheses": [
+   "dpf"
+  ],
+  "conclusion": "multi-point-function-secret-sharing",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ds-to-hash-function.md",
+  "slug": "ds-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "DS \u21d2 Hash function",
+  "id": "red-ds-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "ds"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
+  "slug": "enhanced-trapdoor-permutations-to-ot-gkm-00",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Enhanced trapdoor permutations \u21d2 OT",
+  "id": "red-enhanced-trapdoor-permutations-to-ot-gkm-00",
+  "kind": "implication",
+  "hypotheses": [
+   "enhanced-trapdoor-permutation"
+  ],
+  "conclusion": "ot",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": [
+   "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/evasive-lwe-to-abe-wee22.md",
+  "slug": "evasive-lwe-to-abe-wee22",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Evasive LWE \u21d2 ABE",
+  "id": "red-evasive-lwe-to-abe-wee22",
+  "kind": "implication",
+  "hypotheses": [
+   "evasive-lwe"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/evasive-lwe-to-abe.md",
+  "slug": "evasive-lwe-to-abe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Evasive LWE \u21d2 ABE",
+  "id": "red-evasive-lwe-to-abe",
+  "kind": "implication",
+  "hypotheses": [
+   "circular-evasive-lwe"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/evasive-lwe-to-be-wee22.md",
+  "slug": "evasive-lwe-to-be-wee22",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Evasive LWE \u21d2 BE",
+  "id": "red-evasive-lwe-to-be-wee22",
+  "kind": "implication",
+  "hypotheses": [
+   "evasive-lwe"
+  ],
+  "conclusion": "be",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fac-to-dcr-pai99.md",
+  "slug": "fac-to-dcr-pai99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "FAC \u21d2 DCR",
+  "id": "red-fac-to-dcr-pai99",
+  "kind": "implication",
+  "hypotheses": [
+   "fac"
+  ],
+  "conclusion": "dcr",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/fac-to-ds-gmr88.md",
+  "slug": "fac-to-ds-gmr88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "FAC \u21d2 DS",
+  "id": "red-fac-to-ds-gmr88",
+  "kind": "implication",
+  "hypotheses": [
+   "fac"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fac-to-qr-gm84.md",
+  "slug": "fac-to-qr-gm84",
+  "type": "reduction",
+  "status": "draft",
+  "title": "FAC \u21d2 QR",
+  "id": "red-fac-to-qr-gm84",
+  "kind": "implication",
+  "hypotheses": [
+   "fac"
+  ],
+  "conclusion": "qr",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GM84 - Probabilistic encryption|GM84]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/fac-to-rsa-rsa78.md",
+  "slug": "fac-to-rsa-rsa78",
+  "type": "reduction",
+  "status": "draft",
+  "title": "FAC \u21d2 RSA",
+  "id": "red-fac-to-rsa-rsa78",
+  "kind": "implication",
+  "hypotheses": [
+   "fac"
+  ],
+  "conclusion": "rsa",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/fac-to-tfnp.md",
+  "slug": "fac-to-tfnp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "FAC \u2286 TFNP",
+  "id": "red-fac-to-tfnp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "fac"
+  ],
+  "conclusion": "tfnp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
+  "slug": "factoring-with-known-factor-structure-to-prg",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Factoring with known factor structure \u21d2 PRG",
+  "id": "red-factoring-with-known-factor-structure-to-prg",
+  "kind": "implication",
+  "hypotheses": [
+   "factoring-blum-integers"
+  ],
+  "conclusion": "prg",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
+  "slug": "falsifiable-assumption-to-snark-gro16",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Falsifiable assumption \u21d2 SNARK",
+  "id": "red-falsifiable-assumption-to-snark-gro16",
+  "kind": "implication",
+  "hypotheses": [
+   "falsifiable-assumption"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "algebraic-group",
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fe-to-io.md",
+  "slug": "fe-to-io",
+  "type": "reduction",
+  "status": "stub",
+  "title": "FE \u21d2 iO",
+  "id": "red-fe-to-io",
+  "kind": "implication",
+  "hypotheses": [
+   "functional-encryption"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
+  "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Fiat-Shamir + Honest-verifier ZK (HVZK) \u21d2 NIZK",
+  "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
+  "kind": "implication",
+  "hypotheses": [
+   "fiat-shamir",
+   "honest-verifier-zero-knowledge"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
+  "slug": "fiat-shamir-and-schnorr-signatures-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Fiat-Shamir + Schnorr signatures \u21d2 DS",
+  "id": "red-fiat-shamir-and-schnorr-signatures-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "fiat-shamir",
+   "schnorr-identification-protocol"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+  "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Fiat-Shamir + Schnorr signatures \u21d2 Schnorr signatures",
+  "id": "red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+  "kind": "implication",
+  "hypotheses": [
+   "fiat-shamir",
+   "schnorr-identification-protocol"
+  ],
+  "conclusion": "schnorr-signature",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
+  "slug": "fri-fast-reed-solomon-iop-of-proximity-to-snark",
+  "type": "reduction",
+  "status": "stub",
+  "title": "FRI (Fast Reed-Solomon IOP of Proximity) \u21d2 SNARK",
+  "id": "red-fri-fast-reed-solomon-iop-of-proximity-to-snark",
+  "kind": "implication",
+  "hypotheses": [
+   "fri"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
+  "slug": "function-secret-sharing-fss-to-dpf-bgi15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Function secret sharing (FSS) \u21d2 DPF",
+  "id": "red-function-secret-sharing-fss-to-dpf-bgi15",
+  "kind": "implication",
+  "hypotheses": [
+   "function-secret-sharing"
+  ],
+  "conclusion": "dpf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BGI15 - Function Secret Sharing|BGI15]]",
+   "[[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/fuzzy-ibe-to-ibe.md",
+  "slug": "fuzzy-ibe-to-ibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Fuzzy IBE \u21d2 IBE",
+  "id": "red-fuzzy-ibe-to-ibe",
+  "kind": "implication",
+  "hypotheses": [
+   "fuzzy-ibe"
+  ],
+  "conclusion": "ibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/gapsvp-to-lwe-reg05.md",
+  "slug": "gapsvp-to-lwe-reg05",
+  "type": "reduction",
+  "status": "draft",
+  "title": "GapSVP \u21d2 LWE",
+  "id": "red-gapsvp-to-lwe-reg05",
+  "kind": "implication",
+  "hypotheses": [
+   "gapsvp"
+  ],
+  "conclusion": "lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/gapsvp-to-sis-ajt96.md",
+  "slug": "gapsvp-to-sis-ajt96",
+  "type": "reduction",
+  "status": "draft",
+  "title": "GapSVP \u21d2 SIS",
+  "id": "red-gapsvp-to-sis-ajt96",
+  "kind": "implication",
+  "hypotheses": [
+   "gapsvp"
+  ],
+  "conclusion": "sis",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
+  "slug": "gc-and-ot-to-two-party-computation-2pc",
+  "type": "reduction",
+  "status": "stub",
+  "title": "GC + OT \u21d2 Two-party computation (2PC)",
+  "id": "red-gc-and-ot-to-two-party-computation-2pc",
+  "kind": "implication",
+  "hypotheses": [
+   "garbled-circuits",
+   "ot"
+  ],
+  "conclusion": "two-party-computation",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ggm-to-abe-bsw07.md",
+  "slug": "ggm-to-abe-bsw07",
+  "type": "reduction",
+  "status": "draft",
+  "title": "GGM \u21d2 ABE",
+  "id": "red-ggm-to-abe-bsw07",
+  "kind": "implication",
+  "hypotheses": [
+   "ggm"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "generic-group",
+  "source": [
+   "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
+  "slug": "hash-based-signatures-and-hash-based-signatures-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash-based signatures + Hash-based signatures \u21d2 DS",
+  "id": "red-hash-based-signatures-and-hash-based-signatures-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "few-time-signature",
+   "xmss"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-based-signatures-to-ds-mer89.md",
+  "slug": "hash-based-signatures-to-ds-mer89",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash-based signatures \u21d2 DS",
+  "id": "red-hash-based-signatures-to-ds-mer89",
+  "kind": "implication",
+  "hypotheses": [
+   "one-time-signature"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Mer89 - A Certified Digital Signature|Mer89]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
+  "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + Hash-based signatures \u21d2 DS",
+  "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "one-time-signature"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Mer89 - A Certified Digital Signature|Mer89]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
+  "slug": "hash-function-and-io-to-deniable-encryption-sw14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + iO \u21d2 Deniable encryption",
+  "id": "red-hash-function-and-io-to-deniable-encryption-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "deniable-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
+  "slug": "hash-function-and-io-to-ds-sw14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + iO \u21d2 DS",
+  "id": "red-hash-function-and-io-to-ds-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
+  "slug": "hash-function-and-io-to-fe-sw14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + iO \u21d2 FE",
+  "id": "red-hash-function-and-io-to-fe-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "functional-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]",
+   "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
+  "slug": "hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function + iO \u21d2 Lossy trapdoor functions",
+  "id": "red-hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "lossy-functions",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
+  "slug": "hash-function-and-io-to-nizk-sw14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + iO \u21d2 NIZK",
+  "id": "red-hash-function-and-io-to-nizk-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
+  "slug": "hash-function-and-io-to-pke-sw14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + iO \u21d2 PKE",
+  "id": "red-hash-function-and-io-to-pke-sw14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "io"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+  "slug": "hash-function-and-prf-to-symmetric-cp-abe-ls26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function + PRF \u21d2 Symmetric CP-ABE",
+  "id": "red-hash-function-and-prf-to-symmetric-cp-abe-ls26",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function",
+   "prf"
+  ],
+  "conclusion": "symmetric-cp-abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-czk.md",
+  "slug": "hash-function-to-czk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 CZK",
+  "id": "red-hash-function-to-czk",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "czk",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-dpf-gi14.md",
+  "slug": "hash-function-to-dpf-gi14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 DPF",
+  "id": "red-hash-function-to-dpf-gi14",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "dpf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-ds.md",
+  "slug": "hash-function-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 DS",
+  "id": "red-hash-function-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
+  "slug": "hash-function-to-hash-based-signatures-lam79",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 Hash-based signatures",
+  "id": "red-hash-function-to-hash-based-signatures-lam79",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "one-time-signature",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/hash-function-to-hash-based-signatures.md",
+  "slug": "hash-function-to-hash-based-signatures",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 Hash-based signatures",
+  "id": "red-hash-function-to-hash-based-signatures",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "xmss",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-mac.md",
+  "slug": "hash-function-to-mac",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 MAC",
+  "id": "red-hash-function-to-mac",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "mac",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-pcs-bbhr18.md",
+  "slug": "hash-function-to-pcs-bbhr18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 PCS",
+  "id": "red-hash-function-to-pcs-bbhr18",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "pcs",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-prf.md",
+  "slug": "hash-function-to-prf",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 PRF",
+  "id": "red-hash-function-to-prf",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-prg-hill99.md",
+  "slug": "hash-function-to-prg-hill99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 PRG",
+  "id": "red-hash-function-to-prg-hill99",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "prg",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
+   "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
+  "slug": "hash-function-to-secret-key-pir-sk-pir-bm26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 Secret-Key PIR (SK-PIR)",
+  "id": "red-hash-function-to-secret-key-pir-sk-pir-bm26",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "secret-key-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BM26 - Secret-Key PIR from One-Way Functions|BM26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-ske.md",
+  "slug": "hash-function-to-ske",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Hash function \u21d2 SKE",
+  "id": "red-hash-function-to-ske",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "ske",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hash-function-to-snark-bbhr18.md",
+  "slug": "hash-function-to-snark-bbhr18",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 SNARK",
+  "id": "red-hash-function-to-snark-bbhr18",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/hash-function-to-zkp-gmw91.md",
+  "slug": "hash-function-to-zkp-gmw91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Hash function \u21d2 ZKP",
+  "id": "red-hash-function-to-zkp-gmw91",
+  "kind": "implication",
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "zkp",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": [
+   "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
+  "slug": "he-to-mpc-with-preprocessing-spdz-etc",
+  "type": "reduction",
+  "status": "stub",
+  "title": "HE \u21d2 MPC with preprocessing (SPDZ, etc.)",
+  "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
+  "kind": "implication",
+  "hypotheses": [
+   "he"
+  ],
+  "conclusion": "mpc-with-preprocessing",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/he-to-re-bl13.md",
+  "slug": "he-to-re-bl13",
+  "type": "reduction",
+  "status": "draft",
+  "title": "HE \u21d2 RE",
+  "id": "red-he-to-re-bl13",
+  "kind": "implication",
+  "hypotheses": [
+   "he"
+  ],
+  "conclusion": "rerandomizable-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hibe-to-ibe.md",
+  "slug": "hibe-to-ibe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "HIBE \u21d2 IBE",
+  "id": "red-hibe-to-ibe",
+  "kind": "implication",
+  "hypotheses": [
+   "hibe"
+  ],
+  "conclusion": "ibe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hiding-to-cpir.md",
+  "slug": "hiding-to-cpir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "\u03a6-Hiding \u21d2 cPIR",
+  "id": "red-hiding-to-cpir",
+  "kind": "implication",
+  "hypotheses": [
+   "phi-hiding"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/higher-residuosity-to-pke.md",
+  "slug": "higher-residuosity-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Higher residuosity \u21d2 PKE",
+  "id": "red-higher-residuosity-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "higher-residuosity"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
+  "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Honest majority ($t < n/3$ or $t < n/2$) \u21d2 MPC",
+  "id": "red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+  "kind": "implication",
+  "hypotheses": [
+   "honest-majority-t-lt-n-over-3"
+  ],
+  "conclusion": "mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/hve-to-subset-and-range-queries.md",
+  "slug": "hve-to-subset-and-range-queries",
+  "type": "reduction",
+  "status": "stub",
+  "title": "HVE \u21d2 Subset and range queries",
+  "id": "red-hve-to-subset-and-range-queries",
+  "kind": "implication",
+  "hypotheses": [
+   "hve"
+  ],
+  "conclusion": "range-query-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ibe-to-pke.md",
+  "slug": "ibe-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IBE \u21d2 PKE",
+  "id": "red-ibe-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "ibe"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/id-and-rom-to-ds.md",
+  "slug": "id-and-rom-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ID + ROM \u21d2 DS",
+  "id": "red-id-and-rom-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "identification-scheme",
+   "rom"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ideal-prc-to-prc.md",
+  "slug": "ideal-prc-to-prc",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Ideal PRC \u21d2 PRC",
+  "id": "red-ideal-prc-to-prc",
+  "kind": "implication",
+  "hypotheses": [
+   "ideal-prc"
+  ],
+  "conclusion": "prc",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
+  "slug": "ideal-svp-to-ring-lwe-lpr10",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Ideal-SVP \u21d2 Ring LWE",
+  "id": "red-ideal-svp-to-ring-lwe-lpr10",
+  "kind": "implication",
+  "hypotheses": [
+   "ideal-svp"
+  ],
+  "conclusion": "ring-lwe",
+  "class": "unstated",
+  "model": "quantum",
+  "source": [
+   "[[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
+  "slug": "ideal-svp-to-ring-sis-lm06",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Ideal-SVP \u21d2 Ring-SIS",
+  "id": "red-ideal-svp-to-ring-sis-lm06",
+  "kind": "implication",
+  "hypotheses": [
+   "ideal-svp"
+  ],
+  "conclusion": "ring-sis",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
+  "slug": "ind-cca-security-to-ind-cpa-kem",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IND-CCA security \u21d2 IND-CPA KEM",
+  "id": "red-ind-cca-security-to-ind-cpa-kem",
+  "kind": "implication",
+  "hypotheses": [
+   "ind-cca-kem"
+  ],
+  "conclusion": "ind-cpa-kem",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
+  "slug": "ind-cpa-kem-to-ind-cca-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IND-CPA KEM \u21d2 IND-CCA security",
+  "id": "red-ind-cpa-kem-to-ind-cca-security",
+  "kind": "implication",
+  "hypotheses": [
+   "ind-cpa-kem"
+  ],
+  "conclusion": "ind-cca-kem",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
+  "slug": "ind-id-cpa-security-to-ind-sid-cpa-security-selective",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IND-ID-CPA Security \u21d2 IND-sID-CPA Security (Selective)",
+  "id": "red-ind-id-cpa-security-to-ind-sid-cpa-security-selective",
+  "kind": "implication",
+  "hypotheses": [
+   "ind-id-cpa"
+  ],
+  "conclusion": "ind-sid-cpa",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
+  "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IND-sID-CPA Security (Selective) \u21d2 IND-ID-CPA Security",
+  "id": "red-ind-sid-cpa-security-selective-to-ind-id-cpa-security",
+  "kind": "implication",
+  "hypotheses": [
+   "ind-sid-cpa"
+  ],
+  "conclusion": "ind-id-cpa",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
+  "slug": "interactive-protocol-and-rom-to-nizk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "interactive protocol + ROM \u21d2 NIZK",
+  "id": "red-interactive-protocol-and-rom-to-nizk",
+  "kind": "implication",
+  "hypotheses": [
+   "interactive-protocol",
+   "rom"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
+  "slug": "interactive-protocol-and-rom-to-snark",
+  "type": "reduction",
+  "status": "stub",
+  "title": "interactive protocol + ROM \u21d2 SNARK",
+  "id": "red-interactive-protocol-and-rom-to-snark",
+  "kind": "implication",
+  "hypotheses": [
+   "interactive-protocol",
+   "rom"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/invertible-prfs-to-prf.md",
+  "slug": "invertible-prfs-to-prf",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Invertible PRFs \u21d2 PRF",
+  "id": "red-invertible-prfs-to-prf",
+  "kind": "implication",
+  "hypotheses": [
+   "invertible-prf"
+  ],
+  "conclusion": "prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ip-and-rom-to-snark-fs86.md",
+  "slug": "ip-and-rom-to-snark-fs86",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IP + ROM \u21d2 SNARK",
+  "id": "red-ip-and-rom-to-snark-fs86",
+  "kind": "implication",
+  "hypotheses": [
+   "ip",
+   "rom"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/ip-to-am-gs86.md",
+  "slug": "ip-to-am-gs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "IP \u2286 AM",
+  "id": "red-ip-to-am-gs86",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ip"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ip-to-pspace-ccg-94.md",
+  "slug": "ip-to-pspace-ccg-94",
+  "type": "reduction",
+  "status": "draft",
+  "title": "IP \u2286 PSPACE",
+  "id": "red-ip-to-pspace-ccg-94",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ip"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[CCG+94 - The random oracle hypothesis is false|CCG+94]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ip-to-qip.md",
+  "slug": "ip-to-qip",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IP \u2286 QIP",
+  "id": "red-ip-to-qip",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ip"
+  ],
+  "conclusion": "qip",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ip-to-szk-bgg-90.md",
+  "slug": "ip-to-szk-bgg-90",
+  "type": "reduction",
+  "status": "draft",
+  "title": "IP \u2286 SZK",
+  "id": "red-ip-to-szk-bgg-90",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ip"
+  ],
+  "conclusion": "szk",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/ippe-to-hve.md",
+  "slug": "ippe-to-hve",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IPPE \u21d2 HVE",
+  "id": "red-ippe-to-hve",
+  "kind": "implication",
+  "hypotheses": [
+   "ippe"
+  ],
+  "conclusion": "hve",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ippe-to-payload-only-hiding.md",
+  "slug": "ippe-to-payload-only-hiding",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IPPE \u21d2 Payload-only hiding",
+  "id": "red-ippe-to-payload-only-hiding",
+  "kind": "implication",
+  "hypotheses": [
+   "ippe"
+  ],
+  "conclusion": "payload-hiding-ippe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
+  "slug": "isis-inhomogeneous-sis-to-ds-gpv08",
+  "type": "reduction",
+  "status": "draft",
+  "title": "ISIS (Inhomogeneous SIS) \u21d2 DS",
+  "id": "red-isis-inhomogeneous-sis-to-ds-gpv08",
+  "kind": "implication",
+  "hypotheses": [
+   "inhomogeneous-sis"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
+  "slug": "isis-inhomogeneous-sis-to-sis",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ISIS (Inhomogeneous SIS) \u21d4 SIS",
+  "id": "red-isis-inhomogeneous-sis-to-sis",
+  "kind": "equivalence",
+  "hypotheses": [
+   "inhomogeneous-sis"
+  ],
+  "conclusion": "sis",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
+  "slug": "it-pir-to-computational-multi-server-pir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "IT-PIR \u21d2 Computational Multi-server PIR",
+  "id": "red-it-pir-to-computational-multi-server-pir",
+  "kind": "implication",
+  "hypotheses": [
+   "it-pir"
+  ],
+  "conclusion": "computational-multi-server-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
+  "slug": "k-linear-assumption-to-abe-rw13",
+  "type": "reduction",
+  "status": "draft",
+  "title": "$k$-Linear assumption \u21d2 ABE",
+  "id": "red-k-linear-assumption-to-abe-rw13",
+  "kind": "implication",
+  "hypotheses": [
+   "k-linear-assumption"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/k-out-of-n-ot-to-cpir.md",
+  "slug": "k-out-of-n-ot-to-cpir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "$k$-out-of-$n$ OT \u21d4 cPIR",
+  "id": "red-k-out-of-n-ot-to-cpir",
+  "kind": "equivalence",
+  "hypotheses": [
+   "one-out-of-n-ot"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ke-to-multi-party-key-exchange.md",
+  "slug": "ke-to-multi-party-key-exchange",
+  "type": "reduction",
+  "status": "stub",
+  "title": "KE \u21d2 Multi-party key exchange",
+  "id": "red-ke-to-multi-party-key-exchange",
+  "kind": "implication",
+  "hypotheses": [
+   "ke"
+  ],
+  "conclusion": "multi-party-key-exchange",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ke-to-pke-dh76.md",
+  "slug": "ke-to-pke-dh76",
+  "type": "reduction",
+  "status": "stub",
+  "title": "KE \u21d2 PKE",
+  "id": "red-ke-to-pke-dh76",
+  "kind": "implication",
+  "hypotheses": [
+   "ke"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DH76 - New Directions in Cryptography|DH76]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/kea-to-snark-gro16.md",
+  "slug": "kea-to-snark-gro16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "KEA \u21d2 SNARK",
+  "id": "red-kea-to-snark-gro16",
+  "kind": "implication",
+  "hypotheses": [
+   "kea"
+  ],
+  "conclusion": "snark",
+  "class": "free",
+  "model": "generic-group",
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/kem-and-ske-to-pke.md",
+  "slug": "kem-and-ske-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "KEM + SKE \u21d2 PKE",
+  "id": "red-kem-and-ske-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "kem",
+   "ske"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/kem-to-ke.md",
+  "slug": "kem-to-ke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "KEM \u21d2 KE",
+  "id": "red-kem-to-ke",
+  "kind": "implication",
+  "hypotheses": [
+   "kem"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
+  "slug": "kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+  "type": "reduction",
+  "status": "draft",
+  "title": "KZG (Kate-Zaverucha-Goldberg) \u21d2 SNARK",
+  "id": "red-kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+  "kind": "implication",
+  "hypotheses": [
+   "kzg-polynomial-commitment"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]",
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
+  "slug": "linear-secret-sharing-schemes-lsss-to-msp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Linear secret sharing schemes (LSSS) \u21d4 MSP",
+  "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
+  "kind": "equivalence",
+  "hypotheses": [
+   "linear-secret-sharing-scheme"
+  ],
+  "conclusion": "monotone-span-program",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
+  "slug": "lossy-trapdoor-functions-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Lossy trapdoor functions \u21d2 PKE",
+  "id": "red-lossy-trapdoor-functions-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "lossy-trapdoor-function"
+  ],
+  "conclusion": "pke",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
+  "slug": "lossy-trapdoor-functions-to-tdp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Lossy trapdoor functions \u21d2 TDP",
+  "id": "red-lossy-trapdoor-functions-to-tdp",
+  "kind": "implication",
+  "hypotheses": [
+   "lossy-trapdoor-function"
+  ],
+  "conclusion": "tdp",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+  "slug": "lpn-and-lwe-and-nc1-prg-to-io-jls21",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LPN + LWE + NC1-PRG \u21d2 iO",
+  "id": "red-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn",
+   "lwe",
+   "prg-in-nc1"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/lpn-to-pke.md",
+  "slug": "lpn-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "LPN \u21d2 PKE",
+  "id": "red-lpn-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
+  "slug": "lpn-to-secret-key-pir-sk-pir-cimr25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LPN \u21d2 Secret-Key PIR (SK-PIR)",
+  "id": "red-lpn-to-secret-key-pir-sk-pir-cimr25",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn"
+  ],
+  "conclusion": "secret-key-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lsn-to-lpn-cimr25.md",
+  "slug": "lsn-to-lpn-cimr25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LSN \u21d2 LPN",
+  "id": "red-lsn-to-lpn-cimr25",
+  "kind": "implication",
+  "hypotheses": [
+   "learning-subspace-with-noise"
+  ],
+  "conclusion": "lpn",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
+  "slug": "lsn-to-secret-key-pir-sk-pir-cimr25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LSN \u21d2 Secret-Key PIR (SK-PIR)",
+  "id": "red-lsn-to-secret-key-pir-sk-pir-cimr25",
+  "kind": "implication",
+  "hypotheses": [
+   "learning-subspace-with-noise"
+  ],
+  "conclusion": "secret-key-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
+  "slug": "lwe-and-sis-to-ds-ls15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE + SIS \u21d2 DS",
+  "id": "red-lwe-and-sis-to-ds-ls15",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe",
+   "sis"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
+  "slug": "lwe-to-de-ram-mpc-lmw24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 DE-RAM-MPC",
+  "id": "red-lwe-to-de-ram-mpc-lmw24",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "doubly-efficient-ram-mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-depir-lmw23.md",
+  "slug": "lwe-to-depir-lmw23",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 DEPIR",
+  "id": "red-lwe-to-depir-lmw23",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-ind-cpa-kem.md",
+  "slug": "lwe-to-ind-cpa-kem",
+  "type": "reduction",
+  "status": "stub",
+  "title": "LWE \u21d2 IND-CPA KEM",
+  "id": "red-lwe-to-ind-cpa-kem",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "ind-cpa-kem",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-lattice-based-signatures.md",
+  "slug": "lwe-to-lattice-based-signatures",
+  "type": "reduction",
+  "status": "stub",
+  "title": "LWE \u21d2 Lattice-based signatures",
+  "id": "red-lwe-to-lattice-based-signatures",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "hash-and-sign-signature",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
+  "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 Leveled fully homomorphic encryption",
+  "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bgv12",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "leveled-fully-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-pke-reg05.md",
+  "slug": "lwe-to-pke-reg05",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 PKE",
+  "id": "red-lwe-to-pke-reg05",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-prc-cg24.md",
+  "slug": "lwe-to-prc-cg24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 PRC",
+  "id": "red-lwe-to-prc-cg24",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "prc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/lwe-to-tdh-dgi-19.md",
+  "slug": "lwe-to-tdh-dgi-19",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 TDH",
+  "id": "red-lwe-to-tdh-dgi-19",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "tdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
+  "slug": "lwe-to-zero-bit-prc-cg24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "LWE \u21d2 Zero-bit PRC",
+  "id": "red-lwe-to-zero-bit-prc-cg24",
+  "kind": "implication",
+  "hypotheses": [
+   "lwe"
+  ],
+  "conclusion": "zero-bit-prc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ma-to-am.md",
+  "slug": "ma-to-am",
+  "type": "reduction",
+  "status": "stub",
+  "title": "MA \u2286 AM",
+  "id": "red-ma-to-am",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ma"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ma-to-pp.md",
+  "slug": "ma-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "MA \u2286 PP",
+  "id": "red-ma-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ma"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ma-to-qcma.md",
+  "slug": "ma-to-qcma",
+  "type": "reduction",
+  "status": "stub",
+  "title": "MA \u2286 QCMA",
+  "id": "red-ma-to-qcma",
+  "kind": "inclusion",
+  "hypotheses": [
+   "ma"
+  ],
+  "conclusion": "qcma",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/mac-and-ske-to-cca-security.md",
+  "slug": "mac-and-ske-to-cca-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "MAC + SKE \u21d2 CCA Security",
+  "id": "red-mac-and-ske-to-cca-security",
+  "kind": "implication",
+  "hypotheses": [
+   "mac",
+   "ske"
+  ],
+  "conclusion": "cca-secure-symmetric-key-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/mmap-to-io-gghrsw13.md",
+  "slug": "mmap-to-io-gghrsw13",
+  "type": "reduction",
+  "status": "draft",
+  "title": "MMap \u21d2 iO",
+  "id": "red-mmap-to-io-gghrsw13",
+  "kind": "implication",
+  "hypotheses": [
+   "multilinear-maps"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
+  "slug": "module-lwe-and-module-sis-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Module LWE + Module-SIS \u21d2 DS",
+  "id": "red-module-lwe-and-module-sis-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "module-lwe",
+   "module-sis"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/module-lwe-to-kem.md",
+  "slug": "module-lwe-to-kem",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Module LWE \u21d2 KEM",
+  "id": "red-module-lwe-to-kem",
+  "kind": "implication",
+  "hypotheses": [
+   "module-lwe"
+  ],
+  "conclusion": "kem",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/module-lwe-to-lwe-ls15.md",
+  "slug": "module-lwe-to-lwe-ls15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Module LWE \u21d4 LWE",
+  "id": "red-module-lwe-to-lwe-ls15",
+  "kind": "equivalence",
+  "hypotheses": [
+   "module-lwe-rank-n"
+  ],
+  "conclusion": "lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
+  "slug": "module-lwe-to-ring-lwe-ls15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Module LWE \u21d4 Ring LWE",
+  "id": "red-module-lwe-to-ring-lwe-ls15",
+  "kind": "equivalence",
+  "hypotheses": [
+   "module-lwe-rank-1"
+  ],
+  "conclusion": "ring-lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/module-sis-to-ds.md",
+  "slug": "module-sis-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Module-SIS \u21d2 DS",
+  "id": "red-module-sis-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "module-sis"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/module-svp-to-module-lwe-ls15.md",
+  "slug": "module-svp-to-module-lwe-ls15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Module-SVP \u21d2 Module LWE",
+  "id": "red-module-svp-to-module-lwe-ls15",
+  "kind": "implication",
+  "hypotheses": [
+   "worst-case-module-lattice-problems"
+  ],
+  "conclusion": "module-lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/module-svp-to-module-sis-ls15.md",
+  "slug": "module-svp-to-module-sis-ls15",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Module-SVP \u21d2 Module-SIS",
+  "id": "red-module-svp-to-module-sis-ls15",
+  "kind": "implication",
+  "hypotheses": [
+   "worst-case-module-lattice-problems"
+  ],
+  "conclusion": "module-sis",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/mpc-to-ot-bh26.md",
+  "slug": "mpc-to-ot-bh26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "MPC \u21d2 OT",
+  "id": "red-mpc-to-ot-bh26",
+  "kind": "implication",
+  "hypotheses": [
+   "mpc"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/nizk-to-com.md",
+  "slug": "nizk-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NIZK \u21d2 COM",
+  "id": "red-nizk-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "nizk"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/noise-level-to-depir-cimr25-2.md",
+  "slug": "noise-level-to-depir-cimr25-2",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Noise Level \u21d2 DEPIR",
+  "id": "red-noise-level-to-depir-cimr25-2",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-high-noise"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/noise-level-to-depir-cimr25.md",
+  "slug": "noise-level-to-depir-cimr25",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Noise Level \u21d2 DEPIR",
+  "id": "red-noise-level-to-depir-cimr25",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-mid-noise"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/noise-level-to-hash-function-blvw19.md",
+  "slug": "noise-level-to-hash-function-blvw19",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Noise Level \u21d2 Hash function",
+  "id": "red-noise-level-to-hash-function-blvw19",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-low-noise"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]",
+   "[[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/noise-level-to-noise-level.md",
+  "slug": "noise-level-to-noise-level",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Noise Level \u21d2 Noise Level",
+  "id": "red-noise-level-to-noise-level",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-low-noise"
+  ],
+  "conclusion": "lpn-constant-noise",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/noise-level-to-pke-ale03.md",
+  "slug": "noise-level-to-pke-ale03",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Noise Level \u21d2 PKE",
+  "id": "red-noise-level-to-pke-ale03",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-mid-noise"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/noise-level-to-tdh-amr25.md",
+  "slug": "noise-level-to-tdh-amr25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Noise Level \u21d2 TDH",
+  "id": "red-noise-level-to-tdh-amr25",
+  "kind": "implication",
+  "hypotheses": [
+   "lpn-low-noise"
+  ],
+  "conclusion": "tdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
+  "slug": "noisy-k-lin-and-pc-to-pke-ghjs25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Noisy k-LIN + PC \u21d2 PKE",
+  "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
+  "kind": "implication",
+  "hypotheses": [
+   "noisy-k-lin",
+   "pc"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/notable-problems-to-qma.md",
+  "slug": "notable-problems-to-qma",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Notable problems = QMA",
+  "id": "red-notable-problems-to-qma",
+  "kind": "equivalence",
+  "hypotheses": [
+   "local-hamiltonian"
+  ],
+  "conclusion": "qma",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/np-to-am-gs86.md",
+  "slug": "np-to-am-gs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "NP \u2286 AM",
+  "id": "red-np-to-am-gs86",
+  "kind": "inclusion",
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/np-to-conp.md",
+  "slug": "np-to-conp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NP = coNP",
+  "id": "red-np-to-conp",
+  "kind": "equivalence",
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "conp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/np-to-ma.md",
+  "slug": "np-to-ma",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NP \u2286 MA",
+  "id": "red-np-to-ma",
+  "kind": "inclusion",
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "ma",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/np-to-pp.md",
+  "slug": "np-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NP \u2286 PP",
+  "id": "red-np-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/np-to-pspace.md",
+  "slug": "np-to-pspace",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NP \u2286 PSPACE",
+  "id": "red-np-to-pspace",
+  "kind": "inclusion",
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ntru-to-ds.md",
+  "slug": "ntru-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NTRU \u21d2 DS",
+  "id": "red-ntru-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "ntru"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ntru-to-kem.md",
+  "slug": "ntru-to-kem",
+  "type": "reduction",
+  "status": "stub",
+  "title": "NTRU \u21d2 KEM",
+  "id": "red-ntru-to-kem",
+  "kind": "implication",
+  "hypotheses": [
+   "ntru"
+  ],
+  "conclusion": "kem",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ntru-to-pke-hps98.md",
+  "slug": "ntru-to-pke-hps98",
+  "type": "reduction",
+  "status": "draft",
+  "title": "NTRU \u21d2 PKE",
+  "id": "red-ntru-to-pke-hps98",
+  "kind": "implication",
+  "hypotheses": [
+   "ntru"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/oihf-to-ot-bh26.md",
+  "slug": "oihf-to-ot-bh26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "OIHF \u21d2 OT",
+  "id": "red-oihf-to-ot-bh26",
+  "kind": "implication",
+  "hypotheses": [
+   "oblivious-interactive-hash-function"
+  ],
+  "conclusion": "ot",
+  "class": "free",
+  "model": "standard",
+  "source": [
+   "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
+  "slug": "ot-extension-to-mpc-with-preprocessing-spdz-etc",
+  "type": "reduction",
+  "status": "stub",
+  "title": "OT Extension \u21d2 MPC with preprocessing (SPDZ, etc.)",
+  "id": "red-ot-extension-to-mpc-with-preprocessing-spdz-etc",
+  "kind": "implication",
+  "hypotheses": [
+   "ot-extension"
+  ],
+  "conclusion": "mpc-with-preprocessing",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ot-to-com.md",
+  "slug": "ot-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "OT \u21d2 COM",
+  "id": "red-ot-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "ot"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ot-to-mpc-kil88.md",
+  "slug": "ot-to-mpc-kil88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "OT \u21d2 MPC",
+  "id": "red-ot-to-mpc-kil88",
+  "kind": "implication",
+  "hypotheses": [
+   "ot"
+  ],
+  "conclusion": "mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
+   "[[GMW87 - How to play ANY mental game|GMW87]]",
+   "[[Yao82 - Protocols for secure computations|Yao82]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/owf-to-prg-hill99.md",
+  "slug": "owf-to-prg-hill99",
+  "type": "reduction",
+  "status": "draft",
+  "title": "OWF \u21d2 PRG",
+  "id": "red-owf-to-prg-hill99",
+  "kind": "implication",
+  "hypotheses": [
+   "owf"
+  ],
+  "conclusion": "prg",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
+   "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/owp-to-hash-function.md",
+  "slug": "owp-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "OWP \u21d2 Hash function",
+  "id": "red-owp-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "owp"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/owsg-to-qm.md",
+  "slug": "owsg-to-qm",
+  "type": "reduction",
+  "status": "stub",
+  "title": "OWSG \u21d2 QM",
+  "id": "red-owsg-to-qm",
+  "kind": "implication",
+  "hypotheses": [
+   "one-way-state-generator"
+  ],
+  "conclusion": "quantum-money",
+  "class": "unstated",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/owsg-to-unclonable-encryption.md",
+  "slug": "owsg-to-unclonable-encryption",
+  "type": "reduction",
+  "status": "stub",
+  "title": "OWSG \u21d2 Unclonable encryption",
+  "id": "red-owsg-to-unclonable-encryption",
+  "kind": "implication",
+  "hypotheses": [
+   "one-way-state-generator"
+  ],
+  "conclusion": "unclonable-encryption",
+  "class": "unstated",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-bpp.md",
+  "slug": "p-to-bpp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 BPP",
+  "id": "red-p-to-bpp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "bpp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-conp.md",
+  "slug": "p-to-conp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 coNP",
+  "id": "red-p-to-conp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "conp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-np.md",
+  "slug": "p-to-np",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 NP",
+  "id": "red-p-to-np",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "np",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-p-poly.md",
+  "slug": "p-to-p-poly",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 P/poly",
+  "id": "red-p-to-p-poly",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "ppoly",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-rp.md",
+  "slug": "p-to-rp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 RP",
+  "id": "red-p-to-rp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "rp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/p-to-zpp.md",
+  "slug": "p-to-zpp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "P \u2286 ZPP",
+  "id": "red-p-to-zpp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "p"
+  ],
+  "conclusion": "zpp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+  "slug": "partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise \u21d2 Somewhat homomorphic encryption (SHE)",
+  "id": "red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+  "kind": "implication",
+  "hypotheses": [
+   "linearly-homomorphic-pke",
+   "sparse-lpn"
+  ],
+  "conclusion": "somewhat-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md",
+  "slug": "pc-and-search-noisy-k-lin-to-pke-ghjs25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PC + Search noisy $k$-LIN \u21d2 PKE",
+  "id": "red-pc-and-search-noisy-k-lin-to-pke-ghjs25",
+  "kind": "implication",
+  "hypotheses": [
+   "pc",
+   "search-noisy-k-lin"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pcs-to-nizk.md",
+  "slug": "pcs-to-nizk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PCS \u21d2 NIZK",
+  "id": "red-pcs-to-nizk",
+  "kind": "implication",
+  "hypotheses": [
+   "pcs"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/pcs-to-snark.md",
+  "slug": "pcs-to-snark",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PCS \u21d2 SNARK",
+  "id": "red-pcs-to-snark",
+  "kind": "implication",
+  "hypotheses": [
+   "pcs"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pcs-to-vector-commitments.md",
+  "slug": "pcs-to-vector-commitments",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PCS \u21d4 Vector commitments",
+  "id": "red-pcs-to-vector-commitments",
+  "kind": "equivalence",
+  "hypotheses": [
+   "pcs"
+  ],
+  "conclusion": "vector-commitment",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
+  "slug": "permuted-puzzles-to-depir-bipw17",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Permuted puzzles \u21d2 DEPIR",
+  "id": "red-permuted-puzzles-to-depir-bipw17",
+  "kind": "implication",
+  "hypotheses": [
+   "bipw17-permuted-puzzles-assumption"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pke-to-com.md",
+  "slug": "pke-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PKE \u21d2 COM",
+  "id": "red-pke-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/pke-to-hash-function.md",
+  "slug": "pke-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PKE \u21d2 Hash function",
+  "id": "red-pke-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pke-to-ke.md",
+  "slug": "pke-to-ke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PKE \u21d2 KE",
+  "id": "red-pke-to-ke",
+  "kind": "implication",
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pke-to-kem.md",
+  "slug": "pke-to-kem",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PKE \u21d2 KEM",
+  "id": "red-pke-to-kem",
+  "kind": "implication",
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "kem",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pke-to-ot.md",
+  "slug": "pke-to-ot",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PKE \u21d2 OT",
+  "id": "red-pke-to-ot",
+  "kind": "implication",
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pp-to-pspace.md",
+  "slug": "pp-to-pspace",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PP \u2286 PSPACE",
+  "id": "red-pp-to-pspace",
+  "kind": "inclusion",
+  "hypotheses": [
+   "pp"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prc-to-ske-cg24.md",
+  "slug": "prc-to-ske-cg24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRC \u21d2 SKE",
+  "id": "red-prc-to-ske-cg24",
+  "kind": "implication",
+  "hypotheses": [
+   "prc"
+  ],
+  "conclusion": "ske",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prf-to-invertible-prf-hppy25.md",
+  "slug": "prf-to-invertible-prf-hppy25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRF \u21d2 iPRF",
+  "id": "red-prf-to-invertible-prf-hppy25",
+  "kind": "implication",
+  "hypotheses": [
+   "prf"
+  ],
+  "conclusion": "invertible-prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prf-to-mac.md",
+  "slug": "prf-to-mac",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRF \u21d2 MAC",
+  "id": "red-prf-to-mac",
+  "kind": "implication",
+  "hypotheses": [
+   "prf"
+  ],
+  "conclusion": "mac",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prf-to-prp-lr88.md",
+  "slug": "prf-to-prp-lr88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRF \u21d2 PRP",
+  "id": "red-prf-to-prp-lr88",
+  "kind": "implication",
+  "hypotheses": [
+   "prf"
+  ],
+  "conclusion": "prp",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prf-to-ske.md",
+  "slug": "prf-to-ske",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRF \u21d2 CPA-secure SKE",
+  "id": "red-prf-to-ske",
+  "kind": "implication",
+  "hypotheses": [
+   "prf"
+  ],
+  "conclusion": "ske",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-in-nc1-to-io-jls21.md",
+  "slug": "prg-in-nc1-to-io-jls21",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRG in NC1 \u21d2 iO",
+  "id": "red-prg-in-nc1-to-io-jls21",
+  "kind": "implication",
+  "hypotheses": [
+   "low-complexity-prg-nc1"
+  ],
+  "conclusion": "io",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-to-com-naor91.md",
+  "slug": "prg-to-com-naor91",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRG \u21d2 COM",
+  "id": "red-prg-to-com-naor91",
+  "kind": "implication",
+  "hypotheses": [
+   "prg"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-to-dpf-gi14.md",
+  "slug": "prg-to-dpf-gi14",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRG \u21d2 DPF",
+  "id": "red-prg-to-dpf-gi14",
+  "kind": "implication",
+  "hypotheses": [
+   "prg"
+  ],
+  "conclusion": "dpf",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-to-hash-function.md",
+  "slug": "prg-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRG \u21d2 Hash function",
+  "id": "red-prg-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "prg"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-to-prf-ggm86.md",
+  "slug": "prg-to-prf-ggm86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRG \u21d2 PRF (GGM)",
+  "id": "red-prg-to-prf-ggm86",
+  "kind": "implication",
+  "hypotheses": [
+   "prg"
+  ],
+  "conclusion": "prf",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": [
+   "[[GGM86 - How to construct random functions|GGM86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prg-to-ske.md",
+  "slug": "prg-to-ske",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRG \u21d2 SKE",
+  "id": "red-prg-to-ske",
+  "kind": "implication",
+  "hypotheses": [
+   "prg"
+  ],
+  "conclusion": "ske",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/prp-to-invertible-prf.md",
+  "slug": "prp-to-invertible-prf",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PRP \u21d2 iPRF (large domains)",
+  "id": "red-prp-to-invertible-prf",
+  "kind": "implication",
+  "hypotheses": [
+   "prp"
+  ],
+  "conclusion": "invertible-prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/prp-to-prf.md",
+  "slug": "prp-to-prf",
+  "type": "reduction",
+  "status": "draft",
+  "title": "PRP \u21d2 PRF",
+  "id": "red-prp-to-prf",
+  "kind": "implication",
+  "hypotheses": [
+   "prp"
+  ],
+  "conclusion": "prf",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/pspace-to-exp.md",
+  "slug": "pspace-to-exp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "PSPACE \u2286 EXP",
+  "id": "red-pspace-to-exp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "pspace"
+  ],
+  "conclusion": "exp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qcma-to-pp.md",
+  "slug": "qcma-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QCMA \u2286 PP",
+  "id": "red-qcma-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "qcma"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qcma-to-qma.md",
+  "slug": "qcma-to-qma",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QCMA \u2286 QMA",
+  "id": "red-qcma-to-qma",
+  "kind": "inclusion",
+  "hypotheses": [
+   "qcma"
+  ],
+  "conclusion": "qma",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qip-to-ip.md",
+  "slug": "qip-to-ip",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QIP = IP",
+  "id": "red-qip-to-ip",
+  "kind": "equivalence",
+  "hypotheses": [
+   "qip"
+  ],
+  "conclusion": "ip",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qip-to-pspace.md",
+  "slug": "qip-to-pspace",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QIP = PSPACE",
+  "id": "red-qip-to-pspace",
+  "kind": "equivalence",
+  "hypotheses": [
+   "qip"
+  ],
+  "conclusion": "pspace",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qma-to-pp.md",
+  "slug": "qma-to-pp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QMA \u2286 PP",
+  "id": "red-qma-to-pp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "qma"
+  ],
+  "conclusion": "pp",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qr-to-com.md",
+  "slug": "qr-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QR \u21d2 COM",
+  "id": "red-qr-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "qr"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/qr-to-he-gm84.md",
+  "slug": "qr-to-he-gm84",
+  "type": "reduction",
+  "status": "draft",
+  "title": "QR \u21d2 HE",
+  "id": "red-qr-to-he-gm84",
+  "kind": "implication",
+  "hypotheses": [
+   "qr"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GM84 - Probabilistic encryption|GM84]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qr-to-pke-gm84.md",
+  "slug": "qr-to-pke-gm84",
+  "type": "reduction",
+  "status": "draft",
+  "title": "QR \u21d2 PKE",
+  "id": "red-qr-to-pke-gm84",
+  "kind": "implication",
+  "hypotheses": [
+   "qr"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GM84 - Probabilistic encryption|GM84]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/qr-to-tdh-dgi-19.md",
+  "slug": "qr-to-tdh-dgi-19",
+  "type": "reduction",
+  "status": "draft",
+  "title": "QR \u21d2 TDH",
+  "id": "red-qr-to-tdh-dgi-19",
+  "kind": "implication",
+  "hypotheses": [
+   "qr"
+  ],
+  "conclusion": "tdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qr-to-zkp-gmr85.md",
+  "slug": "qr-to-zkp-gmr85",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QR \u21d2 ZKP",
+  "id": "red-qr-to-zkp-gmr85",
+  "kind": "implication",
+  "hypotheses": [
+   "qr"
+  ],
+  "conclusion": "zkp",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/qszk-to-qip.md",
+  "slug": "qszk-to-qip",
+  "type": "reduction",
+  "status": "stub",
+  "title": "QSZK \u2286 QIP",
+  "id": "red-qszk-to-qip",
+  "kind": "inclusion",
+  "hypotheses": [
+   "qszk"
+  ],
+  "conclusion": "qip",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rabin-ot-to-ot.md",
+  "slug": "rabin-ot-to-ot",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Rabin OT \u21d4 OT",
+  "id": "red-rabin-ot-to-ot",
+  "kind": "equivalence",
+  "hypotheses": [
+   "rabin-ot"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/random-ot-to-ot.md",
+  "slug": "random-ot-to-ot",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Random OT \u21d2 OT",
+  "id": "red-random-ot-to-ot",
+  "kind": "implication",
+  "hypotheses": [
+   "random-ot"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ring-lpn-to-mac.md",
+  "slug": "ring-lpn-to-mac",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Ring-LPN \u21d2 MAC",
+  "id": "red-ring-lpn-to-mac",
+  "kind": "implication",
+  "hypotheses": [
+   "ring-lpn"
+  ],
+  "conclusion": "mac",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
+  "slug": "ring-lpn-to-pseudorandom-correlation-generators-pcg",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Ring-LPN \u21d2 Pseudorandom correlation generators (PCG)",
+  "id": "red-ring-lpn-to-pseudorandom-correlation-generators-pcg",
+  "kind": "implication",
+  "hypotheses": [
+   "ring-lpn"
+  ],
+  "conclusion": "pseudorandom-correlation-generator",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ring-lwe-to-ntru-ss11.md",
+  "slug": "ring-lwe-to-ntru-ss11",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Ring LWE \u21d2 NTRU",
+  "id": "red-ring-lwe-to-ntru-ss11",
+  "kind": "implication",
+  "hypotheses": [
+   "ring-lwe"
+  ],
+  "conclusion": "ntru",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
+  "slug": "rom-and-zkp-to-ds-fs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "ROM + ZKP \u21d2 DS",
+  "id": "red-rom-and-zkp-to-ds-fs86",
+  "kind": "implication",
+  "hypotheses": [
+   "rom",
+   "zkp"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
+  "slug": "rom-and-zkp-to-nizk-fs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "ROM + ZKP \u21d2 NIZK",
+  "id": "red-rom-and-zkp-to-nizk-fs86",
+  "kind": "implication",
+  "hypotheses": [
+   "rom",
+   "zkp"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rom-to-oihf-bh26.md",
+  "slug": "rom-to-oihf-bh26",
+  "type": "reduction",
+  "status": "draft",
+  "title": "ROM \u21d2 OIHF",
+  "id": "red-rom-to-oihf-bh26",
+  "kind": "implication",
+  "hypotheses": [
+   "rom"
+  ],
+  "conclusion": "oblivious-interactive-hash-function",
+  "class": "unstated",
+  "model": "rom",
+  "source": [
+   "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rp-to-bpp.md",
+  "slug": "rp-to-bpp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "RP \u2286 BPP",
+  "id": "red-rp-to-bpp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "rp"
+  ],
+  "conclusion": "bpp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rp-to-np.md",
+  "slug": "rp-to-np",
+  "type": "reduction",
+  "status": "stub",
+  "title": "RP \u2286 NP",
+  "id": "red-rp-to-np",
+  "kind": "inclusion",
+  "hypotheses": [
+   "rp"
+  ],
+  "conclusion": "np",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rsa-to-fac-dlo24.md",
+  "slug": "rsa-to-fac-dlo24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "RSA \u21d4 FAC",
+  "id": "red-rsa-to-fac-dlo24",
+  "kind": "equivalence",
+  "hypotheses": [
+   "rsa"
+  ],
+  "conclusion": "fac",
+  "class": "unstated",
+  "model": "other",
+  "source": [
+   "[[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rsa-to-ind-cca-security.md",
+  "slug": "rsa-to-ind-cca-security",
+  "type": "reduction",
+  "status": "stub",
+  "title": "RSA \u21d2 IND-CCA security",
+  "id": "red-rsa-to-ind-cca-security",
+  "kind": "implication",
+  "hypotheses": [
+   "rsa"
+  ],
+  "conclusion": "ind-cca-kem",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
+  "slug": "rsa-to-partially-homomorphic-encryption-phe-rsa78",
+  "type": "reduction",
+  "status": "draft",
+  "title": "RSA \u21d2 Partially homomorphic encryption (PHE)",
+  "id": "red-rsa-to-partially-homomorphic-encryption-phe-rsa78",
+  "kind": "implication",
+  "hypotheses": [
+   "rsa"
+  ],
+  "conclusion": "multiplicatively-homomorphic-encryption",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rsa-to-pke-rsa78.md",
+  "slug": "rsa-to-pke-rsa78",
+  "type": "reduction",
+  "status": "draft",
+  "title": "RSA \u21d2 PKE",
+  "id": "red-rsa-to-pke-rsa78",
+  "kind": "implication",
+  "hypotheses": [
+   "rsa"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/rsa-to-tdp-rsa78.md",
+  "slug": "rsa-to-tdp-rsa78",
+  "type": "reduction",
+  "status": "draft",
+  "title": "RSA \u21d2 TDP",
+  "id": "red-rsa-to-tdp-rsa78",
+  "kind": "implication",
+  "hypotheses": [
+   "rsa"
+  ],
+  "conclusion": "tdp",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
+  "slug": "schnorr-signatures-to-schnorr-signatures",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Schnorr signatures \u21d2 Schnorr signatures",
+  "id": "red-schnorr-signatures-to-schnorr-signatures",
+  "kind": "implication",
+  "hypotheses": [
+   "schnorr-signature"
+  ],
+  "conclusion": "eddsa",
+  "class": "unstated",
+  "model": "rom",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/search-lwe-to-decision-lwe.md",
+  "slug": "search-lwe-to-decision-lwe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Search LWE \u21d2 Decision LWE",
+  "id": "red-search-lwe-to-decision-lwe",
+  "kind": "implication",
+  "hypotheses": [
+   "search-lwe"
+  ],
+  "conclusion": "decision-lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
+  "slug": "secret-key-pir-sk-pir-and-ske-to-depir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Secret-Key PIR (SK-PIR) + SKE \u21d2 DEPIR",
+  "id": "red-secret-key-pir-sk-pir-and-ske-to-depir",
+  "kind": "implication",
+  "hypotheses": [
+   "secret-key-pir",
+   "ske"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
+  "slug": "secret-key-pir-sk-pir-to-depir-bipw17",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Secret-Key PIR (SK-PIR) \u21d2 DEPIR",
+  "id": "red-secret-key-pir-sk-pir-to-depir-bipw17",
+  "kind": "implication",
+  "hypotheses": [
+   "secret-key-pir"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/sidh-to-ke-jdf11.md",
+  "slug": "sidh-to-ke-jdf11",
+  "type": "reduction",
+  "status": "draft",
+  "title": "SIDH \u21d2 KE",
+  "id": "red-sidh-to-ke-jdf11",
+  "kind": "implication",
+  "hypotheses": [
+   "sidh"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/sis-to-ds.md",
+  "slug": "sis-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SIS \u21d2 DS",
+  "id": "red-sis-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "sis"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/sis-to-hash-function-ajt96.md",
+  "slug": "sis-to-hash-function-ajt96",
+  "type": "reduction",
+  "status": "draft",
+  "title": "SIS \u21d2 Hash function",
+  "id": "red-sis-to-hash-function-ajt96",
+  "kind": "implication",
+  "hypotheses": [
+   "sis"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
+  ],
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/sivp-to-lwe-reg05.md",
+  "slug": "sivp-to-lwe-reg05",
+  "type": "reduction",
+  "status": "draft",
+  "title": "SIVP \u21d2 LWE",
+  "id": "red-sivp-to-lwe-reg05",
+  "kind": "implication",
+  "hypotheses": [
+   "sivp"
+  ],
+  "conclusion": "lwe",
+  "class": "unstated",
+  "model": "quantum",
+  "source": [
+   "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/sivp-to-sis-ajt96.md",
+  "slug": "sivp-to-sis-ajt96",
+  "type": "reduction",
+  "status": "draft",
+  "title": "SIVP \u21d2 SIS",
+  "id": "red-sivp-to-sis-ajt96",
+  "kind": "implication",
+  "hypotheses": [
+   "sivp"
+  ],
+  "conclusion": "sis",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/snark-to-hash-function.md",
+  "slug": "snark-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SNARK \u21d2 Hash function",
+  "id": "red-snark-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "snark"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/snark-to-nizk.md",
+  "slug": "snark-to-nizk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SNARK \u21d2 NIZK",
+  "id": "red-snark-to-nizk",
+  "kind": "implication",
+  "hypotheses": [
+   "snark"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/snark-to-recursive-snarks.md",
+  "slug": "snark-to-recursive-snarks",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SNARK \u21d2 Recursive SNARKs",
+  "id": "red-snark-to-recursive-snarks",
+  "kind": "implication",
+  "hypotheses": [
+   "snark"
+  ],
+  "conclusion": "incremental-verifiable-computation",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
+  "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Somewhat homomorphic encryption (SHE) \u21d2 HE",
+  "id": "red-somewhat-homomorphic-encryption-she-to-he-gen09",
+  "kind": "implication",
+  "hypotheses": [
+   "somewhat-homomorphic-encryption"
+  ],
+  "conclusion": "he",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
+  "slug": "sparse-learning-parity-with-noise-to-lpn",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Sparse Learning Parity with Noise \u21d2 LPN",
+  "id": "red-sparse-learning-parity-with-noise-to-lpn",
+  "kind": "implication",
+  "hypotheses": [
+   "sparse-lpn"
+  ],
+  "conclusion": "lpn",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
+  "slug": "sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Sparse Learning Parity with Noise \u21d2 Pseudorandom correlation generators (PCG)",
+  "id": "red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
+  "kind": "implication",
+  "hypotheses": [
+   "sparse-lpn"
+  ],
+  "conclusion": "pseudorandom-correlation-generator",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/spir-to-it-pir.md",
+  "slug": "spir-to-it-pir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SPIR \u21d2 IT-PIR",
+  "id": "red-spir-to-it-pir",
+  "kind": "implication",
+  "hypotheses": [
+   "spir"
+  ],
+  "conclusion": "it-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/ss-to-it-pir-cgks98.md",
+  "slug": "ss-to-it-pir-cgks98",
+  "type": "reduction",
+  "status": "draft",
+  "title": "SS \u21d2 IT-PIR",
+  "id": "red-ss-to-it-pir-cgks98",
+  "kind": "implication",
+  "hypotheses": [
+   "ss"
+  ],
+  "conclusion": "it-pir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CGKS98 - Private information retrieval|CGKS98]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
+  "slug": "strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Strong alternating moduli (chosen-input) assumption \u21d2 Weak alternating moduli (random-input) assumption",
+  "id": "red-strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
+  "kind": "implication",
+  "hypotheses": [
+   "alternating-moduli-strong"
+  ],
+  "conclusion": "alternating-moduli-weak",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/strong-rsa-to-com.md",
+  "slug": "strong-rsa-to-com",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Strong RSA \u21d2 COM",
+  "id": "red-strong-rsa-to-com",
+  "kind": "implication",
+  "hypotheses": [
+   "strong-rsa"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/strong-rsa-to-ds.md",
+  "slug": "strong-rsa-to-ds",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Strong RSA \u21d2 DS",
+  "id": "red-strong-rsa-to-ds",
+  "kind": "implication",
+  "hypotheses": [
+   "strong-rsa"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/strong-rsa-to-rsa.md",
+  "slug": "strong-rsa-to-rsa",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Strong RSA \u21d2 RSA",
+  "id": "red-strong-rsa-to-rsa",
+  "kind": "implication",
+  "hypotheses": [
+   "strong-rsa-assumption"
+  ],
+  "conclusion": "rsa",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/strong-security-to-prp.md",
+  "slug": "strong-security-to-prp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Strong Security \u21d2 PRP",
+  "id": "red-strong-security-to-prp",
+  "kind": "implication",
+  "hypotheses": [
+   "strong-pseudorandom-permutation"
+  ],
+  "conclusion": "prp",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/subclasses-to-hash-function.md",
+  "slug": "subclasses-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Subclasses \u21d2 Hash function",
+  "id": "red-subclasses-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "ppad-hardness"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
+  "slug": "subexponential-lpn-to-ot-yz16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Subexponential LPN \u21d2 OT",
+  "id": "red-subexponential-lpn-to-ot-yz16",
+  "kind": "implication",
+  "hypotheses": [
+   "subexponential-lpn"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
+  "slug": "subexponential-lpn-to-pke-yz16",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Subexponential LPN \u21d2 PKE",
+  "id": "red-subexponential-lpn-to-pke-yz16",
+  "kind": "implication",
+  "hypotheses": [
+   "subexponential-lpn"
+  ],
+  "conclusion": "pke",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/subexponential-lpn-to-prc-cg24.md",
+  "slug": "subexponential-lpn-to-prc-cg24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Subexponential LPN \u21d2 PRC",
+  "id": "red-subexponential-lpn-to-prc-cg24",
+  "kind": "implication",
+  "hypotheses": [
+   "subexponential-lpn"
+  ],
+  "conclusion": "prc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/succinct-lwe-to-abe-wee25.md",
+  "slug": "succinct-lwe-to-abe-wee25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Succinct LWE \u21d2 ABE",
+  "id": "red-succinct-lwe-to-abe-wee25",
+  "kind": "implication",
+  "hypotheses": [
+   "succinct-lwe"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
+  "slug": "succinct-lwe-to-evasive-lwe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Succinct LWE \u21d2 Evasive LWE",
+  "id": "red-succinct-lwe-to-evasive-lwe",
+  "kind": "implication",
+  "hypotheses": [
+   "succinct-lwe"
+  ],
+  "conclusion": "evasive-lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/succinct-lwe-to-lwe.md",
+  "slug": "succinct-lwe-to-lwe",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Succinct LWE \u21d4 LWE",
+  "id": "red-succinct-lwe-to-lwe",
+  "kind": "equivalence",
+  "hypotheses": [
+   "succinct-lwe"
+  ],
+  "conclusion": "lwe",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
+  "slug": "sxdh-symmetric-external-diffie-hellman-to-bdh",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SXDH (Symmetric External Diffie-Hellman) \u21d2 BDH",
+  "id": "red-sxdh-symmetric-external-diffie-hellman-to-bdh",
+  "kind": "implication",
+  "hypotheses": [
+   "sxdh"
+  ],
+  "conclusion": "bdh",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
+  "slug": "sxdh-symmetric-external-diffie-hellman-to-nizk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SXDH (Symmetric External Diffie-Hellman) \u21d2 NIZK",
+  "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",
+  "kind": "implication",
+  "hypotheses": [
+   "sxdh"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "crs",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
+  "slug": "symmetric-private-information-retrieval-single-server-to-cpir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Symmetric private information retrieval (Single-server) \u21d2 cPIR",
+  "id": "red-symmetric-private-information-retrieval-single-server-to-cpir",
+  "kind": "implication",
+  "hypotheses": [
+   "single-server-symmetric-pir"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
+  "slug": "symmetric-private-information-retrieval-single-server-to-ot",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Symmetric private information retrieval (Single-server) \u21d4 OT",
+  "id": "red-symmetric-private-information-retrieval-single-server-to-ot",
+  "kind": "equivalence",
+  "hypotheses": [
+   "single-server-symmetric-pir"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/szk-to-am.md",
+  "slug": "szk-to-am",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SZK \u2286 AM",
+  "id": "red-szk-to-am",
+  "kind": "inclusion",
+  "hypotheses": [
+   "szk"
+  ],
+  "conclusion": "am",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/szk-to-coam.md",
+  "slug": "szk-to-coam",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SZK \u2286 coAM",
+  "id": "red-szk-to-coam",
+  "kind": "inclusion",
+  "hypotheses": [
+   "szk"
+  ],
+  "conclusion": "coam",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/szk-to-czk.md",
+  "slug": "szk-to-czk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SZK \u2286 CZK",
+  "id": "red-szk-to-czk",
+  "kind": "inclusion",
+  "hypotheses": [
+   "szk"
+  ],
+  "conclusion": "czk",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/szk-to-ip.md",
+  "slug": "szk-to-ip",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SZK \u2286 IP",
+  "id": "red-szk-to-ip",
+  "kind": "inclusion",
+  "hypotheses": [
+   "szk"
+  ],
+  "conclusion": "ip",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/szk-to-qszk.md",
+  "slug": "szk-to-qszk",
+  "type": "reduction",
+  "status": "stub",
+  "title": "SZK \u2286 QSZK",
+  "id": "red-szk-to-qszk",
+  "kind": "inclusion",
+  "hypotheses": [
+   "szk"
+  ],
+  "conclusion": "qszk",
+  "class": "free",
+  "model": "quantum",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/tdh-to-cpir-amr25.md",
+  "slug": "tdh-to-cpir-amr25",
+  "type": "reduction",
+  "status": "draft",
+  "title": "TDH \u21d2 cPIR",
+  "id": "red-tdh-to-cpir-amr25",
+  "kind": "implication",
+  "hypotheses": [
+   "tdh"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]",
+   "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/tdp-to-hash-function.md",
+  "slug": "tdp-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "TDP \u21d2 Hash function",
+  "id": "red-tdp-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "tdp"
+  ],
+  "conclusion": "hash-function",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/tdp-to-nizk-bfm88.md",
+  "slug": "tdp-to-nizk-bfm88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "TDP \u21d2 NIZK",
+  "id": "red-tdp-to-nizk-bfm88",
+  "kind": "implication",
+  "hypotheses": [
+   "tdp"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "crs",
+  "source": [
+   "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/tdp-to-ot.md",
+  "slug": "tdp-to-ot",
+  "type": "reduction",
+  "status": "stub",
+  "title": "TDP \u21d4 OT",
+  "id": "red-tdp-to-ot",
+  "kind": "equivalence",
+  "hypotheses": [
+   "tdp"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/tdp-to-pke.md",
+  "slug": "tdp-to-pke",
+  "type": "reduction",
+  "status": "stub",
+  "title": "TDP \u21d2 PKE",
+  "id": "red-tdp-to-pke",
+  "kind": "implication",
+  "hypotheses": [
+   "tdp"
+  ],
+  "conclusion": "pke",
+  "class": "fully-black-box",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
+  "slug": "trapdoor-pseudorandom-generators-to-prg",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Trapdoor pseudorandom generators \u21d4 PRG",
+  "id": "red-trapdoor-pseudorandom-generators-to-prg",
+  "kind": "equivalence",
+  "hypotheses": [
+   "trapdoor-pseudorandom-generator"
+  ],
+  "conclusion": "prg",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/unkeyed-depir-to-depir.md",
+  "slug": "unkeyed-depir-to-depir",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Unkeyed DEPIR \u21d2 DEPIR",
+  "id": "red-unkeyed-depir-to-depir",
+  "kind": "implication",
+  "hypotheses": [
+   "unkeyed-depir"
+  ],
+  "conclusion": "depir",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
+  "slug": "verifiable-secret-sharing-vss-to-mpc-bgw88",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Verifiable secret sharing (VSS) \u21d2 MPC",
+  "id": "red-verifiable-secret-sharing-vss-to-mpc-bgw88",
+  "kind": "implication",
+  "hypotheses": [
+   "verifiable-secret-sharing"
+  ],
+  "conclusion": "mpc",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
+  "slug": "zero-bit-prc-to-trapdoor-pseudorandom-generators",
+  "type": "reduction",
+  "status": "stub",
+  "title": "Zero-bit PRC \u21d2 Trapdoor pseudorandom generators",
+  "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
+  "kind": "implication",
+  "hypotheses": [
+   "zero-bit-prc"
+  ],
+  "conclusion": "trapdoor-pseudorandom-generator",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
+  "slug": "zero-bit-prc-to-watermarking-cg24",
+  "type": "reduction",
+  "status": "draft",
+  "title": "Zero-bit PRC \u21d2 Watermarking",
+  "id": "red-zero-bit-prc-to-watermarking-cg24",
+  "kind": "implication",
+  "hypotheses": [
+   "zero-bit-prc"
+  ],
+  "conclusion": "language-model-watermarking",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/zkp-to-hash-function.md",
+  "slug": "zkp-to-hash-function",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ZKP \u21d2 Hash function",
+  "id": "red-zkp-to-hash-function",
+  "kind": "implication",
+  "hypotheses": [
+   "zkp"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/zkp-to-nizk-fs86.md",
+  "slug": "zkp-to-nizk-fs86",
+  "type": "reduction",
+  "status": "draft",
+  "title": "ZKP \u21d2 NIZK",
+  "id": "red-zkp-to-nizk-fs86",
+  "kind": "implication",
+  "hypotheses": [
+   "zkp"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": "standard",
+  "source": [
+   "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
+   "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
+  ],
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Reductions/zpp-to-rp.md",
+  "slug": "zpp-to-rp",
+  "type": "reduction",
+  "status": "stub",
+  "title": "ZPP \u2286 RP",
+  "id": "red-zpp-to-rp",
+  "kind": "inclusion",
+  "hypotheses": [
+   "zpp"
+  ],
+  "conclusion": "rp",
+  "class": "free",
+  "model": "standard",
+  "source": "folklore",
+  "strength": null,
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-agm-to-ggm-kz22.md",
+  "slug": "no-agm-to-ggm-kz22",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from AGM to GGM",
+  "id": "bar-agm-to-ggm-kz22",
+  "kind": null,
+  "hypotheses": [
+   "agm"
+  ],
+  "conclusion": "ggm",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]",
+   "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-binding-and-hiding-to-com.md",
+  "slug": "no-binding-and-hiding-to-com",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from Binding + Hiding to COM",
+  "id": "bar-binding-and-hiding-to-com",
+  "kind": null,
+  "hypotheses": [
+   "statistically-binding-commitment",
+   "statistically-hiding-commitment"
+  ],
+  "conclusion": "com",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-bqp-to-np.md",
+  "slug": "no-bqp-to-np",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from BQP to NP",
+  "id": "bar-bqp-to-np",
+  "kind": null,
+  "hypotheses": [
+   "bqp"
+  ],
+  "conclusion": "np",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
+  "slug": "no-cpa-security-to-ind-cpa-security",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from CPA Security to IND$-CPA Security",
+  "id": "bar-cpa-security-to-ind-cpa-security",
+  "kind": null,
+  "hypotheses": [
+   "cpa-security"
+  ],
+  "conclusion": "ind-dollar-cpa-security",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-depir-to-ot-dmo00.md",
+  "slug": "no-depir-to-ot-dmo00",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from DEPIR to OT",
+  "id": "bar-depir-to-ot-dmo00",
+  "kind": null,
+  "hypotheses": [
+   "depir"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
+  "slug": "no-evasive-lwe-to-evasive-lwe-buw24-2",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Evasive LWE to Evasive LWE",
+  "id": "bar-evasive-lwe-to-evasive-lwe-buw24-2",
+  "kind": null,
+  "hypotheses": [
+   "evasive-lwe-private-coin"
+  ],
+  "conclusion": "evasive-lwe",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]",
+   "[[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]",
+   "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
+  "slug": "no-evasive-lwe-to-evasive-lwe-buw24",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Evasive LWE to Evasive LWE",
+  "id": "bar-evasive-lwe-to-evasive-lwe-buw24",
+  "kind": null,
+  "hypotheses": [
+   "private-coin-evasive-lwe"
+  ],
+  "conclusion": "evasive-lwe",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]",
+   "[[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-falsifiable-assumption-to-kea.md",
+  "slug": "no-falsifiable-assumption-to-kea",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from Falsifiable assumption to KEA",
+  "id": "bar-falsifiable-assumption-to-kea",
+  "kind": null,
+  "hypotheses": [
+   "falsifiable-assumption"
+  ],
+  "conclusion": "kea",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
+  "slug": "no-falsifiable-assumption-to-snark-gro16",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No fully-black-box reduction from Falsifiable assumption to SNARK",
+  "id": "bar-falsifiable-assumption-to-snark-gro16",
+  "kind": null,
+  "hypotheses": [
+   "falsifiable-assumption"
+  ],
+  "conclusion": "snark",
+  "class": "fully-black-box",
+  "model": null,
+  "source": [
+   "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
+  "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Fiat-Shamir + GKR to SNARK",
+  "id": "bar-fiat-shamir-and-gkr-to-snark-krs25",
+  "kind": null,
+  "hypotheses": [
+   "fiat-shamir",
+   "gkr-protocol"
+  ],
+  "conclusion": "snark",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]",
+   "[[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
+  "slug": "no-fiat-shamir-and-hash-function-to-ds-gk03",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Fiat-Shamir + Hash function to DS",
+  "id": "bar-fiat-shamir-and-hash-function-to-ds-gk03",
+  "kind": null,
+  "hypotheses": [
+   "fiat-shamir",
+   "hash-function"
+  ],
+  "conclusion": "ds",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
+  "slug": "no-fiat-shamir-to-nizk-gk03",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Fiat-Shamir to NIZK",
+  "id": "bar-fiat-shamir-to-nizk-gk03",
+  "kind": null,
+  "hypotheses": [
+   "fiat-shamir"
+  ],
+  "conclusion": "nizk",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-ggm-to-cdh-sho97.md",
+  "slug": "no-ggm-to-cdh-sho97",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No free reduction from GGM to CDH",
+  "id": "bar-ggm-to-cdh-sho97",
+  "kind": null,
+  "hypotheses": [
+   "ggm"
+  ],
+  "conclusion": "cdh",
+  "class": "free",
+  "model": null,
+  "source": [
+   "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-ggm-to-ddh-sho97.md",
+  "slug": "no-ggm-to-ddh-sho97",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No free reduction from GGM to DDH",
+  "id": "bar-ggm-to-ddh-sho97",
+  "kind": null,
+  "hypotheses": [
+   "ggm"
+  ],
+  "conclusion": "ddh",
+  "class": "free",
+  "model": null,
+  "source": [
+   "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-ggm-to-dlog-sho97.md",
+  "slug": "no-ggm-to-dlog-sho97",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No free reduction from GGM to DLOG",
+  "id": "bar-ggm-to-dlog-sho97",
+  "kind": null,
+  "hypotheses": [
+   "ggm"
+  ],
+  "conclusion": "dlog",
+  "class": "free",
+  "model": null,
+  "source": [
+   "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
+  "slug": "no-hash-function-to-pke-gkm-00",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No fully-black-box reduction from Hash function to PKE",
+  "id": "bar-hash-function-to-pke-gkm-00",
+  "kind": null,
+  "hypotheses": [
+   "hash-function"
+  ],
+  "conclusion": "pke",
+  "class": "fully-black-box",
+  "model": null,
+  "source": [
+   "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-he-to-cca-security.md",
+  "slug": "no-he-to-cca-security",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from HE to CCA Security",
+  "id": "bar-he-to-cca-security",
+  "kind": null,
+  "hypotheses": [
+   "he"
+  ],
+  "conclusion": "ind-cca-security",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-he-to-szk-bl13.md",
+  "slug": "no-he-to-szk-bl13",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from HE to SZK",
+  "id": "bar-he-to-szk-bl13",
+  "kind": null,
+  "hypotheses": [
+   "he"
+  ],
+  "conclusion": "szk",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
+  ],
+  "strength": "conditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
+  "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security",
+  "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+  "kind": null,
+  "hypotheses": [
+   "selective-hibe-security"
+  ],
+  "conclusion": "adaptive-hibe-security",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
+  "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security",
+  "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
+  "kind": null,
+  "hypotheses": [
+   "hibe-selective-security"
+  ],
+  "conclusion": "hibe-adaptive-security",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-injective-owf-to-owp-mm11.md",
+  "slug": "no-injective-owf-to-owp-mm11",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from Injective OWF to OWP",
+  "id": "bar-injective-owf-to-owp-mm11",
+  "kind": null,
+  "hypotheses": [
+   "injective-one-way-function"
+  ],
+  "conclusion": "owp",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-ippe-to-abe.md",
+  "slug": "no-ippe-to-abe",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from IPPE to ABE",
+  "id": "bar-ippe-to-abe",
+  "kind": null,
+  "hypotheses": [
+   "ippe"
+  ],
+  "conclusion": "abe",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-mip-to-multi-prover-extensions.md",
+  "slug": "no-mip-to-multi-prover-extensions",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from MIP to Multi-prover extensions",
+  "id": "bar-mip-to-multi-prover-extensions",
+  "kind": null,
+  "hypotheses": [
+   "mip"
+  ],
+  "conclusion": "mip-star",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-np-to-cpir-lv15.md",
+  "slug": "no-np-to-cpir-lv15",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from NP to cPIR",
+  "id": "bar-np-to-cpir-lv15",
+  "kind": null,
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "cpir",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-np-to-hash-function-aggm06.md",
+  "slug": "no-np-to-hash-function-aggm06",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from NP to Hash function",
+  "id": "bar-np-to-hash-function-aggm06",
+  "kind": null,
+  "hypotheses": [
+   "np"
+  ],
+  "conclusion": "hash-function",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-oihf-to-ot-bh26.md",
+  "slug": "no-oihf-to-ot-bh26",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No fully-black-box reduction from OIHF to OT",
+  "id": "bar-oihf-to-ot-bh26",
+  "kind": null,
+  "hypotheses": [
+   "oblivious-interactive-hash-function"
+  ],
+  "conclusion": "ot",
+  "class": "fully-black-box",
+  "model": null,
+  "source": [
+   "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
+  ],
+  "strength": "conditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-owp-to-ke-ir89.md",
+  "slug": "no-owp-to-ke-ir89",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from OWP to KE",
+  "id": "bar-owp-to-ke-ir89",
+  "kind": null,
+  "hypotheses": [
+   "owp"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-pke-to-ot-gkm-00.md",
+  "slug": "no-pke-to-ot-gkm-00",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from PKE to OT",
+  "id": "bar-pke-to-ot-gkm-00",
+  "kind": null,
+  "hypotheses": [
+   "pke"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-qcma-to-qma-ak07.md",
+  "slug": "no-qcma-to-qma-ak07",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from QCMA to QMA",
+  "id": "bar-qcma-to-qma-ak07",
+  "kind": null,
+  "hypotheses": [
+   "qcma"
+  ],
+  "conclusion": "qma",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[AK07 - Quantum versus Classical Proofs and Advice|AK07]]",
+   "[[BFM23 - On the Power of Nonstandard Quantum Oracles|BFM23]]",
+   "[[NN23 - A Distribution Testing Oracle Separation between QMA and QCMA|NN23]]",
+   "[[BK24 - Oracle Separation of QMA and QCMA with Bounded Adaptivity|BK24]]",
+   "[[BHNZ25 - Separating QMA from QCMA with a Classical Oracle|BHNZ25]]",
+   "[[BHV26 - Separating Quantum and Classical Advice with Good Codes|BHV26]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-rom-to-ke-hmo-19.md",
+  "slug": "no-rom-to-ke-hmo-19",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from ROM to KE",
+  "id": "bar-rom-to-ke-hmo-19",
+  "kind": null,
+  "hypotheses": [
+   "rom"
+  ],
+  "conclusion": "ke",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]]",
+   "[[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]",
+   "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": true
+ },
+ {
+  "path": "content/Barriers/no-rom-to-merkle-puzzles-bm09.md",
+  "slug": "no-rom-to-merkle-puzzles-bm09",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No reduction from ROM to Merkle puzzles",
+  "id": "bar-rom-to-merkle-puzzles-bm09",
+  "kind": null,
+  "hypotheses": [
+   "rom"
+  ],
+  "conclusion": "merkle-puzzles",
+  "class": "unstated",
+  "model": null,
+  "source": [
+   "[[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]",
+   "[[Mer78 - Secure Communications Over Insecure Channels|Mer78]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-rom-to-roh-ccg-94.md",
+  "slug": "no-rom-to-roh-ccg-94",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No relativizing reduction from ROM to ROH",
+  "id": "bar-rom-to-roh-ccg-94",
+  "kind": null,
+  "hypotheses": [
+   "rom"
+  ],
+  "conclusion": "random-oracle-hypothesis",
+  "class": "relativizing",
+  "model": null,
+  "source": [
+   "[[CCG+94 - The random oracle hypothesis is false|CCG+94]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
+  "slug": "no-search-noisy-k-lin-to-noisy-k-lin",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from Search noisy $k$-LIN to Noisy k-LIN",
+  "id": "bar-search-noisy-k-lin-to-noisy-k-lin",
+  "kind": null,
+  "hypotheses": [
+   "search-noisy-k-lin"
+  ],
+  "conclusion": "noisy-k-lin",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
+  "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from Selective Security to CP-ABE: IND-CPA Security",
+  "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
+  "kind": null,
+  "hypotheses": [
+   "kp-abe-selective-security"
+  ],
+  "conclusion": "cp-abe-adaptive-security",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-tdp-to-ot.md",
+  "slug": "no-tdp-to-ot",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No reduction from TDP to OT",
+  "id": "bar-tdp-to-ot",
+  "kind": null,
+  "hypotheses": [
+   "tdp"
+  ],
+  "conclusion": "ot",
+  "class": "unstated",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-the-structured-ggm-to-dlog-chw26.md",
+  "slug": "no-the-structured-ggm-to-dlog-chw26",
+  "type": "barrier",
+  "status": "draft",
+  "title": "No free reduction from The Structured GGM to DLOG",
+  "id": "bar-the-structured-ggm-to-dlog-chw26",
+  "kind": null,
+  "hypotheses": [
+   "structured-generic-group-model"
+  ],
+  "conclusion": "dlog",
+  "class": "free",
+  "model": null,
+  "source": [
+   "[[CHW26 - The Structured Generic-Group Model|CHW26]]"
+  ],
+  "strength": "unconditional",
+  "suspected_error_note": false
+ },
+ {
+  "path": "content/Barriers/no-zkp-to-argument-systems.md",
+  "slug": "no-zkp-to-argument-systems",
+  "type": "barrier",
+  "status": "stub",
+  "title": "No fully-black-box reduction from ZKP to Argument systems",
+  "id": "bar-zkp-to-argument-systems",
+  "kind": null,
+  "hypotheses": [
+   "zkp"
+  ],
+  "conclusion": "constant-round-zk-argument",
+  "class": "fully-black-box",
+  "model": null,
+  "source": "folklore",
+  "strength": "unconditional",
+  "suspected_error_note": false
+ }
+]

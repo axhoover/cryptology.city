@@ -1,0 +1,391 @@
+{
+  "batch": "red-17",
+  "pages": [
+    {
+      "slug": "kea-to-snark-gro16",
+      "path": "content/Reductions/kea-to-snark-gro16.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Misattributed: Gro16 does not assume a knowledge-of-exponent assumption. The Groth16 paper explicitly takes 'a more aggressive stance' and proves knowledge soundness of its 3-element SNARK in the generic (bilinear) group model, with no KEA/q-PKE hypothesis (verified against the paper text via web search of eprint 2016/260; the paper's own abstract and introduction say the security proof is in the generic group model). The wiki bullets generating this page conflate two hypothesis stories, as this page's own Notes already flag. The correct Gro16 edges exist already (bilinear-pairing-to-snark-gro16, arithmetization-to-zk-snark-gro16). A KEA-family => SNARK edge is real but belongs to the earlier q-PKE-based constructions - Groth, 'Short Pairing-based Non-interactive Zero-Knowledge Arguments' (ASIACRYPT 2010) and Gennaro-Gentry-Parno-Raykova, 'Quadratic Span Programs and Succinct NIZKs without PCPs' (EUROCRYPT 2013) - not to Gro16. Also, plain KEA (Damgard's KEA1, no pairing) alone does not yield SNARKs; the SNARK constructions need q-power knowledge assumptions in bilinear groups plus a structured CRS, so the single-hypothesis edge is underspecified even before the attribution issue.",
+      "flags": [
+        "Page should either be retargeted to a q-PKE/pairing hypothesis with source Groth10 or GGPR13 (neither has a reference page yet), or deleted as duplicating bilinear-pairing-to-snark-gro16.",
+        "Internal contradiction already recorded in Notes: '3 G1 + 1 G2 = 4 elements' vs the correct 2 G1 + 1 G2 = 3 elements; Groth16 proofs are 2 G1 + 1 G2.",
+        "Existing frontmatter class: free / model: generic-group describes the real Gro16 theorem (GGM proof), which is exactly the edge already recorded at bilinear-pairing-to-snark-gro16, not a KEA edge."
+      ]
+    },
+    {
+      "slug": "kem-to-ke",
+      "path": "content/Reductions/kem-to-ke.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The protocol invokes the KEM algorithms only as oracles: the receiver runs KeyGen and Decap, the sender runs Encap. The security reduction is fixed and treats any adversary as an oracle: an eavesdropper's view (pk, c, k) is literally the IND-CPA KEM challenge (pk, c*, k_b), so a KE distinguisher is forwarded verbatim as a KEM distinguisher. RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[key-encapsulation-mechanism|KEM]] yields a two-message [[key-exchange|key exchange]] over a public authenticated channel: the receiver sends $\\pk$ where $(\\pk, \\sk) \\gets \\KeyGen(1^\\secpar)$; the sender runs $(c, k) \\gets \\mathsf{Encap}(\\pk)$, sends $c$, and outputs $k$; the receiver outputs $\\mathsf{Decap}(\\sk, c)$. Indistinguishability of the shared key from random given the transcript $(\\pk, c)$ is exactly IND-CPA security of the KEM — folklore.",
+      "sketch": "The eavesdropper's view $(\\pk, c, k)$ is the IND-CPA KEM challenge $(\\pk, c^*, k_b)$, so any passive distinguisher against the key exchange is verbatim an IND-CPA distinguisher against the KEM.",
+      "pseudocode": "",
+      "security_loss": "tight: the eavesdropper's distinguishing advantage equals the KEM IND-CPA advantage",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Source page key-encapsulation-mechanism.md still says 'running Encap with the sender's public key'; encapsulation uses the receiver's public key.",
+        "Source page key-encapsulation-mechanism.md still calls the result an 'authenticated key exchange'; a bare KEM gives an unauthenticated KE over an authenticated channel (key-exchange.md's own AKE variant requires mutual authentication)."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Statement corrects two errors in the migrated text (receiver's vs sender's public key; unauthenticated vs authenticated KE); the source page key-encapsulation-mechanism.md still carries both errors — skeptical-checker lane."
+      ]
+    },
+    {
+      "slug": "kem-and-ske-to-pke",
+      "path": "content/Reductions/kem-and-ske-to-pke.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CS03",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack",
+          "authors": "Ronald Cramer, Victor Shoup",
+          "venue": "SIAM Journal on Computing 33(1):167-226",
+          "year": "2003",
+          "url": "https://doi.org/10.1137/S0097539702403773",
+          "note": "Formalizes the KEM/DEM framework and proves the hybrid composition theorem (also eprint 2001/108). DOI and bibliographic data verified via dblp/NYU Scholars search results."
+        },
+        {
+          "key": "HHK10",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HHK10 - Some (in)sufficient conditions for secure hybrid encryption",
+          "authors": "Javier Herranz, Dennis Hofheinz, Eike Kiltz",
+          "venue": "Information and Computation 208(11):1243-1257",
+          "year": "2010",
+          "url": "https://eprint.iacr.org/2006/265",
+          "note": "Complete characterization of which KEM/DEM security-notion combinations compose; in particular an IND-CPA-only DEM is insufficient for IND-CCA hybrid PKE. Verified via eprint 2006/265 and ScienceDirect search results."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction calling Encap/Decap and the SKE algorithms only as oracles. The security proof is a two-step game hop whose reductions run the PKE adversary as an oracle: the KEM reduction answers decryption queries using its Decap oracle plus SKE.Dec, and the DEM reduction simulates the KEM itself with an independent random key. RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The KEM-DEM hybrid builds [[public-key-encryption|PKE]] from a [[key-encapsulation-mechanism|KEM]] and a one-time-secure [[symmetric-key-encryption|SKE]] (DEM): $\\Enc(\\pk, m)$ runs $(c_1, k) \\gets \\mathsf{Encap}(\\pk)$ and $c_2 \\gets \\mathsf{SKE}.\\Enc(k, m)$, outputting $(c_1, c_2)$; $\\Dec(\\sk, (c_1, c_2))$ recovers $k \\gets \\mathsf{Decap}(\\sk, c_1)$ and outputs $\\mathsf{SKE}.\\Dec(k, c_2)$. If the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure (e.g. authenticated encryption), the hybrid is IND-CCA secure; an IND-CPA KEM with a one-time IND-CPA DEM gives IND-CPA security [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]].",
+      "sketch": "Game hop: replace the encapsulated challenge key $k$ by an independent uniform key — indistinguishable by KEM IND-CCA security, with $\\mathsf{Decap}$ answering decryption queries on $c_1 \\neq c_1^*$; the challenge then encrypts under a fresh one-time key, reducing to DEM security.",
+      "pseudocode": "",
+      "security_loss": "additive: the hybrid's CCA advantage is bounded by the sum of the KEM IND-CCA advantage and the DEM one-time IND-CCA advantage",
+      "improvements_text": "- Which KEM/DEM security-notion combinations yield secure hybrid PKE is completely characterized; an IND-CPA-only DEM is provably insufficient for IND-CCA hybrid encryption — [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]]",
+      "notes_to_keep": [
+        "Source page key-encapsulation-mechanism.md (KEM-DEM section) still claims IND-CCA hybrid PKE from an IND-CPA DEM 'or even OT-secure for a one-time pad'; the composition requires a one-time IND-CCA (authenticated) DEM, and a one-time-pad DEM is malleable, making the composed scheme trivially CCA-breakable."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Statement corrects the migrated SUSPECT MATH: IND-CCA composition needs a one-time IND-CCA DEM, not merely IND-CPA (CS03; counterexamples in HHK10). The source page key-encapsulation-mechanism.md still carries the erroneous claim — skeptical-checker lane, and its queue entry should go stale when fixed."
+      ]
+    },
+    {
+      "slug": "kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+      "path": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as sourced and underspecified as stated. (1) KZG10 (Asiacrypt 2010) constructs a polynomial commitment scheme, not a SNARK — it predates the PIOP-compilation paradigm and contains no SNARK theorem. (2) Gro16 does not use KZG: Groth16 is a QAP/linear-encoding SNARK with a circuit-specific CRS, proven in the generic group model; this page's own Notes already flag the 'Groth16 underlain by KZG' claim as a suspected factual error. (3) A polynomial commitment alone does not imply a SNARK — the true theorem is the compilation of an (algebraic/polynomial) IOP plus a polynomial commitment scheme into a SNARK (Plonk, Marlin), which needs the arithmetization hypothesis and Fiat-Shamir/ROM for non-interactivity. That edge is already recorded as arithmetization-and-pcs-to-snark-kzg10 and pcs-to-snark; this page duplicates them with a wrong single hypothesis and wrong sources. Correct sources for KZG-based SNARK compilers would be Gabizon-Williamson-Ciobotaru (Plonk, eprint 2019/953) and Chiesa-Hu-Maller-Mishra-Vesely-Ward (Marlin, EUROCRYPT 2020), neither cited here.",
+      "flags": [
+        "Recommend deleting or merging this page into pcs-to-snark / arithmetization-and-pcs-to-snark-kzg10 — the migration itself recorded it as a duplicate of two existing inventory edges.",
+        "Neither Plonk nor Marlin has a reference page; the pcs-to-snark family cannot be properly sourced until one is created."
+      ]
+    },
+    {
+      "slug": "lsn-to-lpn-cimr25",
+      "path": "content/Reductions/lsn-to-lpn-cimr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CIMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CIMR25 - Secret-Key PIR from Random Linear Codes",
+          "authors": "Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen",
+          "venue": "STOC 2026 (eprint 2025/646)",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/646",
+          "note": "Now published at STOC 2026 (ACM DOI 10.1145/3798129.3800906); the wiki reference page still says 'venue: preprint'."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The paper is unreachable through this environment's egress proxy, so the shape of the sample-mapping reduction could not be checked; recording a class without seeing the proof would add a claim.",
+      "model": "standard",
+      "model_justification": "Plain assumption-to-assumption reduction; no idealized model involved.",
+      "kind_correct": "implication",
+      "statement": "For constant code rate $\\rho = k/n$ and noise parameter $\\eta = 1 - \\mu = o(1)$, hardness of $(k, n, \\mu)$-[[learning-subspace-with-noise|LSN]] implies hardness of [[learning-parity-with-noise|LPN]] with code dimension $k$, code length $k(1 + \\Omega(\\eta))$, and noise rate $\\eta$ [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The target model has no parameter fields, so the regime (constant rate, eta = 1-mu = o(1)) survives only in the statement text — a real modelling gap for LPN/LSN edges.",
+        "learning-subspace-with-noise has no wiki page; the alias 'LSN' currently resolves to the CIMR25 reference page's frontmatter."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Parameters are transcribed from the CIMR25 reference page's 'LSN facts' list in this wiki; eprint.iacr.org and all paper mirrors are blocked by this environment's egress proxy, so the exact proposition in eprint 2025/646 could not be re-checked against the paper. Verifier with eprint access should confirm the theorem anchor and the parameter regime.",
+        "Direction sanity-checked: LSN hardness implying LPN hardness is consistent with the paper's framing (fact 3 on the reference page gives only a partial converse, so no equivalence; no lpn-to-lsn page exists)."
+      ]
+    },
+    {
+      "slug": "lsn-to-secret-key-pir-sk-pir-cimr25",
+      "path": "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CIMR25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CIMR25 - Secret-Key PIR from Random Linear Codes",
+          "authors": "Caicai Chen, Yuval Ishai, Tamer Mour, Alon Rosen",
+          "venue": "STOC 2026 (eprint 2025/646)",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/646",
+          "note": "Now published at STOC 2026 (ACM DOI 10.1145/3798129.3800906)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The paper is unreachable through this environment's egress proxy and the construction's proof shape could not be checked; recording a class would add a claim.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Under the $(k, n, \\mu)$-[[learning-subspace-with-noise|LSN]] conjecture at constant code rate and noise $\\mu = 1 - o(1)$, there is a [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for an $N$-bit database with $O(N^\\epsilon)$ communication for any constant $\\epsilon > 0$, encoding size $(1 + \\epsilon) N$, and a server implementable by a Boolean circuit of size $(4 + \\epsilon) N$ [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The LSN conjecture originates with Dodis, Kalai, and Lovett (STOC 2009): [[DKL09 - On cryptography with auxiliary input|DKL09]] introduced Learning Subspace with Noise; CIMR25 conjectures its hardness in a new constant-rate, high-noise regime. The CIMR25 reference page's 'They introduce the LSN conjecture' needs this qualification.",
+        "learning-subspace-with-noise has no wiki page; the alias 'LSN' currently resolves to the CIMR25 reference page's frontmatter, so [[LSN]] links land on a paper, not an assumption.",
+        "The paper's LPN-based and LSN-based sk-PIR constructions are two independent single-hypothesis edges (disjunction, not conjunction); the LPN branch is recorded separately in the inventory."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DKL09 attribution confirmed via web: both YZ16 and Benhamouda et al. (eprint 2025/858) state LSN was first proposed by Dodis-Kalai-Lovett (STOC 2009); DKL09 already has a reference page. An assumption page for learning-subspace-with-noise crediting DKL09 (with CIMR25's parameter regime) should be created.",
+        "Statement matches the paper's abstract (verified via web search); the exact theorem anchor could not be checked because eprint is blocked by the egress proxy."
+      ]
+    },
+    {
+      "slug": "linear-secret-sharing-schemes-lsss-to-msp",
+      "path": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KW93",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "KW93 - On Span Programs",
+          "authors": "Mauricio Karchmer, Avi Wigderson",
+          "venue": "8th IEEE Structure in Complexity Theory Conference, pp. 102-111",
+          "year": "1993",
+          "url": "https://doi.org/10.1109/SCT.1993.336536",
+          "note": "Introduces (monotone) span programs and their correspondence with linear secret sharing. DOI and pages verified via web search."
+        },
+        {
+          "key": "Bei96",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Bei96 - Secure Schemes for Secret Sharing and Key Distribution",
+          "authors": "Amos Beimel",
+          "venue": "D.Sc. thesis, Technion - Israel Institute of Technology",
+          "year": "1996",
+          "url": "https://www.cs.bgu.ac.il/~beimel/pub.html",
+          "note": "Gives the explicit two-way equivalence between LSSS and MSPs (share size = span program size); the literature's standard citation pairing for this equivalence is [KW93, Bei96]."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Unconditional, purely linear-algebraic correspondence between two syntactic objects; there is no computational assumption or adversary-using reduction to classify, so the class axis records `free` per this repo's convention for proven unconditional results.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "A [[secret-sharing#linear-secret-sharing-schemes-lsss|linear secret-sharing scheme]] over a finite field $\\FF$ — one in which every share is a linear function of the secret and the dealer's randomness — is equivalent to a [[monotone-span-program|monotone span program]] over $\\FF$: an MSP of size $s$ computing an access structure yields an LSSS with total share size $s$ for that access structure, and every LSSS induces an MSP of the same size computing its access structure [[KW93 - On Span Programs|KW93]], [[Bei96 - Secure Schemes for Secret Sharing and Key Distribution|Bei96]].",
+      "sketch": "Given an MSP $(M, \\mathbf{e})$ with rows labeled by parties, the dealer shares $s$ by sampling a random $\\mathbf{r}$ with $\\langle \\mathbf{e}, \\mathbf{r} \\rangle = s$ and handing each party the inner products of its rows with $\\mathbf{r}$. A qualified set has $\\mathbf{e}$ in the span of its rows and recovers $s$ by the spanning linear combination; an unqualified set's shares are statistically independent of $s$. Reading the shares' linear defining map as a matrix inverts the translation.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Neither 'linear-secret-sharing-scheme' nor 'monotone-span-program' has a wiki page; both identifiers currently dangle.",
+        "The clause 'MSPs characterize the access structures realizable by linear schemes' is the corollary of this equivalence, not a separate claim."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": []
+    },
+    {
+      "slug": "partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+      "path": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CHKV25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN",
+          "authors": "Henry Corrigan-Gibbs, Alexandra Henzinger, Yael Tauman Kalai, Vinod Vaikuntanathan",
+          "venue": "Eurocrypt 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2024/1760",
+          "note": "Eurocrypt 2025 Part II, pp. 3-33; venue verified via web search."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The abstract says the construction works from *any* linearly homomorphic PKE, suggesting a black-box construction, but the proof shape could not be checked (eprint blocked by egress proxy); leaving unstated rather than guessing.",
+      "model": "standard",
+      "model_justification": "No idealized model; standard-model assumptions (sparse LPN plus a linearly homomorphic PKE).",
+      "kind_correct": "implication",
+      "statement": "Any linearly homomorphic PKE ([[homomorphic-encryption#partially-homomorphic-encryption-phe|PHE]], e.g. from [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) combined with the [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse LPN]] assumption yields [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] supporting $O(\\log \\secpar / \\log\\log \\secpar)$ homomorphic multiplications followed by $\\poly(\\secpar)$ additions, with ciphertext length a fixed polynomial in $\\secpar$ independent of the number of supported operations [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]. This is the first SHE for bounded-degree polynomials from neither lattices nor bilinear maps.",
+      "sketch": "Ciphertexts are matrices: homomorphic addition is matrix addition and homomorphic multiplication is matrix multiplication, with the sparsity of the LPN noise keeping error growth bounded across the supported multiplicative depth.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "GENUINELY CONJUNCTIVE: sparse LPN and the linearly homomorphic PKE are both required; the parenthetical DDH/DCR is an illustrative instantiation of the second hypothesis, not a decomposition.",
+        "COLLIDING IDENTIFIERS: hypothesis and conclusion both wikilink into homomorphic-encryption (PHE and SHE are sections of one page), and sparse-lpn is a section of learning-parity-with-noise; the hyperedge cannot distinguish these without sub-object pages."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Statement verified against the paper's abstract (Eurocrypt 2025, eprint 2024/1760) via web search; multiplicative-depth bound O(log lambda / log log lambda) confirmed."
+      ]
+    },
+    {
+      "slug": "notable-problems-to-qma",
+      "path": "content/Reductions/notable-problems-to-qma.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KSV02",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "KSV02 - Classical and Quantum Computation",
+          "authors": "Alexei Yu. Kitaev, Alexander H. Shen, Mikhail N. Vyalyi",
+          "venue": "AMS Graduate Studies in Mathematics, vol. 47",
+          "year": "2002",
+          "url": "https://www.ams.org/books/gsm/047/",
+          "note": "Kitaev announced 5-local Hamiltonian QMA-completeness in 1999; this book is the standard citable form. Bibliographic data verified via AMS bookstore/WorldCat."
+        },
+        {
+          "key": "KR03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KR03 - 3-Local Hamiltonian is QMA-complete",
+          "authors": "Julia Kempe, Oded Regev",
+          "venue": "Quantum Information & Computation 3(3):258-264",
+          "year": "2003",
+          "url": "https://arxiv.org/abs/quant-ph/0302079",
+          "note": "Verified via ADS and QIC listing."
+        },
+        {
+          "key": "KKR06",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KKR06 - The Complexity of the Local Hamiltonian Problem",
+          "authors": "Julia Kempe, Alexei Kitaev, Oded Regev",
+          "venue": "SIAM Journal on Computing 35(5):1070-1097",
+          "year": "2006",
+          "url": "https://doi.org/10.1137/S0097539704445226",
+          "note": "2-local Hamiltonian QMA-complete via perturbation-theory gadgets. DOI verified."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Unconditional complexity-class completeness theorem, proved by an explicit verifier (containment) and the circuit-to-Hamiltonian reduction (hardness); complexity results take class: free by this repo's convention.",
+      "model": "quantum",
+      "model_justification": "QMA is a quantum class and both directions of the completeness proof are quantum; keeping the page's model: quantum.",
+      "kind_correct": "equivalence",
+      "statement": "The [[quantum-merlin-arthur#notable-problems|local Hamiltonian problem]] — given a $k$-local Hamiltonian $H = \\sum_i H_i$ on $n$ qubits and thresholds $a < b$ with $b - a \\ge 1/\\poly(n)$, decide whether the ground-state energy of $H$ is at most $a$ or at least $b$ — is [[quantum-merlin-arthur|QMA]]-complete for $k \\ge 5$ [[KSV02 - Classical and Quantum Computation|KSV02]].",
+      "sketch": "Containment: the verifier measures the energy of the witness state against a randomly chosen term $H_i$. Hardness: Kitaev's circuit-to-Hamiltonian construction, following Feynman, encodes a QMA verification circuit into a local Hamiltonian whose low-energy states are history states — superpositions over the computation's steps — so ground energy below the threshold certifies an accepting witness.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- 3-local Hamiltonian is QMA-complete — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]]\n- 2-local Hamiltonian is QMA-complete, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]]",
+      "notes_to_keep": [
+        "Completeness claim (in-class + hard-for-class); typed as 'equivalence' because the schema has no completeness kind.",
+        "'Local Hamiltonian' has no wiki page; the hypothesis identifier was invented during migration."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Title and slug ('Notable problems = QMA') are migration artifacts; the actual claim is 'Local Hamiltonian is QMA-complete'. Slug is a live URL, but the title/H1 should be fixed by a human or the refactor lane.",
+        "Statement now includes the promise gap b - a >= 1/poly(n) that the migrated text omitted (the gap-free version is not the QMA-complete problem)."
+      ]
+    },
+    {
+      "slug": "lossy-trapdoor-functions-to-pke",
+      "path": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "PW08",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "PW08 - Lossy trapdoor functions and their applications",
+          "authors": "Chris Peikert, Brent Waters",
+          "venue": "STOC 2008, pp. 187-196",
+          "year": "2008",
+          "url": "https://doi.org/10.1145/1374376.1374406",
+          "note": "Journal version: SIAM J. Comput. 40(6):1803-1844, 2011 (DOI 10.1137/080733954). Bibliographic data verified via ACM DL and SIAM."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction that invokes the lossy TDF's sampling, evaluation, and inversion algorithms only as oracles; the security reduction runs any IND-CPA adversary as an oracle to distinguish injective from lossy function indices, after which hiding is statistical (leftover hash lemma). The CCA construction (all-but-one lossy TDFs plus a one-time signature, both obtained black-box from the LTDF) has the same shape. RTV04 fully-black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]] with sufficient lossiness imply IND-CPA [[public-key-encryption|PKE]]: encrypt $m$ as $(F_s(x), h(x) \\oplus m)$ for uniform $x$, injective-mode index $s$, and pairwise-independent $h$. All-but-one lossy TDFs — constructible from lossy TDFs — together with a strongly unforgeable one-time signature give IND-CCA PKE [[PW08 - Lossy trapdoor functions and their applications|PW08]].",
+      "sketch": "Replacing the injective index $s$ in the public key by a lossy one is computationally indistinguishable; in lossy mode $F_s(x)$ retains only $n - k$ bits of information about $x$, so by the leftover hash lemma $h(x)$ is statistically close to uniform and the ciphertext statistically hides $m$.",
+      "pseudocode": "",
+      "security_loss": "tight: one injective/lossy mode-indistinguishability hop plus a negligible statistical term from the leftover hash lemma",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'lossy-trapdoor-function' has no page of its own; it lives as a section of trapdoor-permutation.md."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the page's MISSING CITATION note (PW08) and replaces the hedged 'useful for constructing CCA-secure encryption' with the actual theorem. The conclusion node is bare pke; the CCA strength lives only in the statement text.",
+        "Sibling page lossy-trapdoor-functions-to-tdp carries a still-open SUSPECTED IMPRECISION (lossy TDFs give injective trapdoor functions, not permutations) — not resolved here."
+      ]
+    }
+  ]
+}

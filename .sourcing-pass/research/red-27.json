@@ -1,0 +1,306 @@
+{
+  "batch": "red-27",
+  "pages": [
+    {
+      "slug": "qma-to-pp",
+      "path": "content/Reductions/qma-to-pp.md",
+      "disposition": "undetermined",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven containment between complexity classes; per repo convention the reduction-class axis does not discriminate here and `free` is the established value.",
+      "model": "quantum",
+      "model_justification": "Containment involving a quantum complexity class; matches the repo convention used on qip-to-pspace and siblings.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classQMA \\subseteq \\classPP$: every language with a quantum Merlin–Arthur proof system is decidable by an unbounded-error probabilistic polynomial-time machine.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "MISSING CITATION: the containment is attributed in the literature to Kitaev–Watrous, with the first published proof by Marriott–Watrous and a strengthening (QMA ⊆ A0PP ⊆ PP) by Vyalyi; no reference page exists yet."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY: claim is true and NOT folklore (a named, attributable theorem), but the citation could not be verified this session: network egress to arxiv.org, dblp.org, doi.org, eccc.weizmann.ac.il, and complexityzoo.net was all blocked by the proxy (403 policy denials), and the papers are not in the vendored cryptobib (non-IACR venues). Candidate citations for the verifier to confirm: Chris Marriott, John Watrous, 'Quantum Arthur-Merlin games', Computational Complexity 14(2):122-152, 2005 (also CCC 2004; arXiv cs/0506068), which proves QMA ⊆ PP and attributes the containment to Kitaev and Watrous; and Mikhail Vyalyi, 'QMA=PP implies that PP contains PH', ECCC TR03-021, 2003, which proves the stronger QMA ⊆ A0PP ⊆ PP. Do not apply a citation until one of these is bibliographically verified.",
+        "The migrated bullets on quantum-merlin-arthur.md and quantum-classical-merlin-arthur.md carry the same 'TODO citation (Marriott-Watrous)'; fixing this page's source should fix those in the same commit."
+      ]
+    },
+    {
+      "slug": "qr-to-com",
+      "path": "content/Reductions/qr-to-com.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "The hypothesis is a hardness assumption, not a primitive, so the RTV04 primitive-to-primitive class axis is left unstated, following every other assumption-hypothesis reduction page in the repo. The hiding proof is nonetheless a standard black-box reduction: a hiding distinguisher is literally a quadratic-residuosity decider.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Commit to a bit $b$ as $c = y^b r^2 \\bmod N$, where $N = pq$ and $y$ is a quadratic non-residue of Jacobi symbol $+1$ published in $\\pp$, and open by revealing $(b, r)$. The scheme is perfectly binding, since squares and non-squares of Jacobi symbol $+1$ are disjoint classes; it is computationally hiding under [[quadratic-residuosity|QR]], since distinguishing commitments to $0$ from commitments to $1$ is exactly deciding quadratic residuosity — folklore.",
+      "sketch": "A commitment to $0$ is a uniform square and a commitment to $1$ a uniform non-square of Jacobi symbol $+1$, so any hiding adversary is run once, as a black box, on the QR challenge to decide residuosity; binding is unconditional.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The bullet this page was migrated from claims a *statistically hiding* commitment; the direct QR commitment is perfectly binding and computationally hiding. Statistically hiding commitments follow from QR only generically (QR ⇒ OWF ⇒ statistically hiding commitment), a composite chain needing its own pages."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY: the migrated source bullet on quadratic-residuosity.md says 'QR → statistically hiding commitment scheme — standard'; the flavors are wrong. The standard direct construction ($c = y^b r^2$) is perfectly BINDING and computationally HIDING. The statement above records the correct folklore claim; the source page's bullet should be corrected in the same lane, and if a statistically-hiding edge is wanted it must go via OWF (Haitner et al.) as separate reduction pages.",
+        "The edge as typed (hypotheses [qr] ⇒ conclusion [com], no flavor in frontmatter) is true; only the migrated prose's flavor qualifier was wrong, so this is folklore rather than wrong_claim."
+      ]
+    },
+    {
+      "slug": "qr-to-he-gm84",
+      "path": "content/Reductions/qr-to-he-gm84.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GM84",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GM84 - Probabilistic encryption",
+          "authors": "Shafi Goldwasser, Silvio Micali",
+          "venue": "Journal of Computer and System Sciences",
+          "year": "1984",
+          "url": "https://www.sciencedirect.com/science/article/pii/0022000084900709",
+          "note": "Existing wiki reference page; cryptobib_key GolMic84 already set there."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-hypothesis edge; the repo leaves the RTV04 class axis unstated for these. The homomorphic property itself is unconditional (an algebraic identity of the scheme); only IND-CPA security rests on QR.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The Goldwasser–Micali scheme obtained from [[quadratic-residuosity|QR]] is homomorphic for addition of plaintext bits: since $\\Enc(\\pk, b; r) = y^b r^2 \\bmod N$, the product of two ciphertexts is a valid encryption of $b_1 \\oplus b_2$. QR thus yields a partially homomorphic [[homomorphic-encryption|HE]] scheme — XOR-homomorphic bit encryption, not fully homomorphic — [[GM84 - Probabilistic encryption|GM84]].",
+      "sketch": "Multiplying ciphertexts adds the $y$-exponents modulo squares: $(y^{b_1} r_1^2)(y^{b_2} r_2^2) = y^{b_1 \\oplus b_2} \\, (y^{b_1 \\wedge b_2} r_1 r_2)^2$, so the product is distributed as an encryption of $b_1 \\oplus b_2$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The conclusion node is the generic homomorphic-encryption page; the precise target is its partially-homomorphic variant (homomorphic-encryption#partially-homomorphic-encryption-phe). The statement carries the qualifier explicitly.",
+        "Verifier: the XOR-homomorphism is immediate from the GM84 construction and universally credited to it, but check whether GM84 states the property explicitly; if not, the citation label could be softened to 'scheme from GM84, property folklore'."
+      ]
+    },
+    {
+      "slug": "qr-to-pke-gm84",
+      "path": "content/Reductions/qr-to-pke-gm84.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GM84",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GM84 - Probabilistic encryption",
+          "authors": "Shafi Goldwasser, Silvio Micali",
+          "venue": "Journal of Computer and System Sciences",
+          "year": "1984",
+          "url": "https://www.sciencedirect.com/science/article/pii/0022000084900709",
+          "note": "Existing wiki reference page; conference version STOC 1982."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-hypothesis edge; the repo leaves the RTV04 class axis unstated for these. The security proof is a standard black-box reduction running the IND-CPA adversary once on an embedded QR challenge.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The Goldwasser–Micali cryptosystem encrypts bit-by-bit under [[quadratic-residuosity|QR]]: the public key is $(N, y)$ with $N = pq$ and $y$ a quadratic non-residue of Jacobi symbol $+1$, a bit $b$ is encrypted as $y^b r^2 \\bmod N$ for $r \\getsr \\ZZ_N^*$, and decryption tests quadratic residuosity using the factorization of $N$. It is the first [[public-key-encryption|PKE]] proved semantically (IND-CPA) secure, and its security is equivalent to the QR assumption — [[GM84 - Probabilistic encryption|GM84]].",
+      "sketch": "Encryptions of $0$ are uniform squares and encryptions of $1$ uniform non-squares of Jacobi symbol $+1$. The reduction sets $y$ to the QR challenge: if the challenge is a non-residue the simulation is the real scheme, and if it is a residue encryptions of $0$ and $1$ are identically distributed, so any IND-CPA advantage decides quadratic residuosity.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The suspected-errors entry against this edge concerns prose on the quadratic-residuosity assumption page ('information-theoretically hidden' is self-contradictory), not the reduction itself; the statement above avoids that phrasing. The assumption page still needs the skeptical-checker fix."
+      ]
+    },
+    {
+      "slug": "qr-to-tdh-dgi-19",
+      "path": "content/Reductions/qr-to-tdh-dgi-19.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DGI+19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DGI+19 - Trapdoor Hash Functions and Their Applications",
+          "authors": "Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, and Rafail Ostrovsky",
+          "venue": "CRYPTO 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/639",
+          "note": "Existing wiki reference page (cryptobib_key C:DGIMMO19). Abstract states: 'We obtain constructions where the hint is only one bit long based on DDH, QR, DCR, or LWE.'"
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-hypothesis edge; the paper does not classify the reduction in RTV04 terms.",
+      "model": "standard",
+      "model_justification": "DGI+19's TDH constructions are in the standard model (plain group / modulus setup); no idealized model is used.",
+      "kind_correct": "implication",
+      "statement": "[[quadratic-residuosity|QR]] implies [[trapdoor-hash-function|TDH]]: DGI+19 construct a trapdoor hash scheme for index functions with one-bit hints (rate $1$) under the QR assumption, alongside analogous constructions from DDH, DCR, and LWE — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated quote states the downstream PIR corollary; the direct QR ⇒ TDH theorem is asserted in the DGI+19 abstract (verified against the wiki reference page's stored abstract).",
+        "Sibling pages ddh-to-tdh-dgi-19 and lwe-to-tdh-dgi-19 cover the DDH and LWE branches, but no dcr-to-tdh-dgi-19 page exists although the paper also constructs TDH from DCR — possible missing edge."
+      ]
+    },
+    {
+      "slug": "qr-to-zkp-gmr85",
+      "path": "content/Reductions/qr-to-zkp-gmr85.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The migrated bullet is an attribution note, not a reduction: GMR85 introduce zero-knowledge and give a perfect zero-knowledge interactive proof for the quadratic residuosity LANGUAGE. That protocol is unconditional — completeness, soundness, and (perfect) zero knowledge all hold without any hardness assumption — so the QR hardness assumption is not a hypothesis of the result, and the edge 'QR (assumption) ⇒ ZKP (primitive)' mis-models it (the page's own migration notes already flag the language/assumption confusion). The right home is the existing 'Other results' bullet on zero-knowledge-proof or a note on quadratic-residuosity; there is no assumption ⇒ primitive edge here. Assumption-based ZK for all of NP is a different edge and already exists (hash-function-to-zkp-gmw91).",
+      "flags": [
+        "HIGH PRIORITY: recommend deleting this reduction page (or retyping as a note); the GMR85 QR protocol needs no assumption, so sourcing the edge as stated would record a false hypothesis."
+      ]
+    },
+    {
+      "slug": "qszk-to-qip",
+      "path": "content/Reductions/qszk-to-qip.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Containment between complexity classes; per repo convention `free` is the established value for these.",
+      "model": "quantum",
+      "model_justification": "Containment between quantum complexity classes; matches the repo convention on qip-to-pspace.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classQSZK \\subseteq \\classQIP$: a quantum statistical zero-knowledge proof system is by definition a quantum interactive proof system satisfying an additional zero-knowledge condition, so every language in [[quantum-statistical-zero-knowledge|QSZK]] is in [[quantum-interactive-proofs|QIP]] — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The containment is definitional (drop the zero-knowledge condition), hence honestly folklore. It is subsumed by the stronger QSZK ⊆ PSPACE (Watrous 2002) combined with QIP = PSPACE (see red-qip-to-pspace); those citations could not be web-verified this session (network egress to arxiv/DBLP/doi.org blocked), so they are deliberately not added as sources here."
+      ]
+    },
+    {
+      "slug": "rabin-ot-to-ot",
+      "path": "content/Reductions/rabin-ot-to-ot.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Cre87",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Cre87 - Equivalence Between Two Flavours of Oblivious Transfers",
+          "authors": "Claude Crépeau",
+          "venue": "CRYPTO 1987",
+          "year": "1987",
+          "url": "https://doi.org/10.1007/3-540-48184-2_30",
+          "note": "Verified against the vendored cryptobib entry C:Crepeau87 (pages 350-354, LNCS, proceedings year 1988); set cryptobib_key: C:Crepeau87 on the new reference page."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Both directions are fixed protocol constructions that invoke the given OT protocol only as a subprotocol on locally chosen inputs, and the security arguments are information-theoretic (statistical), treating any cheating party as a black box — the RTV04 fully-black-box shape; an information-theoretic reduction is in particular fully black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "[[oblivious-transfer#rabin-ot|Rabin OT]] — erasure OT in which the receiver obtains the sender's message with probability $1/2$ and $\\bot$ otherwise — and 1-out-of-2 [[oblivious-transfer|OT]] are equivalent: each is implemented from the other by an efficient, information-theoretically secure protocol reduction. The nontrivial direction builds $\\binom{2}{1}$-OT from polynomially many Rabin OT invocations — [[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]].",
+      "sketch": "The sender pushes $3n$ random bits through Rabin OT, so the receiver learns about half of them; the receiver announces disjoint index sets $I_0, I_1$ of size $n$ with every position of $I_c$ received, and the sender replies with $x_j \\oplus \\bigoplus_{i \\in I_j} b_i$ for $j = 0, 1$. The receiver unmasks $x_c$, while with overwhelming probability some bit indexed by $I_{1-c}$ never arrived, leaving $x_{1-c}$ perfectly masked. Conversely, the sender places $x$ in a random slot of one $\\binom{2}{1}$-OT (the other slot uniform) and afterwards reveals which slot held $x$; the receiver's random choice hits it with probability exactly $1/2$, and the sender learns nothing about the outcome.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis id 'rabin-ot' resolves to a variant section of oblivious-transfer, not a standalone page.",
+        "Cre87's original analysis predates simulation-based OT definitions; modern treatments re-prove the reduction in simulation-based models. The construction and its black-box shape are unchanged.",
+        "kind: equivalence kept — no converse page (ot-to-rabin-ot) exists and the source proves both directions."
+      ]
+    },
+    {
+      "slug": "random-ot-to-ot",
+      "path": "content/Reductions/random-ot-to-ot.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Bea95",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Bea95 - Precomputing Oblivious Transfer",
+          "authors": "Donald Beaver",
+          "venue": "CRYPTO 1995",
+          "year": "1995",
+          "url": "https://doi.org/10.1007/3-540-44750-4_8",
+          "note": "Verified against the vendored cryptobib entry C:Beaver95 (pages 97-109, LNCS 963); set cryptobib_key: C:Beaver95 on the new reference page."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The transformation makes one black-box use of the random-OT correlation and is perfectly secure: the receiver's message $e = c \\oplus c'$ is uniform independently of $c$, and the unopened mask stays uniform given the receiver's view, so simulation is trivial and black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A random OT correlation — the sender holds uniform $(r_0, r_1)$, the receiver holds a uniform bit $c'$ and $r_{c'}$ — yields chosen-input [[oblivious-transfer|OT]] with one round of communication: the receiver sends $e = c \\oplus c'$, the sender replies $(y_0, y_1) = (x_0 \\oplus r_e,\\, x_1 \\oplus r_{1 \\oplus e})$, and the receiver outputs $y_c \\oplus r_{c'}$. The transformation is perfectly secure, so [[oblivious-transfer#random-ot|Random OT]] implies OT with no computational assumption — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].",
+      "sketch": "Beaver's derandomization: $e$ one-time-pads the real choice bit with the random one, and each real message is one-time-padded with the random-OT message that the receiver holds exactly when its choice selects that slot ($y_j = x_j \\oplus r_{j \\oplus e}$ and $c \\oplus e = c'$).",
+      "pseudocode": "",
+      "security_loss": "none — perfect, information-theoretic",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis id 'random-ot' resolves to a variant section of oblivious-transfer, not a standalone page.",
+        "Bea95 frames the result as OT precomputation (precompute random OTs offline, derandomize online); it is the canonical citation for this transformation."
+      ]
+    },
+    {
+      "slug": "ring-lpn-to-mac",
+      "path": "content/Reductions/ring-lpn-to-mac.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The migrated sentence ('Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficient pseudorandom correlation generator constructions') asserts design lineage, not an implication, and neither of its objects is a MAC: Lapin (Heyse, Kiltz, Lyubashevsky, Paar, Pietrzak, FSE 2012 — cryptobib FSE:HKLPP12, verified in the vendored crypto.bib) is an interactive two-round authentication protocol, and PCGs are a different primitive with no wiki page. There is no canonical direct Ring-LPN ⇒ MAC theorem to substitute; the known MAC-from-LPN results (Kiltz et al., EUROCRYPT 2011; Dodis–Kiltz–Pietrzak–Wichs, EUROCRYPT 2012) are from plain LPN and are different edges. Correct replacement edges, if wanted: ring-lpn ⇒ interactive authentication protocol (HKL+12) and ring-lpn ⇒ pseudorandom correlation generator (Boyle et al.); a Ring-LPN ⇒ OWF ⇒ PRF ⇒ MAC chain exists trivially but must be split one page per link under repo rules.",
+      "flags": [
+        "HIGH PRIORITY: recommend deleting or retyping this page — the conclusion node (MAC) does not match anything the source sentence claims. Suggested replacement edges are named in wrong_reason; HKL+12 bibliographic data is verified (FSE:HKLPP12) should a ring-lpn ⇒ authentication-protocol page be created."
+      ]
+    }
+  ]
+}

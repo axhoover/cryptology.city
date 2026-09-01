@@ -1,0 +1,202 @@
+AGGM06 - On basing one-way functions on NP-hardness
+AHY25 - Fine-Grained Complexity in a World without Cryptography
+AIK06 - Cryptography in NC0
+AK07 - Quantum versus Classical Proofs and Advice
+AKL+20 - OptORAMa Optimal Oblivious RAM
+AKS83 - An 0(n log n) sorting network
+AKS98 - Finding a Large Hidden Clique in a Random Graph
+AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN
+AMYY25 - Evasive LWE Attacks, Variants & Obfustopia
+Ajt96 - Generating hard instances of lattice problems
+Ale03 - More on average case vs approximation complexity
+BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More
+BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext
+BBHR18 - Scalable, transparent, and post-quantum secure computational integrity
+BF01 - Identity-Based Encryption from the Weil Pairing
+BFL+24 - Quantum Merlin-Arthur with an Internally Separable Proof
+BFM23 - On the Power of Nonstandard Quantum Oracles
+BFM24 - Quantum Merlin-Arthur and Proofs Without Relative Phase
+BFM88 - Non-interactive zero-knowledge and its applications
+BGG+90 - Everything Provable is Provable in Zero-Knowledge
+BGI15 - Function Secret Sharing
+BGI16 - Function Secret Sharing Improvements and Extensions
+BGS75 - Relativizations of the P=NP question
+BGV12 - Leveled fully homomorphic encryption without bootstrapping
+BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys
+BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation
+BH26 - How to Steal Oblivious Transfer from Minicrypt
+BHMW21 - On the Security of Doubly Efficient PIR
+BHNZ25 - Separating QMA from QCMA with a Classical Oracle
+BHV26 - Separating Quantum and Classical Advice with Good Codes
+BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications
+BIPW17 - Can We Access a Database Both Locally and Privately
+BK24 - Oracle Separation of QMA and QCMA with Bounded Adaptivity
+BL13 - Limits of Provable Security for Homomorphic Encryption
+BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing
+BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle
+BM25 - Superposition Detection and QMA with Non-Collapsing Measurements
+BM26 - Secret-Key PIR from One-Way Functions
+BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits
+BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes
+BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions
+BN16 - Is There an Oblivious RAM Lower Bound
+BS98 - Collusion-secure fingerprinting for digital data
+BSW07 - Ciphertext-Policy Attribute-Based Encryption
+BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples
+BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption
+Bla79 - Safeguarding cryptographic keys
+Bra79 - Relativized cryptography
+CCG+94 - The random oracle hypothesis is false
+CCGH25 - A Meta-Complexity Characterization of Quantum Cryptography
+CD22 - An efficient key recovery attack on SIDH
+CDH20 - A Lower Bound for One-Round Oblivious RAM
+CDV21 - Learning a mixture of two subspaces over finite fields
+CG24 - Pseudorandom Error-Correcting Codes
+CG97 - Computationally private information retrieval
+CGKS98 - Private information retrieval
+CGN98 - Private Information Retrieval by Keywords
+CGZ24 - Undetectable Watermarks for Language Models
+CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN
+CHS25 - Watermarking Language Models for Many Adaptive Users
+CHW26 - The Structured Generic-Group Model
+CIMR25 - Secret-Key PIR from Random Linear Codes
+CK20 - Private Information Retrieval with Sublinear Online Time
+CNC+23 - Authenticated private information retrieval
+Can01 - Universally composable security a new paradigm for cryptographic protocols
+Cha82 - Blind Signatures for Untraceable Payments
+Cle86 - Limits on the security of coin flips when half the processors are faulty
+DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation
+DGI+19 - Trapdoor Hash Functions and Their Applications
+DH24 - Lower-Bounds on Public-Key Operations in PIR
+DH76 - New Directions in Cryptography
+DKL09 - On cryptography with auxiliary input
+DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing
+DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer
+DPPY25 - Anamorphism Beyond One-to-One Messaging Public-Key with Anamorphic Broadcast Mode
+DT24 - Fully Malicious Authenticated PIR
+Dac14 - A Black-Box Construction of a CCA2 Encryption Scheme from a Plaintext Aware Encryption Scheme
+Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function
+Din24 - Tight Indistinguishability Bounds for the XOR of Independent Random Permutations by Fourier Analysis
+Din25 - Combining Outputs of a Random Permutation New Constructions and Tight Security Bounds by Fourier Analysis
+ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms
+FGJ+25 - Publicly-Detectable Watermarking for Language Models
+FIPR05 - Keyword Search and Oblivious Pseudorandom Functions
+FKL18 - The Algebraic Group Model and its Applications
+FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems
+GG00 - On the limits of non-approximability of lattice problems
+GG21 - The Advantage of Truncated Permutations
+GG24 - New constructions of pseudorandom codes
+GG98 - On the possibility of basing Cryptography on the assumption that P != NP
+GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits
+GGM86 - How to construct random functions
+GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders
+GI14 - Distributed Point Functions and Their Applications
+GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme
+GJL+25 - Post-Quantum PKE from Unstructured Noisy Linear Algebraic Assumptions Beyond LWE and Alekhnovich's LPN
+GK03 - On the (In)security of the Fiat-Shamir Paradigm
+GK96 - On the Composition of Zero-Knowledge Proof Systems
+GKM+00 - The relationship between public key encryption and oblivious transfer
+GKR15 - Delegating Computation Interactive Proofs for Muggles
+GL89 - A Hard-Core Predicate for All One-Way Functions
+GM24 - Edit Distance Robust Watermarks for Language Models
+GM84 - Probabilistic encryption
+GMMY24 - CountCrypt Quantum Cryptography between QCMA and PP
+GMR85 - The knowledge complexity of interactive proof-systems
+GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks
+GMW87 - How to play ANY mental game
+GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems
+GO96 - Software protection and simulation on oblivious RAMs
+GPS06 - Pairings for Cryptographers
+GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data
+GPV08 - Trapdoors for hard lattices and new cryptographic constructions
+GR13 - Enhancements of Trapdoor Permutations
+GS86 - Private Coins versus Public Coins in Interactive Proof Systems
+GZS24 - Efficient Pre-processing PIR Without Public-Key Cryptography
+GZSP25 - Pseudorandom Functions with Weak Programming Privacy and Applications to Private Information Retrieval
+Gen09 - Fully homomorphic encryption using ideal lattices
+Gol00 - Candidate One-Way Functions Based on Expander Graphs
+Gro16 - On the Size of Pairing-based Non-interactive Arguments
+Grover96 - A fast quantum mechanical algorithm for database search
+HILL99 - A Pseudorandom Generator from Any One-Way Function
+HKKS19 - Stronger Lower Bounds for Online ORAM
+HMO+19 - On the Communication Complexity of Key-Agreement Protocols
+HMST22 - On the Complexity of Two-Party Differential Privacy
+HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs
+HPS98 - NTRU a ring-based public key cryptosystem
+HS25 - Tighter Concrete Security for the Simplest OT
+HV16 - On the Power of Secure Two-Party Computation
+IKNP03 - Extending Oblivious Transfers Efficiently
+IR89 - Limits on the provable consequences of one-way permutations
+ISW24 - PIR with Client-Side Preprocessing Information-Theoretic Constructions and Lower Bounds
+Imp95 - A personal view of average-case complexity
+JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies
+JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks
+JLS21 - Indistinguishability obfuscation from well-founded assumptions
+JS08 - On the Equivalence of Generic Group Models
+KL21 - A Logarithmic Lower Bound for Oblivious RAM (for all parameters)
+KM19 - CPA-to-CCA Transformation for KDM Security
+KO97 - Replication is not needed single database, computationally-private information retrieval
+KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir
+KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products
+KZ22 - An Analysis of the Algebraic Group Model
+KZG10 - Constant-size commitments to polynomials and their applications
+Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing
+Kil88 - Founding cryptography on oblivious transfer
+LLM22 - XSPIR Efficient Symmetrically Private Information Retrieval from Ring-LWE
+LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions
+LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE
+LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC
+LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR
+LN18 - Yes, There is an Oblivious RAM Lower Bound!
+LNO13 - Hiding the Input-Size in Secure Two-Party Computation
+LPR10 - On ideal lattices and learning with errors over rings
+LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions
+LS15 - Worst-case to average-case reductions for module lattices
+LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions
+LV15 - On Basing Private Information Retrieval on NP-Hardness
+Lam79 - Constructing digital signatures from a one way function
+MM11 - On Black-Box Separations among Injective One-Way Functions
+MMP+10 - The Limits of Two-Party Differential Privacy
+MP12 - Trapdoors for Lattices Simpler Tighter Faster Smaller
+MPZ20 - Unifying Generic Group Models
+Mau05 - Abstract Models of Computation in Cryptography
+Mer78 - Secure Communications Over Insecure Channels
+Mer89 - A Certified Digital Signature
+NN23 - A Distribution Testing Oracle Separation between QMA and QCMA
+NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions
+Naor91 - Bit commitment using pseudorandomness
+Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs
+PPY22 - Anamorphic Encryption Private Communication against a Dictator
+Pai99 - Public-key cryptosystems based on composite degree residuosity classes
+Pap94 - On the complexity of the parity argument and other inefficient proofs of existence
+RSA78 - A method for obtaining digital signatures and public-key cryptosystems
+RTV04 - Notions of Reducibility between Cryptographic Primitives
+RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption
+Rabin81 - How to Exchange Secrets with Oblivious Transfer
+Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography
+SS11 - Making NTRU as secure as worst-case problems over ideal lattices
+SW05 - Fuzzy Identity-Based Encryption
+SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More
+SW25 - Binary Codes for Error Detection and Correction in a Computationally Bounded World
+SW25 - Detecting and Correcting Computationally Bounded  Errors A Simple Construction Under Minimal Assumptions
+SZZ18 - PPP-Completeness with Connections to Cryptography
+Sch91 - Efficient signature generation by smart cards
+Sha79 - How to share a secret
+Sho97 - Lower Bounds for Discrete Logarithms and Related Problems
+Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer
+Tar08 - Optimal probabilistic fingerprint codes
+Vad06 - An Unconditional Study of Computational Zero Knowledge
+Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions
+Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover
+Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions
+Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE
+Wil25 - Simulating Time in Square-Root Space
+Wul07 - Oblivious-Transfer Amplification
+Wul09 - Oblivious Transfer from Weak Noisy Channels
+YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE
+YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN
+YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise
+Yao82 - Protocols for secure computations
+Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing
+Zal97 - Grover's quantum searching algorithm is optimal
+vAH04 - Public Key Steganography

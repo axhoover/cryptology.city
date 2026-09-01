@@ -1,0 +1,440 @@
+{
+  "batch": "red-22",
+  "pages": [
+    {
+      "slug": "ntru-to-ds",
+      "path": "content/Reductions/ntru-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DLP14",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "DLP14 - Efficient Identity-Based Encryption over NTRU Lattices",
+          "authors": "Léo Ducas, Vadim Lyubashevsky, Thomas Prest",
+          "venue": "ASIACRYPT 2014",
+          "year": "2014",
+          "url": "https://doi.org/10.1007/978-3-662-45608-8_2",
+          "note": "cryptobib_key: AC:DucLyuPre14; also https://eprint.iacr.org/2014/794. First instantiation of GPV hash-and-sign over NTRU lattices (as the key-extraction/signature component of their IBE); the direct ancestor of Falcon."
+        },
+        {
+          "key": "FHK+18",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FHK+18 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU",
+          "authors": "Pierre-Alain Fouque, Jeffrey Hoffstein, Paul Kirchner, Vadim Lyubashevsky, Thomas Pornin, Thomas Prest, Thomas Ricosset, Gregor Seiler, William Whyte, Zhenfei Zhang",
+          "venue": "NIST Post-Quantum Cryptography Standardization submission",
+          "year": "2018",
+          "url": "https://falcon-sign.info/",
+          "note": "Specification document, not in cryptobib — use inline bibtex (@misc, url https://falcon-sign.info/falcon.pdf). The migrated quote is about Falcon; carries the ~666-byte Falcon-512 signature-size claim."
+        },
+        {
+          "key": "GPV08",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GPV08 - Trapdoors for hard lattices and new cryptographic constructions",
+          "authors": "Craig Gentry, Chris Peikert, Vinod Vaikuntanathan",
+          "venue": "STOC 2008",
+          "year": "2008",
+          "url": "",
+          "note": "NOT an improvement: the hash-and-sign-from-preimage-sampleable-functions framework that DLP14/Falcon instantiate. Listed only so the statement's wikilink resolves; predates the edge."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-to-primitive edge; neither DLP14 nor the Falcon specification places the reduction in the RTV taxonomy, and the hypothesis is a hardness assumption rather than a primitive, so no class is claimed.",
+      "model": "rom",
+      "model_justification": "GPV-style hash-and-sign signatures are proved EUF-CMA in the random-oracle model; Falcon's proof is stated in the (Q)ROM. Confirms the migrated 'rom' value that was recorded as a low-certainty inference.",
+      "kind_correct": "implication",
+      "statement": "Hash-and-sign [[digital-signature|DS]] can be built over NTRU lattices: the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] preimage-sampling paradigm instantiated with an NTRU trapdoor gives signatures whose EUF-CMA security in the random-oracle model rests on [[ntru|NTRU]] and the hardness of SIS over NTRU lattices — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon is the compact NIST-standardized instantiation, with $\\sim 666$-byte signatures at the Falcon-512 parameter level — [[FHK+18 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+18]].",
+      "sketch": "The signer holds a short basis (trapdoor) for the lattice defined by $h$ and uses it to sample a short pair $(s_1, s_2)$ with $s_1 + s_2 h = H(m)$; a forger who produces such short preimages without the trapdoor solves SIS on the NTRU lattice.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Falcon: the compact, NIST-standardized instantiation via fast Fourier sampling, with $\\sim 666$-byte signatures at Falcon-512 — [[FHK+18 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+18]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis set {ntru} under-specifies the theorem: the EUF-CMA proofs for GPV-over-NTRU/Falcon assume hardness of SIS over NTRU lattices in addition to the key-recovery NTRU assumption. The statement carries the qualifier; a human should decide whether to widen the hypothesis set.",
+        "GPV08 is included as a source only because the statement wikilinks it (it is the framework, not an improvement); its role label is a schema limitation.",
+        "Key choice FHK+18 for the Falcon spec is discretionary (some works cite it as PFH+20 for the round-3 version); no collision in existing-refs."
+      ]
+    },
+    {
+      "slug": "ntru-to-kem",
+      "path": "content/Reductions/ntru-to-kem.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HRSS17",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "HRSS17 - High-Speed Key Encapsulation from NTRU",
+          "authors": "Andreas Hülsing, Joost Rijneveld, John M. Schanck, Peter Schwabe",
+          "venue": "CHES 2017",
+          "year": "2017",
+          "url": "https://eprint.iacr.org/2017/667",
+          "note": "cryptobib_key: CHES:HRSS17; DOI 10.1007/978-3-319-66787-4_12. IND-CCA KEM from textbook NTRU, proof in the QROM; became the NTRU-HRSS component of the NIST 'NTRU' submission."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Assumption-to-primitive edge; HRSS17 do not place the construction in the RTV taxonomy.",
+      "model": "rom",
+      "model_justification": "HRSS17 prove IND-CCA security of the KEM in the quantum-accessible random-oracle model (QROM); the model vocabulary has no separate QROM value, so 'rom' with this note. The migrated frontmatter value 'standard' is wrong.",
+      "kind_correct": "implication",
+      "statement": "An IND-CCA-secure [[key-encapsulation-mechanism|KEM]] can be built from [[ntru|NTRU]]: textbook NTRU is instantiated as a perfectly correct, deterministic OW-CPA encryption scheme and lifted to a KEM by a generic transform proved secure in the quantum random-oracle model — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]. This scheme became the NTRU-HRSS component of the NIST PQC submission NTRU.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The migrated quote conflates the original NTRUEncrypt (a public-key encryption scheme) with the later NIST-submission KEM variant; the object built here is the KEM of HRSS17."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "model must change standard → rom: the IND-CCA proof is in the QROM.",
+        "Edge is arguably redundant with ntru-to-pke-hps98 composed with a folklore PKE ⇒ KEM step; kept because the direct KEM construction (HRSS17) is what the migrated quote is about."
+      ]
+    },
+    {
+      "slug": "ntru-to-pke-hps98",
+      "path": "content/Reductions/ntru-to-pke-hps98.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HPS98",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HPS98 - NTRU a ring-based public key cryptosystem",
+          "authors": "Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman",
+          "venue": "ANTS 1998",
+          "year": "1998",
+          "url": "",
+          "note": ""
+        },
+        {
+          "key": "SS11",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "SS11 - Making NTRU as secure as worst-case problems over ideal lattices",
+          "authors": "Damien Stehlé, Ron Steinfeld",
+          "venue": "EUROCRYPT 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-20465-4_4",
+          "note": "cryptobib_key: EC:SteSte11. IND-CPA-secure NTRUEncrypt variant under Ring-LWE."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "HPS98 prove no security reduction: hardness of key and message recovery for the scheme is itself the NTRU family of assumptions, so no RTV class applies.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]] construct [[public-key-encryption|PKE]] over $R = \\ZZ[x]/(x^n - 1)$ from [[ntru|NTRU]]: the public key is $h = g \\cdot f^{-1} \\bmod q$ for short secret $f, g$, and a ciphertext is $c = p \\cdot r \\cdot h + m \\bmod q$ for short random $r$. Key recovery from $h$ is the NTRU problem; message recovery is a distinct CVP-type lattice problem, and the unpadded scheme is not IND-CPA (evaluation at $1$ leaks $m(1)$, since $r(1)$ is fixed by the parameter set).",
+      "sketch": "Decryption multiplies by $f$: $f \\cdot c = p \\cdot r \\cdot g + f \\cdot m \\bmod q$, which for suitable parameters holds exactly over $R$ because all factors are short; reducing modulo $p$ leaves $f \\cdot m$, and multiplying by $f^{-1} \\bmod p$ recovers $m$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- A modified NTRUEncrypt whose public keys are statistically close to uniform is IND-CPA-secure under [[learning-with-errors#ring-lwe|Ring LWE]] — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The conclusion carries no security notion: HPS98's scheme is heuristically one-way, not IND-CPA; the statement records this. Consider whether the wiki wants an OW-CPA qualifier on the edge."
+      ]
+    },
+    {
+      "slug": "oihf-to-ot-bh26",
+      "path": "content/Reductions/oihf-to-ot-bh26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BH26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BH26 - How to Steal Oblivious Transfer from Minicrypt",
+          "authors": "Cruz Barnum, David Heath",
+          "venue": "ePrint 2026",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/113",
+          "note": "Verified against the wiki reference page (abstract present): result (2) of the paper is exactly this edge, an explicitly non-black-box reduction."
+        }
+      ],
+      "class": "free",
+      "class_justification": "BH26 state the reduction is non-black-box without placing it finer in the RTV hierarchy; per schema/reduction-classes.yaml, 'non-black-box' without a finer classification records as free. A fully-black-box reduction on this hyperedge is separately ruled out (barrier [[no-oihf-to-ot-bh26]]), so free does not contradict the barrier.",
+      "model": "standard",
+      "model_justification": "The OIHF ⇒ OT reduction itself is in the standard model; the random oracle enters only in constructing OIHFs (the separate edge rom-to-oihf-bh26).",
+      "kind_correct": "implication",
+      "statement": "An [[oblivious-interactive-hash-function|OIHF]] implies [[oblivious-transfer|OT]] via an explicitly non-black-box reduction — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]. No fully-black-box reduction can replace it ([[no-oihf-to-ot-bh26|barrier]]): OIHFs exist relative to a random oracle ([[rom-to-oihf-bh26|ROM ⇒ OIHF]]) while black-box OT from a random oracle is ruled out by the Impagliazzo–Rudich separation.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "`class: free` is load-bearing: the reduction is explicitly non-black-box, and a fully-black-box OIHF ⇒ OT reduction would contradict the Impagliazzo–Rudich separation (see [[no-oihf-to-ot-bh26]]).",
+        "Standard-model constructions of OIHFs currently require Cryptomania assumptions (BH26), so this edge does not by itself place OT in Minicrypt."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "BH26 also construct OIHFs from OT (their result 3); a separate converse reduction page (ot-to-oihf-bh26, currently absent) is preferable to upgrading this page to kind: equivalence, since the two directions have different classes.",
+        "Stale migration note: oblivious-interactive-hash-function now has a wiki page (stub).",
+        "Could not fetch the paper itself (eprint egress-blocked; publication postdates researcher knowledge); content verified from the wiki reference page's stored abstract only — no sketch offered."
+      ]
+    },
+    {
+      "slug": "k-out-of-n-ot-to-cpir",
+      "path": "content/Reductions/k-out-of-n-ot-to-cpir.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as encoded, and mismatched with its own quote three ways. (1) The recorded equivalence is with cPIR, but the migrated sentence equates 1-out-of-$n$ OT with SPIR (single-server PIR *with data privacy*); cPIR has no server-privacy requirement, and the true cPIR relation is one-directional — non-trivial cPIR implies OT (DMO00, already the page cpir-to-ot-dmo00). (2) The direction OT ⇒ cPIR fails: cPIR requires communication sublinear in the database size, which 1-out-of-$n$ OT does not provide. (3) The title says $k$-out-of-$n$ while the quote and the hypothesis slug say 1-out-of-$n$. The correct underlying claim — single-server SPIR ⇔ 1-out-of-$n$ OT up to SPIR's communication requirement — already exists as red-symmetric-private-information-retrieval-single-server-to-ot.",
+      "flags": [
+        "Recommend deleting this page (or redirecting) in favor of symmetric-private-information-retrieval-single-server-to-ot and cpir-to-ot-dmo00; it duplicates them with the wrong conclusion object.",
+        "If kept, it must be re-typed: hypothesis one-out-of-n-ot, conclusion single-server-symmetric-pir, and the equivalence split into two implication pages per the migration rules."
+      ]
+    },
+    {
+      "slug": "hash-based-signatures-to-ds-mer89",
+      "path": "content/Reductions/hash-based-signatures-to-ds-mer89.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Mer89",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Mer89 - A Certified Digital Signature",
+          "authors": "Ralph C. Merkle",
+          "venue": "CRYPTO 1989",
+          "year": "1989",
+          "url": "",
+          "note": "The certification (Merkle) tree turning one-time signatures plus a hash function into a stateful many-time signature scheme."
+        },
+        {
+          "key": "Lam79",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Lam79 - Constructing digital signatures from a one way function",
+          "authors": "Leslie Lamport",
+          "venue": "SRI technical report",
+          "year": "1979",
+          "url": "",
+          "note": "NOT an improvement: the one-time signature instantiation named by the migrated text and by the statement. Listed so the statement's wikilink resolves."
+        },
+        {
+          "key": "NY89",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NY89 - Universal One-Way Hash Functions and their Cryptographic Applications",
+          "authors": "Moni Naor, Moti Yung",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73011",
+          "note": "cryptobib_key: STOC:NaoYun89. Shows UOWHFs suffice (and give one-time signatures), weakening the collision-resistance hypothesis."
+        },
+        {
+          "key": "Rom90",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Rom90 - One-Way Functions are Necessary and Sufficient for Secure Signatures",
+          "authors": "John Rompel",
+          "venue": "STOC 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1145/100216.100269",
+          "note": "cryptobib_key: STOC:Rompel90. OWFs alone suffice for EUF-CMA signatures (via UOWHFs from OWFs)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction: the certification tree calls the one-time signature scheme and the hash function only as oracles. One fixed reduction: any forger is run black-box and its forgery yields either a forgery against one of the one-time instances or a hash collision along an authentication path. This is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A one-time signature scheme ([[Lam79 - Constructing digital signatures from a one way function|Lam79]]) and a collision-resistant [[hash-function|hash function]] yield a stateful many-time EUF-CMA [[digital-signature|DS]]: Merkle's certification tree authenticates $2^d$ one-time verification keys under a single root, and each signature reveals one one-time signature together with its authentication path — [[Mer89 - A Certified Digital Signature|Mer89]]. Universal one-way hash functions suffice — [[NY89 - Universal One-Way Hash Functions and their Cryptographic Applications|NY89]]; one-way functions alone suffice — [[Rom90 - One-Way Functions are Necessary and Sufficient for Secure Signatures|Rom90]].",
+      "sketch": "Key generation builds a depth-$d$ Merkle tree whose leaves are hashes of $2^d$ one-time verification keys and publishes the root; the $i$-th signature signs the message under the $i$-th one-time key and attaches that key with its authentication path. A forgery either collides the hash somewhere along a path or forges against one of the one-time instances.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Universal one-way hash functions suffice for the tree and themselves imply one-time signatures — [[NY89 - Universal One-Way Hash Functions and their Cryptographic Applications|NY89]]\n- One-way functions are necessary and sufficient for EUF-CMA signatures — [[Rom90 - One-Way Functions are Necessary and Sufficient for Secure Signatures|Rom90]]",
+      "notes_to_keep": [
+        "Recorded here with hypothesis {one-time-signature} but with {one-time-signature, hash-function} at digital-signature.md — the tree needs a CRHF/UOWHF hypothesis; the sets should be reconciled."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis set should be {one-time-signature, hash-function}: the Merkle step needs collision resistance (or UOWHFs, NY89) on top of the one-time scheme; jointly-required hypotheses belong on one page per the schema.",
+        "one-time-signature has no wiki page; the hypothesis slug dangles.",
+        "Page title 'Hash-based signatures ⇒ DS' names a signature family, not the hypotheses; consider renaming to reflect OTS + hash ⇒ DS.",
+        "Lam79 appears in sources with role improvement only so its statement wikilink resolves; it is the OTS instantiation, not an improvement."
+      ]
+    },
+    {
+      "slug": "owsg-to-qm",
+      "path": "content/Reductions/owsg-to-qm.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "No construction of quantum money from OWSGs is known; the migrated bullet inverts the literature. The known result is the converse: private-key quantum money (with pure banknotes) implies OWSGs — Morimae–Yamakawa, 'One-Wayness in Quantum Cryptography', TQC 2024 (eprint 2022/1336, verified via web search). Private-key quantum money is known from pseudorandom states (Ji–Liu–Song, CRYPTO 2018), which are stronger than OWSGs, and recent work separating OWSGs and quantum money from QEFID (eprint 2024/1567) treats quantum money as a distinct, plausibly deeper Microcrypt primitive — not as implied by OWSGs.",
+      "flags": [
+        "The correct inverse edge (private-key QM with pure banknotes ⇒ OWSG, Morimae–Yamakawa eprint 2022/1336) deserves its own reduction page.",
+        "The source bullet on impagliazzos-five-worlds should be corrected: quantum money is constructed from pseudorandom states (JLS18), not from OWSGs."
+      ]
+    },
+    {
+      "slug": "owsg-to-unclonable-encryption",
+      "path": "content/Reductions/owsg-to-unclonable-encryption.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "No construction of unclonable encryption from OWSGs is known: neither the OWSG literature (Morimae–Yamakawa eprint 2022/1336 and follow-ups) nor the unclonable-encryption literature (Broadbent–Lord TQC 2020; Ananth–Kaleoglu TCC 2021; later works surveyed via web search) contains such a theorem, and web searches for the specific claim return nothing. One-time unclonable encryption in this wiki's sense (both halves recovering the message after key reveal) is achievable unconditionally from BB84 states (Broadbent–Lord), so no OWSG hypothesis is used there; the stronger unclonable-indistinguishability notion is known only in idealized models or from unrelated assumptions. The bullet's attribution to OWSGs appears to be an error of the same kind as its quantum-money half.",
+      "flags": [
+        "Same impagliazzos-five-worlds Microcrypt bullet as owsg-to-qm; both halves of it need fixing at the source page.",
+        "Confidence medium because this is a negative attribution claim: verifier should double-check no 2025–2026 paper constructs unclonable encryption from OWSGs (searches found none; eprint/arXiv fetches were egress-blocked)."
+      ]
+    },
+    {
+      "slug": "ot-to-com",
+      "path": "content/Reductions/ot-to-com.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Kil88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Kil88 - Founding cryptography on oblivious transfer",
+          "authors": "Joe Kilian",
+          "venue": "STOC 1988",
+          "year": "1988",
+          "url": "",
+          "note": "cryptobib_key: STOC:Kilian88. Bit commitment from OT is the first step of Kilian's proof that OT is complete for secure computation."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The commitment protocol invokes OT only as an ideal call on random inputs, and hiding and binding hold statistically in the OT-hybrid model, so the construction is black-box in OT and the security-reduction requirement is met trivially against arbitrary adversaries.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[oblivious-transfer|OT]] implies [[commitment-scheme|COM]] with no additional assumption: bit commitment with statistical hiding and statistical binding exists in the OT-hybrid model, as the first step of Kilian's proof that OT is complete for secure computation — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]].",
+      "sketch": "The committer sends random bits $r_1, \\dots, r_n$ through an erasure (Rabin) OT, so the receiver learns each with probability $1/2$ at positions unknown to the committer, and announces $b \\oplus r_1 \\oplus \\dots \\oplus r_n$; the receiver's missing bits hide $b$ statistically, while flipping any $r_i$ at opening is caught with probability $1/2$, giving statistical binding after repetition. The OT flavors are interchangeable ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]).",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Kil88 could not be re-read online (ACM/eprint egress-blocked); attribution rests on Kilian's completeness proof needing and building commitments from OT alone — the standard citation for this edge. Verifier may spot-check the paper's commitment section; Crépeau–Kilian (FOCS 1988) and BBCS are alternative citations for the same construction."
+      ]
+    },
+    {
+      "slug": "ot-to-mpc-kil88",
+      "path": "content/Reductions/ot-to-mpc-kil88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Kil88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Kil88 - Founding cryptography on oblivious transfer",
+          "authors": "Joe Kilian",
+          "venue": "STOC 1988",
+          "year": "1988",
+          "url": "",
+          "note": "cryptobib_key: STOC:Kilian88. OT is complete: unconditional two-party secure computation of any function given OT."
+        },
+        {
+          "key": "GMW87",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GMW87 - How to play ANY mental game",
+          "authors": "Oded Goldreich, Silvio Micali, Avi Wigderson",
+          "venue": "STOC 1987",
+          "year": "1987",
+          "url": "",
+          "note": "NOT chronologically an improvement (predates Kil88): the GMW protocol run in the OT-hybrid model gives computational n-party MPC for a dishonest majority. Listed so the statement's citation resolves."
+        },
+        {
+          "key": "Yao82",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Yao82 - Protocols for secure computations",
+          "authors": "Andrew Chi-Chih Yao",
+          "venue": "FOCS 1982",
+          "year": "1982",
+          "url": "",
+          "note": "NOT an improvement (predates): initiated secure two-party computation. Listed so the statement's citation resolves."
+        },
+        {
+          "key": "IPS08",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "IPS08 - Founding Cryptography on Oblivious Transfer Efficiently",
+          "authors": "Yuval Ishai, Manoj Prabhakaran, Amit Sahai",
+          "venue": "CRYPTO 2008",
+          "year": "2008",
+          "url": "https://doi.org/10.1007/978-3-540-85174-5_32",
+          "note": "cryptobib_key: C:IshPraSah08. Constant-rate, black-box MPC in the OT-hybrid model with security against malicious adversaries corrupting any number of parties."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Kilian's protocol uses OT only as an ideal functionality and achieves statistical two-party security in the OT-hybrid model; the commitments and zero-knowledge proofs it builds concern the evaluated circuit, not the OT implementation, and statistical security makes the reduction requirement trivial. IPS08 give an explicitly black-box, constant-rate version covering the multiparty case.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[oblivious-transfer|OT]] is complete for [[secure-multi-party-computation|MPC]]: given OT and no further assumption, any two-party functionality can be computed with unconditional security against malicious parties — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]. In the OT-hybrid model the [[GMW87 - How to play ANY mental game|GMW87]] protocol computes any $n$-party functionality with computational security against a dishonest majority (with abort); [[Yao82 - Protocols for secure computations|Yao82]] initiated the two-party case.",
+      "sketch": "OT yields commitments and zero-knowledge proofs on committed values with no extra assumption; parties evaluate the circuit on shared values, using OT for each multiplication and the committed-ZK machinery to force malicious parties to follow the protocol.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Constant-rate MPC in the OT-hybrid model, secure against malicious adversaries corrupting any number of parties and making only black-box use of the underlying primitives — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]",
+      "notes_to_keep": [
+        "'Complete for' is stronger than the implication recorded here: completeness also asserts the converse (any protocol realizing general MPC yields OT), which needs its own page."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "GMW87 and Yao82 carry role 'improvement' only as a schema limitation (they predate Kil88); their source notes explain their actual relation to the edge.",
+        "The migration note about a completeness converse: a page mpc-to-ot-bh26 exists — a verifier should check whether it covers the classical completeness converse or only BH26's result.",
+        "The '[[Oblivious transfer|OT]]' lowercase-alias link flagged in the migration notes is on impagliazzos-five-worlds, outside this page; left for the reference-fixer lane."
+      ]
+    }
+  ]
+}

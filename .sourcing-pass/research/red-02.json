@@ -1,0 +1,343 @@
+{
+  "batch": "red-02",
+  "pages": [
+    {
+      "slug": "bdh-to-ac",
+      "path": "content/Reductions/bdh-to-ac.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "No anonymous-credential construction from (decisional) bilinear Diffie-Hellman is known. The sole basis is the bundled bullet 'BDDH -> short signatures (BLS), VRFs, and anonymous credential schemes - standard', whose hypothesis is misattributed: pairing-based anonymous credential systems are proved under LRSW-type interactive assumptions (Camenisch-Lysyanskaya, 'Signature Schemes and Anonymous Credentials from Bilinear Maps', CRYPTO 2004) or q-SDH-type assumptions (BBS+ signatures), not under BDH/BDDH. The suspected-errors entry for content/Assumptions/bilinear-map-assumptions.md:34 flags exactly this. The correct edge would be LRSW => AC (no LRSW node exists yet) and/or q-SDH => AC.",
+      "flags": [
+        "suspected-errors.json affectsEdges lists this edge as 'red-bddh-to-ac' but the page id is 'red-bdh-to-ac' - id mismatch, reconcile so the automated check links them",
+        "Recommend deleting this edge or re-hypothesizing to an LRSW / q-SDH node once one exists; do not source a BDH-based AC claim"
+      ]
+    },
+    {
+      "slug": "bdh-to-be-bgw05",
+      "path": "content/Reductions/bdh-to-be-bgw05.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BGW05",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys",
+          "authors": "Dan Boneh, Craig Gentry, Brent Waters",
+          "venue": "CRYPTO 2005",
+          "year": "2005",
+          "url": "",
+          "note": "Reference page already exists in the wiki."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction uses the pairing group only through group operations and the pairing map. The static-security proof is one fixed reduction that receives a decisional n-BDHE instance, programs the public key and the corrupted users' private keys around the adversary's committed target set, and invokes the BE adversary once as an oracle to answer the BDHE challenge - the RTV04 fully-black-box shape (fixed construction, reduction black-box in the adversary).",
+      "model": "standard",
+      "model_justification": "No random oracles; plain public parameters, standard-model proof.",
+      "kind_correct": "implication",
+      "statement": "A bilinear group in which the decisional $n$-BDHE (bilinear Diffie-Hellman exponent) assumption - a $q$-type strengthening of [[bilinear-map-assumptions|BDH]] - holds yields a fully collusion-resistant [[broadcast-encryption|BE]] scheme for $n$ users with $O(1)$-size ciphertexts and private keys and an $O(n)$-size public key; security is static: the adversary commits to the target set before setup - [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].",
+      "sketch": "Public parameters are the powers $g^{\\alpha^i}$ for $i \\in \\{1,\\ldots,2n\\} \\setminus \\{n+1\\}$ together with $v = g^\\gamma$, and user $i$ holds $d_i = g^{\\gamma\\alpha^i}$; the session key $e(g,g)^{\\alpha^{n+1}t}$ can be assembled by any member of the target set from $d_i$ and the published powers, while $g^{\\alpha^{n+1}}$ itself is never published. The static reduction embeds a decisional $n$-BDHE challenge into exactly these powers and runs the adversary once.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis granularity: BGW05 needs decisional n-BDHE, a q-type assumption not defined on the bilinear-map-assumptions page; consider a separate BDHE node and re-pointing this edge",
+        "The O(1)-ciphertext efficiency claim comes with an O(n)-size public key, now stated explicitly"
+      ]
+    },
+    {
+      "slug": "bdh-to-ds",
+      "path": "content/Reductions/bdh-to-ds.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The claim's basis is 'BDDH -> short signatures (BLS) - standard', a misattribution: BLS unforgeability is proved under the computational co-CDH assumption in the random-oracle model (Boneh-Lynn-Shacham, 'Short Signatures from the Weil Pairing', ASIACRYPT 2001), not under decisional BDH; no BLS proof from BDDH exists. The wiki already records the correct edge as red-co-cdh-to-ds (model rom). Digital signatures do follow from BDH hardness via the composite chain BDH => DLOG hard => OWF => DS, but composite chains must be split per the schema and that chain is not what this page or its source text asserts.",
+      "flags": [
+        "suspected-errors.json affectsEdges lists 'red-bddh-to-ds'; page id is 'red-bdh-to-ds' - id mismatch, reconcile",
+        "Correct edge red-co-cdh-to-ds exists but is itself unsourced; BLS01 ('Short Signatures from the Weil Pairing') has no reference page and should be created when that edge is sourced"
+      ]
+    },
+    {
+      "slug": "bdh-to-hibe-wat09",
+      "path": "content/Reductions/bdh-to-hibe-wat09.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wat09",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions",
+          "authors": "Brent Waters",
+          "venue": "CRYPTO 2009",
+          "year": "2009",
+          "url": "",
+          "note": "Reference page already exists in the wiki."
+        },
+        {
+          "key": "LW10",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "LW10 - New Techniques for Dual System Encryption and Fully Secure HIBE with Short Ciphertexts",
+          "authors": "Allison Lewko, Brent Waters",
+          "venue": "TCC 2010",
+          "year": "2010",
+          "url": "https://eprint.iacr.org/2009/482",
+          "note": "Verified via eprint 2009/482 and the TCC 2010 proceedings (DOI 10.1007/978-3-642-11799-2_27)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction uses the pairing group only through its group and pairing operations. The dual system proof is a fixed hybrid sequence over the adversary's key queries; each hybrid step is a reduction that runs the HIBE adversary once as an oracle against a DLIN or DBDH challenge, with no dependence on the adversary's code.",
+      "model": "standard",
+      "model_justification": "The point of Wat09 is a standard-model proof: no random oracles, no q-type assumptions.",
+      "kind_correct": "implication",
+      "statement": "If the decisional bilinear Diffie-Hellman and decisional Linear assumptions ([[bilinear-map-assumptions|DBDH and DLIN]]) hold in a symmetric pairing group, there is an adaptively (fully) secure [[hierarchical-identity-based-encryption|HIBE]] in the standard model, with security loss polynomial in the number of key queries rather than exponential in the hierarchy depth - [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].",
+      "sketch": "The proof switches the challenge ciphertext and then each of the adversary's key queries to semi-functional form one hybrid at a time; each switch is a black-box reduction to DLIN, and a final DBDH step hides the message, so an adaptive adversary with $q$ key queries yields a distinguisher for one of the two assumptions with $O(q)$ loss.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Fully secure HIBE with short ciphertexts, via dual system encryption in composite-order groups - [[LW10 - New Techniques for Dual System Encryption and Fully Secure HIBE with Short Ciphertexts|LW10]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Genuine conjunction under-recorded: Wat09 uses DBDH and DLIN jointly, but both are aliases of the single bilinear-map-assumptions node; if DBDH and DLIN get separate pages, this edge should become a two-hypothesis conjunction"
+      ]
+    },
+    {
+      "slug": "bdh-to-hve-bw07",
+      "path": "content/Reductions/bdh-to-hve-bw07.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BW07",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption",
+          "authors": "Dan Boneh, Brent Waters",
+          "venue": "TCC 2007",
+          "year": "2007",
+          "url": "https://eprint.iacr.org/2006/287",
+          "note": "The actual paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (TCC 2007, LNCS 4392, pp. 535-554; eprint 2006/287); the wiki filename is wrong but is a live URL and must not be renamed."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The proof is a standard selective-security reduction, but I cannot sketch its hybrids precisely enough to certify the fully-black-box shape; left unstated.",
+      "model": "standard",
+      "model_justification": "Standard-model proof in composite-order bilinear groups; no random oracles.",
+      "kind_correct": "implication",
+      "statement": "[[hidden-vector-encryption|HVE]] supporting conjunctive equality, comparison, subset, and range queries on encrypted data exists in bilinear groups of composite order, selectively attribute-hiding under the composite 3-party Diffie-Hellman assumption (introduced there) together with a composite-order bilinear Diffie-Hellman assumption - [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The reference page filename 'BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption' does not match the paper it describes - the paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (Boneh-Waters, TCC 2007, eprint 2006/287); filenames are live URLs and cannot be renamed, so fix title/H1/aliases only."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "MISATTRIBUTION in migrated bullet: 'attribute-hiding under the decisional bilinear Diffie-Hellman and decisional linear assumptions' describes the later prime-order HVE of Iovino-Persiano (PBC 2008), not BW07; BW07 uses composite-order assumptions (C3DH, introduced there, which implies the bilinear subgroup decision assumption). Verifier should confirm the exact assumption pair against eprint 2006/287 (web sources confirm C3DH + selective security; my 'composite bilinear Diffie-Hellman' companion assumption is from memory).",
+        "Hypothesis granularity: C3DH is not defined on the bilinear-map-assumptions page; the recorded single hypothesis 'bdh' stands in for composite-order assumptions the page does not cover",
+        "BW07 security is selective; the conclusion node cannot express this - kept in the statement"
+      ]
+    },
+    {
+      "slug": "bdh-to-ibe-wat09",
+      "path": "content/Reductions/bdh-to-ibe-wat09.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wat09",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions",
+          "authors": "Brent Waters",
+          "venue": "CRYPTO 2009",
+          "year": "2009",
+          "url": "",
+          "note": "Reference page already exists in the wiki."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction uses the pairing group only through its group and pairing operations. The dual system proof is a fixed hybrid sequence: each step runs the IBE adversary once as an oracle against a DLIN or DBDH challenge and never inspects the adversary's code.",
+      "model": "standard",
+      "model_justification": "Standard-model proof; no random oracles (this, plus the simple assumptions, is the paper's contribution).",
+      "kind_correct": "implication",
+      "statement": "If the decisional bilinear Diffie-Hellman and decisional Linear assumptions ([[bilinear-map-assumptions|DBDH and DLIN]]) hold in a symmetric pairing group, there is an adaptively secure [[identity-based-encryption|IBE]] whose ciphertexts, private keys, and public parameters each consist of a constant number of group elements; the proof is in the standard model via dual system encryption - [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].",
+      "sketch": "The proof switches the challenge ciphertext and then each of the adversary's $q$ private-key queries to semi-functional form one hybrid at a time; each switch is a black-box reduction to DLIN, and a final DBDH step hides the message.",
+      "pseudocode": "",
+      "security_loss": "one DBDH term plus O(q) DLIN terms, for q private-key queries",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Genuine conjunction under-recorded: Wat09 uses DBDH and DLIN jointly; both alias to the single bilinear-map-assumptions node - split if the assumptions get separate pages",
+        "The bundled Boneh-Franklin quote ('BDH -> IBE from the Weil pairing - standard') is a DIFFERENT edge: computational BDH => IBE in the random-oracle model, attributable to BF01 (reference page exists). Recommend creating red-bdh-to-ibe-bf01 with model rom; the '- standard' folklore label there is misapplied",
+        "Migration junk 'Citations disagree across pages: [object Object]' should be dropped"
+      ]
+    },
+    {
+      "slug": "bdh-to-nizk-gro16",
+      "path": "content/Reductions/bdh-to-nizk-gro16.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The slug pins this edge to Gro16, but Gro16 does not prove a NIZK from BDH/DLIN or any falsifiable bilinear assumption: Groth16's knowledge-soundness proof is in the generic (bilinear) group model, an edge the wiki already records as red-bilinear-pairing-to-snark-gro16 (class free, model generic-group), and basing it on a falsifiable assumption via black-box reduction is ruled out by the existing barrier no-falsifiable-assumption-to-snark-gro16 (Gentry-Wichs). The genuine 'bilinear assumption => NIZK' results are Groth-Ostrovsky-Sahai ('Perfect Non-interactive Zero Knowledge for NP', EUROCRYPT 2006: NIZK for NP from DLIN in the CRS model) and Groth-Sahai ('Efficient Non-interactive Proof Systems for Bilinear Groups', EUROCRYPT 2008: NIZK for pairing-product equations from SXDH/DLIN); neither is Gro16, so this page as constituted is a misattribution.",
+      "flags": [
+        "A true DLIN => NIZK edge exists in the literature (GOS06, and GS08 for pairing-product equations); recommend replacing this page with red-bdh-to-nizk-gos06 (or sourcing red-sxdh-...-to-nizk / red-dlin-to-nizk to GS08) and creating GOS06/GS08 reference stubs then",
+        "The 'Groth-Sahai proofs are constant-size' suspicion in the migrated notes is correct to doubt: GS proofs are constant-size per equation, linear in the number of equations"
+      ]
+    },
+    {
+      "slug": "bdh-to-vrf",
+      "path": "content/Reductions/bdh-to-vrf.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HJ16",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "HJ16 - Verifiable Random Functions from Standard Assumptions",
+          "authors": "Dennis Hofheinz, Tibor Jager",
+          "venue": "TCC 2016-A",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2015/1048",
+          "note": "Verified via eprint 2015/1048 and TCC 2016-A proceedings (DOI 10.1007/978-3-662-49096-9_14, pp. 336-362): first adaptively secure VRF with exponential input space from a constant-size non-interactive assumption; instantiable under any member of the k-linear family with k >= 2, in particular DLIN."
+        },
+        {
+          "key": "Koh19",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Koh19 - Hunting and Gathering Verifiable Random Functions from Standard Assumptions with Short Proofs",
+          "authors": "Lisa Kohl",
+          "venue": "PKC 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/042",
+          "note": "Verified via eprint 2019/042 and PKC 2019 proceedings (DOI 10.1007/978-3-030-17259-6_14); shortens the proofs of HJ16-style VRFs under the same assumption family."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "HJ16's partitioning-style proof is presumably a standard black-box reduction, but I cannot sketch it precisely enough to certify the class; left unstated.",
+      "model": "standard",
+      "model_justification": "Standard model; no random oracles (that is the paper's point).",
+      "kind_correct": "implication",
+      "statement": "A [[verifiable-random-function|VRF]] with exponential-size input space and full adaptive security exists in symmetric bilinear groups under any member of the $k$-linear assumption family with $k \\ge 2$, in particular under the decision linear assumption [[bilinear-map-assumptions|DLIN]] - [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Shorter proofs from the same assumption family, via 'hunting and gathering' partitioning - [[Koh19 - Hunting and Gathering Verifiable Random Functions from Standard Assumptions with Short Proofs|Koh19]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated bullet 'BDDH -> VRFs - standard' is wrong: no VRF from DBDH is known; earlier pairing-based VRFs (Lysyanskaya 2002; Dodis-Yampolskiy 2005) use interactive or q-type assumptions. The edge survives only because DLIN is an alias of the bdh umbrella node - HJ16 (DLIN family) is the honest support at this node granularity",
+        "suspected-errors.json affectsEdges lists 'red-bddh-to-vrf'; page id is 'red-bdh-to-vrf' - id mismatch, reconcile",
+        "If DLIN is split off the umbrella node, re-point this edge to the DLIN node"
+      ]
+    },
+    {
+      "slug": "bilinear-pairing-to-ds",
+      "path": "content/Reductions/bilinear-pairing-to-ds.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The hypothesis is a structure, not a hardness assumption: a bilinear pairing exists unconditionally on suitable curves, including groups where discrete log is easy, so the bare existence of a pairing implies no unforgeability - the implication is false as stated. The intended content (BLS signatures) is EUF-CMA under the co-CDH assumption in the random-oracle model (Boneh-Lynn-Shacham, ASIACRYPT 2001), which the wiki already records as red-co-cdh-to-ds (model rom). Unlike red-bilinear-pairing-to-snark-gro16, where model generic-group supplies the hardness, this page's model rom does not make any pairing-group problem hard.",
+      "flags": [
+        "Fold this page into red-co-cdh-to-ds (the pairing is part of co-CDH's setting, not a separate hypothesis) and create the BLS01 reference stub there",
+        "The migrated BLS construction quote (sigma = H(m)^sk, verify e(sigma, g_2) = e(H(m), pk)) is correct and worth moving to the co-cdh-to-ds page"
+      ]
+    },
+    {
+      "slug": "bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10",
+      "path": "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KZG10",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "KZG10 - Constant-size commitments to polynomials and their applications",
+          "authors": "Aniket Kate, Gregory M. Zaverucha, Ian Goldberg",
+          "venue": "ASIACRYPT 2010",
+          "year": "2010",
+          "url": "",
+          "note": "Reference page already exists in the wiki."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction that uses the bilinear group only through group operations and the pairing, and one fixed security reduction: an adversary breaking evaluation binding outputs two accepting openings of the same commitment at the same point, from which the reduction algebraically computes $g^{1/(\\tau - z)}$, a $t$-SDH solution, using the adversary once as an oracle.",
+      "model": "crs",
+      "model_justification": "Requires a structured reference string $(g, g^\\tau, \\ldots, g^{\\tau^t})$ for a secret $\\tau$ (trusted setup); the SRS is a structured CRS.",
+      "kind_correct": "implication",
+      "statement": "Given a [[pairings|bilinear pairing]] and a structured reference string $(g, g^\\tau, \\ldots, g^{\\tau^t})$ with $\\tau$ secret, a prover can commit to any $f \\in \\FF_p[X]$ of degree at most $t$ with a single group element and prove any evaluation $f(z) = y$ with a single group element; evaluation binding holds under the [[q-strong-diffie-hellman|$t$-SDH]] assumption, and the Pedersen variant is additionally unconditionally hiding - [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].",
+      "sketch": "Commit as $C = g^{f(\\tau)}$, computed from the SRS; to open at $z$, publish $w = g^{\\psi(\\tau)}$ for the quotient $\\psi(X) = (f(X) - f(z))/(X - z)$, and verify $e(C/g^{y}, g) = e(w, g^{\\tau}/g^{z})$. Two accepting openings of $C$ at $z$ with values $y \\ne y'$ give $(w/w')^{1/(y'-y)} = g^{1/(\\tau - z)}$, breaking $t$-SDH.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DUPLICATION: red-bilinear-pairing-and-q-sdh-to-pcs-kzg10 records the same KZG10 theorem with conclusion pcs instead of kzg-polynomial-commitment; the pair should be merged or one designated canonical",
+        "The SRS/trusted setup is a substantive third hypothesis, now carried by model: crs plus the statement text"
+      ]
+    }
+  ]
+}

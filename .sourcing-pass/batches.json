@@ -1,0 +1,577 @@
+[
+ {
+  "id": "red-00",
+  "files": [
+   "content/Reductions/abe-to-be.md",
+   "content/Reductions/abe-to-fuzzy-ibe.md",
+   "content/Reductions/abe-to-hibe.md",
+   "content/Reductions/abe-to-ibe.md",
+   "content/Reductions/adaptive-robustness-to-prc.md",
+   "content/Reductions/agm-to-kea.md",
+   "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
+   "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
+   "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
+   "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md"
+  ]
+ },
+ {
+  "id": "red-01",
+  "files": [
+   "content/Reductions/am-to-coam.md",
+   "content/Reductions/anonymous-hibe-to-hibe.md",
+   "content/Reductions/arithmetization-to-zk-snark-gro16.md",
+   "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
+   "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
+   "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
+   "content/Reductions/arithmetization-to-snark-bbhr18.md",
+   "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+   "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
+   "content/Reductions/bdh-to-abe-gpsw06.md"
+  ]
+ },
+ {
+  "id": "red-02",
+  "files": [
+   "content/Reductions/bdh-to-ac.md",
+   "content/Reductions/bdh-to-be-bgw05.md",
+   "content/Reductions/bdh-to-ds.md",
+   "content/Reductions/bdh-to-hibe-wat09.md",
+   "content/Reductions/bdh-to-hve-bw07.md",
+   "content/Reductions/bdh-to-ibe-wat09.md",
+   "content/Reductions/bdh-to-nizk-gro16.md",
+   "content/Reductions/bdh-to-vrf.md",
+   "content/Reductions/bilinear-pairing-to-ds.md",
+   "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md"
+  ]
+ },
+ {
+  "id": "red-03",
+  "files": [
+   "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
+   "content/Reductions/bilinear-pairing-to-snark-gro16.md",
+   "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
+   "content/Reductions/bpp-to-am-gs86.md",
+   "content/Reductions/bpp-to-bqp.md",
+   "content/Reductions/bpp-to-coam-gs86.md",
+   "content/Reductions/bpp-to-pp.md",
+   "content/Reductions/bpp-to-p-poly.md",
+   "content/Reductions/bpp-to-pspace.md",
+   "content/Reductions/bqp-to-dlog-shor97.md"
+  ]
+ },
+ {
+  "id": "red-04",
+  "files": [
+   "content/Reductions/bqp-to-pp.md",
+   "content/Reductions/cdh-to-bdh.md",
+   "content/Reductions/cdh-to-ddh.md",
+   "content/Reductions/cdh-to-dlog.md",
+   "content/Reductions/evasive-lwe-to-abe.md",
+   "content/Reductions/circular-security-and-lwe-to-he.md",
+   "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "content/Reductions/co-cdh-to-ds.md",
+   "content/Reductions/com-to-mpc-gmw87.md",
+   "content/Reductions/com-to-ot-kil88.md"
+  ]
+ },
+ {
+  "id": "red-05",
+  "files": [
+   "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
+   "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+   "content/Reductions/conp-to-am-gs86.md",
+   "content/Reductions/conp-to-coam.md",
+   "content/Reductions/conp-to-pspace.md",
+   "content/Reductions/cpir-to-ot-dmo00.md",
+   "content/Reductions/czk-to-ip-bgg-90.md",
+   "content/Reductions/d-th-composite-residuosity-to-he.md",
+   "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
+   "content/Reductions/dcr-to-com.md"
+  ]
+ },
+ {
+  "id": "red-06",
+  "files": [
+   "content/Reductions/dcr-to-he-pai99.md",
+   "content/Reductions/dcr-to-pke-pai99.md",
+   "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "content/Reductions/ddh-to-cdh.md",
+   "content/Reductions/ddh-to-com.md",
+   "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "content/Reductions/ddh-to-ke-dh76.md",
+   "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
+   "content/Reductions/ddh-to-pke-elgamal85.md",
+   "content/Reductions/ddh-to-prf-nr97.md"
+  ]
+ },
+ {
+  "id": "red-07",
+  "files": [
+   "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "content/Reductions/ddh-to-tdh-dgi-19.md",
+   "content/Reductions/decision-lwe-to-search-lwe.md",
+   "content/Reductions/dlin-to-ippe-ksw08.md",
+   "content/Reductions/depir-to-cpir.md",
+   "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
+   "content/Reductions/dkg-and-he-to-tpke.md",
+   "content/Reductions/dlog-to-bls-signatures-fkl18.md",
+   "content/Reductions/dlog-to-cdh-fkl18.md",
+   "content/Reductions/dlog-to-conp.md"
+  ]
+ },
+ {
+  "id": "red-08",
+  "files": [
+   "content/Reductions/dlog-to-ddh-fkl18.md",
+   "content/Reductions/dlog-to-ds-sch91.md",
+   "content/Reductions/dlog-to-np.md",
+   "content/Reductions/dlog-to-pcs.md",
+   "content/Reductions/dlog-to-prg-bm84.md",
+   "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
+   "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
+   "content/Reductions/dlog-to-tdp.md",
+   "content/Reductions/dlog-to-tfnp.md",
+   "content/Reductions/dlog-to-zkp.md"
+  ]
+ },
+ {
+  "id": "red-09",
+  "files": [
+   "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
+   "content/Reductions/dpf-to-it-pir-gi14.md",
+   "content/Reductions/dpf-to-multi-point-functions.md",
+   "content/Reductions/ds-to-hash-function.md",
+   "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
+   "content/Reductions/evasive-lwe-to-abe-wee22.md",
+   "content/Reductions/evasive-lwe-to-be-wee22.md",
+   "content/Reductions/fac-to-dcr-pai99.md",
+   "content/Reductions/fac-to-ds-gmr88.md",
+   "content/Reductions/fac-to-qr-gm84.md"
+  ]
+ },
+ {
+  "id": "red-10",
+  "files": [
+   "content/Reductions/fac-to-rsa-rsa78.md",
+   "content/Reductions/fac-to-tfnp.md",
+   "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
+   "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
+   "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
+   "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
+   "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
+   "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+   "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
+   "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md"
+  ]
+ },
+ {
+  "id": "red-11",
+  "files": [
+   "content/Reductions/fe-to-io.md",
+   "content/Reductions/fuzzy-ibe-to-ibe.md",
+   "content/Reductions/gapsvp-to-lwe-reg05.md",
+   "content/Reductions/gapsvp-to-sis-ajt96.md",
+   "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
+   "content/Reductions/ggm-to-abe-bsw07.md",
+   "content/Reductions/hash-function-to-czk.md",
+   "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
+   "content/Reductions/hash-function-to-dpf-gi14.md",
+   "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md"
+  ]
+ },
+ {
+  "id": "red-12",
+  "files": [
+   "content/Reductions/hash-function-and-io-to-ds-sw14.md",
+   "content/Reductions/hash-function-to-ds.md",
+   "content/Reductions/hash-function-and-io-to-fe-sw14.md",
+   "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
+   "content/Reductions/hash-function-to-mac.md",
+   "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
+   "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
+   "content/Reductions/hash-function-to-pcs-bbhr18.md",
+   "content/Reductions/hash-function-and-io-to-pke-sw14.md",
+   "content/Reductions/hash-function-to-prf.md"
+  ]
+ },
+ {
+  "id": "red-13",
+  "files": [
+   "content/Reductions/hash-function-to-prg-hill99.md",
+   "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
+   "content/Reductions/hash-function-to-ske.md",
+   "content/Reductions/hash-function-to-snark-bbhr18.md",
+   "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
+   "content/Reductions/hash-function-to-hash-based-signatures.md",
+   "content/Reductions/hash-function-to-zkp-gmw91.md",
+   "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
+   "content/Reductions/he-to-re-bl13.md",
+   "content/Reductions/hibe-to-ibe.md"
+  ]
+ },
+ {
+  "id": "red-14",
+  "files": [
+   "content/Reductions/higher-residuosity-to-pke.md",
+   "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
+   "content/Reductions/hve-to-subset-and-range-queries.md",
+   "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
+   "content/Reductions/ibe-to-pke.md",
+   "content/Reductions/ideal-prc-to-prc.md",
+   "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
+   "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
+   "content/Reductions/id-and-rom-to-ds.md",
+   "content/Reductions/ind-cca-security-to-ind-cpa-kem.md"
+  ]
+ },
+ {
+  "id": "red-15",
+  "files": [
+   "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
+   "content/Reductions/cpa-security-to-cpa-security.md",
+   "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
+   "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
+   "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
+   "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
+   "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
+   "content/Reductions/interactive-protocol-and-rom-to-snark.md",
+   "content/Reductions/invertible-prfs-to-prf.md",
+   "content/Reductions/ip-to-am-gs86.md"
+  ]
+ },
+ {
+  "id": "red-16",
+  "files": [
+   "content/Reductions/ip-to-pspace-ccg-94.md",
+   "content/Reductions/ip-to-qip.md",
+   "content/Reductions/ip-and-rom-to-snark-fs86.md",
+   "content/Reductions/ip-to-szk-bgg-90.md",
+   "content/Reductions/ippe-to-hve.md",
+   "content/Reductions/ippe-to-payload-only-hiding.md",
+   "content/Reductions/it-pir-to-computational-multi-server-pir.md",
+   "content/Reductions/k-linear-assumption-to-abe-rw13.md",
+   "content/Reductions/ke-to-multi-party-key-exchange.md",
+   "content/Reductions/ke-to-pke-dh76.md"
+  ]
+ },
+ {
+  "id": "red-17",
+  "files": [
+   "content/Reductions/kea-to-snark-gro16.md",
+   "content/Reductions/kem-to-ke.md",
+   "content/Reductions/kem-and-ske-to-pke.md",
+   "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
+   "content/Reductions/lsn-to-lpn-cimr25.md",
+   "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
+   "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
+   "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+   "content/Reductions/notable-problems-to-qma.md",
+   "content/Reductions/lossy-trapdoor-functions-to-pke.md"
+  ]
+ },
+ {
+  "id": "red-18",
+  "files": [
+   "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
+   "content/Reductions/prg-in-nc1-to-io-jls21.md",
+   "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "content/Reductions/lpn-to-pke.md",
+   "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
+   "content/Reductions/noise-level-to-depir-cimr25-2.md",
+   "content/Reductions/noise-level-to-hash-function-blvw19.md",
+   "content/Reductions/noise-level-to-noise-level.md",
+   "content/Reductions/noise-level-to-tdh-amr25.md",
+   "content/Reductions/noise-level-to-depir-cimr25.md"
+  ]
+ },
+ {
+  "id": "red-19",
+  "files": [
+   "content/Reductions/noise-level-to-pke-ale03.md",
+   "content/Reductions/lwe-to-depir-lmw23.md",
+   "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
+   "content/Reductions/lwe-and-sis-to-ds-ls15.md",
+   "content/Reductions/lwe-to-lattice-based-signatures.md",
+   "content/Reductions/lwe-to-ind-cpa-kem.md",
+   "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
+   "content/Reductions/lwe-to-pke-reg05.md",
+   "content/Reductions/lwe-to-prc-cg24.md",
+   "content/Reductions/lwe-to-tdh-dgi-19.md"
+  ]
+ },
+ {
+  "id": "red-20",
+  "files": [
+   "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
+   "content/Reductions/ma-to-am.md",
+   "content/Reductions/ma-to-pp.md",
+   "content/Reductions/ma-to-qcma.md",
+   "content/Reductions/mac-and-ske-to-cca-security.md",
+   "content/Reductions/adversary-models-to-privacy-semi-honest.md",
+   "content/Reductions/module-lwe-and-module-sis-to-ds.md",
+   "content/Reductions/module-lwe-to-kem.md",
+   "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
+   "content/Reductions/module-lwe-to-lwe-ls15.md"
+  ]
+ },
+ {
+  "id": "red-21",
+  "files": [
+   "content/Reductions/module-sis-to-ds.md",
+   "content/Reductions/mpc-to-ot-bh26.md",
+   "content/Reductions/mmap-to-io-gghrsw13.md",
+   "content/Reductions/nizk-to-com.md",
+   "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
+   "content/Reductions/np-to-am-gs86.md",
+   "content/Reductions/np-to-conp.md",
+   "content/Reductions/np-to-ma.md",
+   "content/Reductions/np-to-pp.md",
+   "content/Reductions/np-to-pspace.md"
+  ]
+ },
+ {
+  "id": "red-22",
+  "files": [
+   "content/Reductions/ntru-to-ds.md",
+   "content/Reductions/ntru-to-kem.md",
+   "content/Reductions/ntru-to-pke-hps98.md",
+   "content/Reductions/oihf-to-ot-bh26.md",
+   "content/Reductions/k-out-of-n-ot-to-cpir.md",
+   "content/Reductions/hash-based-signatures-to-ds-mer89.md",
+   "content/Reductions/owsg-to-qm.md",
+   "content/Reductions/owsg-to-unclonable-encryption.md",
+   "content/Reductions/ot-to-com.md",
+   "content/Reductions/ot-to-mpc-kil88.md"
+  ]
+ },
+ {
+  "id": "red-23",
+  "files": [
+   "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
+   "content/Reductions/owf-to-prg-hill99.md",
+   "content/Reductions/owp-to-hash-function.md",
+   "content/Reductions/p-to-bpp.md",
+   "content/Reductions/p-to-conp.md",
+   "content/Reductions/p-to-np.md",
+   "content/Reductions/p-to-p-poly.md",
+   "content/Reductions/p-to-rp.md",
+   "content/Reductions/p-to-zpp.md",
+   "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md"
+  ]
+ },
+ {
+  "id": "red-24",
+  "files": [
+   "content/Reductions/pcs-to-nizk.md",
+   "content/Reductions/pcs-to-snark.md",
+   "content/Reductions/pcs-to-vector-commitments.md",
+   "content/Reductions/hiding-to-cpir.md",
+   "content/Reductions/pke-to-com.md",
+   "content/Reductions/pke-to-hash-function.md",
+   "content/Reductions/pke-to-ke.md",
+   "content/Reductions/pke-to-kem.md",
+   "content/Reductions/pke-to-ot.md",
+   "content/Reductions/cca1-security-to-cpa-security.md"
+  ]
+ },
+ {
+  "id": "red-25",
+  "files": [
+   "content/Reductions/cca-security-to-cca1-security.md",
+   "content/Reductions/pp-to-pspace.md",
+   "content/Reductions/subclasses-to-hash-function.md",
+   "content/Reductions/prc-to-ske-cg24.md",
+   "content/Reductions/prf-to-invertible-prf-hppy25.md",
+   "content/Reductions/prf-to-mac.md",
+   "content/Reductions/prf-to-prp-lr88.md",
+   "content/Reductions/prf-to-ske.md",
+   "content/Reductions/prg-to-com-naor91.md",
+   "content/Reductions/prg-to-dpf-gi14.md"
+  ]
+ },
+ {
+  "id": "red-26",
+  "files": [
+   "content/Reductions/prg-to-hash-function.md",
+   "content/Reductions/prg-to-prf-ggm86.md",
+   "content/Reductions/prg-to-ske.md",
+   "content/Reductions/prp-to-invertible-prf.md",
+   "content/Reductions/prp-to-prf.md",
+   "content/Reductions/pspace-to-exp.md",
+   "content/Reductions/qcma-to-pp.md",
+   "content/Reductions/qcma-to-qma.md",
+   "content/Reductions/qip-to-ip.md",
+   "content/Reductions/qip-to-pspace.md"
+  ]
+ },
+ {
+  "id": "red-27",
+  "files": [
+   "content/Reductions/qma-to-pp.md",
+   "content/Reductions/qr-to-com.md",
+   "content/Reductions/qr-to-he-gm84.md",
+   "content/Reductions/qr-to-pke-gm84.md",
+   "content/Reductions/qr-to-tdh-dgi-19.md",
+   "content/Reductions/qr-to-zkp-gmr85.md",
+   "content/Reductions/qszk-to-qip.md",
+   "content/Reductions/rabin-ot-to-ot.md",
+   "content/Reductions/random-ot-to-ot.md",
+   "content/Reductions/ring-lpn-to-mac.md"
+  ]
+ },
+ {
+  "id": "red-28",
+  "files": [
+   "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
+   "content/Reductions/ring-lwe-to-ntru-ss11.md",
+   "content/Reductions/rom-and-zkp-to-ds-fs86.md",
+   "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
+   "content/Reductions/rom-to-oihf-bh26.md",
+   "content/Reductions/rp-to-bpp.md",
+   "content/Reductions/rp-to-np.md",
+   "content/Reductions/rsa-to-fac-dlo24.md",
+   "content/Reductions/rsa-to-ind-cca-security.md",
+   "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md"
+  ]
+ },
+ {
+  "id": "red-29",
+  "files": [
+   "content/Reductions/rsa-to-pke-rsa78.md",
+   "content/Reductions/rsa-to-tdp-rsa78.md",
+   "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
+   "content/Reductions/search-lwe-to-decision-lwe.md",
+   "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
+   "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
+   "content/Reductions/sidh-to-ke-jdf11.md",
+   "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
+   "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
+   "content/Reductions/sis-to-ds.md"
+  ]
+ },
+ {
+  "id": "red-30",
+  "files": [
+   "content/Reductions/sis-to-hash-function-ajt96.md",
+   "content/Reductions/sivp-to-lwe-reg05.md",
+   "content/Reductions/sivp-to-sis-ajt96.md",
+   "content/Reductions/snark-to-hash-function.md",
+   "content/Reductions/snark-to-recursive-snarks.md",
+   "content/Reductions/snark-to-nizk.md",
+   "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
+   "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
+   "content/Reductions/spir-to-it-pir.md"
+  ]
+ },
+ {
+  "id": "red-31",
+  "files": [
+   "content/Reductions/ss-to-it-pir-cgks98.md",
+   "content/Reductions/strong-security-to-prp.md",
+   "content/Reductions/strong-rsa-to-com.md",
+   "content/Reductions/strong-rsa-to-ds.md",
+   "content/Reductions/strong-rsa-to-rsa.md",
+   "content/Reductions/subexponential-lpn-to-ot-yz16.md",
+   "content/Reductions/subexponential-lpn-to-pke-yz16.md",
+   "content/Reductions/subexponential-lpn-to-prc-cg24.md",
+   "content/Reductions/succinct-lwe-to-abe-wee25.md",
+   "content/Reductions/succinct-lwe-to-evasive-lwe.md"
+  ]
+ },
+ {
+  "id": "red-32",
+  "files": [
+   "content/Reductions/succinct-lwe-to-lwe.md",
+   "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
+   "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
+   "content/Reductions/szk-to-am.md",
+   "content/Reductions/szk-to-coam.md",
+   "content/Reductions/szk-to-czk.md",
+   "content/Reductions/szk-to-ip.md",
+   "content/Reductions/szk-to-qszk.md",
+   "content/Reductions/tdh-to-cpir-amr25.md",
+   "content/Reductions/tdp-to-hash-function.md"
+  ]
+ },
+ {
+  "id": "red-33",
+  "files": [
+   "content/Reductions/tdp-to-nizk-bfm88.md",
+   "content/Reductions/tdp-to-ot.md",
+   "content/Reductions/tdp-to-pke.md",
+   "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
+   "content/Reductions/unkeyed-depir-to-depir.md",
+   "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
+   "content/Reductions/module-svp-to-module-lwe-ls15.md",
+   "content/Reductions/module-svp-to-module-sis-ls15.md",
+   "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
+   "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md"
+  ]
+ },
+ {
+  "id": "red-34",
+  "files": [
+   "content/Reductions/zkp-to-hash-function.md",
+   "content/Reductions/zkp-to-nizk-fs86.md",
+   "content/Reductions/zpp-to-rp.md"
+  ]
+ },
+ {
+  "id": "bar-00",
+  "files": [
+   "content/Barriers/no-agm-to-ggm-kz22.md",
+   "content/Barriers/no-bqp-to-np.md",
+   "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
+   "content/Barriers/no-depir-to-ot-dmo00.md",
+   "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
+   "content/Barriers/no-falsifiable-assumption-to-kea.md",
+   "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
+   "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
+   "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
+   "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md"
+  ]
+ },
+ {
+  "id": "bar-01",
+  "files": [
+   "content/Barriers/no-ggm-to-cdh-sho97.md",
+   "content/Barriers/no-ggm-to-ddh-sho97.md",
+   "content/Barriers/no-ggm-to-dlog-sho97.md",
+   "content/Barriers/no-hash-function-to-pke-gkm-00.md",
+   "content/Barriers/no-he-to-cca-security.md",
+   "content/Barriers/no-he-to-szk-bl13.md",
+   "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
+   "content/Barriers/no-injective-owf-to-owp-mm11.md",
+   "content/Barriers/no-ippe-to-abe.md",
+   "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md"
+  ]
+ },
+ {
+  "id": "bar-02",
+  "files": [
+   "content/Barriers/no-mip-to-multi-prover-extensions.md",
+   "content/Barriers/no-np-to-cpir-lv15.md",
+   "content/Barriers/no-np-to-hash-function-aggm06.md",
+   "content/Barriers/no-oihf-to-ot-bh26.md",
+   "content/Barriers/no-owp-to-ke-ir89.md",
+   "content/Barriers/no-pke-to-ot-gkm-00.md",
+   "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
+   "content/Barriers/no-qcma-to-qma-ak07.md",
+   "content/Barriers/no-rom-to-ke-hmo-19.md",
+   "content/Barriers/no-rom-to-merkle-puzzles-bm09.md"
+  ]
+ },
+ {
+  "id": "bar-03",
+  "files": [
+   "content/Barriers/no-rom-to-roh-ccg-94.md",
+   "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
+   "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
+   "content/Barriers/no-binding-and-hiding-to-com.md",
+   "content/Barriers/no-the-structured-ggm-to-dlog-chw26.md",
+   "content/Barriers/no-tdp-to-ot.md",
+   "content/Barriers/no-zkp-to-argument-systems.md"
+  ]
+ }
+]

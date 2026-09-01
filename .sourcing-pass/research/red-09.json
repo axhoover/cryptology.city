@@ -1,0 +1,348 @@
+{
+  "batch": "red-09",
+  "pages": [
+    {
+      "slug": "dpf-to-computational-multi-server-pir-gi14",
+      "path": "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GI14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GI14 - Distributed Point Functions and Their Applications",
+          "authors": "Niv Gilboa, Yuval Ishai",
+          "venue": "EUROCRYPT 2014",
+          "year": "2014",
+          "url": "https://doi.org/10.1007/978-3-642-55220-5_35",
+          "note": "EUROCRYPT 2014, pp. 640-658. The 2-server computational PIR application is the paper's flagship application of DPFs."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The PIR calls the DPF only through $\\Gen$ and $\\Query$/$\\Answer$ evaluate it only through $\\Eval$ — one fixed construction using the hypothesis as an oracle. The privacy reduction is also fixed: each server's whole view of a query is a single DPF key, so any distinguisher between queries for indices $i, i'$ is run once as an oracle and is verbatim a DPF key-hiding adversary. RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[distributed-point-function|DPF]] for domain $[N]$ and range $\\ZZ_2$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database with communication proportional to the DPF key size, hence $\\poly(\\secpar, \\log N)$: the query for index $i$ is the key pair $(k_0, k_1) \\gets \\Gen(1^\\secpar, i, 1)$, one key per server — [[GI14 - Distributed Point Functions and Their Applications|GI14]].",
+      "sketch": "Server $b$ answers $a_b = \\sum_{j \\in [N]} D[j] \\cdot \\Eval(b, k_b, j)$; by DPF correctness $a_0 + a_1 = \\sum_j D[j] \\cdot f_{i,1}(j) = D[i]$. Each server sees only one DPF key, so query privacy against a single server reduces directly to DPF key hiding.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Query(i)$}\n\\begin{algorithmic}\n\\State $(k_0, k_1) \\gets \\Gen(1^\\secpar, i, 1)$\n\\Return $(q_0, q_1) \\gets (k_0, k_1)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Answer(b, q_b, D)$}\n\\begin{algorithmic}\n\\State $a_b \\gets \\sum_{j \\in [N]} D[j] \\cdot \\Eval(b, q_b, j)$\n\\Comment{sum in the DPF range group}\n\\Return $a_b$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Recon(i, a_0, a_1)$}\n\\begin{algorithmic}\n\\Return $D[i] \\gets a_0 + a_1$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The construction is inherently 2-server; the conclusion node computational-multi-server-pir does not record the server count."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The DPF page's Hiding property is stated as a guess-the-point game; the PIR privacy reduction needs the standard key-indistinguishability formulation (a key for $(\\alpha,\\beta)$ vs $(\\alpha',\\beta')$) — the primitive page should be fixed in the skeptical-checker lane.",
+        "Migration note about the composite OWF ⇒ DPF ⇒ PIR chain is resolved: the chain is already split (hash-function-to-prg-hill99, prg-to-dpf-gi14 exist); this page is the DPF ⇒ PIR link only."
+      ]
+    },
+    {
+      "slug": "dpf-to-it-pir-gi14",
+      "path": "content/Reductions/dpf-to-it-pir-gi14.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The conclusion node is wrong. The migrated bullet itself says 'Computational 2-server PIR can be built from DPFs', but this edge records the base it-pir node, whose Privacy property on multi-server-private-information-retrieval.md is perfect (information-theoretic: identical query distributions). A computationally secure DPF cannot yield non-trivial information-theoretically private multi-server PIR, and GI14 claims no such thing — GI14's application is 2-server computational PIR. The correct edge already exists as red-dpf-to-computational-multi-server-pir-gi14 (content/Reductions/dpf-to-computational-multi-server-pir-gi14.md); this page is a mis-scoped duplicate and should be retired or merged into it.",
+      "flags": [
+        "Duplicate of dpf-to-computational-multi-server-pir-gi14 with the conclusion collapsed to the wrong (information-theoretic) node.",
+        "distributed-point-function.md § Other results links this slug as [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]; that prose link needs re-pointing to dpf-to-computational-multi-server-pir-gi14 when this page is retired."
+      ]
+    },
+    {
+      "slug": "dpf-to-multi-point-functions",
+      "path": "content/Reductions/dpf-to-multi-point-functions.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "BCGI18",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCGI18 - Compressing Vector OLE",
+          "authors": "Elette Boyle, Geoffroy Couteau, Niv Gilboa, Yuval Ishai",
+          "venue": "ACM CCS 2018",
+          "year": "2018",
+          "url": "https://doi.org/10.1145/3243734.3243868",
+          "note": "cryptobib: CCS:BCGI18; full version eprint 2019/273. Formalizes multi-point FSS (MPFSS) and constructs it from DPFs via combinatorial batch codes, beating the naive t-fold blowup."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The combined $\\Gen$ runs the underlying DPF's $\\Gen$ once per point and the combined $\\Eval$ sums the component oracle calls — one fixed construction using the DPF only as an oracle. The security proof is a fixed hybrid over the $t$ instances embedding a key-hiding challenge in one instance and running any distinguisher as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A multi-point function taking value $\\beta_i$ at each of $t$ distinct points $\\alpha_1, \\ldots, \\alpha_t$ is the sum $\\sum_{i=1}^{t} f_{\\alpha_i, \\beta_i}$ of point functions, so sharing each summand with an independent [[distributed-point-function|DPF]] and summing the component shares in $\\Eval$ gives a [[distributed-point-function#multi-point-functions|multi-point FSS]] with keys $t$ times the DPF key size — folklore.",
+      "sketch": "Correctness is additivity of the shares; hiding is a hybrid over the $t$ instances, replacing one key at a time, so any distinguisher yields a DPF key-hiding adversary with a factor-$t$ loss.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Multi-point FSS (MPFSS) formalized, with constructions from DPFs via combinatorial batch codes that beat the naive $t$-fold key blowup — [[BCGI18 - Compressing Vector OLE|BCGI18]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Conclusion node multi-point-function-secret-sharing resolves only as a variants anchor (#multi-point-functions) on distributed-point-function.md; no standalone page exists.",
+        "The migration note distinguishing the naive t-fold construction from efficient batch-code MPFSS is now resolved: the folklore statement records the naive construction and BCGI18 is cited as the improvement."
+      ]
+    },
+    {
+      "slug": "ds-to-hash-function",
+      "path": "content/Reductions/ds-to-hash-function.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Rom90",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+          "authors": "John Rompel",
+          "venue": "STOC 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1145/100216.100269",
+          "note": "STOC 1990, pp. 387-394; likely cryptobib STOC:Rompel90. The paper's main content is the sufficiency direction (OWF ⇒ DS, via UOWHFs); the necessity direction recorded by this edge is the easy one asserted by the title, and the literature standardly cites this paper (sometimes alongside IL89) for the equivalence."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction — $f$ evaluates $\\KeyGen$ on its input coins and outputs the verification key — using the scheme only as an oracle, and one fixed reduction that runs any inverter once as an oracle and outputs a signature under the recovered key. RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every EUF-CMA-secure [[digital-signature|DS]] scheme implies a one-way function ([[hash-function|OWF]]): $f(r) := \\vk$ where $(\\sk, \\vk) := \\KeyGen(1^\\secpar; r)$ is one-way, since an inverter returns coins $r'$ whose signing key produces valid signatures under $\\vk$ on any message — a forgery, without even a signing query — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].",
+      "sketch": "An inverter for $f$ returns $r'$ with $\\KeyGen(1^\\secpar; r') = (\\sk', \\vk)$; by correctness $\\Sign(\\sk', m)$ verifies under $\\vk$ for every $m$, so the inverter's success probability lower-bounds the forgery probability, which unforgeability makes negligible.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The origin bullet on digital-signature.md justifies the claim with a secrecy statement ('knowing the message and signature reveals nothing useful about the key'), which is not the argument — that page's prose needs the same fix (skeptical-checker lane; matches this page's migration SUSPECTED note).",
+        "Conclusion node hash-function conflates OWF with CRHF: the statement is scoped to OWF. DS does NOT imply collision-resistant hashing (black-box separation, Simon Eurocrypt 1998) — do not let the coarse node suggest otherwise.",
+        "Converse direction OWF ⇒ DS exists as its own page (hash-function-to-ds.md), for which Rom90 is also the canonical source — kind stays implication on both."
+      ]
+    },
+    {
+      "slug": "enhanced-trapdoor-permutations-to-ot-gkm-00",
+      "path": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "EGL85",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "EGL85 - A randomized protocol for signing contracts",
+          "authors": "Shimon Even, Oded Goldreich, Abraham Lempel",
+          "venue": "Communications of the ACM 28(6), 1985",
+          "year": "1985",
+          "url": "https://doi.org/10.1145/3812.3818",
+          "note": "CACM 28(6):637-647; earlier version at CRYPTO 1982 (cryptobib C:EveGolLem82 if present). Introduces 1-out-of-2 OT and the trapdoor-based protocol; the 'enhanced' qualifier the protocol actually needs is due to Goldreich (Foundations of Cryptography vol. 2, 2004), systematized in GR13."
+        },
+        {
+          "key": "GR13",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GR13 - Enhancements of Trapdoor Permutations",
+          "authors": "Oded Goldreich, Ron D. Rothblum",
+          "venue": "Journal of Cryptology 26(3), 2013",
+          "year": "2013",
+          "url": "https://doi.org/10.1007/s00145-012-9131-8",
+          "note": "Pins down which enhancements the EGL OT protocol needs (enhanced TDPs) versus NIZK (doubly enhanced)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The protocol invokes the TDP only through $\\Gen$, $\\Eval$, $\\Invert$ and the enhanced domain sampler, plus a Goldreich-Levin hard-core predicate — one fixed construction, hypothesis used as an oracle. The sender-privacy reduction converts any receiver predicting the unchosen mask into an inverter for the enhanced TDP via the black-box GL decoder; receiver privacy is perfect. RTV04 fully-black-box shape, as the page already recorded.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutation]] yields 1-out-of-2 [[oblivious-transfer|OT]] secure against semi-honest parties. In the EGL protocol the sender samples $(f, \\td) \\gets \\Gen(1^\\secpar)$ and sends $f$; the receiver with choice bit $c$ replies with $(y_0, y_1)$, where $y_c = \\Eval(f, x_c)$ for random $x_c$ and $y_{1-c}$ is sampled obliviously from the domain; the sender returns each message masked by a hard-core predicate of $\\Invert(\\td, y_b)$ — [[EGL85 - A randomized protocol for signing contracts|EGL85]]. Enhanced one-wayness — $f$ remains hard to invert on an obliviously sampled image even given the sampling coins — is exactly what keeps the unchosen message hidden from the receiver — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].",
+      "sketch": "Receiver privacy: $(y_0, y_1)$ are two uniform domain elements regardless of $c$. Sender privacy: a receiver predicting the unchosen message's mask predicts a hard-core bit of $f^{-1}(y_{1-c})$ given $y_{1-c}$'s sampling coins; the Goldreich-Levin decoder turns this into an inverter contradicting enhanced one-wayness.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Systematic treatment of the enhancement axis: enhanced TDPs suffice for EGL oblivious transfer, while NIZK needs doubly enhanced TDPs; intermediate notions separated — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "MISATTRIBUTED SOURCE: GKM+00 is the PKE-vs-OT black-box separation paper and only cites this construction as background; the construction is EGL85 with Goldreich's enhancement (systematized by GR13). The frontmatter source and the slug suffix -gkm-00 should move to EGL85 (rename via scripts/rename-slugs.mjs or leave the slug and fix source; verifier's call).",
+        "Statement scoped to semi-honest security; malicious security follows via the GMW compiler — standard.",
+        "The variant blurb on trapdoor-permutation.md misstates the enhancement ('a random element $y = \\Eval(f, x)$ sampled using $r$') — $y$ is sampled directly from the domain using coins $r$, and hardness is inverting $y$ given $r$; fix on the primitive page.",
+        "The page's Notes contain a migration serialization artifact: 'Citations disagree across pages: [object Object]'."
+      ]
+    },
+    {
+      "slug": "evasive-lwe-to-abe-wee22",
+      "path": "content/Reductions/evasive-lwe-to-abe-wee22.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wee22",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions",
+          "authors": "Hoeteck Wee",
+          "venue": "EUROCRYPT 2022",
+          "year": "2022",
+          "url": "https://doi.org/10.1007/978-3-031-07085-3_8",
+          "note": "EUROCRYPT 2022 Part II, pp. 217-241; eprint 2023/906. The CP-ABE theorem assumes evasive LWE AND tensor LWE (both introduced there), plus LWE; security proven is selective."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "Standard-model construction; evasive LWE and tensor LWE are (non-standard) assumptions, not idealized models.",
+      "kind_correct": "implication",
+      "statement": "[[learning-with-errors#evasive-lwe|Evasive LWE]], together with the tensor LWE assumption introduced in the same work (and [[learning-with-errors|LWE]]), yields ciphertext-policy [[attribute-based-encryption|ABE]] for circuits of a-priori bounded polynomial depth with parameter sizes independent of the circuit size; security is selective — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "MISSING HYPOTHESIS: Wee22's CP-ABE theorem assumes evasive LWE AND tensor LWE; the page's hypothesis set lists only evasive-lwe. No tensor-LWE node exists in the wiki — either add one (e.g. as a variant on learning-with-errors) and add it to the hyperedge, or keep the extra assumption explicit in the statement as written here.",
+        "Evasive LWE has public-coin/private-coin variants and later counterexamples for some variants — BUW24 and AMYY25 (both already wiki refs; barrier pages no-evasive-lwe-to-evasive-lwe-buw24 and -buw24-2 exist). Worth a Notes pointer from this page.",
+        "Class left unstated: the security proof invokes evasive LWE (itself an implication between distributions quantified over samplers) in a non-standard shape; no source classifies the reduction in RTV04 terms."
+      ]
+    },
+    {
+      "slug": "evasive-lwe-to-be-wee22",
+      "path": "content/Reductions/evasive-lwe-to-be-wee22.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wee22",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions",
+          "authors": "Hoeteck Wee",
+          "venue": "EUROCRYPT 2022",
+          "year": "2022",
+          "url": "https://doi.org/10.1007/978-3-031-07085-3_8",
+          "note": "EUROCRYPT 2022 Part II, pp. 217-241; eprint 2023/906. The BE result needs evasive LWE (with LWE), not tensor LWE; the first candidate optimal BE that is plausibly post-quantum secure."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "Standard-model construction; evasive LWE is a (non-standard) assumption, not an idealized model.",
+      "kind_correct": "implication",
+      "statement": "[[learning-with-errors#evasive-lwe|Evasive LWE]] (together with [[learning-with-errors|LWE]]) yields optimal [[broadcast-encryption|BE]]: a broadcast encryption scheme for $N$ users in which public key, secret keys, and ciphertext overhead are all of size $\\poly(\\secpar, \\log N)$, proven selectively secure — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]. This is the first candidate optimal broadcast encryption that is plausibly post-quantum secure.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated 'optimal' qualifier is now made precise: parameter size poly(secpar, log N).",
+        "Unlike the sibling ABE edge, the BE theorem does not need tensor LWE; LWE is used alongside evasive LWE to establish the precondition distribution's pseudorandomness — arguably a second hypothesis on the hyperedge (the evasive-lwe node is a variant anchor of the lwe page).",
+        "Evasive LWE has public-coin/private-coin variants and later counterexamples for some variants (BUW24, AMYY25; barrier pages exist). Worth a Notes pointer.",
+        "Class left unstated: no source classifies the reduction in RTV04 terms."
+      ]
+    },
+    {
+      "slug": "fac-to-dcr-pai99",
+      "path": "content/Reductions/fac-to-dcr-pai99.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Inverted, as both the page's own SUSPECTED notes and .reductions/suspected-errors.json record. Given the factorization of $n$ one computes $\\varphi(n)$ and decides $n$-th residuosity in $\\ZZ_{n^2}^*$ by testing $z^{\\varphi(n)} \\bmod n^2$, so a factoring algorithm breaks DCR; hence DCR hardness implies factoring hardness — DCR is the stronger assumption. The converse (factoring hard ⇒ DCR hard) is open, and Pai99 proves no such implication (Pai99 only notes the scheme falls to factoring). Correct edge: DCR ⇒ FAC (folklore; a dcr-to-fac page does not yet exist in content/Reductions/).",
+      "flags": [
+        "The same inverted bullet appears on decisional-composite-residuosity.md:30 and factoring.md:31 and must be fixed there too; decisional-composite-residuosity.md:31 additionally inverts which direction is open (suspected-errors entries cover both).",
+        "When creating the corrected dcr-to-fac edge, its class is fully-black-box (the trivial reduction runs a factoring oracle once and then decides residuosity)."
+      ]
+    },
+    {
+      "slug": "fac-to-ds-gmr88",
+      "path": "content/Reductions/fac-to-ds-gmr88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GMR88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks",
+          "authors": "Shafi Goldwasser, Silvio Micali, Ronald L. Rivest",
+          "venue": "SIAM Journal on Computing 17(2), 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1137/0217017",
+          "note": "Defines EUF-CMA and constructs the first signature scheme meeting it, generically from claw-free trapdoor permutation pairs, with a factoring-based instantiation."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed (stateful, tree-based) construction generic over claw-free trapdoor permutation pairs, used only as oracles; one fixed security reduction that runs any forger as an oracle and converts its forgery into a claw, which for the factoring-based pair (built from squaring modulo $N$) yields the factorization of the challenge modulus. RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[factoring|FAC]] is hard, EUF-CMA-secure [[digital-signature|DS]] schemes exist: GMR construct a stateful signature scheme secure against existential forgery under adaptive chosen-message attack from any claw-free pair of trapdoor permutations, and instantiate claw-free pairs under the intractability of factoring — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]].",
+      "sketch": "Signing authenticates the message down an authentication tree using inverses of the claw-free pair $(f_0, f_1)$; the reduction turns any forgery into a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, and a claw for the squaring-based pair reveals the factors of the modulus.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migration note is right that 'based on factoring' hides the intermediate object: the generic hypothesis is a claw-free trapdoor permutation pair; the statement now names it. If the wiki ever adds a claw-free-permutation node, this edge should be split into FAC ⇒ claw-free pair ⇒ DS.",
+        "The origin bullet on digital-signature.md lacks a wikilink to factoring — fix when applying."
+      ]
+    },
+    {
+      "slug": "fac-to-qr-gm84",
+      "path": "content/Reductions/fac-to-qr-gm84.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Inverted, as the page's own SUSPECTED notes and .reductions/suspected-errors.json record (high confidence there too). Knowing $p$ and $q$ lets one compute Legendre symbols mod $p$ and $q$ and thereby decide quadratic residuosity mod $N = pq$, so a factoring algorithm breaks QR; hence QR hardness implies factoring hardness — QR is the stronger assumption. Whether factoring hardness implies QR hardness is a long-standing open question, and GM84 makes no such claim (GM84 introduce the QR assumption and prove semantic security of their scheme under it). The bullet's own justification ('knowing $p$ and $q$ allows computing the Legendre symbols') proves the opposite direction of the one asserted. Correct edge: QR ⇒ FAC (folklore; a qr-to-fac page does not yet exist in content/Reductions/).",
+      "flags": [
+        "The same inverted bullet appears on factoring.md:30 and quadratic-residuosity.md (Known Results) and must be fixed there; the Attacks section of quadratic-residuosity.md already states the correct direction and contradicts it.",
+        "When creating the corrected qr-to-fac edge, its class is fully-black-box (the trivial reduction runs a factoring oracle once, then computes Legendre symbols)."
+      ]
+    }
+  ]
+}
