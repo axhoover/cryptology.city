@@ -11,8 +11,14 @@ rather than writing something broken.
 ## Which pages to touch
 
 - `disposition: "sourced"` or `"folklore"` → rewrite the page as below.
-- `disposition: "wrong_claim"` or `"undetermined"` → DO NOT touch the page at
-  all. It will be reported to humans. Skip and count it.
+- `disposition: "wrong_claim"` → change NOTHING except: append one bullet to
+  the end of the page's `## Notes` section (create the section if absent):
+
+      - Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — <wrong_reason, tightened to at most two sentences>. <If a correct edge or existing page is named in the entry, add: "See [[<slug>]]." >
+
+  Keep frontmatter, statement, and existing notes exactly as they are. The
+  page is reported to humans separately.
+- `disposition: "undetermined"` → DO NOT touch the page. Skip and count it.
 
 ## Canonical reference filenames
 

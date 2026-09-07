@@ -1,0 +1,338 @@
+{
+  "batch": "red-16",
+  "pages": [
+    {
+      "slug": "ip-to-pspace-ccg-94",
+      "path": "content/Reductions/ip-to-pspace-ccg-94.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; the reduction-class axis does not discriminate, per repo convention for inclusions.",
+      "model": "standard",
+      "model_justification": "The containment IP ⊆ PSPACE is unconditional and unrelativized; the CCG+94 random-oracle separation is a different (barrier-type) statement and must not set this page's model.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classIP \\subseteq \\classPSPACE$: for every [[interactive-proof-systems|IP]] verifier, the maximum acceptance probability over all prover strategies is computable in [[polynomial-space|PSPACE]] by recursion over the interaction tree — folklore.",
+      "sketch": "Fix the verifier. The optimal acceptance probability of a partial transcript is the maximum over the prover's next message at prover moves and the average over the verifier's coins at verifier moves. Depth-first evaluation of this recursion over the polynomial-depth interaction tree uses polynomial space; accept iff the value at the root is at least $2/3$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The relativized separation $\\classIP^A \\neq \\classPSPACE^A$ for a random oracle $A$ ([[CCG+94 - The random oracle hypothesis is false|CCG+94]]) is a distinct statement, recorded at [[no-rom-to-roh-ccg-94]]; it does not bear on the unrelativized containment."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "SOURCE MISATTRIBUTED: frontmatter cites CCG+94, but CCG+94 proves the relativized separation IP^A != PSPACE^A for a random oracle A (already covered by the barrier page no-rom-to-roh-ccg-94), not the containment. The containment is folklore (when cited at all, to P. Feldman, 'The optimum prover lives in PSPACE', unpublished manuscript, 1986). The source field should become folklore; the CCG+94 wikilink should be dropped from this page.",
+        "The slug carries the -ccg-94 suffix although the claim is not CCG+94's theorem. Do not rename (live URL), but the mismatch should be noted on the page or accepted.",
+        "MISSING CONVERSE PAGE: the migrated text asserts IP = PSPACE repeatedly, but the nontrivial direction PSPACE ⊆ IP (Shamir, 'IP = PSPACE', JACM 39(4), 1992, building on Lund–Fortnow–Karloff–Nisan, 'Algebraic methods for interactive proof systems', JACM 39(4), 1992) has no reduction page and no reference pages (no Sha92/LFKN92 in content/References/). A pspace-to-ip page should be created; until then, do not upgrade this page's kind to equivalence.",
+        "The 'TODO citation' markers for IP = PSPACE on interactive-proof-systems.md, polynomial-space.md, and quantum-interactive-proofs.md remain open and would be resolved by the Sha92/LFKN92 reference stubs above."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; added [[polynomial-space|PSPACE]] wikilink so both objects are linked",
+        "sketch: tightened wording (same mechanism)",
+        "notes_to_keep: added one line separating the CCG+94 relativized separation from this containment, since the page previously cited CCG+94",
+        "checked: CCG+94 (JCSS 49(1), 1994) proves IP^A != PSPACE^A for random A, not the containment — misattribution flag confirmed; folklore disposition stands"
+      ]
+    },
+    {
+      "slug": "ip-to-qip",
+      "path": "content/Reductions/ip-to-qip.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; the reduction-class axis does not discriminate, per repo convention for inclusions.",
+      "model": "quantum",
+      "model_justification": "Containment into a quantum class; matches the sibling convention (bpp-to-bqp, qip-to-ip, qip-to-pspace all use model: quantum).",
+      "kind_correct": "inclusion",
+      "statement": "$\\classIP \\subseteq \\classQIP$: a classical [[interactive-proof-systems|IP]] protocol is a [[quantum-interactive-proofs|QIP]] protocol whose verifier measures each incoming message in the computational basis and otherwise runs the classical verifier — folklore.",
+      "sketch": "Measuring each prover message in the computational basis turns any quantum prover into a randomized classical prover: the distribution of each message given the classical transcript so far is a classical strategy. Completeness and soundness of the classical protocol carry over unchanged.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Overlap: qip-to-ip.md already records kind: equivalence ('QIP = IP'), which subsumes this inclusion. Per the one-page-per-direction rule both can stand as implications, but the pair should be made consistent (either two one-way pages or one equivalence page, not both an equivalence and an inclusion). Coordinate with batch red-26."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; replaced 'applies only classical operations' with the precise verifier behavior (measure, then run the classical verifier)",
+        "sketch: tightened wording (same mechanism)"
+      ]
+    },
+    {
+      "slug": "ip-and-rom-to-snark-fs86",
+      "path": "content/Reductions/ip-and-rom-to-snark-fs86.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "rom",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The Fiat–Shamir transform removes interaction from public-coin protocols; it does not create succinctness. Applied to a general interactive proof it yields a non-interactive argument whose length equals the original communication, so no SNARK results unless the protocol is already succinct. The ROM edges that do hold are PCP + ROM ⇒ SNARG (Micali, CS proofs, FOCS 1994 / SICOMP 30(4), 2000) and public-coin IOP + ROM ⇒ SNARK (Ben-Sasson–Chiesa–Spooner, TCC 2016-B), the latter via state-restoration soundness for many-round protocols. FS86 is an identification/signature paper with no statement about succinct arguments.",
+      "flags": [
+        "The sibling page content/Reductions/interactive-protocol-and-rom-to-snark.md (batch red-15) carries the same defective claim; fix them consistently.",
+        "Replacement edges would need new hypothesis objects and reference stubs: Mic00 (Micali, 'Computationally Sound Proofs', SICOMP 2000) and BCS16 (Ben-Sasson, Chiesa, Spooner, 'Interactive Oracle Proofs', TCC 2016-B); neither is in content/References/ yet.",
+        "Even for public-coin protocols, multi-round Fiat–Shamir needs round-by-round / state-restoration soundness — any corrected page must carry that qualifier."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened wording; claim verified as wrong (FS preserves communication, gives no succinctness); Micali FOCS 94 and BCS16 TCC 2016-B bibliographic data confirmed against cryptobib"
+      ]
+    },
+    {
+      "slug": "ip-to-szk-bgg-90",
+      "path": "content/Reductions/ip-to-szk-bgg-90.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Not a theorem: SZK ⊆ AM ∩ coAM (Fortnow 1987; Aiello–Håstad 1991), so IP ⊆ SZK together with IP = PSPACE would give PSPACE ⊆ AM ∩ coAM and collapse the polynomial hierarchy. BGG+90 prove that, assuming a secure probabilistic encryption scheme (one-way functions suffice by later work), every language in IP has a COMPUTATIONAL zero-knowledge proof; the migrated bullet dropped that hypothesis and upgraded computational to statistical zero knowledge. The intended BGG+90 content is the conjunctive edge {ip, hash-function (OWF)} ⇒ czk, and the wiki already carries czk-to-ip-bgg-90 ('CZK = IP').",
+      "flags": [
+        "Recommend deleting this page or retargeting it to the correct conjunctive edge {ip, hash-function} ⇒ czk; note czk-to-ip-bgg-90 (batch red-05) itself omits the OWF hypothesis from its frontmatter and needs the same scrutiny.",
+        "The page's own migration notes already identify this as the most serious defect in its chunk; its .fact-check/queue.json entry should be checked as they suggest."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: 'False as stated' → 'Not a theorem' (the containment is unproven and would collapse PH, not refuted); BGG+90's hypothesis stated as in its abstract (secure probabilistic encryption) with the OWF sufficiency noted",
+        "checked: BGG+90 abstract on the wiki reference page confirms the computational-ZK-under-encryption statement"
+      ]
+    },
+    {
+      "slug": "ippe-to-hve",
+      "path": "content/Reductions/ippe-to-hve.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KSW08",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products",
+          "authors": "Jonathan Katz, Amit Sahai, Brent Waters",
+          "venue": "EUROCRYPT 2008",
+          "year": "2008",
+          "url": "https://doi.org/10.1007/978-3-540-78967-3_9",
+          "note": "Applications section shows inner-product predicate encryption implies HVE (and anonymous IBE, disjunctions, polynomial evaluation, CNF/DNF)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The construction uses the IPPE scheme only as an oracle, but the generic security argument is not clean: with the coefficients $r_i$ in the key, an adversary that recovers them from an IPPE key (attribute-hiding constrains ciphertexts, not keys; a scheme may append the key vector in the clear) can choose a non-matching challenge attribute with zero inner product — trivial when $\\Sigma = \\ZZ_p$ — which is admissible in the HVE game but inadmissible in the IPPE game. A fully-black-box reduction therefore needs an extra hypothesis (the encoded key vector is hidden, or HVE security is selective). KSW08 do not classify the reduction; left unstated.",
+      "model": "standard",
+      "model_justification": "Generic encoding-based transformation; no idealized model.",
+      "kind_correct": "implication",
+      "statement": "An attribute-hiding [[inner-product-predicate-encryption|IPPE]] scheme of dimension $2n$ over $\\ZZ_p$ yields an [[hidden-vector-encryption|HVE]] scheme for patterns in $(\\Sigma \\cup \\{*\\})^n$ with $\\Sigma \\subseteq \\ZZ_p$: a pattern $v$ with wildcard set $S$ and an attribute $x$ are encoded as vectors whose inner product is $\\sum_{i \\notin S} r_i (x_i - v_i)$ for uniformly random coefficients $r_i$, which vanishes when $v$ matches $x$ and otherwise with probability $1/p$. Attribute-hiding transfers whenever an HVE adversary's encoded queries stay admissible in the IPPE game, i.e. unless it finds a non-matching attribute whose encoded inner product vanishes — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].",
+      "sketch": "Encode $x$ as $(x_1, 1, \\ldots, x_n, 1)$ and $v$ as $(r_1, -r_1 v_1, \\ldots, r_n, -r_n v_n)$ with $r_i = 0$ for $i \\in S$ and $r_i \\getsr \\ZZ_p$ otherwise, sampled at key generation; $\\Setup$, $\\KeyGen$, $\\Enc$, $\\Dec$ of the HVE scheme call the IPPE algorithms once each on the encoded vectors.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CLASS DOWNGRADED fully-black-box → unstated: the encoded HVE adversary can violate IPPE admissibility by targeting the key-side randomness (see class_justification). The bad event is negligible when the $r_i$ are hidden from the adversary (as in KSW08's own scheme, where they sit in exponents) or when the coefficients are moved to the ciphertext; a human should check KSW08 §5 for how the paper handles this before any class is recorded.",
+        "Sketch follows KSW08's key-side randomization (coefficients chosen at key generation); the encoding identity $\\sum_{i \\notin S} r_i (x_i - v_i)$ is certain, the side carrying the randomness should be confirmed against KSW08 §5 (web access unavailable during verification).",
+        "KSW08's own IPPE instantiation works over $\\ZZ_N$ for composite $N$; the encoding is stated here over prime $\\ZZ_p$ to match the wiki's IPPE syntax, giving false-accept probability exactly $1/p$ per non-matching (key, ciphertext) pair.",
+        "The randomized-coefficient point from the migration notes (a deterministic embedding would create false accepts) is carried by the statement."
+      ],
+      "verdict": "downgraded",
+      "verifier_changes": [
+        "class fully-black-box → unstated: the security reduction is not generically admissibility-preserving (adversary can target key-side coefficients); justification rewritten",
+        "statement: dimension $O(n)$ → $2n$ (KSW08 use $2\\ell$); added the admissibility condition under which attribute-hiding transfers; tightened",
+        "sketch: rewritten to the encoding only; removed 'forwards them to the IPPE game unchanged', which glossed over the admissibility failure",
+        "sources: KSW08 kept (EUROCRYPT 2008, DOI 10.1007/978-3-540-78967-3_9 confirmed against cryptobib; HVE application is in KSW08 §5)",
+        "flags: rewritten to record the downgrade reason and the open check"
+      ]
+    },
+    {
+      "slug": "ippe-to-payload-only-hiding",
+      "path": "content/Reductions/ippe-to-payload-only-hiding.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "KSW08",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products",
+          "authors": "Jonathan Katz, Amit Sahai, Brent Waters",
+          "venue": "EUROCRYPT 2008",
+          "year": "2008",
+          "url": "https://doi.org/10.1007/978-3-540-78967-3_9",
+          "note": "Defines payload-hiding and attribute-hiding and names the latter as the stronger notion; the implication itself is immediate."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction; the reduction forwards a payload-hiding adversary verbatim into the attribute-hiding game with $x_0 = x_1 = x^*$. Both construction and reduction are fixed and treat scheme and adversary as oracles.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An attribute-hiding [[inner-product-predicate-encryption|IPPE]] scheme is [[inner-product-predicate-encryption#payload-only-hiding|payload-hiding]]: a payload-hiding adversary with challenge $(x^*, m_0), (x^*, m_1)$ is an admissible attribute-hiding adversary with $x_0 = x_1 = x^*$, since $\\langle v, x_0 \\rangle = 0 \\Leftrightarrow \\langle v, x_1 \\rangle = 0$ holds for every $v$ — folklore.",
+      "sketch": "The payload-hiding game is the attribute-hiding game restricted to challenges with equal attribute vectors; the reduction is the identity on scheme and adversary and preserves the advantage exactly.",
+      "pseudocode": "",
+      "security_loss": "tight (advantage preserved exactly)",
+      "improvements_text": "- Payload-hiding and attribute-hiding, the latter the stronger notion, are defined in [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The conclusion is a Variations-section anchor (payload-hiding-ippe), not a standalone page; fine as recorded.",
+        "PRIMITIVE-PAGE DEFECT (skeptical-checker lane, not this edge): the attribute-hiding game on inner-product-predicate-encryption.md omits KSW08's second admissibility condition — if $\\langle v, x_0 \\rangle = \\langle v, x_1 \\rangle = 0$ for some queried $v$ then $m_0 = m_1$. Without it the game is trivially won with $x_0 = x_1$ and one matching key query. hidden-vector-encryption.md has the same omission. The payload-hiding adversary never queries a matching $v$, so this edge holds under either version."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('holds vacuously' → 'holds for every $v$')",
+        "sketch: tightened",
+        "security_loss: filled 'tight (advantage preserved exactly)' — immediate from the identity reduction",
+        "improvements_text: tightened; dropped 'introduced attribute-hiding as a strengthening' (attribution of the notion's origin not verified)",
+        "flags: added the missing-admissibility-condition defect on the IPPE and HVE primitive pages"
+      ]
+    },
+    {
+      "slug": "it-pir-to-computational-multi-server-pir",
+      "path": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction, using the IT-PIR scheme only as an oracle. Any efficient distinguisher between per-server query distributions has advantage bounded by their statistical distance, which is zero for an IT-PIR; the reduction forwards the adversary unchanged.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[multi-server-private-information-retrieval|IT-PIR]] scheme is a [[multi-server-private-information-retrieval#computational-multi-server-pir|computational multi-server PIR]]: per-server query distributions that are identical for every pair of indices are in particular computationally indistinguishable — folklore.",
+      "sketch": "The construction is the identity. A distinguisher between the queries sent to server $s$ for indices $i$ and $j$ sees identical distributions, so its advantage is $0$.",
+      "pseudocode": "",
+      "security_loss": "tight (distinguishing advantage is $0$)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The 'non-colluding servers' qualifier in the migrated text is part of the computational variant's threat model and is not captured by the typing; the primitive page should carry it, not this edge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped the trailing clause 'so the same scheme satisfies computational privacy' (restatement)",
+        "sketch: tightened to the identity construction and the zero-advantage fact",
+        "security_loss: filled (advantage $0$)"
+      ]
+    },
+    {
+      "slug": "k-linear-assumption-to-abe-rw13",
+      "path": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Misattributed hypothesis: RW13's large-universe KP-ABE and CP-ABE constructions are proven selectively secure in prime-order bilinear groups under two q-type assumptions ('similar to ones used in prior works', per the CCS 2013 abstract), not under variants of the k-linear assumption, so k-Lin ⇒ ABE is not RW13's theorem. A true k-Lin ⇒ ABE edge belongs to other papers: Chen–Gay–Wee, 'Improved Dual System ABE in Prime-Order Groups via Predicate Encodings' (EUROCRYPT 2015), adaptively secure ABE for boolean formulas from k-Lin; Kowalczyk–Wee, 'Compact Adaptively Secure ABE for NC1 from k-Lin' (EUROCRYPT 2019).",
+      "flags": [
+        "Two fixes possible: (a) retarget this page's hypothesis to RW13's actual q-type assumptions (no wiki object exists for them), or (b) create a fresh k-Lin ⇒ ABE page sourced to CGW15/KW19 and retire this one. Option (b) matches the paper-suffix slug convention better since this slug names rw13.",
+        "The k-Lin assumption has no page of its own (only a TODO section under decisional-diffie-hellman.md and prose in bilinear-map-assumptions.md), so the hypothesis link is already broken at the object level — as the migration notes flag.",
+        "The source bullet on attribute-based-encryption.md § Other results ('under variants of the k-linear assumption — RW13') is itself wrong and should be fixed by the skeptical-checker lane.",
+        "REFERENCE-PAGE DEFECT: the abstract on content/References/RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption.md is a paraphrase that itself asserts 'selective security under variants of the k-linear assumption' — this contradicts the paper's abstract (two q-type assumptions) and is the likely origin of the wrong bullet. Reference-fixer/skeptical-checker lane should replace it with the real abstract. Bibliographic data (CCS 2013, DOI 10.1145/2508859.2516672; eprint 2012/583) confirmed against cryptobib.",
+        "CGW15 (EC:CheGayWee15, DOI 10.1007/978-3-662-46803-6_20) and KW19 (EC:KowWee19, DOI 10.1007/978-3-030-17653-2_1) exist with the stated titles and venues (cryptobib); neither has a wiki reference page yet."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened; venue/title of CGW15 and KW19 confirmed against cryptobib (eprint numbers dropped since unverified here)",
+        "flags: added the wiki RW13 reference-page abstract defect (it states the wrong assumption) and the CGW15/KW19 bibliographic confirmation"
+      ]
+    },
+    {
+      "slug": "ke-to-multi-party-key-exchange",
+      "path": "content/Reductions/ke-to-multi-party-key-exchange.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction invokes the two-party protocol only as an oracle (one independent session per party); the hybrid security reduction runs any multi-party eavesdropper as an oracle, embedding the two-party challenge into one session and simulating the remaining sessions itself.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Two-party [[key-exchange|KE]] implies [[key-exchange#multi-party-key-exchange|multi-party key exchange]] against eavesdroppers: a designated party runs an independent KE session with each of the other $n-1$ parties, samples a group key $K$ uniformly, and sends $K$ one-time-padded under each session key — folklore.",
+      "sketch": "A hybrid over the $n-1$ sessions replaces each session key by an independent uniform key using two-party KE security; the reduction embeds its challenge in one session and generates the others itself. In the final hybrid every pad is uniform and independent of $K$, so $K$ is independent of the transcript.",
+      "pseudocode": "",
+      "security_loss": "factor $n-1$ over the two-party KE advantage (one hybrid per session)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The multi-party KE subsection on key-exchange.md has no formal security game; the generic construction above achieves eavesdropper (passive) security matching the two-party notion the page defines. If a stronger multi-party notion is ever formalized there, this edge must be rechecked.",
+        "Burmester–Desmedt (EUROCRYPT '94) and Joux's tripartite pairing protocol, named in the migrated text, are constant-round constructions from specific assumptions (DDH, pairings) — they are efficiency improvements under different hypotheses, not sources for this generic edge, and would need their own reduction pages and reference stubs.",
+        "The generic construction costs one extra round of communication after the pairwise sessions; 'requires additional rounds or structure' in the migrated text refers to avoiding that cost."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened",
+        "sketch: tightened (same hybrid)",
+        "security_loss: filled 'factor $n-1$' — immediate from the hybrid count",
+        "checked: BD94 = Burmester–Desmedt, EUROCRYPT '94 (EC:BurDes94) exists as named in flags"
+      ]
+    },
+    {
+      "slug": "ke-to-pke-dh76",
+      "path": "content/Reductions/ke-to-pke-dh76.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Unsupported as stated: the wiki's KE object is a general interactive protocol, and an arbitrary multi-round KE gives no way to encrypt in a single message under a reusable public key; whether general KE implies PKE is open. The folklore edge is 2-message KE ⇒ PKE: the initiator's first message is the public key, Enc runs the responder and one-time-pads the plaintext with the session key, Dec recomputes the key from the initiator's state; a hybrid over responder sessions handles public-key reuse. The one-time pad makes the migrated parenthetical's symmetric-cipher hypothesis unnecessary for messages up to the key length. DH76 introduces key exchange but proves no such theorem; ElGamal85 instantiates the transformation for the Diffie–Hellman protocol.",
+      "flags": [
+        "A corrected page needs a 2-message-KE (or NIKE, anchor key-exchange#non-interactive-key-exchange-nike) hypothesis object; none exists as a slug, so the fix is blocked on the object level. The converse page pke-to-ke.md (batch red-24) is unaffected: PKE ⇒ 2-message KE is fine.",
+        "Whether general interactive KE implies PKE is open; the page must not be re-sourced with the current hypothesis.",
+        "If retargeted to NIKE ⇒ PKE, [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] (already in content/References/) is the natural instantiation citation, with the generic statement still folklore."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened; 'open' status of general KE ⇒ PKE moved up front; ElGamal (CRYPTO 84, C:ElGamal84) confirmed against cryptobib"
+      ]
+    }
+  ]
+}

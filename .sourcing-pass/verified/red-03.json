@@ -1,0 +1,406 @@
+{
+  "batch": "red-03",
+  "pages": [
+    {
+      "slug": "bilinear-pairing-and-q-sdh-to-pcs-kzg10",
+      "path": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KZG10",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "KZG10 - Constant-size commitments to polynomials and their applications",
+          "authors": "Aniket Kate, Gregory M. Zaverucha, Ian Goldberg",
+          "venue": "ASIACRYPT 2010",
+          "year": "2010",
+          "url": "",
+          "note": "Existing wiki reference page (cryptobib AC:KatZavGol10); file verified on disk. The paper's PolyCommit_DL scheme is proven evaluation binding under t-SDH with t the degree bound."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "KZG10 does not classify the reduction. The evaluation-binding proof is straight-line and runs the adversary once as an oracle, but the hypotheses are a group structure plus a number-theoretic assumption used concretely, not primitives accessed as oracles, so no RTV04 class is honestly assignable.",
+      "model": "crs",
+      "model_justification": "The scheme needs a trusted structured reference string $(g, g^\\tau, \\ldots, g^{\\tau^d})$ whose trapdoor $\\tau$ is discarded: a structured-CRS setup, matching the page's current value.",
+      "kind_correct": "implication",
+      "statement": "In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\\tau, \\ldots, g^{\\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$: commitments and opening proofs are single group elements, verification is two pairings, and evaluation binding holds under [[q-strong-diffie-hellman|q-SDH]] with $q = d$ [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].",
+      "sketch": "Commit to $f$ as $C = g^{f(\\tau)}$, computable from the SRS without $\\tau$; the opening at $z$ is $\\pi = g^{\\psi(\\tau)}$ for the quotient $\\psi(X) = (f(X) - y)/(X - z)$, and the verifier checks $e(C/g^y, g) = e(\\pi, g^\\tau/g^z)$. Two accepting openings $(y, \\pi)$, $(y', \\pi')$ at the same $z$ with $y \\neq y'$ give $(\\pi/\\pi')^{1/(y'-y)} = g^{1/(\\tau - z)}$, a $q$-SDH solution with $c = -z$.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{KZG polynomial commitment}\n\\begin{algorithmic}\n\\State $\\Setup(1^\\secpar, d)$: $\\tau \\getsr \\ZZ_p^{*}$; $\\mathsf{srs} \\gets (g, g^{\\tau}, \\ldots, g^{\\tau^{d}})$; discard $\\tau$\n\\State $\\mathsf{Commit}(\\mathsf{srs}, f)$ for $f = \\sum_{i=0}^{d} f_{i} X^{i}$: $C \\gets \\prod_{i=0}^{d} (g^{\\tau^{i}})^{f_{i}} = g^{f(\\tau)}$; $\\mathsf{aux} \\gets f$\n\\State $\\Open(\\mathsf{srs}, C, z, y, \\mathsf{aux})$: $\\psi(X) \\gets (f(X) - y)/(X - z)$; $\\pi \\gets g^{\\psi(\\tau)}$\n\\State $\\Vrfy(\\mathsf{srs}, C, z, y, \\pi) := [\\, e(C/g^{y}, g) = e(\\pi, g^{\\tau}/g^{z}) \\,]$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The bilinear-group requirement is a structural hypothesis: `[[pairings]]` is a Glossary page, not an assumption page."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Migration Notes claiming 'q-Strong Diffie-Hellman has NO assumption page' are stale: content/Assumptions/q-strong-diffie-hellman.md now exists (stub, unlisted). The dangling-hypothesis notes can be dropped.",
+        "Pseudocode is the non-hiding PolyCommit_DL variant of KZG10 (the hiding PolyCommit_Ped adds a Pedersen blinding polynomial) and uses the symmetric-pairing notation of the migrated quote, whereas the pairings Glossary page writes $e : \\GG_1 \\times \\GG_2 \\to \\GG_T$. The wiki's PCS syntax (Setup, Commit, Open, Vrfy) is followed.",
+        "Efficiency bullets (O(1) proof, two-pairing verification) are folded into the statement so nothing from the migrated quote is lost.",
+        "A sibling page bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10 records the same theorem with conclusion kzg-polynomial-commitment (the PCS page's KZG variant); a human should decide whether both edges stand."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: evaluation binding needs y ≠ y' (not merely (y,π) ≠ (y',π')); made the q-SDH solution explicit (c = −z)",
+        "pseudocode: defined the coefficients f_i and passed aux = f to Open, matching the PCS Syntax section",
+        "statement and class/model justifications tightened for house style; no change of substance",
+        "added flag about the sibling KZG-variant edge and the symmetric-vs-asymmetric pairing notation"
+      ]
+    },
+    {
+      "slug": "bilinear-pairing-to-snark-gro16",
+      "path": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Gro16",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Gro16 - On the Size of Pairing-based Non-interactive Arguments",
+          "authors": "Jens Groth",
+          "venue": "EUROCRYPT 2016",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/260",
+          "note": "Existing wiki reference page (cryptobib EC:Groth16); file verified on disk. Its abstract: pairing-based preprocessing SNARK for arithmetic circuit satisfiability, proof of 3 group elements, verification by a single pairing product equation (3 pairings), zero-knowledge."
+        },
+        {
+          "key": "FKL18",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "FKL18 - The Algebraic Group Model and its Applications",
+          "authors": "Georg Fuchsbauer, Eike Kiltz, Julian Loss",
+          "venue": "CRYPTO 2018",
+          "year": "2018",
+          "url": "",
+          "note": "Existing wiki reference page (cryptobib C:FucKilLos18); file verified on disk. Proves knowledge soundness of Groth's SNARK in the algebraic group model under a q-type discrete-logarithm assumption."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Gro16 proves knowledge soundness only against generic bilinear-group adversaries; per schema/reduction-classes.yaml an idealized model goes on the model axis with class: free. Matches the page's current value.",
+      "model": "generic-group",
+      "model_justification": "Gro16 proves knowledge soundness in the generic bilinear group model. The scheme additionally requires a per-circuit trusted CRS, which the single-valued model field cannot also record; the statement text carries it.",
+      "kind_correct": "implication",
+      "statement": "In a [[pairings|bilinear group]] with a per-circuit trusted CRS, Groth's construction is a [[succinct-argument|zk-SNARK]] for arithmetic circuit satisfiability with perfect completeness and perfect zero-knowledge: a proof is three group elements (two in $\\GG_1$, one in $\\GG_2$) and verification is one pairing-product equation; knowledge soundness holds against generic bilinear-group adversaries [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].",
+      "sketch": "The circuit is arithmetized as a quadratic arithmetic program; the CRS holds encodings of the QAP polynomials at a secret point, scaled by secret trapdoor elements, and the prover combines them into three group elements whose single pairing-product check encodes the QAP divisibility condition. In the generic bilinear group model each proof element is a known linear combination of CRS elements, and the verification equation holding as a polynomial identity in the trapdoors forces those coefficients to contain a satisfying assignment, which the extractor outputs.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Knowledge soundness of Groth16 in the algebraic group model under a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].",
+      "notes_to_keep": [
+        "INTERNAL INCONSISTENCY on the source page: [[succinct-argument]] elsewhere says '3 $\\GG_1$ elements + 1 $\\GG_2$ element' (= 4). Groth16 proofs are 2 $\\GG_1$ + 1 $\\GG_2$ = 3 elements, so that line is the erroneous one. Reported, not fixed.",
+        "'pairings' resolves to a Glossary page, not an assumption page — a hypothesis slot filled by a structure."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The hypothesis is a structure (bilinear pairing), with the real cryptographic content in the model axis (GGM). A sibling edge kea-to-snark-gro16 records a knowledge-assumption reading of the same result; a human should decide whether both edges should stand or be consolidated.",
+        "succinct-argument.md's '3 G1 + 1 G2' proof-size claim is wrong (Groth16 = 2 G1 + 1 G2 = 3 elements) — skeptical-checker lane, already recorded in this page's Notes and in .reductions/suspected-errors.json."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: added perfect completeness and perfect zero-knowledge (Gro16 Theorem 1) and tightened wording",
+        "sketch: replaced the vague 'group operations allow extracting the witness' with the actual mechanism (proof elements are linear combinations of CRS elements; verification as a polynomial identity in the trapdoors yields the witness)",
+        "improvements_text wording tightened"
+      ]
+    },
+    {
+      "slug": "permuted-puzzles-to-depir-bipw17",
+      "path": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BIPW17",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BIPW17 - Can We Access a Database Both Locally and Privately",
+          "authors": "Elette Boyle, Yuval Ishai, Rafael Pass, Mary Wootters",
+          "venue": "TCC 2017",
+          "year": "2017",
+          "url": "https://eprint.iacr.org/2017/567",
+          "note": "Existing wiki reference page (cryptobib TCC:BIPW17); file verified on disk. TCC 2017 pp. 662-693. Candidate OLDC / SK-DEPIR from a secretly permuted Reed-Muller code; security from the conjecture that permuted local-decoding query sets are indistinguishable from uniformly random point sets."
+        },
+        {
+          "key": "BHW19",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BHW19 - Permuted Puzzles and Cryptographic Hardness",
+          "authors": "Elette Boyle, Justin Holmgren, Mor Weiss",
+          "venue": "TCC 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/1256",
+          "note": "Verified independently via web search: TCC 2019, LNCS 11892, pp. 465-493, Springer DOI 10.1007/978-3-030-36033-7_18; eprint 2019/1256. Initiates the formal study of permuted-puzzle problems, the framework capturing the BIPW17 conjecture (and the source of this page's hypothesis name)."
+        },
+        {
+          "key": "BHMW21",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BHMW21 - On the Security of Doubly Efficient PIR",
+          "authors": "Elette Boyle, Justin Holmgren, Fermi Ma, Mor Weiss",
+          "venue": "IACR ePrint 2021/1113",
+          "year": "2021",
+          "url": "",
+          "note": "Existing wiki reference page (cryptobib EPRINT:BHMW21); file verified on disk. Per its abstract: an attack that provably breaks the BIPW17 'toy conjecture'; the attack 'does not apply to the real assumption underlying the constructions, and thus the candidates still stand'."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BIPW17 give a candidate whose security is argued directly from a bespoke conjecture about the scheme's own query distribution; the paper does not classify the reduction, and the RTV04 vocabulary (primitive-from-primitive, oracle-access quantifiers) does not apply to an assumption-based candidate.",
+      "model": "standard",
+      "model_justification": "No idealized oracle or setup beyond the secret key; the conjecture is a standard-model indistinguishability assumption.",
+      "kind_correct": "implication",
+      "statement": "Under the [[permuted-puzzles|permuted-puzzles]] conjecture of BIPW17 — a secretly permuted set of Reed–Muller local-decoding queries is indistinguishable from a uniformly random set of points — there is a secret-key [[doubly-efficient-pir|doubly efficient PIR]]: the database is encoded once at polynomial cost, after which the key holder retrieves any bit by reading a sublinear number of encoding positions, and the access pattern hides the index from an observer who sees the encoding but not the key [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].",
+      "sketch": "The database is encoded as a Reed–Muller codeword — the evaluation table of a low-degree multivariate polynomial — with positions permuted by a secret permutation; to fetch a bit the client reads the positions of a random low-degree curve through the target point and interpolates, so each query is a permuted Reed–Muller decoding set, which the conjecture makes indistinguishable from random positions.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The assumption family is formalized and studied as _permuted puzzles_ — [[BHW19 - Permuted Puzzles and Cryptographic Hardness|BHW19]].\n- An attack breaks the BIPW17 _toy conjecture_, a simplified variant posed for cryptanalysis, but not the assumption underlying the construction — [[BHMW21 - On the Security of Doubly Efficient PIR|BHMW21]].",
+      "notes_to_keep": [
+        "'SK-DEPIR' is an alias of [[doubly-efficient-pir]] rather than a node of its own: the conclusion page is the general DEPIR object while the theorem yields only the secret-key variant."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Migration Notes saying 'No page exists for the assumption' are stale: content/Assumptions/permuted-puzzles.md now exists (stub, unlisted, id bipw17-permuted-puzzles-assumption).",
+        "The statement paraphrases the abstract-level guarantee (one-time polynomial-cost encoding, sublinear per-query reads); exact parameters (encoding length, query complexity) are in BIPW17 and were not pinned down here because the paper itself was not fetchable from this environment.",
+        "BIPW17 also proposes noise-based variants of the candidate (some curve points replaced by random noise); the sketch describes the basic permuted-Reed–Muller candidate.",
+        "The migrated quote says BHMW21 'broke the generalized proposed assumption'; BHMW21's own abstract says it breaks the BIPW17 toy conjecture (a simplified variant) and not the real assumption. improvements_text follows the abstract; the DEPIR page's gloss is in the skeptical-checker lane.",
+        "CHR17 (Canetti-Holmgren-Richelson, 'Towards Doubly Efficient Private Information Retrieval', TCC 2017) is a concurrent SK-DEPIR candidate from a related but distinct assumption — a separate edge, deliberately not added here."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: removed 'noised' — noise appears only in a variant of the BIPW17 candidate; the basic candidate is a secretly permuted Reed–Muller codeword. Made the query mechanism (random low-degree curve through the target point) explicit",
+        "improvements_text and BHMW21 source note: 'breaks a proposed generalization' → 'breaks the toy conjecture (a simplified variant)', per the BHMW21 abstract",
+        "statement tightened; added flags on the BHMW21 gloss and the noise variants"
+      ]
+    },
+    {
+      "slug": "bpp-to-am-gs86",
+      "path": "content/Reductions/bpp-to-am-gs86.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention the reduction-class axis does not discriminate and the value is free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "Every [[bounded-error-probabilistic-polynomial-time|BPP]] language has an [[arthur-merlin|Arthur–Merlin]] protocol in which Arthur ignores Merlin's message and runs the BPP decider, so $\\classBPP \\subseteq \\classAM$ — folklore.",
+      "sketch": "With Merlin's message discarded, completeness $2/3$ and soundness $1/3$ are exactly the BPP acceptance conditions, so the containment is definitional.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The current source attribution to GS86 is WRONG and should be removed: Goldwasser-Sipser 1986 proves the private-coin/public-coin equivalence (IP[k] in AM[k+2]); BPP in AM is immediate from the definition of AM — the page's own migration Notes already record this doubt. Disposition folklore, statement ends '— folklore'.",
+        "With the GS86 citation dropped, the slug suffix '-gs86' is misleading; renaming the file changes a live URL, so leave the rename decision to a human."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped 'trivial one-message' (AM is a two-message protocol; the point is that Merlin's message is ignored) and tightened",
+        "sketch tightened; no change of substance"
+      ]
+    },
+    {
+      "slug": "bpp-to-bqp",
+      "path": "content/Reductions/bpp-to-bqp.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BV97",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BV97 - Quantum Complexity Theory",
+          "authors": "Ethan Bernstein, Umesh Vazirani",
+          "venue": "SIAM Journal on Computing 26(5), pp. 1411-1473",
+          "year": "1997",
+          "url": "https://doi.org/10.1137/S0097539796300921",
+          "note": "Verified independently via web search against the DBLP record journals/siamcomp/BernsteinV97 (SIAM J. Comput. 26(5):1411-1473, 1997); the paper establishes BPP ⊆ BQP ⊆ P^#P. DOI is the standard one; doi.org, dblp.org and epubs.siam.org are egress-blocked from this environment. Journal version of the STOC 1993 paper, cited as the literature usually does."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention class: free.",
+      "model": "quantum",
+      "model_justification": "The containment is witnessed by a quantum simulation of the probabilistic machine; sibling BQP edges (e.g. bqp-to-pp) use model: quantum, and the page's current value is kept.",
+      "kind_correct": "inclusion",
+      "statement": "A quantum Turing machine simulates any bounded-error probabilistic polynomial-time computation with polynomial overhead, so [[bounded-error-probabilistic-polynomial-time|BPP]] $\\subseteq$ [[bounded-error-quantum-polynomial-time|BQP]] [[BV97 - Quantum Complexity Theory|BV97]].",
+      "sketch": "Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh cell rotated into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities. BV97 carry this out for quantum Turing machines.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated quote's gloss 'classical probabilistic computation is a special case of quantum computation' is morally right but the containment is a theorem (reversible simulation + coin tosses), first proved for QTMs in BV97 — hence sourced rather than folklore."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: removed mid-computation 'measuring' of each coin (QTMs measure at the end) and the word 'exactly'; kept the reversible-simulation-plus-quantum-coin mechanism",
+        "source note: recorded that the DBLP record was reached via search results, not fetched directly"
+      ]
+    },
+    {
+      "slug": "bpp-to-coam-gs86",
+      "path": "content/Reductions/bpp-to-coam-gs86.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[bounded-error-probabilistic-polynomial-time|BPP]] is closed under complement and $\\classBPP \\subseteq \\classAM$ via the protocol in which Arthur ignores Merlin, so the complement of every BPP language is in $\\classAM$: $\\classBPP \\subseteq \\classcoAM$ ([[co-arthur-merlin|coAM]]) — folklore.",
+      "sketch": "$L \\in \\classBPP$ implies $\\bar{L} \\in \\classBPP \\subseteq \\classAM$, and $\\bar{L} \\in \\classAM$ is the definition of $L \\in \\classcoAM$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Same wrong GS86 attribution as bpp-to-am-gs86: the containment is definitional (BPP closure under complement plus BPP ⊆ AM), not a Goldwasser-Sipser result; drop the citation and label folklore. Slug suffix '-gs86' becomes misleading; renaming is a human call since filenames are live URLs.",
+        "This also repairs the migrated 'Symmetrically' clause: the coAM direction is justified by BPP's closure under complement, which the statement now says explicitly."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement tightened (dropped 'trivial one-message', made the complement step explicit); no change of substance"
+      ]
+    },
+    {
+      "slug": "bpp-to-pp",
+      "path": "content/Reductions/bpp-to-pp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "A [[bounded-error-probabilistic-polynomial-time|BPP]] machine accepts yes-instances with probability at least $2/3$ and no-instances with probability at most $1/3$, so it satisfies the strict-majority criterion of [[probabilistic-polynomial-time|PP]] as is: $\\classBPP \\subseteq \\classPP$ — folklore.",
+      "sketch": "The bounded-error gap places the acceptance probability strictly on the correct side of $1/2$ on every input, so the BPP machine is verbatim a PP machine.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Both classes and the containment appear in Gill's SICOMP 1977 paper defining probabilistic complexity classes; the containment is definitional, so folklore is the honest label and no Gil77 reference page is proposed."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement/sketch wording tightened ('already meets' → 'satisfies … as is'); no change of substance"
+      ]
+    },
+    {
+      "slug": "bpp-to-p-poly",
+      "path": "content/Reductions/bpp-to-p-poly.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Adl78",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Adl78 - Two theorems on random polynomial time",
+          "authors": "Leonard M. Adleman",
+          "venue": "FOCS 1978, pp. 75-83",
+          "year": "1978",
+          "url": "https://doi.org/10.1109/SFCS.1978.37",
+          "note": "Verified independently via web search: ACM DL / IEEE record for the 19th FOCS (1978), pp. 75-83, DOI 10.1109/SFCS.1978.37. Adleman's theorem. The paper proves the one-sided-error (RP) case; the BPP form is universally credited to it (e.g. Arora-Barak Thm 7.14) and first appears in BG81. doi.org is egress-blocked from this environment; the DOI was cross-checked against the ACM DL listing surfaced by search."
+        },
+        {
+          "key": "BG81",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1",
+          "authors": "Charles H. Bennett, John Gill",
+          "venue": "SIAM Journal on Computing 10(1), pp. 96-113",
+          "year": "1981",
+          "url": "https://doi.org/10.1137/0210008",
+          "note": "Bibliographic data verified via web search (Cambridge Core JSL review listing: SIAM J. Comput. 10 (1981), pp. 96-113; SIAM DOI 10.1137/0210008). Standard secondary sources credit Bennett-Gill with the two-sided-error (BPP) form of Adleman's theorem via a majority-vote ('finite majority rule') argument; the PDF itself was egress-blocked, so a human should confirm the theorem is stated there before the reference page is created. Filename mirrors the existing 'P != NP' sanitization."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "Every language in [[bounded-error-probabilistic-polynomial-time|BPP]] is decided by a family of polynomial-size Boolean circuits: $\\classBPP \\subseteq \\classPpoly$ ([[p-poly|P/poly]]) [[Adl78 - Two theorems on random polynomial time|Adl78]].",
+      "sketch": "Amplify the error below $2^{-n}$; a union bound over the $2^n$ inputs of length $n$ shows some random string is correct on all of them, and hardwiring it as advice gives the circuit family. Adleman proves the $\\classRP$ case; the two-sided-error form is due to Bennett and Gill [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]].",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The two-sided-error ($\\classBPP$) form of Adleman's theorem, by the same argument with a majority vote — [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the explicit 'TODO citation (Adleman 1978)' recorded on both source pages; the duplicate justifications on bounded-error-probabilistic-polynomial-time.md and p-poly.md can now cite Adl78.",
+        "The p-poly.md quote's derandomization clause (E requires exponential circuits ⇒ BPP = P, Impagliazzo-Wigderson) is a different result and does not belong on this edge.",
+        "HUMAN CHECK: BG81 added as the source of the two-sided (BPP) form. Its bibliographic data is verified, but the attribution rests on secondary sources (the paper was not fetchable from this environment). The proposed filename contains '^' characters (Quartz keeps them in the slug; the wikilink parser only treats a trailing '^id' as a block reference, so the link is safe) — rename before creation if a caret-free convention is preferred, and keep the wikilinks in this page's statement/sketch/improvements in sync."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "added BG81 (Bennett-Gill, SIAM J. Comput. 1981) as improvement source: Adl78 proves only the RP case; the BPP form is first stated by Bennett-Gill; improvements_text bullet added and sketch now cites it instead of a bare '— standard' label",
+        "confidence high → medium because the BG81 attribution could not be checked against the paper itself",
+        "Adl78 source note reworded to say what was actually verified"
+      ]
+    },
+    {
+      "slug": "bpp-to-pspace",
+      "path": "content/Reductions/bpp-to-pspace.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven complexity-class containment; per repo convention class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "A [[polynomial-space|PSPACE]] machine decides any [[bounded-error-probabilistic-polynomial-time|BPP]] language by enumerating all polynomially long random strings, reusing space across runs, and accepting on the majority outcome: $\\classBPP \\subseteq \\classPSPACE$ — folklore.",
+      "sketch": "Each of the $2^{\\poly(n)}$ runs uses polynomial space and only a counter of accepting runs is kept, so the whole majority vote fits in polynomial space.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "bqp-to-dlog-shor97",
+      "path": "content/Reductions/bqp-to-dlog-shor97.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "quantum",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "With kind: inclusion, hypothesis bqp, conclusion dlog, the page asserts BQP ⊆ DLOG (its own title says so). This is inverted and type-confused: DLOG is a hardness assumption/computational problem, not a complexity class that could contain BQP. Shor97 proves the opposite-direction fact — the discrete logarithm problem admits a polynomial-time quantum algorithm, i.e. DLOG ∈ BQP, so the DLOG assumption fails against quantum adversaries. The page's own migration Notes record 'POLARITY INVERTED'. The correct edge, if kept as an inclusion, is dlog-to-bqp (hypothesis dlog, conclusion bqp, kind inclusion, model quantum, source Shor97, class free), typed like the existing dlog-to-np page (DLOG ⊆ NP); no such page exists yet. Alternatively, record Shor's algorithm under # Attacks on content/Assumptions/discrete-logarithm.md rather than as a reduction page.",
+      "flags": [
+        "HIGH PRIORITY: page asserts the inverse of Shor's theorem; propose replacing with dlog-to-bqp (DLOG ∈ BQP, Shor97) or an Attacks entry on discrete-logarithm.",
+        "The migrated bullet's factoring half ('Integer factorization ... in BQP via Shor') is 'sub-edge 0' per the Notes and is likely recorded elsewhere with the same inversion; no bqp-to-factoring/factoring-to-bqp page exists in content/Reductions at the time of this pass — worth checking where sub-edge 0 landed."
+      ],
+      "verdict": "approved",
+      "verifier_changes": [
+        "wrong_reason: noted that the proposed replacement page follows the typing of the existing dlog-to-np page (no change of verdict)"
+      ]
+    }
+  ]
+}

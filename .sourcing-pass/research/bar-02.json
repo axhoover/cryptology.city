@@ -1,0 +1,410 @@
+{
+  "batch": "bar-02",
+  "pages": [
+    {
+      "slug": "no-mip-to-multi-prover-extensions",
+      "path": "content/Barriers/no-mip-to-multi-prover-extensions.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Inverted. The hyperedge {mip} => mip-star asserts MIP subset-of MIP*, which holds trivially (entangled provers may ignore their shared state), so a barrier ruling it out is false. The migrated prose asserts the STRICT separation MIP subsetneq MIP*, derived by combining MIP = NEXP (Babai-Fortnow-Lund, Computational Complexity 1991; prelim. FOCS 1990) with MIP* = RE (Ji-Natarajan-Vidick-Wright-Yuen 2020). The correct edge is the barrier with hypotheses [mip-star] and conclusion [mip] -- no inclusion MIP* subset-of MIP -- with consequence contradiction and class free (it is an unconditional proven separation, not a restriction on proof technique). The page's own gloss is also wrong as written: 'exponentially (in fact, incomparably) increases prover power' misdescribes RE vs NEXP, which is an undecidable-vs-decidable gap, not an exponential one.",
+      "flags": [
+        "no-mip-to-multi-prover-extensions: INVERTED EDGE. MIP subset-of MIP* is trivially true; the page bars it. Correct edge is {mip-star} => mip.",
+        "no-mip-to-multi-prover-extensions: the page is a DERIVED claim (MIP = NEXP composed with MIP* = RE) and neither ingredient is cited anywhere on the wiki. content/Complexity/quantum-interactive-proofs.md carries both as 'TODO citation'. Two reference pages are needed before this edge can be restated: Babai-Fortnow-Lund, 'Non-deterministic exponential time has two-prover interactive protocols', Computational Complexity 1 (1991) 3-40 (prelim. FOCS 1990, https://dl.acm.org/doi/10.1109/FSCS.1990.89520), and Ji-Natarajan-Vidick-Wright-Yuen, 'MIP* = RE' (arXiv:2001.04383). Neither was proposed as a source here because the edge itself is wrong.",
+        "no-mip-to-multi-prover-extensions: NEXP and RE have no nodes on the wiki, so the separation cannot currently be stated in the form its sources prove it (MIP = NEXP, MIP* = RE). Per schema/README.md 'Composite chains are split', this should become two inclusion/equivalence reduction pages plus one barrier, not one page.",
+        "no-mip-to-multi-prover-extensions: mip-star is a `variants` key on content/Complexity/quantum-interactive-proofs.md, not a page; MIP* is a class in its own right and arguably needs one."
+      ]
+    },
+    {
+      "slug": "no-np-to-cpir-lv15",
+      "path": "content/Barriers/no-np-to-cpir-lv15.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LV15",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LV15 - On Basing Private Information Retrieval on NP-Hardness",
+          "authors": "Tianren Liu, Vinod Vaikuntanathan",
+          "venue": "TCC 2016-A (ePrint 2015/1061)",
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-662-49096-9_16",
+          "note": "Verified: TCC 2016-A pp. 372-386; ePrint 2015/1061 (Nov 2015). Scope confirmed: rules out reductions from SAT that use the PIR adversary as an oracle, ADAPTIVE queries allowed; consequence NP subset-of coAM."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "LV15 rule out security reductions from SAT that make black-box use of the adversary breaking the PIR scheme; apart from being black-box in the adversary the reduction is unrestricted and may query adaptively. That is exactly RTV04's black-box-in-the-adversary shape, and since the hypothesis side is a complexity assumption rather than a primitive there is no construction component to weaken, so fully-black-box is the class ruled out. Recording `relativizing` would be an overstatement: LV15 give no oracle separation.",
+      "model": "standard",
+      "model_justification": "Standard model; barrier frontmatter carries no `model` field, so nothing to set.",
+      "kind_correct": "implication",
+      "statement": "A probabilistic polynomial-time reduction from $\\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|cPIR]] scheme, using the adversary only as an oracle, implies $\\classNP \\subseteq \\classcoAM$ and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level. The reduction may query the adversary adaptively, and the result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].",
+      "sketch": "Privacy of a single-round PIR scheme is broken given a $\\classSZK$ oracle: deciding which index a query encodes is a statistical-difference problem. Substituting that oracle for the adversary in any reduction that uses the adversary as a black box places $\\mathrm{SAT}$ in $\\classcoAM$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-np-to-cpir-lv15: consequence should become `kind: complexity, target: conp-subset-am` (NP subset-of coAM is equivalent to coNP subset-of AM, and schema/propositions.yaml already carries `conp-subset-am` with a note that the PH collapse is the downstream corollary, not the theorem). It is currently `kind: contradiction` with an empty target, which loses the theorem.",
+        "no-np-to-cpir-lv15: setting class to fully-black-box means the title becomes 'No fully-black-box reduction from NP to cPIR', per the convention on no-hash-function-to-pke-gkm-00 and no-ggm-to-dlog-sho97.",
+        "no-np-to-cpir-lv15: reference-page drift (reference-fixer lane) - content/References/LV15 ... .md has `venue: TCC 2015` and `published: 2015-10-30` while cryptobib_key TCC:LiuVai16 and the proceedings are TCC 2016-A (Tel Aviv, Jan 2016), pp. 372-386. `npm run sync-cryptobib` should flag this.",
+        "no-np-to-cpir-lv15: the migration Note 'the reduction class is not named on the page ... black-box is my inference' is now resolved by the paper itself and should be dropped."
+      ]
+    },
+    {
+      "slug": "no-np-to-hash-function-aggm06",
+      "path": "content/Barriers/no-np-to-hash-function-aggm06.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "AGGM06",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "AGGM06 - On basing one-way functions on NP-hardness",
+          "authors": "Adi Akavia, Oded Goldreich, Shafi Goldwasser, Dana Moshkovitz",
+          "venue": "STOC 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1145/1132516.1132614",
+          "note": "IMPORTANT: the paper's first result (arbitrary/adaptive reductions when |f^{-1}(y)| is efficiently computable) was RETRACTED by the authors in an erratum, STOC 2010 pp. 795-796, https://doi.org/10.1145/1806689.1806798 . Only the non-adaptive result stands."
+        },
+        {
+          "key": "BB15",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness",
+          "authors": "Andrej Bogdanov, Christina Brzuska",
+          "venue": "TCC 2015",
+          "year": "2015",
+          "url": "https://doi.org/10.1007/978-3-662-46494-6_1",
+          "note": "Recovers, for size-verifiable one-way functions, the adaptive-reduction claim AGGM06 retracted: a general (adaptive) reduction of NP to inverting a size-verifiable OWF implies NP subset-of coAM. Also at https://www.iacr.org/archive/tcc2015/90140001/90140001.pdf and ECCC TR14-108. Likely cryptobib key TCC:BogBrz15 (verify before setting)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The result that survives is restricted to randomized NON-ADAPTIVE reductions, and RTV04's vocabulary has no slot for an adaptivity restriction. Recording `fully-black-box` would assert a barrier against adaptive black-box reductions of NP to inverting f, which AGGM06 explicitly retracted (erratum, STOC 2010) and which is known only for size-verifiable f (BB15). `unstated` is the honest value; the restriction is carried in the statement text instead.",
+      "model": "standard",
+      "model_justification": "Standard model; barrier frontmatter carries no `model` field.",
+      "kind_correct": "implication",
+      "statement": "For every polynomial-time computable $f$, a randomized non-adaptive reduction of $\\classNP$ to the task of inverting $f$ on average implies $\\classcoNP \\subseteq \\classAM$, and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level; the one-wayness of $f$ therefore cannot be based on worst-case $\\classNP$-hardness by such a reduction — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- AGGM06's companion claim — that an arbitrary, adaptively querying reduction suffices whenever $|f^{-1}(y)|$ is efficiently computable — was retracted by the authors; only the non-adaptive result stands — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]] erratum, STOC 2010.\n- For *size-verifiable* one-way functions the adaptive case is recovered: a general reduction of $\\classNP$ to inverting one implies $\\classNP \\subseteq \\classcoAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]].",
+      "notes_to_keep": [
+        "`[[polynomial-time-hierarchy]]` exists as a page but 'the polynomial hierarchy' is not wikilinked in the migrated quote."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY no-np-to-hash-function-aggm06: AGGM06's adaptive-reduction result was RETRACTED by the authors (erratum, STOC 2010 pp. 795-796, https://doi.org/10.1145/1806689.1806798 - 'there is a gap in the proof ... we do not know whether Theorem 3 holds'). content/References/AGGM06 ... .md still reproduces the pre-retraction 2006 abstract, including the retracted first bullet. The reference page must be annotated, and every wiki claim resting on the adaptive result must be re-checked. Skeptical-checker lane.",
+        "no-np-to-hash-function-aggm06: the migration's own SUSPECTED OVERSTATEMENT flag is CONFIRMED. The migrated bullet says 'any black-box reduction'; AGGM06 proves it only for non-adaptive reductions. Contrast LV15 on the sibling page bar-np-to-cpir-lv15, which does cover adaptive reductions - the two must not be worded alike.",
+        "no-np-to-hash-function-aggm06: consequence should become `kind: complexity, target: conp-subset-am` - schema/propositions.yaml documents that key as 'The actual AGGM06 consequence' and notes content/Primitives/hash-function.md:104 states it as a PH collapse, which is the corollary. Currently `kind: contradiction` with an empty target.",
+        "no-np-to-hash-function-aggm06: the conclusion node is `hash-function`, but the theorem is about one-way functions. content/Primitives/hash-function.md declares `variants: owf: '#preimage-resistance-one-wayness'`; the conclusion should be `owf`, otherwise the barrier reads as ruling out collision-resistant hashing from NP-hardness too.",
+        "no-np-to-hash-function-aggm06: new reference page needed - 'BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness' (Bogdanov, Brzuska, TCC 2015). No BB* key collision in existing-refs.txt."
+      ]
+    },
+    {
+      "slug": "no-oihf-to-ot-bh26",
+      "path": "content/Barriers/no-oihf-to-ot-bh26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BH26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BH26 - How to Steal Oblivious Transfer from Minicrypt",
+          "authors": "Cruz Barnum, David Heath",
+          "venue": "ePrint 2026/113",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/113",
+          "note": "Existence verified (Cryptology ePrint Archive 2026/113, Feb 2026). Supplies the black-box construction of an OIHF from a random oracle and states that its OT construction is non-black-box precisely so as to evade the Impagliazzo-Rudich separation."
+        },
+        {
+          "key": "IR89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "IR89 - Limits on the provable consequences of one-way permutations",
+          "authors": "Russell Impagliazzo, Steven Rudich",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73012",
+          "note": "Not an improvement - the underlying oracle separation that makes this barrier bite. Listed here only because the schema's `role` vocabulary has no slot for a co-source."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "BH26 construct an OIHF from a random oracle by a black-box construction. Composing that with a hypothetical fully-black-box reduction from an OIHF to OT would yield a fully-black-box construction of OT (hence key agreement) from a random oracle, which IR89's oracle separation rules out. The barrier therefore rules out `fully-black-box`; this is exactly why BH26's own OT construction is non-black-box.",
+      "model": "standard",
+      "model_justification": "The barrier is about standard-model reductions; the random oracle enters only as the object BH26 build the OIHF from. Barrier frontmatter carries no `model` field.",
+      "kind_correct": "implication",
+      "statement": "An [[oblivious-interactive-hash-function|OIHF]] admits a black-box construction from a random oracle, so a fully-black-box reduction from an OIHF to [[oblivious-transfer|OT]] would compose into a fully-black-box construction of OT from a random oracle, contradicting the Impagliazzo–Rudich separation of key agreement from symmetric primitives — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]. BH26's construction of OT from an OIHF is accordingly non-black-box, and the Minicrypt/Cryptomania separation stands for black-box constructions — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "This is a barrier-CIRCUMVENTION record: the IR89 Minicrypt/Cryptomania separation is partially bridged by a non-black-box reduction while the black-box separation stands. The data model has no edge type for 'circumvents barrier X by leaving class C'."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "no-oihf-to-ot-bh26: DANGLING CONSEQUENCE. `consequences[0].target: \"ot-from-oihf-non-black-box\"` resolves to nothing; the reduction page is content/Reductions/oihf-to-ot-bh26.md with id `red-oihf-to-ot-bh26`. The right encoding is `kind: contradiction, target: \"\"` (a fully-black-box OIHF => OT reduction contradicts IR89), not a pointer at the non-black-box reduction that does exist.",
+        "no-oihf-to-ot-bh26: `strength: conditional` with `conditional-on: standard-model OIHF currently requires Cryptomania assumptions` conditions the wrong claim. The barrier is unconditional given IR89; the Cryptomania caveat is a limitation of the POSITIVE edge and belongs on content/Reductions/oihf-to-ot-bh26.md.",
+        "no-oihf-to-ot-bh26: the barrier is DERIVED (BH26's random-oracle construction of an OIHF composed with IR89), not quoted as a theorem from either source. Confidence medium - check the BH26 body for the explicit statement before status `complete`.",
+        "no-oihf-to-ot-bh26: content/References/BH26 ... .md carries a paraphrased abstract, not the paper's. The real abstract also states that OIHFs can be built FROM oblivious transfer and from public-key-style assumptions, and that an OIHF is a weakening of an oblivious PRF. Reference-fixer / skeptical-checker.",
+        "no-oihf-to-ot-bh26: hypothesis node now exists (content/Primitives/oblivious-interactive-hash-function.md, id oblivious-interactive-hash-function) as a migration stub with a TODO syntax section; the migration Note claiming it has no page is stale."
+      ]
+    },
+    {
+      "slug": "no-owp-to-ke-ir89",
+      "path": "content/Barriers/no-owp-to-ke-ir89.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "IR89",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "IR89 - Limits on the provable consequences of one-way permutations",
+          "authors": "Russell Impagliazzo, Steven Rudich",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73012",
+          "note": "Abstract stored on the wiki reference page matches: 'if P = NP, no protocol for secret key agreement is secure in such a setting ... as a corollary, there is an oracle relative to which the implication is false ... no technique which relativizes can prove that secret exchange can be based on any one-way permutation.'"
+        },
+        {
+          "key": "BM09",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle",
+          "authors": "Boaz Barak, Mohammad Mahmoody-Ghidary",
+          "venue": "CRYPTO 2009",
+          "year": "2009",
+          "url": "https://eprint.iacr.org/2008/032",
+          "note": "Tightens the eavesdropper's query complexity from IR89's ~O(n^6) to the optimal O(n^2)."
+        }
+      ],
+      "class": "relativizing",
+      "class_justification": "IR89 exhibit an oracle — a random permutation together with a $\\classPSPACE$-complete oracle, which forces $\\classP = \\classNP$ relative to it — under which one-way permutations exist but no key-agreement protocol is secure. An oracle separation rules out every relativizing reduction, and by the partial order in schema/reduction-classes.yaml that also kills every fully-black-box one. This is the worked example the schema file itself gives.",
+      "model": "standard",
+      "model_justification": "The separation is proved by an oracle argument but bars standard-model relativizing constructions; barrier frontmatter carries no `model` field.",
+      "kind_correct": "implication",
+      "statement": "There is an oracle relative to which [[one-way-permutation|one-way permutations]] exist but no [[key-exchange|key-agreement]] protocol is secure, so no relativizing — and in particular no fully-black-box — construction of key agreement from a one-way permutation exists. In its primary form the theorem is conditional: relative to a random permutation oracle, if $\\classP = \\classNP$ then every key-agreement protocol is broken, so proving any such construction secure is as hard as proving $\\classP \\neq \\classNP$ — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].",
+      "sketch": "Relative to a random permutation $\\pi$, an eavesdropper holding the transcript repeatedly samples executions of the two parties consistent with it and queries $\\pi$ on every query that occurs with non-negligible probability; once she holds all queries the parties share, she can simulate one of them and recover the key. The sampling is not efficient in general but is if $\\classP = \\classNP$, which is what turns the attack into a barrier.",
+      "pseudocode": "",
+      "security_loss": "The eavesdropper makes $\\tilde{O}(\\ell^6)$ oracle queries against honest parties making $\\ell$ queries; improved to the optimal $O(\\ell^2)$ by BM09.",
+      "improvements_text": "- The eavesdropper's query complexity is optimally $O(\\ell^2)$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].",
+      "notes_to_keep": [
+        "IR89's oracle is a random permutation together with a PSPACE-complete oracle; the migrated quotes omit the second oracle."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-owp-to-ke-ir89: with class `relativizing` the title becomes 'No relativizing reduction from OWP to KE'. Note the lint's contradiction rule then fires against any page claiming a fully-black-box OWP => KE reduction, which is the intended behaviour.",
+        "no-owp-to-ke-ir89: consider splitting IR89's two forms into two barrier pages, as the schema's own text suggests ('A classical black-box separation is the case Q = contradiction. Impagliazzo-Rudich is the general case (Q = P != NP)'). schema/propositions.yaml already carries `p-neq-np` with a note naming IR89. This page keeps the corollary form (contradiction, unconditional); the theorem form would be a second page with `kind: complexity, target: p-neq-np`.",
+        "no-owp-to-ke-ir89: the migration Notes' corollary-2 and corollary-3 complaints are CONFIRMED. 'Any proof that OWP => KA must use non-black-box techniques' overstates the oracle separation, which bars relativizing proofs only; and 'equivalent to proving P != NP relative to that oracle' is not a statement IR89 makes - the real claim is the conditional 'if P = NP the eavesdropper is efficient'. Both live in content/Glossary/black-box-separations.md and need the skeptical-checker.",
+        "no-owp-to-ke-ir89: the same barrier is restated in four places with inconsistent wording (content/Glossary/black-box-separations.md, content/Primitives/key-exchange.md:50, content/impagliazzos-five-worlds.md:63, content/Glossary/random-oracle-model.md:25). key-exchange.md labels it '- standard separation' with no citation, misusing CLAUDE.md's folklore exception on the single most famous cited separation in cryptography; IR89 has a reference page and should be linked there.",
+        "no-owp-to-ke-ir89: 'KA' is not an alias on content/Primitives/key-exchange.md (aliases are KE / Key exchange / Key agreement / DH key exchange), so the prose object is not machine-resolvable. Adding the alias is a one-line fix in the editor lane.",
+        "no-owp-to-ke-ir89: content/Primitives/key-exchange.md widens the hypothesis with a parenthetical '(no KE from symmetric primitives)' - a second, stronger hyperedge smuggled into the same bullet. It should be its own page or be dropped."
+      ]
+    },
+    {
+      "slug": "no-pke-to-ot-gkm-00",
+      "path": "content/Barriers/no-pke-to-ot-gkm-00.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GKM+00",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GKM+00 - The relationship between public key encryption and oblivious transfer",
+          "authors": "Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingold, Mahesh Viswanathan",
+          "venue": "FOCS 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1109/SFCS.2000.892121",
+          "note": "Verified: 41st FOCS (2000), pp. 325-335. Abstract: 'Our main results show that public-key encryption and oblivious transfer are incomparable under black-box reductions ... Our techniques for showing negative results follow the oracle separations of R. Impagliazzo and S. Rudich (1989).'"
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "GKM+00 state their negative results as showing PKE and OT incomparable under black-box reductions, proved by oracle separations in the style of IR89. That certainly rules out fully-black-box reductions. Whether their separation is a single fully relativizing oracle (which would rule out `relativizing` as well, a strictly broader claim under the partial order) is not settled by the abstract, so the narrower value is recorded.",
+      "model": "standard",
+      "model_justification": "Standard model; barrier frontmatter carries no `model` field.",
+      "kind_correct": "implication",
+      "statement": "There is no fully-black-box construction of [[oblivious-transfer|OT]] from [[public-key-encryption|PKE]]: the two primitives are incomparable under black-box reductions, by oracle separations in the style of Impagliazzo–Rudich. The separation is matched by positive results — a restricted, strengthened form of each primitive does imply the other — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY no-pke-to-ot-gkm-00: DIRECT CONFLICT. content/Reductions/pke-to-ot.md (id red-pke-to-ot) asserts 'PKE implies OT' on the very hyperedge this barrier rules out, with `source: folklore` and `class: unstated`. The `unstated` sentinel means the lint's contradiction check will not fire, so the wiki currently states both a claim and its negation. GKM+00 shows PKE does not black-box imply OT; OT needs extra structure (oblivious public-key / ciphertext sampling, or rerandomizable PKE). red-pke-to-ot should be deleted or retyped and requalified in the same commit.",
+        "no-pke-to-ot-gkm-00: the migration's 'VAGUE, CANNOT BE TYPED' note is now resolvable - the paper's abstract names the direction explicitly. But GKM+00 contains at least four distinct hyperedges (OT not black-box from PKE; PKE not black-box from OT; separations between OT and key agreement; neither OT nor trapdoor predicates imply trapdoor permutations) and the wiki has pages for only some. The converse direction {ot} => pke has no barrier page.",
+        "no-pke-to-ot-gkm-00: with class fully-black-box the title becomes 'No fully-black-box reduction from PKE to OT', matching the sibling page no-hash-function-to-pke-gkm-00.",
+        "no-pke-to-ot-gkm-00: could not read the GKM+00 full text (eprint/springer/semanticscholar all blocked by the egress proxy). If the paper gives a single-oracle separation rather than a two-oracle one, the class should be strengthened to `relativizing`. Left at the conservative value.",
+        "no-pke-to-ot-gkm-00: content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md cites GKM+00 for the POSITIVE enhanced-TDP => OT construction. That construction is EGL85 plus Goldreich's enhancement, not GKM+00; the migration Note already suspects this. Different batch, but the same reference page.",
+        "no-pke-to-ot-gkm-00: reference-page typo (editor lane) - author is 'Omer Reingold', spelled 'Omer Reingolds' in content/References/GKM+00 ... .md frontmatter and H1 line."
+      ]
+    },
+    {
+      "slug": "no-evasive-lwe-to-evasive-lwe-buw24",
+      "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Not a well-formed hyperedge and not a reduction barrier. Hypothesis and conclusion resolve to the SAME object: content/Assumptions/learning-with-errors.md declares both `private-coin-evasive-lwe` and `evasive-lwe` as variants pointing at the anchor `#evasive-lwe`, so the page renders as 'a reduction from Evasive LWE to Evasive LWE would imply a contradiction'. The migrated claim is a REFUTATION of an assumption variant - BUW24 and AMYY25 exhibit counterexample samplers falsifying several private-coin evasive-LWE variants - which is an `# Attacks` entry on the assumption page (or a new 'assumption refuted' node type), not an edge between two objects. The migrated statement is also mis-attributed: AMYY25 give counterexamples in the PUBLIC-coin regime as well (including against the circular public-coin variant of HLL23 used for unbounded-depth ABE), so 'private-coin variants have known counterexamples - BUW24, AMYY25' understates both papers and pins the public-coin attacks on the wrong side of the split.",
+      "flags": [
+        "HIGH PRIORITY no-evasive-lwe-to-evasive-lwe-buw24: DUPLICATE PAGE. content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md (id bar-evasive-lwe-to-evasive-lwe-buw24-2) records the same claim with hypothesis `evasive-lwe-private-coin` instead of `private-coin-evasive-lwe` - two ids for one object. Both are self-loops on the evasive-LWE node. One page must go; both should be retyped.",
+        "no-evasive-lwe-to-evasive-lwe-buw24: content/Assumptions/learning-with-errors.md declares FOUR variant ids that all point at the single anchor `#evasive-lwe` (`evasive-lwe`, `private-coin-evasive-lwe`, `circular-evasive-lwe`, `evasive-lwe-private-coin`). `private-coin-evasive-lwe` and `evasive-lwe-private-coin` are synonyms and one should be removed; if private-coin and circular evasive LWE are to be barrier endpoints they need real anchors of their own, since the page's `## Evasive LWE` section defines only the public-coin game.",
+        "no-evasive-lwe-to-evasive-lwe-buw24: the migrated paragraph packs three separate results (the public/private-coin split; private-coin counterexamples; the circular-variant zeroizing attack) behind two citations, and the sibling page adds a fourth (Wee22's public-coin restriction blocking obfuscation-based counterexamples). Which citation supports which claim is only partly recoverable from the prose; AMYY25's abstract is the authority.",
+        "no-evasive-lwe-to-evasive-lwe-buw24: the data model has no way to say 'this assumption is false'. Every refutation currently has to be shoehorned into a barrier with Q = contradiction, which is what produced these self-loops. Worth raising in schema/README.md."
+      ]
+    },
+    {
+      "slug": "no-qcma-to-qma-ak07",
+      "path": "content/Barriers/no-qcma-to-qma-ak07.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Inverted, and composite. The hyperedge {qcma} => qma asserts $\\classQCMA \\subseteq \\classQMA$, which holds trivially (a classical witness is a quantum state) and is already recorded as an inclusion on content/Complexity/quantum-classical-merlin-arthur.md; a barrier ruling it out is false. What the six cited papers establish is the failure of the OPPOSITE inclusion relative to an oracle: $\\classQMA \\not\\subseteq \\classQCMA$ relative to a quantum unitary oracle (AK07) and, unconditionally, relative to a standard classical oracle (BHNZ25, reproved more simply by BHV26). The correct edge has hypotheses [qma], conclusion [qcma], and class `relativizing` (an oracle separation). Beyond the inversion the page is a chronology, not a claim: six results are stacked as sibling bullets, three of them restricted (BFM23 in-place quantum oracle; NN23 distributional, with an honest witness depending only on the oracle distribution; BK24 bounded adaptivity) and two of them carrying a second, different separation (BQP/qpoly vs BQP/poly). Per schema/README.md each is its own hyperedge and its own page.",
+      "flags": [
+        "HIGH PRIORITY no-qcma-to-qma-ak07: INVERTED EDGE. QCMA subset-of QMA is trivially true and is stated as an inclusion elsewhere on the same source page; the barrier bars it. Correct edge is {qma} => qcma.",
+        "no-qcma-to-qma-ak07: the consequence target `qcma-neq-qma-relative-to-oracle` in schema/propositions.yaml is titled 'QCMA != QMA relative to a QUANTUM oracle', which no longer covers BHNZ25/BHV26's CLASSICAL-oracle separations. Splitting the page needs either a retitle or a second proposition key.",
+        "no-qcma-to-qma-ak07: six existing reference pages (AK07, BFM23, NN23, BK24, BHNZ25, BHV26) should be reused on the split pages, not discarded. Bibliographic spot-checks done in this pass: AK07 = Aaronson-Kuperberg, Theory of Computing 3 (2007) 129-157, arXiv quant-ph/0604056, quantum unitary oracle separation plus a BQP/qpoly vs BQP/poly quantum-oracle separation - both confirmed. BHNZ25 confirmed: Bostanci-Haferkamp-Nirkhe-Zhandry, arXiv:2511.09551, STOC 2026, DOI 10.1145/3798129.3800776. BHV26 confirmed to exist: 'Separating Quantum and Classical Advice with Good Codes', arXiv:2602.09385 - the page's own 'verify this is a real paper' Note can be closed.",
+        "no-qcma-to-qma-ak07: BQP/qpoly and BQP/poly have no nodes, so the second separation carried by both AK07 and BHV26 cannot be recorded at all; two of the six bullets are half-unrepresentable.",
+        "no-qcma-to-qma-ak07: BHV26 REPROVES BHNZ25's separation rather than giving a new one; nothing in the current record marks it as such, so the migration shows two independent separations where there is one."
+      ]
+    },
+    {
+      "slug": "no-rom-to-ke-hmo-19",
+      "path": "content/Barriers/no-rom-to-ke-hmo-19.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HMO+19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HMO+19 - On the Communication Complexity of Key-Agreement Protocols",
+          "authors": "Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff",
+          "venue": "ITCS 2021",
+          "year": "2021",
+          "url": "https://arxiv.org/abs/2105.01958",
+          "note": "Abstract on the wiki reference page matches and names both structural restrictions: honest parties' queries uniformly random, or non-adaptive queries with two rounds."
+        },
+        {
+          "key": "BM09",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle",
+          "authors": "Boaz Barak, Mohammad Mahmoody-Ghidary",
+          "venue": "CRYPTO 2009",
+          "year": "2009",
+          "url": "https://eprint.iacr.org/2008/032",
+          "note": "Not an improvement of HMO+19 - the query-complexity companion result the page bundles. Listed because improvements_text cites it."
+        },
+        {
+          "key": "IR89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "IR89 - Limits on the provable consequences of one-way permutations",
+          "authors": "Russell Impagliazzo, Steven Rudich",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73012",
+          "note": "Not an improvement - the original random-oracle barrier the page bundles. Listed because improvements_text cites it."
+        }
+      ],
+      "class": "free",
+      "class_justification": "A communication lower bound in the random oracle model rules out every protocol in that model, not a proof technique, so it is the `free` class scoped by the model axis — the treatment schema/reduction-classes.yaml prescribes in its `generic-group` rejection message, and the one content/Barriers/no-ggm-to-dlog-sho97.md already uses for a Shoup-style generic lower bound.",
+      "model": "rom",
+      "model_justification": "Key agreement in the random oracle model with query-bounded parties. This is NOT the information-theoretic key-agreement setting; content/Primitives/key-exchange.md currently calls it that and is wrong. Barrier frontmatter has no `model` field, so the model is named in the statement text.",
+      "kind_correct": "implication",
+      "statement": "Key agreement in the [[random-oracle-model|random oracle model]] cannot be made communication-efficient: for [[key-exchange|key-agreement]] protocols whose honest parties' oracle queries are uniformly random, or which run in two rounds with non-adaptive queries, secrecy against an eavesdropper making $O(\\ell^2)$ queries requires the parties to exchange $\\Omega(\\ell)$ bits — the communication Merkle's puzzles already uses — [[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]].",
+      "sketch": "For protocols whose honest queries are uniformly random the bound is proved by reduction from set-disjointness in two-party communication complexity; the two-round non-adaptive case is proved directly by an information-theoretic argument.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Query complexity: every random-oracle key-agreement protocol whose honest parties make $\\ell$ queries is broken by an eavesdropper making $O(\\ell^2)$ queries, matching Merkle's puzzles — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].\n- The original random-oracle barrier, with an $\\tilde{O}(\\ell^6)$-query eavesdropper — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY no-rom-to-ke-hmo-19: `strength` must change from `unconditional` to `conditional`, with `conditional-on: [honest parties' oracle queries are uniformly random, or the protocol is two-round with non-adaptive queries]`. HMO+19's bound holds only under those structural restrictions - they are exactly what makes the result conditional, and dropping them turns a true theorem into a false one.",
+        "HIGH PRIORITY no-rom-to-ke-hmo-19: the bare hyperedge {rom} => ke barred is FALSE without a quantitative qualifier - Merkle's puzzles IS a random-oracle key-agreement protocol (Mer78). Every result on this page is a quantitative bound (query gap, communication), so the qualifier is load-bearing and must survive into the statement or the page asserts something untrue.",
+        "no-rom-to-ke-hmo-19: the page bundles three results. BM09's optimality theorem is the subject of the sibling page no-rom-to-merkle-puzzles-bm09 (which I flag as wrong_claim); once that page is retyped to conclusion `ke` the two collide on one hyperedge and must be reconciled - suggested split is no-rom-to-ke-bm09 (query gap) and no-rom-to-ke-hmo-19 (communication).",
+        "HIGH PRIORITY no-rom-to-ke-hmo-19: CONFIRMED MATH ERRORS on content/Primitives/key-exchange.md. 'Any KE protocol from a random oracle requires Omega(n) queries' is not a BM09 result and is vacuous as written; 'Merkle puzzles achieve O(n^2) security' inverts the quantity. BM09's theorem is an UPPER bound on the ATTACKER: any n-query protocol is broken by an O(n^2)-query eavesdropper. The same page calls HMO+19 'information-theoretic key agreement', which misnames the model (random oracle with query-bounded parties). Skeptical-checker lane.",
+        "no-rom-to-ke-hmo-19: content/References/BM09 ... .md line 19 says BM09 improves 'the Omega(n^6)-query lower bound of IR89'. BM09's own abstract says it improves the previous ~O(n^6)-query ATTACK of Impagliazzo-Rudich - an upper bound on the eavesdropper, not a lower bound. Both wordings appear on the wiki and disagree.",
+        "no-rom-to-ke-hmo-19: dead wikilink `[[Mer78]]` inside the migrated quote (the reference page exists as 'Mer78 - Secure Communications Over Insecure Channels'); already tracked in TODO_SUMMARY.md:20 and bot_flagged in .fact-check/queue.json.",
+        "no-rom-to-ke-hmo-19: content/Glossary/black-box-separations.md closes this passage with 'Together, IR89 and BM09 give a complete picture of the complexity of key agreement in the random oracle model' - a recap paragraph CLAUDE.md forbids, and false given the same page cites HMO+19 as an open strand on communication complexity.",
+        "no-rom-to-ke-hmo-19: key says 19 but the venue is ITCS 2021 (arXiv:2105.01958). The wiki key wins per the instructions; noted for the reference-fixer, and `npm run sync-cryptobib` against ITCS:HMORY19 may flag the `venue`/`published` fields."
+      ]
+    },
+    {
+      "slug": "no-rom-to-merkle-puzzles-bm09",
+      "path": "content/Barriers/no-rom-to-merkle-puzzles-bm09.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The conclusion object is a construction, not a primitive, and the edge points the wrong way. Merkle's puzzles IS a key-agreement protocol in the random oracle model - Mer78 builds it - so {rom} => merkle-puzzles is a positive construction that exists, and a barrier ruling it out is false. What BM09 prove is a quantitative optimality bound on a different hyperedge, {rom} => ke: every random-oracle key-agreement protocol whose honest parties make at most $n$ oracle queries is broken by an eavesdropper making $O(n^2)$ queries, so no random-oracle key agreement achieves a better-than-quadratic query gap. Retype with conclusion `ke`, class `free`, model rom (following content/Barriers/no-ggm-to-dlog-sho97.md), carrying the better-than-quadratic qualifier in the statement - at which point it is the BM09 strand currently bundled into bar-rom-to-ke-hmo-19 and the two must be reconciled, e.g. as no-rom-to-ke-bm09 (query gap) alongside no-rom-to-ke-hmo-19 (communication).",
+      "flags": [
+        "HIGH PRIORITY no-rom-to-merkle-puzzles-bm09: the barred edge is a construction that exists. ROM => Merkle puzzles is Mer78; BM09's theorem is about ke with a quantitative qualifier.",
+        "no-rom-to-merkle-puzzles-bm09: content/Primitives/merkle-puzzles.md is a stub node the migration created solely to host this edge. If the barrier is retyped to conclusion `ke` the node is orphaned - keep it only if the POSITIVE edge {rom} => merkle-puzzles (Mer78) is created, which is also the wiki's only home for Merkle's puzzles as a construction.",
+        "no-rom-to-merkle-puzzles-bm09: the migrated quote ends with 'Together, IR89 and BM09 give a complete picture...', a closing recap CLAUDE.md forbids and which the wiki's own citation of HMO+19 contradicts.",
+        "no-rom-to-merkle-puzzles-bm09: dead wikilink `[[Mer78]]` inside the migrated quote; the reference page is 'Mer78 - Secure Communications Over Insecure Channels'.",
+        "no-rom-to-merkle-puzzles-bm09: content/References/BM09 ... .md describes IR89's bound as 'the Omega(n^6)-query lower bound', whereas BM09's abstract calls it the previous ~O(n^6)-query attack (an eavesdropper upper bound). Fix on the reference page before restating the barrier."
+      ]
+    }
+  ]
+}

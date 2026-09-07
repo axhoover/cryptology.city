@@ -1,0 +1,126 @@
+{
+  "batch": "red-34",
+  "pages": [
+    {
+      "slug": "zkp-to-hash-function",
+      "path": "content/Reductions/zkp-to-hash-function.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "OW93",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "OW93 - One-way functions are essential for non-trivial zero-knowledge",
+          "authors": "Rafail Ostrovsky, Avi Wigderson",
+          "venue": "ISTCS 1993 (2nd Israel Symposium on Theory of Computing and Systems), pp. 3-17",
+          "year": "1993",
+          "url": "https://doi.org/10.1109/ISTCS.1993.253489",
+          "note": "Verified via web search: DBLP listing for ISTCS 1993 (Natanya, Israel, 7-9 June 1993), IEEE Computer Society, pages 3-17, DOI 10.1109/ISTCS.1993.253489; author's copy listed at https://www.math.ias.edu/avi/node/2309. The IAS PDF and DBLP were blocked by this session's egress proxy, so bibliographic data comes from search results plus multiple citing papers (eprint 2024/800, eprint 2026/299, eprint 2026/331, ECCC TR24-063)."
+        },
+        {
+          "key": "HN24",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HN24 - One-Way Functions and Zero Knowledge",
+          "authors": "Shuichi Hirahara, Mikito Nanashima",
+          "venue": "STOC 2024, pp. 1731-1738",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3618260.3649701",
+          "note": "Also ECCC TR24-063 (https://eccc.weizmann.ac.il/report/2024/063/). Proves: a one-way function exists iff NP is contained in CZK and NP is hard in the worst case - i.e. removes OW93's auxiliary-input relaxation for NP."
+        },
+        {
+          "key": "Ost91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs",
+          "authors": "Rafail Ostrovsky",
+          "venue": "Structure in Complexity Theory 1991, pp. 133-138",
+          "year": "1991",
+          "url": "https://ieeexplore.ieee.org/document/160253",
+          "note": "Precursor rather than follow-up: the statistical-ZK, hard-on-average case with a standard (not auxiliary-input) one-way function as conclusion. Already a reference page in the wiki; listed here so the improvements bullet resolves."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "OW93 builds the candidate one-way function out of the proof system's simulator and concludes auxiliary-input one-wayness; the paper does not classify the reduction, and none of the RTV04 notions is evidenced by the construction shape. Guessing fully-black-box here would assert something the source does not support, so the honest value is `unstated`.",
+      "model": "standard",
+      "model_justification": "Plain model. The proof system, its simulator, and the resulting one-way function all live in the standard model; the claim is explicitly 'in the plain model'.",
+      "kind_correct": "implication",
+      "statement": "If a language outside $\\classBPP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]], then auxiliary-input one-way functions exist; equivalently, if auxiliary-input one-way functions do not exist, then every language with a zero-knowledge proof lies in $\\classBPP$. When the language is instead hard on average, the conclusion strengthens to a standard [[hash-function|one-way function]] — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].",
+      "sketch": "The candidate one-way function is read off the zero-knowledge simulator: an algorithm that inverts the simulator's output distribution is turned into a distinguisher that decides the language, so a language outside $\\classBPP$ forces the function to be hard to invert (in the auxiliary-input sense).",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Under worst-case hardness of $\\classNP$ the auxiliary-input relaxation is unnecessary: a one-way function exists if and only if $\\classNP \\subseteq \\classCZK$ and $\\classNP$ is hard in the worst case — [[HN24 - One-Way Functions and Zero Knowledge|HN24]]\n- The statistical-zero-knowledge case, giving a standard one-way function from a hard-on-average language, predates OW93 — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]",
+      "notes_to_keep": [
+        "The conclusion node is `hash-function`, which the wiki also uses for collision-resistant hashing; only the one-wayness variant is meant here.",
+        "The hyperedge's `hypotheses: [zkp]` cannot carry OW93's non-triviality qualifier (the proved language must lie outside $\\classBPP$, or be hard on average for the standard-OWF conclusion); the qualifier survives only in the statement prose."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "zkp-to-hash-function: `source: folklore` is wrong and the page's own Notes already say so — this is the Ostrovsky-Wigderson theorem. Replace with OW93.",
+        "zkp-to-hash-function: LOAD-BEARING QUALIFIER MISSING FROM THE EDGE. The migrated claim 'ZK proofs for NP imply OWF' is false as literally stated: if P = NP then every language has a trivial ZK proof and no OWF exists. The theorem needs non-triviality (language outside BPP) or average-case hardness. I kept the edge and repaired the statement; a human should decide whether the hyperedge format should instead carry a second hypothesis node for the hardness condition.",
+        "zkp-to-hash-function: OW93's conclusion is an AUXILIARY-INPUT one-way function, a weaker object than the wiki's `hash-function`/OWF node. Only the average-case variant (or HN24 under worst-case NP hardness) yields a standard OWF. The conclusion node overstates the theorem as encoded.",
+        "zkp-to-hash-function: the sketch's mechanism (invert the simulator to decide the language) is drawn from secondary sources - the OW93 PDF and DBLP were blocked by this session's egress proxy. Worth checking against the primary text before publishing.",
+        "zkp-to-hash-function: two new reference pages needed - OW93 and HN24. Neither appears in existing-refs.txt.",
+        "zkp-to-hash-function: the converse edge already exists as `red-hash-function-to-zkp-gmw91`, so `kind` stays `implication`; do not promote to `equivalence` even though HN24 states one for NP."
+      ]
+    },
+    {
+      "slug": "zkp-to-nizk-fs86",
+      "path": "content/Reductions/zkp-to-nizk-fs86.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Fiat-Shamir applies only to public-coin, constant-round (sigma) protocols with negligible or amplified soundness error, and is insecure for general interactive proofs — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].",
+        "BFM88 does not compile an arbitrary zero-knowledge proof: it constructs NIZK for NP in the CRS model from trapdoor permutations, so the assumption hypothesis is missing from any edge that drops it."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "As encoded — `hypotheses: [zkp]`, `conclusion: nizk`, `model: standard` — this page asserts that interactive zero-knowledge proofs yield non-interactive ones in the plain model. That is false: a plain-model NIZK proof system exists only for languages in $\\classBPP$ (Goldreich-Oren, J. Cryptology 7(1):1-32, 1994, DOI 10.1007/BF00195207), so no setup-free compiler can exist for a non-trivial language. Both citations the page carries are setup-dependent, and both branches already exist as their own pages: the Fiat-Shamir branch (public-coin constant-round protocol, random-oracle model, FS86) is `red-rom-and-zkp-to-nizk-fs86`, and the CRS branch is `red-tdp-to-nizk-bfm88`, where BFM88 builds NIZK for NP from trapdoor permutations in the CRS model rather than compiling an arbitrary ZK proof. This page is those two edges with the setup dropped; the correct action is to delete it (or merge it into `red-rom-and-zkp-to-nizk-fs86`, which is the same slug suffix and the same claim stated in the right model).",
+      "flags": [
+        "zkp-to-nizk-fs86: RECOMMEND DELETE. It is a duplicate of `red-rom-and-zkp-to-nizk-fs86` (ROM/Fiat-Shamir) and `red-tdp-to-nizk-bfm88` (CRS/BFM88), and its `model: standard` makes the edge false rather than merely imprecise.",
+        "zkp-to-nizk-fs86: the page carries `status: draft` and two source citations for an edge that is false in the model it declares - the most misleading state a page in this batch is in.",
+        "zkp-to-nizk-fs86: if a human decides to keep the page instead of deleting it, the only defensible repair is `model: rom` with `hypotheses: [rom, zkp]`, which is verbatim `red-rom-and-zkp-to-nizk-fs86`.",
+        "zkp-to-nizk-fs86: `model` and `class_justification` are left empty deliberately (no class or model determined for a claim I am rejecting); the page's existing `class: unstated` can stand until deletion.",
+        "zkp-to-nizk-fs86: the page's Notes contain a literal `Citations disagree across pages: [object Object]` - a migration serialization bug, worth fixing wherever else it occurs."
+      ]
+    },
+    {
+      "slug": "zpp-to-rp",
+      "path": "content/Reductions/zpp-to-rp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A proven containment between complexity classes, established by a direct simulation argument with no restriction on technique. `free` is this repo's recorded convention for such inclusions and matches the sibling pages `red-p-to-zpp` and `red-rp-to-bpp`.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "Every language decided by a zero-error probabilistic polynomial-time machine — a machine of [[zero-error-probabilistic-polynomial-time|ZPP]] — is decided by a probabilistic polynomial-time machine with one-sided error, so $\\classZPP \\subseteq \\classRP$ and [[randomized-polynomial-time|RP]] contains ZPP. This is one half of the identity $\\classZPP = \\classRP \\cap \\mathbf{coRP}$ — folklore.",
+      "sketch": "Run the Las Vegas machine for $2p(n)$ steps, where $p$ bounds its expected running time; by Markov's inequality it halts within that budget with probability at least $1/2$, and whenever it halts its answer is correct. Rejecting on timeout therefore never accepts a no-instance and accepts a yes-instance with probability at least $1/2$, which is exactly the $\\classRP$ condition.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "zpp-to-rp: the statement keeps the wikilinks in prose and the containment in math (`$\\classZPP \\subseteq \\classRP$`), since wikilinks inside `$...$` do not render. Reword freely, but do not move the links into the math.",
+        "zpp-to-rp: class `free` was already set correctly by the migration and the existing Notes justify it; only the boilerplate `class: unstated` paragraph (which contradicts the frontmatter) should be dropped.",
+        "zpp-to-rp: EDITOR LANE, other pages - `content/Complexity/zero-error-probabilistic-polynomial-time.md` and `content/Complexity/bounded-error-probabilistic-polynomial-time.md` state the chain $\\classP \\subseteq \\classZPP \\subseteq \\classRP \\subseteq \\classBPP$ with the class macros only and no wikilinks or `— standard` label. Same defect noted on `red-p-to-zpp` and `red-rp-to-bpp`.",
+        "zpp-to-rp: no citation proposed. The classes are due to Gill (SICOMP 1977) and the containment is immediate from the definitions plus Markov, so it is textbook/folklore rather than an attributable theorem; I deliberately did not add Gill77 as an `original` source."
+      ]
+    }
+  ]
+}

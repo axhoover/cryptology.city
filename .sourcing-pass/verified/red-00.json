@@ -1,0 +1,338 @@
+{
+  "batch": "red-00",
+  "pages": [
+    {
+      "slug": "abe-to-be",
+      "path": "content/Reductions/abe-to-be.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The BE algorithms call the CP-ABE algorithms as oracles: $\\KeyGen(\\msk, i)$ issues the ABE key for the singleton attribute set $\\{i\\}$ and $\\Enc(\\pp, S, m)$ encrypts under the policy $f_S$. The reduction runs any BE adversary as an oracle, forwarding key queries and the challenge; BE admissibility (no key for $i \\in S^*$) is CP-ABE admissibility (no queried attribute set satisfies $f_{S^*}$). Fixed construction, fixed advantage-preserving reduction: the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any CP-[[attribute-based-encryption|ABE]] scheme whose policy class contains disjunctions yields [[broadcast-encryption|BE]] for $n$ users, with no ciphertext-size requirement: over attribute universe $[n]$, user $i$'s key is the ABE key for the singleton attribute set $\\{i\\}$, and encryption to $S \\subseteq [n]$ encrypts under the policy $f_S(x) = [x \\cap S \\neq \\emptyset]$, the disjunction of the attributes in $S$, so $f_S(\\{i\\}) = [i \\in S]$. A BE adversary is verbatim a CP-ABE adversary with the same advantage. The ciphertext inherits the ABE ciphertext size for a policy of size $|S|$; short ciphertexts require CP-ABE with ciphertexts succinct in the policy — folklore.",
+      "sketch": "The BE relation $i \\in S$ is the CP-ABE relation $f(x) = 1$ with $f = f_S$ and $x = \\{i\\}$; the reduction forwards key queries and the challenge, and the two admissibility conditions coincide.",
+      "pseudocode": "",
+      "security_loss": "none (the reduction preserves the advantage)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The wiki's BE definition imposes no succinctness requirement, so the edge is true but nearly trivial (plain PKE would also satisfy it); the statement records the ciphertext-size caveat.",
+        "The hypothesis object `abe` covers both KP and CP flavors; the construction uses the CP flavor (statement says so explicitly)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: replaced the type-confused policy $f_S(x) = [x \\in S]$ (x is an attribute set) by $f_S(x) = [x \\cap S \\neq \\emptyset]$",
+        "statement: removed the claim that the generic reduction gives $\\Omega(|S|)$ ciphertexts — nothing forces a CP-ABE ciphertext to grow with the policy (succinct CP-ABE gives short-ciphertext BE); replaced by the inherited-size caveat",
+        "statement/sketch/class_justification: tightened wording"
+      ]
+    },
+    {
+      "slug": "abe-to-fuzzy-ibe",
+      "path": "content/Reductions/abe-to-fuzzy-ibe.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GPSW06",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data",
+          "authors": "Vipul Goyal, Omkant Pandey, Amit Sahai, Brent Waters",
+          "venue": "ACM CCS 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1145/1180405.1180418",
+          "note": "GPSW06 introduce KP-ABE with access-tree policies whose nodes are threshold gates and present the Sahai-Waters Fuzzy IBE as the special case of a single threshold gate; the abstract also records delegation of private keys and the broadcast application. Verified via secondary sources only (eprint/ACM/Springer blocked from this session)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The Fuzzy IBE algorithms call the KP-ABE scheme as an oracle, mapping each attribute set $\\omega$ to the threshold policy $[|x \\cap \\omega| \\ge t]$ locally; the reduction runs any Fuzzy IBE adversary as an oracle, forwarding key queries and the challenge. Fuzzy IBE admissibility ($|\\omega \\cap \\omega^*| < t$ for every queried $\\omega$) is KP-ABE admissibility (no queried policy satisfied by the challenge attribute set). Fixed construction, fixed advantage-preserving reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any KP-[[attribute-based-encryption|ABE]] scheme whose policy class contains threshold gates yields [[fuzzy-identity-based-encryption|Fuzzy IBE]]: the key for attribute set $\\omega$ is the ABE key for the policy $[|x \\cap \\omega| \\ge t]$, a single $t$-of-$|\\omega|$ threshold gate over $\\omega$, and encryption under $\\omega'$ is ABE encryption under attribute set $\\omega'$, so decryption succeeds iff $|\\omega \\cap \\omega'| \\ge t$. A Fuzzy IBE adversary is verbatim a KP-ABE adversary with the same advantage; Fuzzy IBE is KP-ABE restricted to single-threshold-gate policies — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].",
+      "sketch": "The Fuzzy IBE relation $|\\omega \\cap \\omega'| \\ge t$ is the KP-ABE relation $f(x) = 1$ with $f$ the $t$-of-$|\\omega|$ threshold gate over $\\omega$ and $x = \\omega'$; the admissibility conditions coincide, so the reduction forwards everything and loses nothing.",
+      "pseudocode": "",
+      "security_loss": "none (the reduction preserves the advantage)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migration note about monotone-formula size for threshold gates is moot: the wiki's ABE policy class (monotone formulas / LSSS) contains threshold gates directly, and thresholds have polynomial-size monotone formulas in any case.",
+        "GPSW06's text could not be fetched from this session (eprint, ACM, Springer and mirrors blocked); the single-threshold-gate attribution was confirmed through secondary sources quoting it."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: made the construction explicit (policy $[|x \\cap \\omega| \\ge t]$; encryption under $\\omega'$) and tightened wording",
+        "sketch: removed the construction-specific remark about GPSW06 access trees / Shamir sharing, which is not part of the reduction",
+        "source note and flags: recorded that GPSW06 was verified only through secondary sources"
+      ]
+    },
+    {
+      "slug": "abe-to-hibe",
+      "path": "content/Reductions/abe-to-hibe.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "As typed — bare ABE $\\Rightarrow$ HIBE — this is not a theorem. The wiki's HIBE syntax includes $\\Delegate$, which derives a key for a child identity from a parent key without $\\msk$; generic KP- or CP-ABE provides no key-derivation capability. A black-box wrapper (key policy = conjunction over the prefix positions) captures only HIBE's prefix-decryption relation, and the migrated bullets concede exactly this ('KP-ABE does not expose a native Delegate algorithm'). GPSW06 show that their KP-ABE construction supports delegation of private keys and state that this subsumes HIBE — a property of that construction, not of the ABE primitive. The supportable edge is 'KP-ABE with key delegation $\\Rightarrow$ HIBE' (GPSW06); no construction of HIBE from generic ABE is known.",
+      "flags": [
+        "Recommend deleting this edge or re-scoping it to a new hypothesis object 'ABE with key delegation' (or a construction note on the ABE page citing GPSW06's delegation section).",
+        "Definitional gap on the HIBE page: its IND-HIBE-CPA game has no delegation oracle and its correctness does not require delegated keys to be distributed like extracted keys, so the degenerate $\\Delegate(\\sk, \\cdot) := \\sk$ formally satisfies the wiki's HIBE definition on top of the prefix-conjunction KP-ABE wrapper. The edge is kept as wrong_claim because that reading over-delegates and is not what either migrated bullet asserts; the HIBE page should add the standard delegation requirement.",
+        "The researcher's citation of Mahmoody-Mohammed (EUROCRYPT 2016) as a black-box separation of HIBE from IBE was removed: that paper separates collision-resistant hashing from HIBE, not HIBE from IBE."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: removed the unverified claim that HIBE is black-box separated from IBE (Mahmoody-Mohammed EC16 proves HIBE does not black-box imply CRH)",
+        "flags: added the HIBE-definition gap (no delegation oracle / distribution requirement) that a degenerate Delegate would exploit"
+      ]
+    },
+    {
+      "slug": "abe-to-ibe",
+      "path": "content/Reductions/abe-to-ibe.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The IBE algorithms call the ABE scheme as an oracle; the identity encoding is local. The reduction runs any IBE adversary once, forwarding each extraction query for $\\mathit{id} \\ne \\mathit{id}^*$ as an ABE key query whose policy (KP) or attribute set (CP) is unsatisfied by the challenge encoding, so admissibility maps exactly and the advantage is preserved. Fixed construction, fixed reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any [[attribute-based-encryption|ABE]] scheme, KP or CP, over attribute universe $[\\ell] \\times \\bits$ whose policy class contains conjunctions yields [[identity-based-encryption|IBE]] for identities in $\\bits^\\ell$: identity $\\mathit{id}$ is encoded as the attribute set $x_{\\mathit{id}} = \\{(i, \\mathit{id}_i)\\}_{i \\le \\ell}$ and the policy $f_{\\mathit{id}} = \\bigwedge_{i \\le \\ell} (i, \\mathit{id}_i)$, so $f_{\\mathit{id}}(x_{\\mathit{id}'}) = 1$ iff $\\mathit{id} = \\mathit{id}'$; KP-ABE carries $f_{\\mathit{id}}$ in the key and $x_{\\mathit{id}}$ in the ciphertext, CP-ABE the reverse. An IBE adversary is verbatim an ABE adversary with the same advantage — folklore.",
+      "sketch": "Distinct identities differ in some position, so a key for $\\mathit{id} \\ne \\mathit{id}^*$ is a policy–attribute pair unsatisfied by the challenge encoding; IBE admissibility (no key for $\\mathit{id}^*$) is ABE admissibility.",
+      "pseudocode": "",
+      "security_loss": "none (the reduction preserves the advantage)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated bullet packs two disjunctive claims (KP-ABE => IBE and CP-ABE => IBE); the wiki has a single `abe` object covering both flavors, so one edge is adequate provided the statement covers both — as written it does. If KP-ABE and CP-ABE ever become separate objects, this page must split."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: replaced 'expresses bitwise equality with a fixed string' by the precise hypothesis (universe $[\\ell] \\times \\bits$, conjunctions in the policy class) and made the encoding explicit",
+        "sketch/class_justification: tightened wording"
+      ]
+    },
+    {
+      "slug": "adaptive-robustness-to-prc",
+      "path": "content/Reductions/adaptive-robustness-to-prc.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction: the same $(\\Gen, \\Enc, \\Dec)$. The reduction is the identity: a channel against plain robustness is an adaptive channel whose choice is constant in the codeword, and a pseudorandomness or soundness adversary is unchanged.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-error-correcting-code|PRC]] with [[pseudorandom-error-correcting-code#adaptive-robustness|adaptive robustness]] is a PRC: robustness quantifies over $\\varepsilon$-bounded channels fixed before the codeword, adaptive robustness over channels chosen after seeing it, and a fixed channel is the adaptive choice that is constant in the codeword; pseudorandomness and soundness are the same properties in both notions — folklore.",
+      "sketch": "Restrict the adaptive guarantee to channel choices that do not depend on the codeword; nothing else changes.",
+      "pseudocode": "",
+      "security_loss": "none (property restriction on the same object)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The hypothesis `adaptively-robust-prc` resolves via the variants map on the PRC page (anchor #adaptive-robustness); the migration note that it 'has no page' is stale.",
+        "The PRC page's adaptive-robustness prose is informal (its plain robustness already lets the channel be an arbitrary function of the codeword; the intended strengthening is that the channel may depend on encoding-oracle access / many codewords and be chosen adaptively). The weakening edge holds under any reading, but the variant definition should be tightened on the PRC page.",
+        "Adaptive robustness as a named notion comes from follow-up work on CG24: Cohen-Hoover-Schoenbach (CHS25, already a wiki reference) conjectured it for the CG24 codes, and Alrabiah-Ananth-Christ-Dodis-Gunn, 'Ideal Pseudorandom Codes' (STOC 2025; eprint 2024/1840; arXiv 2411.05947) proved it — relevant if the wiki later wants a citation for the variant definition, not for this weakening edge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement/sketch/class_justification: a fixed channel does not 'ignore the codeword' (it is a function of it); restated as the adaptive choice that is constant in the codeword",
+        "flags: noted the informal adaptive-robustness definition on the PRC page; confirmed the Ideal Pseudorandom Codes bibliographic data"
+      ]
+    },
+    {
+      "slug": "agm-to-kea",
+      "path": "content/Reductions/agm-to-kea.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FKL18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FKL18 - The Algebraic Group Model and its Applications",
+          "authors": "Georg Fuchsbauer, Eike Kiltz, Julian Loss",
+          "venue": "CRYPTO 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2017/620",
+          "note": "FKL18 define the AGM; the representation an algebraic adversary must output is exactly the knowledge the classical KEA extractor needs. FKL18 contain no theorem 'AGM implies KEA'; the paper is cited for the model."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Within the AGM the implication is unconditional: the extractor is built from the representation the model requires every algebraic adversary to output, with no hardness assumption and no restriction on technique. The hypothesis is a computational model, not a primitive, so the black-box classes do not apply.",
+      "model": "algebraic-group",
+      "model_justification": "The claim is scoped entirely to the AGM: KEA-style extraction holds for algebraic adversaries; nothing is claimed in the standard model. The frontmatter model value algebraic-group is correct.",
+      "kind_correct": "implication",
+      "statement": "In the [[algebraic-group-model|AGM]] the classical [[knowledge-of-exponent|KEA]] holds unconditionally: an algebraic adversary that, given $(g, g^\\alpha)$, outputs $(A, B)$ with $B = A^\\alpha$ also outputs representations $A = g^{c_1}(g^\\alpha)^{c_2}$ and $B = g^{y_1}(g^\\alpha)^{y_2}$, and an efficient extractor recovers $r$ with $A = g^r$ from them — the knowledge KEA postulates is part of the model's definition — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].",
+      "sketch": "If $c_2 = 0$ the extractor outputs $c_1$. Otherwise $B = A^\\alpha$ forces $c_2\\alpha^2 + (c_1 - y_2)\\alpha - y_1 = 0$ in $\\ZZ_q$, a nonzero quadratic; the extractor computes its roots, identifies $\\alpha$ by comparing with $g^\\alpha$, and outputs $c_1 + c_2\\alpha$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Model-to-assumption edge: the hypothesis is a computational model, not an assumption; the wiki already uses this pattern elsewhere (rom as hypothesis), so recorded as-is, with class free scoped by model algebraic-group (same convention as kea-to-snark-gro16).",
+        "FKL18 contain no numbered theorem 'AGM => KEA'; the citation is for the model definition, from which the classical-KEA extractor is immediate (verified by re-deriving the sketch). Search snippets attribute the explicit remark 'the classical KEA holds by definition in the AGM' to the AGM-instantiation line (Agrikola-Hofheinz, eprint 2019/1018; Agrikola-Hofheinz-Kastner, EUROCRYPT 2020, eprint 2020/070); FKL18's own text could not be fetched from this session. A human may prefer disposition folklore with FKL18 cited only for the model.",
+        "Scope: the unconditional argument covers the classical KEA (a DH pair from $(g, g^\\alpha)$, prime order $q$ so the quadratic is solvable). The $q$-power variant listed on the KEA page is not covered: in the AGM the exponent relation becomes bivariate and is bounded under $q$-DLOG, as in FKL18's Groth16 knowledge-soundness proof."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: scoped from 'knowledge-of-exponent assumptions hold against algebraic adversaries' to the classical KEA (the q-power variant needs q-DLOG in the AGM); made the unconditional extractor explicit",
+        "source note/flags: recorded that FKL18 is cited for the model and that the explicit remark could not be verified in FKL18's text"
+      ]
+    },
+    {
+      "slug": "alternating-moduli-assumption-to-mpc-bip-18",
+      "path": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "As typed ('AM hardness implies MPC exists') this is not a theorem. Honest-majority MPC exists unconditionally (BGW88), so under that reading the edge is vacuous; dishonest-majority MPC requires OT, and no construction of OT from AM hardness is known (the assumption yields a weak PRF, a Minicrypt-type primitive). The migrated bullet records an efficiency claim: the BIP+18 candidates admit distributed-evaluation protocols with low round and communication complexity in the honest-majority and preprocessing settings, a property of the concrete candidates rather than an existence implication from the assumption. That content belongs as an application note on the AM/PRF pages citing BIP+18 and Dinur-Goldfeder-Halevi-Ishai-Kelkar-Sharma-Zaverucha, 'MPC-Friendly Symmetric Cryptography from Alternating Moduli' (CRYPTO 2021, eprint 2021/885), not as an edge to `mpc`.",
+      "flags": [
+        "Recommend deleting this edge; its content belongs as an application note, per the migration notes ('this is an efficiency/application claim, not an existence reduction')."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: removed the argument that Impagliazzo-Rudich black-box separates OT from the AM assumption (black-box separations from a generic PRF do not apply to a concrete assumption); kept the accurate point that no OT construction from AM is known",
+        "wrong_reason: confirmed the Dinur et al. CRYPTO 2021 bibliographic data and tightened wording"
+      ]
+    },
+    {
+      "slug": "alternating-moduli-assumption-to-prf-bip-18",
+      "path": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BIP+18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications",
+          "authors": "Dan Boneh, Yuval Ishai, Alain Passelègue, Amit Sahai, David J. Wu",
+          "venue": "TCC 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2018/1218",
+          "note": "Proposes the mod-2/mod-3 alternating-moduli family and conjectures its pseudorandomness on uniformly random inputs (a weak PRF); the strong-PRF candidate in the paper is a different depth-3 map, and the encoded-input PRF boosts the weak candidate."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Degenerate but well-defined: the assumption asserts pseudorandomness of a concrete family and the PRF is that family — $\\KeyGen$ samples $A$ and $\\Eval(A, x) = B\\,(Ax \\bmod 2) \\bmod 3$. The construction is the identity and any PRF distinguisher is verbatim an AM distinguisher (chosen-input game to chosen-input game, random-input game to weak-PRF game), so construction and reduction are fixed and treat their objects as oracles.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The [[alternating-moduli|alternating moduli assumption]] asserts that the family $f_A(x) = B\\,(Ax \\bmod 2) \\bmod 3$, with secret key $A \\getsr \\ZZ_2^{m \\times n}$ and public $B \\getsr \\ZZ_3^{\\ell \\times m}$, is indistinguishable from a random function; the family is then itself a [[pseudorandom-function|PRF]] with $\\KeyGen$ sampling $A$ and $\\Eval(A, x) = f_A(x)$, by the identity reduction. BIP+18 conjecture this only for uniformly random inputs, i.e. the [[alternating-moduli#weak-alternating-moduli-random-input-assumption|weak variant]], under which the family is a weak PRF; the [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|chosen-input variant]] fails for this map, since $f_A(0^n) = 0$ for every key — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]].",
+      "sketch": "$\\KeyGen(1^\\secpar)$ samples $A \\getsr \\ZZ_2^{m \\times n}$; $\\Eval(A, x) = B\\,(Ax \\bmod 2) \\bmod 3$. The AM game and the PRF game for this family are the same game, so the reduction is the identity.",
+      "pseudocode": "",
+      "security_loss": "none (identity reduction)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Definitional edge: hypothesis and conclusion nearly coincide (the assumption is that the constructed family is pseudorandom); the migration already recorded this and it should stay visible on the page.",
+        "The strong (chosen-input) AM game on the assumption page is false as stated: the map is linear-then-linear with no affine term, so $f_A(0^n) = 0$ for every key and the query $0^n$ distinguishes with advantage $1 - 3^{-\\ell}$. BIP+18 conjecture only random-input security for this map (abstract: 'a weak PRF candidate whose conjectured pseudorandomness only holds for uniformly random inputs'); their strong-PRF candidate is a different depth-3 map and their encoded-input PRF boosts the weak one. The assumption page needs fixing; until then the chosen-input reading of this edge is vacuous and the attributable content is weak-AM => weak PRF. The wiki's PRF page defines no weak-PRF variant.",
+        "Under weak-AM the standard chain weak PRF => PRG => PRF (GGM) also yields a genuine PRF with large loss; that is a different reduction from this page's identity map and is not recorded here.",
+        "Cryptanalysis of the candidates (Cheon-Cho-Kim-Kim, 'Adventures in Crypto Dark Matter', PKC 2021, eprint 2020/783; later work) bears on the assumption page's Attacks section, not on this definitional edge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: no longer attributes chosen-input security of the plain map to BIP+18; records that BIP+18's conjecture is random-input only and that the chosen-input variant is trivially false ($f_A(0^n) = 0$)",
+        "source note/class_justification: aligned with the two readings of the assumption",
+        "flags: replaced the researcher's 'should be checked' hedge by the verified finding"
+      ]
+    },
+    {
+      "slug": "alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+      "path": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
+      "disposition": "undetermined",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The migrated source text is an explicit hedge ('alternating-moduli-style assumptions can ground efficient PCG constructions'), not a stated reduction."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Searched for a paper proving 'AM hardness => PCG' and found none. The nearest literature is Bui-Couteau-Meyer-Passelègue-Riahinia, 'Fast Public-Key Silent OT and More from Constrained Naor-Reingold' (EUROCRYPT 2024, eprint 2024/178), which builds pseudorandom correlation FUNCTIONS for OT correlations using the BIPSW (BIP+18) wPRF as the constraint predicate inside a group-based constrained PRF — i.e. AM-style assumptions are one ingredient alongside DDH-style assumptions, not the sole hypothesis; also related is the FSS/wPRF PCF paradigm of Boyle et al. (FOCS 2020).",
+        "The conclusion `pseudorandom-correlation-generator` is a variant anchor on the AM assumption page describing a paradigm, with no syntax or security definition and no correlation class specified; as long as PCG has no real primitive page, this edge cannot be made precise. Recommend deleting the edge or re-typing it once a PCG page exists, with the honest hypothesis (e.g. 'BIPSW wPRF variant + DDH-style assumption' per BCMPR24)."
+      ],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
+      "path": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction (the same family witnesses both games) and a fixed reduction that runs the weak-AM distinguisher as an oracle: each of its input-less queries is answered by sampling $x \\getsr \\bits^n$, querying the chosen-input oracle on $x$, and returning $(x, \\calO_b(x))$. This is the standard strong-PRF-to-weak-PRF specialization.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of the [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|strong (chosen-input) alternating moduli assumption]] implies hardness of the [[alternating-moduli#weak-alternating-moduli-random-input-assumption|weak (random-input) variant]]: a weak-AM distinguisher sees only pairs $(x, y)$ for uniform $x$, which a reduction simulates by sampling $x \\getsr \\bits^n$ itself and querying the chosen-input oracle, exactly up to collisions among the sampled inputs — folklore.",
+      "sketch": "The simulation is exact unless a sampled $x$ repeats: the strong game's ideal world answers a repeated $x$ with the same $R(x)$, the weak game's ideal world with a fresh $y$. Over $q$ queries this costs an additive $q^2/2^{n+1}$, negligible for $n = \\omega(\\log \\secpar)$.",
+      "pseudocode": "",
+      "security_loss": "additive $q^2/2^{n+1}$ for $q$ oracle queries (collisions among sampled inputs)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis and conclusion are variant anchors on the [[alternating-moduli]] page (resolved via its variants map); the migration note that neither 'has its own page' is stale.",
+        "The strong (chosen-input) AM assumption is false as stated on the assumption page: $f_A(0^n) = 0$ for every key, so the query $0^n$ distinguishes with advantage $1 - 3^{-\\ell}$. The implication on this page is a correct statement about the two games, but its hypothesis is currently vacuous; BIP+18's chosen-input candidates are a different depth-3 map and an encoded-input variant. Fix the assumption page rather than this edge.",
+        "Not an equivalence: the converse fails for the plain map (not chosen-input secure, while its random-input security is BIP+18's conjecture), so kind: implication is correct."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: the collision term is negligible for $n = \\omega(\\log \\secpar)$, not merely $n = \\poly(\\secpar)$",
+        "security_loss: filled with the additive $q^2/2^{n+1}$ collision term the sketch states",
+        "statement: noted the collision caveat; flags: recorded that the strong AM assumption is trivially false as defined on the assumption page"
+      ]
+    }
+  ]
+}

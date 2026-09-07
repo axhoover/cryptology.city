@@ -1,0 +1,522 @@
+{
+  "batch": "red-14",
+  "pages": [
+    {
+      "slug": "higher-residuosity-to-pke",
+      "path": "content/Reductions/higher-residuosity-to-pke.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CF85",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme",
+          "authors": "Josh D. Cohen, Michael J. Fischer",
+          "venue": "FOCS 1985",
+          "year": "1985",
+          "url": "https://doi.org/10.1109/SFCS.1985.2",
+          "note": "FOCS 1985, pp. 372-382, DOI 10.1109/SFCS.1985.2; cryptobib FOCS:CohFis85 (verified in vendor/cryptobib). First PKE from d-th power (prime) residuosity, generalizing GM84; Josh D. Cohen = Josh Benaloh."
+        },
+        {
+          "key": "Ben94",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Ben94 - Dense Probabilistic Encryption",
+          "authors": "Josh Benaloh",
+          "venue": "SAC 1994 (Workshop on Selected Areas of Cryptography)",
+          "year": "1994",
+          "url": "https://www.microsoft.com/en-us/research/publication/dense-probabilistic-encryption/",
+          "note": "SAC 1994, pp. 120-128. The 'Benaloh cryptosystem': dense variant with expansion arbitrarily close to 1. NOT in cryptobib (SAC 1994 has no LNCS volume) and web verification was blocked; existence is attested by the verified title of FLA11 ('Benaloh's Dense Probabilistic Encryption Revisited'). HUMAN CHECK the venue/pages before creating the page."
+        },
+        {
+          "key": "FLA11",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FLA11 - Benaloh's Dense Probabilistic Encryption Revisited",
+          "authors": "Laurent Fousse, Pascal Lafourcade, Mohamed Alnuaimi",
+          "venue": "AFRICACRYPT 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-21969-6_22",
+          "note": "AFRICACRYPT 2011, LNCS 6737, pp. 348-362, DOI 10.1007/978-3-642-21969-6_22; cryptobib AFRICACRYPT:FouLafAln11 (verified). Also arXiv:1008.2991. Corrects the key-generation conditions of Ben94, whose original parameters can make decryption ambiguous."
+        },
+        {
+          "key": "NS98",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NS98 - A New Public Key Cryptosystem Based on Higher Residues",
+          "authors": "David Naccache, Jacques Stern",
+          "venue": "ACM CCS 1998",
+          "year": "1998",
+          "url": "https://doi.org/10.1145/288090.288106",
+          "note": "CCS 1998, pp. 59-66, DOI 10.1145/288090.288106; cryptobib CCS:NacSte98 (verified). Deterministic and probabilistic variants with smooth exponent."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The [[quadratic-residuosity#higher-residuosity|higher residuosity]] assumption yields an $\\indcpa$-secure [[public-key-encryption|PKE]] with message space $\\ZZ_d$, generalizing [[GM84 - Probabilistic encryption|GM84]] from quadratic to $d$-th power residues: for $N = pq$ with $d$ prime, $d \\mid p-1$, $\\gcd(d, (p-1)/d) = 1$ and $d \\nmid q-1$, and a fixed $d$-th non-residue $g \\in \\ZZ_N^*$, encrypt $m \\in \\ZZ_d$ as $g^m u^d \\bmod N$ for $u \\getsr \\ZZ_N^*$ — [[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]].",
+      "sketch": "Encryption randomizes within the coset $g^m (\\ZZ_N^*)^d$, so distinguishing encryptions of $m_0$ and $m_1$ is distinguishing residue classes. Knowing $\\phi(N)$, the decryptor computes $c^{\\phi(N)/d} = (g^{\\phi(N)/d})^m$ and recovers $m$ by exhaustive search in the order-$d$ subgroup, efficient for small $d$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Dense variant with ciphertext expansion arbitrarily close to $1$ (the Benaloh cryptosystem) — [[Ben94 - Dense Probabilistic Encryption|Ben94]]\n- Corrected key-generation conditions for the dense scheme, whose original parameters can make decryption ambiguous — [[FLA11 - Benaloh's Dense Probabilistic Encryption Revisited|FLA11]]\n- Deterministic and probabilistic variants with smooth exponent and higher bandwidth — [[NS98 - A New Public Key Cryptosystem Based on Higher Residues|NS98]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Class left unstated: the hypothesis is an algebraic hardness assumption, not a primitive used as an oracle, and no source states an RTV class; matches the sibling page qr-to-pke-gm84.",
+        "Attribution confirmed: the first higher-residuosity PKE is Cohen-Fischer, FOCS 1985 (cryptobib FOCS:CohFis85; Josh D. Cohen = Josh Benaloh). The name 'Benaloh cryptosystem' usually points at the Ben94 dense variant, recorded as an improvement.",
+        "HUMAN CHECK: Ben94 (SAC 1994, pp. 120-128) could not be verified — SAC 1994 is not in cryptobib and every web host was blocked. Its existence is attested by the verified FLA11 title. Confirm venue/pages before the reference page is created, or drop the bullet.",
+        "Verifier: CF85, FLA11, NS98 verified against vendor/cryptobib/crypto.bib (web blocked). The key-generation conditions in the statement (d prime, d | p-1, gcd(d,(p-1)/d) = 1, d does not divide q-1) are the standard Cohen-Fischer/Benaloh parameters from the verifier's knowledge; CF85 itself was not accessible."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "CF85 ref_file_title set to the verified cryptobib title casing ('A Robust and Verifiable Cryptographically Secure Election Scheme'); URLs canonicalized to doi.org; cryptobib keys recorded in notes",
+        "statement: 'semantically secure' -> '$\\indcpa$-secure'; added the key-generation conditions (d prime, gcd(d,(p-1)/d)=1, d does not divide q-1) that make the residue-class quotient cyclic of order d, without which 'non-residue g' is insufficient",
+        "sketch: tightened; dropped 'or smooth' (CF85 uses prime d; smooth exponents are NS98)",
+        "Ben94 kept as improvement but marked HUMAN CHECK: not verifiable in this environment",
+        "NS98 bullet reworded (removed 'higher-bandwidth' as the lead adjective)"
+      ]
+    },
+    {
+      "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+      "path": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BGW88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation",
+          "authors": "Michael Ben-Or, Shafi Goldwasser, Avi Wigderson",
+          "venue": "STOC 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1145/62212.62213",
+          "note": "STOC 1988, pp. 1-10; cryptobib STOC:BenGolWig88 (verified)."
+        },
+        {
+          "key": "CCD88",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "CCD88 - Multiparty Unconditionally Secure Protocols",
+          "authors": "David Chaum, Claude Crépeau, Ivan Damgård",
+          "venue": "STOC 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1145/62212.62214",
+          "note": "STOC 1988, pp. 11-19, DOI 10.1145/62212.62214; cryptobib STOC:ChaCreDam88 (verified). Independent, concurrent proof of unconditional MPC feasibility for t < n/3 (with exponentially small error)."
+        },
+        {
+          "key": "RB89",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority",
+          "authors": "Tal Rabin, Michael Ben-Or",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73014",
+          "note": "STOC 1989, pp. 73-85, DOI 10.1145/73007.73014; cryptobib STOC:RabBen89 (verified). Statistical security against a malicious adversary for t < n/2 given a broadcast channel — the result the migrated prose misattributes to BGW88. Filename matches the one proposed by batch red-33 for the same paper."
+        },
+        {
+          "key": "AL17",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "AL17 - A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation",
+          "authors": "Gilad Asharov, Yehuda Lindell",
+          "venue": "Journal of Cryptology 30(1), 2017",
+          "year": "2017",
+          "url": "https://doi.org/10.1007/s00145-015-9214-4",
+          "note": "J. Cryptology 30(1):58-151, 2017, DOI 10.1007/s00145-015-9214-4; cryptobib JC:AshLin17 (verified); eprint 2011/136. The journal title has no hyphen in 'Perfectly Secure' (the eprint version hyphenates). First complete simulation-based proof of the BGW protocol."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The theorem is unconditional: no cryptographic primitive appears as a hypothesis, and the corruption threshold is a setting constraint, not an object a construction could use as an oracle, so the black-box taxonomy does not apply. `free` is this repo's convention for unconditionally proven implications.",
+      "model": "standard",
+      "model_justification": "Information-theoretic protocols in the synchronous secure-channels model; the RB89 result additionally assumes a broadcast channel. Neither is an idealized computation model, so `standard`; the channel assumptions are stated in the statement text.",
+      "kind_correct": "implication",
+      "statement": "In the secure-channels model with [[secure-multi-party-computation#honest-majority-t-n3-or-t-n2|honest majority]], every $n$-party functionality has an unconditionally secure [[secure-multi-party-computation|MPC]] protocol: perfect security against a semi-honest adversary corrupting $t < n/2$ parties, and against a malicious adversary corrupting $t < n/3$ parties — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]. With a broadcast channel in addition, statistical security against a malicious adversary corrupting $t < n/2$ parties is achievable — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].",
+      "sketch": "Each party Shamir-shares its input with a degree-$t$ polynomial; addition gates are local on shares, and each multiplication gate is followed by degree reduction and re-randomization. Against malicious parties, inputs are distributed by verifiable secret sharing, and the Reed–Solomon structure of Shamir shares corrects up to $t < n/3$ corrupted shares.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Independent, concurrent proof of unconditional MPC feasibility for $t < n/3$, with exponentially small error — [[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]\n- Statistical security against malicious adversaries for $t < n/2$, given a broadcast channel — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]\n- Complete simulation-based proof of the BGW protocol — [[AL17 - A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation|AL17]]",
+      "notes_to_keep": [
+        "The hypothesis is a corruption-threshold setting, not a cryptographic object; a hyperedge model needs a way to express 'no hypotheses, setting = t < n/3'.",
+        "Conclusion is really 'perfectly-secure MPC against malicious adversaries', a security-level qualifier the flat slug loses."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "MISATTRIBUTION (high): the migrated prose credits 'for t < n/2, statistical security is achievable with broadcast' to BGW88; that theorem is Rabin-Ben-Or (RB89; also Beaver, CRYPTO 1989, cryptobib C:Beaver89). BGW88 proves perfect security for t < n/2 semi-honest and t < n/3 malicious. secure-multi-party-computation.md § Honest majority needs the RB89 citation.",
+        "REFERENCE PAGE (medium, reference-fixer lane): the abstract on 'BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation.md' is a paraphrase that repeats the misattribution ('If the number of faulty processors is less than n/2, (1) holds except with exponentially small probability'). BGW88's actual abstract states: t < n/2 with no faults (semi-honest) and t < n/3 with Byzantine faults, both perfect, and that the bounds are tight.",
+        "The page title and hypothesis bundle two thresholds; the hypothesis slug honest-majority-t-lt-n-over-3 names only t < n/3, while the statement also covers t < n/2 (BGW88 semi-honest; RB89 malicious). The migration note already suggests splitting into two records.",
+        "Verifier: CCD88, RB89, AL17 verified against vendor/cryptobib/crypto.bib (web blocked). RB89's filename aligned with batch red-33's proposal for the same paper to avoid two pages claiming the RB89 alias."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "AL17 ref_file_title corrected to the journal title (no hyphen: 'Perfectly Secure'), matching cryptobib JC:AshLin17; wikilink in improvements_text updated",
+        "RB89 and CCD88 ref_file_titles set to the verified cryptobib title casing (RB89 now identical to red-33's proposal); wikilinks in statement/improvements_text updated",
+        "URLs canonicalized to doi.org; cryptobib keys recorded in notes",
+        "statement and sketch tightened (house style); CCD88 bullet notes its error is exponentially small (statistical, not perfect)",
+        "flags: added the BGW88 reference-page abstract inaccuracy and the Beaver89 co-attribution"
+      ]
+    },
+    {
+      "slug": "hve-to-subset-and-range-queries",
+      "path": "content/Reductions/hve-to-subset-and-range-queries.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BW07",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption",
+          "authors": "Dan Boneh, Brent Waters",
+          "venue": "TCC 2007",
+          "year": "2007",
+          "url": "https://eprint.iacr.org/2006/465",
+          "note": "Actual paper title: 'Conjunctive, Subset, and Range Queries on Encrypted Data', TCC 2007, LNCS 4392, pp. 535-554, DOI 10.1007/978-3-540-70936-7_29; cryptobib TCC:BonWat07 (verified). The existing wiki filename carries a wrong title; the page's H1 and bibtex are correct."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed encoding maps attributes and subset/comparison predicates to HVE vectors and wildcard patterns; the derived scheme invokes the HVE algorithms only as oracles on encoded inputs. The encoding preserves predicate outcomes, so the security reduction translates any adversary's key queries and challenge through the same encoding and runs the adversary unchanged as an HVE adversary. This is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "The encoding step is generic and model-free; BW07's concrete HVE instantiation is standard-model (DBDH and DLIN, no random oracles).",
+      "kind_correct": "implication",
+      "statement": "Any [[hidden-vector-encryption|HVE]] scheme over $\\Sigma = \\{0,1\\}$ supports [[hidden-vector-encryption#subset-and-range-queries|subset and range queries]] through fixed encodings of attributes and predicates into vectors and wildcard patterns: membership $x \\in T$ by encoding $x$ as its indicator vector over the alphabet and $T$ as the pattern with wildcards exactly on $T$ and $0$ elsewhere; comparison $x \\ge a$ over a domain of size $n$ by encoding $x$ in unary and $a$ as the pattern with a single non-wildcard position; ranges $a \\le x \\le b$ as conjunctions of comparisons. Ciphertext size is linear in the domain size — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].",
+      "sketch": "For a subset query the token for $T$ places wildcards exactly at the positions in $T$ and fixes every other position to $0$, so it matches the indicator vector of $x$ iff $x \\in T$. A comparison $x \\ge a$ is a single-position test on the unary encoding $1^{x}0^{n-x}$ of $x$; a range is the conjunction of two comparisons.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Two conclusions are bundled (subset queries, range queries); neither has its own page or slug."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "REFERENCE FILENAME (medium): 'BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption.md' carries the wrong paper title — the paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (cryptobib TCC:BonWat07; H1 and bibtex inside are already correct). Filenames are live URLs, so this needs a human/reference-fixer decision rather than a silent rename.",
+        "DEFINITION/CLAIM (medium, skeptical-checker lane): hidden-vector-encryption.md says range queries are handled 'via bit decomposition ... reducing the range check to a conjunction over single-bit comparisons' (intro and § Subset and range queries). A comparison is not a conjunction of single-bit equalities, and BW07's comparison/range encoding has ciphertext size linear in the domain size (the O(log n) interval-tree approach with weaker match-revealing security is Shi et al., MRQED, IEEE S&P 2007). The statement here does not repeat the bit-decomposition claim.",
+        "HUMAN CHECK: BW07 could not be accessed (all web hosts blocked); the subset encoding is certain, the unary comparison encoding and the linear ciphertext size are from the verifier's knowledge of BW07 § Applications. Confirm against the paper before publishing the comparison sentence."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: removed the 'bit decomposition of x_i' mechanism for range queries (not confirmed and believed wrong for BW07); replaced by the unary comparison encoding with ciphertext linear in the domain size, flagged HUMAN CHECK",
+        "sketch: range half rewritten accordingly (conjunction of two comparisons on a unary encoding)",
+        "class_justification: added why the reduction is sound (the encoding preserves predicate outcomes)",
+        "confidence high -> medium (paper not accessible)",
+        "BW07 note: cryptobib key, LNCS volume, pages and DOI added"
+      ]
+    },
+    {
+      "slug": "attribute-hiding-security-to-payload-hiding-security",
+      "path": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction: the same HVE scheme unmodified. The reduction runs any payload-hiding adversary unchanged in the attribute-hiding game with challenge pairs $(x^*, m_0)$ and $(x^*, m_1)$; the adversary is used only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "For any [[hidden-vector-encryption|HVE]] scheme, [[hidden-vector-encryption#attribute-hiding-security|attribute-hiding]] implies [[hidden-vector-encryption#payload-hiding-security|payload-hiding]], with equal advantage — folklore.",
+      "sketch": "Setting $x_0 = x_1 = x^*$ specializes the attribute-hiding game to the payload-hiding game: a payload-hiding adversary with challenge $(x^*, m_0, m_1)$ runs unchanged with challenge pairs $(x^*, m_0)$ and $(x^*, m_1)$, and payload-hiding admissibility (no queried pattern matches $x^*$) implies attribute-hiding admissibility.",
+      "pseudocode": "",
+      "security_loss": "tight: the reduction preserves the advantage exactly",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "'Strictly implies' in the source prose also asserts a separation (payload-hiding does not imply attribute-hiding), which the parenthetical does not prove; the separation is a distinct claim not covered by this edge.",
+        "Both endpoints are security notions of the same primitive, not distinct objects — the target model needs notion-level nodes."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DEFINITION BUG on hidden-vector-encryption.md § Attribute-Hiding Security (high, skeptical-checker lane): the stated admissibility ('v matches x_0 iff v matches x_1') permits keys matching BOTH attributes; with m_0 != m_1 such a key decrypts the challenge and wins, so the notion as written is unsatisfiable. Standard fixes: require m_0 = m_1 whenever a queried key matches (KSW08 attribute hiding), or forbid matching keys. The implication on this page is unaffected: the derived adversary queries only non-matching keys, so it is admissible under either fix."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement shortened to the theorem; the mechanism moved to the sketch (was duplicated across both)",
+        "confirmed: payload-hiding admissibility forbids keys matching x^*, so the derived attribute-hiding adversary is admissible under the page's definition and under either standard fix"
+      ]
+    },
+    {
+      "slug": "ibe-to-pke",
+      "path": "content/Reductions/ibe-to-pke.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction calls $\\Setup$, $\\Extract$, $\\Enc$, $\\Dec$ of the IBE only as oracles, with one fixed identity hardwired; the security reduction runs any PKE adversary unchanged as an IBE adversary against that identity, making no extraction queries. Both halves of the RTV04 fully-black-box shape hold.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any IND-ID-CPA-secure [[identity-based-encryption|IBE]] yields an $\\indcpa$-secure [[public-key-encryption|PKE]]: $\\KeyGen$ runs $(\\pp, \\msk) \\gets \\Setup(1^\\secpar)$, fixes an arbitrary identity $\\mathit{id}$, and outputs $\\pk = (\\pp, \\mathit{id})$ and $\\sk = \\Extract(\\msk, \\mathit{id})$; encryption is $\\Enc(\\pp, \\mathit{id}, \\cdot)$ and decryption is $\\Dec(\\sk, \\cdot)$. The reduction fixes $\\mathit{id}$ before $\\Setup$ and makes no extraction queries, so IND-sID-CPA security suffices; the same construction maps IND-ID-CCA to $\\indcca$ — folklore.",
+      "sketch": "The PKE is the IBE frozen at one identity; a PKE adversary is an IBE adversary against that identity that never queries the extraction oracle, with identical advantage.",
+      "pseudocode": "",
+      "security_loss": "tight: the reduction preserves the advantage exactly",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "identity-based-encryption.md § Other results describes the edge as 'set the public key to pp and the per-user public key to id; the KGC plays the role of a CA' — the deployment analogy, not the reduction. Replace with the construction recorded here (pk = (pp, id), sk = Extract(msk, id)). This resolves the migration SUSPECT note."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: algorithm names checked against identity-based-encryption.md and public-key-encryption.md Syntax (Setup -> (pp, msk), Extract, KeyGen -> (sk, pk)); notion names aligned with the IBE page (IND-sID-CPA); $\\indcpa$/$\\indcca$ macros used; wording tightened",
+        "sketch and flag tightened"
+      ]
+    },
+    {
+      "slug": "ideal-prc-to-prc",
+      "path": "content/Reductions/ideal-prc-to-prc.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The hypothesis, as defined on pseudorandom-error-correcting-code.md § Ideal PRC, is unsatisfiable: it demands $(k, \\Enc_k(m))$ computationally indistinguishable from $(k, U_n)$ — pseudorandomness even given the decoding key — but a distinguisher holding $k$ runs $\\Dec_k$: robustness forces $\\Dec_k(\\Enc_k(m)) = m$, while soundness forces $\\Dec_k(U_n) = \\bot$ with overwhelming probability, so the two distributions are distinguishable with overwhelming advantage. No sound, robust PRC satisfies the stated property, so there is no well-defined edge to source. The literature's ideal PRC (Alrabiah–Ananth–Christ–Dodis–Gunn, 'Ideal Pseudorandom Codes', STOC 2025) is different: the real encoding and decoding oracles must be indistinguishable from an ideal functionality (fresh uniform codewords, table-based decoding), and the adversary never holds $k$. Under that definition 'ideal PRC ⇒ pseudorandom PRC' is immediate (ignore the decoding oracle), and this edge can be re-sourced to that paper once the primitive page's definition is corrected.",
+      "flags": [
+        "HIGH (skeptical-checker lane): pseudorandom-error-correcting-code.md § Ideal PRC is mathematically wrong as written — 'indistinguishable from random even to an adversary who holds the decoding key' contradicts robustness + soundness. Fix to the oracle/ideal-functionality definition of Alrabiah–Ananth–Christ–Dodis–Gunn, 'Ideal Pseudorandom Codes', STOC 2025, pp. 1638-1647, DOI 10.1145/3717823.3718309 (cryptobib STOC:AACDG25, verified; eprint 2024/1840), then re-source this edge to that paper (suggested key AACDG25).",
+        "ALSO on that page, § Soundness inverts the inequality: it states Pr[Dec_k(c-hat) = bot] <= nu(lambda); soundness requires Dec_k(c-hat) = bot with overwhelming probability for a string chosen independently of k, i.e. Pr[Dec_k(c-hat) != bot] <= nu(lambda).",
+        "The migration note that the 'strictly stronger' separation half is a distinct uncited claim remains valid but is moot until the definition is fixed."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_claim verdict confirmed by re-deriving the distinguisher against the page's own robustness and soundness definitions",
+        "AACDG25 bibliographic data replaced by the cryptobib-verified STOC 2025 record (pages, DOI); wrong_reason tightened"
+      ]
+    },
+    {
+      "slug": "ideal-svp-to-ring-lwe-lpr10",
+      "path": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LPR10",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LPR10 - On ideal lattices and learning with errors over rings",
+          "authors": "Vadim Lyubashevsky, Chris Peikert, Oded Regev",
+          "venue": "Eurocrypt 2010",
+          "year": "2010",
+          "url": "https://eprint.iacr.org/2012/230",
+          "note": "Eurocrypt 2010, LNCS 6110, pp. 1-23, DOI 10.1007/978-3-642-13190-5_1; cryptobib EC:LyuPeiReg10 (verified). Full version J. ACM 60(6), 2013 (eprint 2012/230)."
+        },
+        {
+          "key": "PRS17",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PRS17 - Pseudorandomness of Ring-LWE for Any Ring and Modulus",
+          "authors": "Chris Peikert, Oded Regev, Noah Stephens-Davidowitz",
+          "venue": "STOC 2017",
+          "year": "2017",
+          "url": "https://eprint.iacr.org/2017/258",
+          "note": "STOC 2017, pp. 461-473, DOI 10.1145/3055399.3055489; cryptobib STOC:PeiRegSte17 (verified). Direct quantum reduction from worst-case ideal-lattice problems to decision Ring-LWE, for any number field and any modulus."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Worst-case-to-average-case oracle reduction: the quantum reduction invokes an arbitrary Ring-LWE solver only as an oracle (to solve bounded-distance decoding on the dual ideal inside Regev's iterative step), and the search-to-decision step likewise uses the decision oracle as a black box; both work for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape, as recorded for the sibling gapsvp-to-lwe-reg05.",
+      "model": "quantum",
+      "model_justification": "The worst-case to average-case component of LPR10 is a quantum algorithm (generalizing Reg05's iterative quantum reduction); the search-to-decision component is classical. `quantum` is correct and matches the sibling convention for Reg05-style reductions.",
+      "kind_correct": "implication",
+      "statement": "For the $m$-th cyclotomic field with ring of integers $R$ of degree $n$, there is a polynomial-time quantum reduction from worst-case approximate [[ideal-svp|Ideal-SVP]] on ideal lattices in $R$, with approximation factor $\\poly(n)$, to search [[learning-with-errors#ring-lwe|Ring LWE]] over $R$ with Gaussian error; for prime $q = \\poly(n)$ with $q \\equiv 1 \\pmod m$, a classical search-to-decision reduction extends the hardness to decision Ring LWE — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].",
+      "sketch": "The reduction iterates Regev's quantum step over the ring: discrete-Gaussian samples over an ideal lattice are turned into Ring LWE samples, the solver's answers yield a bounded-distance decoder for the dual ideal, a quantum step converts that decoder into samples from a narrower Gaussian, and iterating shrinks the width until a vector within a polynomial factor of the shortest is obtained.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Direct quantum reduction from worst-case ideal-lattice problems to decision Ring LWE, for any number field and any modulus — [[PRS17 - Pseudorandomness of Ring-LWE for Any Ring and Modulus|PRS17]]",
+      "notes_to_keep": [
+        "The [[ideal-svp]] page is an unlisted stub with no formal definition."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Direction confirmed: worst-case Ideal-SVP hardness implies Ring-LWE hardness (worst-case to average-case), matching the recorded hypotheses/conclusion; the migration's AMBIGUOUS DIRECTION note can be dropped.",
+        "Class set to fully-black-box on the assumption-to-assumption reading used by the verified sibling gapsvp-to-lwe-reg05 (red-11): the reduction treats the solver purely as an oracle. Revert to unstated if editors decide RTV classes do not apply to assumption-to-assumption edges — then revert the Reg05/Ajt96 siblings too.",
+        "Statement restricted to cyclotomic fields for both halves; the search-hardness theorem in the full version holds for arbitrary number fields, and the q = 1 (mod m), prime, poly(n) modulus condition applies only to the search-to-decision half. Both conditions are from the verifier's knowledge of LPR10 (paper not accessible; bibliographic data verified via cryptobib).",
+        "The migrated note 'Ideal-SVP has no wiki page' is stale: content/Assumptions/ideal-svp.md exists as an unlisted stub."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "class unstated -> fully-black-box: oracle reduction, aligned with the verified sibling gapsvp-to-lwe-reg05 (red-11); justification written to name how the reduction treats the solver",
+        "statement: 'splits suitably' replaced by the actual condition (prime q = poly(n), q = 1 mod m for the m-th cyclotomic field); '$\\poly(n)$' macro used",
+        "sketch: named the intermediate object (a bounded-distance decoder for the dual ideal) instead of 'a quantum Fourier step'",
+        "notes_to_keep: removed the false 'Ideal-SVP has no wiki page' (content/Assumptions/ideal-svp.md exists); replaced with a stub note",
+        "PRS17 note: STOC pages and DOI added from cryptobib"
+      ]
+    },
+    {
+      "slug": "ideal-svp-to-ring-sis-lm06",
+      "path": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LM06",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions",
+          "authors": "Vadim Lyubashevsky, Daniele Micciancio",
+          "venue": "ICALP 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1007/11787006_13",
+          "note": "The Lyubashevsky-Micciancio paper is 'Generalized Compact Knapsacks Are Collision Resistant', ICALP 2006 Part II, LNCS 4052, pp. 144-155, DOI 10.1007/11787006_13; cryptobib ICALP:LyuMic06 (verified; the wiki page's cryptobib_key resolves to it). The wiki file's name/title belong to Micciancio's solo FOCS 2002 paper. See flags."
+        },
+        {
+          "key": "PR06",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PR06 - Efficient Collision-Resistant Hashing from Worst-Case Assumptions on Cyclic Lattices",
+          "authors": "Chris Peikert, Alon Rosen",
+          "venue": "TCC 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1007/11681878_8",
+          "note": "TCC 2006, LNCS 3876, pp. 145-166, DOI 10.1007/11681878_8; cryptobib TCC:PeiRos06 (verified). Independent, concurrent work: collision resistance from worst-case assumptions on cyclic lattices (f = x^n - 1)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Worst-case-to-average-case oracle reduction: the worst-case algorithm generates random Ring-SIS (generalized compact knapsack) instances from its input ideal lattice and invokes an arbitrary collision finder only as an oracle; it works for every solver with noticeable success probability. No construction component; on the assumption-to-assumption reading this is the fully-black-box shape, as recorded for the sibling gapsvp-to-sis-ajt96.",
+      "model": "standard",
+      "model_justification": "The worst-case to average-case reduction is classical.",
+      "kind_correct": "implication",
+      "statement": "For monic $f \\in \\ZZ[x]$ of degree $n$, irreducible over $\\ZZ$ and with polynomially bounded expansion factor (e.g. $f = x^n + 1$), finding collisions in the generalized compact knapsack function — solving random [[shortest-integer-solution#ring-sis|Ring-SIS]] instances over $\\ZZ[x]/\\langle f \\rangle$ — is as hard as worst-case approximate SVP on ideal lattices of $\\ZZ[x]/\\langle f \\rangle$ ([[ideal-svp|Ideal-SVP]]), within a polynomial approximation factor — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]].",
+      "sketch": "An Ajtai-style worst-case to average-case argument over the ring: random Ring-SIS instances are generated from Gaussian-perturbed points of a worst-case ideal lattice, so that a short solution recombines the samples into a lattice vector shorter than the basis vectors started from; iterating shortens the basis to within a polynomial factor of the shortest vector.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Independent, concurrent construction of collision-resistant hashing from worst-case assumptions on cyclic lattices ($f = x^n - 1$, suitably restricted) — [[PR06 - Efficient Collision-Resistant Hashing from Worst-Case Assumptions on Cyclic Lattices|PR06]]",
+      "notes_to_keep": [
+        "The [[ideal-svp]] page is an unlisted stub with no formal definition.",
+        "Concrete efficiency claims (O(n log n) arithmetic, O(n log q)-bit keys) are bundled into the source bullet and share its single citation."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "REFERENCE PAGE CONFLATION (high, reference-fixer lane): 'LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md' mixes two papers. Authors, venue (ICALP 2006) and cryptobib_key ICALP:LyuMic06 belong to Lyubashevsky-Micciancio, 'Generalized Compact Knapsacks Are Collision Resistant', ICALP 2006 Part II, pp. 144-155, DOI 10.1007/11787006_13 — the paper proving Ideal-SVP => Ring-SIS (all verified in vendor/cryptobib). The filename/H1 title belong to Micciancio's solo paper 'Generalized Compact Knapsacks, Cyclic Lattices, and Efficient One-Way Functions from Worst-Case Complexity Assumptions', FOCS 2002, pp. 356-365, DOI 10.1109/SFCS.2002.1181960 (cryptobib FOCS:Micciancio02; eprint 2004/286, cryptobib EPRINT:Micciancio04), whose journal version is Computational Complexity 16(4), 2007. The page's source URL eprint 2004/261 is neither: cryptobib EPRINT:BonKat04 identifies 2004/261 as Boneh-Katz, 'Improved Efficiency for CCA-Secure Cryptosystems Built Using Identity-Based Encryption'. The body's 'Venue: FOCS 2006' matches no paper. Repoint title, source and abstract to the ICALP 2006 paper (the filename is a live URL, so handle with care).",
+        "Class set to fully-black-box on the assumption-to-assumption reading used by the verified sibling gapsvp-to-sis-ajt96 (red-11). Revert to unstated if editors decide RTV classes do not apply to assumption-to-assumption edges.",
+        "The migrated note 'Ideal-SVP has no wiki page' is stale: content/Assumptions/ideal-svp.md exists as an unlisted stub.",
+        "Verifier: LM06 (ICALP) and PR06 verified against vendor/cryptobib/crypto.bib (web blocked); the expansion-factor condition and the reduction mechanism are from the verifier's knowledge of LM06."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "class unstated -> fully-black-box: oracle reduction, aligned with the verified sibling gapsvp-to-sis-ajt96 (red-11)",
+        "LM06 source URL set to the ICALP DOI; note records that the wiki page's cryptobib_key ICALP:LyuMic06 resolves to the correct paper",
+        "conflation flag sharpened with verified data: eprint 2004/261 is Boneh-Katz (EPRINT:BonKat04), Micciancio's eprint is 2004/286, FOCS 2002 pages/DOI added",
+        "statement: 'within a polynomial approximation factor' added; order of the two readings (collision finding = Ring-SIS) reversed to lead with the paper's object",
+        "notes_to_keep: removed the false 'Ideal-SVP has no wiki page'; replaced with a stub note",
+        "sketch tightened"
+      ]
+    },
+    {
+      "slug": "id-and-rom-to-ds",
+      "path": "content/Reductions/id-and-rom-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "Introduces the transform (signatures from identification was its original application); the ROM security proofs are PS00 and AABN02."
+        },
+        {
+          "key": "PS00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS00 - Security Arguments for Digital Signatures and Blind Signatures",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "Journal of Cryptology 13(3), 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/s001450010003",
+          "note": "J. Cryptology 13(3):361-396, 2000, DOI 10.1007/s001450010003; cryptobib JC:PoiSte00 (verified). Full version of Eurocrypt 1996 (EC:PoiSte96). Forking-lemma proof of EUF-CMA in the ROM for Fiat-Shamir-type signatures. Same filename as proposed by batch red-08."
+        },
+        {
+          "key": "AABN02",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security",
+          "authors": "Michel Abdalla, Jee Hea An, Mihir Bellare, Chanathip Namprempre",
+          "venue": "Eurocrypt 2002",
+          "year": "2002",
+          "url": "https://eprint.iacr.org/2002/022",
+          "note": "Eurocrypt 2002, LNCS 2332, pp. 418-433, DOI 10.1007/3-540-46035-7_28; cryptobib EC:AABN02 (verified). Full title contains a colon, stripped for the filename per repo sanitization. Same filename as proposed by batch red-28."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The transform is one fixed construction using the identification scheme's prover and verifier only as oracles, plus the random oracle for challenges. The security reductions run the forger only as a black box: AABN02's reduction simulates signing with transcripts from the passive-attack oracle and programs the random oracle; PS00's forking lemma additionally rewinds the forger. Neither depends on the forger's code.",
+      "model": "rom",
+      "model_justification": "The verifier's challenge is replaced by a hash modeled as a random oracle, which the reductions program; the transform is uninstantiable in the standard model in general (GK03, cited on the fiat-shamir-heuristic page). `rom` matches the page and the hypothesis list.",
+      "kind_correct": "implication",
+      "statement": "The Fiat–Shamir transform turns a three-move public-coin [[identification-scheme|identification scheme]] into a [[digital-signature|DS]] scheme in the [[random-oracle-model|ROM]]: the signer computes the verifier's challenge as the random-oracle hash of the first-message commitment and the message, and the signature is the resulting transcript — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. If the identification scheme is secure against impersonation under passive attack and non-trivial (its commitments have super-logarithmic min-entropy), the resulting scheme is $\\eufcma$-secure; for non-trivial schemes this condition is also necessary — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].",
+      "sketch": "The reduction answers signing queries with honest transcripts obtained from the passive-attack oracle, programming the random oracle so the challenge matches; a forgery on a fresh oracle query is an accepting transcript for a challenge the reduction can forward to the honest verifier, breaking passive impersonation with a loss linear in the number of oracle queries.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Forking-lemma proof of $\\eufcma$ security in the ROM for identification schemes with honest-verifier zero knowledge and two-transcript extraction; the reduction rewinds the forger and loses a factor polynomial in the number of random-oracle queries — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]\n- Minimal assumption: security against impersonation under passive attack is necessary and sufficient for non-trivial identification schemes; the same holds for forward security — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]",
+      "notes_to_keep": [
+        "The [[identification-scheme]] page is an unlisted stub without syntax or security definitions, so this edge's hypothesis is not yet formally defined in the wiki."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated note 'identification scheme has no page and no alias' is stale: content/Primitives/identification-scheme.md exists (alias ID, unlisted stub). Filling in its canonical three-move public-coin syntax and the passive/active impersonation games would let this edge state its hypothesis precisely.",
+        "FS86 proposed the transform without a proof; the ROM security theorem is PS00/AABN02. The statement splits attribution accordingly.",
+        "Verifier: PS00 and AABN02 verified against vendor/cryptobib/crypto.bib (web blocked); the non-triviality (min-entropy) condition and the 'if and only if' form are from the verifier's knowledge of AABN02's abstract and main theorem."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: added AABN02's load-bearing non-triviality qualifier (super-logarithmic commitment min-entropy) and the necessity direction; wording tightened",
+        "sketch: made the source of simulated transcripts explicit (passive-attack transcript oracle) and the forwarding step concrete",
+        "class_justification: names how each reduction treats the forger (programming vs. rewinding) instead of a bare 'black box'",
+        "notes_to_keep/flags: removed the false 'identification scheme has no page' (content/Primitives/identification-scheme.md exists as an unlisted stub)",
+        "PS00/AABN02 notes: cryptobib keys, LNCS volume, pages, DOIs added; filenames confirmed identical to red-08 and red-28 proposals",
+        "improvements_text: PS00 bullet no longer says 'special soundness' (a term PS00 does not use) — 'two-transcript extraction'; AABN02 bullet states necessity and sufficiency"
+      ]
+    },
+    {
+      "slug": "ind-cca-security-to-ind-cpa-kem",
+      "path": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction: the same KEM. The reduction runs any IND-CPA adversary unchanged in the IND-CCA game, making no decapsulation queries; the adversary is used only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]]-secure [[key-encapsulation-mechanism|KEM]] is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA]]-secure: the games differ only in the decapsulation oracle, so an IND-CPA adversary is an IND-CCA adversary making no decapsulation queries, with identical advantage — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "tight: the reduction preserves the advantage exactly",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Both endpoints are security notions of the same primitive, not separate pages — the target model needs notion-level nodes."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The converse direction exists as its own page (ind-cpa-kem-to-ind-cca-security, the transform direction), so kind stays implication."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: replaced the raw '$\\mathsf{Decap}$' (no macro exists; CLAUDE.md forbids \\mathsf for algorithm names) with prose 'decapsulation queries'; wording tightened",
+        "flag added recording that the converse page exists"
+      ]
+    }
+  ]
+}

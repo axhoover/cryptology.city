@@ -1,0 +1,522 @@
+{
+  "batch": "red-12",
+  "pages": [
+    {
+      "slug": "hash-function-and-io-to-ds-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "SW14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "STOC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/454",
+          "note": ""
+        },
+        {
+          "key": "Rom90",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+          "authors": "John Rompel",
+          "venue": "STOC 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1145/100216.100269",
+          "note": "STOC 1990, pp. 387-394. Removes the iO hypothesis: EUF-CMA signatures follow from one-way functions alone."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The construction hands iO a circuit containing the code of a puncturable PRF built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. Neither SW14 nor any follow-up places the reduction in the RTV04 hierarchy, so the broadest class is recorded.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies short [[digital-signature|digital signatures]] that are selectively secure: the forger commits to its target message before seeing $\\vk$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].",
+      "sketch": "The signing key is a puncturable PRF key $K$, the signature on $m$ is $\\sigma = F(K, m)$, and the verification key is an obfuscation of the program accepting $(m, \\sigma)$ iff $f(\\sigma) = f(F(K, m))$ for a one-way function $f$. The reduction punctures $K$ at the target message $m^*$ and replaces $F(K, m^*)$ by a uniform value — iO hides the change since the program's input–output behaviour is unchanged — so a forgery on $m^*$ is a preimage under $f$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- One-way functions alone suffice for adaptively EUF-CMA-secure signatures — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]; the iO construction's contribution is short signatures.",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "SW14 proves selective security only; the digital-signature page's default notion is adaptive EUF-CMA. The statement carries the qualifier.",
+        "As an existence claim the edge is subsumed by hash-function-to-ds (Rom90); it is interesting only for the short-signature qualifier.",
+        "Rom90 bibliographic data could not be web-verified in this environment (eprint/ACM/DBLP egress blocked); confirmed from the verifier's knowledge only — spot-check the DOI before creating the reference page."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped 'hash-and-sign' and 'fast verification' (only 'short' and 'selectively secure' are in SW14's abstract); defined selective security inline",
+        "sketch: tightened; made explicit why iO hides the puncturing step",
+        "class_justification: tightened; removed the appeal to Asharov–Segev",
+        "improvements_text: reworded (no 'fast verification' claim)",
+        "flags: added web-verification caveat for Rom90"
+      ]
+    },
+    {
+      "slug": "hash-function-to-ds",
+      "path": "content/Reductions/hash-function-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Rom90",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+          "authors": "John Rompel",
+          "venue": "STOC 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1145/100216.100269",
+          "note": "STOC 1990, pp. 387-394."
+        },
+        {
+          "key": "NY89",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NY89 - Universal one-way hash functions and their cryptographic applications",
+          "authors": "Moni Naor, Moti Yung",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73011",
+          "note": "STOC 1989, pp. 33-43. Predecessor, not a follow-up: UOWHFs from one-way permutations, and the tree-based signature scheme from UOWHFs that Rompel instantiates from any one-way function."
+        },
+        {
+          "key": "KK05",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KK05 - On Constructing Universal One-Way Hash Functions from Arbitrary One-Way Functions",
+          "authors": "Jonathan Katz, Chiu-Yuen Koo",
+          "venue": "Cryptology ePrint Archive, Report 2005/328",
+          "year": "2005",
+          "url": "https://eprint.iacr.org/2005/328",
+          "note": "First complete write-up of Rompel's UOWHF-from-OWF proof."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The UOWHF, the one-time signatures, and the authentication tree evaluate the one-way function only as an oracle, and the security reduction runs any forger as an oracle to extract either a UOWHF collision or a preimage of $f$ — the RTV04 fully-black-box shape. The black-box-separations literature treats the NY89/Rom90 route as the canonical fully black-box construction of signatures from one-way functions.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[hash-function|one-way functions]] exist, then EUF-CMA-secure [[digital-signature|digital signatures]] exist — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]. Rompel builds universal one-way hash functions from any one-way function and instantiates the tree-based signature scheme of [[NY89 - Universal one-way hash functions and their cryptographic applications|NY89]], which needs only UOWHFs.",
+      "sketch": "A UOWHF compresses messages for a one-time signature, and authenticating a tree of fresh one-time keys (Naor–Yung) turns one-time signatures into a many-time EUF-CMA scheme; Rompel supplies the UOWHF from any one-way function.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Signatures from one-way permutations, via universal one-way hash functions and the tree-based scheme that Rompel later instantiates from any one-way function — [[NY89 - Universal one-way hash functions and their cryptographic applications|NY89]].\n- Rompel's STOC paper gives the proof only in outline; the first complete write-up is [[KK05 - On Constructing Universal One-Way Hash Functions from Arbitrary One-Way Functions|KK05]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "kind left as implication: the converse (ds-to-hash-function) is its own page, so OWF ⇔ DS is split across two pages per the schema.",
+        "NY89 is a predecessor recorded under role 'improvement' only because the schema has no other non-original role; its bullet says so.",
+        "The second migrated quote (post-quantum hash-based signatures from collision resistance) belongs to hash-function-to-hash-based-signatures-lam79 / hash-based-signatures-to-ds-mer89, not here; the digital-signature page states that hypothesis two incompatible ways (collision resistance vs second-preimage resistance + pseudorandomness) — prose fix needed there.",
+        "Rom90, NY89, KK05 bibliographic data could not be web-verified in this environment (eprint/ACM/DBLP egress blocked); confirmed from the verifier's knowledge only — spot-check DOIs/eprint number before creating the reference pages."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; made explicit that NY89's scheme needs only UOWHFs",
+        "sketch: reordered and tightened",
+        "improvements_text: KK05 bullet no longer asserts 'gaps' (unverifiable here); says the STOC version is an outline",
+        "source notes: NY89 marked as predecessor",
+        "flags: added NY89-role note and web-verification caveat"
+      ]
+    },
+    {
+      "slug": "hash-function-and-io-to-fe-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GGHRSW13",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits",
+          "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters",
+          "venue": "FOCS 2013",
+          "year": "2013",
+          "url": "https://eprint.iacr.org/2013/451",
+          "note": ""
+        },
+        {
+          "key": "SW14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "STOC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/454",
+          "note": "Supplies the PKE and NIZK components from iO + OWF via punctured programming; [GGHRSW13, SW14] is the standard joint citation for FE from iO + OWF."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The construction hands iO circuits containing the code of a puncturable PRF built from the one-way function (in the SW14 components) and of the decryption and proof-verification algorithms, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. Neither paper places the reduction in the RTV04 hierarchy, so the broadest class is recorded.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies selectively secure (indistinguishability-based) [[functional-encryption|functional encryption]] for all polynomial-size circuits: [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build FE from iO, [[public-key-encryption|PKE]], and statistically simulation-sound [[non-interactive-zero-knowledge|NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.",
+      "sketch": "A ciphertext encrypts $m$ under two PKE keys together with a statistically simulation-sound NIZK that both components encrypt the same message; the functional key for $f$ is an obfuscation of the program that verifies the proof, decrypts one component, and outputs $f(m)$. Security is a Naor–Yung-style hybrid in which iO switches the component the functional key decrypts.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "GGHRSW13's abstract states FE from iO + PKE + NIZK; the {iO, OWF} form is the standard joint citation [GGHRSW13, SW14] after instantiating the components by punctured programming. The verifier could not check the SW14 text (egress blocked) to confirm that its NIZK is shown statistically simulation-sound; the joint citation is nonetheless standard in the literature.",
+        "GGHRSW13's FE is selectively secure; adaptive security came later (Waters, CRYPTO 2015 — not added as a source).",
+        "content/Primitives/functional-encryption.md now exists as a stub (id functional-encryption), so the migration note 'no wiki page' is stale."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'selectively secure' qualifier made explicit; wording tightened",
+        "sketch: tightened",
+        "class_justification: rewritten for this construction; removed the appeal to Asharov–Segev",
+        "flags: removed unverifiable claim that GGHRSW13 assumes injective one-way functions; corrected stale 'no FE page' flag; added SSS-attribution caveat"
+      ]
+    },
+    {
+      "slug": "hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "SW14 does not construct lossy (trapdoor) functions. Its results — per the abstract, reproduced on the wiki's SW14 reference page — are deniable encryption, PKE, short selectively secure signatures, CCA-secure PKE, NIZKs, injective trapdoor functions, and oblivious transfer; the migrated bullet's 'lossy functions' is a garbling of 'injective trapdoor functions'. The edge {OWF, iO} ⇒ lossy trapdoor functions is unsupported elsewhere too: sufficiently lossy trapdoor functions imply collision-resistant hashing (Peikert–Waters, STOC 2008), and Asharov–Segev (FOCS 2015, ePrint 2015/341) rule out collision-resistant hashing from iO and one-way permutations even when iO is applied to oracle-aided circuits, the model that captures SW14-style punctured programming. The defensible corrected edge is {hash-function, io} ⇒ injective trapdoor functions — SW14.",
+      "flags": [
+        "HIGH PRIORITY: re-point this page to injective trapdoor functions (SW14) or delete it; also fix the bullet on indistinguishability-obfuscation § Other results ('iO + OWF → deniable encryption, lossy functions, ...').",
+        "SW14's result list was checked against the abstract as reproduced on content/References/SW14 - ....md (eprint egress blocked); it lists injective trapdoor functions and no lossy functions."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened wording; 'untenable' replaced by the precise barrier statement",
+        "flags: recorded how the abstract was checked"
+      ]
+    },
+    {
+      "slug": "hash-function-to-mac",
+      "path": "content/Reductions/hash-function-to-mac.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Hastad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1137/S0097539793244708",
+          "note": "Sources the OWF ⇒ PRG link of the composite chain."
+        },
+        {
+          "key": "GGM86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGM86 - How to construct random functions",
+          "authors": "Oded Goldreich, Shafi Goldwasser, Silvio Micali",
+          "venue": "JACM 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1145/6490.6503",
+          "note": "Sources the PRG ⇒ PRF link of the composite chain."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Each link is fully black-box: HILL99's PRG evaluates the one-way function only as an oracle and its reduction runs any distinguisher as an oracle; the GGM tree and the PRF-as-MAC step likewise treat hypothesis and adversary as oracles. Fully-black-box reductions compose (RTV04).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[hash-function|one-way functions]] exist, then UF-CMA-secure [[message-authentication-code|MACs]] exist: any one-way function yields a [[pseudorandom-generator|PRG]] [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], the GGM tree turns a length-doubling PRG into a [[pseudorandom-function|PRF]] [[GGM86 - How to construct random functions|GGM86]], and $\\Tag(k, m) := \\Eval(k, m)$ with canonical verification is a UF-CMA MAC — the last step is folklore.",
+      "sketch": "A forger that outputs a valid tag on an unqueried message $\\hat{m}$ predicts $\\Eval(k, \\hat{m})$, which a uniformly random function into $\\calR$ permits with probability $1/|\\calR|$; any forger is therefore a PRF distinguisher with essentially the same advantage.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Composite chain OWF ⇒ PRG ⇒ PRF ⇒ MAC; every link exists as its own page (hash-function-to-prg-hill99, prg-to-prf-ggm86, prf-to-mac). Repo policy splits composite chains — a human should decide whether to keep this corollary edge or delete it in favour of the links.",
+        "Extending HILL99's stretch to length-doubling is by standard iteration; the statement leaves it implicit.",
+        "The second migrated quote (CCA-secure SKE via encrypt-then-MAC, Bellare–Namprempre) belongs to mac-and-ske-to-cca-security, not this edge.",
+        "The composite security loss is dominated by the large polynomial loss of the HILL99 step; not stated crisply enough anywhere to fill security_loss."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; 'any length-doubling PRG yields a PRF' rephrased to name the GGM tree",
+        "sketch: probability now over the PRF range $\\calR$ (the construction's tag space); tightened",
+        "class_justification: tightened",
+        "flags: added stretch-extension note"
+      ]
+    },
+    {
+      "slug": "hash-function-and-io-to-nizk-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "SW14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "STOC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/454",
+          "note": ""
+        }
+      ],
+      "class": "free",
+      "class_justification": "The construction hands iO circuits containing the code of a puncturable PRF built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. SW14 do not place the reduction in the RTV04 hierarchy, so the broadest class is recorded.",
+      "model": "crs",
+      "model_justification": "SW14's NIZK is in the common reference string model: the setup publishes obfuscated programs as the CRS. NIZK for languages outside $\\classBPP$ is impossible with no setup, so the migrated 'plain model (no CRS)' gloss is wrong; frontmatter model changes standard → crs.",
+      "kind_correct": "implication",
+      "statement": "[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies [[non-interactive-zero-knowledge|NIZK]] proofs for $\\classNP$ in the common reference string model, the CRS consisting of obfuscated programs — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY prose error on three pages (impagliazzos-five-worlds § Obfustopia, indistinguishability-obfuscation § Other results, non-interactive-zero-knowledge § Other results): 'NIZK proofs without a CRS' / 'plain model (no CRS)' is wrong — SW14's NIZK has a CRS of obfuscated programs. Confirmed.",
+        "Frontmatter model must change standard → crs.",
+        "Likely source of the confusion: Bitansky–Paneth (TCC 2015) obtain NIWI without setup from iO + one-way permutations (and ZAPs from iO + OWF) — witness indistinguishability, not zero knowledge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement/model_justification: 'obfuscated proving and verification programs' weakened to 'obfuscated programs' (exact CRS contents not verifiable here); wording tightened",
+        "class_justification: tightened; removed the appeal to Asharov–Segev",
+        "flags: Bitansky–Paneth claim corrected — NIWI needs one-way permutations, ZAPs need only OWF"
+      ]
+    },
+    {
+      "slug": "hash-function-to-hash-based-signatures-lam79",
+      "path": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Lam79",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Lam79 - Constructing digital signatures from a one way function",
+          "authors": "Leslie Lamport",
+          "venue": "SRI International Technical Report CSL-98, 1979",
+          "year": "1979",
+          "url": "https://www.microsoft.com/en-us/research/publication/constructing-digital-signatures-one-way-function/",
+          "note": ""
+        },
+        {
+          "key": "Mer89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Mer89 - A Certified Digital Signature",
+          "authors": "Ralph C. Merkle",
+          "venue": "CRYPTO 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1007/0-387-34805-0_21",
+          "note": "Winternitz variant (Merkle trees belong to the separate mer89 edge)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Key generation and verification evaluate the one-way function only as an oracle; the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot and answering the single signing query with the remaining preimages — the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[hash-function|one-way function]] implies one-time [[digital-signature#hash-based-signatures|digital signatures]] (Lamport's scheme): for $\\ell$-bit messages the signing key is $2\\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \\hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \\le \\ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].",
+      "sketch": "A forgery on $\\hat{m} \\ne m$ must reveal a preimage of some $y_{i,1-m_i}$ not opened by the signature on $m$. The reduction plants its one-wayness challenge at a uniformly random slot among the $2\\ell$, aborts if the single signing query opens that slot, answers it with the remaining preimages, and inverts $\\hash(k, \\cdot)$ whenever the forgery opens the planted slot — a factor-$2\\ell$ loss.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\KeyGen(1^\\secpar)$}\n\\begin{algorithmic}\n\\State $k \\getsr \\calK$\n\\For{$i = 1, \\dots, \\ell$ and $b \\in \\bits$}\n\\State $x_{i,b} \\getsr \\calD$; $y_{i,b} \\gets \\hash(k, x_{i,b})$\n\\EndFor\n\\Return $(\\sk, \\vk) := \\big((x_{i,b})_{i,b},\\ (k, (y_{i,b})_{i,b})\\big)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Sign(\\sk, m \\in \\bits^\\ell)$}\n\\begin{algorithmic}\n\\Return $\\sigma := (x_{1,m_1}, \\dots, x_{\\ell,m_\\ell})$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Vrfy(\\vk, m, \\sigma)$}\n\\begin{algorithmic}\n\\Return $[\\hash(k, \\sigma_i) = y_{i,m_i} \\text{ for all } i \\in \\{1,\\dots,\\ell\\}]$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "",
+      "improvements_text": "- The Winternitz variant signs several message bits per hash chain, trading $\\hash$ evaluations for signature size; it is described in [[Mer89 - A Certified Digital Signature|Mer89]].",
+      "notes_to_keep": [
+        "SUSPECTED ERROR (reported, not fixed): the digital-signature page's 'sign one bit per hash chain' describes WINTERNITZ, not Lamport. Lamport publishes two hash images per message bit and reveals one preimage per bit; there are no chains.",
+        "SUSPECTED EFFICIENCY ERROR: Lamport signatures are $O(\\secpar \\cdot |m|)$ bits for an $|m|$-bit message (typically $O(\\secpar^2)$ with hashed messages), not $O(\\secpar)$."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "One-wayness (preimage resistance on uniform inputs, the hash-function page's pr game) suffices; the CRHF/OWF conflation on the hash-function page makes the hypothesis look stronger than needed.",
+        "The Merkle-tree many-time extension is the separate edge hash-based-signatures-to-ds-mer89; the OWF-only route there needs UOWHFs (NY89/Rom90) for the tree.",
+        "Pseudocode holds three algorithm environments in one block; the vendored pseudocode.js grammar accepts several per fence, but no existing page does this — the editor may prefer three fences. Every command and macro used (\\State, \\For/\\EndFor, \\Return, \\hash, \\getsr, \\calK, \\calD, \\bits, \\sk, \\vk, \\KeyGen, \\Sign, \\Vrfy, \\secpar) is in the CLAUDE.md table or latex-macros.md, and the algorithm names match the digital-signature Syntax section."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('random' → 'uniform', 'may sign only one message' → 'signs one message')",
+        "sketch: made the abort case explicit; tightened",
+        "improvements_text: 'first appears in print in Mer89' weakened to 'described in Mer89' (priority claim not verifiable here)",
+        "class_justification: tightened",
+        "flags: pseudocode note now records the renderer check"
+      ]
+    },
+    {
+      "slug": "hash-function-to-pcs-bbhr18",
+      "path": "content/Reductions/hash-function-to-pcs-bbhr18.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BBHR18",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BBHR18 - Scalable, transparent, and post-quantum secure computational integrity",
+          "authors": "Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, Michael Riabzev",
+          "venue": "ePrint 2018/046",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2018/046",
+          "note": ""
+        },
+        {
+          "key": "KPV22",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments",
+          "authors": "Assimakis A. Kattis, Konstantin Panarin, Alexander Vlasov",
+          "venue": "ACM CCS 2022",
+          "year": "2022",
+          "url": "https://eprint.iacr.org/2019/1400",
+          "note": "Makes the FRI-based (list) polynomial commitment abstraction explicit. CCS 2022, doi 10.1145/3548606.3560657."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Commitment and openings use the hash only as an oracle (Merkle trees over codewords), but the non-interactive scheme is proven secure with the hash modeled as a random oracle rather than against a standard-model collision-finder, and no RTV04 placement of the compiled argument appears in the literature; recording a class would add a claim.",
+      "model": "rom",
+      "model_justification": "FRI is an interactive oracle proof of proximity; the commitment Merkle-hashes the prover's oracles and becomes non-interactive through the BCS/Fiat–Shamir compilation, whose soundness is proven with the hash modeled as a random oracle (the model of BBHR18's non-interactive STARK). Interactively, binding rests on collision resistance alone. Frontmatter model changes standard → rom; the page's own migration note already flags this.",
+      "kind_correct": "implication",
+      "statement": "[[hash-function|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test, with $O(\\log^2 d)$ proof size and verification time and no trusted setup; the non-interactive scheme is secure in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].",
+      "sketch": "FRI folds the committed codeword round by round: writing $f_i(x) = g_i(x^2) + x\\,h_i(x^2)$, the verifier sends a uniform $\\alpha_i$ and the prover commits to the codeword of $f_{i+1}(y) = g_i(y) + \\alpha_i h_i(y)$, halving the degree; consistency between rounds is spot-checked at random points through Merkle openings.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The polynomial-commitment abstraction of FRI (as a *list* polynomial commitment) is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "BBHR18 (the STARK eprint) introduces STARKs but does not itself define a polynomial commitment scheme; the PCS framing is a later, now-standard abstraction (made explicit in RedShift, KPV22). The slug's -bbhr18 attribution is kept per the slug rule, with this caveat.",
+        "KEY COLLISION RISK: FRI itself is introduced in a distinct paper by the same four authors, 'Fast Reed–Solomon Interactive Oracle Proofs of Proximity' (ICALP 2018), which would also key as BBHR18. The wiki's BBHR18 is the STARK eprint 2018/046; if the FRI paper is ever added it needs a letter suffix.",
+        "Opening at an arbitrary point $z$ uses the quotient trick (proximity of $(f(x)-f(z))/(x-z)$), made explicit in later work (DEEP-FRI, RedShift); BBHR18 uses FRI as a low-degree test inside STARKs.",
+        "Frontmatter model must change standard → rom.",
+        "Strictly, FRI commitments bind to a low-degree codeword up to the list-decoding regime (why KPV22 speak of list polynomial commitments); the statement keeps the standard informal claim.",
+        "KPV22 bibliographic data could not be web-verified in this environment (eprint/ACM/DBLP egress blocked); confirmed from the verifier's knowledge only — spot-check the DOI before creating the reference page."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('commit ... by Merkle-hashing' → 'the commitment is the Merkle root'; 'proven secure' → 'secure in the ROM')",
+        "sketch: tightened",
+        "class_justification: tightened",
+        "flags: added BBHR18 key-collision warning for the FRI paper and web-verification caveat for KPV22"
+      ]
+    },
+    {
+      "slug": "hash-function-and-io-to-pke-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "SW14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "STOC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/454",
+          "note": ""
+        }
+      ],
+      "class": "free",
+      "class_justification": "The construction hands iO a circuit containing the code of a puncturable PRF and PRG built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. SW14 do not place the reduction in the RTV04 hierarchy, so the broadest class is recorded.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies IND-CPA-secure [[public-key-encryption|PKE]]; SW14 also give an IND-CCA-secure scheme — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].",
+      "sketch": "The secret key is a puncturable PRF key $K$; the public key is an obfuscation of the program $(m, r) \\mapsto (t, F(K, t) \\oplus m)$ with $t = \\PRG(r)$. The proof replaces $t^*$ by a uniform string, which lies outside the PRG's image with overwhelming probability, punctures $K$ at $t^*$ — the punctured program agrees with the original on every input, so iO hides the switch — and applies pseudorandomness at the punctured point.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('also obtain IND-CCA security' → 'also give an IND-CCA-secure scheme')",
+        "sketch: tightened; made the functional-equivalence step explicit",
+        "class_justification: tightened; removed the appeal to Asharov–Segev"
+      ]
+    },
+    {
+      "slug": "hash-function-to-prf",
+      "path": "content/Reductions/hash-function-to-prf.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Hastad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1137/S0097539793244708",
+          "note": "Sources the OWF ⇒ PRG link of the composite chain."
+        },
+        {
+          "key": "GGM86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGM86 - How to construct random functions",
+          "authors": "Oded Goldreich, Shafi Goldwasser, Silvio Micali",
+          "venue": "JACM 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1145/6490.6503",
+          "note": "Sources the PRG ⇒ PRF link of the composite chain."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Both links are fully black-box: HILL99's PRG evaluates the one-way function only as an oracle and its reduction runs any distinguisher as an oracle; the GGM tree invokes the PRG as an oracle and its hybrid reduction runs any PRF distinguisher as an oracle (the wiki's black-box-separations page uses it as the worked example). Fully-black-box reductions compose (RTV04).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[hash-function|one-way functions]] exist, then [[pseudorandom-function|PRFs]] exist: any one-way function yields a [[pseudorandom-generator|PRG]] [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], and the GGM tree turns a length-doubling PRG into a PRF [[GGM86 - How to construct random functions|GGM86]].",
+      "sketch": "GGM defines $\\Eval(k, x)$ by walking a binary tree: start from $k$ and, on bit $x_i$, keep the left or right half of the PRG's output; a hybrid over tree levels reduces any PRF distinguisher to a PRG distinguisher. HILL build the PRG from any one-way function via the Goldreich–Levin hard-core bit and pairwise-independent hashing.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Composite chain OWF ⇒ PRG ⇒ PRF; both links exist as pages (hash-function-to-prg-hill99, prg-to-prf-ggm86). Repo policy splits composite chains — a human should decide whether to keep this corollary edge.",
+        "Extending HILL99's stretch to length-doubling is by standard iteration; the statement leaves it implicit.",
+        "The composite security loss is dominated by the large polynomial loss of the HILL99 step; not stated crisply enough to fill security_loss."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'yields a length-doubling PRG' → 'yields a PRG' (HILL99 does not directly give length-doubling; extension is standard, noted in flags)",
+        "sketch: 'entropy manipulation' replaced by the concrete tools (Goldreich–Levin hard-core bit, pairwise-independent hashing)",
+        "class_justification: tightened"
+      ]
+    }
+  ]
+}

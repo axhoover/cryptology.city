@@ -1,0 +1,402 @@
+{
+  "batch": "red-33",
+  "pages": [
+    {
+      "slug": "tdp-to-nizk-bfm88",
+      "path": "content/Reductions/tdp-to-nizk-bfm88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FLS90",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String",
+          "authors": "Uriel Feige, Dror Lapidot, Adi Shamir",
+          "venue": "FOCS 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1109/FSCS.1990.89549",
+          "note": "cryptobib_key: FOCS:FeiLapSha90 (verified present in vendor/cryptobib/crypto.bib at line 364818, pages 308-317). Journal version: 'Multiple Non-Interactive Zero-Knowledge Proofs Under General Assumptions', SIAM J. Comput. 29(1):1-28, 1999, doi 10.1137/S0097539792230010 — not in cryptobib, so the FOCS key is used."
+        },
+        {
+          "key": "GR13",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GR13 - Enhancements of Trapdoor Permutations",
+          "authors": "Oded Goldreich, Ron D. Rothblum",
+          "venue": "Journal of Cryptology 2013",
+          "year": "2013",
+          "url": "https://link.springer.com/article/10.1007/s00145-012-9131-8",
+          "note": "Existing wiki page. Its own abstract states the enhancements 'arose in the study of Oblivious Transfer and NIZK ... we clarify why these enhancements are needed in such applications, and show that they actually suffice'."
+        },
+        {
+          "key": "CL18",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "CL18 - Certifying Trapdoor Permutations, Revisited",
+          "authors": "Ran Canetti, Amit Lichtenberg",
+          "venue": "TCC 2018",
+          "year": "2018",
+          "url": "https://doi.org/10.1007/978-3-030-03807-6_18",
+          "note": "cryptobib_key: TCC:CanLic18 (verified in vendor/cryptobib/crypto.bib line 830841; LNCS 11239, pp. 476-506). eprint 2017/631."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction: the CRS is parsed as a sequence of permutation images, and prover and verifier call the family's index sampler, Eval, Invert and hard-core predicate only as oracles. Zero-knowledge is proved by a single fixed reduction that runs any distinguisher as an oracle to predict the hard-core bit; soundness is statistical, inherited from the hidden-bits proof system. Double enhancement and domain certifiability restrict the family F_Q, they do not give the construction non-oracle access to the permutation, so the RTV04 fully-black-box shape is preserved over the restricted family.",
+      "model": "crs",
+      "model_justification": "The proof system lives in the common reference string model; the reference string is what carries the hidden bits. Without a CRS, NIZK for NP does not exist, so `crs` is load-bearing and must not be dropped. Current value is already correct.",
+      "kind_correct": "implication",
+      "statement": "A family of doubly enhanced [[trapdoor-permutation|trapdoor permutations]] with certifiable domain yields a multi-theorem computational [[non-interactive-zero-knowledge|NIZK]] proof system for every language in $\\classNP$ in the common reference string model, with statistical soundness and computational zero-knowledge — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]. Plain trapdoor permutations do not suffice: the enhancement is what makes the hidden-bits compilation go through — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].",
+      "sketch": "FLS give an unconditional NIZK for Hamiltonicity in the hidden-bits model, then compile it: the reference string is read as permutation images $y_1,\\dots,y_m$, the prover uses the trapdoor to recover $x_i = \\Invert(\\td, y_i)$ and opens the hidden bits $b(x_i)$ it needs by revealing $x_i$, while the bits it does not open stay unpredictable to the verifier. One reference string serves polynomially many theorems by appending a random block and proving \"$x \\in L$ or that block is in the image of a $\\PRG$\", so the simulator can put a pseudorandom block there and use it as its trapdoor.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Plain trapdoor permutations do not suffice for the hidden-bits compilation: the family must be *doubly enhanced*, and double enhancement also suffices — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]\n- Even a doubly enhanced family leaves the FLS instantiation unsound unless domain membership is certifiable for adversarially chosen indices — [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "tdp-to-nizk-bfm88: MISATTRIBUTION — the slug suffix and `source:` credit BFM88, but BFM88 (STOC 1988, pp. 103-112) gives a single-theorem NIZK whose NP construction rests on quadratic residuosity, not NIZK for NP from trapdoor permutations. The theorem on this page is Feige-Lapidot-Shamir (FOCS 1990 / SICOMP 1999). Recommend replacing the source and, if URL churn is acceptable, renaming the page to `tdp-to-nizk-fls90`; otherwise keep the slug and fix `source:` only.",
+        "tdp-to-nizk-bfm88: REFERENCE PAGE CONTAINS AN UNSUPPORTED ABSTRACT (skeptical-checker / reference-fixer lane). `content/References/BFM88 - Non-interactive zero-knowledge and its applications.md` states 'assuming the existence of trapdoor permutations, we give a non-interactive zero-knowledge proof system for any NP language in the common random string model' plus applications to adaptive-CMA signatures and identification. The real STOC'88 abstract is about replacing interaction with a shared random string and gives the first CCA-secure public-key cryptosystem; the NP construction is QR-based and single-theorem. This abstract looks synthesized rather than transcribed and should be replaced with the published one.",
+        "tdp-to-nizk-bfm88: the migrated bullet's parenthetical '(hence from RSA or DL)' contains a false sub-edge — DL does not give trapdoor permutations. That error is already carried by `content/Reductions/dlog-to-tdp.md`; it should be rejected there, not re-imported here.",
+        "tdp-to-nizk-bfm88: 'for all NP' is a statement-class qualifier the hyperedge cannot carry; it is preserved in the proposed `statement` text instead."
+      ]
+    },
+    {
+      "slug": "tdp-to-ot",
+      "path": "content/Reductions/tdp-to-ot.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The page asserts an equivalence TDP <=> OT. The converse direction is false as far as is known: oblivious transfer is not known to yield any trapdoor permutation, and the very paper quoted in the migrated text proves the opposite — Gertner, Kannan, Malkin, Reingold and Viswanathan show that neither oblivious transfer nor trapdoor predicates imply trapdoor permutations under black-box reductions (GKM+00, FOCS 2000, pp. 325-335), and that PKE and OT are themselves incomparable under black-box reductions. The forward direction is also mis-stated: TDP => OT needs an *enhanced* trapdoor permutation, since the OT receiver must sample a domain element without learning its preimage; plain TDP does not suffice. The migrated sentence 'TDPs (equivalently, the existence of PKE or OT)' further fuses a disjunction into an equivalence, which the repo's data model forbids. RECOMMENDATION: delete this page. Its only defensible content, enhanced TDP => OT, already exists as `content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md`; do not downgrade this page to an implication, which would duplicate that edge.",
+      "flags": [
+        "tdp-to-ot: HIGH — false equivalence; the cited GKM+00 explicitly rules out OT => TDP under black-box reductions. Recommend deletion rather than repair (the surviving direction is already `enhanced-trapdoor-permutations-to-ot-gkm-00`).",
+        "tdp-to-ot: the same migrated sentence on `content/Primitives/impagliazzos-five-worlds.md` also generated `red-tdp-to-pke`; the 'equivalently' clause there is wrong for the same reason and should be rewritten on the source page, not only on the edges."
+      ]
+    },
+    {
+      "slug": "tdp-to-pke",
+      "path": "content/Reductions/tdp-to-pke.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GM84",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GM84 - Probabilistic encryption",
+          "authors": "Shafi Goldwasser, Silvio Micali",
+          "venue": "Journal of Computer and System Sciences 28(2), 1984",
+          "year": "1984",
+          "url": "https://www.sciencedirect.com/science/article/pii/0022000084900709",
+          "note": "Defines semantic security and builds a bit-by-bit probabilistic encryption scheme from any family of unapproximable trapdoor predicates; a trapdoor permutation together with a hard-core predicate is exactly such a family. Existing wiki page, cryptobib_key GolMic84."
+        },
+        {
+          "key": "Yao82a",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Yao82a - Theory and Applications of Trapdoor Functions",
+          "authors": "Andrew Chi-Chih Yao",
+          "venue": "FOCS 1982",
+          "year": "1982",
+          "url": "https://doi.org/10.1109/SFCS.1982.45",
+          "note": "cryptobib_key: FOCS:Yao82a (verified in vendor/cryptobib/crypto.bib line 371542, pp. 80-91). KEY COLLISION: the wiki already has 'Yao82 - Protocols for secure computations', which is cryptobib's FOCS:Yao82b. Following CLAUDE.md, do not rename the existing file; use Yao82a for the trapdoor-functions paper and, if desired, disambiguate the existing page's `title`/`aliases`/H1 to Yao82b."
+        },
+        {
+          "key": "GL89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GL89 - A Hard-Core Predicate for All One-Way Functions",
+          "authors": "Oded Goldreich, Leonid A. Levin",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://dl.acm.org/doi/10.1145/73007.73010",
+          "note": "Supplies the hard-core predicate for every one-way (hence every trapdoor) permutation, so the hard-core bit is not an independent hypothesis of this edge."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction: $\\KeyGen$ runs the permutation family's index sampler, $\\Enc$ calls $\\Eval$ and the hard-core predicate, $\\Dec$ calls $\\Invert$ — each only as an oracle. One fixed reduction: an $\\indcpa$ adversary distinguishing an encryption of $0$ from an encryption of $1$ is run as an oracle to predict $b(x)$ from $f(x)$, and the Goldreich-Levin list-decoder turns that predictor into an inverter for $f$. Current value `fully-black-box` is correct and is retained.",
+      "model": "standard",
+      "model_justification": "No idealized model; the construction and proof are in the plain model. Current value correct.",
+      "kind_correct": "implication",
+      "statement": "A family of [[trapdoor-permutation|trapdoor permutations]] $f$ with a hard-core predicate $b$ gives an $\\indcpa$-secure [[public-key-encryption|PKE]] scheme for single-bit messages: $\\pk$ is the permutation index, $\\sk$ its trapdoor, and $\\Enc(\\pk, m) = (f(x), b(x) \\oplus m)$ for $x \\getsr$ the domain — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every trapdoor permutation has a hard-core predicate — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] — so no second hypothesis is needed; longer messages are encrypted bit by bit, at one permutation evaluation per bit.",
+      "sketch": "Decryption recovers $x = f^{-1}(c_1)$ with the trapdoor and outputs $c_2 \\oplus b(x)$. An $\\indcpa$ adversary that distinguishes encryptions of $0$ from encryptions of $1$ is exactly a predictor for $b(x)$ given $f(x)$, and by Goldreich-Levin such a predictor inverts $f$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Trapdoor functions with a hard-core bit yield semantically secure encryption — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]\n- Every one-way, hence every trapdoor, permutation has a hard-core predicate, so the hard-core bit is not an independent hypothesis — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "tdp-to-pke: resolves migration note 'security notion of the conclusion unstated' — the proposed statement fixes it at IND-CPA and names the hard-core bit as the reason.",
+        "tdp-to-pke: resolves migration note 'Modern statements need an ENHANCED TDP even for PKE-from-TDP'. They do not. Enhancement is needed only where a party must sample a domain image *without* learning its preimage (OT, NIZK hidden bits); the encryptor here samples $x$ itself, so a plain TDP suffices. Do not import the enhancement caveat onto this edge.",
+        "tdp-to-pke: `source: folklore` is wrong and should become GM84 (+ Yao82a); RSA78, cited on `content/Assumptions/rsa-assumption.md` for the whole composite bullet, does not prove this link — that misattribution should be fixed on the assumption page too.",
+        "tdp-to-pke: NEW REFERENCE KEY COLLISION — proposing `Yao82a - Theory and Applications of Trapdoor Functions` alongside the existing `Yao82 - Protocols for secure computations`. cryptobib disambiguates them as FOCS:Yao82a / FOCS:Yao82b. Per CLAUDE.md the existing file must not be renamed; a human should decide whether to also retitle the existing page's frontmatter to Yao82b."
+      ]
+    },
+    {
+      "slug": "trapdoor-pseudorandom-generators-to-prg",
+      "path": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The migrated sentence is not a reduction. It equates two *security properties* inside one definition: the pseudorandomness required of a trapdoor PRG just is the pseudorandomness of $(\\Gen,\\Eval)$ read as a keyed PRG over $\\calK \\times \\calT$. That is definitional bookkeeping on `content/Primitives/pseudorandom-generator.md`, not an implication between two objects. Encoded as a hyperedge it is also degenerate: `trapdoor-pseudorandom-generator` is declared in that page's own `variants:` map as the anchor `#trapdoor-pseudorandom-generators`, so both endpoints resolve to the slug `prg` and the edge is a self-loop. Separately, the object-level equivalence the page's title asserts is uninformative under the wiki's current definition: since $\\Eval$ is evaluated once on a single $(t,k)$ drawn by $\\Gen$, any PRG $G$ gives a trapdoor PRG by setting $t = k = s$, $\\Eval(t,k) = G(s)$ and $\\Invert(t,r) = [G(t) = r]$, so the notion collapses. RECOMMENDATION: delete this page and leave the sentence where it is, in the PRG page's Variations section. If a trapdoor-PRG node is wanted, the definition first needs its own page and multi-sample (oracle-access) pseudorandomness like the PRC definition, after which the two directions are separate, non-trivial edges.",
+      "flags": [
+        "trapdoor-pseudorandom-generators-to-prg: HIGH — self-loop edge (`prg` => `prg`); both endpoints resolve to `content/Primitives/pseudorandom-generator.md`. Recommend deletion.",
+        "trapdoor-pseudorandom-generators-to-prg: the wiki's trapdoor-PRG definition is single-evaluation, which trivializes it (a plain PRG satisfies it with $t=k=$ seed). Worth a skeptical-checker pass on `content/Primitives/pseudorandom-generator.md` § Trapdoor pseudorandom generators to decide whether oracle-access pseudorandomness was intended.",
+        "trapdoor-pseudorandom-generators-to-prg: the migrated quote is truncated mid-sentence ('Beyond that, a trapdoor PRG should be'), a migration artefact."
+      ]
+    },
+    {
+      "slug": "unkeyed-depir-to-depir",
+      "path": "content/Reductions/unkeyed-depir-to-depir.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: the same scheme is shown to satisfy a weaker privacy notion, so it uses the hypothesis scheme as an oracle in the strongest possible sense, and any secret-key-privacy adversary is run verbatim as a public-key-privacy adversary. A definitional containment of this shape is fully black-box.",
+      "model": "standard",
+      "model_justification": "No idealized model. Current value correct.",
+      "kind_correct": "implication",
+      "statement": "An unkeyed [[doubly-efficient-pir|DEPIR]] scheme outputs $k = \\bot$, so withholding the key from the adversary changes nothing and the scheme satisfies public-key DEPIR privacy; public-key privacy in turn implies secret-key privacy, since a secret-key adversary is a public-key adversary denied its $k$ input — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The wiki has one page for all three variants: `depir`, `SK-DEPIR` and `PK-DEPIR` are aliases of `content/Primitives/doubly-efficient-pir.md` and `unkeyed-depir` is a variant anchor of the same page, so this edge's endpoints collapse to a single slug. It becomes a real edge only once the three notions have distinct nodes."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "unkeyed-depir-to-depir: NODE COLLAPSE — hypothesis and conclusion both resolve to `depir`; the edge is currently a self-loop. Needs `unkeyed-depir`, `pk-depir`, `sk-depir` as distinct nodes before it says anything.",
+        "unkeyed-depir-to-depir: COMPOSITE CHAIN — the migrated sentence is two links (unkeyed => PK-DEPIR, PK-DEPIR => SK-DEPIR) and per the repo's one-page-per-link rule should be split once the nodes exist.",
+        "unkeyed-depir-to-depir: the claim is genuinely definitional, so `folklore` is honest; BIPW17, cited in the same source sentence, covers only the introduction of the keyed variants and must not be attached to this edge."
+      ]
+    },
+    {
+      "slug": "verifiable-secret-sharing-vss-to-mpc-bgw88",
+      "path": "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BGW88",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation",
+          "authors": "Michael Ben-Or, Shafi Goldwasser, Avi Wigderson",
+          "venue": "STOC 1988",
+          "year": "1988",
+          "url": "https://dl.acm.org/doi/10.1145/62212.62213",
+          "note": "STOC 1988, pp. 1-10. Perfectly secure MPC for any function: t < n/2 against passive corruptions, t < n/3 against active ones, the latter via verifiable secret sharing over Shamir shares."
+        },
+        {
+          "key": "RB89",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority",
+          "authors": "Tal Rabin, Michael Ben-Or",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73014",
+          "note": "cryptobib_key: STOC:RabBen89 (verified in vendor/cryptobib/crypto.bib line 816268, pp. 73-85). Extends the VSS-to-MPC route to t < n/2 with statistical security given a broadcast channel."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BGW88 predates the RTV04 vocabulary and states no reduction class; the protocol is information-theoretic with no adversary-as-oracle security reduction to place in the hierarchy. Leaving it unstated is the honest value.",
+      "model": "standard",
+      "model_justification": "No idealized model, but the setting matters: BGW88 assumes pairwise private channels and unconditional (perfect) security, not a computational assumption. That is recorded in the statement text rather than in `model`.",
+      "kind_correct": "implication",
+      "statement": "[[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing]] of degree-$t$ Shamir shares, together with a share-multiplication and degree-reduction sub-protocol, gives perfectly secure [[secure-multi-party-computation|MPC]] for every function against a malicious adversary corrupting $t < n/3$ of the $n$ parties, over pairwise private channels and with no computational assumption — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].",
+      "sketch": "Every input is dealt with VSS as a degree-$t$ Shamir sharing, so a malicious dealer cannot hand out inconsistent shares. Addition gates are local on shares; a multiplication gate multiplies shares, raising the degree to $2t$, then re-randomizes and truncates back to degree $t$ by a VSS-checked linear combination, which needs $n > 2t$, tightened to $n > 3t$ once Reed-Solomon decoding must also correct $t$ corrupted shares.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- With a broadcast channel and statistical rather than perfect security, verifiable secret sharing with negligible error raises the threshold to $t < n/2$ — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]",
+      "notes_to_keep": [
+        "The corruption threshold $t < n/3$ is a hypothesis of this result that the hyperedge does not carry; `content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md` records it as a separate edge."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "verifiable-secret-sharing-vss-to-mpc-bgw88: MISSING HYPOTHESIS — 'VSS is a sufficient primitive for MPC' is true only with an honest-majority threshold ($t < n/3$ for BGW's perfect malicious security). This edge and `red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88` are two halves of the same theorem and should probably be merged into one conjunctive edge {verifiable-secret-sharing, t<n/3} => MPC rather than kept as two single-hypothesis edges.",
+        "verifiable-secret-sharing-vss-to-mpc-bgw88: MIGRATION BUG — the Notes section contains the literal string 'Citations disagree across pages: [object Object]'. The same artefact appears on other migrated pages (e.g. `enhanced-trapdoor-permutations-to-ot-gkm-00.md`); worth a repo-wide grep.",
+        "verifiable-secret-sharing-vss-to-mpc-bgw88: the first migrated quote ('Used in MPC and distributed key generation') is an application sentence, not part of this reduction, and should be dropped from the Statement section.",
+        "verifiable-secret-sharing-vss-to-mpc-bgw88: `verifiable-secret-sharing` has no page of its own (it is a Variations section of `content/Primitives/secret-sharing.md`)."
+      ]
+    },
+    {
+      "slug": "module-svp-to-module-lwe-ls15",
+      "path": "content/Reductions/module-svp-to-module-lwe-ls15.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LS15",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LS15 - Worst-case to average-case reductions for module lattices",
+          "authors": "Adeline Langlois, Damien Stehlé",
+          "venue": "Designs, Codes and Cryptography 75(3), 2015",
+          "year": "2015",
+          "url": "https://doi.org/10.1007/s10623-014-9938-4",
+          "note": "Pages 565-599; cryptobib_key DCC:LanSte15 (verified in vendor/cryptobib/crypto.bib line 933749). eprint 2012/090. The paper gives a classical reduction from worst-case Module-SIVP to Module-SIS and a QUANTUM reduction from worst-case Module-SIVP to Module-LWE, in both its search and decision forms."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "A worst-case-to-average-case lattice reduction is not a construction of one cryptographic primitive from another, so the RTV04 hierarchy does not apply cleanly; LS15 places it in no class. Matches how the wiki already records the analogous Regev edges (`sivp-to-lwe-reg05`, `gapsvp-to-lwe-reg05`).",
+      "model": "quantum",
+      "model_justification": "CHANGE REQUIRED: the page currently says `model: standard`. LS15's Module-LWE reduction is quantum, following Regev's iterative quantum step — the classical reduction in that paper is the one to Module-SIS, not to Module-LWE. The wiki already uses `model: quantum` for the same-shaped `sivp-to-lwe-reg05` and `ideal-svp-to-ring-lwe-lpr10`.",
+      "kind_correct": "implication",
+      "statement": "Approximating the shortest independent vectors problem to within $\\poly(n)$ factors, in the worst case, on rank-$d$ module lattices over the ring of integers of a degree-$n$ number field reduces in quantum polynomial time to solving average-case [[learning-with-errors#module-lwe|Module LWE]] of rank $d$, in both its search and its decision form — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ recovers the [[learning-with-errors#ring-lwe|Ring LWE]] reduction and the base ring $\\ZZ$ recovers plain [[learning-with-errors|LWE]].",
+      "sketch": "The reduction follows Regev's iterative quantum step with $\\ZZ^n$ replaced by a rank-$d$ module: a Module-LWE oracle is used to solve bounded-distance decoding on the dual module lattice, a quantum Fourier step turns that solver into a sampler of shorter Gaussian vectors in the primal, and iterating drives the width down to the target approximation factor.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "module-svp-to-module-lwe-ls15: HIGH — `model:` must change from `standard` to `quantum`. The Module-LWE half of LS15 is a quantum reduction; only the Module-SIS half is classical.",
+        "module-svp-to-module-lwe-ls15: the page title and hypothesis display say 'Module-SVP', but LS15's worst-case problem is the module shortest-independent-vectors / generalized-independent-vectors problem (Mod-SIVP / Mod-GIVP), not SVP. The hypothesis page `content/Assumptions/module-lattice-problems.md` is a TODO stub carrying `Module-SVP` as an alias; that alias is the source of the wrong display name.",
+        "module-svp-to-module-lwe-ls15: the migrated sentence's direction language ('Hardness of Module LWE reduces to worst-case problems on module lattices') is backwards relative to the repo's orientation; the proposed statement states it in the hypothesis-implies-conclusion direction."
+      ]
+    },
+    {
+      "slug": "module-svp-to-module-sis-ls15",
+      "path": "content/Reductions/module-svp-to-module-sis-ls15.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LS15",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LS15 - Worst-case to average-case reductions for module lattices",
+          "authors": "Adeline Langlois, Damien Stehlé",
+          "venue": "Designs, Codes and Cryptography 75(3), 2015",
+          "year": "2015",
+          "url": "https://doi.org/10.1007/s10623-014-9938-4",
+          "note": "Pages 565-599; cryptobib_key DCC:LanSte15. The Module-SIS reduction is classical, unlike the quantum Module-LWE one in the same paper."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "As for the companion Module-LWE edge: a worst-case-to-average-case lattice reduction is outside the RTV04 primitive hierarchy and LS15 assigns it no class.",
+      "model": "standard",
+      "model_justification": "Correct as set: the Module-SIS reduction in LS15 is classical, so no idealized or quantum model is involved. Worth stating explicitly in the page body, since the companion Module-LWE edge from the same paper is quantum.",
+      "kind_correct": "implication",
+      "statement": "Approximating the shortest independent vectors problem to within $\\poly(n)$ factors, in the worst case, on rank-$d$ module lattices over the ring of integers of a degree-$n$ number field reduces classically to solving average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ recovers [[shortest-integer-solution#ring-sis|Ring-SIS]] and the base ring $\\ZZ$ recovers plain [[shortest-integer-solution|SIS]].",
+      "sketch": "A Module-SIS solver is used, as in Ajtai's reduction, to shorten a basis of an arbitrary rank-$d$ module lattice: random module elements are reduced modulo the target lattice, the solver returns a short module combination that vanishes, and that combination yields a lattice vector shorter than the current basis; iterating gives short independent vectors.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "module-svp-to-module-sis-ls15: same naming issue as the Module-LWE edge — the worst-case problem in LS15 is Module-SIVP (Mod-GIVP), not Module-SVP; the wrong name comes from the `Module-SVP` alias on the stub `content/Assumptions/module-lattice-problems.md`.",
+        "module-svp-to-module-sis-ls15: the second half of the migrated quote ('Module-SIS is the hardness assumption underlying ... Dilithium (ML-DSA, FIPS 204)') is a deployment claim, not part of this reduction, and belongs on the assumption page rather than in this Statement section.",
+        "module-svp-to-module-sis-ls15: `model: standard` is correct here but `model: standard` on the sibling `module-svp-to-module-lwe-ls15` is not — the two halves of LS15 differ (classical vs quantum). Fix them together."
+      ]
+    },
+    {
+      "slug": "zero-bit-prc-to-watermarking-cg24",
+      "path": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CG24",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CG24 - Pseudorandom Error-Correcting Codes",
+          "authors": "Miranda Christ, Sam Gunn",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://eprint.iacr.org/2024/235",
+          "note": "Abstract, verified: 'As our primary application of pseudorandom codes, we present an undetectable watermarking scheme for outputs of language models that is robust to cropping and a constant rate of random substitutions and deletions.' cryptobib_key C:ChrGun24."
+        },
+        {
+          "key": "GM24",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GM24 - Edit Distance Robust Watermarks for Language Models",
+          "authors": "Noah Golowich, Ankur Moitra",
+          "venue": "NeurIPS 2024",
+          "year": "2024",
+          "url": "https://eprint.iacr.org/2024/898",
+          "note": "Strengthens robustness from random substitutions and deletions to a constant rate of adversarial edits measured in edit distance."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction: the watermarking scheme calls the zero-bit PRC's $\\Enc$ to produce a codeword and its $\\Dec$ to test a candidate text, using both only as oracles and never inspecting the code. One fixed reduction: any distinguisher between watermarked and unwatermarked output is run as an oracle against PRC pseudorandomness, and any adversary whose edits defeat detection is run as an oracle to produce a corrupted codeword the PRC decoder must handle. That is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "No idealized model; the language model is a parameter of the construction, not an oracle assumption. Current value correct.",
+      "kind_correct": "implication",
+      "statement": "A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] yields a [[language-model-watermarking|watermarking scheme]] for language model outputs that is undetectable — any number of watermarked responses are computationally indistinguishable from the original model's own output — and whose detector still fires after cropping and a constant rate of random substitutions and deletions, provided the model's response distribution carries enough entropy — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].",
+      "sketch": "The generator draws a codeword $c \\gets \\Enc_k$ and uses its bits as the randomness driving token sampling, so the emitted text carries $c$ without changing its distribution; detection recovers the bits from a candidate text and runs $\\Dec_k$. Undetectability is exactly PRC pseudorandomness and robustness is exactly PRC robustness against the substitution-and-deletion channel that text edits induce on the embedded codeword.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Robustness strengthened from random substitutions and deletions to a constant rate of adversarial edits, measured in edit distance — [[GM24 - Edit Distance Robust Watermarks for Language Models|GM24]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "zero-bit-prc-to-watermarking-cg24: OVERCLAIM in the migrated bullet — 'robust to paraphrasing attacks' is not what CG24 prove. Their theorem covers cropping and a constant rate of *random* substitutions and deletions; adversarial paraphrase is not covered (edit-distance robustness is GM24). The same bullet is duplicated at `content/Primitives/pseudorandom-error-correcting-code.md` line 53 and should be corrected there too.",
+        "zero-bit-prc-to-watermarking-cg24: the entropy precondition on the model's response distribution is load-bearing for detection and is absent from the migrated bullet.",
+        "zero-bit-prc-to-watermarking-cg24: migration note claiming the conclusion has no page is stale — `content/Primitives/language-model-watermarking.md` exists (stub, TODO syntax/security definition). The reduction cannot be checked precisely until that page states a watermarking definition.",
+        "zero-bit-prc-to-watermarking-cg24: OUT OF BATCH but same paper — `red-lwe-to-prc-cg24` and `red-lwe-to-zero-bit-prc-cg24` attribute CG24's codes to LWE. CG24's abstract states pseudorandomness rests on $2^{O(\\sqrt{n})}$-hardness of LPN, or polynomial hardness of LPN plus the planted XOR problem at low density. Those two edges look mis-hypothesized (a sibling `subexponential-lpn-to-prc-cg24` already exists)."
+      ]
+    },
+    {
+      "slug": "zero-bit-prc-to-trapdoor-pseudorandom-generators",
+      "path": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity map on algorithms: $\\Eval$ is the PRC encoder and $\\Invert$ is the PRC decoder's accept/reject bit, so the hypothesis scheme is used only as an oracle, and each security property of the trapdoor PRG is the corresponding PRC property applied verbatim, so any adversary is passed through unchanged.",
+      "model": "standard",
+      "model_justification": "No idealized model. Current value correct.",
+      "kind_correct": "implication",
+      "statement": "A zero-bit [[pseudorandom-error-correcting-code|PRC]] $(\\Gen, \\Enc, \\Dec)$ is a [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor pseudorandom generator]]: take the trapdoor $t$ to be the PRC key and the key $k$ to be the encoder's randomness, so that $\\Eval(t,k)$ is a codeword and $\\Invert(t,r) = [\\Dec_t(r) \\neq \\bot]$. PRC pseudorandomness, decoding of honest codewords and rejection of uniform strings give the trapdoor PRG its pseudorandomness, completeness and soundness; PRC robustness strengthens the completeness to survive any $\\varepsilon$-bounded channel — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The correspondence is exact for pseudorandomness and completeness but only approximate for soundness: the PRC's soundness quantifies over every candidate string with the key random, while the trapdoor PRG's quantifies over every trapdoor with the string random. Averaging gives the trapdoor PRG property for all but a negligible fraction of keys, not for every trapdoor."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "zero-bit-prc-to-trapdoor-pseudorandom-generators: the conclusion `trapdoor-pseudorandom-generator` is a variant anchor of `content/Primitives/pseudorandom-generator.md` with no page of its own, and the definition there is single-evaluation (see the flags on `trapdoor-pseudorandom-generators-to-prg`). The edge is meaningful but its target node is under-defined.",
+        "zero-bit-prc-to-trapdoor-pseudorandom-generators: 'can be viewed as' in the migrated text is a viewpoint claim; the proposed statement turns it into an explicit syntactic correspondence with the property-by-property mapping spelled out, which is what makes the folklore label defensible.",
+        "zero-bit-prc-to-trapdoor-pseudorandom-generators: DEFINITION BUG on the hypothesis page (skeptical-checker lane) — `content/Primitives/pseudorandom-error-correcting-code.md` § Soundness states $\\Pr_k[\\Dec_k(\\hat c) = \\bot] \\le \\nu$, i.e. that decoding almost never rejects. The inequality is inverted; soundness should bound the false-accept probability, $\\Pr_k[\\Dec_k(\\hat c) \\neq \\bot] \\le \\nu$. This edge's soundness correspondence only works under the corrected form."
+      ]
+    }
+  ]
+}

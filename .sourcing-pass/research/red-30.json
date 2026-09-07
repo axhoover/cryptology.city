@@ -1,0 +1,372 @@
+{
+ "batch": "red-30",
+ "pages": [
+  {
+   "slug": "sis-to-hash-function-ajt96",
+   "path": "content/Reductions/sis-to-hash-function-ajt96.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Ajt96",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Ajt96 - Generating hard instances of lattice problems",
+     "authors": "Miklós Ajtai",
+     "venue": "STOC 1996",
+     "year": "1996",
+     "url": "https://dl.acm.org/doi/10.1145/237814.237838",
+     "note": "Introduces the function family f_A(z) = Az mod q on short inputs and its average-case hardness. ECCC TR96-007."
+    },
+    {
+     "key": "GGH96",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "GGH96 - Collision-Free Hashing from Lattice Problems",
+     "authors": "Oded Goldreich, Shafi Goldwasser, Shai Halevi",
+     "venue": "Cryptology ePrint Archive, Report 1996/009 (later in Studies in Complexity and Cryptography, LNCS 6650, 2011)",
+     "year": "1996",
+     "url": "https://eprint.iacr.org/1996/009",
+     "note": "Verified against vendor/cryptobib entry EPRINT:GolGolHal96a. Makes the collision-resistance (rather than one-wayness) of Ajtai's function family explicit and simplifies the argument; the standard citation for 'Ajtai's hash is collision-resistant'."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "One fixed construction — the function family is the SIS matrix itself — and one fixed reduction that runs any collision-finder once as an oracle and outputs the difference of the two colliding inputs. It works for every adversary with noticeable success probability, which is the RTV04 fully-black-box shape, degenerately instantiated for an assumption-to-primitive edge.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "Fix $n, m, q$ with $m > n\\log q$. If [[shortest-integer-solution|SIS]] is hard for $(n, m, q, \\beta)$ with $\\beta \\ge \\sqrt{m}$, then $\\{f_{\\mathbf{A}} : \\bits^m \\to \\ZZ_q^n,\\ \\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z} \\bmod q\\}$, keyed by a uniform $\\mathbf{A} \\in \\ZZ_q^{n \\times m}$, is a compressing [[hash-function|collision-resistant hash function]] family: a collision $f_{\\mathbf{A}}(\\mathbf{z}) = f_{\\mathbf{A}}(\\mathbf{z}')$ with $\\mathbf{z} \\neq \\mathbf{z}'$ gives $\\mathbf{A}(\\mathbf{z}-\\mathbf{z}') = \\mathbf{0} \\pmod q$ with $\\mathbf{z}-\\mathbf{z}' \\in \\{-1,0,1\\}^m$ nonzero, which is a SIS solution of Euclidean norm at most $\\sqrt{m}$ — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]].",
+   "sketch": "The key is the matrix $\\mathbf{A}$ and the hash of $\\mathbf{z}$ is $\\mathbf{A}\\mathbf{z} \\bmod q$, compressing $m$ bits to $n\\log q < m$ bits, so collisions exist by pigeonhole. The reduction runs the collision-finder once and subtracts its two outputs; the difference is a nonzero short kernel vector, i.e. a SIS solution, so the collision advantage is at most the SIS advantage.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Collision resistance of Ajtai's function family, and its formulation as a collision-free hash, are made explicit — [[GGH96 - Collision-Free Hashing from Lattice Problems|GGH96]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "RESOLVES the SUSPECTED NORM ERROR recorded in .reductions/suspected-errors.json (severity low, affectsEdges 'red-sis-to-crhf-ajt96' — note the stale id; this page's frontmatter id is now 'red-sis-to-hash-function-ajt96', so the entry no longer matches by id). The migrated form restricts inputs to {0,...,floor(beta/2)}^m, for which ||z - z'|| <= beta holds only in the L-infinity norm, while the SIS game on shortest-integer-solution.md names no norm. The statement above restates the family with binary inputs, where the difference lies in {-1,0,1}^m and the L2 bound sqrt(m) is unambiguous. The unnamed norm in the SIS game itself (shortest-integer-solution.md line 27) is a separate defect and still needs the skeptical-checker.",
+    "The source sentence on shortest-integer-solution.md links [[collision-resistant-hash-function|...]], which has no page and resolves only through an alias on hash-function.md — a page that also carries the OWF alias, so the edge lands on a node conflating CRHF with OWF. The statement above links [[hash-function|...]] directly; the node conflation itself remains unfixed and is a reference-fixer/structural issue.",
+    "Ajt96 proves the average-case one-wayness/short-vector hardness; the reading of the same function as a collision-resistant hash is GGH96 (recorded as improvement). Keeping Ajt96 as `original` matches the page slug suffix."
+   ]
+  },
+  {
+   "slug": "sivp-to-lwe-reg05",
+   "path": "content/Reductions/sivp-to-lwe-reg05.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Reg05",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography",
+     "authors": "Oded Regev",
+     "venue": "STOC 2005",
+     "year": "2005",
+     "url": "https://doi.org/10.1145/1060590.1060603",
+     "note": "Theorem 1.1 states the quantum worst-case reduction for GapSVP and SIVP simultaneously. Journal version: J. ACM 56(6), 2009."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "Worst-case-to-average-case oracle reduction: the quantum reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step, and works for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape. Matches the sibling gapsvp-to-lwe-reg05.",
+   "model": "quantum",
+   "model_justification": "Reg05's reduction is quantum: the LWE oracle is used classically to solve bounded-distance decoding on the dual lattice, but the step that converts the BDD solver into narrower discrete-Gaussian samples is a quantum algorithm. The frontmatter's `quantum` is correct.",
+   "kind_correct": "implication",
+   "statement": "There is a polynomial-time quantum reduction from approximating worst-case [[shortest-independent-vectors-problem|SIVP]] on $n$-dimensional lattices to within $\\tilde{O}(n/\\alpha)$ factors to solving [[learning-with-errors|LWE]] with modulus $q$ and discrete Gaussian error of parameter $\\alpha$, for $\\alpha q > 2\\sqrt{n}$, on a noticeable fraction of instances — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]. Hardness of worst-case SIVP against efficient quantum algorithms therefore implies average-case hardness of search and decision LWE.",
+   "sketch": "The reduction alternates two steps: discrete Gaussian samples from the input lattice let the LWE oracle solve bounded-distance decoding on the dual lattice, and a quantum step turns that BDD solver into a sampler of discrete Gaussians of smaller width. Iterating drives the width down to within $\\tilde{O}(n/\\alpha)$ of the smoothing parameter, at which point the samples yield $n$ short linearly independent vectors.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "DO NOT copy the classical dequantizations from the sibling page onto this one: Peikert (STOC 2009) and Brakerski-Langlois-Peikert-Regev-Stehlé (STOC 2013) give classical worst-case reductions from GapSVP only. No classical reduction from SIVP to LWE is known, and the quantum step is what the SIVP form depends on. Those two papers are recorded as improvements on gapsvp-to-lwe-reg05 (red-11).",
+    "The migration note 'SIVP has no wiki page; identifier is ad hoc' is stale — content/Assumptions/shortest-independent-vectors-problem.md now exists with id `sivp` (status stub, TODO for syntax/definition), and this page's link resolves. The note can be dropped; the stub page still needs a definition.",
+    "The migrated bullet packs the GapSVP and SIVP reductions together; they are disjunctive and correctly recorded as two pages. Both hold under the same Reg05 theorem and parameters."
+   ]
+  },
+  {
+   "slug": "sivp-to-sis-ajt96",
+   "path": "content/Reductions/sivp-to-sis-ajt96.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Ajt96",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Ajt96 - Generating hard instances of lattice problems",
+     "authors": "Miklós Ajtai",
+     "venue": "STOC 1996",
+     "year": "1996",
+     "url": "https://dl.acm.org/doi/10.1145/237814.237838",
+     "note": "Ajtai's third worst-case problem is the shortest-basis problem (find a basis whose longest vector is within a polynomial factor of optimal), which is equivalent to SIVP up to a factor n. ECCC TR96-007."
+    },
+    {
+     "key": "MR07",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures",
+     "authors": "Daniele Micciancio, Oded Regev",
+     "venue": "SIAM Journal on Computing 37(1):267-302 (preliminary version FOCS 2004)",
+     "year": "2007",
+     "url": "https://doi.org/10.1137/S0097539705447360",
+     "note": "Tightens Ajtai's polynomial factor to beta * Otilde(sqrt(n)) for SIVP and is the usual modern citation for the SIS worst-case connection. Also proposed as an improvement on gapsvp-to-sis-ajt96 (red-11) — same reference page."
+    }
+   ],
+   "class": "fully-black-box",
+   "class_justification": "Worst-case-to-average-case oracle reduction: the worst-case algorithm generates random SIS instances from its input lattice and invokes an arbitrary average-case SIS solver only as an oracle, succeeding for every solver with noticeable success probability. No construction component; this is the fully-black-box shape, and it matches the sibling gapsvp-to-sis-ajt96.",
+   "model": "standard",
+   "model_justification": "The reduction is entirely classical, unlike the quantum worst-case reduction for LWE.",
+   "kind_correct": "implication",
+   "statement": "An efficient algorithm solving [[shortest-integer-solution|SIS]] on average over a uniformly random $\\mathbf{A} \\in \\ZZ_q^{n \\times m}$ yields an efficient classical algorithm that, on every $n$-dimensional lattice, outputs $n$ linearly independent vectors whose longest is within a fixed polynomial factor $n^{O(1)}$ of the optimum — worst-case [[shortest-independent-vectors-problem|SIVP]] — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Worst-case hardness of $\\mathrm{SIVP}_\\gamma$ for $\\gamma = n^{O(1)}$ therefore implies average-case hardness of SIS.",
+   "sketch": "Sample lattice points from a wide distribution over the input lattice; their coordinates in a fixed basis, reduced modulo $q$, form a nearly uniform SIS matrix $\\mathbf{A}$, and a short $\\mathbf{z}$ with $\\mathbf{A}\\mathbf{z} = \\mathbf{0} \\bmod q$ recombines the samples into a lattice vector shorter than those started from. Iterating drives the length down until a short basis, hence a short independent set, is obtained.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- The worst-case approximation factor is tightened to $\\beta \\cdot \\tilde{O}(\\sqrt{n})$ for SIVP, for any $m = \\poly(n)$ and $q \\ge \\beta \\cdot \\omega(\\sqrt{n \\log n})$, using Gaussian measures — [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]]",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Attribution confirmed: Ajt96 lists three worst-case problems, the third being 'find a basis whose length (max of its elements) is smallest possible up to a polynomial factor'. That is the shortest-basis problem, equivalent to SIVP up to a factor n by Ajtai's own lemma (an independent set of max length M yields a basis of length nM), so the SIVP form is genuinely in Ajt96 — unlike the GapSVP form, where the sibling page's migration note about Micciancio-Regev attribution applies more sharply.",
+    "The migration note 'SIVP has no wiki page' is stale; content/Assumptions/shortest-independent-vectors-problem.md now exists (stub).",
+    "MR07 is proposed here and also by red-11 for gapsvp-to-sis-ajt96 — one reference page, two citing edges; dedupe before creating the stub."
+   ]
+  },
+  {
+   "slug": "snark-to-hash-function",
+   "path": "content/Reductions/snark-to-hash-function.md",
+   "disposition": "undetermined",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "Conclusion CRHF routes to hash-function.md, which also carries the OWF alias — the OWF/CRHF conflation makes this edge ambiguous in the graph."
+   ],
+   "status_suggestion": "stub",
+   "confidence": "medium",
+   "wrong_reason": "",
+   "flags": [
+    "HIGH PRIORITY — snark-to-hash-function: the '— standard' folklore label is misapplied AND the natural attribution does not establish the edge. Bitansky-Canetti-Chiesa-Tromer, 'From extractable collision resistance to succinct non-interactive arguments of knowledge, and back again' (ITCS 2012, pp. 326-349, doi 10.1145/2090236.2090263, eprint 2011/443; verified in vendor/cryptobib as ITCS:BCCT12) prove the converse as 'SNARKs *and CRHs* imply proximity ECRHs' — collision resistance is a HYPOTHESIS of that theorem, not its conclusion, so BCCT12 does not give SNARK => CRH.",
+    "snark-to-hash-function: no reduction building a plain CRH from a generic succinct argument is known to me. Compression plus knowledge extraction does not yield collision resistance (that is precisely why ECRH is defined as a CRH that is additionally extractable, rather than derived from extractability), and the implication cannot be routed via the one-way function a SNARK for a hard language does give, since CRH is black-box separated from OWF (Simon, EUROCRYPT 1998). Searched eprint/DBLP/web for a theorem of the form 'succinct arguments imply collision resistance' and found none.",
+    "snark-to-hash-function: recommend deleting this edge or re-typing it as the attributable near-equivalence of BCCT12 — 'ECRH => SNARK' as one page and 'SNARK + CRH => (proximity) ECRH' as its converse — which would also need an ECRH object page. Left `undetermined` rather than `wrong_claim` because no separation is known either; the claim is simply unproven, and the wiki currently asserts it as standard.",
+    "The migrated bullet's own side conditions (succinctness relative to the witness; a language with long witnesses) are necessary for any version of this claim and are absent from the page."
+   ]
+  },
+  {
+   "slug": "snark-to-recursive-snarks",
+   "path": "content/Reductions/snark-to-recursive-snarks.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Val08",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency",
+     "authors": "Paul Valiant",
+     "venue": "TCC 2008, LNCS 4948, pp. 1-18",
+     "year": "2008",
+     "url": "https://doi.org/10.1007/978-3-540-78524-8_1",
+     "note": "Exact title uses a slash: 'Incrementally Verifiable Computation or Proofs of Knowledge Imply Time/Space Efficiency'; the slash is removed in the filename. Verified against vendor/cryptobib entry TCC:Valiant08. Introduces IVC and realizes it by recursively composing CS proofs of knowledge in the random-oracle model. TCC 2019 Test-of-Time award."
+    },
+    {
+     "key": "BCCT13",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data",
+     "authors": "Nir Bitansky, Ran Canetti, Alessandro Chiesa, Eran Tromer",
+     "venue": "STOC 2013, pp. 111-120",
+     "year": "2013",
+     "url": "https://doi.org/10.1145/2488608.2488623",
+     "note": "eprint 2012/095. Verified against vendor/cryptobib entry STOC:BCCT13. Plain-model recursive composition: any (preprocessing) SNARK for NP gives PCD for constant-depth compliance graphs, hence IVC for polynomial-time computations, and bootstraps preprocessing SNARKs into fully succinct ones."
+    }
+   ],
+   "class": "free",
+   "class_justification": "Recursive composition arithmetizes the hypothesis SNARK's own verifier into the statement being proved, so the construction depends on the scheme's code rather than on oracle access to it; it is not fully-black-box. Neither Val08 nor BCCT13 place the reduction in an RTV class, and the schema's guidance for an unclassified non-black-box construction is `free`. The frontmatter's `free` is kept.",
+   "model": "standard",
+   "model_justification": "BCCT13's composition is in the plain model, taking any SNARK (whose own CRS is part of the primitive, not an idealized model) as the hypothesis. Val08's original instantiation is in the random-oracle model; if the page is ever re-scoped to that construction the model becomes `rom`.",
+   "kind_correct": "implication",
+   "statement": "A [[succinct-argument|SNARK]] for NP can be composed with itself — each proof attesting that one computation step was executed correctly and that the previous proof verified — yielding proof-carrying data for constant-depth compliance graphs and hence [[succinct-argument#recursive-snarks|incrementally verifiable computation]] for polynomial-time computations, where the proof size and verifier time stay independent of the number of steps — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]. The composition requires the SNARK's own verifier to be expressible in the relation the SNARK proves, and nested knowledge extraction costs a polynomial blow-up in extractor size per level, so generic composition is applied at constant depth and polynomial depth is reached through a constant-depth tree of steps. IVC was introduced, and first realized by recursively composing CS proofs of knowledge in the random-oracle model, by [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]].",
+   "sketch": "For a step function $F$, the prover at step $t$ uses the SNARK to prove the statement “there exist $s_{t-1}$ and $\\pi_{t-1}$ with $\\Vrfy(\\crs, s_{t-1}, \\pi_{t-1}) = 1$ and $s_t = F(s_{t-1})$”, so a single short proof carries the whole history. Knowledge soundness is argued by applying the SNARK extractor to the outer proof to recover the inner one and repeating down the chain, which is why the extractor's cost compounds with depth.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "- Recursive composition of any SNARK for NP removes the random oracle and the non-standard oracle methodology of the original IVC construction, giving PCD for constant-depth graphs and IVC for polynomial-time computations in the plain model — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]",
+   "notes_to_keep": [
+    "The hypothesis is really 'a SNARK whose verifier is efficiently arithmetizable' (recursion-friendly), not a generic SNARK; the typed hypothesis loses that qualifier."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "Resolves the migration note 'MISSING CITATION (IVC from recursive SNARKs is Val08 / BCCT13)': both are now sourced, with BCCT13 as the plain-model theorem the statement asserts and Val08 as the origin of IVC.",
+    "Candidate barrier page, not recorded here: Hall-Andersen and Nielsen, 'On Valiant's Conjecture: Impossibility of Incrementally Verifiable Computation from Random Oracles' (EUROCRYPT 2023, pp. 438-469, doi 10.1007/978-3-031-30617-4_15, eprint 2022/542; verified in vendor/cryptobib as EC:HalNie23) rule out IVC from random oracles alone, confirming Valiant's conjecture. It does not contradict this edge, whose source is BCCT13 in the plain model, but it does bound the Val08 route.",
+    "The conclusion object `incremental-verifiable-computation` is a variant anchor on succinct-argument.md (#recursive-snarks) whose two-sentence body defines nothing; IVC has no syntax or security definition anywhere on the wiki, so the conclusion of this edge is currently undefined.",
+    "`class: free` is kept, but note it is the schema's fallback for an unclassified non-black-box construction, not a positive claim from either source."
+   ]
+  },
+  {
+   "slug": "snark-to-nizk",
+   "path": "content/Reductions/snark-to-nizk.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "medium",
+   "wrong_reason": "As typed — bare SNARK => NIZK — this is not a theorem. content/Primitives/succinct-argument.md makes zero-knowledge an explicitly optional property ('### Zero-knowledge (optional)'), and a succinct argument without it is not a NIZK: nothing stops the proof from revealing the witness, and succinctness alone does not hide it (a proof may carry the first bits of $w$). No construction of a NIZK for NP from a generic succinct argument is known; NIZK for NP in the CRS model is known only from specific assumptions (trapdoor permutations — BFM88, LWE, pairings), none of which follows from succinctness, and generic ZK compilation of an argument system needs NIZK-style machinery it would be circular to assume here. What the migrated text actually records is the definitional observation on non-interactive-zero-knowledge.md that a *zk*-SNARK is a NIZK argument with succinctness and knowledge soundness added — a containment, not a reduction. The supportable edge is 'zk-SNARK => NIZK' with the hypothesis re-typed to the zero-knowledge variant, and it is folklore/definitional.",
+   "flags": [
+    "HIGH PRIORITY — snark-to-nizk: recommend re-typing the hypothesis to the zk-SNARK variant (succinct-argument.md carries 'zk-SNARK' only as an alias and a '## zk-SNARK' section; there is no `zk-snark` entry in its `variants:` map, so the anchor has to be added before the edge can point at it), then marking the edge folklore — or deleting it, since the containment is already stated in prose on both primitive pages.",
+    "snark-to-nizk: the wiki's `snark` node conflates SNARK and zk-SNARK (succinct-argument.md lists 'zk-SNARK' among its aliases while its own Properties section makes zero-knowledge optional). Every edge into or out of that node inherits the ambiguity; worth a structural issue for refactor-simplifier.",
+    "snark-to-nizk: preserve for the skeptical-checker — content/Primitives/non-interactive-zero-knowledge.md line 54 claims zk-SNARK 'Verification is fast (polylogarithmic in the statement size)'. Verification is polylogarithmic in the circuit/witness size but is necessarily at least linear in the statement length; succinct-argument.md states it correctly as $\\poly(\\secpar, |x|) \\cdot \\polylog(|w|, |C|)$. The two pages disagree."
+   ]
+  },
+  {
+   "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
+   "path": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "Gen09",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "Gen09 - Fully homomorphic encryption using ideal lattices",
+     "authors": "Craig Gentry",
+     "venue": "STOC 2009",
+     "year": "2009",
+     "url": "https://doi.org/10.1145/1536414.1536440",
+     "note": "Bootstrapping theorem: a bootstrappable SHE scheme yields leveled FHE unconditionally (key chain) and unbounded FHE under circular security."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "The transformation feeds the hypothesis scheme's own decryption circuit to its $\\Eval$ algorithm, so the construction depends on that scheme's code rather than on oracle access to it and is not fully-black-box; neither Gen09 nor follow-up work places it in an RTV class. Matches the class recorded on the sibling page circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "A [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme that is *bootstrappable* — able to homomorphically evaluate its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth $L$, by publishing a chain of $L+1$ independent key pairs with each secret key encrypted under the next; with a single key pair the same construction gives unbounded [[homomorphic-encryption|FHE]] under the additional assumption of [[circular-security|circular security]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].",
+   "sketch": "Refreshing a noisy ciphertext $c$ means homomorphically evaluating $\\Dec(\\cdot, c)$ on an encryption of the secret key: the result is a fresh encryption of the same plaintext whose noise depends on the depth of the decryption circuit rather than on the computation performed so far. Interleaving a refresh after each gate makes the evaluable depth unbounded.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "No wiki page for SHE or FHE as objects distinct from `he`: the hypothesis and the conclusion both anchor into homomorphic-encryption.md, so the edge renders as a near self-loop."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "HIGH PRIORITY — DUPLICATE EDGE: content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md records the same Gen09 theorem with circular security attached as a second hypothesis (researched in red-04, also sourced Gen09, class unstated). Per the repo rule that jointly required hypotheses live on one page, the two cannot both be right: either delete this page in favour of the two-hypothesis one, or keep this one with conclusion re-typed to `leveled-fully-homomorphic-encryption` — which is exactly the part of Gen09's theorem that holds WITHOUT circular security. The statement above is written so that either resolution is a mechanical edit.",
+    "Bootstrappability is a genuine extra hypothesis on the SHE scheme (it must evaluate its own augmented decryption circuit). It is stated in prose above but is not expressible in the `hypotheses:` list — the same schema gap flagged on the sibling page.",
+    "With the conclusion left as the umbrella `he` node, the edge is also trivially true in a useless way (a SHE scheme is a homomorphic encryption scheme), which is a second reason to re-type the conclusion."
+   ]
+  },
+  {
+   "slug": "sparse-learning-parity-with-noise-to-lpn",
+   "path": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "unstated",
+   "class_justification": "",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "The edge asserts that hardness of $d$-sparse LPN implies hardness of standard LPN, and its whole justification is the migrated clause 'Sparse LPN with $d = k$ reduces to standard LPN'. That clause is false under the definition given on the same page, where each row is sampled uniformly from vectors of Hamming weight EXACTLY $d$: at $d = k$ the only such vector is the all-ones vector, so $\\mathbf{A}$ is the all-ones matrix, not a uniform one. Under the presumably intended 'weight at most $d$' reading, $d = k$ does recover uniform $\\mathbf{A}$, but then the edge is the identity at one degenerate parameter and says nothing about the $d = O(\\log k)$ regime the page is about. In the direction recorded here the reduction would have to turn a standard-LPN solver into a sparse-LPN solver, and no such reduction is known: the sparse matrix distribution cannot be embedded into a uniform one. The literature studies the opposite direction, and gets it only conditionally — Liu, Yan, Yu and Zhao, 'On the Hardness of Sparsely Learning Parity with Noise' (ProvSec 2017, pp. 261-267, doi 10.1007/978-3-319-68637-0_16; verified in vendor/cryptobib as PROVSEC:LYYZ17) prove a win-win: either standard-LPN hardness implies sparse-LPN hardness at the same noise rate, or there are new black-box constructions of PKE and OT from standard LPN. Finally the edge is unparameterized: sparse LPN hardness depends on both $d$ and the sample count $m$ (it is broken outright for $d = O(\\log k)$ once $m$ is large enough), and the page binds neither, so there is no parameter setting at which the recorded implication is a theorem.",
+   "flags": [
+    "HIGH PRIORITY — sparse-learning-parity-with-noise-to-lpn: recommend deleting the edge. If a relation between the two assumptions is wanted, it must be parameterized and it runs the other way (LPN => Sparse LPN, conditionally, per LYYZ17); do not simply flip the frontmatter, since that direction is also not unconditional.",
+    "sparse-learning-parity-with-noise-to-lpn: the underlying defect is on content/Assumptions/learning-parity-with-noise.md lines 88/95/112 — 'Hamming weight exactly $d$' in the definition versus a $d = k$ remark that only makes sense for 'weight at most $d$'. Send to the skeptical-checker regardless of what happens to this edge; the migration already recorded it as a SUSPECTED MATHEMATICAL ERROR and it is confirmed here.",
+    "sparse-learning-parity-with-noise-to-lpn: the trailing clause 'so sparse hardness is a stronger assumption for smaller $d$' is a second, unstated relation and is a heuristic ordering of assumptions, not a reduction; it should not be migrated into a hyperedge either."
+   ]
+  },
+  {
+   "slug": "sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
+   "path": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "BCM+25",
+     "role": "original",
+     "exists_in_wiki": false,
+     "ref_file_title": "BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN",
+     "authors": "Lennart Braun, Geoffroy Couteau, Kelsey Melissaris, Mahshid Riahinia, Elahe Sadeghi",
+     "venue": "ASIACRYPT 2025, pp. 439-473",
+     "year": "2025",
+     "url": "https://doi.org/10.1007/978-981-95-5122-4_14",
+     "note": "eprint 2025/1644. Verified against vendor/cryptobib entry AC:BCMRS25. Abstract: 'a new and efficient pseudorandom correlation function whose security reduces to the sparse LPN assumption in the random oracle model', plus an analysis of concrete sparse-LPN parameters. cryptobib_key: AC:BCMRS25."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "BCM+25 do not classify the reduction, and the recorded hypothesis set is incomplete: the construction is proved in the random-oracle model and uses function-secret-sharing machinery alongside sparse LPN. The conclusion also carries efficiency requirements (short seeds, silent local expansion) that the RTV axes do not speak to. Left unstated rather than guessed.",
+   "model": "rom",
+   "model_justification": "BCM+25 prove security of the correlation function in the random-oracle model. The frontmatter's `standard` is wrong for this edge and should be corrected to `rom`.",
+   "kind_correct": "implication",
+   "statement": "Hardness of [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] — the rows of $\\mathbf{A}$ being $d$-sparse, so that for $d = O(\\log k)$ the matrix is cheap to store and to multiply by — yields, in the random-oracle model, a pseudorandom correlation function, a strengthening of a [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generator]] in which each party derives its share of the correlation on demand from a short key rather than from a fixed-length expanded seed — [[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]].",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "`sparse-lpn` has no page of its own; it is defined only in the Sparse LPN section of learning-parity-with-noise.md."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "medium",
+   "wrong_reason": "",
+   "flags": [
+    "The migrated text is an efficiency motivation ('making Sparse LPN particularly attractive for PCG constructions'), not a stated theorem, and it predates the source proposed here. BCM+25 (ASIACRYPT 2025) is the first work I could verify whose headline result is exactly a correlation generator/function from the $d$-sparse-matrix LPN assumption defined on the LPN page. A human should confirm this is the intended content before the page claims it.",
+    "Do not substitute the earlier PCG papers: BCG+19 'Efficient Pseudorandom Correlation Generators: Silent OT Extension and More' (CRYPTO 2019, cryptobib C:BCGIKS19, eprint 2019/448) and BCG+20 'from Ring-LPN' (CRYPTO 2020, cryptobib C:BCGIKS20; already cited by ring-lpn-to-pseudorandom-correlation-generators-pcg) rest on dual LPN with sparse NOISE and on Ring-LPN respectively, not on the sparse-MATRIX assumption of this page.",
+    "Adjacent verified work, not recorded as a source: Dao, Ishai, Jain and Lin, 'Multi-Party Homomorphic Secret Sharing and Sublinear MPC from Sparse LPN' (CRYPTO 2023, doi 10.1007/978-3-031-38545-2_11, cryptobib C:DIJL23) builds multi-party HSS from sparse LPN, and Hasler-Reisert (eprint 2025/2002) build PCFs for multiparty Beaver triples from sparse LPN. If the wiki wants a sparse-LPN => HSS edge, DIJL23 is the citation.",
+    "The conclusion `pseudorandom-correlation-generator` is a two-sentence variant anchor on alternating-moduli.md with no syntax, no security definition and no correlation class — the same node problem flagged on ring-lpn-to-pseudorandom-correlation-generators-pcg (red-28) and alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg (red-00). Until PCG has a real page, the conclusion of this edge is underdefined and the statement above is as precise as the target allows."
+   ]
+  },
+  {
+   "slug": "spir-to-it-pir",
+   "path": "content/Reductions/spir-to-it-pir.md",
+   "disposition": "folklore",
+   "sources": [],
+   "class": "fully-black-box",
+   "class_justification": "The construction is the identity — the SPIR protocol is run unchanged — and the hypothesis primitive is used only as an oracle. SPIR's query-privacy requirement is literally multi-server PIR's, so the security 'reduction' forwards any privacy adversary without modification.",
+   "model": "standard",
+   "model_justification": "",
+   "kind_correct": "implication",
+   "statement": "[[symmetric-private-information-retrieval-multi-server|Multi-server SPIR]] strengthens [[multi-server-private-information-retrieval|multi-server PIR]] with data privacy — the client learns nothing about the database beyond the single entry it retrieves — while imposing the same correctness and per-server query-privacy requirements, so every SPIR protocol is in particular an IT-PIR protocol — folklore.",
+   "sketch": "Drop the data-privacy requirement from the SPIR definition; what remains is the multi-server PIR definition, satisfied by the same protocol with the same queries and answers.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "The containment is definitional; the page it was migrated from never states it as a result and gives it no citation. `folklore` is the honest label, but the edge carries no mathematical content beyond the typing — consider keeping it only as the graph link, or deleting it.",
+    "Side condition not captured by the typing, and worth stating on the SPIR page: information-theoretic multi-server SPIR requires the servers to share common randomness (independent of the database and the index), which plain multi-server PIR does not. GIKM00's IT-SPIR constructions are set up this way. The containment direction recorded here is unaffected — a SPIR scheme with shared server randomness is still a PIR scheme — but a reader comparing the two definitions needs it.",
+    "Migration note still true: the migrated sentence is a near-verbatim duplicate of content/Primitives/single-server-private-information-retrieval.md line 87; one of the two should be replaced by a link.",
+    "GIKM00 (already a wiki reference) introduced SPIR and is cited on the SPIR page itself; it is deliberately NOT listed as a source here, since it is the origin of the primitive rather than of this containment."
+   ]
+  }
+ ]
+}

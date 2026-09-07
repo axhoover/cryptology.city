@@ -1,0 +1,525 @@
+{
+  "batch": "red-08",
+  "pages": [
+    {
+      "slug": "dlog-to-ddh-fkl18",
+      "path": "content/Reductions/dlog-to-ddh-fkl18.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "algebraic-group",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "FKL18 proves no DLOG => DDH reduction. Its AGM results are computational — CDH, Strong DH, LRSW, BLS signatures, Groth's SNARK (the wiki's own FKL18 abstract lists exactly these): the technique extracts a linear representation from the group elements an algebraic adversary outputs, and a DDH distinguisher outputs one bit, so it does not apply. The migration's SUSPECTED flag is correct. Decisional assumptions enter an AGM-style framework only with the 'algebraic distinguishers' extension of Rotem and Segev (TCC 2020), who prove decisional Uber assumptions, DDH included, polynomially equivalent to DLOG / q-DLOG in that strengthened model — which is not the FKL18 AGM. As an FKL18 claim the edge is wrong: delete it and the matching bullet on algebraic-group-model.md. If the edge is wanted, re-found it as a new page sourced to RS20 with the extended model named explicitly.",
+      "flags": [
+        "HIGH PRIORITY: attribution error confirmed — FKL18 (CRYPTO 2018, LNCS 10992, pp. 33-62; cryptobib C:FucKilLos18) proves computational AGM reductions only; no decisional result. content/Glossary/algebraic-group-model.md line 31 carries the same false bullet (skeptical-checker lane).",
+        "If re-founded on RS20: Lior Rotem, Gil Segev, 'Algebraic Distinguishers: From Discrete Logarithms to Decisional Uber Assumptions', TCC 2020 (LNCS 12552), pp. 366-389, DOI 10.1007/978-3-030-64381-2_13, eprint 2020/1144 — bibliographic data verified by the verifier in vendor/cryptobib (TCC:RotSeg20). KZ22 (existing wiki reference) is the standing critique of plain-AGM decisional claims."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened; FKL18 result list cross-checked against the wiki's FKL18 reference page (no decisional result)",
+        "RS20 bibliographic data re-verified in vendor/cryptobib and recorded with LNCS volume/pages in flags"
+      ]
+    },
+    {
+      "slug": "dlog-to-ds-sch91",
+      "path": "content/Reductions/dlog-to-ds-sch91.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sch91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+          "authors": "Claus-Peter Schnorr",
+          "venue": "Journal of Cryptology 1991",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/BF00196725",
+          "note": "The scheme (identification protocol and signature)."
+        },
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "The transform from identification protocol to signature."
+        },
+        {
+          "key": "PS96",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "EUROCRYPT 1996",
+          "year": "1996",
+          "url": "https://doi.org/10.1007/3-540-68339-9_33",
+          "note": "First proof of EUF-CMA security of Schnorr signatures under DLOG in the ROM (forking lemma). EUROCRYPT '96, LNCS 1070, pp. 387-398. Verified in vendor/cryptobib: cryptobib_key EC:PoiSte96."
+        },
+        {
+          "key": "PS00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS00 - Security Arguments for Digital Signatures and Blind Signatures",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "Journal of Cryptology 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/s001450010003",
+          "note": "Journal version of PS96; exact-security forking lemma. J. Cryptology 13(3):361-396. Verified in vendor/cryptobib: cryptobib_key JC:PoiSte00."
+        },
+        {
+          "key": "Seu12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model",
+          "authors": "Yannick Seurin",
+          "venue": "EUROCRYPT 2012",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2012/029",
+          "note": "Optimality of the forking-lemma loss for algebraic reductions under OMDL. EUROCRYPT 2012, LNCS 7237, pp. 554-571, DOI 10.1007/978-3-642-29011-4_33. Verified in vendor/cryptobib: cryptobib_key EC:Seurin12."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (Fiat-Shamir applied to Schnorr identification) using only the group operation; the Pointcheval-Stern reduction runs any EUF-CMA forger only as an oracle — it simulates signing with the HVZK simulator and random-oracle programming, then reruns the forger on the same coins with a reprogrammed oracle (forking). No dependence on the forger's code: the RTV04 fully-black-box shape.",
+      "model": "rom",
+      "model_justification": "PS96 prove security in the random-oracle model: the Fiat-Shamir hash is a random oracle that the reduction programs and reprograms.",
+      "kind_correct": "implication",
+      "statement": "If [[discrete-logarithm|DLOG]] is hard, EUF-CMA-secure [[digital-signature|digital signatures]] exist in the [[random-oracle-model|random-oracle model]]: Schnorr signatures — the [[fiat-shamir-heuristic|Fiat-Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] applied to the Schnorr identification protocol [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure under DLOG in the ROM — [[PS96 - Security Proofs for Signature Schemes|PS96]].",
+      "sketch": "The reduction answers signing queries with simulated transcripts (sample $z, e$ uniformly, set $a = g^z h^{-e}$, program the random oracle to $e$ at $(a, m)$) and forks the forger: it reruns the forger on the same coins with the oracle reprogrammed at the forgery's query. Two forgeries $(a, e, z)$, $(a, e', z')$ with $e \\neq e'$ give $x = (z - z')/(e - e')$, the discrete logarithm of $h$.",
+      "pseudocode": "",
+      "security_loss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
+      "improvements_text": "- Exact-security form of the forking lemma, extended to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]\n- Under OMDL, every algebraic reduction from DLOG to Schnorr forgery in the ROM loses a factor close to $q_h$ in the time-to-success ratio, so the forking-lemma loss is essentially optimal — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Migration note confirmed and resolved: neither Sch91 nor FS86 proves the implication; PS96 does. PS96/PS00/Seu12 reference pages need creating (cryptobib keys EC:PoiSte96, JC:PoiSte00, EC:Seurin12).",
+        "Near-duplicate of red-dlog-and-rom-to-schnorr-signatures-sch91 (same theorem; this page's conclusion is generic ds, that one's is schnorr-signature). Editors may keep one or make this the generic-existence edge.",
+        "A standard-model route DLOG => OWF => EUF-CMA signatures (Rompel) also exists, so model: rom is a property of the Schnorr route, not of the existence claim."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "security_loss: replaced the unattributed 'success ≈ ε²/q_h' formula with PS00's stated expected-time form O(q_h·T/ε)",
+        "statement, sketch, class_justification, improvements_text tightened (house style); sketch now names where the oracle is programmed",
+        "all three new sources re-verified in vendor/cryptobib; cryptobib keys recorded in notes"
+      ]
+    },
+    {
+      "slug": "dlog-to-np",
+      "path": "content/Reductions/dlog-to-np.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A containment between complexity classes is proved by any argument; the reduction-class axis does not discriminate here. Repo convention for complexity inclusions.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "The decision version of [[discrete-logarithm|DLOG]] — given $(\\GG, g, h, t)$, decide whether some $x \\le t$ satisfies $g^x = h$ — is in [[nondeterministic-polynomial-time|NP]]: the exponent $x$ is a polynomial-size certificate, checked with one exponentiation — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The stronger folklore claim DLOG ∈ NP ∩ coNP needs the group order and its factorization (certified via Pratt primality certificates) so that the discrete logarithm is unique and certifiable; plain NP membership does not. The coNP side is the separate edge dlog-to-conp."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Folklore is the honest label: the certificate is the exponent itself. The migrated prose's NP ∩ coNP claim (with its known-order caveat) belongs to dlog-to-conp."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement tightened; instance written as $(\\GG, g, h, t)$ and 'modular exponentiation' generalized to 'exponentiation' (the DLOG page's group is generic)"
+      ]
+    },
+    {
+      "slug": "dlog-to-pcs",
+      "path": "content/Reductions/dlog-to-pcs.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BCCGP16",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting",
+          "authors": "Jonathan Bootle, Andrea Cerulli, Pyrros Chaidos, Jens Groth, Christophe Petit",
+          "venue": "EUROCRYPT 2016",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/263",
+          "note": "Introduces the recursive inner-product argument and a protocol to commit to a polynomial and later reveal its evaluation at an arbitrary point verifiably, sound under DLOG in prime-order groups. EUROCRYPT 2016, LNCS 9666, pp. 327-357, DOI 10.1007/978-3-662-49896-5_12. Verified in vendor/cryptobib: cryptobib_key EC:BCCGP16."
+        },
+        {
+          "key": "BBB+18",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More",
+          "authors": "Benedikt Bünz, Jonathan Bootle, Dan Boneh, Andrew Poelstra, Pieter Wuille, Greg Maxwell",
+          "venue": "IEEE S&P 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2017/1066",
+          "note": "Halves the communication of the inner-product argument; the standard transparent instantiation."
+        },
+        {
+          "key": "BCMS20",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCMS20 - Recursive Proof Composition from Accumulation Schemes",
+          "authors": "Benedikt Bünz, Alessandro Chiesa, Pratyush Mishra, Nicholas Spooner",
+          "venue": "TCC 2020",
+          "year": "2020",
+          "url": "https://eprint.iacr.org/2020/499",
+          "note": "Explicit polynomial-commitment abstraction PC_DL of the Pedersen-plus-IPA scheme with a security proof under DLOG in the ROM. TCC 2020, LNCS 12551, pp. 1-18, DOI 10.1007/978-3-030-64378-2_1. The eprint version (2020/499) is titled 'Proof-Carrying Data from Accumulation Schemes'; the file uses the proceedings title. Verified in vendor/cryptobib: cryptobib_key TCC:BCMS20."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (Pedersen vector commitment plus the recursive inner-product argument) built from the group operation, and a security reduction that uses the adversary only as an oracle: the extractor rewinds the prover over a tree of challenges (special-soundness tree extraction; forking in the non-interactive ROM version), and two openings of one Pedersen commitment to distinct polynomials yield a discrete-log relation among the public generators. No dependence on adversary code.",
+      "model": "rom",
+      "model_justification": "The wiki's PCS syntax is non-interactive ($\\Open$ outputs a proof $\\pi$). The DLOG-based scheme obtains non-interactive openings by applying Fiat-Shamir to the public-coin inner-product argument, and its security is proven under DLOG in the ROM (BCMS20). The underlying interactive public-coin protocol of BCCGP16 is standard-model.",
+      "kind_correct": "implication",
+      "statement": "If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\\log d)$-size openings, $O(d)$ verifier time, and no trusted setup — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme applies Fiat-Shamir to the public-coin protocol and is proven secure under DLOG in the ROM — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].",
+      "sketch": "The claim $f(z) = y$ is the inner product $\\langle \\vec{f}, (1, z, \\dots, z^d) \\rangle = y$. Each round folds both vectors in half with a random challenge; after $\\log d$ rounds the prover reveals the two remaining scalars and the verifier checks one commitment equation. The extractor rewinds each round to build a tree of accepting transcripts, and two openings of one commitment to distinct polynomials give a nontrivial discrete-log relation among the public generators.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Bulletproofs halve the communication of the inner-product argument — [[BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More|BBB+18]]\n- The polynomial-commitment abstraction $\\mathrm{PC}_{\\mathrm{DL}}$ of the Pedersen-plus-IPA scheme, with a security proof under DLOG in the random-oracle model — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]]",
+      "notes_to_keep": [
+        "The construction factors through Pedersen commitments (DLOG => Pedersen commitment => IPA-based PCS); if a Pedersen-commitment node is ever added, this edge could be split accordingly."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Model changed standard -> rom: the non-interactive PCS matching the wiki's syntax needs Fiat-Shamir; the interactive public-coin BCCGP16 protocol is standard-model. Verifier confirms the reasoning. The sibling edge hash-function-to-pcs-bbhr18 (FRI, also Fiat-Shamir'd) still says model: standard — maintainers should align the convention.",
+        "Verifier could not re-check online (web egress blocked) that BCMS20's PC_DL extractability theorem is stated in the ROM under DL rather than another model; the verifier's own recollection agrees with the researcher. A human should confirm against BCMS20 Appendix A before the page leaves draft.",
+        "BCMS20 reference file renamed to the TCC proceedings title 'Recursive Proof Composition from Accumulation Schemes' (cryptobib TCC:BCMS20) so sync-cryptobib does not report title drift; the eprint title is recorded in the note.",
+        "Migration note resolved: the uncited construction is BCCGP16, refined by BBB+18 (existing reference) and formalized as PC_DL in BCMS20."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "BCMS20 ref_file_title 'Proof-Carrying Data from Accumulation Schemes' → 'Recursive Proof Composition from Accumulation Schemes' (TCC proceedings title per cryptobib); wikilinks in statement and improvements_text updated",
+        "sketch corrected: the final check is one commitment equation on the two revealed scalars, not 'a single scalar identity'",
+        "statement, class_justification, improvements_text tightened ('now-standard' removed)",
+        "added flag: BCMS20's security model not re-verified online; FRI sibling edge convention inconsistency"
+      ]
+    },
+    {
+      "slug": "dlog-to-prg-bm84",
+      "path": "content/Reductions/dlog-to-prg-bm84.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BM84",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits",
+          "authors": "Manuel Blum, Silvio Micali",
+          "venue": "SIAM Journal on Computing 1984",
+          "year": "1984",
+          "url": "https://doi.org/10.1137/0213053",
+          "note": ""
+        },
+        {
+          "key": "Yao82a",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Yao82a - Theory and Applications of Trapdoor Functions",
+          "authors": "Andrew C. Yao",
+          "venue": "FOCS 1982",
+          "year": "1982",
+          "url": "https://doi.org/10.1109/SFCS.1982.45",
+          "note": "Next-bit test characterization of pseudorandomness; PRGs from any one-way permutation. FOCS 1982, pp. 80-91. Key suffixed 'a' because the wiki's existing Yao82 is a different paper (Protocols for secure computations); cryptobib itself uses FOCS:Yao82a for this paper and FOCS:Yao82b for the other. Verified in vendor/cryptobib: cryptobib_key FOCS:Yao82a (cryptobib title carries '(Extended Abstract)', dropped in the filename as elsewhere in the wiki)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (iterated exponentiation with the half-interval predicate) using only the group operation; the reduction turns any distinguisher into a next-bit predictor by a hybrid argument and the predictor into a DLOG solver by BM84's square-root recovery, calling the adversary only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[discrete-logarithm|DLOG]] is hard in $\\ZZ_p^*$, the Blum-Micali generator is a [[pseudorandom-generator|PRG]]: from a uniform seed $x_0$, iterate $x_{i+1} = g^{x_i} \\bmod p$ and output at each step the bit $[x_i \\ge (p-1)/2]$, the most significant bit of the discrete logarithm of $x_{i+1}$ — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]].",
+      "sketch": "The half-interval predicate is hard-core for $x \\mapsto g^x$: Euler's criterion gives the parity of $x$, and the predicate identifies which square root of $y g^{-(x \\bmod 2)}$ has index $\\lfloor x/2 \\rfloor$, so recursing recovers $x$ bit by bit; a predictor with only noticeable advantage is first amplified by random self-reduction. A distinguisher for the generator yields such a predictor by the next-bit test — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The next-bit test characterization of pseudorandomness, and PRGs from any one-way permutation — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated bullet's historical claim ('the first PRG from a concrete assumption') is standard attribution and can stay in prose on the pseudorandom-generator page; it is not part of the theorem statement here.",
+        "New reference key Yao82a (suffixed): existing wiki key Yao82 is a different 1982 Yao paper. Maintainers may want to retitle the existing Yao82 page 'Yao82b' (matching cryptobib) without renaming its file."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch corrected: the predicate selects the principal square root; the bit itself comes from Euler's criterion (the researcher's text had the predicate 'select the principal root' but did not say where the bit comes from and mis-ordered the steps)",
+        "class_justification: 'hybrid-plus-binary-search' replaced by the actual mechanism (hybrid to next-bit predictor, then square-root recovery)",
+        "statement and improvements_text tightened",
+        "Yao82a re-verified in vendor/cryptobib (FOCS:Yao82a, pp. 80-91, DOI 10.1109/SFCS.1982.45)"
+      ]
+    },
+    {
+      "slug": "dlog-to-schnorr-signatures-sch91",
+      "path": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sch91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+          "authors": "Claus-Peter Schnorr",
+          "venue": "Journal of Cryptology 1991",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/BF00196725",
+          "note": "Introduces the identification protocol and proves it a proof of knowledge of the discrete logarithm (soundness via rewinding) with honest-verifier simulation; BP02 give the exact-security form (Reset Lemma)."
+        },
+        {
+          "key": "BP02",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks",
+          "authors": "Mihir Bellare, Adriana Palacio",
+          "venue": "CRYPTO 2002",
+          "year": "2002",
+          "url": "https://doi.org/10.1007/3-540-45708-9_11",
+          "note": "Active and concurrent impersonation security under the one-more discrete logarithm assumption; Reset Lemma. CRYPTO 2002, LNCS 2442, pp. 162-177. Verified in vendor/cryptobib: cryptobib_key C:BelPal02."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Fixed protocol built from the group operation; the security reduction runs any passive impersonator as an oracle, rewinding it to two accepting transcripts with the same commitment and distinct challenges, from which special soundness computes the discrete logarithm. No dependence on the impersonator's code.",
+      "model": "standard",
+      "model_justification": "The identification protocol and its passive-impersonation security proof use no random oracle; model rom on this page is a leftover from the signature edge. The ROM enters only in the separate Fiat-Shamir edge to Schnorr signatures.",
+      "kind_correct": "implication",
+      "statement": "The [[digital-signature#schnorr-signatures|Schnorr identification protocol]] is a three-move sigma protocol for knowledge of $x = \\log_g h$: the prover sends $a = g^r$, receives a random challenge $e$, and replies $z = r + ex$; the verifier accepts iff $g^z = a h^e$. It is special sound and perfectly honest-verifier zero-knowledge unconditionally, and secure against impersonation under passive attack if [[discrete-logarithm|DLOG]] is hard — [[Sch91 - Efficient signature generation by smart cards|Sch91]].",
+      "sketch": "Rewinding an impersonator to two accepting transcripts $(a, e, z)$, $(a, e', z')$ with $e \\neq e'$ yields $x = (z - z')/(e - e')$; eavesdropped transcripts are simulated by sampling $z, e$ uniformly and setting $a = g^z h^{-e}$, which reproduces the honest distribution exactly.",
+      "pseudocode": "",
+      "security_loss": "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02.",
+      "improvements_text": "- Security against impersonation under active and concurrent attacks, under the one-more discrete logarithm assumption — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Title/H1 say 'DLOG ⇒ Schnorr signatures' but the frontmatter conclusion is schnorr-identification-protocol (per .reductions/node-decisions.json a variant anchored at digital-signature#schnorr-signatures). Rename title/H1 to 'DLOG ⇒ Schnorr identification protocol'.",
+        "Model changed rom -> standard: the identification protocol involves no random oracle.",
+        "Migration's HVZK imprecision resolved: HVZK is perfect and unconditional; DLOG is the hypothesis for impersonation security, not for zero knowledge.",
+        "The EdDSA lineage and multi-signature generalities in the migrated quote belong to other pages (schnorr-signatures-to-schnorr-signatures covers eddsa) and are dropped here."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement, sketch, security_loss, Sch91 note tightened (house style); confirmed conclusion object schnorr-identification-protocol resolves to digital-signature#schnorr-signatures",
+        "BP02 re-verified in vendor/cryptobib (C:BelPal02, pp. 162-177)"
+      ]
+    },
+    {
+      "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
+      "path": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sch91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+          "authors": "Claus-Peter Schnorr",
+          "venue": "Journal of Cryptology 1991",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/BF00196725",
+          "note": "The scheme."
+        },
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "The transform."
+        },
+        {
+          "key": "PS96",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "EUROCRYPT 1996",
+          "year": "1996",
+          "url": "https://doi.org/10.1007/3-540-68339-9_33",
+          "note": "First proof of EUF-CMA security of Schnorr signatures under DLOG in the ROM (forking lemma). EUROCRYPT '96, LNCS 1070, pp. 387-398. Verified in vendor/cryptobib: cryptobib_key EC:PoiSte96."
+        },
+        {
+          "key": "PS00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS00 - Security Arguments for Digital Signatures and Blind Signatures",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "Journal of Cryptology 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/s001450010003",
+          "note": "Journal version of PS96; exact-security forking lemma. J. Cryptology 13(3):361-396. Verified in vendor/cryptobib: cryptobib_key JC:PoiSte00."
+        },
+        {
+          "key": "Seu12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model",
+          "authors": "Yannick Seurin",
+          "venue": "EUROCRYPT 2012",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2012/029",
+          "note": "Optimality of the forking-lemma loss for algebraic reductions under OMDL. EUROCRYPT 2012, LNCS 7237, pp. 554-571, DOI 10.1007/978-3-642-29011-4_33. Verified in vendor/cryptobib: cryptobib_key EC:Seurin12."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Fixed construction (Fiat-Shamir of Schnorr identification); the Pointcheval-Stern reduction runs any forger only as an oracle — it simulates signatures with the HVZK simulator plus random-oracle programming and forks the forger by rerunning it on the same coins with a reprogrammed oracle. The RTV04 fully-black-box shape.",
+      "model": "rom",
+      "model_justification": "The Fiat-Shamir hash is modeled as a random oracle; PS96's reduction programs and reprograms it.",
+      "kind_correct": "implication",
+      "statement": "[[digital-signature#schnorr-signatures|Schnorr signatures]] — the [[fiat-shamir-heuristic|Fiat-Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] of the Schnorr identification protocol [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[discrete-logarithm|DLOG]] is hard in the underlying prime-order group — [[PS96 - Security Proofs for Signature Schemes|PS96]].",
+      "sketch": "The reduction simulates signing with the HVZK simulator (sample $z, e$ uniformly; set $a = g^z h^{-e}$; program the oracle to $e$ at $(a, m)$) and forks the forger: rerunning it on the same coins with the oracle reprogrammed at the forgery's query yields two forgeries $(a, e, z)$, $(a, e', z')$ with $e \\neq e'$, and $x = (z - z')/(e - e')$ is the discrete logarithm of $h$.",
+      "pseudocode": "",
+      "security_loss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
+      "improvements_text": "- Exact-security form of the forking lemma, extended to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]\n- Under OMDL, every algebraic reduction from DLOG to Schnorr forgery in the ROM loses a factor close to $q_h$ in the time-to-success ratio, so the forking-lemma loss is essentially optimal — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "ROM is double-encoded: it appears both as hypothesis object 'rom' and as model: rom. Maintainers should pick one convention; the sibling edge red-dlog-to-ds-sch91 encodes it as model only.",
+        "Near-duplicate of red-dlog-to-ds-sch91 (this page names the concrete scheme; that one the generic DS conclusion).",
+        "Migration note resolved: the missing security-proof citation is PS96/PS00; the HVZK-under-DLOG imprecision and the EdDSA lineage are handled on the identification and eddsa edges respectively."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "security_loss: replaced the unattributed 'success ≈ ε²/q_h' formula with PS00's stated expected-time form O(q_h·T/ε)",
+        "statement, sketch, improvements_text tightened (house style)",
+        "all three new sources re-verified in vendor/cryptobib; cryptobib keys recorded in notes"
+      ]
+    },
+    {
+      "slug": "dlog-to-tdp",
+      "path": "content/Reductions/dlog-to-tdp.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "No trapdoor permutation from DLOG is known: exponentiation is one-way under DLOG but has no known trapdoor, and a TDP from discrete-log-type assumptions is a long-standing open problem. The migrated bullet misreads the NIZK page's 'from trapdoor permutations (hence from RSA or DL)': RSA gives a TDP, DL does not, and BFM88's own NIZK is based on quadratic residuosity (the TDP-based construction is Feige-Lapidot-Shamir, FOCS 1990). Delete the edge; rsa-to-tdp-rsa78 and tdp-to-nizk-bfm88 remain.",
+      "flags": [
+        "HIGH PRIORITY: confirmed false edge, matching the migration's own SUSPECTED MATHEMATICAL ERROR note. Delete rather than source. Also fix the parenthetical on content/Primitives/non-interactive-zero-knowledge.md so 'hence from RSA or DL' does not route DL through TDP (no standard-model NIZK for NP from DL is known at all).",
+        "Out of scope, for the skeptical-checker lane: tdp-to-nizk-bfm88 and the NIZK page attribute TDP ⇒ NIZK to BFM88, whose construction is from quadratic residuosity; the TDP-based NIZK is Feige-Lapidot-Shamir (FOCS 1990; SICOMP 1999). Not verified online in this session."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened; added out-of-scope flag on the BFM88 vs FLS90 attribution of the parent bullet"
+      ]
+    },
+    {
+      "slug": "dlog-to-tfnp",
+      "path": "content/Reductions/dlog-to-tfnp.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "SZZ18",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "SZZ18 - PPP-Completeness with Connections to Cryptography",
+          "authors": "Katerina Sotiraki, Manolis Zampetakis, Giorgos Zirdelis",
+          "venue": "FOCS 2018",
+          "year": "2018",
+          "url": "https://eprint.iacr.org/2018/778",
+          "note": "PPP with cryptographic connections; posed the discrete-log completeness question answered by HV21."
+        },
+        {
+          "key": "HV21",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HV21 - On Search Complexity of Discrete Logarithm",
+          "authors": "Pavel Hubáček, Jan Václavek",
+          "venue": "MFCS 2021",
+          "year": "2021",
+          "url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.60",
+          "note": "Suitable variants of discrete logarithm are complete for PPP resp. PWPP, answering an open problem of SZZ18. MFCS 2021, LIPIcs 202, 60:1-60:16; also arXiv 2107.02617. Researcher reports web verification; the verifier could not re-check the LIPIcs article number / DOI online (egress blocked) — see flags."
+        }
+      ],
+      "class": "free",
+      "class_justification": "A containment between a search problem and a complexity class is proved by any argument; the reduction-class axis does not discriminate here. Repo convention for complexity inclusions.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "When the group order is known and membership $h \\in \\langle g \\rangle$ is checkable in polynomial time (for prime order $p$: $g \\neq 1$ and $h^p = 1$), the [[discrete-logarithm|DLOG]] search problem is total — every such $h$ has a discrete logarithm — and a solution $x$ is checked with one exponentiation, so DLOG lies in [[total-function-np|TFNP]] — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Suitable formulations of discrete logarithm over general groups are complete for PPP and PWPP, the pigeonhole subclasses of TFNP, answering an open question of [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]] — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HUMAN CHECK BEFORE CREATING THE HV21 PAGE: the verifier confirms the paper (Hubáček, Václavek, 'On Search Complexity of Discrete Logarithm', MFCS 2021) and its PPP/PWPP-completeness result from knowledge, but could not re-verify the LIPIcs article number, DOI 10.4230/LIPIcs.MFCS.2021.60, or arXiv id 2107.02617 online — all scholarly hosts were egress-blocked and the search budget was exhausted. MFCS is not in cryptobib. The researcher reports verifying them; treat the identifiers as unconfirmed by the verifier.",
+        "The migration's totality caveat is now stated in the statement itself (totality needs the instance to certify h in the subgroup generated by g).",
+        "SZZ18 already exists in the wiki."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement rewritten: the side condition is now the checkable membership promise (prime order: g ≠ 1, h^p = 1) rather than 'certified generator', and 'every h in <g> has a discrete logarithm' no longer reads as a tautology",
+        "HV21 kept (paper, authors, venue and result confirmed from verifier's knowledge) but its LIPIcs/DOI/arXiv identifiers marked unverified-by-verifier in note and flags; confidence high → medium for that reason"
+      ]
+    },
+    {
+      "slug": "dlog-to-zkp",
+      "path": "content/Reductions/dlog-to-zkp.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "The migrated passages assert no implication: the Schnorr protocol is a sigma protocol for the DLOG relation and exists, with perfect HVZK and special soundness, unconditionally — DLOG hardness makes the relation nontrivial but is not a hypothesis for building it. Read as 'ZK proofs for NP exist if DLOG is hard', the implication is true but composite (DLOG ⇒ OWF ⇒ commitment ⇒ ZK for NP), which the repo splits into one page per link; the downstream links exist (owf-to-prg-hill99, prg-to-com-naor91, hash-function-to-zkp-gmw91) and only dlog-to-owf is missing. The Schnorr example belongs on the zero-knowledge-proof page's sigma-protocol section with a Sch91 citation, not as a reduction edge; the conclusion slug is also self-referential (sigma-protocol is an alias of zero-knowledge-proof).",
+      "flags": [
+        "Recommend deleting this edge. Replacements: (i) cite Sch91 on the zero-knowledge-proof page's sigma-protocol section for the Schnorr example; (ii) if a DLOG-to-ZK chain is wanted, add the missing dlog-to-owf link and rely on the existing owf/commitment/zkp edges rather than a direct composite edge.",
+        "The Fiat-Shamir compilation bullet quoted on the page is already covered by rom-and-zkp-to-ds-fs86 / zkp-to-nizk-fs86.",
+        "Verifier note: the underlying mathematical implication (DLOG hard ⇒ ZK for NP) is not false; the wrong_claim verdict is about the page encoding a non-claim as a direct edge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened; confirmed the named downstream pages exist (owf-to-prg-hill99, prg-to-com-naor91, hash-function-to-zkp-gmw91, rom-and-zkp-to-ds-fs86, zkp-to-nizk-fs86) and that no dlog-to-owf page exists",
+        "added a flag making explicit that the implication is true-but-composite, so nobody reads the verdict as a mathematical refutation"
+      ]
+    }
+  ]
+}

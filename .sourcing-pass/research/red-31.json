@@ -1,0 +1,408 @@
+{
+  "batch": "red-31",
+  "pages": [
+    {
+      "slug": "ss-to-it-pir-cgks98",
+      "path": "content/Reductions/ss-to-it-pir-cgks98.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CGKS98",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CGKS98 - Private information retrieval",
+          "authors": "Benny Chor, Oded Goldreich, Eyal Kushilevitz, Madhu Sudan",
+          "venue": "Journal of the ACM 1998 (also FOCS 1995)",
+          "year": "1998",
+          "url": "https://doi.org/10.1145/293347.293350",
+          "note": "Existing wiki reference (cryptobib_key FOCS:CGKS95). Introduces multi-server PIR and the two-server O(n^{1/3}) scheme; privacy is perfect and holds against each individual, non-colluding server."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Secret-sharing the query yields an information-theoretic $k$-server [[multi-server-private-information-retrieval|PIR]] scheme: the client shares the characteristic vector of its index $i$ with a linear [[secret-sharing|secret-sharing]] scheme and sends one share to each of $k$ non-colluding servers, each server answers with the corresponding linear combination of the database bits, and the client reconstructs $D[i]$ from the $k$ answers. Privacy against any server coalition below the sharing threshold is perfect and is inherited from the privacy of the sharing. [[CGKS98 - Private information retrieval|CGKS98]] instantiate this for $k = 2$ with $O(n^{1/3})$ communication.",
+      "sketch": "For $k = 2$ the sharing is an XOR split: the client picks a uniformly random $S \\subseteq [n]$ and sends $S$ to one server and $S \\triangle \\{i\\}$ to the other; each server returns the parity of the database bits it indexes, and the XOR of the two answers is $D[i]$. Each server sees a uniformly random subset, independent of $i$; CGKS98 apply the same idea to a cube-shaped encoding of the database to bring the communication down to $O(n^{1/3})$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Non-collusion is load-bearing and is not represented in the hyperedge: privacy holds only against server coalitions smaller than the sharing threshold. Carried in the statement text; a verifier should decide whether the conclusion node needs the qualifier.",
+        "The hypothesis should arguably be the linear-secret-sharing variant (`linear-secret-sharing-scheme` is a listed variant on content/Primitives/secret-sharing.md). A generic, non-linear secret sharing buys no communication saving: the servers' answers have to be linear in the database for the client to reconstruct from short answers.",
+        "Class left unstated: the construction is black-box in $\\Share$/$\\Recon$, but PIR privacy here is perfect and there is no adversary for a security reduction to run, so no RTV04 class is honestly justified."
+      ]
+    },
+    {
+      "slug": "strong-security-to-prp",
+      "path": "content/Reductions/strong-security-to-prp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Identity construction — the same $\\PRP$ witnesses both games — together with one fixed reduction that runs any PRP distinguisher as an oracle, forwarding each of its evaluation queries to $\\calO_b$ and never touching $\\calO_b^{-1}$. Fixed construction, fixed reduction, adversary used only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The strong-PRP game hands $\\calA$ both $\\calO_b$ and $\\calO_b^{-1}$, so every adversary against [[pseudorandom-permutation|PRP]] security is an adversary in the [[pseudorandom-permutation#strong-security|strong PRP]] game that makes no inverse queries: $\\Adv^{\\mathrm{prp}}_{\\PRP,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{sprp}}_{\\PRP,\\calA}(\\secpar)$ for all $\\calA$. A strongly pseudorandom permutation is therefore pseudorandom — folklore.",
+      "sketch": "The reduction is the identity map on adversaries: run the PRP distinguisher, answer each query with the forward oracle, and echo its guess. The inverse oracle is never used, so the advantage is preserved exactly.",
+      "pseudocode": "",
+      "security_loss": "tight — the same adversary achieves the same advantage in both games",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated prose says sPRP is a 'strictly stronger notion', which also asserts the separation PRP ⇏ sPRP. This edge records only the implication half. The standard witness for the separation is the three-round Feistel network, which is a PRP but not a strong PRP — see [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]] (already a wiki reference; cf. content/Reductions/prf-to-prp-lr88.md). Recommend a separate separation page rather than leaving the claim inside this edge.",
+        "hypotheses: [strong-pseudorandom-permutation] and conclusion: prp both resolve to content/Primitives/pseudorandom-permutation.md (the former through that page's `variants` map). This is a security-notion implication on a single object, exactly like content/Reductions/cca-security-to-cca1-security.md; the migration note that hypothesis and conclusion 'collide on one slug' describes the intended shape, not an error.",
+        "Title 'Strong Security ⇒ PRP' does not name the objects; 'sPRP ⇒ PRP' would."
+      ]
+    },
+    {
+      "slug": "strong-rsa-to-com",
+      "path": "content/Reductions/strong-rsa-to-com.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FO97",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations",
+          "authors": "Eiichiro Fujisaki, Tatsuaki Okamoto",
+          "venue": "CRYPTO 1997",
+          "year": "1997",
+          "url": "https://doi.org/10.1007/BFb0052225",
+          "note": "cryptobib key C:FujOka97 (verified present in vendor/cryptobib/crypto.bib); LNCS 1294, pp. 16-30. Introduces the integer commitment $c = g^x h^r \\bmod n$; binding rests on a 'modified RSA' (flexible / strong RSA) assumption."
+        },
+        {
+          "key": "DF02",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order",
+          "authors": "Ivan Damgård, Eiichiro Fujisaki",
+          "venue": "ASIACRYPT 2002",
+          "year": "2002",
+          "url": "https://doi.org/10.1007/3-540-36178-2_8",
+          "note": "cryptobib key AC:DamFuj02 (verified present in vendor/cryptobib/crypto.bib); LNCS 2501, pp. 125-142. Generalizes and repairs FO97: any abelian group whose order is hidden from the committer, binding under the root assumption (strong RSA in $\\ZZ_n^*$)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed scheme from the RSA group generator ($c = g^x h^r \\bmod n$ over $\\ZZ_n^*$), and one fixed reduction: a binding adversary that opens one commitment to two distinct integers yields $g^{\\Delta x} = h^{-\\Delta r}$, and the reduction — running that adversary as an oracle with the strong-RSA challenge $y$ embedded in the bases — outputs a pair $(\\hat{x}, \\hat{e})$ with $\\hat{e} > 1$ and $\\hat{x}^{\\hat{e}} \\equiv y \\pmod{n}$.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[rsa-assumption#strong-rsa|Strong RSA]] implies a statistically hiding, computationally binding integer [[commitment-scheme|commitment]] scheme over an RSA modulus $n$: with public bases $g, h$ in the quadratic residues modulo $n$, a commitment to $x \\in \\ZZ$ is $c = g^x h^r \\bmod n$ for random $r$; hiding is statistical, and binding reduces to computing a nontrivial root modulo $n$ — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. The scheme was generalized to any group whose order is hidden from the committer, and its setup repaired, by [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].",
+      "sketch": "Two openings $(x_1, r_1) \\ne (x_2, r_2)$ of one commitment give $g^{x_1 - x_2} = h^{r_2 - r_1}$; with the strong-RSA challenge planted in $g$ or $h$, a relation $u^a = v^b$ with $\\gcd(a, b) = 1$ yields a $b$-th root of $v$ by Bézout coefficients (Shamir's trick), which is exactly a strong-RSA solution.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Generalized to any abelian group whose order is hidden from the committer, with the FO97 setup gap repaired and binding based on the root assumption — [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated prose names no scheme ('commitments with stronger security guarantees'); the edge is resolved here as the Fujisaki-Okamoto integer commitment. A verifier should confirm that is the intended content, because plain bit commitment already follows from one-way functions (content/Reductions/prg-to-com-naor91.md) — the strong-RSA content is the homomorphic, statistically hiding *integer* commitment, not commitment as such.",
+        "content/Assumptions/rsa-assumption.md § Strong RSA leaves 'commitments' as plain text with no wikilink to content/Primitives/commitment-scheme.md; fix in the same commit (reference-fixer lane).",
+        "Neither FO97 nor DF02 currently has a page in content/References/; both keys are free (no CS/FO/DF prefix collisions in existing-refs.txt)."
+      ]
+    },
+    {
+      "slug": "strong-rsa-to-ds",
+      "path": "content/Reductions/strong-rsa-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CS99",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "CS99 - Signature Schemes Based on the Strong RSA Assumption",
+          "authors": "Ronald Cramer, Victor Shoup",
+          "venue": "ACM CCS 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1145/319709.319716",
+          "note": "cryptobib key CCS:CraSho99 (verified present in vendor/cryptobib/crypto.bib); CCS 1999, pp. 46-51. Journal version: ACM TISSEC 3(3):161-185, 2000. EUF-CMA in the standard model under strong RSA alone, plus a collision-resistant hash."
+        },
+        {
+          "key": "GHR99",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle",
+          "authors": "Rosario Gennaro, Shai Halevi, Tal Rabin",
+          "venue": "EUROCRYPT 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48910-X_9",
+          "note": "cryptobib key EC:GenHalRab99 (verified present in vendor/cryptobib/crypto.bib); LNCS 1592, pp. 123-139. Concurrent and independent with CS99; assumes strong RSA together with a division-intractable hash function."
+        },
+        {
+          "key": "Fis03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Fis03 - The Cramer-Shoup Strong-RSA Signature Scheme Revisited",
+          "authors": "Marc Fischlin",
+          "venue": "PKC 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1007/3-540-36288-6_9",
+          "note": "cryptobib key PKC:Fischlin03 (verified present in vendor/cryptobib/crypto.bib); LNCS 2567, pp. 116-129. Reduces the Cramer-Shoup signature size by almost half at no cost in performance or in the proof."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed scheme from the RSA group generator, and one fixed reduction: the Cramer-Shoup proof splits on whether the forgery's prime exponent was issued during signing and, in either case, runs the $\\eufcma$ forger as an oracle and outputs a pair $(\\hat{x}, \\hat{e})$ with $\\hat{e} > 1$ solving the strong-RSA challenge. Nothing in the construction or the proof inspects the forger's code.",
+      "model": "standard",
+      "model_justification": "Both schemes are proven in the standard model with no random oracle; that is the point of the strong-RSA route, and the migrated phrase 'with stronger security guarantees' means exactly this.",
+      "kind_correct": "implication",
+      "statement": "[[rsa-assumption#strong-rsa|Strong RSA]] implies $\\eufcma$-secure [[digital-signature|digital signatures]] in the standard model, with no random oracle. The Cramer-Shoup scheme signs each message under a freshly chosen prime exponent, and any forger is converted into an algorithm computing a nontrivial root modulo $n$ — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]. Concurrently and independently, [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]] obtain a hash-and-sign scheme from strong RSA together with a division-intractable hash function.",
+      "sketch": "Signing uses a fresh prime exponent per message, so a forgery whose exponent $\\hat{e}$ is coprime to every exponent issued during signing can be combined with the strong-RSA challenge: from a relation $u^{a} = v^{b}$ with $\\gcd(a, b) = 1$, Bézout coefficients give a $b$-th root of $v$ (Shamir's trick), which is a valid strong-RSA solution.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- A variant of the Cramer-Shoup scheme with signatures roughly half the size, at no cost in the security proof — [[Fis03 - The Cramer-Shoup Strong-RSA Signature Scheme Revisited|Fis03]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CS99 and GHR99 are concurrent independent works and both are recorded with role `original`. GHR99's hypothesis set is strictly larger — strong RSA *plus* a division-intractable hash function — so if the wiki wants it as its own hyperedge it first needs a division-intractability node.",
+        "Citation key: Cramer-Shoup appeared at ACM CCS 1999 (pp. 46-51) and in ACM TISSEC 3(3):161-185 (2000); CS99 matches the usual citation and no CS* key exists in content/References/ today.",
+        "content/Assumptions/rsa-assumption.md § Strong RSA leaves 'signature schemes' as plain text with no wikilink, and the vague 'with stronger security guarantees' should be replaced by 'EUF-CMA in the standard model' — resolve in the same commit."
+      ]
+    },
+    {
+      "slug": "strong-rsa-to-rsa",
+      "path": "content/Reductions/strong-rsa-to-rsa.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity on instances, and there is one fixed reduction: on a strong-RSA challenge $(n, y)$, sample an exponent $e$ from $\\GrGen$'s public exponent distribution, run the RSA inverter as an oracle on $(n, e, y)$, and output $(\\hat{x}, e)$. Fixed reduction, adversary used only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[rsa-assumption#strong-rsa|strong RSA]] implies hardness of [[rsa-assumption|RSA]]: the strong-RSA adversary receives only $(n, y)$ and may return any pair $(\\hat{x}, \\hat{e})$ with $\\hat{e} > 1$ and $\\hat{x}^{\\hat{e}} \\equiv y \\pmod{n}$, so an inverter for the exponent $e$ output by $\\GrGen$ is already a strong-RSA solver — folklore. The converse is not known.",
+      "sketch": "Given a strong-RSA challenge $(n, y)$, sample $e$ from $\\GrGen$'s exponent distribution — publicly samplable given $n$ for the usual choices, a fixed $e$ or a random prime — run the RSA inverter on $(n, e, y)$ to obtain $\\hat{x}$ with $\\hat{x}^{e} \\equiv y \\pmod{n}$, and output $(\\hat{x}, e)$.",
+      "pseudocode": "",
+      "security_loss": "tight — one oracle call, advantage preserved",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "ID INCONSISTENCY: this page's frontmatter uses `hypotheses: [strong-rsa-assumption]` while the sibling pages red-strong-rsa-to-com and red-strong-rsa-to-ds use `strong-rsa`. Both resolve through the `variants` map on content/Assumptions/rsa-assumption.md, but one id should be made canonical or the two objects will not merge in relations.json.",
+        "The migrated quote (from content/Assumptions/factoring.md) states only 'this is a stronger assumption than standard RSA'; the implication is now stated explicitly.",
+        "The migration note 'No citation (BP97 / FO97 missing)' refers to the papers that *introduced* the strong RSA assumption (Barić-Pfitzmann, EUROCRYPT 1997; Fujisaki-Okamoto, CRYPTO 1997). Those belong on content/Assumptions/rsa-assumption.md § Strong RSA, not on this edge, which is genuinely folklore — no paper is cited for 'strong RSA hard ⇒ RSA hard'."
+      ]
+    },
+    {
+      "slug": "subexponential-lpn-to-pke-yz16",
+      "path": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "YZ16",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN",
+          "authors": "Yu Yu, Jiang Zhang",
+          "venue": "CRYPTO 2016",
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-662-53018-4_9",
+          "note": "Existing wiki reference (cryptobib_key C:YuZha16). Abstract: 'under constant-noise LPN with certain sub-exponential hardness (i.e., $2^{\\omega(n^{1/2})}$ for secret size $n$) we obtain a variant of the LPN with security on poly-logarithmic entropy sources, which in turn implies CPA/CCA secure public-key encryption (PKE) schemes and oblivious transfer (OT) protocols.'"
+        },
+        {
+          "key": "Ale03",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ale03 - More on average case vs approximation complexity",
+          "authors": "Michael Alekhnovich",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1109/SFCS.2003.1238204",
+          "note": "Existing wiki reference. Cited only as the prior art YZ16 improves on: Alekhnovich's PKE needs noise rate $\\Theta(1/\\sqrt{n})$, not constant noise."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "Plain-model construction; no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#subexponential-lpn|Constant-noise LPN with sub-exponential hardness]] — any adversary with non-negligible advantage runs in time $2^{\\omega(\\sqrt{n})}$, for secret length $n$ — implies IND-CPA- and IND-CCA-secure [[public-key-encryption|PKE]] in the standard model, via a variant of LPN that remains secure on poly-logarithmic entropy sources — [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]. Basing PKE on *constant*-noise LPN had been open since [[Ale03 - More on average case vs approximation complexity|Ale03]], whose scheme requires noise rate $\\Theta(1/\\sqrt{n})$.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS MISMATCH RESOLVED: YZ16's theorem is for *constant-noise* LPN with sub-exponential hardness $2^{\\omega(n^{1/2})}$, which is exactly this wiki's `subexponential-lpn` variant at $\\varepsilon = 1/2$ (content/Assumptions/learning-parity-with-noise.md § Subexponential LPN) *plus* the constant-noise qualifier. The constant-noise part is load-bearing — it is what separates this result from Ale03's mid-noise PKE (content/Reductions/noise-level-to-pke-ale03.md and the duplicate content/Reductions/lpn-to-pke.md).",
+        "The CCA qualifier is erased by the bare `pke` conclusion node, so this edge is not distinguishable from the weaker IND-CPA claims elsewhere on the LPN page. YZ16 gives both CPA and CCA; the statement now says so.",
+        "The migrated bullet bundled two conclusions (CCA-PKE and OT); they are already split into this page and content/Reductions/subexponential-lpn-to-ot-yz16.md, so that migration note can be dropped.",
+        "Class left unstated: the route runs through an assumption-to-assumption reduction (LPN with a subspace-sampled matrix) before the PKE construction, and the paper's proof structure was not verified in detail (eprint.iacr.org is unreachable from this environment), so no RTV04 class is claimed."
+      ]
+    },
+    {
+      "slug": "subexponential-lpn-to-ot-yz16",
+      "path": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "YZ16",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN",
+          "authors": "Yu Yu, Jiang Zhang",
+          "venue": "CRYPTO 2016",
+          "year": "2016",
+          "url": "https://doi.org/10.1007/978-3-662-53018-4_9",
+          "note": "Existing wiki reference (cryptobib_key C:YuZha16). Abstract: 'under constant-noise LPN with certain sub-exponential hardness (i.e., $2^{\\omega(n^{1/2})}$ for secret size $n$) we obtain a variant of the LPN with security on poly-logarithmic entropy sources, which in turn implies CPA/CCA secure public-key encryption (PKE) schemes and oblivious transfer (OT) protocols.'"
+        },
+        {
+          "key": "Ale03",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ale03 - More on average case vs approximation complexity",
+          "authors": "Michael Alekhnovich",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1109/SFCS.2003.1238204",
+          "note": "Existing wiki reference. Cited only as the prior art YZ16 improves on: Alekhnovich's PKE needs noise rate $\\Theta(1/\\sqrt{n})$, not constant noise."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "Plain-model construction; no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#subexponential-lpn|Constant-noise LPN with sub-exponential hardness]] — any adversary with non-negligible advantage runs in time $2^{\\omega(\\sqrt{n})}$, for secret length $n$ — implies [[oblivious-transfer|OT]], through the same poly-logarithmic-entropy variant of LPN that gives CPA- and CCA-secure encryption — [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]. Basing OT on *constant*-noise LPN had been open since [[Ale03 - More on average case vs approximation complexity|Ale03]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS MISMATCH RESOLVED: YZ16 is stated for constant-noise LPN with $2^{\\omega(n^{1/2})}$ hardness — the wiki's `subexponential-lpn` variant at $\\varepsilon = 1/2$, plus the load-bearing constant-noise qualifier.",
+        "OT SECURITY FLAVOR STILL UNSTATED: YZ16's abstract says only 'oblivious transfer (OT) protocols' — no semi-honest/malicious flavor and no round complexity. The `ot` conclusion node is correspondingly coarse; someone with the paper should pin this down before the page is marked `complete`.",
+        "The migrated bullet bundled two conclusions (CCA-PKE and OT); they are already split into this page and content/Reductions/subexponential-lpn-to-pke-yz16.md.",
+        "Class left unstated: the paper's proof structure was not verified in detail (eprint.iacr.org unreachable from this environment)."
+      ]
+    },
+    {
+      "slug": "subexponential-lpn-to-prc-cg24",
+      "path": "content/Reductions/subexponential-lpn-to-prc-cg24.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CG24",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CG24 - Pseudorandom Error-Correcting Codes",
+          "authors": "Miranda Christ, Sam Gunn",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.1007/978-3-031-68391-6_10",
+          "note": "Existing wiki reference (cryptobib_key C:ChrGun24). Abstract: 'pseudorandomness is based on either $2^{O(\\sqrt{n})}$-hardness of LPN, or polynomial hardness of LPN and the planted XOR problem at low density.' The public-key construction is a zero-bit PRC."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#subexponential-lpn|LPN hard against $2^{O(\\sqrt{n})}$-time adversaries]] implies [[pseudorandom-error-correcting-code|pseudorandom error-correcting codes]] robust to a constant rate of substitution and deletion errors, and in particular a *public-key* zero-bit PRC, in which the encoding key is public and only detection uses the secret key — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. The same conclusions follow from polynomial hardness of LPN together with the low-density planted-XOR assumption.",
+      "sketch": "The decoding key is a sparse dual (parity-check) structure hidden inside an otherwise pseudorandom generator matrix; a codeword is a noisy codeword of that low-density code, which is pseudorandom under LPN, while the sparse parity checks are biased on codewords and so let the key holder detect and decode. Publishing the generator matrix and keeping the sparse dual secret gives the public-key variant.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "CG24's *public-key* construction is a zero-bit PRC (public encoding, keyed detection); the multi-bit PRCs under $2^{O(\\sqrt{n})}$-hard LPN are secret-key. The bare `prc` conclusion node erases that distinction — consider a second edge to the `zero-bit-prc` variant for the public-key result, which is what the migrated bullet ('Public-key PRCs') actually names.",
+        "CG24's alternative hypothesis set — polynomial-hardness LPN together with low-density planted XOR — is a distinct two-hypothesis hyperedge; no planted-XOR node exists in the wiki.",
+        "This is the correct hypothesis for CG24. The sibling pages content/Reductions/lwe-to-prc-cg24.md and content/Reductions/lwe-to-zero-bit-prc-cg24.md attribute the same result to LWE and were already marked wrong_claim in earlier batches; the originating bullets on content/Primitives/pseudorandom-error-correcting-code.md should be corrected in the same pass."
+      ]
+    },
+    {
+      "slug": "succinct-lwe-to-abe-wee25",
+      "path": "content/Reductions/succinct-lwe-to-abe-wee25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wee25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE",
+          "authors": "Hoeteck Wee",
+          "venue": "EUROCRYPT 2025",
+          "year": "2025",
+          "url": "https://doi.org/10.1007/978-3-031-91131-6_2",
+          "note": "Existing wiki reference (cryptobib_key EC:Wee25). EUROCRYPT 2025 Part III, LNCS 15603, pp. 34-62; eprint 2025/509. Abstract: KP- and CP-ABE for circuits with ciphertext, secret key and public key size $O(1)$, and LFE with ciphertext size $\\ell + O(1)$ and CRS/digest size $O(1)$, where $O(\\cdot)$ hides $\\poly(d, \\lambda)$; security from succinct LWE."
+        },
+        {
+          "key": "Wee24",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices",
+          "authors": "Hoeteck Wee",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.1007/978-3-031-68382-4_6",
+          "note": "cryptobib key C:Wee24 (verified present in vendor/cryptobib/crypto.bib); CRYPTO 2024 Part III, pp. 178-209; eprint 2024/1416. Introduces the $\\ell$-succinct LWE assumption and states it is implied by (public-coin) evasive LWE. Needed by this wiki both as the origin of the assumption and as the source for the correct evasive-LWE => succinct-LWE edge."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "Standard-model construction; succinct LWE is a (non-standard) falsifiable assumption, not an idealized model.",
+      "kind_correct": "implication",
+      "statement": "$\\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] implies key-policy and ciphertext-policy [[attribute-based-encryption|ABE]] for circuits with ciphertext, secret-key and public-key size $O(1)$, where $O(\\cdot)$ hides $\\poly(d, \\secpar)$ factors for depth-$d$ circuits over $\\ell$-bit inputs — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]. The same assumption yields laconic function evaluation with ciphertext size $\\ell + O(1)$ and CRS and digest size $O(1)$.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The $\\ell$-succinct LWE assumption was introduced, and shown to follow from (public-coin) evasive LWE, in the earlier circuit-ABE construction — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "ATTRIBUTION FIX for content/Assumptions/learning-with-errors.md § Succinct LWE: $\\ell$-succinct LWE was introduced in Wee's CRYPTO 2024 paper (eprint 2024/1416), not in Wee25. The section currently reads 'introduced by Wee — [[Wee25...]]'.",
+        "POSSIBLY MISSING QUALIFIER: content/References/Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE.md claims 'The constructions use a circular small-secret variant of succinct LWE', but the published abstract states only 'succinct LWE'. If the circular variant is really required for the ABE theorem it is load-bearing and the hypothesis node must say so — check against the paper (eprint.iacr.org was unreachable from this environment).",
+        "The two duplicate bullets on content/Assumptions/learning-with-errors.md (§ Succinct LWE, the assumption paragraph and the 'primary application' sentence) generate this one edge; the $O(1)$-size parameter claim is kept inside the statement rather than split off, since it is the content of the theorem.",
+        "Class left unstated: no source classifies the reduction in RTV04 terms — same treatment as content/Reductions/evasive-lwe-to-abe-wee22.md."
+      ]
+    },
+    {
+      "slug": "succinct-lwe-to-evasive-lwe",
+      "path": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "INVERTED. The implication runs the other way: (public-coin) evasive LWE, together with plain LWE, implies $\\ell$-succinct LWE. This is the stated position of the paper that introduced the assumption — Hoeteck Wee, 'Circuit ABE with poly(depth,lambda)-sized Ciphertexts and Keys from Lattices', CRYPTO 2024 (pp. 178-209, doi 10.1007/978-3-031-68382-4_6, eprint 2024/1416), whose abstract reads '... relies on $\\ell$-succinct LWE, a falsifiable assumption which is implied by evasive LWE'. Succinct LWE is thus the weaker of the two assumptions, so 'Succinct LWE => Evasive LWE' (read as 'succinct LWE hard implies evasive LWE hard') is false as stated. The correct edge is Evasive LWE => Succinct LWE and has no page yet; it should be created as content/Reductions/evasive-lwe-to-succinct-lwe.md with hypotheses [evasive-lwe] (public-coin) and [lwe], conclusion succinct-lwe, sourced to Wee24. Verified against two independent web sources reporting the CRYPTO 2024 and EUROCRYPT 2025 abstracts; the claim in the wiki was migrated from an uncited sentence.",
+      "flags": [
+        "HIGH PRIORITY: the same inverted claim appears verbatim in the § Succinct LWE paragraph of content/Assumptions/learning-with-errors.md ('Succinct LWE implies Evasive LWE'), and in a second form on content/References/Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE.md ('This is a strengthening of evasive LWE'). Both are wrong and belong to the skeptical-checker lane; fix in the same commit that stubs this page.",
+        "The correct edge has no page. A Wee24 reference stub is already proposed in this batch on red-succinct-lwe-to-abe-wee25 (key Wee24, cryptobib C:Wee24), so creating content/Reductions/evasive-lwe-to-succinct-lwe.md needs no new reference work.",
+        "content/Reductions/succinct-lwe-to-lwe.md (kind: equivalence, not in this batch) is generated from the same paragraph and should be re-checked: the paragraph's 'equivalent to standard LWE' holds only at $\\ell = 1$, so `equivalence` on an unparameterized succinct-LWE node overstates the claim — the general edge is succinct LWE => LWE."
+      ]
+    }
+  ]
+}

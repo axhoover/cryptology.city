@@ -1,0 +1,564 @@
+{
+  "batch": "red-11",
+  "pages": [
+    {
+      "slug": "fe-to-io",
+      "path": "content/Reductions/fe-to-io.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "AJ15",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption",
+          "authors": "Prabhanjan Ananth, Abhishek Jain",
+          "venue": "CRYPTO 2015",
+          "year": "2015",
+          "url": "https://eprint.iacr.org/2015/173",
+          "note": "Concurrent and independent with BV15. CRYPTO 2015 Part I, LNCS 9215, pp. 308-326, DOI 10.1007/978-3-662-47989-6_15. cryptobib_key: C:AnaJai15 (verified in vendor/cryptobib/crypto.bib)."
+        },
+        {
+          "key": "BV15",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BV15 - Indistinguishability Obfuscation from Functional Encryption",
+          "authors": "Nir Bitansky, Vinod Vaikuntanathan",
+          "venue": "FOCS 2015",
+          "year": "2015",
+          "url": "https://eprint.iacr.org/2015/163",
+          "note": "Concurrent and independent with AJ15. FOCS 2015, pp. 171-190, DOI 10.1109/FOCS.2015.20; journal version J. ACM 65(6), 2018. cryptobib_key: FOCS:BitVai15 (verified in vendor/cryptobib/crypto.bib)."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Both transformations are non-black-box in the hypothesis: the obfuscator issues FE function keys for circuits that contain and run the code of the FE encryption algorithm, so the construction depends on the FE implementation, not on oracle access to it. Neither paper places the reduction in the RTV taxonomy; `free` records the proven implication without a technique restriction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A public-key [[functional-encryption|FE]] scheme for $\\classPpoly$ that is single-key, sub-exponentially secure, and weakly compact — encryption time sublinear in the size of the supported circuits — yields [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]], [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]. The construction runs the FE encryption algorithm inside the functions for which keys are issued and loses a factor $2^n$ on $n$-bit inputs, hence the sub-exponential hypothesis.",
+      "sketch": "The obfuscation of an $n$-bit-input circuit $C$ is a ciphertext of the empty input prefix together with a chain of function keys, one per input bit: decrypting a ciphertext of prefix $x_{<i}$ with key $i$ yields ciphertexts of $x_{<i}0$ and $x_{<i}1$ under the next FE instance, computed by running the FE encryption algorithm inside the function, and a final key evaluates $C$ on the fully encrypted input. A hybrid over the $2^n$ inputs reduces obfuscation security to FE security.",
+      "pseudocode": "",
+      "security_loss": "factor $2^n$ for $n$-bit inputs; requires sub-exponentially secure FE",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Two concurrent independent originals (AJ15, BV15); both listed with role original.",
+        "The bare hypothesis node functional-encryption cannot express the required qualifiers (single-key, weakly compact, sub-exponentially secure); the statement carries them. iO from polynomially secure FE is not known.",
+        "Converse-direction edges exist separately (hash-function-and-io-to-fe-sw14); keep kind: implication.",
+        "Resolves the migration note that '— standard' misused the folklore label: the claim is attributable to AJ15/BV15.",
+        "Verifier: web access to eprint/DBLP/DOI hosts was blocked by the proxy; bibliographic data for AJ15 and BV15 verified against vendor/cryptobib/crypto.bib (C:AnaJai15, FOCS:BitVai15). The hypothesis qualifiers and the 2^n loss are confirmed from the verifier's knowledge of both papers, not from a fetched abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened wording ('implies' → 'yields', 'whence' → 'hence'); no change of content",
+        "sketch: made the chain structure precise (ciphertext of the empty prefix, one key per input bit, a final evaluation key) instead of 'a chain of n keys ... until the circuit can be evaluated'",
+        "security_loss: reworded to name the input length",
+        "sources: added cryptobib keys to notes; added verification-path flag"
+      ]
+    },
+    {
+      "slug": "fuzzy-ibe-to-ibe",
+      "path": "content/Reductions/fuzzy-ibe-to-ibe.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "SW05",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW05 - Fuzzy Identity-Based Encryption",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "Eurocrypt 2005",
+          "year": "2005",
+          "url": "https://eprint.iacr.org/2004/086",
+          "note": "Defines Fuzzy IBE; listed only so the context bullet resolves. The $t = 1$ specialization is immediate and is not a theorem of SW05."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The IBE scheme runs the Fuzzy IBE algorithms unchanged on singleton attribute sets with threshold $t = 1$, using the scheme only as an oracle; the security reduction forwards any IBE adversary unchanged as an admissible Fuzzy IBE adversary (its key queries for identities other than the challenge are singleton sets disjoint from the challenge set), with no loss.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme: a key for $\\omega = \\{\\mathrm{id}\\}$ decrypts a ciphertext for $\\omega' = \\{\\mathrm{id}'\\}$ iff $\\mathrm{id} = \\mathrm{id}'$, and an IBE adversary is, unchanged, an admissible Fuzzy IBE adversary — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "tight (the IBE adversary is forwarded unchanged)",
+      "improvements_text": "- Fuzzy IBE is defined in [[SW05 - Fuzzy Identity-Based Encryption|SW05]] as IBE with threshold set-overlap matching; the specialization to $t = 1$ is immediate.",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Direction is correct as stated (Fuzzy IBE is the stronger object; IBE is its degenerate case).",
+        "Genuine folklore: the parameter specialization is immediate; SW05 is credited for the primitive, not for this reduction, and its role: improvement is a schema convenience.",
+        "The resulting IBE has identity space equal to the attribute universe $\\calU$; the reduction preserves whichever security notion (selective or adaptive) the Fuzzy IBE scheme has."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'is exactly IBE' → 'restricted to singleton attribute sets, is an IBE scheme'; replaced the prose 'encrypting to ... issuing keys for ...' with the decryption condition in the page's own notation ($\\omega$, $\\omega'$, $t$)",
+        "improvements_text: reworded so the bullet does not present SW05 as an improvement of the reduction",
+        "flags: added identity-space / security-notion remark"
+      ]
+    },
+    {
+      "slug": "gapsvp-to-lwe-reg05",
+      "path": "content/Reductions/gapsvp-to-lwe-reg05.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Reg05",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography",
+          "authors": "Oded Regev",
+          "venue": "STOC 2005",
+          "year": "2005",
+          "url": "https://arxiv.org/abs/2401.03703",
+          "note": "Existing page (cryptobib_key STOC:Regev05, DOI 10.1145/1060590.1060603)."
+        },
+        {
+          "key": "Pei09",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem",
+          "authors": "Chris Peikert",
+          "venue": "STOC 2009",
+          "year": "2009",
+          "url": "https://doi.org/10.1145/1536414.1536461",
+          "note": "STOC 2009, pp. 333-342; eprint 2008/481. Classical reduction from worst-case GapSVP for modulus q >= 2^{n/2}. cryptobib_key: STOC:Peikert09 (verified in vendor/cryptobib/crypto.bib; cryptobib title carries the suffix ': extended abstract')."
+        },
+        {
+          "key": "BLPRS13",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BLPRS13 - Classical Hardness of Learning with Errors",
+          "authors": "Zvika Brakerski, Adeline Langlois, Chris Peikert, Oded Regev, Damien Stehlé",
+          "venue": "STOC 2013",
+          "year": "2013",
+          "url": "https://doi.org/10.1145/2488608.2488680",
+          "note": "STOC 2013, pp. 575-584; arXiv:1306.0281. Classical hardness with polynomial modulus via modulus-dimension switching. cryptobib_key: STOC:BLPRS13 (verified in vendor/cryptobib/crypto.bib)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Worst-case-to-average-case oracle reduction: the (quantum) reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step, and works for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape.",
+      "model": "quantum",
+      "model_justification": "Reg05's reduction is quantum: the LWE oracle is used classically to solve bounded-distance decoding, but the step converting the BDD solver into shorter discrete-Gaussian samples is a quantum algorithm. Frontmatter said standard; corrected to match the sibling sivp-to-lwe-reg05.",
+      "kind_correct": "implication",
+      "statement": "For $\\alpha q > 2\\sqrt{n}$, an efficient algorithm solving [[learning-with-errors|LWE]] in dimension $n$ with modulus $q$ and Gaussian error parameter $\\alpha$ on a noticeable fraction of instances yields an efficient quantum algorithm approximating worst-case [[shortest-vector-problem|GapSVP]] on $n$-dimensional lattices to within $\\tilde{O}(n/\\alpha)$ [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; for decision LWE the modulus must be prime and $\\poly(n)$. Hence if GapSVP is hard in the worst case for efficient quantum algorithms, search and decision LWE are hard on average.",
+      "sketch": "Given discrete Gaussian samples of parameter $r$ from the input lattice $L$, the LWE oracle solves bounded-distance decoding on the dual $L^*$ to within distance $\\alpha q/(\\sqrt{2}\\,r)$; a quantum step turns this BDD solver into a sampler of discrete Gaussians over $L$ with parameter $r\\sqrt{n}/(\\alpha q)$. Iterating shrinks the parameter until the samples decide the GapSVP instance.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Classical (non-quantum) reduction from worst-case GapSVP for exponential modulus $q \\ge 2^{n/2}$ — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]].\n- Classical hardness with polynomial modulus: LWE in dimension $n$ is as hard as worst-case GapSVP in dimension $\\Theta(\\sqrt{n})$, via modulus-dimension switching — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "model corrected: standard -> quantum (Reg05's reduction is quantum; sibling sivp-to-lwe-reg05 already records quantum).",
+        "Resolves the migration note 'see subsequent work by Peikert': Pei09 and BLPRS13 are the classical-reduction citations.",
+        "Hypothesis slug gapsvp wikilinks to shortest-vector-problem; the SIVP half of Reg05's theorem is the separate page sivp-to-lwe-reg05.",
+        "Verifier: Pei09 and BLPRS13 bibliographic data verified against vendor/cryptobib/crypto.bib (web hosts blocked by proxy). The parameter conditions in the statement (alpha q > 2 sqrt n; prime poly modulus for the decision version) are from the verifier's knowledge of Reg05."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: rewritten as 'LWE solver yields quantum GapSVP approximator' in one sentence; added the prime, poly(n) modulus condition for the decision version; kept alpha q > 2 sqrt(n) and the Õ(n/α) factor",
+        "sketch: replaced the vague 'ever shorter Gaussian samples' with the actual parameters of Reg05's iterative step (BDD radius αq/(√2 r), new Gaussian parameter r√n/(αq))",
+        "sources: added cryptobib keys / DOI to notes; added verification-path flag"
+      ]
+    },
+    {
+      "slug": "gapsvp-to-sis-ajt96",
+      "path": "content/Reductions/gapsvp-to-sis-ajt96.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Ajt96",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ajt96 - Generating hard instances of lattice problems",
+          "authors": "Miklós Ajtai",
+          "venue": "STOC 1996",
+          "year": "1996",
+          "url": "https://dl.acm.org/doi/10.1145/237814.237838",
+          "note": "Existing page (cryptobib_key STOC:Ajtai96)."
+        },
+        {
+          "key": "MR07",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures",
+          "authors": "Daniele Micciancio, Oded Regev",
+          "venue": "SIAM Journal on Computing",
+          "year": "2007",
+          "url": "https://doi.org/10.1137/S0097539705447360",
+          "note": "SIAM J. Comput. 37(1):267-302, 2007; preliminary version FOCS 2004, pp. 372-381, DOI 10.1109/FOCS.2004.72 (cryptobib_key FOCS:MicReg04, verified in vendor/cryptobib/crypto.bib; the journal version is not in cryptobib, so the reference page needs inline bibtex). Tightens the worst-case factors to n polylog(n) and is the usual citation for the GapSVP/SIVP form."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Worst-case-to-average-case oracle reduction: the worst-case algorithm generates random SIS instances from its input lattice and invokes an arbitrary average-case SIS solver only as an oracle; it works for every solver with noticeable success probability. No construction component; this is the fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "The reduction is entirely classical (unlike the quantum LWE reduction of Reg05).",
+      "kind_correct": "implication",
+      "statement": "An efficient algorithm solving [[shortest-integer-solution|SIS]] on a noticeable fraction of uniform $\\mathbf{A} \\in \\ZZ_q^{n \\times m}$, for suitable $q, m = \\poly(n)$, yields an efficient classical algorithm estimating $\\lambda_1$ — that is, solving [[shortest-vector-problem|GapSVP]] — to within a fixed polynomial factor $n^{O(1)}$ on every $n$-dimensional lattice [[Ajt96 - Generating hard instances of lattice problems|Ajt96]].",
+      "sketch": "Sample lattice points from a wide distribution over the input lattice; their basis coordinates, scaled by $q$ and reduced mod $q$, form a nearly uniform SIS instance $\\mathbf{A}$, and a short solution $\\mathbf{z}$ with $\\mathbf{A}\\mathbf{z} = \\mathbf{0} \\bmod q$ recombines the samples into a lattice vector shorter than the sampling scale. Iterating shortens the basis until its length is within a polynomial factor of optimal.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The worst-case approximation factor is tightened to $\\tilde{O}(n)$ for GapSVP and SIVP using Gaussian measures — [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the migration note on attribution: Ajt96's Problem (1) is worst-case estimation of the shortest vector length within a fixed polynomial factor, i.e. the GapSVP form is already in Ajt96 with large n^{O(1)} factors; the Õ(n)-factor version usually cited is MR07, recorded as improvement.",
+        "The SIVP half of the theorem is the separate page sivp-to-sis-ajt96.",
+        "HUMAN CHECK: the SICOMP 2007 bibliographic data for MR07 (vol. 37(1), pp. 267-302, DOI 10.1137/S0097539705447360) could not be fetched (proxy blocked SIAM/DOI/DBLP) and is from the verifier's knowledge; the FOCS 2004 version is verified in cryptobib (FOCS:MicReg04). If the journal data cannot be confirmed, retitle the page MR04 with cryptobib_key FOCS:MicReg04."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: added 'on a noticeable fraction of' instances and 'for suitable q, m = poly(n)'; reordered so the GapSVP gloss reads as an equivalence, not an aside",
+        "sketch: removed the claim that iteration directly yields 'a poly(n) approximation of λ1' (the GapSVP endgame in Ajt96/MR07 is not simply reading off the final basis length); the retained mechanism (sampling → nearly uniform A → short solution → shorter lattice vector → basis shortening) is Ajt96's core",
+        "MR07 note expanded with the verified FOCS 2004 record; added a human-check flag for the journal data"
+      ]
+    },
+    {
+      "slug": "gc-and-ot-to-two-party-computation-2pc",
+      "path": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Yao86",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Yao86 - How to Generate and Exchange Secrets",
+          "authors": "Andrew Chi-Chih Yao",
+          "venue": "FOCS 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1109/SFCS.1986.25",
+          "note": "FOCS 1986, pp. 162-167. The garbled-circuit protocol is traditionally attributed to this paper and Yao's accompanying oral presentations; the paper does not spell the construction out. cryptobib_key: FOCS:Yao86 (verified in vendor/cryptobib/crypto.bib; cryptobib title carries the suffix '(Extended Abstract)'). Distinct from the existing wiki page Yao82 (Protocols for secure computations)."
+        },
+        {
+          "key": "LP09",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation",
+          "authors": "Yehuda Lindell, Benny Pinkas",
+          "venue": "Journal of Cryptology",
+          "year": "2009",
+          "url": "https://doi.org/10.1007/s00145-008-9036-8",
+          "note": "J. Cryptology 22(2):161-188, 2009; also eprint 2004/175. First complete description and proof of security of Yao's protocol (semi-honest). cryptobib_key: JC:LinPin09 (verified in vendor/cryptobib/crypto.bib)."
+        },
+        {
+          "key": "BHR12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BHR12 - Foundations of Garbled Circuits",
+          "authors": "Mihir Bellare, Viet Tung Hoang, Phillip Rogaway",
+          "venue": "ACM CCS 2012",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2012/265",
+          "note": "CCS 2012, pp. 784-796, DOI 10.1145/2382196.2382279. Formalizes garbling schemes as a primitive; its privacy notion suffices for two-party SFE. cryptobib_key: CCS:BelHoaRog12 (verified in vendor/cryptobib/crypto.bib)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The protocol invokes the garbling scheme and the OT protocol only through their interfaces, independent of their implementations; the LP09 simulators and hybrid reductions use the semi-honest adversary (a distinguisher of views) only as an oracle. Assessment from the proof shape, made explicit by BHR12's modular garbling treatment; neither source uses RTV vocabulary.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[garbled-circuit|garbling scheme]] and [[oblivious-transfer|OT]] yield a constant-round protocol for [[secure-multi-party-computation#two-party-computation-2pc|two-party computation]] of any polynomial-size circuit against semi-honest adversaries: the garbler sends the garbled circuit with the labels of its own input, and the evaluator obtains the labels of its input by OT and evaluates — [[Yao86 - How to Generate and Exchange Secrets|Yao86]]. The first complete description and security proof is [[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]].",
+      "sketch": "The evaluator's view is simulated from a simulated garbled circuit and input labels that reveal only the output (garbling privacy) together with simulated OT transcripts; the garbler's view is simulated from OT receiver privacy. A hybrid argument turns any distinguisher of the real and simulated views into an adversary against the garbling or OT games.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Garbling schemes were later formalized as a standalone primitive whose privacy notion is exactly what the protocol needs — [[BHR12 - Foundations of Garbled Circuits|BHR12]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Semi-honest security only; malicious 2PC needs additional machinery (cut-and-choose etc.) and is not this edge.",
+        "class fully-black-box is an assessment from the proof shape, not a claim stated in Yao86/LP09; the verifier concurs (construction uses both hypotheses via their interfaces, reductions use the distinguisher as an oracle).",
+        "garbled-circuit page exists; the migration note claiming no page is stale. Conclusion is the 2PC section anchor of secure-multi-party-computation, as the page already links it.",
+        "Verifier: Yao86, LP09, BHR12 bibliographic data verified against vendor/cryptobib/crypto.bib (web hosts blocked by proxy)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('yields', 'the garbler ... the evaluator ...'); removed the parenthetical 'GC' gloss; no change of content",
+        "sketch: 'simulated garbled circuit that hides everything but the output' → 'simulated garbled circuit and input labels that reveal only the output' (the simulator must also produce the garbler's input labels)",
+        "class_justification: 'as subroutines' → 'through their interfaces'; named the adversary as a distinguisher of views",
+        "sources: added cryptobib keys and a Yao82-disambiguation note"
+      ]
+    },
+    {
+      "slug": "ggm-to-abe-bsw07",
+      "path": "content/Reductions/ggm-to-abe-bsw07.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "generic-group",
+      "model_justification": "Page's current value, kept for lint consistency; not a verified field.",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The hypothesis 'GGM' is the generic-group model — an idealized computation model, not a hardness assumption or primitive — so the edge is not a well-formed hyperedge: 'the generic group model implies ABE' is not a reduction between objects. schema/reduction-classes.yaml puts idealized models on the model: axis, and .reductions/node-decisions.json already records (for the structured GGM) that the model must not be a hypothesis endpoint. The underlying fact is sound and already cited: BSW07 give a CP-ABE construction over bilinear groups proven secure in the generic bilinear-group model. The correct encoding is a reduction page whose hypothesis is the bilinear-group structure (or no assumption hypothesis), conclusion abe (CP-ABE variant), model: generic-group, class: free scoped to that model, source BSW07 (already in the wiki).",
+      "flags": [
+        "Recommend retiring this edge and re-encoding as e.g. bilinear-pairing-to-abe-bsw07 with model: generic-group; the BSW07 reference page already exists.",
+        "Related: Wat11 (already in wiki) gives CP-ABE under non-interactive assumptions in the standard model, which would be the standard-model counterpart edge.",
+        "The three Sho97 barrier pages (no-ggm-to-{dlog,cdh,ddh}-sho97) use ggm as a hypothesis node in the same way; the same re-encoding question applies to them (human decision)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "model: '' → 'generic-group' (the page's current value) so no invalid empty model is written if the applier touches frontmatter",
+        "wrong_reason: tightened; cited the node-decisions.json precedent",
+        "flags: noted the analogous Sho97 barrier pages"
+      ]
+    },
+    {
+      "slug": "hash-function-to-czk",
+      "path": "content/Reductions/hash-function-to-czk.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GMW91",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems",
+          "authors": "Oded Goldreich, Silvio Micali, Avi Wigderson",
+          "venue": "Journal of the ACM",
+          "year": "1991",
+          "url": "https://dl.acm.org/doi/abs/10.1145/116825.116852",
+          "note": "Journal version of GMW, FOCS 1986. Existing page."
+        },
+        {
+          "key": "HILL99",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing",
+          "year": "1999",
+          "url": "https://epubs.siam.org/doi/10.1137/S0097539793244708",
+          "note": "OWF-to-PRG step making the OWF hypothesis exact."
+        },
+        {
+          "key": "Naor91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Naor91 - Bit commitment using pseudorandomness",
+          "authors": "Moni Naor",
+          "venue": "Journal of Cryptology",
+          "year": "1991",
+          "url": "https://link.springer.com/article/10.1007/BF00191386",
+          "note": "PRG-to-commitment step making the OWF hypothesis exact."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The GMW 3-coloring protocol uses the bit-commitment scheme only as an oracle, and the OWF-to-commitment chain (HILL99 PRG, Naor91 commitment) is fully black-box. Soundness is unconditional given a statistically binding commitment; zero knowledge reduces to commitment hiding by a black-box simulator that rewinds the cheating verifier, using it only as an oracle. Matches the class already recorded on hash-function-to-zkp-gmw91.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If one-way functions ([[hash-function|OWF]]) exist, 3-coloring — hence every language in $\\classNP$ — has a computational zero-knowledge interactive proof, so $\\classNP \\subseteq$ [[computational-zero-knowledge|CZK]] [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol uses only a computationally hiding, statistically binding bit commitment, which any OWF yields [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].",
+      "sketch": "Each round the prover commits to a uniformly re-permuted 3-coloring; the verifier names a random edge and the prover opens its two endpoints, which must carry distinct colors. A non-3-colorable graph has a monochromatic edge, caught with probability at least $1/|E|$ per round; a simulator that guesses the edge, commits to a coloring valid only there, and rewinds on a wrong guess gives zero knowledge from commitment hiding.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- GMW assumed a generic commitment scheme; instantiating commitments from any OWF — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] + [[Naor91 - Bit commitment using pseudorandomness|Naor91]] — makes the OWF hypothesis exact.",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Overlaps hash-function-to-zkp-gmw91 in substance; this page records the complexity-class side (NP contained in CZK, via the 3-coloring bullet on the CZK page). Verifier may want to dedupe or cross-link.",
+        "hash-function is the merged OWF/CRHF node; only one-wayness is used here."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: corrected 'the verifier opens one random edge' → the verifier names the edge and the prover opens both endpoints; made the simulator description precise (guess edge, commit to a coloring valid only there, rewind on wrong guess)",
+        "class_justification: removed 'reductions of soundness ... to commitment binding' — soundness of the proof system is unconditional given statistical binding; only zero knowledge reduces to hiding",
+        "statement: added 'statistically binding'; tightened wording"
+      ]
+    },
+    {
+      "slug": "hash-function-and-io-to-deniable-encryption-sw14",
+      "path": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "SW14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More",
+          "authors": "Amit Sahai, Brent Waters",
+          "venue": "STOC 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/454",
+          "note": "Existing page (cryptobib_key STOC:SahWat14, DOI 10.1145/2591796.2591825)."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The punctured-programs technique applies iO to circuits containing the code of puncturable PRFs derived from the OWF, so the construction is non-black-box in the hypothesis primitives. SW14 do not place the reduction in the RTV taxonomy; `free` records the proven implication without a technique restriction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[indistinguishability-obfuscation|iO]] for circuits and one-way functions ([[hash-function|OWF]]) yield publicly deniable — in particular sender-deniable — [[deniable-encryption|encryption]]: for any ciphertext and any message, the sender can produce randomness explaining the ciphertext as an encryption of that message, indistinguishably from the honest randomness [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].",
+      "sketch": "The public key is a pair of obfuscated programs built from puncturable PRFs (obtained from the OWF): Encrypt behaves normally except on a sparse hidden set of trigger inputs, where it outputs the ciphertext encoded in the trigger; Explain samples trigger randomness for any desired ciphertext–message pair. Punctured-key hybrids reduce deniability and CPA security to iO and PRF security.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Sender-deniable/publicly deniable only; receiver- and bi-deniability are not given by this construction.",
+        "deniable-encryption page now exists (stub, unlisted); the migration note claiming no page is stale.",
+        "Sibling SW14 edges (pke, ds, nizk, fe, lossy TDFs) are separate pages; this record is only the deniable-encryption conclusion."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: reordered to lead with 'publicly deniable' (SW14's notion) and state the explain property as a quantified claim ('for any ciphertext and any message'); no change of content"
+      ]
+    },
+    {
+      "slug": "hash-function-to-dpf-gi14",
+      "path": "content/Reductions/hash-function-to-dpf-gi14.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GI14",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GI14 - Distributed Point Functions and Their Applications",
+          "authors": "Niv Gilboa, Yuval Ishai",
+          "venue": "Eurocrypt 2014",
+          "year": "2014",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-642-55220-5_35",
+          "note": "Existing page (cryptobib_key EC:GilIsh14)."
+        },
+        {
+          "key": "BGI15",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGI15 - Function Secret Sharing",
+          "authors": "Elette Boyle, Niv Gilboa, Yuval Ishai",
+          "venue": "Eurocrypt 2015",
+          "year": "2015",
+          "url": "https://link.springer.com/chapter/10.1007/978-3-662-46803-6_12",
+          "note": "Reduces DPF key length to O(secpar · log N) with a GGM-style tree construction. Existing page (cryptobib_key EC:BoyGilIsh15)."
+        },
+        {
+          "key": "HILL99",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Håstad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing",
+          "year": "1999",
+          "url": "https://epubs.siam.org/doi/10.1137/S0097539793244708",
+          "note": "Supplies the OWF-to-PRG step behind the OWF form of the hypothesis."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The GI14 construction (and the improved BGI15 tree construction) invokes a length-doubling PRG only as an oracle inside a recursive key expansion, and the hybrid security proof turns any distinguisher of a single key into a PRG distinguisher used as an oracle; the OWF-to-PRG step (HILL99) is likewise fully black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Any [[pseudorandom-generator|PRG]] — hence, via [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], any [[hash-function|OWF]] — yields a two-party [[distributed-point-function|DPF]] on domain $[N]$ with key length $\\poly(\\secpar, \\log N)$ [[GI14 - Distributed Point Functions and Their Applications|GI14]].",
+      "sketch": "In the tree construction of BGI15, which improves GI14, the two keys define GGM-style PRG evaluation trees that agree on every node off the path to $\\alpha$ and differ along it; per-level correction words keep the two evaluations equal off-path, so the parties' outputs differ exactly at leaf $\\alpha$, where the difference is $\\beta$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Key length reduced to $O(\\secpar \\log N)$ via a GGM-style tree construction — [[BGI15 - Function Secret Sharing|BGI15]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Duplicate edge: prg-to-dpf-gi14 records the same theorem with hypothesis prg; this page's OWF form only adds the HILL99 link. Recommend keeping the PRG edge as primary and either retiring this one or marking it as the composite OWF form.",
+        "PROBABLE ATTRIBUTION ERROR on the DPF page (skeptical-checker lane): distributed-point-function.md attributes key size O(secpar log N) to GI14, but that bound is BGI15's tree construction; GI14's key length is superlinear in log N (the researcher and the verifier both recall O(secpar (log N)^{log2 3}) from the BGI15 abstract, but the abstract could not be fetched — proxy blocked — so the exact GI14 exponent is unverified). The statement therefore records GI14's bound only as poly(secpar, log N).",
+        "hash-function is the merged OWF/CRHF node; only one-wayness is used."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: GI14 key length O(secpar (log N)^{log2 3}) → poly(secpar, log N): the exact exponent could not be verified online",
+        "improvements_text: removed the unverified 'from O(secpar (log N)^{log2 3})' clause; kept the verified O(secpar log N) target",
+        "sketch: labelled explicitly as the BGI15 improvement of GI14",
+        "flags: attribution-error flag hedged to 'probable' with the verification gap stated"
+      ]
+    },
+    {
+      "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
+      "path": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Mer89",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Mer89 - A Certified Digital Signature",
+          "authors": "Ralph C. Merkle",
+          "venue": "CRYPTO 1989",
+          "year": "1989",
+          "url": "https://link.springer.com/chapter/10.1007/0-387-34805-0_21",
+          "note": "Existing page."
+        },
+        {
+          "key": "NY89",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications",
+          "authors": "Moni Naor, Moti Yung",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73011",
+          "note": "STOC 1989, pp. 33-43. Universal one-way (target-collision-resistant) hash functions, built from any one-to-one OWF, suffice for many-time signatures. cryptobib_key: STOC:NaoYun89 (verified in vendor/cryptobib/crypto.bib)."
+        },
+        {
+          "key": "Rom90",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Rom90 - One-Way Functions Are Necessary and Sufficient for Secure Signatures",
+          "authors": "John Rompel",
+          "venue": "STOC 1990",
+          "year": "1990",
+          "url": "https://doi.org/10.1145/100216.100269",
+          "note": "STOC 1990, pp. 387-394. Removes the collision-resistance hypothesis entirely: signatures from any OWF. cryptobib_key: STOC:Rompel90 (verified in vendor/cryptobib/crypto.bib)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction calls the one-time signature scheme and the hash function only as oracles: it hashes one-time verification keys into a Merkle tree and signs with fresh leaf keys. The security reduction runs any forger as an oracle and outputs either a hash collision at some tree node or a one-time forgery.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A collision-resistant [[hash-function|hash function]] and a [[digital-signature#hash-based-signatures|one-time signature]] scheme yield a stateful many-time [[digital-signature|signature]] scheme: the public key is the root of a Merkle tree over $2^h$ one-time verification keys — a single $O(\\secpar)$-bit hash — and the $i$-th signature is a one-time signature under the $i$-th key together with that key and its authentication path of $h$ hashes, so signatures have size $O(h \\secpar)$ plus one one-time key and signature [[Mer89 - A Certified Digital Signature|Mer89]]. A forger yields either a hash collision at a tree node or a one-time forgery.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Universal one-way (target-collision-resistant) hash functions, obtainable from any one-to-one one-way function, suffice for many-time signatures — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].\n- Any one-way function suffices for many-time signatures — [[Rom90 - One-Way Functions Are Necessary and Sufficient for Secure Signatures|Rom90]].",
+      "notes_to_keep": [
+        "The conclusion is a stateful many-time scheme; statefulness has no node in the model, so the edge reads as plain digital signatures."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CONFIRMED the migration's suspected efficiency error: the migrated bullet reversed the sizes. Correct: public key is a single O(secpar) hash; signatures are O(h secpar) (authentication path) plus one one-time key and signature. The statement above fixes it; the digital-signature.md line with the reversed claim should be corrected (skeptical-checker lane).",
+        "Duplicate edge: hash-based-signatures-to-ds-mer89 records the same Mer89 step with a single hypothesis {one-time-signature}. This two-hypothesis version is the correct encoding (the tree needs a hash function); recommend retiring the single-hypothesis duplicate.",
+        "Hypothesis label mismatch: frontmatter says one-time-signature but the body displays it as 'Hash-based signatures' anchored at digital-signature#hash-based-signatures; one-time-signature has no wiki page.",
+        "The XMSS/RFC 8391 material in the migrated quote belongs on the digital-signature page, not on this edge.",
+        "Strictly the tree needs collision resistance (or target-collision resistance with per-node keys), not a bare OWF; the statement says collision-resistant hash, which the merged hash-function node can express only loosely.",
+        "Verifier: NY89 and Rom90 bibliographic data verified against vendor/cryptobib/crypto.bib (web hosts blocked by proxy)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: the i-th signature must also carry the i-th one-time verification key (needed to verify); tightened wording",
+        "improvements_text: NY89 bullet no longer says UOWHFs 'suffice for the tree' (NY89's scheme is not Merkle's tree; the verified claim is that UOWHFs from one-to-one OWFs suffice for many-time signatures); Rom90 bullet dropped the unverified '(stateful, then stateless)' parenthetical",
+        "flags: added verification-path note"
+      ]
+    }
+  ]
+}

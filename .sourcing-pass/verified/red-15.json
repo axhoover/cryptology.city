@@ -1,0 +1,424 @@
+{
+  "batch": "red-15",
+  "pages": [
+    {
+      "slug": "ind-cpa-kem-to-ind-cca-security",
+      "path": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FO99",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes",
+          "authors": "Eiichiro Fujisaki, Tatsuaki Okamoto",
+          "venue": "CRYPTO 1999 (LNCS 1666), pp. 537-554",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48405-1_34",
+          "note": "Introduces the Fujisaki-Okamoto transform: a one-way (gamma-uniform) asymmetric scheme plus a one-time-secure symmetric scheme give an IND-CCA hybrid PKE in the ROM; the KEM form is later (Den03, HHK17). cryptobib_key: C:FujOka99. Journal version: J. Cryptology 26(1):80-101, 2013, doi:10.1007/s00145-011-9114-1 (cryptobib JC:FujOka13). Do not confuse with the same authors' PKC 1999 paper 'How to Enhance the Security of Public-Key Encryption at Minimum Cost' (cryptobib PKC:FujOka99), a different transform; if that paper is ever added it needs a suffixed key."
+        },
+        {
+          "key": "Den03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Den03 - A Designer's Guide to KEMs",
+          "authors": "Alexander W. Dent",
+          "venue": "IMA International Conference on Cryptography and Coding 2003 (LNCS 2898), pp. 133-151",
+          "year": "2003",
+          "url": "https://doi.org/10.1007/978-3-540-40974-8_12",
+          "note": "Generic KEM constructions from weakly secure (one-way) PKE, proved IND-CCA in the ROM; includes the re-encryption (FO-style) KEM that HHK17's U transforms generalise. cryptobib_key: IMA:Dent03; eprint 2002/174."
+        },
+        {
+          "key": "HHK17",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation",
+          "authors": "Dennis Hofheinz, Kathrin Hövelmanns, Eike Kiltz",
+          "venue": "TCC 2017, Part I (LNCS 10677), pp. 341-371",
+          "year": "2017",
+          "url": "https://eprint.iacr.org/2017/604",
+          "note": "Decomposes FO into the T and U transforms and states the modern PKE-to-KEM form with concrete bounds and explicit handling of a delta-correct base scheme. cryptobib_key: TCC:HofHovKil17; doi:10.1007/978-3-319-70500-2_12."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction that calls the base scheme's algorithms (encryption with explicit coins, decryption) and the hash functions only as oracles; one fixed reduction that runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption. Fully black-box in both quantifiers, within the ROM.",
+      "model": "rom",
+      "model_justification": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model; an IND-CCA KEM from IND-CPA alone is not known in the standard model. The page already records model: rom; it is load-bearing.",
+      "kind_correct": "implication",
+      "statement": "The Fujisaki–Okamoto transform builds an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random-oracle model]] from any [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme (one-wayness suffices; explicit rejection additionally needs $\\gamma$-spread ciphertexts): encapsulation samples a uniform message $m$, encrypts it under coins $G(m)$, and outputs the key $H(m, c)$; decapsulation decrypts $c$ to $m'$, re-encrypts under $G(m')$, and rejects — or, with implicit rejection, returns a pseudorandom key — unless the result equals $c$ [[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]], [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]. An [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] yields such a PKE by one-time-padding the message with the encapsulated key, so the transform also lifts IND-CPA KEMs to IND-CCA KEMs in the ROM — standard.",
+      "sketch": "Derandomising encryption with $G(m)$ makes ciphertexts checkable by re-encryption, so the reduction answers decapsulation queries by searching the adversary's $G$ and $H$ queries for a message that re-encrypts to the queried ciphertext; an adversary that never queries $H$ on the challenge message $m^*$ has no information on $H(m^*, c^*)$, and one that does outputs $m^*$, inverting the base encryption.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- KEM-specific versions of the transform, proved IND-CCA in the ROM from one-way PKE — [[Den03 - A Designer's Guide to KEMs|Den03]]\n- Modular T/U decomposition with concrete bounds for a $\\delta$-correct base scheme, covering explicit and implicit rejection — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS OBJECT MISMATCH: FO99/Den03/HHK17 take an IND-CPA (or OW-CPA) *PKE* as input, not a KEM; the recorded edge (IND-CPA KEM ⇒ IND-CCA KEM, ROM) is true only via the one-time-pad KEM-to-PKE step made explicit in the statement. Re-point the hypothesis at IND-CPA PKE (pke-cpa-security) or keep the bridging sentence.",
+        "Key ambiguity: Fujisaki–Okamoto published two 1999 transforms (CRYPTO: this one; PKC 1999: 'How to Enhance the Security of Public-Key Encryption at Minimum Cost'). FO99 here denotes the CRYPTO paper; a page for the PKC paper would need a suffixed key.",
+        "Verifier added Den03 (Dent, 'A Designer's Guide to KEMs') as the origin of the KEM form of the transform; bibliographic data verified via cryptobib, content from reviewer knowledge — human spot-check advisable.",
+        "The KEM page's claim that FO is 'used in all NIST PQC KEM standards (Kyber, NTRU)' is wrong: NTRU was a finalist, not a standard (fix on key-encapsulation-mechanism.md, editor/skeptical-checker lane).",
+        "The KEM page's '[[learning-with-errors|Module LWE]]' wikilink conflates Module-LWE with plain LWE (other page).",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement rewritten: the transform's input is a PKE (with the explicit-rejection γ-spread condition and the implicit-rejection variant stated); added the one-time-pad KEM-to-PKE bridge so the recorded edge is true as stated",
+        "added improvement source Den03 (Dent 2003, IMA C&C; cryptobib IMA:Dent03) as the first KEM form of the transform",
+        "HHK17 bullet: dropped the ML-KEM/FIPS 203 clause (HHK17 predates FIPS 203 and cannot be its citation)",
+        "sources: venues/pages/DOIs/cryptobib keys recorded from vendor/cryptobib; FO99 note warns about the PKC 1999 sibling paper",
+        "class/model justifications and sketch tightened"
+      ]
+    },
+    {
+      "slug": "cpa-security-to-cpa-security",
+      "path": "content/Reductions/cpa-security-to-cpa-security.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GM84",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GM84 - Probabilistic encryption",
+          "authors": "Shafi Goldwasser, Silvio Micali",
+          "venue": "JCSS 1984",
+          "year": "1984",
+          "url": "https://doi.org/10.1016/0022-0000(84)90070-9",
+          "note": "Introduces semantic security and polynomial security (indistinguishability of encryptions) and proves that polynomial security implies semantic security. cryptobib_key: GolMic84 (JCSS 28(2):270-299)."
+        },
+        {
+          "key": "MRS88",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "MRS88 - The Notion of Security for Probabilistic Cryptosystems",
+          "authors": "Silvio Micali, Charles Rackoff, Bob Sloan",
+          "venue": "SIAM Journal on Computing 17(2):412-426, 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1137/0217025",
+          "note": "Proves the equivalence of semantic security, polynomial security (indistinguishability) and Yao's definition, closing the converse direction. Journal version of the CRYPTO 1986 extended abstract (doi:10.1007/3-540-47721-7_27, cryptobib C:MicRacSlo86); journal entry cryptobib key MicRacSlo88 (no DOI recorded there; the SIAM DOI above is from the researcher and unverified offline)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Both directions leave the scheme unchanged; each reduction runs the given adversary once as an oracle. From indistinguishability, the semantic-security simulator is the adversary run on an encryption of a dummy message, and the reduction samples $m$ itself so it can test the adversary's output. From semantic security, an indistinguishability adversary is used unchanged as a predicate-computing adversary. Fixed construction, fixed black-box reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "A [[public-key-encryption|PKE]] scheme is [[public-key-encryption#cpa-security|IND-CPA-secure]] if and only if it is semantically secure: for every efficient adversary there is an efficient simulator that, from $\\pk$ and $|m|$ alone, computes any function $f(m)$ with probability negligibly close to the adversary's given $\\Enc(\\pk, m)$. Indistinguishability implies semantic security [[GM84 - Probabilistic encryption|GM84]]; the converse completes the equivalence [[MRS88 - The Notion of Security for Probabilistic Cryptosystems|MRS88]].",
+      "sketch": "Indistinguishability implies semantic security by simulation: the simulator runs the adversary on $\\Enc(\\pk, 1^{|m|})$, and any gap in computing $f(m)$ distinguishes $\\Enc(\\pk, m)$ from $\\Enc(\\pk, 1^{|m|})$. Conversely, a distinguisher for $(m_0, m_1)$ is a semantic-security adversary for the uniform distribution on $\\{m_0, m_1\\}$ and the predicate $[m = m_1]$, which no simulator without the ciphertext predicts with probability above $1/2$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "BROKEN TITLE/ANCHORS: the page is titled 'CPA Security ⇔ CPA Security' and both endpoints render as [[public-key-encryption#cpa-security]] because the variant ids ind-cpa-security and semantic-security both map to #cpa-security on the PKE page. The PKE page needs a distinct 'Semantic security' subsection/anchor, and this page should be retitled 'IND-CPA ⇔ semantic security'.",
+        "The migrated quote is from hybrid-argument and describes the many-query hybrid, which is a different (also standard) fact; the recorded edge is the notion equivalence, which is what the statement above sources.",
+        "Attribution of the two directions (GM84: indistinguishability ⇒ semantic security; MRS88: converse and Yao's definition) is from reviewer knowledge, not re-read offline — human spot-check advisable.",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: made the semantic-security notion explicit and attributed each direction to its paper",
+        "sketch tightened (dummy-message simulator; predicate [m = m_1])",
+        "MRS88 venue/pages recorded from cryptobib; note records the CRYPTO 1986 DOI and that the SIAM DOI is unverified offline",
+        "class justification rewritten to say how each reduction treats the adversary",
+        "confidence high → medium (attribution of directions not re-verified against the papers)"
+      ]
+    },
+    {
+      "slug": "ind-id-cpa-security-to-ind-sid-cpa-security-selective",
+      "path": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity map on IBE schemes; the reduction runs the selective adversary unchanged as an adaptive adversary that outputs its pre-committed challenge identity. Fixed construction, fixed black-box reduction, advantage preserved exactly.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme is [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]]: a selective adversary, which commits to $\\mathit{id}^*$ before seeing $\\pp$, is an adaptive adversary that ignores $\\pp$ when choosing its challenge identity, so the identity map on schemes preserves the advantage exactly — folklore.",
+      "sketch": "Wrap the selective adversary as an adaptive one: forward its extraction queries unchanged and submit the pre-committed $\\mathit{id}^*$ as the adaptive challenge identity.",
+      "pseudocode": "",
+      "security_loss": "tight: the two advantages are equal",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The source page's phrase 'strictly weaker' also asserts a separation (selectively secure but not adaptively secure schemes exist); that separation is a distinct claim needing its own citation and is not covered by this edge."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement, sketch and security_loss tightened; no substantive change"
+      ]
+    },
+    {
+      "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
+      "path": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BB04",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles",
+          "authors": "Dan Boneh, Xavier Boyen",
+          "venue": "EUROCRYPT 2004 (LNCS 3027), pp. 223-238",
+          "year": "2004",
+          "url": "https://doi.org/10.1007/978-3-540-24676-3_14",
+          "note": "Introduces the selective-ID model and the complexity-leveraging observation that a selective-ID secure IBE with N identities is fully secure with loss N. eprint 2004/172; cryptobib_key: EC:BonBoy04b. The explicit theorem is stated in the Journal of Cryptology version, 'Efficient Selective Identity-Based Encryption Without Random Oracles', J. Cryptology 24(4):659-693, 2011, doi:10.1007/s00145-010-9078-6 (cryptobib JC:BonBoy11). Boneh–Boyen have two other 2004 papers (CRYPTO 2004 'Secure Identity Based Encryption Without Random Oracles'; EUROCRYPT 2004 'Short Signatures Without Random Oracles'); either would need a suffixed key."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity map on IBE schemes; the reduction samples a guess for the adaptive adversary's challenge identity, runs the adversary once as an oracle, and aborts on a wrong guess. Fixed construction, fixed black-box reduction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme with identity space $\\calI$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with a multiplicative loss of $|\\calI|$: the reduction guesses the challenge identity in advance and aborts on a wrong guess. For super-polynomial $|\\calI|$ the loss is super-polynomial, so the implication requires sub-exponential selective security (complexity leveraging) [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].",
+      "sketch": "The reduction samples $\\mathit{id}' \\getsr \\calI$, commits to it as its selective challenge identity and runs the adaptive adversary, forwarding all queries; with probability $1/|\\calI|$ the adversary's challenge identity is $\\mathit{id}'$ and the reduction's advantage equals the adversary's.",
+      "pseudocode": "",
+      "security_loss": "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "SOURCE-PAGE ERROR CONFIRMED: identity-based-encryption.md says the leveraging argument 'incurs a polynomial security loss in $|\\calI|$'; the loss is the factor $|\\calI|$ itself, exponential in the identity length (skeptical-checker lane).",
+        "Human check: whether the explicit selective-to-adaptive theorem appears in the EUROCRYPT 2004 / eprint 2004/172 text or only in the 2011 Journal of Cryptology version could not be re-read offline; the literature cites the leveraging remark as [BB04] either way, and both versions are recorded in the source note.",
+        "Key BB04 is unambiguous in the wiki today but Boneh–Boyen have two further 2004 papers (see source note).",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "source: title aligned with cryptobib (EC:BonBoy04b, 'Identity Based'), url set to the verified Springer DOI, venue/pages added; eprint 2004/172 and JoC 2011 data kept in the note",
+        "statement and sketch tightened; sub-exponential requirement stated once",
+        "flag added on the possible key collision with the other Boneh–Boyen 2004 papers"
+      ]
+    },
+    {
+      "slug": "isis-inhomogeneous-sis-to-ds-gpv08",
+      "path": "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GPV08",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GPV08 - Trapdoors for hard lattices and new cryptographic constructions",
+          "authors": "Craig Gentry, Chris Peikert, Vinod Vaikuntanathan",
+          "venue": "STOC 2008",
+          "year": "2008",
+          "url": "https://eprint.iacr.org/2007/432",
+          "note": "Hash-and-sign signatures from preimage-sampleable functions; strong unforgeability in the ROM from collision resistance of the family, i.e. from SIS, with ISIS as the one-wayness of the same family. cryptobib_key: STOC:GenPeiVai08."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (hash-and-sign with the trapdoor preimage sampler); one fixed reduction that runs any forger once as an oracle, programming the random oracle with self-sampled syndromes, and outputs a short lattice vector from the forgery. Black-box in both the assumption and the adversary, within the ROM.",
+      "model": "rom",
+      "model_justification": "GPV08 prove (strong) unforgeability in the random-oracle model — the reduction programs $H$. The page says model: standard, which is wrong and must become rom (the migration notes already flag this).",
+      "kind_correct": "implication",
+      "statement": "The GPV hash-and-sign scheme is a strongly unforgeable, hence EUF-CMA-secure, [[digital-signature|digital signature]] in the [[random-oracle-model|random-oracle model]] whose signatures are [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] solutions: the verification key is $\\mathbf{A} \\in \\ZZ_q^{n \\times m}$, the signing key a trapdoor basis of $\\Lambda^\\perp(\\mathbf{A})$, and a signature on $\\mu$ is a short $\\mathbf{z}$ with $\\mathbf{A}\\mathbf{z} = H(\\mu) \\pmod q$, sampled from a discrete Gaussian by the trapdoor preimage sampler and stored so that no message is signed twice with fresh coins. The proof reduces a forgery to a collision of $\\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z}$, i.e. to [[shortest-integer-solution|SIS]], to which ISIS is equivalent ([[isis-inhomogeneous-sis-to-sis|ISIS ⇔ SIS]]) [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]; one-wayness of the family (ISIS) alone suffices via the full-domain-hash argument, at a loss of the number of hash queries — standard.",
+      "sketch": "The reduction answers each query $H(\\mu)$ with $\\mathbf{A}\\mathbf{z}_\\mu$ for a self-sampled discrete-Gaussian $\\mathbf{z}_\\mu$ — uniform by the preimage-sampleable property — and so signs without the trapdoor; a forgery $(\\mu^*, \\mathbf{z}^*)$ satisfies $\\mathbf{A}\\mathbf{z}^* = \\mathbf{A}\\mathbf{z}_{\\mu^*}$, and $\\mathbf{z}^* \\neq \\mathbf{z}_{\\mu^*}$ except with negligible probability (preimage min-entropy), so $\\mathbf{z}^* - \\mathbf{z}_{\\mu^*}$ is a short nonzero kernel vector of $\\mathbf{A}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The construction needs a trapdoor sampler for $\\mathbf{A}$ (GPV08's preimage-sampleable functions): hardness of SIS/ISIS gives unforgeability, the trapdoor enables signing — the source bullet on shortest-integer-solution.md elides this."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "MODEL FIX REQUIRED: frontmatter model: standard → rom. GPV signatures are proven only in the ROM.",
+        "GPV08's reduction is to collision resistance of $f_{\\mathbf{A}}$, i.e. SIS, not directly to ISIS; the page sis-to-ds records the same construction under SIS. Consider merging, or keep this page as the ISIS view with the equivalence link now in the statement. Exact proof route recorded from reviewer knowledge — human spot-check advisable.",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: names the assumption GPV08 actually reduce to (collision resistance = SIS) and routes ISIS through the equivalence page or the standard FDH argument; adds the store-signatures detail needed for strong unforgeability",
+        "sketch corrected: the researcher's 'fresh message gives an ISIS solution' mixed the FDH argument with GPV08's collision argument; now describes GPV08's proof",
+        "confidence high → medium; GPV08 source note updated"
+      ]
+    },
+    {
+      "slug": "isis-inhomogeneous-sis-to-sis",
+      "path": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Each direction is an oracle reduction: it invokes a solver for the other problem as a black box on an instance derived from its own and post-processes the answer by linear algebra.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "[[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] and [[shortest-integer-solution|SIS]] are equivalent up to a polynomial change of parameters (column count and norm bound). SIS hardness implies ISIS hardness immediately: for $\\mathbf{A} = [\\mathbf{A}' \\mid \\mathbf{a}]$ with $\\mathbf{a}$ uniform, a short $\\mathbf{z}'$ with $\\mathbf{A}'\\mathbf{z}' = \\mathbf{a} \\pmod q$ gives the nonzero short kernel vector $(\\mathbf{z}', -1)$ of $\\mathbf{A}$. The converse — solving ISIS given a SIS oracle — holds only under conditions on the column count and norm bound — folklore.",
+      "sketch": "An ISIS oracle solves SIS with one call: split $\\mathbf{A} = [\\mathbf{A}' \\mid \\mathbf{a}]$, obtain a short $\\mathbf{z}'$ with $\\mathbf{A}'\\mathbf{z}' = \\mathbf{a} \\pmod q$, and output $(\\mathbf{z}', -1)$, of norm at most $\\sqrt{\\beta^2 + 1}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The direction from a SIS oracle to an ISIS solver (ISIS hardness ⇒ SIS hardness, in the hardness convention) is documented in the literature only as folklore, and its parameter conditions are load-bearing."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Asymmetric evidence: the SIS-hard ⇒ ISIS-hard direction is a one-line reduction; the converse is folklore with unstated parameter conditions. kind: equivalence kept, matching the SIS page's 'polynomially equivalent under mild parameter conditions'. Both problems also have direct worst-case hardness (Ajt96; GPV08 for ISIS), which does not by itself give the average-case equivalence.",
+        "Removed the researcher's attribution of the folklore remark to Ducas et al. eprint 2023/1125 (quote could not be verified offline).",
+        "The trailing GPV08 citation in the source sentence on shortest-integer-solution.md attaches to the signature construction, not to the equivalence (migration note confirmed).",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: states each direction explicitly in the hardness convention and which one is immediate",
+        "notes_to_keep: dropped the unverifiable eprint 2023/1125 quotation, kept the folklore caveat",
+        "sketch and class justification tightened"
+      ]
+    },
+    {
+      "slug": "interactive-protocol-and-rom-to-nizk",
+      "path": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "Introduces the transform (challenges replaced by hashes of the transcript) for identification-to-signature, without a proof; the NIZK analysis in the ROM is later. cryptobib_key: C:FiaSha86."
+        },
+        {
+          "key": "FKMV12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FKMV12 - On the Non-malleability of the Fiat-Shamir Transform",
+          "authors": "Sebastian Faust, Markulf Kohlweiss, Giorgia Azzurra Marson, Daniele Venturi",
+          "venue": "INDOCRYPT 2012 (LNCS 7668), pp. 60-79",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2012/704",
+          "note": "ROM proofs that the transform yields zero knowledge, and simulation soundness / weak simulation extractability, for Sigma protocols (the latter with quasi-unique responses). cryptobib_key: INDOCRYPT:FKMV12; doi:10.1007/978-3-642-34931-7_5."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed compiler that runs the protocol's prover, verifier and honest-verifier simulator as oracles, substituting oracle values for challenges; zero knowledge holds by programming the random oracle with simulated transcripts, and the soundness reduction runs any cheating prover as an oracle, answering its oracle queries and forwarding one of them as the interactive first message. Black-box in the protocol and in the adversary, within the (programmable) ROM.",
+      "model": "rom",
+      "model_justification": "The transform is proven only in the ROM; standard-model instantiation fails in general (GK03), as the page's notes record.",
+      "kind_correct": "implication",
+      "statement": "The [[fiat-shamir-heuristic|Fiat–Shamir transform]] replaces each verifier challenge of a public-coin [[interactive-protocol|interactive protocol]] by a hash of the statement and the transcript so far [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. Applied to a constant-round public-coin interactive proof that is [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] with negligible soundness error, it yields a [[non-interactive-zero-knowledge|NIZK]] argument in the [[random-oracle-model|random-oracle model]] — standard; for $\\Sigma$-protocols the argument is zero-knowledge, and simulation-sound when responses are quasi-unique, in the ROM [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]].",
+      "sketch": "For a three-move protocol the prover sets $c := H(x, a)$ and outputs $(a, z)$; the simulator produces an accepting $(a, c, z)$ with the honest-verifier simulator and programs $H(x, a) := c$; a cheating prover making $q$ oracle queries must answer a fresh uniform challenge for one of them, so its success probability is at most $q + 1$ times the interactive soundness error.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Zero knowledge, simulation soundness and weak simulation extractability of the transform in the ROM, for $\\Sigma$-protocols with quasi-unique responses — [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]]",
+      "notes_to_keep": [
+        "Soundness of the compiled protocol degrades with the number of rounds; beyond constant rounds the transform needs round-by-round (state-restoration) soundness of the underlying protocol.",
+        "The transform is known to fail in important settings when the oracle is instantiated with a concrete hash function (GK03, KRS25) — the model qualifier is load-bearing."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS UNDERSPECIFIED (repairable): the edge quantifies over all interactive protocols, but the theorem needs public-coin, HVZK, negligible soundness error, and constant rounds; the statement above carries these qualifiers and they should reach the page.",
+        "NEAR-DUPLICATES: red-zkp-to-nizk-fs86, red-rom-and-zkp-to-nizk-fs86, and red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk record essentially the same edge with different hypothesis slugs; consider consolidating.",
+        "FS86 is cited for the transform, not for the NIZK theorem, which it does not prove; the general constant-round statement is labelled standard and the Sigma-protocol case is cited to FKMV12.",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: split attribution — FS86 for the transform, '— standard' for the general constant-round theorem (matching verified/red-10), FKMV12 for the Sigma-protocol ZK/simulation-soundness proof with its quasi-unique-responses condition",
+        "sketch: loss stated as (q+1) times the soundness error for three-move protocols",
+        "FKMV12 venue/pages/DOI/cryptobib key recorded; class justification tightened"
+      ]
+    },
+    {
+      "slug": "interactive-protocol-and-rom-to-snark",
+      "path": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "rom",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "Overbroad to the point of falsity: the Fiat–Shamir transform preserves the prover's communication, so an arbitrary [[interactive-protocol|interactive protocol]] plus the ROM cannot yield a *succinct* argument — succinctness must already be in the hypothesis. Nor does the transform preserve soundness for arbitrary multi-round or computationally sound protocols even in the ROM: soundness degrades with the round count and fails outright for polynomially many rounds without round-by-round (state-restoration) soundness. The correctly hypothesised edges are PCP + ROM ⇒ SNARG (Micali, 'Computationally Sound Proofs', SIAM J. Comput. 30(4):1253-1298, 2000, doi:10.1137/S0097539795284959; FOCS 1994 — Mic00) and public-coin IOP + ROM ⇒ SNARK (Ben-Sasson, Chiesa, Spooner, 'Interactive Oracle Proofs', TCC 2016-B, LNCS 9986, pp. 31-60, eprint 2016/116 — BCS16). The page ip-and-rom-to-snark-fs86 records the same overbroad claim with hypotheses {ip, rom}; both should be replaced by edges whose hypothesis is the PCP/IOP object.",
+      "flags": [
+        "DUPLICATE: same claim as red-ip-and-rom-to-snark-fs86 (batch red-16 also marks it wrong_claim); consolidate into correctly-hypothesised edges (PCP + ROM ⇒ SNARG, Mic00; public-coin IOP + ROM ⇒ SNARK, BCS16). Neither Mic00 nor BCS16 has a reference page yet; BCS16 is proposed by batch red-13 as 'BCS16 - Interactive Oracle Proofs'. Bibliographic data for both verified via cryptobib (SIAMJC:Micali00, TCC:BenChiSpo16).",
+        "Verifier note: live web verification was unavailable (egress proxy blocked eprint/DBLP/Springer/SIAM/ScienceDirect and the WebSearch budget was exhausted); bibliographic data for every source was verified against the repo's vendor/cryptobib (crypto.bib); attribution of results to papers rests on the reviewer's knowledge of the papers and is marked where a human spot-check is advisable."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened; Mic00/BCS16 bibliographic data verified via cryptobib and recorded",
+        "flag notes the consistent wrong_claim verdict on the duplicate page in batch red-16"
+      ]
+    },
+    {
+      "slug": "invertible-prfs-to-prf",
+      "path": "content/Reductions/invertible-prfs-to-prf.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity map that forgets $\\Invert$; the reduction runs any PRF distinguisher unchanged as an iPRF distinguisher that never queries its inversion oracle. Fixed construction, fixed black-box reduction, advantage preserved exactly.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "An [[pseudorandom-function#invertible-prfs|invertible PRF]] $(\\KeyGen, \\Eval, \\Invert)$ extends a [[pseudorandom-function|PRF]] $(\\KeyGen, \\Eval)$ by an inversion algorithm: discarding $\\Invert$ leaves a PRF, and any PRF distinguisher is an iPRF distinguisher that never queries its inversion oracle, so the advantage is preserved exactly — folklore.",
+      "sketch": "Restriction: the iPRF game with the inversion oracles removed is exactly $\\Game^{\\mathrm{prf}}$, so a PRF distinguisher against $(\\KeyGen, \\Eval)$ breaks the iPRF's (plain or strong) pseudorandomness without using $\\Invert$.",
+      "pseudocode": "",
+      "security_loss": "tight: the PRF advantage equals the iPRF advantage of the wrapped distinguisher",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Definitional 'extends' relation (an iPRF is a PRF plus $\\Invert$); 'invertible-prf'/'iPRF' is an anchor of the PRF page itself rather than a distinct object, so the edge is self-referential in the current slug scheme."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The iPRF notion as defined on the PRF page follows HPPY25 (Plinko), which the wiki already cites for the converse edge prf-to-invertible-prf-hppy25; this forward edge is purely definitional and could arguably live as a sentence on the PRF page rather than as a reduction page."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement and sketch tightened; no substantive change"
+      ]
+    },
+    {
+      "slug": "ip-to-am-gs86",
+      "path": "content/Reductions/ip-to-am-gs86.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "False as recorded at base-class granularity: the wiki's interactive-proof-systems page defines IP with polynomially many rounds (IP = PSPACE), and its arthur-merlin page defines AM as the two-message class (with AM[k] = AM for constant k). 'IP ⊆ AM' therefore asserts PSPACE ⊆ AM, which is not known and widely disbelieved (AM ⊆ Π₂ᵖ, so it would collapse PH). GS86 proves the round-preserving statement IP[k] ⊆ AM[k+2] for every k — the quote the page migrated says exactly this. The correct base-class corollaries are: constant-round IP ⊆ AM, and IP[poly] = AM[poly] (= PSPACE). The edge needs round-indexed objects or a hypothesis restricted to constant-round IP; as recorded it should not stand, especially with status: draft and class: free.",
+      "flags": [
+        "HIGH PRIORITY: the false inclusion is live on the site (status: draft, class: free) and appears in the generated 'Participates in' sections of both interactive-proof-systems.md and arthur-merlin.md. The sibling GS86 edges bpp-to-am-gs86 / np-to-am-gs86 / conp-to-am-gs86 are fine; only this one loses the round parameter fatally.",
+        "Verifier re-derived the refutation: with the wiki's definitions (IP = polynomially many rounds, AM = two messages), IP ⊆ AM would give PSPACE ⊆ AM ⊆ Π₂ᵖ, collapsing PH to Π₂ᵖ; GS86 prove the round-indexed IP[k] ⊆ AM[k+2]. Not a theorem as recorded."
+      ],
+      "verdict": "approved",
+      "verifier_changes": []
+    }
+  ]
+}

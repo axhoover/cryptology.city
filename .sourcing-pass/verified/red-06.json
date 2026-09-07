@@ -1,0 +1,471 @@
+{
+  "batch": "red-06",
+  "pages": [
+    {
+      "slug": "dcr-to-he-pai99",
+      "path": "content/Reductions/dcr-to-he-pai99.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Pai99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Pai99 - Public-key cryptosystems based on composite degree residuosity classes",
+          "authors": "Pascal Paillier",
+          "venue": "EUROCRYPT 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48910-X_16",
+          "note": "cryptobib: EC:Paillier99"
+        },
+        {
+          "key": "DJ01",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System",
+          "authors": "Ivan Damgård, Mats Jurik",
+          "venue": "PKC 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44586-2_9",
+          "note": "cryptobib: PKC:DamJur01"
+        },
+        {
+          "key": "FPS00",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FPS00 - Sharing Decryption in the Context of Voting or Lotteries",
+          "authors": "Pierre-Alain Fouque, Guillaume Poupard, Jacques Stern",
+          "venue": "Financial Cryptography 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/3-540-45472-1_7",
+          "note": "cryptobib: FC:FouPouSte00; proceedings published 2001"
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (Paillier over $\\ZZ_{n^2}^*$) and one fixed reduction: given a DCR challenge $c^*$, the reduction sets the challenge ciphertext to $g^{m_b} \\cdot c^*$ and runs any CPA adversary once as an oracle. This is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption#partially-homomorphic-encryption-phe|additively homomorphic encryption]], the additive fragment of [[homomorphic-encryption|HE]]: the Paillier cryptosystem encrypts $m \\in \\ZZ_n$ as $c = g^m r^n \\bmod n^2$ for $r \\getsr \\ZZ_n^*$, so $\\Enc(\\pk, m_1) \\cdot \\Enc(\\pk, m_2) \\bmod n^2$ decrypts to $m_1 + m_2 \\bmod n$, and it is semantically secure iff DCR is hard — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].",
+      "sketch": "An encryption of $0$ is a uniform $n$-th residue in $\\ZZ_{n^2}^*$, which DCR makes indistinguishable from a uniform element of $\\ZZ_{n^2}^*$; an encryption of $m$ is $g^m$ times an encryption of $0$, so replacing the residue by a uniform element makes the ciphertext independent of $m$.",
+      "pseudocode": "",
+      "security_loss": "tight: one call to the CPA adversary",
+      "improvements_text": "- Generalisation to modulus $n^{s+1}$ with plaintext space $\\ZZ_{n^s}$, the simplification $g = 1+n$, and a threshold variant — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]\n- Threshold decryption for Paillier, the citation for the migrated 'DCR ⇒ threshold encryption' claim — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]",
+      "notes_to_keep": [
+        "The conclusion node `homomorphic-encryption` is coarser than the actual conclusion (additively homomorphic PKE); [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ PHE]] records the precise edge.",
+        "The `he` node carries the alias FHE; this edge gives the additive fragment only — DCR is not known to imply FHE."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Duplicates content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md (same Pai99 theorem with the precise conclusion node) — consider retiring this coarse edge.",
+        "The `he` node carries alias FHE; the statement explicitly scopes the claim to additive homomorphism to prevent a false DCR ⇒ FHE reading.",
+        "The migrated threshold-encryption bullet ('— standard') is attributable: FPS00 and DJ01, now cited as improvements.",
+        "Cross-batch inconsistency: the red-05 verifier left the sibling dcr-to-partially-homomorphic-encryption-phe-pai99 at class unstated; the three Pai99 edges should carry the same class (fully-black-box is justified here by the explicit reduction shape).",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "class_justification: removed the sloppy 'construction treats the adversary as a black box' wording; now names how the reduction embeds the DCR challenge and uses the adversary",
+        "statement: tightened; linked the precise conclusion (additively homomorphic encryption) and stated 'secure iff DCR is hard' as in Pai99; the 'DCR is not known to imply FHE' remark moved to notes_to_keep so the citation terminates the statement",
+        "sketch: tightened wording",
+        "security_loss: filled 'tight: one call to the CPA adversary' (direct reduction in Pai99)",
+        "improvements_text: FPS00 bullet reworded to state what it contributes",
+        "flags: added cross-batch class inconsistency and offline-verification note"
+      ]
+    },
+    {
+      "slug": "dcr-to-pke-pai99",
+      "path": "content/Reductions/dcr-to-pke-pai99.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Pai99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Pai99 - Public-key cryptosystems based on composite degree residuosity classes",
+          "authors": "Pascal Paillier",
+          "venue": "EUROCRYPT 1999",
+          "year": "1999",
+          "url": "https://doi.org/10.1007/3-540-48910-X_16",
+          "note": "cryptobib: EC:Paillier99"
+        },
+        {
+          "key": "DJ01",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System",
+          "authors": "Ivan Damgård, Mats Jurik",
+          "venue": "PKC 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44586-2_9",
+          "note": "cryptobib: PKC:DamJur01; source of the fixed choice g = 1+n used in the pseudocode"
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (Paillier) and one fixed reduction: given a DCR challenge $c^*$, the reduction sets the challenge ciphertext to $g^{m_b} \\cdot c^*$ and runs any CPA adversary once as an oracle. This is the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[decisional-composite-residuosity|DCR]] implies CPA-secure [[public-key-encryption|PKE]]: the Paillier cryptosystem has public key $(n, g)$ with $n = pq$ an RSA modulus and $g \\in \\ZZ_{n^2}^*$ of order a nonzero multiple of $n$ ($g = 1+n$ suffices), and encrypts $m \\in \\ZZ_n$ as $c = g^m r^n \\bmod n^2$ for $r \\getsr \\ZZ_n^*$; the scheme is semantically secure iff DCR is hard — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].",
+      "sketch": "The reduction sets the challenge ciphertext to $g^{m_b} \\cdot c^*$ for DCR challenge $c^*$: if $c^*$ is an $n$-th residue this is a correctly distributed encryption of $m_b$, and if $c^*$ is uniform in $\\ZZ_{n^2}^*$ the ciphertext is uniform and independent of $b$.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\KeyGen(1^\\secpar)$}\n\\begin{algorithmic}\n\\State sample distinct $\\secpar$-bit primes $p, q$; $n \\gets pq$; $\\varphi \\gets (p-1)(q-1)$\n\\Comment{Equal length gives $\\gcd(n, \\varphi) = 1$}\n\\Return $(\\sk, \\pk) \\gets (\\varphi, n)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Enc(\\pk, m)$}\n\\begin{algorithmic}\n\\State $r \\getsr \\ZZ_n^*$\n\\Comment{$m \\in \\ZZ_n$; $g = 1+n$ has order $n$ in $\\ZZ_{n^2}^*$}\n\\Return $c \\gets (1+n)^m \\cdot r^n \\bmod n^2$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Dec(\\sk, c)$}\n\\begin{algorithmic}\n\\State $u \\gets c^{\\varphi} \\bmod n^2$\n\\Comment{$u = 1 + m \\varphi n \\bmod n^2$}\n\\Return $m \\gets \\frac{u - 1}{n} \\cdot \\varphi^{-1} \\bmod n$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "tight: one call to the CPA adversary",
+      "improvements_text": "- The simplification $g = 1+n$ and the generalisation to modulus $n^{s+1}$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Near-duplicate of dcr-to-partially-homomorphic-encryption-phe-pai99 and dcr-to-he-pai99: three edges record the same Pai99 theorem at different conclusion granularities.",
+        "Cross-batch inconsistency: the red-05 verifier left the sibling dcr-to-partially-homomorphic-encryption-phe-pai99 at class unstated; the three Pai99 edges should carry the same class.",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "pseudocode: the researcher's secret key $\\lambda = \\mathrm{lcm}(p-1,q-1)$ collides with $\\secpar$, which renders as $\\lambda$; rewritten with $\\varphi = (p-1)(q-1)$ (valid for $g = 1+n$ since $|\\ZZ_{n^2}^*| = n\\varphi$) and a comment justifying $\\gcd(n,\\varphi) = 1$",
+        "pseudocode: decryption made explicit ($u = c^{\\varphi} \\bmod n^2$, $m = ((u-1)/n) \\cdot \\varphi^{-1} \\bmod n$) instead of an inline $L$ helper",
+        "statement: tightened; 'order divisible by n' → 'order a nonzero multiple of n' (Paillier's condition); 'IND-CPA' → the PKE page's 'CPA-secure'",
+        "sketch: replaced the two-sentence version with the single reduction step and its two cases",
+        "security_loss: filled 'tight: one call to the CPA adversary'",
+        "flags: added cross-batch class inconsistency and offline-verification note"
+      ]
+    },
+    {
+      "slug": "dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
+      "path": "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "CHKV25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN",
+          "authors": "Henry Corrigan-Gibbs, Alexandra Henzinger, Yael Tauman Kalai, Vinod Vaikuntanathan",
+          "venue": "EUROCRYPT 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2024/1760",
+          "note": "Abstract confirmed via WebSearch (eprint 2024/1760): sparse LPN plus any assumption implying linearly homomorphic encryption (e.g. DDH or DCR); O(log λ / log log λ) multiplications then poly(λ) additions; ciphertext length a fixed polynomial in λ before and after evaluation."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] together with a linearly homomorphic [[homomorphic-encryption#partially-homomorphic-encryption-phe|PKE]] — here Paillier from [[decisional-composite-residuosity|DCR]] — yields [[homomorphic-encryption#somewhat-homomorphic-encryption-she|SHE]] supporting $O(\\log \\secpar / \\log\\log \\secpar)$ homomorphic multiplications followed by $\\poly(\\secpar)$ additions, with ciphertexts of length a fixed polynomial in $\\secpar$ before and after evaluation — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Instantiation edge: this page equals the generic edge [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|PHE + sparse LPN ⇒ SHE]] composed with [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ PHE]]."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Over-split, as the migration notes say: the CHKV25 theorem is one conjunctive edge (linearly homomorphic PKE + sparse LPN ⇒ SHE); this DCR-instantiated copy is a composed chain and per repo rules composite chains are split — consider retiring it in favor of the generic edge plus dcr-to-partially-homomorphic-encryption-phe-pai99.",
+        "Class left unstated: I did not verify whether CHKV25 uses the linearly homomorphic scheme fully black-box; the paper states the theorem generically over the linear-homomorphic component, so fully-black-box is plausible but unconfirmed.",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sources[0].authors: 'Yael Kalai' → 'Yael Tauman Kalai' (matches the existing reference page and cryptobib EC:CHKV25)",
+        "statement: tightened; linked 'linearly homomorphic PKE' to the PHE anchor the wiki maps it to; 'evaluated ciphertexts ... independent of the number of operations' → the abstract's 'fixed polynomial in λ before and after evaluation'"
+      ]
+    },
+    {
+      "slug": "ddh-to-cdh",
+      "path": "content/Reductions/ddh-to-cdh.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity on the group generator; the reduction runs any CDH adversary once as an oracle on $(g^x, g^y)$ and compares its output with the challenge element. One fixed reduction using the adversary only as an oracle: RTV04 fully-black-box.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[decisional-diffie-hellman|DDH]] is hard for a group generator $\\GrGen$, then [[computational-diffie-hellman|CDH]] is hard for $\\GrGen$: a DDH distinguisher runs any CDH adversary on $(g^x, g^y)$ and guesses the real world iff the answer equals the challenge element $Z$ — folklore.",
+      "sketch": "On DDH challenge $(g^x, g^y, Z)$, run the CDH adversary on $(g^x, g^y)$ and guess the real world iff it returns $Z$. A real tuple is recognised with the adversary's success probability $\\varepsilon$; for a random tuple $Z$ is uniform and independent of the adversary's output, so it matches with probability $1/p$. The DDH advantage is therefore at least $\\varepsilon - 1/p$.",
+      "pseudocode": "",
+      "security_loss": "tight up to an additive $1/p$: one CDH call",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "This edge is correct as stated; the suspected-errors entries against it concern inverted strength glosses in the prose of computational-diffie-hellman.md:12 and decisional-diffie-hellman.md:12 ('natural strengthening' / 'implied by CDH'), which remain to be fixed on those pages.",
+        "The converse page cdh-to-ddh (batch red-04) is a suspected inverted edge — CDH hardness does not imply DDH hardness (DDH is easy in pairing groups where CDH is conjectured hard); do not merge this page into an equivalence."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement/sketch: 'outputs 1 iff' → 'guesses the real world iff' (the wiki's DDH game has b = 0 as the real world, so 'outputs 1' would be the wrong guess under that convention); sketch made exact (advantage ≥ ε − 1/p)",
+        "security_loss: filled 'tight up to an additive $1/p$: one CDH call'",
+        "class_justification: reworded to name the construction (identity on GrGen) and the single oracle call"
+      ]
+    },
+    {
+      "slug": "ddh-to-com",
+      "path": "content/Reductions/ddh-to-com.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Ped91",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing",
+          "authors": "Torben P. Pedersen",
+          "venue": "CRYPTO 1991",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/3-540-46766-1_9",
+          "note": "cryptobib: C:Pedersen91; proceedings published 1992. The commitment scheme is Section 3 of the VSS paper."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Fixed construction; the reduction is fixed and uses the adversary only as an oracle: on DDH challenge $(X, Y, Z)$ it sets $h = X$, runs the binding adversary to obtain two openings $(m, r) \\ne (m', r')$ of one commitment, computes $x = \\log_g h = (m - m')(r' - r)^{-1} \\bmod p$, and guesses the real world iff $Z = Y^x$. Hiding is perfect, unconditionally.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The Pedersen commitment over $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$ with $h \\getsr \\GG \\setminus \\{1\\}$ commits to $m \\in \\ZZ_p$ as $c = g^m h^r$ for $r \\getsr \\ZZ_p$. It is perfectly hiding, and computationally binding under [[discrete-logarithm|DLOG]] — implied by [[decisional-diffie-hellman|DDH]] via [[ddh-to-cdh|DDH ⇒ CDH]] and [[cdh-to-dlog|CDH ⇒ DLOG]] — since two openings $(m, r) \\ne (m', r')$ of one $c$ give $\\log_g h = (m - m')(r' - r)^{-1} \\bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].",
+      "sketch": "Hiding: $h$ generates $\\GG$, so $h^r$ is uniform over $r \\getsr \\ZZ_p$ and $c$ is uniform, independent of $m$. Binding: two openings of one $c$ yield $\\log_g h$, contradicting DLOG for $h$ sampled with unknown discrete logarithm.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Gen(1^\\secpar)$}\n\\begin{algorithmic}\n\\State $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$; $h \\getsr \\GG \\setminus \\{1\\}$\n\\Return $\\pp \\gets (\\GG, g, p, h)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Com(\\pp, m; r)$}\n\\begin{algorithmic}\n\\Return $(c, d) \\gets (g^m h^r, (m, r))$\n\\Comment{$m, r \\in \\ZZ_p$}\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Open(\\pp, c, (m, r))$}\n\\begin{algorithmic}\n\\If{$c = g^m h^r$}\n\\Return $m$\n\\EndIf\n\\Return $\\bot$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "tight: one call to the binding adversary yields $\\log_g h$",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS STRONGER THAN NEEDED (matches suspected-errors entry for commitment-scheme.md:68): Pedersen binding requires only DLOG; DDH is sufficient but not the right hypothesis. No dlog-to-com page exists in content/Reductions/ — recommend creating dlog-to-com (Ped91) and retiring or demoting this DDH edge.",
+        "The statement above is written to be true for the recorded DDH hypothesis (DDH hard ⇒ DLOG hard ⇒ binding); if the edge is re-pointed to DLOG the parenthetical clause should be dropped.",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement/pseudocode: $h \\getsr \\GG$ → $h \\getsr \\GG \\setminus \\{1\\}$ (with $h = 1$ the commitment is $g^m$ and hiding fails, so 'perfectly hiding' needs $h \\ne 1$)",
+        "statement: DLOG wikilinked; 'which DDH hardness implies' made explicit via the existing pages ddh-to-cdh and cdh-to-dlog; exponent domain written as $\\ZZ_p$ throughout",
+        "sketch: tightened",
+        "class_justification: rewritten to state the actual DDH reduction (set h = X, extract x, test Z = Y^x) instead of 'compose with the trivial step'",
+        "security_loss: filled"
+      ]
+    },
+    {
+      "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+      "path": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "JLS21 does not prove this edge: its four (sub-exponential) hypotheses are SXDH on asymmetric bilinear groups — not plain DDH — LWE, LPN over $\\ZZ_p$ with polynomially many samples and inverse-polynomial error rate, and a Boolean PRG in $\\mathrm{NC}^0$ with stretch $n^{1+\\tau}$ — not a PRG in $\\mathrm{NC}^1$, a weaker hypothesis that the construction does not cover. The correct edge is sub-exponential SXDH + LWE + LPN over $\\ZZ_p$ + Boolean $\\mathrm{NC}^0$ PRG ⇒ iO (JLS21); the page's migration note already flags both discrepancies.",
+      "flags": [
+        "Sibling pages lpn-and-lwe-and-nc1-prg-to-io-jls21 and prg-in-nc1-to-io-jls21 (batch red-18) are sub-splits of the same wrong hyperedge and share both errors.",
+        "The primitive page content/Primitives/pseudorandom-generator-in-nc1.md describes itself as 'one of the four hypotheses of the JLS21 iO construction' — also wrong (JLS21 needs a Boolean PRG in NC^0); the wiki arguably wants a prg-in-nc0 / low-complexity-PRG object instead (content/Primitives/low-complexity-prg.md exists).",
+        "The wiki has no SXDH-as-hypothesis version of this edge; once fixed, the follow-up JLS22 (Eurocrypt 2022: iO from LPN over F_p, DLIN, and PRGs in NC^0 — removes LWE) is the natural improvement citation.",
+        "The wiki's own reference page 'JLS21 - Indistinguishability obfuscation from well-founded assumptions.md' carries a paraphrased abstract repeating both errors ('Boolean PRG in NC^1', 'DDH over specific groups'); it is the likely origin of the wrong edge and should be replaced by the STOC 2021 abstract (SXDH on asymmetric bilinear groups; PRG in NC^0).",
+        "Verifier could not fetch eprint 2020/1003 / arXiv 2008.09317 (egress blocked); the assumption list was checked against the verifier's knowledge of the STOC 2021 abstract and corroborated by search snippets (λ-bit prime p; the JLS22 follow-up replaces SXDH by DLIN and keeps NC^0 PRGs)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened and the NC^0 vs NC^1 comparison made precise (page-bound text, editor trims to two sentences)",
+        "flags: added the wrong abstract on the JLS21 reference page as the likely origin of the error"
+      ]
+    },
+    {
+      "slug": "ddh-to-ke-dh76",
+      "path": "content/Reductions/ddh-to-ke-dh76.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DH76",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DH76 - New Directions in Cryptography",
+          "authors": "Whitfield Diffie, Martin E. Hellman",
+          "venue": "IEEE Transactions on Information Theory 1976",
+          "year": "1976",
+          "url": "",
+          "note": "DH76 gives the protocol; it predates the DDH assumption, and the DDH-based security statement is a later, definitionally immediate formalization."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction uses only the group generator and group operations. Against a passive eavesdropper the pair (transcript, key) is a DDH tuple, so the fixed reduction forwards the DDH challenge $(X, Y, Z)$ as transcript $(X, Y)$ with candidate key $Z$ and runs the eavesdropper once as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The Diffie–Hellman protocol over $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$: $A$ sends $X = g^a$ and $B$ sends $Y = g^b$ for $a, b \\getsr [p]$; both output $k = g^{ab}$. If [[decisional-diffie-hellman|DDH]] is hard for $\\GrGen$, then $k$ is computationally indistinguishable from uniform in $\\GG$ given the transcript $(X, Y)$ — the DDH definition restated — so the protocol is a [[key-exchange|KE]] secure against passive adversaries — [[DH76 - New Directions in Cryptography|DH76]].",
+      "sketch": "A distinguisher between $(g^a, g^b, g^{ab})$ and $(g^a, g^b, u)$ for $u \\getsr \\GG$ is verbatim a DDH distinguisher.",
+      "pseudocode": "",
+      "security_loss": "tight: the DDH instance is forwarded unchanged",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "DH76 predates the DDH assumption; the citation attaches to the protocol, and the DDH-based security statement is a later formalization, immediate from the definition."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Overlaps ddh-to-non-interactive-key-exchange-nike: the DH protocol is non-interactive, so the two edges record the same construction against KE and its NIKE variant node — consider whether both should remain.",
+        "The suspected-errors entry naming this edge concerns decisional-diffie-hellman.md:12 ('It is implied by the CDH assumption' — inverted), which is in the migrated quote, not in this edge's claim."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: added the sampling of $a, b$ and the key space ($\\GG$); the 'security under DDH is definitional' caveat folded in before the citation so DH76 terminates the statement (the anachronism note stays in notes_to_keep)",
+        "sketch: wrote the real key as $g^{ab}$ explicitly",
+        "security_loss: filled 'tight'",
+        "class_justification: trimmed"
+      ]
+    },
+    {
+      "slug": "ddh-to-non-interactive-key-exchange-nike",
+      "path": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "FHKP13",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FHKP13 - Non-Interactive Key Exchange",
+          "authors": "Eduarda S. V. Freire, Dennis Hofheinz, Eike Kiltz, Kenneth G. Paterson",
+          "venue": "PKC 2013",
+          "year": "2013",
+          "url": "https://doi.org/10.1007/978-3-642-36362-7_17",
+          "note": "cryptobib: PKC:FHKP13; full version eprint 2012/732. Abstract confirmed via WebSearch. Formalizes NIKE and its security models; cited as the reference for the primitive's stronger models, not as an improvement of the DDH reduction itself."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Fixed construction from the group generator; the fixed reduction sets $(\\pk_i, \\pk_j, k_{ij}) := (X, Y, Z)$ from the DDH challenge and runs the adversary once as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Diffie–Hellman ([[DH76 - New Directions in Cryptography|DH76]]) is a [[key-exchange#non-interactive-key-exchange-nike|NIKE]]: over $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$, party $i$ samples $x_i \\getsr [p]$ and publishes $\\pk_i = g^{x_i}$; parties $i$ and $j$ each compute $k_{ij} = \\pk_j^{x_i} = \\pk_i^{x_j} = g^{x_i x_j}$. For honestly generated keys, indistinguishability of $k_{ij}$ from uniform given $(\\pk_i, \\pk_j)$ is the [[decisional-diffie-hellman|DDH]] game verbatim — folklore.",
+      "sketch": "$(\\pk_i, \\pk_j, k_{ij})$ is a DDH tuple, so a distinguisher for $k_{ij}$ is a DDH distinguisher.",
+      "pseudocode": "",
+      "security_loss": "tight for one honest pair: the DDH instance is forwarded unchanged",
+      "improvements_text": "- Formal NIKE security models with adversarially registered keys and their relations, constructions from factoring in the ROM and from a DBDH variant on asymmetric pairings in the standard model, and a generic NIKE ⇒ CCA-secure PKE transformation — [[FHKP13 - Non-Interactive Key Exchange|FHKP13]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The folklore claim holds in the passive / honest-key-registration setting; in FHKP13's stronger models with dishonest key registration, plain group DH is not proven secure under DDH alone — the statement is scoped accordingly.",
+        "Overlaps ddh-to-ke-dh76 (same construction; KE vs NIKE conclusion node).",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: made the key derivation explicit ($k_{ij} = \\pk_j^{x_i} = \\pk_i^{x_j}$), scoped to honestly generated keys, moved the DH76 attribution before the '— folklore' terminator",
+        "sketch: added one line (was empty)",
+        "class_justification: dropped the unproven 'many users ... simulated honestly' sentence — with adversarially registered keys the plain-DH reduction cannot answer reveal queries, which is exactly the caveat in flags",
+        "improvements_text: reworded to what the FHKP13 abstract states (models, factoring/ROM, DBDH-variant/pairings, NIKE ⇒ CCA PKE)",
+        "security_loss: filled"
+      ]
+    },
+    {
+      "slug": "ddh-to-pke-elgamal85",
+      "path": "content/Reductions/ddh-to-pke-elgamal85.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "ElGamal85",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms",
+          "authors": "Taher ElGamal",
+          "venue": "IEEE Transactions on Information Theory 1985 (also CRYPTO 1984)",
+          "year": "1985",
+          "url": "",
+          "note": "Gives the scheme; predates the DDH assumption and contains no IND-CPA proof."
+        },
+        {
+          "key": "TY98",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "TY98 - On the Security of ElGamal Based Encryption",
+          "authors": "Yiannis Tsiounis, Moti Yung",
+          "venue": "PKC 1998",
+          "year": "1998",
+          "url": "https://doi.org/10.1007/BFb0054019",
+          "note": "cryptobib: PKC:TsiYun98. WebSearch-confirmed: proves DDH ⇒ semantic security of unmodified ElGamal (messages in the subgroup), the converse, and an exact analysis of the reduction."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction from the group generator, and one fixed reduction: on DDH challenge $(X, Y, Z)$ set $\\pk = X$ and answer the challenge query with $(Y, m_b \\cdot Z)$, running the IND-CPA adversary as an oracle. For $Z = g^{xy}$ this is a perfectly distributed encryption of $m_b$; for uniform $Z$ the ciphertext is independent of $b$.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[decisional-diffie-hellman|DDH]] implies CPA-secure [[public-key-encryption|PKE]]: the ElGamal scheme over $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$ has $\\sk = x \\getsr [p]$ and $\\pk = y = g^x$, encrypts $m \\in \\GG$ as $(g^r, m \\cdot y^r)$ for $r \\getsr [p]$, and decrypts $(c_1, c_2)$ as $c_2 \\cdot c_1^{-x}$. The scheme is from [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]; it is semantically secure iff DDH is hard for $\\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].",
+      "sketch": "On DDH challenge $(X, Y, Z)$ the reduction sets $\\pk = X$ and answers the challenge query with $(Y, m_b \\cdot Z)$: for $Z = g^{xy}$ this is a correctly distributed encryption of $m_b$, and for uniform $Z$ the ciphertext is uniform and independent of $b$.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\KeyGen(1^\\secpar)$}\n\\begin{algorithmic}\n\\State $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$\n\\State $x \\getsr [p]$; $y \\gets g^x$\n\\Return $(\\sk, \\pk) \\gets ((\\GG, g, p, x), (\\GG, g, p, y))$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Enc(\\pk, m)$}\n\\begin{algorithmic}\n\\State $r \\getsr [p]$\n\\Comment{$m \\in \\GG$}\n\\Return $c \\gets (g^r, m \\cdot y^r)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Dec(\\sk, (c_1, c_2))$}\n\\begin{algorithmic}\n\\Return $m \\gets c_2 \\cdot c_1^{-x}$\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "tight: one oracle call, advantage-preserving",
+      "improvements_text": "- Semantic security of ElGamal proven equivalent to DDH — [[TY98 - On the Security of ElGamal Based Encryption|TY98]]",
+      "notes_to_keep": [
+        "ElGamal85 predates the DDH assumption; the citation attaches to the scheme, and the DDH-based IND-CPA proof is later (TY98)."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Kind stays implication: the TY98 equivalence is scheme-specific (ElGamal secure iff DDH), not a generic PKE ⇒ DDH converse.",
+        "Verifier note: doi.org, eprint.iacr.org, dblp.org, arxiv.org and Springer were blocked by the egress proxy in this session; bibliographic data for every source was checked against the vendored cryptobib (vendor/cryptobib/crypto.bib) and, where WebSearch succeeded, against search snippets of the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'IND-CPA-secure' → the PKE page's 'CPA-secure'; added $\\sk = x$; tightened",
+        "sketch: tightened to one sentence",
+        "security_loss: shortened"
+      ]
+    },
+    {
+      "slug": "ddh-to-prf-nr97",
+      "path": "content/Reductions/ddh-to-prf-nr97.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "NR97",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions",
+          "authors": "Moni Naor, Omer Reingold",
+          "venue": "FOCS 1997",
+          "year": "1997",
+          "url": "",
+          "note": "cryptobib: FOCS:NaoRei97; journal version J. ACM 51(2), 2004."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction from the group generator; the security proof is a hybrid over the $n$ input positions in which each step converts a PRF distinguisher, used only as an oracle, into a DDH distinguisher; the polynomially many DDH instances needed per step are generated tightly from one instance via DDH random self-reducibility.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "[[decisional-diffie-hellman|DDH]] implies [[pseudorandom-function|PRF]]s: the Naor–Reingold function over $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$ with key $(a_0, a_1, \\ldots, a_n) \\getsr [p]^{n+1}$ maps $x \\in \\bits^n$ to $g^{a_0 \\prod_{i : x_i = 1} a_i} \\in \\GG$, and is pseudorandom if DDH is hard for $\\GrGen$ — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].",
+      "sketch": "A hybrid over the $n$ input bits replaces, one level at a time, the contribution of the first $i$ bits by an independent random function of the queried $i$-bit prefixes; a distinguisher between adjacent hybrids yields a DDH distinguisher, the polynomially many DDH samples needed at each level being derived from a single instance by random self-reducibility.",
+      "pseudocode": "\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\KeyGen(1^\\secpar)$}\n\\begin{algorithmic}\n\\State $(\\GG, g, p) \\gets \\GrGen(1^\\secpar)$\n\\State $(a_0, a_1, \\ldots, a_n) \\getsr [p]^{n+1}$\n\\Return $k \\gets (\\GG, g, p, a_0, \\ldots, a_n)$\n\\end{algorithmic}\n\\end{algorithm}\n\n\\begin{algorithm}\n\\algname{Algorithm}\n\\caption{$\\Eval(k, x)$}\n\\begin{algorithmic}\n\\Return $g^{a_0 \\prod_{i : x_i = 1} a_i}$\n\\Comment{$x \\in \\bits^n$; $\\calD = \\bits^n$, $\\calR = \\GG$}\n\\end{algorithmic}\n\\end{algorithm}",
+      "security_loss": "factor $n$ over the DDH advantage: one hybrid per input bit, the per-level multi-sample DDH being exact by random self-reducibility",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "amended",
+      "verifier_changes": [
+        "pseudocode: moved the \\Comment in Eval after the \\Return line so it annotates that line (a leading block-level comment renders as its own line)",
+        "sketch: made the hybrid precise (first i bits replaced by a random function of the i-bit prefix)",
+        "security_loss: clarified why the loss is exactly n",
+        "statement: minor tightening"
+      ]
+    }
+  ]
+}

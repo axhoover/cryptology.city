@@ -1,0 +1,358 @@
+{
+  "batch": "red-32",
+  "pages": [
+    {
+      "slug": "succinct-lwe-to-lwe",
+      "path": "content/Reductions/succinct-lwe-to-lwe.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "No construction is involved: one fixed reduction runs any LWE distinguisher as an oracle on the succinct-LWE challenge, forwarding $(\\mathbf{B}, \\mathbf{u}_b)$ and discarding $(\\mathbf{W}, T)$. This is the RTV04 fully-black-box shape, and matches how the wiki records other assumption-strengthening edges (e.g. strong RSA implies RSA).",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of $\\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] implies hardness of [[learning-with-errors|LWE]] for the same $(n, q, \\chi, m)$: the succinct-LWE adversary is handed the LWE challenge $(\\mathbf{B}, \\mathbf{u}_b)$ together with $(\\mathbf{W}, T)$, which it may discard, and the $\\mathbf{B}$ produced by $\\mathrm{TrapGen}$ is statistically close to uniform. The converse is known only at $\\ell = 1$; for $\\ell > 1$ succinct LWE is not known to follow from LWE, and the assumption strengthens as $\\ell$ grows — folklore.",
+      "sketch": "Any LWE distinguisher $\\calA$ becomes a succinct-LWE distinguisher that runs $\\calA$ on $(\\mathbf{B}, \\mathbf{u}_b)$ and ignores the trapdoor terms $(\\mathbf{W}, T)$; the only loss is the statistical distance between $\\mathrm{TrapGen}$'s output and uniform.",
+      "pseudocode": "",
+      "security_loss": "advantage-preserving up to the statistical distance between $\\mathrm{TrapGen}(1^n,1^m,q)$'s $\\mathbf{B}$ and uniform",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY: the frontmatter `kind: equivalence`, the `title` and the H1 all assert an unqualified 'Succinct LWE ⇔ LWE'. That is false: the migrated paragraph itself says the assumption strengthens as $\\ell$ grows, and $\\ell$-succinct LWE for $\\ell > 1$ is not known to follow from LWE (Wee obtains it from public-coin evasive LWE). Set kind: implication and retitle to 'Succinct LWE ⇒ LWE'; the slug succinct-lwe-to-lwe still fits, so no URL change is needed.",
+        "The migrated justification is wrong in detail and belongs to the skeptical-checker lane: content/Assumptions/learning-with-errors.md § Succinct LWE says that at $\\ell = 1$ 'there is no $\\mathbf{W}$ block and $T$ reduces to $T_\\mathbf{B}$ itself'. At $\\ell = 1$ the block $\\mathbf{W} \\in \\ZZ_q^{n \\times m}$ is still present ($[\\mathbf{B} \\mid \\mathbf{W}] T = \\mathbf{G}$ with $T \\in \\ZZ^{2m \\times m}$), and handing the adversary a gadget trapdoor $T_\\mathbf{B}$ for $\\mathbf{B}$ would make the game trivially losable ($\\mathbf{u} T_\\mathbf{B} = \\mathbf{s}\\mathbf{G} + \\mathbf{e}T_\\mathbf{B}$ recovers $\\mathbf{s}$), not equivalent to LWE. The $\\ell = 1$ equivalence instead follows because $(\\mathbf{B}, \\mathbf{W}, T)$ can be sampled from a uniform (externally supplied) $\\mathbf{B}$ by generating $\\mathbf{W}$ with its own trapdoor and using it to sample $T$.",
+        "The $\\ell = 1$ converse is left uncited in the statement: eprint.iacr.org, link.springer.com and arxiv.org are blocked by this environment's egress proxy, so Wee25/Wee24 could not be opened to confirm the claim. If a human can check Wee25, the sentence should end with the Wee25 citation instead of relying on '— folklore'.",
+        "Batch red-31 (succinct-lwe-to-evasive-lwe) independently flagged this page for exactly this over-claim; the two dispositions agree."
+      ]
+    },
+    {
+      "slug": "sxdh-symmetric-external-diffie-hellman-to-bdh",
+      "path": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The edge is not well posed over the wiki's own definitions, and the migrated sentence does not state it. SXDH is an assumption about Type-3 (asymmetric) pairings — DDH is hard in both $\\GG_1$ and $\\GG_2$ — whereas content/Assumptions/bilinear-map-assumptions.md defines both BDH and BDDH for a symmetric pairing $e : \\GG \\times \\GG \\to \\GG_T$. In a symmetric pairing DDH in $\\GG$ is broken by the pairing itself ($e(g^a, g^b) = e(g, g^{ab})$), so SXDH is false there and the two assumptions are not stated over the same group family; this is exactly the imprecision the page's own migration note records. Separately, the only directional content in the migrated text is 'Stronger than BDDH', which concerns the *decisional* BDH assumption, not the computational BDH that the conclusion node `bdh` denotes, and it carries neither an argument nor a citation. Even restricted to Type-3 groups the claim is formulation-dependent: for a DBDH variant whose instance is $(g_1, g_1^a, g_1^b, g_2^c)$ a DDH distinguisher in $\\GG_1$ does follow from a DBDH distinguisher, but for the standard variant that also hands the adversary $g_2^a, g_2^b$ no reduction from SXDH is known, since there is no efficient map $\\GG_1 \\to \\GG_2$. No source was found asserting SXDH ⇒ (D)BDH. Do not record this edge until the wiki states BDH/BDDH over an asymmetric pairing and names the variant.",
+      "flags": [
+        "HIGH PRIORITY: recommend deleting this edge, or re-scoping it once content/Assumptions/bilinear-map-assumptions.md states BDH/BDDH in the Type-3 setting. The page's SUSPECTED IMPRECISION note is correct and should survive whatever is done.",
+        "Structural defect on the parent page: SXDH is registered as a `variants:` entry of the bdh node, but SXDH is meaningful only for Type-3 pairings while the page's BDH/BDDH games are written for Type-1. Either split the symmetric and asymmetric assumption families or state each game over $\\GG_1, \\GG_2$."
+      ]
+    },
+    {
+      "slug": "sxdh-symmetric-external-diffie-hellman-to-nizk",
+      "path": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GS08",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups",
+          "authors": "Jens Groth, Amit Sahai",
+          "venue": "EUROCRYPT 2008",
+          "year": "2008",
+          "url": "https://doi.org/10.1007/978-3-540-78967-3_24",
+          "note": "Verified in vendor/cryptobib/crypto.bib as EC:GroSah08 (pages 415-432, doi 10.1007/978-3-540-78967-3_24); eprint version EPRINT:GroSah07, Cryptology ePrint Archive Report 2007/155. Use cryptobib_key: EC:GroSah08. Received the IACR Test-of-Time award in 2023."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The hypothesis is a hardness assumption over a concrete bilinear group, not a primitive the construction can call as an oracle, so the RTV04 axis does not apply cleanly; GS08 give an algebraic construction and do not classify the reduction. Left unstated, matching the wiki's other assumption-to-primitive edges.",
+      "model": "crs",
+      "model_justification": "Groth-Sahai proofs live in the common reference string model: the CRS is a commitment key, perfectly binding in one mode and perfectly hiding (with a simulation trapdoor) in the other, and SXDH is what makes the two modes indistinguishable.",
+      "kind_correct": "implication",
+      "statement": "[[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH]] over a Type-3 pairing group yields non-interactive witness-indistinguishable proofs and [[non-interactive-zero-knowledge|NIZK]] proofs, in the common reference string model, for satisfiability of systems of pairing-product, multi-scalar-multiplication and quadratic equations over that group; circuit satisfiability encodes into such a system, so every language in $\\classNP$ has a NIZK proof whose size grows linearly in the circuit — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]. SXDH is one of the three instantiations GS08 give, alongside the subgroup decision assumption and DLIN.",
+      "sketch": "The CRS is a key for a homomorphic commitment to group elements and to exponents. Under SXDH the binding key (extractable, giving soundness) and the hiding key (perfectly hiding, with a simulation trapdoor, giving zero knowledge) are computationally indistinguishable, so a proof — commitments to the witness plus a few group elements that make the equation verify after cancellation — is sound under one key and simulatable under the other.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The sibling edge DLIN ⇒ NIZK, also GS08, has no page (content/Reductions/ has only dlin-to-ippe-ksw08.md). The migration note on this page records the duplicate; creating dlin-to-nizk-gs08 with the same GS08 source would complete the family. Subgroup decision ⇒ NIZK is a third GS08 instantiation.",
+        "Verification of the GS08 abstract was indirect: eprint.iacr.org, iacr.org, dblp.org, arxiv.org and link.springer.com are all blocked by this environment's egress proxy. Bibliographic data comes from vendor/cryptobib (EC:GroSah08); the three instantiations (subgroup decision, SXDH, DLIN) and the linear-size circuit-satisfiability proofs were confirmed from secondary sources (COSIC and Mysten Labs expositions, Ghadafi-Smart-Warinschi 'Groth-Sahai Proofs Revisited'), not from the paper itself.",
+        "GS08 obtain NIZK rather than only NIWI for the equation classes they identify; a full statement of which equation forms admit zero knowledge is a nuance the one-sentence statement omits deliberately."
+      ]
+    },
+    {
+      "slug": "szk-to-am",
+      "path": "content/Reductions/szk-to-am.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "AH91",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "AH91 - Statistical zero-knowledge languages can be recognized in two rounds",
+          "authors": "William Aiello, Johan Håstad",
+          "venue": "Journal of Computer and System Sciences 42(3):327-345, 1991",
+          "year": "1991",
+          "url": "https://doi.org/10.1016/0022-0000(91)90006-Q",
+          "note": "Preliminary version: 'Perfect Zero-Knowledge Languages Can Be Recognized in Two Rounds', FOCS 1987, pp. 439-448, doi 10.1109/SFCS.1987.47 (vendor/cryptobib key FOCS:AieHas87). The journal version is the one usually cited for SZK ⊆ AM and is the one titled 'Statistical'; cryptobib carries only the FOCS entry, so the stub needs inline bibtex or cryptobib_key FOCS:AieHas87 with a note."
+        },
+        {
+          "key": "SV03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "SV03 - A Complete Problem for Statistical Zero Knowledge",
+          "authors": "Amit Sahai, Salil Vadhan",
+          "venue": "Journal of the ACM 50(2):196-249, 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1145/636865.636868",
+          "note": "Preliminary version FOCS 1997; Cryptology ePrint Archive Report 2000/056 (cryptobib key EPRINT:SahVad00). The paper's own summary of consequences names 'simpler proofs of many of the previously known results about statistical zero knowledge, such as the Fortnow and Aiello-Hastad upper bounds on the complexity of SZK'."
+        }
+      ],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, proved by an unrestricted argument; the reduction-class axis does not discriminate here. Matches the wiki's convention on bpp-to-coam-gs86 and qszk-to-qip.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classSZK \\subseteq \\classAM$: every promise problem with a [[statistical-zero-knowledge|statistical zero-knowledge]] proof system has a two-message public-coin ([[arthur-merlin|Arthur-Merlin]]) proof — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]]. With the companion containment $\\classSZK \\subseteq \\classcoAM$ this places $\\classSZK$ inside $\\classAM \\cap \\classcoAM$, so $\\classSZK$ contains no $\\classNP$-complete problem unless the polynomial hierarchy collapses.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The $\\classSZK$-completeness of the Statistical Difference problem gives a simpler and unified proof of this bound and of $\\classSZK \\subseteq \\classcoAM$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Resolves the explicit 'TODO citation' on content/Complexity/co-arthur-merlin.md § Known relationships and the uncited bullet on content/Complexity/statistical-zero-knowledge.md; both should be updated in the same commit (reference-fixer lane), and both write the containment with Unicode ⊆/∩ outside math mode although \\classSZK, \\classAM, \\classcoAM all exist.",
+        "AH91 and For87 prove the containments for honest-verifier SZK. HVSZK = SZK is Goldreich-Sahai-Vadhan (STOC 1998), which the wiki has no reference page for; if the honest-verifier distinction is ever stated on these pages, that citation is needed.",
+        "Unrelated but adjacent: content/Complexity/statistical-zero-knowledge.md attributes 'SZK is closed under complement' to GS86 (Goldwasser-Sipser, private vs public coins). That result is Okamoto's, not GS86's. Skeptical-checker lane."
+      ]
+    },
+    {
+      "slug": "szk-to-coam",
+      "path": "content/Reductions/szk-to-coam.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "For87",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "For87 - The Complexity of Perfect Zero-Knowledge",
+          "authors": "Lance Fortnow",
+          "venue": "STOC 1987",
+          "year": "1987",
+          "url": "https://doi.org/10.1145/28395.28418",
+          "note": "Verified in vendor/cryptobib/crypto.bib as STOC:Fortnow87 ('The Complexity of Perfect Zero-Knowledge (Extended Abstract)', pp. 204-209). Use cryptobib_key: STOC:Fortnow87. Reprinted in Advances in Computing Research 5 (ed. Micali), pp. 327-343, 1989, which is why some papers cite it as [For89]."
+        },
+        {
+          "key": "SV03",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "SV03 - A Complete Problem for Statistical Zero Knowledge",
+          "authors": "Amit Sahai, Salil Vadhan",
+          "venue": "Journal of the ACM 50(2):196-249, 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1145/636865.636868",
+          "note": "Preliminary version FOCS 1997; ePrint 2000/056 (cryptobib key EPRINT:SahVad00). Same entry as proposed on szk-to-am; create the reference page once."
+        }
+      ],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, proved by an unrestricted argument. Matches the wiki's convention on bpp-to-coam-gs86 and qszk-to-qip.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classSZK \\subseteq \\classcoAM$: if a promise problem has a [[statistical-zero-knowledge|statistical zero-knowledge]] proof system then its complement has an Arthur-Merlin proof, so the problem lies in [[co-arthur-merlin|coAM]] — [[For87 - The Complexity of Perfect Zero-Knowledge|For87]]. Consequently no $\\classNP$-complete problem has a statistical zero-knowledge proof unless the polynomial hierarchy collapses.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The $\\classSZK$-completeness of the Statistical Difference problem gives a simpler and unified proof of this bound and of $\\classSZK \\subseteq \\classAM$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "For87's title and its theorem are stated for *perfect* zero knowledge; the literature nevertheless cites Fortnow for $\\classSZK \\subseteq \\classcoAM$ (the argument extends to statistical zero knowledge, and SV03 names 'the Fortnow and Aiello-Hastad upper bounds on the complexity of SZK' as results it reproves). The reference page's H1 must keep the paper's real title.",
+        "Resolves the 'TODO citation' on content/Complexity/co-arthur-merlin.md; the same line also needs \\classcoAM/\\classSZK math mode and a wikilink to content/Complexity/statistical-zero-knowledge.md.",
+        "Same honest-verifier caveat as szk-to-am: the containment is proved for HVSZK, and HVSZK = SZK is Goldreich-Sahai-Vadhan (STOC 1998), for which the wiki has no reference page."
+      ]
+    },
+    {
+      "slug": "szk-to-czk",
+      "path": "content/Reductions/szk-to-czk.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, immediate from the two definitions; the reduction-class axis does not discriminate here.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classSZK \\subseteq \\classCZK$: statistical indistinguishability of the verifier's view from the simulator's output implies computational indistinguishability, so every [[statistical-zero-knowledge|statistical]] zero-knowledge proof system is a [[computational-zero-knowledge|computational]] one with the same protocol and the same simulator — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The bullet this was migrated from, on content/Complexity/computational-zero-knowledge.md § Known relationships, reads only 'Contains [[statistical-zero-knowledge|SZK]]' with its subject elided and no folklore marker; per the citation policy it should end with '— folklore'. Editor lane."
+      ]
+    },
+    {
+      "slug": "szk-to-ip",
+      "path": "content/Reductions/szk-to-ip.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, immediate from the definitions; the reduction-class axis does not discriminate here. Same shape as qszk-to-qip.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classSZK \\subseteq \\classIP$: a statistical zero-knowledge proof system is an [[interactive-proof-systems|interactive proof]] carrying an additional simulation requirement, so dropping that requirement leaves every problem in [[statistical-zero-knowledge|SZK]] inside $\\classIP$ — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The source text never states the relation — it is implicit in 'in such an interactive proof' in the SZK page's intro. The edge is real and definitional; keeping it is right, but content/Complexity/statistical-zero-knowledge.md should state it explicitly in § Known relationships rather than leaving it to be inferred.",
+        "$\\classIP = \\classPSPACE$ on content/Complexity/interactive-proof-systems.md still carries a 'TODO citation' (Shamir 1992 / LFKN 1992). Not this edge, but adjacent."
+      ]
+    },
+    {
+      "slug": "szk-to-qszk",
+      "path": "content/Reductions/szk-to-qszk.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Wat02",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge",
+          "authors": "John Watrous",
+          "venue": "FOCS 2002",
+          "year": "2002",
+          "url": "https://doi.org/10.1109/SFCS.2002.1181970",
+          "note": "Verified in vendor/cryptobib/crypto.bib as FOCS:Watrous02 (pp. 459-470). NB cryptobib's title field has a typo ('imits on the Power...'); the reference page must use the correct title. Preprint arXiv:quant-ph/0202111, 'Quantum statistical zero-knowledge'. This paper defines honest-verifier QSZK, proves the trace-distance problem complete for it, that it is closed under complement and contained in PSPACE, and establishes the connections to classical SZK."
+        },
+        {
+          "key": "Wat06",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Wat06 - Zero-knowledge against quantum attacks",
+          "authors": "John Watrous",
+          "venue": "STOC 2006",
+          "year": "2006",
+          "url": "https://doi.org/10.1145/1132516.1132560",
+          "note": "Verified in vendor/cryptobib/crypto.bib as STOC:Watrous06 (pp. 296-305). Journal version SIAM J. Comput. 39(1):25-58, 2009; the key Wat09 is NOT usable here because content/References/Wat09 - Dual System Encryption... is Waters 2009. Introduces the quantum rewinding lemma and proves that honest-verifier and general-verifier QSZK coincide."
+        }
+      ],
+      "class": "free",
+      "class_justification": "A containment between complexity classes; the reduction-class axis does not discriminate here. Matches qszk-to-qip.",
+      "model": "quantum",
+      "model_justification": "The conclusion class is defined over quantum verifiers, quantum messages and quantum simulators, so the containment is stated in the quantum model even though the hypothesis class is classical.",
+      "kind_correct": "inclusion",
+      "statement": "$\\classSZK \\subseteq \\classQSZK$: a classical statistical zero-knowledge proof system is a quantum one in which every message and every simulator output is classical, so [[statistical-zero-knowledge|SZK]] is contained in the honest-verifier class Watrous defines — [[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]. The containment extends to [[quantum-statistical-zero-knowledge|QSZK]] against arbitrary quantum verifiers because honest-verifier and general-verifier quantum statistical zero knowledge coincide, proved via the quantum rewinding lemma — [[Wat06 - Zero-knowledge against quantum attacks|Wat06]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Removes the honest-verifier restriction: quantum rewinding gives $\\mathbf{QSZK}_{\\mathrm{HV}} = \\classQSZK$, so the classical containment holds against arbitrary quantum verifiers — [[Wat06 - Zero-knowledge against quantum attacks|Wat06]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Wat02 could not be opened (cs.uwaterloo.ca, arxiv.org, eprint.iacr.org and link.springer.com are blocked by this environment's egress proxy). Its bibliographic data is verified against vendor/cryptobib and its stated results against two independent secondary summaries; the containment itself is immediate from Watrous's definition. If a human finds that Wat02 does not state SZK ⊆ QSZK_HV explicitly, Wat06 alone carries the citation and Wat02 should be demoted to the definitional reference for QSZK.",
+        "The page's migration note about quantum rewinding is correct and is now answered: the 'special case of a quantum one' argument is honest and complete only for the honest-verifier class; the general-verifier statement needs Wat06. The one-line justification on content/Complexity/quantum-statistical-zero-knowledge.md § Known relationships should be extended accordingly.",
+        "Two further 'TODO citation (Watrous 2002)' markers on content/Complexity/quantum-statistical-zero-knowledge.md (QSD is QSZK-complete; coQSZK = QSZK) are resolved by the same Wat02 reference page — worth fixing in the same commit."
+      ]
+    },
+    {
+      "slug": "tdh-to-cpir-amr25",
+      "path": "content/Reductions/tdh-to-cpir-amr25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DGI+19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DGI+19 - Trapdoor Hash Functions and Their Applications",
+          "authors": "Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, Rafail Ostrovsky",
+          "venue": "CRYPTO 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/639",
+          "note": "Introduces trapdoor hash functions and the route from them to low-communication PIR: TDH with a one-bit hint gives two-message rate-1 string OT, and thence 'the first constructions of PIR with communication cost poly-logarithmic in the database size based on DDH or QR' (paper abstract, quoted on the wiki's own reference page). This, not AMR25, is the origin of the TDH-to-PIR compiler."
+        },
+        {
+          "key": "AMR25",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN",
+          "authors": "Damiano Abram, Giulio Malavolta, Lawrence Roy",
+          "venue": "preprint (eprint 2025/416)",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/416",
+          "note": "Instantiates the route from a low-noise-LPN trapdoor hash function with compression factor $2^{\\Theta(\\log^{1-\\beta}\\secpar)}$, giving PIR with communication $L/2^{\\Theta(\\log^{1-\\beta}L)}$ — the first PIR with non-trivial communication from a code-based assumption. Not the origin of the TDH-to-PIR step."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The compiler is generic in the trapdoor hash function, but DGI+19 obtain PIR with polylogarithmic communication only from their DDH- and QR-based instantiations (not from the LWE one), so what the source establishes is not a single construction that turns *any* TDH into non-trivial PIR with a fixed communication bound. Claiming fully-black-box would overstate the source; left unstated, matching the wiki's other DGI+19 edges.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[trapdoor-hash-function|trapdoor hash function]] for the index predicates $f_i(x) = x_i$ with a short (one-bit, in the rate-1 case) hint yields two-message rate-1 string [[oblivious-transfer|OT]], and from it [[single-server-private-information-retrieval|single-server PIR]]: from their DDH- and QR-based trapdoor hash functions [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]] obtain PIR with communication $\\polylog(n)$ in the database size $n$. The communication achieved is governed by the trapdoor hash function's compression factor: the low-noise-LPN construction of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], with compression $2^{\\Theta(\\log^{1-\\beta}\\secpar)}$, gives PIR with communication $L/2^{\\Theta(\\log^{1-\\beta}L)}$ for a database of size $L$.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The first trapdoor hash function from a code-based assumption, and with it the first single-server PIR with communication asymptotically below $L$ from LPN: quasi-polynomial hardness of low-noise LPN with rate $\\varepsilon = O(\\log^{1+\\beta}(k)/k)$, $\\beta > 0$, gives PIR with communication $L/2^{\\Theta(\\log^{1-\\beta}L)}$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH PRIORITY: the slug carries the suffix `-amr25` but the reduction is DGI+19's; AMR25 only instantiate it. The page's own migration note ('the generic TDH-to-sublinear-PIR compiler is not original to AMR25, so the citation may be misattributed here') is correct. The honest slug is tdh-to-cpir-dgi-19 or an unsuffixed tdh-to-cpir, but renaming changes a live URL — leave the rename to a human and at minimum reorder `source:` so DGI+19 comes first.",
+        "The Notes section contains a literal '[object Object]' where the conflicting citations were meant to be listed ('Citations disagree across pages: [object Object]'). Migration bug; should be removed or filled in.",
+        "The Notes section is an unmerged concatenation of the notes from all five migrated statements (DDH, QR and LWE branches, plus the sub-bullet), including duplicated lines. It needs rewriting to the one or two caveats that survive, not preserving.",
+        "Precision worth keeping in mind if the statement is rewritten: DGI+19 get rate-1 string OT from DDH, QR *or* LWE, but polylogarithmic-communication PIR only from DDH or QR. A blanket 'TDH implies polylog PIR' would be wrong.",
+        "'Fully sublinear PIR from any flavour of LPN is open' (nested sub-bullet on content/Assumptions/learning-parity-with-noise.md) is an open problem, not an edge; it should stay on the assumption page."
+      ]
+    },
+    {
+      "slug": "tdp-to-hash-function",
+      "path": "content/Reductions/tdp-to-hash-function.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction that calls $\\Gen$ and $\\Eval$ as oracles and never inspects their code, and one fixed reduction that runs any inverter for the derived function as an oracle and returns its $x$ component. The RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "A [[trapdoor-permutation|trapdoor permutation]] family $\\mathsf{TDP} = (\\Gen, \\Eval, \\Invert)$ yields a one-way function ([[hash-function|OWF]]): define $g(r, x) = (f, \\Eval(f, x))$ where $(f, \\td) = \\Gen(1^\\secpar; r)$ and the trapdoor is discarded. Inverting $g$ on $(f, y)$ recovers the unique $x$ with $\\Eval(f, x) = y$, contradicting one-wayness of $\\mathsf{TDP}$ against an adversary given the index but not $\\td$ — folklore.",
+      "sketch": "The construction just withholds the trapdoor: $\\Eval(f, \\cdot)$ is a bijection on $\\calD$, so any preimage of $(f, y)$ under $g$ contains the unique $\\Eval(f, \\cdot)$-preimage of $y$, and the reduction outputs it verbatim. The derived $g$ is in fact a one-way permutation on each index.",
+      "pseudocode": "",
+      "security_loss": "none (the reduction preserves the advantage)",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The conclusion node is `hash-function`, which this wiki uses for OWF, one-way permutation and CRH alike. The sharper true edge is TDP ⇒ OWP, and content/Primitives/one-way-permutation.md exists and is unlinked. Either retarget this edge to one-way-permutation or split an OWF node out of hash-function; until then the conflation is a modelling defect, not a defect of this claim.",
+        "Editor-lane defects on the source pages remain: content/Primitives/impagliazzos-five-worlds.md writes '[[trapdoor-permutation|TDFs]] exist → [[hash-function|OWFs]]s exist' (permutation page glossed as trapdoor *functions*, and a stray trailing s), and content/Primitives/trapdoor-permutation.md asserts 'Trapdoor permutations are one-way functions with an additional invertibility structure' with no wikilink to the OWF node.",
+        "Imp95 is cited only in the intro of impagliazzos-five-worlds.md, never on the bullet; since this edge is folklore that is acceptable, but the bullet should carry a '— folklore' marker."
+      ]
+    }
+  ]
+}

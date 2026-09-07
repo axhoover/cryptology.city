@@ -1,0 +1,439 @@
+{
+  "batch": "red-28",
+  "pages": [
+    {
+      "slug": "ring-lpn-to-pseudorandom-correlation-generators-pcg",
+      "path": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BCG+20",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN",
+          "authors": "Elette Boyle, Geoffroy Couteau, Niv Gilboa, Yuval Ishai, Lisa Kohl, Peter Scholl",
+          "venue": "CRYPTO 2020",
+          "year": "2020",
+          "url": "https://doi.org/10.1007/978-3-030-56880-1_14",
+          "note": "Verified against vendor/cryptobib entry C:BCGIKS20 (CRYPTO 2020, pp. 387-416, doi 10.1007/978-3-030-56880-1_14) and eprint 2022/1035. Abstract: 'we design a new class of efficient PCGs based on different flavors of the ring-LPN assumption', giving silent OLE and authenticated multiplication triples. cryptobib_key: C:BCGIKS20."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BCG+20 do not classify the reduction, and the recorded hypothesis set is incomplete: the construction also needs distributed point functions (hence a PRG) alongside Ring-LPN. Ring-LPN supplies a one-way function on its own so the edge is not false, but it is not a clean single-hypothesis black-box statement, and the conclusion additionally carries efficiency requirements (sublinear seeds, silent local expansion) that the RTV axes do not speak to. Left unstated rather than guessed.",
+      "model": "standard",
+      "model_justification": "Plain model; the seed distribution is set up once by an ordinary two-party protocol and expansion is deterministic local computation.",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[learning-parity-with-noise#ring-lpn|Ring-LPN]] over a polynomial ring $\\FF_q[x]/(f(x))$ yields [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generators]] for oblivious linear evaluation and for authenticated multiplication triples: a pair of seeds of size sublinear in the target output length expands, with no further interaction, into $n$ instances of the correlation, each party's share computable from its own seed alone — [[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]].",
+      "sketch": "Each seed holds a sparse ring element together with function-secret-sharing keys for the product of the two sparse elements, which is itself sparse and therefore compactly shareable; multiplying by public ring elements turns those keys into additive shares of the product of two Ring-LPN samples, and Ring-LPN makes each sample pseudorandom.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The frontmatter conclusion `pseudorandom-correlation-generator` has no page of its own; it resolves through the variants map of content/Assumptions/alternating-moduli.md. Three edges (this one, alternating-moduli-assumption-to-..., sparse-learning-parity-with-noise-to-...) now point at a section of an assumption page. A real PCG primitive page is the fix.",
+        "HYPOTHESIS SET INCOMPLETE: BCG+20's PCGs also require distributed point functions, hence a PRG. Ring-LPN yields a OWF/PRG on its own so the edge stands, but a second hypothesis would be more faithful.",
+        "The PCG notion and the first (plain-)LPN-based PCGs are Boyle-Couteau-Gilboa-Ishai-Kohl-Scholl, 'Efficient Pseudorandom Correlation Generators: Silent OT Extension and More', CRYPTO 2019 — the right definitional citation when a PCG page is created. Not proposed as a source here because this edge's hypothesis is specifically Ring-LPN.",
+        "Sibling page content/Reductions/ring-lpn-to-mac.md was split from the same sentence and still needs the Lapin citation (Heyse-Kiltz-Lyubashevsky-Paar-Pietrzak, FSE 2012); out of scope for this batch.",
+        "The migrated quote ('underlies ... efficient constructions') is an efficiency remark rather than a reduction claim; the proposed statement replaces it with the theorem. Source line to fix in the same lane: content/Assumptions/learning-parity-with-noise.md:125."
+      ]
+    },
+    {
+      "slug": "ring-lwe-to-ntru-ss11",
+      "path": "content/Reductions/ring-lwe-to-ntru-ss11.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "SS11",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "SS11 - Making NTRU as secure as worst-case problems over ideal lattices",
+          "authors": "Damien Stehlé, Ron Steinfeld",
+          "venue": "EUROCRYPT 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-20465-4_4",
+          "note": "Existing wiki reference page (cryptobib_key EC:SteSte11). Abstract confirms the gloss the wiki records: 'if the secret key polynomials are chosen from discrete Gaussian distributions, then the public key is statistically indistinguishable from uniform over its domain. The security then follows from the already proven hardness of the Ring-LWE problem.'"
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction (the modified NTRUEncrypt) and one fixed security reduction: a Ring-LWE challenge $(a, b)$ is planted as the public key and the challenge ciphertext, and any IND-CPA adversary is run as a distinguishing oracle. The key-uniformity step that licenses planting $a$ as the public key is an unconditional statistical argument, not a use of the hypothesis. This is the standard fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "Plain model — SS11's stated contribution is a standard-model security proof; no random oracle or common setup.",
+      "kind_correct": "implication",
+      "statement": "When the NTRU secrets $f, g$ are drawn from a discrete Gaussian of width $\\sigma \\ge \\poly(n)\\cdot\\sqrt{q}$ rather than from the sparse ternary distribution of the original scheme, the public key $h = g \\cdot f^{-1} \\bmod q$ is statistically close to uniform over $R_q^\\times$, and the IND-CPA security of the resulting [[ntru|NTRU]] encryption scheme reduces to [[learning-with-errors#ring-lwe|Ring-LWE]] — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]. The parameters for which the uniformity argument applies are far wider than those of deployed NTRU, whose sparse ternary keys the result does not cover.",
+      "sketch": "Above the smoothing parameter of the relevant ideal lattice the ratio $g \\cdot f^{-1}$ of two discrete Gaussians is statistically close to uniform on $R_q^\\times$, so the public key leaks nothing about $(f, g)$ and may be replaced by the first component $a$ of a Ring-LWE sample $(a, a s + e)$; the second component, scaled by $p$ and offset by the message, is exactly a ciphertext, so an IND-CPA adversary against the modified scheme is a Ring-LWE distinguisher.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "SUSPECTED DIRECTION ERROR RESOLVED IN FAVOUR OF THE FRONTMATTER: .reductions/suspected-errors.json (content/Assumptions/ntru.md:50, affectsEdges 'red-rl-to-ntru-ss11' — this page's id is red-ring-lwe-to-ntru-ss11) flags the source bullet's 'the NTRU problem reduces to the Ring-LWE problem'. The frontmatter orientation (hypotheses ring-lwe, conclusion ntru) matches SS11; the 'reduces to' half of the bullet is the error and should be deleted from content/Assumptions/ntru.md:50 in the same commit.",
+        "CONCLUSION-OBJECT MISMATCH (high priority): SS11's theorem is about IND-CPA security of the modified NTRU *encryption scheme*, not about the search NTRU problem defined in content/Assumptions/ntru.md § Assumption. Once $h$ is statistically uniform, recovering short $(\\hat f, \\hat g)$ from it is a Ring-SIS-flavoured problem, not something Ring-LWE hardness is known to imply. Consider re-pointing the conclusion at public-key-encryption (cf. ntru-to-pke-hps98) or adding an explicit 'modified/provably-secure NTRU' variant node; the proposed statement is phrased about the scheme for this reason.",
+        "Load-bearing qualifier preserved: SS11 needs Gaussian $f, g$ of width poly(n)*sqrt(q). The migrated 'under a suitable choice of parameters' understates the gap from deployed sparse-ternary NTRU.",
+        "Same-lane fixes on content/Assumptions/ntru.md: the section is headed '## Related results' where the assumption schema prescribes '## Known Results', and the wikilink [[learning-with-errors#Ring LWE|Ring-LWE]] uses a spaced heading rather than the #ring-lwe anchor."
+      ]
+    },
+    {
+      "slug": "rom-and-zkp-to-ds-fs86",
+      "path": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "Existing wiki reference page. Introduces the transform from an identification protocol to a signature scheme by replacing the verifier's challenge with a hash of the first message and the message being signed."
+        },
+        {
+          "key": "PS96",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+          "authors": "David Pointcheval, Jacques Stern",
+          "venue": "EUROCRYPT 1996",
+          "year": "1996",
+          "url": "https://doi.org/10.1007/3-540-68339-9_33",
+          "note": "Verified against vendor/cryptobib entry EC:PoiSte96 (EUROCRYPT 1996, LNCS 1070, pp. 387-398, doi 10.1007/3-540-68339-9_33). Introduces the forking lemma and the first EUF-CMA proof in the random oracle model for Fiat-Shamir signatures including Schnorr. cryptobib_key: EC:PoiSte96."
+        },
+        {
+          "key": "AABN02",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security",
+          "authors": "Michel Abdalla, Jee Hea An, Mihir Bellare, Chanathip Namprempre",
+          "venue": "EUROCRYPT 2002",
+          "year": "2002",
+          "url": "https://doi.org/10.1007/3-540-46035-7_28",
+          "note": "Verified against vendor/cryptobib entry EC:AABN02 (EUROCRYPT 2002, LNCS 2332, pp. 418-433, doi 10.1007/3-540-46035-7_28). Establishes necessary and sufficient conditions on the identification scheme (security against passive impersonation, super-logarithmic challenge length) for the transform to give a secure signature scheme in the ROM. cryptobib_key: EC:AABN02."
+        },
+        {
+          "key": "Sch91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sch91 - Efficient signature generation by smart cards",
+          "authors": "Claus-Peter Schnorr",
+          "venue": "Journal of Cryptology 4(3)",
+          "year": "1991",
+          "url": "https://doi.org/10.1007/BF00196725",
+          "note": "Existing wiki reference page. Cited in the sketch as the canonical instantiation of the transform, NOT as a follow-up improvement — recorded with role improvement only because the schema has no 'instance' role."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed compiler, which calls the underlying three-move protocol only through its prover, verifier and honest-verifier simulator, and one fixed reduction, which runs any forger as an oracle: the forking lemma reruns the forger on the same coins with a re-sampled random oracle, and feeds the two accepting transcripts sharing a first message to the special-soundness extractor. Both quantifiers are 'exists construction, exists reduction, for all adversaries', the RTV04 fully-black-box shape.",
+      "model": "rom",
+      "model_justification": "The challenge is the hash of the first message and the signed message; EUF-CMA security is proved only with that hash modelled as a random oracle, which the reduction simulates, observes and reprograms. The existing barrier no-fiat-shamir-and-hash-function-to-ds-gk03 concerns instantiating that oracle with a concrete hash function and does not touch the ROM statement.",
+      "kind_correct": "implication",
+      "statement": "Applying the [[fiat-shamir-heuristic|Fiat–Shamir transform]] to a three-move public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] proof of knowledge for a hard relation — signing $m$ by running the prover to get a first message $a$, setting the challenge to $c = \\hash(a, m)$, and outputting the transcript — yields a [[digital-signature|digital signature]] scheme that is EUF-CMA secure in the [[random-oracle-model|random oracle model]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. The first proof, which rewinds the forger to obtain two accepting transcripts sharing a first message and extracts the witness from them, is the forking lemma — [[PS96 - Security Proofs for Signature Schemes|PS96]]; security of the underlying identification scheme against passive impersonation, with super-logarithmic challenge length, is necessary and sufficient — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].",
+      "sketch": "Schnorr's protocol for [[discrete-logarithm|discrete log]] instantiates the transform: the signature on $m$ is $(c, z)$ with $a = g^r$, $c = \\hash(a, m)$ and $z = r + c \\cdot x$ — [[Sch91 - Efficient signature generation by smart cards|Sch91]]. Two forgeries with the same $a$ and distinct challenges give $x = (z - z')/(c - c')$, which is how the forking lemma turns a forger into a discrete-log solver.",
+      "pseudocode": "",
+      "security_loss": "Quadratic: a forger with advantage $\\varepsilon$ making $q$ random-oracle queries yields a witness with probability roughly $\\varepsilon^2/q$ (forking lemma) — PS96.",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HYPOTHESIS SET: `rom` is a model, not an object. With model: rom already recorded, the conjunction is an artifact and the page has one genuine hypothesis (zkp). Same shape as rom-and-zkp-to-nizk-fs86, rom-to-oihf-bh26 and interactive-protocol-and-rom-to-nizk — a repo-wide decision on whether the ROM may be a hypothesis node belongs in schema/README.md.",
+        "The hypothesis node `zkp` is the generic zero-knowledge page (Sigma protocol is one of its aliases). Fiat-Shamir needs a three-move public-coin HVZK proof OF KNOWLEDGE for a hard relation, not an arbitrary ZK proof; the statement carries the qualifiers, but the node cannot express them.",
+        "Composite chain: the migrated bullet packs DL => Schnorr sigma protocol together with sigma protocol + Fiat-Shamir => DS. Both links are now cited (Sch91 in the sketch, FS86/PS96/AABN02 in the statement); under a strict reading of schema/README's split rule the DL => Schnorr identification link should become its own page.",
+        "Two pages record Fiat-Shamir compilations from the same FS86 bullet: this one (=> DS) and rom-and-zkp-to-nizk-fs86 (=> NIZK). They are genuinely different conclusions and should both survive.",
+        "Sch91 is listed with role: improvement only so that the sketch's citation resolves; it is the canonical instantiation, not a follow-up. Its reference page already exists, so nothing needs creating."
+      ]
+    },
+    {
+      "slug": "rom-and-zkp-to-nizk-fs86",
+      "path": "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "FS86",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems",
+          "authors": "Amos Fiat, Adi Shamir",
+          "venue": "CRYPTO 1986",
+          "year": "1986",
+          "url": "https://doi.org/10.1007/3-540-47721-7_12",
+          "note": "Existing wiki reference page. FS86 gives the transform itself; it does not state a NIZK theorem in those terms (see flags)."
+        },
+        {
+          "key": "FKMV12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FKMV12 - On the Non-malleability of the Fiat-Shamir Transform",
+          "authors": "Sebastian Faust, Markulf Kohlweiss, Giorgia Azzurra Marson, Daniele Venturi",
+          "venue": "INDOCRYPT 2012",
+          "year": "2012",
+          "url": "https://doi.org/10.1007/978-3-642-34931-7_5",
+          "note": "Verified against vendor/cryptobib entry INDOCRYPT:FKMV12 (INDOCRYPT 2012, LNCS 7668, pp. 60-79, doi 10.1007/978-3-642-34931-7_5) and eprint 2012/704. Abstract: formally defines simulation soundness and weak simulation extractability in the ROM and shows the Fiat-Shamir transform meets them under lenient conditions, giving efficient non-malleable NIZK. cryptobib_key: INDOCRYPT:FKMV12."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed compiler, calling the underlying public-coin protocol only through its prover, verifier and honest-verifier simulator, and one fixed proof: zero knowledge by programming the random oracle with simulated transcripts, and soundness/extraction by rewinding any cheating prover run as an oracle across its random-oracle queries. Both quantifiers are 'exists construction, exists reduction, for all adversaries'.",
+      "model": "rom",
+      "model_justification": "Each verifier challenge is replaced by the random oracle applied to the transcript so far; both zero knowledge (which programs the oracle) and soundness hold only in that model. The existing barrier no-fiat-shamir-to-nizk-gk03 rules out instantiating the oracle with a concrete hash function and is scoped to the standard model.",
+      "kind_correct": "implication",
+      "statement": "The [[fiat-shamir-heuristic|Fiat–Shamir transform]] compiles a constant-round public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] protocol into a [[non-interactive-zero-knowledge|NIZK]] argument in the [[random-oracle-model|random oracle model]], replacing each verifier challenge by the random oracle applied to the transcript so far — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. Public-coin-ness is load-bearing: the transform is defined only for protocols whose verifier messages are exactly its random coins, so it says nothing about private-coin zero-knowledge proofs. Under mild conditions on the underlying sigma protocol the compiled proof system is additionally simulation-sound and weakly simulation-extractable, hence non-malleable — [[FKMV12 - On the Non-malleability of the Fiat-Shamir Transform|FKMV12]].",
+      "sketch": "The NIZK simulator programs the random oracle: it runs the honest-verifier simulator to obtain an accepting transcript $(a, c, z)$ and sets $\\RO(a) := c$, undetectable because $a$ is fresh. Soundness follows by rewinding a cheating prover across its random-oracle queries, as in the forking lemma.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DUPLICATE CLUSTER (high priority): four pages record essentially this edge — this one; zkp-to-nizk-fs86 (sources FS86+BFM88 but model: standard, which is wrong for the FS86 half and belongs to the BFM88/CRS half); fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk (model rom, source folklore); interactive-protocol-and-rom-to-nizk (model rom, source folklore). They should collapse to one ROM page (this one) plus the CRS page tdp-to-nizk-bfm88.",
+        "ANACHRONISM (kept as a caveat, not a wrong_claim): FS86 states the transform for identification and signatures, not for NIZK in those terms. The NIZK reading is the standard modern attribution and FKMV12 is the work that actually proves the NIZK properties. The same anachronism is flagged in .reductions/suspected-errors.json against content/Primitives/succinct-argument.md:93.",
+        "MISSING HYPOTHESIS in the migrated bullet, now in the statement: Fiat-Shamir applies only to PUBLIC-COIN protocols.",
+        "`rom` in the hypothesis list is a model, not an object, and duplicates model: rom.",
+        "The migrated bullet packs a disjunction (CRS model via BFM88, or ROM via FS86); this page is the ROM branch and tdp-to-nizk-bfm88 is the CRS branch, so the split is already correct — no disjunction survives inside a page."
+      ]
+    },
+    {
+      "slug": "rom-to-oihf-bh26",
+      "path": "content/Reductions/rom-to-oihf-bh26.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BH26",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BH26 - How to Steal Oblivious Transfer from Minicrypt",
+          "authors": "Cruz Barnum, David Heath",
+          "venue": "ePrint 2026",
+          "year": "2026",
+          "url": "https://eprint.iacr.org/2026/113",
+          "note": "Existing wiki reference page; existence and content re-verified via web search of eprint 2026/113 (Cruz Barnum and David Heath, UIUC, posted 2026-02-13). Result (1) of the paper is exactly this edge: OIHFs can be constructed from random oracles, placing them in Minicrypt."
+        }
+      ],
+      "class": "free",
+      "class_justification": "BH26 build the OIHF directly from the random oracle and argue its security unconditionally in that model, with no restriction on the adversary beyond its query budget; per the schema's `rom` rejection note the idealized model belongs on the `model` axis, and the class it scopes here is `free`. BH26 do not classify the construction in RTV terms, and `free` is the weakest (safest) value consistent with a proof that places no restriction on technique.",
+      "model": "rom",
+      "model_justification": "The construction is a protocol in the random oracle model; BH26's framing is that OIHFs are in Minicrypt precisely because they follow from a random oracle. The same paper states that constructing an OIHF in the standard model currently requires Cryptomania assumptions, so the model is load-bearing.",
+      "kind_correct": "implication",
+      "statement": "A random oracle yields an [[oblivious-interactive-hash-function|oblivious interactive hash function]], placing OIHFs in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]. No standard-model construction from Minicrypt assumptions is known: BH26 obtain OIHFs there only from [[oblivious-transfer|OT]] and from public-key-style assumptions, so the Minicrypt–Cryptomania bridge that OIHFs open runs through the idealized model.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "TWO MIGRATION NOTES ARE NOW STALE and should be dropped: content/Primitives/oblivious-interactive-hash-function.md does exist (status: stub, unlisted: true). The Notes claim it has no wiki page.",
+        "COMPOSITE ALREADY SPLIT: the second link of the migrated bullet (OIHF => OT, explicitly non-black-box) lives at oihf-to-ot-bh26 with class: free, and the accompanying barrier at no-oihf-to-ot-bh26. This page is only the RO => OIHF link, and its class: free is not contradicted by that barrier (which rules out fully-black-box on a different hyperedge).",
+        "The hypothesis `rom` is a model, not an object, and duplicates model: rom — same repo-wide question as the two FS86 pages in this batch.",
+        "SKETCH OMITTED DELIBERATELY: BH26's OIHF construction from a random oracle could not be read at the level of detail a sketch needs (eprint.iacr.org and dblp.org are egress-blocked from this environment; only the abstract was reachable via search). A human or a later pass with PDF access should add it.",
+        "confidence medium: attribution and direction are certain from the abstract; the class assignment is a repo-convention judgement rather than something BH26 states."
+      ]
+    },
+    {
+      "slug": "rp-to-bpp",
+      "path": "content/Reductions/rp-to-bpp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, proved by any argument at all; the reduction-class axis does not discriminate here. Retains the value the migration already recorded, which matches the sibling pages p-to-bpp, zpp-to-rp and rp-to-np.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classRP \\subseteq \\classBPP$: an $\\classRP$ machine already errs on one side only, and running it twice independently and accepting if either run accepts raises the acceptance probability on yes-instances from $1/2$ to $3/4 \\ge 2/3$ while leaving it at $0$ on no-instances — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The amplification step that all three migrated bullets elide (RP's 1/2 threshold must be boosted past BPP's 2/3) is now explicit in the statement, resolving the migration note.",
+        "Any constant acceptance threshold in (0,1) defines the same class RP, so the 1/2 in the statement is a convention rather than a hypothesis; the two-repetition argument is the shortest witness of the containment for the standard convention.",
+        "Source prose to fix in the same lane: content/Complexity/bounded-error-probabilistic-polynomial-time.md, content/Complexity/randomized-polynomial-time.md and content/Complexity/zero-error-probabilistic-polynomial-time.md all state the chain P subset ZPP subset RP subset BPP as one bullet with a single justification covering all three links; they should link the per-link pages (p-to-zpp, zpp-to-rp, rp-to-bpp) instead."
+      ]
+    },
+    {
+      "slug": "rp-to-np",
+      "path": "content/Reductions/rp-to-np.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A containment between complexity classes, proved by any argument at all; the reduction-class axis does not discriminate here. Retains the migration's value, matching the sibling complexity-inclusion pages.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classRP \\subseteq \\classNP$: for $x \\in L$ at least half of the machine's polynomially many random strings lead to acceptance, and any one of them is a polynomial-length certificate that a deterministic verifier checks by simulating the machine on it; for $x \\notin L$ no random string is accepting, so no certificate exists — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "One-sidedness is load-bearing and is now stated: the same argument fails for BPP, where no-instances also have accepting random strings. Whether BPP is contained in NP is open.",
+        "The dual containment coRP within coNP follows by complementation and has no page; add it only if the wiki wants coRP as a node (content/Complexity/ has no coRP page today)."
+      ]
+    },
+    {
+      "slug": "rsa-to-fac-dlo24",
+      "path": "content/Reductions/rsa-to-fac-dlo24.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DLO24",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing",
+          "authors": "Dana Dachman-Soled, Julian Loss, Adam O'Neill",
+          "venue": "ITC 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.4230/LIPIcs.ITC.2024.8",
+          "note": "Existing wiki reference page (cryptobib_key ITC:DacLosONe24, eprint 2022/1261); DROPS entry for ITC 2024 confirmed via search."
+        },
+        {
+          "key": "AM09",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "AM09 - Breaking RSA Generically Is Equivalent to Factoring",
+          "authors": "Divesh Aggarwal, Ueli Maurer",
+          "venue": "EUROCRYPT 2009",
+          "year": "2009",
+          "url": "https://doi.org/10.1007/978-3-642-01001-9_2",
+          "note": "Verified against vendor/cryptobib entry EC:AggMau09 (EUROCRYPT 2009, LNCS 5479, pp. 36-53, doi 10.1007/978-3-642-01001-9_2) and eprint 2008/260. PRIOR work, not a follow-up: it proves the same equivalence for preprocessing-free generic ring algorithms, which DLO24 extends to unbounded preprocessing. cryptobib_key: EC:AggMau09."
+        }
+      ],
+      "class": "free",
+      "class_justification": "schema/reduction-classes.yaml's `generic-ring` rejection note prescribes exactly this pairing: the idealized computation model goes on the `model` axis, and a result quantifying over every algorithm in that model is the `free` class scoped by the model. DLO24 place no restriction on the generic ring adversary's technique, only on its access to $\\ZZ_N$.",
+      "model": "other",
+      "model_justification": "The generic ring model with preprocessing. The model enum has no value for it — `generic-group` is a different model — so `other` is recorded, and per the schema's instruction the ring model is named in the statement itself.",
+      "kind_correct": "equivalence",
+      "statement": "Against generic ring algorithms, computing $e$-th roots modulo $N$ and factoring $N$ are equivalent even when the adversary is handed an advice string produced by unbounded preprocessing on $N$: any such [[rsa-assumption|RSA]] adversary is converted into a [[factoring|FAC]] adversary of polynomially related online complexity and only polynomially larger advice — [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]. The converse direction is unconditional and needs no model restriction, since factoring $N$ yields $\\varphi(N)$ and hence the inverse exponent. The equivalence therefore rules out a superpolynomial separation between RSA and factoring only for algorithms that access $\\ZZ_N$ through ring operations, not for ones that exploit the bit representation of its elements.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The preprocessing-free case — every generic ring algorithm that breaks RSA yields a factoring algorithm — is due to Aggarwal and Maurer — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "AM09 is PRIOR work, not a follow-up. It carries role: improvement only because the schema has no 'prior' role; the improvements_text bullet says 'is due to', so the page reads correctly under whatever heading the editor uses. If the wiki prefers, split into two pages: rsa-to-fac-am09 (plain generic ring) and this one (with preprocessing).",
+        "kind: equivalence KEPT. The apparently inverse page fac-to-rsa-rsa78 (red-fac-to-rsa-rsa78) is a DIFFERENT, standard-model claim, and .reductions/suspected-errors.json flags it as inverted at content/Assumptions/factoring.md:29 — factoring hardness is NOT known to imply RSA hardness; RSA hardness implies factoring hardness. That page must be fixed or deleted, otherwise the two coexisting edges assert a standard-model equivalence nobody has proved.",
+        "The generic-ring restriction is load-bearing and the statement says so explicitly; do not let a downstream summary render this as an unconditional RSA-factoring equivalence.",
+        "The migrated bullet states both an equivalence and a barrier ('rules out a superpolynomial separation'); the barrier reading is the contrapositive of the same theorem, so a separate barrier page would be redundant unless the wiki wants the Cryptomania-style framing."
+      ]
+    },
+    {
+      "slug": "rsa-to-ind-cca-security",
+      "path": "content/Reductions/rsa-to-ind-cca-security.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sho01b",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Sho01b - A Proposal for an ISO Standard for Public Key Encryption",
+          "authors": "Victor Shoup",
+          "venue": "Cryptology ePrint Archive, Report 2001/112",
+          "year": "2001",
+          "url": "https://eprint.iacr.org/2001/112",
+          "note": "Verified against vendor/cryptobib entry EPRINT:Shoup01 and via web search. Defines RSA-KEM (originally 'Simple RSA') and proves it IND-CCA secure in the random oracle model under the RSA assumption; basis of ISO/IEC 18033-2. Key takes suffix b because a second distinct Shoup 2001 paper (OAEP Reconsidered) is also cited. cryptobib_key: EPRINT:Shoup01."
+        },
+        {
+          "key": "BR94",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "BR94 - Optimal Asymmetric Encryption",
+          "authors": "Mihir Bellare, Phillip Rogaway",
+          "venue": "EUROCRYPT 1994",
+          "year": "1994",
+          "url": "https://doi.org/10.1007/BFb0053428",
+          "note": "Verified against vendor/cryptobib entry EC:BelRog94 (EUROCRYPT 1994, LNCS 950, pp. 92-111, doi 10.1007/BFb0053428; cryptobib records the proceedings year as 1995, the literature cites it as BR94). Introduces OAEP. cryptobib_key: EC:BelRog94."
+        },
+        {
+          "key": "Sho01a",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Sho01a - OAEP Reconsidered",
+          "authors": "Victor Shoup",
+          "venue": "CRYPTO 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44647-8_15",
+          "note": "Verified against vendor/cryptobib entry C:Shoup01 (CRYPTO 2001, LNCS 2139, pp. 239-259, doi 10.1007/3-540-44647-8_15). Shows the original OAEP argument does not establish IND-CCA security from one-wayness of the trapdoor permutation alone. cryptobib_key: C:Shoup01."
+        },
+        {
+          "key": "FOPS01",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "FOPS01 - RSA-OAEP Is Secure under the RSA Assumption",
+          "authors": "Eiichiro Fujisaki, Tatsuaki Okamoto, David Pointcheval, Jacques Stern",
+          "venue": "CRYPTO 2001",
+          "year": "2001",
+          "url": "https://doi.org/10.1007/3-540-44647-8_16",
+          "note": "Verified against vendor/cryptobib entry C:FOPS01 (CRYPTO 2001, LNCS 2139, pp. 260-274, doi 10.1007/3-540-44647-8_16); journal version J. Cryptology 17(2):81-104, 2004. Re-establishes IND-CCA security of RSA-OAEP under the RSA assumption after Sho01a's gap. cryptobib_key: C:FOPS01."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The RSA-KEM reduction runs the adversary only as an oracle and would go through for any trapdoor permutation, but the RSAES-OAEP branch reaches IND-CCA only via RSA's algebraic self-reducibility (one-wayness to partial-domain one-wayness), which is not a black-box use of the hypothesis. With the hypothesis an algebraic assumption rather than a primitive, the RTV axes do not classify the edge cleanly; left unstated rather than guessed.",
+      "model": "rom",
+      "model_justification": "Both branches are proved only with the key-derivation / padding hash modelled as a random oracle; each reduction extracts an RSA preimage by reading the adversary's own oracle queries. No standard-model IND-CCA proof from the plain RSA assumption is known for either scheme.",
+      "kind_correct": "implication",
+      "statement": "[[rsa-assumption|RSA]] implies an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA secure KEM]] in the [[random-oracle-model|random oracle model]]: RSA-KEM encapsulates by sampling $r \\getsr \\ZZ_N^*$, sending $c = r^e \\bmod N$ and taking the key to be $\\hash(r)$, and the reduction answers decapsulation queries from the adversary's own $\\hash$-queries, one of which must be the $e$-th root of the challenge — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. The padding-based scheme RSAES-OAEP — [[BR94 - Optimal Asymmetric Encryption|BR94]] — achieves IND-CCA [[public-key-encryption|PKE]] under the same assumption in the same model.",
+      "sketch": "For RSA-KEM the encapsulated key is $\\hash(r)$ for a uniform $r$ whose image $r^e$ is the ciphertext, so an adversary that distinguishes the key from uniform must have queried $\\hash$ at the $e$-th root of its challenge; the reduction plants its RSA challenge as $c^*$ and reads the preimage off the query list, using the same list to simulate decapsulation.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Shoup showed OAEP's original argument does not establish IND-CCA security from one-wayness of the underlying trapdoor permutation alone — [[Sho01a - OAEP Reconsidered|Sho01a]]\n- IND-CCA security of RSAES-OAEP was re-established under the RSA assumption, using RSA's self-reducibility to pass from one-wayness to partial-domain one-wayness — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "CONFLATION CONFIRMED (the migration note is right): RSA-KEM (hash the RSA preimage; Sho01b) and RSAES-OAEP (a PKE padding scheme; BR94 / Sho01a / FOPS01) are different objects with different proofs. Because the conclusion node is ind-cca-kem, the statement leads with the KEM and keeps OAEP as a second sentence. If the wiki prefers one claim per page, split into rsa-to-ind-cca-kem-sho01b and an rsa-to-ind-cca-pke-oaep page whose conclusion is public-key-encryption.",
+        "KEY SUFFIXES: two distinct Shoup 2001 papers are cited, so they take Sho01a (OAEP Reconsidered, CRYPTO 2001) and Sho01b (ISO proposal, ePrint 2001/112). The existing wiki key Sho97 is a third, unrelated Shoup paper and is unaffected.",
+        "Same-lane fix: content/Primitives/key-encapsulation-mechanism.md § 'RSA-KEM / RSAES-OAEP' carries the uncited one-line claim this page was migrated from, and merges the two schemes in its heading.",
+        "Sho01b is an ePrint report rather than a peer-reviewed venue; the scheme it defines is standardized in ISO/IEC 18033-2, which is the citation a paper would normally pair with it."
+      ]
+    },
+    {
+      "slug": "rsa-to-partially-homomorphic-encryption-phe-rsa78",
+      "path": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The only multiplicatively homomorphic RSA scheme is textbook (unpadded) RSA, $\\Enc(\\pk, m) = m^e \\bmod N$, which is deterministic and therefore cannot be IND-CPA secure — and content/Primitives/homomorphic-encryption.md § Security defines a homomorphic encryption scheme to BE IND-CPA secure. So RSA does not imply partially homomorphic encryption in the sense of the conclusion node: unpadded RSA is a multiplicatively homomorphic trapdoor permutation with one-wayness only, which the wiki already records at rsa-to-tdp-rsa78. Every padding that restores IND-CPA security (OAEP, PKCS#1 v1.5) destroys the multiplicative homomorphism, and no IND-CPA-secure multiplicatively homomorphic scheme is known under the RSA assumption. The correct edge for multiplicative PHE is DDH => multiplicatively homomorphic encryption via ElGamal, whose reference page [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] already exists but which has no reduction page; the additive counterpart is already recorded as dcr-to-partially-homomorphic-encryption-phe-pai99 (Paillier). Separately, RSA78 is not a citation for a homomorphism claim at all — the paper presents the cryptosystem and signature scheme, not a homomorphic-evaluation property.",
+      "flags": [
+        "HIGH PRIORITY: delete or re-point this page, and fix the two source lines in the same commit — content/Primitives/homomorphic-encryption.md line 47 ('only multiplications (e.g., unpadded RSA)') and line 71 ('Multiplicatively homomorphic encryption from RSA — RSA78'). Both already carry SUSPECT flags in this page's migration notes.",
+        "Suggested replacement: a ddh-to-partially-homomorphic-encryption-phe-elgamal85 page (ElGamal is IND-CPA secure under DDH and multiplicatively homomorphic). ElGamal85 already has a reference page, so no stub is needed.",
+        "If the wiki wants to keep the RSA row on the PHE variant, phrase it on content/Primitives/homomorphic-encryption.md as a caveat — 'unpadded RSA is multiplicatively homomorphic but only one-way, not IND-CPA secure' — rather than as a reduction edge.",
+        "The frontmatter conclusion identifier `multiplicatively-homomorphic-encryption` is an alias mapping to homomorphic-encryption#partially-homomorphic-encryption-phe; there is no distinct object node for it, so the edge cannot even be re-scoped to a weaker multiplicative-PHE notion without creating one.",
+        "The Notes line 'Citations disagree across pages: [object Object]' is a serialization bug in the migration script, not content — drop it wherever it appears."
+      ]
+    }
+  ]
+}

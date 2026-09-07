@@ -1,0 +1,368 @@
+{
+  "batch": "bar-00",
+  "pages": [
+    {
+      "slug": "no-agm-to-ggm-kz22",
+      "path": "content/Barriers/no-agm-to-ggm-kz22.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KZ22",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "KZ22 - An Analysis of the Algebraic Group Model",
+          "authors": "Jonathan Katz, Cong Zhang, Hong-Sheng Zhou",
+          "venue": "ASIACRYPT 2022",
+          "year": "2022",
+          "url": "https://doi.org/10.1007/978-3-031-22972-5_11",
+          "note": "ePrint 2022/210. Verified abstract: 'As the GGM and AGM are currently formalized, this is not true: hardness in the AGM may not imply hardness in the GGM, and a generic reduction in the AGM may not imply a similar reduction in the GGM.' The wiki key KZ22 drops the third author (Zhou); keeping the existing key since the page already exists."
+        },
+        {
+          "key": "JM24",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM",
+          "authors": "Joseph Jaeger, Deep Inder Mohan",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.1007/978-3-031-68388-6_2",
+          "note": "Gives an alternate (Maurer-style) formalization of generic and algebraic computation under which the FKL18 AGM-to-GGM transfer claim is correct, directly answering KZ22."
+        }
+      ],
+      "class": "free",
+      "class_justification": "KZ22 refute the implication itself rather than a proof technique: they exhibit a problem (bit-encoding) that is at least as hard as discrete log against algebraic adversaries yet trivially solvable by a generic algorithm in Shoup's GGM, because a Shoup encoding lets an algorithm sample group elements obliviously while the AGM's accountability condition forbids that. A counterexample to the implication is `free` by the repo's convention. The value is scoped to the Shoup-style formalization KZ22 use: JM24 show the transfer does hold under a Maurer-style formalization, so a human may prefer `unstated` here.",
+      "model": "",
+      "model_justification": "Barrier frontmatter carries no model field. Both endpoints are idealized models, and the barrier is scoped to Shoup-style GGM vs AGM as KZ22 formalize them; that scoping is carried in the statement text.",
+      "kind_correct": "",
+      "statement": "Hardness in the [[algebraic-group-model|AGM]] does not imply hardness in the [[generic-group-model|GGM]] as the two models are standardly formalized: the bit-encoding problem is at least as hard as discrete log for algebraic adversaries, yet a generic algorithm solves it in Shoup's GGM, where an algorithm may sample group elements obliviously from their encodings while the AGM's accountability condition forbids exactly that — [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]. The transfer claimed by [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] therefore fails under that reading, and is recovered under the Maurer-style formalization of [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]].",
+      "sketch": "The separation turns on oblivious sampling: in Shoup's GGM a generic algorithm may write down an encoding string and use the group element it names without knowing its discrete log, whereas an algebraic algorithm must output a representation of every group element it produces in terms of the elements it received. KZ22's bit-encoding problem is solvable by exactly that oblivious move.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Under a Maurer-style formalization of generic and algebraic computation, AGM hardness results do transfer to the GGM — [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]]",
+      "notes_to_keep": [
+        "`content/Glossary/generic-group-model.md` states the FKL18 direction without mentioning KZ22; the two glossary pages still disagree about what is settled.",
+        "Barriers between idealized *models* (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; MPZ20's hierarchy of GGM variants is a second instance."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "no-agm-to-ggm-kz22: HIGH — `.reductions/suspected-errors.json` (content/Glossary/algebraic-group-model.md:41) flags the FKL18 gloss as logically inverted; that object page still needs the fix, and the barrier statement here deliberately avoids repeating the inverted gloss.",
+        "no-agm-to-ggm-kz22: HIGH — the barrier is formalization-dependent. JM24 (CRYPTO 2024) prove the AGM-to-GGM transfer under a Maurer-style model, so `class: free` is defensible only as scoped to Shoup-style GGM. A human should decide between `free` (with the scope in the statement) and `unstated`.",
+        "no-agm-to-ggm-kz22: the migrated text bundled two claims (model-level non-implication, and non-transfer of generic reductions). The statement records the first; the second (reduction transfer) is still untyped and may deserve its own edge."
+      ]
+    },
+    {
+      "slug": "no-bqp-to-np",
+      "path": "content/Barriers/no-bqp-to-np.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "RT19",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "RT19 - Oracle Separation of BQP and PH",
+          "authors": "Ran Raz, Avishay Tal",
+          "venue": "STOC 2019",
+          "year": "2019",
+          "url": "https://doi.org/10.1145/3313276.3316315",
+          "note": "STOC 2019, pp. 13-23; ECCC TR18-107 (2018). Abstract verified: a distribution over {+-1}^{2N} distinguishable from uniform by a one-query quantum algorithm with advantage Omega(1/log N), but not by quasi-polynomial-size constant-depth circuits; yields an oracle A with BQP^A not contained in PH^A, hence not in NP^A."
+        }
+      ],
+      "class": "relativizing",
+      "class_justification": "An oracle separation rules out exactly the relativizing class: RT19 give an oracle relative to which BQP is not contained in PH, hence not in NP, so no relativizing proof can establish the inclusion. It says nothing about non-relativizing arguments, and per the partial order it also kills any fully-black-box argument.",
+      "model": "",
+      "model_justification": "Barrier frontmatter has no model field; the separation is relative to an oracle, which is recorded via `class: relativizing` and stated in the text.",
+      "kind_correct": "",
+      "statement": "There is an oracle relative to which $\\classBQP \\not\\subseteq \\mathbf{PH}$, and hence relative to which $\\classBQP \\not\\subseteq \\classNP$ — [[RT19 - Oracle Separation of BQP and PH|RT19]]. No relativizing argument can therefore place [[bounded-error-quantum-polynomial-time|BQP]] inside [[nondeterministic-polynomial-time|NP]]; in the unrelativized world the containment is open in both directions.",
+      "sketch": "Raz and Tal exhibit a distribution over $\\{\\pm 1\\}^{2N}$ that a quantum algorithm making one query distinguishes from uniform with advantage $\\Omega(1/\\log N)$, while every constant-depth circuit of quasi-polynomial size has advantage $\\mathrm{polylog}(N)/\\sqrt{N}$; the gap is the Forrelation problem, and diagonalizing over such distributions produces the oracle.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "flags": [
+        "no-bqp-to-np: HIGH — the migrated Simon sentence should be dropped, not repaired. Simon's problem is a promise problem, and under the promise a single collision certifies the 2-to-1 case, so 'in BQP but not in NP relative to a random oracle' is not a correct statement of the separation. Raz-Tal is the clean citation. The same sentence still sits on content/Complexity/bounded-error-quantum-polynomial-time.md (Known relationships).",
+        "no-bqp-to-np: `strength: unconditional` reads as 'BQP is unconditionally not in NP', which is open. What is unconditional is the oracle separation; a human should confirm how `strength` is meant to interact with `class: relativizing`.",
+        "no-bqp-to-np: earlier oracle separations via Recursive Fourier Sampling (Bernstein-Vazirani) are frequently cited for BQP not in MA (hence not in NP) relative to an oracle. I could not verify from a primary source which paper proves the MA/NP form (only secondary statements in Aaronson's 'BQP and the Polynomial Hierarchy'), so only RT19 is proposed as the source."
+      ],
+      "wrong_reason": ""
+    },
+    {
+      "slug": "no-cpa-security-to-ind-cpa-security",
+      "path": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "The separation is an explicit counterexample, not a restriction on proof technique: from any CPA-secure scheme, appending a constant bit to every ciphertext yields a scheme that is still CPA-secure and trivially distinguishable from uniform. That rules out the implication itself, which is `free` by the repo's convention for barriers.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "[[symmetric-key-encryption#ind-cpa-security|IND$-CPA security]] is strictly stronger than [[symmetric-key-encryption#cpa-security|CPA security]]: appending a constant bit to every ciphertext of a CPA-secure $\\SKE$ scheme preserves CPA security while giving an IND$-CPA adversary advantage $1/2$ — folklore.",
+      "sketch": "The appended bit is independent of the message, so any CPA adversary against the modified scheme is a CPA adversary against the original one; but a uniform string carries that bit correctly only with probability $1/2$, which an IND$-CPA distinguisher checks in one query.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-cpa-security-to-ind-cpa-security: the object page content/Primitives/symmetric-key-encryption.md:80 states 'IND$-CPA implies CPA security, but not vice versa' as one sentence. The forward half is a separate reduction edge (no ind-dollar-cpa-security => cpa-security page exists in content/Reductions/) and should be split out from this barrier.",
+        "no-cpa-security-to-ind-cpa-security: the counterexample is folklore, but the IND$-CPA notion itself is attributable (Rogaway's nonce-based / indistinguishability-from-random-bits formulations). If the SKE page ever cites the notion's origin, this barrier should link it rather than restate it."
+      ]
+    },
+    {
+      "slug": "no-depir-to-ot-dmo00",
+      "path": "content/Barriers/no-depir-to-ot-dmo00.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "The page records a double-hedged, uncited musing from a notes section ('I think this version of PIR might get around the DMO00 barrier'), not a result, and as typed on the `depir` node it is false. Unkeyed and public-key DEPIR are non-trivial single-server PIR schemes with o(n) query-time communication, so DMO00 applies and DEPIR does imply OT; the wiki already records that chain as content/Reductions/depir-to-cpir.md and content/Reductions/cpir-to-ot-dmo00.md, which this barrier contradicts. Only the secret-key variant plausibly evades DMO00, and for a different reason than the page gives: in SK-DEPIR the *client* preprocesses the database under a key the server must not learn, so the OT sender cannot be handed the encoded database without also being handed the receiver's key. Even there the evasion is not a theorem. The supportable edge, if one is wanted, is a barrier on {secret-key-pir} => OT, argued from BM26 (SK-PIR from one-way functions) together with IR89 (no relativizing reduction from one-way permutations to key exchange) — both already have reference pages — and it would be a relativizing barrier, not an unconditional one.",
+      "flags": [
+        "no-depir-to-ot-dmo00: HIGH — as recorded this barrier contradicts the wiki's own composition depir-to-cpir + cpir-to-ot-dmo00. Either delete the page or re-type it on the secret-key variant.",
+        "no-depir-to-ot-dmo00: the `depir` node is ambiguous between SK-, PK- and unkeyed DEPIR (content/Primitives/doubly-efficient-pir.md declares only an `unkeyed-depir` variant), and the claim's truth value differs across those variants. Typing any DEPIR barrier requires splitting the node first.",
+        "no-depir-to-ot-dmo00: the source note's stated reason is garbled on content/References/BIPW17 - Can We Access a Database Both Locally and Privately.md ('sender needs to keep DBs private, but sender needs to keep secret key secret'); the receiver/client is the party holding the key. Fixing that sentence is a reference-fixer/editor lane item on the BIPW17 page."
+      ]
+    },
+    {
+      "slug": "no-evasive-lwe-to-evasive-lwe-buw24-2",
+      "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The hyperedge is degenerate and the underlying results are not reduction barriers. Both endpoints resolve to the same object: content/Assumptions/learning-with-errors.md maps the variant keys `evasive-lwe-private-coin`, `private-coin-evasive-lwe`, `circular-evasive-lwe` and `evasive-lwe` all to the single anchor `#evasive-lwe`, so the page asserts that a reduction from X to X yields a contradiction. What BUW24 and AMYY25 actually give are counterexamples refuting private-coin (and circular) formulations of evasive LWE — the assumption is false as stated, which is a different object from 'no reduction of class C exists', as the page's own migration note observes. If an edge is wanted at all, the supportable direction is the reverse of the one recorded: public-coin evasive LWE does not imply the private-coin variant, since the latter is refuted while the former is still believed. The page is also a near-duplicate of content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md, which records the same passage under the sibling variant key.",
+      "flags": [
+        "no-evasive-lwe-to-evasive-lwe-buw24-2: HIGH — duplicate of no-evasive-lwe-to-evasive-lwe-buw24.md (same source passage, same anchor, different variant key). One of the two should be deleted.",
+        "no-evasive-lwe-to-evasive-lwe-buw24-2: the LWE page declares four evasive-LWE variant keys that all point at `#evasive-lwe`; no edge between evasive-LWE variants can be typed until those become distinct anchors or pages. This is a prerequisite for recording anything in this area.",
+        "no-evasive-lwe-to-evasive-lwe-buw24-2: refuted assumptions need their own record type ('assumption refuted'), distinct from 'reduction ruled out'; three such results (private-coin counterexamples, the public-coin restriction, the circular-variant zeroizing attack) are currently packed into this one page.",
+        "no-evasive-lwe-to-evasive-lwe-buw24-2: secondary sources indicate BUW24 also gives counterexamples against some public-coin formulations (when the sampler is given B). Before the wiki states that the public-coin restriction is safe, a human should check BUW24 directly (ePrint 2024/2000); I could not fetch it (eprint.iacr.org is blocked from this session)."
+      ]
+    },
+    {
+      "slug": "no-falsifiable-assumption-to-kea",
+      "path": "content/Barriers/no-falsifiable-assumption-to-kea.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "No theorem states that KEA-like assumptions cannot be derived from falsifiable assumptions; the claim marked '— standard' on content/Assumptions/knowledge-of-exponent.md is a misremembering of two different results. (i) Gentry-Wichs (STOC 2011) rules out black-box reductions from any falsifiable assumption to the *adaptive soundness of a SNARG*, which is the sibling edge bar-falsifiable-assumption-to-snark-gro16 — its conclusion object is SNARK, not KEA. (ii) Bitansky-Canetti-Paneth-Rosen (STOC 2014) show that if indistinguishability obfuscation exists then extractable one-way functions with unbounded-length auxiliary input do not, which *refutes* a class of knowledge assumptions rather than barring a reduction to them. That KEA is non-falsifiable is a statement about the assumption's syntactic form, not a barrier: nothing prevents a non-falsifiable assumption from following from a falsifiable one. As recorded the page duplicates the GW11 edge with the wrong conclusion object and should be deleted or re-typed onto SNARG soundness.",
+      "flags": [
+        "no-falsifiable-assumption-to-kea: HIGH — recommend deletion in favour of bar-falsifiable-assumption-to-snark-gro16 (re-sourced to GW11 in this batch). Deleting it also requires removing the '[[no-falsifiable-assumption-to-kea|...]]' entry from the generated Participates-in region on content/Glossary/falsifiable-assumptions.md and content/Assumptions/knowledge-of-exponent.md (regenerate with scripts/generate-relations.mjs, do not hand-edit).",
+        "no-falsifiable-assumption-to-kea: searched for any barrier of the form 'knowledge assumptions cannot follow from falsifiable assumptions' and found none; only GW11 (SNARG adaptive soundness) and BCPR14 (refutation of extractable OWFs with unbounded auxiliary input) are in the neighbourhood. Disposition is wrong_claim rather than undetermined because the recorded sentence misstates both.",
+        "no-falsifiable-assumption-to-kea: content/Assumptions/knowledge-of-exponent.md:29 carries the same uncited '— standard' claim and lists the KEA => SNARK edge twice; both are separate lane items."
+      ]
+    },
+    {
+      "slug": "no-falsifiable-assumption-to-snark-gro16",
+      "path": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GW11",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions",
+          "authors": "Craig Gentry, Daniel Wichs",
+          "venue": "STOC 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1145/1993636.1993651",
+          "note": "STOC 2011, pp. 99-108; ePrint 2010/610. Verified: rules out black-box reductions from any falsifiable assumption to the adaptive soundness of a SNARG for NP languages with a sub-exponentially hard subset-membership problem; extends to designated-verifier and slightly succinct arguments."
+        },
+        {
+          "key": "WW24",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation",
+          "authors": "Brent Waters, David J. Wu",
+          "venue": "STOC 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3618260.3649671",
+          "note": "ePrint 2024/165. First adaptively-sound SNARG for NP in the plain model, from sub-exponentially hard iO and one-way functions plus polynomial hardness of discrete log or factoring; delimits the GW11 barrier."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "GW11 rule out any polynomial-time reduction that uses the cheating prover only as an oracle, while leaving the SNARG construction arbitrary; the class actually ruled out is therefore at least as broad as fully-black-box. Recording the narrowest class is the non-overclaiming choice: every fully-black-box reduction is in particular black-box in the adversary, so the contradiction check fires on exactly the reductions GW11 excludes and on nothing GW11 leaves open.",
+      "model": "",
+      "model_justification": "Barrier frontmatter has no model field. The barrier is a standard-model (CRS) statement; the AGM/GGM escape route lives on the companion reduction page content/Reductions/falsifiable-assumption-to-snark-gro16.md, whose model is algebraic-group.",
+      "kind_correct": "",
+      "statement": "For an NP language with a sub-exponentially hard subset-membership problem, no black-box reduction from a [[falsifiable-assumptions|falsifiable assumption]] proves the adaptive soundness of a [[succinct-argument|SNARG]] in the CRS model unless the assumption is false; the barrier extends to designated-verifier arguments and to slightly succinct ones, whose proofs need only be sublinear in the statement and witness length — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].",
+      "sketch": "Given a black-box reduction, GW11 replace the cheating prover it expects by a computationally unbounded simulated prover that produces proofs of the same distribution for false statements; sub-exponential hardness of the subset-membership problem makes the two provers indistinguishable to the efficient challenger, so the reduction breaks the assumption on its own and the assumption was false.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Adaptively sound SNARGs for NP nonetheless exist in the plain model, from sub-exponentially hard indistinguishability obfuscation and one-way functions together with the polynomial hardness of discrete log or factoring — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-falsifiable-assumption-to-snark-gro16: HIGH — the frontmatter `source` must change from Gro16 to GW11. Gro16 is a construction paper and proves no barrier; it belongs only on the companion reduction page for the AGM escape route. The page slug carries the wrong paper suffix ('-gro16'); the file cannot be renamed cheaply (slugs are live URLs), so a human should decide whether to rename it to no-falsifiable-assumption-to-snark-gw11 or leave the slug as historical noise.",
+        "no-falsifiable-assumption-to-snark-gro16: the escape mechanism for WW24 (complexity leveraging via a super-polynomial-time reduction, plus a CRS longer than the statement) is stated in secondary sources but I could not verify it against the paper (eprint.iacr.org and dl.acm.org are blocked from this session); the improvements bullet therefore states only what WW24 achieves, not why it escapes.",
+        "no-falsifiable-assumption-to-snark-gro16: consider also recording the tightness companion (Lipmaa-Pavlyk, 'Gentry-Wichs is Tight: a Falsifiable Non-adaptively Sound SNARG', ASIACRYPT 2021) — non-adaptive soundness *is* achievable from falsifiable assumptions. Not proposed as a source because later work reportedly disputes that construction; verify before citing."
+      ]
+    },
+    {
+      "slug": "no-fiat-shamir-and-hash-function-to-ds-gk03",
+      "path": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GK03",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GK03 - On the (In)security of the Fiat-Shamir Paradigm",
+          "authors": "Shafi Goldwasser, Yael Tauman Kalai",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1109/SFCS.2003.1238185",
+          "note": "FOCS 2003, pp. 102-113; ePrint 2003/034. Verified: a 3-round public-coin counterexample protocol whose Fiat-Shamir transform is existentially forgeable for every efficient hash function, built with Barak's (FOCS 2001) non-black-box techniques. DOI recorded from the FOCS 2003 proceedings; confirm the exact DOI when creating/updating the reference page."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The result is a counterexample, not a restriction on proof technique: for the exhibited identification scheme the transformed signature is forgeable under *every* efficient hash function, so no argument of any kind establishes 'Fiat-Shamir plus a hash function yields a secure signature scheme'. Ruling out the implication itself is `free`.",
+      "model": "",
+      "model_justification": "Barrier frontmatter has no model field. The content of the result is precisely a model gap: the transform is secure in the random oracle model and fails in the standard model, which the statement says explicitly.",
+      "kind_correct": "",
+      "statement": "There is a 3-round public-coin identification scheme whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is a secure [[digital-signature|signature scheme]] in the [[random-oracle-model|random oracle model]] yet existentially forgeable for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. The random oracle in the Fiat-Shamir transform is therefore not instantiable in general.",
+      "sketch": "The counterexample protocol gives the prover a second winning path: it accepts a short program that predicts the verifier's challenge from the first message. Against a random oracle no such program exists, but after the transform the challenge is $H$ applied to the transcript for a public efficient $H$, and the code of $H$ is that program; soundness of the interactive scheme is what Barak's non-black-box techniques supply.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\\calA$ and $\\Pi$ unquantified; the theorem is 'there exists an identification scheme $\\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\\calA$'.",
+        "$\\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\\Pi_{\\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\\mathrm{uf}$ should use the $\\ufcma$/$\\eufcma$ macros."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-fiat-shamir-and-hash-function-to-ds-gk03: GK03's counterexample is constructed with Barak's non-black-box techniques, which rest on collision-resistant hashing, so the barrier is not literally assumption-free; `strength: unconditional` may need revisiting by a human.",
+        "no-fiat-shamir-and-hash-function-to-ds-gk03: the sketch is the standard informal account of GK03's construction (challenge-predicting program as an alternative accepting path). Verify it against the paper before publishing; drop the sketch rather than guess if it cannot be checked (eprint.iacr.org is blocked from this session).",
+        "no-fiat-shamir-and-hash-function-to-ds-gk03: this barrier and no-fiat-shamir-to-nizk-gk03 are the same theorem read against two different conclusion objects (signatures, non-interactive arguments). Keeping both is defensible, but they should cross-link."
+      ]
+    },
+    {
+      "slug": "no-fiat-shamir-to-nizk-gk03",
+      "path": "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GK03",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GK03 - On the (In)security of the Fiat-Shamir Paradigm",
+          "authors": "Shafi Goldwasser, Yael Tauman Kalai",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://doi.org/10.1109/SFCS.2003.1238185",
+          "note": "Same paper as the DS barrier; the object here is the non-interactive argument obtained by transforming a computationally sound interactive argument, not the signature scheme."
+        },
+        {
+          "key": "KRS25",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir",
+          "authors": "Dmitry Khovratovich, Ron D. Rothblum, Lev Soukhanov",
+          "venue": "CRYPTO 2025",
+          "year": "2025",
+          "url": "https://doi.org/10.1007/978-3-032-01887-8_1",
+          "note": "ePrint 2025/118. Removes the 'contrived protocol' caveat from GK03-style counterexamples."
+        }
+      ],
+      "class": "free",
+      "class_justification": "As in the signature case, the barrier is an explicit counterexample against every efficient hash instantiation, so it rules out the implication rather than a proof technique.",
+      "model": "",
+      "model_justification": "Barrier frontmatter has no model field; the statement is standard-model and says so. The positive direction (Fiat-Shamir for sigma protocols in the random oracle model) is a separate reduction edge with model: rom.",
+      "kind_correct": "",
+      "statement": "There is a computationally sound 3-round public-coin argument whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is unsound for every efficient hash function, so the transform does not in general compile interactive arguments into sound [[non-interactive-zero-knowledge|non-interactive]] ones in the standard model — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. What fails is soundness, not zero knowledge, and the failure is for general protocols: the transform remains sound for sigma protocols in the random oracle model.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- GK03's counterexample is contrived by construction; Fiat-Shamir applied to the standard GKR-based succinct argument is also unsound, for explicit circuit families and any concrete hash function — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-fiat-shamir-to-nizk-gk03: HIGH — the migrated bullet on content/Primitives/non-interactive-zero-knowledge.md says Fiat-Shamir 'is insecure for general interactive proofs'. GK03's counterexample is a computationally sound *argument*, not a proof; whether Fiat-Shamir is sound for interactive proofs is a separate, still-live question (see Bitansky et al., 'Why Fiat-Shamir for Proofs Lacks a Proof'). The object-page bullet should be corrected in the same pass, and note that KRS25's target is also an argument (GKR composed with a polynomial commitment), so it does not settle the proofs case either.",
+        "no-fiat-shamir-to-nizk-gk03: the conclusion object is NIZK but the failure is of soundness; if the wiki ever splits soundness from zero knowledge as separate variants, this edge should point at the soundness variant.",
+        "no-fiat-shamir-to-nizk-gk03: overlaps no-fiat-shamir-and-hash-function-to-ds-gk03 (same theorem, different conclusion object); cross-link the two."
+      ]
+    },
+    {
+      "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
+      "path": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KRS25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir",
+          "authors": "Dmitry Khovratovich, Ron D. Rothblum, Lev Soukhanov",
+          "venue": "CRYPTO 2025",
+          "year": "2025",
+          "url": "https://doi.org/10.1007/978-3-032-01887-8_1",
+          "note": "ePrint 2025/118. Abstract verified: an attack on the Fiat-Shamir transform of a standard, popular GKR-based interactive succinct argument for non-deterministic bounded-depth computation; the first counterexample for a non-contrived protocol."
+        }
+      ],
+      "class": "free",
+      "class_justification": "An explicit attack that works against every concrete hash instantiation refutes the implication itself, not a proof technique; `free` is the repo's value for that.",
+      "model": "",
+      "model_justification": "Barrier frontmatter has no model field. The result is a standard-model attack on a transform whose soundness holds in the random oracle model; the statement records that scoping.",
+      "kind_correct": "",
+      "statement": "Applying [[fiat-shamir-heuristic|Fiat-Shamir]] to the [[gkr-protocol|GKR]]-based succinct interactive argument does not yield a sound [[succinct-argument|SNARK]] under any concrete hash function: for every circuit $C$ and target output $y$ there is a functionally equivalent circuit $C^*$ for which an efficient prover produces an accepting non-interactive proof that $C^*$ outputs $y$, true or not — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. The attack is practical and the protocol is deployed, so soundness of Fiat-Shamir-compiled GKR can depend on how a circuit is implemented and not only on the function it computes.",
+      "sketch": "GKR need not commit to the internal wires of the computation it proves, so a cheating prover pads the circuit with gates that recompute the transform's first Fiat-Shamir challenge from the statement, then uses knowledge of that challenge to answer the verifier's checks for a false claim.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The passage is duplicated at content/Glossary/random-oracle-model.md and content/Glossary/fiat-shamir-heuristic.md in differently-worded versions, and neither links the other."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-fiat-shamir-and-gkr-to-snark-krs25: GKR15 is in the frontmatter `source` list but proves nothing about this barrier — it defines the protocol being attacked. Keep it as a definitional wikilink in the body (via the gkr-protocol page) or drop it from `source`; only KRS25 is the barrier's source.",
+        "no-fiat-shamir-and-gkr-to-snark-krs25: the editorial closing sentence on content/Glossary/fiat-shamir-heuristic.md ('This raises serious questions about the security of deployed non-interactive succinct arguments') is an unsourced judgment and should go; the statement here replaces it with the paper's own claim about implementation-dependence.",
+        "no-fiat-shamir-and-gkr-to-snark-krs25: the attacked object is GKR composed with a polynomial commitment (hence an argument, not the bare interactive proof). If the wiki records GKR as an interactive proof, the hypothesis label should say which object is transformed."
+      ]
+    }
+  ]
+}
