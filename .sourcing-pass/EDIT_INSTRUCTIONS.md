@@ -22,12 +22,16 @@ rather than writing something broken.
 
 ## Canonical reference filenames
 
-`refmap.json` (same directory as your verified file; path in your prompt) maps
-citation key → reference page filename (without `.md`). EVERY wikilink to a
-reference MUST use this map: `[[<refmap[key]>|<key>]]`. Do not trust
-`ref_file_title` inside your batch file if it disagrees with refmap — refmap
-wins (it resolved cross-batch conflicts). All mapped files exist by the time
-you run; if one is missing on disk, flag it and keep the citation anyway.
+`refmap.json` (path in your prompt) maps citation key → reference page
+filename (without `.md`). EVERY wikilink to a reference MUST use this map:
+`[[<refmap[key]>|<DISPLAY>]]` where DISPLAY is the key the mapped filename
+starts with (the part before ` - `). This matters when two batches proposed
+the same paper under different keys: refmap maps both keys to one file, and
+the display key must match that file. Do not trust `ref_file_title` inside
+your batch file if it disagrees with refmap — refmap wins. All mapped files
+exist by the time you run; if one is missing on disk, flag it and keep the
+citation anyway. If a key is absent from refmap entirely, flag it and cite
+it as `[[<ref_file_title>|<key>]]` from your batch file.
 
 ## Frontmatter edits (surgical — preserve all other fields and their order)
 

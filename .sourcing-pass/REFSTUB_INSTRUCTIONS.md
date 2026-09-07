@@ -30,9 +30,16 @@ Procedure per paper:
        author/title/year/url is acceptable).
 3. H1: `# [KEY] Full Paper Title`, then the
    `**Authors:** ... | **Venue:** ... | [Source](URL)` line.
-4. `## Abstract`: the paper's VERBATIM abstract, fetched from eprint/arXiv/
-   publisher. If you cannot fetch an abstract, write `TODO — abstract.`
-   instead; never paraphrase or invent one.
+4. `## Abstract`: the paper's VERBATIM abstract. NOTE: this container's
+   network policy blocks eprint.iacr.org, arXiv, DBLP, DOI resolvers,
+   Springer, and Semantic Scholar (CONNECT 403) — do not spend effort
+   retrying them. WebSearch works; if a search result snippet gives you the
+   complete verbatim abstract, use it; otherwise write `TODO — abstract.`
+   Never paraphrase or invent an abstract. Likewise for `source` URLs: you
+   cannot resolve them, so construct them from cryptobib data (eprint entries
+   carry the report number; DOIs appear in many cryptobib entries) and prefer
+   an eprint URL when cryptobib lists one; otherwise a DOI URL; otherwise the
+   URL given in your task list.
 5. Editorial commentary: none. Do not add a Notes section.
 
 House constraints: never rename existing files; if the exact key already
