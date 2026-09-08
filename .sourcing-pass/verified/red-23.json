@@ -1,0 +1,356 @@
+{
+  "batch": "red-23",
+  "pages": [
+    {
+      "slug": "ot-extension-to-mpc-with-preprocessing-spdz-etc",
+      "path": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "KOS16",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer",
+          "authors": "Marcel Keller, Emmanuela Orsini, Peter Scholl",
+          "venue": "ACM CCS 2016",
+          "year": "2016",
+          "url": "https://eprint.iacr.org/2016/505",
+          "note": "cryptobib CCS:KelOrsSch16 (pages 830-842, doi 10.1145/2976749.2978357) and EPRINT:KelOrsSch16 (eprint 2016/505); dblp record conf/ccs/KellerOS16 and the CCS'16 abstract confirmed via search snippets. MASCOT instantiates the SPDZ preprocessing (authenticated multiplication triples over a finite field) from OT extension instead of somewhat-homomorphic encryption."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "MASCOT is a UC protocol proven in a hybrid model with an OT-extension functionality; neither the paper nor any follow-up places the construction in the RTV04 taxonomy, and protocol-completeness results do not map onto it. Left unstated.",
+      "model": "standard",
+      "model_justification": "The theorem is stated in the hybrid model of the OT-extension functionality (the hypothesis) plus commitment and coin-tossing functionalities; no idealized model appears in the statement. Instantiating the commitment functionality in practice uses a random oracle (see flags).",
+      "kind_correct": "implication",
+      "statement": "The MASCOT protocol generates SPDZ authenticated multiplication triples over a finite field $\\FF$ from correlated [[oblivious-transfer#ot-extension|OT extension]]; with the SPDZ online phase this gives [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] for arithmetic circuits over $\\FF$, secure against a malicious adversary corrupting up to $n-1$ of the $n$ parties — [[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]].",
+      "sketch": "Each cross term $a^i b^j$ of a secret-shared triple is computed pairwise by correlated OT, with the bits of one party's share as choice bits and the other party's share as the correlation (Gilboa's oblivious product); the SPDZ MACs are the same product protocol with the MAC-key shares as the fixed correlation. Random linear combinations of candidate triples remove the leakage a malicious party can induce by selective failure, a sacrifice check enforces correctness, and the online phase consumes one triple per multiplication as in SPDZ.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The hypothesis `ot-extension` has no dedicated page (it is a section of [[oblivious-transfer]]), and the conclusion `mpc-with-preprocessing` is a section of [[secure-multi-party-computation]]."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "Precursors: TinyOT (Nielsen-Nordholt-Orlandi-Burra, CRYPTO 2012, cryptobib C:NNOB12) instantiated preprocessing from OT extension for two-party Boolean circuits, and Frederiksen-Keller-Orsini-Scholl (ASIACRYPT 2015) extended the OT-based approach to multiparty Boolean circuits. KOS16 is the original for the page's conclusion (SPDZ-style arithmetic, multiparty preprocessing). A human may want NNOB12 as a separate edge.",
+        "The homomorphic-encryption branch of the migrated disjunctive bullet (SPDZ proper, Damgard-Pastro-Smart-Zakarias, CRYPTO 2012, cryptobib C:DPSZ12) is the separate page he-to-mpc-with-preprocessing-spdz-etc; DPSZ12 has no reference page yet and is not required by this edge.",
+        "MASCOT's UC proof uses commitment and coin-tossing functionalities; the paper instantiates the commitment with a hash in the random-oracle model. `model: standard` records the hybrid-model theorem; a human may prefer `rom` if the wiki's convention is to record the instantiated protocol.",
+        "The sketch's protocol details (COPEe products, combine, sacrifice) are from the verifier's knowledge of the paper; the paper itself could not be re-fetched. Verification note: eprint.iacr.org, dblp, dl.acm.org, arxiv, ECCC, Semantic Scholar and the authors' pages are all blocked by the egress proxy; bibliographic data was confirmed against vendor/cryptobib/crypto.bib and WebSearch snippets only."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: removed 'entirely', 'alone', 'fast', 'no homomorphic encryption'; stated field, circuit class and corruption threshold",
+        "sketch: MAC keys are sampled locally, not 'distributed via correlated OT' — corrected to: correlated OT computes the key-share times value-share products; named the selective-failure leakage that 'combine' removes",
+        "model_justification and class_justification tightened; source note records the exact verification path",
+        "flags: added FKOS15 precursor, pointed the HE branch at the existing page he-to-mpc-with-preprocessing-spdz-etc, added blocked-host verification note"
+      ]
+    },
+    {
+      "slug": "owf-to-prg-hill99",
+      "path": "content/Reductions/owf-to-prg-hill99.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "HILL99",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "HILL99 - A Pseudorandom Generator from Any One-Way Function",
+          "authors": "Johan Hastad, Russell Impagliazzo, Leonid A. Levin, Michael Luby",
+          "venue": "SIAM Journal on Computing 28(4)",
+          "year": "1999",
+          "url": "https://doi.org/10.1137/S0097539793244708",
+          "note": "Existing wiki reference; the general OWF-to-PRG construction."
+        },
+        {
+          "key": "GL89",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GL89 - A Hard-Core Predicate for All One-Way Functions",
+          "authors": "Oded Goldreich, Leonid A. Levin",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73010",
+          "note": "Component, not an independent proof of the edge: supplies the hard-core predicate used inside HILL99, and directly gives the one-bit-stretch PRG from a one-way permutation."
+        },
+        {
+          "key": "HRV10",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HRV10 - Efficiency improvements in constructing pseudorandom generators from one-way functions",
+          "authors": "Iftach Haitner, Omer Reingold, Salil P. Vadhan",
+          "venue": "STOC 2010",
+          "year": "2010",
+          "url": "https://doi.org/10.1145/1806689.1806750",
+          "note": "cryptobib STOC:HaiReiVad10, pages 437-446; journal version SIAM J. Comput. 42(3), 2013. Introduces next-block pseudoentropy; seed length O~(n^4); non-adaptive, parallelizable. Abstract confirmed via search snippets."
+        },
+        {
+          "key": "VZ12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "VZ12 - Characterizing pseudoentropy and simplifying pseudorandom generator constructions",
+          "authors": "Salil P. Vadhan, Colin Jia Zheng",
+          "venue": "STOC 2012",
+          "year": "2012",
+          "url": "https://doi.org/10.1145/2213977.2214051",
+          "note": "cryptobib STOC:VadZhe12, pages 817-836. Characterizes conditional pseudoentropy via KL-hardness of sampling, proves the HRV10 next-bit pseudoentropy conjecture, one hashing step, seed length O~(n^3). Abstract confirmed via search snippets."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction queries $f$ only as an oracle (its outputs are hashed and fed to the Goldreich-Levin predicate), and the proof gives one fixed reduction that, with oracle access to any PRG distinguisher, inverts $f$ by a hybrid argument and Goldreich-Levin decoding: the RTV04 fully-black-box shape. The black-box efficiency literature (HRV10; Holenstein-Sinha's lower bound on the number of $f$-calls, FOCS 2012) treats HILL as the reference fully-black-box construction.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[hash-function#preimage-resistance-one-wayness|one-way function]] yields a [[pseudorandom-generator|PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. The construction extracts, by universal hashing, the computational entropy that the [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] hard-core predicate adds to the output of $f$; for a one-way permutation $f$, $G(x, r) = (f(x), r, \\langle x, r \\rangle)$ already stretches by one bit.",
+      "sketch": "Hashing $x$ down to about $\\log|f^{-1}(f(x))|$ bits and appending the Goldreich–Levin bit $\\langle x, r \\rangle$ turns $f$ into a false-entropy generator: its output is computationally indistinguishable from a distribution of higher Shannon entropy. Many independent copies flatten the distribution and universal hashing extracts the surplus as stretch; a hybrid argument converts any distinguisher into an inverter for $f$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Seed length $\\tilde{O}(n^4)$ via next-block pseudoentropy; the generator is non-adaptive in $f$ and parallelizable — [[HRV10 - Efficiency improvements in constructing pseudorandom generators from one-way functions|HRV10]]\n- Seed length $\\tilde{O}(n^3)$ and a single hashing step, from a characterization of pseudoentropy by KL-hardness of sampling — [[VZ12 - Characterizing pseudoentropy and simplifying pseudorandom generator constructions|VZ12]]",
+      "notes_to_keep": [
+        "The converse also holds — any PRG is a one-way function, since the seed is a preimage of the output — so OWF $\\Leftrightarrow$ PRG. The converse direction is its own hyperedge ([[prg-to-hash-function]]) and is not covered by this page.",
+        "The hypothesis `owf` is the one-wayness notion defined at [[hash-function#preimage-resistance-one-wayness]]. That definition is _keyed_ and implicitly compressing, whereas HILL99 is stated for unkeyed one-way functions — see the note on [[hash-function|Hash functions]]."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "DUPLICATE EDGE: content/Reductions/hash-function-to-prg-hill99.md (id red-hash-function-to-prg-hill99, hypotheses [hash-function], conclusion prg) encodes the same edge OWF => PRG with the same sources under the merged hash-function node. Merge or deprecate one; the class/statement here applies to both.",
+        "Kind stays implication: the converse PRG => OWF is its own page (prg-to-hash-function.md).",
+        "The researcher's sketch claimed $(f(x), r, \\langle x,r\\rangle)$ alone has a computational-entropy gap; for a many-to-one $f$ the bit can have full real entropy given $f(x)$, so the gap only appears after hashing out the degeneracy. Corrected.",
+        "HRV10 seed length: VZ12's abstract states the HRV10 bound as $O(n^4)$ (snippet); $\\tilde{O}(n^4)$ is used here as the safe form. Verification note: eprint.iacr.org, dblp, dl.acm.org, arxiv, ECCC, Semantic Scholar and the authors' pages are all blocked by the egress proxy; bibliographic data was confirmed against vendor/cryptobib/crypto.bib and WebSearch snippets only."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: corrected the entropy-gap claim (hash x to ~log|f^{-1}(f(x))| bits before the GL bit; false-entropy generator, then repetition + extraction)",
+        "statement: tightened; 'suffices to construct' -> 'yields'; OWP one-bit generator kept, cited to GL89",
+        "improvements_text: added HRV10's non-adaptivity/parallelizability (confirmed by abstract); tightened VZ12 bullet",
+        "class_justification: tightened, named Holenstein-Sinha FOCS 2012 explicitly",
+        "source notes: recorded HRV10 journal version and verification path"
+      ]
+    },
+    {
+      "slug": "owp-to-hash-function",
+      "path": "content/Reductions/owp-to-hash-function.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "Degenerate fully-black-box shape: the construction is the identity (the permutation is the one-way function), so it uses the hypothesis only as an oracle, and the security reduction forwards any inverter of the function verbatim as an inverter of the permutation, using it only as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Every [[one-way-permutation|OWP]] is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: the construction is the identity, and an inverter for the function is an inverter for the permutation with the same advantage — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Wikilink target surprise: OWF resolves to `[[hash-function]]`, the page that also holds CRHF/collision resistance. The migration will conflate OWF with CRHF unless hash-function is split into distinct objects."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Definitional mismatch to record on the page: the wiki's one-wayness game at hash-function#preimage-resistance-one-wayness is keyed, implicitly compressing, and samples $x \\getsr \\calD$ uniformly, while [[one-way-permutation]] is unkeyed, length-preserving, and one-way with respect to an arbitrary input distribution $X$. The identity construction matches the game only for uniform $X$ (trivial key, $\\calR = \\calD$).",
+        "If the conclusion node `hash-function` is read as collision resistance the edge is false in the black-box sense (Simon, EUROCRYPT 1998: no black-box CRHF from OWP); the statement pins the one-wayness anchor for this reason.",
+        "The converse fails black-box (Rudich's OWF-vs-OWP separation; MM11 for injective OWFs), so kind: implication is right."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('with noticeable probability ... with the same probability' -> 'with the same advantage')",
+        "flags: added the input-distribution mismatch (OWP page allows arbitrary X; hash game samples uniformly) and the CRHF-reading caveat with Simon 1998"
+      ]
+    },
+    {
+      "slug": "p-to-bpp",
+      "path": "content/Reductions/p-to-bpp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[bounded-error-probabilistic-polynomial-time|BPP]]: a deterministic polynomial-time machine is a probabilistic polynomial-time machine that ignores its random tape and errs with probability $0$ — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Transitively redundant with the chain p-to-zpp, zpp-to-rp, rp-to-bpp (as the migration note observed); whether to keep the direct edge alongside the chain is an editorial call for the graph model."
+      ],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "p-to-conp",
+      "path": "content/Reductions/p-to-conp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[co-nondeterministic-polynomial-time|coNP]]: P is closed under complement, so for $L \\in \\classP$ the complement $\\bar{L}$ lies in $\\classP \\subseteq \\classNP$, placing $L$ in $\\classcoNP$ — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "p-to-np",
+      "path": "content/Reductions/p-to-np.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[nondeterministic-polynomial-time|NP]]: a polynomial-time decider is a polynomial-time verifier that ignores its certificate (a nondeterministic machine that makes no nondeterministic choices) — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: replaced the second em-dash clause with a parenthetical so the sentence has one '— folklore' dash"
+      ]
+    },
+    {
+      "slug": "p-to-p-poly",
+      "path": "content/Reductions/p-to-p-poly.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[p-poly|P/poly]]: the tableau simulation turns a Turing machine running in time $t(n)$ into a circuit of size $O(t(n)^2)$ for each input length, so a polynomial-time machine yields a polynomial-size circuit family; equivalently, empty advice suffices — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped 'standard' and 'a P machine decides its language with'; tightened"
+      ]
+    },
+    {
+      "slug": "p-to-rp",
+      "path": "content/Reductions/p-to-rp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[randomized-polynomial-time|RP]]: a deterministic polynomial-time machine, viewed as a probabilistic machine that ignores its randomness, accepts every yes-instance with probability $1$ and every no-instance with probability $0$ — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped the trailing 'meeting RP's one-sided-error condition' (restates the definition)"
+      ]
+    },
+    {
+      "slug": "p-to-zpp",
+      "path": "content/Reductions/p-to-zpp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; per repo convention proven inclusions take class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "[[polynomial-time|P]] $\\subseteq$ [[zero-error-probabilistic-polynomial-time|ZPP]]: a deterministic polynomial-time machine is a Las Vegas machine that never errs and whose expected running time equals its worst-case polynomial running time — folklore.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "pc-and-search-noisy-k-lin-to-pke-ghjs25",
+      "path": "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GHJS25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders",
+          "authors": "Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai",
+          "venue": "STOC 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/1501",
+          "note": "Existing wiki reference (STOC 2025, doi 10.1145/3717823.3718306, eprint 2025/1501; title/authors/abstract confirmed via search snippets). Theorem 8.8 (alternative PKE from the search variant of noisy k-LIN jointly with planted clique) is attested only by the wiki's reference and assumption pages; the paper could not be fetched."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "GHJS25 give a concrete construction with a standard security reduction but do not place it in the RTV04 taxonomy; the hypotheses are assumptions rather than primitives, so the fully-black-box shape is not directly attested. Left unstated.",
+      "model": "standard",
+      "model_justification": "Standard model: the abstract states semantic security against polynomial-size adversaries with no idealized model.",
+      "kind_correct": "implication",
+      "statement": "Semantically secure [[public-key-encryption|PKE]] exists under the joint hardness of the [[planted-clique|planted clique]] conjecture and the search variant of [[noisy-k-lin-over-expanders#search-noisy-k-lin|noisy $k$-LIN over expanders]], in which the adversary must recover $\\mathbf{s}$ from $(\\mathbf{M}, \\mathbf{M}\\mathbf{s}+\\mathbf{e})$ for an expanding sparse $\\mathbf{M}$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 8.8. The decisional variant gives the paper's main construction ([[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]], Theorem 5.12); the LPN search-to-decision reduction is not known to transfer to expanding matrices, so the search hypothesis is recorded as a separate edge.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The page's Notes contain a migration serialization bug: 'Citations disagree across pages: [object Object]'. All three migrated statements cite GHJS25 Theorem 8.8 consistently; drop the line.",
+        "The hypothesis search-noisy-k-lin is a section-level sub-object of noisy-k-lin-over-expanders with no page of its own. The sibling decisional edge exists: content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md (Theorem 5.12).",
+        "REFERENCE-PAGE ERROR (not this edge): the GHJS25 reference page's abstract renders the paper's '$n^{\\log^\\alpha n}$ hardness of the standard planted clique conjecture' — an adversary size / running-time bound (quasi-polynomial), with clique size $k = n^\\delta$, $\\delta \\in (0,1/2)$, exactly as [[planted-clique]] records from Conjecture 4.1 — as a planted clique of size $n^{\\log^\\alpha n}$. Confirmed against the abstract via search snippet. Fix the reference page; the researcher's guess of a 'typo for a quasi-polynomially small clique' was wrong.",
+        "Theorem 8.8's precise hypotheses (planted-clique hardness level and adversary class, presumably the same $n^{\\log^\\alpha n}$-hardness and non-uniform polynomial-size adversaries as Theorem 5.12) could not be checked against the paper; the statement therefore names neither. Verification note: eprint.iacr.org, dblp, dl.acm.org, arxiv, ECCC, Semantic Scholar and the authors' pages are all blocked by the egress proxy; bibliographic data was confirmed against vendor/cryptobib/crypto.bib and WebSearch snippets only."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'assuming the joint hardness of ... and the search variant' -> 'under the joint hardness of the planted clique conjecture and ...'; second sentence rewritten to link the sibling decisional edge and drop 'immediately'",
+        "flags: corrected the third flag — $n^{\\log^\\alpha n}$ is the hardness (running-time) bound in the abstract, not a mistyped clique size; recorded that the sibling edge exists; added Theorem 8.8 unverifiability note",
+        "source note and model_justification tightened"
+      ]
+    }
+  ]
+}

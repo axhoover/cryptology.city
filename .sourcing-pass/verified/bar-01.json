@@ -1,0 +1,479 @@
+{
+  "batch": "bar-01",
+  "pages": [
+    {
+      "slug": "no-ggm-to-cdh-sho97",
+      "path": "content/Barriers/no-ggm-to-cdh-sho97.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sho97",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sho97 - Lower Bounds for Discrete Logarithms and Related Problems",
+          "authors": "Victor Shoup",
+          "venue": "Eurocrypt 1997",
+          "year": "1997",
+          "url": "https://doi.org/10.1007/3-540-69053-0_18",
+          "note": "Bibliographic data verified against cryptobib EC:Shoup97 (DOI 10.1007/3-540-69053-0_18). Content: a generic algorithm making q group-oracle queries succeeds at DL, CDH or DDH with probability (resp. advantage) O(q^2/p), p the largest prime dividing the group order; confirmed against the wiki reference page's abstract and the verifier's knowledge of the paper -- the paper itself could not be fetched."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Sho97 bounds every algorithm in the generic group model regardless of its internal structure, so the class ruled out is `free`, scoped to the generic-group model. Idealized models are the `model:` axis, never the `class:` axis; schema/reduction-classes.yaml rejects `generic-group` as a class value and prescribes exactly this pairing.",
+      "model": "",
+      "model_justification": "Barrier frontmatter carries no `model` field; the generic-group scoping is stated in the statement text.",
+      "kind_correct": "",
+      "statement": "A generic algorithm making $q$ group-operation queries in a cyclic group of prime order $p$ computes $g^{xy}$ from $(g, g^x, g^y)$ with probability $O(q^2/p)$, so solving [[computational-diffie-hellman|CDH]] in the [[generic-group-model|generic group model]] takes $\\Omega(\\sqrt{p})$ queries, matching baby-step giant-step — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].",
+      "sketch": "Treat $x, y$ as indeterminates, answer group-oracle queries with random labels, and record the affine polynomial each label represents; choose $(x, y)$ only after the adversary halts. It wins only if two distinct recorded polynomials agree at $(x, y)$ or its output's polynomial agrees with $xy$ there — each the vanishing of a nonzero polynomial of degree at most $2$ at a uniform point of $\\ZZ_p^2$, probability at most $2/p$, over $O(q^2)$ events.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "This is a model-relative lower bound rather than a barrier against a proof technique: the hypothesis is \"the adversary is generic\", not another assumption. The barrier record type remains an imperfect fit."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Verification limit: Sho97 could not be fetched (shoup.net, cs.nyu.edu, iacr.org, springer and semanticscholar are all blocked by the egress proxy; the WebSearch budget was exhausted). Bibliographic data rest on cryptobib EC:Shoup97; the theorem content rests on the wiki reference page's abstract and the verifier's own knowledge of the paper.",
+        "Orientation: under schema/reduction-classes.yaml (hypotheses = used, conclusion = built) the edge `ggm => cdh/ddh/dlog` reads as \"hardness of the conclusion from the generic-group model\", which Sho97 PROVES rather than rules out. The barrier is meaningful only under the reading \"no generic algorithm solves the conclusion\"; the research instructions prescribe this encoding, but a human should decide whether an idealized-model lower-bound record type should replace it.",
+        "no-ggm-to-cdh-sho97: content/Assumptions/computational-diffie-hellman.md:49 writes the bound as $O(q^2/p)$ with $p$ the group order; Sho97's bound is in terms of the largest prime factor of the order, so the bullet is right only for prime order, which the page assumes implicitly (line 20).",
+        "no-ggm-to-cdh-sho97: three near-identical pages (cdh / ddh / dlog) plus content/Glossary/generic-group-model.md:29 restate one Sho97 theorem, the glossary copy in the $\\Omega(\\sqrt p)$-query form. Splitting is correct under the hyperedge model, but the four wordings should be unified and the glossary copy should link to these pages."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened to one sentence stating the theorem; dropped the trailing gloss on genericity (already in notes_to_keep)",
+        "sketch: corrected the success event — the adversary wins via its output polynomial agreeing with xy at (x,y) or a collision among recorded polynomials, not only via a collision; added the choose-(x,y)-last device that Shoup's proof uses",
+        "class_justification / model_justification: tightened wording",
+        "sources[0].url: canonical DOI form; note records cryptobib key and verification limits",
+        "flags: added verification-limit and orientation flags; corrected glossary line number (29, not 23)"
+      ]
+    },
+    {
+      "slug": "no-ggm-to-ddh-sho97",
+      "path": "content/Barriers/no-ggm-to-ddh-sho97.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sho97",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sho97 - Lower Bounds for Discrete Logarithms and Related Problems",
+          "authors": "Victor Shoup",
+          "venue": "Eurocrypt 1997",
+          "year": "1997",
+          "url": "https://doi.org/10.1007/3-540-69053-0_18",
+          "note": "Bibliographic data verified against cryptobib EC:Shoup97 (DOI 10.1007/3-540-69053-0_18). Content: a generic algorithm making q group-oracle queries succeeds at DL, CDH or DDH with probability (resp. advantage) O(q^2/p), p the largest prime dividing the group order; confirmed against the wiki reference page's abstract and the verifier's knowledge of the paper -- the paper itself could not be fetched."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Sho97 bounds every algorithm in the generic group model regardless of its internal structure, so the class ruled out is `free`, scoped to the generic-group model. Idealized models are the `model:` axis, never the `class:` axis; schema/reduction-classes.yaml rejects `generic-group` as a class value and prescribes exactly this pairing.",
+      "model": "",
+      "model_justification": "Barrier frontmatter carries no `model` field; the generic-group scoping is stated in the statement text.",
+      "kind_correct": "",
+      "statement": "A generic distinguisher making $q$ group-operation queries in a cyclic group of prime order $p$ has advantage $O(q^2/p)$ between $(g, g^x, g^y, g^{xy})$ and $(g, g^x, g^y, g^z)$, so deciding [[decisional-diffie-hellman|DDH]] in the [[generic-group-model|generic group model]] takes $\\Omega(\\sqrt{p})$ queries — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].",
+      "sketch": "Treat $x, y, z$ as indeterminates, answer group-oracle queries with random labels, and record the affine polynomial each label represents; in the real world substitute $z = xy$, giving polynomials of degree at most $2$. Choosing the point only after the adversary halts, the two worlds are simulated identically unless two distinct recorded polynomials agree at it, probability at most $2/p$ per pair over $O(q^2)$ pairs.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "This is a model-relative lower bound rather than a barrier against a proof technique: the hypothesis is \"the adversary is generic\", not another assumption. The barrier record type remains an imperfect fit.",
+        "Prime order is load-bearing: a small prime factor of the group order yields a generic distinguisher by projecting onto the small subgroup, and a pairing — not a generic operation — decides DDH outright; see the Attacks section of [[decisional-diffie-hellman|DDH]]."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Verification limit: Sho97 could not be fetched (shoup.net, cs.nyu.edu, iacr.org, springer and semanticscholar are all blocked by the egress proxy; the WebSearch budget was exhausted). Bibliographic data rest on cryptobib EC:Shoup97; the theorem content rests on the wiki reference page's abstract and the verifier's own knowledge of the paper. Whether Sho97 states the DDH bound for prime order or for the largest prime factor was not confirmed; the prime-order form used here is the safe special case.",
+        "Orientation: under schema/reduction-classes.yaml (hypotheses = used, conclusion = built) the edge `ggm => cdh/ddh/dlog` reads as \"hardness of the conclusion from the generic-group model\", which Sho97 PROVES rather than rules out. The barrier is meaningful only under the reading \"no generic algorithm solves the conclusion\"; the research instructions prescribe this encoding, but a human should decide whether an idealized-model lower-bound record type should replace it.",
+        "no-ggm-to-ddh-sho97: the migration called this copy \"the shakiest\". It is not: Sho97 covers DDH with the same $O(q^2/p)$ advantage bound, but only in prime-order groups, which none of the three migrated bullets states. content/Assumptions/decisional-diffie-hellman.md:56 needs the same fix.",
+        "no-ggm-to-ddh-sho97: content/Glossary/generic-group-model.md:29 gives the DDH bound in the $\\Omega(\\sqrt p)$-query form; for a decision problem the distinguishing-advantage form is the meaningful one. Worth normalising all four copies to the advantage form."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened to the theorem alone; moved the prime-order / pairing caveat out of the cited sentence into notes_to_keep",
+        "sketch: rewritten — the researcher's phrasing (\"under the random-z distribution the recorded polynomials are affine in independent indeterminates\") did not describe the substitution z = xy that makes the real-world polynomials degree 2; now states the mechanism",
+        "class_justification / model_justification: tightened wording",
+        "sources[0].url: canonical DOI form; note records cryptobib key and verification limits",
+        "flags: added verification-limit and orientation flags; corrected glossary line number (29, not 23)"
+      ]
+    },
+    {
+      "slug": "no-ggm-to-dlog-sho97",
+      "path": "content/Barriers/no-ggm-to-dlog-sho97.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Sho97",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Sho97 - Lower Bounds for Discrete Logarithms and Related Problems",
+          "authors": "Victor Shoup",
+          "venue": "Eurocrypt 1997",
+          "year": "1997",
+          "url": "https://doi.org/10.1007/3-540-69053-0_18",
+          "note": "Bibliographic data verified against cryptobib EC:Shoup97 (DOI 10.1007/3-540-69053-0_18). Content: a generic algorithm making q group-oracle queries succeeds at DL, CDH or DDH with probability (resp. advantage) O(q^2/p), p the largest prime dividing the group order; confirmed against the wiki reference page's abstract and the verifier's knowledge of the paper -- the paper itself could not be fetched."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Sho97 bounds every algorithm in the generic group model regardless of its internal structure, so the class ruled out is `free`, scoped to the generic-group model. Idealized models are the `model:` axis, never the `class:` axis; schema/reduction-classes.yaml rejects `generic-group` as a class value and prescribes exactly this pairing.",
+      "model": "",
+      "model_justification": "Barrier frontmatter carries no `model` field; the generic-group scoping is stated in the statement text.",
+      "kind_correct": "",
+      "statement": "A generic algorithm making $q$ group-operation queries in a cyclic group of order $n$ computes $x$ from $(g, g^x)$ with probability $O(q^2/p)$, where $p$ is the largest prime dividing $n$, so solving [[discrete-logarithm|DLOG]] in the [[generic-group-model|generic group model]] takes $\\Omega(\\sqrt{p})$ queries, matching baby-step giant-step and Pollard rho — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].",
+      "sketch": "Treat $x$ as an indeterminate, answer group-oracle queries with random labels, and record the affine polynomial $a + bx$ each label represents; choose $x$ only after the adversary halts. Its view is then independent of $x$, and it wins only if two distinct recorded polynomials agree at $x$ (probability at most $1/p$ per pair, $O(q^2)$ pairs) or its output equals $x$ (probability $1/n$).",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "This is a model-relative lower bound rather than a barrier against a proof technique: the hypothesis is \"the adversary is generic\", not another assumption. The barrier record type remains an imperfect fit."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Verification limit: Sho97 could not be fetched (shoup.net, cs.nyu.edu, iacr.org, springer and semanticscholar are all blocked by the egress proxy; the WebSearch budget was exhausted). Bibliographic data rest on cryptobib EC:Shoup97; the theorem content rests on the wiki reference page's abstract and the verifier's own knowledge of the paper.",
+        "Orientation: under schema/reduction-classes.yaml (hypotheses = used, conclusion = built) the edge `ggm => cdh/ddh/dlog` reads as \"hardness of the conclusion from the generic-group model\", which Sho97 PROVES rather than rules out. The barrier is meaningful only under the reading \"no generic algorithm solves the conclusion\"; the research instructions prescribe this encoding, but a human should decide whether an idealized-model lower-bound record type should replace it.",
+        "no-ggm-to-dlog-sho97: the only one of the three pages where Sho97's bound is naturally stated for the largest prime factor $p$ of a composite order $n$; the CDH and DDH pages keep the prime-order form."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened to one sentence; dropped the trailing gloss on genericity (already in notes_to_keep)",
+        "sketch: replaced the vague \"fixes nothing about x beyond a 1/p guess\" with Shoup's actual argument (choose x last; win = collision at x, probability 1/p per pair, or output = x, probability 1/n)",
+        "class_justification / model_justification: tightened wording",
+        "sources[0].url: canonical DOI form; note records cryptobib key and verification limits",
+        "flags: added verification-limit and orientation flags"
+      ]
+    },
+    {
+      "slug": "no-hash-function-to-pke-gkm-00",
+      "path": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "IR89",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "IR89 - Limits on the provable consequences of one-way permutations",
+          "authors": "Russell Impagliazzo, Steven Rudich",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73012",
+          "note": "Bibliographic data verified against cryptobib STOC:ImpRud89 (DOI 10.1145/73007.73012). The wiki reference page's abstract states the oracle corollary verbatim: an oracle relative to which a one-way permutation exists but secret-key agreement is impossible, so no relativizing technique proves the implication."
+        },
+        {
+          "key": "BM09",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle",
+          "authors": "Boaz Barak, Mohammad Mahmoody-Ghidary",
+          "venue": "CRYPTO 2009",
+          "year": "2009",
+          "url": "https://doi.org/10.1007/978-3-642-03356-8_22",
+          "note": "Bibliographic data verified against cryptobib C:BarMah09 (DOI 10.1007/978-3-642-03356-8_22). Quantitative tightening of IR89: an O(q^2)-query eavesdropper against any q-query random-oracle key exchange, so Merkle's quadratic gap is optimal."
+        }
+      ],
+      "class": "relativizing",
+      "class_justification": "IR89 exhibits an oracle relative to which one-way permutations exist but key agreement does not. An oracle separation rules out exactly the `relativizing` class; by the partial order in schema/reduction-classes.yaml, fully-black-box implies relativizing, so the barrier also kills every fully black-box construction and the contradiction check still fires against any fully-black-box reduction on this hyperedge. `relativizing` is therefore correct and strictly stronger than the page's current `fully-black-box`.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "There is an oracle relative to which one-way permutations exist but key agreement is impossible; since [[public-key-encryption|PKE]] gives two-message key agreement, no relativizing — hence no fully black-box — construction of PKE from a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].",
+      "sketch": "Relative to a random permutation oracle $\\calO$ paired with a $\\classPSPACE$ oracle, $\\calO$ is one-way while $\\classP = \\classNP$ holds. Against any key-agreement protocol whose parties make $q$ queries to $\\calO$, an eavesdropper repeatedly asks the $\\calO$-queries that are likely given the transcript; after $\\poly(q)$ queries it has, with high probability, learned every query both parties made, and it recovers the key by sampling a view of one party consistent with the transcript and its own queries.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- An eavesdropper making $O(q^2)$ queries breaks any key-agreement protocol whose parties make $q$ random-oracle queries, so Merkle's quadratic gap is optimal and the IR89 separation is quantitatively tight — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]",
+      "notes_to_keep": [
+        "The separation restricts the proof technique only: whether one-way functions imply PKE is open. The migrated sentence's unconditional \"but **not** public-key encryption\" overstates it.",
+        "The wiki's `hash-function` page carries `OWF` among its aliases, so a one-way-function hypothesis resolves to the hash-function page; the hypothesis of this barrier is its one-wayness variant. The IR89 oracle world also contains collision-resistant hash functions, so the separation covers the collision-resistance variant as well — standard."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- no-hash-function-to-pke-gkm-00: MISATTRIBUTION. The page's only source was GKM+00, which does not prove this separation (its abstract: PKE vs OT incomparable, OT vs KA, neither OT nor trapdoor predicates imply TDP; techniques follow Impagliazzo–Rudich). The OWF/OWP-to-KE/PKE separation is IR89. Source replaced by IR89; verifier concurs.",
+        "HIGH -- no-hash-function-to-pke-gkm-00: the slug and id encode the wrong citation (`-gkm-00`). Slugs are live URLs, so renaming to `no-hash-function-to-pke-ir89` is a human call; if the slug stays, the mismatch needs a note on the page.",
+        "no-hash-function-to-pke-gkm-00: `consequences[0].class` is `fully-black-box` and must be updated together with `class:` if `relativizing` is adopted.",
+        "no-hash-function-to-pke-gkm-00: near-duplicate of content/Barriers/no-owp-to-ke-ir89.md (batch bar-02), which records IR89 as OWP => KE with `class: unstated`. Both are legitimate hyperedges; they should cross-reference and carry the same class (`relativizing`).",
+        "no-hash-function-to-pke-gkm-00: the sentence this was migrated from (content/impagliazzos-five-worlds.md, \"Breaking up Cryptomania\") still states an unconditional non-implication and asserts TDP == PKE == OT; recorded in .reductions/suspected-errors.json (edge id `bar-hf-to-pke-gkm+00`) and TODO_SUMMARY.md:40. Fixing this barrier page does not fix that sentence.",
+        "Verification limit: IR89 and BM09 could not be fetched (ACM DL / springer blocked; WebSearch budget exhausted). Bibliographic data verified against cryptobib STOC:ImpRud89 and C:BarMah09; content confirmed against the wiki reference pages' abstracts and content/Glossary/black-box-separations.md § The Impagliazzo–Rudich Separation. The sketch follows IR89's likely-query eavesdropper as restated in BM09."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: linked the hypothesis to the hash-function page's one-wayness anchor; moved the \"whether OWF imply PKE is open\" caveat out of the cited sentence into notes_to_keep",
+        "sketch: $O$ -> $\\calO$ (required oracle macro); made the final step explicit (eavesdropper samples a consistent party view to recover the key) instead of \"no shared secret survives\"",
+        "class_justification: tightened",
+        "sources[0].url: canonical DOI form; source notes record cryptobib keys",
+        "improvements_text: tightened wording",
+        "notes_to_keep: added the CRHF remark (the IR89 oracle world also has collision-resistant hashing), since the hypothesis page is the hash-function page",
+        "flags: corrected TODO_SUMMARY line (40, not 33); added verification-limit flag"
+      ]
+    },
+    {
+      "slug": "no-he-to-cca-security",
+      "path": "content/Barriers/no-he-to-cca-security.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "CRRV17",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption",
+          "authors": "Ran Canetti, Srinivasan Raghuraman, Silas Richelson, Vinod Vaikuntanathan",
+          "venue": "PKC 2017",
+          "year": "2017",
+          "url": "https://doi.org/10.1007/978-3-662-54388-7_8",
+          "note": "Bibliographic data verified against cryptobib PKC:CRRV17 (PKC 2017 part II, pp. 213-240, DOI 10.1007/978-3-662-54388-7_8); use `cryptobib_key: PKC:CRRV17` on the reference page. Content (three IND-CCA1 FHE constructions: from multi-key identity-based FHE, from sub-exponentially secure iO, from SNARKs) rests on the verifier's knowledge; the paper could not be fetched."
+        },
+        {
+          "key": "BSW12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations",
+          "authors": "Dan Boneh, Gil Segev, Brent Waters",
+          "venue": "ITCS 2012",
+          "year": "2012",
+          "url": "https://doi.org/10.1145/2090236.2090264",
+          "note": "Bibliographic data verified against cryptobib ITCS:BonSegWat12 (ITCS 2012, pp. 350-366, DOI 10.1145/2090236.2090264); use `cryptobib_key: ITCS:BonSegWat12`. Key BSW12 does not collide with the existing BSW07 (Bethencourt–Sahai–Waters)."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The hyperedge relates a property (homomorphism) to a security notion (IND-CCA2) of one scheme, and the implication fails outright by a one-line attack, so the class ruled out is `free`. It says nothing about building a separate IND-CCA2-secure scheme from an HE scheme, which is not ruled out.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "No [[homomorphic-encryption|HE]] scheme whose function class $\\calF$ contains an $f$ that is neither constant nor the identity on $\\calM$ (after fixing any further arguments of $f$ by fresh encryptions) is [[public-key-encryption#cca-security|IND-CCA2]]-secure: $\\Eval$ turns the challenge ciphertext into an admissible decryption query that reveals the challenge bit — folklore.",
+      "sketch": "Pick $m_0, m_1$ with $f(m_0) \\ne m_0$ and $f(m_1) \\ne f(m_0)$. Given the challenge $c^*$, compute $c' \\gets \\Eval(\\pk, f, c^*)$. If $c' \\ne c^*$, the phase-2 query $\\Dec(\\sk, c')$ returns $f(m_b)$, which determines $b$; if $c' = c^*$, correctness forces $f(m_b) = m_b$, so $b = 1$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Fully homomorphic encryption secure against non-adaptive chosen-ciphertext attack (IND-CCA1) exists: from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]]\n- Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]]",
+      "notes_to_keep": [
+        "The incompatibility is with adaptive CCA (IND-CCA2) and unrestricted homomorphism only: HE schemes can be IND-CCA1, and malleability confined to a declared function set coexists with a non-malleability guarantee."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "no-he-to-cca-security: content/Primitives/public-key-encryption.md:75 defines the `#cca-security` anchor as \"CCA, or IND-CCA2\", so the conclusion object `ind-cca-security` is correct; only the page title's \"CCA Security\" should read \"IND-CCA2\" so that CCA1 (a separate variation at line 104) is visibly out of scope. Downgraded from the researcher's HIGH.",
+        "no-he-to-cca-security: `folklore` is the right provenance — the attack is one line and papers write \"CCA security is incompatible with homomorphism\" without citation — but the parenthetical it was migrated from (content/Primitives/homomorphic-encryption.md, § Security) carries neither citation nor folklore marker and still violates the citation policy on its home page.",
+        "no-he-to-cca-security: the load-bearing qualifier is \"neither constant nor the identity\"; the researcher's original \"non-constant\" was insufficient (the identity is non-constant yet leaves the attack without an admissible query). Multi-argument functions are handled by fixing the other arguments with fresh encryptions.",
+        "no-he-to-cca-security: the hyperedge is read as \"homomorphism of a scheme => its IND-CCA2 security\". Under the schema's construction reading (build an IND-CCA2 PKE from an HE scheme) nothing is ruled out, and the lead sentence generated from the frontmatter invites that reading.",
+        "Verification limit: CRRV17 and BSW12 could not be fetched (springer, ACM DL, eprint, iacr.org blocked; WebSearch budget exhausted). Bibliographic data verified against cryptobib; the one-line description of each paper's content rests on the verifier's knowledge. The researcher's original CRRV17 bullet also claimed the first construction is \"under LWE in the random-oracle model\"; that clause was dropped as unconfirmed."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: qualifier corrected from \"non-constant\" to \"neither constant nor the identity\" (identity is non-constant and defeats the attack); multi-argument case covered; CCA1 / targeted-malleability caveats moved out of the cited sentence into notes_to_keep",
+        "sketch: corrected — the researcher's sketch assumed f(m_b) != m_b to get c' != c*, which does not follow from f(m_0) != f(m_1); now chooses m_0, m_1 so that both the c' != c* and c' = c* branches determine b",
+        "class_justification: made the same-scheme reading explicit and stated what the barrier does not rule out",
+        "improvements_text: dropped the unconfirmed \"under LWE in the random-oracle model\" clause from the CRRV17 bullet; tightened wording",
+        "sources: canonical DOI for CRRV17; notes record cryptobib keys and verification limits",
+        "flags: downgraded the CCA2-conclusion flag (anchor already resolves to IND-CCA2); added same-scheme-reading and verification-limit flags"
+      ]
+    },
+    {
+      "slug": "no-he-to-szk-bl13",
+      "path": "content/Barriers/no-he-to-szk-bl13.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BL13",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BL13 - Limits of Provable Security for Homomorphic Encryption",
+          "authors": "Andrej Bogdanov, Chin Ho Lee",
+          "venue": "CRYPTO 2013",
+          "year": "2013",
+          "url": "https://eprint.iacr.org/2013/344",
+          "note": "Bibliographic data verified against cryptobib C:BogLee13 (CRYPTO 2013 part I, pp. 111-128, DOI 10.1007/978-3-642-40041-4_7). The abstract on the wiki reference page states both bounds: AM cap coAM for general adaptive reductions, SZK for reductions of constant query complexity; sensitive collections include parities, majorities, and all ANDs and ORs."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "BL13 rules out black-box security reductions restricted by query complexity: constant query complexity for the SZK bound, general adaptive for the AM cap coAM bound. Query-bounded reductions have no name in the RTV04 vocabulary of schema/reduction-classes.yaml, and recording `fully-black-box` would overstate the constant-query theorem (a constant-query reduction is a special fully-black-box reduction, so ruling out the former does not rule out the latter). `unstated` is the honest value, with the restriction spelled out in the statement.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "Let $\\PKE$ be a public-key bit-encryption scheme with compact [[homomorphic-encryption|homomorphic]] evaluation of a sensitive collection of functions, e.g. parities, majorities, or all ANDs and ORs. Every black-box reduction of constant query complexity that bases the message indistinguishability of $\\PKE$ on a problem $\\Pi$ places $\\Pi$ in [[statistical-zero-knowledge|SZK]], and every general adaptive reduction places $\\Pi$ in $\\classAM \\cap \\classcoAM$; a constant-query reduction from a $\\Pi \\notin \\classBPP$ therefore gives [[statistical-zero-knowledge|SZK]] $\\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "BL13's headline bound is $\\classAM \\cap \\classcoAM$ for general adaptive reductions; only the constant-query bound gives $\\classSZK$. These are two barriers with different reduction restrictions and belong on two pages."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- no-he-to-szk-bl13: the migrated bullet reads as an implication chain \"HE -> rerandomizable encryption -> SZK != BPP\". That is not what BL13 proves, and \"rerandomizable encryption\" does not appear in its abstract. The companion REDUCTION page content/Reductions/he-to-re-bl13.md (batch red-13) was derived from the same misreading; it should be re-examined or deleted, and content/Primitives/rerandomizable-encryption.md exists only to host it.",
+        "no-he-to-szk-bl13: recommend splitting into two barriers — (constant-query black-box) => SZK and (general adaptive black-box) => AM cap coAM. The second needs an `am-cap-coam`-style entry in schema/propositions.yaml, which does not exist today.",
+        "no-he-to-szk-bl13: `class: unstated` is retained deliberately. \"Constant query complexity\" is not expressible in schema/reduction-classes.yaml; if the schema ever grows a query-complexity axis this page is the motivating case.",
+        "no-he-to-szk-bl13: the `conditional-on` list should name the sensitive function classes BL13 gives (parities, majorities, all ANDs and ORs) rather than \"a 'sensitive' function class\".",
+        "no-he-to-szk-bl13: the researcher's statement embedded wikilinks inside math (`$\\classSZK \\ne [[...|\\classBPP]]$`) and math inside a wikilink alias; neither renders. Rewritten with links on plain text.",
+        "Verification limit: BL13 could not be fetched (eprint, iacr.org, springer blocked; WebSearch budget exhausted). Bibliographic data verified against cryptobib C:BogLee13; that the reductions are black-box in the adversary, with \"adaptive\" and \"constant query complexity\" referring to its oracle queries to the adversary, is inferred from the abstract's wording and the verifier's knowledge of the paper."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: fixed malformed wikilinks (wikilink inside $...$, math inside wikilink alias); linked the HE hypothesis; made explicit that only the constant-query bound yields SZK != BPP (the page's recorded consequence), the adaptive bound gives AM cap coAM",
+        "class_justification / notes_to_keep: tightened wording",
+        "sources[0].note: records cryptobib key and DOI",
+        "flags: added rendering and verification-limit flags"
+      ]
+    },
+    {
+      "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
+      "path": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "LW14",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "LW14 - Why Proving HIBE Systems Secure Is Difficult",
+          "authors": "Allison B. Lewko, Brent Waters",
+          "venue": "Eurocrypt 2014",
+          "year": "2014",
+          "url": "https://doi.org/10.1007/978-3-642-55220-5_4",
+          "note": "Bibliographic data verified against cryptobib EC:LewWat14 (Eurocrypt 2014, LNCS 8441, pp. 58-76, DOI 10.1007/978-3-642-55220-5_4; eprint 2013/068); use `cryptobib_key: EC:LewWat14`. Content, from the verifier's knowledge (the abstract could not be fetched): for HIBE/ABE systems with a 'checkability' property on keys and ciphertexts (any two private keys that are both supposed to decrypt a ciphertext do so), any simple black-box reduction to a non-interactive assumption loses a factor exponential in the hierarchy depth (for ABE, in the number of attributes per ciphertext)."
+        }
+      ],
+      "class": "free",
+      "class_justification": "The hyperedge relates two security notions of one scheme, and the implication fails outright: from any selectively secure HIBE one builds a HIBE that is selectively but not adaptively secure, so no argument of any kind derives a scheme's adaptive security from its selective security. The class ruled out is `free`. Complexity leveraging is not a counterexample: it needs sub-exponential selective security, a strictly stronger hypothesis. The barrier says nothing about constructing a different adaptively secure HIBE from a selectively secure one.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "Selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security when the identity-vector space $\\Sigma^{\\le d}$ is superpolynomial: any selectively secure $\\HIBE$ can be modified to leak on one identity vector fixed by its own $\\pp$, which a selective adversary must commit to before $\\Setup$ runs. Complexity leveraging recovers adaptive security only by guessing the challenge identity vector, at a loss of $|\\Sigma^{\\le d}|$, and so needs sub-exponential selective security — folklore.",
+      "sketch": "Given a selectively secure $\\HIBE$, let $\\HIBE'$ run $\\Setup$ and append a uniform $\\vec{r} \\in \\Sigma^{d}$ to $\\pp$; $\\Enc(\\pp, \\vec{\\mathit{id}}, m)$ outputs $m$ in the clear when $\\vec{\\mathit{id}} = \\vec{r}$ and is unchanged otherwise. An adaptive adversary reads $\\vec{r}$ from $\\pp$ and challenges on it; a selective adversary commits to $\\vec{\\mathit{id}}^*$ before $\\vec{r}$ is drawn and hits it with probability $|\\Sigma|^{-d}$, so $\\HIBE'$ stays selectively secure.",
+      "pseudocode": "",
+      "security_loss": "Complexity leveraging from selective to adaptive security loses a factor $|\\Sigma^{\\le d}|$, the number of challenge identity vectors.",
+      "improvements_text": "- For HIBE and ABE systems with a checkability property on keys and ciphertexts (any two private keys that are both supposed to decrypt a ciphertext do so), any simple black-box reduction to a non-interactive assumption loses a factor exponential in the hierarchy depth — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: DUPLICATE PAGE. content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md (batch bar-03) records the identical edge from the identical sentence, differing only in the endpoint ids (`selective-hibe-security`/`adaptive-hibe-security` there vs `hibe-selective-security`/`hibe-adaptive-security` here; the HIBE page's frontmatter maps both pairs to the same anchors). One must be deleted and the ids unified; whichever survives should carry the research from both batches.",
+        "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: the migrated sentence conflates two claims. (i) selective != adaptive, handled here as folklore with an explicit counterexample; (ii) \"no black-box complexity-leveraging argument avoids an exponential loss in the depth d\", which is LW14's theorem about a DIFFERENT hyperedge (non-interactive assumption => adaptively secure HIBE, restricted to schemes with checkable keys and ciphertexts). (ii) deserves its own barrier page.",
+        "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: the migrated \"exponential loss in the depth d\" is imprecise — leveraging guesses the whole identity vector, a factor $|\\Sigma^{\\le d}|$, i.e. exponential in $d \\log|\\Sigma|$, not in $d$ alone.",
+        "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: `source: folklore` is retained, but the counterexample sketch is the load-bearing content and was reconstructed rather than cited; a human should check it before the page leaves stub. The verifier checked it against the HIBE page's game (adaptive adversary receives $\\pp$ before choosing $\\vec{\\mathit{id}}^*$; no key query is needed to win).",
+        "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: the researcher's statement and sketch used `\\mpk` and $\\mathcal{ID}$; the HIBE page's Syntax uses $\\pp$, alphabet $\\Sigma$ and depth bound $d$ — rewritten to match. The superpolynomial-identity-space qualifier was missing and is load-bearing: with polynomially many identity vectors, guessing loses only a polynomial factor and the two notions coincide.",
+        "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security: the hyperedge is read as \"selective security of a scheme => its adaptive security\". Under the schema's construction reading (build an adaptively secure HIBE from a selectively secure one) nothing is ruled out — that question is open — and the lead sentence generated from the frontmatter invites that reading.",
+        "Verification limit: LW14 could not be fetched (eprint, iacr.org, springer, semanticscholar blocked; WebSearch budget exhausted). Bibliographic data verified against cryptobib EC:LewWat14. The researcher described LW14's hypothesis as \"user secret keys rerandomizable over all functional keys\"; the paper's abstract names a checkability property on ciphertexts and private keys, and the bullet was corrected accordingly from the verifier's knowledge — a human should confirm against the abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: rewritten to the HIBE page's syntax ($\\pp$, $\\Sigma$, $d$ instead of `\\mpk`, $\\mathcal{ID}$); added the load-bearing superpolynomial-identity-space qualifier; made the same-scheme reading explicit",
+        "sketch: rewritten to the page's syntax and made the leak identity an explicit uniform $\\vec{r}$ appended to $\\pp$ (the researcher's \"fixed function of $\\mpk$\" does not guarantee the selective adversary's guess fails with negligible probability)",
+        "security_loss: fixed \"in the other direction\" (leveraging is this direction) and the loss factor ($|\\Sigma^{\\le d}|$)",
+        "improvements_text / sources[0].note: LW14's hypothesis corrected from \"rerandomizable keys\" to the checkability property on keys and ciphertexts; author name per cryptobib; canonical DOI",
+        "class_justification: made the same-scheme reading explicit and stated what the barrier does not rule out",
+        "flags: added syntax/qualifier, same-scheme-reading and verification-limit flags"
+      ]
+    },
+    {
+      "slug": "no-injective-owf-to-owp-mm11",
+      "path": "content/Barriers/no-injective-owf-to-owp-mm11.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "MM11",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "MM11 - On Black-Box Separations among Injective One-Way Functions",
+          "authors": "Takahiro Matsuda, Kanta Matsuura",
+          "venue": "TCC 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-19571-6_36",
+          "note": "Bibliographic data verified against cryptobib TCC:MatMat11 (TCC 2011, LNCS 6597, pp. 597-614, DOI 10.1007/978-3-642-19571-6_36). The abstract on the wiki reference page states the hypothesis exactly: no fully black-box construction of a OWP from a LENGTH-INCREASING injective OWF, even 1-bit-increasing and adaptively one-way; corollary for regular OWFs of regularity > 1."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "MM11 states its result as \"there is no fully black-box construction of a OWP from a length-increasing injective one-way function\", in the RTV04 sense: every pair of a construction using the injective OWF only as an oracle and a reduction using any OWP inverter only as an oracle is ruled out. The paper claims no stronger class, so `relativizing` would overstate it.",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "There is no fully black-box construction of a [[one-way-permutation|one-way permutation]] from a length-increasing [[injective-one-way-function|injective one-way function]], even one that stretches its input by a single bit and is adaptively one-way; as a corollary, none from a regular one-way function of regularity greater than $1$ — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Length-increasing is load-bearing: a permutation is a length-preserving injective one-way function, so without the qualifier the separation is false."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- no-injective-owf-to-owp-mm11: all three migrated wordings drop MM11's LENGTH-INCREASING hypothesis, which makes the claim literally false as written (a permutation is an injective OWF, so a OWP is trivially black-box constructible from one). Restore the qualifier on content/Glossary/black-box-separations.md, content/Primitives/one-way-permutation.md and content/Primitives/trapdoor-permutation.md, or replace those bullets by a wikilink to this barrier page.",
+        "no-injective-owf-to-owp-mm11: several of the page's own migration notes are STALE — content/Primitives/injective-one-way-function.md exists (unlisted), is linked, and already carries the corrected (length-increasing, adaptively one-way) statement. Drop those notes rather than preserving them.",
+        "no-injective-owf-to-owp-mm11: the copy on content/Primitives/trapdoor-permutation.md is misfiled; MM11 says nothing about trapdoor permutations.",
+        "no-injective-owf-to-owp-mm11: MM11's second result — a stretch-indexed hierarchy among injective OWFs — is recorded nowhere on the wiki. Worth a bullet on content/Primitives/injective-one-way-function.md.",
+        "Verification limit: MM11 could not be fetched (iacr.org, springer blocked; WebSearch budget exhausted); bibliographic data verified against cryptobib TCC:MatMat11 and content against the wiki reference page's abstract."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: moved the length-increasing caveat out of the cited sentence into notes_to_keep; \"a OWP\" -> \"a one-way permutation\"",
+        "class_justification: tightened",
+        "sources[0].url: canonical DOI form; note records cryptobib key",
+        "flags: added verification-limit flag"
+      ]
+    },
+    {
+      "slug": "no-ippe-to-abe",
+      "path": "content/Barriers/no-ippe-to-abe.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "\"IPPE is incomparable to KP-ABE and CP-ABE\" is an expressiveness remark, not a separation: it sets a security notion (attribute hiding) against a functionality (predicate expressiveness), and no result rules out a reduction in either direction. The wiki's own IPPE page contradicts the barrier reading — its intro says IPPE \"subsumes HVE and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation\", which is KSW08's positive result that inner products capture bounded Boolean formulas at a parameter cost. There is no hyperedge to source. The salvageable content is a prose paragraph on content/Primitives/inner-product-predicate-encryption.md contrasting the two functionalities (KSW08 for the encodings, BSW07 for CP-ABE policies); the security-notion half is covered by the existing ippe-to-payload-only-hiding and attribute-hiding-to-payload-hiding pages.",
+      "flags": [
+        "HIGH -- no-ippe-to-abe: recommend DELETION. No proven separation exists in either direction, and the source sentence is an expressiveness comparison. Deleting the page also removes the bullet at content/Primitives/inner-product-predicate-encryption.md (§ Other results) and its generated \"Participates in\" entry.",
+        "no-ippe-to-abe: the migrated sentence's `[[attribute-based-encryption|KP-ABE and CP-ABE]]` bundles two objects into one link target — a lint-visible defect that survives wherever this text lands."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened wording; verdict wrong_claim confirmed (KSW08 gives IPPE => bounded-formula predicates, so no separation IPPE vs ABE exists in the literature)"
+      ]
+    },
+    {
+      "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
+      "path": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "",
+      "class_justification": "",
+      "model": "",
+      "model_justification": "",
+      "kind_correct": "",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "The hyperedge crosses two independent axes at once — KP-ABE vs CP-ABE (functionality) and selective vs adaptive (security notion) — and the sentence it was migrated from claims only that ONE proof strategy, the syntactic KeyGen/Enc swap, fails to carry a security proof across. That is an observation about a technique, not a barrier against reductions, and its justification (\"different admissibility constraints and different distributions of challenge objects\") is an argument sketch presented as settled. The composed claim is not a theorem anyone has proved, and the weaker reading is vacuous. Two edges are worth recording instead: (i) selective ABE security does not imply adaptive ABE security — the same folklore counterexample as the HIBE case, with complexity leveraging costing a guess of the challenge attribute set (KP-ABE) or policy (CP-ABE); and (ii) Lewko–Waters, \"Why Proving HIBE Systems Secure Is Difficult\" (Eurocrypt 2014, eprint 2013/068), which proves that a HIBE or ABE system with a checkability property on keys and ciphertexts admits no simple black-box reduction to a non-interactive assumption without an exponential security loss. Neither is the edge recorded here.",
+      "flags": [
+        "HIGH -- no-selective-security-to-cp-abe-ind-cpa-security: recommend DELETION and replacement by the two edges named in wrong_reason. If a barrier is created for (ii), reuse the LW14 reference page proposed for no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security (cryptobib EC:LewWat14) rather than creating a second one.",
+        "no-selective-security-to-cp-abe-ind-cpa-security: the same source page carries a separately recorded error at content/Primitives/attribute-based-encryption.md:114 — complexity leveraging for KP-ABE is claimed to cost \"a polynomial cost in $|\\calU|$\" when guessing the challenge attribute set costs $2^{|\\calU|}$. Tracked in .reductions/suspected-errors.json as `bar-aas-to-ass` / `red-ass-to-aas` (severity medium, recorded against the old line 108) and still unfixed.",
+        "no-selective-security-to-cp-abe-ind-cpa-security: the hypothesis and conclusion ids (`kp-abe-selective-security`, `cp-abe-adaptive-security`) are security notions with no page; they resolve only through section anchors on content/Primitives/attribute-based-encryption.md."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: tightened; LW14's hypothesis corrected from \"rerandomizable/checkable keys\" to the checkability property on keys and ciphertexts",
+        "flags: corrected the ABE page line number (114, not 108)"
+      ]
+    }
+  ]
+}

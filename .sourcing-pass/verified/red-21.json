@@ -1,0 +1,349 @@
+{
+  "batch": "red-21",
+  "pages": [
+    {
+      "slug": "module-sis-to-ds",
+      "path": "content/Reductions/module-sis-to-ds.md",
+      "disposition": "undetermined",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "No source for this single-hypothesis edge was identified; there is no reduction to classify.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[shortest-integer-solution#module-sis|Module-SIS]] implies EUF-CMA-secure [[digital-signature|digital signatures]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "CONFLICTS with content/Assumptions/learning-with-errors.md, which attributes Dilithium to Module LWE/SIS jointly; the Module-SIS-only Dilithium attribution on the SIS page is incomplete."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated prose does not source this edge: LS15 is the worst-case-to-average-case reduction for module lattices (its own page, module-svp-to-module-sis-ls15; abstract re-checked via web search, no signature scheme claimed), and Dilithium/ML-DSA rests on Module-LWE and Module-SIS jointly (already recorded as module-lwe-and-module-sis-to-ds). Either delete this single-hypothesis page as a migration artifact or source it independently of Dilithium.",
+        "The implication holds via a composite chain — Module-SIS ⇒ collision-resistant hashing (Ajtai-style over modules) ⇒ OWF ⇒ signatures (Rompel, STOC 1990; cryptobib STOC:Rompel90) — which repo policy splits one page per link; a direct edge needs its own citation.",
+        "Candidate direct sources for a human with paper access: Lyubashevsky's Fiat–Shamir-with-aborts signatures (ASIACRYPT 2009 from Ring-SIS; EUROCRYPT 2012 from SIS; both ROM; cryptobib AC:Lyubashevsky09, EC:Lyubashevsky12) instantiated over modules. No paper proving DS from Module-SIS alone could be verified from this environment (eprint, DBLP, IACR fetches egress-blocked)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "flags tightened and cryptobib keys added for every paper named in them",
+        "class_justification shortened"
+      ]
+    },
+    {
+      "slug": "mpc-to-ot-bh26",
+      "path": "content/Reductions/mpc-to-ot-bh26.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "medium",
+      "wrong_reason": "The edge {MPC} ⇒ OT attributed to BH26 does not match BH26. The paper introduces oblivious interactive hash functions (OIHFs) and proves OIHF ⇒ OT via a non-black-box reduction (abstract, mirrored on the wiki's BH26 page and confirmed by web search): the hypothesis is OIHF, not MPC, and the migrated bullet's 'in a black-box way' contradicts the paper's 'non-black-box'. The qualifier 'for certain non-trivial functionalities' is an undefined side condition the hyperedge cannot carry. General MPC ⇒ OT is trivial (a protocol for every functionality computes the OT functionality — folklore); 'secure computation of a single non-trivial functionality ⇒ OT' is the completeness line of Kilian (STOC 1991, STOC 2000) and Beimel–Malkin–Micali (CRYPTO 1999), not BH26. The OIHF ⇒ OT edge already exists as oihf-to-ot-bh26; an unattributed folklore mpc-to-ot page is optional.",
+      "flags": [
+        "HIGH: page misattributes BH26 and inverts its black-box qualifier (paper says non-black-box). eprint.iacr.org is egress-blocked, so a human with the full paper should confirm BH26 contains no separate 'MPC for non-trivial functionalities implies OT' theorem before deleting or repointing the page to oihf-to-ot-bh26.",
+        "The migration note about an implicit OT ⇔ MPC equivalence is moot: OT ⇒ MPC exists as ot-to-mpc-kil88 and both directions stay separate implication pages.",
+        "Kilian STOC 1991/2000 and Beimel–Malkin–Micali CRYPTO 1999 bibliographic data confirmed in cryptobib (STOC:Kilian91, STOC:Kilian00, C:BeiMalMic99); none is proposed as a source because the qualified hypothesis is not a wiki object."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened (removed throat-clearing, kept every substantive point)",
+        "flag added recording cryptobib verification of the completeness references"
+      ]
+    },
+    {
+      "slug": "mmap-to-io-gghrsw13",
+      "path": "content/Reductions/mmap-to-io-gghrsw13.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GGHRSW13",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits",
+          "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Mariana Raykova, Amit Sahai, Brent Waters",
+          "venue": "FOCS 2013",
+          "year": "2013",
+          "url": "https://eprint.iacr.org/2013/451",
+          "note": ""
+        },
+        {
+          "key": "BGKPS14",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "BGKPS14 - Protecting Obfuscation against Algebraic Attacks",
+          "authors": "Boaz Barak, Sanjam Garg, Yael Tauman Kalai, Omer Paneth, Amit Sahai",
+          "venue": "EUROCRYPT 2014",
+          "year": "2014",
+          "url": "https://eprint.iacr.org/2013/631",
+          "note": "VBB security of a simplified branching-program obfuscator in a generic multilinear-map (ideal graded-encoding) model. Verified: cryptobib EC:BGKPS14 (LNCS 8441 pp. 221-238, DOI 10.1007/978-3-642-55220-5_13); eprint 2013/631 and abstract via web search."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "GGHRSW13 give a candidate: no security reduction from a stated multilinear-map assumption exists, so there is no reduction to place in the RTV taxonomy.",
+      "model": "standard",
+      "model_justification": "The candidate is stated in the standard model but has no proof there; GGHRSW13's own argument for the NC1 core and BGKPS14's VBB proof live in idealized generic-encoding models, a separate model-scoped edge.",
+      "kind_correct": "implication",
+      "statement": "The first candidate [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits, from candidate [[multilinear-maps|multilinear maps]] (graded encodings): a core obfuscator for NC$^1$ built from graded encodings, bootstrapped to all circuits with leveled fully homomorphic encryption. No reduction from a standard-model multilinear-map assumption is given; the NC$^1$ core is argued secure only in an idealized generic model of encoded matrices — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].",
+      "sketch": "The core obfuscator turns an NC$^1$ circuit into a matrix branching program via Barrington's theorem, rerandomizes it Kilian-style, and publishes the matrices under a graded encoding; evaluation multiplies the input-selected encodings and zero-tests the product. Obfuscating the NC$^1$ circuit that checks a low-depth proof of correct homomorphic evaluation and then decrypts bootstraps the construction to all polynomial-size circuits.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- A simplified branching-program variant of the NC$^1$ obfuscator is virtual-black-box secure, hence iO-secure, in a generic multilinear-map (ideal graded-encoding) model — [[BGKPS14 - Protecting Obfuscation against Algebraic Attacks|BGKPS14]]",
+      "notes_to_keep": [
+        "Candidate construction, not a proven reduction from a stated assumption; many of the underlying multilinear-map candidates have since been attacked."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The edge is a candidate, not a theorem; the statement says so. Typing it as an implication still overstates it — the migration note stands.",
+        "Bootstrapping uses leveled FHE (instantiable from LWE), an additional hypothesis the edge does not carry.",
+        "Hypothesis wikilink multilinear-maps has no page; still true after this pass.",
+        "iO from well-founded assumptions is a different hyperedge with its own pages (e.g. lpn-and-lwe-and-nc1-prg-to-io-jls21); do not fold JLS21 into this edge.",
+        "The clause 'argued secure only in an idealized generic model of encoded matrices' rests on search snippets describing GGHRSW13 (eprint egress-blocked). If a human with the paper cannot confirm its generic 'colored matrix' model section, drop that clause and keep only 'no reduction from a standard-model assumption'."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement rewritten: citation moved to the end, 'Security is conjectured, not proved' replaced by the precise claim (no standard-model reduction; NC1 core argued only in a generic model)",
+        "sketch: bootstrapping sentence made precise (proof-check-then-decrypt circuit)",
+        "improvements_text/BGKPS14 note: 'ideal graded-encoding model' aligned with the abstract's 'generic multilinear map model'; cryptobib key and DOI recorded",
+        "flag added on snippet-only confirmation of the generic-model clause"
+      ]
+    },
+    {
+      "slug": "nizk-to-com",
+      "path": "content/Reductions/nizk-to-com.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "'Every NIZK scheme gives a non-interactive commitment' is false as stated. The wiki defines NIZK per language, and every language in BPP has a trivial unconditional NIZK (the verifier decides membership itself) that yields no commitment; commitments imply one-way functions, so the unqualified implication would build OWFs from nothing. The true results carry a hardness qualifier on the language: in the public-parameter model, one-way functions are necessary for computational NIZK for hard-on-average languages (Pass–shelat, 'Unconditional Characterizations of Non-Interactive Zero-Knowledge', CRYPTO 2005, LNCS 3621 pp. 118-134), and OWFs give Naor commitments, non-interactive in the CRS model — a composite chain repo policy splits into separate pages. The correct edge, if wanted, is 'NIZK for a hard-on-average language ⇒ OWF' (PS05), not NIZK ⇒ COM.",
+      "flags": [
+        "If the corrected edge is created, verify the exact PS05 theorem (public- vs secret-parameter model, proofs vs arguments, hard-on-average hypothesis) with paper access. Bibliographic data confirmed in cryptobib (C:Passhe05, CRYPTO 2005 pp. 118-134); the necessity direction was confirmed only via web-search snippets (iacr.org and Springer egress-blocked).",
+        "The migration note's SUSPECT MATH flag on this page is confirmed correct."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason tightened; PS05 claim restated as the paper's necessity direction in the public-parameter model",
+        "flag updated with cryptobib key and the snippet-only caveat"
+      ]
+    },
+    {
+      "slug": "noisy-k-lin-and-pc-to-pke-ghjs25",
+      "path": "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GHJS25",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders",
+          "authors": "Riddhi Ghosal, Isaac M. Hair, Aayush Jain, Amit Sahai",
+          "venue": "STOC 2025",
+          "year": "2025",
+          "url": "https://eprint.iacr.org/2025/1501",
+          "note": "Verified: cryptobib STOC:GHJS25 (pp. 1921-1932, DOI 10.1145/3717823.3718306); abstract via web search."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "The paper does not classify its reduction in RTV terms and the construction could not be inspected from this environment; recording a class would be a guess.",
+      "model": "standard",
+      "model_justification": "Standard-model construction; no idealized oracle appears in the abstract or in any of the four migrated statements.",
+      "kind_correct": "implication",
+      "statement": "If the [[planted-clique|planted clique]] conjecture holds against $n^{\\log^\\alpha n}$-time adversaries for some $\\alpha \\in (0,1)$, and [[noisy-k-lin-over-expanders|noisy $k$-LIN]] holds over $(\\gamma, \\Omega(\\log n), 2^{(\\log n)^\\alpha})$-expanding matrices over $\\FF_p$, then there is a [[public-key-encryption|PKE]] scheme semantically secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Genuinely conjunctive: both hypotheses are required together; the edge must not be split into two single-hypothesis reductions.",
+        "The adversary classes differ on the two sides: quasi-polynomial hardness is assumed of planted clique, while the resulting PKE is secure against non-uniform polynomial-size circuits."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated glosses say planted clique 'against sub-exponential adversaries'; the abstract (web-search snippet of eprint 2025/1501 and the STOC page) says $n^{\\log^\\alpha n}$ hardness for any $\\alpha \\in (0,1)$, which is quasi-polynomial ($2^{\\log^{1+\\alpha} n}$), not sub-exponential in the $2^{n^\\epsilon}$ sense. The statement follows the abstract; confirm the exact adversary class of Theorem 5.12 with paper access.",
+        "The expander parameters $(\\gamma, \\Omega(\\log n), 2^{(\\log n)^\\alpha})$ and the theorem number come from the wiki's reference-page abstract and the migrated bullets only; no accessible host exposed them (eprint, ACM DL, Semantic Scholar egress-blocked).",
+        "The GHJS25 reference page's abstract on the wiki misreads $n^{\\log^\\alpha n}$ as the planted clique SIZE (impossible: it exceeds $n$); it is the adversary runtime bound. Reference-page fix is outside this batch; send to the skeptical-checker.",
+        "The paper also gives an alternative construction from a search variant of noisy $k$-LIN (Theorem 8.8) — same paper, no separate improvement entry."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement tightened ('the ... assumption holds' → 'holds')",
+        "source note records cryptobib key, pages and DOI",
+        "flag added: expander parameters and theorem number confirmed only from wiki-internal text"
+      ]
+    },
+    {
+      "slug": "np-to-am-gs86",
+      "path": "content/Reductions/np-to-am-gs86.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; repo convention assigns class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classNP \\subseteq \\classAM$: every language in [[nondeterministic-polynomial-time|NP]] has an [[arthur-merlin|Arthur–Merlin]] proof in which Arthur's message is ignored, Merlin sends an NP witness, and Arthur verifies it deterministically — folklore.",
+      "sketch": "Arthur's coins are unused; Merlin sends a witness and Arthur runs the NP verifier on it. Completeness and soundness are perfect, so $\\classNP \\subseteq \\classMA \\subseteq \\classAM$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH: the slug and frontmatter cite GS86, but NP ⊆ AM is immediate from the definitions — the migration note ('CITATION LOOKS WRONG') is correct. GS86 (private vs public coins, IP[k] ⊆ AM[k+2]) sources the separate edge ip-to-am-gs86, which already exists. Drop the GS86 source in favor of folklore and rename the slug to np-to-am via scripts/rename-slugs.mjs.",
+        "The originating prose on content/Complexity/co-arthur-merlin.md ('since NP ⊆ AM (by GS86)') carries the same wrong attribution; skeptical-checker lane.",
+        "Outside this batch but the same GS86 misattribution family: content/Reductions/conp-to-am-gs86.md and the coNP page assert coNP ⊆ AM 'by GS86'. That containment is open and believed false (it collapses PH to the second level, Boppana–Håstad–Zachos 1987); the true GS86-adjacent fact is coNP ⊆ coAM. Send to the skeptical-checker."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement tightened ('two-round public-coin ... random move' → 'Arthur's message is ignored')",
+        "sketch tightened",
+        "flag added on the false coNP ⊆ AM edge in a neighbouring page"
+      ]
+    },
+    {
+      "slug": "np-to-conp",
+      "path": "content/Reductions/np-to-conp.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "equivalence",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "The page records kind: equivalence with hypothesis NP and conclusion coNP, i.e. it asserts NP = coNP. That equality is a major open problem, not a theorem, and is widely conjectured false (NP = coNP would collapse the polynomial hierarchy to its first level). The migrated prose only defines coNP as the complement class of NP — a definitional duality (coNP = {L : complement of L is in NP}), not a class equality — and the migration note itself says this wants a 'complement-of' edge type, not a reduction. There is no correct reduction edge to substitute; the page should be deleted or converted to a non-hyperedge note on the coNP page.",
+      "flags": [
+        "HIGH: the page as it stands asserts NP = coNP, a false-as-far-as-known claim in the relations graph. Recommend deletion; the definitional relationship already lives in the coNP page's intro prose."
+      ],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "np-to-ma",
+      "path": "content/Reductions/np-to-ma.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; repo convention assigns class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classNP \\subseteq \\classMA$: every language in [[nondeterministic-polynomial-time|NP]] has a [[merlin-arthur|Merlin–Arthur]] proof in which Merlin sends an NP witness and Arthur verifies it deterministically — folklore.",
+      "sketch": "Merlin sends a witness for the input; Arthur ignores his coins and runs the deterministic NP verifier. Yes-instances are accepted with probability 1 and no-instances rejected with probability 1.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "np-to-pp",
+      "path": "content/Reductions/np-to-pp.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Gil77",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "Gil77 - Computational complexity of probabilistic Turing machines",
+          "authors": "John Gill",
+          "venue": "SIAM Journal on Computing 6(4), pp. 675-695",
+          "year": "1977",
+          "url": "https://dblp.org/rec/journals/siamcomp/Gill77.html",
+          "note": "Defines PP (with BPP and ZPP). Bibliographic data confirmed via the DBLP search snippet (SIAM J. Comput. 6(4): 675-695, 1977). The attribution of NP ⊆ PP to this paper rests on search snippets (Complexity Zoo 'Defined in [Gil77]', a historical survey crediting Gill with NP ⊆ PP and closure under complement); DBLP, doi.org, Wikipedia and Zoo mirrors are egress-blocked. Not in cryptobib."
+        }
+      ],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; repo convention assigns class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classNP \\subseteq \\classPP$: every language in [[nondeterministic-polynomial-time|NP]] is in [[probabilistic-polynomial-time|PP]] — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].",
+      "sketch": "The $\\classPP$ machine flips one coin: on heads it accepts; on tails it samples a uniform candidate witness $w \\in \\bits^m$ and accepts iff the NP verifier accepts $w$. The acceptance probability is $1/2 + a/2^{m+1}$, with $a$ the number of accepting witnesses, which exceeds $1/2$ exactly on yes-instances.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The proof gloss on the PP page ('accept iff strictly more than half the nondeterministic paths lead to accepting') is wrong without padding, since a yes-instance may have a single accepting path; the inclusion itself is correct. Flagged for the skeptical-checker against content/Complexity/probabilistic-polynomial-time.md."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The erroneous proof sketch lives on content/Complexity/probabilistic-polynomial-time.md (Known relationships, NP ⊆ PP bullet), outside this batch; the sketch proposed here is the corrected one and can replace it.",
+        "Gil77 is kept as the source because it defines PP and is the paper the literature credits for NP ⊆ PP, but that credit was confirmed only via web-search snippets (every full-text host egress-blocked). A human should confirm the containment appears in the paper; if it does not, switch the page to folklore and cite Gil77 only as the definition of PP.",
+        "No DOI recorded: doi.org and SIAM are egress-blocked, so the source URL is the DBLP record."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "source note rewritten to state exactly what was and was not verified",
+        "sketch tightened ($\\bits^m$ notation)",
+        "flag added asking a human to confirm the NP ⊆ PP attribution in the paper"
+      ]
+    },
+    {
+      "slug": "np-to-pspace",
+      "path": "content/Reductions/np-to-pspace.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "Proven unconditional containment between complexity classes; repo convention assigns class: free.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classNP \\subseteq \\classPSPACE$: every language in [[nondeterministic-polynomial-time|NP]] is decidable in [[polynomial-space|polynomial space]] — folklore.",
+      "sketch": "Enumerate all candidate certificates in lexicographic order, reusing one polynomial-size tape to run the NP verifier on each; accept iff some candidate is accepted.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [],
+      "verdict": "approved",
+      "verifier_changes": []
+    }
+  ]
+}

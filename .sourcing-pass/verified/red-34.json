@@ -1,0 +1,152 @@
+{
+  "batch": "red-34",
+  "pages": [
+    {
+      "slug": "zkp-to-hash-function",
+      "path": "content/Reductions/zkp-to-hash-function.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "OW93",
+          "role": "original",
+          "exists_in_wiki": false,
+          "ref_file_title": "OW93 - One-way functions are essential for non-trivial zero-knowledge",
+          "authors": "Rafail Ostrovsky, Avi Wigderson",
+          "venue": "ISTCS 1993 (2nd Israel Symposium on Theory of Computing and Systems), pp. 3-17",
+          "year": "1993",
+          "url": "https://doi.org/10.1109/ISTCS.1993.253489",
+          "note": "Verified by the verifier against vendor/cryptobib/crypto.bib entry ISTCS:OstWig93 (authors, pages 3-17, year 1993, DOI 10.1109/ISTCS.1993.253489 all match); use cryptobib_key: ISTCS:OstWig93 on the reference page. The cryptobib entry misspells the title as 'One-Way Fuctions ...'; the correct title is 'One-Way Functions are Essential for Non-Trivial Zero-Knowledge'. IAS, DBLP, and IEEE hosts are blocked by the egress proxy; the theorem statement (auxiliary-input OWF from a ZK proof for a language outside BPP; standard OWF when the language is hard on average) was confirmed only through search snippets of citing papers (HN24 abstract, Liu-Mazor eprint 2024/800, Vadhan SICOMP 2006)."
+        },
+        {
+          "key": "HN24",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "HN24 - One-Way Functions and Zero Knowledge",
+          "authors": "Shuichi Hirahara, Mikito Nanashima",
+          "venue": "STOC 2024, pp. 1731-1738",
+          "year": "2024",
+          "url": "https://doi.org/10.1145/3618260.3649701",
+          "note": "Verified by the verifier against cryptobib entry STOC:HirNan24 (authors, pages 1731-1738, DOI match); use cryptobib_key: STOC:HirNan24. Also ECCC TR24-063 and a SICOMP journal version (DOI 10.1137/24M1689971). Abstract (via search snippets; ACM/ECCC/SIAM hosts blocked) states the equivalence: a one-way function exists iff NP is contained in CZK and NP is hard in the worst case (iff CZK is hard in the worst case and GapMCSP is in CZK)."
+        },
+        {
+          "key": "Ost91",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs",
+          "authors": "Rafail Ostrovsky",
+          "venue": "Structure in Complexity Theory 1991, pp. 133-138",
+          "year": "1991",
+          "url": "https://ieeexplore.ieee.org/document/160253",
+          "note": "Precursor, not a follow-up (the schema has no other role): the statistical-zero-knowledge, hard-on-average case with a standard one-way function as conclusion. Reference page already exists; listed so the bullet in improvements_text resolves."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "OW93 does not classify the reduction, and its hypothesis (a zero-knowledge proof for a language outside $\\classBPP$) is a language-hardness statement rather than a primitive in the RTV04 sense, so no class is asserted.",
+      "model": "standard",
+      "model_justification": "Plain model: the proof system, its simulator, and the constructed function are all standard-model objects.",
+      "kind_correct": "implication",
+      "statement": "If some language outside $\\classBPP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]], then auxiliary-input one-way functions exist: functions $f(x,\\cdot)$ that every efficient inverter fails to invert for infinitely many auxiliary inputs $x$. If the language is hard on average, a standard [[hash-function|one-way function]] exists — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].",
+      "sketch": "Suppose no auxiliary-input one-way function exists. Then the map from the simulator's coins to a prefix of its output transcript can be inverted, so an efficient prover can extend any partial conversation with the honest verifier the way the simulator would. By zero knowledge this prover makes the verifier accept on $x \\in L$; by soundness it fails on $x \\notin L$; hence $L \\in \\classBPP$. When $L$ is hard on average, the instance $x$ is drawn from the hard distribution and folded into the function's input, so one inverter for a single function suffices and the conclusion is a standard one-way function.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- For all of $\\classNP$ the auxiliary-input relaxation is unnecessary: a one-way function exists if and only if $\\classNP \\subseteq \\classCZK$ and $\\classNP$ is hard in the worst case — [[HN24 - One-Way Functions and Zero Knowledge|HN24]]\n- The statistical-zero-knowledge, hard-on-average case (standard one-way function as conclusion) predates OW93 — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]",
+      "notes_to_keep": [
+        "The conclusion node `hash-function` also owns collision-resistant hashing; only the one-wayness variant is meant here.",
+        "The hyperedge `hypotheses: [zkp]` cannot carry OW93's non-triviality qualifier (the language must lie outside $\\classBPP$, or be hard on average for the standard-OWF conclusion); the qualifier survives only in the statement."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "zkp-to-hash-function: `source: folklore` is wrong (the page's own Notes say so) — this is the Ostrovsky-Wigderson theorem; replace with OW93.",
+        "zkp-to-hash-function: LOAD-BEARING QUALIFIER MISSING FROM THE EDGE. 'ZK proofs for NP imply OWF' is false as literally encoded (if P = NP every language has a trivial ZK proof and no OWF exists); the theorem needs the language outside BPP, or hard on average. The statement carries the qualifier; a human should decide whether the hyperedge needs a second hypothesis node for the hardness condition.",
+        "zkp-to-hash-function: OW93's conclusion is an AUXILIARY-INPUT one-way function, weaker than the wiki's `hash-function`/OWF node; only the hard-on-average variant (or HN24 under NP being in CZK and worst-case hard) yields a standard OWF. The conclusion node overstates the theorem as encoded.",
+        "zkp-to-hash-function: VERIFIED VIA CRYPTOBIB + SNIPPETS ONLY. OW93 (ISTCS:OstWig93) and HN24 (STOC:HirNan24) bibliographic data match vendor/cryptobib exactly; IAS, DBLP, IEEE, ACM, ECCC, SIAM and Springer are all blocked by the egress proxy, so the theorem statements and the sketch's mechanism (invert the simulator on transcript prefixes to obtain an efficient prover strategy) were confirmed only through search snippets of the HN24 abstract, Liu-Mazor (eprint 2024/800), and Vadhan (SICOMP 2006). Check the sketch against the OW93 text before marking the page beyond draft.",
+        "zkp-to-hash-function: two new reference pages needed — OW93 (cryptobib_key ISTCS:OstWig93; correct the cryptobib title typo 'Fuctions') and HN24 (cryptobib_key STOC:HirNan24). Neither key collides with existing-refs.txt.",
+        "zkp-to-hash-function: the converse edge exists as `hash-function-to-zkp-gmw91`, so `kind` stays `implication`; do not promote to `equivalence` even though HN24 states one for NP.",
+        "zkp-to-hash-function: Ost91 is listed with `role: improvement` only because the schema has no `precursor` role; its bullet says it predates OW93."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: dropped the contrapositive restatement ('equivalently, ...'); added a one-clause gloss of auxiliary-input one-wayness (quantifier order: for every inverter, infinitely many auxiliary inputs) so the weaker conclusion is legible; tightened wording",
+        "sketch: replaced 'inverter turned into a distinguisher that decides the language' (phrasing borrowed from a NIZK-specific snippet) with the actual OW93/Ost91 mechanism — invert the simulator on transcript prefixes to get an efficient prover, ZK gives acceptance on yes-instances, soundness gives rejection on no-instances; added the average-case variant",
+        "class_justification: replaced 'none of the RTV04 notions is evidenced by the construction shape' with the precise reason (hypothesis is a language-hardness statement, not an RTV04 primitive)",
+        "improvements_text: HN24 bullet corrected — its hypothesis is NP ⊆ CZK plus worst-case hardness of NP, not a single language; Ost91 bullet tightened",
+        "sources: added cryptobib keys (ISTCS:OstWig93, STOC:HirNan24), the cryptobib title typo, the SICOMP version of HN24, and a record of which claims were confirmed only via snippets",
+        "notes_to_keep and flags: tightened; sibling page referenced by slug rather than `red-` id"
+      ]
+    },
+    {
+      "slug": "zkp-to-nizk-fs86",
+      "path": "content/Reductions/zkp-to-nizk-fs86.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "Fiat-Shamir applies to public-coin protocols with negligible soundness error and is proved secure only in the random-oracle model; there is a 3-round public-coin identification scheme for which the transform is insecure under every concrete hash function — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].",
+        "BFM88 does not compile an arbitrary zero-knowledge proof: it constructs a NIZK proof system for NP in the common-random-string model under a specific number-theoretic assumption, so any edge with `zkp` as its only hypothesis drops the assumption."
+      ],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "As encoded — `hypotheses: [zkp]`, `conclusion: nizk`, `model: standard` — the page claims that a zero-knowledge proof for $L$ alone yields a NIZK for $L$. Without setup this is false for every $L \\notin \\classBPP$: only languages in $\\classBPP$ have two-message, a fortiori one-message, auxiliary-input zero-knowledge proofs or arguments (Goldreich-Oren, J. Cryptology 7(1):1-32, 1994, DOI 10.1007/BF00195207). With the CRS that the wiki's NIZK syntax carries, no such compiler is known either: each cited result needs a hypothesis this edge drops — FS86 the random-oracle model and a public-coin protocol, BFM88 a number-theoretic assumption — and each already has its own page, `rom-and-zkp-to-nizk-fs86` and `tdp-to-nizk-bfm88`. Delete this page or merge it into `rom-and-zkp-to-nizk-fs86`.",
+      "flags": [
+        "zkp-to-nizk-fs86: RECOMMEND DELETE. Duplicate of `rom-and-zkp-to-nizk-fs86` (ROM/Fiat-Shamir) and `tdp-to-nizk-bfm88` (CRS/BFM88) with the setup hypothesis dropped; `model: standard` makes the edge false (Goldreich-Oren 1994) rather than merely imprecise. The page carries `status: draft` and two citations for that false edge — the most misleading state in this batch.",
+        "zkp-to-nizk-fs86: Goldreich-Oren 1994 (cryptobib JC:GolOre94, DOI 10.1007/BF00195207) is cited in the reason text only; it has no reference page and the key GO94 does not collide (existing: GO96). Create `GO94 - Definitions and Properties of Zero-Knowledge Proof Systems` with cryptobib_key JC:GolOre94 only if a human keeps a note citing it. Its two-message-ZK-only-for-BPP theorem was confirmed via search snippets (Springer blocked).",
+        "zkp-to-nizk-fs86: if kept instead of deleted, the only defensible repair is `model: rom` with `hypotheses: [rom, zkp]`, which is verbatim `rom-and-zkp-to-nizk-fs86`.",
+        "zkp-to-nizk-fs86: OTHER PAGES. The wiki's BFM88 reference-page abstract says the NIZK construction assumes trapdoor permutations; search snippets describing BFM88 (STOC 1988) give a specific number-theoretic assumption (products of two vs. three primes; quadratic residuosity in the follow-up BDMP), and the any-trapdoor-permutation construction is Feige-Lapidot-Shamir (FOCS 1990). This affects `tdp-to-nizk-bfm88` and the BFM88 reference page; a human should check.",
+        "zkp-to-nizk-fs86: the page's Notes contain a literal `Citations disagree across pages: [object Object]` — a migration serialization bug, worth fixing wherever else it occurs.",
+        "zkp-to-nizk-fs86: `model`/`class` in this entry mirror the page's current frontmatter (`standard`/`unstated`) for internal consistency; the editor changes nothing on a wrong_claim page."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: sibling pages named by filename slug (`rom-and-zkp-to-nizk-fs86`, `tdp-to-nizk-bfm88`) instead of `red-` ids so the editor's 'See [[slug]]' link resolves; added the CRS reading (the wiki's NIZK object carries a Setup, so the edge is unsupported there too, not only false without setup); stated GO94's theorem precisely (two-message auxiliary-input ZK proofs/arguments only for BPP)",
+        "notes_to_keep: GK03 note corrected — GK03 exhibits a 3-round public-coin identification scheme for which Fiat-Shamir is insecure under every hash function, it does not show insecurity 'for general interactive proofs'; dropped the unsupported 'constant-round (sigma)' restriction; BFM88 note corrected — BFM88's assumption is number-theoretic, not trapdoor permutations",
+        "model: '' → 'standard' (the page's current value) so the entry is internally consistent",
+        "flags: tightened; added GO94 provenance/collision check and the BFM88 mis-attribution flag for other pages"
+      ]
+    },
+    {
+      "slug": "zpp-to-rp",
+      "path": "content/Reductions/zpp-to-rp.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "free",
+      "class_justification": "A proven containment between complexity classes, established by a direct simulation with no restriction on technique; `free` is this repo's convention for such inclusions and matches `p-to-zpp` and `rp-to-bpp`.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "inclusion",
+      "statement": "$\\classZPP \\subseteq \\classRP$: every language in [[zero-error-probabilistic-polynomial-time|ZPP]] is in [[randomized-polynomial-time|RP]]. Together with the symmetric $\\classZPP \\subseteq \\mathbf{coRP}$ this is one half of $\\classZPP = \\classRP \\cap \\mathbf{coRP}$ — folklore.",
+      "sketch": "Replace the output $?$ by reject: the machine never accepts a no-instance and accepts a yes-instance with probability at least $1/2$. For the expected-polynomial-time formulation, first truncate the run at twice the expected running time and output $?$ on timeout; by Markov's inequality this happens with probability at most $1/2$, and every non-$?$ answer is correct.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "zpp-to-rp: the statement keeps wikilinks in prose and the containment in math, since wikilinks inside `$...$` do not render; do not move the links into the math.",
+        "zpp-to-rp: `\\mathbf{coRP}` is raw KaTeX because no `\\classcoRP` macro exists; the ZPP and RP pages use the same spelling.",
+        "zpp-to-rp: `class: free` was already set by the migration; only the contradictory boilerplate `class: unstated` paragraph should be dropped.",
+        "zpp-to-rp: EDITOR LANE, other pages — `content/Complexity/zero-error-probabilistic-polynomial-time.md` and `content/Complexity/bounded-error-probabilistic-polynomial-time.md` state the chain P ⊆ ZPP ⊆ RP ⊆ BPP with macros only, no wikilinks, and no `— standard` label; same defect on `p-to-zpp` and `rp-to-bpp`.",
+        "zpp-to-rp: no citation proposed; the containment is immediate from the definitions (plus Markov for the expected-time formulation) and is textbook/folklore, so Gill (SICOMP 1977) was deliberately not added as `original`."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: removed the duplicated clause ('so ZPP ⊆ RP and RP contains ZPP') and the 'Every language decided by ...' paraphrase; now one containment, one identity, one label",
+        "sketch: rewritten to match the wiki's ZPP definition (output-'?' formulation first, expected-polynomial-time formulation via Markov second); the researcher's version handled only the expected-time formulation",
+        "class_justification: tightened",
+        "flags: dropped boilerplate; added the `\\mathbf{coRP}` note"
+      ]
+    }
+  ]
+}

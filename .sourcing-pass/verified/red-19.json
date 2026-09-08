@@ -1,0 +1,406 @@
+{
+  "batch": "red-19",
+  "pages": [
+    {
+      "slug": "noise-level-to-pke-ale03",
+      "path": "content/Reductions/noise-level-to-pke-ale03.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Ale03",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Ale03 - More on average case vs approximation complexity",
+          "authors": "Michael Alekhnovich",
+          "venue": "FOCS 2003",
+          "year": "2003",
+          "url": "https://ieeexplore.ieee.org/document/1238204",
+          "note": "Verified against vendor/cryptobib (FOCS:Alekhnovich03: FOCS 2003, pp. 298-307, doi 10.1109/SFCS.2003.1238204). Abstract: 'There exists a secure public-key (probabilistic) cryptosystem, based on the intractability of decoding of random binary codes.' Alekhnovich's conjecture concerns decoding random binary codes at noise weight ~sqrt(n); the decisional LPN(eps = Theta(1/sqrt(k))) reading is the standard modern restatement (e.g. BBBS16 'On Public Key Encryption from Noisy Codewords', YZ16)."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction that uses LPN samples only as data: public key and ciphertexts are noisy codewords of a public random code. The security proof is two straight-line hybrids (public key to uniform, then ciphertext to uniform), each a fixed reduction that runs any IND-CPA distinguisher once, as an oracle, to distinguish LPN samples from uniform. One fixed construction, one fixed reduction, adversary used only as an oracle: the RTV04 fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "Plain-model construction; no idealized oracle or setup.",
+      "kind_correct": "implication",
+      "statement": "Hardness of decisional [[learning-parity-with-noise#noise-level|mid-noise LPN]] at noise rate $\\varepsilon = \\Theta(1/\\sqrt{k})$, the $\\gamma = 1/2$ point of the $\\varepsilon = 1/k^{\\gamma}$ family, implies IND-CPA-secure [[public-key-encryption|PKE]] — [[Ale03 - More on average case vs approximation complexity|Ale03]]. Hardness at any lower noise rate, in particular the low-noise regime $\\varepsilon = \\log^{c}(k)/k$, implies hardness at $\\Theta(1/\\sqrt{k})$ by adding independent noise ([[noise-level-to-noise-level|noise monotonicity]]), so the same conclusion follows.",
+      "sketch": "Public keys and ciphertexts are noisy codewords of a public random linear code (equivalently, their syndromes) with noise vectors of weight $\\Theta(\\sqrt{m})$; the secret key is the public key's noise vector $\\mathbf{e}$. By duality the receiver obtains $\\langle \\mathbf{e}, \\tilde{\\mathbf{e}} \\rangle + \\beta$ from a ciphertext with noise $\\tilde{\\mathbf{e}}$ encrypting the bit $\\beta$; two independent weight-$\\Theta(\\sqrt{m})$ vectors in $\\FF_2^m$ overlap in $O(1)$ positions in expectation, so the inner product is biased toward $0$ and $\\beta$ is recovered with constant advantage, which standard amplification boosts. Security is two decisional-LPN hybrids, replacing the public key and then the ciphertext by uniform strings.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Hypothesis id lpn-mid-noise covers the whole eps = 1/k^gamma family (gamma < 1); Ale03 needs only the gamma = 1/2 instance. The literature calls this regime 'low-noise LPN', which collides with this wiki's stricter 'low-noise' (log^c(k)/k) label — the statement pins the concrete rate.",
+        "Duplicate edge: content/Reductions/lpn-to-pke.md (red-lpn-to-pke, batch red-18) records the same claim with flat hypothesis lpn and no citation; merge with this page (regime-qualified hypothesis, citation) as the survivor. The red-18 verified entry proposes the same merge.",
+        "Verifier could not read Ale03 (IEEE/eprint egress-blocked). Bibliographic data verified offline via vendor/cryptobib; the sketch's mechanism (duality; inner product of two sparse noise vectors biased toward 0; rate 1/sqrt(n)) confirmed via WebSearch snippets of BBBS16 'On Public Key Encryption from Noisy Codewords' (PKC 2016) and YZ16."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement tightened; the 'hence low-noise' clause now names the mechanism (adding independent noise) and links the existing noise-level-to-noise-level page instead of asserting the ordering inline",
+        "sketch rewritten at the level BBBS16 confirms (noisy codewords / syndromes, duality, sparse inner-product bias); dropped the unconfirmed 'outer error-correcting code' amplification detail in favour of 'standard amplification'",
+        "class_justification aligned with the red-18 verified entry for the duplicate edge lpn-to-pke (names both hybrids and how each treats the adversary)",
+        "source note records offline cryptobib verification (pages, DOI)"
+      ]
+    },
+    {
+      "slug": "lwe-to-depir-lmw23",
+      "path": "content/Reductions/lwe-to-depir-lmw23.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LMW23",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE",
+          "authors": "Wei-Kai Lin, Ethan Mook, Daniel Wichs",
+          "venue": "STOC 2023",
+          "year": "2023",
+          "url": "https://doi.org/10.1145/3564246.3585175",
+          "note": "Verified against vendor/cryptobib (STOC:LinMooWic23: STOC 2023, pp. 595-608, doi 10.1145/3564246.3585175); eprint 2022/1703 is the wiki page's source. Abstract: unkeyed DEPIR with deterministic preprocessing, secure under standard RingLWE; preprocessing time/size O(N^{1+eps}), per-query time and communication polylog(N), updates in O(N^eps); built by first constructing a PIR whose server computation is multivariate polynomial evaluation, then preprocessing the polynomial with Kedlaya-Umans."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "LMW23 do not classify the reduction, and the conclusion carries an efficiency requirement (sublinear server time after preprocessing) outside the RTV04 security-only axes. Left unstated.",
+      "model": "standard",
+      "model_justification": "Plain model; the preprocessing is deterministic and public, with no random oracle or common setup.",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies unkeyed [[doubly-efficient-pir|DEPIR]]: for every constant $\\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\\varepsilon})$, after which each query costs $\\polylog(N)$ server time and communication, and updates cost $O(N^{\\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].",
+      "sketch": "LMW23 first build a PIR whose server computation is evaluating a fixed multivariate polynomial: the database is encoded as a low-degree polynomial, the query is a Ring-LWE somewhat-homomorphic encryption of the index point, and homomorphic evaluation is literal polynomial evaluation over the ciphertext ring. Preprocessing that polynomial with the Kedlaya–Umans data structure for fast multipoint evaluation makes each online evaluation polylogarithmic.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "LMW23 also construct RAM-FHE from Ring-LWE with circular security — a second conclusion with no object page of its own."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Frontmatter hypothesis should be ring-lwe, not lwe: LMW23 prove security under RingLWE specifically (title and abstract), and the LWE page defines ring-lwe as a variant id.",
+        "The migrated bullet writes the storage bound in N and the online bound in n, and states the online cost as O(log^{1/eps}(n)); the abstract states polylog(N) — the statement follows the abstract and uses N throughout.",
+        "Verifier could not read the paper (eprint/Springer/ACM egress-blocked); statement and sketch rest on the abstract (which names the polynomial-evaluation PIR and the Kedlaya-Umans preprocessing) and cryptobib."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement merged into one sentence with the update bound inside it",
+        "sketch: removed the parenthetical venue for Kedlaya-Umans (the fast multipoint-evaluation paper is FOCS 2008, not STOC 2008 as the LMW23 abstract cites it); named the data structure by its function instead",
+        "notes_to_keep: RAM-FHE note now records the circular-security qualifier the abstract attaches to it",
+        "flag: 'plain LWE is not known to yield DEPIR' replaced by what the source supports (proved under RingLWE only)"
+      ]
+    },
+    {
+      "slug": "lwe-to-de-ram-mpc-lmw24",
+      "path": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "LMW24",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC",
+          "authors": "Wei-Kai Lin, Ethan Mook, Daniel Wichs",
+          "venue": "CRYPTO 2024",
+          "year": "2024",
+          "url": "https://doi.org/10.1007/978-3-031-68397-8_8",
+          "note": "Verified against vendor/cryptobib (C:LinMooWic24: CRYPTO 2024 Part VIII, pp. 240-273) and the Springer DOI via WebSearch; the wiki page's source eprint 2025/235 is the paper's 2025 major-revision posting. Abstract: doubly efficient commitments, doubly succinct arguments, commit-prove-and-locally-open, and RAM-MPC with malicious security, all in the plain model without common setup; parties preprocess inputs offline then run many executions in sublinear online time; DEPIR is the building block; instantiated from Ring LWE."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "LMW24 do not classify the reduction, and the conclusion bundles efficiency (sublinear online time) with security, outside the RTV04 axes. Left unstated.",
+      "model": "standard",
+      "model_justification": "Plain model, explicitly without any common setup.",
+      "kind_correct": "implication",
+      "statement": "Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies maliciously secure [[doubly-efficient-ram-mpc|doubly efficient RAM-MPC]] in the plain model: each party preprocesses its input once, offline, and then runs arbitrarily many executions with arbitrary other parties in online time proportional to the RAM running time of the program, which may be sublinear in the input size — [[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]. The same work gives doubly efficient commitments and doubly succinct arguments whose committer and prover run in sublinear online time.",
+      "sketch": "DEPIR, instantiated from Ring-LWE via LMW23, yields doubly efficient commitments whose sender preprocesses its input and later commits and opens individual bits in sublinear time; these give doubly succinct interactive arguments and a commit-prove-and-locally-open protocol, from which the RAM-MPC is assembled.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Frontmatter hypothesis should be ring-lwe, not lwe: LMW24's constructions are instantiated from Ring LWE (via the LMW23 DEPIR); the abstract names no plain-LWE instantiation.",
+        "The edge factors through DEPIR: LMW24 explicitly build on DEPIR as the main building block, so a cleaner split is ring-lwe => depir (red-lwe-to-depir-lmw23) plus a depir => de-ram-mpc edge citing LMW24; the current page compresses the chain.",
+        "The conclusion page content/Primitives/doubly-efficient-ram-mpc.md exists (unlisted stub); the researcher's note that it had no page was wrong and was dropped.",
+        "Verifier could not read the paper (eprint/Springer egress-blocked); the sketch states only the chain the abstract gives (DEPIR -> commitments -> arguments / commit-prove-open -> RAM-MPC), not the internal mechanism of the commitment."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: added the load-bearing 'maliciously secure' qualifier from the abstract; online-time bound phrased as the abstract does (proportional to RAM run-time, which may be sublinear)",
+        "sketch: replaced the researcher's unconfirmed mechanism ('privacy-preserving sublinear-time accesses to DEPIR databases') with the chain the abstract confirms",
+        "notes_to_keep: removed the false note that doubly-efficient-ram-mpc has no page (content/Primitives/doubly-efficient-ram-mpc.md exists)",
+        "source note records cryptobib pages and that eprint 2025/235 is the revision posting"
+      ]
+    },
+    {
+      "slug": "lwe-and-sis-to-ds-ls15",
+      "path": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Mis-migrated edge. The quoted bullet is about Dilithium / ML-DSA, whose security is proved from Module-LWE and Module-SIS via Fiat-Shamir with aborts in the ROM — not from plain LWE and plain SIS as the frontmatter hypotheses record. The cited LS15 contains no signature scheme at all: it proves worst-case to average-case reductions for module lattices (the page's own Notes already flag 'CITATION DOES NOT SUPPORT THE CLAIM'). The correct hyperedge already exists as content/Reductions/module-lwe-and-module-sis-to-ds.md (red-module-lwe-and-module-sis-to-ds), which should cite Lyubashevsky's Fiat-Shamir-with-aborts line (Lyu09/Lyu12) or the CRYSTALS-Dilithium design paper (DKL+18) rather than LS15. This page should be deleted or merged into that edge; LS15 belongs on the module-svp-to-module-lwe-ls15 / module-svp-to-module-sis-ls15 pages.",
+      "flags": [
+        "Duplicate of content/Reductions/module-lwe-and-module-sis-to-ds.md with wrong hypotheses and wrong citation — recommend deletion/merge.",
+        "If the module edge is fleshed out, its model must be rom (Fiat-Shamir with aborts); QROM security is a separate, stronger claim."
+      ],
+      "verdict": "approved",
+      "verifier_changes": []
+    },
+    {
+      "slug": "lwe-to-lattice-based-signatures",
+      "path": "content/Reductions/lwe-to-lattice-based-signatures.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "rom",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Mis-migrated edge with no known result behind it. The migrated bullet ('NIZK from LWE via hash-and-sign signatures and SIS-based commitments — standard') describes no known construction: NIZK for NP from plain LWE is Peikert–Shiehian (CRYPTO 2019), which applies the Fiat–Shamir transform with an LWE-based correlation-intractable hash family in the CRS model, not signatures. The edge distilled here, LWE => hash-and-sign signatures, is at best the composite LWE => SIS => GPV hash-and-sign in the ROM; the latter link is already recorded as content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md, and the conclusion identifier hash-and-sign-signature has no page. Delete this page. If an LWE => NIZK edge is wanted, create it citing Peikert–Shiehian with model crs.",
+      "flags": [
+        "Recommend a replacement edge lwe-to-nizk-ps19 citing Peikert–Shiehian, 'Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors', CRYPTO 2019 (cryptobib C:PeiShi19, LNCS 11692 pp. 89-114; eprint 2019/158; no wiki reference page yet, key PS19 does not collide with existing-refs), model crs.",
+        "The originating bullet on content/Primitives/non-interactive-zero-knowledge.md should be fixed in the same pass — its '— standard' label misuses the folklore exception for an attributable theorem and its chain is wrong."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: fixed the self-contradiction 'model standard (... model crs ...)' — Peikert-Shiehian's NIZK is in the CRS model; stated the composite (LWE => SIS => GPV08 in ROM) the page's edge would at best be",
+        "flag: added cryptobib/eprint identifiers for Peikert-Shiehian and the key-collision check"
+      ]
+    },
+    {
+      "slug": "lwe-to-ind-cpa-kem",
+      "path": "content/Reductions/lwe-to-ind-cpa-kem.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Reg05",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography",
+          "authors": "Oded Regev",
+          "venue": "STOC 2005",
+          "year": "2005",
+          "url": "https://doi.org/10.1145/1060590.1060603",
+          "note": "Verified against vendor/cryptobib (STOC:Regev05, pp. 84-93, doi 10.1145/1060590.1060603). Reg05 gives the IND-CPA bit-encryption scheme; a KEM that encrypts a random session key with it is the standard PKE-to-KEM step."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "Composition of Regev's fixed construction with the generic PKE-to-KEM step (encrypt a random session key bit by bit). The security reduction runs the KEM adversary once, as an oracle, to break IND-CPA of the bitwise encryption and hence, through Regev's reduction, decision LWE — the fully-black-box shape, preserved under composition.",
+      "model": "standard",
+      "model_justification": "Regev's scheme and the PKE-to-KEM step need no idealized oracle. (The FO transform in the migrated Kyber quote is a ROM result on a different edge.)",
+      "kind_correct": "implication",
+      "statement": "Hardness of decision [[learning-with-errors|LWE]] implies an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]]: encapsulation samples a uniformly random session key and encrypts it bit by bit under Regev's LWE encryption scheme — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].",
+      "sketch": "A distinguisher between the encapsulated key and an independent random key is an IND-CPA adversary against the bitwise Regev encryption of the key, hence, by a hybrid over the key bits, a decision-LWE distinguisher.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "Redundant composite: this edge equals red-lwe-to-pke-reg05 composed with red-pke-to-kem (both exist as pages). Under the one-page-per-link rule, consider deleting this page rather than keeping a parallel compressed chain.",
+        "The migrated quote is entirely about Kyber / ML-KEM: hypothesis Module-LWE (not plain LWE), conclusion IND-CCA via the Fujisaki-Okamoto transform in the ROM. That content belongs on red-module-lwe-to-kem and red-ind-cpa-kem-to-ind-cca-security, not here."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: made explicit that the session key is encrypted bit by bit (Reg05 is a bit-encryption scheme)",
+        "sketch tightened to the one-line hybrid argument",
+        "class_justification / source note tightened; cryptobib verification recorded"
+      ]
+    },
+    {
+      "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
+      "path": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "BGV12",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "BGV12 - Leveled fully homomorphic encryption without bootstrapping",
+          "authors": "Zvika Brakerski, Craig Gentry, Vinod Vaikuntanathan",
+          "venue": "ITCS 2012",
+          "year": "2012",
+          "url": "https://eprint.iacr.org/2011/277",
+          "note": "Verified against vendor/cryptobib (ITCS:BraGenVai12: ITCS 2012, pp. 309-325, doi 10.1145/2090236.2090262); eprint 2011/277 is the wiki page's source."
+        },
+        {
+          "key": "GSW13",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based",
+          "authors": "Craig Gentry, Amit Sahai, Brent Waters",
+          "venue": "CRYPTO 2013",
+          "year": "2013",
+          "url": "https://doi.org/10.1007/978-3-642-40041-4_5",
+          "note": "Verified against vendor/cryptobib (C:GenSahWat13: CRYPTO 2013 Part I, LNCS 8042, pp. 75-92); also eprint 2013/340; Springer DOI 10.1007/978-3-642-40041-4_5. Abstract (via WebSearch snippet): approximate-eigenvector method; homomorphic addition and multiplication are matrix addition and multiplication; no relinearization; no evaluation key. Same ref_file_title as the red-04 verified entry that also proposes GSW13."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction. The public key is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), so the security proof is a hybrid over levels in which each step converts the IND-CPA adversary, used only as an oracle, into a decision-LWE distinguisher: the fully-black-box shape.",
+      "model": "standard",
+      "model_justification": "Plain-model construction; the point of the leveled scheme is that it needs neither bootstrapping nor a circular-security assumption.",
+      "kind_correct": "implication",
+      "statement": "For every depth bound $L$ fixed at key generation, hardness of decision [[learning-with-errors|LWE]] with modulus-to-noise ratio growing with $L$ yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] for all polynomial-size circuits of depth $L$, without bootstrapping and without a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].",
+      "sketch": "Ciphertexts are Regev-style LWE encryptions under a ladder of moduli $q_L > \\cdots > q_0$. After each multiplication, key switching returns the ciphertext from the tensored secret to a fresh secret, and modulus switching rescales it from $q_j$ to $q_{j-1}$, dividing the noise by the same factor; the noise magnitude therefore stays at $B$ while the modulus shrinks one rung per level, so depth $L$ is reached without bootstrapping.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key and no relinearization: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]]",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "BGV12 also give a Ring-LWE instantiation with better efficiency; the plain-LWE hypothesis recorded here is correct for the main theorem.",
+        "BV11 (Brakerski-Vaikuntanathan, FOCS 2011; proposed as a new reference by batch red-04) built FHE from standard LWE first, with bootstrapping; BGV12's contribution is leveled FHE without bootstrapping. The migrated 'first efficient construction from LWE' gloss is not preserved.",
+        "Verifier could not read BGV12 or GSW13 (eprint/Springer/ACM egress-blocked); bibliographic data verified offline via vendor/cryptobib, the GSW13 abstract claims via WebSearch snippets, and the BGV noise/modulus behaviour via snippets of follow-up work."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: made the noise accounting precise (noise returns to B after each rescaling while the modulus shrinks) instead of 'keeps the ratio under control'",
+        "improvements_text: 'no key or modulus switching' -> 'no evaluation key and no relinearization', the claims the GSW13 abstract makes",
+        "statement tightened to one sentence; class_justification tightened",
+        "source notes record cryptobib verification; GSW13 ref_file_title checked against red-04's proposal (identical)"
+      ]
+    },
+    {
+      "slug": "lwe-to-pke-reg05",
+      "path": "content/Reductions/lwe-to-pke-reg05.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Reg05",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography",
+          "authors": "Oded Regev",
+          "venue": "STOC 2005",
+          "year": "2005",
+          "url": "https://doi.org/10.1145/1060590.1060603",
+          "note": "Verified against vendor/cryptobib (STOC:Regev05, pp. 84-93, doi 10.1145/1060590.1060603). Journal version: J. ACM 56(6), 2009."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "One fixed construction using only samples of the LWE distribution; the security proof runs any IND-CPA adversary once, as an oracle, inside a two-step hybrid: decision LWE replaces the public key by uniform, after which the leftover hash lemma makes the challenge ciphertext statistically independent of the bit. Any advantage difference is a decision-LWE distinguisher.",
+      "model": "standard",
+      "model_justification": "Plain-model construction. (Reg05's separate worst-case hardness theorem for LWE is a quantum reduction, but that is a different edge: red-gapsvp-to-lwe-reg05 / red-sivp-to-lwe-reg05.)",
+      "kind_correct": "implication",
+      "statement": "Hardness of decision [[learning-with-errors|LWE]] with $m = O(n \\log q)$ samples implies IND-CPA-secure [[public-key-encryption|PKE]]: the public key is $m$ LWE samples, and a bit $\\mu$ is encrypted as a random subset-sum of them plus $\\mu \\lfloor q/2 \\rfloor$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].",
+      "sketch": "$\\KeyGen$ outputs $\\pk = (\\mathbf{A}, \\mathbf{b} = \\mathbf{A}\\mathbf{s} + \\mathbf{e})$ and $\\sk = \\mathbf{s}$; $\\Enc(\\pk, \\mu)$ samples $\\mathbf{r} \\getsr \\bits^m$ and outputs $(\\mathbf{r}^{\\top}\\mathbf{A},\\ \\mathbf{r}^{\\top}\\mathbf{b} + \\mu \\lfloor q/2 \\rfloor)$; $\\Dec(\\sk, (\\mathbf{c}_1, c_2))$ computes $c_2 - \\langle \\mathbf{c}_1, \\mathbf{s} \\rangle = \\mathbf{r}^{\\top}\\mathbf{e} + \\mu \\lfloor q/2 \\rfloor$ and rounds. Security: decision LWE replaces $(\\mathbf{A}, \\mathbf{b})$ by uniform, after which $(\\mathbf{r}^{\\top}\\mathbf{A}, \\mathbf{r}^{\\top}\\mathbf{b})$ is statistically close to uniform by the leftover hash lemma, so the ciphertext hides $\\mu$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "The migrated key-exchange bullet (KE from LWE 'as a special case of PKE from LWE') is the composite lwe => pke => ke; the second link is the existing red-pke-to-ke page and should not be re-recorded here.",
+        "The 'security rooted in worst-case lattice hardness' clause is the separate worst-case edge (red-gapsvp-to-lwe-reg05 / red-sivp-to-lwe-reg05), already recorded."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement and sketch lightly tightened (no content change); cryptobib verification recorded in the source note"
+      ]
+    },
+    {
+      "slug": "lwe-to-prc-cg24",
+      "path": "content/Reductions/lwe-to-prc-cg24.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Misattributed hypothesis. CG24's pseudorandom codes rest on either $2^{O(\\sqrt{n})}$-hardness of LPN, or polynomial hardness of LPN together with the planted-XOR problem at low density — the paper's abstract (CRYPTO 2024; eprint 2024/235; cryptobib C:ChrGun24). No construction in CG24 is based on LWE. The correct edge already exists as content/Reductions/subexponential-lpn-to-prc-cg24.md. The source-prose bullet ('the LWE ciphertext structure naturally yields a pseudorandom, decodable code') describes no construction in the paper; the page's own Notes already flag the suspicion.",
+      "flags": [
+        "Sibling page content/Reductions/lwe-to-zero-bit-prc-cg24.md (batch red-20) shares the same misattribution, including a parameter claim (n = O(secpar^2/log secpar)) that does not correspond to anything in CG24's abstract — flag to that batch's verifier.",
+        "The originating bullets on content/Primitives/pseudorandom-error-correcting-code.md should be corrected to LPN-based hypotheses in the same pass.",
+        "Verifier: the CG24 abstract (wiki reference page, cryptobib) suffices to refute the LWE attribution; the paper body was unreachable (eprint egress-blocked)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: removed the unverifiable claim that Christ et al. 'Improved Pseudorandom Codes from Permuted Puzzles' (STOC 2026, eprint 2025/2222 — existence confirmed by search) lists PRCs from LWE as an open question; the refutation rests on CG24's abstract alone"
+      ]
+    },
+    {
+      "slug": "lwe-to-tdh-dgi-19",
+      "path": "content/Reductions/lwe-to-tdh-dgi-19.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "DGI+19",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "DGI+19 - Trapdoor Hash Functions and Their Applications",
+          "authors": "Nico Döttling, Sanjam Garg, Yuval Ishai, Giulio Malavolta, Tamer Mour, Rafail Ostrovsky",
+          "venue": "CRYPTO 2019",
+          "year": "2019",
+          "url": "https://eprint.iacr.org/2019/639",
+          "note": "Verified against vendor/cryptobib (C:DGIMMO19: CRYPTO 2019 Part III, pp. 3-32); eprint 2019/639 is the wiki page's source. Abstract: 'We obtain constructions where the hint is only one bit long based on DDH, QR, DCR, or LWE.'"
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "DGI+19 do not classify the reduction. Index hiding is a single hybrid that replaces the encoding key by uniform under decision LWE, running the adversary as an oracle, but the source does not state a class and the verifier could not check the paper's security definition for TDH in full — left unstated.",
+      "model": "standard",
+      "model_justification": "Plain-model construction; no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "Hardness of decision [[learning-with-errors|LWE]] implies [[trapdoor-hash-function|TDH]] with one-bit hints: for every index $i$ one samples an encoding key hiding $i$ together with a trapdoor that recovers the input bit $x_i$ from the hash $H(x)$ and a single hint bit — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].",
+      "sketch": "The hash of $x \\in \\bits^m$ is $\\mathbf{A}x$ for a public $\\mathbf{A} \\in \\ZZ_q^{n \\times m}$; the encoding key for index $i$ is an LWE encryption $\\mathbf{s}^{\\top}\\mathbf{A} + \\mathbf{e}^{\\top} + \\lfloor q/2 \\rfloor \\mathbf{u}_i^{\\top}$ of the $i$-th unit vector, and the hint is $\\langle \\mathrm{ek}, x \\rangle$ rounded to one bit. The trapdoor $\\mathbf{s}$ and $H(x) = \\mathbf{A}x$ give $\\mathbf{s}^{\\top}\\mathbf{A}x$, so the decoder outputs the two candidate hints for $x_i = 0$ and $x_i = 1$ and the receiver keeps the one that matches, which is correct unless the small error $\\mathbf{e}^{\\top}x$ crosses a rounding boundary; index hiding is exactly LWE pseudorandomness of the encoding key.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "The sub-bullet's claim that TDH generically yields PIR is an independent edge (TDH ⇒ PIR, DGI+19) that is not yet recorded."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "medium",
+      "wrong_reason": "",
+      "flags": [
+        "DGI+19 also construct TDH from DDH, QR, and DCR. Sibling edges exist for DDH (red-ddh-to-tdh-dgi-19) and QR (red-qr-to-tdh-dgi-19); a dcr-to-tdh-dgi-19 edge is missing.",
+        "The migrated quote records only the PIR application; the DGI+19 TDH => PIR link deserves its own reduction page (distinct from the existing red-tdh-to-cpir-amr25, which cites AMR25).",
+        "Sketch verified from verifier knowledge of the DGI+19 LWE construction only (eprint/Springer/ACM egress-blocked this session); the unit-vector-encryption/rounding mechanism is the paper's, but a human with the paper should confirm the exact form of the encoding key and the stated correctness error before status goes beyond draft."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "sketch: made the encoding key and the decoder's two-candidate check explicit; correctness error located at the rounding boundary",
+        "statement tightened; class_justification names the single LWE hybrid but keeps unstated (source silent, paper unreachable)",
+        "source note records cryptobib verification; confidence left at medium"
+      ]
+    }
+  ]
+}

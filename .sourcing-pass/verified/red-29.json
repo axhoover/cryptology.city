@@ -1,0 +1,480 @@
+{
+  "batch": "red-29",
+  "pages": [
+    {
+      "slug": "rsa-to-pke-rsa78",
+      "path": "content/Reductions/rsa-to-pke-rsa78.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "RSA78",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "RSA78 - A method for obtaining digital signatures and public-key cryptosystems",
+          "authors": "Ronald L. Rivest, Adi Shamir, Leonard Adleman",
+          "venue": "CACM 21(2) 1978",
+          "year": "1978",
+          "url": "https://doi.org/10.1145/359340.359342",
+          "note": "Existing reference page (cryptobib RivShaAdl78)."
+        },
+        {
+          "key": "ACGS88",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole",
+          "authors": "Werner Alexi, Benny Chor, Oded Goldreich, Claus P. Schnorr",
+          "venue": "SIAM Journal on Computing 17(2) 194-209, 1988",
+          "year": "1988",
+          "url": "https://doi.org/10.1137/0217013",
+          "note": "Not in vendor/cryptobib; the reference page needs inline bibtex. Verifier: bibliographic data (SIAM J. Comput. 17(2):194-209, 1988, DOI 10.1137/0217013) confirmed via search snippets only (Semantic Scholar / ResearchGate listings); the DOI host was not fetched. Conference version: FOCS 1984."
+        },
+        {
+          "key": "GL89",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GL89 - A Hard-Core Predicate for All One-Way Functions",
+          "authors": "Oded Goldreich, Leonid A. Levin",
+          "venue": "STOC 1989",
+          "year": "1989",
+          "url": "https://doi.org/10.1145/73007.73010",
+          "note": "Existing reference page (cryptobib STOC:GolLev89)."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Left `unstated`: the hypothesis is a hardness assumption, not a primitive quantified over implementations, so the RTV04 notions are degenerate here, and every assumption-hypothesis edge in content/Reductions is left unstated. The hard-core-bit reduction (ACGS88, GL89) runs any CPA distinguisher as an oracle and touches the RSA function only through evaluation and trapdoor inversion.",
+      "model": "standard",
+      "model_justification": "No idealized oracle: the hard-core-bit construction and its reduction are standard-model.",
+      "kind_correct": "implication",
+      "statement": "The [[rsa-assumption|RSA assumption]] implies [[public-key-encryption|PKE]]. The scheme of [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]], $\\Enc(\\pk, m) = m^e \\bmod n$ and $\\Dec(\\sk, c) = c^d \\bmod n$, is one-way under the RSA assumption but deterministic, hence not CPA-secure; CPA security for one-bit messages follows by encrypting $b$ as $(x^e \\bmod n,\\; b \\oplus h(x))$ for $x \\getsr \\ZZ_n^*$ and a hard-core predicate $h$ of the RSA function — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].",
+      "sketch": "The ciphertext $(x^e \\bmod n,\\, b \\oplus h(x))$ hides $b$ exactly as well as $h(x)$ is unpredictable from $x^e \\bmod n$; decryption recovers $x = y^d \\bmod n$ with the trapdoor $d$. A CPA distinguisher is a predictor for $h$, which the hard-core reduction turns into an RSA inverter.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- The least-significant bit of the RSA function is hard-core: predicting it from $x^e \\bmod n$ with advantage $1/\\poly(\\secpar)$ yields an RSA inverter — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].\n- A hard-core predicate for every one-way function, giving the same bit encryption without an RSA-specific argument — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "rsa-to-pke-rsa78: RSA78's own scheme is deterministic and not CPA-secure; the statement therefore names the hard-core-bit step. If the wiki reads `pke` as syntax plus one-wayness only, RSA78 alone suffices and ACGS88/GL89 can be dropped.",
+        "rsa-to-pke-rsa78: this edge is the composite of red-rsa-to-tdp-rsa78 and red-tdp-to-pke. Direct assumption-to-PKE edges are the repo norm (ddh-to-pke-elgamal85, lwe-to-pke-reg05, dcr-to-pke-pai99), so keeping it is consistent; a human may prefer the two-link path.",
+        "rsa-to-pke-rsa78: ACGS88 needs a new reference page and is NOT in vendor/cryptobib (inline bibtex required). VERIFIER: bibliographic data confirmed only via search snippets; eprint/DOI hosts are blocked by the egress proxy."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; 'IND-CPA' → 'CPA-secure' to match the PKE page's notion name; dropped restatement",
+        "sketch: tightened wording (no mechanism change)",
+        "class_justification: shortened; same conclusion",
+        "sources[ACGS88].note: recorded that the paper is absent from cryptobib and that verification was snippet-only",
+        "flags: added verification-provenance flag for ACGS88"
+      ]
+    },
+    {
+      "slug": "rsa-to-tdp-rsa78",
+      "path": "content/Reductions/rsa-to-tdp-rsa78.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "RSA78",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "RSA78 - A method for obtaining digital signatures and public-key cryptosystems",
+          "authors": "Ronald L. Rivest, Adi Shamir, Leonard Adleman",
+          "venue": "CACM 21(2) 1978",
+          "year": "1978",
+          "url": "https://doi.org/10.1145/359340.359342",
+          "note": "Existing reference page (cryptobib RivShaAdl78)."
+        },
+        {
+          "key": "GR13",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "GR13 - Enhancements of Trapdoor Permutations",
+          "authors": "Oded Goldreich, Ron D. Rothblum",
+          "venue": "Journal of Cryptology 2013",
+          "year": "2013",
+          "url": "https://link.springer.com/article/10.1007/s00145-012-9131-8",
+          "note": "Existing reference page (cryptobib JC:GolRot13); abstract read from content/References."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Left `unstated`: the hypothesis is a hardness assumption, so the RTV04 notions are degenerate, and the repo leaves every assumption-hypothesis edge unstated. Here the construction is the RSA family itself and the reduction is the identity, so no class carries information.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "The [[rsa-assumption|RSA assumption]] implies [[trapdoor-permutation|TDP]]: for $n = pq$ and $e$ coprime to $\\varphi(n)$, $x \\mapsto x^e \\bmod n$ permutes $\\ZZ_n^*$, the trapdoor $d$ with $ed \\equiv 1 \\pmod{\\varphi(n)}$ inverts it as $y \\mapsto y^d \\bmod n$, and one-wayness of this family is the RSA assumption — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. The domain is $\\ZZ_n^*$ rather than $\\bits^\\ell$; applications that sample domain elements from public coins — [[oblivious-transfer|OT]], [[non-interactive-zero-knowledge|NIZK]] — need the enhanced or doubly enhanced notions — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Enhanced and doubly enhanced trapdoor permutations, the notions the OT and NIZK applications require, are defined, compared, and shown to suffice for those applications — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- rsa-to-tdp-rsa78: the migrated Statement carries two quotes that belong to other edges. The BFM88 bullet ('NIZK for all NP from trapdoor permutations ... in the CRS model') is the TDP + CRS => NIZK edge (red-tdp-to-nizk-bfm88, model: crs), and the 'which in turn imply PKE' tail is red-tdp-to-pke. Both should be dropped from this page; the single trailing RSA78 citation is misattributed to them.",
+        "HIGH -- rsa-to-tdp-rsa78: the same misattributed BFM88 parenthetical also produced content/Reductions/dlog-to-tdp.md ('DLOG => TDP', source: folklore), whose entire Statement is that parenthetical. No trapdoor permutation is known from the discrete logarithm assumption; that page (another batch) should be disposed wrong_claim.",
+        "rsa-to-tdp-rsa78: certifying that a claimed $(n, e)$ indexes a permutation is a further caveat that GR13's enhancement axis does not cover; left out of the statement rather than attached to an unverified citation.",
+        "rsa-to-tdp-rsa78: the statement does not claim that RSA satisfies the (doubly) enhanced notions; it only records that OT/NIZK need them. A human may add that claim with a citation (Goldreich, Foundations of Cryptography vol. 2, App. C, or GR13 §on RSA) if desired."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened; 'verbatim' hedge removed; OT and NIZK wikilinked (both slugs exist in content/Primitives)",
+        "improvements_text: removed 'actually' (throat-clearing)",
+        "class_justification: shortened; same conclusion",
+        "flags: named the existing TDP + CRS => NIZK page (red-tdp-to-nizk-bfm88); added flag that the statement deliberately does not assert RSA is (doubly) enhanced"
+      ]
+    },
+    {
+      "slug": "schnorr-signatures-to-schnorr-signatures",
+      "path": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "rom",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Self-loop. The frontmatter conclusion `eddsa` is declared in the `variants:` map of content/Primitives/digital-signature.md as an alias of the anchor `#schnorr-signatures`, the same anchor the hypothesis `schnorr-signature` resolves to, so hypothesis and conclusion are one node and the page renders as 'Schnorr signatures implies Schnorr signatures'. The lineage the edge tries to record — Schnorr signatures are the basis for EdDSA — is not a reduction between distinct objects: EdDSA is Schnorr instantiated over a twisted Edwards curve with deterministic nonce derivation and key prefixing, and there is no construction or security reduction to record. Everything reducible in the migrated Sch91 quote is already recorded elsewhere: red-dlog-and-rom-to-schnorr-signatures-sch91, red-dlog-to-schnorr-signatures-sch91 and red-fiat-shamir-and-schnorr-signatures-to-ds. Delete the page.",
+      "flags": [
+        "HIGH -- schnorr-signatures-to-schnorr-signatures: delete. Self-loop: `eddsa` and `schnorr-signature` are both variant ids of digital-signature.md resolving to the same anchor. VERIFIER: the researcher's reason ('`eddsa` names no object in the wiki') was wrong — it is a declared variant id at digital-signature.md line 17 — but the self-loop verdict stands.",
+        "schnorr-signatures-to-schnorr-signatures: if the wiki wants a distinct EdDSA object, the citable source for Ed25519 is Bernstein, Duif, Lange, Schwabe, Yang, 'High-Speed High-Security Signatures', CHES 2011, pp. 124-142, DOI 10.1007/978-3-642-23951-9_9 (cryptobib CHES:BDLSY11; journal version J. Cryptographic Engineering 2012, cryptobib JCEng:BDLSY12). It belongs in a Variations subsection of digital-signature.md, not as a reduction edge.",
+        "schnorr-signatures-to-schnorr-signatures: the migrated quote's claim that the Schnorr sigma protocol 'is honest-verifier zero-knowledge under the discrete logarithm assumption' is wrong and lives on content/References/Sch91 - Efficient signature generation by smart cards.md, so it survives this page's deletion. The protocol is perfect HVZK unconditionally: the simulator samples $c, s$ and sets $R = g^s \\pk^{-c}$."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: corrected the factual basis — `eddsa` IS a declared variant id (digital-signature.md variants map) aliasing the Schnorr anchor, which is exactly why the edge is a self-loop; disposition unchanged",
+        "flags: BDLSY11 bibliographic data cross-checked against cryptobib (CHES:BDLSY11, pp. 124-142)"
+      ]
+    },
+    {
+      "slug": "search-lwe-to-decision-lwe",
+      "path": "content/Reductions/search-lwe-to-decision-lwe.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "Reg05",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography",
+          "authors": "Oded Regev",
+          "venue": "STOC 2005 (JACM 56(6) 2009)",
+          "year": "2005",
+          "url": "https://doi.org/10.1145/1568318.1568324",
+          "note": "Existing reference page (cryptobib STOC:Regev05). The search-to-decision reduction is Lemma 4.2 of the JACM version (q prime, q ≤ poly(n)); Lemma 4.3 is the average-case-to-worst-case step. Verifier: confirmed from memory of the JACM text only — eprint, cims.nyu.edu and arxiv.org are blocked by the egress proxy."
+        },
+        {
+          "key": "MM11b",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "MM11b - Pseudorandom Knapsacks and the Sample Complexity of LWE Search-to-Decision Reductions",
+          "authors": "Daniele Micciancio, Petros Mol",
+          "venue": "CRYPTO 2011, LNCS 6841, 465-484",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-22792-9_26",
+          "note": "cryptobib_key: C:MicMol11 (verified in vendor/cryptobib: CRYPTO 2011, pp. 465-484, DOI 10.1007/978-3-642-22792-9_26; eprint 2011/521). Key MM11 is taken in content/References by Matsuda-Matsuura, 'On Black-Box Separations among Injective One-Way Functions' (TCC 2011); suffixed per the collision rule. The sample-preserving claim was confirmed via search snippets of the abstract only."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Left `unstated`: the hypothesis is a hardness assumption, so the RTV04 notions are degenerate, and the repo leaves every assumption-hypothesis edge unstated. The reduction runs the decision distinguisher as an oracle.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "If [[learning-with-errors#search-lwe|search LWE]] with parameters $(n, q, \\chi)$ is hard for every polynomial number of samples, where $q$ is prime and $q = \\poly(n)$, then [[learning-with-errors#decision-lwe|decision LWE]] with the same $(n, q, \\chi)$ is hard for every polynomial number of samples: an efficient distinguisher between $(\\mathbf{A}, \\mathbf{A}\\mathbf{s} + \\mathbf{e})$ and $(\\mathbf{A}, \\mathbf{u})$ using $m$ samples yields an efficient algorithm that recovers $\\mathbf{s}$ from $\\poly(n, m)$ samples — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].",
+      "sketch": "Recover $\\mathbf{s}$ one coordinate at a time. To test the guess $\\mathbf{s}_i = \\ell$, map each sample $(\\mathbf{a}, b)$ to $(\\mathbf{a} + r\\mathbf{u}_i,\\; b + r\\ell)$ for the $i$-th unit vector $\\mathbf{u}_i$ and a fresh uniform $r \\in \\ZZ_q$: the new sample is $(\\mathbf{a}', \\langle \\mathbf{a}', \\mathbf{s}\\rangle + e + r(\\ell - \\mathbf{s}_i))$, LWE-distributed when $\\ell = \\mathbf{s}_i$ and uniform otherwise, since $r(\\ell - \\mathbf{s}_i)$ is uniform for prime $q$. Running the distinguisher over all $nq$ pairs $(i, \\ell)$ reads off $\\mathbf{s}$, which is why $q$ must be polynomial; the random self-reduction $(\\mathbf{a}, b) \\mapsto (\\mathbf{a}, b + \\langle \\mathbf{a}, \\mathbf{t}\\rangle)$ for uniform $\\mathbf{t}$ first turns an average-case distinguisher into one that works for every $\\mathbf{s}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Sample-preserving search-to-decision reductions: for a wide range of parameters, $m$ LWE samples are pseudorandom whenever search LWE is one-way for the same $m$ — [[MM11b - Pseudorandom Knapsacks and the Sample Complexity of LWE Search-to-Decision Reductions|MM11b]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- search-lwe-to-decision-lwe: the migrated body proves the WRONG direction. Under the repo's orientation ('A => B' means 'A hard implies B hard', as fixed by cdh-to-dlog and ddh-to-cdh), this page is the hard direction — a decision distinguisher yields a search solver, Reg05 Lemma 4.2 — but the quoted text ('a search solver gives a decision adversary for free') proves red-decision-lwe-to-search-lwe. The two pages' Statement bodies are swapped: content/Reductions/decision-lwe-to-search-lwe.md currently carries the coordinate-by-coordinate Regev argument that belongs here. Fix both together.",
+        "search-lwe-to-decision-lwe: consequently the sibling red-decision-lwe-to-search-lwe is the EASY direction and is genuine folklore (run the search solver, accept iff $\\mathbf{u} - \\mathbf{A}\\hat{\\mathbf{s}}$ is short), conditional on $\\chi$ being efficiently recognisable. Its batch owner should not source it to Reg05, and its migration note about the $O(qnm)$ sample count belongs on this page instead.",
+        "search-lwe-to-decision-lwe: kept as `implication`, not `equivalence` — both directions exist as separate pages.",
+        "search-lwe-to-decision-lwe: proposed key MM11b because MM11 is taken by Matsuda-Matsuura. The existing filename is a live URL and must not be renamed; a human may prefer relabelling the existing page's title/alias to MM11a (the SW25a/SW25b precedent).",
+        "VERIFIER -- search-lwe-to-decision-lwe: the researcher's statement said decision LWE is hard 'for the same parameters'; amended. Reg05's reduction consumes $nq$ times as many samples as the distinguisher (plus amplification), which is exactly the loss MM11b removes. Reg05 Lemma 4.2/4.3 conditions confirmed from memory only (all hosts carrying the paper are blocked); MM11b bibliographic data confirmed via cryptobib, its claim via snippets."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'hard for the same parameters (n, q, χ, m)' → hardness for every polynomial number of samples, with the search solver using poly(n, m) samples — the reduction is not sample-preserving (that is MM11b's contribution)",
+        "sketch: defined the unit vector u_i and wrote out the transformed sample; named the random self-reduction map",
+        "class_justification: shortened",
+        "sources: added cryptobib key C:MicMol11 and verification provenance in notes",
+        "flags: added verifier provenance flag"
+      ]
+    },
+    {
+      "slug": "secret-key-pir-sk-pir-and-ske-to-depir",
+      "path": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Not a theorem. The wiki defines SK-PIR (content/Primitives/single-server-private-information-retrieval.md § Secret-Key PIR) as $o(N)$ online communication with no bound on server computation, 'contrast: SK-DEPIR, which requires both', and DEPIR (content/Primitives/doubly-efficient-pir.md) as $o(n)$ communication and $o(n)$ server computation per query. Storing the client's state encrypted on the server changes where the state lives, not how much work the server does. As a general implication the edge would give SK-DEPIR from one-way functions, via red-hash-function-to-secret-key-pir-sk-pir-bm26 and SKE from OWFs, which is open and conjectured impossible for black-box constructions (LMW25, already cited on doubly-efficient-pir.md). The migrated text is an editor's aside in the Notes of content/References/CIMR25 - Secret-Key PIR from Random Linear Codes.md ('But I could preprecess the database and store the state encrypted on the server'), specific to CIMR25's $O(s + n/s)$ construction; it is attributable to no paper, and downloading the encrypted state on every query costs $|\\st|$ communication unless amortised, which the text does not address.",
+      "flags": [
+        "HIGH -- secret-key-pir-sk-pir-and-ske-to-depir: delete the page, or keep the idea as a note on the CIMR25 reference page. It is an unattributed editor construction and not a theorem relating the wiki's SK-PIR and DEPIR nodes.",
+        "secret-key-pir-sk-pir-and-ske-to-depir: supporting evidence already in the wiki — content/Primitives/doubly-efficient-pir.md cites LMW25 ('Black Box Crypto is Useless for Doubly Efficient PIR') for the claim that generic primitives cannot give SK-DEPIR in a black-box way unless OWFs already do.",
+        "VERIFIER -- secret-key-pir-sk-pir-and-ske-to-depir: the researcher's reason asserted a concrete $O(N \\cdot \\poly(\\secpar))$ per-query server time for BM26's construction; that figure could not be verified (eprint blocked) and was removed. The argument now rests on the wiki's definitions and on the OWF-collapse consequence, which do not depend on it."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: 'False under the wiki's own definitions' → 'Not a theorem' (the implication is unproven and conjecturally false, not refuted); removed the unverified BM26 server-time figure; added the OWF-collapse consequence via red-hash-function-to-secret-key-pir-sk-pir-bm26 and LMW25",
+        "flags: added verifier note on the removed claim"
+      ]
+    },
+    {
+      "slug": "secret-key-pir-sk-pir-to-depir-bipw17",
+      "path": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
+      "disposition": "wrong_claim",
+      "sources": [],
+      "class": "unstated",
+      "class_justification": "",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "stub",
+      "confidence": "high",
+      "wrong_reason": "Same obstruction as red-secret-key-pir-sk-pir-and-ske-to-depir: the wiki defines SK-PIR as $o(N)$ online communication without sublinear server computation, which is the extra requirement DEPIR imposes, so SK-PIR alone is not known to imply DEPIR and the implication would give SK-DEPIR from one-way functions via red-hash-function-to-secret-key-pir-sk-pir-bm26. BIPW17 assert no such implication: they build SK-DEPIR (an oblivious locally decodable code) from a permuted Reed-Muller hardness conjecture, which the wiki already records as red-permuted-puzzles-to-depir-bipw17. The migrated sentence is an editor's inference by analogy ('the way that BIPW17 build SK-DEPIR') from the Notes of the CIMR25 reference page, and its qualifier 'very mildly doubly efficient PIR' names no notion defined in content/, so the conclusion node is untypable as written.",
+      "flags": [
+        "HIGH -- secret-key-pir-sk-pir-to-depir-bipw17: delete. The real BIPW17 edge is already in the graph as red-permuted-puzzles-to-depir-bipw17; this page duplicates its citation while stating an implication BIPW17 do not prove.",
+        "secret-key-pir-sk-pir-to-depir-bipw17: the frontmatter cites BIPW17 for a claim taken from CIMR25's Notes; the source field is misattributed independently of the mathematical problem."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "wrong_reason: 'cannot imply' → 'is not known to imply' with the OWF-collapse consequence spelled out; tightened wording; disposition unchanged"
+      ]
+    },
+    {
+      "slug": "sidh-to-ke-jdf11",
+      "path": "content/Reductions/sidh-to-ke-jdf11.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "JDF11",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies",
+          "authors": "David Jao, Luca De Feo",
+          "venue": "PQCrypto 2011",
+          "year": "2011",
+          "url": "https://doi.org/10.1007/978-3-642-25405-5_2",
+          "note": "Existing reference page (cryptobib PQCRYPTO:JaoDeF11, pp. 19-34). JDF11 prove session-key security in the Canetti-Krawczyk authenticated-links model under SSDDH, the decisional variant. Verifier: confirmed via search snippets (eprint blocked); secret scalars $m_A, n_A$ and kernel $[m]P + [n]Q$ likewise."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Left `unstated`: the hypothesis is a hardness assumption, so the RTV04 notions are degenerate, and the repo leaves every assumption-hypothesis edge unstated. The security proof is essentially the identity: session-key indistinguishability is SSDDH restated for the protocol transcript.",
+      "model": "standard",
+      "model_justification": "JDF11 prove session-key security in the Canetti-Krawczyk authenticated-links model under SSDDH, with no idealized oracle.",
+      "kind_correct": "implication",
+      "statement": "The [[supersingular-isogeny-diffie-hellman|SIDH]] assumption implies [[key-exchange|KE]]. Over a supersingular $E/\\FF_{p^2}$ with $p = \\ell_A^{e_A}\\ell_B^{e_B} f \\pm 1$, each party computes a secret isogeny with kernel $\\langle [m]P + [n]Q \\rangle$ for a basis $\\{P, Q\\}$ of its own $\\ell^{e}$-torsion, publishes the image curve together with the images of the other party's torsion basis, and both derive $j(E_{AB})$; the session key is indistinguishable from random in the authenticated-links model of Canetti and Krawczyk under the decisional variant SSDDH — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. The hypothesis is false: the published torsion images make the secret isogeny recoverable in classical polynomial time — [[CD22 - An efficient key recovery attack on SIDH|CD22]].",
+      "sketch": "Given $\\phi_A(P_B), \\phi_A(Q_B)$, Bob computes $E_A / \\langle [m_B]\\phi_A(P_B) + [n_B]\\phi_A(Q_B) \\rangle$, and Alice symmetrically; both curves are $E / \\langle R_A, R_B \\rangle$ up to isomorphism, so the $j$-invariants agree. Distinguishing $j(E_{AB})$ from the $j$-invariant of an independently generated $E_{A'B'}$ given the transcript is SSDDH by definition.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [
+        "SUSPECTED ERROR on content/Assumptions/supersingular-isogeny-diffie-hellman.md: the shared-key line $j(E_{AB}) = j(\\phi_B(E_A)) = j(\\phi_A(E_B))$ applies each party's own isogeny to the other party's curve. The correct objects are the pushed-forward isogenies $\\phi_B' : E_A \\to E_{AB}$ and $\\phi_A' : E_B \\to E_{AB}$ computed from the transmitted torsion-point images; as written the composition is not defined.",
+        "SUSPECTED ERROR on the same page: the SIDH problem is stated with $E' = E/\\langle P \\rangle$ for a random $\\ell$-torsion point $P$ while $\\{P, Q\\}$ is called a basis of the $\\ell^n$-torsion. The kernel is $\\langle [m]P + [n]Q \\rangle$ for secret $m, n$, and both basis images of the other party's torsion group are published."
+      ],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "sidh-to-ke-jdf11: .reductions/suspected-errors.json contains an entry whose affectsEdges lists red-sidh-to-ke-jdf11. Both suspected errors concern the assumption page's description of the protocol, not this edge's claim; the edge stays `sourced`. Kept in notes_to_keep.",
+        "sidh-to-ke-jdf11: the wiki's KE security notion is session-key indistinguishability, which needs the DECISIONAL assumption (SSDDH). content/Assumptions/supersingular-isogeny-diffie-hellman.md states only the computational isogeny-finding problem and has no pseudocode game, so the hypothesis node is weaker than what the reduction uses.",
+        "sidh-to-ke-jdf11: the reduction remains valid while its hypothesis is false (CD22). The statement says so; CD22 already has a reference page.",
+        "VERIFIER -- sidh-to-ke-jdf11: prime form changed from '$p + 1 = \\ell_A^{e_A}\\ell_B^{e_B}$' to JDF11's '$p = \\ell_A^{e_A}\\ell_B^{e_B} f \\pm 1$' (cofactor $f$), and the kernel from the later '$P + [s]Q$' normalisation to JDF11's '$[m]P + [n]Q$'. JDF11's security theorem (SSDDH, Canetti-Krawczyk authenticated-links) confirmed via search snippets; eprint blocked."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: prime form corrected to JDF11's p = l_A^{e_A} l_B^{e_B} f ± 1; kernel written as <[m]P + [n]Q> (JDF11) rather than the later <P + [s]Q> normalisation; 'is now known to be false' → 'is false'",
+        "sketch: rewritten to name the pushed-forward kernel explicitly and to say what the SSDDH 'random' world is (an independently generated E_{A'B'}), instead of 'a random j-invariant'",
+        "notes_to_keep[1]: kernel written as <[m]P + [n]Q> for consistency with the statement",
+        "class_justification / model_justification: shortened"
+      ]
+    },
+    {
+      "slug": "symmetric-private-information-retrieval-single-server-to-cpir",
+      "path": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
+      "disposition": "folklore",
+      "sources": [],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity — an SPIR scheme run unchanged is a cPIR scheme — so it uses the hypothesis scheme only as an oracle, and a client-privacy adversary against the resulting cPIR is the same adversary against the SPIR, which the (identity) reduction runs as an oracle. The RTV04 fully-black-box shape in its degenerate case.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] implies [[single-server-private-information-retrieval|cPIR]]: SPIR strengthens cPIR by requiring that the client learn nothing about the database beyond the retrieved entry, and leaves client privacy unchanged, so every SPIR scheme is a cPIR scheme as is — folklore. SPIR was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "symmetric-private-information-retrieval-single-server-to-cpir: kept `folklore` — a strengthened notion implying the weaker one is definitional; GIKM00 is cited for the origin of SPIR, not for the containment, and already has a reference page, so sources[] is deliberately empty.",
+        "symmetric-private-information-retrieval-single-server-to-cpir: hypothesis and conclusion live in the same file (single-server-symmetric-pir is an anchor on content/Primitives/single-server-private-information-retrieval.md). Same shape as red-unkeyed-depir-to-depir, red-spir-to-it-pir and red-depir-to-cpir, so acceptable if the wiki keeps variant-to-parent edges.",
+        "VERIFIER -- symmetric-private-information-retrieval-single-server-to-cpir: class `fully-black-box` (identity construction and identity reduction) is approved as justified, but the sibling trivial variant-to-parent edges (unkeyed-depir-to-depir, spir-to-it-pir, depir-to-cpir) are `unstated`; a human may want one convention for all of them."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: tightened ('plus the requirement ... weakens nothing' → 'strengthens ... leaves client privacy unchanged'); 'Data privacy for PIR is due to GIKM00' → 'SPIR was introduced by GIKM00' (GIKM00 introduced the SPIR model)",
+        "class_justification: tightened wording; class unchanged",
+        "flags: added consistency note about sibling trivial edges"
+      ]
+    },
+    {
+      "slug": "symmetric-private-information-retrieval-single-server-to-ot",
+      "path": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
+      "disposition": "folklore",
+      "sources": [
+        {
+          "key": "NP99",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "NP99 - Oblivious transfer and polynomial evaluation",
+          "authors": "Moni Naor, Benny Pinkas",
+          "venue": "STOC 1999, 245-254",
+          "year": "1999",
+          "url": "https://doi.org/10.1145/301250.301312",
+          "note": "cryptobib_key: STOC:NaoPin99 (verified in vendor/cryptobib: STOC 1999, pp. 245-254, DOI 10.1145/301250.301312). Abstract (via search snippets): 1-out-of-N OT from log N invocations of 1-out-of-2 OT, and as a direct corollary an efficient transformation of any PIR into SPIR without increasing the number of databases."
+        },
+        {
+          "key": "DMO00",
+          "role": "improvement",
+          "exists_in_wiki": true,
+          "ref_file_title": "DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer",
+          "authors": "Giovanni Di Crescenzo, Tal Malkin, Rafail Ostrovsky",
+          "venue": "EUROCRYPT 2000",
+          "year": "2000",
+          "url": "https://doi.org/10.1007/3-540-45539-6_10",
+          "note": "Existing reference page (cryptobib EC:DiCMalOst00; also used by red-cpir-to-ot-dmo00). Its abstract identifies 1-out-of-n OT with SPIR ('a 1-out-of-n Oblivious Transfer protocol (also called SPIR)')."
+        }
+      ],
+      "class": "fully-black-box",
+      "class_justification": "The construction is the identity: the SPIR protocol run on database $(x_1, \\dots, x_n)$ with query index $c$ is a $1$-out-of-$n$ OT, client privacy being receiver privacy and data privacy sender privacy. Each security reduction runs the OT adversary unchanged, as an oracle, against the corresponding SPIR property.",
+      "model": "standard",
+      "model_justification": "",
+      "kind_correct": "implication",
+      "statement": "Single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] implies [[oblivious-transfer|OT]]: an SPIR protocol on database $(x_1, \\dots, x_n)$ with query index $c$ is a [[oblivious-transfer#k-out-of-n-ot|$1$-out-of-$n$ OT]] — client privacy is receiver privacy, data privacy is sender privacy — and $n = 2$ gives $1$-out-of-$2$ OT — folklore. The converse is not known: SPIR is $1$-out-of-$n$ OT with communication sublinear in $n$, no construction of sublinear-communication PIR from OT alone is known, and [[NP99 - Oblivious transfer and polynomial evaluation|NP99]] obtain SPIR from PIR plus $\\log n$ OTs.",
+      "sketch": "",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Any single-server [[single-server-private-information-retrieval|PIR]] becomes SPIR with $\\log n$ additional invocations of $1$-out-of-$2$ OT and no additional server — [[NP99 - Oblivious transfer and polynomial evaluation|NP99]].\n- Non-trivial single-server PIR implies OT without any data-privacy requirement, and reduces communication-efficiently to $1$-out-of-$n$ OT — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- symmetric-private-information-retrieval-single-server-to-ot: `kind` must change from equivalence to implication. The page's own qualifier ('with an additional efficiency requirement') breaks the equivalence: SPIR => 1-out-of-n OT is immediate, but OT => SPIR would need sublinear-communication PIR from OT, which is not known (NP99 need a PIR plus log n OTs; DMO00 show the PIR hypothesis is the load-bearing one).",
+        "HIGH -- symmetric-private-information-retrieval-single-server-to-ot: content/Reductions/k-out-of-n-ot-to-cpir.md ('1-out-of-n OT <=> cPIR', kind: equivalence, source: folklore) is the same claim pointed the other way and is unsupported in ITS stated direction — 1-out-of-n OT with Omega(n) communication follows from any OT and gives only trivial PIR. Whoever owns that batch should downgrade or invert it; the two pages must end up consistent.",
+        "symmetric-private-information-retrieval-single-server-to-ot: NP99 needs a new reference page (cryptobib STOC:NaoPin99).",
+        "symmetric-private-information-retrieval-single-server-to-ot: the migrated body's `[[OT]]` bare-alias wikilink should become `[[oblivious-transfer|OT]]`.",
+        "VERIFIER -- symmetric-private-information-retrieval-single-server-to-ot: the researcher's statement said 'the converse fails' and 'OT on its own yields only the trivial Omega(n)-communication protocol'; no separation proving OT cannot give sublinear PIR was cited, so this was softened to 'not known'. NP99's log N count and PIR-to-SPIR corollary confirmed via search snippets of the abstract; ACM DL and Semantic Scholar are blocked."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'The converse fails as stated ... OT on its own yields only the trivial Omega(n)-communication protocol' → 'The converse is not known ...' (an unproven non-implication was stated as a fact); 'is exactly' → 'is'",
+        "improvements_text: DMO00 bullet now also records its communication-efficient PIR-to-1-out-of-n-OT reduction (from its abstract); NP99 bullet tightened",
+        "class_justification: 'IS' emphasis removed; wording tightened; class unchanged",
+        "sources: added cryptobib keys and verification provenance",
+        "flags: second HIGH flag reworded ('false' → 'unsupported'); added verifier provenance flag"
+      ]
+    },
+    {
+      "slug": "sis-to-ds",
+      "path": "content/Reductions/sis-to-ds.md",
+      "disposition": "sourced",
+      "sources": [
+        {
+          "key": "GPV08",
+          "role": "original",
+          "exists_in_wiki": true,
+          "ref_file_title": "GPV08 - Trapdoors for hard lattices and new cryptographic constructions",
+          "authors": "Craig Gentry, Chris Peikert, Vinod Vaikuntanathan",
+          "venue": "STOC 2008",
+          "year": "2008",
+          "url": "https://doi.org/10.1145/1374376.1374407",
+          "note": "Existing reference page (cryptobib STOC:GenPeiVai08). Verifier: the hash-and-sign theorem (strong unforgeability in the ROM from collision resistance of the preimage sampleable function, tight) confirmed via search snippets; eprint and Peikert's host blocked."
+        },
+        {
+          "key": "Lyu12",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "Lyu12 - Lattice Signatures Without Trapdoors",
+          "authors": "Vadim Lyubashevsky",
+          "venue": "EUROCRYPT 2012, LNCS 7237, 738-755",
+          "year": "2012",
+          "url": "https://doi.org/10.1007/978-3-642-29011-4_43",
+          "note": "cryptobib_key: EC:Lyubashevsky12 (verified in vendor/cryptobib: EUROCRYPT 2012, pp. 738-755, DOI 10.1007/978-3-642-29011-4_43; eprint 2011/537). cryptobib and Springer render the title 'Lattice Signatures without Trapdoors'; eprint capitalises 'Without'. Contribution used here: signatures in the ROM from SIS with no trapdoor, via rejection sampling."
+        },
+        {
+          "key": "CHKP10",
+          "role": "improvement",
+          "exists_in_wiki": false,
+          "ref_file_title": "CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis",
+          "authors": "David Cash, Dennis Hofheinz, Eike Kiltz, Chris Peikert",
+          "venue": "EUROCRYPT 2010, LNCS 6110, 523-552 (Journal of Cryptology 25(4) 601-639, 2012)",
+          "year": "2010",
+          "url": "https://doi.org/10.1007/978-3-642-13190-5_27",
+          "note": "cryptobib_key: EC:CHKP10 (verified in vendor/cryptobib: EUROCRYPT 2010, pp. 523-552, DOI 10.1007/978-3-642-13190-5_27; journal JC:CHKP12 pp. 601-639; eprint 2010/591). Contribution used here: stateless hash-and-sign signatures from SIS in the standard model."
+        }
+      ],
+      "class": "unstated",
+      "class_justification": "Left `unstated`: the hypothesis is a hardness assumption, so the RTV04 notions are degenerate, and the repo leaves every assumption-hypothesis edge unstated. The GPV08 reduction runs the forger as an oracle and programs the random oracle.",
+      "model": "rom",
+      "model_justification": "GPV08 prove the hash-and-sign scheme unforgeable in the random oracle model — the reduction programs $H$ by sampling the preimage first — so the current frontmatter value `standard` is wrong. A standard-model SIS signature exists (CHKP10) and would support a separate `model: standard` edge rather than a change to this one.",
+      "kind_correct": "implication",
+      "statement": "The [[shortest-integer-solution|SIS]] assumption implies [[digital-signature|DS]] in the random oracle model: a GPV signature on $\\mu$ is a short $\\mathbf{z}$ with $\\mathbf{A}\\mathbf{z} = H(\\mu) \\bmod q$, sampled from a discrete Gaussian using a short basis of $\\Lambda_q^\\perp(\\mathbf{A})$, and the scheme is strongly unforgeable under chosen-message attack whenever $\\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z}$ is collision resistant on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].",
+      "sketch": "Trapdoor-sampled preimages have the same distribution as a discrete Gaussian conditioned on its image, so the reduction, holding a challenge $\\mathbf{A}$ without a trapdoor, answers each hash query by sampling $\\mathbf{z}$ first and programming $H(\\mu) := \\mathbf{A}\\mathbf{z}$, and answers signing queries with those $\\mathbf{z}$. A forgery $\\mathbf{z}^*$ on $\\mu^*$ differs from the reduction's own preimage $\\mathbf{z}'$ of $H(\\mu^*)$ except with negligible probability (preimage min-entropy), and $\\mathbf{z}^* - \\mathbf{z}'$ is a short nonzero SIS solution for $\\mathbf{A}$.",
+      "pseudocode": "",
+      "security_loss": "",
+      "improvements_text": "- Signatures from SIS in the ROM without a lattice trapdoor, via Fiat-Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].\n- Stateless hash-and-sign signatures from SIS in the standard model, via bonsai-tree basis delegation — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]].",
+      "notes_to_keep": [],
+      "status_suggestion": "draft",
+      "confidence": "high",
+      "wrong_reason": "",
+      "flags": [
+        "HIGH -- sis-to-ds: `model` must change from standard to rom for the GPV08 claim.",
+        "sis-to-ds: near-duplicate of content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md, which carries the same GPV08 hash-and-sign claim with hypothesis inhomogeneous-sis (and the wiki also has isis-inhomogeneous-sis-to-sis). Either merge the two, or keep this page as the trapdoor-free Lyu12 edge / the standard-model CHKP10 edge and leave GPV08 on the ISIS page. A third route exists in the graph: sis-to-hash-function-ajt96 followed by hash-function-to-ds.",
+        "sis-to-ds: the migrated bullet on content/Primitives/digital-signature.md is tagged '-- standard' although GPV08 is its canonical citation and already has a reference page; that folklore flag should be replaced by the citation (CLAUDE.md: 'obvious to a working cryptographer' is not folklore).",
+        "sis-to-ds: Lyu12 and CHKP10 need new reference pages (cryptobib EC:Lyubashevsky12, EC:CHKP10).",
+        "VERIFIER -- sis-to-ds: statement and sketch amended. The researcher wrote that a forgery is a short ISIS solution and leaned on ISIS/SIS equivalence; GPV08's reduction instead obtains a collision of the preimage sampleable function — the forgery and the reduction's own programmed preimage of $H(\\mu^*)$ — whose difference is a SIS solution directly, and the theorem is stated as strong unforgeability from collision resistance. Proof shape confirmed via search snippets only (eprint and Peikert's page blocked)."
+      ],
+      "verdict": "amended",
+      "verifier_changes": [
+        "statement: 'a forgery is a short solution to ISIS, which is polynomially equivalent to SIS under mild parameter conditions' → strong unforgeability from collision resistance of z ↦ Az on short inputs, i.e. SIS directly (GPV08's actual theorem); no ISIS detour",
+        "sketch: forgery handling rewritten as GPV08's collision argument (forgery vs. the reduction's own stored preimage; difference is a short nonzero SIS solution) instead of 'a short ISIS solution'",
+        "improvements_text: dropped 'the line of work behind Dilithium' (trailing generality); bullets tightened",
+        "sources: added cryptobib keys and verification provenance; CHKP10 venue completed with LNCS volume and JoC pages from cryptobib",
+        "class_justification / model_justification: shortened"
+      ]
+    }
+  ]
+}
