@@ -1,0 +1,82 @@
+[
+ {
+  "key": "SV03",
+  "ref_file_title": "SV03 - A Complete Problem for Statistical Zero Knowledge",
+  "authors": "Amit Sahai, Salil Vadhan",
+  "venue": "Journal of the ACM 50(2):196-249, 2003",
+  "year": "2003",
+  "url": "https://doi.org/10.1145/636865.636868",
+  "note": "Journal of the ACM 50(2):196-249, 2003 (confirmed via ACM and Harvard search snippets). Preliminary version FOCS 1997; Cryptology ePrint Archive Report 2000/056 (cryptobib key EPRINT:SahVad00). Abstract: gives 'simpler proofs of many of the previously known results about statistical zero knowledge, such as the Fortnow and Aiello–Håstad upper bounds on the complexity of SZK'.",
+  "first_seen": "szk-to-am"
+ },
+ {
+  "key": "Seu12",
+  "ref_file_title": "Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model",
+  "authors": "Yannick Seurin",
+  "venue": "EUROCRYPT 2012",
+  "year": "2012",
+  "url": "https://eprint.iacr.org/2012/029",
+  "note": "Optimality of the forking-lemma loss for algebraic reductions under OMDL. EUROCRYPT 2012, LNCS 7237, pp. 554-571, DOI 10.1007/978-3-642-29011-4_33. Verified in vendor/cryptobib: cryptobib_key EC:Seurin12.",
+  "first_seen": "dlog-to-ds-sch91"
+ },
+ {
+  "key": "Sha90",
+  "ref_file_title": "Sha90 - IP = PSPACE",
+  "authors": "Adi Shamir",
+  "venue": "FOCS 1990",
+  "year": "1990",
+  "url": "https://doi.org/10.1109/FSCS.1990.89519",
+  "note": "Verified against vendor/cryptobib entry FOCS:Shamir90 (FOCS 1990, pp. 11-15, doi 10.1109/FSCS.1990.89519 — suggested cryptobib_key: FOCS:Shamir90). Journal version J. ACM 39(4):869-877, 1992 (doi 10.1145/146585.146609) confirmed by verifier via WebSearch snippet only; cryptobib carries only the FOCS version, so the key follows the FOCS year. Provides IP = PSPACE (the PSPACE ⊆ IP direction). Gives PSPACE ⊆ IP for the converse direction.",
+  "first_seen": "qip-to-ip"
+ },
+ {
+  "key": "Sho01a",
+  "ref_file_title": "Sho01a - OAEP Reconsidered",
+  "authors": "Victor Shoup",
+  "venue": "CRYPTO 2001",
+  "year": "2001",
+  "url": "https://doi.org/10.1007/3-540-44647-8_15",
+  "note": "Verified against vendor/cryptobib C:Shoup01 (CRYPTO 2001, LNCS 2139, pp. 239-259, doi 10.1007/3-540-44647-8_15) and search snippets. Shows OAEP cannot be proved IND-CCA from one-wayness of the trapdoor permutation alone. cryptobib_key: C:Shoup01.",
+  "first_seen": "rsa-to-ind-cca-security"
+ },
+ {
+  "key": "Sho01b",
+  "ref_file_title": "Sho01b - A Proposal for an ISO Standard for Public Key Encryption",
+  "authors": "Victor Shoup",
+  "venue": "Cryptology ePrint Archive, Report 2001/112",
+  "year": "2001",
+  "url": "https://eprint.iacr.org/2001/112",
+  "note": "Verified against vendor/cryptobib EPRINT:Shoup01 and search snippets (shoup.net and eprint are egress-blocked). Defines RSA-KEM (originally 'Simple RSA') and proves it IND-CCA secure in the random oracle model under the RSA assumption; basis of ISO/IEC 18033-2. Suffix b because a second Shoup 2001 paper (OAEP Reconsidered) is also cited. cryptobib_key: EPRINT:Shoup01.",
+  "first_seen": "rsa-to-ind-cca-security"
+ },
+ {
+  "key": "TY98",
+  "ref_file_title": "TY98 - On the Security of ElGamal Based Encryption",
+  "authors": "Yiannis Tsiounis, Moti Yung",
+  "venue": "PKC 1998",
+  "year": "1998",
+  "url": "https://doi.org/10.1007/BFb0054019",
+  "note": "cryptobib: PKC:TsiYun98. WebSearch-confirmed: proves DDH ⇒ semantic security of unmodified ElGamal (messages in the subgroup), the converse, and an exact analysis of the reduction.",
+  "first_seen": "ddh-to-pke-elgamal85"
+ },
+ {
+  "key": "VV84",
+  "ref_file_title": "VV84 - Efficient and Secure Pseudo-Random Number Generation",
+  "authors": "Umesh V. Vazirani, Vijay V. Vazirani",
+  "venue": "CRYPTO 1984, pp. 193–202",
+  "year": "1984",
+  "url": "https://doi.org/10.1007/3-540-39568-7_17",
+  "note": "cryptobib_key: C:VazVaz84 (verified in vendor/cryptobib); FOCS 1984 extended abstract FOCS:VazVaz84, DOI 10.1109/SFCS.1984.715948. Proves the $x^2 \\bmod N$ generator secure assuming only that factoring Blum integers is hard (BBS86 assumed quadratic residuosity) and extracts $O(\\log \\log N)$ bits per squaring.",
+  "first_seen": "factoring-with-known-factor-structure-to-prg"
+ },
+ {
+  "key": "VZ12",
+  "ref_file_title": "VZ12 - Characterizing Pseudoentropy and Simplifying Pseudorandom Generator Constructions",
+  "authors": "Salil Vadhan, Colin Jia Zheng",
+  "venue": "STOC 2012",
+  "year": "2012",
+  "url": "https://doi.org/10.1145/2213977.2214051",
+  "note": "Verified offline in vendor/cryptobib (STOC:VadZhe12, pp. 817-836).",
+  "first_seen": "hash-function-to-prg-hill99"
+ }
+]

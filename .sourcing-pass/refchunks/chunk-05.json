@@ -1,0 +1,82 @@
+[
+ {
+  "key": "BSW12",
+  "ref_file_title": "BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations",
+  "authors": "Dan Boneh, Gil Segev, Brent Waters",
+  "venue": "ITCS 2012",
+  "year": "2012",
+  "url": "https://doi.org/10.1145/2090236.2090264",
+  "note": "Bibliographic data verified against cryptobib ITCS:BonSegWat12 (ITCS 2012, pp. 350-366, DOI 10.1145/2090236.2090264); use `cryptobib_key: ITCS:BonSegWat12`. Key BSW12 does not collide with the existing BSW07 (Bethencourt–Sahai–Waters).",
+  "first_seen": "no-he-to-cca-security"
+ },
+ {
+  "key": "BV11",
+  "ref_file_title": "BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE",
+  "authors": "Zvika Brakerski, Vinod Vaikuntanathan",
+  "venue": "FOCS 2011, pp. 97-106",
+  "year": "2011",
+  "url": "https://eprint.iacr.org/2011/344",
+  "note": "First FHE from plain LWE: relinearization gives a somewhat homomorphic scheme, dimension-modulus reduction makes it bootstrappable; unbounded FHE needs the additional (weak) circular-security assumption. DOI 10.1109/FOCS.2011.12. Verifier: FOCS 2011 listing and eprint number re-confirmed via web search.",
+  "first_seen": "circular-security-and-lwe-to-he"
+ },
+ {
+  "key": "BV15",
+  "ref_file_title": "BV15 - Indistinguishability Obfuscation from Functional Encryption",
+  "authors": "Nir Bitansky, Vinod Vaikuntanathan",
+  "venue": "FOCS 2015",
+  "year": "2015",
+  "url": "https://eprint.iacr.org/2015/163",
+  "note": "Concurrent and independent with AJ15. FOCS 2015, pp. 171-190, DOI 10.1109/FOCS.2015.20; journal version J. ACM 65(6), 2018. cryptobib_key: FOCS:BitVai15 (verified in vendor/cryptobib/crypto.bib).",
+  "first_seen": "fe-to-io"
+ },
+ {
+  "key": "BV97",
+  "ref_file_title": "BV97 - Quantum Complexity Theory",
+  "authors": "Ethan Bernstein, Umesh Vazirani",
+  "venue": "SIAM Journal on Computing 26(5), pp. 1411-1473",
+  "year": "1997",
+  "url": "https://doi.org/10.1137/S0097539796300921",
+  "note": "Verified independently via web search against the DBLP record journals/siamcomp/BernsteinV97 (SIAM J. Comput. 26(5):1411-1473, 1997); the paper establishes BPP ⊆ BQP ⊆ P^#P. DOI is the standard one; doi.org, dblp.org and epubs.siam.org are egress-blocked from this environment. Journal version of the STOC 1993 paper, cited as the literature usually does.",
+  "first_seen": "bpp-to-bqp"
+ },
+ {
+  "key": "BY96",
+  "ref_file_title": "BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation",
+  "authors": "Mihir Bellare, Moti Yung",
+  "venue": "Journal of Cryptology 9(3), 1996",
+  "year": "1996",
+  "url": "https://doi.org/10.1007/s001459900009",
+  "note": "Added by verifier. cryptobib_key: JC:BelYun96 (pp. 149-166); conference version CRYPTO 1992 (C:BelYun92). Removes FLS90's certified-permutation hypothesis for families over bit strings by certifying the index with a NIZK proof. No key collision in existing-refs.txt.",
+  "first_seen": "tdp-to-nizk-bfm88"
+ },
+ {
+  "key": "Bar01",
+  "ref_file_title": "Bar01 - How to Go Beyond the Black-Box Simulation Barrier",
+  "authors": "Boaz Barak",
+  "venue": "FOCS 2001, pages 106-115",
+  "year": "2001",
+  "url": "https://doi.org/10.1109/SFCS.2001.959885",
+  "note": "Bibliographic data verified against the vendored cryptobib FOCS:Barak01 (FOCS 2001, pp. 106-115, DOI 10.1109/SFCS.2001.959885); use `cryptobib_key: FOCS:Barak01`. Abstract (search snippet): assuming collision-resistant hash functions, a zero-knowledge argument for NP that is constant-round with negligible soundness error, public-coin (Arthur–Merlin) and has a strict-polynomial-time non-black-box simulator. Not an improvement of the barrier but its circumvention — the wiki has no 'circumvents' edge type and `role: improvement` is the only slot that creates the reference page. No key collision in existing-refs.txt.",
+  "first_seen": "no-zkp-to-argument-systems"
+ },
+ {
+  "key": "Bea95",
+  "ref_file_title": "Bea95 - Precomputing Oblivious Transfer",
+  "authors": "Donald Beaver",
+  "venue": "CRYPTO 1995",
+  "year": "1995",
+  "url": "https://doi.org/10.1007/3-540-44750-4_8",
+  "note": "Verified against the vendored cryptobib entry C:Beaver95 (pages 97-109, LNCS 963); set cryptobib_key: C:Beaver95 on the new reference page.",
+  "first_seen": "random-ot-to-ot"
+ },
+ {
+  "key": "Bei96",
+  "ref_file_title": "Bei96 - Secure Schemes for Secret Sharing and Key Distribution",
+  "authors": "Amos Beimel",
+  "venue": "D.Sc. thesis, Technion - Israel Institute of Technology",
+  "year": "1996",
+  "url": "https://www.cs.bgu.ac.il/~beimel/pub.html",
+  "note": "Proves the two-way equivalence between LSSS and MSPs (share size = span program size); the standard citation pair for the equivalence is [KW93, Bei96]. Thesis title, institution and year verified via several independent .bib entries; the URL (Beimel's publications page) was not reachable from the verifier environment.",
+  "first_seen": "linear-secret-sharing-schemes-lsss-to-msp"
+ }
+]

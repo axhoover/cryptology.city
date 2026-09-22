@@ -1,0 +1,82 @@
+[
+ {
+  "key": "PS00",
+  "ref_file_title": "PS00 - Security Arguments for Digital Signatures and Blind Signatures",
+  "authors": "David Pointcheval, Jacques Stern",
+  "venue": "Journal of Cryptology 2000",
+  "year": "2000",
+  "url": "https://doi.org/10.1007/s001450010003",
+  "note": "Journal version of PS96; exact-security forking lemma. J. Cryptology 13(3):361-396. Verified in vendor/cryptobib: cryptobib_key JC:PoiSte00.",
+  "first_seen": "dlog-to-ds-sch91"
+ },
+ {
+  "key": "PS96",
+  "ref_file_title": "PS96 - Security Proofs for Signature Schemes",
+  "authors": "David Pointcheval, Jacques Stern",
+  "venue": "EUROCRYPT 1996",
+  "year": "1996",
+  "url": "https://doi.org/10.1007/3-540-68339-9_33",
+  "note": "First proof of EUF-CMA security of Schnorr signatures under DLOG in the ROM (forking lemma). EUROCRYPT '96, LNCS 1070, pp. 387-398. Verified in vendor/cryptobib: cryptobib_key EC:PoiSte96.",
+  "first_seen": "dlog-to-ds-sch91"
+ },
+ {
+  "key": "PW08",
+  "ref_file_title": "PW08 - Lossy trapdoor functions and their applications",
+  "authors": "Chris Peikert, Brent Waters",
+  "venue": "STOC 2008, pp. 187-196",
+  "year": "2008",
+  "url": "https://doi.org/10.1145/1374376.1374406",
+  "note": "Journal version: SIAM J. Comput. 40(6):1803-1844, 2011. Also eprint 2007/279. STOC pages and DOI verified via cryptobib (STOC:PeiWat08); SIAM volume/issue via independent .bib entries.",
+  "first_seen": "lossy-trapdoor-functions-to-pke"
+ },
+ {
+  "key": "Ped91",
+  "ref_file_title": "Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing",
+  "authors": "Torben P. Pedersen",
+  "venue": "CRYPTO 1991",
+  "year": "1991",
+  "url": "https://doi.org/10.1007/3-540-46766-1_9",
+  "note": "cryptobib: C:Pedersen91; proceedings published 1992. The commitment scheme is Section 3 of the VSS paper.",
+  "first_seen": "ddh-to-com"
+ },
+ {
+  "key": "Pei09",
+  "ref_file_title": "Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem",
+  "authors": "Chris Peikert",
+  "venue": "STOC 2009",
+  "year": "2009",
+  "url": "https://doi.org/10.1145/1536414.1536461",
+  "note": "STOC 2009, pp. 333-342; eprint 2008/481. Classical reduction from worst-case GapSVP for modulus q >= 2^{n/2}. cryptobib_key: STOC:Peikert09 (verified in vendor/cryptobib/crypto.bib; cryptobib title carries the suffix ': extended abstract').",
+  "first_seen": "gapsvp-to-lwe-reg05"
+ },
+ {
+  "key": "RB89",
+  "ref_file_title": "RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority",
+  "authors": "Tal Rabin, Michael Ben-Or",
+  "venue": "STOC 1989",
+  "year": "1989",
+  "url": "https://doi.org/10.1145/73007.73014",
+  "note": "STOC 1989, pp. 73-85, DOI 10.1145/73007.73014; cryptobib STOC:RabBen89 (verified). Statistical security against a malicious adversary for t < n/2 given a broadcast channel — the result the migrated prose misattributes to BGW88. Filename matches the one proposed by batch red-33 for the same paper.",
+  "first_seen": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88"
+ },
+ {
+  "key": "RT19",
+  "ref_file_title": "RT19 - Oracle Separation of BQP and PH",
+  "authors": "Ran Raz, Avishay Tal",
+  "venue": "STOC 2019",
+  "year": "2019",
+  "url": "https://doi.org/10.1145/3313276.3316315",
+  "note": "cryptobib STOC:RazTal19 (STOC 2019, pp. 13-23, DOI 10.1145/3313276.3316315); ECCC TR18-107. Bibliographic data verified against cryptobib; the abstract itself could not be fetched (ECCC, ACM DL, Semantic Scholar blocked). Result: a distribution over {+-1}^{2N} distinguished from uniform by a one-query quantum algorithm with advantage Omega(1/log N) but not by quasi-polynomial-size constant-depth circuits, giving an oracle A with BQP^A not in PH^A.",
+  "first_seen": "no-bqp-to-np"
+ },
+ {
+  "key": "Rom90",
+  "ref_file_title": "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+  "authors": "John Rompel",
+  "venue": "STOC 1990",
+  "year": "1990",
+  "url": "https://doi.org/10.1145/100216.100269",
+  "note": "STOC 1990, pp. 387-394; cryptobib STOC:Rompel90 (verified in vendor/cryptobib; DOI matches). The paper's main content is sufficiency (OWF ⇒ DS via UOWHFs); the necessity direction recorded by this edge is the easy one asserted by the title, and the literature cites this paper for the equivalence.",
+  "first_seen": "ds-to-hash-function"
+ }
+]

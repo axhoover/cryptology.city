@@ -1,0 +1,82 @@
+[
+ {
+  "key": "BDK+18",
+  "ref_file_title": "BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM",
+  "authors": "Joppe W. Bos, Léo Ducas, Eike Kiltz, Tancrède Lepoint, Vadim Lyubashevsky, John M. Schanck, Peter Schwabe, Gregor Seiler, Damien Stehlé",
+  "venue": "IEEE EuroS&P 2018",
+  "year": "2018",
+  "url": "https://doi.org/10.1109/EuroSP.2018.00032",
+  "note": "cryptobib_key: EUROSP:BDKLLSSSS18 (verified in vendor/cryptobib/crypto.bib, pp. 353-367). eprint 2017/634. IND-CCA KEM from Module LWE via a Fujisaki-Okamoto variant with implicit rejection; tight in the ROM, non-tight in the QROM.",
+  "first_seen": "module-lwe-to-kem"
+ },
+ {
+  "key": "BDOZ11",
+  "ref_file_title": "BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation",
+  "authors": "Rikke Bendlin, Ivan Damgård, Claudio Orlandi, Sarah Zakarias",
+  "venue": "EUROCRYPT 2011 (LNCS 6632)",
+  "year": "2011",
+  "url": "https://eprint.iacr.org/2010/514",
+  "note": "Earlier: preprocessing from semi-homomorphic (additively homomorphic) encryption, UC-secure against a dishonest majority. Verified offline in vendor/cryptobib: EC:BDOZ11, pp. 169-188; EPRINT 2010/514.",
+  "first_seen": "he-to-mpc-with-preprocessing-spdz-etc"
+ },
+ {
+  "key": "BDPR98",
+  "ref_file_title": "BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes",
+  "authors": "Mihir Bellare, Anand Desai, David Pointcheval, Phillip Rogaway",
+  "venue": "CRYPTO 1998",
+  "year": "1998",
+  "url": "https://doi.org/10.1007/BFb0055718",
+  "note": "cryptobib C:BDPR98 (CRYPTO 1998, LNCS 1462, pp. 26-45). Existence, authors, title and venue confirmed via WebSearch snippets of the Springer chapter page (doi 10.1007/BFb0055718) and the eprint listing 1998/021; the abstract confirms the paper proves implications/separations among IND/NM under CPA, CCA1, CCA2. eprint.iacr.org, arxiv.org, dblp.org, link.springer.com, iacr.org, par.nsf.gov and author sites are egress-blocked this session; bibliographic data verified against vendor/cryptobib and WebSearch result snippets.",
+  "first_seen": "cca-security-to-cca1-security"
+ },
+ {
+  "key": "BFS20",
+  "ref_file_title": "BFS20 - Transparent SNARKs from DARK Compilers",
+  "authors": "Benedikt Bünz, Ben Fisch, Alan Szepieniec",
+  "venue": "Eurocrypt 2020",
+  "year": "2020",
+  "url": "https://eprint.iacr.org/2019/1229",
+  "note": "Concurrent, independent formalization of polynomial IOPs and their compilation with any polynomial commitment; transparent instantiation from groups of unknown order. Verified: cryptobib EC:BunFisSze20 (Eurocrypt 2020, pp. 677-706, DOI 10.1007/978-3-030-45721-1_24), eprint 2019/1229.",
+  "first_seen": "arithmetization-and-pcs-to-snark-kzg10"
+ },
+ {
+  "key": "BG81",
+  "ref_file_title": "BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1",
+  "authors": "Charles H. Bennett, John Gill",
+  "venue": "SIAM Journal on Computing 10(1), pp. 96-113",
+  "year": "1981",
+  "url": "https://doi.org/10.1137/0210008",
+  "note": "Bibliographic data verified via web search (Cambridge Core JSL review listing: SIAM J. Comput. 10 (1981), pp. 96-113; SIAM DOI 10.1137/0210008). Standard secondary sources credit Bennett-Gill with the two-sided-error (BPP) form of Adleman's theorem via a majority-vote ('finite majority rule') argument; the PDF itself was egress-blocked, so a human should confirm the theorem is stated there before the reference page is created. Filename mirrors the existing 'P != NP' sanitization.",
+  "first_seen": "bpp-to-p-poly"
+ },
+ {
+  "key": "BGKPS14",
+  "ref_file_title": "BGKPS14 - Protecting Obfuscation against Algebraic Attacks",
+  "authors": "Boaz Barak, Sanjam Garg, Yael Tauman Kalai, Omer Paneth, Amit Sahai",
+  "venue": "EUROCRYPT 2014",
+  "year": "2014",
+  "url": "https://eprint.iacr.org/2013/631",
+  "note": "VBB security of a simplified branching-program obfuscator in a generic multilinear-map (ideal graded-encoding) model. Verified: cryptobib EC:BGKPS14 (LNCS 8441 pp. 221-238, DOI 10.1007/978-3-642-55220-5_13); eprint 2013/631 and abstract via web search.",
+  "first_seen": "mmap-to-io-gghrsw13"
+ },
+ {
+  "key": "BHK+19",
+  "ref_file_title": "BHK+19 - The SPHINCS+ Signature Framework",
+  "authors": "Daniel J. Bernstein, Andreas Hülsing, Stefan Kölbl, Ruben Niederhagen, Joost Rijneveld, Peter Schwabe",
+  "venue": "ACM CCS 2019",
+  "year": "2019",
+  "url": "https://doi.org/10.1145/3319535.3363229",
+  "note": "Verified offline in vendor/cryptobib: CCS:BHKNRS19, pp. 2129-2146; ePrint 2019/1086. Stateless variant (hypertree + FORS), standardized as SLH-DSA in FIPS 205.",
+  "first_seen": "hash-function-to-hash-based-signatures"
+ },
+ {
+  "key": "BHR12",
+  "ref_file_title": "BHR12 - Foundations of Garbled Circuits",
+  "authors": "Mihir Bellare, Viet Tung Hoang, Phillip Rogaway",
+  "venue": "ACM CCS 2012",
+  "year": "2012",
+  "url": "https://eprint.iacr.org/2012/265",
+  "note": "CCS 2012, pp. 784-796, DOI 10.1145/2382196.2382279. Formalizes garbling schemes as a primitive; its privacy notion suffices for two-party SFE. cryptobib_key: CCS:BelHoaRog12 (verified in vendor/cryptobib/crypto.bib).",
+  "first_seen": "gc-and-ot-to-two-party-computation-2pc"
+ }
+]

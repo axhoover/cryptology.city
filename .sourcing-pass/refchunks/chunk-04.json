@@ -1,0 +1,82 @@
+[
+ {
+  "key": "BHW19",
+  "ref_file_title": "BHW19 - Permuted Puzzles and Cryptographic Hardness",
+  "authors": "Elette Boyle, Justin Holmgren, Mor Weiss",
+  "venue": "TCC 2019",
+  "year": "2019",
+  "url": "https://eprint.iacr.org/2019/1256",
+  "note": "Verified independently via web search: TCC 2019, LNCS 11892, pp. 465-493, Springer DOI 10.1007/978-3-030-36033-7_18; eprint 2019/1256. Initiates the formal study of permuted-puzzle problems, the framework capturing the BIPW17 conjecture (and the source of this page's hypothesis name).",
+  "first_seen": "permuted-puzzles-to-depir-bipw17"
+ },
+ {
+  "key": "BLPRS13",
+  "ref_file_title": "BLPRS13 - Classical Hardness of Learning with Errors",
+  "authors": "Zvika Brakerski, Adeline Langlois, Chris Peikert, Oded Regev, Damien Stehlé",
+  "venue": "STOC 2013",
+  "year": "2013",
+  "url": "https://doi.org/10.1145/2488608.2488680",
+  "note": "STOC 2013, pp. 575-584; arXiv:1306.0281. Classical hardness with polynomial modulus via modulus-dimension switching. cryptobib_key: STOC:BLPRS13 (verified in vendor/cryptobib/crypto.bib).",
+  "first_seen": "gapsvp-to-lwe-reg05"
+ },
+ {
+  "key": "BLS01",
+  "ref_file_title": "BLS01 - Short Signatures from the Weil Pairing",
+  "authors": "Dan Boneh, Ben Lynn, Hovav Shacham",
+  "venue": "ASIACRYPT 2001, LNCS 2248, pp. 514-532",
+  "year": "2001",
+  "url": "https://doi.org/10.1007/3-540-45682-1_30",
+  "note": "Introduces BLS signatures; EUF-CMA in the ROM under CDH in gap Diffie-Hellman groups. Verifier: title, authors, venue and LNCS volume re-confirmed via web search (Springer and iacr.org archive blocked by proxy).",
+  "first_seen": "co-cdh-to-ds"
+ },
+ {
+  "key": "BLS04",
+  "ref_file_title": "BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)",
+  "authors": "Dan Boneh, Ben Lynn, Hovav Shacham",
+  "venue": "Journal of Cryptology 17(4), pp. 297-319",
+  "year": "2004",
+  "url": "https://doi.org/10.1007/s00145-004-0314-9",
+  "note": "Journal version: general co-GDH group pairs $(\\GG_1, \\GG_2)$ with isomorphism $\\psi$, the co-CDH formulation, and the bound $\\varepsilon \\ge e(q_S+1)\\varepsilon'$. Same title as BLS01; filename disambiguated with a venue suffix. Verifier: journal, volume, issue, pages re-confirmed via web search.",
+  "first_seen": "co-cdh-to-ds"
+ },
+ {
+  "key": "BN00",
+  "ref_file_title": "BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm",
+  "authors": "Mihir Bellare, Chanathip Namprempre",
+  "venue": "ASIACRYPT 2000 (LNCS 1976)",
+  "year": "2000",
+  "url": "https://eprint.iacr.org/2000/025",
+  "note": "Canonical citation for encrypt-then-MAC (CPA-secure SKE + strongly unforgeable MAC ⇒ IND-CCA). Verified offline in vendor/cryptobib: AC:BelNam00, pp. 531-545, DOI 10.1007/3-540-44448-3_41; EPRINT:BelNam00 = 2000/025.",
+  "first_seen": "hash-function-to-ske"
+ },
+ {
+  "key": "BP02",
+  "ref_file_title": "BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks",
+  "authors": "Mihir Bellare, Adriana Palacio",
+  "venue": "CRYPTO 2002",
+  "year": "2002",
+  "url": "https://doi.org/10.1007/3-540-45708-9_11",
+  "note": "Active and concurrent impersonation security under the one-more discrete logarithm assumption; Reset Lemma. CRYPTO 2002, LNCS 2442, pp. 162-177. Verified in vendor/cryptobib: cryptobib_key C:BelPal02.",
+  "first_seen": "dlog-to-schnorr-signatures-sch91"
+ },
+ {
+  "key": "BR06",
+  "ref_file_title": "BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs",
+  "authors": "Mihir Bellare, Phillip Rogaway",
+  "venue": "Eurocrypt 2006",
+  "year": "2006",
+  "url": "https://doi.org/10.1007/11761679_25",
+  "note": "Verified against vendor/cryptobib entry EC:BelRog06 (EUROCRYPT 2006, pp. 409-426, doi 10.1007/11761679_25 — suggested cryptobib_key: EC:BelRog06). Full version eprint 2004/331 under the title 'Code-Based Game-Playing Proofs and the Security of Triple Encryption' (confirmed via WebSearch snippet). Names the PRP/PRF Switching Lemma, exhibits the conditioning flaw in the standard proof (observed by Kohno), and gives the game-playing proof with bound $q(q-1)/2^{n+1}$.",
+  "first_seen": "prp-to-prf"
+ },
+ {
+  "key": "BR94",
+  "ref_file_title": "BR94 - Optimal Asymmetric Encryption",
+  "authors": "Mihir Bellare, Phillip Rogaway",
+  "venue": "EUROCRYPT 1994",
+  "year": "1994",
+  "url": "https://doi.org/10.1007/BFb0053428",
+  "note": "Verified against vendor/cryptobib EC:BelRog94 (EUROCRYPT 1994, LNCS 950, pp. 92-111, doi 10.1007/BFb0053428; cryptobib records the proceedings year as 1995, the literature cites BR94). Introduces OAEP. Role improvement rather than original: BR94's IND-CCA argument is incomplete (Sho01a) and the RSA-OAEP result is FOPS01. cryptobib_key: EC:BelRog94.",
+  "first_seen": "rsa-to-ind-cca-security"
+ }
+]

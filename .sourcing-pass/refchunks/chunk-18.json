@@ -1,0 +1,82 @@
+[
+ {
+  "key": "Val08",
+  "ref_file_title": "Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency",
+  "authors": "Paul Valiant",
+  "venue": "TCC 2008, LNCS 4948, pp. 1-18",
+  "year": "2008",
+  "url": "https://doi.org/10.1007/978-3-540-78524-8_1",
+  "note": "Exact title uses a slash ('Time/Space'); removed in the filename. Verified against vendor/cryptobib TCC:Valiant08 (LNCS 4948, pp. 1-18, DOI 10.1007/978-3-540-78524-8_1) and web-search snippets (Springer/IACR hosts blocked). Introduces IVC as a composable proof system: two proofs of length k merge into a proof of the conjunction of length k; built on CS proofs of knowledge. TCC 2019 Test-of-Time award. cryptobib_key: TCC:Valiant08.",
+  "first_seen": "snark-to-recursive-snarks"
+ },
+ {
+  "key": "Ver92",
+  "ref_file_title": "Ver92 - On the Power of PP",
+  "authors": "Nikolai K. Vereshchagin",
+  "venue": "Structure in Complexity Theory Conference 1992",
+  "year": "1992",
+  "url": "https://doi.org/10.1109/SCT.1992.215389",
+  "note": "Proc. 7th Annual Structure in Complexity Theory Conference, IEEE, 1992, pp. 138-143. Proves MA ⊆ PP and gives an oracle relative to which AM ⊄ PP. Not in cryptobib; needs inline bibtex.",
+  "first_seen": "ma-to-pp"
+ },
+ {
+  "key": "Vya03",
+  "ref_file_title": "Vya03 - QMA=PP implies that PP contains PH",
+  "authors": "Mikhail N. Vyalyi",
+  "venue": "ECCC TR03-021",
+  "year": "2003",
+  "url": "https://eccc.weizmann.ac.il/report/2003/021/",
+  "note": "Proves the stronger QMA ⊆ A0PP ⊆ PP; per the Vidick–Watrous survey this is the first written proof of the containment (KW00 state it without proof). Confirmed only via ECCC search-result snippet (title, author, report number, abstract); eccc.weizmann.ac.il is blocked. Not in cryptobib; inline bibtex.",
+  "first_seen": "qma-to-pp"
+ },
+ {
+  "key": "WW24",
+  "ref_file_title": "WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation",
+  "authors": "Brent Waters, David J. Wu",
+  "venue": "STOC 2024",
+  "year": "2024",
+  "url": "https://doi.org/10.1145/3618260.3649671",
+  "note": "cryptobib STOC:WatWu24 (STOC 2024, pp. 387-398, DOI 10.1145/3618260.3649671); ePrint 2024/165. Abstract verified via search snippet: first adaptively-sound SNARG for NP in the plain model from sub-exponentially-hard iO, sub-exponentially-hard one-way functions, and polynomial hardness of discrete log or factoring; the abstract reads GW11 as requiring 'sub-exponential hardness (and complexity leveraging)'.",
+  "first_seen": "no-falsifiable-assumption-to-snark-gro16"
+ },
+ {
+  "key": "Wat02",
+  "ref_file_title": "Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge",
+  "authors": "John Watrous",
+  "venue": "FOCS 2002",
+  "year": "2002",
+  "url": "https://doi.org/10.1109/SFCS.2002.1181970",
+  "note": "Verified in vendor/cryptobib/crypto.bib as FOCS:Watrous02 (pp. 459-470, doi 10.1109/SFCS.2002.1181970). NB cryptobib's title field has a typo ('imits on the Power...'); the reference page must use the correct title. Preprint arXiv:quant-ph/0202111, 'Quantum statistical zero-knowledge'. Abstract (search snippets): defines honest-verifier QSZK, proves the quantum state distinguishability problem complete for it, closure under complement, two-message parallelization, and containment in PSPACE.",
+  "first_seen": "szk-to-qszk"
+ },
+ {
+  "key": "Wat06",
+  "ref_file_title": "Wat06 - Zero-knowledge against quantum attacks",
+  "authors": "John Watrous",
+  "venue": "STOC 2006",
+  "year": "2006",
+  "url": "https://doi.org/10.1145/1132516.1132560",
+  "note": "Verified in vendor/cryptobib/crypto.bib as STOC:Watrous06 (pp. 296-305, doi 10.1145/1132516.1132560); preprint arXiv:quant-ph/0511020; journal version SIAM J. Comput. 39(1):25-58, 2009. The key Wat09 is NOT usable: content/References/Wat09 - Dual System Encryption... is Waters 2009. Abstract (search snippets): quantum rewinding; 'establishes that honest verifier and general quantum statistical zero-knowledge are equal: QSZK = HVQSZK'.",
+  "first_seen": "szk-to-qszk"
+ },
+ {
+  "key": "Wee24",
+  "ref_file_title": "Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices",
+  "authors": "Hoeteck Wee",
+  "venue": "CRYPTO 2024",
+  "year": "2024",
+  "url": "https://doi.org/10.1007/978-3-031-68382-4_6",
+  "note": "cryptobib key C:Wee24 (title, author, pages 178-209, CRYPTO 2024 Part III, LNCS 14922, DOI verified in vendor/cryptobib/crypto.bib; Springer/eprint 2024/1416 records confirmed via search snippets). Prior work, not a follow-up: role 'improvement' only because the schema has no 'prior' role. Introduces the l-succinct LWE assumption; abstract: 'a falsifiable assumption which is implied by evasive LWE'. Needed as the origin of the assumption and as the source for the evasive-LWE => succinct-LWE edge.",
+  "first_seen": "succinct-lwe-to-abe-wee25"
+ },
+ {
+  "key": "Yao82a",
+  "ref_file_title": "Yao82a - Theory and Applications of Trapdoor Functions",
+  "authors": "Andrew C. Yao",
+  "venue": "FOCS 1982",
+  "year": "1982",
+  "url": "https://doi.org/10.1109/SFCS.1982.45",
+  "note": "Next-bit test characterization of pseudorandomness; PRGs from any one-way permutation. FOCS 1982, pp. 80-91. Key suffixed 'a' because the wiki's existing Yao82 is a different paper (Protocols for secure computations); cryptobib itself uses FOCS:Yao82a for this paper and FOCS:Yao82b for the other. Verified in vendor/cryptobib: cryptobib_key FOCS:Yao82a (cryptobib title carries '(Extended Abstract)', dropped in the filename as elsewhere in the wiki).",
+  "first_seen": "dlog-to-prg-bm84"
+ }
+]

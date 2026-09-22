@@ -1,0 +1,82 @@
+[
+ {
+  "key": "MW05",
+  "ref_file_title": "MW05 - Quantum Arthur-Merlin games",
+  "authors": "Chris Marriott, John Watrous",
+  "venue": "Computational Complexity 14(2):122-152, 2005 (conference version: CCC 2004)",
+  "year": "2005",
+  "url": "https://doi.org/10.1007/s00037-005-0194-x",
+  "note": "Abstract: strong error reduction for QMA yields 'a simple proof that QMA ⊆ PP'. Not in cryptobib (non-IACR venue); create the reference page with inline bibtex. Bibliographic data (journal, volume, issue, pages, year) confirmed only via ACM/Springer search-result snippets: dl.acm.org, link.springer.com, arXiv (cs/0506068) and cs.uwaterloo.ca are all blocked by the egress proxy.",
+  "first_seen": "qma-to-pp"
+ },
+ {
+  "key": "NP99",
+  "ref_file_title": "NP99 - Oblivious transfer and polynomial evaluation",
+  "authors": "Moni Naor, Benny Pinkas",
+  "venue": "STOC 1999, 245-254",
+  "year": "1999",
+  "url": "https://doi.org/10.1145/301250.301312",
+  "note": "cryptobib_key: STOC:NaoPin99 (verified in vendor/cryptobib: STOC 1999, pp. 245-254, DOI 10.1145/301250.301312). Abstract (via search snippets): 1-out-of-N OT from log N invocations of 1-out-of-2 OT, and as a direct corollary an efficient transformation of any PIR into SPIR without increasing the number of databases.",
+  "first_seen": "symmetric-private-information-retrieval-single-server-to-ot"
+ },
+ {
+  "key": "NR99",
+  "ref_file_title": "NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited",
+  "authors": "Moni Naor, Omer Reingold",
+  "venue": "Journal of Cryptology 12(1)",
+  "year": "1999",
+  "url": "https://doi.org/10.1007/PL00003817",
+  "note": "cryptobib JC:NaoRei99 (J. Cryptology 12(1):29-66, 1999, doi 10.1007/PL00003817). Existence, authors, title, venue and the two-round-plus-pairwise-independent-permutations result confirmed via WebSearch snippets of the Springer article page and DBLP (journals/joc/NaorR99). eprint.iacr.org, arxiv.org, dblp.org, link.springer.com, iacr.org, par.nsf.gov and author sites are egress-blocked this session; bibliographic data verified against vendor/cryptobib and WebSearch result snippets.",
+  "first_seen": "prf-to-prp-lr88"
+ },
+ {
+  "key": "NS98",
+  "ref_file_title": "NS98 - A New Public Key Cryptosystem Based on Higher Residues",
+  "authors": "David Naccache, Jacques Stern",
+  "venue": "ACM CCS 1998",
+  "year": "1998",
+  "url": "https://doi.org/10.1145/288090.288106",
+  "note": "CCS 1998, pp. 59-66, DOI 10.1145/288090.288106; cryptobib CCS:NacSte98 (verified). Deterministic and probabilistic variants with smooth exponent.",
+  "first_seen": "higher-residuosity-to-pke"
+ },
+ {
+  "key": "NY89",
+  "ref_file_title": "NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications",
+  "authors": "Moni Naor, Moti Yung",
+  "venue": "STOC 1989",
+  "year": "1989",
+  "url": "https://doi.org/10.1145/73007.73011",
+  "note": "STOC 1989, pp. 33-43. Universal one-way (target-collision-resistant) hash functions, built from any one-to-one OWF, suffice for many-time signatures. cryptobib_key: STOC:NaoYun89 (verified in vendor/cryptobib/crypto.bib).",
+  "first_seen": "hash-function-and-hash-based-signatures-to-ds-mer89"
+ },
+ {
+  "key": "OW93",
+  "ref_file_title": "OW93 - One-way functions are essential for non-trivial zero-knowledge",
+  "authors": "Rafail Ostrovsky, Avi Wigderson",
+  "venue": "ISTCS 1993 (2nd Israel Symposium on Theory of Computing and Systems), pp. 3-17",
+  "year": "1993",
+  "url": "https://doi.org/10.1109/ISTCS.1993.253489",
+  "note": "Verified by the verifier against vendor/cryptobib/crypto.bib entry ISTCS:OstWig93 (authors, pages 3-17, year 1993, DOI 10.1109/ISTCS.1993.253489 all match); use cryptobib_key: ISTCS:OstWig93 on the reference page. The cryptobib entry misspells the title as 'One-Way Fuctions ...'; the correct title is 'One-Way Functions are Essential for Non-Trivial Zero-Knowledge'. IAS, DBLP, and IEEE hosts are blocked by the egress proxy; the theorem statement (auxiliary-input OWF from a ZK proof for a language outside BPP; standard OWF when the language is hard on average) was confirmed only through search snippets of citing papers (HN24 abstract, Liu-Mazor eprint 2024/800, Vadhan SICOMP 2006).",
+  "first_seen": "zkp-to-hash-function"
+ },
+ {
+  "key": "PR06",
+  "ref_file_title": "PR06 - Efficient Collision-Resistant Hashing from Worst-Case Assumptions on Cyclic Lattices",
+  "authors": "Chris Peikert, Alon Rosen",
+  "venue": "TCC 2006",
+  "year": "2006",
+  "url": "https://doi.org/10.1007/11681878_8",
+  "note": "TCC 2006, LNCS 3876, pp. 145-166, DOI 10.1007/11681878_8; cryptobib TCC:PeiRos06 (verified). Independent, concurrent work: collision resistance from worst-case assumptions on cyclic lattices (f = x^n - 1).",
+  "first_seen": "ideal-svp-to-ring-sis-lm06"
+ },
+ {
+  "key": "PRS17",
+  "ref_file_title": "PRS17 - Pseudorandomness of Ring-LWE for Any Ring and Modulus",
+  "authors": "Chris Peikert, Oded Regev, Noah Stephens-Davidowitz",
+  "venue": "STOC 2017",
+  "year": "2017",
+  "url": "https://eprint.iacr.org/2017/258",
+  "note": "STOC 2017, pp. 461-473, DOI 10.1145/3055399.3055489; cryptobib STOC:PeiRegSte17 (verified). Direct quantum reduction from worst-case ideal-lattice problems to decision Ring-LWE, for any number field and any modulus.",
+  "first_seen": "ideal-svp-to-ring-lwe-lpr10"
+ }
+]

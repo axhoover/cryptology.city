@@ -95,7 +95,7 @@ const results = await pipeline(
 
 Read ${SCRATCH}/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a finished reduction page's Notes style.
 
-Batch id: ${id}. Verified file: ${SCRATCH}/verified/${id}.json. Page list (ground truth): the entry with "id": "${id}" in ${SCRATCH}/batches.json. Reference filename map: ${REFMAP}.
+Batch id: ${id}. Verified file: ${SCRATCH}/verified/${id}.json. Page list (ground truth): the entry with "id": "${id}" in ${SCRATCH}/batches.json. Reference filename map: ${REFMAP}. Explicit overrides: ${SCRATCH}/overrides.json.
 
 Edit ONLY the pages in your batch. Run node scripts/lint.mjs on them when done and fix errors in your files. Do not commit. Return the structured summary.`,
         { label: `edit:${id}`, phase: 'Edit', schema: EDIT_SUMMARY, model: 'opus' },

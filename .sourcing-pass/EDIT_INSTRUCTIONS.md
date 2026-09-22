@@ -47,9 +47,24 @@ it as `[[<ref_file_title>|<key>]]` from your batch file.
     do NOT go in `source:` — they are cited in the Notes body.
 - `security-loss`: set if the entry's `security_loss` is non-empty, else
   leave as-is.
-- Barrier pages: same rules; barriers have `consequences`/`strength` —
-  leave both unchanged unless a flag in the entry says otherwise. The `class`
-  of a barrier is the class being ruled out.
+- Barrier pages: same rules; barriers have no `model` field (do not add
+  one). Leave `strength` and `conditional-on` unchanged. The `class` of a
+  barrier is the class being ruled out. When the entry's `class` differs
+  from the page's current `class`, ALSO: (a) in `consequences`, every entry
+  whose `class` equals the OLD page class gets the NEW class; (b) rewrite
+  `title` and the H1 to the house pattern — `No <class> reduction from A to
+  B` for a named class (e.g. `No relativizing reduction from Hash function
+  to PKE`), and `No reduction from A to B` when the class is `free` or
+  `unstated` — keeping the A/B display text the page already uses; (c) make
+  the one-line prose under the H1 name the same class.
+
+## Explicit overrides
+
+`overrides.json` (same directory as refmap; path in your prompt) lists a few
+pages with exact frontmatter/H1 values the coordinator decided on
+(hypotheses, title, H1). If your batch contains one of these slugs, apply
+those values verbatim in addition to everything else, and mention the
+change in one Notes bullet ending with the override's `reason`.
 
 ## Body rewrite
 

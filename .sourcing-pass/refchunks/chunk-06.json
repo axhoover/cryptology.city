@@ -1,0 +1,82 @@
+[
+ {
+  "key": "Ben94",
+  "ref_file_title": "Ben94 - Dense Probabilistic Encryption",
+  "authors": "Josh Benaloh",
+  "venue": "SAC 1994 (Workshop on Selected Areas of Cryptography)",
+  "year": "1994",
+  "url": "https://www.microsoft.com/en-us/research/publication/dense-probabilistic-encryption/",
+  "note": "SAC 1994, pp. 120-128. The 'Benaloh cryptosystem': dense variant with expansion arbitrarily close to 1. NOT in cryptobib (SAC 1994 has no LNCS volume) and web verification was blocked; existence is attested by the verified title of FLA11 ('Benaloh's Dense Probabilistic Encryption Revisited'). HUMAN CHECK the venue/pages before creating the page.",
+  "first_seen": "higher-residuosity-to-pke"
+ },
+ {
+  "key": "CCD88",
+  "ref_file_title": "CCD88 - Multiparty Unconditionally Secure Protocols",
+  "authors": "David Chaum, Claude Crépeau, Ivan Damgård",
+  "venue": "STOC 1988",
+  "year": "1988",
+  "url": "https://doi.org/10.1145/62212.62214",
+  "note": "STOC 1988, pp. 11-19, DOI 10.1145/62212.62214; cryptobib STOC:ChaCreDam88 (verified). Independent, concurrent proof of unconditional MPC feasibility for t < n/3 (with exponentially small error).",
+  "first_seen": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88"
+ },
+ {
+  "key": "CF85",
+  "ref_file_title": "CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme",
+  "authors": "Josh D. Cohen, Michael J. Fischer",
+  "venue": "FOCS 1985",
+  "year": "1985",
+  "url": "https://doi.org/10.1109/SFCS.1985.2",
+  "note": "FOCS 1985, pp. 372-382, DOI 10.1109/SFCS.1985.2; cryptobib FOCS:CohFis85 (verified in vendor/cryptobib). First PKE from d-th power (prime) residuosity, generalizing GM84; Josh D. Cohen = Josh Benaloh.",
+  "first_seen": "higher-residuosity-to-pke"
+ },
+ {
+  "key": "CHKP10",
+  "ref_file_title": "CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis",
+  "authors": "David Cash, Dennis Hofheinz, Eike Kiltz, Chris Peikert",
+  "venue": "EUROCRYPT 2010, LNCS 6110, 523-552 (Journal of Cryptology 25(4) 601-639, 2012)",
+  "year": "2010",
+  "url": "https://doi.org/10.1007/978-3-642-13190-5_27",
+  "note": "cryptobib_key: EC:CHKP10 (verified in vendor/cryptobib: EUROCRYPT 2010, pp. 523-552, DOI 10.1007/978-3-642-13190-5_27; journal JC:CHKP12 pp. 601-639; eprint 2010/591). Contribution used here: stateless hash-and-sign signatures from SIS in the standard model.",
+  "first_seen": "sis-to-ds"
+ },
+ {
+  "key": "CHM+20",
+  "ref_file_title": "CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS",
+  "authors": "Alessandro Chiesa, Yuncong Hu, Mary Maller, Pratyush Mishra, Psi Vesely, Nicholas P. Ward",
+  "venue": "Eurocrypt 2020",
+  "year": "2020",
+  "url": "https://eprint.iacr.org/2019/1047",
+  "note": "States the compiler (algebraic holographic proof + extractable polynomial commitment => preprocessing SNARK, Fiat–Shamir in the ROM) as an explicit theorem; concurrent with BFS20 and GWC19. Verified: cryptobib EC:CHM+20 (Eurocrypt 2020, pp. 738-768), DBLP conf/eurocrypt/ChiesaHMMVW20, eprint 2019/1047.",
+  "first_seen": "arithmetization-and-pcs-to-snark-kzg10"
+ },
+ {
+  "key": "CL18",
+  "ref_file_title": "CL18 - Certifying Trapdoor Permutations, Revisited",
+  "authors": "Ran Canetti, Amit Lichtenberg",
+  "venue": "TCC 2018",
+  "year": "2018",
+  "url": "https://doi.org/10.1007/978-3-030-03807-6_18",
+  "note": "cryptobib_key: TCC:CanLic18 (LNCS 11239, pp. 476-506). eprint 2017/631. Verifier: abstract confirmed via search snippets — identifies a gap in doubly enhanced TDPs regarding domain recognition and sampling, proposes 'certifiable injectivity', shows it suffices for the FLS paradigm even for trapdoor functions, and instantiates it from iO plus injective PRGs.",
+  "first_seen": "tdp-to-nizk-bfm88"
+ },
+ {
+  "key": "CMS99",
+  "ref_file_title": "CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication",
+  "authors": "Christian Cachin, Silvio Micali, Markus Stadler",
+  "venue": "EUROCRYPT 1999",
+  "year": "1999",
+  "url": "https://doi.org/10.1007/3-540-48910-X_28",
+  "note": "cryptobib EC:CacMicSta99, pp. 402-414 (verified in vendor/cryptobib). Introduces the Phi-hiding assumption and builds the first single-server PIR with polylogarithmic total communication from it.",
+  "first_seen": "hiding-to-cpir"
+ },
+ {
+  "key": "CRRV17",
+  "ref_file_title": "CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption",
+  "authors": "Ran Canetti, Srinivasan Raghuraman, Silas Richelson, Vinod Vaikuntanathan",
+  "venue": "PKC 2017",
+  "year": "2017",
+  "url": "https://doi.org/10.1007/978-3-662-54388-7_8",
+  "note": "Bibliographic data verified against cryptobib PKC:CRRV17 (PKC 2017 part II, pp. 213-240, DOI 10.1007/978-3-662-54388-7_8); use `cryptobib_key: PKC:CRRV17` on the reference page. Content (three IND-CCA1 FHE constructions: from multi-key identity-based FHE, from sub-exponentially secure iO, from SNARKs) rests on the verifier's knowledge; the paper could not be fetched.",
+  "first_seen": "no-he-to-cca-security"
+ }
+]

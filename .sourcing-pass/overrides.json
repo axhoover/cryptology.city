@@ -1,0 +1,26 @@
+{
+  "_note": "Explicit frontmatter/H1 overrides the editor applies IN ADDITION to the verified entry. Keys are page slugs. Each override lists exact field values; anything not listed is governed by EDIT_INSTRUCTIONS.md.",
+  "lwe-to-depir-lmw23": {
+    "hypotheses": "[ring-lwe]",
+    "title": "\"Ring-LWE ⇒ DEPIR\"",
+    "h1": "# Ring-LWE ⇒ DEPIR",
+    "reason": "LMW23 prove security under Ring-LWE (title and abstract); ring-lwe is a declared variant id on the LWE page."
+  },
+  "lwe-to-de-ram-mpc-lmw24": {
+    "hypotheses": "[ring-lwe]",
+    "title": "\"Ring-LWE ⇒ DE-RAM-MPC\"",
+    "h1": "# Ring-LWE ⇒ DE-RAM-MPC",
+    "reason": "LMW24 instantiate from Ring-LWE via the LMW23 DEPIR; the abstract names no plain-LWE instantiation."
+  },
+  "succinct-lwe-to-lwe": {
+    "title": "\"Succinct LWE ⇒ LWE\"",
+    "h1": "# Succinct LWE ⇒ LWE",
+    "reason": "kind becomes implication (only ℓ = 1 is equivalent to LWE); title and H1 must drop ⇔."
+  },
+  "ss-to-it-pir-cgks98": {
+    "hypotheses": "[linear-secret-sharing-scheme]",
+    "title": "\"Linear SS ⇒ IT-PIR\"",
+    "h1": "# Linear SS ⇒ IT-PIR",
+    "reason": "CGKS98 need the servers' answers to be linear in the database; linear-secret-sharing-scheme is a declared variant id on the secret-sharing page."
+  }
+}

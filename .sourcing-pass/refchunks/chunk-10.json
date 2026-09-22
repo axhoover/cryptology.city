@@ -1,0 +1,82 @@
+[
+ {
+  "key": "GGM84",
+  "ref_file_title": "GGM84 - On the Cryptographic Applications of Random Functions",
+  "authors": "Oded Goldreich, Shafi Goldwasser, Silvio Micali",
+  "venue": "CRYPTO 1984",
+  "year": "1984",
+  "url": "https://doi.org/10.1007/3-540-39568-7_22",
+  "note": "cryptobib C:GolGolMic84 (CRYPTO 1984, LNCS 196, pp. 276-288, doi 10.1007/3-540-39568-7_22). Springer chapter page (via WebSearch snippet) lists among the paper's applications 'constructing deterministic, memoryless authentication schemes which are provably secure against chosen message attack' — i.e. the PRF-based MAC. Extended abstract; distinct from the JACM paper GGM86 (PRF from PRG), which the wiki already has. eprint.iacr.org, arxiv.org, dblp.org, link.springer.com, iacr.org, par.nsf.gov and author sites are egress-blocked this session; bibliographic data verified against vendor/cryptobib and WebSearch result snippets.",
+  "first_seen": "prf-to-mac"
+ },
+ {
+  "key": "GHR99",
+  "ref_file_title": "GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle",
+  "authors": "Rosario Gennaro, Shai Halevi, Tal Rabin",
+  "venue": "EUROCRYPT 1999",
+  "year": "1999",
+  "url": "https://doi.org/10.1007/3-540-48910-X_9",
+  "note": "cryptobib key EC:GenHalRab99 (title, authors, pages 123-139, LNCS 1592, DOI verified in vendor/cryptobib/crypto.bib; Springer record confirmed via search snippets). Concurrent and independent with CS99, NOT a follow-up: role 'improvement' only because the schema has no 'concurrent' role. Assumes strong RSA together with a division-intractable hash function, so its hypothesis set differs from this edge's.",
+  "first_seen": "strong-rsa-to-ds"
+ },
+ {
+  "key": "GR05",
+  "ref_file_title": "GR05 - Single-Database Private Information Retrieval with Constant Communication Rate",
+  "authors": "Craig Gentry, Zulfikar Ramzan",
+  "venue": "ICALP 2005",
+  "year": "2005",
+  "url": "https://doi.org/10.1007/11523468_65",
+  "note": "cryptobib ICALP:GenRam05, pp. 803-815, DOI 10.1007/11523468_65 (verified in vendor/cryptobib). Constant communication rate single-database PIR; per its abstract (search snippet) the composite-modulus instantiation rests on 'a simple variant of the Phi-hiding assumption'.",
+  "first_seen": "hiding-to-cpir"
+ },
+ {
+  "key": "GS08",
+  "ref_file_title": "GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups",
+  "authors": "Jens Groth, Amit Sahai",
+  "venue": "EUROCRYPT 2008",
+  "year": "2008",
+  "url": "https://doi.org/10.1007/978-3-540-78967-3_24",
+  "note": "Verified in vendor/cryptobib/crypto.bib as EC:GroSah08 (EUROCRYPT 2008, LNCS 4965, pp. 415-432, doi 10.1007/978-3-540-78967-3_24); eprint version EPRINT:GroSah07, Report 2007/155. Use cryptobib_key: EC:GroSah08. IACR Test-of-Time award 2023 (search snippets).",
+  "first_seen": "sxdh-symmetric-external-diffie-hellman-to-nizk"
+ },
+ {
+  "key": "GSW13",
+  "ref_file_title": "GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based",
+  "authors": "Craig Gentry, Amit Sahai, Brent Waters",
+  "venue": "CRYPTO 2013",
+  "year": "2013",
+  "url": "https://eprint.iacr.org/2013/340",
+  "note": "Approximate-eigenvector FHE from LWE; no evaluation key. Springer DOI 10.1007/978-3-642-40041-4_5. Verifier: title, authors, venue and DOI re-confirmed via web search.",
+  "first_seen": "circular-security-and-lwe-to-he"
+ },
+ {
+  "key": "GW11",
+  "ref_file_title": "GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions",
+  "authors": "Craig Gentry, Daniel Wichs",
+  "venue": "STOC 2011",
+  "year": "2011",
+  "url": "https://doi.org/10.1145/1993636.1993651",
+  "note": "cryptobib STOC:GenWic11 (STOC 2011, pp. 99-108, DOI 10.1145/1993636.1993651); ePrint 2010/610. Abstract verified verbatim via the Microsoft Research mirror: 'black-box reductions cannot be used to prove the security of any SNARG construction based on any falsifiable cryptographic assumption ... extends to designated verifier SNARGs ... and slightly succinct SNARGs, whose size is only required to be sub-linear in the statement and witness size.' The 'sub-exponentially hard subset-membership problem' qualifier is from the paper's main theorem, not its abstract; the paper text could not be fetched (eprint, ACM DL blocked). WW24's abstract snippet independently reads GW11 as requiring sub-exponential hardness.",
+  "first_seen": "no-falsifiable-assumption-to-snark-gro16"
+ },
+ {
+  "key": "GWC19",
+  "ref_file_title": "GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge",
+  "authors": "Ariel Gabizon, Zachary J. Williamson, Oana Ciobotaru",
+  "venue": "Cryptology ePrint Archive 2019",
+  "year": "2019",
+  "url": "https://eprint.iacr.org/2019/953",
+  "note": "Concurrent: Plonk, the system named in the migrated text. Verified: cryptobib EPRINT:GabWilCio19, DBLP journals/iacr/GabizonWC19, eprint 2019/953.",
+  "first_seen": "arithmetization-and-pcs-to-snark-kzg10"
+ },
+ {
+  "key": "Gil77",
+  "ref_file_title": "Gil77 - Computational complexity of probabilistic Turing machines",
+  "authors": "John Gill",
+  "venue": "SIAM Journal on Computing 6(4), pp. 675-695",
+  "year": "1977",
+  "url": "https://dblp.org/rec/journals/siamcomp/Gill77.html",
+  "note": "Defines PP (with BPP and ZPP). Bibliographic data confirmed via the DBLP search snippet (SIAM J. Comput. 6(4): 675-695, 1977). The attribution of NP ⊆ PP to this paper rests on search snippets (Complexity Zoo 'Defined in [Gil77]', a historical survey crediting Gill with NP ⊆ PP and closure under complement); DBLP, doi.org, Wikipedia and Zoo mirrors are egress-blocked. Not in cryptobib.",
+  "first_seen": "np-to-pp"
+ }
+]

@@ -1,0 +1,513 @@
+{
+ "dispositions": {
+  "sourced": 208,
+  "folklore": 83,
+  "wrong_claim": 84,
+  "undetermined": 5
+ },
+ "classes": {
+  "unstated": 85,
+  "relativizing": 3,
+  "free": 72,
+  "fully-black-box": 131
+ },
+ "models": {
+  "": 19,
+  "standard": 219,
+  "rom": 27,
+  "algebraic-group": 3,
+  "generic-group": 2,
+  "crs": 5,
+  "quantum": 15,
+  "other": 1
+ },
+ "wrong": [
+  {
+   "slug": "no-depir-to-ot-dmo00",
+   "path": "content/Barriers/no-depir-to-ot-dmo00.md",
+   "reason": "The page records an uncited, double-hedged note ('I think this version of PIR might get around the DMO00 barrier'), not a result, and the `depir` node is ambiguous between variants on which the claim has different truth values. Unkeyed and public-key DEPIR are non-trivial single-server PIR schemes (the server can run Setup itself; query-time communication is o(n)), so DMO00 applies and those varia"
+  },
+  {
+   "slug": "no-evasive-lwe-to-evasive-lwe-buw24-2",
+   "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24-2.md",
+   "reason": "The hyperedge is degenerate and the underlying results are not reduction barriers. Both endpoints resolve to the same object: content/Assumptions/learning-with-errors.md maps the variant keys `evasive-lwe-private-coin`, `private-coin-evasive-lwe`, `circular-evasive-lwe` and `evasive-lwe` all to the single anchor `#evasive-lwe`, so the page asserts that a reduction from X to X yields a contradictio"
+  },
+  {
+   "slug": "no-falsifiable-assumption-to-kea",
+   "path": "content/Barriers/no-falsifiable-assumption-to-kea.md",
+   "reason": "No theorem states that KEA-like assumptions cannot be derived from falsifiable assumptions; the claim marked '\u2014 standard' on content/Assumptions/knowledge-of-exponent.md conflates two results. (i) Gentry\u2013Wichs (STOC 2011; cryptobib STOC:GenWic11) rule out black-box reductions from any falsifiable assumption to the *adaptive soundness of a SNARG* \u2014 the sibling edge bar-falsifiable-assumption-to-sna"
+  },
+  {
+   "slug": "no-ippe-to-abe",
+   "path": "content/Barriers/no-ippe-to-abe.md",
+   "reason": "\"IPPE is incomparable to KP-ABE and CP-ABE\" is an expressiveness remark, not a separation: it sets a security notion (attribute hiding) against a functionality (predicate expressiveness), and no result rules out a reduction in either direction. The wiki's own IPPE page contradicts the barrier reading \u2014 its intro says IPPE \"subsumes HVE and, via inner-product encodings, supports disjunctions, CNF/D"
+  },
+  {
+   "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
+   "path": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
+   "reason": "The hyperedge crosses two independent axes at once \u2014 KP-ABE vs CP-ABE (functionality) and selective vs adaptive (security notion) \u2014 and the sentence it was migrated from claims only that ONE proof strategy, the syntactic KeyGen/Enc swap, fails to carry a security proof across. That is an observation about a technique, not a barrier against reductions, and its justification (\"different admissibilit"
+  },
+  {
+   "slug": "no-mip-to-multi-prover-extensions",
+   "path": "content/Barriers/no-mip-to-multi-prover-extensions.md",
+   "reason": "Inverted. The hyperedge {mip} => mip-star asserts MIP subset-of MIP*, which is true -- completeness is immediate, and soundness against entangled provers is Ito-Vidick's NEXP subset-of MIP* (FOCS 2012, arXiv:1207.0550); it also follows from MIP* = RE superset-of NEXP = MIP -- so a barrier ruling it out is false. The migrated prose asserts the strict separation MIP subsetneq MIP*, obtained by combi"
+  },
+  {
+   "slug": "no-evasive-lwe-to-evasive-lwe-buw24",
+   "path": "content/Barriers/no-evasive-lwe-to-evasive-lwe-buw24.md",
+   "reason": "Not a well-formed hyperedge and not a reduction barrier. Hypothesis and conclusion resolve to the SAME object: content/Assumptions/learning-with-errors.md maps both `private-coin-evasive-lwe` and `evasive-lwe` to the anchor `#evasive-lwe`, so the page asserts that a reduction from evasive LWE to evasive LWE yields a contradiction. What BUW24 and AMYY25 give are counterexample samplers REFUTING sev"
+  },
+  {
+   "slug": "no-qcma-to-qma-ak07",
+   "path": "content/Barriers/no-qcma-to-qma-ak07.md",
+   "reason": "Inverted, and composite. The hyperedge {qcma} => qma asserts $\\classQCMA \\subseteq \\classQMA$, which holds (a classical witness is a quantum state) and is already recorded twice: as an inclusion on content/Complexity/quantum-classical-merlin-arthur.md and as the reduction page content/Reductions/qcma-to-qma.md (id red-qcma-to-qma, kind inclusion, class free). A barrier ruling it out is false; with"
+  },
+  {
+   "slug": "no-rom-to-merkle-puzzles-bm09",
+   "path": "content/Barriers/no-rom-to-merkle-puzzles-bm09.md",
+   "reason": "The conclusion object is a construction, not a primitive, and the edge points the wrong way. Merkle's puzzles is a key-agreement protocol in the random oracle model with a quadratic query gap -- Mer78 builds it -- so {rom} => merkle-puzzles is a positive construction that exists, and a barrier ruling it out is false. What BM09 prove is a bound on the different hyperedge {rom} => ke: every random-o"
+  },
+  {
+   "slug": "no-search-noisy-k-lin-to-noisy-k-lin",
+   "path": "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
+   "reason": "The page asserts an unconditional impossibility nobody has proved. Its source sentence records the absence of a known reduction \u2014 'the search-to-decision reduction for standard LPN does not immediately transfer to the expanding-matrix setting' \u2014 which is an open question, not a barrier: no separation, oracle world or meta-reduction is claimed by GHJS25 or anyone else, and GHJS25 Theorem 8.8 merely"
+  },
+  {
+   "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+   "path": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
+   "reason": "Two defects. (1) DUPLICATE: content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md (id bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security, batch bar-01) records the same edge from the same sentence; the two differ only in which alias pair of the HIBE security sections they name (selective-hibe-security/adaptive-hibe-security here, hibe-selective-security/hibe-a"
+  },
+  {
+   "slug": "no-tdp-to-ot",
+   "path": "content/Barriers/no-tdp-to-ot.md",
+   "reason": "The source sentence says the enhanced property 'is necessary for constructing OT from TDPs': the EGL construction breaks without it (the receiver must sample an image without learning its preimage), which is not a theorem that no construction of [[oblivious-transfer|OT]] from a plain [[trapdoor-permutation|TDP]] exists. No such separation is known; Hajiabadi (TCC 2018) still frames whether standar"
+  },
+  {
+   "slug": "abe-to-hibe",
+   "path": "content/Reductions/abe-to-hibe.md",
+   "reason": "As typed \u2014 bare ABE $\\Rightarrow$ HIBE \u2014 this is not a theorem. The wiki's HIBE syntax includes $\\Delegate$, which derives a key for a child identity from a parent key without $\\msk$; generic KP- or CP-ABE provides no key-derivation capability. A black-box wrapper (key policy = conjunction over the prefix positions) captures only HIBE's prefix-decryption relation, and the migrated bullets concede "
+  },
+  {
+   "slug": "alternating-moduli-assumption-to-mpc-bip-18",
+   "path": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
+   "reason": "As typed ('AM hardness implies MPC exists') this is not a theorem. Honest-majority MPC exists unconditionally (BGW88), so under that reading the edge is vacuous; dishonest-majority MPC requires OT, and no construction of OT from AM hardness is known (the assumption yields a weak PRF, a Minicrypt-type primitive). The migrated bullet records an efficiency claim: the BIP+18 candidates admit distribut"
+  },
+  {
+   "slug": "am-to-coam",
+   "path": "content/Reductions/am-to-coam.md",
+   "reason": "The migrated text is the definition of coAM as the complement class of AM (L is in coAM iff its complement is in AM), not a theorem that AM = coAM. AM = coAM is not known and is believed false: NP is contained in AM, so AM = coAM would give coNP contained in AM and collapse the polynomial hierarchy to the second level (Boppana-Hastad-Zachos). The page's own migration note already says the source i"
+  },
+  {
+   "slug": "arithmetization-and-nizk-and-pcs-to-snark",
+   "path": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
+   "reason": "No theorem consumes a NIZK together with a polynomial commitment scheme and an arithmetization to produce a SNARK: there is no generic transformation making an arbitrary NIZK succinct via PCS + arithmetization. The real construction underlying the migrated sentence builds a SNARK from scratch \u2014 arithmetize to a polynomial IOP, compile with an extractable PCS, apply Fiat-Shamir \u2014 and does not take "
+  },
+  {
+   "slug": "arithmetization-to-snark-bbhr18",
+   "path": "content/Reductions/arithmetization-to-snark-bbhr18.md",
+   "reason": "False as stated: an AIR arithmetization alone does not yield a SNARK \u2014 the STARK of BBHR18 additionally needs the FRI proximity test and the ROM compilation, and the page's own migration note says the source sentence is about AIR being an ingredient, not an implication. The correct conjunctive edge already exists as red-arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18 (so"
+  },
+  {
+   "slug": "bdh-to-ac",
+   "path": "content/Reductions/bdh-to-ac.md",
+   "reason": "The only basis is the migrated bullet 'BDDH \u2192 short signatures (BLS), VRFs, and anonymous credential schemes \u2014 standard', whose hypothesis is misattributed: pairing-based anonymous credentials are proved under the interactive LRSW assumption (Camenisch\u2013Lysyanskaya, 'Signature Schemes and Anonymous Credentials from Bilinear Maps', CRYPTO 2004) or $q$-SDH-type assumptions (BBS+), and no construction"
+  },
+  {
+   "slug": "bdh-to-ds",
+   "path": "content/Reductions/bdh-to-ds.md",
+   "reason": "The basis 'BDDH \u2192 short signatures (Boneh-Lynn-Shacham BLS) \u2014 standard' is a misattribution: BLS unforgeability is proved under computational co-CDH in the random-oracle model (Boneh\u2013Lynn\u2013Shacham, 'Short Signatures from the Weil Pairing', ASIACRYPT 2001), not under decisional BDH, and the wiki already records that edge as red-co-cdh-to-ds (model rom). Signatures do follow from BDH hardness via BDH"
+  },
+  {
+   "slug": "bdh-to-nizk-gro16",
+   "path": "content/Reductions/bdh-to-nizk-gro16.md",
+   "reason": "The slug pins the edge to Gro16, which proves no NIZK from BDH, DLIN, or any falsifiable bilinear assumption: Groth16's knowledge soundness is proved in the generic bilinear group model, an edge already recorded as red-bilinear-pairing-to-snark-gro16 (class free, model generic-group). The bilinear-assumption NIZK results are Groth\u2013Ostrovsky\u2013Sahai ('Perfect Non-interactive Zero Knowledge for NP', E"
+  },
+  {
+   "slug": "bilinear-pairing-to-ds",
+   "path": "content/Reductions/bilinear-pairing-to-ds.md",
+   "reason": "The hypothesis is a structure, not a hardness assumption: bilinear pairings exist on curves where discrete log is easy, so a pairing alone implies no unforgeability, and the page's model rom supplies no hardness either. The intended content, BLS signatures, is EUF-CMA under co-CDH in the random-oracle model (Boneh\u2013Lynn\u2013Shacham, 'Short Signatures from the Weil Pairing', ASIACRYPT 2001), already rec"
+  },
+  {
+   "slug": "bqp-to-dlog-shor97",
+   "path": "content/Reductions/bqp-to-dlog-shor97.md",
+   "reason": "With kind: inclusion, hypothesis bqp, conclusion dlog, the page asserts BQP \u2286 DLOG (its own title says so). This is inverted and type-confused: DLOG is a hardness assumption/computational problem, not a complexity class that could contain BQP. Shor97 proves the opposite-direction fact \u2014 the discrete logarithm problem admits a polynomial-time quantum algorithm, i.e. DLOG \u2208 BQP, so the DLOG assumpti"
+  },
+  {
+   "slug": "cdh-to-bdh",
+   "path": "content/Reductions/cdh-to-bdh.md",
+   "reason": "As stated (CDH hard \u21d2 BDH hard), this is not a known theorem in any model. The known direction is the converse: a CDH solver in the base group breaks BDH \u2014 from $g^a, g^b$ compute $g^{ab}$, then $e(g^{ab}, g^c) = e(g,g)^{abc}$ \u2014 so BDH hardness implies CDH hardness (BDH \u21d2 CDH). The migrated bullet's 'BDH is implied by CDH in the generic group model' misreads the unconditional generic-bilinear-grou"
+  },
+  {
+   "slug": "cdh-to-ddh",
+   "path": "content/Reductions/cdh-to-ddh.md",
+   "reason": "Direction inverted. The true implication is DDH \u21d2 CDH: a CDH solver computes $g^{ab}$ from $(g, g^a, g^b)$ and compares it with the challenge element, breaking DDH, so DDH hardness implies CDH hardness. The converse is not known and fails in gap groups: in symmetric pairing groups DDH is easy while CDH is conjectured hard (Joux\u2013Nguyen), so no reduction CDH \u21d2 DDH can hold for all groups. The migrat"
+  },
+  {
+   "slug": "com-to-mpc-gmw87",
+   "path": "content/Reductions/com-to-mpc-gmw87.md",
+   "reason": "GMW87's semi-honest protocol is built from oblivious transfer, not from commitments; commitments (via zero-knowledge proofs for NP) enter only in the GMW compiler lifting semi-honest security to malicious security. As stated, 'COM is complete for MPC in the semi-honest model' is not a known theorem: commitments follow from OWFs (Naor from PRG, HILL), semi-honest 2PC for all functionalities implies"
+  },
+  {
+   "slug": "com-to-ot-kil88",
+   "path": "content/Reductions/com-to-ot-kil88.md",
+   "reason": "Inverted citation. Kil88 ('Founding cryptography on oblivious transfer') proves OT is complete for secure two-party computation \u2014 everything, commitments included, can be built from OT \u2014 not that OT can be built from commitments. No classical OT-from-COM construction is known: it would place OT in Minicrypt (commitments follow from OWFs) and, if black-box, contradict the Impagliazzo\u2013Rudich separat"
+  },
+  {
+   "slug": "com-to-two-party-computation-2pc-gmw87",
+   "path": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
+   "reason": "GMW87 build semi-honest two-party computation from oblivious transfer (obtained there from trapdoor permutations); commitments and zero-knowledge proofs enter GMW87 only in the compiler from semi-honest to malicious security. 'COM is complete for two-party computation in the semi-honest model' is therefore not a theorem of GMW87, and is believed false: commitments exist given any one-way function "
+  },
+  {
+   "slug": "conp-to-am-gs86",
+   "path": "content/Reductions/conp-to-am-gs86.md",
+   "reason": "coNP \u2286 AM is open, not a theorem: it would collapse the polynomial hierarchy to the second level (Boppana-Hastad-Zachos, 'Does co-NP have short interactive proofs?', Inf. Process. Lett. 25(2):127-132, 1987). GS86 prove the private-coin/public-coin equivalence \u2014 every k-round private-coin interactive proof is simulated by a (k+2)-round Arthur-Merlin protocol \u2014 and give no AM protocol for coNP. The "
+  },
+  {
+   "slug": "czk-to-ip-bgg-90",
+   "path": "content/Reductions/czk-to-ip-bgg-90.md",
+   "reason": "As recorded the edge asserts an unconditional equivalence CZK = IP, but on the source page (computational-zero-knowledge.md:29) the equality is a sub-bullet under 'Assuming OWFs exist'; the migration dropped the hypothesis, as the page's own Notes record. BGG+90 prove IP \u2286 CZK assuming a secure bit commitment (hence any one-way function, via Naor91 + HILL99); unconditionally only the trivial direc"
+  },
+  {
+   "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "path": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "reason": "JLS21 does not prove this edge: its four (sub-exponential) hypotheses are SXDH on asymmetric bilinear groups \u2014 not plain DDH \u2014 LWE, LPN over $\\ZZ_p$ with polynomially many samples and inverse-polynomial error rate, and a Boolean PRG in $\\mathrm{NC}^0$ with stretch $n^{1+\\tau}$ \u2014 not a PRG in $\\mathrm{NC}^1$, a weaker hypothesis that the construction does not cover. The correct edge is sub-exponent"
+  },
+  {
+   "slug": "dlin-to-ippe-ksw08",
+   "path": "content/Reductions/dlin-to-ippe-ksw08.md",
+   "reason": "Misattribution, as the page's own SUSPECT note says. KSW08's inner-product predicate encryption scheme is not proven secure under DLIN: it lives in a composite-order bilinear group of order N = pqr and its (selective) attribute-hiding proof rests on two new subgroup-decision-flavoured assumptions that KSW08 justify only in the generic bilinear group model; DLIN appears nowhere as the hypothesis. T"
+  },
+  {
+   "slug": "dkg-and-he-to-tpke",
+   "path": "content/Reductions/dkg-and-he-to-tpke.md",
+   "reason": "Not a well-defined edge. The hypotheses pair a protocol (distributed key generation) with unspecified homomorphic encryption, and no theorem states that generic HE plus a DKG yields threshold PKE: threshold decryption needs scheme-specific key-sharing and partial-decryption structure that generic (even linear) homomorphism does not provide. The hypothesis identifiers were invented during migration"
+  },
+  {
+   "slug": "dlog-to-ddh-fkl18",
+   "path": "content/Reductions/dlog-to-ddh-fkl18.md",
+   "reason": "FKL18 proves no DLOG => DDH reduction. Its AGM results are computational \u2014 CDH, Strong DH, LRSW, BLS signatures, Groth's SNARK (the wiki's own FKL18 abstract lists exactly these): the technique extracts a linear representation from the group elements an algebraic adversary outputs, and a DDH distinguisher outputs one bit, so it does not apply. The migration's SUSPECTED flag is correct. Decisional "
+  },
+  {
+   "slug": "dlog-to-tdp",
+   "path": "content/Reductions/dlog-to-tdp.md",
+   "reason": "No trapdoor permutation from DLOG is known: exponentiation is one-way under DLOG but has no known trapdoor, and a TDP from discrete-log-type assumptions is a long-standing open problem. The migrated bullet misreads the NIZK page's 'from trapdoor permutations (hence from RSA or DL)': RSA gives a TDP, DL does not, and BFM88's own NIZK is based on quadratic residuosity (the TDP-based construction is "
+  },
+  {
+   "slug": "dlog-to-zkp",
+   "path": "content/Reductions/dlog-to-zkp.md",
+   "reason": "The migrated passages assert no implication: the Schnorr protocol is a sigma protocol for the DLOG relation and exists, with perfect HVZK and special soundness, unconditionally \u2014 DLOG hardness makes the relation nontrivial but is not a hypothesis for building it. Read as 'ZK proofs for NP exist if DLOG is hard', the implication is true but composite (DLOG \u21d2 OWF \u21d2 commitment \u21d2 ZK for NP), which the"
+  },
+  {
+   "slug": "dpf-to-it-pir-gi14",
+   "path": "content/Reductions/dpf-to-it-pir-gi14.md",
+   "reason": "The conclusion node is wrong. The migrated bullet says 'Computational 2-server PIR can be built from DPFs' and links the computational variant anchor, but the edge records the base it-pir node, whose Privacy on multi-server-private-information-retrieval.md is perfect (identical query distributions). The construction's privacy is exactly the DPF's hiding, which is computational, so the recorded edg"
+  },
+  {
+   "slug": "fac-to-dcr-pai99",
+   "path": "content/Reductions/fac-to-dcr-pai99.md",
+   "reason": "Inverted, as both the page's own SUSPECTED notes and .reductions/suspected-errors.json record. Given the factorization of $n$ one computes $\\varphi(n)$ and decides $n$-th residuosity in $\\ZZ_{n^2}^*$ by testing $z^{\\varphi(n)} \\bmod n^2$, so a factoring algorithm breaks DCR; hence DCR hardness implies factoring hardness \u2014 DCR is the stronger assumption. The converse (factoring hard \u21d2 DCR hard) is "
+  },
+  {
+   "slug": "fac-to-qr-gm84",
+   "path": "content/Reductions/fac-to-qr-gm84.md",
+   "reason": "Inverted, as the page's own SUSPECTED notes and .reductions/suspected-errors.json record (high confidence there too). Knowing $p$ and $q$ lets one compute Legendre symbols mod $p$ and $q$ and thereby decide quadratic residuosity mod $N = pq$, so a factoring algorithm breaks QR; hence QR hardness implies factoring hardness \u2014 QR is the stronger assumption. Whether factoring hardness implies QR hardn"
+  },
+  {
+   "slug": "fac-to-rsa-rsa78",
+   "path": "content/Reductions/fac-to-rsa-rsa78.md",
+   "reason": "Inverted. Factoring $N$ yields $\\varphi(N)$ and hence the RSA secret exponent, so an efficient factoring algorithm breaks RSA: RSA hardness implies factoring hardness, not the converse. Whether computing $e$-th roots modulo $N$ is as hard as factoring is open; Boneh\u2013Venkatesan (Eurocrypt 1998) show that an algebraic reduction from factoring to low-exponent RSA would itself yield a factoring algori"
+  },
+  {
+   "slug": "falsifiable-assumption-to-snark-gro16",
+   "path": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
+   "reason": "The hypothesis 'falsifiable assumption' is a meta-category of assumptions, not an object, so the hyperedge is untypeable as stated. The source is also misattributed: Gro16 proves knowledge soundness of its SNARK unconditionally in the generic bilinear group model \u2014 an idealized-model argument, not a reduction from a falsifiable assumption \u2014 so the frontmatter's model: algebraic-group is wrong for "
+  },
+  {
+   "slug": "hash-based-signatures-and-hash-based-signatures-to-ds",
+   "path": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
+   "reason": "Degenerate hyperedge: the title lists the conclusion's own subclass twice as hypotheses, and the frontmatter hypotheses (few-time-signature, xmss) are concrete scheme artifacts without pages. The migrated text describes the SPHINCS+ architecture (a hypertree of XMSS instances with a few-time signature at the leaves; standardized as SLH-DSA, FIPS 205), not a reduction between wiki objects. The unde"
+  },
+  {
+   "slug": "fri-fast-reed-solomon-iop-of-proximity-to-snark",
+   "path": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
+   "reason": "FRI alone does not yield a SNARK. FRI is an IOP of proximity (a test for closeness to Reed\u2013Solomon codewords), not a polynomial commitment scheme \u2014 the migrated sentence's terminology error is tracked in .reductions/suspected-errors.json (succinct-argument.md:77, red-fri-to-sa). A polynomial commitment needs FRI plus Merkle hashing, and a STARK additionally needs arithmetization (AIR) and the BCS "
+  },
+  {
+   "slug": "ggm-to-abe-bsw07",
+   "path": "content/Reductions/ggm-to-abe-bsw07.md",
+   "reason": "The hypothesis 'GGM' is the generic-group model \u2014 an idealized computation model, not a hardness assumption or primitive \u2014 so the edge is not a well-formed hyperedge: 'the generic group model implies ABE' is not a reduction between objects. schema/reduction-classes.yaml puts idealized models on the model: axis, and .reductions/node-decisions.json already records (for the structured GGM) that the m"
+  },
+  {
+   "slug": "hash-function-and-io-to-lossy-trapdoor-functions-sw14",
+   "path": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
+   "reason": "SW14 does not construct lossy (trapdoor) functions. Its results \u2014 per the abstract, reproduced on the wiki's SW14 reference page \u2014 are deniable encryption, PKE, short selectively secure signatures, CCA-secure PKE, NIZKs, injective trapdoor functions, and oblivious transfer; the migrated bullet's 'lossy functions' is a garbling of 'injective trapdoor functions'. The edge {OWF, iO} \u21d2 lossy trapdoor "
+  },
+  {
+   "slug": "ideal-prc-to-prc",
+   "path": "content/Reductions/ideal-prc-to-prc.md",
+   "reason": "The hypothesis, as defined on pseudorandom-error-correcting-code.md \u00a7 Ideal PRC, is unsatisfiable: it demands $(k, \\Enc_k(m))$ computationally indistinguishable from $(k, U_n)$ \u2014 pseudorandomness even given the decoding key \u2014 but a distinguisher holding $k$ runs $\\Dec_k$: robustness forces $\\Dec_k(\\Enc_k(m)) = m$, while soundness forces $\\Dec_k(U_n) = \\bot$ with overwhelming probability, so the tw"
+  },
+  {
+   "slug": "interactive-protocol-and-rom-to-snark",
+   "path": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
+   "reason": "Overbroad to the point of falsity: the Fiat\u2013Shamir transform preserves the prover's communication, so an arbitrary [[interactive-protocol|interactive protocol]] plus the ROM cannot yield a *succinct* argument \u2014 succinctness must already be in the hypothesis. Nor does the transform preserve soundness for arbitrary multi-round or computationally sound protocols even in the ROM: soundness degrades wi"
+  },
+  {
+   "slug": "ip-to-am-gs86",
+   "path": "content/Reductions/ip-to-am-gs86.md",
+   "reason": "False as recorded at base-class granularity: the wiki's interactive-proof-systems page defines IP with polynomially many rounds (IP = PSPACE), and its arthur-merlin page defines AM as the two-message class (with AM[k] = AM for constant k). 'IP \u2286 AM' therefore asserts PSPACE \u2286 AM, which is not known and widely disbelieved (AM \u2286 \u03a0\u2082\u1d56, so it would collapse PH). GS86 proves the round-preserving stateme"
+  },
+  {
+   "slug": "ip-and-rom-to-snark-fs86",
+   "path": "content/Reductions/ip-and-rom-to-snark-fs86.md",
+   "reason": "The Fiat\u2013Shamir transform removes interaction from public-coin protocols; it does not create succinctness. Applied to a general interactive proof it yields a non-interactive argument whose length equals the original communication, so no SNARK results unless the protocol is already succinct. The ROM edges that do hold are PCP + ROM \u21d2 SNARG (Micali, CS proofs, FOCS 1994 / SICOMP 30(4), 2000) and pub"
+  },
+  {
+   "slug": "ip-to-szk-bgg-90",
+   "path": "content/Reductions/ip-to-szk-bgg-90.md",
+   "reason": "Not a theorem: SZK \u2286 AM \u2229 coAM (Fortnow 1987; Aiello\u2013H\u00e5stad 1991), so IP \u2286 SZK together with IP = PSPACE would give PSPACE \u2286 AM \u2229 coAM and collapse the polynomial hierarchy. BGG+90 prove that, assuming a secure probabilistic encryption scheme (one-way functions suffice by later work), every language in IP has a COMPUTATIONAL zero-knowledge proof; the migrated bullet dropped that hypothesis and upg"
+  },
+  {
+   "slug": "k-linear-assumption-to-abe-rw13",
+   "path": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
+   "reason": "Misattributed hypothesis: RW13's large-universe KP-ABE and CP-ABE constructions are proven selectively secure in prime-order bilinear groups under two q-type assumptions ('similar to ones used in prior works', per the CCS 2013 abstract), not under variants of the k-linear assumption, so k-Lin \u21d2 ABE is not RW13's theorem. A true k-Lin \u21d2 ABE edge belongs to other papers: Chen\u2013Gay\u2013Wee, 'Improved Dual"
+  },
+  {
+   "slug": "ke-to-pke-dh76",
+   "path": "content/Reductions/ke-to-pke-dh76.md",
+   "reason": "Unsupported as stated: the wiki's KE object is a general interactive protocol, and an arbitrary multi-round KE gives no way to encrypt in a single message under a reusable public key; whether general KE implies PKE is open. The folklore edge is 2-message KE \u21d2 PKE: the initiator's first message is the public key, Enc runs the responder and one-time-pads the plaintext with the session key, Dec recom"
+  },
+  {
+   "slug": "kea-to-snark-gro16",
+   "path": "content/Reductions/kea-to-snark-gro16.md",
+   "reason": "Misattributed. Gro16 proves knowledge soundness of its 3-element SNARK in the generic bilinear group model (Gro16, Theorem 2) and states that, compiling each field element into a single group element, 'we can no longer use the knowledge of exponent assumption' (Gro16, \u00a71.1); no KEA or q-PKE hypothesis appears in the paper. The generic-group edge is already recorded at bilinear-pairing-to-snark-gro"
+  },
+  {
+   "slug": "kzg-kate-zaverucha-goldberg-to-snark-kzg10",
+   "path": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
+   "reason": "False as sourced and underspecified as stated. (1) KZG10 (Asiacrypt 2010) constructs a polynomial commitment scheme and contains no SNARK theorem. (2) Gro16 does not use KZG: it compiles a linear non-interactive proof for quadratic arithmetic programs into pairings (Gro16 \u00a73), as the page's own Notes already flag. (3) A polynomial commitment alone does not imply a SNARK; the real theorem compiles "
+  },
+  {
+   "slug": "lossy-trapdoor-functions-to-tdp",
+   "path": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
+   "reason": "Lossy trapdoor functions are not known to imply trapdoor permutations. The injective branch of a lossy TDF is an injective trapdoor function whose range need not equal its domain (in the Peikert-Waters constructions it does not), and no construction of TDPs from lossy TDFs exists in the literature. The migrated sentence conflates injective TDFs with TDPs, as flagged in .reductions/suspected-errors"
+  },
+  {
+   "slug": "prg-in-nc1-to-io-jls21",
+   "path": "content/Reductions/prg-in-nc1-to-io-jls21.md",
+   "reason": "A low-complexity PRG alone is not known to imply iO, and JLS21 does not claim it. The migrated bullet says the PRG 'is required by' the JLS21 construction: a necessary-ingredient statement, not a reduction. JLS21's theorem assumes sub-exponential hardness of all of (1) SXDH on asymmetric prime-order bilinear groups, (2) LWE over Z_p with sub-exponential modulus-to-noise ratio, (3) LPN over Z_p wit"
+  },
+  {
+   "slug": "lpn-and-lwe-and-nc1-prg-to-io-jls21",
+   "path": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
+   "reason": "The hypothesis set omits a load-bearing assumption: JLS21 also assumes sub-exponential SXDH on asymmetric prime-order bilinear groups. {sub-exponential LWE, LPN, PRG in NC^1} without a bilinear-group assumption is not a known route to iO. JLS21's PRG is a Boolean PRG in NC^0 (not NC^1) with stretch n^{1+tau}, and its LPN is over Z_p with error rate 1/l^delta. The four-hypothesis edge exists as con"
+  },
+  {
+   "slug": "lwe-and-sis-to-ds-ls15",
+   "path": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
+   "reason": "Mis-migrated edge. The quoted bullet is about Dilithium / ML-DSA, whose security is proved from Module-LWE and Module-SIS via Fiat-Shamir with aborts in the ROM \u2014 not from plain LWE and plain SIS as the frontmatter hypotheses record. The cited LS15 contains no signature scheme at all: it proves worst-case to average-case reductions for module lattices (the page's own Notes already flag 'CITATION D"
+  },
+  {
+   "slug": "lwe-to-lattice-based-signatures",
+   "path": "content/Reductions/lwe-to-lattice-based-signatures.md",
+   "reason": "Mis-migrated edge with no known result behind it. The migrated bullet ('NIZK from LWE via hash-and-sign signatures and SIS-based commitments \u2014 standard') describes no known construction: NIZK for NP from plain LWE is Peikert\u2013Shiehian (CRYPTO 2019), which applies the Fiat\u2013Shamir transform with an LWE-based correlation-intractable hash family in the CRS model, not signatures. The edge distilled here"
+  },
+  {
+   "slug": "lwe-to-prc-cg24",
+   "path": "content/Reductions/lwe-to-prc-cg24.md",
+   "reason": "Misattributed hypothesis. CG24's pseudorandom codes rest on either $2^{O(\\sqrt{n})}$-hardness of LPN, or polynomial hardness of LPN together with the planted-XOR problem at low density \u2014 the paper's abstract (CRYPTO 2024; eprint 2024/235; cryptobib C:ChrGun24). No construction in CG24 is based on LWE. The correct edge already exists as content/Reductions/subexponential-lpn-to-prc-cg24.md. The sour"
+  },
+  {
+   "slug": "lwe-to-zero-bit-prc-cg24",
+   "path": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
+   "reason": "Mis-attributed hypothesis: CG24 contains no LWE-based construction. Its abstract (reproduced on the wiki's CG24 reference page and confirmed by search snippets) bases pseudorandomness of every code in the paper on LPN-type assumptions only: either $2^{O(\\sqrt{n})}$-hardness of LPN, or polynomial hardness of LPN together with the planted XOR assumption at low density. The zero-bit PRC is the pseudo"
+  },
+  {
+   "slug": "adversary-models-to-privacy-semi-honest",
+   "path": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
+   "reason": "False as stated under the standard simulation-based definitions: security against malicious adversaries does not imply security against (plain) semi-honest adversaries. The malicious-model simulator may substitute the corrupted party's input in the ideal execution, while the semi-honest simulator must reproduce the party's view on its actual input; there are protocols secure against malicious adve"
+  },
+  {
+   "slug": "module-lwe-to-lwe-ls15",
+   "path": "content/Reductions/module-lwe-to-lwe-ls15.md",
+   "reason": "'Module LWE at rank k = n recovers plain LWE' (over a degree-n polynomial ring $R_q$) is false as stated: a rank-n module over a degree-n ring has $\\ZZ_q$-dimension $n^2$, and the sample matrix is block-structured (negacyclic blocks), not uniform, so rank-n Module LWE is neither syntactically nor known to be computationally equivalent to plain LWE in dimension $n$ (or $n^2$). Plain LWE is the spec"
+  },
+  {
+   "slug": "mpc-to-ot-bh26",
+   "path": "content/Reductions/mpc-to-ot-bh26.md",
+   "reason": "The edge {MPC} \u21d2 OT attributed to BH26 does not match BH26. The paper introduces oblivious interactive hash functions (OIHFs) and proves OIHF \u21d2 OT via a non-black-box reduction (abstract, mirrored on the wiki's BH26 page and confirmed by web search): the hypothesis is OIHF, not MPC, and the migrated bullet's 'in a black-box way' contradicts the paper's 'non-black-box'. The qualifier 'for certain n"
+  },
+  {
+   "slug": "nizk-to-com",
+   "path": "content/Reductions/nizk-to-com.md",
+   "reason": "'Every NIZK scheme gives a non-interactive commitment' is false as stated. The wiki defines NIZK per language, and every language in BPP has a trivial unconditional NIZK (the verifier decides membership itself) that yields no commitment; commitments imply one-way functions, so the unqualified implication would build OWFs from nothing. The true results carry a hardness qualifier on the language: in"
+  },
+  {
+   "slug": "np-to-conp",
+   "path": "content/Reductions/np-to-conp.md",
+   "reason": "The page records kind: equivalence with hypothesis NP and conclusion coNP, i.e. it asserts NP = coNP. That equality is a major open problem, not a theorem, and is widely conjectured false (NP = coNP would collapse the polynomial hierarchy to its first level). The migrated prose only defines coNP as the complement class of NP \u2014 a definitional duality (coNP = {L : complement of L is in NP}), not a c"
+  },
+  {
+   "slug": "k-out-of-n-ot-to-cpir",
+   "path": "content/Reductions/k-out-of-n-ot-to-cpir.md",
+   "reason": "The recorded edge mismatches its own quote: the migrated sentence equates 1-out-of-$n$ OT with single-server SPIR (PIR with data privacy), not with cPIR, and the title says $k$-out-of-$n$ while the hypothesis is 1-out-of-$n$. As an equivalence with cPIR it is false: the trivial download protocol is a cPIR under the wiki's definition and implies nothing, and the non-trivial cPIR \u21d2 OT direction (DMO"
+  },
+  {
+   "slug": "owsg-to-qm",
+   "path": "content/Reductions/owsg-to-qm.md",
+   "reason": "No construction of quantum money from OWSGs is known; the bullet inverts the literature. The known direction is the converse: private-key quantum money with pure banknotes implies OWSGs (Morimae\u2013Yamakawa, One-Wayness in Quantum Cryptography, TQC 2024, LIPIcs 310, 4:1\u20134:21; eprint 2022/1336). Private-key quantum money is built from pseudorandom states (Ji\u2013Liu\u2013Song, CRYPTO 2018), and Behera\u2013Malavolt"
+  },
+  {
+   "slug": "owsg-to-unclonable-encryption",
+   "path": "content/Reductions/owsg-to-unclonable-encryption.md",
+   "reason": "No construction of unclonable encryption from OWSGs appears in the OWSG literature (Morimae\u2013Yamakawa, eprint 2022/1336, and follow-ups) or the unclonable-encryption literature (Broadbent\u2013Lord 2020; Ananth\u2013Kaleoglu 2021; Ananth\u2013Sahai, eprint 2026/1511; arXiv 2605.27647). One-time unclonable encryption is achieved unconditionally \u2014 from conjugate coding for the search-type notion (Broadbent\u2013Lord) an"
+  },
+  {
+   "slug": "pcs-to-nizk",
+   "path": "content/Reductions/pcs-to-nizk.md",
+   "reason": "False as stated. A polynomial commitment with $O(1)$-size evaluation proofs does not by itself yield a succinct NIZK for NP in the standard model: (a) compiling a polynomial IOP with a PCS gives an interactive argument, and non-interactivity needs Fiat-Shamir in the ROM or a structured setup, neither supplied by a PCS; (b) zero knowledge needs a hiding PCS with zero-knowledge evaluation proofs, wh"
+  },
+  {
+   "slug": "pke-to-ot",
+   "path": "content/Reductions/pke-to-ot.md",
+   "reason": "Not a theorem as stated: OT is not known to follow from generic PKE. GKM+00 (FOCS 2000; existing wiki reference 'GKM+00 - The relationship between public key encryption and oblivious transfer'; existing barrier page no-pke-to-ot-gkm-00) prove PKE and OT incomparable under black-box reductions by an IR89-style oracle separation, which rules out relativizing and hence every fully-black-box construct"
+  },
+  {
+   "slug": "subclasses-to-hash-function",
+   "path": "content/Reductions/subclasses-to-hash-function.md",
+   "reason": "Inverted as recorded; the page's own migration notes flag it (SUSPECTED DIRECTION ERROR). The literature derives PPAD hardness FROM cryptographic assumptions \u2014 indistinguishability obfuscation plus injective OWFs (Bitansky\u2013Paneth\u2013Rosen, FOCS 2015, eprint 2014/1029) and Fiat\u2013Shamir for sumcheck under LWE-style assumptions (Choudhuri\u2013Hub\u00e1\u010dek\u2013Kamath\u2013Pietrzak\u2013Rosen\u2013Rothblum, STOC 2019) \u2014 not collision"
+  },
+  {
+   "slug": "qr-to-zkp-gmr85",
+   "path": "content/Reductions/qr-to-zkp-gmr85.md",
+   "reason": "The migrated bullet is an attribution note, not a reduction: GMR85 introduce zero-knowledge and give a perfect zero-knowledge interactive proof for the quadratic residuosity LANGUAGE. That protocol is unconditional \u2014 completeness, soundness, and (perfect) zero knowledge all hold without any hardness assumption \u2014 so the QR hardness assumption is not a hypothesis of the result, and the edge 'QR (ass"
+  },
+  {
+   "slug": "ring-lpn-to-mac",
+   "path": "content/Reductions/ring-lpn-to-mac.md",
+   "reason": "The migrated sentence ('Ring-LPN underlies practical authentication protocols (e.g., Lapin) and efficient pseudorandom correlation generator constructions') asserts design lineage, not an implication, and neither object is a MAC: Lapin (Heyse, Kiltz, Lyubashevsky, Paar, Pietrzak, FSE 2012 \u2014 cryptobib FSE:HKLPP12) is a two-round symmetric-key authentication protocol, and the PCG half of the sentenc"
+  },
+  {
+   "slug": "rsa-to-partially-homomorphic-encryption-phe-rsa78",
+   "path": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
+   "reason": "The only multiplicatively homomorphic RSA scheme is textbook RSA, $\\Enc(\\pk, m) = m^e \\bmod N$, which is deterministic and hence not IND-CPA secure; content/Primitives/homomorphic-encryption.md \u00a7 Security defines a homomorphic encryption scheme to be IND-CPA secure. Textbook RSA is a multiplicatively homomorphic trapdoor permutation with one-wayness only, already recorded at rsa-to-tdp-rsa78; ever"
+  },
+  {
+   "slug": "schnorr-signatures-to-schnorr-signatures",
+   "path": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
+   "reason": "Self-loop. The frontmatter conclusion `eddsa` is declared in the `variants:` map of content/Primitives/digital-signature.md as an alias of the anchor `#schnorr-signatures`, the same anchor the hypothesis `schnorr-signature` resolves to, so hypothesis and conclusion are one node and the page renders as 'Schnorr signatures implies Schnorr signatures'. The lineage the edge tries to record \u2014 Schnorr s"
+  },
+  {
+   "slug": "secret-key-pir-sk-pir-and-ske-to-depir",
+   "path": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
+   "reason": "Not a theorem. The wiki defines SK-PIR (content/Primitives/single-server-private-information-retrieval.md \u00a7 Secret-Key PIR) as $o(N)$ online communication with no bound on server computation, 'contrast: SK-DEPIR, which requires both', and DEPIR (content/Primitives/doubly-efficient-pir.md) as $o(n)$ communication and $o(n)$ server computation per query. Storing the client's state encrypted on the s"
+  },
+  {
+   "slug": "secret-key-pir-sk-pir-to-depir-bipw17",
+   "path": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
+   "reason": "Same obstruction as red-secret-key-pir-sk-pir-and-ske-to-depir: the wiki defines SK-PIR as $o(N)$ online communication without sublinear server computation, which is the extra requirement DEPIR imposes, so SK-PIR alone is not known to imply DEPIR and the implication would give SK-DEPIR from one-way functions via red-hash-function-to-secret-key-pir-sk-pir-bm26. BIPW17 assert no such implication: th"
+  },
+  {
+   "slug": "snark-to-nizk",
+   "path": "content/Reductions/snark-to-nizk.md",
+   "reason": "As typed \u2014 bare SNARK => NIZK \u2014 this is not a theorem. content/Primitives/succinct-argument.md makes zero-knowledge optional ('### Zero-knowledge (optional)'), and a succinct argument without it is not a NIZK: succinctness does not hide the witness (a proof may carry its first bits). No construction of a NIZK for NP from a succinct argument alone is known; the closest results need a one-way functi"
+  },
+  {
+   "slug": "sparse-learning-parity-with-noise-to-lpn",
+   "path": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
+   "reason": "The edge asserts that hardness of $d$-sparse LPN implies hardness of standard LPN, on the strength of the migrated clause 'Sparse LPN with $d = k$ reduces to standard LPN'. Under the definition on the same page \u2014 each row uniform over vectors of Hamming weight exactly $d$ \u2014 that clause is false: at $d = k$ every row is the all-ones vector, not a uniform one. Under the presumably intended 'weight a"
+  },
+  {
+   "slug": "succinct-lwe-to-evasive-lwe",
+   "path": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
+   "reason": "INVERTED. The implication runs the other way: evasive LWE (with LWE supplying its pre-condition) implies l-succinct LWE. This is the stated position of the paper that introduced the assumption \u2014 Hoeteck Wee, 'Circuit ABE with poly(depth,lambda)-sized Ciphertexts and Keys from Lattices', CRYPTO 2024, pp. 178-209, doi 10.1007/978-3-031-68382-4_6 (cryptobib C:Wee24), eprint 2024/1416 \u2014 whose abstract"
+  },
+  {
+   "slug": "sxdh-symmetric-external-diffie-hellman-to-bdh",
+   "path": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
+   "reason": "SXDH is an assumption on Type-3 pairings (DDH hard in both $\\GG_1$ and $\\GG_2$), while content/Assumptions/bilinear-map-assumptions.md defines BDH and BDDH for a symmetric pairing $e : \\GG \\times \\GG \\to \\GG_T$, where the pairing itself breaks DDH in $\\GG$; the two assumptions are not stated over one group family, so the edge is ill-posed as typed. The only directional content in the source text, "
+  },
+  {
+   "slug": "tdp-to-ot",
+   "path": "content/Reductions/tdp-to-ot.md",
+   "reason": "The page asserts TDP \u21d4 OT. The converse is false as far as is known: OT is not known to yield a trapdoor permutation, and the paper the migrated text quotes proves the opposite \u2014 GKM+00 (FOCS 2000) show that neither OT nor trapdoor predicates imply trapdoor permutations under black-box reductions, and that PKE and OT are black-box incomparable. The forward direction is also mis-stated: OT from tra"
+  },
+  {
+   "slug": "trapdoor-pseudorandom-generators-to-prg",
+   "path": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
+   "reason": "The migrated sentence is a definitional remark, not a reduction: it identifies the pseudorandomness property of a trapdoor PRG with that of $(\\Gen,\\Eval)$ read as a keyed PRG over $\\calK \\times \\calT$. As an object-level equivalence the page is vacuous under the wiki's current definition: a trapdoor PRG is a PRG by dropping $\\Invert$, and any PRG $G$ is a trapdoor PRG via $t = k = s$, $\\Eval(t,k) "
+  },
+  {
+   "slug": "zkp-to-nizk-fs86",
+   "path": "content/Reductions/zkp-to-nizk-fs86.md",
+   "reason": "As encoded \u2014 `hypotheses: [zkp]`, `conclusion: nizk`, `model: standard` \u2014 the page claims that a zero-knowledge proof for $L$ alone yields a NIZK for $L$. Without setup this is false for every $L \\notin \\classBPP$: only languages in $\\classBPP$ have two-message, a fortiori one-message, auxiliary-input zero-knowledge proofs or arguments (Goldreich-Oren, J. Cryptology 7(1):1-32, 1994, DOI 10.1007/BF"
+  }
+ ],
+ "undetermined": [
+  {
+   "slug": "alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg",
+   "path": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
+   "flags": "Searched for a paper proving 'AM hardness => PCG' and found none. The nearest literature is Bui-Couteau-Meyer-Passel\u00e8gue-Riahinia, 'Fast Public-Key Silent OT and More from Constrained Naor-Reingold' (EUROCRYPT 2024, eprint 2024/178), which builds pseudorandom correlation FUNCTIONS for OT correlations using the BIPSW (BIP+18) wPRF as the constraint predicate inside a group-based constrained PRF \u2014 i"
+  },
+  {
+   "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
+   "path": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
+   "flags": "Migrated text is a definitional gloss of VSS, not a theorem; the hyperedge 'generic COM + generic SS => VSS' has no canonical citation (researcher tried vendor/cryptobib and web search; verifier could not reach Springer/IACR/ACM full texts either). The Statement is kept as a definition with no citation marker.; Commitments to shares alone do not give a consistency check: a party can verify its own"
+  },
+  {
+   "slug": "module-sis-to-ds",
+   "path": "content/Reductions/module-sis-to-ds.md",
+   "flags": "The migrated prose does not source this edge: LS15 is the worst-case-to-average-case reduction for module lattices (its own page, module-svp-to-module-sis-ls15; abstract re-checked via web search, no signature scheme claimed), and Dilithium/ML-DSA rests on Module-LWE and Module-SIS jointly (already recorded as module-lwe-and-module-sis-to-ds). Either delete this single-hypothesis page as a migrati"
+  },
+  {
+   "slug": "qcma-to-pp",
+   "path": "content/Reductions/qcma-to-pp.md",
+   "flags": "The containment is true; 'undetermined' concerns verified provenance only, and the citation belongs on qma-to-pp, not here. Verifier confirmed via WebSearch snippets (Springer/ACM listings; springer.com and dl.acm.org themselves egress-blocked): Marriott and Watrous, 'Quantum Arthur\u2013Merlin games', Computational Complexity 14(2):122\u2013152, 2005, doi 10.1007/s00037-005-0194-x, whose abstract lists 'a "
+  },
+  {
+   "slug": "snark-to-hash-function",
+   "path": "content/Reductions/snark-to-hash-function.md",
+   "flags": "HIGH PRIORITY \u2014 the '\u2014 standard' label is misapplied and no attributable theorem establishes the edge. The natural citation, Bitansky-Canetti-Chiesa-Tromer 'From extractable collision resistance to succinct non-interactive arguments of knowledge, and back again' (ITCS 2012, pp. 326-349, DOI 10.1145/2090236.2090263, eprint 2011/443; cryptobib ITCS:BCCT12), states in its abstract only that SNARKs 'e"
+  }
+ ],
+ "title_conflicts": [
+  [
+   "Rom90",
+   "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+   "Rom90 - One-Way Functions Are Necessary and Sufficient for Secure Signatures",
+   "hash-function-and-hash-based-signatures-to-ds-mer89"
+  ],
+  [
+   "NY89",
+   "NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications",
+   "NY89 - Universal one-way hash functions and their cryptographic applications",
+   "hash-function-to-ds"
+  ],
+  [
+   "NY89",
+   "NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications",
+   "NY89 - Universal One-Way Hash Functions and their Cryptographic Applications",
+   "hash-based-signatures-to-ds-mer89"
+  ],
+  [
+   "Rom90",
+   "Rom90 - One-way functions are necessary and sufficient for secure signatures",
+   "Rom90 - One-Way Functions are Necessary and Sufficient for Secure Signatures",
+   "hash-based-signatures-to-ds-mer89"
+  ],
+  [
+   "HRV10",
+   "HRV10 - Efficiency Improvements in Constructing Pseudorandom Generators from One-Way Functions",
+   "HRV10 - Efficiency improvements in constructing pseudorandom generators from one-way functions",
+   "owf-to-prg-hill99"
+  ],
+  [
+   "VZ12",
+   "VZ12 - Characterizing Pseudoentropy and Simplifying Pseudorandom Generator Constructions",
+   "VZ12 - Characterizing pseudoentropy and simplifying pseudorandom generator constructions",
+   "owf-to-prg-hill99"
+  ]
+ ],
+ "same_paper_different_key": [],
+ "suspects_vs_existing": []
+}

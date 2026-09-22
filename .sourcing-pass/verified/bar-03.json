@@ -1,0 +1,290 @@
+{
+ "batch": "bar-03",
+ "pages": [
+  {
+   "slug": "no-rom-to-roh-ccg-94",
+   "path": "content/Barriers/no-rom-to-roh-ccg-94.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "CCG+94",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "CCG+94 - The random oracle hypothesis is false",
+     "authors": "Richard Chang, Benny Chor, Oded Goldreich, Juris Hartmanis, Johan Håstad, Desh Ranjan, Pankaj Rohatgi",
+     "venue": "Journal of Computer and System Sciences 49(1):24-39",
+     "year": "1994",
+     "url": "https://doi.org/10.1016/S0022-0000(05)80084-4",
+     "note": "Already in content/References/. Title, authors, venue and the four results used here (for almost all oracles A, IP^A != PSPACE^A and coNP^A not contained in IP^A; extension to multi-prover systems; IPP^A = PSPACE^A for every A) confirmed from the abstract via search snippets; ScienceDirect, ACM DL and Semantic Scholar are blocked by the egress proxy. Not in the vendored cryptobib (journal paper) — keep the inline bibtex on the reference page."
+    }
+   ],
+   "class": "free",
+   "class_justification": "CCG+94 refute the Random Oracle Hypothesis unconditionally, so what fails is the implication ROM ⇒ ROH itself, not one proof technique: the class ruled out is `free`. The migrated `relativizing` has no basis in the source and is subsumed anyway — a barrier against `free` kills every class in schema/reduction-classes.yaml.",
+   "model": "",
+   "model_justification": "Barrier frontmatter has no model field. The counterexample is a statement about random oracle worlds; the statement quantifies over the oracle explicitly.",
+   "kind_correct": "",
+   "statement": "For almost all oracles $A$, $\\classIP^A \\neq \\classPSPACE^A$; in fact $\\classcoNP^A \\not\\subseteq \\classIP^A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since [[interactive-proof-systems|IP]] $=$ [[polynomial-space|PSPACE]] holds unrelativized, the [[random-oracle-hypothesis|Random Oracle Hypothesis]] (class relationships holding for almost all oracles hold unrelativized) is false. The results extend to multi-prover proof systems, while the variant class $\\mathrm{IPP}$ satisfies $\\mathrm{IPP}^A = \\classPSPACE^A$ for every oracle $A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]].",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "The hyperedge is a meta-statement, not a relation between cryptographic objects: [[random-oracle-model|ROM]] is a computational model and the [[random-oracle-hypothesis|ROH]] a conjecture about relativization. The `class` axis of schema/reduction-classes.yaml does not apply to either endpoint."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "no-rom-to-roh-ccg-94: class changed `relativizing` -> `free`. The refutation is unconditional, so it rules out the implication itself; `free`-exclusion subsumes `relativizing`-exclusion under the partial order. If a maintainer prefers to leave the class axis unused for meta-conjectures, `unstated` is the only other defensible value — `relativizing` is not.",
+    "no-rom-to-roh-ccg-94: the hyperedge is mistyped. Neither ROM (a model) nor ROH (a meta-conjecture) is a primitive/assumption node, so `hypotheses: [rom]` / `conclusion: random-oracle-hypothesis` is not a construction claim. Consider demoting this to a Known Results bullet on content/Glossary/random-oracle-hypothesis.md.",
+    "no-rom-to-roh-ccg-94: the evaluative clause 'among the most compelling counterexamples' and the duplicated intro sentence are dropped by the proposed statement (CLAUDE.md anti-patterns).",
+    "no-rom-to-roh-ccg-94: OUTSIDE THIS BATCH — content/Reductions/ip-to-pspace-ccg-94.md cites CCG+94 for IP ⊆ PSPACE. CCG+94 do not prove that containment (it is textbook; IP = PSPACE is Shamir's); misattribution for the reference-fixer / skeptical-checker lanes.",
+    "no-rom-to-roh-ccg-94: the unrelativized IP = PSPACE is stated without a citation because content/References/ has no Shamir entry; a Sha92 stub ('IP = PSPACE', JACM 39(4), 1992) would let the statement cite it.",
+    "no-rom-to-roh-ccg-94: verification limits — publisher hosts blocked; bibliographic data and the abstract's results confirmed only via search snippets (consistent with the existing reference page). Source url changed to the canonical DOI form."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "statement: tightened — ROH gloss shortened to a parenthesis, third sentence compressed; content unchanged",
+    "class_justification / model_justification: tightened",
+    "sources[0].url: canonical DOI; note records what was verified and how (snippets only; not in cryptobib)",
+    "flags: added ip-to-pspace-ccg-94 misattribution, missing-Shamir-reference and verification-limit flags"
+   ]
+  },
+  {
+   "slug": "no-search-noisy-k-lin-to-noisy-k-lin",
+   "path": "content/Barriers/no-search-noisy-k-lin-to-noisy-k-lin.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "The page asserts an unconditional impossibility nobody has proved. Its source sentence records the absence of a known reduction — 'the search-to-decision reduction for standard LPN does not immediately transfer to the expanding-matrix setting' — which is an open question, not a barrier: no separation, oracle world or meta-reduction is claimed by GHJS25 or anyone else, and GHJS25 Theorem 8.8 merely uses the search variant as an alternative hypothesis for PKE. Known results point the other way: search-to-decision reductions for sparse kLIN over $\\FF_2$ exist, with a sample blow-up and a shift in sparsity (Bogdanov–Rosen–Tan, CRYPTO 2025), so a proof that none exists in the expanding-matrix setting would be surprising. With `strength: unconditional` and `consequences: [{kind: contradiction}]` the page states a theorem that does not exist. The orientation is correct (search hard ⇒ decision hard), so the fix is deletion, not inversion; the content belongs on content/Assumptions/noisy-k-lin-over-expanders.md § Search noisy $k$-LIN, phrased as 'no search-to-decision reduction is known for expanding matrices over $\\FF_p$'.",
+   "flags": [
+    "no-search-noisy-k-lin-to-noisy-k-lin: DELETE recommended. An open question has been typed as an unconditional barrier; keeping it puts a false theorem in relations.json and in the generated 'Participates in / Barriers' block on content/Assumptions/noisy-k-lin-over-expanders.md.",
+    "no-search-noisy-k-lin-to-noisy-k-lin: if the page is kept, `strength: unconditional` must at minimum become a conjectural/open marker and the `consequences.kind: contradiction` entry must be removed.",
+    "no-search-noisy-k-lin-to-noisy-k-lin: search-to-decision for sparse kLIN — Andrej Bogdanov, Alon Rosen, Kel Zin Tan, 'Sample Efficient Search to Decision for kLIN', CRYPTO 2025, pp. 203-220, DOI 10.1007/978-3-032-01855-7_7 (cryptobib C:BogRosTan25; eprint 2025/1469; suggested key BRT25, no collision in existing-refs.txt). Bibliographic data from the vendored cryptobib; the content ('given a distinguisher for (k-1)LIN with m samples, solve search kLIN with roughly O(nm) samples', mod 2) only from search snippets since eprint and Springer are blocked. Whether it transfers to $\\FF_p$ expanding matrices is exactly what the assumption page should state as open. Not proposed as a source: a wrong_claim page takes none."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "wrong_reason: tightened; added the BRT25 search-to-decision result for sparse kLIN, which makes the recorded impossibility run against known results rather than merely unproved",
+    "flags: added the BRT25 pointer with its verification limits"
+   ]
+  },
+  {
+   "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",
+   "path": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "Two defects. (1) DUPLICATE: content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md (id bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security, batch bar-01) records the same edge from the same sentence; the two differ only in which alias pair of the HIBE security sections they name (selective-hibe-security/adaptive-hibe-security here, hibe-selective-security/hibe-adaptive-security there), and content/Primitives/hierarchical-identity-based-encryption.md maps both pairs to the same two anchors. (2) FALSE AS TYPED under the schema's construction reading: nothing rules out building an adaptively secure HIBE from a selectively secure one — complexity leveraging does it at loss $|\\Sigma^{\\le d}|$ (hence needs sub-exponential selective security), and no polynomial-loss impossibility is known. The migrated sentence conflates a separation of notions with the cost of one technique and misstates the loss (exponential in $d \\log|\\Sigma|$, not in $d$). The nearest attributable result, Lewko–Waters EUROCRYPT 2014, lower-bounds the loss of simple black-box reductions from non-interactive assumptions to the adaptive security of HIBE schemes with checkable keys and ciphertexts — a different hyperedge. The bar-01 verifier kept the twin page under the same-scheme reading (a scheme's selective security does not imply its adaptive security, by a folklore counterexample; class `free`; LW14 as improvement). That research survives on the twin; this copy adds nothing and should be deleted.",
+   "flags": [
+    "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2: DUPLICATE of no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security (same source sentence, same endpoints through different aliases). Delete this `-2` copy; the surviving page carries bar-01's verified research, and the endpoint ids should be unified there.",
+    "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2: the true positive edge is selective HIBE security ⇒ adaptive HIBE security by complexity leveraging, loss $|\\Sigma^{\\le d}|$ (exponential in $d \\log|\\Sigma|$, not in $d$), under sub-exponential selective security — standard; worth a Reductions page.",
+    "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2: HIGH PRIORITY — the same false sentence is live at content/Primitives/hierarchical-identity-based-encryption.md:76 and needs the skeptical-checker lane. If a barrier page is wanted for the loss lower bound, record Lewko–Waters EC14 with hypotheses = the non-interactive assumption and the checkability hypothesis stated explicitly — not as the selective ⇒ adaptive edge.",
+    "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2: LW14 bibliographic data verified against the vendored cryptobib EC:LewWat14 (Allison B. Lewko, Brent Waters, 'Why Proving HIBE Systems Secure Is Difficult', EUROCRYPT 2014, LNCS 8441, pp. 58-76, DOI 10.1007/978-3-642-55220-5_4; eprint 2013/068) — use `cryptobib_key: EC:LewWat14` if the reference page is created from bar-01. The abstract could not be fetched (eprint, Springer, dblp blocked)."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "wrong_reason: tightened; reconciled with bar-01's verified treatment of the twin page (same-scheme reading kept there) so the two batches do not contradict each other",
+    "flags: LW14 bibliographic data now verified against cryptobib EC:LewWat14 rather than search snippets; delete-this-copy instruction made explicit"
+   ]
+  },
+  {
+   "slug": "no-binding-and-hiding-to-com",
+   "path": "content/Barriers/no-binding-and-hiding-to-com.md",
+   "disposition": "folklore",
+   "sources": [],
+   "class": "free",
+   "class_justification": "The impossibility is information-theoretic and unconditional: no scheme has both properties, by any construction and under any assumption, so the class ruled out is `free`. The hyperedge's `conclusion: com` is vacuous; the content is the joint unsatisfiability of the two hypotheses (see flags).",
+   "model": "",
+   "model_justification": "Barrier frontmatter has no model field; the argument is unconditional and holds for interactive commitments too.",
+   "kind_correct": "",
+   "statement": "No [[commitment-scheme|commitment scheme]] with at least two messages is both [[commitment-scheme#hiding|statistically hiding]] and [[commitment-scheme#binding|statistically binding]] — folklore. The argument is information-theoretic and applies to interactive commitments as well.",
+   "sketch": "Statistical hiding makes the distributions of the commitment $c$ under $\\Com(\\pp, m_0; r)$ and $\\Com(\\pp, m_1; r)$ statistically close for $m_0 \\neq m_1$, so all but a negligible fraction of commitments to $m_0$ are also commitments to $m_1$ under some randomness $r'$; an unbounded committer finds $r'$ by exhaustive search and opens the same $c$ to both messages, breaking statistical binding.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "no-binding-and-hiding-to-com: the hyperedge is typed with `conclusion: com`, but the theorem is that the two hypotheses are jointly unsatisfiable; the real content sits in `consequences: [{kind: contradiction, target: \"\"}]` and the `conclusion` field is vacuous. Same shape as any 'these two properties cannot coexist' record — worth a schema note.",
+    "no-binding-and-hiding-to-com: genuinely folklore — no attributable origin found; Haitner–Nguyen–Ong–Reingold–Vadhan's statistically-hiding-commitments paper states 'it is easy to see that commitment schemes that are both statistically hiding and statistically binding do not exist' with no citation (search snippet of the Harvard-hosted preprint). If a citable form is preferred over '— folklore', Goldreich, *Foundations of Cryptography Vol. 1* (2001) §4.8 is the textbook treatment; not proposed as a source because the section could not be checked (publisher hosts blocked).",
+    "no-binding-and-hiding-to-com: the four-regime enumeration on content/Primitives/commitment-scheme.md belongs on the primitive page, but regime (4) 'perfectly binding / perfectly hiding — which is impossible' restates the sentence above it and should be dropped (editor lane).",
+    "no-binding-and-hiding-to-com: OUTSIDE THIS BATCH, skeptical-checker lane — content/Primitives/commitment-scheme.md § Hiding hands $(c, d) \\gets \\Com(\\pp, m_b; r)$ to the adversary; with $d$ it computes $\\Open(\\pp, c, d) = m_b$ and wins, so the hiding game as written is unsatisfiable. It should send $c$ only."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "statement: cut the rephrase ('at most one ... the other must be restricted to efficient ones') and the syntax aside; the size-2 qualifier kept in words because \\calM is not on the macros glossary page",
+    "sketch: tightened; refers to the commitment $c$ only, since the page's $\\Com$ outputs $(c, d)$",
+    "class_justification / model_justification: tightened",
+    "flags: folklore check now backed by a search snippet; added the hiding-game defect on commitment-scheme.md"
+   ]
+  },
+  {
+   "slug": "no-the-structured-ggm-to-dlog-chw26",
+   "path": "content/Barriers/no-the-structured-ggm-to-dlog-chw26.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "CHW26",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "CHW26 - The Structured Generic-Group Model",
+     "authors": "Henry Corrigan-Gibbs, Alexandra Henzinger, David J. Wu",
+     "venue": "Eurocrypt 2026; Cryptology ePrint Archive, Paper 2026/384",
+     "year": "2026",
+     "url": "https://eprint.iacr.org/2026/384",
+     "note": "Already in content/References/; the page slug carries the -chw26 suffix, so this paper is the original by construction. Title, authors, eprint 2026/384 (posted 2026-02-24) and the EUROCRYPT 2026 venue (Springer chapter DOI 10.1007/978-3-032-25330-9_4) confirmed via search snippets; eprint.iacr.org and link.springer.com are blocked by the egress proxy and the paper is not yet in the vendored cryptobib. The abstract's wording 'must run in time Ω(min(√q, 1/δ))' (the paper writes q for the group order) is confirmed by the snippet."
+    }
+   ],
+   "class": "free",
+   "class_justification": "A lower bound inside an idealized model rules out every algorithm in that model with no restriction on technique, so it is `free` scoped by the model — the convention the sibling page content/Barriers/no-ggm-to-dlog-sho97.md uses and the one schema/reduction-classes.yaml's `rejected: generic-group` message prescribes.",
+   "model": "",
+   "model_justification": "Barrier frontmatter has no model field, so the model is named in the statement. It is the structured generic-group model of CHW26 — Shoup's GGM extended so that the adversary may exploit the group's structure on at most a $\\delta$ fraction of elements and is generic on the rest — which is none of the enumerated `model:` values (it would be `other`).",
+   "kind_correct": "",
+   "statement": "In the structured generic-group model — [[generic-group-model|Shoup's GGM]] extended so that the adversary may exploit the group's special structure on at most a $\\delta$ fraction of group elements and is generic on the rest — every algorithm for [[discrete-logarithm|DLOG]] in a group of prime order $p$ runs in time $\\Omega\\!\\left(\\min\\!\\left(\\sqrt{p},\\, 1/\\delta\\right)\\right)$ — [[CHW26 - The Structured Generic-Group Model|CHW26]]. This gives tight subexponential lower bounds against index-calculus-style algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic — [[CHW26 - The Structured Generic-Group Model|CHW26]].",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "The structured GGM has no node of its own; it is the `#the-structured-ggm` section of [[generic-group-model]], recorded here as a hypothesis by slug alias.",
+    "The bound is stated as a running-time lower bound, while the [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] bound on the same source page is a query lower bound; the two are not the same unit and the source page switches between them without comment."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "high",
+   "wrong_reason": "",
+   "flags": [
+    "no-the-structured-ggm-to-dlog-chw26: the current ## Statement section contains the SAME migrated quote twice (the second copy adds only the trailing 'bridging the gap...' clause). The proposed statement replaces both.",
+    "no-the-structured-ggm-to-dlog-chw26: 'time' vs 'queries' — the abstract says 'must run in time' (confirmed via search snippet), so the statement says time; whether the theorem inside the paper is a query bound in the model could not be checked (eprint blocked).",
+    "no-the-structured-ggm-to-dlog-chw26: DLOG is now wikilinked (it was plain prose in the migrated quote although linked elsewhere on the same source page).",
+    "no-the-structured-ggm-to-dlog-chw26: the abstract also claims analogous lower bounds against algorithms exploiting the structure of small integers, smooth polynomials and elliptic-curve points (search snippet); not added to the statement because only the smooth-integer case was in the migrated text."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "statement: tightened; second sentence aligned to the abstract's wording ('exploit the multiplicative structure of smooth integers but are otherwise generic')",
+    "sources[0].note: venue, eprint date and Springer DOI confirmed via search snippets; verification limits recorded",
+    "class_justification / model_justification: tightened",
+    "flags: time-vs-query flag updated with what was confirmed; added a note on the further lower bounds in the abstract"
+   ]
+  },
+  {
+   "slug": "no-tdp-to-ot",
+   "path": "content/Barriers/no-tdp-to-ot.md",
+   "disposition": "wrong_claim",
+   "sources": [],
+   "class": "",
+   "class_justification": "",
+   "model": "",
+   "model_justification": "",
+   "kind_correct": "",
+   "statement": "",
+   "sketch": "",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [],
+   "status_suggestion": "stub",
+   "confidence": "high",
+   "wrong_reason": "The source sentence says the enhanced property 'is necessary for constructing OT from TDPs': the EGL construction breaks without it (the receiver must sample an image without learning its preimage), which is not a theorem that no construction of [[oblivious-transfer|OT]] from a plain [[trapdoor-permutation|TDP]] exists. No such separation is known; Hajiabadi (TCC 2018) still frames whether standard TDPs suffice for the OT and NIZK constructions as the motivating open question. As typed, with `strength: unconditional` and `consequences: [{kind: contradiction}]`, the page asserts an unproved impossibility, and it contradicts content/Reductions/tdp-to-ot.md (`kind: equivalence`, TDP ⇔ OT), so the graph carries an edge and its negation. The attributable nearby results are (a) Goldreich–Rothblum, 'Enhancements of Trapdoor Permutations' (GR13, in the wiki), which works out the enhanced and doubly-enhanced notions and why the standard OT and NIZK constructions need them, and (b) Hajiabadi, 'Enhancements Are Blackbox Non-Trivial: Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations', TCC 2018, which proves there is no fully-black-box construction of an enhanced TDP from a standard TDP. (b) is the barrier to record, on different endpoints: hypotheses [tdp], conclusion enhanced-trapdoor-permutation, class fully-black-box — not hypotheses [tdp], conclusion ot.",
+   "flags": [
+    "no-tdp-to-ot: HIGH PRIORITY GRAPH INCONSISTENCY — content/Reductions/tdp-to-ot.md asserts TDP ⇔ OT (kind: equivalence) while this barrier asserts no TDP ⇒ OT. Both are unsourced migrations and both carry SUSPECTED notes; the lint's contradiction rule does not fire only because both classes are `unstated`. Resolve them together (the converse OT ⇒ TDP is not known either).",
+    "no-tdp-to-ot: replace with the real barrier {tdp} ⇒ enhanced-trapdoor-permutation, class fully-black-box, source Hajiabadi TCC 2018. Bibliographic data verified against the vendored cryptobib TCC:Hajiabadi18 (Mohammad Hajiabadi, TCC 2018, LNCS, pp. 448-475, DOI 10.1007/978-3-030-03807-6_17; eprint 2018/900); suggested key Haj18 (no collision in existing-refs.txt); use `cryptobib_key: TCC:Hajiabadi18`. The abstract's scope ('there does not exist fully blackbox constructions of enhanced TDPs from classical TDPs') confirmed via search snippet; eprint, dblp and Springer are blocked.",
+    "no-tdp-to-ot: the positive edge content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md cites GKM+00 for the enhanced-TDP ⇒ OT construction; GKM+00 is a PKE-vs-OT separation paper and its own migration note already questions this. The construction is EGL (Even–Goldreich–Lempel) with Goldreich's enhancement; that page needs its own sourcing pass.",
+    "no-tdp-to-ot: content/Primitives/trapdoor-permutation.md:51 carries the same uncited negative claim and needs the skeptical-checker lane.",
+    "no-tdp-to-ot: verification limit — that no separation of OT from standard TDPs is known was checked only against Hajiabadi's abstract (snippet) and this verifier's knowledge; if such a separation exists in the literature it was not found."
+   ],
+   "verdict": "amended",
+   "verifier_changes": [
+    "wrong_reason: tightened; the 'question is open' claim is now attributed to Hajiabadi's framing rather than asserted flatly",
+    "flags: Haj18 bibliographic data verified against cryptobib TCC:Hajiabadi18 with the cryptobib key recorded; added a verification-limit flag"
+   ]
+  },
+  {
+   "slug": "no-zkp-to-argument-systems",
+   "path": "content/Barriers/no-zkp-to-argument-systems.md",
+   "disposition": "sourced",
+   "sources": [
+    {
+     "key": "GK96",
+     "role": "original",
+     "exists_in_wiki": true,
+     "ref_file_title": "GK96 - On the Composition of Zero-Knowledge Proof Systems",
+     "authors": "Oded Goldreich, Hugo Krawczyk",
+     "venue": "SIAM Journal on Computing 25(1):169-192",
+     "year": "1996",
+     "url": "https://doi.org/10.1137/S0097539791220688",
+     "note": "Already in content/References/. SIAM hosts are blocked; the abstract ('three-round interactive proofs and constant-round Arthur–Merlin proofs that are black-box simulation zero-knowledge exist only for languages in BPP') and the standard reading that both results extend to arguments with negligible soundness error were confirmed via search snippets of the abstract and of citing papers. Not in cryptobib (journal paper); keep the inline bibtex. The wiki reference page's own § Abstract is a garbled paraphrase, see flags."
+    },
+    {
+     "key": "Bar01",
+     "role": "improvement",
+     "exists_in_wiki": false,
+     "ref_file_title": "Bar01 - How to Go Beyond the Black-Box Simulation Barrier",
+     "authors": "Boaz Barak",
+     "venue": "FOCS 2001, pages 106-115",
+     "year": "2001",
+     "url": "https://doi.org/10.1109/SFCS.2001.959885",
+     "note": "Bibliographic data verified against the vendored cryptobib FOCS:Barak01 (FOCS 2001, pp. 106-115, DOI 10.1109/SFCS.2001.959885); use `cryptobib_key: FOCS:Barak01`. Abstract (search snippet): assuming collision-resistant hash functions, a zero-knowledge argument for NP that is constant-round with negligible soundness error, public-coin (Arthur–Merlin) and has a strict-polynomial-time non-black-box simulator. Not an improvement of the barrier but its circumvention — the wiki has no 'circumvents' edge type and `role: improvement` is the only slot that creates the reference page. No key collision in existing-refs.txt."
+    }
+   ],
+   "class": "unstated",
+   "class_justification": "GK96 rule out black-box simulation — simulators that use the cheating verifier only as an oracle — and Barak crosses exactly that line. This is not an RTV04 reduction class: RTV04's classes quantify over a construction and a security reduction between primitives, and zero-knowledge (∃ simulator ∀ verifiers) is not a break-relation of that form, so no value in schema/reduction-classes.yaml is literally established. The migrated `fully-black-box` was an analogy; the honest value is `unstated`, with 'black-box simulation' said in prose.",
+   "model": "",
+   "model_justification": "Barrier frontmatter has no model field. Both results are in the standard model; Bar01 assumes collision-resistant hash functions.",
+   "kind_correct": "",
+   "statement": "No language outside [[bounded-error-probabilistic-polynomial-time|BPP]] has a constant-round public-coin [[zero-knowledge-proof|zero-knowledge]] proof or [[zero-knowledge-proof#argument-systems|argument]] with negligible soundness error whose simulator uses the cheating verifier only as an oracle, and none has a three-round one, public-coin or not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]. The barrier binds only on black-box simulation: assuming collision-resistant hash functions, a simulator that takes the cheating verifier's code as input gives a constant-round public-coin zero-knowledge argument for [[nondeterministic-polynomial-time|NP]] with negligible soundness error — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]].",
+   "sketch": "GK96 run the black-box simulator against a verifier whose messages are a random function of the transcript so far, so rewinding only draws fresh challenges; accepting iff the simulator's output is accepting then decides $L$ in $\\classBPP$, since on $x \\in L$ the output is accepting by completeness and zero-knowledge, and on $x \\notin L$ the simulator's queries define an efficient cheating prover, which soundness defeats. Barak's prover commits to a program and gives a witness-indistinguishable universal argument that $x \\in L$ or the committed program predicts the verifier's next message; the simulator commits to the verifier's own code and uses that branch as its witness, with no rewinding.",
+   "pseudocode": "",
+   "security_loss": "",
+   "improvements_text": "",
+   "notes_to_keep": [
+    "The same barrier is stated at content/Complexity/computational-zero-knowledge.md § Limits of zero-knowledge with no cross-link in either direction."
+   ],
+   "status_suggestion": "draft",
+   "confidence": "medium",
+   "wrong_reason": "",
+   "flags": [
+    "no-zkp-to-argument-systems: HIGH PRIORITY MODELLING — the migrated text records a barrier CIRCUMVENTION (Barak bypassing GK96), not a barrier. The proposed statement restates the underlying GK96 barrier and keeps Barak as the circumvention, but the data model has nowhere to say 'Bar01 circumvents bar-zkp-to-argument-systems'. A `circumvents` consequence kind, or a `circumvented-by` frontmatter field, is the structural fix.",
+    "no-zkp-to-argument-systems: class DOWNGRADED `fully-black-box` -> `unstated`. GK96's 'black-box' is black-box SIMULATION, not an RTV04 reduction class, and the hyperedge {zkp} ⇒ constant-round-zk-argument is not a construction GK96 talk about. If a maintainer wants the class axis populated by analogy (black-box simulation ≈ fully-black-box, Barak's code-using simulator ≈ semi-black-box), that is a repo convention to decide, not something the source supports.",
+    "no-zkp-to-argument-systems: source changes from `folklore` to GK96 + Bar01. `folklore` was wrong — a named theorem is never folklore.",
+    "no-zkp-to-argument-systems: NEW REFERENCE NEEDED — create 'Bar01 - How to Go Beyond the Black-Box Simulation Barrier' (Boaz Barak, FOCS 2001, pp. 106-115) with `cryptobib_key: FOCS:Barak01` (verified in vendor/cryptobib/crypto.bib).",
+    "no-zkp-to-argument-systems: GK96's theorems are stated for interactive proof systems; that they cover arguments (the cheating prover derived from the simulator is efficient) and carry the negligible-soundness-error hypothesis was confirmed via search snippets of citing papers, not from the SIAM paper (blocked). The statement says 'proof or argument' and carries the qualifier; a human with SIAM access should confirm the exact theorem hypotheses.",
+    "no-zkp-to-argument-systems: OUTSIDE THIS BATCH, HIGH PRIORITY — content/Complexity/computational-zero-knowledge.md:36 states GK96 as 'any constant-round proof system for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP'. This drops the load-bearing public-coin qualifier and is false as written: constant-round private-coin black-box ZK proofs for NP exist under standard assumptions (Goldreich–Kahan, J. Cryptology 1996). Skeptical-checker lane.",
+    "no-zkp-to-argument-systems: OUTSIDE THIS BATCH — content/References/GK96 - On the Composition of Zero-Knowledge Proof Systems.md § Abstract is not the paper's abstract: it omits 'public-coin' for the constant-round result and adds 'unless the polynomial hierarchy collapses', which GK96 do not state. Replace with the SIAM abstract (reference-fixer / skeptical-checker lanes)."
+   ],
+   "verdict": "downgraded",
+   "verifier_changes": [
+    "class fully-black-box → unstated: GK96's black-box simulation is not an RTV04 reduction class, as the researcher's own justification conceded; the prose now says 'black-box simulation'",
+    "statement: fixed 'in particular' (the three-round result is a separate theorem covering private-coin protocols, not a corollary of the public-coin one); added the load-bearing 'negligible soundness error' qualifier (three-round black-box ZK protocols with constant soundness error exist); made the proof/argument scope explicit",
+    "sketch: tightened; the BPP decision step now says why soundness against efficient provers suffices, which is what extends GK96 to arguments",
+    "sources: canonical DOI urls; Bar01 verified against cryptobib FOCS:Barak01 with the cryptobib key recorded; notes updated with what was verified and how",
+    "flags: class-downgrade flag replaces the class-caveat flag; added the CZK page and GK96 reference-page misstatements; arguments-extension flag updated"
+   ]
+  }
+ ]
+}

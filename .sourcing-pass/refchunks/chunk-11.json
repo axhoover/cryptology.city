@@ -1,0 +1,82 @@
+[
+ {
+  "key": "Gol04",
+  "ref_file_title": "Gol04 - Foundations of Cryptography Basic Applications",
+  "authors": "Oded Goldreich",
+  "venue": "Cambridge University Press, 2004 (Foundations of Cryptography, Volume 2)",
+  "year": "2004",
+  "url": "https://doi.org/10.1017/CBO9780511721656",
+  "note": "Book; cryptobib Goldreich04 (verified in vendor/cryptobib). Defines enhanced trapdoor permutations (Appendix C.1) and proves the EGL protocol secure for semi-honest parties under that hypothesis (Chapter 7); GR13's abstract credits the notion to this book.",
+  "first_seen": "enhanced-trapdoor-permutations-to-ot-gkm-00"
+ },
+ {
+  "key": "HHK10",
+  "ref_file_title": "HHK10 - Some (in)sufficient conditions for secure hybrid encryption",
+  "authors": "Javier Herranz, Dennis Hofheinz, Eike Kiltz",
+  "venue": "Information and Computation 208(11):1243-1257",
+  "year": "2010",
+  "url": "https://eprint.iacr.org/2006/265",
+  "note": "Systematic study of which KEM/DEM security-notion combinations yield secure hybrid PKE. Verifier confirmed the eprint version (2006/265, cryptobib EPRINT:HerHofKil06b); the journal volume/pages are from the researcher and could not be independently re-checked from this environment.",
+  "first_seen": "kem-and-ske-to-pke"
+ },
+ {
+  "key": "HHK17",
+  "ref_file_title": "HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation",
+  "authors": "Dennis Hofheinz, Kathrin Hövelmanns, Eike Kiltz",
+  "venue": "TCC 2017, Part I (LNCS 10677), pp. 341-371",
+  "year": "2017",
+  "url": "https://eprint.iacr.org/2017/604",
+  "note": "Decomposes FO into the T and U transforms and states the modern PKE-to-KEM form with concrete bounds and explicit handling of a delta-correct base scheme. cryptobib_key: TCC:HofHovKil17; doi:10.1007/978-3-319-70500-2_12.",
+  "first_seen": "ind-cpa-kem-to-ind-cca-security"
+ },
+ {
+  "key": "HJ16",
+  "ref_file_title": "HJ16 - Verifiable Random Functions from Standard Assumptions",
+  "authors": "Dennis Hofheinz, Tibor Jager",
+  "venue": "TCC 2016-A",
+  "year": "2016",
+  "url": "https://eprint.iacr.org/2015/1048",
+  "note": "Verified against vendor/cryptobib/crypto.bib entry TCC:HofJag16 (LNCS 9562 pp. 336–362, DOI 10.1007/978-3-662-49096-9_14; use cryptobib_key TCC:HofJag16) and the eprint 2015/1048 abstract: first VRF with exponential-size input space and full adaptive security from a non-interactive constant-size assumption; instantiable in groups with a symmetric bilinear map under any member of the (n-1)-linear family with n >= 3, i.e. k-Lin for k >= 2, including DLIN.",
+  "first_seen": "bdh-to-vrf"
+ },
+ {
+  "key": "HLL23",
+  "ref_file_title": "HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More",
+  "authors": "Yao-Ching Hsieh, Huijia Lin, Ji Luo",
+  "venue": "FOCS 2023, pp. 415-434",
+  "year": "2023",
+  "url": "https://eprint.iacr.org/2023/1716",
+  "note": "Introduces the (public-coin) evasive circular LWE assumption and builds ABE for circuits of unbounded depth from it; FOCS title omits the subtitle. Verifier: title, authors, FOCS pages and eprint number re-confirmed via web search (eprint blocked by proxy).",
+  "first_seen": "evasive-lwe-to-abe"
+ },
+ {
+  "key": "HN24",
+  "ref_file_title": "HN24 - One-Way Functions and Zero Knowledge",
+  "authors": "Shuichi Hirahara, Mikito Nanashima",
+  "venue": "STOC 2024, pp. 1731-1738",
+  "year": "2024",
+  "url": "https://doi.org/10.1145/3618260.3649701",
+  "note": "Verified by the verifier against cryptobib entry STOC:HirNan24 (authors, pages 1731-1738, DOI match); use cryptobib_key: STOC:HirNan24. Also ECCC TR24-063 and a SICOMP journal version (DOI 10.1137/24M1689971). Abstract (via search snippets; ACM/ECCC/SIAM hosts blocked) states the equivalence: a one-way function exists iff NP is contained in CZK and NP is hard in the worst case (iff CZK is hard in the worst case and GapMCSP is in CZK).",
+  "first_seen": "zkp-to-hash-function"
+ },
+ {
+  "key": "HRSS17",
+  "ref_file_title": "HRSS17 - High-Speed Key Encapsulation from NTRU",
+  "authors": "Andreas Hülsing, Joost Rijneveld, John M. Schanck, Peter Schwabe",
+  "venue": "CHES 2017",
+  "year": "2017",
+  "url": "https://doi.org/10.1007/978-3-319-66787-4_12",
+  "note": "cryptobib_key: CHES:HRSS17 (verified in vendor/cryptobib); eprint 2017/667. Abstract (via search snippet): simplified textbook NTRU, parameters at the 128-bit post-quantum level, 'a KEM that is CCA2-secure in the quantum random oracle model'. Became the NTRU-HRSS component of the NIST submission NTRU.",
+  "first_seen": "ntru-to-kem"
+ },
+ {
+  "key": "HRV10",
+  "ref_file_title": "HRV10 - Efficiency Improvements in Constructing Pseudorandom Generators from One-Way Functions",
+  "authors": "Iftach Haitner, Omer Reingold, Salil Vadhan",
+  "venue": "STOC 2010",
+  "year": "2010",
+  "url": "https://doi.org/10.1145/1806689.1806750",
+  "note": "Verified offline in vendor/cryptobib (STOC:HaiReiVad10, pp. 437-446). Journal version SIAM J. Comput. 42(3):1405-1430, 2013 could not be verified from this environment, so the conference key is used.",
+  "first_seen": "hash-function-to-prg-hill99"
+ }
+]

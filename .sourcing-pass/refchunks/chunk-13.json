@@ -1,0 +1,82 @@
+[
+ {
+  "key": "KLS18",
+  "ref_file_title": "KLS18 - A Concrete Treatment of Fiat-Shamir Signatures in the Quantum Random-Oracle Model",
+  "authors": "Eike Kiltz, Vadim Lyubashevsky, Christian Schaffner",
+  "venue": "EUROCRYPT 2018",
+  "year": "2018",
+  "url": "https://doi.org/10.1007/978-3-319-78372-7_18",
+  "note": "cryptobib_key: EC:KilLyuSch18 (verified in vendor/cryptobib/crypto.bib, pp. 552-586). eprint 2017/916. QROM treatment of Fiat-Shamir signatures: Dilithium-QROM (a larger-parameter variant with a lossy identification scheme) is tightly secure in the QROM under MLWE; the original Dilithium is QROM-secure under MLWE, MSIS and the new SelfTargetMSIS assumption.",
+  "first_seen": "module-lwe-and-module-sis-to-ds"
+ },
+ {
+  "key": "KOS16",
+  "ref_file_title": "KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer",
+  "authors": "Marcel Keller, Emmanuela Orsini, Peter Scholl",
+  "venue": "ACM CCS 2016",
+  "year": "2016",
+  "url": "https://eprint.iacr.org/2016/505",
+  "note": "cryptobib CCS:KelOrsSch16 (pages 830-842, doi 10.1145/2976749.2978357) and EPRINT:KelOrsSch16 (eprint 2016/505); dblp record conf/ccs/KellerOS16 and the CCS'16 abstract confirmed via search snippets. MASCOT instantiates the SPDZ preprocessing (authenticated multiplication triples over a finite field) from OT extension instead of somewhat-homomorphic encryption.",
+  "first_seen": "ot-extension-to-mpc-with-preprocessing-spdz-etc"
+ },
+ {
+  "key": "KPV22",
+  "ref_file_title": "KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments",
+  "authors": "Assimakis A. Kattis, Konstantin Panarin, Alexander Vlasov",
+  "venue": "ACM CCS 2022",
+  "year": "2022",
+  "url": "https://eprint.iacr.org/2019/1400",
+  "note": "Makes the FRI-based (list) polynomial commitment abstraction explicit. CCS 2022, doi 10.1145/3548606.3560657.",
+  "first_seen": "hash-function-to-pcs-bbhr18"
+ },
+ {
+  "key": "KR03",
+  "ref_file_title": "KR03 - 3-Local Hamiltonian is QMA-complete",
+  "authors": "Julia Kempe, Oded Regev",
+  "venue": "Quantum Information & Computation 3(3):258-264",
+  "year": "2003",
+  "url": "https://arxiv.org/abs/quant-ph/0302079",
+  "note": "Journal volume, pages and year verified via a dblp-derived .bib (journals/qic/KempeR03).",
+  "first_seen": "notable-problems-to-qma"
+ },
+ {
+  "key": "KSV02",
+  "ref_file_title": "KSV02 - Classical and Quantum Computation",
+  "authors": "Alexei Yu. Kitaev, Alexander H. Shen, Mikhail N. Vyalyi",
+  "venue": "Graduate Studies in Mathematics, vol. 47, American Mathematical Society",
+  "year": "2002",
+  "url": "https://www.ams.org/books/gsm/047/",
+  "note": "Kitaev announced 5-local Hamiltonian QMA-completeness in 1999 (AQIP'99); this book is the standard citable form. Bibliographic data (series, volume 47, AMS, 2002, ISBN 9780821832295) verified via several independent .bib entries.",
+  "first_seen": "notable-problems-to-qma"
+ },
+ {
+  "key": "KW00",
+  "ref_file_title": "KW00 - Parallelization, amplification, and exponential time simulation of quantum interactive proof systems",
+  "authors": "Alexei Kitaev, John Watrous",
+  "venue": "STOC 2000",
+  "year": "2000",
+  "url": "https://doi.org/10.1145/335305.335387",
+  "note": "Verified against the vendored cryptobib entry STOC:KitWat00 (pages 608-617); set cryptobib_key: STOC:KitWat00. This is the ORIGIN of the containment, stated there without proof — it is not an improvement; it carries role 'improvement' only because the schema has no precursor role. Do not render it as a tightening.",
+  "first_seen": "qma-to-pp"
+ },
+ {
+  "key": "KW93",
+  "ref_file_title": "KW93 - On Span Programs",
+  "authors": "Mauricio Karchmer, Avi Wigderson",
+  "venue": "8th IEEE Structure in Complexity Theory Conference, pp. 102-111",
+  "year": "1993",
+  "url": "https://doi.org/10.1109/SCT.1993.336536",
+  "note": "Introduces (monotone) span programs and observes that they yield linear secret-sharing schemes. Verified: cryptobib entry KarWig93 (Structures in Complexity Theory 1993, pp. 102-111) and DOI via an independent dblp-derived .bib.",
+  "first_seen": "linear-secret-sharing-schemes-lsss-to-msp"
+ },
+ {
+  "key": "KY00",
+  "ref_file_title": "KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation",
+  "authors": "Jonathan Katz, Moti Yung",
+  "venue": "FSE 2000",
+  "year": "2000",
+  "url": "https://doi.org/10.1007/3-540-44706-7_20",
+  "note": "cryptobib_key: FSE:KatYun00 (verified in vendor/cryptobib/crypto.bib, LNCS 1978, pp. 284-299; the proceedings volume is dated 2001). Independent concurrent work: ciphertext unforgeability plus IND-CPA implies IND-CCA for symmetric encryption.",
+  "first_seen": "mac-and-ske-to-cca-security"
+ }
+]

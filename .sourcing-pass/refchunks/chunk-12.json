@@ -1,0 +1,82 @@
+[
+ {
+  "key": "HV21",
+  "ref_file_title": "HV21 - On Search Complexity of Discrete Logarithm",
+  "authors": "Pavel Hubáček, Jan Václavek",
+  "venue": "MFCS 2021",
+  "year": "2021",
+  "url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.60",
+  "note": "Suitable variants of discrete logarithm are complete for PPP resp. PWPP, answering an open problem of SZZ18. MFCS 2021, LIPIcs 202, 60:1-60:16; also arXiv 2107.02617. Researcher reports web verification; the verifier could not re-check the LIPIcs article number / DOI online (egress blocked) — see flags.",
+  "first_seen": "dlog-to-tfnp"
+ },
+ {
+  "key": "IL89",
+  "ref_file_title": "IL89 - One-way Functions are Essential for Complexity Based Cryptography",
+  "authors": "Russell Impagliazzo, Michael Luby",
+  "venue": "FOCS 1989",
+  "year": "1989",
+  "url": "https://doi.org/10.1109/SFCS.1989.63483",
+  "note": "cryptobib FOCS:ImpLub89, pp. 230-235, DOI 10.1109/SFCS.1989.63483 (verified in vendor/cryptobib). Canonical citation for 'private-key encryption, identification, commitment and coin flipping imply one-way functions' (confirmed via search snippets); PKE is subsumed via PKE => SKE.",
+  "first_seen": "pke-to-hash-function"
+ },
+ {
+  "key": "IPS08",
+  "ref_file_title": "IPS08 - Founding Cryptography on Oblivious Transfer Efficiently",
+  "authors": "Yuval Ishai, Manoj Prabhakaran, Amit Sahai",
+  "venue": "CRYPTO 2008",
+  "year": "2008",
+  "url": "https://doi.org/10.1007/978-3-540-85174-5_32",
+  "note": "cryptobib_key: C:IshPraSah08 (verified in vendor/cryptobib); eprint 2008/243. Compiler from honest-majority MPC to MPC with no honest majority in the OT-hybrid model, black-box in the honest-majority protocol; constant-rate unconditionally secure MPC in the OT-hybrid model against malicious adversaries corrupting any number of parties.",
+  "first_seen": "ot-to-mpc-kil88"
+ },
+ {
+  "key": "JJUW10",
+  "ref_file_title": "JJUW10 - QIP = PSPACE",
+  "authors": "Rahul Jain, Zhengfeng Ji, Sarvagya Upadhyay, John Watrous",
+  "venue": "STOC 2010",
+  "year": "2010",
+  "url": "https://doi.org/10.1145/1806689.1806768",
+  "note": "Verified against vendor/cryptobib entry STOC:JJUW10 (STOC 2010, pp. 573-582, doi 10.1145/1806689.1806768 — suggested cryptobib_key: STOC:JJUW10). Journal version J. ACM 58(6), 2011 (doi 10.1145/2049697.2049704) confirmed by verifier via WebSearch snippet only (dl.acm.org egress-blocked); arXiv:0907.4737 from memory, unverified. Provides QIP ⊆ PSPACE.",
+  "first_seen": "qip-to-ip"
+ },
+ {
+  "key": "JM24",
+  "ref_file_title": "JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM",
+  "authors": "Joseph Jaeger, Deep Inder Mohan",
+  "venue": "CRYPTO 2024",
+  "year": "2024",
+  "url": "https://doi.org/10.1007/978-3-031-68388-6_2",
+  "note": "cryptobib C:JaeMoh24; ePrint 2025/2121. Abstract verified via search snippet: KZZ22 'gave an interpretation of the claim under which it is incorrect'; JM24 'give an alternate interpretation under which it is correct, using natural frameworks for capturing generic and algebraic models for arbitrary algebraic structures. Most algebraic analyses in the literature can be captured by our frameworks.' Whether the framework is Maurer-style could not be confirmed; not asserted.",
+  "first_seen": "no-agm-to-ggm-kz22"
+ },
+ {
+  "key": "Jer16",
+  "ref_file_title": "Jer16 - Integer factoring and modular square roots",
+  "authors": "Emil Jeřábek",
+  "venue": "Journal of Computer and System Sciences 82(2), pp. 380–394",
+  "year": "2016",
+  "url": "https://arxiv.org/abs/1207.5220",
+  "note": "DOI 10.1016/j.jcss.2015.08.001; arXiv:1207.5220. Not in cryptobib; use inline bibtex. Places factoring in PPA and in PPP (via WeakPigeon) under randomized reductions, derandomizable under GRH. Also resolves the 'Integer factorization is in PPP — TODO citation' on content/Complexity/total-function-np.md.",
+  "first_seen": "fac-to-tfnp"
+ },
+ {
+  "key": "KK05",
+  "ref_file_title": "KK05 - On Constructing Universal One-Way Hash Functions from Arbitrary One-Way Functions",
+  "authors": "Jonathan Katz, Chiu-Yuen Koo",
+  "venue": "Cryptology ePrint Archive, Report 2005/328",
+  "year": "2005",
+  "url": "https://eprint.iacr.org/2005/328",
+  "note": "First complete write-up of Rompel's UOWHF-from-OWF proof.",
+  "first_seen": "hash-function-to-ds"
+ },
+ {
+  "key": "KKR06",
+  "ref_file_title": "KKR06 - The Complexity of the Local Hamiltonian Problem",
+  "authors": "Julia Kempe, Alexei Kitaev, Oded Regev",
+  "venue": "SIAM Journal on Computing 35(5):1070-1097",
+  "year": "2006",
+  "url": "https://doi.org/10.1137/S0097539704445226",
+  "note": "2-local Hamiltonian QMA-complete via perturbation-theory gadgets; also arXiv quant-ph/0406180 and FSTTCS 2004. Volume, issue, pages and DOI verified via independent .bib entries.",
+  "first_seen": "notable-problems-to-qma"
+ }
+]

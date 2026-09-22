@@ -364,7 +364,7 @@
    "security_loss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
    "improvements_text": "- $\\eufcma$ security in the ROM under DLOG via the forking lemma, with expected-time loss $O(q_H/\\varepsilon)$ — [[PS96 - Security Proofs for Signature Schemes|PS96]]\n- The $q_H$ loss is essentially optimal: under the one-more discrete logarithm assumption, any algebraic reduction from DLOG loses a factor about $q_H$ — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]",
    "notes_to_keep": [
-    "The [[Sch91 - Efficient signature generation by smart cards]] reference page says the identification protocol 'is honest-verifier zero-knowledge under the discrete logarithm assumption'; Schnorr's sigma protocol is perfect HVZK unconditionally — DLOG underlies soundness/impersonation resistance, not HVZK.",
+    "The [[Sch91 - Efficient signature generation by smart cards|Sch91]] reference page says the identification protocol 'is honest-verifier zero-knowledge under the discrete logarithm assumption'; Schnorr's sigma protocol is perfect HVZK unconditionally — DLOG underlies soundness/impersonation resistance, not HVZK.",
     "The EdDSA/Ed25519 lineage claim in the migrated text is uncited and is not carried by this edge."
    ],
    "status_suggestion": "draft",

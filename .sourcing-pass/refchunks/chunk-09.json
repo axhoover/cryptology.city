@@ -1,0 +1,82 @@
+[
+ {
+  "key": "FO99",
+  "ref_file_title": "FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes",
+  "authors": "Eiichiro Fujisaki, Tatsuaki Okamoto",
+  "venue": "CRYPTO 1999 (LNCS 1666), pp. 537-554",
+  "year": "1999",
+  "url": "https://doi.org/10.1007/3-540-48405-1_34",
+  "note": "Introduces the Fujisaki-Okamoto transform: a one-way (gamma-uniform) asymmetric scheme plus a one-time-secure symmetric scheme give an IND-CCA hybrid PKE in the ROM; the KEM form is later (Den03, HHK17). cryptobib_key: C:FujOka99. Journal version: J. Cryptology 26(1):80-101, 2013, doi:10.1007/s00145-011-9114-1 (cryptobib JC:FujOka13). Do not confuse with the same authors' PKC 1999 paper 'How to Enhance the Security of Public-Key Encryption at Minimum Cost' (cryptobib PKC:FujOka99), a different transform; if that paper is ever added it needs a suffixed key.",
+  "first_seen": "ind-cpa-kem-to-ind-cca-security"
+ },
+ {
+  "key": "FOPS01",
+  "ref_file_title": "FOPS01 - RSA-OAEP Is Secure under the RSA Assumption",
+  "authors": "Eiichiro Fujisaki, Tatsuaki Okamoto, David Pointcheval, Jacques Stern",
+  "venue": "CRYPTO 2001",
+  "year": "2001",
+  "url": "https://doi.org/10.1007/3-540-44647-8_16",
+  "note": "Verified against vendor/cryptobib C:FOPS01 (CRYPTO 2001, LNCS 2139, pp. 260-274, doi 10.1007/3-540-44647-8_16) and search snippets; journal version J. Cryptology 17(2):81-104, 2004. Proves RSA-OAEP IND-CCA secure in the ROM under partial-domain one-wayness, hence under the RSA assumption. cryptobib_key: C:FOPS01.",
+  "first_seen": "rsa-to-ind-cca-security"
+ },
+ {
+  "key": "FPS00",
+  "ref_file_title": "FPS00 - Sharing Decryption in the Context of Voting or Lotteries",
+  "authors": "Pierre-Alain Fouque, Guillaume Poupard, Jacques Stern",
+  "venue": "Financial Cryptography 2000",
+  "year": "2000",
+  "url": "https://doi.org/10.1007/3-540-45472-1_7",
+  "note": "cryptobib: FC:FouPouSte00; proceedings published 2001",
+  "first_seen": "dcr-to-he-pai99"
+ },
+ {
+  "key": "FR99",
+  "ref_file_title": "FR99 - Complexity Limitations on Quantum Computation",
+  "authors": "Lance Fortnow, John Rogers",
+  "venue": "Journal of Computer and System Sciences 59(2), pp. 240-252",
+  "year": "1999",
+  "url": "https://doi.org/10.1006/jcss.1999.1651",
+  "note": "BQP ⊆ AWPP ⊆ PP and BQP is low for PP (PP^BQP = PP); conference version CCC 1998. Added by verifier; journal, volume, pages and DOI confirmed via web search.",
+  "first_seen": "bqp-to-pp"
+ },
+ {
+  "key": "Fis03",
+  "ref_file_title": "Fis03 - The Cramer-Shoup Strong-RSA Signature Scheme Revisited",
+  "authors": "Marc Fischlin",
+  "venue": "PKC 2003",
+  "year": "2003",
+  "url": "https://doi.org/10.1007/3-540-36288-6_9",
+  "note": "cryptobib key PKC:Fischlin03 (title, author, pages 116-129, LNCS 2567, DOI verified in vendor/cryptobib/crypto.bib; Springer/Fraunhofer records confirmed via search snippets). Variant of Cramer-Shoup under strong RSA with faster signing and verification and signatures of roughly half the size.",
+  "first_seen": "strong-rsa-to-ds"
+ },
+ {
+  "key": "For87",
+  "ref_file_title": "For87 - The Complexity of Perfect Zero-Knowledge",
+  "authors": "Lance Fortnow",
+  "venue": "STOC 1987",
+  "year": "1987",
+  "url": "https://doi.org/10.1145/28395.28418",
+  "note": "Verified in vendor/cryptobib/crypto.bib as STOC:Fortnow87 ('The Complexity of Perfect Zero-Knowledge (Extended Abstract)', pp. 204-209). Use cryptobib_key: STOC:Fortnow87. Reprinted in Advances in Computing Research 5 (ed. Micali), pp. 327-343, 1989, which is why some papers cite it as [For89].",
+  "first_seen": "szk-to-coam"
+ },
+ {
+  "key": "GGH96",
+  "ref_file_title": "GGH96 - Collision-Free Hashing from Lattice Problems",
+  "authors": "Oded Goldreich, Shafi Goldwasser, Shai Halevi",
+  "venue": "Cryptology ePrint Archive, Report 1996/009 (also ECCC TR96-042; reprinted in Studies in Complexity and Cryptography, LNCS 6650, 2011)",
+  "year": "1996",
+  "url": "https://eprint.iacr.org/1996/009",
+  "note": "Verified against vendor/cryptobib EPRINT:GolGolHal96a and a web-search snippet of the abstract ('Recently Ajtai described a construction of one-way functions ... We show that essentially the same construction can also be used to obtain collision-free hashing'); eprint host blocked, so the abstract was confirmed by snippet only. Reprint DOI 10.1007/978-3-642-22670-0_5. cryptobib_key: EPRINT:GolGolHal96a.",
+  "first_seen": "sis-to-hash-function-ajt96"
+ },
+ {
+  "key": "GGHW14",
+  "ref_file_title": "GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input",
+  "authors": "Sanjam Garg, Craig Gentry, Shai Halevi, Daniel Wichs",
+  "venue": "CRYPTO 2014",
+  "year": "2014",
+  "url": "https://eprint.iacr.org/2013/860",
+  "note": "Bibliographic data verified against vendor/cryptobib (C:GGHW14, doi 10.1007/978-3-662-44371-2_29; EPRINT:GGHW13 = 2013/860). Evidence that general-purpose diO with arbitrary auxiliary input does not exist, so the blanket equivalence with iO is implausible.",
+  "first_seen": "differing-inputs-obfuscation-dio-to-io"
+ }
+]
