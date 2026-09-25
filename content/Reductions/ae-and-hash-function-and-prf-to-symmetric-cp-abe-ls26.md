@@ -20,22 +20,11 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions]]:
-
-> [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]] introduces a symmetric CP-ABE framework in which both encryptor and decryptor must hold attributes satisfying the ciphertext policy, and gives a concrete construction from collision-resistant hash functions, a [[pseudorandom-function|PRF]], and an IND-CCA2 authenticated encryption scheme, with no bilinear map or lattice hardness assumption.
+A symmetric-key ciphertext-policy [[attribute-based-encryption#symmetric-cp-abe|ABE]], in which encryptor and decryptor must both hold attributes satisfying the ciphertext policy, is built from a collision-resistant [[hash-function|hash function]], a [[pseudorandom-function|PRF]], and an IND-CCA2-secure [[authenticated-encryption|authenticated encryption]] scheme, with no bilinear-map or lattice assumption — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SECOND THREE-WAY CONJUNCTION in the references chunk: {CRHF, PRF, IND-CCA2 authenticated encryption} => symmetric CP-ABE. The task brief calls BIPW17's the corpus's only 3-way conjunction; this one is equally 3-way, and there is a third on Gol00 (2-way) — the premise does not hold.
-- INVENTORY DISAGREEMENT: the existing record Primitives/attribute-based-encryption.md:178 carries only [hash-function + pseudorandom-function => symmetric-cp-abe] — TWO hypotheses. This page states THREE. The inventory's conjunction is incomplete; the IND-CCA2 authenticated-encryption hypothesis is missing there.
-- STRUCTURAL, worst on the corpus: the page has NO H1, NO byline line, and NO ## Abstract — only frontmatter and one paragraph. It is the sole reference page failing all three skeleton checks.
-- SELF-LINK: the paragraph opens with `[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]`, a wikilink from the page to itself.
-- NO WIKI PAGE for authenticated-encryption; the node does not exist in the inventory either. symmetric-cp-abe likewise has no page (it is a section of attribute-based-encryption.md).
-- The negative/minimality claim 'with no bilinear map or lattice hardness assumption' is asserted without any proof of necessity, so it is not recordable as a barrier; it stays here as a problem.
-- status:stub with no TODO markers and no abstract — the page is content-bearing but marked stub.
+- INVENTORY DISAGREEMENT: Primitives/attribute-based-encryption.md records only [hash-function + pseudorandom-function => symmetric-cp-abe] (two hypotheses); this page states three, including IND-CCA2 authenticated encryption, matching the LS26 text.
+- The minimality claim 'with no bilinear map or lattice hardness assumption' is a property of the construction, not an impossibility, and is not recordable as a barrier.

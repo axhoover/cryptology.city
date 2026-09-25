@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "ABE ⇒ IBE"
 aliases: []
 id: red-abe-to-ibe
 kind: implication
 hypotheses: [abe]
 conclusion: ibe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "none (the reduction preserves the advantage)"
 ---
 
 # ABE ⇒ IBE
@@ -19,30 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]] § Attribute-based encryption:
+Any [[attribute-based-encryption|ABE]] scheme, KP or CP, over attribute universe $[\ell] \times \bits$ whose policy class contains conjunctions yields [[identity-based-encryption|IBE]] for identities in $\bits^\ell$: identity $\mathit{id}$ is encoded as the attribute set $x_{\mathit{id}} = \{(i, \mathit{id}_i)\}_{i \le \ell}$ and the policy $f_{\mathit{id}} = \bigwedge_{i \le \ell} (i, \mathit{id}_i)$, so $f_{\mathit{id}}(x_{\mathit{id}'}) = 1$ iff $\mathit{id} = \mathit{id}'$; KP-ABE carries $f_{\mathit{id}}$ in the key and $x_{\mathit{id}}$ in the ciphertext, CP-ABE the reverse. An IBE adversary is verbatim an ABE adversary with the same advantage — folklore.
 
-> **Attribute-based encryption (ABE)** generalizes [[identity-based-encryption|IBE]] by replacing exact-identity matching with expressive Boolean access policies.
+## Sketch
 
-Migrated verbatim from [[identity-based-encryption]] § Other results:
-
-> - IBE is a special case of both [[attribute-based-encryption|KP-ABE]] and [[attribute-based-encryption|CP-ABE]] with singleton policies
+Distinct identities differ in some position, so a key for $\mathit{id} \ne \mathit{id}^*$ is a policy–attribute pair unsatisfied by the challenge encoding; IBE admissibility (no key for $\mathit{id}^*$) is ABE admissibility.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- Stated as a generalization ('ABE generalizes IBE'), not as a security reduction; typed here as ABE => IBE since IBE is the special case. A migration tool must not read the surface word order as the implication direction.
-- Bullet packs TWO disjunctive claims (KP-ABE => IBE and CP-ABE => IBE); must be split into two reductions, not one conjunctive one.
-- Both wikilinks target the same page attribute-based-encryption with different display text, so the two distinct objects are indistinguishable after migration.
-- Second of the two disjunctive claims on this bullet (CP-ABE => IBE).
-- Same-page wikilink collision as above; hypothesis object is CP-ABE but the slug cannot distinguish it from KP-ABE.
+`class: fully-black-box`: The IBE algorithms call the ABE scheme as an oracle; the identity encoding is local. The reduction runs any IBE adversary once, forwarding each extraction query for $\mathit{id} \ne \mathit{id}^*$ as an ABE key query whose policy (KP) or attribute set (CP) is unsatisfied by the challenge encoding, so admissibility maps exactly and the advantage is preserved. Fixed construction, fixed reduction.

@@ -39,3 +39,4 @@ Recorded during migration and **not fixed** — these are claims about the
 source text, not changes to it:
 
 - Definitional (complementation), not a theorem; the migration probably wants a distinct 'complement-of' edge type.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the migrated text defines coAM as the complement class of AM, not a theorem that AM = coAM. AM = coAM is open and believed false: since $\classNP \subseteq \classAM$, it would give $\classcoNP \subseteq \classAM$ and collapse the polynomial hierarchy to its second level (Boppana–Håstad–Zachos).

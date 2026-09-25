@@ -20,20 +20,16 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[arithmetization]] § Results:
+A computation expressed as an [[arithmetization|AIR]], with the constraints checked by the [[polynomial-commitment#fri-fast-reed-solomon-iop-of-proximity|FRI]] proximity test, yields the STARK of BBHR18: a transparent [[succinct-argument|succinct argument]] of knowledge with no trusted setup, prover time quasi-linear and verification time and proof length polylogarithmic in the computation size $T$, made non-interactive in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
-> - AIR + FRI = STARK; the FRI protocol achieves transparent verification of AIR constraints — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
+## Sketch
+
+The prover Merkle-commits to Reed–Solomon codewords of the execution-trace polynomials; the AIR constraints reduce to a low-degree proximity claim about a derived codeword, which FRI certifies in logarithmically many degree-halving rounds; Fiat–Shamir over the transcript makes the interactive oracle proof non-interactive in the random-oracle model.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: rom`: BBHR18 compile the STARK interactive oracle proof to a non-interactive argument by Merkle-hashing the oracles and applying Fiat–Shamir, analysed with the hash as a random oracle. The migration recorded rom as an inference; the source confirms it.
 
 - Genuinely conjunctive ({AIR, FRI} => STARK) — must not be flattened into two single-hypothesis edges.
-- The bullet bundles a second claim after the semicolon ('the FRI protocol achieves transparent verification of AIR constraints'), which is a separate property statement.
-- 'AIR + FRI = STARK' uses '=' for a construction, not an equivalence; migration must not read this as direction 'equivalent'.
-- Model recorded as 'rom' because STARKs are non-interactive via Fiat-Shamir over a hash — the page states no model; treat as inference, not source text.
-- Duplicates the prose claim at line 47.

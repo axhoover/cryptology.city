@@ -8,9 +8,9 @@ kind: implication
 hypotheses: [arithmetization, pcs]
 conclusion: snark
 class: unstated
-model: crs
+model: rom
 source:
-  - "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
+  - "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]"
 security-loss: ""
 ---
 
@@ -20,18 +20,19 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[succinct-argument]] § Universal/updatable SNARKs:
+A polynomial IOP for an [[arithmetization|arithmetized]] relation (R1CS, PLONKish), compiled with an extractable [[polynomial-commitment|polynomial commitment scheme]] and made non-interactive by Fiat–Shamir, is a preprocessing [[succinct-argument|SNARK]] in the random-oracle model. Instantiated with the [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]] commitment scheme, the structured reference string is universal and updatable; Marlin and Plonk are instances — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]].
 
-> Systems like Plonk and Marlin use a single universal trusted setup for all circuits up to size $N$, rather than a per-circuit setup. Plonk uses PLONKish [[arithmetization]] and KZG [[polynomial-commitment|polynomial commitments]] — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+## Sketch
+
+The polynomial IOP verifier queries the prover's polynomials at random points; each oracle becomes a polynomial commitment and each query an evaluation proof, and Fiat–Shamir removes the interaction. Extractability of the commitment turns the IOP's soundness into knowledge soundness of the argument.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: rom`: The compiled SNARK is non-interactive via Fiat–Shamir; CHM+20 prove the compiled argument in the random-oracle model. The KZG instantiation additionally needs a universal updatable structured reference string (the previously recorded crs); one model slot cannot carry both, so the SRS is stated in the statement text.
 
+- Plonk compiles PLONKish arithmetization, via a permutation argument and KZG commitments, into a universal-setup zk-SNARK — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]
+- Polynomial IOPs and their compilation with any extractable polynomial commitment, formalized concurrently, with a transparent instantiation over groups of unknown order — [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]
 - Genuinely conjunctive: Plonk needs BOTH an arithmetization and a polynomial commitment scheme.
-- CITATION MISMATCH: KZG10 is the polynomial-commitment paper, not the Plonk paper (GWC19) or the Marlin paper (CHM+20); the systems named in the sentence are uncited.
 - 'arithmetization' is a Glossary entry, so a hypothesis slot is filled by a technique rather than a primitive/assumption.

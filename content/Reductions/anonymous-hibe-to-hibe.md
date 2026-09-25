@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Anonymous HIBE ⇒ HIBE"
 aliases: []
 id: red-anonymous-hibe-to-hibe
 kind: implication
 hypotheses: [anonymous-hibe]
 conclusion: hibe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -19,21 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[hierarchical-identity-based-encryption]] § Anonymous HIBE:
+An [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is a [[hierarchical-identity-based-encryption|HIBE]] whose ciphertexts hide the recipient identity vector $\vec{\mathit{id}}$ in addition to the payload. The scheme is unchanged, so every anonymous HIBE is a HIBE — folklore.
 
-> An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ from the ciphertext, so an eavesdropper learns neither the payload nor the intended recipient.
+## Sketch
+
+The construction is the identity. Anonymity is defined on top of payload indistinguishability, so a HIBE adversary is forwarded unchanged to the anonymous HIBE game.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: The construction is the identity: an anonymous HIBE has the HIBE syntax. The reduction forwards any HIBE adversary unchanged, since anonymity is defined on top of payload indistinguishability. Fixed construction and fixed reduction, both oracle-only: the RTV04 fully-black-box shape.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section: anonymous HIBE is a strengthening of HIBE; the implication (anonymous HIBE => HIBE) is implicit, never asserted.
-- No slug 'anonymous-hibe' exists in content/.
-- No citation.
+- No slug 'anonymous-hibe' exists in content/; the hypothesis resolves via the section anchor on hierarchical-identity-based-encryption.

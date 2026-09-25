@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Adaptive robustness ⇒ PRC"
 aliases: []
 id: red-adaptive-robustness-to-prc
 kind: implication
 hypotheses: [adaptively-robust-prc]
 conclusion: prc
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "none (property restriction on the same object)"
 ---
 
 # Adaptive robustness ⇒ PRC
@@ -19,20 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-error-correcting-code]] § Adaptive robustness:
+A [[pseudorandom-error-correcting-code|PRC]] with [[pseudorandom-error-correcting-code#adaptive-robustness|adaptive robustness]] is a PRC: robustness quantifies over $\varepsilon$-bounded channels fixed before the codeword, adaptive robustness over channels chosen after seeing it, and a fixed channel is the adaptive choice that is constant in the codeword; pseudorandomness and soundness are the same properties in both notions — folklore.
 
-> A PRC with **adaptive robustness** strengthens the robustness property to allow the channel $\calE$ to be chosen _after_ seeing the codeword $c = \Enc_k(m)$, rather than being fixed in advance. Formally, the adversarial channel $\calE$ may depend on $c$ (but not on $k$ or $m$ directly). This models a stronger adversary who can tailor the corruption pattern to the specific codeword.
+## Sketch
+
+Restrict the adaptive guarantee to channel choices that do not depend on the codeword; nothing else changes.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variant strengthening stated only in prose ('strengthens the robustness property'); no implication or separation is explicitly asserted, and there is no citation.
-- 'adaptively-robust-prc' has no page.
+`class: fully-black-box`: Identity construction: the same $(\Gen, \Enc, \Dec)$. The reduction is the identity: a channel against plain robustness is an adaptive channel whose choice is constant in the codeword, and a pseudorandomness or soundness adversary is unchanged.

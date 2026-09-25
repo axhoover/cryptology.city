@@ -7,11 +7,11 @@ id: red-alternating-moduli-assumption-to-prf-bip-18
 kind: implication
 hypotheses: [alternating-moduli-assumption]
 conclusion: prf
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
-security-loss: ""
+security-loss: "none (identity reduction)"
 ---
 
 # Alternating moduli assumption ⇒ PRF
@@ -20,26 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[alternating-moduli]] § Alternating Moduli:
+The [[alternating-moduli|alternating moduli assumption]] asserts that the family $f_A(x) = B\,(Ax \bmod 2) \bmod 3$, with secret key $A \getsr \ZZ_2^{m \times n}$ and public $B \getsr \ZZ_3^{\ell \times m}$, is indistinguishable from a random function; the family is then itself a [[pseudorandom-function|PRF]] with $\KeyGen$ sampling $A$ and $\Eval(A, x) = f_A(x)$, by the identity reduction. BIP+18 conjecture this only for uniformly random inputs, i.e. the [[alternating-moduli#weak-alternating-moduli-random-input-assumption|weak variant]], under which the family is a weak PRF; the [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|chosen-input variant]] fails for this map, since $f_A(0^n) = 0$ for every key — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]].
 
-> The _alternating moduli assumption_ (also called _Crypto Dark Matter_[^1] after [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]) posits that mixing linear operations over different moduli — specifically $\ZZ_2$ (XOR) and $\ZZ_3$ (mod-3 addition) — yields candidate [[pseudorandom-function|PRF]] constructions that are computationally indistinguishable from random, under assumptions not known to reduce to standard assumptions like [[learning-with-errors|LWE]] or [[learning-parity-with-noise|LPN]].
+## Sketch
 
-Migrated verbatim from [[alternating-moduli]] § Known Results:
-
-> - Low-complexity PRF candidates (in $\mathrm{NC}^1$ / $\mathrm{TC}^0$) based on mixed-moduli assumptions — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]
+$\KeyGen(1^\secpar)$ samples $A \getsr \ZZ_2^{m \times n}$; $\Eval(A, x) = B\,(Ax \bmod 2) \bmod 3$. The AM game and the PRF game for this family are the same game, so the reduction is the identity.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Candidate construction, not a proved reduction: the assumption IS that the construction is a PRF, so hypothesis and conclusion nearly coincide (definitional).
-- The same sentence also asserts a non-relation to LWE and LPN, recorded separately.
-- Candidate, not a reduction — no security proof from a separate assumption.
-- Complexity-class qualifiers NC^1 / TC^0 cannot be carried by a plain conclusion identifier.
-- Duplicates the intro claim at line 14.
+`class: fully-black-box`: Degenerate but well-defined: the assumption asserts pseudorandomness of a concrete family and the PRF is that family — $\KeyGen$ samples $A$ and $\Eval(A, x) = B\,(Ax \bmod 2) \bmod 3$. The construction is the identity and any PRF distinguisher is verbatim an AM distinguisher (chosen-input game to chosen-input game, random-input game to weak-PRF game), so construction and reduction are fixed and treat their objects as oracles.
