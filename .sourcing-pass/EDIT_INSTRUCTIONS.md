@@ -58,6 +58,15 @@ it as `[[<ref_file_title>|<key>]]` from your batch file.
   `unstated` — keeping the A/B display text the page already uses; (c) make
   the one-line prose under the H1 name the same class.
 
+## Re-runs
+
+An earlier editor may have been stopped partway through your batch, so
+some pages may already be rewritten. Check `git diff <page>` first. A page
+already in the target shape (no "Migrated verbatim" blocks, `## Statement`
+from the verified entry, frontmatter matching) needs only correction where
+it departs from the verified entry — never rebuild it from scratch, and
+never add a second `Sourcing pass` Notes bullet to a wrong-claim page.
+
 ## Explicit overrides
 
 `overrides.json` (same directory as refmap; path in your prompt) lists a few
