@@ -65,3 +65,13 @@ Fix contradiction-check failures by setting the reduction's class back to
 `unstated` with a Notes line naming the barrier, never by editing the
 barrier. Then report to the user: counts, the wrong-claim list location
 (`.reductions/sourcing-pass.json`), and anything a human must decide.
+
+## Scheduled trigger ids (cancel with delete_trigger)
+
+| Wake | trigger_id |
+| --- | --- |
+| Sat 14:00 UTC | trig_01KeXjx9kAV9f6KFXe5gxiWH |
+| Sun 14:00 UTC | trig_01RUqYruntpyFBF4HnTKXdJW |
+| Tue 00:00 UTC | trig_01WyXkTG4LJmJWGQFhHibyx9 |
+| Tue 05:30 UTC | trig_0153QdL8rhhouFXXSVP4quht |
+| Tue 11:00 UTC | trig_01Dyuj71gxLe3umvuuTvvqyV |
