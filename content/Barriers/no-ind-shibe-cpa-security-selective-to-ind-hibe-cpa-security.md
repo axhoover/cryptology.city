@@ -22,7 +22,7 @@ A reduction of class `free` from [[hierarchical-identity-based-encryption#ind-sh
 
 ## Statement
 
-Selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security when the identity-vector space $\Sigma^{\le d}$ is superpolynomial: any selectively secure $\HIBE$ can be modified to leak on one identity vector fixed by its own $\pp$, which a selective adversary must commit to before $\Setup$ runs. Complexity leveraging recovers adaptive security only by guessing the challenge identity vector, at a loss of $|\Sigma^{\le d}|$, and so needs sub-exponential selective security — folklore.
+Selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security when the identity-vector space $\Sigma^{\le d}$ is superpolynomial: any selectively secure $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate. Complexity leveraging recovers adaptive security only by guessing the challenge identity vector, at a loss of $|\Sigma^{\le d}|$, and so needs sub-exponential selective security — folklore.
 
 ## Sketch
 
@@ -30,6 +30,6 @@ Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup$ and append a unifo
 
 ## Notes
 
-`class: free`: The hyperedge relates two security notions of one scheme, and the implication fails outright: from any selectively secure HIBE one builds a HIBE that is selectively but not adaptively secure, so no argument of any kind derives a scheme's adaptive security from its selective security. The class ruled out is `free`. Complexity leveraging is not a counterexample: it needs sub-exponential selective security, a strictly stronger hypothesis. The barrier says nothing about constructing a different adaptively secure HIBE from a selectively secure one.
+`class: free`: the hyperedge is read for one scheme (selective ⇒ adaptive security), and the counterexample refutes it outright. Complexity leveraging does not contradict this: its hypothesis, sub-exponential selective security, is strictly stronger. Constructing a different adaptively secure HIBE from a selectively secure one is not ruled out.
 
 - For HIBE and ABE systems with a checkability property on keys and ciphertexts (any two private keys that are both supposed to decrypt a ciphertext do so), any simple black-box reduction to a non-interactive assumption loses a factor exponential in the hierarchy depth — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]

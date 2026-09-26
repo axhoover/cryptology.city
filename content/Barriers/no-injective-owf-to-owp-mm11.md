@@ -26,6 +26,6 @@ There is no fully black-box construction of a [[one-way-permutation|one-way perm
 
 ## Notes
 
-`class: fully-black-box`: MM11 states its result as "there is no fully black-box construction of a OWP from a length-increasing injective one-way function", in the RTV04 sense: every pair of a construction using the injective OWF only as an oracle and a reduction using any OWP inverter only as an oracle is ruled out. The paper claims no stronger class, so `relativizing` would overstate it.
+`class: fully-black-box`: MM11 states a fully black-box separation in the RTV04 sense, ruling out every construction that uses the injective OWF only as an oracle paired with a reduction that uses any OWP inverter only as an oracle. The paper claims no stronger class, so `relativizing` would overstate it.
 
-- Length-increasing is load-bearing: a permutation is a length-preserving injective one-way function, so without the qualifier the separation is false.
+- Length-increasing is load-bearing: a one-way permutation is itself a length-preserving injective one-way function, so without the qualifier the separation is false.
