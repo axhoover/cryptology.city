@@ -30,6 +30,6 @@ Succinctness and the hardness of the language yield an unbounded cheating prover
 
 ## Notes
 
-`class: fully-black-box`: GW11 exclude every reduction that uses the cheating prover only as an oracle, for arbitrary SNARG constructions; fully-black-box reductions are a subclass of these, while the classes that let the reduction depend on the adversary's code (semi-/weakly-black-box) are untouched. Recording `fully-black-box` fires the contradiction check on exactly the reductions GW11 rule out and on none they leave open.
+`class: fully-black-box`: GW11 allow an arbitrary SNARG construction but require the reduction to use the cheating prover only as an oracle. Fully-black-box reductions are a subclass of these; semi- and weakly-black-box reductions, which may depend on the adversary's code, are untouched.
 
 - Adaptively sound SNARGs for NP nonetheless exist in the plain model, from sub-exponentially hard indistinguishability obfuscation and one-way functions together with the polynomial hardness of discrete log or factoring — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]]

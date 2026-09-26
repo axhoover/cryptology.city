@@ -29,4 +29,4 @@ The appended bit is independent of the message, so a CPA adversary against the m
 
 ## Notes
 
-`class: free`: the separation is an explicit counterexample, not a restriction on proof technique: from any CPA-secure scheme, appending a constant bit to every ciphertext yields a scheme that is still CPA-secure and trivially distinguishable from uniform. That rules out the implication itself, which is `free` by the repo's convention for barriers.
+`class: free`: the separation is a counterexample, not a restriction on proof technique, so it rules out the implication itself.

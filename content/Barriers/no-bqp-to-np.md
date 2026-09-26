@@ -30,4 +30,4 @@ Raz and Tal exhibit a distribution over $\{\pm 1\}^{2N}$, a variant of Forrelati
 
 ## Notes
 
-`class: relativizing`: an oracle separation rules out exactly the relativizing class: RT19 give an oracle relative to which BQP is not contained in PH, hence not in NP, so no relativizing proof can establish the inclusion. It says nothing about non-relativizing arguments, and per the partial order it also kills any fully-black-box argument.
+`class: relativizing`: an oracle separation rules out exactly the relativizing class, and by the partial order every fully-black-box argument; it says nothing about non-relativizing ones.

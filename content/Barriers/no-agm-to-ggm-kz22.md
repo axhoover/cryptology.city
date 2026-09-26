@@ -28,6 +28,5 @@ As the two models are currently formalized, hardness in the [[algebraic-group-mo
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-- Under an alternative formalization of generic and algebraic computation, the FKL18 transfer claim is correct, and most AGM analyses in the literature fall within it — [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]]
-- `content/Glossary/generic-group-model.md` states the FKL18 direction without mentioning KZ22; the two glossary pages still disagree about what is settled.
-- Barriers between idealized *models* (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; MPZ20's hierarchy of GGM variants is a second instance.
+- `content/Glossary/generic-group-model.md` states the FKL18 direction without mentioning KZ22; the two glossary pages disagree about what is settled.
+- Barriers between idealized *models* (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; the hierarchy of GGM variants of [[MPZ20 - Unifying Generic Group Models|MPZ20]] is a second instance.

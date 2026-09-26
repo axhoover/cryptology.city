@@ -29,8 +29,7 @@ Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$. Given the challen
 
 ## Notes
 
-`class: free`: The hyperedge relates a property (homomorphism) to a security notion (IND-CCA2) of one scheme, and the implication fails outright by a one-line attack, so the class ruled out is `free`. It says nothing about building a separate IND-CCA2-secure scheme from an HE scheme, which is not ruled out.
+`class: free`: the hyperedge is read for one scheme (homomorphism ⇒ IND-CCA2 security), and the attack refutes it outright. Building a separate IND-CCA2-secure scheme from an HE scheme is not ruled out.
 
-- Fully homomorphic encryption secure against non-adaptive chosen-ciphertext attack (IND-CCA1) exists: from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]]
+- IND-CCA1-secure fully homomorphic encryption is constructed from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]]
 - Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]]
-- The incompatibility is with adaptive CCA (IND-CCA2) and unrestricted homomorphism only: HE schemes can be IND-CCA1, and malleability confined to a declared function set coexists with a non-malleability guarantee.

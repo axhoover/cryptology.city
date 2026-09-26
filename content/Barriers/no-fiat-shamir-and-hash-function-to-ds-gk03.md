@@ -30,7 +30,7 @@ The scheme adds an escape hatch: the prover may commit in its first message to a
 
 ## Notes
 
-`class: free`: the result is a counterexample, not a restriction on proof technique: for the exhibited identification scheme the transformed signature is forgeable under *every* efficient hash function, so no argument of any kind establishes 'Fiat-Shamir plus a hash function yields a secure signature scheme'. Ruling out the implication itself is `free`.
+`class: free`: a counterexample against every efficient hash function refutes the implication itself, not a proof technique.
 
 - The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the theorem is 'there exists an identification scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'.
-- $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the $\ufcma$/$\eufcma$ macros.
+- $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the `\ufcma`/`\eufcma` macros.
