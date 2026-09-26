@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "SZK ⊆ QSZK"
 aliases: []
 id: red-szk-to-qszk
@@ -9,7 +9,8 @@ hypotheses: [szk]
 conclusion: qszk
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]"
 security-loss: ""
 ---
 
@@ -19,24 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[quantum-statistical-zero-knowledge]] § Known relationships:
-
-> - $\classSZK \subseteq \classQSZK$: any classical SZK protocol is a special case of a quantum one.
+$\classSZK \subseteq \classQSZK$: a classical [[statistical-zero-knowledge|statistical zero-knowledge]] proof system is a quantum one whose messages and simulator output are classical, so $\classSZK$ lies in the honest-verifier class $\mathbf{HVQSZK}$ of [[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]], and $\mathbf{HVQSZK}$ equals [[quantum-statistical-zero-knowledge|QSZK]], defined against arbitrary quantum verifiers — [[Wat06 - Zero-knowledge against quantum attacks|Wat06]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: quantum`: $\classQSZK$ is defined over quantum verifiers, messages and simulators.
 
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- The one-line justification glosses over the nontrivial point that a classical protocol must remain zero-knowledge against a QUANTUM verifier for the inclusion to hold (quantum rewinding); 'special case' understates it. Possible imprecision — reported, not corrected.
+- The general-verifier step rests on quantum rewinding — [[Wat06 - Zero-knowledge against quantum attacks|Wat06]]

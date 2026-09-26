@@ -1,15 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DLOG ⇒ PCS"
 aliases: []
 id: red-dlog-to-pcs
 kind: implication
 hypotheses: [dlog]
 conclusion: pcs
-class: unstated
-model: standard
-source: folklore
+class: fully-black-box
+model: rom
+source:
+  - "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
 security-loss: ""
 ---
 
@@ -19,26 +20,18 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]]:
+If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector of a degree-$d$ polynomial $f$ with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\log d)$-size openings and $O(d)$ verifier time — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme applies Fiat-Shamir to the public-coin protocol and is proven secure under DLOG in the ROM — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].
 
-> A transparent polynomial commitment based on Pedersen commitments and a recursive inner-product argument. No trusted setup; no pairings needed.
->
-> - **Proof size**: $O(\log d)$
-> - **Verification time**: $O(d)$ (linear, but no pairing)
-> - **Setup**: Transparent
-> - **Security**: Discrete logarithm assumption
+## Sketch
+
+The claim $f(z) = y$ is the inner product $\langle \vec{f}, (1, z, \dots, z^d) \rangle = y$. Each round folds both vectors in half with a random challenge; after $\log d$ rounds the prover reveals the two remaining scalars and the verifier checks one commitment equation. The extractor rewinds each round to build a tree of accepting transcripts, and two openings of one commitment to distinct polynomials give a nontrivial discrete-log relation among the public generators.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: One fixed construction (Pedersen vector commitment plus the recursive inner-product argument) using only the group operation; the extractor runs the prover only as an oracle, rewinding it over a tree of challenges (forking in the ROM version).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: The wiki's PCS syntax is non-interactive ($\Open$ outputs a proof $\pi$), so openings apply Fiat-Shamir to the public-coin inner-product argument; the interactive BCCGP16 protocol is standard-model.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- NO citation at all for this construction — content/References/'BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More.md' exists and is not cited.
-- Hypotheses are split across prose and a bullet: 'based on Pedersen commitments and a recursive inner-product argument' (a construction path) plus 'Security: Discrete logarithm assumption'.
-- Composite in spirit: DLOG => Pedersen commitment => IPA-based PCS; the page states it as a single fact.
+- Bulletproofs halve the communication of the inner-product argument — [[BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More|BBB+18]]
+- The polynomial-commitment abstraction $\mathrm{PC}_{\mathrm{DL}}$ of this scheme — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]]
+- The construction factors as DLOG ⇒ Pedersen commitment ⇒ IPA-based PCS; split this edge if a Pedersen-commitment node is added.

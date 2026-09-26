@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security"
 aliases: []
 id: red-ind-sid-cpa-security-selective-to-ind-id-cpa-security
 kind: implication
 hypotheses: [ind-sid-cpa]
 conclusion: ind-id-cpa
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+security-loss: "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security"
 ---
 
 # IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security
 
-[[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]] implies [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]].
+[[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]] implies [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]], with a multiplicative security loss of $|\calI|$ (complexity leveraging).
 
 ## Statement
 
-Migrated verbatim from [[identity-based-encryption]]:
+Every [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme with identity space $\calI$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with a multiplicative loss of $|\calI|$: the reduction guesses the challenge identity in advance and aborts on a wrong guess. For super-polynomial $|\calI|$ the loss is super-polynomial, so the implication requires sub-exponential selective security (complexity leveraging) [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].
 
-> is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure; the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\calI|$.
+## Sketch
+
+The reduction samples $\mathit{id}' \getsr \calI$, commits to it as its selective challenge identity and runs the adaptive adversary, forwarding all queries; with probability $1/|\calI|$ the adversary's challenge identity is $\mathit{id}'$ and the reduction's advantage equals the adversary's.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECT MATH: 'the converse requires a complexity-leveraging argument that incurs a polynomial security loss in |I|'. Complexity leveraging loses a factor of |I|, which is exponential in the identity length - describing it as a 'polynomial security loss' is at best misleading and reads as an error. Report only; do not fix.
-- Complexity leveraging also requires sub-exponential hardness, which is not stated as a hypothesis.
-- No citation.
+`class: fully-black-box`: The construction is the identity map on IBE schemes; the reduction samples a guess for the adaptive adversary's challenge identity, runs the adversary once as an oracle, and aborts on a wrong guess. Fixed construction, fixed black-box reduction.

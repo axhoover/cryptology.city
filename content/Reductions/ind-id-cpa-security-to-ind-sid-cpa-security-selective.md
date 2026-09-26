@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)"
 aliases: []
 id: red-ind-id-cpa-security-to-ind-sid-cpa-security-selective
 kind: implication
 hypotheses: [ind-id-cpa]
 conclusion: ind-sid-cpa
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the two advantages are equal"
 ---
 
 # IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)
@@ -19,27 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[identity-based-encryption]]:
+Every [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme is [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]]: a selective adversary, which commits to $\mathit{id}^*$ before seeing $\pp$, is an adaptive adversary that ignores $\pp$ when choosing its challenge identity, so the identity map on schemes preserves the advantage exactly — folklore.
 
-> In the **selective** variant, the adversary must commit to the challenge identity $\mathit{id}^*$ before the public parameters are generated. This is a strictly weaker notion than adaptive IND-ID-CPA.
+## Sketch
 
-Migrated verbatim from [[identity-based-encryption]]:
-
-> is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure; the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\calI|$.
+Wrap the selective adversary as an adaptive one: forward its extraction queries unchanged and submit the pre-committed $\mathit{id}^*$ as the adaptive challenge identity.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'strictly weaker' asserts both an implication and a separation; no citation for either.
-- Security notions, not wiki pages - no slugs.
-- No citation (this is folklore but carries no '- standard' label, contrary to the folklore policy in CLAUDE.md).
+`class: fully-black-box`: The construction is the identity map on IBE schemes; the reduction runs the selective adversary unchanged as an adaptive adversary that outputs its pre-committed challenge identity. Fixed construction, fixed black-box reduction, advantage preserved exactly.

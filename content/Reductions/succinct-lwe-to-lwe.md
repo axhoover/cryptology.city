@@ -1,38 +1,32 @@
 ---
 type: reduction
-status: stub
-title: "Succinct LWE ⇔ LWE"
+status: draft
+title: "Succinct LWE ⇒ LWE"
 aliases: []
 id: red-succinct-lwe-to-lwe
-kind: equivalence
+kind: implication
 hypotheses: [succinct-lwe]
 conclusion: lwe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "advantage-preserving up to the statistical distance between $\\mathrm{TrapGen}(1^n,1^m,q)$'s $\\mathbf{B}$ and uniform"
 ---
 
-# Succinct LWE ⇔ LWE
+# Succinct LWE ⇒ LWE
 
-[[learning-with-errors#succinct-lwe|Succinct LWE]] is equivalent to [[learning-with-errors|LWE]].
+[[learning-with-errors#succinct-lwe|Succinct LWE]] implies [[learning-with-errors|LWE]].
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Succinct LWE:
+Hardness of $\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] implies hardness of [[learning-with-errors|LWE]] for the same $(n, q, \chi, m)$. For $\ell = 1$ the converse also holds, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone; for $\ell > 1$ no reduction from LWE is known — folklore.
 
-> is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to $T_\mathbf{B}$ itself, making the condition equivalent to standard LWE. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE implies Evasive LWE. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+## Sketch
+
+An LWE distinguisher $\calA$ run on $(\mathbf{B}, \mathbf{u}_b)$, ignoring $(\mathbf{W}, T)$, distinguishes the succinct-LWE game, since the $\mathbf{B}$ output by $\mathrm{TrapGen}$ is statistically close to uniform; that statistical distance is the only loss.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: There is no construction; one fixed reduction runs any LWE distinguisher as an oracle on the succinct-LWE challenge.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- One paragraph packs four claims (l=1 equivalence to LWE; monotonicity in l; Succinct LWE => Evasive LWE; circular small-secret variant). Recorded separately.
-- No citation on the l = 1 equivalence.
+- Title, H1 and `kind` changed from the migrated "Succinct LWE ⇔ LWE" and `equivalence`: only $\ell = 1$ is known to be equivalent to LWE.

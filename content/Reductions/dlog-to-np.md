@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DLOG ⊆ NP"
 aliases: []
 id: red-dlog-to-np
@@ -15,29 +15,14 @@ security-loss: ""
 
 # DLOG ⊆ NP
 
-[[discrete-logarithm|DLOG]] is contained in [[nondeterministic-polynomial-time|NP]].
+The decision version of [[discrete-logarithm|DLOG]] is contained in [[nondeterministic-polynomial-time|NP]].
 
 ## Statement
 
-Migrated verbatim from [[co-nondeterministic-polynomial-time]] § Known relationships:
-
-> - Integer factorization and discrete logarithm are both in $\classNP \cap \classcoNP$: there are short certificates for both "yes" and "no" answers. This is one reason these problems are considered unlikely to be NP-complete — an NP-complete problem in coNP would imply $\classNP = \classcoNP$.
+The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$ — is in [[nondeterministic-polynomial-time|NP]]: the exponent $x$ is a polynomial-size certificate, checked with one exponentiation — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: A containment between complexity classes is proved by any argument, so the reduction-class axis does not discriminate (repo convention for inclusions).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- IMPRECISE (recorded, not fixed): the decision version of discrete logarithm is in NP cap coNP only when the group order or its factorization is known and certifiable; the page states it unconditionally.
-- Not wikilinked, though content/Assumptions/discrete-logarithm.md exists.
-- Uncited.
+- Membership in $\classNP \cap \classcoNP$ additionally needs the group order and its factorization, certified by Pratt primality certificates, so that the discrete logarithm is unique and certifiable — folklore. The $\classcoNP$ side is [[dlog-to-conp]].

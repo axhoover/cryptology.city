@@ -1,47 +1,34 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Linear secret sharing schemes (LSSS) ⇔ MSP"
 aliases: []
 id: red-linear-secret-sharing-schemes-lsss-to-msp
 kind: equivalence
 hypotheses: [linear-secret-sharing-scheme]
 conclusion: monotone-span-program
-class: unstated
+class: free
 model: standard
-source: folklore
+source:
+  - "[[KW93 - On Span Programs|KW93]]"
 security-loss: ""
 ---
 
 # Linear secret sharing schemes (LSSS) ⇔ MSP
 
-[[secret-sharing#linear-secret-sharing-schemes-lsss|Linear secret sharing schemes (LSSS)]] is equivalent to [[monotone-span-program|MSP]].
+[[secret-sharing#linear-secret-sharing-schemes-lsss|Linear secret sharing schemes (LSSS)]] are equivalent to [[monotone-span-program|MSP]].
 
 ## Statement
 
-Migrated verbatim from [[secret-sharing]]:
+A [[secret-sharing#linear-secret-sharing-schemes-lsss|linear secret-sharing scheme]] over a finite field $\FF$ — every share a linear function of the secret and the dealer's randomness — is equivalent to a [[monotone-span-program|monotone span program]] over $\FF$: an MSP of size $m$ computing an access structure $\Gamma$ yields an LSSS for $\Gamma$ with total share size $m$ field elements, and every LSSS for $\Gamma$ induces an MSP of the same size computing $\Gamma$ [[KW93 - On Span Programs|KW93]], [[Bei96 - Secure Schemes for Secret Sharing and Key Distribution|Bei96]].
 
-> A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$.
+## Sketch
 
-Migrated verbatim from [[secret-sharing]] § Other results:
-
-> - LSSS is equivalent to monotone span programs, which characterize the class of access structures realizable by linear schemes — standard
+Given an MSP $(M, \rho, \mathbf{e})$ with rows labelled by parties, the dealer samples $\mathbf{r}$ uniformly subject to $\langle \mathbf{e}, \mathbf{r} \rangle = s$ and gives each party the inner products of its rows with $\mathbf{r}$. A qualified set has $\mathbf{e}$ in the span of its rows and recovers $s$ by that linear combination; an unqualified set's shares are independent of $s$. Conversely, the matrix of the linear map from $(s, \text{randomness})$ to shares, with target vector selecting $s$, is an MSP for the scheme's access structure.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: unconditional linear-algebraic correspondence, with no assumption or adversary to treat as an oracle; `free` is this repo's convention for proven unconditional results.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Uncited equivalence; duplicates the '# Other results' bullet on line 65 (which carries the '— standard' folklore label).
-- Neither 'linear-secret-sharing-scheme' nor 'monotone-span-program' has a page.
-- Uncited, carries the '— standard' folklore label; duplicates line 57.
-- Neither object has a page.
-- The second clause ('which characterize the class of access structures realizable by linear schemes') is a separate characterization claim bundled in.
+- monotone-span-program exists only as an unlisted glossary stub with a TODO definition; linear-secret-sharing-scheme resolves through secret-sharing.md's variants map.
+- The clause 'MSPs characterize the access structures realizable by linear schemes' is the corollary of this equivalence, not a separate claim.

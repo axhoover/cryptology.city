@@ -22,24 +22,14 @@ A reduction of class `free` from [[generic-group-model|GGM]] to [[discrete-logar
 
 ## Statement
 
-Migrated verbatim from [[generic-group-model]] § Shoup's Formulation:
+A generic algorithm making $q$ group-operation queries in a cyclic group of order $n$ computes $x$ from $(g, g^x)$ with probability $O(q^2/p)$, where $p$ is the largest prime dividing $n$, so solving [[discrete-logarithm|DLOG]] in the [[generic-group-model|generic group model]] takes $\Omega(\sqrt{p})$ queries, matching baby-step giant-step and Pollard rho — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
 
-> The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries. Combined with the Baby-step Giant-step algorithm, this is tight.
+## Sketch
 
-Migrated verbatim from [[discrete-logarithm]] § Known Results:
-
-> - In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+Treat $x$ as an indeterminate, answer group-oracle queries with random labels, and record the affine polynomial $a + bx$ each label represents; choose $x$ only after the adversary halts. Its view is then independent of $x$, and it wins only if two distinct recorded polynomials agree at $x$ (probability at most $1/p$ per pair, $O(q^2)$ pairs) or its output equals $x$ (probability $1/n$).
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: free`: Sho97 bounds every generic algorithm, whatever its structure, so the class ruled out is `free`, scoped to the generic-group model; `schema/reduction-classes.yaml` rejects `generic-group` as a class and prescribes this pairing.
 
-- THREE CONCLUSIONS IN ONE SENTENCE (DLOG, CDH, DDH). Recorded as three separate edges on line 23 — these are three independent lower bounds, not one conjunctive claim.
-- A query lower bound in an idealized model is not a reduction: it is unconditional hardness relative to the model, so 'hypotheses' is really 'the adversary is generic', not another assumption.
-- The Sho97 DDH lower bound holds in prime-order groups without pairings; the sentence's 'in a group of prime order $p$' does not exclude pairing-friendly groups, where DDH is easy — the genericity restriction is what saves it, but a reader could take the bound too broadly.
-- Three near-identical copies of the same Sho97 theorem across dlog / ddh / cdh pages, differing only in the superscript on Adv. A fourth statement of the same bound sits at content/Glossary/generic-group-model.md:23 in the Omega(sqrt(p))-queries form rather than the O(q^2/p)-advantage form.
-- This is a MODEL-RELATIVE LOWER BOUND, not a reduction barrier. It is a hardness result inside an idealized model, which the barrier schema shoehorns into consequenceKind 'contradiction'. A separate 'idealized-model lower bound' record type would fit better.
-- The DDH copy is the shakiest: the O(q^2/p) generic bound for DDH requires more care than for DLOG/CDH and the page states it identically to the other two without comment.
-- Fourth copy of the Sho97 bound, stated in the Omega(sqrt(p))-query form. The three Assumptions-page copies use the O(q^2/p)-advantage form. Neither form links to the other.
-- Bundles DLOG, CDH, and DDH into one sentence — three separate conclusions under one hypothesis, which the hyperedge model requires be split into three barriers.
+- A model-relative lower bound, not a barrier against a proof technique: the hypothesis is that the adversary is generic, not another assumption, so the barrier record type fits imperfectly.

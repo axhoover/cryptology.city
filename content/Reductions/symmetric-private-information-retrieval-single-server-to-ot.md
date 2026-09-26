@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Symmetric private information retrieval (Single-server) ⇔ OT"
 aliases: []
 id: red-symmetric-private-information-retrieval-single-server-to-ot
-kind: equivalence
+kind: implication
 hypotheses: [single-server-symmetric-pir]
 conclusion: ot
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -15,25 +15,15 @@ security-loss: ""
 
 # Symmetric private information retrieval (Single-server) ⇔ OT
 
-[[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]] is equivalent to [[oblivious-transfer|OT]].
+[[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]] implies [[oblivious-transfer|OT]].
 
 ## Statement
 
-Migrated verbatim from [[single-server-private-information-retrieval]]:
-
-> Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional efficiency requirement.
+Single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] implies [[oblivious-transfer|OT]]: an SPIR protocol on database $(x_1, \dots, x_n)$ with query index $c$ is a [[oblivious-transfer#k-out-of-n-ot|$1$-out-of-$n$ OT]], with client privacy as receiver privacy and data privacy as sender privacy, and $n = 2$ gives $1$-out-of-$2$ OT — folklore. The converse is not known: SPIR is $1$-out-of-$n$ OT with communication sublinear in $n$, no construction of sublinear-communication PIR from OT alone is known, and [[NP99 - Oblivious transfer and polynomial evaluation|NP99]] obtain SPIR from PIR plus $\log n$ OTs.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: The construction is the identity, so it uses the SPIR protocol only as an oracle, and each security reduction runs the OT adversary unchanged, as an oracle, against the corresponding SPIR property.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION for an equivalence claim.
-- 'with an additional efficiency requirement' means the two objects are NOT literally equivalent (SPIR = OT with sublinear communication); the qualifier makes the edge un-typeable without a quantitative field.
-- `[[OT]]` is a bare alias wikilink rather than the `[[oblivious-transfer|OT]]` form used elsewhere on the page.
+- Any single-server [[single-server-private-information-retrieval|PIR]] becomes SPIR with $\log n$ additional invocations of $1$-out-of-$2$ OT — [[NP99 - Oblivious transfer and polynomial evaluation|NP99]].
+- Non-trivial single-server PIR, without data privacy, implies OT and converts communication-efficiently into $1$-out-of-$n$ OT (SPIR) — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].

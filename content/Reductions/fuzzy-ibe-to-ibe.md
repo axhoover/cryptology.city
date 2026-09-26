@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Fuzzy IBE ⇒ IBE"
 aliases: []
 id: red-fuzzy-ibe-to-ibe
 kind: implication
 hypotheses: [fuzzy-ibe]
 conclusion: ibe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight (the IBE adversary is forwarded unchanged)"
 ---
 
 # Fuzzy IBE ⇒ IBE
@@ -19,34 +19,10 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[fuzzy-identity-based-encryption]] § Fuzzy identity-based encryption:
-
-> **Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$.
-
-Migrated verbatim from [[fuzzy-identity-based-encryption]] § Other results:
-
-> - Fuzzy IBE generalizes [[identity-based-encryption|IBE]]: setting $t = 1$ and $|\omega| = |\omega'| = 1$ recovers exact-identity matching
-
-Migrated verbatim from [[identity-based-encryption]] § Other results:
-
-> - IBE is generalized by [[fuzzy-identity-based-encryption|Fuzzy IBE]], which allows partial identity matching via a threshold overlap condition
+A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme: a key for $\omega = \{\mathrm{id}\}$ decrypts a ciphertext for $\omega' = \{\mathrm{id}'\}$ iff $\mathrm{id} = \mathrm{id}'$, and an IBE adversary is, unchanged, an admissible Fuzzy IBE adversary — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: The IBE scheme runs the Fuzzy IBE algorithms on singleton attribute sets with threshold $t = 1$, using the scheme only as an oracle; the security reduction forwards any IBE adversary unchanged as an admissible Fuzzy IBE adversary (its key queries for identities other than the challenge are singletons disjoint from the challenge set).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- Duplicates the 'Other results' bullet at line 79 of the same page.
-- 'is an extension of' reverses the arrow relative to the word order (FIBE => IBE).
-- No citation and no folklore flag.
-- Duplicates the intro sentence at line 13.
-- No citation (SW05 fuzzy IBE).
+- Fuzzy IBE is defined in [[SW05 - Fuzzy Identity-Based Encryption|SW05]] as IBE with threshold set-overlap matching; the specialization to $t = 1$ is immediate.

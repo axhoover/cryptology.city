@@ -16,25 +16,14 @@ security-loss: ""
 
 # Subexponential LPN ⇒ OT
 
-[[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]] implies [[oblivious-transfer|OT]].
+Constant-noise [[learning-parity-with-noise#subexponential-lpn|subexponential LPN]] implies [[oblivious-transfer|OT]].
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Known results:
-
-> - [[public-key-encryption|CCA-PKE]] and [[oblivious-transfer|OT]] can be built from subexponential LPN— [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]
+Constant-noise [[learning-parity-with-noise#subexponential-lpn|LPN]] that is $2^{\omega(n^{1/2})}$-hard — every adversary of time $T = 2^{\omega(n^{1/2})}$ has advantage at most $1/T$, for secret length $n$ — implies [[oblivious-transfer|OT]], via a variant of LPN that remains hard on secrets of poly-logarithmic entropy — [[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Same hypothesis mismatch with YZ16's constant-noise statement.
-- The OT security flavor (semi-honest vs malicious) is unstated, so the conclusion node is coarser than the theorem.
-- Two conclusions (CCA-PKE and OT) in one bullet — must be split.
-- HYPOTHESIS MISMATCH with the cited title: YZ16 is stated for constant-noise LPN (with sub-exponential hardness), while the bullet says subexponential LPN.
-- Display text CCA-PKE differs from the target page (public-key-encryption); the CCA security notion is not part of the identifier.
-- Missing space before the em dash (LPN— [[YZ16).
+- The OT security flavor (semi-honest vs malicious) and round complexity are not stated in YZ16's abstract; the `ot` conclusion node is correspondingly coarse.

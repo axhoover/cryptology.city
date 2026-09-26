@@ -57,3 +57,4 @@ source text, not changes to it:
 - Concrete efficiency claims (3 group elements, O(1) pairings) attach to a specific scheme rather than to the primitive.
 - Model unstated: Groth16 needs a pairing group and a per-circuit CRS.
 - q-pke has no page of its own.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]] proves knowledge soundness in the generic bilinear group model (Theorem 2) and says its compilation can no longer use the knowledge of exponent assumption (§1.1); no KEA or $q$-PKE hypothesis appears. Knowledge-assumption ⇒ SNARK edges belong to Groth (Asiacrypt 2010) and Gennaro–Gentry–Parno–Raykova (Eurocrypt 2013), whose hypothesis is $q$-PKE in a bilinear group with a structured CRS, not plain KEA. See [[bilinear-pairing-to-snark-gro16]] and [[arithmetization-to-zk-snark-gro16]].

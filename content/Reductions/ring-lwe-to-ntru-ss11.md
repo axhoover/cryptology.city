@@ -16,23 +16,16 @@ security-loss: ""
 
 # Ring LWE ⇒ NTRU
 
-[[learning-with-errors#ring-lwe|Ring LWE]] implies [[ntru|NTRU]].
+[[learning-with-errors#ring-lwe|Ring LWE]] implies IND-CPA security of an [[ntru|NTRU]] encryption variant with discrete-Gaussian secret keys.
 
 ## Statement
 
-Migrated verbatim from [[ntru]] § Related results:
+Let $R = \ZZ[x]/(x^n+1)$ with $n$ a power of two and $q$ a prime modulo which $x^n+1$ splits into linear factors. If the NTRU secrets $f, g$ are sampled from a discrete Gaussian over $R$ of parameter $\sigma \ge \poly(n) \cdot q^{1/2+\varepsilon}$, then the public key $h = p\,g\,f^{-1} \bmod q$ is statistically close to uniform over $R_q^\times$, and the resulting NTRUEncrypt variant is IND-CPA secure if [[learning-with-errors#ring-lwe|Ring-LWE]] over $R_q$ is hard — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]. The theorem concerns the encryption scheme, not the [[ntru|NTRU]] key-recovery problem, and does not cover the sparse ternary keys of deployed NTRU.
 
-> - Under a suitable choice of parameters, the NTRU problem reduces to the [[learning-with-errors#Ring LWE|Ring-LWE]] problem: Ring-LWE hardness implies NTRU hardness — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]
+## Sketch
+
+Above the smoothing parameter of the relevant lattice the ratio $g f^{-1}$ of two discrete Gaussians is statistically close to uniform on $R_q^\times$, so $h$ may be replaced by $p a$ for the first component $a$ of a Ring-LWE sample $(a, as+e)$; then $p(as+e) + M$ is exactly an encryption of $M$, so an IND-CPA adversary against the modified scheme distinguishes $(a, as+e)$ from uniform.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED DIRECTION ERROR (report only): the bullet says "the NTRU problem reduces to the Ring-LWE problem", which under the standard convention means NTRU <= Ring-LWE (a Ring-LWE solver breaks NTRU) and therefore NTRU hardness implies Ring-LWE hardness. That is the OPPOSITE of the gloss that immediately follows it ("Ring-LWE hardness implies NTRU hardness"). One of the two halves of this bullet is wrong; SS11 supports the gloss, so the "reduces to" phrasing is the error.
-- SS11 proves security for a MODIFIED NTRU key generation (f, g drawn from a wide discrete Gaussian), not the sparse ternary key generation defined in the ## Assumption section of this same page. "Under a suitable choice of parameters" understates that gap.
-- Section heading is "## Related results"; the assumption-page schema in CLAUDE.md prescribes "## Known Results".
-- Wikilink target `[[learning-with-errors#Ring LWE|Ring-LWE]]` is a section, not a page.
+`class: unstated`: the source does not state which notion of reduction is meant.

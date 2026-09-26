@@ -36,3 +36,4 @@ source text, not changes to it:
 - The claim is the wiki editor's inference by analogy ('the way that BIPW17 build SK-DEPIR'), not a theorem asserted by CIMR25 or BIPW17. It should not enter the graph as a literature reduction.
 - The BIPW17 wikilink resolves correctly, but no theorem or section anchor is given.
 - Not in the existing inventory in any form.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — SK-PIR bounds online communication but not server computation, which DEPIR also bounds, and the implication would give SK-DEPIR from one-way functions via [[hash-function-to-secret-key-pir-sk-pir-bm26]]. [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] build SK-DEPIR from a permuted Reed–Muller hardness conjecture and assert no such implication, and 'very mildly doubly efficient PIR' names no notion defined in the wiki. See [[permuted-puzzles-to-depir-bipw17]].

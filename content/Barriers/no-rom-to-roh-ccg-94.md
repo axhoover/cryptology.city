@@ -1,36 +1,31 @@
 ---
 type: barrier
 status: draft
-title: "No relativizing reduction from ROM to ROH"
+title: "No reduction from ROM to ROH"
 aliases: []
 id: bar-rom-to-roh-ccg-94
 hypotheses: [rom]
 conclusion: random-oracle-hypothesis
-class: relativizing
+class: free
 consequences:
   - kind: contradiction
     target: ""
-    class: relativizing
+    class: free
 strength: unconditional
 source:
   - "[[CCG+94 - The random oracle hypothesis is false|CCG+94]]"
 ---
 
-# No relativizing reduction from ROM to ROH
+# No reduction from ROM to ROH
 
-A reduction of class `relativizing` from [[random-oracle-model|ROM]] to [[random-oracle-hypothesis|ROH]] would imply a contradiction.
+A reduction of class `free` from [[random-oracle-model|ROM]] to [[random-oracle-hypothesis|ROH]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[random-oracle-model]] § Known Results:
-
-> - **[[interactive-proof-systems|IP]] $\neq$ [[polynomial-space|PSPACE]] relative to a random oracle** — For almost all oracles $A$, $\classIP^A \neq \classPSPACE^A$ [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since Shamir proved $\classIP = \classPSPACE$ unrelativized, this is among the most compelling counterexamples to the Random Oracle Hypothesis.
+For almost all oracles $A$, $\classIP^A \neq \classPSPACE^A$; in fact $\classcoNP^A \not\subseteq \classIP^A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]. Since [[interactive-proof-systems|IP]] $=$ [[polynomial-space|PSPACE]] holds unrelativized, the [[random-oracle-hypothesis|Random Oracle Hypothesis]] (class relationships holding for almost all oracles hold unrelativized) is false. The results extend to multi-prover proof systems, while the variant class $\mathrm{IPP}$ satisfies $\mathrm{IPP}^A = \classPSPACE^A$ for every oracle $A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]].
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: free`: CCG+94 refute the Random Oracle Hypothesis unconditionally, so what fails is the implication ROM ⇒ ROH itself, not one proof technique: the class ruled out is `free`. The migrated `relativizing` has no basis in the source and is subsumed anyway — a barrier against `free` kills every class in schema/reduction-classes.yaml.
 
-- This is a counterexample to a HYPOTHESIS ABOUT PROOFS (the Random Oracle Hypothesis), not a barrier between primitives. Q is 'contradiction' but the thing contradicted is a meta-conjecture, so the hyperedge's hypothesis is again a proof-technique-shaped object with no page.
-- 'this is among the most compelling counterexamples' — evaluative editorializing of the kind CLAUDE.md's anti-patterns list bans.
-- The intro paragraph (line 15) states the same fact a second time on the same page.
+- The hyperedge is a meta-statement, not a relation between cryptographic objects: [[random-oracle-model|ROM]] is a computational model and the [[random-oracle-hypothesis|ROH]] a conjecture about relativization. The `class` axis of schema/reduction-classes.yaml does not apply to either endpoint.

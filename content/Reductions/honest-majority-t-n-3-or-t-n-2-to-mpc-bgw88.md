@@ -7,7 +7,7 @@ id: red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88
 kind: implication
 hypotheses: [honest-majority-t-lt-n-over-3]
 conclusion: mpc
-class: unstated
+class: free
 model: standard
 source:
   - "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
@@ -20,26 +20,17 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[secure-multi-party-computation]]:
+In the secure-channels model with [[secure-multi-party-computation#honest-majority-t-n3-or-t-n2|honest majority]], every $n$-party functionality has an unconditionally secure [[secure-multi-party-computation|MPC]] protocol: perfect security against a semi-honest adversary corrupting $t < n/2$ parties, and against a malicious adversary corrupting $t < n/3$ parties — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]. With a broadcast channel in addition, statistical security against a malicious adversary corrupting $t < n/2$ parties is achievable — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].
 
-> When fewer than a threshold fraction of parties are corrupt, information-theoretic (unconditional) security is achievable. For $t < n/3$, perfect security against malicious adversaries is achievable; for $t < n/2$, statistical security is achievable with broadcast — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+## Sketch
 
-Migrated verbatim from [[secure-multi-party-computation]] § Other results:
-
-> - MPC with perfect security for any function when fewer than $n/3$ parties are corrupt (no cryptographic assumptions) — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]
+Each party Shamir-shares its input with a degree-$t$ polynomial; addition gates are local on shares, and each multiplication gate is followed by degree reduction and re-randomization. Against malicious parties, inputs are distributed by verifiable secret sharing, and the Reed–Solomon structure of Shamir shares corrects $t < n/3$ corrupted shares.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: the theorem is unconditional; the corruption threshold is a setting, not an object a construction could use as an oracle, so the black-box classes do not apply. `free` is the repo convention for unconditional implications.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The hypothesis is a corruption-threshold setting ('t < n/3'), not a cryptographic object; 'honest-majority-t-lt-n-over-3' is a flagged non-slug identifier.
-- This paragraph packs TWO distinct unconditional results (t<n/3 perfect, t<n/2 statistical + broadcast); split into two records — this is the first.
-- Conclusion is really 'perfectly-secure MPC against malicious adversaries', a security-level qualifier the flat slug loses.
-- Duplicate of the claim already made at line 43 (## Honest majority) — the same result appears twice on the page.
-- Hypothesis set is empty of cryptographic objects: this is an unconditional result whose only hypothesis is the corruption threshold. A hyperedge model needs a way to express 'no hypotheses, setting = t<n/3'.
+- Independent, concurrent proof of unconditional MPC feasibility for $t < n/3$, with exponentially small error — [[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]
+- Complete simulation-based proof of the BGW protocol — [[AL17 - A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation|AL17]]
+- The hyperedge model needs a way to express 'no hypotheses, setting $t < n/3$'; the hypothesis id names only $t < n/3$, though the statement also covers $t < n/2$.
+- The flat `mpc` conclusion loses the security level (perfect or statistical) and the adversary model.

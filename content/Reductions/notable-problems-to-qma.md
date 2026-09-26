@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Notable problems = QMA"
 aliases: []
 id: red-notable-problems-to-qma
@@ -9,36 +9,30 @@ hypotheses: [local-hamiltonian]
 conclusion: qma
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[KSV02 - Classical and Quantum Computation|KSV02]]"
 security-loss: ""
 ---
 
 # Notable problems = QMA
 
-[[quantum-merlin-arthur#notable-problems|Notable problems]] is equal to [[quantum-merlin-arthur|QMA]].
+The [[quantum-merlin-arthur#notable-problems|local Hamiltonian problem]] is [[quantum-merlin-arthur|QMA]]-complete.
 
 ## Statement
 
-Migrated verbatim from [[quantum-merlin-arthur]] § Notable problems:
+The [[quantum-merlin-arthur#notable-problems|$k$-local Hamiltonian problem]] — given $H = \sum_i H_i$ on $n$ qubits with each $H_i$ acting on at most $k$ qubits, and thresholds $a < b$ with $b - a \ge 1/\poly(n)$, decide whether the ground-state energy of $H$ is at most $a$ or at least $b$ — is [[quantum-merlin-arthur|QMA]]-complete for every constant $k \ge 5$ [[KSV02 - Classical and Quantum Computation|KSV02]].
 
-> - **Local Hamiltonian** (k-LH): given a $k$-local Hamiltonian $H = \sum_i H_i$ on $n$ qubits and a threshold $a$, is the ground state energy of $H$ at most $a$? This is QMA-complete — TODO citation (Kitaev 1999). The Local Hamiltonian problem is the quantum analogue of SAT.
+## Sketch
+
+Containment: the verifier picks a term $H_i$ at random and measures the witness against it, rejecting with probability proportional to its energy. Hardness: the Feynman–Kitaev clock construction encodes a QMA verifier circuit into a local Hamiltonian whose low-energy states are history states — superpositions over the computation's time steps — so ground energy below the threshold certifies an accepting witness.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: unconditional completeness theorem (containment by an explicit verifier, hardness by the circuit-to-Hamiltonian reduction); complexity results take `free` by this repo's convention.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: quantum`: QMA is a quantum class and both directions of the proof are quantum.
 
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION: 'TODO citation (Kitaev 1999)'; no reference page linked.
-- Completeness claim (in-class + hard-for-class); typed as 'equivalent' because the schema has no completeness direction.
-- The promise-gap parameters are omitted: k-LH is QMA-complete only with a promise gap inverse-polynomial in $n$ (the stated decision question with a single threshold $a$ and no gap is not the QMA-complete problem). Possible imprecision — reported, not corrected.
-- 'Local Hamiltonian' has no wiki page; identifier invented.
+- 3-local Hamiltonian is QMA-complete — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]]
+- 2-local Hamiltonian is QMA-complete, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]]
+- Completeness claim (in-class + hard-for-class); typed as 'equivalence' because the schema has no completeness kind.
+- 'Local Hamiltonian' has no wiki page; the hypothesis identifier was invented during migration and resolves through quantum-merlin-arthur.md's variants map.

@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DS ⇒ Hash function"
 aliases: []
 id: red-ds-to-hash-function
 kind: implication
 hypotheses: [ds]
 conclusion: hash-function
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
 security-loss: ""
 ---
 
 # DS ⇒ Hash function
 
-[[digital-signature|DS]] implies [[hash-function|Hash function]].
+A perfectly correct [[digital-signature|DS]] scheme implies a one-way function ([[hash-function#preimage-resistance-one-wayness|OWF]]).
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Other results:
+If a perfectly correct EUF-CMA-secure [[digital-signature|DS]] scheme exists then so does a one-way function ([[hash-function#preimage-resistance-one-wayness|OWF]]): $f(r) := \vk$, where $(\sk, \vk) := \KeyGen(1^\secpar; r)$, is one-way — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 
-> - Digital signatures imply [[hash-function|OWFs]]: if signing is hard to forge, the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)
+## Sketch
+
+An inverter for $f$ returns $r'$ with $\KeyGen(1^\secpar; r') = (\sk', \vk)$; perfect correctness makes $\Sign(\sk', m)$ verify under $\vk$ for every $m$, a forgery with no signing query. The inverter's success probability therefore lower-bounds a forger's, which unforgeability makes negligible.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore flag (the standard reference is Rompel 1990 / folklore).
-- SUSPECTED ERROR IN THE SKETCH (reported, not fixed): the parenthetical 'knowing the message and signature reveals nothing useful about the key' is a secrecy statement, which is not what one-wayness of signing means and is not the argument. The real argument builds a OWF from $\KeyGen$'s randomness (or from $(\sk, m) \mapsto \Sign(\sk,m)$ for a fixed $m$) and inverts it to forge.
-- Conclusion node `[[hash-function]]` again conflates OWF with CRHF.
+`class: fully-black-box`: one fixed construction ($f$ runs $\KeyGen$ on its input coins and outputs $\vk$) uses the scheme only as an oracle; one fixed reduction runs any inverter once as an oracle and signs under the recovered key. RTV04 fully-black-box shape.

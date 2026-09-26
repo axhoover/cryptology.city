@@ -16,26 +16,15 @@ security-loss: ""
 
 # HE ⇒ RE
 
-[[homomorphic-encryption|HE]] implies [[rerandomizable-encryption|RE]].
+[[homomorphic-encryption|HE]] with a strong (distribution-preserving) homomorphic evaluator implies [[rerandomizable-encryption|RE]].
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
-
-> - HE → rerandomizable encryption → [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]
+A public-key bit [[homomorphic-encryption|encryption scheme]] with a strong (distribution-preserving) homomorphic evaluator for a non-trivial boolean function is rerandomizable: every encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. BL13 use rerandomizability to place ciphertext distinguishing in $\classSZK$; see [[no-he-to-szk-bl13|No reduction from HE to SZK]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'rerandomizable-encryption' has no wiki page.
-- The arrow is really an observation that (certain) HE schemes are rerandomizable; as an unqualified implication it is stronger than BL13 claims.
-- The hypothesis node homomorphic-encryption also owns FHE via aliasing, so the edge cannot distinguish which flavour of HE is required.
-- Composite chain 'HE -> rerandomizable encryption -> SZK != BPP'; must be split into two links.
-- Conclusion is a complexity claim (SZK != BPP), so this is a barrier, not a construction.
-- No object identifier for 'rerandomizable encryption' (no page).
-- The bullet omits the actual barrier framing of BL13 (limits on black-box/reduction-based proofs of security for HE), so the arrow direction is easy to misread. Report only.
+- `rerandomizable-encryption` is an unlisted stub with no syntax or security definition.
+- The migrated chain's second arrow (rerandomizable encryption → $\classSZK \ne \classBPP$) is barrier content and lives on [[no-he-to-szk-bl13]].

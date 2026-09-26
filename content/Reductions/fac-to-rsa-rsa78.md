@@ -36,3 +36,4 @@ source text, not changes to it:
 - The parenthetical (factoring may be harder than RSA) is the standard intuition and contradicts the main clause as written.
 - Two claims in one bullet (the implication and the openness of the converse).
 - RSA78 is cited for a relation it does not prove.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: factoring $N$ yields $\varphi(N)$ and hence the RSA secret exponent, so RSA hardness implies factoring hardness, and [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]] prove no implication from factoring to RSA. The correct edge is RSA ⇒ FAC; its converse is open, with an equivalence known only in the generic ring model with preprocessing. See [[rsa-to-fac-dlo24]].

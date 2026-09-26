@@ -20,22 +20,15 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Known results:
+Any linearly homomorphic PKE ([[homomorphic-encryption#partially-homomorphic-encryption-phe|PHE]], e.g. from [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) together with the [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse LPN]] assumption yields [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] supporting $O(\log \secpar / \log\log \secpar)$ homomorphic multiplications followed by $\poly(\secpar)$ additions [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].
 
-> - Sparse LPN combined with any [[homomorphic-encryption|linearly homomorphic PKE]] (e.g., based on [[decisional-diffie-hellman|DDH]] or [[decisional-composite-residuosity|DCR]]) yields [[homomorphic-encryption|Somewhat Homomorphic Encryption]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]
+## Sketch
+
+Ciphertexts are matrices: homomorphic addition is matrix addition and homomorphic multiplication is matrix multiplication.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- GENUINELY CONJUNCTIVE: both hypotheses are needed together, and this is the only sub-edge the page actually asserts.
-- COLLIDING IDENTIFIERS: linearly-homomorphic-pke and somewhat-homomorphic-encryption have no pages, and the page wikilinks both to homomorphic-encryption, collapsing hypothesis and conclusion onto the same node.
-- sparse-lpn has no page of its own; it is a variation section inside learning-parity-with-noise.
-- Genuinely conjunctive: needs sparse LPN AND a linearly homomorphic PKE together.
-- The parenthetical (e.g., based on DDH or DCR) is a disjunction over instantiations of the second hypothesis — it expands into two further conjunctive reductions.
-- COLLIDING IDENTIFIERS: hypothesis and conclusion both wikilink to homomorphic-encryption (`[[homomorphic-encryption|linearly homomorphic PKE]]` and `[[homomorphic-encryption|Somewhat Homomorphic Encryption]]`); the data model cannot distinguish linearly homomorphic from somewhat homomorphic without sub-objects.
-- SPLIT VERDICT over-split: The page states ONE conjunctive theorem (sparse LPN plus any linearly homomorphic PKE yields SHE); the parenthetical '(e.g., based on DDH or DCR)' is an illustrative instantiation of the second hypothesis, so sub-edges 1 and 2 duplicate sub-edge 0 rather than decomposing it.
+- GENUINELY CONJUNCTIVE: sparse LPN and the linearly homomorphic PKE are both required; the parenthetical DDH/DCR is an illustrative instantiation of the second hypothesis, not a decomposition.
+- COLLIDING IDENTIFIERS: hypothesis and conclusion both wikilink into homomorphic-encryption (PHE and SHE are sections of one page), and sparse-lpn is a section of learning-parity-with-noise; the hyperedge cannot distinguish these without sub-object pages.

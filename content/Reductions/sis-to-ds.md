@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "SIS ⇒ DS"
 aliases: []
 id: red-sis-to-ds
@@ -8,39 +8,29 @@ kind: implication
 hypotheses: [sis]
 conclusion: ds
 class: unstated
-model: standard
-source: folklore
+model: rom
+source:
+  - "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
 security-loss: ""
 ---
 
 # SIS ⇒ DS
 
-[[shortest-integer-solution|SIS]] implies [[digital-signature|DS]].
+[[shortest-integer-solution|SIS]] implies [[digital-signature|DS]] in the random oracle model.
 
 ## Statement
 
-Migrated verbatim from [[shortest-integer-solution]] § Shortest Integer Solution:
+The [[shortest-integer-solution|SIS]] assumption implies [[digital-signature|DS]] in the random oracle model: a GPV signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian using a short basis of $\Lambda_q^\perp(\mathbf{A})$, and the scheme is strongly unforgeable under chosen-message attack whenever $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ is collision resistant on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
-> The _Shortest Integer Solution (SIS)_ problem is a lattice problem used as the hardness foundation for collision-resistant hash functions and lattice-based signature schemes. Unlike [[learning-with-errors|LWE]], which is an indistinguishability problem, SIS is a search problem.
+## Sketch
 
-Migrated verbatim from [[digital-signature]] § Lattice-based signatures:
-
-> - **GPV signatures**: hash-and-sign paradigm using trapdoor lattice sampling; security in the ROM from SIS — standard
+Trapdoor-sampled preimages have the same distribution as a discrete Gaussian conditioned on its image, so the reduction, holding a challenge $\mathbf{A}$ without a trapdoor, answers each hash query by sampling $\mathbf{z}$ first and programming $H(\mu) := \mathbf{A}\mathbf{z}$, and answers signing queries with those $\mathbf{z}$. A forgery $\mathbf{z}^*$ on $\mu^*$ differs from the reduction's own preimage $\mathbf{z}'$ of $H(\mu^*)$ except with negligible probability (preimage min-entropy), and $\mathbf{z}^* - \mathbf{z}'$ is a short nonzero SIS solution for $\mathbf{A}$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: The GPV08 reduction programs $H$ by sampling each preimage first. The standard-model scheme of [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]] belongs on a separate `model: standard` edge.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Intro sentence packs two applications (CRHF, lattice-based signatures) with no citation on either; both are cited later, at lines 48 and 60. Recorded separately.
-- Duplicates the ISIS-based claim at line 60, which is where the citation lives; the intro attributes it to SIS rather than ISIS.
-- MISUSED FOLKLORE FLAG: labelled '— standard', but GPV signatures have a canonical citation (Gentry-Peikert-Vaikuntanathan, STOC 2008) that is simply missing from content/References/. CLAUDE.md says 'obvious to a working cryptographer' is not folklore.
-- `[[shortest-integer-solution]]` and `[[random-oracle-model]]` exist but are not wikilinked.
+- Signatures from SIS in the ROM without a lattice trapdoor, via Fiat-Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].
+- Stateless hash-and-sign signatures from SIS in the standard model, via bonsai-tree basis delegation — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]].

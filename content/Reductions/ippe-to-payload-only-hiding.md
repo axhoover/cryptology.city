@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IPPE ⇒ Payload-only hiding"
 aliases: []
 id: red-ippe-to-payload-only-hiding
 kind: implication
 hypotheses: [ippe]
 conclusion: payload-hiding-ippe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight (advantage preserved exactly)"
 ---
 
 # IPPE ⇒ Payload-only hiding
@@ -19,20 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[inner-product-predicate-encryption]] § Payload-only hiding:
+An attribute-hiding [[inner-product-predicate-encryption|IPPE]] scheme is [[inner-product-predicate-encryption#payload-only-hiding|payload-hiding]]: a payload-hiding adversary with challenge $(x^*, m_0), (x^*, m_1)$ is an admissible attribute-hiding adversary with $x_0 = x_1 = x^*$, since $\langle v, x_0 \rangle = 0 \Leftrightarrow \langle v, x_1 \rangle = 0$ holds for every $v$ — folklore.
 
-> Dropping the attribute-hiding requirement yields a simpler **payload-hiding** variant: the adversary commits to a single $x^*$ and submits two messages, with the constraint that no queried $v$ satisfies $\langle v, x^* \rangle = 0 \pmod p$.
+## Sketch
+
+The payload-hiding game is the attribute-hiding game restricted to challenges with equal attribute vectors; the reduction is the identity on scheme and adversary and preserves the advantage exactly.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: identity construction; the reduction forwards a payload-hiding adversary unchanged into the attribute-hiding game with $x_0 = x_1 = x^*$, treating scheme and adversary as oracles.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section: attribute-hiding => payload-hiding is implicit, never asserted, uncited.
-- No slug for the payload-hiding variant.
+- Payload-hiding and attribute-hiding are defined in [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].

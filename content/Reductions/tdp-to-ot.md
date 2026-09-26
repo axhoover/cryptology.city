@@ -37,3 +37,4 @@ source text, not changes to it:
 - Second half of the same "TDPs (equivalently, the existence of PKE or OT)" claim, isolated: TDP ≡ OT.
 - SUSPECTED MATHEMATICAL ERROR: OT is not known to imply TDPs. Recorded, not fixed.
 - No citation.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] show that OT does not imply TDPs under black-box reductions, and the forward direction needs an _enhanced_ family, since the OT receiver must sample a domain element without learning its preimage. The migrated "TDPs (equivalently, the existence of PKE or OT)" fuses a disjunction into an equivalence. See [[enhanced-trapdoor-permutations-to-ot-gkm-00]].

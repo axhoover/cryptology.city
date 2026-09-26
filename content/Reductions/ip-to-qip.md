@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IP ⊆ QIP"
 aliases: []
 id: red-ip-to-qip
@@ -19,23 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[quantum-interactive-proofs]] § Known relationships:
+$\classIP \subseteq \classQIP$: a classical [[interactive-proof-systems|IP]] protocol is a [[quantum-interactive-proofs|QIP]] protocol whose verifier measures each incoming message in the computational basis and otherwise runs the classical verifier — folklore.
 
-> - $\classIP \subseteq \classQIP$: classical interactive proofs are a special case (restrict messages to classical strings).
+## Sketch
+
+Measuring each prover message in the computational basis turns any quantum prover into a randomized classical prover: the distribution of each message given the classical transcript so far is a classical strategy. Completeness and soundness of the classical protocol carry over unchanged.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: proven complexity-class containment; the reduction-class axis does not discriminate.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (arguably folklore, but the page does not use the '— standard'/'— folklore' label).
+`model: quantum`: containment into a quantum class, as on [[bpp-to-bqp]], [[qip-to-ip]] and [[qip-to-pspace]].

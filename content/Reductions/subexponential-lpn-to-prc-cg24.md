@@ -20,16 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Known results:
+$2^{O(\sqrt{n})}$-hardness of [[learning-parity-with-noise#subexponential-lpn|LPN]] implies [[pseudorandom-error-correcting-code|pseudorandom error-correcting codes]] robust to a constant rate of substitutions and to random deletions, including a zero-bit PRC with public encoding and secret-key detection — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]], who derive the same conclusions from polynomial hardness of LPN together with the low-density planted-XOR assumption.
 
-> - [[pseudorandom-error-correcting-code|Public-key PRCs]] can be built from subexponential LPN — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
+## Sketch
+
+The secret key is a set of low-weight parity checks planted in an otherwise random generator matrix; a codeword is a noisy codeword of the resulting code, pseudorandom under the stated LPN assumptions, while each sparse parity check is biased on codewords, so the key holder detects and decodes. Publishing the generator matrix and keeping the parity checks secret gives the public-key zero-bit variant.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Public-key PRCs is a variant of the target page object; the public-key qualifier is not in the identifier.
+`class: unstated`: the source does not state which notion of reduction is meant.

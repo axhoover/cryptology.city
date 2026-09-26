@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IND-CCA security ⇒ IND-CPA KEM"
 aliases: []
 id: red-ind-cca-security-to-ind-cpa-kem
 kind: implication
 hypotheses: [ind-cca-kem]
 conclusion: ind-cpa-kem
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the reduction preserves the advantage exactly"
 ---
 
 # IND-CCA security ⇒ IND-CPA KEM
@@ -19,20 +19,10 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § IND-CPA KEM:
-
-> A weaker KEM where the adversary has no decapsulation oracle. Sufficient for passive adversaries.
+An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]]-secure [[key-encapsulation-mechanism|KEM]] is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA]]-secure: the games differ only in the decapsulation oracle, so an IND-CPA adversary is an IND-CCA adversary making no decapsulation queries, with identical advantage — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: identity construction; the reduction runs the IND-CPA adversary unchanged, using it only as an oracle.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section; the implication CCA => CPA is implicit, never asserted. No citation.
-- Security notions, not pages.
+- Both endpoints are security notions of the same primitive, not separate pages — the target model needs notion-level nodes.

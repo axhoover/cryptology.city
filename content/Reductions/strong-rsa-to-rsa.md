@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Strong RSA ⇒ RSA"
 aliases: []
 id: red-strong-rsa-to-rsa
 kind: implication
 hypotheses: [strong-rsa-assumption]
 conclusion: rsa
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: one oracle call, advantage preserved"
 ---
 
 # Strong RSA ⇒ RSA
@@ -19,21 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[factoring]] § Strong RSA assumption:
+If [[rsa-assumption#strong-rsa|strong RSA]] is hard for $\GrGen$, then [[rsa-assumption|RSA]] is hard for $\GrGen$: the strong-RSA adversary receives $(n, y)$ and may output any $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$, so an inverter for the exponent $e$ that $\GrGen$ outputs is already a strong-RSA solver; the converse is not known — folklore.
 
-> The strong RSA assumption requires that it is hard to compute any $e$-th root of a random group element for an adversarially chosen $e > 1$, not just a fixed $e$. This is a stronger assumption than standard RSA.
+## Sketch
+
+On a strong-RSA challenge $(n, y)$, sample $e$ as $\GrGen$ does given $n$ — a fixed $e$ or a random prime, for the usual choices — run the RSA inverter on $(n, e, y)$ to get $\hat{x}$ with $\hat{x}^{e} \equiv y \pmod{n}$, and output $(\hat{x}, e)$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Only stronger assumption than standard RSA is stated; the implication (strong RSA hardness implies RSA hardness) is left implicit.
-- No citation (BP97 / FO97 missing).
-- strong-rsa-assumption has no page of its own.
+`class: fully-black-box`: The construction is the identity on instances, and the one fixed reduction (§ Sketch) calls the RSA inverter once, as an oracle.

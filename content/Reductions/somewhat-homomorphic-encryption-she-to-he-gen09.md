@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Somewhat homomorphic encryption (SHE) ⇒ HE"
 aliases: []
 id: red-somewhat-homomorphic-encryption-she-to-he-gen09
@@ -16,29 +16,18 @@ security-loss: ""
 
 # Somewhat homomorphic encryption (SHE) ⇒ HE
 
-[[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]] implies [[homomorphic-encryption|HE]].
+A bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme implies [[homomorphic-encryption|HE]] in its leveled fully homomorphic form.
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]]:
+A bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain; with a single key pair the same construction gives unbounded [[homomorphic-encryption|FHE]] under the additional assumption of [[circular-security|circular security]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
-> Supports both additions and multiplications, but only up to a bounded number (bounded by the _multiplicative depth_ of the circuit).
+## Sketch
 
-Migrated verbatim from [[homomorphic-encryption]]:
-
-> Supports arbitrary polynomial-time computation via **bootstrapping**: a special homomorphic evaluation of the decryption circuit that refreshes the noise in a ciphertext. First construction based on ideal lattices — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+To refresh a noisy ciphertext $c$, homomorphically evaluate $\Dec(\cdot, c)$ on an encryption of the secret key: the result is a fresh encryption of the same plaintext whose noise depends on the depth of the decryption circuit rather than on the computation so far. Refreshing after each gate, under the next key pair in the chain, evaluates circuits as deep as the chain is long.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section; SHE => HE is implicit, never asserted. No citation.
-- No wiki slug 'somewhat-homomorphic-encryption'.
-- The bootstrapping reduction needs the SHE scheme to be bootstrappable (able to evaluate its own decryption circuit) and, for unbounded FHE without leveling, a circular-security assumption - neither is listed as a hypothesis here (circular security is mentioned only at line 66).
-- No wiki slugs for SHE / FHE as distinct objects.
+- No wiki page for SHE or FHE as objects distinct from `he`: the hypothesis and the conclusion both anchor into homomorphic-encryption.md, so the edge renders as a near self-loop.

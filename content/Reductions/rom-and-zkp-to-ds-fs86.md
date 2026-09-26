@@ -7,35 +7,27 @@ id: red-rom-and-zkp-to-ds-fs86
 kind: implication
 hypotheses: [rom, zkp]
 conclusion: ds
-class: unstated
+class: fully-black-box
 model: rom
 source:
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
-security-loss: ""
+security-loss: "Quadratic in the forger's advantage and linear in its random-oracle query count: a forger with advantage $\\varepsilon$ and $q$ oracle queries yields a witness with probability about $\\varepsilon^2/q$ (forking lemma) — PS96."
 ---
 
 # ROM + ZKP ⇒ DS
 
-[[random-oracle-model|ROM]] together with [[zero-knowledge-proof|ZKP]] implies [[digital-signature|DS]].
+[[random-oracle-model|ROM]] together with a three-move public-coin honest-verifier [[zero-knowledge-proof|ZKP]] of knowledge for a hard relation implies [[digital-signature|DS]], via the Fiat–Shamir transform.
 
 ## Statement
 
-Migrated verbatim from [[zero-knowledge-proof]] § Other results:
+Applying the [[fiat-shamir-heuristic|Fiat–Shamir transform]] to a three-move public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] proof of knowledge for a hard relation (sign $m$ by running the prover to obtain a first message $a$, set $c = \hash(a, m)$, and output the transcript) yields a [[digital-signature|digital signature]] scheme — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. It is EUF-CMA secure in the [[random-oracle-model|random oracle model]]: the forking lemma reruns the forger on the same coins, resampling the oracle answers from the forgery's query onward, to obtain two accepting transcripts sharing $a$, from which special soundness extracts the witness — [[PS96 - Security Proofs for Signature Schemes|PS96]]. With commitments of super-logarithmic min-entropy, the signature is EUF-CMA secure in the random oracle model if and only if the identification scheme is secure against passive impersonation — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]].
 
-> - The Schnorr protocol is a sigma protocol for discrete log compiled to a [[digital-signature|digital signature]] via Fiat-Shamir — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
+## Sketch
+
+Schnorr's protocol for [[discrete-logarithm|discrete log]] instantiates the transform: the signature on $m$ is $(c, z)$ with $a = g^r$, $c = \hash(a, m)$ and $z = r + c x$ — [[Sch91 - Efficient signature generation by smart cards|Sch91]]. Two forgeries with the same $a$ and distinct challenges give $x = (z - z')/(c - c')$, so the forking lemma turns a forger into a discrete-log solver.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: the compiler calls the sigma protocol only through its prover, verifier and honest-verifier simulator (which answers signing queries by programming the oracle); the reduction runs any forger as an oracle, rewinds it, and feeds the two accepting transcripts to the special-soundness extractor. Reading the simulator and extractor as part of the sigma protocol's interface, this is the RTV04 fully-black-box shape.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CONJUNCTION IS AN ARTIFACT: the second listed hypothesis, random-oracle-model, is a MODEL rather than an object; with model:'rom' recorded in the model field there is only one genuine hypothesis, so conjunctive is false.
-- The ROM is not named in the bullet at all; model:'rom' is inferred.
-- Security of Fiat-Shamir signatures rests on the forking lemma (PS96), which is neither cited nor referenced.
-- sigma-protocol aliases zero-knowledge-proof, so the hypothesis node is the generic ZK page.
-- COMPOSITE: DL => Schnorr sigma protocol, then sigma protocol + Fiat-Shamir (ROM) => digital signature. The first link is uncited (Sch89/Sch91).
-- The ROM is not named in the bullet even though Fiat-Shamir signatures are only proved secure there (PS96 forking lemma); model 'rom' is inferred.
-- 'discrete log' and 'sigma protocol' are both unlinked; discrete-logarithm.md exists.
+`model: rom`: EUF-CMA security is proved only with $\hash$ modelled as a random oracle, which the reduction observes and programs. The barrier [[no-fiat-shamir-and-hash-function-to-ds-gk03]] concerns instantiating the oracle with a concrete hash function, not the ROM statement.

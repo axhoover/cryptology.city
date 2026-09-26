@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "KEM ⇒ KE"
 aliases: []
 id: red-kem-to-ke
 kind: implication
 hypotheses: [kem]
 conclusion: ke
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the eavesdropper's distinguishing advantage equals the KEM IND-CPA advantage"
 ---
 
 # KEM ⇒ KE
@@ -19,21 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § Other results:
+A [[key-encapsulation-mechanism|KEM]] yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \mathsf{Encap}(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\mathsf{Decap}(\sk, c)$. Indistinguishability of $k$ from uniform given the transcript $(\pk, c)$ is IND-CPA security of the KEM — folklore.
 
-> - KEM implies [[key-exchange|key exchange]]: running Encap with the sender's public key gives an authenticated key exchange — standard
+## Sketch
+
+A passive adversary's view $(\pk, c, k)$ is the IND-CPA KEM challenge $(\pk, c^*, k_b)$, so a key-exchange distinguisher is forwarded unchanged as a KEM distinguisher.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: the protocol calls $\KeyGen$, $\mathsf{Encap}$ and $\mathsf{Decap}$ only as oracles; the reduction is fixed and runs the eavesdropper as an oracle on the KEM challenge. RTV04 fully-black-box shape.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECT: the sketch says 'running Encap with the sender's public key' - encapsulation is run with the _receiver's_ public key. Report only; do not fix.
-- SUSPECT: a plain KEM yields an _unauthenticated_ (at best one-sided authenticated) key exchange; claiming 'authenticated key exchange' overstates it, and the page's own AKE variation (key-exchange.md line 40) requires mutual authentication. Report only.
-- '- standard' used in place of a citation.
+- A bare KEM gives unauthenticated key exchange; the AKE variant of [[key-exchange|KE]] requires mutual authentication.

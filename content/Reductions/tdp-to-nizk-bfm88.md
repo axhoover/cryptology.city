@@ -7,40 +7,30 @@ id: red-tdp-to-nizk-bfm88
 kind: implication
 hypotheses: [tdp]
 conclusion: nizk
-class: unstated
+class: fully-black-box
 model: crs
 source:
-  - "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
+  - "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
 security-loss: ""
 ---
 
 # TDP ⇒ NIZK
 
-[[trapdoor-permutation|TDP]] implies [[non-interactive-zero-knowledge|NIZK]].
+Doubly enhanced, certified [[trapdoor-permutation|TDPs]] imply [[non-interactive-zero-knowledge|NIZK]] proofs for $\classNP$ in the common reference string model.
 
 ## Statement
 
-Migrated verbatim from [[non-interactive-zero-knowledge]] § Other results:
+A family of doubly enhanced, certified [[trapdoor-permutation|trapdoor permutations]] (indices are recognizably permutations) yields a [[non-interactive-zero-knowledge|NIZK]] proof system for every language in $\classNP$ in the common reference string model: soundness is statistical, zero-knowledge is computational, and one reference string serves polynomially many theorems — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]. The hidden-bits compilation uses the double enhancement, and double enhancement suffices for it — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
 
-> - NIZK for all NP from trapdoor permutations (hence from [[rsa-assumption|RSA]] or [[discrete-logarithm|DL]]) in the CRS model — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
+## Sketch
+
+FLS give an unconditional NIZK for Hamiltonicity in the hidden-bits model and compile it: the reference string is read as permutation images $y_1,\dots,y_m$, hidden bit $i$ is $b(\Invert(\td, y_i))$ for a hard-core predicate $b$, and the prover reveals a bit by publishing its preimage while unrevealed bits stay unpredictable to the verifier. One string serves polynomially many theorems by proving "$x \in L$ or the trailing block of the string is in the image of a $\PRG$"; the simulator plants a pseudorandom block and uses its seed as the witness.
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
+`class: fully-black-box`: One fixed construction: the reference string is parsed as permutation images, and prover and verifier call $\Gen$, $\Eval$, $\Invert$, the certification procedure and the hard-core predicate only as oracles; the PRG for the multi-theorem step is built from the permutation and its hard-core predicate, also as oracles. One fixed reduction: soundness is statistical, and zero-knowledge is a hybrid over the hidden bits whose reduction runs any distinguisher as an oracle to predict the hard-core bit. Double enhancement and certification restrict the family; they do not give the construction non-oracle access to it. RTV04 fully-black-box shape.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: crs`: The reference string carries the hidden bits.
 
-- MODEL IS LOAD-BEARING: without model:'crs' this becomes a plain-model NIZK claim, which is false.
-- The doubly-enhanced TDP caveat (needed to make the BFM/FLS paradigm go through, cf. Goldreich-Rothblum) is omitted.
-- 'for all NP' is a statement-class qualifier the edge cannot carry.
-- Identical to sub-edge 1 of the DL branch record (Primitives/non-interactive-zero-knowledge.md:62#2) — migration must dedupe.
-- SUSPECT MATH: '(hence from RSA or DL)'. The discrete logarithm assumption does NOT give trapdoor permutations - there is no known trapdoor for exponentiation, and TDPs from DL are not known to exist. The DL half of this parenthetical appears to be an outright error. Report only; do not fix.
-- Composite: assumption => TDP => NIZK for NP; must be split.
-- 'trapdoor permutations' is bare text although content/Primitives/trapdoor-permutation.md exists - missing wikilink.
-- The doubly-enhanced TDP caveat (needed to make the BFM/FLS paradigm go through) is omitted.
-- Exact duplicate of sub-edge 1 of the RSA-branch record for the same line; two records carry the identical edge.
-- Doubly-enhanced TDP caveat omitted, as in the RSA branch.
-- The CRS model must survive migration or the claim becomes false.
-- Second (disjunctive) hypothesis packed into the same bullet - DL => TDP => NIZK.
-- SUSPECT MATH: the first link (DL => trapdoor permutation) is false as far as is known. Recorded separately precisely so it can be rejected during migration rather than silently imported. Report only; do not fix.
+- For families over $\bits^n$ the certified-permutation hypothesis can be dropped: the prover certifies the index with a NIZK proof that it describes an (almost) permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]]
+- Doubly enhanced families still leave the FLS instantiation unsound for adversarially chosen indices whose domain is not recognizable; _certifiable injectivity_ closes the gap and suffices for the FLS paradigm even for trapdoor functions — [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]

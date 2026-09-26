@@ -7,11 +7,10 @@ id: red-function-secret-sharing-fss-to-dpf-bgi15
 kind: implication
 hypotheses: [function-secret-sharing]
 conclusion: dpf
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[BGI15 - Function Secret Sharing|BGI15]]"
-  - "[[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]"
 security-loss: ""
 ---
 
@@ -21,17 +20,15 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[distributed-point-function]]:
+A [[distributed-point-function|DPF]] is two-party [[distributed-point-function#function-secret-sharing-fss|function secret sharing]] for the class of point functions: an FSS scheme for a class $\calF$ containing every point function $f_{\alpha,\beta}$ — $f_{\alpha,\beta}(\alpha) = \beta$ and $f_{\alpha,\beta}(x) = 0$ for $x \ne \alpha$ — is, restricted to those functions, a DPF — [[BGI15 - Function Secret Sharing|BGI15]].
 
-> DPFs are a special case of _function secret sharing (FSS)_, introduced by Boyle, Gilboa, and Ishai — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]. FSS generalizes DPFs to arbitrary function classes $\calF$: one generates shares $(k_0, k_1)$ of any $f \in \calF$, such that each key evaluates the function's additive share, and each key hides $f$ individually.
+## Sketch
+
+Run the FSS key generation on $f_{\alpha,\beta}$; correctness (the shares sum to $f_{\alpha,\beta}(x)$) and key hiding are the FSS properties restricted to point functions.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: The construction is the FSS scheme restricted to point functions, and the reduction passes any DPF adversary through unchanged as an FSS adversary; both use their objects only as oracles.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'function-secret-sharing' has no page or slug; FSS is defined only inside this Variations section despite being the more general object.
-- Surface phrasing puts DPF first ('DPFs are a special case of FSS'), so the implication direction is FSS => DPF — easy to get backwards.
+- A tensoring operation that simplifies FSS constructions, and a two-party DPF with keys about $4\times$ shorter than BGI15's — [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
+- `function-secret-sharing` has no page; FSS, the more general object, is defined only in the DPF page's Variations section.

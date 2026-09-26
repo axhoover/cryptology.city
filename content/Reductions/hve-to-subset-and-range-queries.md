@@ -1,15 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "HVE ⇒ Subset and range queries"
 aliases: []
 id: red-hve-to-subset-and-range-queries
 kind: implication
 hypotheses: [hve]
 conclusion: range-query-encryption
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
 security-loss: ""
 ---
 
@@ -19,29 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[hidden-vector-encryption]] § Hidden vector encryption:
+Any [[hidden-vector-encryption|HVE]] scheme over $\Sigma = \{0,1\}$ supports [[hidden-vector-encryption#subset-and-range-queries|subset and range queries]] through fixed encodings of attributes and predicates into vectors and wildcard patterns: membership $x \in T$ by encoding $x$ as its indicator vector over the domain and $T$ as the pattern with wildcards exactly on $T$ and $0$ elsewhere; comparison $x \ge a$ over a domain of size $n$ by encoding $x$ in unary and $a$ as the pattern with a single non-wildcard position; ranges $a \le x \le b$ as conjunctions of comparisons. Ciphertext size is linear in the domain size — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
 
-> The same framework supports subset queries and range queries (via bit decomposition).
+## Sketch
 
-Migrated verbatim from [[hidden-vector-encryption]] § Subset and range queries:
-
-> The BW07 paper also formalizes subset predicates (is $x_i \in T_i$ for some set $T_i$?) and range predicates (is $a_i \le x_i \le b_i$?) within the same framework via encodings into inner products. Range predicates are handled by a bit decomposition of $x_i$ and $a_i, b_i$, reducing the range check to a conjunction over single-bit comparisons.
+The indicator vector of $x$ has its only $1$ at position $x$, which the pattern for $T$ leaves as a wildcard iff $x \in T$. On the unary encoding $1^{x}0^{n-x}$, $x \ge a$ iff position $a$ holds $1$; a range conjoins two such tests.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: one fixed encoding maps attributes and subset/comparison predicates to HVE vectors and wildcard patterns; the derived scheme invokes the HVE algorithms only as oracles on encoded inputs. The encoding preserves predicate outcomes, so the security reduction translates any adversary's key queries and challenge through the same encoding and runs the adversary unchanged as an HVE adversary.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation in the intro (the same claim is attributed to BW07 at line 99).
-- Two conclusions bundled (subset queries, range queries); neither has a page or slug.
-- 'The BW07 paper' is a bare-text citation with no wikilink, though the reference page exists and is linked correctly at line 104 — so 'sources' is recorded as empty even though a citation is clearly intended.
-- Two conclusions bundled (subset predicates, range predicates), neither with a slug.
-- The relation is really 'inner-product encodings => subset/range queries', which routes through `[[inner-product-predicate-encryption]]`, unlinked here.
+- Two conclusions (subset queries, range queries) are bundled under the single variant id `range-query-encryption`.

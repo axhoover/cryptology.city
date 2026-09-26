@@ -20,17 +20,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Evasive LWE:
-
-> **Evasive LWE** is a non-standard strengthening of decision LWE, introduced by Wee — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]] — to construct optimal [[broadcast-encryption|broadcast encryption]] and [[attribute-based-encryption|attribute-based encryption]]. Unlike a single-game hardness assumption, it is stated as an **implication** between two indistinguishability conditions, quantified over a PPT sampler.
+[[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors|LWE]] yields optimal [[broadcast-encryption|BE]]: for $N$ users, the public key, each secret key and the ciphertext have size $\poly(\secpar, \log N)$; security is selective (the adversary fixes the recipient set before seeing the public key). It is the first optimal-BE candidate that is plausibly post-quantum secure — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- One sentence packs three relations (Evasive LWE strengthens decision LWE; implies broadcast encryption; implies ABE). Recorded as three records sharing the verbatim.
-- "optimal" broadcast encryption is an efficiency claim with no stated parameter.
+`class: unstated`: the source does not state which notion of reduction is meant.

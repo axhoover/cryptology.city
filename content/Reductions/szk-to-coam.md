@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "SZK ⊆ coAM"
 aliases: []
 id: red-szk-to-coam
@@ -9,7 +9,8 @@ hypotheses: [szk]
 conclusion: coam
 class: free
 model: standard
-source: folklore
+source:
+  - "[[For87 - The Complexity of Perfect Zero-Knowledge|For87]]"
 security-loss: ""
 ---
 
@@ -19,30 +20,10 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[co-arthur-merlin]] § Known relationships:
-
-> - $\classSZK \subseteq \classAM \cap \classcoAM$: statistical zero-knowledge problems can be argued from both sides with Arthur-Merlin protocols — TODO citation.
-
-Migrated verbatim from [[statistical-zero-knowledge]] § Known relationships:
-
-> - SZK ⊆ [[arthur-merlin|AM]] ∩ coAM, so if AM = coAM then SZK ⊆ AM; in particular SZK does not contain NP-complete problems unless PH collapses
+$\classSZK \subseteq \classcoAM$: the complement of every promise problem with an honest-verifier [[statistical-zero-knowledge|statistical zero-knowledge]] proof system has an [[arthur-merlin|Arthur–Merlin]] proof — [[For87 - The Complexity of Perfect Zero-Knowledge|For87]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Explicit 'TODO citation'; Fortnow 1989 would be the standard source for this half.
-- SZK not wikilinked.
-- Uncited, same as the previous sub-edge.
-- 'coAM' is bare text although content/Complexity/co-arthur-merlin.md exists and \classcoAM is defined.
+- The $\classSZK$-completeness of Statistical Difference gives a simpler, unified proof of this bound and of $\classSZK \subseteq \classAM$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]

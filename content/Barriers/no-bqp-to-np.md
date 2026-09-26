@@ -1,41 +1,33 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from BQP to NP"
+status: draft
+title: "No relativizing reduction from BQP to NP"
 aliases: []
 id: bar-bqp-to-np
 hypotheses: [bqp]
 conclusion: np
-class: unstated
+class: relativizing
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: relativizing
 strength: unconditional
-source: folklore
+source:
+  - "[[RT19 - Oracle Separation of BQP and PH|RT19]]"
 ---
 
-# No reduction from BQP to NP
+# No relativizing reduction from BQP to NP
 
-A reduction of class `unstated` from [[bounded-error-quantum-polynomial-time|BQP]] to [[nondeterministic-polynomial-time|NP]] would imply a contradiction.
+A reduction of class `relativizing` from [[bounded-error-quantum-polynomial-time|BQP]] to [[nondeterministic-polynomial-time|NP]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-quantum-polynomial-time]] § Known relationships:
+There is an oracle relative to which $\classBQP \not\subseteq \mathbf{PH}$, hence one relative to which $\classBQP \not\subseteq \classNP$ — [[RT19 - Oracle Separation of BQP and PH|RT19]]. No relativizing argument places [[bounded-error-quantum-polynomial-time|BQP]] inside [[nondeterministic-polynomial-time|NP]]; unrelativized, neither containment between the two classes is known.
 
-> - **$\classBQP$ vs $\classNP$:** the two classes are believed incomparable. Simon's problem is in $\classBQP$ but not in $\classNP$ relative to a random oracle; conversely, NP-complete problems are not believed to be in $\classBQP$.
+## Sketch
+
+Raz and Tal exhibit a distribution over $\{\pm 1\}^{2N}$, a variant of Forrelation, that a quantum algorithm making one query distinguishes from uniform with advantage $\Omega(1/\log N)$, while no constant-depth circuit of quasi-polynomial size distinguishes it with advantage better than $\polylog(N)/\sqrt{N}$; the standard diagonalization turns this black-box separation into the oracle.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- TYPING LOSS: as a bare {BQP} => {NP} pair this is indistinguishable from an inclusion claim, which is the opposite of what the sentence asserts.
-- Uncited (Simon94 / BBBV93 would be the standard sources).
-- SUSPECTED IMPRECISION (recorded, not fixed): Simon's problem is defined relative to a random 2-to-1 function with a hidden XOR mask, not a uniformly random oracle; the random-oracle statement usually cited in this area is BBBV, which separates in the OTHER direction.
-- No citation for the oracle separation (BBBV93 / Simon94 would be the standard ones).
-- SUSPECTED IMPRECISION (report only): Simon's problem is defined relative to a random 2-to-1 function with a hidden XOR mask, not a uniformly random oracle; 'relative to a random oracle' overstates what the Simon separation gives. The random-oracle statement usually cited in this direction is BBBV (NP not in BQP relative to a random oracle), which is the OTHER direction.
-- Two belief statements plus one oracle-separation claim in one bullet; beliefs are not theorems and should not migrate as reductions.
+`class: relativizing`: an oracle separation rules out exactly the relativizing class: RT19 give an oracle relative to which BQP is not contained in PH, hence not in NP, so no relativizing proof can establish the inclusion. It says nothing about non-relativizing arguments, and per the partial order it also kills any fully-black-box argument.

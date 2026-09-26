@@ -30,3 +30,4 @@ Recorded during migration and **not fixed** — these are claims about the
 source text, not changes to it:
 
 - The conclusion is a section-scoped object (`[[multi-server-private-information-retrieval#Computational Multi-server PIR]]`) — the anchor resolves (that heading exists at line 36 of the target page), but the relation's endpoint is a subsection, not a page, which the target model must be able to name.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge records the base IT-PIR node (perfect privacy), but the GI14 construction inherits the DPF's computational hiding and yields only computational 2-server PIR. This page duplicates the existing correct edge with the wrong conclusion. See [[dpf-to-computational-multi-server-pir-gi14]].

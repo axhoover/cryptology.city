@@ -39,3 +39,4 @@ source text, not changes to it:
 - Equivalence is between the pseudorandomness PROPERTIES, not the objects ('the pseudorandomness of a trapdoor PRG is equivalent to the pseudorandomness of (Gen,Eval) treated as a PRG with keyspace K x T') — property-level equivalence needs its own encoding.
 - No citation.
 - 'trapdoor-pseudorandom-generator' has no page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the migrated sentence is a definitional remark and, as an equivalence, vacuous under the wiki's single-evaluation definition: a trapdoor PRG is a PRG by dropping $\Invert$, and any PRG $G$ is a trapdoor PRG via $t = k = s$, $\Eval(t,k) = G(s)$, $\Invert(t,r) = [G(t) = r]$. The hypothesis `trapdoor-pseudorandom-generator` is a variant anchor of `prg`, so the edge is a self-loop. See [[pseudorandom-generator]].

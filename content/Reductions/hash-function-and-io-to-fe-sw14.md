@@ -7,44 +7,26 @@ id: red-hash-function-and-io-to-fe-sw14
 kind: implication
 hypotheses: [hash-function, io]
 conclusion: functional-encryption
-class: unstated
+class: free
 model: standard
 source:
-  - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+  - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
 ---
 
 # Hash function + iO ⇒ FE
 
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies [[functional-encryption|FE]].
+[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies selectively secure [[functional-encryption|FE]] for all circuits.
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Obfustopia:
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies selectively secure (indistinguishability-based) [[functional-encryption|functional encryption]] for all polynomial-size circuits: [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build FE from iO, [[public-key-encryption|PKE]], and statistically simulation-sound [[non-interactive-zero-knowledge|NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.
 
-> **[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+## Sketch
 
-Migrated verbatim from [[indistinguishability-obfuscation]] § Other results:
-
-> - iO + OWF → functional encryption for all circuits — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]], [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
+A ciphertext is two PKE encryptions of $m$ with a statistically simulation-sound NIZK proof that both components encrypt the same message; the functional key for $f$ is an obfuscation of the program that verifies the proof, decrypts one component, and outputs $f(m)$. Security is a Naor–Yung-style hybrid in which iO switches the component the functional key decrypts.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CONJUNCTIVE and DISJUNCTIVELY BUNDLED: "combined with OWFs, it implies PKE, digital signatures, NIZK proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more" is one hypothesis SET {iO, OWF} with five separate conclusions; this record isolates {iO, OWF} => functional encryption for all circuits.
-- "and much more" is an unbounded, untypeable tail that a migration must drop.
-- OWF hypothesis is again the hash-function page alias.
-- "functional-encryption" has no wiki page (content/Primitives has ABE, IBE, HVE, inner-product predicate encryption, but no functional encryption page).
-- 'OWF' here is bare text, not a wikilink (unlike line 51).
-- No page for functional encryption; conclusion slug invented.
-- Two citations on one bullet - unclear whether both prove the same statement or different variants.
+`class: free`: The construction hands iO circuits containing the code of a puncturable PRF built from the one-way function (in the SW14 components) and of the decryption and proof-verification algorithms, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. Neither paper places the reduction in the RTV04 hierarchy, so the broadest class is recorded.

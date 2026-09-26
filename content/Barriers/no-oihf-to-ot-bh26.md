@@ -24,16 +24,10 @@ A reduction of class `fully-black-box` from [[oblivious-interactive-hash-functio
 
 ## Statement
 
-Migrated verbatim from [[random-oracle-model]] § Known Results:
-
-> - **OIHFs bridge Minicrypt and Cryptomania non-black-box** — Barnum and Heath introduced _Oblivious Interactive Hash Functions_ (OIHFs), a primitive that can be constructed from a random oracle, yet implies [[oblivious-transfer|OT]] via a non-black-box reduction [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]. This partially bridges the classical separation between Minicrypt (one-way functions, PRFs, etc.) and Cryptomania (public-key primitives including OT), though the non-black-box OT construction from a standard-model OIHF currently requires Cryptomania assumptions.
+OIHFs can be constructed from a random oracle, so a fully-black-box reduction from an [[oblivious-interactive-hash-function|OIHF]] to [[oblivious-transfer|OT]] would compose into a black-box construction of OT, hence of key agreement, from a random oracle alone, which the Impagliazzo–Rudich separation rules out — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]. BH26's reduction from an OIHF to OT is accordingly non-black-box, and the Minicrypt/Cryptomania separation stands for black-box constructions — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: fully-black-box`: BH26 construct an OIHF from a random oracle. A fully-black-box reduction from an OIHF to OT would compose with that construction into a black-box construction of OT, hence of key agreement, from a random oracle alone, which the Impagliazzo-Rudich separation rules out. The barrier is therefore against `fully-black-box`, and BH26's own OIHF ⇒ OT reduction is non-black-box for exactly this reason. Whether OIHFs also exist relative to the IR89 oracle (random permutation plus PSPACE), which would lift the barrier to `relativizing`, is not settled by the abstract.
 
-- This is a barrier-CIRCUMVENTION record: it says the IR89 Minicrypt/Cryptomania separation is partially bridged by a non-black-box reduction while the black-box separation stands. The data model has no edge type for 'circumvents barrier X by leaving class C'; recorded as consequenceKind 'reduction' as the closest fit.
-- The correct counterpart to the erroneous content/Primitives/secure-multi-party-computation.md:63. The two must be reconciled in the same commit.
-- 'the classical separation between Minicrypt ... and Cryptomania' is cited to BH26, but the separation itself is IR89's and is not wikilinked here.
-- OIHF has no page and no alias; the hypothesis object does not exist.
+- This is a barrier-circumvention record: the IR89 Minicrypt/Cryptomania separation is partially bridged by a non-black-box reduction while the black-box separation stands. The data model has no edge type for 'circumvents barrier X by leaving class C'.

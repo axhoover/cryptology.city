@@ -22,32 +22,11 @@ A reduction of class `free` from [[generic-group-model#the-structured-ggm|The St
 
 ## Statement
 
-Migrated verbatim from [[generic-group-model]] § The Structured GGM:
-
-> Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
->
-> $$
-> \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
-> $$
-
-Migrated verbatim from [[generic-group-model]] § The Structured GGM:
-
-> Corrigan-Gibbs, Henzinger, and Wu [[CHW26 - The Structured Generic-Group Model|CHW26]] extend Shoup's model to capture algorithms that exploit non-generic structure in a controlled way. In the **structured GGM**, the adversary may exploit special structure for at most a $\delta$ fraction of group elements while remaining fully generic on the rest. The main result is that any DLOG algorithm in a group of prime order $p$ that exploits structure on at most a $\delta$ fraction of elements requires time
->
-> $$
-> \Omega\!\left(\min\!\left(\sqrt{p},\; \frac{1}{\delta}\right)\right).
-> $$
->
-> This yields tight subexponential lower bounds applicable to index-calculus algorithms, bridging the gap between fully generic lower bounds and structured algorithm analyses.
+In the structured generic-group model — [[generic-group-model|Shoup's GGM]] extended so that the adversary may exploit the group's special structure on at most a $\delta$ fraction of group elements and is generic on the rest — every algorithm for [[discrete-logarithm|DLOG]] in a group of prime order $p$ runs in time $\Omega\!\left(\min\!\left(\sqrt{p},\, 1/\delta\right)\right)$ — [[CHW26 - The Structured Generic-Group Model|CHW26]]. This gives tight subexponential lower bounds against index-calculus-style algorithms that exploit the multiplicative structure of smooth integers but are otherwise generic — [[CHW26 - The Structured Generic-Group Model|CHW26]].
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: free`: A lower bound inside an idealized model rules out every algorithm in that model with no restriction on technique, so it is `free` scoped by the model — the convention the sibling page content/Barriers/no-ggm-to-dlog-sho97.md uses and the one schema/reduction-classes.yaml's `rejected: generic-group` message prescribes.
 
-- Model is a variant (the structured GGM) that has no node of its own; recorded as model 'other'.
-- DLOG is not wikilinked here although it is linked at line 23 of the same page.
-- The bound $\Omega(\min(\sqrt p, 1/\delta))$ is stated as a time lower bound while the Shoup bound earlier on the page is a _query_ lower bound; the page switches units without comment.
-- Well-stated with an explicit bound and an explicit hypothesis (the delta fraction). One of the best-formed lower-bound records on the wiki.
-- Ends with 'bridging the gap between fully generic lower bounds and structured algorithm analyses' — a recap clause of the sort CLAUDE.md bans.
-- The class 'structured GGM' is a fourth idealized model on the wiki (ROM, GGM, AGM, structured GGM, generic ring model) with no shared taxonomy page.
+- The structured GGM has no node of its own; it is the `#the-structured-ggm` section of [[generic-group-model]], recorded here as a hypothesis by slug alias.
+- The bound is stated as a running-time lower bound, while the [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] bound on the same source page is a query lower bound; the two are not the same unit and the source page switches between them without comment.

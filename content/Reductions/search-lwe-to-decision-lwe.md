@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Search LWE ⇒ Decision LWE"
 aliases: []
 id: red-search-lwe-to-decision-lwe
@@ -9,7 +9,8 @@ hypotheses: [search-lwe]
 conclusion: decision-lwe
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
 security-loss: ""
 ---
 
@@ -19,28 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Search–Decision equivalence:
+If [[learning-with-errors#search-lwe|search LWE]] with parameters $(n, q, \chi)$ is hard for every polynomial number of samples, where $q$ is prime and $q = \poly(n)$, then [[learning-with-errors#decision-lwe|decision LWE]] with the same $(n, q, \chi)$ is hard for every polynomial number of samples: an efficient distinguisher between $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ and $(\mathbf{A}, \mathbf{u})$ using $m$ samples yields an efficient algorithm that recovers $\mathbf{s}$ from $\poly(n, m)$ samples — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
-> The search and decision variants of LWE are equivalent — breaking one suffices to break the other.
+## Sketch
 
-Migrated verbatim from [[learning-with-errors]] § Search–Decision equivalence:
-
-> **Search $\Rightarrow$ Decision** (easy direction): A search solver $\calA_s$ gives a decision adversary for free. Given a challenge $(\mathbf{A}, \mathbf{u})$, run $\hat{\mathbf{s}} \gets \calA_s(\mathbf{A}, \mathbf{u})$ and check whether $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ is small (i.e., looks like a sample from $\chi^m$). If so, guess $b=0$ (LWE world); otherwise guess $b=1$ (uniform world).
+Recover $\mathbf{s}$ one coordinate at a time. To test the guess $\mathbf{s}_i = \ell$, map each sample $(\mathbf{a}, b)$ to $(\mathbf{a} + r\mathbf{u}_i,\; b + r\ell)$ for the $i$-th unit vector $\mathbf{u}_i$ and a fresh uniform $r \in \ZZ_q$: the new sample is $(\mathbf{a}', \langle \mathbf{a}', \mathbf{s}\rangle + e + r(\ell - \mathbf{s}_i))$, LWE-distributed when $\ell = \mathbf{s}_i$ and uniform otherwise, since $r(\ell - \mathbf{s}_i)$ is uniform for prime $q$. Running the distinguisher over all $nq$ pairs $(i, \ell)$ reads off $\mathbf{s}$, which is why $q$ must be polynomial; the random self-reduction $(\mathbf{a}, b) \mapsto (\mathbf{a}, b + \langle \mathbf{a}, \mathbf{t}\rangle)$ for uniform $\mathbf{t}$ first turns an average-case distinguisher into one that works for every $\mathbf{s}$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation on the equivalence headline (Reg05 is the source but is cited only two sections later).
-- search-lwe and decision-lwe are sub-objects of this page, not standalone slugs; the data model needs them as distinct nodes for this edge to exist.
-- No citation.
-- The distinguisher needs the error distribution to be efficiently recognizable ("looks like a sample from chi^m"); that condition on chi is not stated.
+- Sample-preserving search-to-decision reductions: for a wide range of parameters, $m$ LWE samples are pseudorandom whenever search LWE is one-way for the same $m$ — [[MM11b - Pseudorandom Knapsacks and the Sample Complexity of LWE Search-to-Decision Reductions|MM11b]].

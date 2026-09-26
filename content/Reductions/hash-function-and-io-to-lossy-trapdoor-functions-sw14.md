@@ -34,3 +34,4 @@ source text, not changes to it:
 
 - Second conclusion packed into the same bullet.
 - 'lossy functions' is ambiguous (lossy trapdoor functions? lossy encryption?) and has no page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — SW14 construct injective, not lossy, trapdoor functions, and the edge is unsupported elsewhere: sufficiently lossy trapdoor functions imply collision-resistant hashing [[PW08 - Lossy trapdoor functions and their applications|PW08]], which has no black-box construction from iO and one-way permutations, even with iO for oracle-aided circuits (Asharov–Segev, FOCS 2015). The supportable edge is {OWF, iO} ⇒ injective trapdoor functions — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].

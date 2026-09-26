@@ -22,21 +22,14 @@ A reduction of class `free` from [[generic-group-model|GGM]] to [[computational-
 
 ## Statement
 
-Migrated verbatim from [[generic-group-model]] § Shoup's Formulation:
+A generic algorithm making $q$ group-operation queries in a cyclic group of prime order $p$ computes $g^{xy}$ from $(g, g^x, g^y)$ with probability $O(q^2/p)$, so solving [[computational-diffie-hellman|CDH]] in the [[generic-group-model|generic group model]] takes $\Omega(\sqrt{p})$ queries, matching baby-step giant-step — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
 
-> The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] is that any generic algorithm solving [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]], or [[decisional-diffie-hellman|DDH]] in a group of prime order $p$ must issue $\Omega(\sqrt{p})$ oracle queries. Combined with the Baby-step Giant-step algorithm, this is tight.
+## Sketch
 
-Migrated verbatim from [[computational-diffie-hellman]] § Known Results:
-
-> - In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+Treat $x, y$ as indeterminates, answer group-oracle queries with random labels, and record the affine polynomial each label represents; choose $(x, y)$ only after the adversary halts. It wins only if two distinct recorded polynomials agree at $(x, y)$ or its output's polynomial agrees with $xy$ there — each the vanishing of a nonzero polynomial of degree at most $2$ at a uniform point of $\ZZ_p^2$, probability at most $2/p$, over $O(q^2)$ events.
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: free`: Sho97 bounds every generic algorithm, whatever its structure, so the class ruled out is `free`, scoped to the generic-group model; `schema/reduction-classes.yaml` rejects `generic-group` as a class and prescribes this pairing.
 
-- Second of the three lower bounds bundled at line 23.
-- Same caveat: this is unconditional hardness against generic algorithms, not a reduction from another assumption.
-- Three near-identical copies of the same Sho97 theorem across dlog / ddh / cdh pages, differing only in the superscript on Adv. A fourth statement of the same bound sits at content/Glossary/generic-group-model.md:23 in the Omega(sqrt(p))-queries form rather than the O(q^2/p)-advantage form.
-- This is a MODEL-RELATIVE LOWER BOUND, not a reduction barrier. It is a hardness result inside an idealized model, which the barrier schema shoehorns into consequenceKind 'contradiction'. A separate 'idealized-model lower bound' record type would fit better.
-- The DDH copy is the shakiest: the O(q^2/p) generic bound for DDH requires more care than for DLOG/CDH and the page states it identically to the other two without comment.
+- A model-relative lower bound, not a barrier against a proof technique: the hypothesis is that the adversary is generic, not another assumption, so the barrier record type fits imperfectly.

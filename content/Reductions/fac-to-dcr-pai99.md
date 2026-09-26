@@ -43,3 +43,4 @@ source text, not changes to it:
 - The same inverted direction is repeated on factoring.md line 31, so the error appears systematic.
 - SUSPECTED MATHEMATICAL ERROR: same inverted direction as line 30 and as decisional-composite-residuosity.md line 30. Factoring hardness is implied by DCR hardness, not the other way round.
 - The identical error on two pages suggests a systematic convention problem across the wiki.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: the factorization of $n$ gives $\varphi(n)$, and $z \in \ZZ_{n^2}^*$ is an $n$-th residue iff $z^{\varphi(n)} \equiv 1 \pmod{n^2}$, so DCR hardness implies factoring hardness; the converse is open, and [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]] proves no such implication. The correct edge is DCR ⇒ FAC (folklore; no page yet). See [[decisional-composite-residuosity]].

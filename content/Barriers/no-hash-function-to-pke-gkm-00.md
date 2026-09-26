@@ -1,40 +1,37 @@
 ---
 type: barrier
 status: draft
-title: "No fully-black-box reduction from Hash function to PKE"
+title: "No relativizing reduction from Hash function to PKE"
 aliases: []
 id: bar-hash-function-to-pke-gkm-00
 hypotheses: [hash-function]
 conclusion: pke
-class: fully-black-box
+class: relativizing
 consequences:
   - kind: contradiction
     target: ""
-    class: fully-black-box
+    class: relativizing
 strength: unconditional
 source:
-  - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
 ---
 
-# No fully-black-box reduction from Hash function to PKE
+# No relativizing reduction from Hash function to PKE
 
-A reduction of class `fully-black-box` from [[hash-function|Hash function]] to [[public-key-encryption|PKE]] would imply a contradiction.
+A reduction of class `relativizing` from [[hash-function|Hash function]] to [[public-key-encryption|PKE]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Breaking up Cryptomania:
+There is an oracle relative to which one-way permutations exist but key agreement is impossible; since [[public-key-encryption|PKE]] gives two-message key agreement, no relativizing — hence no fully black-box — construction of PKE from a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
-> Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption. TDPs (equivalently, the existence of PKE or OT) unlock the full power of asymmetric cryptography. [[Oblivious transfer|OT]] is complete for all of MPC, so Cryptomania is also the world where general secure computation is possible.
+## Sketch
+
+Relative to a random permutation oracle $\calO$ paired with a $\classPSPACE$ oracle, $\calO$ is one-way while $\classP = \classNP$ holds. Against any key-agreement protocol whose parties make $q$ queries to $\calO$, an eavesdropper repeatedly asks the $\calO$-queries that are likely given the transcript; after $\poly(q)$ queries it has, with high probability, learned every query both parties made, and it recovers the key by sampling a view of one party consistent with the transcript and its own queries.
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`class: relativizing`: IR89 exhibits an oracle relative to which one-way permutations exist but key agreement does not. An oracle separation rules out exactly the `relativizing` class; by the partial order in schema/reduction-classes.yaml, fully-black-box implies relativizing, so the barrier also kills every fully black-box construction and the contradiction check still fires against any fully-black-box reduction on this hyperedge. `relativizing` is therefore correct and strictly stronger than `fully-black-box`.
 
-- SUSPECTED OVERSTATEMENT: "OWFs imply ... but **not** public-key encryption" is written as an unconditional non-implication. The known result (Impagliazzo–Rudich) is a BLACK-BOX separation only; whether OWFs imply PKE is open. Recorded, not fixed.
-- No citation — IR89 is neither cited nor linked anywhere on the page.
-- class must be "fully-black-box" for the claim to be true, but the page states no class; left "unstated".
-- SUSPECTED MATH ERROR: 'OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption' states the barrier as an unconditional NON-IMPLICATION. It is not known that OWFs do not imply PKE; only that no black-box construction exists (IR89). The bolded 'not' asserts something strictly stronger than anything proven, and the page's own black-box-separations glossary entry (line 89) explicitly warns against this reading.
-- Cited to GKM+00; the separation is IR89's. IR89 is not linked anywhere on this page.
-- Same sentence contains the already-flagged error 'TDPs (equivalently, the existence of PKE or OT)' — TODO_SUMMARY.md:33 records this as an open high-severity finding.
-- The bullet is a composite chain (OWF -> PRG -> PRF -> SKE/MAC/DS) plus a barrier, in one sentence, with one citation. Under the target model the positive chain must be split into separate reductions with separate citations (HILL99, GGM86, Lam79) and the barrier separated out entirely.
+- An eavesdropper making $O(q^2)$ queries breaks any key-agreement protocol whose parties make $q$ random-oracle queries, so Merkle's quadratic gap is optimal and the IR89 separation is quantitatively tight — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]
+- The separation restricts the proof technique only: whether one-way functions imply PKE is open. The migrated sentence's unconditional "but **not** public-key encryption" overstates it.
+- The wiki's `hash-function` page carries `OWF` among its aliases, so a one-way-function hypothesis resolves to the hash-function page; the hypothesis of this barrier is its one-wayness variant. The IR89 oracle world also contains collision-resistant hash functions, so the separation covers the collision-resistance variant as well — standard.

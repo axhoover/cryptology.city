@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IT-PIR ⇒ Computational Multi-server PIR"
 aliases: []
 id: red-it-pir-to-computational-multi-server-pir
 kind: implication
 hypotheses: [it-pir]
 conclusion: computational-multi-server-pir
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight (distinguishing advantage is $0$)"
 ---
 
 # IT-PIR ⇒ Computational Multi-server PIR
@@ -19,21 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[multi-server-private-information-retrieval]] § Computational Multi-server PIR:
+Every [[multi-server-private-information-retrieval|IT-PIR]] scheme is a [[multi-server-private-information-retrieval#computational-multi-server-pir|computational multi-server PIR]]: per-server query distributions that are identical for every pair of indices are in particular computationally indistinguishable — folklore.
 
-> Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers. In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
+## Sketch
+
+The construction is the identity. A distinguisher between the queries sent to server $s$ for indices $i$ and $j$ sees identical distributions, so its advantage is $0$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section: weakening IT-privacy to computational privacy; the implication (IT-PIR => computational PIR) is implicit and uncited.
-- Wikilink `[[single-server-private-information-retrieval|PIR]]` displays as bare 'PIR' while pointing at the single-server page - confusing on a multi-server page.
-- 'non-colluding servers' is a model assumption that is not carried anywhere in the typing.
+`class: fully-black-box`: identity construction, using the IT-PIR scheme only as an oracle; the reduction forwards the adversary unchanged.

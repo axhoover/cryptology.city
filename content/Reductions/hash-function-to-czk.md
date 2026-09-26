@@ -1,39 +1,33 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Hash function ⇒ CZK"
 aliases: []
 id: red-hash-function-to-czk
 kind: implication
 hypotheses: [hash-function]
 conclusion: czk
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
 security-loss: ""
 ---
 
 # Hash function ⇒ CZK
 
-[[hash-function|Hash function]] implies [[computational-zero-knowledge|CZK]].
+[[hash-function|One-way functions]] imply $\classNP \subseteq$ [[computational-zero-knowledge|CZK]].
 
 ## Statement
 
-Migrated verbatim from [[computational-zero-knowledge]] § Notable problems:
+If one-way functions ([[hash-function|OWF]]) exist, 3-coloring — hence every language in $\classNP$ — has a computational zero-knowledge interactive proof, so $\classNP \subseteq$ [[computational-zero-knowledge|CZK]] [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol uses only a computationally hiding, statistically binding bit commitment, which any OWF yields [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
-> - 3-coloring — assuming [[hash-function|OWFs]] exist
+## Sketch
+
+Each round the prover commits to a uniformly re-permuted 3-coloring; the verifier names a random edge and the prover opens its two endpoints, which must carry distinct colors. A non-3-colorable graph has a monochromatic edge, caught with probability at least $1/|E|$ per round; a simulator that guesses the edge, commits to a coloring valid only there, and rewinds on a wrong guess gives zero knowledge from commitment hiding.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: The GMW 3-coloring protocol uses the bit-commitment scheme only as an oracle, and the OWF-to-commitment chain (HILL99 PRG, Naor91 commitment) is fully black-box. Soundness is unconditional given a statistically binding commitment; zero knowledge reduces to commitment hiding via a black-box simulator that rewinds the cheating verifier. Same class as [[hash-function-to-zkp-gmw91]].
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (GMW87/GMW91 is the source, and GMW91 IS cited six lines later for the general NP statement).
-- The wikilink target for OWF is `[[hash-function]]` — the wiki has no one-way-function page, so OWF, CRH, and 'hash function' all collapse onto one node. This will lose the OWF-vs-CRH distinction in the migrated graph.
-- Elliptical bullet: the actual claim is '3-coloring has a CZK proof system', with membership implicit.
+- GMW91 assume a generic commitment scheme; [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]] + [[Naor91 - Bit commitment using pseudorandomness|Naor91]] instantiate it from any OWF, making the OWF hypothesis exact.

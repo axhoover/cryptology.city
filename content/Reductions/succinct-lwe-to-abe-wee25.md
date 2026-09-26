@@ -20,24 +20,11 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Succinct LWE:
-
-> **Succinct LWE** is a falsifiable, single-game strengthening of LWE introduced by Wee — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]] — for constructing KP- and CP-ABE for circuits with $O(1)$-size ciphertexts and keys. Unlike [[#Evasive LWE|Evasive LWE]] (an implication between two conditions), it is a standard indistinguishability game: an LWE sample $(\mathbf{B}, \mathbf{s}\mathbf{B}+\mathbf{e})$ is indistinguishable from uniform even when the adversary is given a short matrix $T$ satisfying $[I_\ell \otimes \mathbf{B} \mid \mathbf{W}] \cdot T = I_\ell \otimes \mathbf{G}$, where $\ell = \poly(\secpar)$ and $\mathbf{G}$ is the MP12 gadget matrix.
-
-Migrated verbatim from [[learning-with-errors]] § Succinct LWE:
-
-> The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
+[[learning-with-errors#succinct-lwe|Succinct LWE]] implies key-policy and ciphertext-policy [[attribute-based-encryption|ABE]] for depth-$d$ circuits over $\ell$-bit inputs with ciphertext, secret-key and public-key size $O(1)$, and laconic function evaluation with ciphertext size $\ell + O(1)$ and CRS and digest size $O(1)$, where $O(\cdot)$ hides $\poly(d, \secpar)$ factors — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Duplicated at line 277 of the same page with the same citation.
-- O(1)-size ciphertexts and keys is a concrete efficiency claim bundled into the reduction.
-- Duplicate of the claim at line 243 of the same page.
+- $\ell$-succinct LWE was introduced, and shown to follow from evasive LWE, in [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]
+- Unverified: the Wee25 reference page says the constructions use a circular small-secret variant of succinct LWE; the published abstract names only succinct LWE. If the circular variant is required, the hypothesis must say so.

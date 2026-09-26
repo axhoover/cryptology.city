@@ -10,35 +10,25 @@ conclusion: ot
 class: fully-black-box
 model: standard
 source:
-  - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  - "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
 security-loss: ""
 ---
 
 # Enhanced trapdoor permutations ⇒ OT
 
-[[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]] implies [[oblivious-transfer|OT]].
+[[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]] imply [[oblivious-transfer|OT]].
 
 ## Statement
 
-Migrated verbatim from [[trapdoor-permutation]] § Enhanced trapdoor permutations:
+An [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutation]] yields 1-out-of-2 [[oblivious-transfer|OT]] secure against semi-honest parties, via the EGL protocol: the sender samples $(f, \td) \gets \Gen(1^\secpar)$ and sends $f$; the receiver with choice bit $c$ picks $x_c$ uniformly, samples $y_{1-c}$ obliviously from the domain, and sends $(y_0, y_1)$ with $y_c = \Eval(f, x_c)$; the sender returns $m_b \oplus h(\Invert(\td, y_b))$ for $b \in \bits$, where $h$ is a hard-core predicate — [[EGL85 - A randomized protocol for signing contracts|EGL85]]. Enhanced one-wayness ($f$ stays hard to invert on an obliviously sampled $y$ even given the sampling coins) keeps $m_{1-c}$ hidden from the receiver, who holds those coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
 
-> An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. This stronger property is necessary for constructing [[oblivious-transfer|OT]] from TDPs.
+## Sketch
 
-Migrated verbatim from [[trapdoor-permutation]] § Other results:
-
-> - [[oblivious-transfer|OT]] can be constructed from enhanced trapdoor permutations — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]
+Receiver privacy: $(y_0, y_1)$ are two independent uniform domain elements (up to the sampler's statistical error) whatever $c$ is. Sender privacy: predicting $h(f^{-1}(y_{1-c}))$ from $y_{1-c}$'s sampling coins is predicting a hard-core bit of an obliviously sampled image, and the Goldreich–Levin decoder turns such a predictor into an inverter, contradicting enhanced one-wayness.
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
+`class: fully-black-box`: one fixed protocol uses the TDP only through $\Gen$, $\Eval$, $\Invert$ and the domain sampler, plus a Goldreich–Levin predicate. Receiver privacy is statistical; the fixed sender-privacy reduction uses any receiver-view distinguisher only as an oracle, turning it via the black-box Goldreich–Levin decoder into an inverter of the enhanced TDP. RTV04 fully-black-box shape.
 
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation here (GKM+00 is cited for the same edge at line 55 — duplicate).
-- 'enhanced-trapdoor-permutation' is a variation section of this page, not its own slug; the graph needs enhanced TDP as a distinct node from TDP since the whole point of the sentence is that they differ.
-- Duplicates the uncited claim at line 46.
-- 'enhanced trapdoor permutations' is plain prose with no wikilink to the '## Enhanced trapdoor permutations' section on this same page.
-- GKM+00 is primarily a PKE-vs-OT separation paper; whether it is the right citation for the positive enhanced-TDP => OT construction (usually EGL85 + Goldreich's enhancement) is worth checking.
+- Introduces the enhanced one-wayness hypothesis and proves the EGL protocol secure under it; for a TDP whose domain sampler's coins reveal a preimage, the protocol is insecure — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]
+- Enhanced TDPs suffice for EGL OT, while NIZK needs doubly enhanced TDPs; intermediate notions are separated — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]

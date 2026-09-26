@@ -37,3 +37,4 @@ source text, not changes to it:
 - 'This is strictly stronger than pseudorandomness' asserts BOTH an implication (ideal PRC => PRC) and a separation (PRC does not imply ideal PRC); the separation half is uncited and should be migrated as a distinct claim.
 - No citation.
 - 'ideal-prc' has no page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the hypothesis as defined on the PRC page is unsatisfiable: holding $k$, a distinguisher runs $\Dec_k$, which returns $m$ on $\Enc_k(m)$ (robustness) and $\bot$ on $U_n$ with overwhelming probability (soundness). The literature's ideal PRC (Alrabiah–Ananth–Christ–Dodis–Gunn, STOC 2025) instead requires the real encoding and decoding oracles to be indistinguishable from an ideal functionality; under it the edge is immediate and can be re-sourced once the primitive page's definition is corrected. See [[pseudorandom-error-correcting-code]].

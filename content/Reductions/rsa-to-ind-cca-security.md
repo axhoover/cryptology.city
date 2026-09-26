@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "RSA ⇒ IND-CCA security"
 aliases: []
 id: red-rsa-to-ind-cca-security
@@ -9,31 +9,28 @@ hypotheses: [rsa]
 conclusion: ind-cca-kem
 class: unstated
 model: rom
-source: folklore
+source:
+  - "[[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]"
 security-loss: ""
 ---
 
 # RSA ⇒ IND-CCA security
 
-[[rsa-assumption|RSA]] implies [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]].
+[[rsa-assumption|RSA]] implies [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]] of a KEM in the [[random-oracle-model|random oracle model]].
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § RSA-KEM / RSAES-OAEP:
+RSA-KEM, which samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ and derives the key $\hash(r)$, is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA secure KEM]] under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. RSAES-OAEP is likewise an IND-CCA secure [[public-key-encryption|PKE]] under RSA in the random oracle model, via RSA's self-reducibility from partial-domain to full one-wayness — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
 
-> RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|random oracle model]].
+## Sketch
+
+The encapsulated key is $\hash(r)$ for uniform $r$ with $r^e$ as the ciphertext, so an adversary that distinguishes it from uniform must query $\hash$ at the $e$-th root of its challenge; the reduction plants its RSA instance as $c^*$, reads the preimage off the query list, and uses the same list, with lazily assigned keys, to simulate decapsulation.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: Both proofs model the key-derivation or padding hash as a random oracle whose query list the reduction reads. No standard-model IND-CCA proof from RSA is known for either scheme.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (BR94 OAEP / Shoup RSA-KEM absent).
-- Conflates two different things: RSA-KEM (hash the RSA preimage) and RSAES-OAEP (a PKE padding scheme), which have different proofs and different assumptions.
-- Hypothesis is not stated on the line; 'RSA-based' is inferred.
+- OAEP, the padding behind RSAES-OAEP, is due to Bellare and Rogaway — [[BR94 - Optimal Asymmetric Encryption|BR94]]
+- The OAEP argument does not establish IND-CCA security from one-wayness of the trapdoor permutation alone — [[Sho01a - OAEP Reconsidered|Sho01a]]

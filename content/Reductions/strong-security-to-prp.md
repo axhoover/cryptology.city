@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Strong Security ⇒ PRP"
 aliases: []
 id: red-strong-security-to-prp
 kind: implication
 hypotheses: [strong-pseudorandom-permutation]
 conclusion: prp
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the same adversary has the same advantage in both games"
 ---
 
 # Strong Security ⇒ PRP
@@ -19,20 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-permutation]] § Strong Security:
+A [[pseudorandom-permutation#strong-security|strongly pseudorandom]] permutation is a [[pseudorandom-permutation|PRP]]: every PRP adversary $\calA$ is an sPRP adversary that never queries $\calO_b^{-1}$, and the two games coincide on it, so $\Adv^{\mathrm{prp}}_{\PRP,\calA}(\secpar) = \Adv^{\mathrm{sprp}}_{\PRP,\calA}(\secpar)$ — folklore.
 
-> In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. This is a strictly stronger notion than standard PRP security.
+## Sketch
+
+The reduction is the identity on adversaries: run the PRP distinguisher, forward its queries to the forward oracle, ignore the inverse oracle, and output its guess.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'strictly stronger notion' asserts an implication AND a separation (sPRP => PRP, plus PRP does not imply sPRP); both are uncited, and the separation half needs its own record after migration.
-- sPRP is an alias of this same page, so hypothesis and conclusion collide on one slug.
+`class: fully-black-box`: The construction is the identity (the same $\PRP$ witnesses both games), and the one fixed reduction (§ Sketch) uses the distinguisher only as an oracle.

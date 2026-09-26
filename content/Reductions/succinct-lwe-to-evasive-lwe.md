@@ -37,3 +37,4 @@ source text, not changes to it:
 - One paragraph packs four claims (l=1 equivalence to LWE; monotonicity in l; Succinct LWE => Evasive LWE; circular small-secret variant). Recorded separately.
 - A substantive reduction ("Succinct LWE implies Evasive LWE") stated with NO citation at all — CLAUDE.md requires one.
 - No parameter relation is given between the l of Succinct LWE and the sampler class of Evasive LWE, so the edge cannot be instantiated.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the implication is inverted: [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]], which introduced $\ell$-succinct LWE, calls it "a falsifiable assumption which is implied by evasive LWE" (with LWE supplying evasive LWE's pre-condition). The correct edge, evasive LWE ⇒ succinct LWE, has no page yet.

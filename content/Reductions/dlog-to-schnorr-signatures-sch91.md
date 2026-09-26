@@ -7,35 +7,27 @@ id: red-dlog-to-schnorr-signatures-sch91
 kind: implication
 hypotheses: [dlog]
 conclusion: schnorr-identification-protocol
-class: unstated
-model: rom
+class: fully-black-box
+model: standard
 source:
   - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
-security-loss: ""
+security-loss: "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02."
 ---
 
 # DLOG ⇒ Schnorr signatures
 
-[[discrete-logarithm|DLOG]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]].
+[[discrete-logarithm|DLOG]] implies security of the [[digital-signature#schnorr-signatures|Schnorr identification protocol]] against passive impersonation.
 
 ## Statement
 
-Migrated verbatim from [[Sch91 - Efficient signature generation by smart cards]]:
+The [[digital-signature#schnorr-signatures|Schnorr identification protocol]] is a three-move sigma protocol for knowledge of $x = \log_g h$: the prover sends $a = g^r$, receives a random challenge $e$, and replies $z = r + ex$; the verifier accepts iff $g^z = a h^e$. It is special sound and perfectly honest-verifier zero-knowledge unconditionally, and secure against impersonation under passive attack if [[discrete-logarithm|DLOG]] is hard — [[Sch91 - Efficient signature generation by smart cards|Sch91]].
 
-> Introduced the Schnorr identification protocol and signature scheme. The identification protocol is a three-message sigma protocol (commit–challenge–response) for proving knowledge of a discrete logarithm, and is honest-verifier zero-knowledge under the discrete logarithm assumption. Applying the Fiat-Shamir transform (heuristically in the random oracle model) yields Schnorr signatures, which are EUF-CMA secure under the discrete logarithm assumption in the ROM. Schnorr signatures are the basis for EdDSA (Ed25519) and play a central role in the Schnorr multi-signature and threshold signature literature.
+## Sketch
+
+Rewinding an impersonator to two accepting transcripts $(a, e, z)$, $(a, e', z')$ with $e \neq e'$ yields $x = (z - z')/(e - e')$; eavesdropped transcripts are simulated by sampling $z, e$ uniformly and setting $a = g^z h^{-e}$, which reproduces the honest distribution exactly.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: One fixed protocol using only the group operation; the reduction runs the impersonator only as an oracle, rewinding it to two accepting transcripts with a common commitment.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- COMPOSITE CHAIN — exactly the case the target model requires splitting: DLOG -> Schnorr identification -> (Fiat-Shamir) -> Schnorr signatures -> EdDSA. Four sub-edges, two of which are conjunctions.
-- SUSPECTED IMPRECISION (recorded, not fixed): 'is honest-verifier zero-knowledge under the discrete logarithm assumption'. Schnorr's sigma protocol is PERFECT honest-verifier zero-knowledge unconditionally — the simulator works with no assumption. DLOG is what the protocol proves knowledge of and what security against impersonation rests on, not what HVZK rests on.
-- STRUCTURAL: no ## Abstract heading; unlabelled editorial paragraph.
-- The EdDSA/Ed25519 sub-edge is a deployment lineage claim with no citation and no reference page — sources[] left empty rather than fabricated.
-- 'play a central role in the Schnorr multi-signature and threshold signature literature' is an untypable trailing generality, like the 'and more' pattern the inventory already flags elsewhere.
-- No inline citations.
-- DUPLICATION: the inventory already has Primitives/digital-signature.md:142 [discrete-logarithm => digital-signature] sourced to Sch91. The HVZK claim and the EdDSA lineage are new.
+- Security against active and concurrent impersonation under the [[discrete-logarithm#one-more-discrete-logarithm|one-more discrete logarithm]] assumption — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]]

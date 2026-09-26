@@ -16,22 +16,16 @@ security-loss: ""
 
 # Module-SVP ⇒ Module-SIS
 
-[[module-lattice-problems|Module-SVP]] implies [[shortest-integer-solution#module-sis|Module-SIS]].
+Worst-case hardness of [[module-lattice-problems|SIVP on module lattices]] implies, under a classical reduction, average-case hardness of [[shortest-integer-solution#module-sis|Module-SIS]].
 
 ## Statement
 
-Migrated verbatim from [[shortest-integer-solution]] § Module-SIS:
+Solving the shortest independent vectors problem on [[module-lattice-problems|rank-$d$ module lattices]] over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces classically to average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[shortest-integer-solution#ring-sis|Ring-SIS]] reduction and $n = 1$ recovers plain [[shortest-integer-solution|SIS]].
 
-> Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Module-SIS is the hardness assumption underlying the NIST post-quantum signature standard Dilithium (ML-DSA, FIPS 204).
+## Sketch
+
+The reduction of [[Ajt96 - Generating hard instances of lattice problems|Ajt96]], carried over to modules: sample discrete Gaussian vectors from the worst-case module lattice, reduce them modulo $q$ relative to the current basis to obtain a uniform Module-SIS instance, and use a short solution $\mathbf{z}$ to combine the samples into a lattice vector shorter than the longest current basis vector; iterating yields short independent vectors.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Direction language backwards from the standard convention: "Hardness of Module-SIS reduces to worst-case problems on module lattices" should read "worst-case module-lattice problems reduce to Module-SIS".
-- The worst-case problem is unnamed, so the hypothesis node is a placeholder.
-- Identical wording to content/Assumptions/learning-with-errors.md line 129, which has the same directional problem.
+`class: unstated`: the source does not state which notion of reduction is meant.

@@ -41,3 +41,4 @@ source text, not changes to it:
 - 'play a central role in the Schnorr multi-signature and threshold signature literature' is an untypable trailing generality, like the 'and more' pattern the inventory already flags elsewhere.
 - No inline citations.
 - DUPLICATION: the inventory already has Primitives/digital-signature.md:142 [discrete-logarithm => digital-signature] sourced to Sch91. The HVZK claim and the EdDSA lineage are new.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — self-loop: the conclusion `eddsa` is a variant id of [[digital-signature]] aliasing the same `#schnorr-signatures` anchor as the hypothesis `schnorr-signature`, so hypothesis and conclusion are one node; the reducible content of the Sch91 quote is already recorded. See [[dlog-and-rom-to-schnorr-signatures-sch91]], [[dlog-to-schnorr-signatures-sch91]], [[fiat-shamir-and-schnorr-signatures-to-ds]].

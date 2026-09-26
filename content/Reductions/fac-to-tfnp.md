@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "FAC ⊆ TFNP"
 aliases: []
 id: red-fac-to-tfnp
@@ -19,25 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[total-function-np]] § Relevance to cryptography:
+The search problem underlying [[factoring|FAC]] — given an integer $N \ge 2$, output its prime factorization — is in [[total-function-np|TFNP]]: every such $N$ has a prime factorization, and a candidate factorization is verified in polynomial time by multiplying the factors and testing each for primality — folklore.
 
-> Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work has used TFNP subclass hardness (especially PPAD) as a basis for constructing cryptographic primitives from weaker or more structured assumptions.
+## Sketch
+
+Totality is the fundamental theorem of arithmetic; the verifier checks $\prod_i p_i^{e_i} = N$ and that each $p_i$ is prime.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: a proven inclusion holds by any argument; repo convention, as in [[bpp-to-pspace]].
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Uncited.
-- `[[factoring]]` is not wikilinked although content/Assumptions/factoring.md exists.
-- 'the two most historically important hard problems in cryptography' is marketing prose (house-style anti-pattern).
+- Factoring reduces in randomized polynomial time to a problem in PPA and to WeakPigeon in PPP; under the generalized Riemann hypothesis both reductions are deterministic — [[Jer16 - Integer factoring and modular square roots|Jer16]]

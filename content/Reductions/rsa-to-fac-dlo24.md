@@ -7,7 +7,7 @@ id: red-rsa-to-fac-dlo24
 kind: equivalence
 hypotheses: [rsa]
 conclusion: fac
-class: unstated
+class: free
 model: other
 source:
   - "[[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]"
@@ -16,22 +16,16 @@ security-loss: ""
 
 # RSA ⇔ FAC
 
-[[rsa-assumption|RSA]] is equivalent to [[factoring|FAC]].
+In the generic ring model with preprocessing, [[rsa-assumption|RSA]] is equivalent to [[factoring|FAC]].
 
 ## Statement
 
-Migrated verbatim from [[rsa-assumption]] § Known Results:
-
-> - **Generic-ring-model equivalence with preprocessing**: in the generic ring model, any adversary (even with unbounded preprocessing) that breaks RSA can be converted to a factoring adversary with polynomially related online complexity. This rules out a superpolynomial separation between RSA and factoring in the generic ring model, even with preprocessing — [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
+Against generic ring algorithms (which access $\ZZ_N$ only through ring operations and equality tests), computing $e$-th roots modulo $N$ is equivalent to factoring $N$, even when the adversary receives an advice string from unbounded preprocessing on $N$: any such [[rsa-assumption|RSA]] adversary converts into a [[factoring|FAC]] adversary with polynomially related online complexity and polynomially longer advice — [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]. The converse holds unconditionally: the factorization of $N$ gives $\varphi(N)$ and hence $d = e^{-1} \bmod \varphi(N)$ — folklore. Algorithms that use the bit representation of ring elements are not covered.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: schema/reduction-classes.yaml's `generic-ring` rejection note prescribes this pairing: the idealized computation model goes on the model axis, and a result quantifying over every algorithm in that model is the free class scoped by the model. DLO24 restrict only the adversary's access to $\ZZ_N$, not its technique.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: other`: the generic ring model with preprocessing, which the model enum lacks (generic-group is a different model).
 
-- The model is the GENERIC RING MODEL WITH PREPROCESSING. The model enum offered here has no value for it — "generic-group" is the nearest but is a different model — so "other" is recorded and the real model is noted here.
-- The bullet states both an equivalence and a barrier; recorded as two records.
-- The equivalence holds only for GENERIC ring adversaries, so the edge is model-restricted and must not be read as an unconditional RSA-factoring equivalence.
+- The preprocessing-free case is due to Aggarwal and Maurer — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]]

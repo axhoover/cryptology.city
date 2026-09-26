@@ -1,16 +1,17 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "KEM + SKE ⇒ PKE"
 aliases: []
 id: red-kem-and-ske-to-pke
 kind: implication
 hypotheses: [kem, ske]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]"
+security-loss: "additive: the hybrid's CCA advantage is at most the KEM's CCA advantage plus the DEM's one-time CCA advantage, plus the KEM's bad-key-pair probability (CS03, Theorem 5)"
 ---
 
 # KEM + SKE ⇒ PKE
@@ -19,41 +20,15 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § Key encapsulation mechanism:
+The KEM-DEM hybrid builds [[public-key-encryption|PKE]] from a [[key-encapsulation-mechanism|KEM]] and a one-time-secure [[symmetric-key-encryption|SKE]] (the DEM): $\Enc(\pk, m)$ runs $(c_1, k) \gets \mathsf{Encap}(\pk)$ and $c_2 \gets \SKE.\Enc(k, m)$ and outputs $(c_1, c_2)$; $\Dec(\sk, (c_1, c_2))$ outputs $\SKE.\Dec(\mathsf{Decap}(\sk, c_1), c_2)$. If the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure (e.g. encrypt-then-MAC), the hybrid is IND-CCA secure [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. The IND-CPA analogue (IND-CPA KEM, one-time IND-CPA DEM) follows by the same two game hops — standard.
 
-> A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a sender to encapsulate a fresh uniformly random symmetric key $k$ into a ciphertext $c$ using a public key $\pk$, such that only the holder of the secret key $\sk$ can recover $k$ by decapsulation. Combined with a symmetric-key data encapsulation mechanism (DEM, i.e., [[symmetric-key-encryption|SKE]]), KEMs give the **KEM-DEM paradigm** for hybrid encryption — the standard approach to asymmetric encryption in practice.
+## Sketch
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § KEM-DEM hybrid encryption:
-
-> ## KEM-DEM hybrid encryption
->
-> Given an IND-CCA KEM and an IND-CPA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
->
-> - $\Enc(\pk, m)$: run $(c_1, k) \gets \mathsf{Encap}(\pk)$; run $c_2 \gets \mathsf{SKE.Enc}(k, m)$; output $(c_1, c_2)$.
-> - $\Dec(\sk, (c_1, c_2))$: run $k \gets \mathsf{Decap}(\sk, c_1)$; output $\mathsf{SKE.Dec}(k, c_2)$.
->
-> This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is IND-CPA secure (or even OT-secure for a one-time pad).
-
-Migrated verbatim from [[key-encapsulation-mechanism]] § Other results:
-
-> - KEM-DEM achieves IND-CCA PKE from IND-CCA KEM + IND-CPA SKE — standard
+Two game hops: first replace the encapsulated key $k^*$ by an independent uniform key, answering decryption queries $(c_1, c_2)$ with $c_1 \neq c_1^*$ via $\mathsf{Decap}$ — indistinguishable by KEM IND-CCA security; then the challenge and every query $(c_1^*, c_2)$ with $c_2 \neq c_2^*$ are handled under that uniform key, which is exactly a one-time IND-CCA attack on the DEM. The second hop is why a one-time IND-CPA DEM does not suffice.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: one fixed construction calling $\mathsf{Encap}$, $\mathsf{Decap}$ and the SKE algorithms only as oracles. Both game-hop reductions in CS03 (Theorem 5) run the PKE adversary as an oracle: the KEM reduction answers decryption queries with its $\mathsf{Decap}$ oracle and $\SKE.\Dec$; the DEM reduction simulates the KEM itself with an independent uniform key. RTV04 fully-black-box shape.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Intro claim of the KEM-DEM paradigm; no citation (Cramer-Shoup CS03 is the canonical reference and is absent from the page entirely).
-- Security levels of the three objects are unstated in the intro.
-- SUSPECT MATH (line 63): 'This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is IND-CPA secure (or even OT-secure for a one-time pad).' The standard KEM-DEM composition theorem requires a one-time IND-CCA (or authenticated) DEM; an IND-CPA-only DEM does NOT yield IND-CCA PKE, and a one-time pad DEM is malleable so the composed scheme is trivially CCA-breakable. Report only; do not fix.
-- No citation anywhere in this section.
-- SUSPECT MATH: same error as line 63 - IND-CCA PKE from KEM-DEM requires a one-time IND-CCA / authenticated DEM, not merely an IND-CPA SKE. Report only; do not fix.
-- '- standard' used where CS03 is the attributable source.
+- Which combinations of KEM and DEM security notions yield hybrid PKE; a one-time IND-CPA DEM is insufficient for IND-CCA hybrid encryption even with an IND-CCA KEM — [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]]
+- key-encapsulation-mechanism.md § KEM-DEM hybrid encryption still claims IND-CCA from an IND-CPA DEM 'or even OT-secure for a one-time pad', contrary to CS03 Remark 13; a one-time-pad DEM is malleable, so that hybrid is trivially CCA-breakable.

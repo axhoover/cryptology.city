@@ -1,40 +1,33 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "GC + OT ⇒ Two-party computation (2PC)"
 aliases: []
 id: red-gc-and-ot-to-two-party-computation-2pc
 kind: implication
 hypotheses: [garbled-circuits, ot]
 conclusion: two-party-computation
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]"
 security-loss: ""
 ---
 
 # GC + OT ⇒ Two-party computation (2PC)
 
-[[garbled-circuit|GC]] together with [[oblivious-transfer|OT]] implies [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]].
+[[garbled-circuit|GC]] together with [[oblivious-transfer|OT]] implies semi-honest [[secure-multi-party-computation#two-party-computation-2pc|two-party computation (2PC)]].
 
 ## Statement
 
-Migrated verbatim from [[secure-multi-party-computation]]:
+A [[garbled-circuit|garbling scheme]] and [[oblivious-transfer|OT]] yield a constant-round protocol for [[secure-multi-party-computation#two-party-computation-2pc|two-party computation]] of any polynomial-size circuit against semi-honest adversaries: the garbler sends the garbled circuit with the labels of its own input, and the evaluator obtains the labels of its input by OT and evaluates — [[Yao86 - How to Generate and Exchange Secrets|Yao86]]. The first complete description and security proof is [[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]].
 
-> The special case $n = 2$ studied by Yao. Two-party protocols are typically built from [[oblivious-transfer|oblivious transfer]] (OT) and garbled circuits.
+## Sketch
+
+The evaluator's view is simulated from a simulated garbled circuit and input labels that reveal only the output (garbling privacy) together with simulated OT transcripts; the garbler's view is simulated from OT receiver privacy. A hybrid argument turns any distinguisher of the real and simulated views into an adversary against the garbling or OT games.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: The protocol invokes the garbling scheme and the OT protocol only through their interfaces; the LP09 simulators and hybrid reductions use the semi-honest adversary (a distinguisher of views) only as an oracle. Assessment from the proof shape, made explicit by BHR12's modular garbling treatment; neither source uses RTV vocabulary.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation on this variation paragraph (Yao82 / GMW87 would be the sources).
-- 'garbled circuits' is not a page in content/Primitives and has no wikilink; flagged non-slug identifier 'garbled-circuits'.
-- 'typically built from' is a practice statement, not a theorem; the reduction is real but the phrasing cannot be typed strictly.
-- Conclusion 'two-party-computation' is a section/variation of this page, not its own slug (2PC is an alias of secure-multi-party-computation).
+- Garbling schemes were later formalized as a standalone primitive whose privacy notion is exactly what the protocol needs — [[BHR12 - Foundations of Garbled Circuits|BHR12]].

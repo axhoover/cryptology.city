@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Symmetric private information retrieval (Single-server) ⇒ cPIR"
 aliases: []
 id: red-symmetric-private-information-retrieval-single-server-to-cpir
 kind: implication
 hypotheses: [single-server-symmetric-pir]
 conclusion: cpir
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -19,21 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[single-server-private-information-retrieval]] § Variations:
-
-> - [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|Single-server Symmetric PIR (SPIR)]] additionally protects the server's data privacy
+Single-server [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|symmetric PIR]] implies [[single-server-private-information-retrieval|cPIR]]: SPIR strengthens cPIR by requiring that the client learn nothing about the database beyond the retrieved entry, and leaves client privacy unchanged, so every SPIR scheme is a cPIR scheme as is — folklore. SPIR was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The implication (a strictly stronger object implies the weaker one) is only implicit in the word 'additionally'; the page never asserts it.
-- 'single-server-symmetric-pir' is a section of this same page, not its own slug — a self-referential wikilink to an in-page anchor.
-- No citation.
+`class: fully-black-box`: The construction is the identity, so it uses the SPIR scheme only as an oracle, and the identity reduction runs any cPIR client-privacy adversary unchanged, as an oracle, against the SPIR — the degenerate case of the RTV04 fully-black-box shape.

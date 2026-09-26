@@ -25,19 +25,10 @@ A reduction of class `unstated` from [[homomorphic-encryption|HE]] to [[statisti
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
-
-> - HE → rerandomizable encryption → [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]
+Let $\PKE$ be a public-key bit-encryption scheme with compact [[homomorphic-encryption|homomorphic]] evaluation of a sensitive collection of functions, e.g. parities, majorities, or all ANDs and ORs. Every black-box reduction of constant query complexity that bases the message indistinguishability of $\PKE$ on a problem $\Pi$ places $\Pi$ in [[statistical-zero-knowledge|SZK]], and every general adaptive reduction places $\Pi$ in $\classAM \cap \classcoAM$; a constant-query reduction from a $\Pi \notin \classBPP$ therefore gives [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: BL13 rules out black-box security reductions restricted by query complexity: constant query complexity for the SZK bound, general adaptive for the AM cap coAM bound. Query-bounded reductions have no name in the RTV04 vocabulary of schema/reduction-classes.yaml, and recording `fully-black-box` would overstate the constant-query theorem (a constant-query reduction is a special fully-black-box reduction, so ruling out the former does not rule out the latter). `unstated` is the honest value, with the restriction spelled out in the statement.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED MATH ERROR / SEVERE MIS-SUMMARY. The bullet reads as an implication chain 'HE -> rerandomizable encryption -> SZK != BPP'. BL13 proves a LIMIT ON PROVABLE SECURITY: a compact homomorphic bit-encryption scheme for a sensitive function class cannot be proved message-indistinguishable beyond AM cap coAM by general adaptive reductions, and beyond SZK by constant-query reductions. That is a barrier, not an implication, and 'rerandomizable encryption' does not appear in the paper's abstract at all.
-- AM cap coAM — BL13's headline bound — is nowhere on the page. Neither is the constant-query-vs-adaptive distinction, which separates TWO different barriers with two different classes.
-- The reduction class is the load-bearing part of BL13 (general adaptive vs constant query complexity) and is entirely absent.
-- Formatted as a chain of arrows, which under the target model must be SPLIT into separate reductions with separate citations — but here there is nothing to split into, because the chain is not what the paper says.
+- BL13's headline bound is $\classAM \cap \classcoAM$ for general adaptive reductions; only the constant-query bound gives $\classSZK$. These are two barriers with different reduction restrictions and belong on two pages.

@@ -36,3 +36,4 @@ source text, not changes to it:
 - Missing hypothesis: public-coin (and, for knowledge soundness, round-by-round soundness).
 - FS86 is an identification/signature paper and says nothing about SNARKs — citation is anachronistic for the claim made.
 - The Glossary has fiat-shamir-heuristic.md but the transform is not wikilinked here.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — Fiat–Shamir removes interaction from public-coin protocols but preserves their communication, so from a general interactive proof it yields a non-succinct argument; FS86 say nothing about succinct arguments. The ROM edges that hold are PCP + ROM ⇒ SNARG (Micali, FOCS 1994 / SICOMP 2000) and public-coin IOP + ROM ⇒ SNARK (Ben-Sasson–Chiesa–Spooner, TCC 2016-B), the latter via state-restoration soundness.

@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Fiat-Shamir + Schnorr signatures ⇒ DS"
 aliases: []
 id: red-fiat-shamir-and-schnorr-signatures-to-ds
@@ -9,32 +9,26 @@ hypotheses: [fiat-shamir, schnorr-identification-protocol]
 conclusion: ds
 class: unstated
 model: rom
-source: folklore
-security-loss: ""
+source:
+  - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+security-loss: "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96."
 ---
 
 # Fiat-Shamir + Schnorr signatures ⇒ DS
 
-[[fiat-shamir-heuristic|Fiat-Shamir]] together with [[digital-signature#schnorr-signatures|Schnorr signatures]] implies [[digital-signature|DS]].
+[[fiat-shamir-heuristic|Fiat-Shamir]] applied to the [[digital-signature#schnorr-signatures|Schnorr identification protocol]] implies [[digital-signature|DS]] in the random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Schnorr signatures:
+Applying the [[fiat-shamir-heuristic|Fiat–Shamir transform]] to the Schnorr identification protocol — a three-message public-coin proof of knowledge of a discrete logarithm — yields the Schnorr signature scheme, a [[digital-signature|DS]]: the signer sets the challenge $c = H(R \| m)$, so a signature is a non-interactive transcript — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. The scheme is $\eufcma$-secure in the random-oracle model under [[discrete-logarithm|DLOG]] — [[PS96 - Security Proofs for Signature Schemes|PS96]].
 
-> Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. To sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
+## Sketch
+
+The reduction answers signing queries with the HVZK simulator, programming $H(R \| m) := c$; it runs the forger, rewinds it to the hash query that produced the forgery's challenge, and reprograms the random oracle. Two accepting transcripts $(R, c, s)$, $(R, c', s')$ with $c \ne c'$ give $x = (s - s')/(c - c')$ (forking lemma).
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation on this paragraph (Sch91/FS86 appear only in the next paragraph).
-- One hypothesis (Fiat-Shamir) is a TRANSFORM, not an object — the target model needs transforms as edges/techniques, not hypothesis nodes. `[[fiat-shamir-heuristic]]` exists as a page but is not wikilinked.
-- 'Schnorr identification protocol' has no page or slug.
-- The ROM is implicit in $H$ but never stated in this paragraph.
+`model: rom`: The challenge is a hash modeled as a programmable random oracle; the PS96 proof rewinds the forger and reprograms the oracle. No standard-model proof from DLOG is known.

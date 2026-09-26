@@ -8,7 +8,7 @@ kind: implication
 hypotheses: [hash-function]
 conclusion: pcs
 class: unstated
-model: standard
+model: rom
 source:
   - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
 security-loss: ""
@@ -20,24 +20,16 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]]:
+[[hash-function|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test, with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
-> FRI is a transparent (no trusted setup) polynomial commitment that works by repeatedly halving the degree of a Reed-Solomon codeword via a random folding step. It is the core component of [[succinct-argument|STARKs]].
->
-> - **Proof size**: $O(\log^2 d)$
-> - **Verification time**: $O(\log^2 d)$
-> - **Setup**: Transparent (public-coin; only a hash function needed)
-> - **Security**: Collision-resistant hash functions; post-quantum secure
-> - **Reference**: [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
+## Sketch
+
+FRI folds the committed codeword round by round: writing $f_i(x) = g_i(x^2) + x\,h_i(x^2)$, the verifier sends a uniform $\alpha_i$ and the prover commits to the codeword of $f_{i+1}(y) = g_i(y) + \alpha_i h_i(y)$, halving the degree; consistency between rounds is spot-checked at random points through Merkle openings.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: rom`: FRI is an interactive oracle proof of proximity; the commitment Merkle-hashes the prover's oracles and becomes non-interactive through the [[BCS16 - Interactive Oracle Proofs|BCS16]] (Fiat–Shamir) compilation, whose soundness is proven with the hash modeled as a random oracle (the model of BBHR18's non-interactive STARK). Interactively, binding rests on collision resistance alone.
 
-- Hypothesis 'Collision-resistant hash functions' resolves (per site convention) to `[[hash-function]]`, which also holds OWF — conflation risk.
-- Model unstated: FRI-based commitments are non-interactive only via Fiat-Shamir, i.e. in the ROM (`[[random-oracle-model]]` page exists); the page says only 'transparent (public-coin)'.
-- 'post-quantum secure' is an unqualified security claim with no separate citation.
+- The polynomial-commitment abstraction of FRI (as a _list_ polynomial commitment) is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].

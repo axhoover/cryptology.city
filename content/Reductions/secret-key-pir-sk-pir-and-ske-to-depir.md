@@ -41,3 +41,4 @@ source text, not changes to it:
 - The security of the encrypted-server-state step is not argued; the SKE hypothesis is inferred from 'store the state encrypted', not stated.
 - Typos: 'prepreprocessing', 'preprecess'.
 - Mixes n (used here) with the N of the abstract for database size.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — not a theorem: SK-PIR bounds online communication but not server computation, which DEPIR also requires to be $o(n)$ per query, and storing the client state encrypted on the server moves the state without reducing server work. As a general implication it would give SK-DEPIR from one-way functions via [[hash-function-to-secret-key-pir-sk-pir-bm26]] and SKE, which is open and conjecturally impossible for black-box constructions — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]].

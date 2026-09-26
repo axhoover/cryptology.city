@@ -37,3 +37,4 @@ Recorded during migration and **not fixed** — these are claims about the
 source text, not changes to it:
 
 - Round-indexed variants IP[k] and AM[k+2] have no slugs; the record maps them onto the base-class pages, losing the round parameter.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — with the wiki's definitions (IP with polynomially many rounds, AM with two messages), IP ⊆ AM would give $\classPSPACE \subseteq \classAM \subseteq \Pi_2^p$, collapsing the polynomial hierarchy, whereas [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] prove only the round-preserving $\classIP[k] \subseteq \classAM[k+2]$. The supportable base-class corollaries are constant-round IP ⊆ AM and IP[poly] = AM[poly] (= PSPACE).

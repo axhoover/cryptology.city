@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)"
 aliases: []
 id: red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg
@@ -8,32 +8,24 @@ kind: implication
 hypotheses: [sparse-lpn]
 conclusion: pseudorandom-correlation-generator
 class: unstated
-model: standard
-source: folklore
+model: rom
+source:
+  - "[[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]]"
 security-loss: ""
 ---
 
 # Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)
 
-[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]] implies [[alternating-moduli#pseudorandom-correlation-generators-pcg|Pseudorandom correlation generators (PCG)]].
+[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] implies [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generators]] in the random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Sparse Learning Parity with Noise:
-
-> Sparse LPN replaces the uniformly random matrix $\mathbf{A}$ with one whose rows are $d$-sparse: each row is sampled uniformly from all binary vectors of Hamming weight exactly $d$. The secret and noise distributions are unchanged. For $d = O(\log k)$, the matrix can be stored and multiplied far more efficiently, making Sparse LPN particularly attractive for pseudorandom correlation generator (PCG) constructions.
+Hardness of [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] — each row of $\mathbf{A}$ of Hamming weight $d$ — yields, in the random-oracle model, a pseudorandom correlation function, in which each party derives its share of the correlation on demand from a short key, and hence, by evaluating on $N$ fixed inputs, a [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generator]] — [[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: BCM+25 prove security in the random-oracle model.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- Efficiency motivation (particularly attractive for PCG constructions) rather than a stated reduction.
-- pseudorandom-correlation-generator has no page; sparse-lpn has no page either (defined only in this section).
+- `sparse-lpn` has no page of its own; it is defined only in the Sparse LPN section of learning-parity-with-noise.md.

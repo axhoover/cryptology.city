@@ -7,7 +7,7 @@ id: red-hash-function-and-io-to-pke-sw14
 kind: implication
 hypotheses: [hash-function, io]
 conclusion: pke
-class: unstated
+class: free
 model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
@@ -20,24 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Obfustopia:
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies IND-CPA-secure [[public-key-encryption|PKE]]; SW14 also give an IND-CCA-secure scheme — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
-> **[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+## Sketch
 
-Migrated verbatim from [[indistinguishability-obfuscation]] § Other results:
-
-> - iO + [[hash-function|OWF]] → [[public-key-encryption|PKE]] — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
+The secret key is a puncturable PRF key $K$; the public key is an obfuscation of the program $(m, r) \mapsto (t, F(K, t) \oplus m)$ with $t = \PRG(r)$. The proof replaces $t^*$ by a uniform string, which lies outside the PRG's image with overwhelming probability, punctures $K$ at $t^*$ — the punctured program agrees with the original on every input, so iO hides the switch — and applies pseudorandomness at the punctured point.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CONJUNCTIVE and DISJUNCTIVELY BUNDLED: "combined with OWFs, it implies PKE, digital signatures, NIZK proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more" is one hypothesis SET {iO, OWF} with five separate conclusions; this record isolates {iO, OWF} => PKE.
-- "and much more" is an unbounded, untypeable tail that a migration must drop.
-- OWF hypothesis is again the hash-function page alias.
+`class: free`: The construction hands iO a circuit containing the code of a puncturable PRF and PRG built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. SW14 do not place the reduction in the RTV04 hierarchy, so the broadest class is recorded.

@@ -36,3 +36,4 @@ source text, not changes to it:
 
 - Stronger than BDDH is the only statement of direction; no citation.
 - SUSPECTED IMPRECISION: SXDH is stated for asymmetric (Type 3) pairings whereas BDDH is stated on this page for symmetric pairings, so the two are not directly comparable.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — SXDH is a Type-3 assumption (DDH hard in $\GG_1$ and $\GG_2$), but the wiki states BDH and BDDH for a symmetric pairing $e : \GG \times \GG \to \GG_T$, which itself breaks DDH in $\GG$, so the edge is ill-typed. "Stronger than BDDH" concerns the decisional assumption, not the computational `bdh` node, and even over Type-3 groups holds only for the (D)BDH variant with instance $(g_1^a, g_1^b, g_2^c)$ (a solver breaks DDH in $\GG_1$ via $e(g_1^z, g_2^c)$); for the variant that also gives $g_2^a, g_2^b$ no reduction from SXDH is known. See [[bilinear-map-assumptions]].

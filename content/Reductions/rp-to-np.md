@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "RP ⊆ NP"
 aliases: []
 id: red-rp-to-np
@@ -19,23 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[randomized-polynomial-time]] § Known relationships:
-
-> - $\classRP \subseteq \classNP$: a polynomial-time machine that accepts on at least half of its random strings provides an NP witness (any accepting random string serves as the certificate).
+$\classRP \subseteq \classNP$: for $x \in L$ at least half of the machine's polynomial-length random strings accept, and any accepting one is a certificate that a deterministic verifier checks by running the machine on it; for $x \notin L$ none accepts — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (folklore but unlabeled).
+`class: free`: A containment between complexity classes, proved by any argument; the reduction-class axis does not discriminate. Matches the sibling complexity-inclusion pages.

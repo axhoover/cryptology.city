@@ -16,31 +16,19 @@ security-loss: ""
 
 # Verifiable secret sharing (VSS) ⇒ MPC
 
-[[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing (VSS)]] implies [[secure-multi-party-computation|MPC]].
+[[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing (VSS)]] implies perfectly secure [[secure-multi-party-computation|MPC]] against $t < n/3$ malicious corruptions.
 
 ## Statement
 
-Migrated verbatim from [[secret-sharing]]:
+[[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing]] of degree-$t$ Shamir sharings, with a sub-protocol that multiplies two shared values and returns a degree-$t$ sharing of the product, gives perfectly secure [[secure-multi-party-computation|MPC]] for every function against a malicious adversary corrupting $t < n/3$ of the $n$ parties, over pairwise private channels — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
 
-> A secret sharing scheme augmented with commitments so that parties can verify their shares are consistent, even against a malicious dealer. Used in [[secure-multi-party-computation|MPC]] and distributed key generation.
+## Sketch
 
-Migrated verbatim from [[secret-sharing]] § Other results:
-
-> - Verifiable secret sharing (VSS) is a sufficient primitive for [[secure-multi-party-computation|MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]
+Each input is VSS-shared with a degree-$t$ polynomial; addition gates are local. For a multiplication gate each party VSS-shares the product of its two shares and the parties verify it, then take the Lagrange combination of these sub-sharings, which is a degree-$t$ sharing of the product. Reconstructing a degree-$t$ sharing with $t$ corrupted shares is Reed-Solomon decoding, which needs $n \ge 3t + 1$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant; the protocol uses one specific VSS (bivariate polynomials), not an arbitrary VSS as an oracle.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'Used in MPC and distributed key generation' — usage, not a reduction; uncited here (cf. line 64, which cites BGW88 for the MPC direction).
-- 'distributed key generation' has no page.
-- 'sufficient primitive for' = implies, but BGW88's MPC also needs an honest majority (t < n/3 for malicious security) — the threshold hypothesis is omitted.
-- 'verifiable-secret-sharing' has no page (variant section on this page).
+- With a broadcast channel and statistical rather than perfect security, VSS with negligible error raises the threshold to $t < n/2$ — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]
+- The corruption threshold $t < n/3$ is a hypothesis of this result that the hyperedge does not carry; [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88]] records it as a separate edge.

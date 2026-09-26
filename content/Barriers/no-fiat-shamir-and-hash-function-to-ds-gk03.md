@@ -6,11 +6,11 @@ aliases: []
 id: bar-fiat-shamir-and-hash-function-to-ds-gk03
 hypotheses: [fiat-shamir, hash-function]
 conclusion: ds
-class: unstated
+class: free
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: free
 strength: unconditional
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
@@ -18,25 +18,19 @@ source:
 
 # No reduction from Fiat-Shamir + Hash function to DS
 
-A reduction of class `unstated` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[hash-function|Hash function]] to [[digital-signature|DS]] would imply a contradiction.
+A reduction of class `free` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[hash-function|Hash function]] to [[digital-signature|DS]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[fiat-shamir-heuristic]]:
+There is a 3-round public-coin identification scheme, secure in the [[random-oracle-model|random oracle model]], whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is an existentially forgeable [[digital-signature|signature scheme]] for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. The random oracle in the transform is therefore not instantiable in general.
 
-> Goldwasser and Kalai showed that the Fiat-Shamir transform is uninstantiable in the standard model [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. They constructed a 3-round public-coin identification scheme that is secure in the ROM, yet whose Fiat-Shamir transform is existentially forgeable under _every_ concrete hash function. This demonstrates that the random oracle cannot always be replaced by an actual hash function, even a cryptographically strong one.
->
-> $$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{for all } H.$$
+## Sketch
+
+The scheme adds an escape hatch: the prover may commit in its first message to a program and later prove, with a proof checkable in time independent of the program's running time, that the program maps the first message to the challenge. Interactively the challenge is chosen after the commitment, so the hatch is useless; after the transform the challenge is $H$ of the first message, and a forger commits to the code of $H$ itself.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: the result is a counterexample, not a restriction on proof technique: for the exhibited identification scheme the transformed signature is forgeable under *every* efficient hash function, so no argument of any kind establishes 'Fiat-Shamir plus a hash function yields a secure signature scheme'. Ruling out the implication itself is `free`.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Barrier shape: (FS instantiated with any concrete hash $H$) => the transformed scheme is forgeable, i.e. an uninstantiability separation between the ROM and the standard model. The conclusion is recorded as 'contradiction' because Q here is the failure of the ROM-to-standard-model transfer.
-- The displayed inequality '$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{for all } H$' quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the real statement is 'there exists an ID scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'. The order of quantifiers is lost in the display. Flagged, not fixed.
-- $\Pi_H$ is not defined anywhere on the page ($\Pi_\mathsf{FS}$ is the notation introduced at line 16).
-- The advantage superscript '\mathrm{uf}' does not use the required \ufcma/\eufcma game-name macros listed in CLAUDE.md.
+- The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the theorem is 'there exists an identification scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'.
+- $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the $\ufcma$/$\eufcma$ macros.

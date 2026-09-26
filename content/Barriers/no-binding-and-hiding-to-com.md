@@ -1,38 +1,32 @@
 ---
 type: barrier
-status: stub
+status: draft
 title: "No reduction from Binding + Hiding to COM"
 aliases: []
 id: bar-binding-and-hiding-to-com
 hypotheses: [statistically-binding-commitment, statistically-hiding-commitment]
 conclusion: com
-class: unstated
+class: free
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: free
 strength: unconditional
 source: folklore
 ---
 
 # No reduction from Binding + Hiding to COM
 
-A reduction of class `unstated` from [[commitment-scheme#binding|Binding]] together with [[commitment-scheme#hiding|Hiding]] to [[commitment-scheme|COM]] would imply a contradiction.
+A reduction of class `free` from [[commitment-scheme#binding|Binding]] together with [[commitment-scheme#hiding|Hiding]] to [[commitment-scheme|COM]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[commitment-scheme]] § Properties / Binding:
+No [[commitment-scheme|commitment scheme]] with at least two messages is both [[commitment-scheme#hiding|statistically hiding]] and [[commitment-scheme#binding|statistically binding]] — folklore. The argument is information-theoretic and applies to interactive commitments as well.
 
-> **Note:** Perfect (simultaneously statistically hiding and statistically binding) commitment schemes are impossible by a simple entropy argument. The four regimes are: (1) perfectly binding / computationally hiding, (2) computationally binding / statistically hiding, (3) computationally binding / computationally hiding, and (4) perfectly binding / perfectly hiding — which is impossible.
+## Sketch
+
+Statistical hiding makes the distributions of the commitment $c$ under $\Com(\pp, m_0; r)$ and $\Com(\pp, m_1; r)$ statistically close for $m_0 \neq m_1$, so all but a negligible fraction of commitments to $m_0$ are also commitments to $m_1$ under some randomness $r'$; an unbounded committer finds $r'$ by exhaustive search and opens the same $c$ to both messages, breaking statistical binding.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- NO CITATION and no folklore marker. CLAUDE.md requires either a citation or an explicit '— standard' / '— folklore' label; this has neither, it just asserts 'by a simple entropy argument'.
-- A genuine unconditional two-hypothesis impossibility ({statistically hiding, statistically binding} => contradiction) — a good barrier-page candidate, and one of the few on the wiki with an actual proof idea attached.
-- The four-regime enumeration that follows is useful taxonomy, but regime (4) 'perfectly binding / perfectly hiding — which is impossible' restates the first sentence, an anti-pattern.
+`class: free`: The impossibility is information-theoretic and unconditional: no scheme has both properties, by any construction and under any assumption, so the class ruled out is `free`. The hyperedge's `conclusion: com` is vacuous; the content is the joint unsatisfiability of the two hypotheses.

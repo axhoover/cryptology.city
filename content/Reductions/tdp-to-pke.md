@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "TDP ⇒ PKE"
 aliases: []
 id: red-tdp-to-pke
@@ -9,7 +9,8 @@ hypotheses: [tdp]
 conclusion: pke
 class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[GM84 - Probabilistic encryption|GM84]]"
 security-loss: ""
 ---
 
@@ -19,43 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[rsa-assumption]] § Known Results:
+A family of [[trapdoor-permutation|trapdoor permutations]] $f$ with hard-core predicate $b$ gives an $\indcpa$-secure [[public-key-encryption|PKE]] scheme: $\pk$ is the permutation index, $\sk$ its trapdoor, a bit $m$ is encrypted as $\Enc(\pk, m) = (f(x),\, b(x) \oplus m)$ for $x \getsr \calD$, and longer messages bit by bit — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every trapdoor permutation has a hard-core predicate, so no second hypothesis is needed — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].
 
-> - RSA implies the existence of [[trapdoor-permutation|trapdoor permutations]], which in turn imply [[public-key-encryption|PKE]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
+## Sketch
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Breaking up Cryptomania:
-
-> Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption. TDPs (equivalently, the existence of PKE or OT) unlock the full power of asymmetric cryptography. [[Oblivious transfer|OT]] is complete for all of MPC, so Cryptomania is also the world where general secure computation is possible.
-
-Migrated verbatim from [[public-key-encryption]] § Other results:
-
-> - [[trapdoor-permutation|TDP]] implies PKE
-
-Migrated verbatim from [[trapdoor-permutation]] § Other results:
-
-> - [[public-key-encryption|PKE]] can be constructed from trapdoor permutations — standard (TDP + hard-core predicate → PKE)
+Decryption recovers $x = \Invert(\sk, c_1)$ and outputs $c_2 \oplus b(x)$. An $\indcpa$ adversary distinguishing encryptions of $0$ from encryptions of $1$ predicts $b(x)$ from $f(x)$ with the same advantage, contradicting hard-coreness of $b$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: One fixed construction: $\KeyGen$ runs $\Gen$, $\Enc$ calls $\Eval$ and the hard-core predicate, $\Dec$ calls $\Invert$, each only as an oracle. One fixed reduction: an $\indcpa$ adversary is run as an oracle to predict $b(x)$ from $f(x)$; for the Goldreich-Levin predicate the list-decoder turns that predictor into an inverter for $f$. RTV04 fully-black-box shape.
 
-This relation is stated on 4 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- UNCITED SUB-EDGE WHILE THE PARENT IS CITED: RSA78 is attached to the whole bullet but does not prove this link; the generic TDP-to-IND-CPA-PKE construction needs a hardcore predicate (Goldreich-Levin).
-- The security notion of the resulting PKE is unstated; plain TDP implies only one-way, not IND-CPA, encryption.
-- COMPOSITE CHAIN: "RSA implies trapdoor permutations, which in turn imply PKE" is two reductions and must be split.
-- The second link (TDP => PKE) is NOT due to RSA78; the single trailing citation is misattributed to both links.
-- RSA yields a trapdoor permutation on Z_n^\*, not on a bit-string domain; the standard certifiability/domain caveat is not mentioned.
-- The security notion of the resulting PKE is unstated (plain TDP => PKE gives only one-way, not IND-CPA, encryption without a hardcore bit).
-- SUSPECTED MATHEMATICAL ERROR: "TDPs (equivalently, the existence of PKE or OT)" asserts TDP ≡ PKE ≡ OT. PKE is not known to imply TDPs, and PKE is black-box separated from OT (Gertner–Kannan–Malkin–Reingold–Viswanathan, i.e. the very GKM+00 cited two sentences earlier). Recorded, not fixed.
-- No citation.
-- The parenthetical also fuses a disjunction ("PKE or OT") into an equivalence — exactly the disjunction/conjunction conflation the data model must avoid.
-- No citation and no folklore label (the standard sources would be DH76/GM84/Yao82, none cited here).
-- Security notion of the conclusion unstated (TDP + hardcore bit gives CPA-secure, bit-by-bit, PKE).
-- Cited only as '— standard'; this is genuinely textbook, so the folklore label is defensible here.
-- The sketch names a second ingredient ('hard-core predicate') which is NOT an independent hypothesis — Goldreich-Levin gives a hard-core predicate for any OWF — so this must not be migrated as a conjunctive edge. Marked conjunctive:false deliberately.
-- Modern statements need an ENHANCED TDP even for PKE-from-TDP in some formulations; the page distinguishes enhanced TDPs at line 46 but not here.
+- Stated for trapdoor functions with a hard bit, decryption recovering the encryption randomness — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]

@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK"
 aliases: []
 id: red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk
@@ -9,31 +9,25 @@ hypotheses: [fiat-shamir, honest-verifier-zero-knowledge]
 conclusion: nizk
 class: unstated
 model: rom
-source: folklore
+source:
+  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
 security-loss: ""
 ---
 
 # Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK
 
-[[fiat-shamir-heuristic|Fiat-Shamir]] together with [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]] implies [[non-interactive-zero-knowledge|NIZK]].
+[[fiat-shamir-heuristic|Fiat-Shamir]] applied to a constant-round public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier ZK (HVZK)]] proof with negligible soundness error implies [[non-interactive-zero-knowledge|NIZK]] in the random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[zero-knowledge-proof]]:
+The [[fiat-shamir-heuristic|Fiat–Shamir transform]] replaces each verifier challenge of a public-coin protocol by a hash of the statement and the transcript so far — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. Applied to a constant-round public-coin interactive proof that is [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] with negligible soundness error, it yields a [[non-interactive-zero-knowledge|NIZK]] argument in the random-oracle model — standard.
 
-> Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform.
+## Sketch
+
+Zero knowledge: the compiled challenges are uniform, exactly the honest verifier's, so the simulator runs the HVZK simulator and programs the random oracle to return its challenges. Soundness: each hash query fixes a prefix before its challenge is revealed, so a $q$-query prover gains at most a $\poly(q)$ factor over the interactive soundness error when the round count is constant.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'Sufficient for many applications' names no conclusion — I inferred NIZK from the Fiat-Shamir mention; the page does not say it. Low confidence.
-- No citation, no wikilink to Glossary/fiat-shamir-heuristic.md.
-- 'honest-verifier-zero-knowledge' is a section of this page, not a slug.
+`model: rom`: Soundness of the compiled argument and zero knowledge (via oracle programming) are proved with the hash modeled as a programmable random oracle; in the standard model the transform can fail — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
