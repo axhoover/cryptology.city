@@ -18,6 +18,24 @@ for f in sorted(glob.glob(f"{vdir}/*.json")):
             if re.search(r"\bhuman\b|HUMAN|skeptical-checker|reference-fixer|recommend (delet|merg)|should (add|fix|confirm)", fl):
                 human_flags.append({"page": p["slug"], "flag": fl[:600]})
 
+# Flags raised while applying and reviewing (editor flags, reviewer unresolved items).
+apply_flags = []
+for f in sorted(glob.glob(f"{REPO}/.sourcing-pass/apply-results/*.json")):
+    try:
+        res = json.load(open(f))
+    except Exception:
+        continue
+    res = res.get("result", res)  # task output files wrap the workflow return value
+    for s in res.get("summaries", []) or []:
+        if not s:
+            continue
+        bid = s.get("id")
+        for fl in ((s.get("edit") or {}).get("flags") or []):
+            if not fl.startswith("Rewritten"):
+                apply_flags.append({"batch": bid, "stage": "edit", "flag": fl[:800]})
+        for fl in ((s.get("vet") or {}).get("unresolved") or []):
+            apply_flags.append({"batch": bid, "stage": "review", "flag": fl[:800]})
+
 # Reference stubs created without an abstract.
 no_abstract = []
 for p in sorted(glob.glob(f"{REPO}/content/References/*.md")):
@@ -42,11 +60,13 @@ out = {
         "wrong_claim_pages": len(report["wrong"]),
         "undetermined_pages": len(report["undetermined"]),
         "reference_stubs_without_abstract": len(no_abstract),
+        "apply_and_review_flags": len(apply_flags),
     },
     "wrong_claim_pages": report["wrong"],
     "undetermined_pages": report["undetermined"],
     "same_paper_different_key": report.get("same_paper_different_key", []),
     "flags_for_humans": human_flags,
+    "apply_and_review_flags": apply_flags,
     "reference_stubs_without_abstract": no_abstract,
 }
 os.makedirs(f"{REPO}/.reductions", exist_ok=True)
@@ -59,7 +79,7 @@ bullets = [
     f"- [ ] [Math] **{len(report['wrong'])} reduction/barrier pages state a claim that is incorrect as written** (inverted edges, definitions recorded as theorems, structures used as assumptions, application notes typed as existence implications). Each carries a `Sourcing pass ({date}), not fixed` bullet in its Notes with the reason; none was sourced, re-typed, or deleted — a human should delete, redirect, or re-type them — _source: .reductions/sourcing-pass.json_",
     f"- [ ] [Content] {len(report['undetermined'])} reduction pages remain `undetermined`: no attributable source was found after research and verification; they still carry their migration scaffolding — _source: .reductions/sourcing-pass.json_",
     f"- [ ] [External] {len(no_abstract)} reference stubs created by the sourcing pass carry `TODO — abstract.` because eprint/arXiv/DOI hosts were unreachable from the session; bibliographic data comes from vendor/cryptobib — _source: .reductions/sourcing-pass.json_",
-    f"- [ ] [FactCheck] {len(human_flags)} verifier flags need a human judgement (assumption-page definitions found vacuous, reference pages with wrong filenames or abstracts, duplicate edges to merge) — _source: .reductions/sourcing-pass.json_",
+    f"- [ ] [FactCheck] {len(human_flags)} verifier flags and {len(apply_flags)} editor/reviewer flags need a human judgement (assumption-page definitions found vacuous, reference pages with wrong filenames or abstracts, duplicate edges to merge, hypothesis nodes too coarse for the source's actual assumption) — _source: .reductions/sourcing-pass.json_",
 ]
 marker = "## High Priority\n"
 if marker not in todo:

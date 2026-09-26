@@ -1,3 +1,26 @@
+# Sourcing pass — runbook
+
+## Status as of Sat 26 Sep 15:25 UTC
+
+The user said this pass runs on Claude Code cloud credits, not their usage
+limit, so the window schedule below is RETIRED. Batches red-00..red-07 are
+done and committed. The other 31 were launched at once as three parallel
+apply workflows (this container has 4 CPUs, which caps each workflow at 2
+concurrent agents):
+
+| Workflow | Batches |
+| --- | --- |
+| wf_9df5efb8-548 (task wfpvht6z1) | red-08 … red-17 |
+| wf_69993d2b-e08 (task wy9k5pqu2) | red-18 … red-27 |
+| wf_685ebf97-613 (task wdqfgfj0i) | red-28 … red-34, bar-00 … bar-03 |
+
+When each finishes: save its task output to `.sourcing-pass/apply-results/`,
+lint, update `progress.json`, commit, push. When all 39 are vetted, run
+Finalize. A single safety-net wake (trig_01RUqYruntpyFBF4HnTKXdJW, Sat 20:00
+UTC) resumes or finalizes if this session died; the other wakes are deleted.
+
+---
+
 # Sourcing pass — runbook for scheduled wakes
 
 The user (US Eastern, UTC−4) asked for the remaining apply work to run in
