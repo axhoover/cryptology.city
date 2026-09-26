@@ -38,13 +38,13 @@ $$\Pr\!\left[\Dec(\sk, \Eval(\pk, f, \Enc(\pk, m_1), \ldots, \Enc(\pk, m_k))) = 
 
 ### Security
 
-A homomorphic encryption scheme is **IND-CPA secure** if the standard [[public-key-encryption|PKE]] semantic security game is satisfied: no efficient adversary can distinguish $\Enc(\pk, m_0)$ from $\Enc(\pk, m_1)$ for any $m_0, m_1$. (IND-CCA2 security is incompatible with non-trivial homomorphism: $\calA$ applies $\Eval$ to the challenge ciphertext and queries the decryption oracle on the result — folklore. IND-CCA1-secure FHE exists — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].)
+A homomorphic encryption scheme is **IND-CPA secure** if the standard [[public-key-encryption|PKE]] semantic security game is satisfied: no efficient adversary can distinguish $\Enc(\pk, m_0)$ from $\Enc(\pk, m_1)$ for any $m_0, m_1$. (IND-CCA2 security is incompatible with non-trivial homomorphism: $\calA$ applies $\Eval$ to the challenge ciphertext and queries the decryption oracle on the result — folklore. IND-CCA1-secure FHE is known, e.g. from [[learning-with-errors|LWE]] in the [[random-oracle-model|ROM]] — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].)
 
 # Variations
 
 ## Partially homomorphic encryption (PHE)
 
-Supports homomorphism over a restricted class: only additions (e.g., Paillier from [[decisional-composite-residuosity|DCR]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]) or only multiplications (e.g., ElGamal [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]], IND-CPA under [[decisional-diffie-hellman|DDH]] [[TY98 - On the Security of ElGamal Based Encryption|TY98]]), but not both. Unpadded RSA is multiplicatively homomorphic but deterministic, hence not IND-CPA secure — standard.
+Supports homomorphism over a restricted class: only additions (e.g., Paillier from [[decisional-composite-residuosity|DCR]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]) or only multiplications (e.g., ElGamal — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]], IND-CPA under [[decisional-diffie-hellman|DDH]] — [[TY98 - On the Security of ElGamal Based Encryption|TY98]]), but not both. Unpadded RSA is multiplicatively homomorphic but deterministic, hence not IND-CPA secure — standard.
 
 ## Somewhat homomorphic encryption (SHE)
 

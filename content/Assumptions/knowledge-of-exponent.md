@@ -17,24 +17,25 @@ The _knowledge of exponent assumption (KEA)_ is a non-falsifiable assumption use
 
 ## Assumption
 
-Given $(g, g^\alpha)$ for $\alpha \getsr \ZZ_q^*$, let $\calA$ be an algorithm that outputs $(A, B) \in \GG^2$ such that $B = A^\alpha$. The KEA states that there exists an efficient **extractor** $\calE_\calA$ (which can read the internal state or random coins of $\calA$) such that:
+Let $\GrGen(1^\secpar)$ output a group $\GG$ of prime order $q$ with generator $g$. The KEA states that for all efficient $\calA$ there exists an efficient **extractor** $\calE_\calA$, given the input and random coins $\rho$ of $\calA$, such that
 
-$$\Pr\!\left[B = A^\alpha \wedge A \ne g^{\calE_\calA(\cdot)}\right] \le \negl(\secpar).$$
+$$\Pr\!\left[B = A^\alpha \wedge A \ne g^{r} \;:\; \alpha \getsr \ZZ_q^*,\ (A, B) \gets \calA(g, g^\alpha; \rho),\ r \gets \calE_\calA(g, g^\alpha, \rho)\right] \le \negl(\secpar),$$
 
-In the pairing-based setting (**$q$-Power Knowledge of Exponent**, used in Groth16), the adversary receives $(g, g^\alpha, g^{\alpha^2}, \ldots, g^{\alpha^q})$ and any output DH-pair $(A, B)$ must be "explained" by a linear combination of the input elements.
+over $\GrGen$, $\alpha$, $\rho$, and the coins of $\calE_\calA$ — KEA1 of Bellare–Palacio (CRYPTO 2004).
+
+In the pairing-based setting (**$q$-Power Knowledge of Exponent**), the adversary receives $(g, g^\alpha, g^{\alpha^2}, \ldots, g^{\alpha^q})$ and any output DH-pair $(A, B)$ must be "explained" by a linear combination of the input elements.
 
 ## Known Results
 
 - [[kea-to-snark-gro16|KEA ⇒ SNARK]]
 - KEA is non-falsifiable: no polynomial-time game can witness a KEA violation, because checking "knowledge" requires inspecting internal state — standard
 - [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
-- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
 
 # Variations
 
 ## $q$-Power KEA
 
-Generalization where the adversary receives $q$ powers $g^{\alpha^i}$ and any output pair must be a committed linear combination of these — the algebraic version of KEA used in Groth16 and related SNARKs.
+Generalization where the adversary receives $q$ powers $g^{\alpha^i}$ and any output pair must be a committed linear combination of these — the algebraic version of KEA used in the pairing-based SNARKs of Groth (ASIACRYPT 2010) and Gennaro–Gentry–Parno–Raykova (EUROCRYPT 2013); Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
 ## Algebraic Group Model (AGM)
 
@@ -43,7 +44,7 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 # Attacks
 
 - No concrete attack on KEA is known; the assumption is believed to be heuristically sound in natural cryptographic groups
-- KEA can fail in adversarially constructed groups (generic groups with special structures)
+- KEA can fail in adversarially constructed groups
 - The non-falsifiable nature means KEA's "attacks" are philosophical: one cannot rule out adversaries who produce valid pairs without knowledge
 
 <!-- BEGIN GENERATED participates-in 711358f8b8f1 -->

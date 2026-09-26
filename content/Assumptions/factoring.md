@@ -29,9 +29,9 @@ $$
 
 ## Known Results
 
-- [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
-- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
+- [[rsa-assumption|RSA]] hardness implies factoring hardness, since the factors of $N$ give $\varphi(N)$ and hence the decryption exponent — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open in the standard model, and [[rsa-to-fac-dlo24|RSA ⇔ FAC]] holds in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
+- [[quadratic-residuosity|QR]] hardness implies factoring hardness, since the factors of $N$ decide quadratic residuosity modulo $N$ — [[GM84 - Probabilistic encryption|GM84]]; the converse is open.
+- [[decisional-composite-residuosity|DCR]] hardness implies factoring hardness, since the factors of $N$ decide $N$-th residuosity modulo $N^2$ — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]; the converse is open.
 - Quantum computers can factor in polynomial time via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 # Variations

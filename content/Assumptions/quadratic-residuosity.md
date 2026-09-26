@@ -14,11 +14,11 @@ variants:
 
 # Quadratic residuosity assumption
 
-The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
+The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
 
 ## Assumption
 
-Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. When $p \equiv q \equiv 3 \pmod 4$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$, so membership is information-theoretically hidden.
+Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. For any distinct odd primes $p, q$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$ — standard.
 
 ```pseudocode
 \begin{algorithm}

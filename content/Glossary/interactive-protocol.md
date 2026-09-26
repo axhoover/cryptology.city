@@ -55,8 +55,7 @@ Security of a protocol is analyzed under one of two standard adversary models:
 - **Semi-honest** (_honest-but-curious_): the adversary follows the protocol specification exactly but tries to learn additional information from its view alone.
 - **Malicious**: the adversary may deviate from the protocol arbitrarily, sending any messages it chooses.
 
-Note: A protocol secure against malicious parties implies security against
-semi-honest parties.
+Security against malicious adversaries implies security against _augmented_ semi-honest adversaries, which may substitute their input before the execution [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], but not in general against semi-honest adversaries: the malicious-model simulator may change the corrupted party's input, which the semi-honest ideal model forbids — Hazay and Lindell, Cryptology ePrint Archive 2010/551.
 
 <!-- BEGIN GENERATED participates-in 88369e71969d -->
 

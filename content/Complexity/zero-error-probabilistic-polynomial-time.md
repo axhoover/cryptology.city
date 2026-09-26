@@ -16,7 +16,7 @@ $$
 \classZPP = \classRP \cap \mathbf{coRP}.
 $$
 
-A machine for a ZPP problem accepts all "yes" instances with probability at least 1/2 and accepts no "no" instances (RP condition), and also rejects all "no" instances with probability at least 1/2 and rejects no "yes" instances (coRP condition). Running both machines and taking the definitive answer whenever one gives a non-"?" response yields an always-correct Las Vegas algorithm.
+For $L \in \classRP \cap \mathbf{coRP}$, take an RP machine $M_1$ for $L$ and an RP machine $M_0$ for its complement (each accepts every instance in its language with probability at least 1/2 and accepts no instance outside it), and run both on input $x$: output "yes" if $M_1$ accepts, "no" if $M_0$ accepts, and "?" otherwise. Every non-"?" answer is correct and "?" occurs with probability at most 1/2, so this is a Las Vegas algorithm for $L$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Z#zpp).
 

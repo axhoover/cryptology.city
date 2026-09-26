@@ -73,7 +73,7 @@ is negligible. The prefix constraint is necessary because $\Delegate$ is publicl
 
 ### IND-sHIBE-CPA Security (Selective)
 
-In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. The selective–adaptive separation is known to be strict for HIBE: there is no black-box complexity-leveraging argument that avoids an exponential loss in the depth $d$.
+In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. When $|\Sigma^{\le d}|$ is superpolynomial, selective security of a scheme does not imply its adaptive security, and guessing $\vec{\mathit{id}}^*$ recovers adaptive security only at a loss factor of $|\Sigma^{\le d}|$ — folklore. For HIBE schemes with a checkability property on keys and ciphertexts, any simple black-box reduction proving adaptive security from a non-interactive assumption loses a factor exponential in $d$ — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]].
 
 # Variations
 

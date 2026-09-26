@@ -38,7 +38,7 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 - [[bdh-to-ds|BDH ⇒ DS]]
 - [[bdh-to-vrf|BDH ⇒ VRF]]
 - [[bdh-to-ac|BDH ⇒ AC]]
-- [[cdh-to-bdh|CDH ⇒ BDH]]
+- BDH hardness implies [[computational-diffie-hellman|CDH]] hardness in $\GG$: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — folklore
 - [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
 - Quantum computers break all pairing-based assumptions by running Shor's algorithm on $\GG_T$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 

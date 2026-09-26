@@ -47,7 +47,7 @@ The special case $n = 2$ studied by Yao. Two-party protocols are typically built
 
 ## Honest majority ($t < n/3$ or $t < n/2$)
 
-When fewer than a threshold fraction of parties are corrupt, information-theoretic (unconditional) security is achievable. For $t < n/3$, perfect security against malicious adversaries is achievable; for $t < n/2$, statistical security is achievable with broadcast — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+When fewer than a threshold fraction of parties are corrupt, information-theoretic (unconditional) security is achievable. For $t < n/3$, perfect security against malicious adversaries is achievable — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]; for $t < n/2$, statistical security is achievable with broadcast — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].
 
 ## Dishonest majority (threshold up to $n-1$)
 
@@ -66,9 +66,8 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
-- OT extension: $O(1)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
+- OT extension: $O(\secpar)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
 - [[mpc-to-ot-bh26|MPC ⇒ OT]]
-- [[com-to-two-party-computation-2pc-gmw87|COM ⇒ Two-party computation (2PC)]]
 - [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 

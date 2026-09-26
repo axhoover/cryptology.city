@@ -147,19 +147,19 @@ is negligible.
 
 ## Schnorr signatures
 
-Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. To sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
+Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. For a generator $g$ of a group of prime order $p$, to sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
 
-Schnorr signatures are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. They are the basis for **EdDSA** (Ed25519, the standard in TLS, SSH, and Signal) and support efficient **multi-signatures** and **threshold signatures**.
+Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They are the basis for **EdDSA** (Ed25519, the standard in TLS, SSH, and Signal) and support efficient **multi-signatures** and **threshold signatures**.
 
 ## BLS signatures
 
-BLS signatures (Boneh-Lynn-Shacham) use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
+BLS signatures (Boneh-Lynn-Shacham) [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
 
 Key properties:
 
 - **Deterministic**: no per-signature randomness needed
 - **Short**: one group element ($\approx 48$ bytes on BLS12-381)
-- **Aggregatable**: $n$ signatures on different messages can be aggregated into one signature verifiable with $n$ pairings
+- **Aggregatable**: $n$ signatures on distinct messages can be aggregated into one signature verifiable with $n+1$ pairings, checking $e(\sigma, g_2) = \prod_{i=1}^n e(H(m_i), \pk_i)$ — Boneh, Gentry, Lynn, Shacham (EUROCRYPT 2003)
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
 
 BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.

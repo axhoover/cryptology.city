@@ -103,7 +103,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 
 ## CCA1 Security
 
-**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
+**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA, assuming CCA2-secure schemes exist — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
 
 ## Key-hiding
 

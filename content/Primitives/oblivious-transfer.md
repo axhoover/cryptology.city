@@ -130,7 +130,6 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
 - [[ot-to-com|OT ⇒ COM]]
-- [[pke-to-ot|PKE ⇒ OT]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
 <!-- BEGIN GENERATED participates-in cf6e95fdb2cc -->

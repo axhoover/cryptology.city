@@ -10,7 +10,7 @@ id: cdh
 
 # Computational Diffie-Hellman
 
-The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group.
+The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is implied by the [[decisional-diffie-hellman|DDH]] assumption: an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group — folklore.
 
 ## Assumption
 
@@ -46,7 +46,7 @@ is negligible.
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+- In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 # Variations
 

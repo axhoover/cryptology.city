@@ -15,12 +15,12 @@ A one-way permutation is a permutation which is easy to compute in one direction
 
 ## Properties
 
-A _one-way permutation_ is a family of efficiently computable permutations $\{\pi_{\secpar} : \calD \to \calD\}_{\secpar \in \NN}$ and a distribution $X$ over $\calD$, such that there is some negligible function $\nu$, where, for every $\secpar$ and efficient algorithm $\calA$: $$\Pr_{x\sim X}[\pi_{\secpar}(x') = \pi_{\secpar}(x) : x' \gets \calA(1^{\secpar}, \pi_{\secpar}(x))] \le \nu(\secpar).$$
+A _one-way permutation_ is a family of efficiently computable permutations $\{\pi_{\secpar} : \calD \to \calD\}_{\secpar \in \NN}$ and a distribution $X$ over $\calD$, such that for every efficient algorithm $\calA$ there is some negligible function $\nu$, where, for every $\secpar$: $$\Pr_{x\sim X}[\pi_{\secpar}(x') = \pi_{\secpar}(x) : x' \gets \calA(1^{\secpar}, \pi_{\secpar}(x))] \le \nu(\secpar).$$
 
 # Other results
 
 - [[owp-to-hash-function|OWP ⇒ Hash function]]
-- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+- [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]]
 
 <!-- BEGIN GENERATED participates-in db8b1d549af6 -->
 

@@ -33,8 +33,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 - **OWFs are necessary for non-trivial CZK**: if a language outside BPP has a CZK proof system, then auxiliary-input one-way functions exist; if the language is hard on average, one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
   - Informally: any ZK proof that convinces a verifier of something hard must "hide" information in a computationally meaningful way, which requires a one-way function
-- **Constant-round public-coin ZK for NP is impossible with black-box simulation**: any 3-round, or constant-round public-coin, proof system for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
-  - The public-coin restriction is necessary: constant-round private-coin black-box ZK proofs for NP exist assuming claw-free functions (Goldreich–Kahan, J. Cryptology 1996)
+- **Constant-round public-coin ZK for NP is impossible with black-box simulation**: any 3-round, or constant-round public-coin, proof system with negligible soundness error for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
+  - Beyond three rounds the public-coin restriction is necessary: five-round private-coin black-box ZK proofs for NP exist assuming claw-free functions (Goldreich–Kahan, J. Cryptology 1996)
 - **Parallel composition breaks ZK**: repeating a ZK protocol in parallel to reduce soundness error may destroy the zero-knowledge property — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 
 <!-- BEGIN GENERATED participates-in 089be31ff60f -->

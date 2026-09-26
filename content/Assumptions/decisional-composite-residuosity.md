@@ -17,21 +17,20 @@ The _decisional composite residuosity (DCR) assumption_ states that it is comput
 
 ## Assumption
 
-Let $n = pq$ for random $\secpar$-bit primes $p, q$, and let $g$ be a random element of $\ZZ_{n^2}^*$ of order $n \lambda(n)$ (where $\lambda$ is Carmichael's function). The _DCR advantage_ of an adversary $\calA$ is
+Let $n = pq$ for random $\secpar$-bit primes $p, q$. The _DCR advantage_ of an adversary $\calA$ is
 
 $$
-\Adv^{\mathrm{dcr}}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(1^\secpar, n, g, c) = 1\right] - 1\right|,
+\Adv^{\mathrm{dcr}}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(1^\secpar, n, c_b) = b\right] - 1\right|,
 $$
 
-where $c$ is either a uniformly random $n$-th power (i.e., $c = r^n \bmod n^2$ for $r \getsr \ZZ_n^*$) or a uniformly random element of $\ZZ_{n^2}^*$, each with probability $1/2$.
+where $b \getsr \bits$, $c_0 := r^n \bmod n^2$ for $r \getsr \ZZ_n^*$ (a uniformly random $n$-th power), and $c_1 \getsr \ZZ_{n^2}^*$.
 
 **DCR is hard** if for all efficient $\calA$, $\Adv^{\mathrm{dcr}}_{\calA}(\secpar)$ is negligible.
 
 ## Known Results
 
 - [[dcr-to-he-pai99|DCR ⇒ HE]]
-- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
-- The converse is open: it is not known whether DCR implies factoring
+- DCR hardness implies [[factoring|factoring]] hardness: given $p, q$, an element $z \in \ZZ_{n^2}^*$ is an $n$-th residue iff $z^{\varphi(n)} \equiv 1 \pmod{n^2}$ — folklore. Whether factoring hardness implies DCR hardness is open.
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dcr-to-he-pai99|DCR ⇒ HE]]
@@ -41,7 +40,7 @@ where $c$ is either a uniformly random $n$-th power (i.e., $c = r^n \bmod n^2$ f
 
 ## $d$-th Composite Residuosity
 
-Generalizes DCR to $d$-th powers modulo $n^{d+1}$. Gives homomorphism for messages modulo $n^d$.
+Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]. Gives homomorphism for messages modulo $n^d$.
 
 # Attacks
 

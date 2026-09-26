@@ -84,7 +84,6 @@ is negligible. AM hardness implies Weak-AM hardness (the strong assumption impli
 
 - [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
 - [[alternating-moduli-assumption-to-mpc-bip-18|Alternating moduli assumption ⇒ MPC]]
-- [[prg-in-nc1-to-io-jls21|PRG in NC1 ⇒ iO]]
 - The assumption is not known to follow from or imply standard lattice assumptions
 
 # Variations

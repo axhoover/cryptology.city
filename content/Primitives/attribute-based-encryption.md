@@ -19,14 +19,14 @@ variants:
 
 # Attribute-based encryption
 
-**Attribute-based encryption (ABE)** generalizes [[identity-based-encryption|IBE]] by replacing exact-identity matching with expressive Boolean access policies. The decryption relation is a pair $(f, x) \in \calF \times \calU^*$, where $f$ is a monotone Boolean formula over attributes from universe $\calU$ and $x \subseteq \calU$ is an attribute set; decryption succeeds if and only if $f(x) = 1$. ABE comes in two dual flavors depending on which component travels with the key and which with the ciphertext:
+**Attribute-based encryption (ABE)** generalizes [[identity-based-encryption|IBE]] by replacing exact-identity matching with expressive Boolean access policies. The decryption relation is a pair $(f, x) \in \calF \times 2^{\calU}$, where $f$ is a monotone Boolean formula over attributes from universe $\calU$ and $x \subseteq \calU$ is an attribute set; decryption succeeds if and only if $f(x) = 1$. ABE comes in two dual flavors depending on which component travels with the key and which with the ciphertext:
 
 | Variant                        | Key holds         | Ciphertext holds  |
 | ------------------------------ | ----------------- | ----------------- |
 | **KP-ABE** (Key-Policy)        | policy $f$        | attribute set $x$ |
 | **CP-ABE** (Ciphertext-Policy) | attribute set $x$ | policy $f$        |
 
-Policies are typically expressed as monotone Boolean formulas (or equivalently, as Linear Secret-Sharing Schemes (LSSS)), which subsume threshold gates and conjunctions.
+Policies are typically expressed as monotone Boolean formulas, which subsume threshold gates and conjunctions, or more generally as Linear Secret-Sharing Schemes (LSSS), which are strictly more expressive at polynomial size — [[KW93 - On Span Programs|KW93]].
 
 ## Syntax
 
@@ -111,7 +111,7 @@ is negligible.
 
 ### Selective Security
 
-In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\Setup$ runs. Selective security is strictly weaker than adaptive security; complexity leveraging converts one to the other at a polynomial cost in $|\calU|$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.
+In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\Setup$ runs. Selective security is strictly weaker than adaptive security; complexity leveraging [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]] converts one to the other at a loss factor of $2^{|\calU|}$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.
 
 # Variations
 

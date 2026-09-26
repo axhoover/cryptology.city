@@ -50,7 +50,7 @@ The dealer fixes a point $P \in \FF_p^t$ representing the secret, and gives each
 
 ## Computational secret sharing
 
-Relaxes perfect privacy to computational indistinguishability, which allows shares shorter than the secret; in a perfect scheme every share is at least as long as the secret (Karnin, Greene, and Hellman, IEEE Trans. Inf. Theory 1983). Encrypting $s$ under a fresh key, sharing the key with a perfect scheme, and splitting the ciphertext with an information dispersal algorithm gives $(t, n)$ shares of length $|s|/t + O(\secpar)$ — Krawczyk, CRYPTO 1993.
+Relaxes perfect privacy to computational indistinguishability, which allows shares shorter than the secret; in a perfect scheme every share is at least as long as the secret — Karnin, Greene, and Hellman, IEEE Trans. Inf. Theory 1983. Encrypting $s$ under a fresh key, sharing the key with a perfect scheme, and splitting the ciphertext with an information dispersal algorithm gives $(t, n)$ shares of length $|s|/t + O(\secpar)$ — Krawczyk, CRYPTO 1993.
 
 ## Verifiable secret sharing (VSS)
 

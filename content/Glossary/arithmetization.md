@@ -22,14 +22,14 @@ The core idea is that **multiplication** is the hard operation to check algebrai
 ### R1CS (Rank-1 Constraint System)
 
 An R1CS encodes a computation as a list of rank-1 constraints over $\FF_p$:
-$$\mathbf{a}_i \cdot \mathbf{z} \cdot \mathbf{b}_i \cdot \mathbf{z} = \mathbf{c}_i \cdot \mathbf{z} \quad \forall i \in [m],$$
-where $\mathbf{z} = (1, x_1, \ldots, x_\ell, w_1, \ldots, w_k)$ is the **witness vector** concatenating the instance and private witness, and $\mathbf{a}_i, \mathbf{b}_i, \mathbf{c}_i \in \FF_p^{n}$ are public coefficient vectors. Each constraint corresponds to one multiplication gate: left input $\cdot$ right input $=$ output.
+$$(\mathbf{a}_i \cdot \mathbf{z})\,(\mathbf{b}_i \cdot \mathbf{z}) = \mathbf{c}_i \cdot \mathbf{z} \quad \forall i \in [m],$$
+where $\mathbf{z} = (1, x_1, \ldots, x_\ell, w_1, \ldots, w_k)$ is the **witness vector** concatenating the instance and private witness, and $\mathbf{a}_i, \mathbf{b}_i, \mathbf{c}_i \in \FF_p^{n}$, with $n = 1 + \ell + k$, are public coefficient vectors. Each constraint corresponds to one multiplication gate: left input $\cdot$ right input $=$ output.
 
 R1CS is the arithmetization underlying Groth16 and the original Pinocchio protocol.
 
 ### QAP (Quadratic Arithmetic Program)
 
-A QAP encodes an R1CS instance into a polynomial divisibility check. Given an R1CS with $m$ constraints and evaluation points $\omega_1, \ldots, \omega_m \in \FF_p$, define the **target polynomial** $t(X) = \prod_{i=1}^m (X - \omega_i)$ and encode the coefficient vectors as polynomials $A(X), B(X), C(X)$ via interpolation. The witness $\mathbf{z}$ satisfies all constraints if and only if:
+A QAP encodes an R1CS instance into a polynomial divisibility check. Given an R1CS with $m$ constraints and distinct evaluation points $\omega_1, \ldots, \omega_m \in \FF_p$, define the **target polynomial** $t(X) = \prod_{i=1}^m (X - \omega_i)$, interpolate for each coordinate $j \in [n]$ polynomials $A_j, B_j, C_j$ of degree $< m$ with $A_j(\omega_i) = a_{i,j}$, $B_j(\omega_i) = b_{i,j}$, $C_j(\omega_i) = c_{i,j}$, and set $A(X) = \sum_{j} z_j A_j(X)$, $B(X) = \sum_{j} z_j B_j(X)$, $C(X) = \sum_{j} z_j C_j(X)$. The witness $\mathbf{z}$ satisfies all constraints if and only if ([[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]], following Gennaro, Gentry, Parno, and Raykova, EUROCRYPT 2013):
 $$t(X) \mid A(X) \cdot B(X) - C(X).$$
 
 This divisibility check can be verified at a single random point using the Schwartz-Zippel lemma, which is how SNARKs like Groth16 reduce circuit satisfiability to a pairing check.
@@ -53,7 +53,7 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - [[arithmetization-to-zk-snark-gro16|Arithmetization ⇒ zk-SNARK]]
 - [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
 - [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$); NOT and XOR are linear and free — standard
+- For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$), as does each XOR gate over $\FF_p$ with $p > 2$ ($2a \cdot b = a + b - c$); NOT is affine and free — standard
 
 <!-- BEGIN GENERATED participates-in 2c4480f0a436 -->
 

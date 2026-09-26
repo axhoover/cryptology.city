@@ -41,7 +41,7 @@ over $(\pp, \msk) \gets \Setup(1^\secpar, p, n)$ and randomness of $\KeyGen$ and
 
 ### Full Attribute-Hiding Security
 
-In the full attribute-hiding game, the adversary submits two ciphertext candidates $(x_0, m_0)$ and $(x_1, m_1)$ and receives an encryption of one of them. Admissibility requires that every queried key vector $v$ is consistent with both candidates: $\langle v, x_0 \rangle = 0 \Leftrightarrow \langle v, x_1 \rangle = 0 \pmod{p}$.
+In the full attribute-hiding game, the adversary submits two ciphertext candidates $(x_0, m_0)$ and $(x_1, m_1)$ and receives an encryption of one of them. Admissibility requires that every queried key vector $v$ is consistent with both candidates: $\langle v, x_0 \rangle = 0 \Leftrightarrow \langle v, x_1 \rangle = 0 \pmod{p}$; and if some queried $v$ has $\langle v, x_0 \rangle = \langle v, x_1 \rangle = 0$, then $m_0 = m_1$, since that key decrypts $c^*$ — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].
 
 ```pseudocode
 \begin{algorithm}
@@ -51,7 +51,7 @@ In the full attribute-hiding game, the adversary submits two ciphertext candidat
 \State $(\pp, \msk) \gets \Setup(1^\secpar, p, n)$; $b \getsr \bits$
 \State $\calO_{\mathrm{key}}(v) := \KeyGen(\msk, v)$
 \State $((x_0, m_0), (x_1, m_1), \stA) \gets \calA^{\calO_{\mathrm{key}}}(1^\secpar, \pp)$
-\Comment{For all queried $v$: $\langle v, x_0 \rangle = 0$ iff $\langle v, x_1 \rangle = 0$ (mod $p$)}
+\Comment{For all queried $v$: $\langle v, x_0 \rangle = 0$ iff $\langle v, x_1 \rangle = 0$ (mod $p$); if some queried $v$ has $\langle v, x_0 \rangle = 0$, then $m_0 = m_1$}
 \State $c^* \gets \Enc(\pp, x_b, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
 \Comment{Same admissibility constraint holds throughout}

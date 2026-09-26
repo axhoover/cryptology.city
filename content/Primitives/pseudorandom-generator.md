@@ -70,7 +70,7 @@ The pseudorandomness of a trapdoor PRG is equivalent to the pseudorandomness
 of $(\Gen,\Eval)$ treated as a PRG with
 keyspace $(\calK\times \calT).$ Beyond that, a trapdoor PRG should be
 
-- $(1-\varepsilon)$-**complete**: meaning $k \in \calK,$
+- $(1-\varepsilon)$-**complete**: for all $\secpar \in \NN,$
   $$
       \Pr[\Invert(t, \Eval(t,k)) = 1 : (t,k) \getsr \Gen(1^{\secpar})] \ge 1 - \varepsilon,
   $$

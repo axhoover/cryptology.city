@@ -114,7 +114,7 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 ## Ring LWE
 
-**Ring LWE (RLWE)** restricts LWE to the polynomial ring $R_q = \ZZ_q[x]/\langle f(x)\rangle$, where $f$ is a cyclotomic polynomial of degree $n$ (typically $f(x) = x^n + 1 = \Phi_{2n}(x)$, the $2n$-th cyclotomic polynomial, for $n$ a power of 2) — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]. A Ring LWE sample is a pair $(a, b) \in R_q \times R_q$ where $a \getsr R_q$ is a random ring element and $b = a \cdot s + e$ for a secret $s \in R_q$ and small error $e \gets \chi^R$ drawn from an error distribution over $R_q$.
+**Ring LWE (RLWE)** restricts LWE to the polynomial ring $R_q = \ZZ_q[x]/\langle f(x)\rangle$, where $f$ is a cyclotomic polynomial of degree $n$ (typically $f(x) = x^n + 1 = \Phi_{2n}(x)$ for $n$ a power of 2) — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]. A Ring LWE sample is a pair $(a, b) \in R_q \times R_q$ where $a \getsr R_q$ is a random ring element and $b = a \cdot s + e$ for a secret $s \in R_q$ and small error $e \gets \chi^R$ drawn from an error distribution over $R_q$.
 
 The key advantage is efficiency: the random matrix $\mathbf{A} \in \ZZ_q^{m \times n}$ in plain LWE (requiring $O(n^2)$ space) is replaced by a single ring element $a \in R_q$ (requiring $O(n \log q)$ space), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
 

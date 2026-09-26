@@ -29,7 +29,7 @@ A _commitment scheme_ is a tuple of efficient algorithms $\mathsf{COM} = (\Gen, 
 
 ### Correctness
 
-For all $\secpar \in \NN$, $m \in \calM$, and $(c, d) \gets \Com(\pp, m; r)$ with $r \getsr \bits^*$, we have $\Open(\pp, c, d) = m$ with probability 1.
+For all $\secpar \in \NN$ and $m \in \calM$, $\Open(\pp, c, d) = m$ with probability 1 over $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
 
 ### Hiding
 
@@ -37,7 +37,7 @@ The commitment $c$ reveals no information about $m$ before opening. Computationa
 
 $$\Adv^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) = 1\right] - 1\right|$$
 
-is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(m_0, m_1)$ from $\calA$, picks $b \getsr \bits$, sends $(c, d) \gets \Com(\pp, m_b; r)$ to $\calA$, and $\calA$ outputs $b'$.
+is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(m_0, m_1)$ from $\calA$, picks $b \getsr \bits$, computes $(c, d) \gets \Com(\pp, m_b)$, sends $c$ to $\calA$, receives $b'$ from $\calA$, and outputs $[b' = b]$.
 
 A commitment is **statistically hiding** if this holds even against computationally unbounded adversaries.
 
@@ -51,7 +51,7 @@ is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(c,
 
 A commitment is **statistically binding** if this holds even against computationally unbounded adversaries.
 
-**Note:** Perfect (simultaneously statistically hiding and statistically binding) commitment schemes are impossible by a simple entropy argument. The four regimes are: (1) perfectly binding / computationally hiding, (2) computationally binding / statistically hiding, (3) computationally binding / computationally hiding, and (4) perfectly binding / perfectly hiding — which is impossible.
+**Note:** No commitment scheme is simultaneously statistically hiding and statistically binding — folklore. The achievable regimes are: (1) statistically binding / computationally hiding, (2) computationally binding / statistically hiding, and (3) computationally binding / computationally hiding.
 
 # Variations
 
@@ -67,10 +67,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 
 - [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
-- [[com-to-mpc-gmw87|COM ⇒ MPC]]
-- [[com-to-ot-kil88|COM ⇒ OT]]
 - [[pke-to-com|PKE ⇒ COM]]
-- Statistically hiding COM is equivalent to [[statistical-zero-knowledge|SZK]] $\ne$ [[bounded-error-probabilistic-polynomial-time|BPP]] — standard
 - [[ddh-to-com|DDH ⇒ COM]]
 
 <!-- BEGIN GENERATED participates-in 591ac2af1d63 -->

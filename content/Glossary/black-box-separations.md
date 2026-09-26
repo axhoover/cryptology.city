@@ -57,19 +57,19 @@ The landmark result of [[IR89 - Limits on the provable consequences of one-way p
 **Corollaries.**
 
 1. No fully black-box construction of KA from OWP can exist.
-2. Any proof that $\mathrm{OWP} \Rightarrow \mathrm{KA}$ must use non-black-box techniques.
-3. Such a proof would be as hard as proving $\classP \neq \classNP$: the oracle separation shows that in the random permutation world, any black-box security argument must rule out a concrete polynomial-time eavesdropper, which is equivalent to proving $\classP \neq \classNP$ relative to that oracle.
+2. No relativizing proof can show that $\mathrm{OWP} \Rightarrow \mathrm{KA}$ — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
+3. Relative to a random permutation, if $\classP = \classNP$ then every KA protocol is broken, so proving secure any KA protocol that uses a OWP as a black box is as hard as proving $\classP \neq \classNP$ — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
 **Proof sketch.**
-Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$. The argument proceeds in two parts:
+Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$ together with a $\classPSPACE$-complete oracle. The argument proceeds in two parts:
 
 - _OWP exists relative to $O$:_ A random permutation is information-theoretically one-way — no algorithm, regardless of running time, can invert it with non-negligible probability without querying $\pi$ near-exhaustively.
 
-- _KA is impossible relative to $O$:_ Consider any two-party protocol in which Alice and Bob each make at most $\ell$ queries to $\pi$ and exchange a public transcript. An eavesdropper, given the transcript and oracle access to $\pi$, can recover the shared key by exhaustively exploring the parties' computation trees. The key insight is that conditioned on the public transcript, a consistent lazy extension of $\pi$ to new points is uniformly distributed; the eavesdropper simulates Alice's and Bob's computation path through the protocol tree, querying $\pi$ on branches they might have explored, and recovers their shared key using $O(\ell^6)$ queries.
+- _KA is impossible relative to $O$:_ Consider any two-party protocol in which Alice and Bob each make at most $\ell$ queries to $\pi$ and exchange a public transcript. An eavesdropper, given the transcript and oracle access to $\pi$, can recover the shared key by exhaustively exploring the parties' computation trees. The key insight is that conditioned on the public transcript, a consistent lazy extension of $\pi$ to new points is uniformly distributed; the eavesdropper simulates Alice's and Bob's computation path through the protocol tree, querying $\pi$ on branches they might have explored, and recovers their shared key using $\tilde{O}(\ell^{12})$ queries to $\pi$ ($\tilde{O}(\ell^6)$ when the oracle is a random function); the $\classPSPACE$ oracle makes its remaining computation polynomial-time — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
 A black-box security reduction would convert this eavesdropper (which is efficient relative to $O$) into an inverter for $\pi$ — contradicting one-wayness. Hence no such reduction can exist.
 
-**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper from $O(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by Merkle's Puzzles [[Mer78]]. This shows that Merkle's Puzzles are _query-complexity optimal_: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper. Together, IR89 and BM09 give a complete picture of the complexity of key agreement in the random oracle model.
+**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by Merkle's Puzzles [[Mer78]]. This shows that Merkle's Puzzles are _query-complexity optimal_: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper.
 
 ## Other Notable Separations
 

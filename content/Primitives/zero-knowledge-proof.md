@@ -46,7 +46,7 @@ A stronger notion: there exists an efficient **extractor** $E$ such that if $P^*
 
 ### Zero-knowledge
 
-The interaction reveals nothing beyond $x \in L$. Formally, there exists an efficient **simulator** $\Sim$ such that for all $x \in L$, the distribution of $\Sim(x)$ is computationally (or statistically, or perfectly) indistinguishable from the real interaction transcript $\langle P(x, w), V^*(x) \rangle$ for any $V^*$.
+The interaction reveals nothing beyond $x \in L$. Formally, for every efficient verifier $V^*$ there exists an efficient **simulator** $\Sim$ such that for all $x \in L$, the distribution of $\Sim(x)$ is computationally (or statistically, or perfectly) indistinguishable from the view of $V^*$ in the real interaction $\langle P(x, w), V^*(x) \rangle$ — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]].
 
 # Variations
 
@@ -74,12 +74,11 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 - [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
 - [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
-- All languages in IP (= [[polynomial-space|PSPACE]]) have statistical ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
+- Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - [[zkp-to-hash-function|ZKP ⇒ Hash function]]
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 - [[dlog-to-zkp|DLOG ⇒ ZKP]]
 - [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
 - [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
 
 <!-- BEGIN GENERATED participates-in 71769486df05 -->

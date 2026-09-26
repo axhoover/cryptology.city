@@ -22,7 +22,7 @@ In his paper, Impagliazzo illustrates the differences between "worst-case" and "
 
 - **Algorithmica**: $\classP=\classNP$ (or something "morally equivalent"), where we can solve NP-complete problems efficiently
 - **Heuristica**: $\classP\neq \classNP$ but $\classNP$ problems are still easy on average
-- **Pessiland**: $\classP\neq \classNP$ but OWFs do not exist
+- **Pessiland**: $\classNP$ is hard on average but OWFs do not exist — [[Imp95 - A personal view of average-case complexity|Imp95]]
 - **Minicrypt**: OWFs exist but TDPs do not exist
 - **Cryptomania**: TDPs exist
 
@@ -42,7 +42,7 @@ $\classP \neq \classNP$ is a **worst-case** statement: it says there exist some 
 
 **One-way functions**, by contrast, require **average-case** hardness: the function must be hard to invert on a _random_ input drawn from some natural distribution. An adversary that inverts on even a polynomial fraction of inputs breaks the OWF. This is a much stronger statement than worst-case hardness, and it is not known whether $\classP \neq \classNP$ implies it.
 
-This gap explains why Pessiland exists: a world where NP is hard in the worst case (so $\classP \neq \classNP$) but NP is easy on average — meaning random instances of NP problems are tractable — so OWFs cannot exist.
+This gap explains why Heuristica exists: a world where NP is hard in the worst case (so $\classP \neq \classNP$) but NP is easy on average — meaning random instances of NP problems are tractable — so OWFs cannot exist — [[Imp95 - A personal view of average-case complexity|Imp95]].
 
 There is also work trying to understand if $\classP \neq \classNP$ actually could imply [[hash-function|OWFs]] exist (or the barriers to trying to prove this):
 
@@ -59,19 +59,19 @@ Instead of enumerating all of them though, I'll just discuss a handful of them t
 
 ## Breaking up Cryptomania
 
-In his original paper, Impagliazzo actually suggested that Cryptomania includes the existence of [[oblivious-transfer|OT]] and [[homomorphic-encryption|HE]]. However, I've simplified the definition to just be the existence of a [[trapdoor-permutation|TDF]].
+In his original paper, Impagliazzo actually suggested that Cryptomania includes the existence of [[oblivious-transfer|OT]] and [[homomorphic-encryption|HE]]. However, I've simplified the definition to just be the existence of a [[trapdoor-permutation|TDP]].
 
-Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption. TDPs (equivalently, the existence of PKE or OT) unlock the full power of asymmetric cryptography. [[Oblivious transfer|OT]] is complete for all of MPC, so Cryptomania is also the world where general secure computation is possible.
+Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but no relativizing construction of key agreement, hence of public-key encryption, from them exists — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]. TDPs imply PKE — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]] — and enhanced TDPs imply OT — [[EGL85 - A randomized protocol for signing contracts|EGL85]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]; under black-box reductions neither PKE nor OT implies TDPs, and PKE and OT are incomparable — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]. [[Oblivious transfer|OT]] is complete for all of MPC, so Cryptomania is also the world where general secure computation is possible.
 
 **Fully homomorphic encryption (FHE)** is an interesting case: it is not known to follow from TDPs alone. Current constructions all rely on lattice assumptions ([[learning-with-errors|LWE]] with circular security). Whether FHE follows from Cryptomania (TDPs) is a major open problem.
 
 ## Obfustopia
 
-**[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+**[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] in the CRS model, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 What makes iO peculiar is that it can exist even in a world where $\classP = \classNP$: the definition of iO does not require any computational hardness beyond the existence of OWFs. This makes Obfustopia conceptually orthogonal to the Impagliazzo hierarchy — it is not strictly between Cryptomania and some "stronger" world, but a separate axis of assumptions.
 
-The first candidate iO construction was proposed in [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] based on multilinear maps. A construction from well-founded (polynomial) hardness assumptions — sub-exponential LWE, LPN, and a PRG in NC$^1$ — was given in [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
+The first candidate iO construction was proposed in [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] based on multilinear maps. A construction from well-founded assumptions — the sub-exponential hardness of SXDH on asymmetric bilinear groups, LWE, LPN over $\ZZ_p$, and a Boolean PRG in NC$^0$ with stretch $n^{1+\tau}$ — was given in [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
 
 ## Microcrypt
 
@@ -81,7 +81,7 @@ The key insight is that quantum **unclonability** (the no-cloning theorem) can s
 
 - [[owsg-to-qm|OWSG ⇒ QM]]
 - [[owsg-to-unclonable-encryption|OWSG ⇒ Unclonable encryption]]
-- **Pseudorandom quantum states** (PRS) can exist even if $\classP = \classNP$, since no efficient quantum algorithm can distinguish a PRS from a Haar-random state
+- **Pseudorandom quantum states** (PRS) exist relative to a quantum oracle under which $\classBQP = \classQMA$ (Kretschmer, TQC 2021), and single-copy-secure PRS exist relative to a classical oracle under which $\classP = \classNP$ (Kretschmer–Qian–Sinha–Tal, STOC 2023)
 
 The landscape of quantum cryptography without OWFs is mapped out in [[GMMY24 - CountCrypt Quantum Cryptography between QCMA and PP|GMMY24]], which identifies a rich hierarchy of quantum cryptographic primitives that may separate Pessiland from Minicrypt in the quantum setting.
 

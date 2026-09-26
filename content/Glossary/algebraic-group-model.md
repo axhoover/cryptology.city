@@ -29,19 +29,20 @@ Informally, an algebraic adversary must "explain" every group element it uses. I
 The following results are due to [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] for algebraic adversaries in cyclic groups:
 
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - **Groth's SNARK:** the knowledge-soundness of Groth's zero-knowledge SNARK holds in the AGM.
 
 These reductions, combined with the $\Omega(\sqrt{p})$ GGM lower bound of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], yield tight concrete lower bounds for CDH and related problems against algebraic-and-generic adversaries.
 
+The AGM constrains only the group elements an adversary outputs, so it places no restriction on a [[decisional-diffie-hellman|DDH]] distinguisher, which outputs a bit. Rotem and Segev (TCC 2020) introduce _algebraic distinguishers_, a strengthening of the AGM that captures decisional problems, and show that DLOG implies DDH against them.
+
 ## Comparison with the GGM
 
 The relationship between the AGM and the [[generic-group-model|GGM]] has been the subject of significant study.
 
-[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every GGM-secure scheme is AGM-secure, and AGM lower bounds lift to the GGM.
+[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every AGM-secure scheme is GGM-secure, and AGM lower bounds lift to the GGM.
 
-[[KZ22 - An Analysis of the Algebraic Group Model|Katz and Zhang (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM. The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
+[[KZ22 - An Analysis of the Algebraic Group Model|Zhang, Zhou, and Katz (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM. The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
 
 ## Comparison with the Standard Model
 

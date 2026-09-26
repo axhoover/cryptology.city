@@ -18,14 +18,14 @@ The _noisy $k$-LIN over expanders_ conjecture posits that no efficient adversary
 
 ## Assumption
 
-A matrix $\mathbf{M} \in \FF_p^{m \times n}$ is _$(\gamma, d, N)$-expanding_ if each column has exactly $d$ nonzero entries drawn from $\FF_p^*$, and for every set $S \subseteq [n]$ with $|S| \le N$, the neighborhood $\{i : M_{ij} \ne 0 \text{ for some } j \in S\}$ has size at least $\gamma d |S|$. The GHJS25 conjecture instantiates this with $d = \Omega(\log n)$ and $N = 2^{(\log n)^\alpha}$ for some $\alpha \in (0,1)$.
+A matrix $\mathbf{M} \in \FF_p^{m \times n}$ is _$(\gamma, d, N)$-expanding_ if each row has exactly $d$ nonzero entries drawn from $\FF_p^*$, and for every set $S \subseteq [m]$ of rows with $|S| \le N$, the neighborhood $\{j : M_{ij} \ne 0 \text{ for some } i \in S\}$ has size at least $\gamma d |S|$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]. The GHJS25 conjecture instantiates this with $d = \Omega(\log n)$ and $N = 2^{(\log n)^\alpha}$ for some $\alpha \in (0,1)$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{nklin}}_{\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathbf{M} \getsr \FF_p^{m \times n}$ with each column $(\gamma, d, N)$-expanding
+\State $\mathbf{M} \getsr \FF_p^{m \times n}$ that is $(\gamma, d, N)$-expanding
 \State $\mathbf{s} \getsr \FF_p^n$ ; $\mathbf{e} \getsr \mathrm{Ber}_p(\varepsilon)^m$
 \Comment{Each $e_i = 0$ w.p. $1-\varepsilon$, uniform in $\FF_p^*$ w.p. $\varepsilon$}
 \State $b \getsr \bits$
@@ -54,7 +54,7 @@ is negligible.
 
 ## Noisy $k$-LIN over $\FF_2$ (Sparse LPN)
 
-Setting $p = 2$ recovers [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]: the noise over $\FF_2^* = \{1\}$ is simply a Bernoulli bit flip. Earlier works on pseudorandom correlation generators (PCGs) used "Sparse LPN" for this $\FF_2$ case; GHJS25 adopts "noisy $k$-LIN" to emphasize the $\FF_p$ generalization and the column-$k$-sparse structure of $\mathbf{M}$.
+Setting $p = 2$ recovers [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]: the noise over $\FF_2^* = \{1\}$ is simply a Bernoulli bit flip. Earlier works on pseudorandom correlation generators (PCGs) used "Sparse LPN" for this $\FF_2$ case; GHJS25 adopts "noisy $k$-LIN" to emphasize the $\FF_p$ generalization and the row sparsity of $\mathbf{M}$ ($d$ nonzero entries per equation).
 
 ## Search noisy $k$-LIN
 

@@ -48,7 +48,7 @@ is negligible.
 
 ## Related results
 
-- [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ NTRU]]
+- [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ IND-CPA NTRUEncrypt]] with discrete-Gaussian keys over $\ZZ[x]/(x^n+1)$, not the NTRU problem above — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]
 - [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 
 # Variations

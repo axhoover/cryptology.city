@@ -41,11 +41,11 @@ By default DEPIR scheme outputs no key i.e. $k = \bot$ with probability $1$. The
 
 ### Public-key DEPIR
 
-The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and indices $i_0$ and $i_1$ is defined as $$\Adv^{\mathrm{priv}}_{\calA}(\secpar) \le 2\left|\Pr[\calA(1^\secpar,k,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$.
+The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and indices $i_0$ and $i_1$ is defined as $$\Adv^{\mathrm{priv}}_{\calA}(\secpar) := 2\left|\Pr[\calA(1^\secpar,k,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$. A PK-DEPIR scheme is **private** if for all efficient $\calA$, $\Adv^{\mathrm{priv}}_{\calA}(\secpar)$ is negligible.
 
 ### Secret-key DEPIR
 
-In secret-key DEPIR, the privacy advantage is relaxed to, where $\calA$ is not given access to the key $k$ as follows, $$\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar) \le 2\left|\Pr[\calA(1^\secpar,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$.
+In secret-key DEPIR, the privacy advantage is relaxed to, where $\calA$ is not given access to the key $k$ as follows, $$\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar) := 2\left|\Pr[\calA(1^\secpar,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$. An SK-DEPIR scheme is **secret-key private** if for all efficient $\calA$, $\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar)$ is negligible.
 
 # Variations
 
@@ -55,8 +55,8 @@ TODO
 
 # Other results
 
-- [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
-- Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
+- [[lwe-to-depir-lmw23|Ring-LWE ⇒ DEPIR]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+- Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct SK-DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ DEPIR]]
 
 <!-- BEGIN GENERATED participates-in 794ee1079d1a -->

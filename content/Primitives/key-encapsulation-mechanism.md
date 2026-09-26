@@ -59,12 +59,12 @@ is negligible. The adversary cannot query the decapsulation oracle on the challe
 
 ## KEM-DEM hybrid encryption
 
-Given an IND-CCA KEM and an IND-CPA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
+Given an IND-CCA KEM and a one-time IND-CCA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
 
 - $\Enc(\pk, m)$: run $(c_1, k) \gets \mathsf{Encap}(\pk)$; run $c_2 \gets \mathsf{SKE.Enc}(k, m)$; output $(c_1, c_2)$.
 - $\Dec(\sk, (c_1, c_2))$: run $k \gets \mathsf{Decap}(\sk, c_1)$; output $\mathsf{SKE.Dec}(k, c_2)$.
 
-This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is IND-CPA secure (or even OT-secure for a one-time pad).
+This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
 
 # Variations
 
@@ -74,11 +74,11 @@ A weaker KEM where the adversary has no decapsulation oracle. Sufficient for pas
 
 ## Lattice-based KEM (Kyber / ML-KEM)
 
-Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (rank-3 module over a polynomial ring). Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme.
+Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (module rank 2, 3, 4 over $\ZZ_q[X]/(X^{256}+1)$ for Kyber-512, -768, -1024) — [[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]. Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme.
 
 ## RSA-KEM / RSAES-OAEP
 
-RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|random oracle model]].
+RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and derives $k = \hash(r)$; it is IND-CCA secure under [[rsa-assumption|RSA]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]. RSAES-OAEP is a [[public-key-encryption|PKE]], not a KEM; it is IND-CCA secure under RSA in the random oracle model — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
 
 # Other results
 

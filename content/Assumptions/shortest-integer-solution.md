@@ -50,11 +50,11 @@ Solving SIS on average (over a uniformly random $\mathbf{A}$) is at least as har
 
 ### Collision-resistant hash functions
 
-The function family $\{f_\mathbf{A} : \mathbf{z} \mapsto \mathbf{Az} \bmod q\}$, restricted to inputs $\mathbf{z} \in \{0, \ldots, \lfloor \beta/2 \rfloor\}^m$, is a [[collision-resistant-hash-function|collision-resistant hash function]] family under SIS hardness — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Any collision $f_\mathbf{A}(\mathbf{z}) = f_\mathbf{A}(\mathbf{z}')$ with $\mathbf{z} \neq \mathbf{z}'$ yields $\mathbf{A}(\mathbf{z} - \mathbf{z}') = \mathbf{0} \pmod q$ with $\|\mathbf{z} - \mathbf{z}'\| \leq \beta$, which is exactly a SIS solution.
+The function family $\{f_\mathbf{A} : \mathbf{z} \mapsto \mathbf{Az} \bmod q\}$, restricted to inputs $\mathbf{z} \in \{0, \ldots, \lfloor \beta/\sqrt{m} \rfloor\}^m$, is a [[collision-resistant-hash-function|collision-resistant hash function]] family under SIS hardness — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Any collision $f_\mathbf{A}(\mathbf{z}) = f_\mathbf{A}(\mathbf{z}')$ with $\mathbf{z} \neq \mathbf{z}'$ yields $\mathbf{A}(\mathbf{z} - \mathbf{z}') = \mathbf{0} \pmod q$ with $\|\mathbf{z} - \mathbf{z}'\| \leq \beta$, which is exactly a SIS solution.
 
 ## Attacks
 
-- **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\Lambda^\perp(\mathbf{A}) = \{\mathbf{z} \in \ZZ^m : \mathbf{Az} = \mathbf{0} \pmod q\}$ using BKZ-style block reduction algorithms. Runtime is sub-exponential in the BKZ block size — _standard_.
+- **Lattice reduction (LLL/BKZ):** The best known attacks find short vectors in the $q$-ary lattice $\Lambda^\perp(\mathbf{A}) = \{\mathbf{z} \in \ZZ^m : \mathbf{Az} = \mathbf{0} \pmod q\}$ using BKZ-style block reduction algorithms. Runtime is exponential in the BKZ block size $b$: the best known SVP oracles (sieving) cost $2^{\Theta(b)}$ — _standard_.
 
 # Variations
 
@@ -66,13 +66,13 @@ ISIS is polynomially equivalent to SIS under mild parameter conditions, and is t
 
 ## Ring-SIS
 
-**Ring-SIS** replaces the random matrix $\mathbf{A} \in \ZZ_q^{n \times m}$ with a structured matrix defined by a single element of the polynomial ring $R_q = \ZZ_q[x]/\langle x^n + 1 \rangle$ (for $n$ a power of 2). Specifically, the matrix is the negacyclic convolution matrix of a random $a \getsr R_q$, and a Ring-SIS solution is a short polynomial $z \in R$ with $a \cdot z = 0$ in $R_q$.
+**Ring-SIS** replaces the random matrix $\mathbf{A} \in \ZZ_q^{n \times m}$ with a structured matrix defined by $\ell = m/n$ elements of the polynomial ring $R_q = \ZZ_q[x]/\langle x^n + 1 \rangle$ (for $n$ a power of 2). Specifically, the matrix is the concatenation of the negacyclic convolution matrices of random $a_1, \ldots, a_\ell \getsr R_q$, and a Ring-SIS solution is a short nonzero $(z_1, \ldots, z_\ell) \in R^\ell$ with $\sum_i a_i z_i = 0$ in $R_q$ — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]], [[PR06 - Efficient Collision-Resistant Hashing from Worst-Case Assumptions on Cyclic Lattices|PR06]].
 
-Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now reducing from ideal-SVP (shortest vectors in ideal lattices), and enables $O(n \log n)$ arithmetic and $O(n \log q)$-bit keys — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]].
+Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now reducing from ideal-SVP (shortest vectors in ideal lattices), and enables $O(n \log n)$ arithmetic per ring product and keys of $\ell n \log q = m \log q$ bits rather than $nm \log q$ — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]].
 
 ## Module-SIS
 
-**Module-SIS** interpolates between plain SIS (unstructured) and Ring-SIS (fully structured) by using rank-$k$ modules over $R_q$. The random matrix $\mathbf{A} \in R_q^{n \times k}$ has ring elements as entries, and a Module-SIS solution is a short vector $\mathbf{z} \in R^k$ with $\mathbf{Az} = \mathbf{0}$ in $R_q^n$. Setting $k = 1$ recovers Ring-SIS; setting $k = n$ recovers plain SIS.
+**Module-SIS** interpolates between plain SIS (unstructured) and Ring-SIS (fully structured) by using rank-$k$ modules over $R_q$. The random matrix $\mathbf{A} \in R_q^{k \times \ell}$ has ring elements as entries, and a Module-SIS solution is a short nonzero vector $\mathbf{z} \in R^\ell$ with $\mathbf{Az} = \mathbf{0}$ in $R_q^k$. Setting $k = 1$ recovers Ring-SIS; setting the ring degree $n = 1$ (so $R = \ZZ$) recovers plain SIS — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Module-SIS is the hardness assumption underlying the NIST post-quantum signature standard Dilithium (ML-DSA, FIPS 204).
 

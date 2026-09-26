@@ -33,8 +33,28 @@ where $f_{\alpha,\beta}(x) = \beta$ if $x = \alpha$ and $0$ otherwise.
 
 ### Hiding (Security)
 
-For $b \in \bits$, key $k_b$ reveals nothing about $(\alpha, \beta)$: for all efficient $\calA$,
-$$\left|2\Pr\!\left[\calA(1^\secpar, k_b) = \alpha\right] - 1\right| \le \negl(\secpar).$$
+For $b \in \bits$, key $k_b$ reveals nothing about $(\alpha, \beta)$ beyond $[N]$ and $\GG$:
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{hide}}_{\mathsf{DPF},\calA,b}(\secpar)$}
+\begin{algorithmic}
+\State $(\alpha_0, \beta_0, \alpha_1, \beta_1, \stA) \gets \calA(1^\secpar)$; $c \getsr \bits$
+\State $(k_0, k_1) \gets \Gen(1^\secpar, \alpha_c, \beta_c)$
+\State $c' \gets \calA(k_b, \stA)$
+\Return $[c' = c]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A DPF $\mathsf{DPF}$ is **hiding** if for all $b \in \bits$ and all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{hide}}_{\mathsf{DPF},\calA,b}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hide}}_{\mathsf{DPF},\calA,b}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[GI14 - Distributed Point Functions and Their Applications|GI14]], [[BGI15 - Function Secret Sharing|BGI15]].
 
 # Variations
 
@@ -50,7 +70,7 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 
 - [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
-- [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
+- [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
 - DPFs generalize to FSS for richer function classes including intervals, halfspaces, and decision trees — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
 - DPF key size lower bound: any 2-server DPF for $N$-element domain has keys of size $\Omega(\secpar + \log N)$ — standard
 

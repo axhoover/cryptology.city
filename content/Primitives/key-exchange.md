@@ -52,7 +52,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 - [[ddh-to-ke-dh76|DDH ⇒ KE]]
 - [[ke-to-pke-dh76|KE ⇒ PKE]]
-- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]] — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]

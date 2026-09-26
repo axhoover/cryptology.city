@@ -154,7 +154,7 @@ is negligible.
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
-- Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
+- Any PIR without preprocessing requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
 

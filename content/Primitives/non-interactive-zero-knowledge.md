@@ -32,7 +32,7 @@ For all $x \in L$ with witness $w$, $\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1$ wit
 
 ### Soundness / Argument
 
-For all efficient $P^*$: $\Pr[\Vrfy(\crs, x, P^*(\crs, x)) = 1 \wedge x \notin L] \le \negl(\secpar).$
+For all $P^*$, $\Pr\!\left[\Vrfy(\crs, x, \pi) = 1 \wedge x \notin L\right] \le \negl(\secpar)$ over $\crs \gets \Setup(1^\secpar)$ and $(x, \pi) \gets P^*(\crs)$.
 
 If soundness holds only against efficient provers (using computational hardness), the system is called a **NIZK argument**.
 
@@ -51,22 +51,21 @@ An SS-NIZK remains sound even against adversaries who have seen simulated proofs
 A **Succinct Non-interactive ARgument of Knowledge (zk-SNARK)** is a NIZK argument with the additional properties that:
 
 - The proof $\pi$ is short (polylogarithmic in the circuit size)
-- Verification is fast (polylogarithmic in the statement size)
+- Verification is fast (polynomial in $\secpar$ and $|x|$, polylogarithmic in the circuit size) — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]
 - The prover has knowledge soundness (a witness can be extracted)
 
 See [[succinct-argument|SNARKs]] for more detail.
 
 ## NIZK in the random oracle model
 
-Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-proof|sigma protocol]] can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the prover's commitment.
+Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-proof|sigma protocol]] with a superpolynomial-size challenge space can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the statement and the prover's commitment — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
 
 # Other results
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
 - [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
 - [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
 - [[nizk-to-com|NIZK ⇒ COM]]
 - [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]

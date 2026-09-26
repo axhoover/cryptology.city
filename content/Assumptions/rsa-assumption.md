@@ -52,7 +52,7 @@ is negligible.
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - **Factoring reduces to RSA**: an algorithm that inverts $x^e \bmod n$ for _all_ $e$ can be used to factor $n$. The converse direction — whether factoring reduces to RSA for a _fixed_ $e$ — is not known in general.
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
-- Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
+- Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
 # Variations
 

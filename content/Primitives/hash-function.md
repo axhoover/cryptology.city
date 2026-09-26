@@ -23,7 +23,8 @@ in cryptography. Most often, it is required that the hash function is _one-way_
 or preimage resistant. If such a hash function exists, then many other
 primitives are known to exist. In other settings, it's important that the hash
 function is _collision resistant_, meaning that it is hard to find two
-colliding inputs and implies one-wayness.
+colliding inputs; when $|\calR|/|\calD|$ is negligible, this implies one-wayness
+(Rogaway–Shrimpton, FSE 2004).
 
 ## Syntax
 
@@ -69,8 +70,8 @@ is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
 ### Collision resistance
 
 Often times, protocols require stronger properties than one-wayness alone.
-Collision resistant hash functions are strictly stronger than
-preimage resistance.
+When $|\calR|/|\calD|$ is negligible, collision resistance implies preimage
+resistance, but not conversely (Rogaway–Shrimpton, FSE 2004).
 
 ```pseudocode
 \begin{algorithm}
