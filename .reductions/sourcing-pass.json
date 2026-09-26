@@ -4581,5 +4581,7 @@
   "Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices",
   "Yao82a - Theory and Applications of Trapdoor Functions",
   "Yao86 - How to Generate and Exchange Secrets"
- ]
+ ],
+ "working_files_commit": "ecd874daaa208b3e2f5cc153f5277fa6aa8172bc",
+ "working_files_note": "Per-page research and verification JSON (sources, class justifications, sketches, verifier changes), the pass's instructions and scripts live under .sourcing-pass/ at this commit; they were removed from the tree afterwards."
 }
