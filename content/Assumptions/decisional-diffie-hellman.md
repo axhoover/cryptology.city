@@ -52,7 +52,7 @@ is negligible.
 - [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
-- DDH is easy in groups that admit efficient bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$
+- DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — Joux–Nguyen, J. Cryptology 2003
 - In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 ## Attacks

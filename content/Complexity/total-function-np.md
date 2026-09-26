@@ -33,11 +33,11 @@ TFNP contains several important subclasses defined by the combinatorial principl
 ## Known relationships
 
 - $\classP \subseteq \classFP \subseteq \classTFNP \subseteq \mathbf{FNP}$.
-- No TFNP problem is NP-hard unless NP = coNP, since a reduction from SAT to a total problem yields NP certificates of unsatisfiability (Megiddo–Papadimitriou, TCS 1991).
+- No TFNP problem is NP-hard unless NP = coNP (Megiddo–Papadimitriou, TCS 1991).
 
 ## Relevance to cryptography
 
-Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming sub-exponentially secure indistinguishability obfuscation and one-way functions (Bitansky–Paneth–Rosen, FOCS 2015).
+Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure (Bitansky–Paneth–Rosen, FOCS 2015).
 
 <!-- BEGIN GENERATED participates-in 32249283f30d -->
 
