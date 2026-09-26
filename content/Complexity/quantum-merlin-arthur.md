@@ -30,9 +30,9 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 - $\classNP \subseteq \classMA \subseteq \classQCMA \subseteq \classQMA$: classical proofs can be checked classically, classically by a quantum machine, or quantumly by a quantum machine.
 - $\classQMA \subseteq \classPP \subseteq \classPSPACE$: QMA is contained in PP (Marriott-Watrous — TODO citation), and thus in PSPACE.
-- QMA is closed under intersection: this uses Marriott-Watrous error reduction (applying the swap test to two independent witnesses) — TODO citation. Closure under complement — i.e., whether $\classQMA = \mathbf{coQMA}$ — is open, analogous to the classical question of $\classMA$ vs $\mathbf{coMA}$.
+- QMA is closed under intersection: run both error-reduced verifiers ([[MW05 - Quantum Arthur-Merlin games|MW05]]), each on its own witness register, and accept iff both accept — folklore. Closure under complement — i.e., whether $\classQMA = \mathbf{coQMA}$ — is open, analogous to the classical question of $\classMA$ vs $\mathbf{coMA}$.
 - $\classQMA$ and $\classAM$ are believed incomparable.
-- **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA. It is not even known whether QMA(2) $\subseteq$ NEXP.
+- **QMA(2)**: the class with two unentangled quantum proofs is believed strictly more powerful than QMA. $\classQMA(2) \subseteq \mathbf{NEXP}$ (guess classical descriptions of both proofs and compute the acceptance probability) — folklore; whether $\classQMA(2) \subseteq \classEXP$ is open.
 
 ## Variants
 
@@ -40,7 +40,7 @@ Recent work has studied how modifications to the proof model change QMA's power:
 
 - **QMA+** (proofs with non-negative amplitudes): restricting quantum proofs to have non-negative amplitudes (no relative phase between basis states) dramatically changes the class. With one constant completeness-soundness gap, $\classQMA+ = \mathbf{NEXP}$; with a different gap, $\classQMA+ = \classQMA$ — [[BFM24 - Quantum Merlin-Arthur and Proofs Without Relative Phase|BFM24]]. This shows that _relative phase_ is at least as important a source of proof power as entanglement (since $\classQMA(2) \subseteq \mathbf{NEXP}$, removing phase collapses the class further than removing entanglement might).
 - **QMA with a non-collapsing measurement**: if the verifier may apply a single measurement that does not disturb the quantum state (a "non-collapsing" measurement), then QMA equals NEXP — [[BM25 - Superposition Detection and QMA with Non-Collapsing Measurements|BM25]], resolving an open question of Aaronson.
-- **QMA with internally separable proofs**: a variant where each proof must be "internally separable" (after tracing out one register, a small number of qubits are separable from the rest) is strictly less powerful than QMA(2), assuming EXP $\neq$ NEXP — [[BFL+24 - Quantum Merlin-Arthur with an Internally Separable Proof|BFL+24]]. This provides a new route toward proving QMA(2) = NEXP.
+- **QMA with internally separable proofs**: a variant where each proof must be "internally separable" (after tracing out one register, a small number of qubits are separable from the rest) satisfies $\classQMA_{\mathrm{IS}} \subseteq \classEXP$, while with two unentangled such proofs $\classQMA_{\mathrm{IS}}(2) = \mathbf{NEXP}$, so one proof is strictly less powerful than two, assuming EXP $\neq$ NEXP — [[BFL+24 - Quantum Merlin-Arthur with an Internally Separable Proof|BFL+24]]. This provides a new route toward proving QMA(2) = NEXP.
 
 ## Relevance to cryptography
 

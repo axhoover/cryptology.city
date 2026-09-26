@@ -37,8 +37,9 @@ $$\Pr\!\left[\Invert(\td, \Eval(f, x)) = x\right] = 1.$$
 
 ### One-wayness
 
-A TDP is **one-way** if there is some negligible function $\nu$ such that for every efficient $\calA$:
-$$\Pr_{(f,\td) \gets \Gen(1^\secpar),\, x \getsr \calD}\!\left[\Eval(f, x') = \Eval(f, x) : x' \gets \calA(1^\secpar, f, \Eval(f, x))\right] \le \nu(\secpar).$$
+A TDP is **one-way** if for all efficient $\calA$,
+$$\Pr\!\left[\Eval(f, x') = \Eval(f, x) : (f,\td) \gets \Gen(1^\secpar),\ x \getsr \calD,\ x' \gets \calA(1^\secpar, f, \Eval(f, x))\right]$$
+is negligible.
 
 ### Easy inversion with trapdoor
 
@@ -48,18 +49,18 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. This stronger property is necessary for constructing [[oblivious-transfer|OT]] from TDPs.
+An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
 
 ## Lossy trapdoor functions
 
-A generalization where there are two modes: an injective mode (standard TDP) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply TDPs and are useful for constructing CCA-secure encryption.
+A lossy trapdoor function has two computationally indistinguishable modes: an injective mode (an injective trapdoor function, not necessarily a permutation) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 # Other results
 
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+- [[no-injective-owf-to-owp-mm11|No fully black-box reduction from length-increasing injective OWF to OWP]]
 
 <!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
 

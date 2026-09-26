@@ -38,7 +38,7 @@ $$\Pr[\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1] = 1.$$
 
 ### Knowledge soundness
 
-There exists a polynomial-time extractor $\calE$ such that for all efficient $\calA$: if $\calA(\crs)$ outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE^{\calA}(\crs)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
+For all efficient $\calA$ there exists a polynomial-time extractor $\calE$ such that: if $\calA(\crs)$ outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE^{\calA}(\crs)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
 
 ### Succinctness
 
@@ -80,11 +80,11 @@ A SNARK with zero-knowledge. The verifier learns nothing about the witness beyon
 
 A **Scalable Transparent ARgument of Knowledge** achieves succinctness without any trusted setup: the $\Setup$ algorithm is public-coin (the CRS is just a random oracle / hash function). Security relies only on collision-resistant hash functions, so STARKs are post-quantum secure. Proof size is $O(\log^2 T)$ for a computation of size $T$, larger than pairing-based SNARKs but still sublinear — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
-The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, which is a transparent polynomial commitment scheme based on proximity testing to Reed-Solomon codes.
+The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, an interactive oracle proof of proximity to Reed-Solomon codes (Ben-Sasson, Bentov, Horesh, Riabzev, ICALP 2018). Combined with Merkle-tree commitments, FRI yields a transparent (list) polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].
 
 ## Universal/updatable SNARKs
 
-Systems like Plonk and Marlin use a single universal trusted setup for all circuits up to size $N$, rather than a per-circuit setup. Plonk uses PLONKish [[arithmetization]] and KZG [[polynomial-commitment|polynomial commitments]] — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+Systems like Plonk and Marlin use a single universal trusted setup for all circuits up to size $N$, rather than a per-circuit setup. Plonk uses PLONKish [[arithmetization]] and KZG [[polynomial-commitment|polynomial commitments]] ([[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]) — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]].
 
 ## Recursive SNARKs
 

@@ -78,10 +78,9 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 # Other results
 
 - [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
-- FRI-based polynomial commitments give the only known transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
-- [[pcs-to-nizk|PCS ⇒ NIZK]]
+- FRI-based polynomial commitments give transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
-- [[pcs-to-vector-commitments|PCS ⇔ Vector commitments]]
+- [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
 <!-- BEGIN GENERATED participates-in 5ba1681c666c -->
 

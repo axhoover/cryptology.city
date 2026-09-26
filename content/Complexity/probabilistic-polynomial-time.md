@@ -17,7 +17,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 ## Known relationships
 
 - $\classBPP \subseteq \classPP \subseteq \classPSPACE$: BPP has a constant gap (and thus sits inside PP), and PP's computation can be simulated in polynomial space.
-- $\classNP \subseteq \classPP$: given an NP machine, accept iff strictly more than half the nondeterministic paths lead to accepting, which is a PP criterion.
+- $\classNP \subseteq \classPP$: flip a coin; on heads accept, on tails sample a uniform candidate witness $w \in \bits^m$ and accept iff the NP verifier accepts $w$. The acceptance probability $1/2 + a/2^{m+1}$, with $a$ the number of accepting witnesses, exceeds $1/2$ exactly on "yes" inputs — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
 - $\classBQP \subseteq \classPP$: quantum polynomial-time is contained in PP — TODO citation (Adleman, DeMarrais, Huang 1997). This is the key relationship placing quantum computing within classical complexity.
 - **Toda's theorem**: $\mathbf{PH} \subseteq \classP^{\classsharpP}$, the polynomial hierarchy is contained in polynomial time with a $\classsharpP$ oracle — TODO citation (Toda 1991). Since $\classsharpP \subseteq \classFP^{\classPP}$, this also implies $\mathbf{PH} \subseteq \classP^{\classPP}$.
 - PP is closed under complement, union, and intersection — TODO citation (Beigel, Reingold, Spielman 1995).

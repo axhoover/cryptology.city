@@ -18,7 +18,7 @@ variants:
 
 # Homomorphic encryption
 
-A _homomorphic encryption (HE)_ scheme allows computation on encrypted data: given $\Enc(m_1)$ and $\Enc(m_2)$, one can produce $\Enc(f(m_1, m_2))$ for some function class $f$, without decrypting. A _fully homomorphic encryption (FHE)_ scheme supports arbitrary polynomial-time functions. The first FHE construction was given by Gentry — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+A _homomorphic encryption (HE)_ scheme allows computation on encrypted data: given $\Enc(m_1)$ and $\Enc(m_2)$, one can produce $\Enc(f(m_1, m_2))$ for $f$ in some function class $\calF$, without decrypting. A _fully homomorphic encryption (FHE)_ scheme supports arbitrary polynomial-time functions. The first FHE construction was given by Gentry — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
 ## Syntax
 
@@ -38,13 +38,13 @@ $$\Pr\!\left[\Dec(\sk, \Eval(\pk, f, \Enc(\pk, m_1), \ldots, \Enc(\pk, m_k))) = 
 
 ### Security
 
-A homomorphic encryption scheme is **IND-CPA secure** if the standard [[public-key-encryption|PKE]] semantic security game is satisfied: no efficient adversary can distinguish $\Enc(\pk, m_0)$ from $\Enc(\pk, m_1)$ for any $m_0, m_1$. (CCA security is incompatible with homomorphism.)
+A homomorphic encryption scheme is **IND-CPA secure** if the standard [[public-key-encryption|PKE]] semantic security game is satisfied: no efficient adversary can distinguish $\Enc(\pk, m_0)$ from $\Enc(\pk, m_1)$ for any $m_0, m_1$. (IND-CCA2 security is incompatible with non-trivial homomorphism: $\calA$ applies $\Eval$ to the challenge ciphertext and queries the decryption oracle on the result — folklore. IND-CCA1-secure FHE exists — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].)
 
 # Variations
 
 ## Partially homomorphic encryption (PHE)
 
-Supports homomorphism over a restricted class: only additions (e.g., Paillier from [[decisional-composite-residuosity|DCR]]) or only multiplications (e.g., unpadded RSA), but not both.
+Supports homomorphism over a restricted class: only additions (e.g., Paillier from [[decisional-composite-residuosity|DCR]] — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]) or only multiplications (e.g., ElGamal [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]], IND-CPA under [[decisional-diffie-hellman|DDH]] [[TY98 - On the Security of ElGamal Based Encryption|TY98]]), but not both. Unpadded RSA is multiplicatively homomorphic but deterministic, hence not IND-CPA secure — standard.
 
 ## Somewhat homomorphic encryption (SHE)
 
@@ -60,7 +60,7 @@ Supports arbitrary polynomial-time computation via **bootstrapping**: a special 
 
 ## Compact FHE
 
-An FHE scheme is **compact** if the ciphertext and the evaluation circuit's output have bounded size, independent of the circuit being evaluated. Gentry's original FHE is compact.
+An FHE scheme is **compact** if there is a polynomial $p$ such that every ciphertext output by $\Eval$ has length at most $p(\secpar)$, independent of the evaluated function $f$ — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]. Gentry's original FHE is compact.
 
 # Other results
 

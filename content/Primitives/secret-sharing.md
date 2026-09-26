@@ -33,8 +33,8 @@ $$\Pr\!\left[\Recon(T, \{s_i\}_{i \in T}) = s\right] = 1.$$
 
 ### Privacy
 
-For any set $T \subseteq [n]$ with $|T| < t$ and any two secrets $s_0, s_1 \in \calS$:
-$$\left\{(s_i)_{i \in T} : (s_1, \ldots, s_n) \gets \Share(s_0)\right\} = \left\{(s_i)_{i \in T} : (s_1, \ldots, s_n) \gets \Share(s_1)\right\}.$$
+For any set $T \subseteq [n]$ with $|T| < t$ and any two secrets $s, s' \in \calS$:
+$$\left\{(s_i)_{i \in T} : (s_1, \ldots, s_n) \gets \Share(s)\right\} = \left\{(s_i)_{i \in T} : (s_1, \ldots, s_n) \gets \Share(s')\right\}.$$
 
 This is **perfect privacy**: no information about $s$ leaks from any $t - 1$ shares, even to computationally unbounded adversaries.
 
@@ -50,7 +50,7 @@ The dealer fixes a point $P \in \FF_p^t$ representing the secret, and gives each
 
 ## Computational secret sharing
 
-Relaxes perfect privacy to computational indistinguishability. Allows secret sharing below the information-theoretic threshold (e.g., $(1, n)$-sharing, i.e., encryption).
+Relaxes perfect privacy to computational indistinguishability, which allows shares shorter than the secret; in a perfect scheme every share is at least as long as the secret (Karnin, Greene, and Hellman, IEEE Trans. Inf. Theory 1983). Encrypting $s$ under a fresh key, sharing the key with a perfect scheme, and splitting the ciphertext with an information dispersal algorithm gives $(t, n)$ shares of length $|s|/t + O(\secpar)$ — Krawczyk, CRYPTO 1993.
 
 ## Verifiable secret sharing (VSS)
 
@@ -64,7 +64,7 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 
 - $(t, n)$-threshold secret sharing exists information-theoretically for all $1 \le t \le n$ — [[Sha79 - How to share a secret|Sha79]], [[Bla79 - Safeguarding cryptographic keys|Bla79]]
 - Secret sharing is information-theoretically achievable; no computational hardness assumption required
-- [[ss-to-it-pir-cgks98|SS ⇒ IT-PIR]]
+- [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
 - [[verifiable-secret-sharing-vss-to-mpc-bgw88|Verifiable secret sharing (VSS) ⇒ MPC]]
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
 - Monotone-span-program size lower bounds survive amortization: a lower bound proved for a program sharing one secret still applies, per secret, when the same program is reused to share several secrets at once — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]

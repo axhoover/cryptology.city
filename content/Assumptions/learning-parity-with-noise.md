@@ -109,7 +109,7 @@ $$
 \Adv^{\mathrm{slpn}}_{k,\varepsilon,m,d,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{slpn}}_{k,\varepsilon,m,d,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so sparse hardness is a stronger assumption for smaller $d$.
+is negligible.
 
 ### Known results
 
