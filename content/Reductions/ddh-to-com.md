@@ -1,16 +1,17 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DDH ⇒ COM"
 aliases: []
 id: red-ddh-to-com
 kind: implication
 hypotheses: [ddh]
 conclusion: com
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
+security-loss: "tight: one call to the binding adversary yields $\\log_g h$"
 ---
 
 # DDH ⇒ COM
@@ -19,21 +20,43 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[commitment-scheme]] § Other results:
+The Pedersen commitment over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $h \getsr \GG \setminus \{1\}$ commits to $m \in \ZZ_p$ as $c = g^m h^r$ for $r \getsr \ZZ_p$. It is perfectly hiding, and computationally binding under [[discrete-logarithm|DLOG]] (implied by [[decisional-diffie-hellman|DDH]] via [[ddh-to-cdh|DDH ⇒ CDH]] and [[cdh-to-dlog|CDH ⇒ DLOG]]), since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 
-> - COM from [[decisional-diffie-hellman|DDH]]: the Pedersen commitment scheme is perfectly hiding and computationally binding
+## Sketch
+
+Hiding: $h$ generates $\GG$, so $h^r$ is uniform over $r \getsr \ZZ_p$ and $c$ is uniform, independent of $m$. Binding: two openings of one $c$ yield $\log_g h$, contradicting DLOG for $h$ sampled with unknown discrete logarithm.
+
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Gen(1^\secpar)$}
+\begin{algorithmic}
+\State $(\GG, g, p) \gets \GrGen(1^\secpar)$; $h \getsr \GG \setminus \{1\}$
+\Return $\pp \gets (\GG, g, p, h)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Com(\pp, m; r)$}
+\begin{algorithmic}
+\Return $(c, d) \gets (g^m h^r, (m, r))$
+\Comment{$m, r \in \ZZ_p$}
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Open(\pp, c, (m, r))$}
+\begin{algorithmic}
+\If{$c = g^m h^r$}
+\Return $m$
+\EndIf
+\Return $\bot$
+\end{algorithmic}
+\end{algorithm}
+```
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation — Pedersen's original paper (Ped91) has no reference page.
-- SUSPECTED IMPRECISION: Pedersen commitments are perfectly hiding unconditionally and computationally binding under the DISCRETE LOGARITHM assumption; DDH is not needed. The hypothesis should very likely be `[[discrete-logarithm]]`, which is a strictly weaker requirement.
-- No construction sketch given, unlike the sibling bullets.
+`class: fully-black-box`: Fixed construction; the reduction is fixed and uses the adversary only as an oracle: on DDH challenge $(X, Y, Z)$ it sets $h = X$, runs the binding adversary to obtain two openings $(m, r) \ne (m', r')$ of one commitment, computes $x = \log_g h = (m - m')(r' - r)^{-1} \bmod p$, and guesses the real world iff $Z = Y^x$. Hiding is perfect, unconditionally.

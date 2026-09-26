@@ -41,3 +41,4 @@ source text, not changes to it:
 - SUSPECTED MATHEMATICAL ERROR: BLS short signatures are proved under (co-)CDH / gap-DH in pairing groups, not under decisional BDH; a decisional assumption is the wrong hypothesis for an unforgeability result.
 - Marked standard where BLS01 and the VRF literature are attributable.
 - verifiable-random-function and anonymous-credentials have no pages.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — pairing-based anonymous credentials are proved under the interactive LRSW assumption (Camenisch–Lysyanskaya, CRYPTO 2004) or $q$-SDH-type assumptions (BBS+), and no construction from BDH or DBDH is known. The correct edges are LRSW ⇒ AC and q-SDH ⇒ AC; neither has a page, and no LRSW node exists.

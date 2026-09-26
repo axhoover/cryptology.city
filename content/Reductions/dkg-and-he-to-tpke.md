@@ -41,3 +41,4 @@ source text, not changes to it:
 - via Paillier with distributed key generation chains two construction steps.
 - Marked standard where Fouque-Poupard-Stern / Damgard-Jurik are attributable.
 - threshold-encryption and distributed-key-generation have no pages.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — no theorem gives threshold PKE from a generic DKG plus unspecified HE, since threshold decryption needs scheme-specific key-sharing and partial-decryption structure. The migrated sentence sketches threshold Paillier, i.e. DCR ⇒ threshold PKE — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]], [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].

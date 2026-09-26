@@ -3828,14 +3828,14 @@
     "abe"
    ],
    "conclusion": "be",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none (the reduction preserves the advantage)",
+   "status": "draft",
    "page": "content/Reductions/abe-to-be.md",
    "slug": "abe-to-be",
    "graphSlug": "Reductions/abe-to-be",
@@ -3848,14 +3848,14 @@
     "abe"
    ],
    "conclusion": "fuzzy-ibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none (the reduction preserves the advantage)",
+   "status": "draft",
    "page": "content/Reductions/abe-to-fuzzy-ibe.md",
    "slug": "abe-to-fuzzy-ibe",
    "graphSlug": "Reductions/abe-to-fuzzy-ibe",
@@ -3888,14 +3888,14 @@
     "abe"
    ],
    "conclusion": "ibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none (the reduction preserves the advantage)",
+   "status": "draft",
    "page": "content/Reductions/abe-to-ibe.md",
    "slug": "abe-to-ibe",
    "graphSlug": "Reductions/abe-to-ibe",
@@ -3908,14 +3908,14 @@
     "adaptively-robust-prc"
    ],
    "conclusion": "prc",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none (property restriction on the same object)",
+   "status": "draft",
    "page": "content/Reductions/adaptive-robustness-to-prc.md",
    "slug": "adaptive-robustness-to-prc",
    "graphSlug": "Reductions/adaptive-robustness-to-prc",
@@ -3970,14 +3970,14 @@
     "agm"
    ],
    "conclusion": "kea",
-   "class": "unstated",
+   "class": "free",
    "model": "algebraic-group",
    "source": [
-    "folklore"
+    "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/agm-to-kea.md",
    "slug": "agm-to-kea",
    "graphSlug": "Reductions/agm-to-kea",
@@ -4010,13 +4010,13 @@
     "alternating-moduli-assumption"
    ],
    "conclusion": "prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "none (identity reduction)",
    "status": "draft",
    "page": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
    "slug": "alternating-moduli-assumption-to-prf-bip-18",
@@ -4070,14 +4070,14 @@
     "anonymous-hibe"
    ],
    "conclusion": "hibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/anonymous-hibe-to-hibe.md",
    "slug": "anonymous-hibe-to-hibe",
    "graphSlug": "Reductions/anonymous-hibe-to-hibe",
@@ -4135,9 +4135,9 @@
    ],
    "conclusion": "snark",
    "class": "unstated",
-   "model": "crs",
+   "model": "rom",
    "source": [
-    "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
+    "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -4174,8 +4174,8 @@
     "arithmetization"
    ],
    "conclusion": "groth16",
-   "class": "unstated",
-   "model": "crs",
+   "class": "free",
+   "model": "generic-group",
    "source": [
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
@@ -4214,14 +4214,14 @@
     "authenticated-key-exchange"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
    "slug": "authenticated-key-exchange-ake-to-ke",
    "graphSlug": "Reductions/authenticated-key-exchange-ake-to-ke",
@@ -4234,12 +4234,10 @@
     "bdh"
    ],
    "conclusion": "abe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]",
-    "[[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]",
-    "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
+    "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -4276,7 +4274,7 @@
     "bdh"
    ],
    "conclusion": "be",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]"
@@ -4316,7 +4314,7 @@
     "bdh"
    ],
    "conclusion": "hibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
@@ -4356,13 +4354,13 @@
     "bdh"
    ],
    "conclusion": "ibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries",
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-wat09.md",
    "slug": "bdh-to-ibe-wat09",
@@ -4399,11 +4397,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bdh-to-vrf.md",
    "slug": "bdh-to-vrf",
    "graphSlug": "Reductions/bdh-to-vrf",
@@ -4417,7 +4415,7 @@
     "q-strong-diffie-hellman"
    ],
    "conclusion": "kzg-polynomial-commitment",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "crs",
    "source": [
     "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
@@ -4501,7 +4499,7 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+    "folklore"
    ],
    "via": [],
    "securityLoss": "",
@@ -4521,11 +4519,11 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[BV97 - Quantum Complexity Theory|BV97]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bpp-to-bqp.md",
    "slug": "bpp-to-bqp",
    "graphSlug": "Reductions/bpp-to-bqp",
@@ -4541,7 +4539,7 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+    "folklore"
    ],
    "via": [],
    "securityLoss": "",
@@ -4561,11 +4559,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Adl78 - Two theorems on random polynomial time|Adl78]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bpp-to-p-poly.md",
    "slug": "bpp-to-p-poly",
    "graphSlug": "Reductions/bpp-to-p-poly",
@@ -4585,7 +4583,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bpp-to-pp.md",
    "slug": "bpp-to-pp",
    "graphSlug": "Reductions/bpp-to-pp",
@@ -4605,7 +4603,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bpp-to-pspace.md",
    "slug": "bpp-to-pspace",
    "graphSlug": "Reductions/bpp-to-pspace",
@@ -4641,11 +4639,11 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[ADH97 - Quantum Computability|ADH97]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/bqp-to-pp.md",
    "slug": "bqp-to-pp",
    "graphSlug": "Reductions/bqp-to-pp",
@@ -4738,14 +4736,14 @@
     "cdh"
    ],
    "conclusion": "dlog",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: one DLOG call, advantage-preserving",
+   "status": "draft",
    "page": "content/Reductions/cdh-to-dlog.md",
    "slug": "cdh-to-dlog",
    "graphSlug": "Reductions/cdh-to-dlog",
@@ -4762,11 +4760,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
    "slug": "circular-security-and-lwe-to-he",
    "graphSlug": "Reductions/circular-security-and-lwe-to-he",
@@ -4800,14 +4798,14 @@
     "co-cdh"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[BLS01 - Short Signatures from the Weil Pairing|BLS01]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "factor $e(q_S+1)$ over the co-CDH advantage: a forger with advantage $\\varepsilon$ making $q_S$ signing queries yields a co-CDH solver with advantage $\\varepsilon/(e(q_S+1))$ and $O(q_H + q_S)$ extra group operations",
+   "status": "draft",
    "page": "content/Reductions/co-cdh-to-ds.md",
    "slug": "co-cdh-to-ds",
    "graphSlug": "Reductions/co-cdh-to-ds",
@@ -4928,7 +4926,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/conp-to-coam.md",
    "slug": "conp-to-coam",
    "graphSlug": "Reductions/conp-to-coam",
@@ -4948,7 +4946,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/conp-to-pspace.md",
    "slug": "conp-to-pspace",
    "graphSlug": "Reductions/conp-to-pspace",
@@ -5024,11 +5022,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/d-th-composite-residuosity-to-he.md",
    "slug": "d-th-composite-residuosity-to-he",
    "graphSlug": "Reductions/d-th-composite-residuosity-to-he",
@@ -5069,7 +5067,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/dcr-to-com.md",
    "slug": "dcr-to-com",
    "graphSlug": "Reductions/dcr-to-com",
@@ -5082,13 +5080,13 @@
     "dcr"
    ],
    "conclusion": "he",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight: one call to the CPA adversary",
    "status": "draft",
    "page": "content/Reductions/dcr-to-he-pai99.md",
    "slug": "dcr-to-he-pai99",
@@ -5108,7 +5106,7 @@
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR.",
    "status": "draft",
    "page": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
    "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
@@ -5122,13 +5120,13 @@
     "dcr"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight: one call to the CPA adversary",
    "status": "draft",
    "page": "content/Reductions/dcr-to-pke-pai99.md",
    "slug": "dcr-to-pke-pai99",
@@ -5186,14 +5184,14 @@
     "ddh"
    ],
    "conclusion": "cdh",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "status": "draft",
    "page": "content/Reductions/ddh-to-cdh.md",
    "slug": "ddh-to-cdh",
    "graphSlug": "Reductions/ddh-to-cdh",
@@ -5206,14 +5204,14 @@
     "ddh"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: one call to the binding adversary yields $\\log_g h$",
+   "status": "draft",
    "page": "content/Reductions/ddh-to-com.md",
    "slug": "ddh-to-com",
    "graphSlug": "Reductions/ddh-to-com",
@@ -5226,13 +5224,13 @@
     "ddh"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[DH76 - New Directions in Cryptography|DH76]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight: the DDH instance is forwarded unchanged",
    "status": "draft",
    "page": "content/Reductions/ddh-to-ke-dh76.md",
    "slug": "ddh-to-ke-dh76",
@@ -5246,14 +5244,14 @@
     "ddh"
    ],
    "conclusion": "non-interactive-key-exchange",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight for one honest pair: the DDH instance is forwarded unchanged",
+   "status": "draft",
    "page": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
    "slug": "ddh-to-non-interactive-key-exchange-nike",
    "graphSlug": "Reductions/ddh-to-non-interactive-key-exchange-nike",
@@ -5266,14 +5264,13 @@
     "ddh"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]",
-    "[[DH76 - New Directions in Cryptography|DH76]]"
+    "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight: one oracle call, advantage-preserving",
    "status": "draft",
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
    "slug": "ddh-to-pke-elgamal85",
@@ -5287,13 +5284,13 @@
     "ddh"
    ],
    "conclusion": "prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit, the per-level multi-sample DDH being exact by random self-reducibility",
    "status": "draft",
    "page": "content/Reductions/ddh-to-prf-nr97.md",
    "slug": "ddh-to-prf-nr97",
@@ -5327,14 +5324,14 @@
     "decision-lwe"
    ],
    "conclusion": "search-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/decision-lwe-to-search-lwe.md",
    "slug": "decision-lwe-to-search-lwe",
    "graphSlug": "Reductions/decision-lwe-to-search-lwe",
@@ -5347,14 +5344,14 @@
     "depir"
    ],
    "conclusion": "cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/depir-to-cpir.md",
    "slug": "depir-to-cpir",
    "graphSlug": "Reductions/depir-to-cpir",
@@ -5362,19 +5359,19 @@
   },
   {
    "id": "red-differing-inputs-obfuscation-dio-to-io",
-   "kind": "equivalence",
+   "kind": "implication",
    "hypotheses": [
     "differing-inputs-obfuscation"
    ],
    "conclusion": "io",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
    "slug": "differing-inputs-obfuscation-dio-to-io",
    "graphSlug": "Reductions/differing-inputs-obfuscation-dio-to-io",
@@ -5455,7 +5452,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight",
    "status": "draft",
    "page": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
    "slug": "dlog-to-bls-signatures-fkl18",
@@ -5475,7 +5472,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "tight: same advantage and essentially the same running time (FKL18)",
    "status": "draft",
    "page": "content/Reductions/dlog-to-cdh-fkl18.md",
    "slug": "dlog-to-cdh-fkl18",
@@ -5496,7 +5493,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/dlog-to-conp.md",
    "slug": "dlog-to-conp",
    "graphSlug": "Reductions/dlog-to-conp",
@@ -5793,11 +5790,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-abe.md",
    "slug": "evasive-lwe-to-abe",
    "graphSlug": "Reductions/evasive-lwe-to-abe",
@@ -10069,14 +10066,14 @@
     "alternating-moduli-strong"
    ],
    "conclusion": "alternating-moduli-weak",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "additive $q^2/2^{n+1}$ for $q$ oracle queries (collisions among sampled inputs)",
+   "status": "draft",
    "page": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
    "slug": "strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
    "graphSlug": "Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",

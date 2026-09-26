@@ -54,3 +54,4 @@ source text, not changes to it:
 - SUSPECTED MATHEMATICAL ERROR: BLS short signatures are proved under (co-)CDH / gap-DH in pairing groups, not under decisional BDH; a decisional assumption is the wrong hypothesis for an unforgeability result.
 - Marked standard where BLS01 and the VRF literature are attributable.
 - verifiable-random-function and anonymous-credentials have no pages.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — BLS unforgeability is proved under computational co-CDH in the random-oracle model ([[BLS01 - Short Signatures from the Weil Pairing|BLS01]]), not under decisional BDH. Signatures follow from BDH only via the chain BDH ⇒ DLOG ⇒ OWF ⇒ DS, which the schema requires split. See [[co-cdh-to-ds]].

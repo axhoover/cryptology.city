@@ -7,12 +7,11 @@ id: red-ddh-to-pke-elgamal85
 kind: implication
 hypotheses: [ddh]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
-  - "[[DH76 - New Directions in Cryptography|DH76]]"
-security-loss: ""
+security-loss: "tight: one oracle call, advantage-preserving"
 ---
 
 # DDH ⇒ PKE
@@ -21,27 +20,44 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[decisional-diffie-hellman]] § Known Results:
+[[decisional-diffie-hellman|DDH]] implies CPA-secure [[public-key-encryption|PKE]]: the ElGamal scheme over $(\GG, g, p) \gets \GrGen(1^\secpar)$ has $\sk = x \getsr [p]$ and $\pk = y = g^x$, encrypts $m \in \GG$ as $(g^r, m \cdot y^r)$ for $r \getsr [p]$, and decrypts $(c_1, c_2)$ as $c_2 \cdot c_1^{-x}$. The scheme is from [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]; it is semantically secure iff DDH is hard for $\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
 
-> - DDH implies [[public-key-encryption|PKE]] via the ElGamal encryption scheme: encrypt $m$ under public key $y = g^x$ as $(g^r, m \cdot y^r)$; decryption uses $x$ to compute $y^r$ and recover $m$ — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]
+## Sketch
 
-Migrated verbatim from [[public-key-encryption]] § Other results:
+On DDH challenge $(X, Y, Z)$ the reduction sets $\pk = X$ and answers the challenge query with $(Y, m_b \cdot Z)$: for $Z = g^{xy}$ this is a correctly distributed encryption of $m_b$, and for uniform $Z$ the ciphertext is uniform and independent of $b$.
 
-> - PKE from [[decisional-diffie-hellman|DDH]]: the ElGamal scheme encrypts $m$ as $(g^r, m \cdot y^r)$ under public key $y = g^x$, and is CPA-secure under DDH — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] (see also [[DH76 - New Directions in Cryptography|DH76]] for the underlying key-exchange)
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\KeyGen(1^\secpar)$}
+\begin{algorithmic}
+\State $(\GG, g, p) \gets \GrGen(1^\secpar)$
+\State $x \getsr [p]$; $y \gets g^x$
+\Return $(\sk, \pk) \gets ((\GG, g, p, x), (\GG, g, p, y))$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Enc(\pk, m)$}
+\begin{algorithmic}
+\State $r \getsr [p]$
+\Comment{$m \in \GG$}
+\Return $c \gets (g^r, m \cdot y^r)$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Dec(\sk, (c_1, c_2))$}
+\begin{algorithmic}
+\Return $m \gets c_2 \cdot c_1^{-x}$
+\end{algorithmic}
+\end{algorithm}
+```
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: One fixed construction from the group generator, and one fixed reduction: on DDH challenge $(X, Y, Z)$ set $\pk = X$ and answer the challenge query with $(Y, m_b \cdot Z)$, running the CPA adversary once as an oracle.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- ElGamal85 predates the DDH assumption and does not contain the DDH-based IND-CPA proof; the citation attaches to the scheme, not to the reduction.
-- Security notion (IND-CPA) not stated in the bullet.
-- Two citations, one primary (ElGamal85) and one 'see also' (DH76 for the underlying key exchange) — the second is background, not a second hypothesis or a second step.
-- Conclusion qualified as CPA-secure PKE; the security notion is part of the conclusion object.
+- ElGamal85 predates the DDH assumption; the citation attaches to the scheme, and the DDH-based CPA proof is later — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].

@@ -28,8 +28,8 @@ $\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key 
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction in the bilinear group and one fixed selective-security reduction that embeds the DBDH challenge in the public parameters and challenge ciphertext, answers key queries using the committed target attribute set, and runs the ABE adversary once as an oracle. With an assumption as hypothesis, black-boxness refers to the treatment of the adversary; the proof has the standard fully-black-box shape.
+`class: fully-black-box`: one fixed construction in the bilinear group and one fixed selective-security reduction (see Sketch) that runs the ABE adversary once as an oracle. With an assumption as hypothesis, black-boxness refers to the treatment of the adversary.
 
 - Ciphertext-policy ABE for monotone formulas with ciphertext size linear in the formula, selectively secure in the standard model; the most efficient construction is under decisional $q$-parallel BDHE, a less efficient one under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]
-- DBDH is named in bare prose with no wikilink; the assumption lives on content/Assumptions/bilinear-map-assumptions.md, whose aliases include 'BDDH' but NOT 'DBDH', so the obvious wikilink would not resolve.
-- SURPRISING WIKILINK TARGET: the reference filename says 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover', but that reference page's own H1 and BibTeX title the paper 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization' (PKC 2011, eprint 2008/290). The filename appears to be wrong.
+- [[bilinear-map-assumptions]] has the alias BDDH but not DBDH, so DBDH is linked by display text only.
+- The Wat11 reference filename says 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover', but the paper (PKC 2011, eprint 2008/290) is titled 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization'; filenames are live URLs, so the link is kept.

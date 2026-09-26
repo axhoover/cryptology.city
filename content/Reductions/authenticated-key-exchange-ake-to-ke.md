@@ -27,6 +27,6 @@ The construction is the identity; a KE eavesdropper is run as an AKE adversary t
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity: an AKE protocol has the KE syntax. The reduction runs any passive KE eavesdropper unchanged as an AKE adversary that relays one honest session faithfully; both are fixed and oracle-only: the RTV04 fully-black-box shape.
+`class: fully-black-box`: the construction is the identity and the reduction runs the KE eavesdropper unchanged inside a relaying AKE adversary; both are fixed and oracle-only.
 
-- No slug 'authenticated-key-exchange' exists in content/; the hypothesis resolves via the section anchor on key-exchange.
+- `authenticated-key-exchange` has no page; it resolves as a variant (section anchor) of [[key-exchange]].

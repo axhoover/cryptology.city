@@ -16,24 +16,14 @@ security-loss: ""
 
 # cPIR ⇒ OT
 
-[[single-server-private-information-retrieval|cPIR]] implies [[oblivious-transfer|OT]].
+Non-trivial [[single-server-private-information-retrieval|cPIR]] implies [[oblivious-transfer|OT]].
 
 ## Statement
 
-Migrated verbatim from [[oblivious-transfer]] § Other results:
-
-> - OT is implied by non-trivial [[single-server-private-information-retrieval|PIR]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
-
-Migrated verbatim from [[single-server-private-information-retrieval]] § Other results:
-
-> - Non-trivial PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]
+Any non-trivial single-server [[single-server-private-information-retrieval|PIR]], with total communication $c(n) < n$ on an $n$-bit database, implies [[oblivious-transfer|OT]] with communication $c(n) \cdot \poly(\secpar)$ [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Non-trivial single-server PIR is therefore complete for secure two-party and multi-party computation [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
+`class: unstated`: the full text could not be checked, so how the OT construction uses the PIR and how the reduction uses the adversary are unconfirmed. The abstract's corollary that one-way functions are necessary but not sufficient for non-trivial PIR composes the result with [[IR89 - Limits on the provable consequences of one-way permutations|IR89]], which presupposes a relativizing reduction; `fully-black-box` is plausible but unverified.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'non-trivial' PIR is an unquantified qualifier on the hypothesis (DMO00 requires communication sublinear in the database size); the qualifier needs to survive the migration or the hypothesis is wrong.
-- 'Non-trivial' (communication less than the trivial n-bit download) is a qualifier on the hypothesis that a flat slug loses; the page defines 'trivial PIR' at line 15, so the qualifier is at least anchored.
+- The hypothesis slug `cpir` drops the load-bearing qualifier non-trivial ($c(n) < n$); the Statement keeps it.

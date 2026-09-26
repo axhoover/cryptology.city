@@ -27,4 +27,4 @@ Distinct identities differ in some position, so a key for $\mathit{id} \ne \math
 
 ## Notes
 
-`class: fully-black-box`: The IBE algorithms call the ABE scheme as an oracle; the identity encoding is local. The reduction runs any IBE adversary once, forwarding each extraction query for $\mathit{id} \ne \mathit{id}^*$ as an ABE key query whose policy (KP) or attribute set (CP) is unsatisfied by the challenge encoding, so admissibility maps exactly and the advantage is preserved. Fixed construction, fixed reduction.
+`class: fully-black-box`: The IBE algorithms call the ABE algorithms as oracles on the locally computed encodings $f_{\mathit{id}}$ and $x_{\mathit{id}}$. The reduction runs the IBE adversary once as an oracle, forwarding each extraction query as an ABE key query and the challenge unchanged. Fixed construction, fixed advantage-preserving reduction.

@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-In the [[algebraic-group-model|AGM]] the classical [[knowledge-of-exponent|KEA]] holds unconditionally: an algebraic adversary that, given $(g, g^\alpha)$, outputs $(A, B)$ with $B = A^\alpha$ also outputs representations $A = g^{c_1}(g^\alpha)^{c_2}$ and $B = g^{y_1}(g^\alpha)^{y_2}$, and an efficient extractor recovers $r$ with $A = g^r$ from them — the knowledge KEA postulates is part of the model's definition — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+In the [[algebraic-group-model|AGM]] the classical [[knowledge-of-exponent|KEA]] holds unconditionally: an algebraic adversary that, given $(g, g^\alpha)$, outputs $(A, B)$ with $B = A^\alpha$ also outputs representations $A = g^{c_1}(g^\alpha)^{c_2}$ and $B = g^{y_1}(g^\alpha)^{y_2}$, and an efficient extractor recovers $r$ with $A = g^r$ from them; the knowledge KEA postulates is part of the model's definition — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
 ## Sketch
 
@@ -28,6 +28,6 @@ If $c_2 = 0$ the extractor outputs $c_1$. Otherwise $B = A^\alpha$ forces $c_2\a
 
 ## Notes
 
-`class: free`: Within the AGM the implication is unconditional: the extractor is built from the representation the model requires every algebraic adversary to output, with no hardness assumption and no restriction on technique. The hypothesis is a computational model, not a primitive, so the black-box classes do not apply.
+`class: free`: The hypothesis is a computational model, not a primitive, so the black-box classes do not apply; the extractor is built from the representation every algebraic adversary must output, with no hardness assumption.
 
-`model: algebraic-group`: The claim is scoped entirely to the AGM: KEA-style extraction holds for algebraic adversaries; nothing is claimed in the standard model.
+`model: algebraic-group`: The extraction holds only for algebraic adversaries; nothing is claimed in the standard model.

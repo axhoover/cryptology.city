@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Circular security + LWE ⇒ HE"
 aliases: []
 id: red-circular-security-and-lwe-to-he
@@ -9,7 +9,8 @@ hypotheses: [circular-security, lwe]
 conclusion: he
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
 security-loss: ""
 ---
 
@@ -19,22 +20,15 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Breaking up Cryptomania:
+Assuming [[learning-with-errors|LWE]] is hard, there is a bootstrappable homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]]; if the scheme is additionally [[circular-security|circular secure]], bootstrapping yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 
-> **Fully homomorphic encryption (FHE)** is an interesting case: it is not known to follow from TDPs alone. Current constructions all rely on lattice assumptions ([[learning-with-errors|LWE]] with circular security). Whether FHE follows from Cryptomania (TDPs) is a major open problem.
+## Sketch
+
+BV11 build an LWE-based scheme whose homomorphic multiplication uses relinearization (key switching) to keep ciphertexts linear in the secret key, and apply dimension-modulus reduction to shrink ciphertexts and the decryption circuit until the scheme can evaluate its own decryption (replacing the squashing step of [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]). Publishing encryptions of the secret key then enables bootstrapping: homomorphically evaluating the decryption circuit refreshes ciphertext noise.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (Gen09 / BV11 / BGV12 absent).
-- Genuinely conjunctive: {LWE, circular security} => FHE. "circular-security" has no wiki page.
-- Conclusion is FHE specifically; the nearest page is content/Primitives/homomorphic-encryption.md, and neither LWE nor HE is wikilinked in this sentence except `[[learning-with-errors|LWE]]`.
-- "Current constructions all rely on lattice assumptions" is an absolute claim that ignores FHE from iO and from NTRU-style assumptions. Recorded, not fixed.
+- Leveled FHE for any a-priori polynomial depth from LWE alone, without bootstrapping, via modulus switching — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]
+- Approximate-eigenvector FHE from LWE: homomorphic operations are matrix operations and no evaluation key is needed — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]]

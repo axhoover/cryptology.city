@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DCR ⇒ COM"
 aliases: []
 id: red-dcr-to-com
@@ -19,21 +19,16 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[decisional-composite-residuosity]] § Known Results:
+[[decisional-composite-residuosity|DCR]] implies a non-interactive [[commitment-scheme|commitment scheme]] of either flavour, both of Paillier form $c = g^m \cdot r^n \bmod n^2$ with $m \in \ZZ_n$ and $r \getsr \ZZ_n^*$, opened by revealing $(m, r)$: perfectly binding and computationally hiding with $g = 1+n$, or perfectly hiding and computationally binding with $g$ a random $n$-th residue — folklore.
 
-> - DCR → [[commitment-scheme|COM]] (statistically hiding, computationally binding) — standard
+## Sketch
+
+With $g = 1+n$ and $n$ a well-formed RSA modulus, $(m, r) \mapsto c$ is a bijection $\ZZ_n \times \ZZ_n^* \to \ZZ_{n^2}^*$, so binding is perfect; hiding is IND-CPA security of Paillier encryption under DCR [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+
+With $g$ a random $n$-th residue (a CRS, or receiver-generated with a proof of residuosity), $c$ is a uniform $n$-th residue independent of $m$. Under a uniform $g$ binding is statistical, so a committer who opens $c$ two ways distinguishes $g$ from uniform; binding is computational under DCR.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the hypothesis is an assumption rather than a primitive, so the RTV04 axes do not apply, and no source states a class.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Marked standard; statistically hiding commitments from DCR are attributable (Damgard-Fujisaki), so the folklore exception is likely misapplied.
-- SUSPECTED IMPRECISION: the hiding/binding flavours claimed (statistically hiding, computationally binding) should be checked against the standard DCR-based construction.
 - Commitment flavour is not part of the conclusion identifier.

@@ -37,3 +37,4 @@ source text, not changes to it:
 - No citation.
 - SUSPECTED ERROR: hardness of BDH in the generic (bilinear) group model is an unconditional lower bound, not a reduction from CDH.
 - Direction looks reversed: BDH hardness is normally seen to imply CDH hardness, since an algorithm for CDH in the pairing group breaks BDH.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — CDH ⇒ BDH is not a known theorem in any model; the migrated bullet misreads the unconditional generic-bilinear-group lower bound for BDH as a reduction from CDH. The known edge is the converse, BDH ⇒ CDH (no page yet): a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$. See [[bilinear-map-assumptions]].

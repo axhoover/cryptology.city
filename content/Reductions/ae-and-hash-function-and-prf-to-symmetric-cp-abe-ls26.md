@@ -26,5 +26,5 @@ A symmetric-key ciphertext-policy [[attribute-based-encryption#symmetric-cp-abe|
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-- INVENTORY DISAGREEMENT: Primitives/attribute-based-encryption.md records only [hash-function + pseudorandom-function => symmetric-cp-abe] (two hypotheses); this page states three, including IND-CCA2 authenticated encryption, matching the LS26 text.
-- The minimality claim 'with no bilinear map or lattice hardness assumption' is a property of the construction, not an impossibility, and is not recordable as a barrier.
+- INVENTORY DISAGREEMENT: [[hash-function-and-prf-to-symmetric-cp-abe-ls26]] records the same LS26 result with hypotheses {hash function, PRF} only; this page adds IND-CCA2 authenticated encryption, as the LS26 reference page states.
+- 'No bilinear-map or lattice assumption' describes the construction, not an impossibility, so it is not a barrier.

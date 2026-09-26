@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DLOG ⊆ coNP"
 aliases: []
 id: red-dlog-to-conp
@@ -15,29 +15,12 @@ security-loss: ""
 
 # DLOG ⊆ coNP
 
-[[discrete-logarithm|DLOG]] is contained in [[co-nondeterministic-polynomial-time|coNP]].
+The decision version of [[discrete-logarithm|DLOG]] is in [[co-nondeterministic-polynomial-time|coNP]].
 
 ## Statement
 
-Migrated verbatim from [[co-nondeterministic-polynomial-time]] § Known relationships:
-
-> - Integer factorization and discrete logarithm are both in $\classNP \cap \classcoNP$: there are short certificates for both "yes" and "no" answers. This is one reason these problems are considered unlikely to be NP-complete — an NP-complete problem in coNP would imply $\classNP = \classcoNP$.
+The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, p, X, t)$, decide whether the $x \in [p]$ with $g^x = X$ satisfies $x \le t$ — is in [[co-nondeterministic-polynomial-time|coNP]]: a no-instance is certified by $x$ itself, since $g^x = X$ and $x > t$ are checkable in polynomial time and $x$ is unique once the order $p$ of $g$ is certified by its prime factorization with primality certificates — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Same unconditional-statement imprecision as sub-edge 2.
-- Not wikilinked.
-- Uncited.
+`class: free`: Membership of a problem in a complexity class is proved by any argument at all; free is the repo convention for proven complexity containments.

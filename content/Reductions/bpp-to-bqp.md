@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "BPP ⊆ BQP"
 aliases: []
 id: red-bpp-to-bqp
@@ -9,7 +9,8 @@ hypotheses: [bpp]
 conclusion: bqp
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[BV97 - Quantum Complexity Theory|BV97]]"
 security-loss: ""
 ---
 
@@ -19,24 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-quantum-polynomial-time]] § Known relationships:
+A quantum Turing machine simulates any bounded-error probabilistic polynomial-time computation with polynomial overhead, so [[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[bounded-error-quantum-polynomial-time|BQP]] [[BV97 - Quantum Complexity Theory|BV97]].
 
-> - $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
+## Sketch
+
+Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh cell rotated into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: Proven complexity-class containment; per repo convention `class: free`.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Uncited and unlabelled folklore.
-- Class names appear only as macros with no wikilinks, though both pages exist.
+`model: quantum`: The containment is witnessed by a quantum simulation of the probabilistic machine; sibling BQP edges (e.g. [[bqp-to-pp]]) use `model: quantum`.

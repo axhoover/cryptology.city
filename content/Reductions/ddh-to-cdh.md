@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DDH ⇒ CDH"
 aliases: []
 id: red-ddh-to-cdh
 kind: implication
 hypotheses: [ddh]
 conclusion: cdh
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight up to an additive $1/p$: one CDH call"
 ---
 
 # DDH ⇒ CDH
@@ -19,35 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[computational-diffie-hellman]] § Computational Diffie-Hellman:
+If [[decisional-diffie-hellman|DDH]] is hard for a group generator $\GrGen$, then [[computational-diffie-hellman|CDH]] is hard for $\GrGen$ — folklore.
 
-> The _Computational Diffie-Hellman (CDH)_ is a central assumption in cryptography. It is a natural strengthening of the [[decisional-diffie-hellman|DDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve [[decisional-diffie-hellman|DDH]] in the same group.
+## Sketch
 
-Migrated verbatim from [[computational-diffie-hellman]] § Known Results:
-
-> - It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that CDH is not easier than [[decisional-diffie-hellman|DDH]].
-
-Migrated verbatim from [[decisional-diffie-hellman]] § Known Results:
-
-> - It is easy to see that if $\calA$ can compute $g^{xy}$, then $\calA$ can easily distinguish between $g^{xy}$ and a random group element. This establishes that [[computational-diffie-hellman|CDH]] is not easier than DDH.
+On DDH challenge $(g^x, g^y, Z)$, run the CDH adversary on $(g^x, g^y)$ and guess the real world iff it returns $Z$. A real tuple is recognised with the adversary's success probability $\varepsilon$; for a random tuple $Z$ is uniform and independent of the adversary's output, so it matches with probability $1/p$. The DDH advantage is therefore at least $\varepsilon - 1/p$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED DIRECTION CONFUSION: the text calls CDH a natural strengthening of the DDH assumption, but DDH is the stronger assumption (DDH hard implies CDH hard). The gloss that follows (an adversary solving CDH also solves DDH) is correct and describes the opposite framing.
-- Uncited and not flagged folklore or standard.
-- decisional-diffie-hellman.md line 12 states the mirrored version of the same relation, so the two pages disagree in wording.
-- CDH is not easier than DDH mixes problem-hardness ordering with assumption-strength ordering.
-- Duplicate of the intro claim at line 12 and of decisional-diffie-hellman.md line 48 (identical wording).
-- Duplicate of computational-diffie-hellman.md line 46 (identical wording).
-- CDH is not easier than DDH conflates problem hardness with assumption strength.
+`class: fully-black-box`: the construction is the identity on the group generator, and the fixed reduction runs any CDH adversary once as an oracle on $(g^x, g^y)$ and compares its output with the challenge element.

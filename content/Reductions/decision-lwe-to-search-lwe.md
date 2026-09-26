@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Decision LWE ⇒ Search LWE"
 aliases: []
 id: red-decision-lwe-to-search-lwe
 kind: implication
 hypotheses: [decision-lwe]
 conclusion: search-lwe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -19,21 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Search–Decision equivalence:
+If [[learning-with-errors#decision-lwe|decision LWE]] is hard for $(n, q, \chi, m)$ then [[learning-with-errors#search-lwe|search LWE]] is hard for the same parameters, provided $\chi$ is efficiently recognizable (e.g. bounded) and $m$ is large enough that a uniform $\mathbf{u} \in \ZZ_q^m$ lies within error distance of some $\mathbf{A}\mathbf{s}$ only with negligible probability: a search solver yields a decision distinguisher with the same advantage up to a negligible term — folklore.
 
-> **Decision $\Rightarrow$ Search** (hard direction): Recover $\mathbf{s}$ one coordinate at a time. For each index $i \in [n]$ and each candidate $\ell \in \ZZ_q$, construct modified samples that effectively zero out the contribution of $\mathbf{s}[i]$ under the hypothesis $\mathbf{s}[i] = \ell$, then query the decision oracle to test whether the result is still an LWE instance or has become uniform. The candidate that keeps the distribution looking like LWE reveals the true $\mathbf{s}[i]$. Running over all $n \cdot q$ pairs uses $O(q \cdot n \cdot m)$ samples in total when decision can be broken with $m$ samples.
+## Sketch
+
+Given $(\mathbf{A}, \mathbf{u})$, run the search solver to obtain $\hat{\mathbf{s}}$ and output "LWE" iff $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ lies in the support of $\chi^m$. On LWE samples the check passes whenever the solver succeeds; on uniform samples no candidate secret passes except with negligible probability.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (the coordinate-by-coordinate reduction is due to Reg05).
-- The reduction as sketched enumerates all l in Z_q, so it requires q = poly(n); that restriction is never stated, and the assumption section allows arbitrary q.
-- Concrete complexity claim O(q n m) samples carries no citation.
+`class: fully-black-box`: The construction is the identity, and the reduction is one fixed algorithm that runs any search-LWE solver once as an oracle and checks the residual; this is the [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]] fully-black-box shape, degenerately instantiated for an assumption-to-assumption edge, in the parameter regime of the statement.

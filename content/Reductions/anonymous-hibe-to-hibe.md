@@ -27,6 +27,6 @@ The construction is the identity. Anonymity is defined on top of payload indisti
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity: an anonymous HIBE has the HIBE syntax. The reduction forwards any HIBE adversary unchanged, since anonymity is defined on top of payload indistinguishability. Fixed construction and fixed reduction, both oracle-only: the RTV04 fully-black-box shape.
+`class: fully-black-box`: the construction is the identity and the reduction forwards the adversary unchanged; both are fixed and oracle-only.
 
-- No slug 'anonymous-hibe' exists in content/; the hypothesis resolves via the section anchor on hierarchical-identity-based-encryption.
+- `anonymous-hibe` has no page; it resolves as a variant (section anchor) of [[hierarchical-identity-based-encryption]].

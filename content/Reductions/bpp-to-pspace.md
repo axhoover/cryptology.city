@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "BPP ⊆ PSPACE"
 aliases: []
 id: red-bpp-to-pspace
@@ -19,23 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-probabilistic-polynomial-time]] § Known relationships:
+A [[polynomial-space|PSPACE]] machine decides any [[bounded-error-probabilistic-polynomial-time|BPP]] language by enumerating all polynomially long random strings, reusing space across runs, and accepting on the majority outcome: $\classBPP \subseteq \classPSPACE$ — folklore.
 
-> - $\classBPP \subseteq \classPSPACE$: randomized computation can be simulated deterministically in polynomial space by trying all random strings.
+## Sketch
+
+Only a $\poly(n)$-bit counter of accepting runs persists across the $2^{\poly(n)}$ runs.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore/standard marker.
+`class: free`: Proven complexity-class containment; per repo convention `class: free`.

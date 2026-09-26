@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DDH ⇒ Non-interactive key exchange (NIKE)"
 aliases: []
 id: red-ddh-to-non-interactive-key-exchange-nike
 kind: implication
 hypotheses: [ddh]
 conclusion: non-interactive-key-exchange
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight for one honest pair: the DDH instance is forwarded unchanged"
 ---
 
 # DDH ⇒ Non-interactive key exchange (NIKE)
@@ -19,20 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-exchange]]:
+Diffie–Hellman ([[DH76 - New Directions in Cryptography|DH76]]) is a [[key-exchange#non-interactive-key-exchange-nike|NIKE]]: over $(\GG, g, p) \gets \GrGen(1^\secpar)$, party $i$ samples $x_i \getsr [p]$ and publishes $\pk_i = g^{x_i}$; parties $i$ and $j$ each compute $k_{ij} = \pk_j^{x_i} = \pk_i^{x_j} = g^{x_i x_j}$. For honestly generated keys, indistinguishability of $k_{ij}$ from uniform given $(\pk_i, \pk_j)$ is the [[decisional-diffie-hellman|DDH]] game verbatim — folklore.
 
-> A NIKE allows any two parties to derive the same shared key from each other's public keys alone, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$.
+## Sketch
+
+$(\pk_i, \pk_j, k_{ij})$ is a DDH tuple, so a distinguisher for $k_{ij}$ is a DDH distinguisher.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: Fixed construction from the group generator; the fixed reduction sets $(\pk_i, \pk_j, k_{ij}) := (X, Y, Z)$ from the DDH challenge and runs the adversary once as an oracle.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The assumption is not named on this line - DH over a cyclic group is given as 'the canonical example' with no hardness assumption and no citation.
-- No slug for NIKE.
+- Formal NIKE security models, including adversarially registered keys — [[FHKP13 - Non-Interactive Key Exchange|FHKP13]]

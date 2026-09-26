@@ -7,50 +7,29 @@ id: red-dcr-to-he-pai99
 kind: implication
 hypotheses: [dcr]
 conclusion: he
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
-security-loss: ""
+security-loss: "tight: one call to the CPA adversary"
 ---
 
 # DCR ⇒ HE
 
-[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption|HE]].
+[[decisional-composite-residuosity|DCR]] implies the additive fragment of [[homomorphic-encryption|HE]].
 
 ## Statement
 
-Migrated verbatim from [[decisional-composite-residuosity]] § Decisional composite residuosity assumption:
+[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption#partially-homomorphic-encryption-phe|additively homomorphic encryption]]: the Paillier cryptosystem encrypts $m \in \ZZ_n$ as $c = g^m r^n \bmod n^2$ for $r \getsr \ZZ_n^*$, so $\Enc(\pk, m_1) \cdot \Enc(\pk, m_2) \bmod n^2$ decrypts to $m_1 + m_2 \bmod n$, and it is semantically secure iff DCR is hard — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
 
-> The _decisional composite residuosity (DCR) assumption_ states that it is computationally hard to distinguish a random $n$-th power residue modulo $n^2$ from a uniformly random element of $\ZZ_{n^2}^*$, where $n = pq$ is an RSA modulus. Introduced by Paillier as the hardness basis for an additively homomorphic encryption scheme — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+## Sketch
 
-Migrated verbatim from [[decisional-composite-residuosity]] § Known Results:
-
-> - DCR implies the Paillier cryptosystem, which achieves additive homomorphism: given $\Enc(m_1)$ and $\Enc(m_2)$, one can compute $\Enc(m_1 + m_2 \bmod n)$ without decryption — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]
-
-Migrated verbatim from [[decisional-composite-residuosity]] § Known Results:
-
-> - DCR → threshold encryption (via Paillier with distributed key generation) — standard
+An encryption of $0$ is a uniform $n$-th residue in $\ZZ_{n^2}^*$, which DCR makes indistinguishable from a uniform element of $\ZZ_{n^2}^*$; an encryption of $m$ is $g^m$ times an encryption of $0$, so replacing the residue by a uniform element makes the ciphertext independent of $m$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: One fixed construction (Paillier over $\ZZ_{n^2}^*$) and one fixed reduction: given a DCR challenge $c^*$, the reduction sets the challenge ciphertext to $g^{m_b} \cdot c^*$ and runs any CPA adversary once as an oracle. This is the RTV04 fully-black-box shape.
 
-This relation is stated on 3 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Historical framing (introduced as the hardness basis for) rather than a stated reduction.
-- Overlaps the Known Results bullets at lines 29 and 32.
-- Conclusion named as a scheme (the Paillier cryptosystem) rather than a primitive; nearest slug is homomorphic-encryption.
-- Overlaps the bullet at line 32 (DCR to CPA-secure PKE with additive homomorphism), same citation.
-- The conclusion node homomorphic-encryption is far coarser than 'additively (linearly) homomorphic PKE'; the wiki has no page for the linear-homomorphism sub-object.
-- Duplicates lines 29 and 32 of the same page, which already record DCR yields additively homomorphic PKE with a Pai99 citation.
-- Uncited on this sub-edge, while the parent carries only a '- standard' folklore label.
-- via Paillier with distributed key generation chains two construction steps.
-- Marked standard where Fouque-Poupard-Stern / Damgard-Jurik are attributable.
-- threshold-encryption and distributed-key-generation have no pages.
+- Generalisation to modulus $n^{s+1}$ with plaintext space $\ZZ_{n^s}$, the simplification $g = 1+n$, and a threshold variant — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]
+- Threshold decryption for Paillier — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]
+- The conclusion node `he` (alias FHE) is coarser than the actual conclusion, additively homomorphic PKE, which [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ PHE]] records; DCR is not known to imply FHE.

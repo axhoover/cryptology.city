@@ -37,3 +37,4 @@ source text, not changes to it:
 - SUSPECTED MATHEMATICAL ERROR: It is implied by the CDH assumption is backwards — DDH hardness implies CDH hardness, not the reverse. The very next sentence (an adversary solving CDH also solves DDH) states the correct relation and contradicts it.
 - Uncited.
 - computational-diffie-hellman.md line 12 contains the mirrored version of the same confusion.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the direction is inverted: a CDH solver breaks DDH by computing $g^{ab}$ and comparing it with the challenge, so the true edge is DDH ⇒ CDH. No reduction CDH ⇒ DDH holds for all groups: in symmetric pairing groups DDH is easy while CDH is conjectured hard (Joux–Nguyen). See [[ddh-to-cdh]].

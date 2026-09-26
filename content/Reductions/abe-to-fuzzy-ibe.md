@@ -24,8 +24,8 @@ Any KP-[[attribute-based-encryption|ABE]] scheme whose policy class contains thr
 
 ## Sketch
 
-The Fuzzy IBE relation $|\omega \cap \omega'| \ge t$ is the KP-ABE relation $f(x) = 1$ with $f$ the $t$-of-$|\omega|$ threshold gate over $\omega$ and $x = \omega'$; the admissibility conditions coincide, so the reduction forwards everything and loses nothing.
+The Fuzzy IBE relation $|\omega \cap \omega'| \ge t$ is the KP-ABE relation $f(x) = 1$ with $f$ the $t$-of-$|\omega|$ threshold gate over $\omega$ and $x = \omega'$, so Fuzzy IBE admissibility ($|\omega \cap \omega^*| < t$ for every queried $\omega$) is KP-ABE admissibility (no queried policy satisfied by the challenge attribute set).
 
 ## Notes
 
-`class: fully-black-box`: The Fuzzy IBE algorithms call the KP-ABE scheme as an oracle, mapping each attribute set $\omega$ to the threshold policy $[|x \cap \omega| \ge t]$ locally; the reduction runs any Fuzzy IBE adversary as an oracle, forwarding key queries and the challenge. Fuzzy IBE admissibility ($|\omega \cap \omega^*| < t$ for every queried $\omega$) is KP-ABE admissibility (no queried policy satisfied by the challenge attribute set). Fixed construction, fixed advantage-preserving reduction.
+`class: fully-black-box`: The Fuzzy IBE algorithms call the KP-ABE algorithms as oracles on the locally computed policy $[|x \cap \omega| \ge t]$. The reduction runs the Fuzzy IBE adversary as an oracle, forwarding key queries and the challenge. Fixed construction, fixed advantage-preserving reduction.

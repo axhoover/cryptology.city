@@ -1,0 +1,694 @@
+{
+  "summary": "Apply verified research to reduction/barrier pages (Opus editors), then an Opus precision-and-brevity vet per batch",
+  "agentCount": 14,
+  "logs": [
+    "8/8 batches vetted"
+  ],
+  "result": {
+    "halted": false,
+    "stubs": [],
+    "done": [
+      "red-00",
+      "red-01",
+      "red-02",
+      "red-03",
+      "red-04",
+      "red-05",
+      "red-06",
+      "red-07"
+    ],
+    "editedNotVetted": [],
+    "notDone": [],
+    "summaries": [
+      {
+        "id": "red-00",
+        "edit": {
+          "skippedEdit": true
+        },
+        "vet": {
+          "batch": "red-00",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/abe-to-be.md: dedupe sketch/notes, drop RTV04 aside",
+            "content/Reductions/abe-to-fuzzy-ibe.md: move admissibility to sketch, tighten",
+            "content/Reductions/abe-to-hibe.md: tighten wrong-claim note wording",
+            "content/Reductions/abe-to-ibe.md: notes no longer restate sketch",
+            "content/Reductions/adaptive-robustness-to-prc.md: drop recap sketch, tighten notes",
+            "content/Reductions/agm-to-kea.md: fix double dash, tighten notes",
+            "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md: tighten wrong-claim note wording",
+            "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md: cite BIP+18 on conjecture, dedupe",
+            "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md: tighten class justification sentence"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md is disposition undetermined. It was left untouched as instructed and still has its migrated-verbatim body.",
+            "alternating-moduli-assumption-to-prf-bip-18 and strong-to-weak AM: the chosen-input AM game on content/Assumptions/alternating-moduli.md is false as stated, because f_A(0^n) = 0 for every key. That needs a fix on the assumption page, which is outside this batch.",
+            "agm-to-kea: FKL18 is cited for the model only, since it has no 'AGM => KEA' theorem. A human may prefer folklore plus the FKL18 model citation. The disposition was left as sourced.",
+            "abe-to-hibe: the verifier recommends deleting or re-scoping the edge to 'KP-ABE with key delegation'. The HIBE page lacks a delegation requirement."
+          ]
+        }
+      },
+      {
+        "id": "red-01",
+        "edit": {
+          "skippedEdit": true
+        },
+        "vet": {
+          "batch": "red-01",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/am-to-coam.md: dropped redundant sentence, cited BM88",
+            "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md: removed sentence duplicating earlier note",
+            "content/Reductions/arithmetization-to-snark-bbhr18.md: tightened bullet, linked PCS edge",
+            "content/Reductions/anonymous-hibe-to-hibe.md: class note no longer repeats sketch",
+            "content/Reductions/authenticated-key-exchange-ake-to-ke.md: class note no longer repeats sketch",
+            "content/Reductions/arithmetization-to-zk-snark-gro16.md: trimmed justifications; sibling pages wikilinked",
+            "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md: cut redundant 'no trusted setup' and process history",
+            "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md: tightened model note, dropped 'Genuinely'",
+            "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md: stale inventory note now points to sibling",
+            "content/Reductions/bdh-to-abe-gpsw06.md: removed stale DBDH note, cut sketch repetition"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "The frontmatter on all 10 pages matches the verified entries (class, model, source, kind, status). Every source key uses the refmap filename, and improvement papers (FKL18, GWC19, BFS20, Wat11) are cited only in Notes. The three wrong_claim pages (am-to-coam, arithmetization-and-nizk-and-pcs-to-snark, arithmetization-to-snark-bbhr18) differ from before only in the appended Sourcing-pass bullet. Their frontmatter was left alone, so arithmetization-to-snark-bbhr18 keeps status: draft even though the verified entry suggests stub.",
+            ".reductions/relations.json is out of date: `node scripts/generate-relations.mjs --check` fails because frontmatter was already changed in commit 2af8de7, with other batches also modified in the working tree. It was not regenerated because it is outside this batch; the coordinator should run `node scripts/generate-relations.mjs` before committing.",
+            "am-to-coam: the Boppana–Håstad–Zachos result has no reference page (BHZ87 is missing from content/References). The bullet now cites BM88, whose abstract derives the same collapse, alongside the author names. A BHZ87 stub would be the proper fix.",
+            "The Wat11 reference filename has the wrong paper title ('...from Subset Cover'). It is kept because filenames are live URLs; this is for the reference-fixer lane.",
+            "Open flags from the verified entries, not addressed on the pages: the Pinocchio (PGHR13) edge is uncited and has no page; the IND-CCA2 AE hypothesis in LS26 was not checked against the paper body; and red-arithmetization-and-nizk-and-pcs-to-snark and red-arithmetization-to-snark-bbhr18 are recommended for deletion as superseded."
+          ]
+        }
+      },
+      {
+        "id": "red-02",
+        "edit": {
+          "batch": "red-02",
+          "edited": 10,
+          "annotated_wrong_claim": 4,
+          "skipped": 0,
+          "lint_clean": true,
+          "flags": [
+            "Rewritten (sourced, 6): bdh-to-be-bgw05, bdh-to-hibe-wat09, bdh-to-hve-bw07, bdh-to-ibe-wat09, bdh-to-vrf, bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10. Given a Notes bullet only (wrong_claim, 4): bdh-to-ac, bdh-to-ds, bdh-to-nizk-gro16, bilinear-pairing-to-ds. No undetermined pages. All under /home/user/cryptology.city/content/Reductions/.",
+            "I changed the one-line claim under the H1 on 5 pages. The old line said 'BDH implies X', but the verified statement says a different assumption is used, so I named that assumption instead: BE uses the decision n-BDHE variant; HIBE and IBE use 'DBDH and DLIN jointly'; HVE uses DBDH + bilinear subgroup decision + C3DH in composite-order groups; VRF uses DLIN. Titles and H1s ('BDH ⇒ X') are unchanged as the rules require. The single bdh node hides the real hypothesis on all five pages.",
+            "Hypothesis granularity: BGW05 needs n-BDHE (a q-type assumption with no node). BW07 needs composite-order assumptions with no node. HJ16 needs k-Lin/DLIN. Wat09 needs DBDH and DLIN jointly, a real conjunction that is collapsed onto the single bilinear-map-assumptions node. Split these nodes and re-point the edges once nodes exist.",
+            "bdh-to-ibe-wat09: I dropped the migrated Boneh–Franklin quote ('BDH → IBE from the Weil pairing — standard') along with the other migrated quotes. It describes a different edge: computational BDH ⇒ IBE in the ROM, BF01, whose reference page exists. Someone should create red-bdh-to-ibe-bf01 with model: rom. No other migrated quote carried content the new statement lacks, so none were kept.",
+            "BW07 reference page (reference-fixer lane): its filename names the wrong paper (the real title is 'Conjunctive, Subset, and Range Queries on Encrypted Data'). Its source URL, eprint 2006/465, is Canetti's UC tutorial; the correct one is 2006/287. Its abstract states the assumptions wrongly. Also, the BW07 assumption set (DBDH + bilinear subgroup decision + C3DH) comes from Lee's HVE survey, not the paper text; it should be checked against LNCS 4392.",
+            "suspected-errors.json id mismatch: it lists red-bddh-to-ac, red-bddh-to-ds and red-bddh-to-vrf, but the page ids are red-bdh-to-ac, red-bdh-to-ds and red-bdh-to-vrf.",
+            "Duplicate page: bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10 and bilinear-pairing-and-q-sdh-to-pcs-kzg10 record the same KZG10 theorem, with conclusions kzg-polynomial-commitment and pcs. Merge them or pick one as canonical. The SRS is a third hypothesis in substance; it is carried by model: crs.",
+            "Wrong-claim follow-ups: bdh-to-nizk-gro16 should become a DLIN/BDH ⇒ NIZK page citing GOS06; GOS06 is not in refmap and has no reference page (cited in plain text). bdh-to-ac has no LRSW node, and CL04 is not in refmap (cited in plain text). bilinear-pairing-to-ds should fold into co-cdh-to-ds, moving its correct BLS construction quote there. co-cdh-to-ds is itself unsourced; batch red-04 covers it. The BLS01 and GS08 wikilinks use refmap filenames.",
+            "Class changes to fully-black-box on 4 pages (BE, HIBE, IBE, KZG) may change the generated 'Participates in' sections. I did not run generate-relations.mjs --check; the coordinator should."
+          ]
+        },
+        "vet": {
+          "batch": "red-02",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/bdh-to-hve-bw07.md: 'jointly imply' one-liner; BW07 note made accurate (the reference page's title, H1 and aliases are already right; only the filename and its source URL, eprint 2006/465, are wrong)",
+            "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md: class note no longer repeats the sketch; model note trimmed",
+            "content/Reductions/bdh-to-vrf.md: Koh19 improvement bullet tightened",
+            "content/Reductions/bdh-to-ds.md: wrong-claim bullet drops a redundant clause",
+            "content/Reductions/bdh-to-nizk-gro16.md: wrong-claim bullet drops a redundant tail"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "Fidelity is confirmed on all 6 sourced pages: class, model, source (refmap filenames, originals only), kind, status and security-loss match content/../verified/red-02.json. Improvement papers (LW10, Koh19) are cited in Notes only. On the 4 wrong-claim pages the only diff is the appended Sourcing-pass bullet.",
+            "Not fixable within this batch, all in other lanes: the BW07 reference page has a wrong source/bibtex URL (2006/465, should be 2006/287) and an abstract that states the wrong assumptions. BW07's assumption set comes from Lee's survey (confidence medium) and should be checked against LNCS 4392.",
+            "Hypothesis granularity: the single bdh node hides n-BDHE (BGW05), the composite-order BSD and C3DH (BW07), DLIN/k-Lin (HJ16) and the DBDH+DLIN conjunction (Wat09). These edges need re-pointing once separate nodes exist.",
+            "Duplicate KZG10 pages (kzg-polynomial-commitment vs pcs conclusion) need a merge decision.",
+            "The missing edge red-bdh-to-ibe-bf01 (computational BDH, rom, BF01) is still to be created. GOS06 and CL04 have no reference pages and are cited in plain text on the wrong-claim bullets.",
+            "Class changes to fully-black-box on BE, HIBE, IBE and KZG may change the generated Participates-in sections. I did not run generate-relations.mjs --check; the coordinator should.",
+            "Nothing is committed. Prettier --check passes on all 10 files."
+          ]
+        }
+      },
+      {
+        "id": "red-03",
+        "edit": {
+          "batch": "red-03",
+          "edited": 9,
+          "annotated_wrong_claim": 1,
+          "skipped": 0,
+          "lint_clean": true,
+          "flags": [
+            "Rewritten (9): bilinear-pairing-and-q-sdh-to-pcs-kzg10, bilinear-pairing-to-snark-gro16, permuted-puzzles-to-depir-bipw17, bpp-to-bqp, bpp-to-p-poly (sourced); bpp-to-am-gs86, bpp-to-coam-gs86, bpp-to-pp, bpp-to-pspace (folklore). Wrong-claim note appended (1): bqp-to-dlog-shor97. It says BQP ⊆ DLOG, which reverses Shor97. The note says see [[discrete-logarithm]] because the proposed dlog-to-bqp page does not exist yet. HIGH PRIORITY: a human should decide whether to create dlog-to-bqp or add Shor's algorithm to the Attacks section of the DLOG page.",
+            "Only one verified field was not copied word for word: I removed research-process asides from the justifications ('matching/Matches the page's current value', 'and the page's current value is kept'). The substance is unchanged.",
+            "I added the missing load-bearing qualifier to three one-line prose lines, which had left it out while the verified statement includes it. KZG10: 'given a trusted structured reference string'. Gro16: 'in the generic bilinear group model, given a per-circuit trusted CRS'. BIPW17: 'secret-key' DEPIR.",
+            "Pages with class: unstated (kzg10, bipw17) get the fixed unstated line as the instructions say. The verified class_justification text for them was therefore dropped.",
+            "The KZG10 page now has the first pseudocode block in content/Reductions. It uses \\mathsf{Commit}/\\mathsf{srs}/\\mathsf{aux} because macros.ts has no macros for these, which matches the PCS Syntax section. Its \\algname{Algorithm} is stripped by the renderer. The full site build was not run, so the rendering is unchecked.",
+            "No migrated quote was kept. Everything in them is covered by the new statement, sketch or improvements, or is out of scope: the p-poly derandomization clause is a different result, and the KZG 'Used in' application line was dropped.",
+            "bpp-to-am-gs86 and bpp-to-coam-gs86: I removed the wrong GS86 source and set source: folklore. The '-gs86' slug suffix is now misleading, but renaming would change live URLs, so that is a human decision.",
+            "bpp-to-p-poly: the BG81 attribution for the BPP (two-sided-error) form rests on secondary sources, so a HUMAN CHECK is needed. BG81 is cited in the sketch and the Notes, not in source:. The BG81 filename contains '^' and the link resolves under lint.",
+            "Sibling duplicates for a human to decide on: bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10 duplicates the KZG10 edge, and kea-to-snark-gro16 duplicates the Gro16 edge.",
+            "succinct-argument.md's proof-size claim '3 G1 + 1 G2' is wrong, still unfixed (skeptical-checker lane). It is recorded in the Notes of the Gro16 page.",
+            "Unrelated to this batch: 'node scripts/generate-relations.mjs --check' reports .reductions/relations.json out of date. Source/status changes across batches probably cause this, and other batches are editing other Reductions pages at the same time. The coordinator should regenerate it before committing.",
+            "All mapped reference files exist on disk (KZG10, Gro16, FKL18, BIPW17, BHW19, BHMW21, BV97, Adl78, BG81). No refmap keys were missing. No overrides applied to this batch. Nothing was committed."
+          ]
+        },
+        "vet": {
+          "batch": "red-03",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md: dropped restated tail in model note",
+            "content/Reductions/bilinear-pairing-to-snark-gro16.md: fixed stale proof-size note location (the '3 G1 + 1 G2' claim no longer appears in succinct-argument.md. Since commit 61505e9 it exists only in the migrated quote on kea-to-snark-gro16, which red-17 left as wrong_claim. The note now says this and cites Gro16.) Also tightened the pairings bullet.",
+            "content/Reductions/bpp-to-am-gs86.md: removed redundant 'value is free' clause",
+            "content/Reductions/bpp-to-bqp.md: cut recap sentence from sketch",
+            "content/Reductions/bpp-to-coam-gs86.md: removed sketch that only restated the statement",
+            "content/Reductions/bpp-to-pp.md: removed sketch that only restated the statement",
+            "content/Reductions/bpp-to-pspace.md: shortened sketch to a symbolic counter line",
+            "content/Reductions/bpp-to-p-poly.md: removed duplicate BG81 attribution from the sketch (it stays in the Notes bullet)",
+            "content/Reductions/bqp-to-dlog-shor97.md: tightened the wrong-claim Notes bullet. It is still the only change on the page."
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "bqp-to-dlog-shor97 (HIGH PRIORITY, human): the page still asserts BQP ⊆ DLOG, the reverse of Shor97. Someone must choose between creating a dlog-to-bqp inclusion page and adding Shor's algorithm under Attacks on discrete-logarithm.md.",
+            "kea-to-snark-gro16 (red-17, wrong_claim) still carries the migrated '3 G1 + 1 G2' Groth16 proof-size error. The editor's flag said this error was on succinct-argument.md. That is stale: succinct-argument.md now says '3 group elements', which is correct.",
+            "bpp-to-am-gs86 and bpp-to-coam-gs86 now have source: folklore, so the '-gs86' slug suffix is misleading. Renaming changes live URLs, so a human must decide.",
+            "bpp-to-p-poly: a human must check the BG81 attribution of the two-sided-error form, which rests on secondary sources. The paper was not fetchable.",
+            "Sibling duplicate edges need a human decision: bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10 against the KZG10 edge, and kea-to-snark-gro16 against the Gro16 edge.",
+            "KZG10 page pseudocode block: the full Quartz build was not run, so its rendering is unchecked. The block uses \\mathsf{Commit}/\\mathsf{srs}/\\mathsf{aux} per the PCS Syntax section, since there is no macro for them, and \\algname{Algorithm}, which is already used on 12 other pages.",
+            "The editor reported that .reductions/relations.json is out of date under generate-relations --check, which is a cross-batch issue. The coordinator should regenerate it before committing."
+          ]
+        }
+      },
+      {
+        "id": "red-04",
+        "edit": {
+          "batch": "red-04",
+          "edited": 6,
+          "annotated_wrong_claim": 4,
+          "skipped": 0,
+          "lint_clean": true,
+          "flags": [
+            "Rewritten (sourced/folklore): content/Reductions/bqp-to-pp.md, cdh-to-dlog.md (folklore, fully-black-box, security-loss set), evasive-lwe-to-abe.md, circular-security-and-lwe-to-he.md, circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md, co-cdh-to-ds.md. Annotated wrong_claim (Notes bullet only): cdh-to-bdh.md, cdh-to-ddh.md, com-to-mpc-gmw87.md, com-to-ot-kil88.md. No undetermined pages; no overrides applied to this batch; no migrated quotes retained; all refmap files present on disk.",
+            "node scripts/lint.mjs on the 10 files: 0 errors, 0 warnings.",
+            "bqp-to-pp: probabilistic-polynomial-time.md still carries 'TODO citation (Adleman, DeMarrais, Huang 1997)'; ADH97 reference now exists, so reference-fixer can resolve it. The verified text uses \\mathsf{PostBQP} and \\mathsf{AWPP} (no macros exist), so they render sans-serif next to the bold \\classPP/\\classBQP macros. The model is quantum only to match sibling pages, although the theorem is classical; a human may prefer standard.",
+            "cdh-to-bdh: the correct edge bdh-to-cdh has no page, so the bullet names it in prose and links [[bilinear-map-assumptions]]. It is worth creating (folklore, fully-black-box).",
+            "cdh-to-ddh: recommend deleting or redirecting; content/Reductions/ddh-to-cdh.md already covers the true direction. The mirrored prose confusion on computational-diffie-hellman.md and decisional-diffie-hellman.md line 12 belongs to the skeptical-checker lane.",
+            "cdh-to-dlog: the source prose on discrete-logarithm.md line 12 ('natural strengthening of CDH') still inverts which assumption is stronger; skeptical-checker lane.",
+            "evasive-lwe-to-abe: the title/H1 say 'Evasive LWE ⇒ ABE' but the hypothesis is circular-evasive-lwe (HLL23). Title left unchanged per rules; consider retitling to 'Evasive circular LWE ⇒ ABE' with a -hll23 slug so it is distinct from evasive-lwe-to-abe-wee22. The prose line under the H1 was fixed to name public-coin evasive circular LWE and unbounded depth. The informative class_justification was dropped in favour of the fixed unstated line, as instructed.",
+            "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09: the prose line now includes the load-bearing 'bootstrappable' qualifier. Bootstrappability is still not expressible in the hypothesis list (schema question).",
+            "co-cdh-to-ds: consider naming BLS in the title (cf. dlog-to-bls-signatures-fkl18). The co-CDH page lacks the isomorphism psi: G2 -> G1 that the reduction uses.",
+            "com-to-mpc-gmw87: consider replacing with an ot-to-mpc-gmw87 edge plus a GMW-compiler edge. The sibling com-to-two-party-computation-2pc-gmw87 (batch red-05) carries the same inverted claim.",
+            "com-to-ot-kil88: recommend deleting or redirecting; ot-to-com and ot-to-mpc-kil88 already cover both true Kil88 directions. A quantum COM ⇒ OT page (Crepeau-Kilian 1988 / BBCS92) would be a separate new page."
+          ]
+        },
+        "vet": {
+          "batch": "red-04",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/bqp-to-pp.md: dedupe Aar05; mathbf classes; tighten notes",
+            "content/Reductions/cdh-to-dlog.md: drop rephrase; tighten sketch, class note",
+            "content/Reductions/evasive-lwe-to-abe.md: drop repeated AMYY25 counterexample bullet",
+            "content/Reductions/circular-security-and-lwe-to-he.md: drop definition gloss; cite Gen09",
+            "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md: cite leveled clause; tighten note",
+            "content/Reductions/co-cdh-to-ds.md: define g_2, h; drop uncited claim",
+            "content/Reductions/cdh-to-bdh.md: tighten wrong-claim bullet to two sentences",
+            "content/Reductions/cdh-to-ddh.md: tighten wrong-claim bullet wording",
+            "content/Reductions/com-to-mpc-gmw87.md: tighten bullet; drop restated edges",
+            "content/Reductions/com-to-ot-kil88.md: tighten wrong-claim bullet wording"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "co-cdh-to-ds: security-loss in the frontmatter writes $e(q_S+1)$, where e is Euler's number, but the page also uses $e$ for the pairing. I left the frontmatter matching the verified entry and disambiguated only in the Notes BLS04 bullet. A human may want \\mathrm{e} in the security-loss field.",
+            "co-cdh-to-ds: the statement does not name the isomorphism psi: G2 -> G1, which the sketch and BLS04's co-GDH definition need. I kept the statement as verified, and the co-CDH page still lacks psi.",
+            "cdh-to-ddh: the wrong-claim bullet cites Joux-Nguyen in prose only, because no reference page exists for it.",
+            "bqp-to-pp: PostBQP and AWPP have no macros. I changed them from \\mathsf to \\mathbf so they render like the other class macros. Adding \\classPostBQP and \\classAWPP would need edits to macros.ts and the glossary, which is outside this batch.",
+            "Editor flags carried forward: retitle evasive-lwe-to-abe (its hypothesis is circular-evasive-lwe); delete or redirect cdh-to-ddh and com-to-ot-kil88; create a bdh-to-cdh page; replace com-to-mpc-gmw87 with ot-to-mpc-gmw87 plus a GMW-compiler edge; resolve the TODO citation in probabilistic-polynomial-time.md now that ADH97 exists."
+          ]
+        }
+      },
+      {
+        "id": "red-05",
+        "edit": {
+          "batch": "red-05",
+          "edited": 9,
+          "annotated_wrong_claim": 3,
+          "skipped": 1,
+          "lint_clean": true,
+          "flags": [
+            "Rewritten (6): conp-to-coam, conp-to-pspace, dcr-to-com (folklore); cpir-to-ot-dmo00, d-th-composite-residuosity-to-he, dcr-to-partially-homomorphic-encryption-phe-pai99 (sourced). Wrong-claim bullet appended, nothing else changed (3): com-to-two-party-computation-2pc-gmw87, conp-to-am-gs86, czk-to-ip-bgg-90. Skipped as undetermined (1): com-and-ss-to-verifiable-secret-sharing-vss.",
+            "HIGH PRIORITY: conp-to-am-gs86 is still status: draft, class: free, with GS86 attached to the false claim coNP ⊆ AM. The source bullet at content/Complexity/co-nondeterministic-polynomial-time.md:21 needs fixing.",
+            "HIGH PRIORITY: czk-to-ip-bgg-90 is still status: draft, kind: equivalence, class: free, and asserts an unconditional CZK = IP. The correct edge is {OWF, IP} ⇒ CZK sourced to BGG+90, plus a separate folklore page for CZK ⊆ IP. The same root cause is in the suspected error at zero-knowledge-proof.md:73 and in sibling page ip-to-szk-bgg-90. computational-zero-knowledge.md:34 credits Ost91 for 'OWFs are necessary for CZK', but that result is OW93.",
+            "com-to-two-party-computation-2pc-gmw87: sibling page com-to-mpc-gmw87 makes the same wrong claim and needs the same treatment. The source prose is at commitment-scheme.md:64 and secure-multi-party-computation.md:64.",
+            "cpir-to-ot-dmo00: I edited the one-line prose to 'Non-trivial [[...|cPIR]] implies OT' because the qualifier is load-bearing. The class stays unstated because the paper was unreachable; someone with the text should confirm fully-black-box and the c(n)·poly(secpar) communication bound.",
+            "d-th-composite-residuosity-to-he: the conclusion `he` is coarser than what DJ01 prove, which is additively homomorphic PKE. Consider changing it to additively-homomorphic-encryption. The DCR page at lines 42-44 wrongly says 'd-th powers'; it should say n^d-th residues modulo n^{d+1}. DJ01 prove the d-th assumption equivalent to DCR.",
+            "dcr-to-partially-homomorphic-encryption-phe-pai99: I set security-loss to the entry's 'Tight' text. dcr-to-he-pai99 and dcr-to-pke-pai99 are near-duplicates and should be merged or cross-linked. I kept the note 'No wiki slug for additively homomorphic encryption', but additively-homomorphic-encryption is now a declared variant id (a section anchor on homomorphic-encryption), so the note may be stale.",
+            "dcr-to-com: the statement covers both commitment flavours. Suspected-errors entry red-dcr-to-cs can be closed once decisional-composite-residuosity.md:33 is amended to name both flavours. Damgård–Nielsen CRYPTO 2002 is an optional citation for the hiding mode. It is not in the refmap and I did not add it.",
+            "com-and-ss-to-verifiable-secret-sharing-vss (undetermined, untouched): the research suggests re-scoping the page to Feldman/Pedersen VSS with a homomorphic-commitment hypothesis.",
+            "Status and source changed on 6 pages. I did not run generate-relations --check, so the generated 'Participates in' sections may need regenerating."
+          ]
+        },
+        "vet": {
+          "batch": "red-05",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/conp-to-coam.md: removed recap sketch, class note",
+            "content/Reductions/conp-to-pspace.md: symbolic statement, standard class note",
+            "content/Reductions/cpir-to-ot-dmo00.md: merged qualifier, specific class justification",
+            "content/Reductions/d-th-composite-residuosity-to-he.md: cut inference, sourced class justification",
+            "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md: tightened notes, fixed stale note",
+            "content/Reductions/dcr-to-com.md: statement crisp, proofs into sketch"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "I left the three wrong_claim pages unedited (com-to-two-party-computation-2pc-gmw87, conp-to-am-gs86, czk-to-ip-bgg-90). Each differs from HEAD only by the appended 'Sourcing pass' bullet. The bullets are two sentences plus a See-link, and every link resolves. These pages are still status: draft with the false claims in frontmatter and Statement, so a human needs to act on them.",
+            "I did not touch com-and-ss-to-verifiable-secret-sharing-vss (undetermined). It has no diff against HEAD.",
+            "dcr-to-com: I changed 'under which binding is perfect' to 'statistical' for a uniform key. A uniform g in Z*_{n^2} gives injective commitments only when its (1+n)-exponent is coprime to n, so binding holds except with negligible probability. I also added a Pai99 citation to the claim that hiding follows from IND-CPA. source stays folklore.",
+            "dcr-to-partially-homomorphic-encryption-phe-pai99: I rewrote the stale verified note 'No wiki slug for additively homomorphic encryption'. additively-homomorphic-encryption is now a declared variant id that resolves to the PHE section of homomorphic-encryption.",
+            "cpir-to-ot-dmo00: the bound c(n)·poly(secpar) and the class (fully-black-box is plausible) are still unconfirmed against the DMO00 full text. The Notes record this.",
+            "node scripts/generate-relations.mjs --check reports .reductions/relations.json out of date. That file is repo-wide and also covers other batches, so I did not regenerate it. The coordinator should run node scripts/generate-relations.mjs before committing.",
+            "Out-of-batch follow-ups from the flags, not done: co-nondeterministic-polynomial-time.md:21; computational-zero-knowledge.md:29 and :34 (Ost91 should be OW93); zero-knowledge-proof.md:73; ip-to-szk-bgg-90; com-to-mpc-gmw87; commitment-scheme.md:64 and secure-multi-party-computation.md:64; decisional-composite-residuosity.md:33 and :42-44; merging or cross-linking dcr-to-he-pai99 and dcr-to-pke-pai99; no reference page exists for BHZ87, which conp-to-am-gs86 cites in plain text."
+          ]
+        }
+      },
+      {
+        "id": "red-06",
+        "edit": {
+          "batch": "red-06",
+          "edited": 9,
+          "annotated_wrong_claim": 1,
+          "skipped": 0,
+          "lint_clean": true,
+          "flags": [
+            "Rewritten (sourced/folklore): dcr-to-he-pai99, dcr-to-pke-pai99, dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25, ddh-to-cdh, ddh-to-com, ddh-to-ke-dh76, ddh-to-non-interactive-key-exchange-nike, ddh-to-pke-elgamal85, ddh-to-prf-nr97. Annotated wrong_claim: ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21 (one Sourcing-pass Notes bullet; no 'See' link because no page exists for the correct SXDH + LWE + LPN-over-Z_p + NC^0-PRG edge). Undetermined: none.",
+            "All pages were untouched before this run (git diff empty), so every page was rebuilt from the verified entry.",
+            "Every refmap key was present and every mapped reference file exists on disk (Pai99, DJ01, FPS00, CHKV25, Ped91, DH76, FHKP13, ElGamal85, TY98, NR97).",
+            "dcr-to-he-pai99: I changed the one-line prose under the H1 to 'DCR implies the additive fragment of HE'. The additive qualifier is load-bearing, since the `he` node carries the FHE alias. This page duplicates dcr-to-partially-homomorphic-encryption-phe-pai99; consider retiring it.",
+            "Class mismatch across batches: dcr-to-he-pai99 and dcr-to-pke-pai99 are now class fully-black-box, but the sibling dcr-to-partially-homomorphic-encryption-phe-pai99 (from red-05) is still class unstated. All three record the same Pai99 theorem.",
+            "ddh-to-com: DDH is a stronger hypothesis than Pedersen binding needs, which is only DLOG. No dlog-to-com page exists. Recommend creating dlog-to-com (Ped91) and retiring or demoting this DDH edge. If the edge is re-pointed to DLOG, drop the statement clause 'implied by DDH via DDH ⇒ CDH and CDH ⇒ DLOG'.",
+            "The CHKV25 DCR-instantiated page is over-split: it is the generic PHE + sparse LPN ⇒ SHE edge composed with DCR ⇒ PHE. Class is left unstated. Consider retiring it.",
+            "JLS21 wrong claim, related pages with the same errors: sibling pages lpn-and-lwe-and-nc1-prg-to-io-jls21 and prg-in-nc1-to-io-jls21 (batch red-18). The JLS21 reference page's paraphrased abstract ('Boolean PRG in NC^1', 'DDH') is the likely origin. content/Primitives/pseudorandom-generator-in-nc1.md wrongly calls itself a JLS21 hypothesis.",
+            "ddh-to-cdh: the edge is correct. The inverted strength glosses at computational-diffie-hellman.md:12 and decisional-diffie-hellman.md:12 remain unfixed on those pages. The converse page cdh-to-ddh must not be merged into an equivalence.",
+            "ddh-to-ke-dh76 and ddh-to-non-interactive-key-exchange-nike record the same Diffie-Hellman construction against the KE and NIKE nodes.",
+            "ddh-to-pke-elgamal85: source now lists ElGamal85 only. DH76 was dropped because it was a 'see also' for background. TY98 is cited in the Statement and Notes but is not in source:, because its role is improvement.",
+            "ddh-to-prf-nr97: I dropped the old Notes line 'The same reduction is stated from the other end at DDH § Known Results' because it is not in notes_to_keep. The migrated Naor-Reingold construction quote was also dropped; the new statement covers it.",
+            "No migrated quotes were kept on any page; each was either covered by the new statement or replaced by an improvement citation (FPS00/DJ01 for the DCR threshold bullet).",
+            "Pseudocode, not checked in a build: dcr-to-pke-pai99, ddh-to-com, ddh-to-pke-elgamal85 and ddh-to-prf-nr97 each have several \\begin{algorithm} environments in one pseudocode fence, as EDIT_INSTRUCTIONS specify. The vendored quartz/static/pseudocode.js parser loops over several environments, but no other page in the repo does this, and no Quartz build was run to confirm it renders.",
+            "Several class values changed (unstated to fully-black-box). The coordinator may need to run node scripts/generate-relations.mjs to regenerate the Participates-in sections and relations.json. I did not run it.",
+            "Lint result: node scripts/lint.mjs on the 10 batch files reported '865 pages checked: 0 error(s), 0 warning(s)' and exited 0. Nothing was committed."
+          ]
+        },
+        "vet": {
+          "batch": "red-06",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/dcr-to-he-pai99.md: dropped migration residue, merged duplicate bullets",
+            "content/Reductions/dcr-to-pke-pai99.md: secret key now includes n",
+            "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md: dash aside became parenthetical",
+            "content/Reductions/ddh-to-cdh.md: removed reduction stated three times",
+            "content/Reductions/ddh-to-com.md: nested em-dashes replaced by parentheses",
+            "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md: Sourcing-pass bullet cut to one sentence",
+            "content/Reductions/ddh-to-ke-dh76.md: dash aside became parenthetical",
+            "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md: FHKP13 bullet trimmed to relevant part",
+            "content/Reductions/ddh-to-pke-elgamal85.md: removed sketch duplicate and TY98 restatement",
+            "content/Reductions/ddh-to-prf-nr97.md: class note deduplicated, comment trimmed"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "Frontmatter on all 9 rewritten pages matches the verified entries: class, model, source (refmap filenames, original sources only), kind, status and security-loss. Improvement papers (DJ01, FPS00, FHKP13, TY98) are cited only in Notes or the Statement, never in source:.",
+            "dcr-to-pke-pai99: one precision fix to the verified pseudocode. KeyGen returned sk = phi, but Dec reduces mod n^2 and so needs n. It now returns (sk, pk) <- ((n, phi), n).",
+            "JLS21 wrong-claim page: the only diff from HEAD is the one appended Sourcing-pass bullet, which I shortened. The migrated quote and the old migration notes on that page are intentionally left as they were.",
+            "No Quartz build was run. Four pages (dcr-to-pke-pai99, ddh-to-com, ddh-to-pke-elgamal85, ddh-to-prf-nr97) put several algorithm environments in one pseudocode fence. The vendored quartz/static/pseudocode.js Parser.parse loops over environments, so this should render, but it is not confirmed.",
+            "node scripts/generate-relations.mjs was not run. The class changes (unstated to fully-black-box on 8 pages) may require regenerating relations.json and the Participates-in sections.",
+            "Still open from the editor's flags, all outside this batch: the three Pai99 edges disagree on class (dcr-to-partially-homomorphic-encryption-phe-pai99 is still unstated); ddh-to-com uses a stronger hypothesis than needed, and a dlog-to-com (Ped91) page should be created; the CHKV25 DCR-instantiated edge is over-split; the sibling JLS21 pages (red-18), the JLS21 reference-page abstract and pseudorandom-generator-in-nc1.md repeat the NC^1/DDH error; the strength glosses on the CDH and DDH assumption pages are inverted; ddh-to-ke-dh76 and ddh-to-non-interactive-key-exchange-nike overlap."
+          ]
+        }
+      },
+      {
+        "id": "red-07",
+        "edit": {
+          "batch": "red-07",
+          "edited": 8,
+          "annotated_wrong_claim": 2,
+          "skipped": 0,
+          "lint_clean": true,
+          "flags": [
+            "HIGH PRIORITY differing-inputs-obfuscation-dio-to-io: kind changed equivalence -> implication per verified entry, and one-line prose changed from 'is equivalent to' to 'implies'. The title and H1 still read 'Differing-inputs obfuscation (diO) ⇔ iO' because there is no override for this slug and the instructions forbid title changes. It needs a coordinator override like succinct-lwe-to-lwe, e.g. title/H1 'Differing-inputs obfuscation (diO) ⇒ iO'.",
+            "HIGH PRIORITY decision-lwe-to-search-lwe: the migrated quote (coordinate-by-coordinate decision-to-search reduction, O(qnm) samples, needs prime q = poly(n), due to Reg05) proves the CONVERSE edge. I removed it and did not keep it under Statement, because it is wrong for this page. It belongs on content/Reductions/search-lwe-to-decision-lwe.md (batch red-29). That page is still unedited and still carries the solve-and-check quote that this page's new statement now covers. The coordinator should check that red-29 picks up the Reg05 coordinate-recovery content.",
+            "depir-to-cpir: changed the one-line prose to 'An unkeyed or public-key DEPIR scheme implies cPIR' because the verified statement excludes secret-key DEPIR, a load-bearing qualifier. Removed the dangling '; see flags' from the class_justification. Open for a human: the verified entry suggests narrowing the hypothesis to unkeyed-depir (not done, since hypotheses are off-limits).",
+            "dlog-to-bls-signatures-fkl18 and dlog-to-cdh-fkl18: added the load-bearing 'In the algebraic group model' qualifier (plus 'with a random oracle' for BLS) to the one-line prose; security-loss set from the entries. The single model field cannot express AGM+ROM for BLS; the ROM part is in the statement and model note. The FKL18 edges should be made consistent with how other pages encode ROM (e.g. as an explicit rom hypothesis, as on dlog-and-rom-to-schnorr-signatures-sch91).",
+            "dlog-to-cdh-fkl18: dropped the second migrated quote (Sho97 GGM lower bound composed with AGM reductions). It is a separate lower-bound claim that still lives at content/Assumptions/algebraic-group-model.md line 36 and needs a barrier/lower-bound record; its AGM-to-GGM step is contested by KZ22. Also dropped the notes_to_keep bullet 'MODEL IS LOAD-BEARING...' because it repeats the model_justification paragraph word for word in meaning (house no-restating rule).",
+            "dlog-to-conp: dropped the notes_to_keep bullet ('class: free because a containment ... any argument at all') because it repeats the class_justification paragraph just above it.",
+            "ddh-to-tdh-dgi-19: turned the plain-text 'tdh-to-cpir-amr25' in the kept note into the wikilink [[tdh-to-cpir-amr25]] (page exists). Confidence is medium: the one-bit-hint sketch step was not checked against the paper.",
+            "ddh-and-sparse-lpn-to-she-chkv25: over-split, as the verified entry says; this is the DDH instance of the generic PHE+sparse-LPN edge. A human should decide whether to keep both.",
+            "dlin-to-ippe-ksw08 (wrong_claim): content/References/KSW08 reference page has a fabricated abstract sentence (claims DLIN/standard-model security) and eprint 2007/397 where cryptobib says 2007/404 (reference-fixer lane). The source bullet on inner-product-predicate-encryption.md repeats the misattribution. The correct DLIN source is OT12 (EC:OkaTak12), which has no reference page, so no See-link was added.",
+            "dkg-and-he-to-tpke (wrong_claim): proposed repair is a new dcr-to-tpke edge sourced to FPS00/DJ01 (neither page exists, so no See-link). decisional-composite-residuosity.md links to this page and would need repointing; distributed-key-generation.md and threshold-encryption.md are orphaned TODO stubs.",
+            "Unrelated modified files from other batches are present in the working tree; I touched only the 10 red-07 pages."
+          ]
+        },
+        "vet": {
+          "batch": "red-07",
+          "vetted": 10,
+          "changed": [
+            "content/Reductions/ddh-to-tdh-dgi-19.md: decoding needs encoding; tightened note",
+            "content/Reductions/decision-lwe-to-search-lwe.md: class note trimmed; RTV04 cited",
+            "content/Reductions/dlin-to-ippe-ksw08.md: tightened wrong-claim sourcing bullet",
+            "content/Reductions/depir-to-cpir.md: named key k; cut redundancy",
+            "content/Reductions/differing-inputs-obfuscation-dio-to-io.md: converse 'known only'; trimmed restatement",
+            "content/Reductions/dkg-and-he-to-tpke.md: tightened bullet; linked FPS00/DJ01",
+            "content/Reductions/dlog-to-bls-signatures-fkl18.md: cited BLS01 co-CDH; tightened model",
+            "content/Reductions/dlog-to-cdh-fkl18.md: dropped recap and uncited claim",
+            "content/Reductions/dlog-to-conp.md: prose names decision version"
+          ],
+          "lint_clean": true,
+          "unresolved": [
+            "differing-inputs-obfuscation-dio-to-io: kind is now implication but title and H1 still read 'Differing-inputs obfuscation (diO) ⇔ iO'. No override exists for this slug and title changes are off-limits, so the coordinator needs to add an override setting title/H1 to 'Differing-inputs obfuscation (diO) ⇒ iO'.",
+            "dlog-to-cdh-fkl18: I removed the uncited model-note clause 'no standard-model reduction from DLOG hardness to CDH hardness is known'. It is imprecise: den Boer 88 and Maurer-Wolf give standard-model DLOG-to-CDH reductions for specific groups or with auxiliary input. If a human wants the clause back, it needs a correct scope and a citation.",
+            "dlog-to-bls-signatures-fkl18: I rewrote the kept note's uncited 'BLS is proven only from CDH in the ROM' as co-CDH with a non-tight reduction, cited to BLS01 and linked to co-cdh-to-ds. The single model field still cannot express AGM+ROM. The FKL18 edges need a consistent ROM encoding, for example a rom hypothesis as on the Schnorr page.",
+            "decision-lwe-to-search-lwe: the Reg05 coordinate-recovery (decision-oracle-to-search) content the editor removed belongs on search-lwe-to-decision-lwe (batch red-29). That page still needs to pick it up.",
+            "dkg-and-he-to-tpke (wrong_claim): the FPS00 and DJ01 reference pages do exist (the editor said they did not), so the bullet now cites them. There is still no dcr-to-tpke edge for a See-link. decisional-composite-residuosity.md still links this page and needs repointing, and the stubs distributed-key-generation.md and threshold-encryption.md are left without links.",
+            "dlin-to-ippe-ksw08 (wrong_claim): there is no OT12 reference page, so I added no See-link. The KSW08 reference page has a fabricated abstract sentence and eprint 2007/397 where cryptobib has 2007/404; that is the reference-fixer's lane.",
+            "ddh-to-tdh-dgi-19: the sketch's one-bit-hint step is medium confidence and was not checked against the paper.",
+            "ddh-and-sparse-lpn-to-she-chkv25: over-split, since this is the DDH instance of the generic PHE+sparse-LPN edge. A human should decide whether to keep both."
+          ]
+        }
+      }
+    ]
+  },
+  "workflowProgress": [
+    {
+      "type": "workflow_phase",
+      "index": 1,
+      "title": "RefStubs"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 2,
+      "title": "Edit"
+    },
+    {
+      "type": "workflow_phase",
+      "index": 3,
+      "title": "Vet"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 1,
+      "label": "edit:red-02",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "aa1010afca5f69cd0",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431296609,
+      "queuedAt": 1790431296567,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-02",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431484927,
+      "tokens": 111715,
+      "toolCalls": 14,
+      "durationMs": 188315,
+      "resultPreview": "{\"batch\":\"red-02\",\"edited\":10,\"annotated_wrong_claim\":4,\"skipped\":0,\"lint_clean\":true,\"flags\":[\"Rewritten (sourced, 6): bdh-to-be-bgw05, bdh-to-hibe-wat09, bdh-to-hve-bw07, bdh-to-ibe-wat09, bdh-to-vrf, bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10. Given a Notes bullet only (wrong_claim, 4): bdh-to-ac, bdh-to-ds, bdh-to-nizk-gro16, bilinear-pairing-to-ds. No undetermined pages. …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 2,
+      "label": "edit:red-03",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "a4656ec07e33d8219",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431296611,
+      "queuedAt": 1790431296568,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-03",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431525998,
+      "tokens": 116170,
+      "toolCalls": 29,
+      "durationMs": 227178,
+      "resultPreview": "{\"batch\":\"red-03\",\"edited\":9,\"annotated_wrong_claim\":1,\"skipped\":0,\"lint_clean\":true,\"flags\":[\"Rewritten (9): bilinear-pairing-and-q-sdh-to-pcs-kzg10, bilinear-pairing-to-snark-gro16, permuted-puzzles-to-depir-bipw17, bpp-to-bqp, bpp-to-p-poly (sourced); bpp-to-am-gs86, bpp-to-coam-gs86, bpp-to-pp, bpp-to-pspace (folklore). Wrong-claim note appended (1): bqp-to-dlog-shor97. It says BQP ⊆ DLOG, whi…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 3,
+      "label": "edit:red-04",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "a9673a4bf8ccf6174",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431486441,
+      "queuedAt": 1790431296568,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-04",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431664631,
+      "tokens": 106357,
+      "toolCalls": 18,
+      "durationMs": 178189,
+      "resultPreview": "{\"batch\":\"red-04\",\"edited\":6,\"annotated_wrong_claim\":4,\"skipped\":0,\"lint_clean\":true,\"flags\":[\"Rewritten (sourced/folklore): content/Reductions/bqp-to-pp.md, cdh-to-dlog.md (folklore, fully-black-box, security-loss set), evasive-lwe-to-abe.md, circular-security-and-lwe-to-he.md, circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md, co-cdh-to-ds.md. Annotated wrong_claim (Notes …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 4,
+      "label": "edit:red-05",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "a0d970b8d9835d053",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431528916,
+      "queuedAt": 1790431486468,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-05",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431703798,
+      "tokens": 103399,
+      "toolCalls": 17,
+      "durationMs": 174881,
+      "resultPreview": "{\"batch\":\"red-05\",\"edited\":9,\"annotated_wrong_claim\":3,\"skipped\":1,\"lint_clean\":true,\"flags\":[\"Rewritten (6): conp-to-coam, conp-to-pspace, dcr-to-com (folklore); cpir-to-ot-dmo00, d-th-composite-residuosity-to-he, dcr-to-partially-homomorphic-encryption-phe-pai99 (sourced). Wrong-claim bullet appended, nothing else changed (3): com-to-two-party-computation-2pc-gmw87, conp-to-am-gs86, czk-to-ip-bg…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 5,
+      "label": "edit:red-06",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "ad7da6dbc864c2739",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431665689,
+      "queuedAt": 1790431528937,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-06",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431906111,
+      "tokens": 123010,
+      "toolCalls": 31,
+      "durationMs": 240421,
+      "resultPreview": "{\"batch\":\"red-06\",\"edited\":9,\"annotated_wrong_claim\":1,\"skipped\":0,\"lint_clean\":true,\"flags\":[\"Rewritten (sourced/folklore): dcr-to-he-pai99, dcr-to-pke-pai99, dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25, ddh-to-cdh, ddh-to-com, ddh-to-ke-dh76, ddh-to-non-interactive-key-exchange-nike, ddh-to-pke-elgamal85, ddh-to-prf-nr97. Annotated wrong_claim: ddh-and…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 6,
+      "label": "edit:red-07",
+      "phaseIndex": 2,
+      "phaseTitle": "Edit",
+      "agentId": "a30b5e160a5845e8d",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431704824,
+      "queuedAt": 1790431665713,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-07",
+      "promptPreview": "You apply verified research to wiki pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/EDIT_INSTRUCTIONS.md FIRST and follow it exactly (it points at RESEARCH_INSTRUCTIONS.md in the same directory for field meanings). Read content/Reductions/prg-to-prf-ggm86.md as the house exemplar of a fin…",
+      "promptFramed": true,
+      "lastProgressAt": 1790431916077,
+      "tokens": 115457,
+      "toolCalls": 20,
+      "durationMs": 211253,
+      "resultPreview": "{\"batch\":\"red-07\",\"edited\":8,\"annotated_wrong_claim\":2,\"skipped\":0,\"lint_clean\":true,\"flags\":[\"HIGH PRIORITY differing-inputs-obfuscation-dio-to-io: kind changed equivalence -> implication per verified entry, and one-line prose changed from 'is equivalent to' to 'implies'. The title and H1 still read 'Differing-inputs obfuscation (diO) ⇔ iO' because there is no override for this slug and the instr…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 7,
+      "label": "vet:red-00",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "ad1cd312fbe96f358",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431907438,
+      "queuedAt": 1790431704843,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-00",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-00. Page list: the entry with \"id\": \"red-00\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432244673,
+      "tokens": 126358,
+      "toolCalls": 32,
+      "durationMs": 337234,
+      "resultPreview": "{\"batch\":\"red-00\",\"vetted\":10,\"changed\":[\"content/Reductions/abe-to-be.md: dedupe sketch/notes, drop RTV04 aside\",\"content/Reductions/abe-to-fuzzy-ibe.md: move admissibility to sketch, tighten\",\"content/Reductions/abe-to-hibe.md: tighten wrong-claim note wording\",\"content/Reductions/abe-to-ibe.md: notes no longer restate sketch\",\"content/Reductions/adaptive-robustness-to-prc.md: drop recap sketch,…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 8,
+      "label": "vet:red-01",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a356b641476ad9810",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790431917185,
+      "queuedAt": 1790431907462,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-01",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-01. Page list: the entry with \"id\": \"red-01\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432332237,
+      "tokens": 145253,
+      "toolCalls": 35,
+      "durationMs": 415051,
+      "resultPreview": "{\"batch\":\"red-01\",\"vetted\":10,\"changed\":[\"content/Reductions/am-to-coam.md: dropped redundant sentence, cited BM88\",\"content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md: removed sentence duplicating earlier note\",\"content/Reductions/arithmetization-to-snark-bbhr18.md: tightened bullet, linked PCS edge\",\"content/Reductions/anonymous-hibe-to-hibe.md: class note no longer repeats sketch\",…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 9,
+      "label": "vet:red-02",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a5549a2cf6c4f2bf3",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432245892,
+      "queuedAt": 1790431917206,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-02",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-02. Page list: the entry with \"id\": \"red-02\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432496601,
+      "tokens": 124514,
+      "toolCalls": 30,
+      "durationMs": 250709,
+      "resultPreview": "{\"batch\":\"red-02\",\"vetted\":10,\"changed\":[\"content/Reductions/bdh-to-hve-bw07.md: 'jointly imply' one-liner; BW07 note made accurate (the reference page's title, H1 and aliases are already right; only the filename and its source URL, eprint 2006/465, are wrong)\",\"content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md: class note no longer repeats the sketch; model not…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 10,
+      "label": "vet:red-03",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a50609843b1be5e3a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432333654,
+      "queuedAt": 1790432245914,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-03",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-03. Page list: the entry with \"id\": \"red-03\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432593424,
+      "tokens": 122018,
+      "toolCalls": 28,
+      "durationMs": 259769,
+      "resultPreview": "{\"batch\":\"red-03\",\"vetted\":10,\"changed\":[\"content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md: dropped restated tail in model note\",\"content/Reductions/bilinear-pairing-to-snark-gro16.md: fixed stale proof-size note location (the '3 G1 + 1 G2' claim no longer appears in succinct-argument.md. Since commit 61505e9 it exists only in the migrated quote on kea-to-snark-gro16, which red-17 lef…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 11,
+      "label": "vet:red-04",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a365f6efdc4720471",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432498015,
+      "queuedAt": 1790432333682,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-04",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-04. Page list: the entry with \"id\": \"red-04\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432800010,
+      "tokens": 125939,
+      "toolCalls": 29,
+      "durationMs": 301994,
+      "resultPreview": "{\"batch\":\"red-04\",\"vetted\":10,\"changed\":[\"content/Reductions/bqp-to-pp.md: dedupe Aar05; mathbf classes; tighten notes\",\"content/Reductions/cdh-to-dlog.md: drop rephrase; tighten sketch, class note\",\"content/Reductions/evasive-lwe-to-abe.md: drop repeated AMYY25 counterexample bullet\",\"content/Reductions/circular-security-and-lwe-to-he.md: drop definition gloss; cite Gen09\",\"content/Reductions/cir…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 12,
+      "label": "vet:red-05",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a7bbf463f47b8b20a",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432595351,
+      "queuedAt": 1790432498047,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-05",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-05. Page list: the entry with \"id\": \"red-05\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790432899182,
+      "tokens": 119334,
+      "toolCalls": 24,
+      "durationMs": 303830,
+      "resultPreview": "{\"batch\":\"red-05\",\"vetted\":10,\"changed\":[\"content/Reductions/conp-to-coam.md: removed recap sketch, class note\",\"content/Reductions/conp-to-pspace.md: symbolic statement, standard class note\",\"content/Reductions/cpir-to-ot-dmo00.md: merged qualifier, specific class justification\",\"content/Reductions/d-th-composite-residuosity-to-he.md: cut inference, sourced class justification\",\"content/Reduction…"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 13,
+      "label": "vet:red-06",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a76aa05751690cbed",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432801112,
+      "queuedAt": 1790432595375,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-06",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-06. Page list: the entry with \"id\": \"red-06\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790433175191,
+      "tokens": 152067,
+      "toolCalls": 35,
+      "durationMs": 374079,
+      "resultPreview": "{\"batch\":\"red-06\",\"vetted\":10,\"changed\":[\"content/Reductions/dcr-to-he-pai99.md: dropped migration residue, merged duplicate bullets\",\"content/Reductions/dcr-to-pke-pai99.md: secret key now includes n\",\"content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md: dash aside became parenthetical\",\"content/Reductions/ddh-to-cdh.md: removed reduction …"
+    },
+    {
+      "type": "workflow_agent",
+      "index": 14,
+      "label": "vet:red-07",
+      "phaseIndex": 3,
+      "phaseTitle": "Vet",
+      "agentId": "a65db104cd7dfb212",
+      "model": "claude-opus-5-5",
+      "state": "done",
+      "startedAt": 1790432900316,
+      "queuedAt": 1790432801139,
+      "attempt": 1,
+      "lastToolName": "StructuredOutput",
+      "lastToolSummary": "red-07",
+      "promptPreview": "You are the final precision-and-brevity reviewer for edited pages in the cryptology.city repo (/home/user/cryptology.city).\n\nRead /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f25db1bbd/scratchpad/VET_INSTRUCTIONS.md FIRST and follow it exactly.\n\nBatch id: red-07. Page list: the entry with \"id\": \"red-07\" in /tmp/claude-0/-home-user-cryptology-city/33793fd8-0862-5ee6-a62f-c68f…",
+      "promptFramed": true,
+      "lastProgressAt": 1790433205658,
+      "tokens": 130802,
+      "toolCalls": 27,
+      "durationMs": 305341,
+      "resultPreview": "{\"batch\":\"red-07\",\"vetted\":10,\"changed\":[\"content/Reductions/ddh-to-tdh-dgi-19.md: decoding needs encoding; tightened note\",\"content/Reductions/decision-lwe-to-search-lwe.md: class note trimmed; RTV04 cited\",\"content/Reductions/dlin-to-ippe-ksw08.md: tightened wrong-claim sourcing bullet\",\"content/Reductions/depir-to-cpir.md: named key k; cut redundancy\",\"content/Reductions/differing-inputs-obfusc…"
+    }
+  ],
+  "totalTokens": 1722393,
+  "totalToolCalls": 369
+}

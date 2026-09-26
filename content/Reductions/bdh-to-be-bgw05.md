@@ -7,7 +7,7 @@ id: red-bdh-to-be-bgw05
 kind: implication
 hypotheses: [bdh]
 conclusion: be
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]"
@@ -16,21 +16,16 @@ security-loss: ""
 
 # BDH ⇒ BE
 
-[[bilinear-map-assumptions|BDH]] implies [[broadcast-encryption|BE]].
+The decision $n$-BDHE variant of [[bilinear-map-assumptions|BDH]] implies [[broadcast-encryption|BE]].
 
 ## Statement
 
-Migrated verbatim from [[broadcast-encryption]] § Other results:
+If the decision $n$-BDHE (bilinear Diffie–Hellman exponent) assumption — a $q$-type variant of [[bilinear-map-assumptions|BDH]] — holds in a prime-order bilinear group, there is a public-key [[broadcast-encryption|BE]] scheme for $n$ users, secure against any number of colluding revoked users, with $O(1)$-size ciphertexts and private keys and an $O(n)$-size public key; security is static: the adversary commits to the target set before setup — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
-> - BGW05 achieves $O(1)$ ciphertext size (independent of $|S|$ or $n$) under a bilinear Diffie-Hellman variant — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]
+## Sketch
+
+The public key is $v = g^\gamma$ together with the powers $g_i = g^{\alpha^i}$ for $i \in \{1,\ldots,2n\} \setminus \{n+1\}$, and user $i$ holds $d_i = g_i^\gamma$. A broadcast to $S$ has header $(g^t, (v \prod_{j \in S} g_{n+1-j})^t)$ and session key $e(g_{n+1}, g)^t$, which any $i \in S$ recovers from $d_i$ and the published powers although $g_{n+1}$ itself is never published. The static reduction embeds a decision $n$-BDHE challenge in these powers and runs the adversary once.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'a bilinear Diffie-Hellman variant' is vague and unlinked — BGW05 relies on the bilinear Decisional Diffie-Hellman Exponent (BDHE) assumption, which has no page.
-- Efficiency claim without qualification: BGW05's $O(1)$ ciphertext comes with $O(n)$-size public parameters, which the bullet omits (CLAUDE.md requires concrete efficiency claims to be precise and cited).
+`class: fully-black-box`: One fixed construction that uses the bilinear group only through group operations and the pairing, and one fixed static-security reduction: it receives a decision $n$-BDHE instance, programs the public key and the revoked users' private keys around the adversary's committed target set, and runs the BE adversary once as an oracle to answer the BDHE challenge. With an assumption as hypothesis, black-boxness refers to the treatment of the adversary; this is the RTV04 fully-black-box shape.

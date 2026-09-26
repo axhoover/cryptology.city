@@ -30,9 +30,9 @@ The polynomial IOP verifier queries the prover's polynomials at random points; e
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-`model: rom`: The compiled SNARK is non-interactive via Fiat–Shamir; CHM+20 prove the compiled argument in the random-oracle model. The KZG instantiation additionally needs a universal updatable structured reference string (the previously recorded crs); one model slot cannot carry both, so the SRS is stated in the statement text.
+`model: rom`: CHM+20 prove the Fiat–Shamir-compiled argument in the random-oracle model. The KZG instantiation also needs a universal updatable structured reference string, previously recorded as `crs`; one model slot cannot carry both, so the SRS is stated in the Statement.
 
 - Plonk compiles PLONKish arithmetization, via a permutation argument and KZG commitments, into a universal-setup zk-SNARK — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]
 - Polynomial IOPs and their compilation with any extractable polynomial commitment, formalized concurrently, with a transparent instantiation over groups of unknown order — [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]
-- Genuinely conjunctive: Plonk needs BOTH an arithmetization and a polynomial commitment scheme.
+- Conjunctive: the compiler needs both an arithmetization and a polynomial commitment scheme.
 - 'arithmetization' is a Glossary entry, so a hypothesis slot is filled by a technique rather than a primitive/assumption.

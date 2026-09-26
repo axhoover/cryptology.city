@@ -9,8 +9,7 @@ hypotheses: [bpp]
 conclusion: am
 class: free
 model: standard
-source:
-  - "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+source: folklore
 security-loss: ""
 ---
 
@@ -20,27 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-probabilistic-polynomial-time]] § Known relationships:
+Every [[bounded-error-probabilistic-polynomial-time|BPP]] language has an [[arthur-merlin|Arthur–Merlin]] protocol in which Arthur ignores Merlin's message and runs the BPP decider, so $\classBPP \subseteq \classAM$ — folklore.
 
-> - $\classBPP \subseteq \classAM \cap \classcoAM$: BPP problems have trivial one-message Arthur-Merlin protocols (Arthur decides without Merlin) — [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]].
+## Sketch
 
-Migrated verbatim from [[co-arthur-merlin]] § Known relationships:
-
-> - $\classBPP \subseteq \classcoAM$: BPP problems have a trivial one-message coAM protocol where Merlin's message is ignored (Arthur decides alone). Symmetrically, $\classBPP \subseteq \classAM$.
+With Merlin's message discarded, completeness $2/3$ and soundness $1/3$ are exactly the BPP acceptance conditions, so the containment is definitional.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The GS86 attribution is doubtful (recorded, not fixed): BPP inside AM is immediate from the definition, not a result of the private-versus-public-coin paper.
-- Duplicates co-arthur-merlin.md:18 sub-edge 1, which states the same inclusion with NO citation - the two pages disagree on whether a citation is needed.
-- Uncited and unlabelled folklore; same disagreement with bounded-error-probabilistic-polynomial-time.md:24.
-- The 'Symmetrically' clause carries no justification of its own, so the split leaves this link unsupported.
+`class: free`: Proven complexity-class containment; per repo convention the reduction-class axis does not discriminate here.

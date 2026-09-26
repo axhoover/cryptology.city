@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "DEPIR ⇒ cPIR"
 aliases: []
 id: red-depir-to-cpir
 kind: implication
 hypotheses: [depir]
 conclusion: cpir
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -15,24 +15,14 @@ security-loss: ""
 
 # DEPIR ⇒ cPIR
 
-[[doubly-efficient-pir|DEPIR]] implies [[single-server-private-information-retrieval|cPIR]].
+An unkeyed or public-key [[doubly-efficient-pir|DEPIR]] scheme implies [[single-server-private-information-retrieval|cPIR]].
 
 ## Statement
 
-Migrated verbatim from [[doubly-efficient-pir]] § Doubly-efficient PIR:
-
-> Double efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and computation at **query time** is $o(n)$, where $n$ is the size of the database.
+An unkeyed [[doubly-efficient-pir|DEPIR]] scheme is a [[single-server-private-information-retrieval|single-server PIR]] whose database is preprocessed: the server runs $\Setup(1^\secpar, DB)$ itself, and the query phase is a two-message PIR with query-time communication and computation $o(n)$; correctness and query privacy carry over unchanged. A public-key DEPIR is likewise a PIR once the server publishes the key $k$, since privacy holds given $k$; a secret-key DEPIR is not, since its privacy requires $k$ hidden from the server — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: Identity construction: the PIR protocol runs the DEPIR algorithms unchanged (the server runs Setup on its own database, the client runs Qry/Fin), and any PIR privacy adversary is verbatim a DEPIR privacy adversary. Both the construction and the reduction use their objects only as oracles.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Taxonomy statement ('is a type of'), not a reduction with a proof; no citation.
-- The implication direction is DEPIR => single-server PIR, opposite to the surface word order.
+- Definitional specialization, not a theorem of any paper; the folklore label is the citation.

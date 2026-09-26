@@ -36,3 +36,4 @@ source text, not changes to it:
 - SUSPECT: JLS21's assumption set is sub-exponential LWE, LPN over large fields, PRGs of constant locality (NC0, not NC1), and sub-exponential SXDH on pairing-friendly groups (not plain DDH). Both 'NC^1' and 'DDH' look wrong. Report only; do not fix.
 - 'sub-exponential' qualifies LWE in the text but it applies to the whole assumption set; ambiguous as written.
 - 'pseudorandom generators in NC^1' has no wiki object identifier.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — JLS21 assume sub-exponential hardness of SXDH on asymmetric bilinear groups (not DDH), LWE, LPN over $\ZZ_p$ with polynomially many samples and inverse-polynomial error rate, and a Boolean PRG in $\mathrm{NC}^0$ with stretch $n^{1+\tau}$ (not $\mathrm{NC}^1$, a weaker hypothesis the construction does not cover).

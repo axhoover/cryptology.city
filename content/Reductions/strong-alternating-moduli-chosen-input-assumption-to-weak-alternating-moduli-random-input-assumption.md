@@ -27,4 +27,4 @@ The simulation is exact unless a sampled $x$ repeats: the strong game's ideal wo
 
 ## Notes
 
-`class: fully-black-box`: Identity construction (the same family witnesses both games) and a fixed reduction that runs the weak-AM distinguisher as an oracle: each of its input-less queries is answered by sampling $x \getsr \bits^n$, querying the chosen-input oracle on $x$, and returning $(x, \calO_b(x))$. This is the standard strong-PRF-to-weak-PRF specialization.
+`class: fully-black-box`: The construction is the identity (the same family witnesses both games); the reduction runs the weak-AM distinguisher as an oracle and answers each of its input-less queries with $(x, \calO_b(x))$ for a fresh $x \getsr \bits^n$.

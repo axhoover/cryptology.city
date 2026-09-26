@@ -23,8 +23,8 @@ Any CP-[[attribute-based-encryption|ABE]] scheme whose policy class contains dis
 
 ## Sketch
 
-The BE relation $i \in S$ is the CP-ABE relation $f(x) = 1$ with $f = f_S$ and $x = \{i\}$; the reduction forwards key queries and the challenge, and the two admissibility conditions coincide.
+The BE relation $i \in S$ is the CP-ABE relation $f_S(\{i\}) = 1$, so BE admissibility (no key for $i \in S^*$) is CP-ABE admissibility (no queried attribute set satisfies $f_{S^*}$).
 
 ## Notes
 
-`class: fully-black-box`: The BE algorithms call the CP-ABE algorithms as oracles: $\KeyGen(\msk, i)$ issues the ABE key for the singleton attribute set $\{i\}$ and $\Enc(\pp, S, m)$ encrypts under the policy $f_S$. The reduction runs any BE adversary as an oracle, forwarding key queries and the challenge; BE admissibility (no key for $i \in S^*$) is CP-ABE admissibility (no queried attribute set satisfies $f_{S^*}$). Fixed construction, fixed advantage-preserving reduction: the RTV04 fully-black-box shape.
+`class: fully-black-box`: The BE algorithms call the CP-ABE algorithms as oracles on the locally computed encodings $\{i\}$ and $f_S$. The reduction runs the BE adversary as an oracle, forwarding key queries and the challenge. Fixed construction, fixed advantage-preserving reduction.

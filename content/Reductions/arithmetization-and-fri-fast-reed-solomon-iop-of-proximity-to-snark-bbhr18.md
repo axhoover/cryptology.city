@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-A computation expressed as an [[arithmetization|AIR]], with the constraints checked by the [[polynomial-commitment#fri-fast-reed-solomon-iop-of-proximity|FRI]] proximity test, yields the STARK of BBHR18: a transparent [[succinct-argument|succinct argument]] of knowledge with no trusted setup, prover time quasi-linear and verification time and proof length polylogarithmic in the computation size $T$, made non-interactive in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+A computation expressed as an [[arithmetization|AIR]], with the constraints checked by the [[polynomial-commitment#fri-fast-reed-solomon-iop-of-proximity|FRI]] proximity test, yields a STARK: a transparent [[succinct-argument|succinct argument]] of knowledge with prover time quasi-linear and verification time and proof length polylogarithmic in the computation size $T$, made non-interactive in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
 ## Sketch
 
@@ -30,6 +30,6 @@ The prover Merkle-commits to Reed–Solomon codewords of the execution-trace pol
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-`model: rom`: BBHR18 compile the STARK interactive oracle proof to a non-interactive argument by Merkle-hashing the oracles and applying Fiat–Shamir, analysed with the hash as a random oracle. The migration recorded rom as an inference; the source confirms it.
+`model: rom`: BBHR18 analyse the Merkle-hashing and Fiat–Shamir compilation of the interactive oracle proof with the hash as a random oracle.
 
-- Genuinely conjunctive ({AIR, FRI} => STARK) — must not be flattened into two single-hypothesis edges.
+- Conjunctive ({AIR, FRI} ⇒ STARK); do not split into two single-hypothesis edges.

@@ -36,3 +36,4 @@ source text, not changes to it:
 
 - No citation — the BLS paper (Boneh-Lynn-Shacham, Asiacrypt 2001) has no reference page in content/References/.
 - `[[pairings]]` (glossary) exists but is not wikilinked; 'pairings' as a hypothesis is a structure, not a hardness assumption (the assumption, co-CDH, is stated separately at line 153).
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — a bilinear pairing is a structure, not a hardness assumption: pairings exist on curves where discrete log is easy, so a pairing alone implies no unforgeability, and model rom supplies no hardness. BLS signatures are EUF-CMA under co-CDH in the random-oracle model ([[BLS01 - Short Signatures from the Weil Pairing|BLS01]]). See [[co-cdh-to-ds]].

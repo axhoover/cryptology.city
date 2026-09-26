@@ -39,3 +39,4 @@ source text, not changes to it:
 - THE CHAIN DOES NOT DECOMPOSE AS RECORDED: the OWF hypothesis is silently dropped; BGG+90 needs bit commitments, hence one-way functions, and as a standalone unconditional equality CZK = IP is FALSE.
 - TYPING LOSS: the equality reads as a one-way inclusion once split.
 - Duplicates line 27 sub-edge 1.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]] prove $\classIP \subseteq \classCZK$ only assuming a secure bit commitment (hence one-way functions), and unconditionally only the trivial $\classCZK \subseteq \classIP$ holds. Unconditional equality cannot currently be proved, since one-way functions are necessary for non-trivial CZK ([[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]); the correct edge takes hypotheses {OWF, IP} and conclusion CZK. See [[hash-function-to-czk]].

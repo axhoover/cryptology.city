@@ -35,3 +35,4 @@ source text, not changes to it:
 - SUSPECT: KSW08 proves security in composite-order bilinear groups under two new (non-standard) subgroup-decision-flavoured assumptions, not under 'the decisional linear assumption'. Report only; do not fix.
 - 'the decisional linear assumption' is bare text with no wikilink and no page exists for it.
 - Bullet packs a construction claim, an expressiveness claim, and a security claim together; only one can be typed as a reduction.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — KSW08 prove selective attribute-hiding in composite-order bilinear groups under two new subgroup-decision-style assumptions, justified only in the generic bilinear group model, not under DLIN. DLIN-based attribute-hiding inner-product encryption is Okamoto–Takashima (EUROCRYPT 2012); re-source the edge to KSW08's assumptions or re-attribute it.

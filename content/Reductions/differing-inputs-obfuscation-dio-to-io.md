@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Differing-inputs obfuscation (diO) ⇔ iO"
 aliases: []
 id: red-differing-inputs-obfuscation-dio-to-io
-kind: equivalence
+kind: implication
 hypotheses: [differing-inputs-obfuscation]
 conclusion: io
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -15,24 +15,15 @@ security-loss: ""
 
 # Differing-inputs obfuscation (diO) ⇔ iO
 
-[[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|Differing-inputs obfuscation (diO)]] is equivalent to [[indistinguishability-obfuscation|iO]].
+[[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|Differing-inputs obfuscation (diO)]] implies [[indistinguishability-obfuscation|iO]].
 
 ## Statement
 
-Migrated verbatim from [[indistinguishability-obfuscation]]:
-
-> An intermediate notion between iO and VBB, which requires indistinguishability for pairs of circuits that are hard to distinguish on any input. Known to be equivalent to iO under certain conditions.
+A [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|differing-inputs obfuscator]] for a circuit class is an [[indistinguishability-obfuscation|indistinguishability obfuscator]] for the same class: functionally equivalent circuits admit no differing input, so the constant sampler outputting such a pair is differing-inputs-hard and the diO guarantee applies to it — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: Identity construction: the diO obfuscator is used unchanged as the iO obfuscator. The reduction is fixed: an iO distinguisher for a functionally equivalent pair is directly a diO adversary for the constant sampler outputting that pair.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'Known to be equivalent to iO under certain conditions' - vague and uncited; the conditions are not stated, so the relation cannot be typed.
-- No page for diO.
+- The converse is known only in restricted form: [[indistinguishability-obfuscation|iO]] for a class implies diO for pairs of circuits in the class that differ on at most polynomially many inputs — [[BCP14 - On Extractability Obfuscation|BCP14]]
+- Assuming a special-purpose obfuscator for a specific circuit family, general-purpose diO with arbitrary auxiliary input does not exist — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]]

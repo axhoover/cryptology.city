@@ -38,3 +38,4 @@ source text, not changes to it:
 
 - POLARITY INVERTED, same as sub-edge 0.
 - Not wikilinked despite content/Assumptions/discrete-logarithm.md existing.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the page asserts $\classBQP \subseteq$ DLOG, but DLOG is a problem, not a class, and Shor97 proves the converse, DLOG $\in \classBQP$. The correct edge is a `dlog-to-bqp` inclusion typed like [[dlog-to-np]], or an Attacks entry on the DLOG page. See [[discrete-logarithm]].
