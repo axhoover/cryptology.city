@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "DLOG ⇒ Schnorr signatures"
+title: "DLOG ⇒ Schnorr identification protocol"
 aliases: []
 id: red-dlog-to-schnorr-signatures-sch91
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02."
 ---
 
-# DLOG ⇒ Schnorr signatures
+# DLOG ⇒ Schnorr identification protocol
 
 [[discrete-logarithm|DLOG]] implies security of the [[digital-signature#schnorr-signatures|Schnorr identification protocol]] against passive impersonation.
 

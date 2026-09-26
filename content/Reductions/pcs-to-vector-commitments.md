@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "PCS ⇔ Vector commitments"
+title: "PCS ⇒ Vector commitments"
 aliases: []
 id: red-pcs-to-vector-commitments
 kind: implication
@@ -13,7 +13,7 @@ source: folklore
 security-loss: "tight: a position-binding adversary is forwarded unchanged as an evaluation-binding adversary"
 ---
 
-# PCS ⇔ Vector commitments
+# PCS ⇒ Vector commitments
 
 [[polynomial-commitment|PCS]] implies [[commitment-scheme#vector-commitments|vector commitments]].
 

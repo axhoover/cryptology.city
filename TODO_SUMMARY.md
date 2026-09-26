@@ -10,7 +10,7 @@
 
 # cryptology.city — TODO Summary
 
-_Last updated: 2026-08-21_
+_Last updated: 2026-09-26_
 
 ---
 
@@ -32,6 +32,11 @@ _Last updated: 2026-08-21_
 ---
 
 ## High Priority
+
+- [ ] [Math] **84 reduction/barrier pages state a claim that is incorrect as written** (inverted edges, definitions recorded as theorems, structures used as assumptions, application notes typed as existence implications). Each carries a `Sourcing pass (2026-09-26), not fixed` bullet in its Notes with the reason; none was sourced, re-typed, or deleted — a human should delete, redirect, or re-type them — _source: .reductions/sourcing-pass.json_
+- [ ] [Content] 5 reduction pages remain `undetermined`: no attributable source was found after research and verification; they still carry their migration scaffolding — _source: .reductions/sourcing-pass.json_
+- [ ] [External] 141 reference stubs created by the sourcing pass carry `TODO — abstract.` because eprint/arXiv/DOI hosts were unreachable from the session; bibliographic data comes from vendor/cryptobib — _source: .reductions/sourcing-pass.json_
+- [ ] [FactCheck] 159 verifier flags and 664 editor/reviewer notes (many informational) record follow-ups for a human, chiefly assumption-page definitions found vacuous, reference pages with wrong filenames or abstracts, duplicate edges to merge, hypothesis nodes too coarse for the source's actual assumption — _source: .reductions/sourcing-pass.json_
 
 - [ ] [Math] Suspected error (audit 2026-08-21, medium, review-only): '**PRF security via lazy sampling**: The hybrid argument replaces a PRF $F_k$ with a truly random function $R$ one input at a time, using the fact that the PRF and a random oracle are indistinguishable on any polynomial number of queries.' This is circular — PRF/random-function indistinguishability is the statement being proven, and lazy sampling is not an input-by-input hybrid over a PRF (input-b — _source: content/Folklore/hybrid-argument.md_
 - [ ] [Math] Suspected error (audit 2026-08-21, high, review-only): Paraphrased text presented under '## Abstract' contains claims that are likely false: Yao82's 'abstract' says 'The paper also introduces the technique of garbled circuits' — garbled circuits are attributed to Yao's 1986 FOCS paper ('How to Generate and Exchange Secrets') and oral tradition, not the 1982 paper. Wat11's 'abstract' claims the scheme 'achieves selective security under the Decisional B — _source: content/References/Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover.md_

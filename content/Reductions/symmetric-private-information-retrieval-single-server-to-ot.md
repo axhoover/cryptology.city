@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Symmetric private information retrieval (Single-server) ⇔ OT"
+title: "Symmetric private information retrieval (Single-server) ⇒ OT"
 aliases: []
 id: red-symmetric-private-information-retrieval-single-server-to-ot
 kind: implication
@@ -13,7 +13,7 @@ source: folklore
 security-loss: ""
 ---
 
-# Symmetric private information retrieval (Single-server) ⇔ OT
+# Symmetric private information retrieval (Single-server) ⇒ OT
 
 [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]] implies [[oblivious-transfer|OT]].
 

@@ -60,7 +60,7 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard
 
-<!-- BEGIN GENERATED participates-in ded64884c22c -->
+<!-- BEGIN GENERATED participates-in 82593849c061 -->
 
 ## Participates in
 
@@ -76,7 +76,7 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 **Produces Indistinguishability Obfuscation**
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
-- [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇔ iO]]
+- [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[fe-to-io|FE ⇒ iO]]
 - [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap ⇒ iO]]

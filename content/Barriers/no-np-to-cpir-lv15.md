@@ -30,4 +30,4 @@ The privacy of any single-round PIR scheme can be broken given an $\classSZK$ or
 
 ## Notes
 
-`class: fully-black-box`: LV15 rule out reductions from SAT that use a PIR-privacy adversary only as an oracle, with polynomially many adaptively chosen calls, and are otherwise unrestricted. Black-box use of the adversary is the reduction half of RTV04's fully-black-box shape, and with a complexity assumption as hypothesis there is no construction half to weaken, so fully-black-box is the class ruled out. `relativizing` would overstate: LV15 give no oracle separation.
+`class: fully-black-box`: the reductions LV15 rule out use the privacy adversary only as an oracle and are otherwise unrestricted. That is the reduction half of RTV04's fully-black-box shape; with a complexity class as hypothesis there is no construction half to weaken. `relativizing` would overstate: LV15 give no oracle separation.

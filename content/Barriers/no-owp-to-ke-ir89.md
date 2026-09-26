@@ -31,7 +31,7 @@ Relative to a random permutation $\pi$, the eavesdropper, holding the transcript
 
 ## Notes
 
-`class: relativizing`: IR89 exhibit an oracle — a random permutation together with a $\classPSPACE$-complete oracle, so that $\classP = \classNP$ relative to it — under which one-way permutations exist but no key-agreement protocol is secure. An oracle separation rules out every relativizing reduction, and by the partial order in schema/reduction-classes.yaml every fully-black-box one. This is the worked example the schema file itself gives.
+`class: relativizing`: a construction and proof that hold relative to every oracle would hold relative to IR89's, so the separation rules out every relativizing reduction and, by the partial order in `schema/reduction-classes.yaml`, every fully-black-box one.
 
-- The eavesdropper's query complexity is reduced to the optimal $O(\ell^2)$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
-- IR89's oracle is a random permutation together with a $\classPSPACE$-complete oracle; the statements of the separation on [[black-box-separations]] omit the second oracle.
+- An eavesdropper making $O(\ell^2)$ queries suffices against honest parties making $\ell$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
+- [[black-box-separations]] states the separation without the $\classPSPACE$-complete oracle.

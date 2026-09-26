@@ -26,7 +26,7 @@ In the structured generic-group model — [[generic-group-model|Shoup's GGM]] ex
 
 ## Notes
 
-`class: free`: A lower bound inside an idealized model rules out every algorithm in that model with no restriction on technique, so it is `free` scoped by the model — the convention the sibling page content/Barriers/no-ggm-to-dlog-sho97.md uses and the one schema/reduction-classes.yaml's `rejected: generic-group` message prescribes.
+`class: free`: CHW26 bound every algorithm in the structured GGM, whatever its technique, so the class ruled out is `free`, scoped to the model — the pairing `schema/reduction-classes.yaml` prescribes when it rejects `generic-group`, as on [[no-ggm-to-dlog-sho97]].
 
 - The structured GGM has no node of its own; it is the `#the-structured-ggm` section of [[generic-group-model]], recorded here as a hypothesis by slug alias.
-- The bound is stated as a running-time lower bound, while the [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] bound on the same source page is a query lower bound; the two are not the same unit and the source page switches between them without comment.
+- This bound is on running time, while the [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] bound on [[generic-group-model]] counts queries; that page switches between the two units without comment.

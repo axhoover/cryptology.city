@@ -133,7 +133,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[pke-to-ot|PKE ⇒ OT]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 5d78a77787e7 -->
+<!-- BEGIN GENERATED participates-in cf6e95fdb2cc -->
 
 ## Participates in
 
@@ -154,14 +154,14 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
-- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇔ OT]]
+- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
 - [[tdp-to-ot|TDP ⇔ OT]]
 
 **Barriers**
 
 - [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
-- [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
+- [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-tdp-to-ot|No reduction from TDP to OT]]
 
 <!-- END GENERATED participates-in -->

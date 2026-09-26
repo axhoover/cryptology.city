@@ -58,7 +58,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[pke-to-ke|PKE ⇒ KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
-<!-- BEGIN GENERATED participates-in 3dc717f7466f -->
+<!-- BEGIN GENERATED participates-in 3a8f67847d19 -->
 
 ## Participates in
 
@@ -77,7 +77,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 **Barriers**
 
-- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
 <!-- END GENERATED participates-in -->

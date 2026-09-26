@@ -26,4 +26,4 @@ There is no fully-black-box construction of [[oblivious-transfer|OT]] from [[pub
 
 ## Notes
 
-`class: fully-black-box`: GKM+00 state their negative results as showing PKE and OT incomparable under black-box reductions, proved by oracle separations in the style of IR89. That rules out fully-black-box reductions. Whether the separation is a single relativizing oracle (which would rule out `relativizing`, a strictly broader claim under the partial order) is not settled by the abstract, so the narrower value is recorded.
+`class: fully-black-box`: GKM+00 separate the primitives under black-box reductions, which rules out at least constructions that use PKE, with proofs that use the OT adversary, only as oracles. The abstract does not settle whether a single oracle separates them, which would rule out the broader class `relativizing`, so the narrower value is recorded.

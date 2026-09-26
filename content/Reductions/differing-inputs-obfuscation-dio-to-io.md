@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Differing-inputs obfuscation (diO) ⇔ iO"
+title: "Differing-inputs obfuscation (diO) ⇒ iO"
 aliases: []
 id: red-differing-inputs-obfuscation-dio-to-io
 kind: implication
@@ -13,7 +13,7 @@ source: folklore
 security-loss: ""
 ---
 
-# Differing-inputs obfuscation (diO) ⇔ iO
+# Differing-inputs obfuscation (diO) ⇒ iO
 
 [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|Differing-inputs obfuscation (diO)]] implies [[indistinguishability-obfuscation|iO]].
 

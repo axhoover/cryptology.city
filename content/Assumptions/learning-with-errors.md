@@ -289,7 +289,7 @@ is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in ee23fd2eed4a -->
+<!-- BEGIN GENERATED participates-in 693575ac867f -->
 
 ## Participates in
 
@@ -299,8 +299,6 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
 - [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
 - [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
-- [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
-- [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
 - [[lwe-to-ind-cpa-kem|LWE ⇒ IND-CPA KEM]]
 - [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
@@ -314,6 +312,6 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
 - [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]]
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
-- [[succinct-lwe-to-lwe|Succinct LWE ⇔ LWE]]
+- [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]
 
 <!-- END GENERATED participates-in -->

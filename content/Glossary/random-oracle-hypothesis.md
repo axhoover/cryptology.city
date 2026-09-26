@@ -15,12 +15,12 @@ The (refuted) conjecture, attributed to Bennett and Gill, that complexity-class 
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in c951348a87d0 -->
+<!-- BEGIN GENERATED participates-in f3bb6c6c1b63 -->
 
 ## Participates in
 
 **Barriers**
 
-- [[no-rom-to-roh-ccg-94|No relativizing reduction from ROM to ROH]]
+- [[no-rom-to-roh-ccg-94|No reduction from ROM to ROH]]
 
 <!-- END GENERATED participates-in -->

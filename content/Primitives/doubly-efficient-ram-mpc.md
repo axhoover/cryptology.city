@@ -15,12 +15,12 @@ An MPC protocol in the RAM model in which each party preprocesses its input offl
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 275dd32fb0d2 -->
+<!-- BEGIN GENERATED participates-in 768036696e66 -->
 
 ## Participates in
 
 **Produces Doubly-efficient RAM MPC**
 
-- [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
+- [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]]
 
 <!-- END GENERATED participates-in -->

@@ -21,7 +21,7 @@ A reduction of class `free` from [[commitment-scheme#binding|Binding]] together 
 
 ## Statement
 
-No [[commitment-scheme|commitment scheme]] with at least two messages is both [[commitment-scheme#hiding|statistically hiding]] and [[commitment-scheme#binding|statistically binding]] — folklore. The argument is information-theoretic and applies to interactive commitments as well.
+No [[commitment-scheme|commitment scheme]] with at least two messages is both [[commitment-scheme#hiding|statistically hiding]] and [[commitment-scheme#binding|statistically binding]] — folklore. The argument is information-theoretic and covers interactive commitments.
 
 ## Sketch
 
@@ -29,4 +29,4 @@ Statistical hiding makes the distributions of the commitment $c$ under $\Com(\pp
 
 ## Notes
 
-`class: free`: The impossibility is information-theoretic and unconditional: no scheme has both properties, by any construction and under any assumption, so the class ruled out is `free`. The hyperedge's `conclusion: com` is vacuous; the content is the joint unsatisfiability of the two hypotheses.
+`class: free`: no scheme has both properties, by any construction and under any assumption, so the class ruled out is `free`. The `conclusion: com` is vacuous; the content is that the two hypotheses are jointly unsatisfiable.

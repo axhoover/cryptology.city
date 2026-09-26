@@ -59,7 +59,7 @@ TODO
 - Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ DEPIR]]
 
-<!-- BEGIN GENERATED participates-in e4fb5401558e -->
+<!-- BEGIN GENERATED participates-in 794ee1079d1a -->
 
 ## Participates in
 
@@ -69,7 +69,7 @@ TODO
 
 **Produces Doubly-efficient PIR**
 
-- [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
+- [[lwe-to-depir-lmw23|Ring-LWE ⇒ DEPIR]]
 - [[noise-level-to-depir-cimr25|Noise Level ⇒ DEPIR]]
 - [[noise-level-to-depir-cimr25-2|Noise Level ⇒ DEPIR]]
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ DEPIR]]

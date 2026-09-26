@@ -4194,14 +4194,14 @@
     "hve-attribute-hiding"
    ],
    "conclusion": "hve-payload-hiding",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "status": "draft",
    "page": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
    "slug": "attribute-hiding-security-to-payload-hiding-security",
    "graphSlug": "Reductions/attribute-hiding-security-to-payload-hiding-security",
@@ -4656,14 +4656,14 @@
     "pke-cca2-security"
    ],
    "conclusion": "pke-cca1-security",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "status": "draft",
    "page": "content/Reductions/cca-security-to-cca1-security.md",
    "slug": "cca-security-to-cca1-security",
    "graphSlug": "Reductions/cca-security-to-cca1-security",
@@ -4676,14 +4676,14 @@
     "pke-cca1-security"
    ],
    "conclusion": "pke-cpa-security",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "status": "draft",
    "page": "content/Reductions/cca1-security-to-cpa-security.md",
    "slug": "cca1-security-to-cpa-security",
    "graphSlug": "Reductions/cca1-security-to-cpa-security",
@@ -4959,14 +4959,15 @@
     "ind-cpa-security"
    ],
    "conclusion": "semantic-security",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GM84 - Probabilistic encryption|GM84]]",
+    "[[MRS88 - The Notion of Security for Probabilistic Cryptosystems|MRS88]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/cpa-security-to-cpa-security.md",
    "slug": "cpa-security-to-cpa-security",
    "graphSlug": "Reductions/cpa-security-to-cpa-security",
@@ -5375,7 +5376,7 @@
    "page": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
    "slug": "differing-inputs-obfuscation-dio-to-io",
    "graphSlug": "Reductions/differing-inputs-obfuscation-dio-to-io",
-   "title": "Differing-inputs obfuscation (diO) ⇔ iO"
+   "title": "Differing-inputs obfuscation (diO) ⇒ iO"
   },
   {
    "id": "red-dkg-and-he-to-tpke",
@@ -5426,13 +5427,15 @@
     "rom"
    ],
    "conclusion": "schnorr-signature",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
+    "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
    "status": "draft",
    "page": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
    "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
@@ -5526,14 +5529,15 @@
     "dlog"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
     "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
-    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
+    "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
    "status": "draft",
    "page": "content/Reductions/dlog-to-ds-sch91.md",
    "slug": "dlog-to-ds-sch91",
@@ -5554,7 +5558,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/dlog-to-np.md",
    "slug": "dlog-to-np",
    "graphSlug": "Reductions/dlog-to-np",
@@ -5567,14 +5571,14 @@
     "dlog"
    ],
    "conclusion": "pcs",
-   "class": "unstated",
-   "model": "standard",
+   "class": "fully-black-box",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/dlog-to-pcs.md",
    "slug": "dlog-to-pcs",
    "graphSlug": "Reductions/dlog-to-pcs",
@@ -5587,7 +5591,7 @@
     "dlog"
    ],
    "conclusion": "prg",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]"
@@ -5607,18 +5611,18 @@
     "dlog"
    ],
    "conclusion": "schnorr-identification-protocol",
-   "class": "unstated",
-   "model": "rom",
+   "class": "fully-black-box",
+   "model": "standard",
    "source": [
     "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02.",
    "status": "draft",
    "page": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
    "slug": "dlog-to-schnorr-signatures-sch91",
    "graphSlug": "Reductions/dlog-to-schnorr-signatures-sch91",
-   "title": "DLOG ⇒ Schnorr signatures"
+   "title": "DLOG ⇒ Schnorr identification protocol"
   },
   {
    "id": "red-dlog-to-tdp",
@@ -5654,7 +5658,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/dlog-to-tfnp.md",
    "slug": "dlog-to-tfnp",
    "graphSlug": "Reductions/dlog-to-tfnp",
@@ -5687,7 +5691,7 @@
     "dpf"
    ],
    "conclusion": "computational-multi-server-pir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
@@ -5727,14 +5731,14 @@
     "dpf"
    ],
    "conclusion": "multi-point-function-secret-sharing",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "factor $t$ over the DPF key-indistinguishability advantage (hybrid over the $t$ instances)",
+   "status": "draft",
    "page": "content/Reductions/dpf-to-multi-point-functions.md",
    "slug": "dpf-to-multi-point-functions",
    "graphSlug": "Reductions/dpf-to-multi-point-functions",
@@ -5747,14 +5751,14 @@
     "ds"
    ],
    "conclusion": "hash-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ds-to-hash-function.md",
    "slug": "ds-to-hash-function",
    "graphSlug": "Reductions/ds-to-hash-function",
@@ -5770,7 +5774,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+    "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -5867,7 +5871,7 @@
     "fac"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
@@ -5934,7 +5938,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/fac-to-tfnp.md",
    "slug": "fac-to-tfnp",
    "graphSlug": "Reductions/fac-to-tfnp",
@@ -5947,14 +5951,14 @@
     "factoring-blum-integers"
    ],
    "conclusion": "prg",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
    "slug": "factoring-with-known-factor-structure-to-prg",
    "graphSlug": "Reductions/factoring-with-known-factor-structure-to-prg",
@@ -5987,14 +5991,15 @@
     "functional-encryption"
    ],
    "conclusion": "io",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]]",
+    "[[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "factor $2^n$ for $n$-bit inputs; requires sub-exponentially secure FE",
+   "status": "draft",
    "page": "content/Reductions/fe-to-io.md",
    "slug": "fe-to-io",
    "graphSlug": "Reductions/fe-to-io",
@@ -6011,11 +6016,11 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
    "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "graphSlug": "Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
@@ -6032,11 +6037,12 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
+   "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-ds",
    "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-ds",
@@ -6053,10 +6059,11 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
+    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
@@ -6090,11 +6097,10 @@
     "function-secret-sharing"
    ],
    "conclusion": "dpf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[BGI15 - Function Secret Sharing|BGI15]]",
-    "[[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]"
+    "[[BGI15 - Function Secret Sharing|BGI15]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -6111,14 +6117,14 @@
     "fuzzy-ibe"
    ],
    "conclusion": "ibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight (the IBE adversary is forwarded unchanged)",
+   "status": "draft",
    "page": "content/Reductions/fuzzy-ibe-to-ibe.md",
    "slug": "fuzzy-ibe-to-ibe",
    "graphSlug": "Reductions/fuzzy-ibe-to-ibe",
@@ -6131,8 +6137,8 @@
     "gapsvp"
    ],
    "conclusion": "lwe",
-   "class": "unstated",
-   "model": "standard",
+   "class": "fully-black-box",
+   "model": "quantum",
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
@@ -6151,7 +6157,7 @@
     "gapsvp"
    ],
    "conclusion": "sis",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
@@ -6172,14 +6178,14 @@
     "ot"
    ],
    "conclusion": "two-party-computation",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
    "slug": "gc-and-ot-to-two-party-computation-2pc",
    "graphSlug": "Reductions/gc-and-ot-to-two-party-computation-2pc",
@@ -6233,7 +6239,7 @@
     "one-time-signature"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Mer89 - A Certified Digital Signature|Mer89]]"
@@ -6254,7 +6260,7 @@
     "one-time-signature"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Mer89 - A Certified Digital Signature|Mer89]]"
@@ -6275,7 +6281,7 @@
     "io"
    ],
    "conclusion": "deniable-encryption",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
@@ -6296,7 +6302,7 @@
     "io"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
@@ -6317,11 +6323,11 @@
     "io"
    ],
    "conclusion": "functional-encryption",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
-    "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]",
-    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]",
+    "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -6360,8 +6366,8 @@
     "io"
    ],
    "conclusion": "nizk",
-   "class": "unstated",
-   "model": "standard",
+   "class": "free",
+   "model": "crs",
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
@@ -6381,7 +6387,7 @@
     "io"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
@@ -6422,14 +6428,14 @@
     "hash-function"
    ],
    "conclusion": "czk",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-czk.md",
    "slug": "hash-function-to-czk",
    "graphSlug": "Reductions/hash-function-to-czk",
@@ -6442,7 +6448,7 @@
     "hash-function"
    ],
    "conclusion": "dpf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
@@ -6462,14 +6468,14 @@
     "hash-function"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-ds.md",
    "slug": "hash-function-to-ds",
    "graphSlug": "Reductions/hash-function-to-ds",
@@ -6482,14 +6488,14 @@
     "hash-function"
    ],
    "conclusion": "xmss",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
    "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
@@ -6502,7 +6508,7 @@
     "hash-function"
    ],
    "conclusion": "one-time-signature",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
@@ -6522,14 +6528,15 @@
     "hash-function"
    ],
    "conclusion": "mac",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
+    "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-mac.md",
    "slug": "hash-function-to-mac",
    "graphSlug": "Reductions/hash-function-to-mac",
@@ -6543,7 +6550,7 @@
    ],
    "conclusion": "pcs",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
    ],
@@ -6562,14 +6569,15 @@
     "hash-function"
    ],
    "conclusion": "prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
+    "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-prf.md",
    "slug": "hash-function-to-prf",
    "graphSlug": "Reductions/hash-function-to-prf",
@@ -6582,11 +6590,10 @@
     "hash-function"
    ],
    "conclusion": "prg",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
-    "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+    "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -6623,14 +6630,15 @@
     "hash-function"
    ],
    "conclusion": "ske",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
+    "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hash-function-to-ske.md",
    "slug": "hash-function-to-ske",
    "graphSlug": "Reductions/hash-function-to-ske",
@@ -6686,11 +6694,12 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]",
+    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
    "slug": "he-to-mpc-with-preprocessing-spdz-etc",
    "graphSlug": "Reductions/he-to-mpc-with-preprocessing-spdz-etc",
@@ -6723,14 +6732,14 @@
     "hibe"
    ],
    "conclusion": "ibe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight (advantage-preserving)",
+   "status": "draft",
    "page": "content/Reductions/hibe-to-ibe.md",
    "slug": "hibe-to-ibe",
    "graphSlug": "Reductions/hibe-to-ibe",
@@ -6746,11 +6755,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hiding-to-cpir.md",
    "slug": "hiding-to-cpir",
    "graphSlug": "Reductions/hiding-to-cpir",
@@ -6766,11 +6775,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/higher-residuosity-to-pke.md",
    "slug": "higher-residuosity-to-pke",
    "graphSlug": "Reductions/higher-residuosity-to-pke",
@@ -6783,7 +6792,7 @@
     "honest-majority-t-lt-n-over-3"
    ],
    "conclusion": "mpc",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
@@ -6803,14 +6812,14 @@
     "hve"
    ],
    "conclusion": "range-query-encryption",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/hve-to-subset-and-range-queries.md",
    "slug": "hve-to-subset-and-range-queries",
    "graphSlug": "Reductions/hve-to-subset-and-range-queries",
@@ -6823,14 +6832,14 @@
     "ibe"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "status": "draft",
    "page": "content/Reductions/ibe-to-pke.md",
    "slug": "ibe-to-pke",
    "graphSlug": "Reductions/ibe-to-pke",
@@ -6844,14 +6853,14 @@
     "rom"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/id-and-rom-to-ds.md",
    "slug": "id-and-rom-to-ds",
    "graphSlug": "Reductions/id-and-rom-to-ds",
@@ -6884,7 +6893,7 @@
     "ideal-svp"
    ],
    "conclusion": "ring-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "quantum",
    "source": [
     "[[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]"
@@ -6904,7 +6913,7 @@
     "ideal-svp"
    ],
    "conclusion": "ring-sis",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
@@ -6924,14 +6933,14 @@
     "ind-cca-kem"
    ],
    "conclusion": "ind-cpa-kem",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "status": "draft",
    "page": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
    "slug": "ind-cca-security-to-ind-cpa-kem",
    "graphSlug": "Reductions/ind-cca-security-to-ind-cpa-kem",
@@ -6944,14 +6953,14 @@
     "ind-cpa-kem"
    ],
    "conclusion": "ind-cca-kem",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
    "slug": "ind-cpa-kem-to-ind-cca-security",
    "graphSlug": "Reductions/ind-cpa-kem-to-ind-cca-security",
@@ -6964,14 +6973,14 @@
     "ind-id-cpa"
    ],
    "conclusion": "ind-sid-cpa",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the two advantages are equal",
+   "status": "draft",
    "page": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
    "slug": "ind-id-cpa-security-to-ind-sid-cpa-security-selective",
    "graphSlug": "Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective",
@@ -6984,14 +6993,14 @@
     "ind-sid-cpa"
    ],
    "conclusion": "ind-id-cpa",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security",
+   "status": "draft",
    "page": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
    "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
    "graphSlug": "Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security",
@@ -7005,14 +7014,14 @@
     "rom"
    ],
    "conclusion": "nizk",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
    "slug": "interactive-protocol-and-rom-to-nizk",
    "graphSlug": "Reductions/interactive-protocol-and-rom-to-nizk",
@@ -7046,14 +7055,14 @@
     "invertible-prf"
    ],
    "conclusion": "prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the PRF advantage equals the iPRF advantage of the wrapped distinguisher",
+   "status": "draft",
    "page": "content/Reductions/invertible-prfs-to-prf.md",
    "slug": "invertible-prfs-to-prf",
    "graphSlug": "Reductions/invertible-prfs-to-prf",
@@ -7110,7 +7119,7 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[CCG+94 - The random oracle hypothesis is false|CCG+94]]"
+    "folklore"
    ],
    "via": [],
    "securityLoss": "",
@@ -7134,7 +7143,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ip-to-qip.md",
    "slug": "ip-to-qip",
    "graphSlug": "Reductions/ip-to-qip",
@@ -7170,11 +7179,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
    "slug": "ippe-to-hve",
    "graphSlug": "Reductions/ippe-to-hve",
@@ -7187,14 +7196,14 @@
     "ippe"
    ],
    "conclusion": "payload-hiding-ippe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight (advantage preserved exactly)",
+   "status": "draft",
    "page": "content/Reductions/ippe-to-payload-only-hiding.md",
    "slug": "ippe-to-payload-only-hiding",
    "graphSlug": "Reductions/ippe-to-payload-only-hiding",
@@ -7207,8 +7216,8 @@
     "inhomogeneous-sis"
    ],
    "conclusion": "ds",
-   "class": "unstated",
-   "model": "standard",
+   "class": "fully-black-box",
+   "model": "rom",
    "source": [
     "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
@@ -7227,14 +7236,14 @@
     "inhomogeneous-sis"
    ],
    "conclusion": "sis",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
    "slug": "isis-inhomogeneous-sis-to-sis",
    "graphSlug": "Reductions/isis-inhomogeneous-sis-to-sis",
@@ -7247,14 +7256,14 @@
     "it-pir"
    ],
    "conclusion": "computational-multi-server-pir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight (distinguishing advantage is $0$)",
+   "status": "draft",
    "page": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
    "slug": "it-pir-to-computational-multi-server-pir",
    "graphSlug": "Reductions/it-pir-to-computational-multi-server-pir",
@@ -7307,14 +7316,14 @@
     "ke"
    ],
    "conclusion": "multi-party-key-exchange",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "factor $n-1$ over the two-party KE advantage (one hybrid per session)",
+   "status": "draft",
    "page": "content/Reductions/ke-to-multi-party-key-exchange.md",
    "slug": "ke-to-multi-party-key-exchange",
    "graphSlug": "Reductions/ke-to-multi-party-key-exchange",
@@ -7368,14 +7377,14 @@
     "ske"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "additive: the hybrid's CCA advantage is at most the KEM's CCA advantage plus the DEM's one-time CCA advantage, plus the KEM's bad-key-pair probability (CS03, Theorem 5)",
+   "status": "draft",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
    "graphSlug": "Reductions/kem-and-ske-to-pke",
@@ -7388,14 +7397,14 @@
     "kem"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the eavesdropper's distinguishing advantage equals the KEM IND-CPA advantage",
+   "status": "draft",
    "page": "content/Reductions/kem-to-ke.md",
    "slug": "kem-to-ke",
    "graphSlug": "Reductions/kem-to-ke",
@@ -7429,14 +7438,14 @@
     "linear-secret-sharing-scheme"
    ],
    "conclusion": "monotone-span-program",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[KW93 - On Span Programs|KW93]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
    "slug": "linear-secret-sharing-schemes-lsss-to-msp",
    "graphSlug": "Reductions/linear-secret-sharing-schemes-lsss-to-msp",
@@ -7452,11 +7461,11 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: one injective/lossy index-indistinguishability hop plus a statistical leftover-hash term",
+   "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
    "slug": "lossy-trapdoor-functions-to-pke",
    "graphSlug": "Reductions/lossy-trapdoor-functions-to-pke",
@@ -7511,14 +7520,14 @@
     "lpn"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/lpn-to-pke.md",
    "slug": "lpn-to-pke",
    "graphSlug": "Reductions/lpn-to-pke",
@@ -7609,7 +7618,7 @@
    "id": "red-lwe-to-de-ram-mpc-lmw24",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "ring-lwe"
    ],
    "conclusion": "doubly-efficient-ram-mpc",
    "class": "unstated",
@@ -7623,13 +7632,13 @@
    "page": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
    "slug": "lwe-to-de-ram-mpc-lmw24",
    "graphSlug": "Reductions/lwe-to-de-ram-mpc-lmw24",
-   "title": "LWE ⇒ DE-RAM-MPC"
+   "title": "Ring-LWE ⇒ DE-RAM-MPC"
   },
   {
    "id": "red-lwe-to-depir-lmw23",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "ring-lwe"
    ],
    "conclusion": "depir",
    "class": "unstated",
@@ -7643,7 +7652,7 @@
    "page": "content/Reductions/lwe-to-depir-lmw23.md",
    "slug": "lwe-to-depir-lmw23",
    "graphSlug": "Reductions/lwe-to-depir-lmw23",
-   "title": "LWE ⇒ DEPIR"
+   "title": "Ring-LWE ⇒ DEPIR"
   },
   {
    "id": "red-lwe-to-ind-cpa-kem",
@@ -7652,14 +7661,14 @@
     "lwe"
    ],
    "conclusion": "ind-cpa-kem",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/lwe-to-ind-cpa-kem.md",
    "slug": "lwe-to-ind-cpa-kem",
    "graphSlug": "Reductions/lwe-to-ind-cpa-kem",
@@ -7692,7 +7701,7 @@
     "lwe"
    ],
    "conclusion": "leveled-fully-homomorphic-encryption",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
@@ -7712,7 +7721,7 @@
     "lwe"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
@@ -7795,11 +7804,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ma-to-am.md",
    "slug": "ma-to-am",
    "graphSlug": "Reductions/ma-to-am",
@@ -7815,11 +7824,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Ver92 - On the Power of PP|Ver92]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ma-to-pp.md",
    "slug": "ma-to-pp",
    "graphSlug": "Reductions/ma-to-pp",
@@ -7839,7 +7848,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ma-to-qcma.md",
    "slug": "ma-to-qcma",
    "graphSlug": "Reductions/ma-to-qcma",
@@ -7853,14 +7862,14 @@
     "ske"
    ],
    "conclusion": "cca-secure-symmetric-key-encryption",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
    "slug": "mac-and-ske-to-cca-security",
    "graphSlug": "Reductions/mac-and-ske-to-cca-security",
@@ -7895,13 +7904,13 @@
    ],
    "conclusion": "ds",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "Non-tight in the classical ROM: the reduction from Module-SIS goes through the forking lemma. The QROM bound is tight only under the additional SelfTargetMSIS assumption (KLS18).",
+   "status": "draft",
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
    "slug": "module-lwe-and-module-sis-to-ds",
    "graphSlug": "Reductions/module-lwe-and-module-sis-to-ds",
@@ -7915,13 +7924,13 @@
    ],
    "conclusion": "kem",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/module-lwe-to-kem.md",
    "slug": "module-lwe-to-kem",
    "graphSlug": "Reductions/module-lwe-to-kem",
@@ -7954,7 +7963,7 @@
     "module-lwe-rank-1"
    ],
    "conclusion": "ring-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -7995,7 +8004,7 @@
    ],
    "conclusion": "module-lwe",
    "class": "unstated",
-   "model": "standard",
+   "model": "quantum",
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
@@ -8117,8 +8126,7 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]",
-    "[[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]"
+    "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -8135,14 +8143,14 @@
     "lpn-low-noise"
    ],
    "conclusion": "lpn-constant-noise",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: advantage-preserving, one oracle call",
+   "status": "draft",
    "page": "content/Reductions/noise-level-to-noise-level.md",
    "slug": "noise-level-to-noise-level",
    "graphSlug": "Reductions/noise-level-to-noise-level",
@@ -8155,7 +8163,7 @@
     "lpn-mid-noise"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
@@ -8219,11 +8227,11 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[KSV02 - Classical and Quantum Computation|KSV02]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/notable-problems-to-qma.md",
    "slug": "notable-problems-to-qma",
    "graphSlug": "Reductions/notable-problems-to-qma",
@@ -8239,7 +8247,7 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+    "folklore"
    ],
    "via": [],
    "securityLoss": "",
@@ -8283,7 +8291,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/np-to-ma.md",
    "slug": "np-to-ma",
    "graphSlug": "Reductions/np-to-ma",
@@ -8299,11 +8307,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/np-to-pp.md",
    "slug": "np-to-pp",
    "graphSlug": "Reductions/np-to-pp",
@@ -8323,7 +8331,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/np-to-pspace.md",
    "slug": "np-to-pspace",
    "graphSlug": "Reductions/np-to-pspace",
@@ -8339,11 +8347,11 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ntru-to-ds.md",
    "slug": "ntru-to-ds",
    "graphSlug": "Reductions/ntru-to-ds",
@@ -8357,13 +8365,13 @@
    ],
    "conclusion": "kem",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ntru-to-kem.md",
    "slug": "ntru-to-kem",
    "graphSlug": "Reductions/ntru-to-kem",
@@ -8419,11 +8427,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
    "slug": "ot-extension-to-mpc-with-preprocessing-spdz-etc",
    "graphSlug": "Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc",
@@ -8436,14 +8444,14 @@
     "ot"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ot-to-com.md",
    "slug": "ot-to-com",
    "graphSlug": "Reductions/ot-to-com",
@@ -8456,12 +8464,11 @@
     "ot"
    ],
    "conclusion": "mpc",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
-    "[[GMW87 - How to play ANY mental game|GMW87]]",
-    "[[Yao82 - Protocols for secure computations|Yao82]]"
+    "[[GMW87 - How to play ANY mental game|GMW87]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -8478,7 +8485,7 @@
     "owf"
    ],
    "conclusion": "prg",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
@@ -8499,14 +8506,14 @@
     "owp"
    ],
    "conclusion": "hash-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/owp-to-hash-function.md",
    "slug": "owp-to-hash-function",
    "graphSlug": "Reductions/owp-to-hash-function",
@@ -8566,7 +8573,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-bpp.md",
    "slug": "p-to-bpp",
    "graphSlug": "Reductions/p-to-bpp",
@@ -8586,7 +8593,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-conp.md",
    "slug": "p-to-conp",
    "graphSlug": "Reductions/p-to-conp",
@@ -8606,7 +8613,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-np.md",
    "slug": "p-to-np",
    "graphSlug": "Reductions/p-to-np",
@@ -8626,7 +8633,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-p-poly.md",
    "slug": "p-to-p-poly",
    "graphSlug": "Reductions/p-to-p-poly",
@@ -8646,7 +8653,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-rp.md",
    "slug": "p-to-rp",
    "graphSlug": "Reductions/p-to-rp",
@@ -8666,7 +8673,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/p-to-zpp.md",
    "slug": "p-to-zpp",
    "graphSlug": "Reductions/p-to-zpp",
@@ -8742,13 +8749,14 @@
    ],
    "conclusion": "snark",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]",
+    "[[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/pcs-to-snark.md",
    "slug": "pcs-to-snark",
    "graphSlug": "Reductions/pcs-to-snark",
@@ -8756,23 +8764,23 @@
   },
   {
    "id": "red-pcs-to-vector-commitments",
-   "kind": "equivalence",
+   "kind": "implication",
    "hypotheses": [
     "pcs"
    ],
    "conclusion": "vector-commitment",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: a position-binding adversary is forwarded unchanged as an evaluation-binding adversary",
+   "status": "draft",
    "page": "content/Reductions/pcs-to-vector-commitments.md",
    "slug": "pcs-to-vector-commitments",
    "graphSlug": "Reductions/pcs-to-vector-commitments",
-   "title": "PCS ⇔ Vector commitments"
+   "title": "PCS ⇒ Vector commitments"
   },
   {
    "id": "red-permuted-puzzles-to-depir-bipw17",
@@ -8801,14 +8809,14 @@
     "pke"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/pke-to-com.md",
    "slug": "pke-to-com",
    "graphSlug": "Reductions/pke-to-com",
@@ -8821,14 +8829,14 @@
     "pke"
    ],
    "conclusion": "hash-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/pke-to-hash-function.md",
    "slug": "pke-to-hash-function",
    "graphSlug": "Reductions/pke-to-hash-function",
@@ -8841,14 +8849,14 @@
     "pke"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the eavesdropper's advantage equals the CPA advantage",
+   "status": "draft",
    "page": "content/Reductions/pke-to-ke.md",
    "slug": "pke-to-ke",
    "graphSlug": "Reductions/pke-to-ke",
@@ -8861,14 +8869,14 @@
     "pke"
    ],
    "conclusion": "kem",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: advantage and decryption-query count are preserved",
+   "status": "draft",
    "page": "content/Reductions/pke-to-kem.md",
    "slug": "pke-to-kem",
    "graphSlug": "Reductions/pke-to-kem",
@@ -8908,7 +8916,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/pp-to-pspace.md",
    "slug": "pp-to-pspace",
    "graphSlug": "Reductions/pp-to-pspace",
@@ -8921,13 +8929,13 @@
     "prc"
    ],
    "conclusion": "ske",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "CPA advantage at most twice the PRC pseudorandomness advantage (one hybrid per world)",
    "status": "draft",
    "page": "content/Reductions/prc-to-ske-cg24.md",
    "slug": "prc-to-ske-cg24",
@@ -8961,14 +8969,14 @@
     "prf"
    ],
    "conclusion": "mac",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$, where $\\calB$ makes one query per $\\Tag$ query plus one for the forgery",
+   "status": "draft",
    "page": "content/Reductions/prf-to-mac.md",
    "slug": "prf-to-mac",
    "graphSlug": "Reductions/prf-to-mac",
@@ -8981,13 +8989,13 @@
     "prf"
    ],
    "conclusion": "prp",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "a $q$-query distinguisher's advantage is at most the sum of the round PRF advantages plus $O(q^2/2^n)$ (birthday term), so the construction is meaningful only for superpolynomial $2^n$",
    "status": "draft",
    "page": "content/Reductions/prf-to-prp-lr88.md",
    "slug": "prf-to-prp-lr88",
@@ -9001,14 +9009,14 @@
     "prf"
    ],
    "conclusion": "ske",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "for $q$ encryptions of at most $\\ell$ blocks each, the CPA advantage is at most twice the PRF advantage plus a counter-window collision term $O(\\ell q^2 / 2^n)$",
+   "status": "draft",
    "page": "content/Reductions/prf-to-ske.md",
    "slug": "prf-to-ske",
    "graphSlug": "Reductions/prf-to-ske",
@@ -9041,13 +9049,13 @@
     "prg"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "hiding: at most twice the PRG advantage; binding: statistical, failing with probability at most $2^{-\\secpar}$ over the receiver's first message",
    "status": "draft",
    "page": "content/Reductions/prg-to-com-naor91.md",
    "slug": "prg-to-com-naor91",
@@ -9061,7 +9069,7 @@
     "prg"
    ],
    "conclusion": "dpf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
@@ -9081,14 +9089,14 @@
     "prg"
    ],
    "conclusion": "hash-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/prg-to-hash-function.md",
    "slug": "prg-to-hash-function",
    "graphSlug": "Reductions/prg-to-hash-function",
@@ -9121,14 +9129,14 @@
     "prg"
    ],
    "conclusion": "ske",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/prg-to-ske.md",
    "slug": "prg-to-ske",
    "graphSlug": "Reductions/prg-to-ske",
@@ -9141,7 +9149,7 @@
     "prp"
    ],
    "conclusion": "invertible-prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
@@ -9150,7 +9158,7 @@
     "[[switching-lemma|Switching Lemma]]"
    ],
    "securityLoss": "$O(q^2/|\\calD|)$ for $q$ queries, per the switching lemma",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/prp-to-invertible-prf.md",
    "slug": "prp-to-invertible-prf",
    "graphSlug": "Reductions/prp-to-invertible-prf",
@@ -9163,13 +9171,13 @@
     "prp"
    ],
    "conclusion": "prf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)",
    "status": "draft",
    "page": "content/Reductions/prp-to-prf.md",
    "slug": "prp-to-prf",
@@ -9190,7 +9198,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/pspace-to-exp.md",
    "slug": "pspace-to-exp",
    "graphSlug": "Reductions/pspace-to-exp",
@@ -9230,7 +9238,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qcma-to-qma.md",
    "slug": "qcma-to-qma",
    "graphSlug": "Reductions/qcma-to-qma",
@@ -9246,11 +9254,12 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[JJUW10 - QIP = PSPACE|JJUW10]]",
+    "[[Sha90 - IP = PSPACE|Sha90]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qip-to-ip.md",
    "slug": "qip-to-ip",
    "graphSlug": "Reductions/qip-to-ip",
@@ -9266,11 +9275,12 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[JJUW10 - QIP = PSPACE|JJUW10]]",
+    "[[Sha90 - IP = PSPACE|Sha90]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qip-to-pspace.md",
    "slug": "qip-to-pspace",
    "graphSlug": "Reductions/qip-to-pspace",
@@ -9286,11 +9296,11 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[MW05 - Quantum Arthur-Merlin games|MW05]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qma-to-pp.md",
    "slug": "qma-to-pp",
    "graphSlug": "Reductions/qma-to-pp",
@@ -9310,7 +9320,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qr-to-com.md",
    "slug": "qr-to-com",
    "graphSlug": "Reductions/qr-to-com",
@@ -9410,7 +9420,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/qszk-to-qip.md",
    "slug": "qszk-to-qip",
    "graphSlug": "Reductions/qszk-to-qip",
@@ -9423,10 +9433,10 @@
     "rabin-ot"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -9443,14 +9453,14 @@
     "random-ot"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Bea95 - Precomputing Oblivious Transfer|Bea95]]"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none (perfect security)",
+   "status": "draft",
    "page": "content/Reductions/random-ot-to-ot.md",
    "slug": "random-ot-to-ot",
    "graphSlug": "Reductions/random-ot-to-ot",
@@ -9486,11 +9496,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "ring-lpn-to-pseudorandom-correlation-generators-pcg",
    "graphSlug": "Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg",
@@ -9524,13 +9534,13 @@
     "zkp"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Quadratic in the forger's advantage and linear in its random-oracle query count: a forger with advantage $\\varepsilon$ and $q$ oracle queries yields a witness with probability about $\\varepsilon^2/q$ (forking lemma) — PS96.",
    "status": "draft",
    "page": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
    "slug": "rom-and-zkp-to-ds-fs86",
@@ -9545,7 +9555,7 @@
     "zkp"
    ],
    "conclusion": "nizk",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "rom",
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
@@ -9565,7 +9575,7 @@
     "rom"
    ],
    "conclusion": "oblivious-interactive-hash-function",
-   "class": "unstated",
+   "class": "free",
    "model": "rom",
    "source": [
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
@@ -9592,7 +9602,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/rp-to-bpp.md",
    "slug": "rp-to-bpp",
    "graphSlug": "Reductions/rp-to-bpp",
@@ -9612,7 +9622,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/rp-to-np.md",
    "slug": "rp-to-np",
    "graphSlug": "Reductions/rp-to-np",
@@ -9625,7 +9635,7 @@
     "rsa"
    ],
    "conclusion": "fac",
-   "class": "unstated",
+   "class": "free",
    "model": "other",
    "source": [
     "[[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]"
@@ -9648,11 +9658,11 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "folklore"
+    "[[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-security.md",
    "slug": "rsa-to-ind-cca-security",
    "graphSlug": "Reductions/rsa-to-ind-cca-security",
@@ -9748,11 +9758,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
@@ -9827,13 +9837,13 @@
    ],
    "conclusion": "ds",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/sis-to-ds.md",
    "slug": "sis-to-ds",
    "graphSlug": "Reductions/sis-to-ds",
@@ -9846,13 +9856,13 @@
     "sis"
    ],
    "conclusion": "hash-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
    "via": [],
-   "securityLoss": "",
+   "securityLoss": "Tight: one call to the collision finder, $\\Adv^{\\mathrm{cr}} \\le \\Adv^{\\mathrm{sis}}$.",
    "status": "draft",
    "page": "content/Reductions/sis-to-hash-function-ajt96.md",
    "slug": "sis-to-hash-function-ajt96",
@@ -9866,7 +9876,7 @@
     "sivp"
    ],
    "conclusion": "lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "quantum",
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
@@ -9886,7 +9896,7 @@
     "sivp"
    ],
    "conclusion": "sis",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
@@ -9949,11 +9959,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/snark-to-recursive-snarks.md",
    "slug": "snark-to-recursive-snarks",
    "graphSlug": "Reductions/snark-to-recursive-snarks",
@@ -9973,7 +9983,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/somewhat-homomorphic-encryption-she-to-he-gen09",
@@ -10007,13 +10017,13 @@
    ],
    "conclusion": "pseudorandom-correlation-generator",
    "class": "unstated",
-   "model": "standard",
+   "model": "rom",
    "source": [
-    "folklore"
+    "[[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
    "graphSlug": "Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
@@ -10026,14 +10036,14 @@
     "spir"
    ],
    "conclusion": "it-pir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "None: construction and reduction are the identity.",
+   "status": "draft",
    "page": "content/Reductions/spir-to-it-pir.md",
    "slug": "spir-to-it-pir",
    "graphSlug": "Reductions/spir-to-it-pir",
@@ -10043,7 +10053,7 @@
    "id": "red-ss-to-it-pir-cgks98",
    "kind": "implication",
    "hypotheses": [
-    "ss"
+    "linear-secret-sharing-scheme"
    ],
    "conclusion": "it-pir",
    "class": "unstated",
@@ -10057,7 +10067,7 @@
    "page": "content/Reductions/ss-to-it-pir-cgks98.md",
    "slug": "ss-to-it-pir-cgks98",
    "graphSlug": "Reductions/ss-to-it-pir-cgks98",
-   "title": "SS ⇒ IT-PIR"
+   "title": "Linear SS ⇒ IT-PIR"
   },
   {
    "id": "red-strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
@@ -10086,14 +10096,14 @@
     "strong-rsa"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/strong-rsa-to-com.md",
    "slug": "strong-rsa-to-com",
    "graphSlug": "Reductions/strong-rsa-to-com",
@@ -10106,14 +10116,14 @@
     "strong-rsa"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/strong-rsa-to-ds.md",
    "slug": "strong-rsa-to-ds",
    "graphSlug": "Reductions/strong-rsa-to-ds",
@@ -10126,14 +10136,14 @@
     "strong-rsa-assumption"
    ],
    "conclusion": "rsa",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: one oracle call, advantage preserved",
+   "status": "draft",
    "page": "content/Reductions/strong-rsa-to-rsa.md",
    "slug": "strong-rsa-to-rsa",
    "graphSlug": "Reductions/strong-rsa-to-rsa",
@@ -10146,14 +10156,14 @@
     "strong-pseudorandom-permutation"
    ],
    "conclusion": "prp",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "tight: the same adversary has the same advantage in both games",
+   "status": "draft",
    "page": "content/Reductions/strong-security-to-prp.md",
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
@@ -10281,23 +10291,23 @@
   },
   {
    "id": "red-succinct-lwe-to-lwe",
-   "kind": "equivalence",
+   "kind": "implication",
    "hypotheses": [
     "succinct-lwe"
    ],
    "conclusion": "lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "advantage-preserving up to the statistical distance between $\\mathrm{TrapGen}(1^n,1^m,q)$'s $\\mathbf{B}$ and uniform",
+   "status": "draft",
    "page": "content/Reductions/succinct-lwe-to-lwe.md",
    "slug": "succinct-lwe-to-lwe",
    "graphSlug": "Reductions/succinct-lwe-to-lwe",
-   "title": "Succinct LWE ⇔ LWE"
+   "title": "Succinct LWE ⇒ LWE"
   },
   {
    "id": "red-sxdh-symmetric-external-diffie-hellman-to-bdh",
@@ -10329,11 +10339,11 @@
    "class": "unstated",
    "model": "crs",
    "source": [
-    "folklore"
+    "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
    "slug": "sxdh-symmetric-external-diffie-hellman-to-nizk",
    "graphSlug": "Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk",
@@ -10346,14 +10356,14 @@
     "single-server-symmetric-pir"
    ],
    "conclusion": "cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-cpir",
    "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-cpir",
@@ -10361,23 +10371,23 @@
   },
   {
    "id": "red-symmetric-private-information-retrieval-single-server-to-ot",
-   "kind": "equivalence",
+   "kind": "implication",
    "hypotheses": [
     "single-server-symmetric-pir"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
    "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-ot",
-   "title": "Symmetric private information retrieval (Single-server) ⇔ OT"
+   "title": "Symmetric private information retrieval (Single-server) ⇒ OT"
   },
   {
    "id": "red-szk-to-am",
@@ -10389,11 +10399,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/szk-to-am.md",
    "slug": "szk-to-am",
    "graphSlug": "Reductions/szk-to-am",
@@ -10409,11 +10419,11 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[For87 - The Complexity of Perfect Zero-Knowledge|For87]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/szk-to-coam.md",
    "slug": "szk-to-coam",
    "graphSlug": "Reductions/szk-to-coam",
@@ -10433,7 +10443,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/szk-to-czk.md",
    "slug": "szk-to-czk",
    "graphSlug": "Reductions/szk-to-czk",
@@ -10453,7 +10463,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/szk-to-ip.md",
    "slug": "szk-to-ip",
    "graphSlug": "Reductions/szk-to-ip",
@@ -10469,11 +10479,11 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "folklore"
+    "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/szk-to-qszk.md",
    "slug": "szk-to-qszk",
    "graphSlug": "Reductions/szk-to-qszk",
@@ -10489,7 +10499,6 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]",
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
    "via": [],
@@ -10513,8 +10522,8 @@
     "folklore"
    ],
    "via": [],
-   "securityLoss": "",
-   "status": "stub",
+   "securityLoss": "none: the reduction preserves the inverter's advantage",
+   "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
    "slug": "tdp-to-hash-function",
    "graphSlug": "Reductions/tdp-to-hash-function",
@@ -10527,10 +10536,10 @@
     "tdp"
    ],
    "conclusion": "nizk",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "crs",
    "source": [
-    "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
+    "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -10570,11 +10579,11 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GM84 - Probabilistic encryption|GM84]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/tdp-to-pke.md",
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
@@ -10607,14 +10616,14 @@
     "unkeyed-depir"
    ],
    "conclusion": "depir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/unkeyed-depir-to-depir.md",
    "slug": "unkeyed-depir-to-depir",
    "graphSlug": "Reductions/unkeyed-depir-to-depir",
@@ -10654,7 +10663,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
    "slug": "zero-bit-prc-to-trapdoor-pseudorandom-generators",
    "graphSlug": "Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators",
@@ -10667,7 +10676,7 @@
     "zero-bit-prc"
    ],
    "conclusion": "language-model-watermarking",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
@@ -10690,11 +10699,11 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/zkp-to-hash-function.md",
    "slug": "zkp-to-hash-function",
    "graphSlug": "Reductions/zkp-to-hash-function",
@@ -10735,7 +10744,7 @@
    ],
    "via": [],
    "securityLoss": "",
-   "status": "stub",
+   "status": "draft",
    "page": "content/Reductions/zpp-to-rp.md",
    "slug": "zpp-to-rp",
    "graphSlug": "Reductions/zpp-to-rp",
@@ -10760,8 +10769,7 @@
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]",
-    "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
+    "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]"
    ],
    "status": "draft",
    "page": "content/Barriers/no-agm-to-ggm-kz22.md",
@@ -10776,12 +10784,12 @@
     "statistically-hiding-commitment"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -10789,7 +10797,7 @@
    "source": [
     "folklore"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-binding-and-hiding-to-com.md",
    "slug": "no-binding-and-hiding-to-com",
    "graphSlug": "Barriers/no-binding-and-hiding-to-com",
@@ -10801,24 +10809,24 @@
     "bqp"
    ],
    "conclusion": "np",
-   "class": "unstated",
+   "class": "relativizing",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "relativizing"
     }
    ],
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "folklore"
+    "[[RT19 - Oracle Separation of BQP and PH|RT19]]"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-bqp-to-np.md",
    "slug": "no-bqp-to-np",
    "graphSlug": "Barriers/no-bqp-to-np",
-   "title": "No reduction from BQP to NP"
+   "title": "No relativizing reduction from BQP to NP"
   },
   {
    "id": "bar-cpa-security-to-ind-cpa-security",
@@ -10826,12 +10834,12 @@
     "cpa-security"
    ],
    "conclusion": "ind-dollar-cpa-security",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -10839,7 +10847,7 @@
    "source": [
     "folklore"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
    "slug": "no-cpa-security-to-ind-cpa-security",
    "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
@@ -10965,7 +10973,7 @@
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+    "[[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]"
    ],
    "status": "draft",
    "page": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
@@ -10980,19 +10988,18 @@
     "gkr-protocol"
    ],
    "conclusion": "snark",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]",
-    "[[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]"
+    "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]"
    ],
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
@@ -11007,12 +11014,12 @@
     "hash-function"
    ],
    "conclusion": "ds",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -11032,12 +11039,12 @@
     "fiat-shamir"
    ],
    "conclusion": "nizk",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -11132,24 +11139,24 @@
     "hash-function"
    ],
    "conclusion": "pke",
-   "class": "fully-black-box",
+   "class": "relativizing",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "fully-black-box"
+     "class": "relativizing"
     }
    ],
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
    "status": "draft",
    "page": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
    "slug": "no-hash-function-to-pke-gkm-00",
    "graphSlug": "Barriers/no-hash-function-to-pke-gkm-00",
-   "title": "No fully-black-box reduction from Hash function to PKE"
+   "title": "No relativizing reduction from Hash function to PKE"
   },
   {
    "id": "bar-he-to-cca-security",
@@ -11157,12 +11164,12 @@
     "he"
    ],
    "conclusion": "ind-cca-security",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -11170,7 +11177,7 @@
    "source": [
     "folklore"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-he-to-cca-security.md",
    "slug": "no-he-to-cca-security",
    "graphSlug": "Barriers/no-he-to-cca-security",
@@ -11210,12 +11217,12 @@
     "hibe-selective-security"
    ],
    "conclusion": "hibe-adaptive-security",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -11223,7 +11230,7 @@
    "source": [
     "folklore"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
    "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
    "graphSlug": "Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -11260,12 +11267,12 @@
     "injective-one-way-function"
    ],
    "conclusion": "owp",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -11277,7 +11284,7 @@
    "page": "content/Barriers/no-injective-owf-to-owp-mm11.md",
    "slug": "no-injective-owf-to-owp-mm11",
    "graphSlug": "Barriers/no-injective-owf-to-owp-mm11",
-   "title": "No reduction from Injective OWF to OWP"
+   "title": "No fully-black-box reduction from Injective OWF to OWP"
   },
   {
    "id": "bar-ippe-to-abe",
@@ -11335,12 +11342,12 @@
     "np"
    ],
    "conclusion": "cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -11352,7 +11359,7 @@
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
-   "title": "No reduction from NP to cPIR"
+   "title": "No fully-black-box reduction from NP to cPIR"
   },
   {
    "id": "bar-np-to-hash-function-aggm06",
@@ -11412,12 +11419,12 @@
     "owp"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "relativizing",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "relativizing"
     }
    ],
    "strength": "unconditional",
@@ -11429,7 +11436,7 @@
    "page": "content/Barriers/no-owp-to-ke-ir89.md",
    "slug": "no-owp-to-ke-ir89",
    "graphSlug": "Barriers/no-owp-to-ke-ir89",
-   "title": "No reduction from OWP to KE"
+   "title": "No relativizing reduction from OWP to KE"
   },
   {
    "id": "bar-pke-to-ot-gkm-00",
@@ -11437,12 +11444,12 @@
     "pke"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -11450,11 +11457,11 @@
    "source": [
     "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-pke-to-ot-gkm-00.md",
    "slug": "no-pke-to-ot-gkm-00",
    "graphSlug": "Barriers/no-pke-to-ot-gkm-00",
-   "title": "No reduction from PKE to OT"
+   "title": "No fully-black-box reduction from PKE to OT"
   },
   {
    "id": "bar-qcma-to-qma-ak07",
@@ -11492,22 +11499,20 @@
     "rom"
    ],
    "conclusion": "ke",
-   "class": "unstated",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "[[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]]",
-    "[[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]",
-    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+    "[[HMO+19 - On the Communication Complexity of Key-Agreement Protocols|HMO+19]]"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-rom-to-ke-hmo-19.md",
    "slug": "no-rom-to-ke-hmo-19",
    "graphSlug": "Barriers/no-rom-to-ke-hmo-19",
@@ -11545,12 +11550,12 @@
     "rom"
    ],
    "conclusion": "random-oracle-hypothesis",
-   "class": "relativizing",
+   "class": "free",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "relativizing"
+     "class": "free"
     }
    ],
    "strength": "unconditional",
@@ -11562,7 +11567,7 @@
    "page": "content/Barriers/no-rom-to-roh-ccg-94.md",
    "slug": "no-rom-to-roh-ccg-94",
    "graphSlug": "Barriers/no-rom-to-roh-ccg-94",
-   "title": "No relativizing reduction from ROM to ROH"
+   "title": "No reduction from ROM to ROH"
   },
   {
    "id": "bar-search-noisy-k-lin-to-noisy-k-lin",
@@ -11670,24 +11675,24 @@
     "zkp"
    ],
    "conclusion": "constant-round-zk-argument",
-   "class": "fully-black-box",
+   "class": "unstated",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "fully-black-box"
+     "class": "unstated"
     }
    ],
    "strength": "unconditional",
    "conditionalOn": [],
    "source": [
-    "folklore"
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]"
    ],
-   "status": "stub",
+   "status": "draft",
    "page": "content/Barriers/no-zkp-to-argument-systems.md",
    "slug": "no-zkp-to-argument-systems",
    "graphSlug": "Barriers/no-zkp-to-argument-systems",
-   "title": "No fully-black-box reduction from ZKP to Argument systems"
+   "title": "No reduction from ZKP to Argument systems"
   }
  ]
 }

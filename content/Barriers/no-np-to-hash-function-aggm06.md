@@ -26,7 +26,7 @@ For every polynomial-time computable $f$, a randomized non-adaptive reduction of
 
 ## Notes
 
-`class: unstated`: The surviving result is restricted to randomized non-adaptive reductions, and RTV04's vocabulary has no slot for an adaptivity restriction. Recording `fully-black-box` would assert a barrier against adaptive black-box reductions of NP to inverting $f$, which AGGM06 retracted (AGGM10) and which is known only for size-verifiable $f$ (BB15). `unstated` is the honest value; the restriction is carried in the statement.
+`class: unstated`: the surviving result covers only randomized non-adaptive reductions, and RTV04's vocabulary has no slot for an adaptivity restriction, so the statement carries it. `fully-black-box` would bar adaptive black-box reductions of NP to inverting $f$, which AGGM06 retracted (AGGM10) and which is known only for size-verifiable $f$ (BB15).
 
-- AGGM06's second theorem — the same consequence for arbitrary (adaptive) reductions whenever $|f^{-1}(y)|$ is efficiently computable — was retracted by the authors; only the non-adaptive result stands — [[AGGM10 - Erratum for On basing one-way functions on NP-hardness|AGGM10]].
+- AGGM06's claim that the same consequence follows from arbitrary (adaptive) reductions whenever $|f^{-1}(y)|$ is efficiently computable was retracted by the authors; only the non-adaptive result stands — [[AGGM10 - Erratum for On basing one-way functions on NP-hardness|AGGM10]].
 - For size-verifiable one-way functions the adaptive case is recovered: a general (adaptive) reduction of $\classNP$ to inverting such an $f$ implies $\classNP \subseteq \classcoAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]].
