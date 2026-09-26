@@ -7,7 +7,7 @@ id: red-hash-based-signatures-to-ds-mer89
 kind: implication
 hypotheses: [one-time-signature]
 conclusion: ds
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Mer89 - A Certified Digital Signature|Mer89]]"
@@ -16,41 +16,20 @@ security-loss: ""
 
 # Hash-based signatures ⇒ DS
 
-[[digital-signature#hash-based-signatures|Hash-based signatures]] implies [[digital-signature|DS]].
+A [[digital-signature#hash-based-signatures|one-time signature]] and a collision-resistant [[hash-function|hash function]] imply a stateful many-time [[digital-signature|DS]].
 
 ## Statement
 
-Migrated verbatim from [[hash-function]] § Other results:
+A one-time signature ([[Lam79 - Constructing digital signatures from a one way function|Lam79]]) and a collision-resistant [[hash-function|hash function]] give a stateful many-time EUF-CMA [[digital-signature|DS]]: a binary hash tree authenticates $2^d$ one-time verification keys under one root, and the $i$-th signature is the $i$-th one-time signature together with its authentication path — [[Mer89 - A Certified Digital Signature|Mer89]]. Universal one-way hash functions suffice in place of collision resistance — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]; one-way functions alone suffice — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 
-> - If one-way functions exist, then many "Minicrypt" primitives exist, via the chain OWF → PRG ([[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]) → PRF ([[GGM86 - How to construct random functions|GGM86]]):
->   - [[symmetric-key-encryption|Symmetric Key Encryption]]
->   - [[pseudorandom-function|Pseudorandom Functions]]
->   - [[pseudorandom-permutation|Pseudorandom Permutations]]
->   - [[message-authentication-code|Message Authentication Codes]]
->   - [[digital-signature|Digital Signatures]] (via Lamport one-time signatures [[Lam79 - Constructing digital signatures from a one way function|Lam79]] + Merkle trees [[Mer89 - A Certified Digital Signature|Mer89]])
+## Sketch
 
-Migrated verbatim from [[hash-function]] § Other results:
-
-> - [[digital-signature|Digital Signatures]] (via Lamport one-time signatures [[Lam79 - Constructing digital signatures from a one way function|Lam79]] + Merkle trees [[Mer89 - A Certified Digital Signature|Mer89]])
+Key generation publishes the root of a depth-$d$ Merkle tree over the hashes of the $2^d$ one-time verification keys. A forgery either carries an authentication path that departs from the honest one, giving a hash collision, or authenticates an honest one-time key and so forges against that one-time instance.
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
+`class: fully-black-box`: the construction calls the one-time signature scheme and the hash function only as oracles; the reduction embeds its challenge (a one-time verification key at a random leaf, or the hash key) and runs any forger as an oracle.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The Merkle step needs collision resistance / UOWHFs (Naor-Yung, Rompel), uncited here and at digital-signature.md:179.
-- Recorded here with ONE hypothesis but with TWO ({one-time-signature, hash-function}) at digital-signature.md:179 — inconsistent hypothesis sets for the same claim.
-- one-time-signature has no wiki page.
-- MOST COMPOSITE BULLET IN THE CHUNK: one bullet plus five sub-bullets encoding at least seven distinct reductions. Must be split.
-- The conclusion 'many "Minicrypt" primitives' is not a single object; Minicrypt is an Impagliazzo world, with no page in content/.
-- GL89 is the hard-core-predicate result used for the OWP/regular-OWF route to PRGs; the general OWF => PRG construction is HILL99. Citing both for one arrow conflates two different constructions.
-- The Digital Signatures sub-bullet does NOT go through the PRG → PRF chain the parent asserts (it goes OWF => one-time signature => signature), so the parent's 'via the chain' framing is wrong for that item.
-- PRF => PRP is uncited: the Luby-Rackoff result (LR88) has no reference page in content/References/.
-- The Merkle step from OWFs alone needs UOWHFs (Naor-Yung / Rompel), uncited here and at digital-signature.md:179.
-- Recorded with one hypothesis here and two at digital-signature.md:179 — inconsistent hypothesis sets for one claim.
-- COMPOSITE with two citations, one per link — the clearest split candidate in the chunk.
-- Does not follow the parent bullet's PRG → PRF chain (see the parent record).
-- The Merkle step from OWFs alone needs universal one-way hash functions (Naor-Yung / Rompel), uncited here and on content/Primitives/digital-signature.md line 179.
-- 'one-time-signature' has no slug.
+- Universal one-way hash functions exist given any injective one-way function — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
+- One-way functions are also necessary for signatures — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+- Duplicates [[hash-function-and-hash-based-signatures-to-ds-mer89]], which carries the correct hypotheses {one-time-signature, hash-function}; the two pages should be merged.

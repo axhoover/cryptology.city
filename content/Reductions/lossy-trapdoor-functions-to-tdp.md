@@ -34,3 +34,4 @@ source text, not changes to it:
 - MISSING CITATION (lossy TDFs are Peikert-Waters PW08).
 - SUSPECTED IMPRECISION: lossy TDFs yield injective trapdoor FUNCTIONS, not trapdoor PERMUTATIONS (the injective branch need not be a bijection on the domain). 'Lossy TDFs imply TDPs' is likely wrong as stated. Reported, not fixed.
 - 'lossy-trapdoor-function' has no page; it lives only as a section of this page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — lossy TDFs are not known to imply TDPs; the injective branch is an injective trapdoor function whose range need not equal its domain. [[PW08 - Lossy trapdoor functions and their applications|PW08]] prove lossy TDF ⇒ injective TDF and lossy TDF ⇒ IND-CCA-secure PKE. See [[lossy-trapdoor-functions-to-pke]].

@@ -16,21 +16,16 @@ security-loss: ""
 
 # QR ⇒ HE
 
-[[quadratic-residuosity|QR]] implies [[homomorphic-encryption|HE]].
+[[quadratic-residuosity|QR]] implies partially homomorphic [[homomorphic-encryption|HE]] for addition mod $2$.
 
 ## Statement
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
+The Goldwasser–Micali scheme from [[quadratic-residuosity|QR]] is partially homomorphic [[homomorphic-encryption|HE]] for XOR on plaintext bits: with $\pk = (N, y)$ and $\Enc(\pk, b; r) = y^b r^2 \bmod N$, the product of encryptions of $b_1$ and $b_2$ is distributed exactly as a fresh encryption of $b_1 \oplus b_2$ — [[GM84 - Probabilistic encryption|GM84]].
 
-> - Goldwasser-Micali is multiplicatively homomorphic: $\Enc(b_1) \cdot \Enc(b_2) = \Enc(b_1 \oplus b_2 \bmod 2)$ — [[GM84 - Probabilistic encryption|GM84]]
+## Sketch
+
+$(y^{b_1} r_1^2)(y^{b_2} r_2^2) = y^{b_1 \oplus b_2}\,(y^{b_1 b_2} r_1 r_2)^2$, and $y^{b_1 b_2} r_1 r_2$ is uniform in $\ZZ_N^*$ when $r_1$ is.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- A property of the specific GM scheme rather than a reduction from the assumption; the target object (XOR-homomorphic bit encryption) is not the wiki homomorphic-encryption page and is not wikilinked at all.
-- MINOR: "Enc(b1) . Enc(b2) = Enc(b1 XOR b2 mod 2)" is redundant — XOR is already mod 2 — and the operation is called "multiplicatively homomorphic" while the plaintext operation is additive mod 2.
+`class: unstated`: the source does not state which notion of reduction is meant.

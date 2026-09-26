@@ -37,3 +37,4 @@ source text, not changes to it:
 - DISJUNCTIVE BUNDLE: "Quantum money and unclonable encryption can be constructed from one-way state generators (OWSGs)" is two separate reductions; this record isolates OWSG => quantum money.
 - No citation for either construction.
 - Neither "one-way-state-generator" nor "quantum-money" has a wiki page; nothing in this bullet is wikilinked.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — no construction of quantum money from OWSGs is known, and the known implication is the converse: private-key quantum money with pure banknotes implies OWSGs (Morimae–Yamakawa, TQC 2024; eprint 2022/1336). Private-key quantum money is built from pseudorandom states (Ji–Liu–Song, CRYPTO 2018).

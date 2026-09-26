@@ -7,11 +7,11 @@ id: red-prf-to-prp-lr88
 kind: implication
 hypotheses: [prf]
 conclusion: prp
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
-security-loss: ""
+security-loss: "a $q$-query distinguisher's advantage is at most the sum of the round PRF advantages plus $O(q^2/2^n)$ (birthday term), so the construction is meaningful only for superpolynomial $2^n$"
 ---
 
 # PRF ⇒ PRP
@@ -20,43 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[hash-function]] § Other results:
+Three Feistel rounds, each applying an independently keyed [[pseudorandom-function|PRF]] on $\bits^n$, yield a [[pseudorandom-permutation|PRP]] on $\bits^{2n}$; four rounds yield a strong PRP, secure given the inversion oracle as well — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
 
-> - If one-way functions exist, then many "Minicrypt" primitives exist, via the chain OWF → PRG ([[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]) → PRF ([[GGM86 - How to construct random functions|GGM86]]):
->   - [[symmetric-key-encryption|Symmetric Key Encryption]]
->   - [[pseudorandom-function|Pseudorandom Functions]]
->   - [[pseudorandom-permutation|Pseudorandom Permutations]]
->   - [[message-authentication-code|Message Authentication Codes]]
->   - [[digital-signature|Digital Signatures]] (via Lamport one-time signatures [[Lam79 - Constructing digital signatures from a one way function|Lam79]] + Merkle trees [[Mer89 - A Certified Digital Signature|Mer89]])
+## Sketch
 
-Migrated verbatim from [[hash-function]] § Other results:
-
-> - [[pseudorandom-permutation|Pseudorandom Permutations]]
-
-Migrated verbatim from [[pseudorandom-permutation]] § Other results:
-
-> - [[pseudorandom-function|PRFs]] imply the existence of large-domain PRPs — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]
+On input $(L_0, R_0) \in \bits^n \times \bits^n$, round $i$ sets $(L_i, R_i) \gets (R_{i-1},\ L_{i-1} \oplus \Eval(k_i, R_{i-1}))$; each round is a permutation whatever the round function, and $\Invert$ runs the rounds backwards. Hybrids replace each round function by a truly random one, and the three-round random-function core is indistinguishable from a random permutation up to a birthday bound.
 
 ## Notes
 
-This relation is stated on 3 pages; the statements above are all of them.
+`class: fully-black-box`: the Feistel network invokes the round PRFs only as oracles, and each hybrid's reduction runs the distinguisher as an oracle; the random-function core is bounded information-theoretically. Fixed construction, fixed reduction.
 
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION: this is Luby-Rackoff (LR88), which has no reference page anywhere in content/References/.
-- The parent bullet's chain stops at PRF, so this sub-bullet silently adds a fourth link the parent never claims.
-- The Feistel construction needs 3 (or 4, for strong PRPs) rounds — unstated.
-- MOST COMPOSITE BULLET IN THE CHUNK: one bullet plus five sub-bullets encoding at least seven distinct reductions. Must be split.
-- The conclusion 'many "Minicrypt" primitives' is not a single object; Minicrypt is an Impagliazzo world, with no page in content/.
-- GL89 is the hard-core-predicate result used for the OWP/regular-OWF route to PRGs; the general OWF => PRG construction is HILL99. Citing both for one arrow conflates two different constructions.
-- The Digital Signatures sub-bullet does NOT go through the PRG → PRF chain the parent asserts (it goes OWF => one-time signature => signature), so the parent's 'via the chain' framing is wrong for that item.
-- PRF => PRP is uncited: the Luby-Rackoff result (LR88) has no reference page in content/References/.
-- MISSING CITATION: Luby-Rackoff (LR88) has no reference page and is cited nowhere on the page.
-- This link goes beyond the parent bullet's chain, which stops at PRF.
-- Round count (3 or 4) unstated.
-- MISSING CITATION for the final link: PRF => PRP is the Luby-Rackoff / Feistel result (LR88), which has no reference page and is not cited anywhere on this page.
-- The parent bullet's chain stops at PRF, so this sub-bullet silently adds a fourth link.
-- Conclusion carries the qualifier 'large-domain' (Feistel/Luby-Rackoff), which must survive migration; the construction itself (3/4-round Feistel) is not sketched.
+- [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]] simplify the proof and reduce the construction: two Feistel rounds between initial and final pairwise-independent permutations give a strong PRP.

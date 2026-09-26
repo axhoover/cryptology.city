@@ -36,3 +36,4 @@ source text, not changes to it:
 - GENUINELY CONJUNCTIVE {Module-LWE, Module-SIS}.
 - Module variants are sections of `[[learning-with-errors#Module LWE]]` and `[[shortest-integer-solution]]`; neither is wikilinked, and Module-SIS may not be covered at all.
 - Model is ROM (Fiat-Shamir with aborts) but the page never says so; QROM security is a separate, stronger claim.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — Dilithium / ML-DSA is proved secure from Module-LWE and Module-SIS via Fiat–Shamir with aborts in the ROM, not from plain LWE and SIS, and LS15 contains no signature scheme (it gives worst-case to average-case reductions for module lattices). See [[module-lwe-and-module-sis-to-ds]].

@@ -7,7 +7,7 @@ id: red-lwe-to-leveled-fully-homomorphic-encryption-bgv12
 kind: implication
 hypotheses: [lwe]
 conclusion: leveled-fully-homomorphic-encryption
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
@@ -16,27 +16,18 @@ security-loss: ""
 
 # LWE ⇒ Leveled fully homomorphic encryption
 
-[[learning-with-errors|LWE]] implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]].
+[[learning-with-errors|LWE]] implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]].
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]] § Leveled fully homomorphic encryption:
+For every depth bound $L$ fixed at key generation, hardness of decision [[learning-with-errors|LWE]] with modulus-to-noise ratio growing with $L$ implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] for all polynomial-size circuits of depth $L$, without bootstrapping and without a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
 
-> Supports all polynomial-size circuits of a-priori bounded depth (set at key generation time), without bootstrapping. First efficient construction from [[learning-with-errors|LWE]] — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+## Sketch
 
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
-
-> - Leveled FHE without bootstrapping from [[learning-with-errors|LWE]] using modulus switching — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]
+Ciphertexts are Regev-style LWE encryptions under a ladder of moduli $q_L > \cdots > q_0$. After each multiplication, key switching returns the ciphertext from the tensored secret to a fresh secret, and modulus switching rescales it from $q_j$ to $q_{j-1}$, dividing the noise by the same factor; the noise returns to a fixed bound $B$ after each level while the modulus shrinks one rung, so depth $L$ is reached without bootstrapping.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: One fixed construction whose public key is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key); the proof is a hybrid over levels, each step converting the IND-CPA adversary, used only as an oracle, into a decision-LWE distinguisher.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No wiki slug for 'leveled FHE' - it is a section of this page, not a separate object.
-- Duplicate of the Variations bullet at line 48.
+- The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key and no relinearization: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]]

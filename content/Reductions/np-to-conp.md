@@ -39,3 +39,4 @@ Recorded during migration and **not fixed** — these are claims about the
 source text, not changes to it:
 
 - Definitional (complementation), not a theorem; wants a distinct 'complement-of' edge type in the target model.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — `kind: equivalence` asserts $\classNP = \classcoNP$, an open problem widely conjectured false (equality collapses the polynomial hierarchy to its first level). The migrated prose only defines coNP as the complement class of NP; no reduction edge substitutes for it.

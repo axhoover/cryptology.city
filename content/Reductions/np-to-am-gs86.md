@@ -9,8 +9,7 @@ hypotheses: [np]
 conclusion: am
 class: free
 model: standard
-source:
-  - "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
+source: folklore
 security-loss: ""
 ---
 
@@ -20,20 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[co-arthur-merlin]] § Known relationships:
+$\classNP \subseteq \classAM$: every language in [[nondeterministic-polynomial-time|NP]] has an [[arthur-merlin|Arthur–Merlin]] proof in which Arthur's message is ignored, Merlin sends an NP witness, and Arthur verifies it deterministically — folklore.
 
-> - $\classcoNP \subseteq \classcoAM$, since $\classNP \subseteq \classAM$ (by [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]) and taking complements.
+## Sketch
+
+Completeness and soundness are those of the NP verifier, hence perfect.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CITATION LOOKS WRONG (recorded, not fixed): NP inside AM is immediate from the definitions; GS86 is the private-coin/public-coin equivalence and is not the source of this inclusion.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ DEPIR"
+title: "Ring-LWE ⇒ DEPIR"
 aliases: []
 id: red-lwe-to-depir-lmw23
 kind: implication
-hypotheses: [lwe]
+hypotheses: [ring-lwe]
 conclusion: depir
 class: unstated
 model: standard
@@ -14,32 +14,21 @@ source:
 security-loss: ""
 ---
 
-# LWE ⇒ DEPIR
+# Ring-LWE ⇒ DEPIR
 
-[[learning-with-errors|LWE]] implies [[doubly-efficient-pir|DEPIR]].
+[[learning-with-errors#ring-lwe|Ring-LWE]] implies [[doubly-efficient-pir|DEPIR]].
 
 ## Statement
 
-Migrated verbatim from [[doubly-efficient-pir]] § Other results:
+Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies unkeyed [[doubly-efficient-pir|DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
-> - Unkeyed DEPIR can be built with server storage $O(N^{1+\varepsilon})$ and online computation and bandwidth $O(\log^{1/\varepsilon}(n))$ from [[learning-with-errors#ring-lwe|Ring LWE]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+## Sketch
 
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
-
-> - FHE + [[doubly-efficient-pir|DEPIR]]: doubly-efficient PIR and RAM computation from Ring-LWE — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+LMW23 first build a PIR whose server computation is evaluating a fixed multivariate polynomial: the database is encoded as a low-degree polynomial, the query is a Ring-LWE somewhat-homomorphic encryption of the index point, and homomorphic evaluation is polynomial evaluation over the ciphertext ring. Preprocessing that polynomial with the Kedlaya–Umans data structure for fast multipoint evaluation makes each online evaluation cost $\polylog(N)$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Hypothesis is the Ring-LWE variant, a section of `[[learning-with-errors]]` rather than a node of its own; the anchor is written lowercase-hyphenated ('#ring-lwe') while the heading is '## Ring LWE' and other pages in the repo use the verbatim-heading form — style inconsistency, likely still resolving.
-- Notational inconsistency in the efficiency claim: database size is $N$ in the storage bound but $n$ in the online bound (and $n$ in this page's syntax).
-- Bullet prefix 'FHE + DEPIR:' reads as a conjunction of hypotheses, but the actual claim is Ring-LWE => (DEPIR and FHE RAM). The prefix is a topic label, not a hypothesis set - easy to mis-migrate.
-- No wiki page for Ring-LWE; the LWE page carries an 'RLWE' alias, so Ring-LWE is conflated with plain LWE site-wide.
-- Second conclusion (fully homomorphic RAM computation) has no object identifier.
+- LMW23 also construct RAM-FHE from Ring-LWE plus circular security; RAM-FHE has no object page.
+- Hypothesis changed from `lwe` to `ring-lwe`, with title and H1 to match: LMW23 prove security under Ring-LWE (title and abstract); ring-lwe is a declared variant id on the LWE page.

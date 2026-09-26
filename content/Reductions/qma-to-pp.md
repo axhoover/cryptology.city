@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "QMA ⊆ PP"
 aliases: []
 id: red-qma-to-pp
@@ -9,7 +9,8 @@ hypotheses: [qma]
 conclusion: pp
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[MW05 - Quantum Arthur-Merlin games|MW05]]"
 security-loss: ""
 ---
 
@@ -19,31 +20,17 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[quantum-classical-merlin-arthur]] § Known relationships:
+$\classQMA \subseteq \classPP$: every language in [[quantum-merlin-arthur|QMA]] is decided by an unbounded-error probabilistic polynomial-time ([[probabilistic-polynomial-time|PP]]) machine — [[MW05 - Quantum Arthur-Merlin games|MW05]].
 
-> - $\classQCMA \subseteq \classPP \subseteq \classPSPACE$, since $\classQMA \subseteq \classPP$.
+## Sketch
 
-Migrated verbatim from [[quantum-merlin-arthur]] § Known relationships:
-
-> - $\classQMA \subseteq \classPP \subseteq \classPSPACE$: QMA is contained in PP (Marriott-Watrous — TODO citation), and thus in PSPACE.
+Strong error reduction drives the completeness and soundness errors of a QMA verifier to $2^{-p}$ without lengthening its $m$-qubit witness. The trace of the verifier's acceptance operator is then at least $1 - 2^{-p}$ on yes-instances and at most $2^{m-p}$ on no-instances, which separate once $p > m + 1$; the trace is a sum over witness basis states of circuit acceptance probabilities, hence computable in $\mathrm{GapP}$, and a $\classPP$ machine thresholds it.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: proven containment between complexity classes; the reduction-class axis does not discriminate here (repo convention).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: quantum`: repo convention for results about quantum classes.
 
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION (Marriott-Watrous / Kitaev-Watrous); the same fact is a 'TODO citation' at quantum-merlin-arthur.md:29.
-- It appears on the page only as a trailing 'since' clause, not as a claim in its own right.
-- Uncited: the bullet says 'Marriott-Watrous — TODO citation' and no reference page exists (the containment is Kitaev-Watrous 2000, strengthened by Marriott-Watrous 2005).
-- PP is not wikilinked on the bullet although content/Complexity/probabilistic-polynomial-time.md exists.
-- Duplicates the same containment stated at content/Complexity/quantum-classical-merlin-arthur.md:25.
+- First stated, without proof, by Kitaev and Watrous — [[KW00 - Parallelization, amplification, and exponential time simulation of quantum interactive proof systems|KW00]]
+- The first written proof gives the stronger $\classQMA \subseteq \mathrm{A_0PP} \subseteq \classPP$ — [[Vya03 - QMA=PP implies that PP contains PH|Vya03]]

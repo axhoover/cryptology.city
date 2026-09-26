@@ -34,3 +34,4 @@ source text, not changes to it:
 
 - SUSPECTED MIS-ATTRIBUTED ASSUMPTION (recorded, not fixed): CG24's PRC constructions are usually stated from (sparse/planted) LPN — see also content/References/'GG24 - New constructions of pseudorandom codes.md' — not from LWE. Verify which assumption the cited construction actually uses before migrating the hypothesis as `[[learning-with-errors]]`.
 - The 'LWE ciphertext structure naturally yields ...' clause is a hand-wave, not a construction.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — CG24's pseudorandom codes rest on $2^{O(\sqrt{n})}$-hardness of LPN, or on polynomial hardness of LPN together with the planted-XOR problem at low density; no construction in CG24 is based on LWE. See [[subexponential-lpn-to-prc-cg24]].

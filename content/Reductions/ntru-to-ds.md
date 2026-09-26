@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "NTRU ⇒ DS"
 aliases: []
 id: red-ntru-to-ds
@@ -9,32 +9,27 @@ hypotheses: [ntru]
 conclusion: ds
 class: unstated
 model: rom
-source: folklore
+source:
+  - "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
 security-loss: ""
 ---
 
 # NTRU ⇒ DS
 
-[[ntru|NTRU]] implies [[digital-signature|DS]].
+[[ntru|NTRU]], together with SIS over NTRU lattices, implies [[digital-signature|DS]] in the random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Lattice-based signatures:
+Hash-and-sign [[digital-signature|DS]] over NTRU lattices: the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] preimage-sampling paradigm, instantiated with an NTRU trapdoor $(f, g)$ for $h = g \cdot f^{-1} \bmod q$, gives signatures that are EUF-CMA in the random-oracle model under [[ntru|NTRU]] and the hardness of SIS over NTRU lattices — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon is the instantiation selected by NIST for standardization, with $666$-byte signatures at Falcon-512 — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
 
-> - **Falcon**: based on NTRU lattices; smaller signatures than Dilithium ($\sim 666$ bytes) but more complex to implement securely
+## Sketch
+
+The signer's trapdoor is a short basis of the lattice $\{(s_1, s_2) : s_1 + s_2 h = 0 \bmod q\}$, from which it samples a short $(s_1, s_2)$ with $s_1 + s_2 h = H(m)$; verification checks this equation and the norm bound. The GPV reduction programs $H(m)$ as the image of a fresh short vector, so a forgery on $m$ yields a second short preimage of $H(m)$, and the difference of the two is a short nonzero vector in the NTRU lattice.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: GPV hash-and-sign signatures are EUF-CMA in the random-oracle model — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]; Falcon's proof is in the (quantum) random-oracle model — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation at all (Falcon spec / GPV-over-NTRU has no reference page).
-- `[[ntru]]` exists as an assumption page but is not wikilinked.
-- Concrete size claim ($\sim 666$ bytes) uncited.
-- Model unstated on the page; Falcon's security is in the ROM (hash-and-sign), recorded here as 'rom' by inference — low certainty.
+- Falcon samples preimages by fast Fourier sampling over the NTRU trapdoor — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].

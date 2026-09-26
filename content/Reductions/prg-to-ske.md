@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "PRG ⇒ SKE"
 aliases: []
 id: red-prg-to-ske
 kind: implication
 hypotheses: [prg]
 conclusion: ske
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -19,21 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-generator]] § Other results:
-
-> - PRG implies CPA-secure [[symmetric-key-encryption|SKE]]: the stream cipher $\Enc(k, m) = G(k) \oplus m$ is CPA-secure whenever $G$ is a PRG with stretch $|m|$
+A length-doubling [[pseudorandom-generator|PRG]] implies CPA-secure [[symmetric-key-encryption|SKE]]: the PRG yields a [[pseudorandom-function|PRF]] ([[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]), and $\Enc(k, m) = (r, \Eval(k, r) \oplus m)$ with fresh $r \getsr \calD$ is CPA-secure ([[prf-to-ske|PRF ⇒ CPA-secure SKE]]) — folklore. The fixed-pad stream cipher $\Enc(k, m) = G(k) \oplus m$ is deterministic, hence not CPA-secure; it is only one-time secure.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore label.
-- SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): Enc(k, m) = G(k) XOR m is deterministic and reuses the same pad for every message, so it is NOT CPA-secure — it achieves only one-time/eavesdropper security. CPA security requires fresh randomness per encryption (e.g. Enc(k,m) = (r, G(k,r) XOR m) with a PRF, or a fresh seed per message).
-- Contradicts the neighbouring PRF bullet on pseudorandom-function.md line 118, which routes CPA security through a PRF.
+`class: fully-black-box`: Composition of two fully-black-box links: the GGM construction calls the PRG only as an oracle, and the PRF-based randomized encryption calls the PRF only as an oracle; each security reduction runs its adversary only as an oracle (the CPA reduction answers encryption queries with its own PRF-oracle calls). Fully-black-box reductions compose, so the composed pair retains the RTV04 shape.

@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "CCA Security ⇒ CCA1 Security"
 aliases: []
 id: red-cca-security-to-cca1-security
 kind: implication
 hypotheses: [pke-cca2-security]
 conclusion: pke-cca1-security
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight — the adversary and its advantage are unchanged"
 ---
 
 # CCA Security ⇒ CCA1 Security
@@ -19,21 +19,10 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[public-key-encryption]] § CCA1 Security:
-
-> **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
+Every [[public-key-encryption#cca-security|CCA2]]-secure [[public-key-encryption|PKE]] scheme is [[public-key-encryption#cca1-security|CCA1]]-secure: a CCA1 adversary is a CCA2 adversary that makes no decryption queries after receiving $c^*$, so its CCA2 advantage equals its CCA1 advantage — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: the construction is the identity on schemes, used only as an oracle, and the reduction runs the CCA1 adversary once, unchanged, forwarding its Phase-1 decryption queries. Fixed construction, fixed reduction.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Security-notion ordering, not an object-level reduction ('CCA1 is strictly weaker than CCA2').
-- 'strictly' asserts a separation (there is a CCA1-secure scheme that is not CCA2-secure) which is uncited.
-- No citation anywhere in the section.
+- [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] prove the implication formally and show it is strict: if any CCA1-secure scheme exists, one exists that is not CCA2-secure.

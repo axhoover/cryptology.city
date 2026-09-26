@@ -16,26 +16,14 @@ security-loss: ""
 
 # Noise Level ⇒ TDH
 
-[[learning-parity-with-noise#noise-level|Noise Level]] implies [[trapdoor-hash-function|TDH]].
+Quasi-polynomially hard [[learning-parity-with-noise#noise-level|low-noise LPN]] implies [[trapdoor-hash-function|TDH]].
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Known results:
-
-> - Low-noise LPN with $\varepsilon = \log^{1+\beta} k / k$, where $0 < \beta < 1$, is known to imply [[single-server-private-information-retrieval|PIR]] with slightly sublinear communication $N/2^{\Theta(\log^{1-\beta} N)}$ (through the use of [[trapdoor-hash-function|TDH]]) — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
->   - Fully sublinear PIR from any flavor of LPN is open.
+Quasi-polynomial hardness of [[learning-parity-with-noise#noise-level|low-noise LPN]] with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta > 0$ implies [[trapdoor-hash-function|trapdoor hash functions]] with compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, the first TDH construction from LPN [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The noise-rate parameter, which is the entire content of the hypothesis, cannot be carried by the flat identifier lpn-low-noise.
-- lpn-low-noise has no page of its own; it is a regime described inside learning-parity-with-noise.
-- Two-step construction (through the use of TDH) must be split.
-- The concrete communication bound attaches to the conclusion object rather than to the reduction.
-- The nested sub-bullet states an open problem and is recorded separately.
-- The noise parameter (epsilon = log^(1+beta) k / k) cannot be carried by the hypothesis identifier.
+- The noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ and quasi-polynomial hardness are not captured by the flat hypothesis `lpn-low-noise`.

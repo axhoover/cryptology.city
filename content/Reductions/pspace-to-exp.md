@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "PSPACE ⊆ EXP"
 aliases: []
 id: red-pspace-to-exp
@@ -19,31 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[exponential-time]] § Known relationships:
-
-> - $\classPSPACE \subseteq \classEXP$: anything computable in polynomial space can be simulated in exponential time.
-
-Migrated verbatim from [[exponential-time]] § Known relationships:
-
-> - $\classP \subseteq \classNP \subseteq \classPSPACE \subseteq \classEXP$.
+$\classPSPACE \subseteq \classEXP$: a deterministic machine running in space $p(n) = \poly(n)$ has at most $2^{O(p(n))}$ configurations, so on any input it halts within $2^{O(p(n))}$ steps or never; simulating it for that many steps decides its language in time $2^{\poly(n)}$ — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore/standard marker.
-- Duplicated by the second '## Known relationships' section of the same page (line 25).
-- Uncited and unlabelled folklore.
-- Restates line 19 of the same page, which gives this inclusion with a justification.
-- STRUCTURAL BUG on the page: this bullet sits under a SECOND '## Known relationships' heading at line 23 that duplicates the one at line 17.
+`class: free`: Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).

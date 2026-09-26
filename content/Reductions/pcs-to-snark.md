@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "PCS ⇒ SNARK"
 aliases: []
 id: red-pcs-to-snark
@@ -8,39 +8,27 @@ kind: implication
 hypotheses: [pcs]
 conclusion: snark
 class: unstated
-model: standard
-source: folklore
+model: rom
+source:
+  - "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]"
+  - "[[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]"
 security-loss: ""
 ---
 
 # PCS ⇒ SNARK
 
-[[polynomial-commitment|PCS]] implies [[succinct-argument|SNARK]].
+An extractable [[polynomial-commitment|PCS]] implies a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]] § Polynomial commitment scheme:
+Any extractable [[polynomial-commitment|PCS]] with succinct commitments and evaluation proofs yields a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model: the prover of a polynomial IOP for NP (an unconditional object) commits to each round's polynomials and answers the verifier's evaluation queries with evaluation proofs, and Fiat–Shamir makes the resulting public-coin argument non-interactive [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]], [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]. The PCS's setup carries over, so a transparent PCS yields a transparent SNARK; a hiding PCS with zero-knowledge evaluation proofs yields a zkSNARK.
 
-> A **polynomial commitment scheme** (PCS) allows a prover to commit to a polynomial $f \in \FF_p[X]_{\le d}$ (of degree at most $d$) and later prove evaluations $f(z) = y$ for any point $z$ queried by a verifier, without revealing $f$ itself. Polynomial commitments are the key bridge between [[arithmetization]] and proof systems: they allow a [[succinct-argument|SNARK]] to efficiently check that a prover's claimed polynomial satisfies the required constraints.
+## Sketch
 
-Migrated verbatim from [[polynomial-commitment]]:
-
-> FRI is a transparent (no trusted setup) polynomial commitment that works by repeatedly halving the degree of a Reed-Solomon codeword via a random folding step. It is the core component of [[succinct-argument|STARKs]].
+For knowledge soundness, the PCS extractor recovers the committed polynomials from a convincing prover; these define a PIOP prover from which the PIOP extractor recovers a witness.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the compiler uses the PCS as a black box, but knowledge soundness invokes the PCS extractor rather than oracle access to an adversary, and neither source places the compilation in the RTV04 taxonomy.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Intro prose ('the key bridge between arithmetization and proof systems') — a motivational claim, not a typed reduction; PCS alone does not imply a SNARK (a PIOP/IOP is also needed).
-- No citation.
-- 'It is the core component of STARKs' — a componenthood claim, not a reduction; no citation on the sentence.
-- STARK resolves to `[[succinct-argument]]`, the same page as SNARK — distinct objects collapse to one slug.
+`model: rom`: the compilation gives a public-coin interactive argument in the standard model; both sources make it non-interactive by Fiat–Shamir in the random-oracle model.

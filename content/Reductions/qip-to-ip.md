@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "QIP = IP"
 aliases: []
 id: red-qip-to-ip
@@ -9,7 +9,9 @@ hypotheses: [qip]
 conclusion: ip
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[JJUW10 - QIP = PSPACE|JJUW10]]"
+  - "[[Sha90 - IP = PSPACE|Sha90]]"
 security-loss: ""
 ---
 
@@ -19,25 +21,10 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[quantum-interactive-proofs]] § Known relationships:
-
-> - **$\classQIP = \classPSPACE$** — TODO citation (Jain, Ji, Upadhyay, Watrous 2010). Since $\classIP = \classPSPACE$ as well, quantum interactive proofs are no more powerful than classical interactive proofs. This is a striking collapse: quantum communication between prover and verifier adds no power to multi-round interactive proofs.
+$\classQIP = \classIP$. $\classIP \subseteq \classQIP$ is immediate, a classical interactive proof being a quantum one; the converse composes $\classQIP \subseteq \classPSPACE$ — [[JJUW10 - QIP = PSPACE|JJUW10]] — with $\classPSPACE \subseteq \classIP$ — [[Sha90 - IP = PSPACE|Sha90]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: Proven complexity-class equality; the reduction-class axis does not discriminate here (repo convention for containments).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Derived from the two equalities rather than independently proved; nothing marks it as derived.
-- Uncited.
-- The sentence carrying it ('This is a striking collapse ...') is editorializing, a house-style anti-pattern.
+`model: quantum`: Kept as migrated; wiki convention for results about quantum classes.

@@ -1,15 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "LWE ⇒ IND-CPA KEM"
 aliases: []
 id: red-lwe-to-ind-cpa-kem
 kind: implication
 hypotheses: [lwe]
 conclusion: ind-cpa-kem
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
 security-loss: ""
 ---
 
@@ -19,26 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]]:
+Hardness of decision [[learning-with-errors|LWE]] implies an [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]]: encapsulation samples a uniformly random session key and encrypts it bit by bit under Regev's LWE encryption scheme — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
-> Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (rank-3 module over a polynomial ring). Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme.
+## Sketch
+
+A distinguisher between the encapsulated key and an independent random key is an IND-CPA adversary against the bitwise Regev encryption of the key, hence, by a hybrid over the key bits, a decision-LWE distinguisher.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The hypothesis should be Module-LWE, but `[[learning-with-errors|Module LWE]]` points at the plain LWE page whose aliases do not cover MLWE — a distinct assumption silently conflated.
-- Uncited (no Kyber/ML-KEM reference page).
-- The 'rank-3 module over a polynomial ring' parameterization is a side condition the edge cannot carry.
-- ind-cpa-kem has no node of its own; it is a '## IND-CPA KEM' variation of the KEM page.
-- Composite: Module-LWE => IND-CPA base scheme, then Fujisaki-Okamoto => IND-CCA KEM in the ROM. Must be split.
-- Wikilink `[[learning-with-errors|Module LWE]]` points Module-LWE at the plain LWE page; the LWE page's aliases cover LWE/RLWE but not MLWE, so a distinct assumption is silently conflated.
-- No citation for either link (no FO99 or Kyber reference page).
-- The ROM requirement of the FO transform is not stated on this line.
+`class: fully-black-box`: Regev's fixed construction composed with the generic PKE-to-KEM step; the reduction runs the KEM adversary once, as an oracle, to break IND-CPA of the bitwise encryption and hence, through Regev's reduction, decision LWE. Fully-black-box reductions compose.

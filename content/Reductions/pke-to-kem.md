@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "PKE ⇒ KEM"
 aliases: []
 id: red-pke-to-kem
 kind: implication
 hypotheses: [pke]
 conclusion: kem
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: advantage and decryption-query count are preserved"
 ---
 
 # PKE ⇒ KEM
@@ -19,20 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § Other results:
+Any IND-CCA [[public-key-encryption|PKE]] whose message space contains the key space $\calK$ yields an IND-CCA [[key-encapsulation-mechanism|KEM]]: $\mathsf{Encap}(\pk)$ samples $k \getsr \calK$ and outputs $(\Enc(\pk, k), k)$; $\mathsf{Decap}(\sk, c) := \Dec(\sk, c)$. The KEM game maps query-for-query onto the PKE game — folklore.
 
-> - Any IND-CCA PKE scheme immediately gives an IND-CCA KEM by encapsulating a random key — standard
+## Sketch
+
+The reduction picks independent uniform $k_0, k_1 \getsr \calK$, submits them as its PKE challenge pair, hands the KEM adversary $(\pk, c^*, k_0)$, and answers decapsulation queries with its decryption oracle; when $c^*$ encrypts $k_1$, the shown key $k_0$ is independent of $c^*$, which is the KEM's random-key world.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: $\mathsf{Encap}$ and $\mathsf{Decap}$ call $\Enc$ and $\Dec$ only as oracles, and the reduction runs any KEM adversary as an oracle, forwarding its decapsulation queries to the decryption oracle with a challenge embedding fixed in advance. Fixed construction, fixed reduction.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- '- standard' folklore label used in place of a citation; acceptable under the folklore policy but the reduction is attributable to CS03.
-- IND-CCA PKE and IND-CCA KEM are security notions with no distinct object identifiers on the wiki.
+- KEMs and the KEM/DEM hybrid framework are formalized in [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]].

@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "NTRU ⇒ KEM"
 aliases: []
 id: red-ntru-to-kem
@@ -8,32 +8,24 @@ kind: implication
 hypotheses: [ntru]
 conclusion: kem
 class: unstated
-model: standard
-source: folklore
+model: rom
+source:
+  - "[[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]"
 security-loss: ""
 ---
 
 # NTRU ⇒ KEM
 
-[[ntru|NTRU]] implies [[key-encapsulation-mechanism|KEM]].
+[[ntru|NTRU]] implies [[key-encapsulation-mechanism|KEM]] in the quantum random-oracle model.
 
 ## Statement
 
-Migrated verbatim from [[ntru]] § NTRU Encrypt / NTRUSign:
-
-> The original NTRU submissions to NIST PQC standardization include **NTRUEncrypt** (a key encapsulation mechanism) and the historically proposed **NTRUSign** (a signature scheme, later broken and withdrawn).
+An IND-CCA [[key-encapsulation-mechanism|KEM]] from [[ntru|NTRU]]: textbook NTRU encryption with parameters chosen for perfect correctness, lifted to a KEM by a generic transform proved IND-CCA in the quantum random-oracle model — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: rom`: [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]] prove IND-CCA security in the quantum random-oracle model, which the model vocabulary records as `rom`.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- NTRUEncrypt is historically a public-key ENCRYPTION scheme; calling it "a key encapsulation mechanism" conflates the original scheme with the later NIST-submission KEM variant.
-- Sentence packs a construction claim and a break claim; recorded separately.
+- [[ntru]] § NTRU Encrypt / NTRUSign calls NTRUEncrypt a KEM; NTRUEncrypt is a public-key encryption scheme ([[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]), and the KEM here is HRSS17's.

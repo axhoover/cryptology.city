@@ -1,23 +1,25 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Noise Level ⇒ Noise Level"
 aliases: []
 id: red-noise-level-to-noise-level
 kind: implication
 hypotheses: [lpn-low-noise]
 conclusion: lpn-constant-noise
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: advantage-preserving, one oracle call"
 ---
 
 # Noise Level ⇒ Noise Level
 
-[[learning-parity-with-noise#noise-level|Noise Level]] implies [[learning-parity-with-noise#noise-level|Noise Level]].
+[[learning-parity-with-noise#noise-level|Low-noise LPN]] implies [[learning-parity-with-noise#noise-level|constant-noise LPN]].
 
 ## Statement
+
+If $(k,\varepsilon)$-[[learning-parity-with-noise|LPN]] is hard at noise rate $\varepsilon = \log^c(k)/k$ for a constant $c > 1$ (the low-noise regime), then $(k,\varepsilon')$-LPN is hard at every noise rate $\varepsilon' \in (\varepsilon, 1/2)$, in particular at every constant $\varepsilon' < 1/2$: LPN hardness is monotone in the noise rate — folklore.
 
 Migrated verbatim from [[learning-parity-with-noise]] § Noise Level:
 
@@ -26,18 +28,13 @@ Migrated verbatim from [[learning-parity-with-noise]] § Noise Level:
 > - **Mid-noise**: $\varepsilon = 1/k^\gamma$ for every $\gamma < 1$
 > - **Low-noise**: $\varepsilon = \log^c(k) / k$ for some $c > 1$. (strongest assumption)
 
+## Sketch
+
+Map each sample $(\mathbf{a}, b)$ to $(\mathbf{a}, b + e')$ with fresh $e' \getsr \mathrm{Ber}(\tau)$, where $\varepsilon(1-\tau) + \tau(1-\varepsilon) = \varepsilon'$. Rate-$\varepsilon$ samples become rate-$\varepsilon'$ samples with the same secret and uniform samples stay uniform, so a distinguisher for the noisier problem breaks the less noisy one with the same advantage; the same map works for search LPN.
+
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: One fixed sample transformation (add independent Bernoulli noise to each label) and one fixed reduction that runs the higher-noise distinguisher once as an oracle on the transformed samples. RTV04 fully-black-box shape, degenerate for an assumption-to-assumption edge.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The ordering of the four regimes (weakest to strongest) is conveyed only by parentheticals; the implications between regimes are never stated as reductions and are uncited.
-- SUSPECTED DEFINITION ERROR: High-noise is epsilon = 1/k^gamma for 0 < gamma < 1/2 while Mid-noise is epsilon = 1/k^gamma for every gamma < 1, so the mid-noise range strictly contains the high-noise range — the regimes are not disjoint as presented.
-- Naming is counterintuitive: the high-noise regime has strictly less noise than the constant-noise regime.
-- None of the four regimes has its own page identifier, yet later bullets on the page cite them as distinct hypotheses.
+- The regime names are counterintuitive: the high-noise regime has strictly less noise than the constant-noise regime.
+- SUSPECTED DEFINITION ERROR in the regimes above (also in suspected-errors.json): the mid-noise range ($\gamma < 1$) strictly contains the high-noise range ($\gamma < 1/2$), so the regimes are not disjoint as presented.

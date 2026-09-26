@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "QR ⇒ COM"
 aliases: []
 id: red-qr-to-com
@@ -19,20 +19,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
+[[quadratic-residuosity|QR]] implies a perfectly binding, computationally hiding bit [[commitment-scheme|commitment]]. With $\pp = (N, y)$ for $N = pq$ and $y \in \J_N \setminus \QR_N$, a commitment to $b \in \bits$ is $c = y^b r^2 \bmod N$ for $r \getsr \ZZ_N^*$, opened by revealing $(b, r)$. Binding is perfect since $c \in \QR_N$ iff $b = 0$; hiding holds under QR since commitments to $0$ are uniform in $\QR_N$ and commitments to $1$ uniform in $\J_N \setminus \QR_N$ — folklore.
 
-> - QR → statistically hiding [[commitment-scheme|commitment scheme]] — standard
+## Sketch
+
+The reduction embeds the QR challenge $a \in \J_N$ as $y$ and runs the hiding adversary once: if $a \notin \QR_N$ the hiding game is simulated exactly, and if $a \in \QR_N$ the commitment is a uniform square independent of $b$, so the adversary's advantage decides residuosity (with a factor-$2$ loss).
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Folklore-labelled with "— standard", which CLAUDE.md permits in place of a citation.
-- SUSPECTED ERROR (report only): the textbook QR commitment (commit to b as r^2 y^b for y in J_N minus QR_N) is PERFECTLY BINDING and COMPUTATIONALLY HIDING, not statistically hiding. A statistically hiding commitment from QR needs a different construction, so the folklore label may be covering an incorrect claim.
+- The source bullet on [[quadratic-residuosity]] claims a _statistically hiding_ commitment; this construction is only computationally hiding. A statistically hiding commitment from QR belongs on separate pages, one per link of its chain.

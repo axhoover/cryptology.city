@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "NP ⊆ PSPACE"
 aliases: []
 id: red-np-to-pspace
@@ -19,23 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[exponential-time]] § Known relationships:
+$\classNP \subseteq \classPSPACE$: every language in [[nondeterministic-polynomial-time|NP]] is decidable in [[polynomial-space|polynomial space]] — folklore.
 
-> - $\classP \subseteq \classNP \subseteq \classPSPACE \subseteq \classEXP$.
+## Sketch
+
+Enumerate all candidate certificates, reusing one polynomial-size tape to run the NP verifier on each; accept iff some candidate is accepted.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Uncited and unlabelled folklore.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

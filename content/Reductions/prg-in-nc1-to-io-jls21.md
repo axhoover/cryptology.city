@@ -36,3 +36,4 @@ source text, not changes to it:
 - JLS21 actual hypothesis set is conjunctive (SXDH, LPN over large fields, and a PRG in NC^0); the bullet names only one ingredient, so conjunctive is under-recorded here.
 - Says NC^1 while JLS21 uses a PRG in NC^0 — suspected imprecision.
 - low-complexity-prg-nc1 has no page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — a low-complexity PRG alone is not known to imply iO, and [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] does not claim it. JLS21 jointly assume sub-exponential hardness of SXDH on asymmetric prime-order bilinear groups, LWE with sub-exponential modulus-to-noise ratio, LPN over $\ZZ_p$ with inverse-polynomial error rate, and a Boolean PRG in $\mathrm{NC}^0$ (not $\mathrm{NC}^1$) with stretch $n^{1+\tau}$. See [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21]].

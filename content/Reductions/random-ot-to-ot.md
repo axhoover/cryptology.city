@@ -1,16 +1,17 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Random OT ⇒ OT"
 aliases: []
 id: red-random-ot-to-ot
 kind: implication
 hypotheses: [random-ot]
 conclusion: ot
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[Bea95 - Precomputing Oblivious Transfer|Bea95]]"
+security-loss: "none (perfect security)"
 ---
 
 # Random OT ⇒ OT
@@ -19,20 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[oblivious-transfer]] § Random OT:
+A [[oblivious-transfer#random-ot|random OT]] correlation — the sender holds uniform $(r_0, r_1)$, the receiver a uniform bit $c'$ and $r_{c'}$ — yields perfectly secure chosen-input [[oblivious-transfer|OT]] with two messages: the receiver sends $e = c \oplus c'$, the sender replies $(y_0, y_1) = (x_0 \oplus r_e,\, x_1 \oplus r_{1 \oplus e})$, and the receiver outputs $y_c \oplus r_{c'}$ — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].
 
-> In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
+## Sketch
+
+$e$ one-time-pads the real choice bit with the random one, and each $x_j$ is one-time-padded with the random-OT message $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$); $e$ is uniform independently of $c$, and $r_{1 \oplus c'}$ stays uniform given the receiver's view.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (this is the standard Beaver derandomization; the page gives no reference and no '— standard'/'— folklore' label, which CLAUDE.md requires for uncited folklore).
-- 'random-ot' has no page (variant section on this page).
+`class: fully-black-box`: the protocol uses the random-OT correlation once as a black box, and perfect security gives a straight-line simulator that uses the adversary only as a black box.

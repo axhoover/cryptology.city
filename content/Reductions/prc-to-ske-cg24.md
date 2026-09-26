@@ -7,11 +7,11 @@ id: red-prc-to-ske-cg24
 kind: implication
 hypotheses: [prc]
 conclusion: ske
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
-security-loss: ""
+security-loss: "CPA advantage at most twice the PRC pseudorandomness advantage (one hybrid per world)"
 ---
 
 # PRC ⇒ SKE
@@ -20,17 +20,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-error-correcting-code]] § Pseudorandom error-correcting code:
+An $L$-bit [[pseudorandom-error-correcting-code|PRC]] $(\Gen, \Enc, \Dec)$ is a [[symmetric-key-encryption|SKE]] scheme with message space $\bits^L$ and ciphertext space $\bits^n$: robustness against the identity channel gives $(1-\negl(\secpar))$-correctness, and PRC pseudorandomness is [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA]] security, which implies [[symmetric-key-encryption#cpa-security|CPA]] security — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
 
-> A Pseudorandom Error-correcting Code (PRC) is a type of [[symmetric-key-encryption|SKE]] that requires ciphertext decoding to be _robust_ to some modifications, introduced by [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]. There is additionally a _zero-bit PRC_ which does not allow for a message. Both variations are useful for constructing cryptographic watermarking of generative AI.
+## Sketch
+
+In each world of the CPA game, one PRC-pseudorandomness hybrid replaces the oracle's answers $\Enc_k(m_b)$ by uniform $n$-bit strings; the oracle then ignores its input, so the challenge bit is information-theoretically hidden.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'is a type of SKE' is a subtyping/definitional claim rather than a reduction; if migrated as PRC => SKE it needs the security-notion mapping (PRC pseudorandomness is a CPA-style notion against a random-response oracle, not IND-CPA).
-- The CG24 citation attaches to 'introduced by', not to the subtyping claim.
+`class: fully-black-box`: the construction is the identity, using the PRC only as an oracle, and the reduction runs any CPA adversary as an oracle in one hybrid per world. Fixed construction, fixed reduction.

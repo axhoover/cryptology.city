@@ -42,3 +42,4 @@ source text, not changes to it:
 - No citation (Lapin / HKLPT12 missing).
 - underlies is weaker than a reduction claim.
 - Lapin is a two-message authentication protocol; message-authentication-code is only an approximate identifier and pseudorandom-correlation-generator has no page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the sentence asserts design lineage, Lapin is a symmetric-key authentication protocol rather than a MAC, and the known MACs from LPN (Kiltz–Pietrzak–Cash–Jain–Venturi, EUROCRYPT 2011; Dodis–Kiltz–Pietrzak–Wichs, EUROCRYPT 2012) are from plain LPN, a different edge. The PCG half has its own page. See [[ring-lpn-to-pseudorandom-correlation-generators-pcg]].

@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Φ-Hiding ⇒ cPIR"
 aliases: []
 id: red-hiding-to-cpir
@@ -9,7 +9,8 @@ hypotheses: [phi-hiding]
 conclusion: cpir
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]"
 security-loss: ""
 ---
 
@@ -19,21 +20,14 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[rsa-assumption]] § Φ-Hiding:
+Under the [[rsa-assumption#-hiding|Φ-hiding]] assumption, introduced in the same work, there is a single-server [[single-server-private-information-retrieval|cPIR]] scheme with total communication polylogarithmic in the database size $n$ [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
 
-> The **Φ-hiding assumption** states that, given $n$ and a prime $e$, it is hard to determine whether $e \mid \phi(n)$. This is related to RSA hardness and is used in some private information retrieval constructions.
+## Sketch
+
+The client derives a prime $p_i$ from index $i$ via a shared prime-sequence generator, sends a modulus $m$ with $p_i \mid \phi(m)$ — which by Φ-hiding hides $p_i$ — and a $p_i$-th non-residue $x \in \ZZ_m^*$. The server returns $x^e \bmod m$ for $e = \prod_j p_j^{b_j}$; knowing the factorization of $m$, the client tests whether the reply is a $p_i$-th residue, which holds iff $b_i = 1$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] state no reduction notion, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (Cachin-Micali-Stadler).
-- content/Primitives/single-server-private-information-retrieval.md exists but "private information retrieval" is plain text with no wikilink; CLAUDE.md also names \PIR as a required macro.
-- "some private information retrieval constructions" leaves the target class vague.
+- A variant of Φ-hiding yields single-database PIR with constant communication rate — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].

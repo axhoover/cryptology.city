@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "P ⊆ NP"
 aliases: []
 id: red-p-to-np
@@ -19,24 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[exponential-time]] § Known relationships:
-
-> - $\classP \subseteq \classNP \subseteq \classPSPACE \subseteq \classEXP$.
+[[polynomial-time|P]] $\subseteq$ [[nondeterministic-polynomial-time|NP]]: a polynomial-time decider is a polynomial-time verifier that ignores its certificate (a nondeterministic machine that makes no nondeterministic choices) — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Uncited and unlabelled folklore.
-- Class names appear only as macros with no wikilinks, though both pages exist.
+`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.

@@ -7,31 +7,28 @@ id: red-prp-to-prf
 kind: implication
 hypotheses: [prp]
 conclusion: prf
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+security-loss: "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)"
 ---
 
 # PRP ⇒ PRF
 
-[[pseudorandom-permutation|PRP]] implies [[pseudorandom-function|PRF]].
+A [[pseudorandom-permutation|PRP]] over a large domain is a [[pseudorandom-function|PRF]].
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-permutation]] § Other results:
+A [[pseudorandom-permutation|PRP]] over a domain $\calD$ with $|\calD|$ superpolynomial in $\secpar$ is a [[pseudorandom-function|PRF]] with $\Eval$ unchanged: for every $q$-query $\calA$, $\Adv^{\mathrm{prf}}_{\PRP,\calA}(\secpar) \le \Adv^{\mathrm{prp}}_{\PRP,\calA}(\secpar) + O(q^2/|\calD|)$ by the [[switching-lemma|Switching Lemma]], and for efficient $\calA$ the additive term is negligible — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
-> - PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and
->   in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
+## Sketch
+
+In the ideal worlds, a random permutation and a random function on $\calD$ are statistically indistinguishable up to the birthday bound $O(q^2/|\calD|)$ — an output collision is the only distinguishing event — so any PRF distinguisher is a PRP distinguisher with an additive $O(q^2/|\calD|)$ loss.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: The construction is the identity: the PRP's $\Eval$ is used unchanged as the PRF, so the hypothesis is invoked only as an oracle. The security reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the remaining ideal-world gap (random permutation vs. random function) is the information-theoretic switching-lemma term and needs no access to the adversary's code.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Source is a Folklore wiki page (`[[switching-lemma]]`), not a reference citation key.
-- The bullet packs a second claim in the parenthetical ('and in fact these are invertible PRFs') — that is the same statement as pseudorandom-function.md line 105 and should be a separate record.
-- 'large-domain' qualifier is on the CONCLUSION here but on the hypothesis in the PRF page's version of the same fact — one of the two phrasings is imprecise (the switching lemma needs the PERMUTATION's domain to be large).
+- Game-playing proof of the switching lemma, correcting the conditioning flaw in the standard proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]
+- For streaming distinguishers with $m$ bits of memory the bound improves to $O(mq/|\calD|)$ — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]]

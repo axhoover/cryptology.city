@@ -37,3 +37,4 @@ source text, not changes to it:
 - Second half of the same bundle: OWSG => unclonable encryption.
 - No citation.
 - "unclonable-encryption" has no wiki page.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — no construction of unclonable encryption from OWSGs appears in the OWSG literature (Morimae–Yamakawa, eprint 2022/1336, and follow-ups) or the unclonable-encryption literature. One-time unclonable encryption is unconditional (Broadbent–Lord 2020 for the search notion; Ananth–Sahai, eprint 2026/1511, for one-bit unclonable indistinguishability), and many-time schemes are boosted from quantum symmetric-key encryption or pseudorandom unitaries (arXiv 2605.27647), not from OWSGs.

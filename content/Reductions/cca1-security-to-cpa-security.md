@@ -1,37 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "CCA1 Security ⇒ CPA Security"
 aliases: []
 id: red-cca1-security-to-cpa-security
 kind: implication
 hypotheses: [pke-cca1-security]
 conclusion: pke-cpa-security
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the adversary and its advantage are unchanged"
 ---
 
 # CCA1 Security ⇒ CPA Security
 
-[[public-key-encryption#cca1-security|CCA1 Security]] implies [[public-key-encryption#cpa-security|CPA Security]].
+[[public-key-encryption#cca1-security|CCA1 security]] implies [[public-key-encryption#cpa-security|CPA security]].
 
 ## Statement
 
-Migrated verbatim from [[public-key-encryption]] § CCA1 Security:
-
-> **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA.
+Every [[public-key-encryption#cca1-security|CCA1]]-secure [[public-key-encryption|PKE]] scheme is [[public-key-encryption#cpa-security|CPA]]-secure: a CPA adversary is a CCA1 adversary that makes no decryption queries, so its CPA and CCA1 advantages against the same scheme coincide — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Second relation in the same sentence ('strictly stronger than CPA'); the strictness (separation) half is uncited.
+`class: fully-black-box`: the construction is the identity (the scheme is used unchanged, as an oracle), and the reduction runs any CPA adversary unchanged as a CCA1 adversary that never queries the decryption oracle. Fixed construction, fixed reduction.

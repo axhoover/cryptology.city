@@ -1,16 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "PKE ⇒ KE"
 aliases: []
 id: red-pke-to-ke
 kind: implication
 hypotheses: [pke]
 conclusion: ke
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the eavesdropper's advantage equals the CPA advantage"
 ---
 
 # PKE ⇒ KE
@@ -19,19 +19,12 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[key-exchange]] § Other results:
+Any CPA-secure [[public-key-encryption|PKE]] yields a two-message [[key-exchange|KE]] protocol secure against eavesdroppers: $B$ sends $\pk$ from $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $A$ replies with $c \gets \Enc(\pk, k)$ for $k \getsr \calK \subseteq \calM$ and outputs $k$, and $B$ outputs $\Dec(\sk, c)$. Indistinguishability of $k$ from uniform given $(\pk, c)$ is CPA security for a uniform message — folklore.
 
-> - KE from [[learning-with-errors|LWE]]: follows as a special case of PKE from LWE — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]
+## Sketch
+
+The reduction submits two independent uniform keys $k_0, k_1$ as its CPA challenge, presents $(\pk, c^*)$ as the transcript with $k_0$ as the candidate key, and outputs $0$ iff the eavesdropper declares $k_0$ real: when $c^*$ encrypts $k_1$, $k_0$ is independent of the transcript.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- UNCITED WHILE THE PARENT IS CITED: Reg05 covers only the first link; this one has no source and no folklore label.
-- The same page asserts the CONVERSE, KE => PKE, at line 49 (cited DH76); together they are an equivalence that the two records never connect.
-- Composite: LWE => PKE (Reg05), then PKE => KE (uncited, and note the page also claims the converse KE => PKE at line 49). Must be split.
-- The second link (PKE => KE) carries no citation of its own.
+`class: fully-black-box`: the protocol runs $\KeyGen$ and $\Enc$ as oracles; the reduction embeds its CPA challenge $(\pk, c^*)$ as the transcript and runs any eavesdropper on it as an oracle, turning a key-vs-uniform distinguisher into a CPA distinguisher with the same advantage. Fixed construction, fixed reduction.

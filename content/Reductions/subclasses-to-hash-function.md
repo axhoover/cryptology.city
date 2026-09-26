@@ -43,3 +43,4 @@ source text, not changes to it:
 - Composite: Nash ∈ PPAD (in fact PPAD-complete, which the bullet understates as 'contains') plus the crypto claim.
 - 'from worst-case assumptions' is an extra qualifier with no support.
 - Conclusion recorded as 'hash-function' since that is the wiki page for collision resistance, but the bullet does not link it.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: PPAD hardness follows from cryptographic assumptions (iO plus injective OWFs, Bitansky–Paneth–Rosen, FOCS 2015; Fiat–Shamir for sumcheck under LWE-style assumptions, Choudhuri–Hubáček–Kamath–Pietrzak–Rosen–Rothblum, STOC 2019), and no primitive, collision-resistant hashing included, is known to follow from PPAD hardness. `ppad-hardness` has no page, so the correct edges (iO + OWF ⇒ PPAD hardness; Fiat–Shamir + LWE ⇒ PPAD hardness) need new pages with different endpoints.

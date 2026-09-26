@@ -1,15 +1,16 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "OT ⇒ COM"
 aliases: []
 id: red-ot-to-com
 kind: implication
 hypotheses: [ot]
 conclusion: com
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
 security-loss: ""
 ---
 
@@ -19,19 +20,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[oblivious-transfer]] § Other results:
-
-> - OT implies [[commitment-scheme|commitment schemes]]
+[[oblivious-transfer|OT]] implies [[commitment-scheme|COM]] with no further assumption: in the OT-hybrid model there is a bit commitment that is statistically hiding and statistically binding, the first step of Kilian's proof that OT is complete for secure computation — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore label.
+`class: fully-black-box`: the construction invokes OT only as an ideal functionality, and hiding and binding hold statistically in the OT-hybrid model. Against a real OT protocol, the reduction runs any adversary against the composed commitment as an oracle to distinguish real from ideal OT.

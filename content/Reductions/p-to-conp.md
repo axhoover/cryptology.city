@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "P ⊆ coNP"
 aliases: []
 id: red-p-to-conp
@@ -19,24 +19,8 @@ security-loss: ""
 
 ## Statement
 
-Migrated verbatim from [[co-nondeterministic-polynomial-time]] § Known relationships:
-
-> - $\classP \subseteq \classcoNP$, since P is closed under complement.
+[[polynomial-time|P]] $\subseteq$ [[co-nondeterministic-polynomial-time|coNP]]: P is closed under complement, so for $L \in \classP$ the complement $\bar{L}$ lies in $\classP \subseteq \classNP$, placing $L$ in $\classcoNP$ — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore/standard marker.
-- P is written only as a macro, not wikilinked to `[[polynomial-time]]`.
+`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.

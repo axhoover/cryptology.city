@@ -34,3 +34,4 @@ source text, not changes to it:
 
 - Parameter/efficiency claim riding on the same (possibly mis-attributed, see line 59) LWE-based construction.
 - Same LWE-vs-LPN suspicion as line 59.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — CG24 has no LWE-based construction; every code in the paper, including the zero-bit pseudorandom-LDPC code, rests on $2^{O(\sqrt{n})}$-hardness of LPN or on polynomial hardness of LPN plus the planted-XOR assumption at low density. The migrated length and robustness parameters are unverified against CG24's LPN parameterization. See [[subexponential-lpn-to-prc-cg24]].

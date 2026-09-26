@@ -1,13 +1,13 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "OWP ⇒ Hash function"
 aliases: []
 id: red-owp-to-hash-function
 kind: implication
 hypotheses: [owp]
 conclusion: hash-function
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -15,29 +15,15 @@ security-loss: ""
 
 # OWP ⇒ Hash function
 
-[[one-way-permutation|OWP]] implies [[hash-function|Hash function]].
+[[one-way-permutation|OWP]] implies a [[hash-function#preimage-resistance-one-wayness|one-way function]].
 
 ## Statement
 
-Migrated verbatim from [[hash-function]] § Other results:
-
-> - One-way functions exist if [[one-way-permutation|OWP]]s exist
-
-Migrated verbatim from [[one-way-permutation]] § Other results:
-
-> - A OWP is trivially a [[hash-function|OWF]].
+Every [[one-way-permutation|OWP]] is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: the construction is the identity, and an inverter for the function is an inverter for the permutation with the same advantage — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: Degenerate fully-black-box shape: the construction is the identity, so it uses the permutation only as an oracle, and the reduction forwards any inverter of the function unchanged as an inverter of the permutation.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore flag (trivially true by definition, but the house style still requires the '— folklore' marker).
-- Conclusion node is the merged hash-function page rather than a dedicated OWF node.
-- No citation and no '— standard'/'— folklore' label ('trivially' is not the required label).
-- Wikilink target surprise: OWF resolves to `[[hash-function]]`, the page that also holds CRHF/collision resistance. The migration will conflate OWF with CRHF unless hash-function is split into distinct objects.
+- The conclusion node `hash-function` also holds collision resistance, so the relation graph conflates OWF with CRHF until that page is split.
+- The one-wayness game at [[hash-function#preimage-resistance-one-wayness]] is keyed and samples $x \getsr \calD$ uniformly, while an [[one-way-permutation|OWP]] is unkeyed and one-way for its own input distribution $X$; the identity matches the game only for uniform $X$, with a trivial key and $\calR = \calD$.

@@ -35,3 +35,4 @@ source text, not changes to it:
 - 'quadratic residuosity' here is a LANGUAGE that has a ZK proof, not the hardness ASSUMPTION — but the only wiki node with that name is content/Assumptions/quadratic-residuosity.md, so the edge will be mis-typed as assumption => primitive. Flagged as a modelling hazard.
 - The QR language is unlinked in the bullet.
 - This is a historical/attribution bullet more than a relation.
+- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the GMR85 perfect zero-knowledge proof for the quadratic residuosity _language_ is unconditional, so QR hardness is not a hypothesis and the edge QR ⇒ ZKP mis-models an attribution note. Assumption-based ZK for all of NP is a different edge ([[hash-function-to-zkp-gmw91]]). See [[zero-knowledge-proof]].
