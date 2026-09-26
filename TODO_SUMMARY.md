@@ -33,6 +33,8 @@ _Last updated: 2026-09-26_
 
 ## High Priority
 
+- [ ] [FactCheck] **Maintainer review queue for the reductions sourcing pass**: https://claude.ai/artifact/HnCB6oD1FDbTLG1NjxeQfh — 84 wrong-claim pages and 5 unsourced pages with checked proposals, 106 object-page judgement calls, 167 applied object-page fixes to spot-check, 137 follow-ups, 291 sourced pages. Mark items there, then ask Claude to `apply review decisions` — _source: .reductions/REVIEW.md_
+
 - [ ] [Math] **84 reduction/barrier pages state a claim that is incorrect as written** (inverted edges, definitions recorded as theorems, structures used as assumptions, application notes typed as existence implications). Each carries a `Sourcing pass (2026-09-26), not fixed` bullet in its Notes with the reason; none was sourced, re-typed, or deleted — a human should delete, redirect, or re-type them — _source: .reductions/sourcing-pass.json_
 - [ ] [Content] 5 reduction pages remain `undetermined`: no attributable source was found after research and verification; they still carry their migration scaffolding — _source: .reductions/sourcing-pass.json_
 - [ ] [External] 141 reference stubs created by the sourcing pass carry `TODO — abstract.` because eprint/arXiv/DOI hosts were unreachable from the session; bibliographic data comes from vendor/cryptobib — _source: .reductions/sourcing-pass.json_

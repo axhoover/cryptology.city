@@ -1,8 +1,16 @@
 # Sourcing-pass review — how decisions are applied
 
-The review page (a claude.ai artifact; link in the session that built it and
-in the PR description) lists every item from the reductions sourcing pass
-that needs a maintainer's eye. The maintainer marks items there; marks are
+The review page, https://claude.ai/artifact/HnCB6oD1FDbTLG1NjxeQfh (private
+to its owner), lists every item from the reductions sourcing pass that needs
+a maintainer's eye: 84 wrong-claim pages and 5 unsourced pages, each with a
+checked proposal; 106 object-page issues left for a judgement call; 167
+object-page fixes already applied, to spot-check; 137 consolidated
+follow-ups; and the 291 sourced pages as they now stand.
+
+The page is self-contained: every item's full data (proposal text, exact
+change, evidence) is embedded in it as JSON in
+`<script id="review-data">`, so applying decisions needs only the page and
+its database, not any session's scratch files. The maintainer marks items there; marks are
 stored in the artifact's database, collection `decisions`, one document per
 item id:
 
@@ -35,9 +43,6 @@ if the session does not have it). Claude then:
    `node scripts/generate-relations.mjs --check`, `npm test` and
    `npx quartz build`; fixes what it broke.
 4. Commits (`review: apply maintainer decisions (<n> items)`) and pushes.
-5. Rebuilds the review page without the items it applied and republishes it
-   to the same link, so the page always shows exactly what remains.
-
-The builder is `build_review.py` from the session scratch space; its inputs
-are the pass outputs recorded in `sourcing-pass.json`
-(`working_files_commit`) and the object-page fix reports.
+5. Republishes the review page to the same link without the items it
+   applied (drop them from the embedded JSON), so the page always shows
+   exactly what remains. Decisions stay in the database across republishes.
