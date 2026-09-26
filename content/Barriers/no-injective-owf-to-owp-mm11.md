@@ -18,7 +18,7 @@ source:
 
 # No fully-black-box reduction from Injective OWF to OWP
 
-A reduction of class `fully-black-box` from [[injective-one-way-function|Injective OWF]] to [[one-way-permutation|OWP]] would imply a contradiction.
+A reduction of class `fully-black-box` from a length-increasing [[injective-one-way-function|injective OWF]] to [[one-way-permutation|OWP]] would imply a contradiction.
 
 ## Statement
 

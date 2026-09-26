@@ -18,7 +18,7 @@ security-loss: "Complexity leveraging from selective to adaptive security loses 
 
 # No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security
 
-A reduction of class `free` from [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA Security (Selective)]] to [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]] would imply a contradiction.
+A reduction of class `free` from [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA Security (Selective)]] to [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]] would imply a contradiction when the identity-vector space $\Sigma^{\le d}$ is superpolynomial.
 
 ## Statement
 
