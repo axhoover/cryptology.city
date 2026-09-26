@@ -35,4 +35,4 @@ Containment: the verifier picks a term $H_i$ at random and measures the witness 
 - 3-local Hamiltonian is QMA-complete — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]]
 - 2-local Hamiltonian is QMA-complete, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]]
 - Completeness claim (in-class + hard-for-class); typed as 'equivalence' because the schema has no completeness kind.
-- 'Local Hamiltonian' has no wiki page; the hypothesis identifier was invented during migration and resolves through quantum-merlin-arthur.md's variants map.
+- local-hamiltonian has no page of its own; it resolves through quantum-merlin-arthur.md's variants map.

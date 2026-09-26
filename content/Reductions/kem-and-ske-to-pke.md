@@ -30,5 +30,5 @@ Two game hops: first replace the encapsulated key $k^*$ by an independent unifor
 
 `class: fully-black-box`: one fixed construction calling $\mathsf{Encap}$, $\mathsf{Decap}$ and the SKE algorithms only as oracles. Both game-hop reductions in CS03 (Theorem 5) run the PKE adversary as an oracle: the KEM reduction answers decryption queries with its $\mathsf{Decap}$ oracle and $\SKE.\Dec$; the DEM reduction simulates the KEM itself with an independent uniform key. RTV04 fully-black-box shape.
 
-- Which combinations of KEM and DEM security notions yield hybrid PKE; a one-time IND-CPA DEM is insufficient for IND-CCA hybrid encryption even with an IND-CCA KEM — [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]]
+- Systematic study of which combinations of KEM and DEM security notions suffice for hybrid PKE; a one-time IND-CPA DEM is insufficient for IND-CCA hybrid encryption even with an IND-CCA KEM — [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]]
 - key-encapsulation-mechanism.md § KEM-DEM hybrid encryption still claims IND-CCA from an IND-CPA DEM 'or even OT-secure for a one-time pad', contrary to CS03 Remark 13; a one-time-pad DEM is malleable, so that hybrid is trivially CCA-breakable.
