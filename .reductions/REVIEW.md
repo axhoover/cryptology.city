@@ -49,7 +49,7 @@ if the session does not have it). Claude then:
 
 | Round | Dates | Scope | Items | Outcome |
 | --- | --- | --- | --- | --- |
-| 1 | 2026-09-26 → 27 | Sourcing pass over reduction and barrier pages: 84 wrong claims, 5 unsourced, 106 object-page calls, 167 applied fixes, 137 follow-ups, 291 sourced pages | 790 | 787 approved, 1 with changes, 2 rejected. 331 actions: 273 applied, 42 applied in part, 16 blocked on paper access (carried to round 2); leftover stale Notes, duplicate bullets and TODO_SUMMARY lines cleaned up afterwards. Commits 32d9f33 → the round-2 publish |
+| 1 | 2026-09-26 → 27 | Sourcing pass over reduction and barrier pages: 84 wrong claims, 5 unsourced, 106 object-page calls, 167 applied fixes, 137 follow-ups, 291 sourced pages | 790 | 787 approved, 1 with changes, 2 rejected. 331 actions: 273 applied, 42 applied in part, 16 blocked on paper access (carried to round 2); leftover stale Notes, duplicate bullets and TODO_SUMMARY lines cleaned up afterwards. Commits 32d9f33 → b763025 |
 | 2 | 2026-09-27 → | 45 follow-ups raised while applying round 1; the 16 round-1 paper checks | 61 | open |
 
 Round-1 items carried into round 2 keep their round-1 id, and so their
