@@ -28,4 +28,3 @@ An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] [[key-encapsulation-
 
 `model: rom`: [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]] prove IND-CCA security in the quantum random-oracle model, which the model vocabulary records as `rom`.
 
-- [[ntru]] § NTRU Encrypt / NTRUSign calls NTRUEncrypt a KEM; NTRUEncrypt is a public-key encryption scheme ([[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]), and the KEM here is HRSS17's.

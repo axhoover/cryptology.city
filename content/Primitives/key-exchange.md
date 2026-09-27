@@ -56,7 +56,6 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
-- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
 <!-- BEGIN GENERATED participates-in 2128e4fd53ff -->
 

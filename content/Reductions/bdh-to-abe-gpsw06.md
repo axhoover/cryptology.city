@@ -31,5 +31,4 @@ $\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key 
 `class: fully-black-box`: one fixed construction in the bilinear group and one fixed selective-security reduction (see Sketch) that runs the ABE adversary once as an oracle. With an assumption as hypothesis, black-boxness refers to the treatment of the adversary.
 
 - Ciphertext-policy ABE for monotone formulas with ciphertext size linear in the formula, selectively secure in the standard model; the most efficient construction is under decisional $q$-parallel BDHE, a less efficient one under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]
-- [[bilinear-map-assumptions]] has the alias BDDH but not DBDH, so DBDH is linked by display text only.
 - The Wat11 reference filename says 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover', but the paper (PKC 2011, eprint 2008/290) is titled 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization'; filenames are live URLs, so the link is kept.

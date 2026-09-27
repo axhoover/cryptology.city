@@ -174,7 +174,6 @@ is negligible.
 - [[abe-to-be|ABE ⇒ BE]]
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
 - [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
