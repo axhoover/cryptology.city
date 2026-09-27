@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ Hash-based signatures"
+title: "Hash function + PRF ⇒ XMSS"
 aliases: []
 id: red-hash-function-to-hash-based-signatures
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [hash-function, prf]
 conclusion: xmss
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ Hash-based signatures
+# Hash function + PRF ⇒ XMSS
 
-[[hash-function|Hash function]] implies [[digital-signature#hash-based-signatures|Hash-based signatures]].
+A second-preimage-resistant [[hash-function|hash function]] family together with a [[pseudorandom-function|PRF]] implies the [[digital-signature#hash-based-signatures|XMSS]] signature scheme.
 
 ## Statement
 
-XMSS is a forward-secure many-time [[digital-signature#hash-based-signatures|hash-based signature scheme]] whose EU-CMA security reduces to second-preimage resistance of a [[hash-function|hash function]] family and pseudorandomness of a function family — [[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]. SPHINCS+ removes the state with a hypertree of XMSS-style subtrees and the few-time signature FORS at the leaves — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]].
+XMSS is a forward-secure many-time [[digital-signature#hash-based-signatures|hash-based signature scheme]] whose EU-CMA security reduces to second-preimage resistance of a [[hash-function|hash function]] family and pseudorandomness of a [[pseudorandom-function|function family]] — [[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]. SPHINCS+ removes the state with a hypertree of XMSS-style subtrees and the few-time signature FORS at the leaves — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]].
 
 ## Sketch
 

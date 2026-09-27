@@ -23,7 +23,7 @@ Every [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA-secure]] [[symmetric
 
 ## Sketch
 
-For $c \in \bits$, the IND\$-CPA adversary $\calB_c$ runs the CPA adversary $\calA$ and answers each query $(m_0, m_1)$ with its own oracle on $m_c$. Against the real oracle $\calB_c$ simulates $\calO_c$; against the random oracle it simulates an oracle independent of $b$. The triangle inequality over the hybrids $\calO_0$, random, $\calO_1$ gives $\Adv^{\mathrm{cpa}}_{\SKE,\calA} \le \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_0} + \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_1}$.
+For $c \in \bits$, the IND\$-CPA adversary $\calB_c$ runs the CPA adversary $\calA$, answers each query $(m_0, m_1)$ with its own oracle on $m_c$, and outputs $\calA$'s guess. With the real oracle $\calB_c$ simulates $\calO_c$; with the uniform oracle it simulates an oracle independent of $b$. The triangle inequality over the hybrids $\calO_0$, uniform, $\calO_1$ gives $\Adv^{\mathrm{cpa}}_{\SKE,\calA} \le \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_0} + \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calB_1}$.
 
 ## Notes
 

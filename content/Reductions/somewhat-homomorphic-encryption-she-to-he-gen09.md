@@ -20,7 +20,7 @@ A [[homomorphic-encryption#bootstrappable-she|bootstrappable SHE]] scheme implie
 
 ## Statement
 
-A [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Unbounded FHE additionally needs circular security; see [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09]].
+A [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Unbounded FHE additionally needs [[circular-security|circular security]]; see [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09]].
 
 ## Sketch
 

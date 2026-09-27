@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "CRHF ⇒ SNARK"
+title: "CRHF ⇒ STARK"
 aliases: []
 id: red-hash-function-to-snark-bbhr18
 kind: implication
 hypotheses: [crhf]
-conclusion: snark
+conclusion: transparent-succinct-argument
 class: unstated
 model: rom
 source:
@@ -14,17 +14,17 @@ source:
 security-loss: ""
 ---
 
-# CRHF ⇒ SNARK
+# CRHF ⇒ STARK
 
-[[hash-function#collision-resistance|CRHF]] implies [[succinct-argument|SNARK]].
+[[hash-function#collision-resistance|CRHF]] implies [[succinct-argument#stark|STARK]].
 
 ## Statement
 
-A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields STARKs: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields [[succinct-argument#stark|STARKs]]: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
 ## Sketch
 
-The execution trace is arithmetized into Reed–Solomon codewords, Merkle-committed with the hash function, and proximity-tested with FRI; the BCS transform ([[BCS16 - Interactive Oracle Proofs|BCS16]]) compiles the resulting IOP into a non-interactive argument in the random-oracle model, preserving knowledge soundness.
+The computation is expressed as an [[arithmetization|AIR]]. The prover Merkle-commits, with the hash function, to Reed–Solomon codewords of the execution-trace polynomials; the AIR constraints reduce to a low-degree proximity claim about a derived codeword, which [[polynomial-commitment#fri-fast-reed-solomon-iop-of-proximity|FRI]] certifies in logarithmically many degree-halving rounds. The BCS transform ([[BCS16 - Interactive Oracle Proofs|BCS16]]) compiles the resulting IOP into a non-interactive argument in the random-oracle model, preserving knowledge soundness.
 
 ## Notes
 

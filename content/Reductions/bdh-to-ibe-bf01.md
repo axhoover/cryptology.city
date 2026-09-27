@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-Under the computational [[bilinear-map-assumptions|BDH]] assumption, with its hash functions modelled as [[random-oracle-model|random oracles]], the Boneh–Franklin scheme FullIdent is an IND-ID-CCA-secure [[identity-based-encryption|IBE]], and BasicIdent is IND-ID-CPA-secure — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
+If the computational [[bilinear-map-assumptions|BDH]] assumption holds and the hash functions are modelled as [[random-oracle-model|random oracles]], the Boneh–Franklin scheme FullIdent is an IND-ID-CCA-secure [[identity-based-encryption|IBE]] and BasicIdent is IND-ID-CPA-secure — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
 
 ## Notes
 

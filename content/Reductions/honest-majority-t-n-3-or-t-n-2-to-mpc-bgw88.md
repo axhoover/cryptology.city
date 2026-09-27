@@ -26,7 +26,7 @@ In the secure-channels model with [[secure-multi-party-computation#honest-majori
 
 Each party Shamir-shares its input with a degree-$t$ polynomial; addition gates are local on shares, and each multiplication gate is followed by degree reduction and re-randomization. Against malicious parties, inputs are distributed by verifiable secret sharing, and the Reed–Solomon structure of Shamir shares corrects $t < n/3$ corrupted shares.
 
-Each input is VSS-shared with a degree-$t$ polynomial; addition gates are local. For a multiplication gate each party VSS-shares the product of its two shares and the parties verify it, then take the Lagrange combination of these sub-sharings, which is a degree-$t$ sharing of the product. Reconstructing a degree-$t$ sharing with $t$ corrupted shares is Reed-Solomon decoding, which needs $n \ge 3t + 1$.
+For a multiplication gate against malicious parties, each party VSS-shares the product of its two shares and the parties verify it, then take the Lagrange combination of these sub-sharings, which is a degree-$t$ sharing of the product. Reconstructing a degree-$t$ sharing with $t$ corrupted shares is Reed–Solomon decoding, which needs $n \ge 3t + 1$.
 
 ## Notes
 

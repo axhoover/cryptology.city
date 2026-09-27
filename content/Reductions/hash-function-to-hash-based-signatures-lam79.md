@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "OWF ⇒ Hash-based signatures"
+title: "OWF ⇒ One-time signatures (Lamport)"
 aliases: []
 id: red-hash-function-to-hash-based-signatures-lam79
 kind: implication
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# OWF ⇒ Hash-based signatures
+# OWF ⇒ One-time signatures (Lamport)
 
-[[hash-function#preimage-resistance-one-wayness|OWF]] implies one-time [[digital-signature#hash-based-signatures|hash-based signatures]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[digital-signature#hash-based-signatures|one-time signatures]].
 
 ## Statement
 

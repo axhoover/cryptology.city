@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-The preprocessing of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be obtained from semi-homomorphic (additively homomorphic) encryption — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
+The offline phase of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be instantiated from semi-homomorphic (additively homomorphic) encryption — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
 
 ## Notes
 

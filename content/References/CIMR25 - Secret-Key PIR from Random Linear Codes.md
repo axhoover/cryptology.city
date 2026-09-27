@@ -26,7 +26,7 @@ Under a new conjecture related to the hardness of learning a hidden linear subsp
 
 # Notes
 
-They introduce the _Learning Subspace with Noise (LSN)_ conjecture. They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
+They conjecture hardness of the _Learning Subspace with Noise (LSN)_ problem of [[DKL09 - On cryptography with auxiliary input|DKL09]] in a new regime ($k \ge \rho n$, $\mu \ge 1 - o(1)$). They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
 
 - Unlike SK-PIR, which bounds only communication, the secret-key DEPIR of [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] also makes per-query server work sublinear; see [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]].
 - I guess secret-key PIR that is not doubly efficient could be interesting...?
@@ -46,11 +46,7 @@ How is SK-PIR different from prepreprocessing PIR?
 
 ## Learning Subspace with Noise (LSN)
 
-The **learning subspace with noise assumption** $(k,n,\mu)$-LSN asserts
-
-- **Wait** actually is this just taken from [[DKL09 - On cryptography with auxiliary input|DKL09]]?
-
-that for a uniformly random secret rank-$k$ matrix $\mathbf{C}\in \mathbb{F}^{k\times n}$ and any polynomial number of samples $m:= m(\lambda)$, it holds that:$$(\mathbf{c_1} + \mathbf{e}_1,\ldots, \mathbf{c}_m + \mathbf{e}_m) \approx_c (\mathbf{u}_1,\ldots,\mathbf{u}_m),$$ where $\mathbf{c}_i = \mathbf{a}_i^T \mathbf{C}$ for $\mathbf{a}_i \gets \mathbb{F}^k$, $\mathbf{e}_i$ is uniformly random in $\mathbf{F}^n$ with probability. $\mu$ and $\mathbf{e}_i = 0 \in \mathbf{F}^n$ otherwise, and $\mathbf{F}^n$ .
+The **learning subspace with noise assumption** $(k,n,\mu)$-LSN asserts that for a uniformly random secret rank-$k$ matrix $\mathbf{C}\in \mathbb{F}^{k\times n}$ and any polynomial number of samples $m:= m(\lambda)$, it holds that:$$(\mathbf{c_1} + \mathbf{e}_1,\ldots, \mathbf{c}_m + \mathbf{e}_m) \approx_c (\mathbf{u}_1,\ldots,\mathbf{u}_m),$$ where $\mathbf{c}_i = \mathbf{a}_i^T \mathbf{C}$ for $\mathbf{a}_i \gets \mathbb{F}^k$, $\mathbf{e}_i$ is uniformly random in $\mathbf{F}^n$ with probability. $\mu$ and $\mathbf{e}_i = 0 \in \mathbf{F}^n$ otherwise, and $\mathbf{F}^n$ .
 
 Essentially this means that each you take a $k$ subspace fo the $n$ dimentional latent space. Then, give $\approx(1-\mu)m$ samples of this subspace planted randomly among $\mu m$ real samples of the subspace.
 

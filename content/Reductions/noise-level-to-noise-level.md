@@ -28,4 +28,3 @@ Map each sample $(\mathbf{a}, b)$ to $(\mathbf{a}, b + e')$ with fresh $e' \gets
 ## Notes
 
 `class: fully-black-box`: One fixed sample transformation (add independent Bernoulli noise to each label) and one fixed reduction that runs the higher-noise distinguisher once as an oracle on the transformed samples. RTV04 fully-black-box shape, degenerate for an assumption-to-assumption edge.
-

@@ -11,7 +11,6 @@ class: fully-black-box
 model: standard
 source:
   - "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
-  - "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
 security-loss: ""
 ---
 
