@@ -46,7 +46,7 @@ Recent work has studied how modifications to the proof model change QMA's power:
 
 For every $\gamma \ge 1$, [[shortest-vector-problem|$\mathrm{GapSVP}_\gamma$]] is in $\classNP \subseteq \classQMA$, since a short vector is a classical witness — folklore. For $\gamma \ge \sqrt{n}$, $\mathrm{GapSVP}_\gamma \in \classNP \cap \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]], so it is not QMA-hard under Karp reductions unless $\classQMA \subseteq \classNP \cap \classcoNP$.
 
-<!-- BEGIN GENERATED participates-in c5ee7e37d9be -->
+<!-- BEGIN GENERATED participates-in a7134c92ae9b -->
 
 ## Participates in
 
@@ -56,11 +56,11 @@ For every $\gamma \ge 1$, [[shortest-vector-problem|$\mathrm{GapSVP}_\gamma$]] i
 
 **Produces Quantum Merlin-Arthur**
 
-- [[notable-problems-to-qma|Notable problems = QMA]]
+- [[notable-problems-to-qma|Local Hamiltonian is QMA-complete]]
 - [[qcma-to-qma|QCMA ⊆ QMA]]
 
 **Barriers**
 
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[no-qcma-to-qma-ak07|No relativizing reduction from QMA to QCMA]]
 
 <!-- END GENERATED participates-in -->

@@ -105,7 +105,7 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in ea84aec390ec -->
+<!-- BEGIN GENERATED participates-in 74754683475b -->
 
 ## Participates in
 
@@ -113,21 +113,19 @@ is negligible.
 
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
+- [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
+- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]]
 - [[dlog-to-conp|DLOG ⊆ coNP]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
-- [[dlog-to-ds-sch91|DLOG ⇒ DS]]
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
+- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
 
 **Produces Discrete logarithm**
 
-- [[bqp-to-dlog-shor97|BQP ⊆ DLOG]]
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]

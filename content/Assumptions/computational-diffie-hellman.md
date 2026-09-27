@@ -58,18 +58,17 @@ deterministically.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in ef0974f0acf5 -->
+<!-- BEGIN GENERATED participates-in a70773101e4e -->
 
 ## Participates in
 
 **Builds on Computational Diffie-Hellman**
 
-- [[cdh-to-bdh|CDH ⇒ BDH]]
-- [[cdh-to-ddh|CDH ⇒ DDH]]
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 
 **Produces Computational Diffie-Hellman**
 
+- [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[ggm-to-cdh-sho97|GGM ⇒ CDH]]

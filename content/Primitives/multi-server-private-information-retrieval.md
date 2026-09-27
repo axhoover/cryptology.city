@@ -51,7 +51,7 @@ TODO
 
 - The typical setting is the 1-bit array (also called database), since you can build a $w$-bit PIR using just $w$ copies of a 1-bit PIR.
 
-<!-- BEGIN GENERATED participates-in 387f5eb068f0 -->
+<!-- BEGIN GENERATED participates-in 9385b0cb48c8 -->
 
 ## Participates in
 
@@ -61,7 +61,6 @@ TODO
 
 **Produces Multi-server Private Information Retrieval**
 
-- [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
 - [[spir-to-it-pir|SPIR ⇒ IT-PIR]]
 - [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
 

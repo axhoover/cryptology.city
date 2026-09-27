@@ -16,13 +16,13 @@ The module analogues of the shortest-vector and shortest-independent-vectors pro
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in c9b396eb1ff3 -->
+<!-- BEGIN GENERATED participates-in 4d83f05eec8c -->
 
 ## Participates in
 
 **Builds on Module lattice problems**
 
-- [[module-svp-to-module-lwe-ls15|Module-SVP ⇒ Module LWE]]
-- [[module-svp-to-module-sis-ls15|Module-SVP ⇒ Module-SIS]]
+- [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]]
+- [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]]
 
 <!-- END GENERATED participates-in -->

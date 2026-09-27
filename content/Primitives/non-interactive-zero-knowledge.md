@@ -71,27 +71,19 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in f97e90c0ebf0 -->
+<!-- BEGIN GENERATED participates-in 306efafdd536 -->
 
 ## Participates in
 
-**Builds on Non-interactive zero-knowledge**
-
-- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
-- [[nizk-to-com|NIZK ⇒ COM]]
-
 **Produces Non-interactive zero-knowledge**
 
-- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
+- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
-- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
-- [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
-- [[pcs-to-nizk|PCS ⇒ NIZK]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
-- [[snark-to-nizk|SNARK ⇒ NIZK]]
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
+- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
 
 **Barriers**
 

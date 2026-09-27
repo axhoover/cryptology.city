@@ -150,14 +150,13 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 4a0f125ffa3b -->
+<!-- BEGIN GENERATED participates-in 249aef61cd7d -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
-- [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
-- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
@@ -165,9 +164,7 @@ is negligible.
 
 **Produces Pseudorandom function**
 
-- [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
-- [[hash-function-to-prf|Hash function ⇒ PRF]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[prp-to-prf|PRP ⇒ PRF]]

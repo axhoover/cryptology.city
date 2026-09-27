@@ -56,14 +56,3 @@ Security of a protocol is analyzed under one of two standard adversary models:
 - **Malicious**: the adversary may deviate from the protocol arbitrarily, sending any messages it chooses.
 
 Security against malicious adversaries implies security against _augmented_ semi-honest adversaries, which may substitute their input before the execution [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], but not in general against semi-honest adversaries: the malicious-model simulator may change the corrupted party's input, which the semi-honest ideal model forbids — [[HL10 - A Note on the Relation between the Definitions of Security for Semi-Honest and Malicious Adversaries|HL10]].
-
-<!-- BEGIN GENERATED participates-in 88369e71969d -->
-
-## Participates in
-
-**Builds on Interactive protocol**
-
-- [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
-- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
-
-<!-- END GENERATED participates-in -->

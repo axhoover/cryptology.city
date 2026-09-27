@@ -78,20 +78,14 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 
-<!-- BEGIN GENERATED participates-in ce3ff13427bd -->
+<!-- BEGIN GENERATED participates-in fa58290e460e -->
 
 ## Participates in
 
-**Builds on Secure multi-party computation**
-
-- [[mpc-to-ot-bh26|MPC ⇒ OT]]
-
 **Produces Secure multi-party computation**
 
-- [[alternating-moduli-assumption-to-mpc-bip-18|Alternating moduli assumption ⇒ MPC]]
-- [[com-to-mpc-gmw87|COM ⇒ MPC]]
-- [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC]]
+- [[honest-majority-t-lt-n-over-2-to-mpc-rb89|Honest majority ($t < n/2$) ⇒ MPC]]
+- [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$) ⇒ MPC]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
-- [[verifiable-secret-sharing-vss-to-mpc-bgw88|Verifiable secret sharing (VSS) ⇒ MPC]]
 
 <!-- END GENERATED participates-in -->

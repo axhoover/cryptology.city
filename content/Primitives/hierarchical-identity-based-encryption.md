@@ -91,7 +91,7 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 833c8e964344 -->
+<!-- BEGIN GENERATED participates-in d4252e2dcffb -->
 
 ## Participates in
 
@@ -101,8 +101,8 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 
 **Produces Hierarchical identity-based encryption**
 
-- [[abe-to-hibe|ABE ⇒ HIBE]]
 - [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]]
-- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
+- [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]
 
 <!-- END GENERATED participates-in -->

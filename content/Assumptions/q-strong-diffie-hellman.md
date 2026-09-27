@@ -15,13 +15,12 @@ Given the power sequence $(g, g^\tau, g^{\tau^2}, \ldots, g^{\tau^q})$ in a bili
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 74e89dce269a -->
+<!-- BEGIN GENERATED participates-in 91208ba00543 -->
 
 ## Participates in
 
 **Builds on $q$-Strong Diffie-Hellman assumption**
 
-- [[bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10|Bilinear pairing + q-SDH ⇒ KZG (Kate-Zaverucha-Goldberg)]]
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 
 <!-- END GENERATED participates-in -->

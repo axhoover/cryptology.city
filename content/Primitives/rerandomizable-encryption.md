@@ -15,12 +15,12 @@ A public-key encryption scheme with a public rerandomization algorithm that maps
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 02ea8d002f4d -->
+<!-- BEGIN GENERATED participates-in a0fb0bb86179 -->
 
 ## Participates in
 
 **Produces Rerandomizable encryption**
 
-- [[he-to-re-bl13|HE ⇒ RE]]
+- [[he-to-re-bl13|Strongly homomorphic encryption ⇒ RE]]
 
 <!-- END GENERATED participates-in -->

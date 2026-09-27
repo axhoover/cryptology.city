@@ -308,23 +308,19 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 693575ac867f -->
+<!-- BEGIN GENERATED participates-in 8b31dbf82a49 -->
 
 ## Participates in
 
 **Builds on Learning with errors**
 
 - [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
-- [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
-- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
-- [[lwe-to-ind-cpa-kem|LWE ⇒ IND-CPA KEM]]
-- [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
+- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
-- [[lwe-to-prc-cg24|LWE ⇒ PRC]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
-- [[lwe-to-zero-bit-prc-cg24|LWE ⇒ Zero-bit PRC]]
 
 **Produces Learning with errors**
 

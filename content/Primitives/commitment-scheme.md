@@ -70,22 +70,13 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in bdf96c225a37 -->
+<!-- BEGIN GENERATED participates-in f714fd693aac -->
 
 ## Participates in
-
-**Builds on Commitment scheme**
-
-- [[com-and-ss-to-verifiable-secret-sharing-vss|COM + SS ⇒ Verifiable secret sharing (VSS)]]
-- [[com-to-mpc-gmw87|COM ⇒ MPC]]
-- [[com-to-ot-kil88|COM ⇒ OT]]
-- [[com-to-two-party-computation-2pc-gmw87|COM ⇒ Two-party computation (2PC)]]
 
 **Produces Commitment scheme**
 
 - [[dcr-to-com|DCR ⇒ COM]]
-- [[ddh-to-com|DDH ⇒ COM]]
-- [[nizk-to-com|NIZK ⇒ COM]]
 - [[ot-to-com|OT ⇒ COM]]
 - [[pke-to-com|PKE ⇒ COM]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]

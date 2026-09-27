@@ -37,17 +37,18 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
   - Beyond three rounds the public-coin restriction is necessary: five-round private-coin black-box ZK proofs for NP exist assuming claw-free functions (Goldreich–Kahan, J. Cryptology 1996)
 - **Parallel composition breaks ZK**: repeating a ZK protocol in parallel to reduce soundness error may destroy the zero-knowledge property — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 
-<!-- BEGIN GENERATED participates-in 089be31ff60f -->
+<!-- BEGIN GENERATED participates-in 22c6282b7abd -->
 
 ## Participates in
 
 **Builds on Computational zero-knowledge**
 
-- [[czk-to-ip-bgg-90|CZK = IP]]
+- [[czk-to-ip|CZK ⊆ IP]]
 
 **Produces Computational zero-knowledge**
 
-- [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]]
+- [[hash-function-to-czk|OWF ⇒ CZK]]
 - [[szk-to-czk|SZK ⊆ CZK]]
 
 <!-- END GENERATED participates-in -->

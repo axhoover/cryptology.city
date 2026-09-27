@@ -176,13 +176,11 @@ is negligible.
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
-- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|CRHF + PRF ⇒ Symmetric CP-ABE]]
 
-<!-- BEGIN GENERATED participates-in 9ef6d6c03cce -->
+<!-- BEGIN GENERATED participates-in 4f6f1b0f4196 -->
 
 ## Participates in
 
@@ -190,20 +188,14 @@ is negligible.
 
 - [[abe-to-be|ABE ⇒ BE]]
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
-- [[abe-to-hibe|ABE ⇒ HIBE]]
 - [[abe-to-ibe|ABE ⇒ IBE]]
 
 **Produces Attribute-based encryption**
 
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
-- [[evasive-lwe-to-abe|Evasive LWE ⇒ ABE]]
-- [[evasive-lwe-to-abe-wee22|Evasive LWE ⇒ ABE]]
-- [[ggm-to-abe-bsw07|GGM ⇒ ABE]]
+- [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
+- [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]]
-
-**Barriers**
-
-- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
 
 <!-- END GENERATED participates-in -->

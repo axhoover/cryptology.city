@@ -79,22 +79,17 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 71769486df05 -->
+<!-- BEGIN GENERATED participates-in 7993ab43c9a5 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
-- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 
 **Produces Zero-knowledge proof**
 
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
-- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
-- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 
 **Barriers**
 

@@ -29,21 +29,21 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#a
 
 ## Known relationships
 
-<!-- BEGIN GENERATED participates-in ed2e7102bd6c -->
+<!-- BEGIN GENERATED participates-in cbc963aa5da7 -->
 
 ## Participates in
-
-**Builds on Arthur-Merlin**
-
-- [[am-to-coam|AM = coAM]]
 
 **Produces Arthur-Merlin**
 
 - [[bpp-to-am-gs86|BPP ⊆ AM]]
-- [[conp-to-am-gs86|coNP ⊆ AM]]
-- [[ip-to-am-gs86|IP ⊆ AM]]
 - [[ma-to-am|MA ⊆ AM]]
 - [[np-to-am-gs86|NP ⊆ AM]]
 - [[szk-to-am|SZK ⊆ AM]]
+
+**Barriers**
+
+- [[no-am-to-pp-ver92|No relativizing reduction from AM to PP]]
+- [[no-conp-to-am-bm88|coNP ⊆ AM collapses the polynomial hierarchy]]
+- [[no-ip-to-am-sha90|IP ⊆ AM collapses the polynomial hierarchy]]
 
 <!-- END GENERATED participates-in -->

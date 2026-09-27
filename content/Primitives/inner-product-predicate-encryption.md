@@ -84,7 +84,7 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 - The first IPPE scheme, over composite-order bilinear groups, shows that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; it is selectively attribute-hiding under two new assumptions justified in the generic group model — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
-<!-- BEGIN GENERATED participates-in 99ea01756488 -->
+<!-- BEGIN GENERATED participates-in 43ff33ceeb86 -->
 
 ## Participates in
 
@@ -96,9 +96,5 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 **Produces Inner-product predicate encryption**
 
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
-
-**Barriers**
-
-- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
 
 <!-- END GENERATED participates-in -->

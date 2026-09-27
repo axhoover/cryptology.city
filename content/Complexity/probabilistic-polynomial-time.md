@@ -22,7 +22,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 - **Toda's theorem**: $\mathbf{PH} \subseteq \classP^{\classsharpP}$, the polynomial hierarchy is contained in polynomial time with a $\classsharpP$ oracle — TODO citation (Toda 1991). Since $\classsharpP \subseteq \classFP^{\classPP}$, this also implies $\mathbf{PH} \subseteq \classP^{\classPP}$.
 - PP is closed under complement, union, and intersection — TODO citation (Beigel, Reingold, Spielman 1995).
 
-<!-- BEGIN GENERATED participates-in ac109cae1a45 -->
+<!-- BEGIN GENERATED participates-in 62820a32b727 -->
 
 ## Participates in
 
@@ -36,7 +36,10 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 - [[bqp-to-pp|BQP ⊆ PP]]
 - [[ma-to-pp|MA ⊆ PP]]
 - [[np-to-pp|NP ⊆ PP]]
-- [[qcma-to-pp|QCMA ⊆ PP]]
 - [[qma-to-pp|QMA ⊆ PP]]
+
+**Barriers**
+
+- [[no-am-to-pp-ver92|No relativizing reduction from AM to PP]]
 
 <!-- END GENERATED participates-in -->

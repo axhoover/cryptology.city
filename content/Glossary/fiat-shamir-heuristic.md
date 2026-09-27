@@ -38,13 +38,9 @@ $$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{
 
 Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits.
 
-<!-- BEGIN GENERATED participates-in 51d692d2691b -->
+<!-- BEGIN GENERATED participates-in a54b7e1b2770 -->
 
 ## Participates in
-
-**Builds on Fiat-Shamir Heuristic**
-
-- [[fiat-shamir-and-schnorr-signatures-to-ds|Fiat-Shamir + Schnorr signatures ⇒ DS]]
 
 **Barriers**
 

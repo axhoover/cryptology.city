@@ -15,7 +15,7 @@ An interactive hash function with an obliviousness guarantee, introduced by Barn
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 8f6485dbd775 -->
+<!-- BEGIN GENERATED participates-in adf1b0968d2c -->
 
 ## Participates in
 
@@ -25,6 +25,7 @@ TODO: syntax and security definition.
 
 **Produces Oblivious interactive hash function**
 
+- [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
 
 **Barriers**

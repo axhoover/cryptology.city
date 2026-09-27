@@ -23,7 +23,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
   - From worst-case hardness alone (SZK ⊄ BPP), auxiliary-input one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - The complete problem for SZK is the **Statistical Difference (SD)** problem: given two circuits sampling distributions $D_0$ and $D_1$, decide whether $\|D_0 - D_1\|_{\mathrm{TV}} \geq 2/3$ or $\leq 1/3$
 
-<!-- BEGIN GENERATED participates-in 181673040be5 -->
+<!-- BEGIN GENERATED participates-in 877addec1531 -->
 
 ## Participates in
 
@@ -34,13 +34,5 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 - [[szk-to-czk|SZK ⊆ CZK]]
 - [[szk-to-ip|SZK ⊆ IP]]
 - [[szk-to-qszk|SZK ⊆ QSZK]]
-
-**Produces Statistical zero-knowledge**
-
-- [[ip-to-szk-bgg-90|IP ⊆ SZK]]
-
-**Barriers**
-
-- [[no-he-to-szk-bl13|No reduction from HE to SZK]]
 
 <!-- END GENERATED participates-in -->

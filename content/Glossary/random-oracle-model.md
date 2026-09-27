@@ -27,22 +27,17 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 8a08e4dc884b -->
+<!-- BEGIN GENERATED participates-in 6368558eb389 -->
 
 ## Participates in
 
 **Builds on Random Oracle Model**
 
-- [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
-- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
-- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
+- [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
 - [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
 
 **Barriers**
 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
-- [[no-rom-to-merkle-puzzles-bm09|No reduction from ROM to Merkle puzzles]]
 
 <!-- END GENERATED participates-in -->

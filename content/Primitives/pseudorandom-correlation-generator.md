@@ -34,3 +34,14 @@ TODO: game.
 $\calC$ is required to be reverse-sampleable: an efficient algorithm, given $\sigma$ and an output $R_{1-\sigma}$ of one party, samples an $R_\sigma$ such that the resulting pair is computationally indistinguishable from $\calC(1^\secpar)$. A PCG is **secure** if for each $\sigma \in \bits$, $(k_{1-\sigma}, \Eval(\sigma, k_\sigma))$ is computationally indistinguishable from $(k_{1-\sigma}, R_\sigma)$, where $R_\sigma$ is reverse-sampled from $R_{1-\sigma} = \Eval(1-\sigma, k_{1-\sigma})$ — [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]].
 
 TODO: game.
+
+<!-- BEGIN GENERATED participates-in b5da9f32c273 -->
+
+## Participates in
+
+**Produces Pseudorandom correlation generator**
+
+- [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
+- [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
+
+<!-- END GENERATED participates-in -->

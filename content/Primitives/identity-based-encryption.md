@@ -116,7 +116,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in df16b99f0695 -->
+<!-- BEGIN GENERATED participates-in 261e6b8ca544 -->
 
 ## Participates in
 
@@ -127,7 +127,8 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 **Produces Identity-based encryption**
 
 - [[abe-to-ibe|ABE ⇒ IBE]]
-- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
+- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
 

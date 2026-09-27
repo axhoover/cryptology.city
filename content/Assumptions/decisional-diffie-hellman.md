@@ -83,26 +83,22 @@ TODO
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 91d6b777ba9c -->
+<!-- BEGIN GENERATED participates-in 0d241846715c -->
 
 ## Participates in
 
 **Builds on Decisional Diffie-Hellman**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
-- [[ddh-to-com|DDH ⇒ COM]]
-- [[ddh-to-ke-dh76|DDH ⇒ KE]]
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]
+- [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 
 **Produces Decisional Diffie-Hellman**
 
-- [[cdh-to-ddh|CDH ⇒ DDH]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 
 <!-- END GENERATED participates-in -->

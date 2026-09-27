@@ -15,12 +15,12 @@ A quantum money scheme issues quantum states as banknotes that a holder of the v
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 02c5e9451172 -->
+<!-- BEGIN GENERATED participates-in 2ad61f30bf9b -->
 
 ## Participates in
 
-**Produces Quantum money**
+**Builds on Quantum money**
 
-- [[owsg-to-qm|OWSG ⇒ QM]]
+- [[owsg-to-qm|QM ⇒ OWSG]]
 
 <!-- END GENERATED participates-in -->

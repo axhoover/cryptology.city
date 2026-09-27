@@ -88,7 +88,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
 - [[kem-to-ke|KEM ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in 4960c8d92081 -->
+<!-- BEGIN GENERATED participates-in af8a13f02623 -->
 
 ## Participates in
 
@@ -99,8 +99,6 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 
 **Produces Key encapsulation mechanism**
 
-- [[module-lwe-to-kem|Module LWE ⇒ KEM]]
-- [[ntru-to-kem|NTRU ⇒ KEM]]
 - [[pke-to-kem|PKE ⇒ KEM]]
 
 <!-- END GENERATED participates-in -->

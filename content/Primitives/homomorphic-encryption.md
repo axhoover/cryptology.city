@@ -83,28 +83,18 @@ An HE scheme is **strongly homomorphic** if $\Eval$ is distribution-preserving: 
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in af72689d4fb6 -->
+<!-- BEGIN GENERATED participates-in 243f9b783095 -->
 
 ## Participates in
-
-**Builds on Homomorphic encryption**
-
-- [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
-- [[he-to-mpc-with-preprocessing-spdz-etc|HE ⇒ MPC with preprocessing (SPDZ, etc.)]]
-- [[he-to-re-bl13|HE ⇒ RE]]
 
 **Produces Homomorphic encryption**
 
 - [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE]]
-- [[d-th-composite-residuosity-to-he|$d$-th Composite Residuosity ⇒ HE]]
-- [[dcr-to-he-pai99|DCR ⇒ HE]]
-- [[qr-to-he-gm84|QR ⇒ HE]]
-- [[somewhat-homomorphic-encryption-she-to-he-gen09|Somewhat homomorphic encryption (SHE) ⇒ HE]]
 
 **Barriers**
 
-- [[no-he-to-cca-security|No fixed-construction reduction from HE to CCA Security]]
-- [[no-he-to-szk-bl13|No reduction from HE to SZK]]
+- [[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]]
+- [[no-he-to-szk-bl13|No reduction from NP to HE]]
 
 <!-- END GENERATED participates-in -->

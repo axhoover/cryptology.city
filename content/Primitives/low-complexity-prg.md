@@ -24,13 +24,3 @@ TODO: syntax and security definition.
 ## PRG in NC0
 
 A PRG $G : \bits^n \to \bits^{m(n)}$ is in $\mathrm{NC}^0$, or _local_, if each output bit depends on $O(1)$ input bits. Its stretch is polynomial if $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
-
-<!-- BEGIN GENERATED participates-in fb3681663b85 -->
-
-## Participates in
-
-**Builds on Low-complexity pseudorandom generator**
-
-- [[prg-in-nc1-to-io-jls21|PRG in NC1 ⇒ iO]]
-
-<!-- END GENERATED participates-in -->

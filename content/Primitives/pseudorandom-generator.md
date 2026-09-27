@@ -91,7 +91,7 @@ A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $G(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 75e9b47825c9 -->
+<!-- BEGIN GENERATED participates-in 02d3c04d57b8 -->
 
 ## Participates in
 
@@ -99,16 +99,13 @@ A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor
 
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
-- [[prg-to-hash-function|PRG ⇒ Hash function]]
+- [[prg-to-hash-function|PRG ⇒ OWF]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
-- [[prg-to-ske|PRG ⇒ SKE]]
 
 **Produces Pseudorandom generator**
 
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]]
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
-- [[trapdoor-pseudorandom-generators-to-prg|Trapdoor pseudorandom generators ⇔ PRG]]
 
 <!-- END GENERATED participates-in -->

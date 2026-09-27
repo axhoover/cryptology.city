@@ -67,25 +67,17 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 5bc22da2b15f -->
+<!-- BEGIN GENERATED participates-in b85479437481 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
-- [[bdh-to-ac|BDH ⇒ AC]]
-- [[bdh-to-be-bgw05|BDH ⇒ BE]]
-- [[bdh-to-ds|BDH ⇒ DS]]
-- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[cdh-to-bdh|BDH ⇒ CDH]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
-- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
-- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
-- [[bdh-to-vrf|BDH ⇒ VRF]]
-
-**Produces Bilinear map assumptions**
-
-- [[cdh-to-bdh|CDH ⇒ BDH]]
-- [[sxdh-symmetric-external-diffie-hellman-to-bdh|SXDH (Symmetric External Diffie-Hellman) ⇒ BDH]]
+- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 
 <!-- END GENERATED participates-in -->

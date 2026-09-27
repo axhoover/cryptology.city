@@ -28,14 +28,13 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 
 - If [[nondeterministic-polynomial-time|NP]] = coNP, then any inconsistent Boolean formula of size n has a proof of inconsistency of size polynomial in n.
 
-<!-- BEGIN GENERATED participates-in 35528752580c -->
+<!-- BEGIN GENERATED participates-in 650d1bb7bdef -->
 
 ## Participates in
 
 **Builds on Nondeterministic Polynomial-Time**
 
 - [[np-to-am-gs86|NP ⊆ AM]]
-- [[np-to-conp|NP = coNP]]
 - [[np-to-ma|NP ⊆ MA]]
 - [[np-to-pp|NP ⊆ PP]]
 - [[np-to-pspace|NP ⊆ PSPACE]]
@@ -49,7 +48,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 **Barriers**
 
 - [[no-bqp-to-np|No relativizing reduction from BQP to NP]]
+- [[no-he-to-szk-bl13|No reduction from NP to HE]]
 - [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to cPIR]]
-- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
+- [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
 
 <!-- END GENERATED participates-in -->

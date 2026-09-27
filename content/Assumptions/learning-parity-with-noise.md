@@ -175,20 +175,16 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in ca3941503e99 -->
+<!-- BEGIN GENERATED participates-in 637b08f6a78a -->
 
 ## Participates in
 
 **Builds on Learning parity with noise**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
-- [[lpn-and-lwe-and-nc1-prg-to-io-jls21|LPN + LWE + NC1-PRG ⇒ iO]]
-- [[lpn-to-pke|LPN ⇒ PKE]]
-- [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 
 **Produces Learning parity with noise**
 
 - [[lsn-to-lpn-cimr25|LSN ⇒ LPN]]
-- [[sparse-learning-parity-with-noise-to-lpn|Sparse Learning Parity with Noise ⇒ LPN]]
 
 <!-- END GENERATED participates-in -->

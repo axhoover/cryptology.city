@@ -97,31 +97,18 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 997a162e3305 -->
+<!-- BEGIN GENERATED participates-in 11148ade3f45 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
-- [[snark-to-hash-function|SNARK ⇒ Hash function]]
-- [[snark-to-nizk|SNARK ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 
 **Produces Succinct argument**
 
-- [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
-- [[arithmetization-and-pcs-to-snark-kzg10|Arithmetization + PCS ⇒ SNARK]]
-- [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
-- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ SNARK]]
-- [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
-- [[fri-fast-reed-solomon-iop-of-proximity-to-snark|FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
-- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
-- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
-- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
-- [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
-- [[pcs-to-snark|PCS ⇒ SNARK]]
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
 
 **Barriers**
 

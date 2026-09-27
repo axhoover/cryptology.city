@@ -61,25 +61,24 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
+<!-- BEGIN GENERATED participates-in 9410bfd377b5 -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
-- [[tdp-to-hash-function|TDP ⇒ Hash function]]
+- [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[tdp-to-ot|TDP ⇔ OT]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 
 **Produces Trapdoor permutation**
 
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
-- [[lossy-trapdoor-functions-to-tdp|Lossy trapdoor functions ⇒ TDP]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
 **Barriers**
 
-- [[no-tdp-to-ot|No reduction from TDP to OT]]
+- [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
+- [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
+- [[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]
 
 <!-- END GENERATED participates-in -->
