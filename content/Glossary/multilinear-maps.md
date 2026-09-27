@@ -15,12 +15,12 @@ A cryptographic multilinear map generalizes a bilinear pairing to a k-way map e:
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 4153259ede77 -->
+<!-- BEGIN GENERATED participates-in 40e6d6185833 -->
 
 ## Participates in
 
 **Builds on Multilinear maps**
 
-- [[mmap-to-io-gghrsw13|MMap ⇒ iO]]
+- [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
 
 <!-- END GENERATED participates-in -->

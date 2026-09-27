@@ -192,7 +192,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ Hash function]]
 
-<!-- BEGIN GENERATED participates-in 8502c9392d6f -->
+<!-- BEGIN GENERATED participates-in 3b5b329d2285 -->
 
 ## Participates in
 
@@ -213,7 +213,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
 - [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
 - [[hash-function-to-ds|Hash function ⇒ DS]]
-- [[id-and-rom-to-ds|ID + ROM ⇒ DS]]
+- [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[isis-inhomogeneous-sis-to-ds-gpv08|ISIS (Inhomogeneous SIS) ⇒ DS]]
 - [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]

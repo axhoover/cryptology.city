@@ -76,12 +76,13 @@ A hyperedge: a **set** of hypotheses implying **one** conclusion.
 {
   "id": "red-prg-to-prf-ggm86",
   "kind": "implication", // implication | inclusion | equivalence
-  "hypotheses": ["prg"], // >= 1 object id
+  "hypotheses": ["prg"], // >= 1 object id; assumed objects only
   "conclusion": "prf", // exactly one object id
   "class": "fully-black-box", // a key of `classes`, or "unstated"
   "model": "standard", // standard | rom | crs | generic-group | algebraic-group | quantum | other
   "source": ["[[GGM86 - How to construct random functions|GGM86]]"],
-  "via": [], // lemma or technique used, e.g. the switching lemma
+  "via": [], // transform, lemma or technique used, e.g. Fiat–Shamir, the switching lemma
+  "heuristic": false, // true: a candidate construction with no security reduction
   "securityLoss": "", // free text
   "status": "draft", // stub | draft | complete
   "page": "content/Reductions/prg-to-prf-ggm86.md",
@@ -90,7 +91,7 @@ A hyperedge: a **set** of hypotheses implying **one** conclusion.
 }
 ```
 
-Three rules a consumer can rely on:
+Four rules a consumer can rely on:
 
 - **`hypotheses` is a conjunction, never a disjunction.** Several assumptions
   each independently sufficient are separate entries with one hypothesis each.
@@ -100,6 +101,11 @@ Three rules a consumer can rely on:
   graph view is bipartite.
 - **Chains are already split.** No entry covers "OWF → PRG → PRF"; that is two
   entries, each with its own `source`.
+- **`hypotheses` lists assumed objects only.** An idealised model the proof
+  relies on is in `model`, not also a hypothesis, and a transform or technique
+  (Fiat–Shamir, arithmetization) is in `via`, so one theorem yields one
+  hyperedge. A model or technique id is a hypothesis only when it is the sole
+  one: `{rom} ⇒ X` reads "X holds in the random-oracle model".
 - **`source` is either citations or the token `folklore`.** A citation is the
   wiki's own link form, `[[<reference filename minus .md>|<key>]]`. `folklore`
   means the wiki has no attribution — never that none exists. No source is ever
@@ -203,6 +209,9 @@ node scripts/generate-relations.mjs --derive=lwe,ddh   # what follows from an as
 node scripts/generate-relations.mjs --redundant        # conclusions already reachable another way
 ```
 
+Neither mode uses a `heuristic` edge. Both ignore `model`, so a chain may mix
+standard-model and idealised-model edges.
+
 `--redundant` lists reductions whose conclusion already follows from their own
 hypotheses without them, with the chain that reaches it. These are **reported,
 never deleted**: a direct one-step construction is usually worth keeping even
@@ -214,6 +223,11 @@ worse loss.
 - `status: "stub"` means the relation was migrated but could not be typed
   confidently. Do not treat a stub's `class` or `model` as evidence.
 - `class: "unstated"` is the honest majority, not a defect to be defaulted away.
+- `heuristic: true` marks a candidate construction whose source gives no
+  security reduction (GGHRSW13's iO from multilinear maps). It is an edge of
+  the graph, not a theorem: skip it when deriving consequences.
+- A derivation that must stay in the standard model filters on `model`;
+  idealised models never appear in `hypotheses` except as a sole hypothesis.
 - An object with `unlisted: true` is a real node; it is only hidden from
   navigation.
 - Not every relation on the wiki is in here. Class inclusions between complexity

@@ -153,8 +153,9 @@ class: fully-black-box # from schema/reduction-classes.yaml, or `unstated`
 model: standard # standard | rom | crs | generic-group | algebraic-group | quantum | other
 source:
   - "[[GGM86 - How to construct random functions|GGM86]]"
-via: [] # optional: a lemma or technique used, e.g. the switching lemma
+via: [] # optional: a transform, lemma or technique used (Fiat–Shamir, the switching lemma) — never a hypothesis
 security-loss: "" # free text
+# heuristic: true # optional: a candidate construction whose source gives no security reduction
 ---
 
 # PRG ⇒ PRF (GGM)
@@ -182,6 +183,13 @@ Why this class, what the caveats are, anything suspected and left unfixed.
   `{sparse-lpn, ddh} ⇒ she`. Never encode a disjunction inside one page.
 - **Split composite chains.** "OWF → PRG (HILL99) → PRF via GGM (GGM86)" is
   **two** pages, each with its own `source`. Never one OWF ⇒ PRF page.
+
+`hypotheses` holds assumed objects only. An idealised model goes in `model`,
+not also in `hypotheses` — DLOG ⇒ Schnorr signatures is
+`hypotheses: [dlog], model: rom` — and a transform or technique (Fiat–Shamir,
+arithmetization) goes in `via`. A candidate construction with no security
+reduction is `heuristic: true`. `schema/README.md` has the exceptions and the
+conventions for `model` (quantum, hybrid models, two idealised models at once).
 
 `class` is `unstated` unless the source says which notion it means, or the
 Notes justify `fully-black-box` from the proof shape: one fixed construction

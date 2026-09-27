@@ -1,26 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "MMap ⇒ iO"
+title: "MMap + Leveled FHE ⇒ iO"
 aliases: []
 id: red-mmap-to-io-gghrsw13
 kind: implication
-hypotheses: [multilinear-maps]
+hypotheses: [multilinear-maps, leveled-fully-homomorphic-encryption]
 conclusion: io
 class: unstated
 model: standard
+heuristic: true
 source:
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
 security-loss: ""
 ---
 
-# MMap ⇒ iO
+# MMap + Leveled FHE ⇒ iO
 
-[[indistinguishability-obfuscation|iO]] has a candidate construction from [[multilinear-maps|MMap]], with no security reduction from a stated assumption.
+[[indistinguishability-obfuscation|iO]] has a candidate construction from [[multilinear-maps|MMap]] and [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]], with no security reduction from a stated assumption.
 
 ## Statement
 
-The first candidate [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits: an NC$^1$ obfuscator from candidate [[multilinear-maps|multilinear maps]] (graded encodings), bootstrapped to all circuits with [[homomorphic-encryption#Leveled fully homomorphic encryption|leveled fully homomorphic encryption]]. No reduction from a standard-model multilinear-map assumption is given; the NC$^1$ obfuscator is argued secure only in an idealized generic model of encoded matrices — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
+The first candidate [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits: an NC$^1$ obfuscator from candidate [[multilinear-maps|multilinear maps]] (graded encodings), bootstrapped to all circuits with [[homomorphic-encryption#Leveled fully homomorphic encryption|leveled fully homomorphic encryption]]. No reduction from a standard-model multilinear-map assumption is given — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
 
 ## Sketch
 
@@ -30,4 +31,7 @@ The NC$^1$ obfuscator turns a circuit into a matrix branching program via Barrin
 
 `class: unstated`: the construction is a candidate with no security reduction, so there is no reduction to classify.
 
+`heuristic: true`: a candidate construction, not a theorem; derivations over `relations.json` skip the edge.
+
 - A simplified branching-program obfuscator for NC$^1$ is virtual-black-box secure, hence iO-secure, in a generic multilinear-map model — [[BGKPS14 - Protecting Obfuscation against Algebraic Attacks|BGKPS14]].
+- The underlying multilinear-map candidates have since been attacked: CLT13 — [[CHLRS15 - Cryptanalysis of the Multilinear Map over the Integers|CHLRS15]]; GGH13 as used in obfuscation — [[MSZ16 - Annihilation Attacks for Multilinear Maps Cryptanalysis of Indistinguishability Obfuscation over GGH13|MSZ16]].

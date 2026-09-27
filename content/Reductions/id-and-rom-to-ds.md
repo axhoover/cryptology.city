@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "ID + ROM ⇒ DS"
+title: "ID ⇒ DS"
 aliases: []
 id: red-id-and-rom-to-ds
 kind: implication
-hypotheses: [identification-scheme, rom]
+hypotheses: [identification-scheme]
 conclusion: ds
 class: fully-black-box
 model: rom
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# ID + ROM ⇒ DS
+# ID ⇒ DS
 
-[[identification-scheme|ID]] together with [[random-oracle-model|ROM]] implies [[digital-signature|DS]].
+[[identification-scheme|ID]] implies [[digital-signature|DS]] in the [[random-oracle-model|random-oracle model]].
 
 ## Statement
 

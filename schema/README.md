@@ -55,6 +55,41 @@ Two further rules follow, and the lint enforces both:
 - **Composite chains are split.** "OWF → PRG (HILL99) → PRF via GGM (GGM86)" is
   two reduction pages, each with its own source — never one OWF ⇒ PRF page.
 
+### What a hypothesis is: `hypotheses` and `via`
+
+`hypotheses` lists only what the theorem assumes: assumptions, primitives,
+complexity classes, and the algebraic setting a construction is instantiated in
+(a bilinear group). A transform or proof technique the construction applies —
+Fiat–Shamir, arithmetization — goes in `via`, the field for the lemma or
+technique a proof uses, as a wikilink:
+
+```yaml
+# Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)
+hypotheses: [schnorr-identification-protocol]
+model: rom
+via: ["[[fiat-shamir-heuristic|Fiat–Shamir]]"]
+```
+
+Listed as a hypothesis, the transform makes a one-assumption result read as a
+two-assumption conjunction. A technique node stays a hypothesis in two cases:
+when it is the only hypothesis, since a hyperedge needs one; and on a barrier,
+where the named transform is what the barrier rules out — dropping
+`fiat-shamir` from `no-fiat-shamir-and-hash-function-to-ds-gk03` would leave
+the false "no reduction from hash functions to DS". Idealised models follow the
+same pattern on the `model` axis (§ Which model to record).
+
+### Candidates: `heuristic`
+
+`heuristic: true` marks a reduction page recording a candidate construction
+whose source gives no security reduction — GGHRSW13's iO from multilinear maps,
+HPS98's NTRU encryption. The page keeps the construction linked from both
+endpoints, but the edge is not a theorem: `relations.json` carries the flag,
+`generate-relations.mjs --derive` and `--redundant` never fire the edge, and a
+consumer deriving consequences should skip it. There is no reduction to
+classify, so such a page records `class: unstated`, and its Notes carry a
+`` `heuristic: true`: `` line. The key is optional (absent means `false`); the
+lint requires a boolean and allows it only on reductions.
+
 ### Provenance: `source`
 
 `source` lists every paper whose theorem the page's Statement asserts, or the
@@ -175,6 +210,35 @@ no protection.
 Idealised computation models are the **`model`** axis, never `class`. A
 generic-group lower bound is `class: free, model: generic-group` — it rules out
 every algorithm in that model, which is the `free` class scoped by the model.
+
+### Which model to record
+
+`model` is the model in which the cited theorem is proved.
+
+- **Model only, not also a hypothesis.** An idealised model the proof relies
+  on is recorded in `model` and named in the Statement, never also listed in
+  `hypotheses`: DLOG ⇒ Schnorr signatures is `hypotheses: [dlog], model: rom`,
+  not `[dlog, rom]`, so one theorem always yields one hyperedge. Two
+  exceptions keep the model's node as a hypothesis. When it is the only
+  hypothesis, since a hyperedge needs one, `{model} ⇒ X` reads "X holds in the
+  model": `{rom} ⇒ oblivious-interactive-hash-function`
+  (`rom-to-oihf-bh26`), `{agm} ⇒ kea` (`agm-to-kea`). On a barrier, which has
+  no `model` field, the model's node is the hypothesis.
+- **One model per edge.** `model` is single-valued. A proof using both a
+  random oracle and a trusted structured reference string takes `model: rom`,
+  with the SRS named in the Statement. A group model combined with a random
+  oracle records the group model and names the random oracle in the Statement:
+  `dlog-to-bls-signatures-fkl18` is `model: algebraic-group`. A list-valued
+  `model` would change the `relations.json` interface, so it waits until
+  multi-model edges are common.
+- **`quantum`** applies when the reduction, the construction or the adversary
+  is quantum, or when either endpoint is a quantum complexity class. The
+  classically proved containments BPP ⊆ BQP and BQP ⊆ PP are therefore
+  `model: quantum`.
+- **Hybrid models.** An ideal-functionality hybrid (a UC proof with an OT or
+  commitment functionality) counts as `standard`, even when the source
+  instantiates a functionality in the random-oracle model; the Notes record
+  the instantiation, as on `ot-extension-to-mpc-with-preprocessing-spdz-etc`.
 
 ### Which class to record
 

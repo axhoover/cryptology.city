@@ -3840,6 +3840,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
    "status": "draft",
    "page": "content/Reductions/abe-to-be.md",
@@ -3860,6 +3861,7 @@
     "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
    "status": "draft",
    "page": "content/Reductions/abe-to-fuzzy-ibe.md",
@@ -3880,6 +3882,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/abe-to-hibe.md",
@@ -3900,6 +3903,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
    "status": "draft",
    "page": "content/Reductions/abe-to-ibe.md",
@@ -3920,6 +3924,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (property restriction on the same object)",
    "status": "draft",
    "page": "content/Reductions/adaptive-robustness-to-prc.md",
@@ -3940,6 +3945,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/adversary-models-to-privacy-semi-honest.md",
@@ -3962,6 +3968,7 @@
     "[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
@@ -3982,6 +3989,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/agm-to-kea.md",
@@ -4002,6 +4010,7 @@
     "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/alternating-moduli-assumption-to-mpc-bip-18.md",
@@ -4022,6 +4031,7 @@
     "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (identity reduction)",
    "status": "draft",
    "page": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
@@ -4042,6 +4052,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/alternating-moduli-assumption-to-pseudorandom-correlation-generators-pcg.md",
@@ -4062,6 +4073,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/am-to-coam.md",
@@ -4082,6 +4094,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/anonymous-hibe-to-hibe.md",
@@ -4103,6 +4116,7 @@
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18.md",
@@ -4125,6 +4139,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/arithmetization-and-nizk-and-pcs-to-snark.md",
@@ -4146,6 +4161,7 @@
     "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/arithmetization-and-pcs-to-snark-kzg10.md",
@@ -4166,6 +4182,7 @@
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/arithmetization-to-snark-bbhr18.md",
@@ -4186,6 +4203,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/arithmetization-to-zk-snark-gro16.md",
@@ -4206,6 +4224,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
    "status": "draft",
    "page": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
@@ -4226,6 +4245,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",
@@ -4246,6 +4266,7 @@
     "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-abe-gpsw06.md",
@@ -4266,6 +4287,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/bdh-to-ac.md",
@@ -4286,6 +4308,7 @@
     "[[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-be-bgw05.md",
@@ -4306,6 +4329,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/bdh-to-ds.md",
@@ -4326,6 +4350,7 @@
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-hibe-wat09.md",
@@ -4346,6 +4371,7 @@
     "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-hve-bw07.md",
@@ -4366,6 +4392,7 @@
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries",
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-wat09.md",
@@ -4386,6 +4413,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-nizk-gro16.md",
@@ -4406,6 +4434,7 @@
     "[[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bdh-to-vrf.md",
@@ -4427,6 +4456,7 @@
     "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-kzg-kate-zaverucha-goldberg-kzg10.md",
@@ -4448,6 +4478,7 @@
     "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
@@ -4468,6 +4499,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/bilinear-pairing-to-ds.md",
@@ -4488,6 +4520,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
@@ -4508,6 +4541,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-am-gs86.md",
@@ -4528,6 +4562,7 @@
     "[[BV97 - Quantum Complexity Theory|BV97]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-bqp.md",
@@ -4548,6 +4583,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-coam-gs86.md",
@@ -4568,6 +4604,7 @@
     "[[Adl78 - Two theorems on random polynomial time|Adl78]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-p-poly.md",
@@ -4588,6 +4625,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-pp.md",
@@ -4608,6 +4646,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bpp-to-pspace.md",
@@ -4628,6 +4667,7 @@
     "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bqp-to-dlog-shor97.md",
@@ -4648,6 +4688,7 @@
     "[[ADH97 - Quantum Computability|ADH97]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/bqp-to-pp.md",
@@ -4668,6 +4709,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight — the adversary and its advantage are unchanged",
    "status": "draft",
    "page": "content/Reductions/cca-security-to-cca1-security.md",
@@ -4688,6 +4730,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the adversary and its advantage are unchanged",
    "status": "draft",
    "page": "content/Reductions/cca1-security-to-cpa-security.md",
@@ -4708,6 +4751,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/cdh-to-bdh.md",
@@ -4728,6 +4772,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/cdh-to-ddh.md",
@@ -4748,6 +4793,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one DLOG call, advantage-preserving",
    "status": "draft",
    "page": "content/Reductions/cdh-to-dlog.md",
@@ -4769,6 +4815,7 @@
     "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
@@ -4790,6 +4837,7 @@
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
@@ -4810,6 +4858,7 @@
     "[[BLS01 - Short Signatures from the Weil Pairing|BLS01]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "factor $e(q_S+1)$ over the co-CDH advantage: a forger with advantage $\\varepsilon$ making $q_S$ signing queries yields a co-CDH solver with advantage $\\varepsilon/(e(q_S+1))$ and $O(q_H + q_S)$ extra group operations",
    "status": "draft",
    "page": "content/Reductions/co-cdh-to-ds.md",
@@ -4831,6 +4880,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
@@ -4851,6 +4901,7 @@
     "[[GMW87 - How to play ANY mental game|GMW87]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/com-to-mpc-gmw87.md",
@@ -4871,6 +4922,7 @@
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/com-to-ot-kil88.md",
@@ -4891,6 +4943,7 @@
     "[[GMW87 - How to play ANY mental game|GMW87]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/com-to-two-party-computation-2pc-gmw87.md",
@@ -4911,6 +4964,7 @@
     "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/conp-to-am-gs86.md",
@@ -4931,6 +4985,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/conp-to-coam.md",
@@ -4951,6 +5006,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/conp-to-pspace.md",
@@ -4972,6 +5028,7 @@
     "[[MRS88 - The Notion of Security for Probabilistic Cryptosystems|MRS88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/cpa-security-to-cpa-security.md",
@@ -4992,6 +5049,7 @@
     "[[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
@@ -5012,6 +5070,7 @@
     "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/czk-to-ip-bgg-90.md",
@@ -5032,6 +5091,7 @@
     "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/d-th-composite-residuosity-to-he.md",
@@ -5053,6 +5113,7 @@
     "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dcr-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
@@ -5073,6 +5134,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dcr-to-com.md",
@@ -5093,6 +5155,7 @@
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one call to the CPA adversary",
    "status": "draft",
    "page": "content/Reductions/dcr-to-he-pai99.md",
@@ -5113,6 +5176,7 @@
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR.",
    "status": "draft",
    "page": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
@@ -5133,6 +5197,7 @@
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one call to the CPA adversary",
    "status": "draft",
    "page": "content/Reductions/dcr-to-pke-pai99.md",
@@ -5156,6 +5221,7 @@
     "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
@@ -5177,6 +5243,7 @@
     "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
@@ -5197,6 +5264,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight up to an additive $1/p$: one CDH call",
    "status": "draft",
    "page": "content/Reductions/ddh-to-cdh.md",
@@ -5217,6 +5285,7 @@
     "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one call to the binding adversary yields $\\log_g h$",
    "status": "draft",
    "page": "content/Reductions/ddh-to-com.md",
@@ -5237,6 +5306,7 @@
     "[[DH76 - New Directions in Cryptography|DH76]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the DDH instance is forwarded unchanged",
    "status": "draft",
    "page": "content/Reductions/ddh-to-ke-dh76.md",
@@ -5257,6 +5327,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight for one honest pair: the DDH instance is forwarded unchanged",
    "status": "draft",
    "page": "content/Reductions/ddh-to-non-interactive-key-exchange-nike.md",
@@ -5277,6 +5348,7 @@
     "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one oracle call, advantage-preserving",
    "status": "draft",
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
@@ -5297,6 +5369,7 @@
     "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit, the per-level multi-sample DDH being exact by random self-reducibility",
    "status": "draft",
    "page": "content/Reductions/ddh-to-prf-nr97.md",
@@ -5317,6 +5390,7 @@
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ddh-to-tdh-dgi-19.md",
@@ -5337,6 +5411,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/decision-lwe-to-search-lwe.md",
@@ -5357,6 +5432,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/depir-to-cpir.md",
@@ -5377,6 +5453,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
@@ -5398,6 +5475,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/dkg-and-he-to-tpke.md",
@@ -5418,6 +5496,7 @@
     "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/dlin-to-ippe-ksw08.md",
@@ -5429,8 +5508,7 @@
    "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",
    "kind": "implication",
    "hypotheses": [
-    "dlog",
-    "rom"
+    "dlog"
    ],
    "conclusion": "schnorr-signature",
    "class": "fully-black-box",
@@ -5441,12 +5519,13 @@
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
    "status": "draft",
    "page": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
    "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
    "graphSlug": "Reductions/dlog-and-rom-to-schnorr-signatures-sch91",
-   "title": "DLOG + ROM ⇒ Schnorr signatures"
+   "title": "DLOG ⇒ Schnorr signatures"
   },
   {
    "id": "red-dlog-to-bls-signatures-fkl18",
@@ -5461,6 +5540,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight",
    "status": "draft",
    "page": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
@@ -5481,6 +5561,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: same advantage and essentially the same running time (FKL18)",
    "status": "draft",
    "page": "content/Reductions/dlog-to-cdh-fkl18.md",
@@ -5501,6 +5582,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dlog-to-conp.md",
@@ -5521,6 +5603,7 @@
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/dlog-to-ddh-fkl18.md",
@@ -5543,6 +5626,7 @@
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
    "status": "draft",
    "page": "content/Reductions/dlog-to-ds-sch91.md",
@@ -5563,6 +5647,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dlog-to-np.md",
@@ -5583,6 +5668,7 @@
     "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dlog-to-pcs.md",
@@ -5603,6 +5689,7 @@
     "[[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
@@ -5623,6 +5710,7 @@
     "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02.",
    "status": "draft",
    "page": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
@@ -5643,6 +5731,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/dlog-to-tdp.md",
@@ -5663,6 +5752,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dlog-to-tfnp.md",
@@ -5683,6 +5773,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/dlog-to-zkp.md",
@@ -5703,6 +5794,7 @@
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
@@ -5723,6 +5815,7 @@
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/dpf-to-it-pir-gi14.md",
@@ -5743,6 +5836,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "factor $t$ over the DPF key-indistinguishability advantage (hybrid over the $t$ instances)",
    "status": "draft",
    "page": "content/Reductions/dpf-to-multi-point-functions.md",
@@ -5763,6 +5857,7 @@
     "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ds-to-hash-function.md",
@@ -5783,6 +5878,7 @@
     "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
@@ -5803,6 +5899,7 @@
     "[[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-abe.md",
@@ -5823,6 +5920,7 @@
     "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-abe-wee22.md",
@@ -5843,6 +5941,7 @@
     "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-be-wee22.md",
@@ -5863,6 +5962,7 @@
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fac-to-dcr-pai99.md",
@@ -5883,6 +5983,7 @@
     "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fac-to-ds-gmr88.md",
@@ -5903,6 +6004,7 @@
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fac-to-qr-gm84.md",
@@ -5923,6 +6025,7 @@
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fac-to-rsa-rsa78.md",
@@ -5943,6 +6046,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fac-to-tfnp.md",
@@ -5963,6 +6067,7 @@
     "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
@@ -5983,6 +6088,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/falsifiable-assumption-to-snark-gro16.md",
@@ -6004,6 +6110,7 @@
     "[[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "factor $2^n$ for $n$-bit inputs; requires sub-exponentially secure FE",
    "status": "draft",
    "page": "content/Reductions/fe-to-io.md",
@@ -6015,7 +6122,6 @@
    "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "kind": "implication",
    "hypotheses": [
-    "fiat-shamir",
     "honest-verifier-zero-knowledge"
    ],
    "conclusion": "nizk",
@@ -6024,13 +6130,16 @@
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
    "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "graphSlug": "Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
-   "title": "Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK"
+   "title": "HVZK ⇒ NIZK (Fiat–Shamir)"
   },
   {
    "id": "red-fiat-shamir-and-schnorr-signatures-to-ds",
@@ -6047,6 +6156,7 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-ds.md",
@@ -6058,7 +6168,6 @@
    "id": "red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
    "kind": "implication",
    "hypotheses": [
-    "fiat-shamir",
     "schnorr-identification-protocol"
    ],
    "conclusion": "schnorr-signature",
@@ -6068,13 +6177,16 @@
     "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
    "securityLoss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
    "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "title": "Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures"
+   "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
   },
   {
    "id": "red-fri-fast-reed-solomon-iop-of-proximity-to-snark",
@@ -6089,6 +6201,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/fri-fast-reed-solomon-iop-of-proximity-to-snark.md",
@@ -6109,6 +6222,7 @@
     "[[BGI15 - Function Secret Sharing|BGI15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
@@ -6129,6 +6243,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight (the IBE adversary is forwarded unchanged)",
    "status": "draft",
    "page": "content/Reductions/fuzzy-ibe-to-ibe.md",
@@ -6149,6 +6264,7 @@
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-lwe-reg05.md",
@@ -6169,6 +6285,7 @@
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-sis-ajt96.md",
@@ -6190,6 +6307,7 @@
     "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
@@ -6210,6 +6328,7 @@
     "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ggm-to-abe-bsw07.md",
@@ -6231,6 +6350,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/hash-based-signatures-and-hash-based-signatures-to-ds.md",
@@ -6251,6 +6371,7 @@
     "[[Mer89 - A Certified Digital Signature|Mer89]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-based-signatures-to-ds-mer89.md",
@@ -6272,6 +6393,7 @@
     "[[Mer89 - A Certified Digital Signature|Mer89]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
@@ -6293,6 +6415,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
@@ -6314,6 +6437,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
@@ -6336,6 +6460,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
@@ -6357,6 +6482,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/hash-function-and-io-to-lossy-trapdoor-functions-sw14.md",
@@ -6378,6 +6504,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
@@ -6399,6 +6526,7 @@
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
@@ -6420,6 +6548,7 @@
     "[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-and-prf-to-symmetric-cp-abe-ls26.md",
@@ -6440,6 +6569,7 @@
     "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-czk.md",
@@ -6460,6 +6590,7 @@
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-dpf-gi14.md",
@@ -6480,6 +6611,7 @@
     "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-ds.md",
@@ -6500,6 +6632,7 @@
     "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
@@ -6520,6 +6653,7 @@
     "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
@@ -6541,6 +6675,7 @@
     "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-mac.md",
@@ -6561,6 +6696,7 @@
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-pcs-bbhr18.md",
@@ -6582,6 +6718,7 @@
     "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-prf.md",
@@ -6602,6 +6739,7 @@
     "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-prg-hill99.md",
@@ -6622,6 +6760,7 @@
     "[[BM26 - Secret-Key PIR from One-Way Functions|BM26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-secret-key-pir-sk-pir-bm26.md",
@@ -6643,6 +6782,7 @@
     "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-ske.md",
@@ -6663,6 +6803,7 @@
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-snark-bbhr18.md",
@@ -6683,6 +6824,7 @@
     "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hash-function-to-zkp-gmw91.md",
@@ -6704,6 +6846,7 @@
     "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
@@ -6724,6 +6867,7 @@
     "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/he-to-re-bl13.md",
@@ -6744,6 +6888,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight (advantage-preserving)",
    "status": "draft",
    "page": "content/Reductions/hibe-to-ibe.md",
@@ -6764,6 +6909,7 @@
     "[[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hiding-to-cpir.md",
@@ -6784,6 +6930,7 @@
     "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/higher-residuosity-to-pke.md",
@@ -6804,6 +6951,7 @@
     "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
@@ -6824,6 +6972,7 @@
     "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/hve-to-subset-and-range-queries.md",
@@ -6844,6 +6993,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
    "status": "draft",
    "page": "content/Reductions/ibe-to-pke.md",
@@ -6855,8 +7005,7 @@
    "id": "red-id-and-rom-to-ds",
    "kind": "implication",
    "hypotheses": [
-    "identification-scheme",
-    "rom"
+    "identification-scheme"
    ],
    "conclusion": "ds",
    "class": "fully-black-box",
@@ -6865,12 +7014,13 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/id-and-rom-to-ds.md",
    "slug": "id-and-rom-to-ds",
    "graphSlug": "Reductions/id-and-rom-to-ds",
-   "title": "ID + ROM ⇒ DS"
+   "title": "ID ⇒ DS"
   },
   {
    "id": "red-ideal-prc-to-prc",
@@ -6885,6 +7035,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/ideal-prc-to-prc.md",
@@ -6905,6 +7056,7 @@
     "[[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
@@ -6925,6 +7077,7 @@
     "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
@@ -6945,6 +7098,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
    "status": "draft",
    "page": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
@@ -6965,6 +7119,7 @@
     "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
@@ -6985,6 +7140,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the two advantages are equal",
    "status": "draft",
    "page": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
@@ -7005,6 +7161,7 @@
     "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security",
    "status": "draft",
    "page": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
@@ -7026,6 +7183,7 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/interactive-protocol-and-rom-to-nizk.md",
@@ -7047,6 +7205,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/interactive-protocol-and-rom-to-snark.md",
@@ -7067,6 +7226,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the PRF advantage equals the iPRF advantage of the wrapped distinguisher",
    "status": "draft",
    "page": "content/Reductions/invertible-prfs-to-prf.md",
@@ -7088,6 +7248,7 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/ip-and-rom-to-snark-fs86.md",
@@ -7108,6 +7269,7 @@
     "[[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ip-to-am-gs86.md",
@@ -7128,6 +7290,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ip-to-pspace-ccg-94.md",
@@ -7148,6 +7311,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ip-to-qip.md",
@@ -7168,6 +7332,7 @@
     "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ip-to-szk-bgg-90.md",
@@ -7188,6 +7353,7 @@
     "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
@@ -7208,6 +7374,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight (advantage preserved exactly)",
    "status": "draft",
    "page": "content/Reductions/ippe-to-payload-only-hiding.md",
@@ -7228,6 +7395,7 @@
     "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-ds-gpv08.md",
@@ -7248,6 +7416,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
@@ -7268,6 +7437,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight (distinguishing advantage is $0$)",
    "status": "draft",
    "page": "content/Reductions/it-pir-to-computational-multi-server-pir.md",
@@ -7288,6 +7458,7 @@
     "[[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/k-linear-assumption-to-abe-rw13.md",
@@ -7308,6 +7479,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/k-out-of-n-ot-to-cpir.md",
@@ -7328,6 +7500,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "factor $n-1$ over the two-party KE advantage (one hybrid per session)",
    "status": "draft",
    "page": "content/Reductions/ke-to-multi-party-key-exchange.md",
@@ -7348,6 +7521,7 @@
     "[[DH76 - New Directions in Cryptography|DH76]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/ke-to-pke-dh76.md",
@@ -7368,6 +7542,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/kea-to-snark-gro16.md",
@@ -7389,6 +7564,7 @@
     "[[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "additive: the hybrid's CCA advantage is at most the KEM's CCA advantage plus the DEM's one-time CCA advantage, plus the KEM's bad-key-pair probability (CS03, Theorem 5)",
    "status": "draft",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
@@ -7409,6 +7585,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the eavesdropper's distinguishing advantage equals the KEM IND-CPA advantage",
    "status": "draft",
    "page": "content/Reductions/kem-to-ke.md",
@@ -7430,6 +7607,7 @@
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/kzg-kate-zaverucha-goldberg-to-snark-kzg10.md",
@@ -7450,6 +7628,7 @@
     "[[KW93 - On Span Programs|KW93]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
@@ -7470,6 +7649,7 @@
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one injective/lossy index-indistinguishability hop plus a statistical leftover-hash term",
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
@@ -7490,6 +7670,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/lossy-trapdoor-functions-to-tdp.md",
@@ -7512,6 +7693,7 @@
     "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
@@ -7532,6 +7714,7 @@
     "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lpn-to-pke.md",
@@ -7552,6 +7735,7 @@
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lpn-to-secret-key-pir-sk-pir-cimr25.md",
@@ -7572,6 +7756,7 @@
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lsn-to-lpn-cimr25.md",
@@ -7592,6 +7777,7 @@
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lsn-to-secret-key-pir-sk-pir-cimr25.md",
@@ -7613,6 +7799,7 @@
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-and-sis-to-ds-ls15.md",
@@ -7633,6 +7820,7 @@
     "[[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
@@ -7653,6 +7841,7 @@
     "[[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-depir-lmw23.md",
@@ -7673,6 +7862,7 @@
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-ind-cpa-kem.md",
@@ -7693,6 +7883,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/lwe-to-lattice-based-signatures.md",
@@ -7713,6 +7904,7 @@
     "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
@@ -7733,6 +7925,7 @@
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-pke-reg05.md",
@@ -7753,6 +7946,7 @@
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-prc-cg24.md",
@@ -7773,6 +7967,7 @@
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
@@ -7793,6 +7988,7 @@
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/lwe-to-zero-bit-prc-cg24.md",
@@ -7813,6 +8009,7 @@
     "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ma-to-am.md",
@@ -7833,6 +8030,7 @@
     "[[Ver92 - On the Power of PP|Ver92]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ma-to-pp.md",
@@ -7853,6 +8051,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ma-to-qcma.md",
@@ -7874,6 +8073,7 @@
     "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
@@ -7885,7 +8085,8 @@
    "id": "red-mmap-to-io-gghrsw13",
    "kind": "implication",
    "hypotheses": [
-    "multilinear-maps"
+    "multilinear-maps",
+    "leveled-fully-homomorphic-encryption"
    ],
    "conclusion": "io",
    "class": "unstated",
@@ -7894,12 +8095,13 @@
     "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
    ],
    "via": [],
+   "heuristic": true,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/mmap-to-io-gghrsw13.md",
    "slug": "mmap-to-io-gghrsw13",
    "graphSlug": "Reductions/mmap-to-io-gghrsw13",
-   "title": "MMap ⇒ iO"
+   "title": "MMap + Leveled FHE ⇒ iO"
   },
   {
    "id": "red-module-lwe-and-module-sis-to-ds",
@@ -7915,6 +8117,7 @@
     "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Non-tight in the classical ROM: the reduction from Module-SIS goes through the forking lemma. The QROM bound is tight only under the additional SelfTargetMSIS assumption (KLS18).",
    "status": "draft",
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
@@ -7935,6 +8138,7 @@
     "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-kem.md",
@@ -7955,6 +8159,7 @@
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-lwe-ls15.md",
@@ -7975,6 +8180,7 @@
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
@@ -7995,6 +8201,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/module-sis-to-ds.md",
@@ -8015,6 +8222,7 @@
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-lwe-ls15.md",
@@ -8035,6 +8243,7 @@
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-sis-ls15.md",
@@ -8055,6 +8264,7 @@
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/mpc-to-ot-bh26.md",
@@ -8075,6 +8285,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/nizk-to-com.md",
@@ -8095,6 +8306,7 @@
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/noise-level-to-depir-cimr25.md",
@@ -8115,6 +8327,7 @@
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/noise-level-to-depir-cimr25-2.md",
@@ -8135,6 +8348,7 @@
     "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-hash-function-blvw19.md",
@@ -8155,6 +8369,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: advantage-preserving, one oracle call",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-noise-level.md",
@@ -8175,6 +8390,7 @@
     "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-pke-ale03.md",
@@ -8195,6 +8411,7 @@
     "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
@@ -8216,6 +8433,7 @@
     "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/noisy-k-lin-and-pc-to-pke-ghjs25.md",
@@ -8236,6 +8454,7 @@
     "[[KSV02 - Classical and Quantum Computation|KSV02]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/notable-problems-to-qma.md",
@@ -8256,6 +8475,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/np-to-am-gs86.md",
@@ -8276,6 +8496,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/np-to-conp.md",
@@ -8296,6 +8517,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/np-to-ma.md",
@@ -8316,6 +8538,7 @@
     "[[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/np-to-pp.md",
@@ -8336,6 +8559,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/np-to-pspace.md",
@@ -8356,6 +8580,7 @@
     "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ntru-to-ds.md",
@@ -8376,6 +8601,7 @@
     "[[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ntru-to-kem.md",
@@ -8396,6 +8622,7 @@
     "[[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]"
    ],
    "via": [],
+   "heuristic": true,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ntru-to-pke-hps98.md",
@@ -8416,6 +8643,7 @@
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/oihf-to-ot-bh26.md",
@@ -8436,6 +8664,7 @@
     "[[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
@@ -8456,6 +8685,7 @@
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ot-to-com.md",
@@ -8477,6 +8707,7 @@
     "[[GMW87 - How to play ANY mental game|GMW87]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
@@ -8498,6 +8729,7 @@
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/owf-to-prg-hill99.md",
@@ -8518,6 +8750,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/owp-to-hash-function.md",
@@ -8538,6 +8771,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/owsg-to-qm.md",
@@ -8558,6 +8792,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/owsg-to-unclonable-encryption.md",
@@ -8578,6 +8813,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-bpp.md",
@@ -8598,6 +8834,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-conp.md",
@@ -8618,6 +8855,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-np.md",
@@ -8638,6 +8876,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-p-poly.md",
@@ -8658,6 +8897,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-rp.md",
@@ -8678,6 +8918,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/p-to-zpp.md",
@@ -8699,6 +8940,7 @@
     "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
@@ -8720,6 +8962,7 @@
     "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25.md",
@@ -8740,6 +8983,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/pcs-to-nizk.md",
@@ -8761,6 +9005,7 @@
     "[[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pcs-to-snark.md",
@@ -8781,6 +9026,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: a position-binding adversary is forwarded unchanged as an evaluation-binding adversary",
    "status": "draft",
    "page": "content/Reductions/pcs-to-vector-commitments.md",
@@ -8801,6 +9047,7 @@
     "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
@@ -8821,6 +9068,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pke-to-com.md",
@@ -8841,6 +9089,7 @@
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pke-to-hash-function.md",
@@ -8861,6 +9110,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the eavesdropper's advantage equals the CPA advantage",
    "status": "draft",
    "page": "content/Reductions/pke-to-ke.md",
@@ -8881,6 +9131,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: advantage and decryption-query count are preserved",
    "status": "draft",
    "page": "content/Reductions/pke-to-kem.md",
@@ -8901,6 +9152,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/pke-to-ot.md",
@@ -8921,6 +9173,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pp-to-pspace.md",
@@ -8941,6 +9194,7 @@
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "CPA advantage at most twice the PRC pseudorandomness advantage (one hybrid per world)",
    "status": "draft",
    "page": "content/Reductions/prc-to-ske-cg24.md",
@@ -8961,6 +9215,7 @@
     "[[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/prf-to-invertible-prf-hppy25.md",
@@ -8981,6 +9236,7 @@
     "[[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$, where $\\calB$ makes one query per $\\Tag$ query plus one for the forgery",
    "status": "draft",
    "page": "content/Reductions/prf-to-mac.md",
@@ -9001,6 +9257,7 @@
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "a $q$-query distinguisher's advantage is at most the sum of the round PRF advantages plus $O(q^2/2^n)$ (birthday term), so the construction is meaningful only for superpolynomial $2^n$",
    "status": "draft",
    "page": "content/Reductions/prf-to-prp-lr88.md",
@@ -9021,6 +9278,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "for $q$ encryptions of at most $\\ell$ blocks each, the CPA advantage is at most twice the PRF advantage plus a counter-window collision term $O(\\ell q^2 / 2^n)$",
    "status": "draft",
    "page": "content/Reductions/prf-to-ske.md",
@@ -9041,6 +9299,7 @@
     "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/prg-in-nc1-to-io-jls21.md",
@@ -9061,6 +9320,7 @@
     "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "hiding: at most twice the PRG advantage; binding: statistical, failing with probability at most $2^{-\\secpar}$ over the receiver's first message",
    "status": "draft",
    "page": "content/Reductions/prg-to-com-naor91.md",
@@ -9081,6 +9341,7 @@
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/prg-to-dpf-gi14.md",
@@ -9101,6 +9362,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/prg-to-hash-function.md",
@@ -9121,6 +9383,7 @@
     "[[GGM86 - How to construct random functions|GGM86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/prg-to-prf-ggm86.md",
@@ -9141,6 +9404,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/prg-to-ske.md",
@@ -9163,6 +9427,7 @@
    "via": [
     "[[switching-lemma|Switching Lemma]]"
    ],
+   "heuristic": false,
    "securityLoss": "$O(q^2/|\\calD|)$ for $q$ queries, per the switching lemma",
    "status": "draft",
    "page": "content/Reductions/prp-to-invertible-prf.md",
@@ -9183,6 +9448,7 @@
     "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)",
    "status": "draft",
    "page": "content/Reductions/prp-to-prf.md",
@@ -9203,6 +9469,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/pspace-to-exp.md",
@@ -9223,6 +9490,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/qcma-to-pp.md",
@@ -9243,6 +9511,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qcma-to-qma.md",
@@ -9264,6 +9533,7 @@
     "[[Sha90 - IP = PSPACE|Sha90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qip-to-ip.md",
@@ -9285,6 +9555,7 @@
     "[[Sha90 - IP = PSPACE|Sha90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qip-to-pspace.md",
@@ -9305,6 +9576,7 @@
     "[[MW05 - Quantum Arthur-Merlin games|MW05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qma-to-pp.md",
@@ -9325,6 +9597,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qr-to-com.md",
@@ -9345,6 +9618,7 @@
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qr-to-he-gm84.md",
@@ -9365,6 +9639,7 @@
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qr-to-pke-gm84.md",
@@ -9385,6 +9660,7 @@
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qr-to-tdh-dgi-19.md",
@@ -9405,6 +9681,7 @@
     "[[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/qr-to-zkp-gmr85.md",
@@ -9425,6 +9702,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/qszk-to-qip.md",
@@ -9445,6 +9723,7 @@
     "[[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rabin-ot-to-ot.md",
@@ -9465,6 +9744,7 @@
     "[[Bea95 - Precomputing Oblivious Transfer|Bea95]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none (perfect security)",
    "status": "draft",
    "page": "content/Reductions/random-ot-to-ot.md",
@@ -9485,6 +9765,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/ring-lpn-to-mac.md",
@@ -9505,6 +9786,7 @@
     "[[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
@@ -9525,6 +9807,7 @@
     "[[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ring-lwe-to-ntru-ss11.md",
@@ -9546,6 +9829,7 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Quadratic in the forger's advantage and linear in its random-oracle query count: a forger with advantage $\\varepsilon$ and $q$ oracle queries yields a witness with probability about $\\varepsilon^2/q$ (forking lemma) — PS96.",
    "status": "draft",
    "page": "content/Reductions/rom-and-zkp-to-ds-fs86.md",
@@ -9567,6 +9851,7 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rom-and-zkp-to-nizk-fs86.md",
@@ -9587,6 +9872,7 @@
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rom-to-oihf-bh26.md",
@@ -9607,6 +9893,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rp-to-bpp.md",
@@ -9627,6 +9914,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rp-to-np.md",
@@ -9647,6 +9935,7 @@
     "[[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rsa-to-fac-dlo24.md",
@@ -9667,6 +9956,7 @@
     "[[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-security.md",
@@ -9687,6 +9977,7 @@
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rsa-to-partially-homomorphic-encryption-phe-rsa78.md",
@@ -9707,6 +9998,7 @@
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rsa-to-pke-rsa78.md",
@@ -9727,6 +10019,7 @@
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/rsa-to-tdp-rsa78.md",
@@ -9747,6 +10040,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/schnorr-signatures-to-schnorr-signatures.md",
@@ -9767,6 +10061,7 @@
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
@@ -9788,6 +10083,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/secret-key-pir-sk-pir-and-ske-to-depir.md",
@@ -9808,6 +10104,7 @@
     "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/secret-key-pir-sk-pir-to-depir-bipw17.md",
@@ -9828,6 +10125,7 @@
     "[[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sidh-to-ke-jdf11.md",
@@ -9848,6 +10146,7 @@
     "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sis-to-ds.md",
@@ -9868,6 +10167,7 @@
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "Tight: one call to the collision finder, $\\Adv^{\\mathrm{cr}} \\le \\Adv^{\\mathrm{sis}}$.",
    "status": "draft",
    "page": "content/Reductions/sis-to-hash-function-ajt96.md",
@@ -9888,6 +10188,7 @@
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sivp-to-lwe-reg05.md",
@@ -9908,6 +10209,7 @@
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sivp-to-sis-ajt96.md",
@@ -9928,6 +10230,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/snark-to-hash-function.md",
@@ -9948,6 +10251,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/snark-to-nizk.md",
@@ -9968,6 +10272,7 @@
     "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/snark-to-recursive-snarks.md",
@@ -9988,6 +10293,7 @@
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
@@ -10008,6 +10314,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-lpn.md",
@@ -10028,6 +10335,7 @@
     "[[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
@@ -10048,6 +10356,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "None: construction and reduction are the identity.",
    "status": "draft",
    "page": "content/Reductions/spir-to-it-pir.md",
@@ -10068,6 +10377,7 @@
     "[[CGKS98 - Private information retrieval|CGKS98]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/ss-to-it-pir-cgks98.md",
@@ -10088,6 +10398,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "additive $q^2/2^{n+1}$ for $q$ oracle queries (collisions among sampled inputs)",
    "status": "draft",
    "page": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
@@ -10108,6 +10419,7 @@
     "[[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-com.md",
@@ -10128,6 +10440,7 @@
     "[[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-ds.md",
@@ -10148,6 +10461,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: one oracle call, advantage preserved",
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-rsa.md",
@@ -10168,6 +10482,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "tight: the same adversary has the same advantage in both games",
    "status": "draft",
    "page": "content/Reductions/strong-security-to-prp.md",
@@ -10188,6 +10503,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/subclasses-to-hash-function.md",
@@ -10208,6 +10524,7 @@
     "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
@@ -10228,6 +10545,7 @@
     "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
@@ -10248,6 +10566,7 @@
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-prc-cg24.md",
@@ -10268,6 +10587,7 @@
     "[[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/succinct-lwe-to-abe-wee25.md",
@@ -10288,6 +10608,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/succinct-lwe-to-evasive-lwe.md",
@@ -10308,6 +10629,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "advantage-preserving up to the statistical distance between $\\mathrm{TrapGen}(1^n,1^m,q)$'s $\\mathbf{B}$ and uniform",
    "status": "draft",
    "page": "content/Reductions/succinct-lwe-to-lwe.md",
@@ -10328,6 +10650,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-bdh.md",
@@ -10348,6 +10671,7 @@
     "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
@@ -10368,6 +10692,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
@@ -10388,6 +10713,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
@@ -10408,6 +10734,7 @@
     "[[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/szk-to-am.md",
@@ -10428,6 +10755,7 @@
     "[[For87 - The Complexity of Perfect Zero-Knowledge|For87]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/szk-to-coam.md",
@@ -10448,6 +10776,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/szk-to-czk.md",
@@ -10468,6 +10797,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/szk-to-ip.md",
@@ -10489,6 +10819,7 @@
     "[[Wat06 - Zero-knowledge against quantum attacks|Wat06]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/szk-to-qszk.md",
@@ -10509,6 +10840,7 @@
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/tdh-to-cpir-amr25.md",
@@ -10529,6 +10861,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "none: the reduction preserves the inverter's advantage",
    "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
@@ -10549,6 +10882,7 @@
     "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/tdp-to-nizk-bfm88.md",
@@ -10569,6 +10903,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/tdp-to-ot.md",
@@ -10589,6 +10924,7 @@
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/tdp-to-pke.md",
@@ -10609,6 +10945,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "stub",
    "page": "content/Reductions/trapdoor-pseudorandom-generators-to-prg.md",
@@ -10629,6 +10966,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/unkeyed-depir-to-depir.md",
@@ -10649,6 +10987,7 @@
     "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/verifiable-secret-sharing-vss-to-mpc-bgw88.md",
@@ -10669,6 +11008,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-trapdoor-pseudorandom-generators.md",
@@ -10689,6 +11029,7 @@
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/zero-bit-prc-to-watermarking-cg24.md",
@@ -10709,6 +11050,7 @@
     "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/zkp-to-hash-function.md",
@@ -10730,6 +11072,7 @@
     "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/zkp-to-nizk-fs86.md",
@@ -10750,6 +11093,7 @@
     "folklore"
    ],
    "via": [],
+   "heuristic": false,
    "securityLoss": "",
    "status": "draft",
    "page": "content/Reductions/zpp-to-rp.md",

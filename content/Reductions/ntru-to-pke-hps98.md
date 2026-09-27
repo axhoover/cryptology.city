@@ -9,6 +9,7 @@ hypotheses: [ntru]
 conclusion: pke
 class: unstated
 model: standard
+heuristic: true
 source:
   - "[[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]"
 security-loss: ""
@@ -29,5 +30,7 @@ Decryption computes $f \cdot c = p \cdot r \cdot g + f \cdot m \bmod q$, which f
 ## Notes
 
 `class: unstated`: HPS98 give no security reduction, so no class applies.
+
+`heuristic: true`: a candidate construction, not a theorem; derivations over `relations.json` skip the edge.
 
 - With discrete-Gaussian secret keys the public key is statistically close to uniform and the modified NTRUEncrypt is IND-CPA under [[learning-with-errors#ring-lwe|Ring LWE]] — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]

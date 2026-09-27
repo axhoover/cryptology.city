@@ -27,14 +27,12 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 9e7a76d92e0c -->
+<!-- BEGIN GENERATED participates-in 90c058f4c5af -->
 
 ## Participates in
 
 **Builds on Random Oracle Model**
 
-- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG + ROM ⇒ Schnorr signatures]]
-- [[id-and-rom-to-ds|ID + ROM ⇒ DS]]
 - [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
 - [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
 - [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]

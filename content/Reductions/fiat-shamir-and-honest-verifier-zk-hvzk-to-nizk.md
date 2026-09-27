@@ -1,22 +1,24 @@
 ---
 type: reduction
 status: draft
-title: "Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK"
+title: "HVZK ⇒ NIZK (Fiat–Shamir)"
 aliases: []
 id: red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk
 kind: implication
-hypotheses: [fiat-shamir, honest-verifier-zero-knowledge]
+hypotheses: [honest-verifier-zero-knowledge]
 conclusion: nizk
 class: unstated
 model: rom
 source:
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: ""
 ---
 
-# Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK
+# HVZK ⇒ NIZK (Fiat–Shamir)
 
-[[fiat-shamir-heuristic|Fiat-Shamir]] applied to a constant-round public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier ZK (HVZK)]] proof with negligible soundness error implies [[non-interactive-zero-knowledge|NIZK]] in the random-oracle model.
+A constant-round public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier ZK (HVZK)]] proof with negligible soundness error implies [[non-interactive-zero-knowledge|NIZK]] in the random-oracle model, via the [[fiat-shamir-heuristic|Fiat–Shamir]] transform.
 
 ## Statement
 

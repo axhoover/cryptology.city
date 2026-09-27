@@ -104,13 +104,13 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 4ba0548d0db4 -->
+<!-- BEGIN GENERATED participates-in 779fe89507bf -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
-- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG + ROM ⇒ Schnorr signatures]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[dlog-to-conp|DLOG ⊆ coNP]]

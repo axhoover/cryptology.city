@@ -72,7 +72,12 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
 - **Barrier `strength`** is `conditional` iff the barrier theorem assumes an
   unproven hardness assumption, named in `conditional-on`. An oracle
   separation is `unconditional`; its oracle is `class: relativizing`.
-- Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`.
+- Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`, and
+  are not also listed in `hypotheses` (`{dlog} => schnorr-signature`,
+  `model: rom`). Transforms and techniques (Fiat–Shamir, arithmetization) go
+  in `via`. A candidate construction with no security reduction is
+  `heuristic: true`. Exceptions and the `model` conventions:
+  `schema/README.md` § What a hypothesis is, § Which model to record.
 
 A **barrier** generalizes separations: `(exists a reduction of class C from
 {A_i} to B) => Q`, where Q is `contradiction`, an object, a complexity claim

@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "DLOG + ROM ⇒ Schnorr signatures"
+title: "DLOG ⇒ Schnorr signatures"
 aliases: []
 id: red-dlog-and-rom-to-schnorr-signatures-sch91
 kind: implication
-hypotheses: [dlog, rom]
+hypotheses: [dlog]
 conclusion: schnorr-signature
 class: fully-black-box
 model: rom
@@ -16,9 +16,9 @@ source:
 security-loss: "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00."
 ---
 
-# DLOG + ROM ⇒ Schnorr signatures
+# DLOG ⇒ Schnorr signatures
 
-[[discrete-logarithm|DLOG]] together with [[random-oracle-model|ROM]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]].
+[[discrete-logarithm|DLOG]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the [[random-oracle-model|random-oracle model]].
 
 ## Statement
 

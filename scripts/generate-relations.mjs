@@ -138,6 +138,7 @@ for (const p of pages) {
       model: p.fm.model ?? "standard",
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
+      heuristic: p.fm.heuristic === true,
       securityLoss: p.fm["security-loss"] ?? "",
       status: p.fm.status,
       page: p.rel,
@@ -176,10 +177,13 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
 // both directions — because "IP subset-of PSPACE" licenses concluding PSPACE
 // from IP exactly as an implication does.
+//
+// A `heuristic` edge is a candidate construction with no security reduction,
+// not a theorem, so it never fires.
 function buildRules() {
   const rules = [];
   for (const r of reductions) {
-    if (!r.conclusion || !r.hypotheses.length) continue;
+    if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion });
     if (r.kind === "equivalence")
       rules.push({
@@ -254,7 +258,7 @@ function derivation(target, seed, provenance) {
 function redundant() {
   const out = [];
   for (const r of reductions) {
-    if (!r.conclusion || !r.hypotheses.length) continue;
+    if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
     const { derived, provenance } = closure(r.hypotheses, { exclude: r.id });
     if (derived.has(r.conclusion))
       out.push({

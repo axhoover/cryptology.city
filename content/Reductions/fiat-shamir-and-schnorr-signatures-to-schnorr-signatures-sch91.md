@@ -1,23 +1,25 @@
 ---
 type: reduction
 status: draft
-title: "Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures"
+title: "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
 aliases: []
 id: red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91
 kind: implication
-hypotheses: [fiat-shamir, schnorr-identification-protocol]
+hypotheses: [schnorr-identification-protocol]
 conclusion: schnorr-signature
 class: unstated
 model: rom
 source:
   - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96."
 ---
 
-# Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures
+# Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)
 
-[[fiat-shamir-heuristic|Fiat-Shamir]] applied to the [[digital-signature#schnorr-signatures|Schnorr identification protocol]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the random-oracle model.
+The [[digital-signature#schnorr-signatures|Schnorr identification protocol]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the random-oracle model, via the [[fiat-shamir-heuristic|Fiat–Shamir]] transform.
 
 ## Statement
 

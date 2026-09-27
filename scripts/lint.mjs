@@ -21,7 +21,8 @@
 //   hyperedges     reduction/barrier pages are well-formed: >=1 hypothesis,
 //                  exactly one conclusion, every endpoint resolves to an object
 //                  id or variant, class is in schema/reduction-classes.yaml, no
-//                  self-loops; object pages never hand-author relation fields
+//                  self-loops; object pages never hand-author relation fields;
+//                  `heuristic` is a boolean and appears only on reductions
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -96,6 +97,7 @@ const OPTIONAL_KEYS = new Set([
   "model",
   "security-loss",
   "via",
+  "heuristic", // reductions only: a candidate construction with no security reduction
   "oracle",
   "conditional-on",
   "source",
@@ -498,6 +500,23 @@ for (const p of pages) {
           );
       }
     }
+  }
+
+  if (fm.heuristic !== undefined) {
+    if (fm.type !== "reduction")
+      err(
+        f,
+        1,
+        "edge-heuristic",
+        `heuristic applies only to reduction pages, where it marks a candidate construction with no security reduction. Remove the key from this ${fm.type} page.`,
+      );
+    else if (typeof fm.heuristic !== "boolean")
+      err(
+        f,
+        1,
+        "edge-heuristic",
+        `heuristic must be true or false, got ${JSON.stringify(fm.heuristic)}. Set "heuristic: true" on a candidate construction whose source gives no security reduction (the GGHRSW13 iO candidate); omit the key otherwise.`,
+      );
   }
 
   if (isEdge) {
