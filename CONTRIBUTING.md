@@ -55,7 +55,9 @@ variants: # named sub-objects that live as SECTIONS of this page
 `id` is what the graph, `relations.json`, and the future Lean/EasyCrypt repo
 join on, so it must survive a rename — never change one once published.
 `variants` lets a hyperedge name `ring-lwe` without splitting the LWE page; the
-lint checks the anchor is a real heading.
+lint checks the anchor is a real heading, and warns when two variants share one
+(synonym ids split one hyperedge in two — keep one id; distinct notions get a
+heading each).
 
 **Object pages never carry relation fields.** `implies`, `implied-by`,
 `reductions`, `from`, `to` and friends are a hard lint error, because an edge
@@ -268,7 +270,13 @@ contradicts a reduction of class `C` on the same hyperedge **iff `C implies* B`*
 — so a barrier against `relativizing` kills a fully-black-box reduction, while a
 barrier against `fully-black-box` does not touch a `free` one. The lint enforces
 this as a hard error, and warns separately when a reduction would prove
-something a barrier says is a major result.
+something a barrier says is a major result. It also warns when a reduction and
+a barrier share a hyperedge and either class is `unstated`, since the order
+cannot then decide whether they conflict (a `heuristic` reduction, or one
+listed in the barrier's `circumvented-by`, is exempt), and when a `complexity` consequence is
+`believed: true` in `schema/propositions.yaml` — forcing something expected
+rules nothing out, so such a page is usually a reduction or a proved fact.
+A `kind: reduction` consequence names a reduction page by `id`.
 
 A barrier that refutes one named construction — the identity map on schemes
 ("selective security of a HIBE does not give its adaptive security"), or a

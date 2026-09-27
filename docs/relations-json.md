@@ -205,7 +205,10 @@ Complexity claims a barrier can point at that are not wiki objects.
 `believed` is the community's working belief. It is what drives the lint's soft
 flag: a reduction whose existence a barrier says would imply something with
 `believed: false` reads as _"this would be a major result — confirm the class"_,
-never as an error.
+never as an error. A barrier consequence with `believed: true` draws a lint
+warning, since forcing something expected rules nothing out; `p-neq-np` for
+Impagliazzo–Rudich, an open problem whose proof would itself be a major result,
+is the case where it stands.
 
 ## Closure
 

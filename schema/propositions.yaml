@@ -5,16 +5,19 @@
 # consequence.kind: complexity and NOT ONE of their targets resolved to a page.
 # Rather than create 17 content pages, they resolve here.
 #
-# The lint resolves consequence.target against, in order:
-#   kind: object      -> a page slug or alias under content/
+# The lint resolves consequence.target by its kind:
+#   kind: object      -> an object page `id` or a `variants` key
 #   kind: complexity  -> a key in this file
 #   kind: reduction   -> a reduction `id` under content/Reductions/
 #   kind: contradiction -> target must be empty
 #
 # `believed:` records the community's working belief, and is what the lint's SOFT
-# FLAG reads: a reduction whose existence a barrier says would imply something
+# FLAGS read: a reduction whose existence a barrier says would imply something
 # with believed: false is "this would be a major result -- confirm the class",
-# never a hard error.
+# never a hard error. A barrier consequence with believed: true is a warning:
+# forcing something proved or expected rules nothing out, so the page is
+# usually a reduction or a proved fact, unless the target is an open problem
+# whose proof would itself be a major result (p-neq-np for Impagliazzo-Rudich).
 
 version: 1
 

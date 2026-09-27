@@ -84,8 +84,11 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
 
 A **barrier** generalizes separations: `(exists a reduction of class C from
 {A_i} to B) => Q`, where Q is `contradiction`, an object, a complexity claim
-(a key of `schema/propositions.yaml`), or another hyperedge. `consequences` is a
-LIST — one theorem can carry several framings over one hyperedge. A reduction
+(a key of `schema/propositions.yaml`), or another hyperedge (a reduction `id`).
+`consequences` is a LIST — one theorem can carry several framings over one
+hyperedge. A `complexity` consequence marked `believed: true` is almost never a
+barrier (the lint warns): "A gives Q" is a reduction `{A} => Q`, and a proved
+separation rules nothing out. A reduction
 that gets around a barrier is listed in the barrier's optional
 `circumvented-by` (reduction ids). A refutation of an assumption variant is
 never a barrier: it goes in the assumption page's `# Attacks` section.
@@ -93,7 +96,9 @@ never a barrier: it goes in the assumption page's `# Attacks` section.
 Object pages declare **identity**, which is allowed because it is not an edge:
 `id` (stable, survives renames — the formalization repo joins on it) and
 `variants` (named sub-objects living as sections, e.g. `ring-lwe` on the LWE
-page). Full contract: `schema/README.md`; worked examples: `CONTRIBUTING.md`.
+page). One variant per heading: two ids on one anchor split a hyperedge in two,
+so the contradiction check misses conflicts (the lint warns). Full contract:
+`schema/README.md`; worked examples: `CONTRIBUTING.md`.
 
 ## Page structure
 

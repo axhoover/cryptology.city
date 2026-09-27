@@ -1,5 +1,5 @@
 {
- "note": "Suspected mathematical and attribution errors found while auditing the prose relations. RECORDED, NEVER FIXED — this pass moved claims, it did not change them. Owned by the skeptical-checker lane.",
+ "note": "Suspected mathematical and attribution errors found while auditing the prose relations. RECORDED, NEVER FIXED — this pass moved claims, it did not change them. Owned by the skeptical-checker lane. `affectsEdges` lists current reduction and barrier ids (test/suspected-errors.test.ts checks them against .reductions/relations.json); an edge that was never migrated, or whose page was deleted, is not listed.",
  "count": 80,
  "bySeverity": {
   "high": 38,
@@ -14,9 +14,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: BLS short signatures are proved under (co-)CDH / gap-DH in pairing groups, not under decisional BDH; a decisional assumption is the wrong hypothesis for an unforgeability result.",
    "severity": "high",
    "affectsEdges": [
-    "red-bddh-to-ds",
-    "red-bddh-to-vrf",
-    "red-bddh-to-ac"
+    "red-bdh-to-vrf"
    ]
   },
   {
@@ -36,7 +34,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: DCR is not known to follow from the hardness of factoring. The known direction is the converse — factoring n breaks DCR — so DCR hardness implies factoring hardness. Pai99 does not prove factoring implies DCR.",
    "severity": "high",
    "affectsEdges": [
-    "red-factoring-to-dcr-pai99"
+    "red-fac-to-dcr-pai99"
    ]
   },
   {
@@ -53,10 +51,7 @@
    "claim": "The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It is implied by the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.",
    "problem": "SUSPECTED MATHEMATICAL ERROR: It is implied by the CDH assumption is backwards — DDH hardness implies CDH hardness, not the reverse. The very next sentence (an adversary solving CDH also solves DDH) states the correct relation and contradicts it.",
    "severity": "high",
-   "affectsEdges": [
-    "red-ddh-to-ke-dh76",
-    "red-cdh-to-ddh"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Assumptions/discrete-logarithm.md",
@@ -65,7 +60,7 @@
    "problem": "SUSPECTED DIRECTION CONFUSION: calling DLOG a natural strengthening of the CDH assumption inverts assumption strength — CDH hardness implies DLOG hardness, so the DLOG assumption is the weaker one. The following gloss (an adversary solving DLOG also solves CDH) is correct.",
    "severity": "high",
    "affectsEdges": [
-    "red-cdh-to-dl"
+    "red-cdh-to-dlog"
    ]
   },
   {
@@ -75,7 +70,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: The RSA assumption is implied by the factoring assumption is backwards. Factoring N breaks RSA, so RSA hardness implies factoring hardness; RSA hardness is not known to follow from factoring hardness.",
    "severity": "high",
    "affectsEdges": [
-    "red-factoring-to-ra-rsa78"
+    "red-rsa-to-fac-rsa78"
    ]
   },
   {
@@ -85,7 +80,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: QR hardness does not follow from factoring hardness; factoring N breaks QR, so QR hardness implies factoring hardness.",
    "severity": "high",
    "affectsEdges": [
-    "red-factoring-to-qr-gm84"
+    "red-fac-to-qr-gm84"
    ]
   },
   {
@@ -95,7 +90,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: same inverted direction as line 30 and as decisional-composite-residuosity.md line 30. Factoring hardness is implied by DCR hardness, not the other way round.",
    "severity": "high",
    "affectsEdges": [
-    "red-factoring-to-dcr-pai99"
+    "red-fac-to-dcr-pai99"
    ]
   },
   {
@@ -104,9 +99,7 @@
    "claim": "is negligible. Note that Sparse LPN with $d = k$ reduces to standard LPN, so sparse hardness is a stronger assumption for smaller $d$.",
    "problem": "SUSPECTED MATHEMATICAL ERROR: with d = k every row of Hamming weight exactly d is the all-ones vector, which is not the uniformly random matrix of standard LPN; the intended statement is presumably about d near k/2 or an asymptotic approximation.",
    "severity": "high",
-   "affectsEdges": [
-    "red-sl-to-lpwn"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Assumptions/ntru.md",
@@ -115,7 +108,7 @@
    "problem": "SUSPECTED DIRECTION ERROR (report only): the bullet says \"the NTRU problem reduces to the Ring-LWE problem\", which under the standard convention means NTRU <= Ring-LWE (a Ring-LWE solver breaks NTRU) and therefore NTRU hardness implies Ring-LWE hardness. That is the OPPOSITE of the gloss that immediately follows it (\"Ring-LWE hardness implies NTRU hardness\"). One of the two halves of this bullet is wrong; SS11 supports the gloss, so the \"reduces to\" phrasing is the error.",
    "severity": "high",
    "affectsEdges": [
-    "red-rl-to-ntru-ss11"
+    "red-ring-lwe-to-ntru-ss11"
    ]
   },
   {
@@ -143,7 +136,7 @@
    "problem": "SUSPECTED DIRECTION ERROR (report only, high confidence): \"QR follows from factoring hardness\" is backwards. The justification given on the same bullet — knowing p and q lets you compute the Legendre symbols — shows that a FACTORING ALGORITHM BREAKS QR, i.e. QR hardness implies factoring hardness, making QR the STRONGER assumption. QR does not follow from factoring hardness; no reduction in that direction is known.",
    "severity": "high",
    "affectsEdges": [
-    "red-factoring-to-qr-gm84"
+    "red-fac-to-qr-gm84"
    ]
   },
   {
@@ -152,9 +145,7 @@
    "claim": "Crucially, pseudorandom generators ([[pseudorandom-generator|PRG]]s) can be viewed as a crypto-primitive that _witnesses_ $\\classBPP = \\classP$: a PRG secure against all $\\classPpoly$ adversaries implies $\\classBPP = \\classP$.",
    "problem": "SUSPECTED MATHEMATICAL ERROR (report only): a cryptographic PRG secure against P/poly does not imply BPP = P. Full derandomization needs a Nisan-Wigderson-style PRG with logarithmic seed length (exponential stretch) fooling circuits; a cryptographic PRG with polynomial stretch only yields BPP in subexponential deterministic time.",
    "severity": "high",
-   "affectsEdges": [
-    "red-pg-to-peb"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Complexity/co-arthur-merlin.md",
@@ -162,9 +153,7 @@
    "claim": "- If graph isomorphism is $\\classNP$-complete, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\\mathbf{\\Sigma_2^P}$. This uses the fact that graph non-isomorphism is in $\\classcoAM$, so if GI were NP-complete then $\\classNP \\subseteq \\classcoAM$, collapsing AM to $\\mathbf{\\Sigma_2^P}$ — TODO citation.",
    "problem": "SUSPECTED MATHEMATICAL ERROR (report only): the supporting fact should be 'graph ISOMORPHISM is in coAM' (equivalently, graph non-isomorphism is in AM). As written ('graph non-isomorphism is in coAM') the stated derivation of NP in coAM does not follow.",
    "severity": "high",
-   "affectsEdges": [
-    "bar-nic-to-pcts2p"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Complexity/co-arthur-merlin.md",
@@ -204,10 +193,7 @@
    "claim": "- The existence of one-way functions implies $\\classP \\neq \\classPpoly \\cap \\classNP$ in a certain oracle-relativized sense (one-way functions separate uniform and non-uniform worlds).",
    "problem": "SUSPECTED MATHEMATICAL ERROR / MEANINGLESS AS STATED (report only): 'P != P/poly intersect NP' is not a standard statement, and OWF existence does not obviously imply it. What OWFs do imply is P != NP (and, for non-uniform security, hardness against P/poly). The parenthetical gloss 'one-way functions separate uniform and non-uniform worlds' does not match the formula either.",
    "severity": "high",
-   "affectsEdges": [
-    "red-hf-to-pnpcn",
-    "bar-hf-to-pnpcn"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Complexity/quantum-interactive-proofs.md",
@@ -232,7 +218,7 @@
    "problem": "SUSPECTED DIRECTION ERROR (high-value): the known literature goes the other way — collision-resistant hashing / iO / LWE-style assumptions are used to prove HARDNESS of PPAD (Bitansky-Paneth-Rosen; Choudhuri-Hubáček-Kamath-Pietrzak-Rosen-Rosen), not 'PPAD hardness is the basis for constructing CRHFs'. As written the reduction is inverted. Reported, not corrected.",
    "severity": "high",
    "affectsEdges": [
-    "red-ph-to-hf"
+    "red-subclasses-to-hash-function"
    ]
   },
   {
@@ -241,9 +227,7 @@
    "claim": "Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are \"hard search problems with guaranteed solutions.\" Recent work has used TFNP subclass hardness (especially PPAD) as a basis for constructing cryptographic primitives from weaker or more structured assumptions.",
    "problem": "SUSPECTED DIRECTION ERROR (same as line 25): the literature derives TFNP/PPAD hardness FROM cryptographic assumptions, not cryptographic primitives from PPAD hardness. Reported, not corrected.",
    "severity": "high",
-   "affectsEdges": [
-    "red-ph-to-cpg"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Glossary/algebraic-group-model.md",
@@ -251,9 +235,7 @@
    "claim": "- **DDH $\\leq_{\\mathrm{AGM}}$ DLOG:** DDH reduces tightly to DLOG in the AGM.",
    "problem": "SUSPECTED MATHEMATICAL / ATTRIBUTION ERROR (reported, not fixed): AGM reductions work by extracting a representation from the group elements an adversary outputs. A DDH distinguisher outputs only a bit, so the standard AGM extraction does not apply, and 'DDH reduces tightly to DLOG in the AGM' is not a straightforward FKL18 result. This is precisely the kind of AGM claim KZ22 (cited at line 43 of this same page) argues does not go through. Verify against FKL18 before migrating.",
    "severity": "high",
-   "affectsEdges": [
-    "red-dl-to-ddh-fkl18"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Glossary/algebraic-group-model.md",
@@ -272,16 +254,10 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: \"TDPs (equivalently, the existence of PKE or OT)\" asserts TDP ≡ PKE ≡ OT. PKE is not known to imply TDPs, and PKE is black-box separated from OT (Gertner–Kannan–Malkin–Reingold–Viswanathan, i.e. the very GKM+00 cited two sentences earlier). Recorded, not fixed. || SUSPECTED MATHEMATICAL ERROR: OT is not known to imply TDPs. Recorded, not fixed.",
    "severity": "high",
    "affectsEdges": [
-    "red-tp-to-pke",
-    "red-hf-to-pg-hill99",
-    "red-hf-to-pf",
-    "red-hf-to-ske",
-    "red-hf-to-mac",
-    "red-hf-to-ds",
-    "red-tp-to-ot",
-    "red-ot-to-smpc-kil88",
-    "red-cryptomani-to-ot",
-    "bar-hf-to-pke-gkm+00"
+    "red-tdp-to-pke",
+    "red-hash-function-to-ds",
+    "red-ot-to-mpc-kil88",
+    "bar-hash-function-to-pke-gkm-00"
    ]
   },
   {
@@ -291,11 +267,11 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: \"NIZK proofs without a CRS\" — NIZK for non-trivial languages is impossible with no setup at all, and the iO-based construction places the obfuscated program in the CRS. Recorded, not fixed.",
    "severity": "high",
    "affectsEdges": [
-    "red-hf+io-to-pke-sw14",
-    "red-hf+io-to-ds-sw14",
-    "red-hf+io-to-nizk-sw14",
-    "red-hf+io-to-fe-sw14",
-    "red-hf+io-to-de-sw14"
+    "red-hash-function-and-io-to-pke-sw14",
+    "red-hash-function-and-io-to-ds-sw14",
+    "red-hash-function-and-io-to-nizk-sw14",
+    "red-hash-function-and-io-to-fe-sw14",
+    "red-hash-function-and-io-to-deniable-encryption-sw14"
    ]
   },
   {
@@ -304,9 +280,7 @@
    "claim": "- COM is complete for [[secure-multi-party-computation|MPC]] in the semi-honest model: any two-party functionality can be computed given a commitment scheme — [[GMW87 - How to play ANY mental game|GMW87]]",
    "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): GMW87's semi-honest two-party protocol is built from OBLIVIOUS TRANSFER, not from commitments; commitments appear in the GMW compiler that lifts semi-honest security to malicious security. As stated, 'commitments imply semi-honest 2PC' would place OT inside Minicrypt (commitments follow from OWFs), contradicting the Impagliazzo-Rudich black-box separation.",
    "severity": "high",
-   "affectsEdges": [
-    "red-cs-to-smpc-gmw87"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/commitment-scheme.md",
@@ -314,9 +288,7 @@
    "claim": "- [[oblivious-transfer|OT]] can be constructed from any non-trivial commitment scheme — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
    "problem": "SUSPECTED MATHEMATICAL ERROR / INVERTED CITATION (reported, not fixed): Kilian's 'Founding cryptography on oblivious transfer' proves that OT is COMPLETE for secure computation (OT => everything), not that OT can be built FROM commitments. Building OT from commitments would place OT in Minicrypt, contradicting Impagliazzo-Rudich. The edge is almost certainly reversed.",
    "severity": "high",
-   "affectsEdges": [
-    "red-cs-to-ot-kil88"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/hash-function.md",
@@ -324,9 +296,7 @@
    "claim": "In other settings, it's important that the hash function is _collision resistant_, meaning that it is hard to find two colliding inputs and implies one-wayness.",
    "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): collision resistance implies one-wayness only for COMPRESSING (shrinking) hash functions. For the general $\\hash : \\calK \\times \\calD \\to \\calR$ of this page's Syntax section, the implication is false (e.g. the identity map is collision resistant and trivially invertible). The needed hypothesis $|\\calD| \\gg |\\calR|$ is never stated.",
    "severity": "high",
-   "affectsEdges": [
-    "red-hf-to-hf"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/polynomial-commitment.md",
@@ -334,9 +304,7 @@
    "claim": "- Any polynomial commitment with $O(1)$ proof size implies the existence of a succinct NIZK for NP — standard",
    "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): an O(1)-proof-size polynomial commitment does not by itself imply a succinct NIZK for NP — a polynomial IOP/PIOP (and a setup/ROM for non-interactivity, plus zero-knowledge, which evaluation binding does not provide) is also required. This is not folklore-obvious and should not carry the '— standard' label.",
    "severity": "high",
-   "affectsEdges": [
-    "red-pc-to-nizk"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/pseudorandom-function.md",
@@ -345,7 +313,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): the displayed construction is deterministic — Enc(k, m_1...m_l) = PRF(k,1)||...||PRF(k,l) XOR m uses a FIXED counter sequence starting at 1 for every message, so encrypting the same message twice repeats the ciphertext and the scheme cannot be CPA-secure. Real CTR mode samples a fresh random IV/nonce per encryption, which the formula omits.",
    "severity": "high",
    "affectsEdges": [
-    "red-pf-to-ske"
+    "red-prf-to-ske"
    ]
   },
   {
@@ -354,9 +322,7 @@
    "claim": "- PRG implies CPA-secure [[symmetric-key-encryption|SKE]]: the stream cipher $\\Enc(k, m) = G(k) \\oplus m$ is CPA-secure whenever $G$ is a PRG with stretch $|m|$",
    "problem": "SUSPECTED MATHEMATICAL ERROR (recorded, not fixed): Enc(k, m) = G(k) XOR m is deterministic and reuses the same pad for every message, so it is NOT CPA-secure — it achieves only one-time/eavesdropper security. CPA security requires fresh randomness per encryption (e.g. Enc(k,m) = (r, G(k,r) XOR m) with a PRF, or a fresh seed per message).",
    "severity": "high",
-   "affectsEdges": [
-    "red-pg-to-ske"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/secure-multi-party-computation.md",
@@ -364,9 +330,7 @@
    "claim": "- [[commitment-scheme|COM]] is complete for two-party computation in the semi-honest model — [[GMW87 - How to play ANY mental game|GMW87]]",
    "problem": "SUSPECTED ERROR (reported, not fixed): commitments are complete for compiling semi-honest protocols into malicious-secure ones (the GMW compiler); the completeness result for semi-honest two-party computation is OT, not commitment. Commitments live in Minicrypt and are not believed to imply 2PC/OT, so 'COM is complete for two-party computation in the semi-honest model' looks wrong as stated.",
    "severity": "high",
-   "affectsEdges": [
-    "red-cs-to-tpc-gmw87"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/succinct-argument.md",
@@ -374,9 +338,7 @@
    "claim": "- The Fiat-Shamir transform converts interactive proofs to non-interactive SNARKs in the random oracle model — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
    "problem": "SUSPECTED ERROR: Fiat-Shamir removes interaction from PUBLIC-COIN protocols; it does not create succinctness. An interactive proof compiled with FS is non-interactive but not succinct unless the starting protocol is already succinct (an IOP/PCP). 'converts interactive proofs to non-interactive SNARKs' is wrong as stated. Reported, not fixed.",
    "severity": "high",
-   "affectsEdges": [
-    "red-ips+rom-to-sa-fs86"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/zero-knowledge-proof.md",
@@ -393,7 +355,7 @@
    "problem": "SUSPECTED ERROR: hardness of BDH in the generic (bilinear) group model is an unconditional lower bound, not a reduction from CDH.",
    "severity": "medium",
    "affectsEdges": [
-    "red-cdh-to-bdh"
+    "red-bdh-to-cdh-bf01"
    ]
   },
   {
@@ -403,7 +365,7 @@
    "problem": "SUSPECTED ERROR: DLIN (Decision Linear) is standardly a generalization of DDH, not of BDDH.",
    "severity": "medium",
    "affectsEdges": [
-    "red-dlin-to-nizk"
+    "red-dlin-to-nizk-gos06"
    ]
   },
   {
@@ -420,9 +382,7 @@
    "claim": "- KEA-like assumptions cannot be derived from falsifiable assumptions via black-box reductions — standard",
    "problem": "SUSPECTED IMPRECISION: GW11 rules out black-box reductions proving succinct non-interactive arguments sound from falsifiable assumptions; KEA-like assumptions cannot be derived from falsifiable assumptions is a vaguer and different claim.",
    "severity": "medium",
-   "affectsEdges": [
-    "bar-fa-to-koe"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Assumptions/learning-parity-with-noise.md",
@@ -431,7 +391,7 @@
    "problem": "SUSPECTED DEFINITION ERROR: High-noise is epsilon = 1/k^gamma for 0 < gamma < 1/2 while Mid-noise is epsilon = 1/k^gamma for every gamma < 1, so the mid-noise range strictly contains the high-noise range — the regimes are not disjoint as presented.",
    "severity": "medium",
    "affectsEdges": [
-    "red-lln-to-lcn"
+    "red-noise-level-to-noise-level"
    ]
   },
   {
@@ -473,7 +433,7 @@
    "problem": "SUSPECTED ERROR (report only): the textbook QR commitment (commit to b as r^2 y^b for y in J_N minus QR_N) is PERFECTLY BINDING and COMPUTATIONALLY HIDING, not statistically hiding. A statistically hiding commitment from QR needs a different construction, so the folklore label may be covering an incorrect claim.",
    "severity": "medium",
    "affectsEdges": [
-    "red-qr-to-cs"
+    "red-qr-to-com"
    ]
   },
   {
@@ -482,9 +442,7 @@
    "claim": "- Search–decision equivalence: distinguishing RSA outputs from uniform reduces to inverting RSA.",
    "problem": "SUSPECTED ERROR (report only): as literally phrased the decision problem is trivial. x -> x^e is a permutation of Z_n^*, so for uniform x the value x^e is uniform and \"distinguishing RSA outputs from uniform\" is not a hard problem at all. The intended statement is presumably about hardcore bits or RSA-based pseudorandomness, and the decision object is undefined on this page.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-ra-to-dr"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Assumptions/shortest-integer-solution.md",
@@ -526,9 +484,7 @@
    "claim": "- SZK ⊆ [[arthur-merlin|AM]] ∩ coAM, so if AM = coAM then SZK ⊆ AM; in particular SZK does not contain NP-complete problems unless PH collapses",
    "problem": "SUSPECTED LOGICAL ERROR: 'so if AM = coAM then SZK ⊆ AM' is vacuous — SZK ⊆ AM ∩ coAM already gives SZK ⊆ AM unconditionally. The intended statement is probably about coAM-hardness or about NP ⊆ coAM collapsing PH. Reported, not corrected.",
    "severity": "medium",
-   "affectsEdges": [
-    "bar-ncpis-to-phc"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Glossary/arithmetization.md",
@@ -560,10 +516,7 @@
    "claim": "In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\\Setup$ runs. Selective security is strictly weaker than adaptive security; complexity leveraging converts one to the other at a polynomial cost in $|\\calU|$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.",
    "problem": "SUSPECTED MATHEMATICAL ERROR (reported, not fixed): complexity leveraging for KP-ABE guesses the challenge attribute set $x^* \\subseteq \\calU$, which costs a factor $2^{|\\calU|}$ — exponential in $|\\calU|$, not 'a polynomial cost in $|\\calU|$'. The CP-ABE half of the same sentence correctly says 'exponential loss in the formula size', making the KP-ABE half look wrong.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-ass-to-aas",
-    "bar-aas-to-ass"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/commitment-scheme.md",
@@ -572,7 +525,7 @@
    "problem": "SUSPECTED IMPRECISION: 'statistically binding' holds only if the PKE has perfect correctness AND the public key is honestly generated. Since the committer generates the key here, a malicious committer may pick a malformed key admitting two decryptions — binding is then not statistical. The bullet states the strong property unconditionally.",
    "severity": "medium",
    "affectsEdges": [
-    "red-pke-to-cs"
+    "red-pke-to-com"
    ]
   },
   {
@@ -589,9 +542,7 @@
    "claim": "- COM from [[decisional-diffie-hellman|DDH]]: the Pedersen commitment scheme is perfectly hiding and computationally binding",
    "problem": "SUSPECTED IMPRECISION: Pedersen commitments are perfectly hiding unconditionally and computationally binding under the DISCRETE LOGARITHM assumption; DDH is not needed. The hypothesis should very likely be [[discrete-logarithm]], which is a strictly weaker requirement.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-ddh-to-cs"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/digital-signature.md",
@@ -600,7 +551,7 @@
    "problem": "SUSPECTED ERROR (reported, not fixed): 'sign one bit per hash chain' describes WINTERNITZ, not Lamport. Lamport publishes two hash images per message bit and reveals one preimage per bit; there are no chains. || SUSPECTED EFFICIENCY ERROR: Lamport signatures are $O(\\secpar \\cdot |m|)$ bits for an $|m|$-bit message (typically $O(\\secpar^2)$ with hashed messages), not $O(\\secpar)$.",
    "severity": "medium",
    "affectsEdges": [
-    "red-hf-to-ots-lam79"
+    "red-hash-function-to-hash-based-signatures-lam79"
    ]
   },
   {
@@ -610,8 +561,8 @@
    "problem": "SUSPECTED EFFICIENCY ERROR: Merkle-tree signatures are $O(\\secpar \\cdot \\log T)$ (or $O(\\secpar^2)$) in size, and the public key is a single hash value of size $O(\\secpar)$ — the bullet's '$O(\\secpar)$-size signatures with a $\\poly(\\secpar)$-size public key' looks reversed/wrong.",
    "severity": "medium",
    "affectsEdges": [
-    "red-hf-to-ots-lam79",
-    "red-hf+ots-to-ds-mer89"
+    "red-hash-function-to-hash-based-signatures-lam79",
+    "red-hash-function-and-hash-based-signatures-to-ds-mer89"
    ]
   },
   {
@@ -620,9 +571,7 @@
    "claim": "- KZG is the polynomial commitment underlying most practical pairing-based SNARKs (Groth16, Plonk, Marlin) — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]], [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]",
    "problem": "SUSPECTED FACTUAL ERROR (recorded, not fixed): Groth16 is not built on a KZG polynomial commitment — it is a QAP/pairing-based SNARK with a linear-PCP-style proof; listing it alongside Plonk and Marlin as 'underlain by KZG' misattributes the construction.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-kpc-to-sa-kzg10"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/polynomial-commitment.md",
@@ -630,9 +579,7 @@
    "claim": "- FRI-based polynomial commitments give the only known transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]",
    "problem": "SUSPECTED FACTUAL ERROR (recorded, not fixed): 'the only known transparent SNARKs with sublinear proof size' is false as stated — Bulletproofs/IPA give transparent logarithmic-size arguments, and hash-based schemes such as Ligero/Brakedown/Orion are also transparent with sublinear proofs (the IPA section on this same page contradicts it with 'Proof size: O(log d)').",
    "severity": "medium",
-   "affectsEdges": [
-    "red-fpc-to-tsa-bbhr18"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/pseudorandom-function.md",
@@ -641,7 +588,7 @@
    "problem": "SUSPECTED ERROR (recorded, not fixed): Tag(k,m) = PRF(k,m) is a secure MANY-time (EUF-CMA) fixed-length MAC, not merely a 'one-time' MAC; the 'one-time' qualifier understates the standard result. The clause about extending 'to many messages' via domain extension conflates message COUNT with message LENGTH (domain extension buys long messages, not more queries).",
    "severity": "medium",
    "affectsEdges": [
-    "red-pf-to-mac"
+    "red-prf-to-mac"
    ]
   },
   {
@@ -658,9 +605,7 @@
    "claim": "- OT extension: $O(1)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]",
    "problem": "SUSPECTED QUANTITATIVE ERROR: IKNP03 needs $O(\\secpar)$ (security-parameter many) base OTs, not $O(1)$. Reported, not fixed.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-ot-to-ot-iknp03"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/succinct-argument.md",
@@ -668,9 +613,7 @@
    "claim": "- Groth16 achieves constant proof size (3 $\\GG_1$ elements + 1 $\\GG_2$ element) and is the most proof-size-efficient pairing-based zk-SNARK; relies on the [[knowledge-of-exponent|knowledge-of-exponent assumption]] — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]",
    "problem": "SUSPECTED MATHEMATICAL ERROR: '3 $\\GG_1$ elements + 1 $\\GG_2$ element' is 4 group elements; Groth16 proofs are 2 $\\GG_1$ + 1 $\\GG_2$ = 3 elements, which is also what line 71 of this same page says. Internal contradiction. Reported, not fixed.",
    "severity": "medium",
-   "affectsEdges": [
-    "red-koe-to-sa-gro16"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/trapdoor-permutation.md",
@@ -679,8 +622,7 @@
    "problem": "SUSPECTED IMPRECISION: lossy TDFs yield injective trapdoor FUNCTIONS, not trapdoor PERMUTATIONS (the injective branch need not be a bijection on the domain). 'Lossy TDFs imply TDPs' is likely wrong as stated. Reported, not fixed.",
    "severity": "medium",
    "affectsEdges": [
-    "red-ltf-to-tp",
-    "red-ltf-to-pke"
+    "red-lossy-trapdoor-functions-to-pke"
    ]
   },
   {
@@ -690,8 +632,7 @@
    "problem": "SUSPECTED IMPRECISION: SXDH is stated for asymmetric (Type 3) pairings whereas BDDH is stated on this page for symmetric pairings, so the two are not directly comparable.",
    "severity": "low",
    "affectsEdges": [
-    "red-sxdh-to-bddh",
-    "red-sxdh-to-nizk"
+    "red-sxdh-symmetric-external-diffie-hellman-to-nizk"
    ]
   },
   {
@@ -701,7 +642,7 @@
    "problem": "SUSPECTED IMPRECISION: the hiding/binding flavours claimed (statistically hiding, computationally binding) should be checked against the standard DCR-based construction.",
    "severity": "low",
    "affectsEdges": [
-    "red-dcr-to-cs"
+    "red-dcr-to-com"
    ]
   },
   {
@@ -727,7 +668,7 @@
    "problem": "SUSPECTED NORM ERROR (report only): with inputs in {0,...,floor(beta/2)}^m the difference z - z′ has entries in [-beta/2, beta/2], so ||z - z′|| <= beta holds for the L-infinity norm. The game defined at line 27 of this page writes ||z|| <= beta without naming a norm, and under the usual L2 reading the bound would be (beta/2)sqrt(m), not beta.",
    "severity": "low",
    "affectsEdges": [
-    "red-sis-to-crhf-ajt96"
+    "red-sis-to-hash-function-ajt96"
    ]
   },
   {
@@ -737,7 +678,7 @@
    "problem": "SUSPECTED IMPRECISION (report only): Simon's problem is defined relative to a random 2-to-1 function with a hidden XOR mask, not a uniformly random oracle; 'relative to a random oracle' overstates what the Simon separation gives. The random-oracle statement usually cited in this direction is BBBV (NP not in BQP relative to a random oracle), which is the OTHER direction.",
    "severity": "low",
    "affectsEdges": [
-    "bar-beqpt-to-npt"
+    "bar-bqp-to-np"
    ]
   },
   {
@@ -746,10 +687,7 @@
    "claim": "Totality means the problem cannot be NP-complete (unless NP = coNP), since NP-completeness requires instances with no solution. This makes TFNP a natural home for problems believed to be hard but not NP-hard.",
    "problem": "SUSPECTED IMPRECISION: 'NP-completeness requires instances with no solution' is a loose gloss; the standard argument is that a total problem whose associated decision problem is NP-complete (under Karp/Levin reductions) yields NP = coNP. As stated it reads as a definitional requirement, which it is not. Reported, not corrected.",
    "severity": "low",
-   "affectsEdges": [
-    "bar-tpinc-to-nec",
-    "bar-nc+tfn-to-nec"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Complexity/total-function-np.md",
@@ -757,9 +695,7 @@
    "claim": "- TFNP problems are unlikely to be NP-hard, since NP-hardness would require instances with no solution, contradicting totality (unless NP = coNP).",
    "problem": "SUSPECTED IMPRECISION: NP-hardness does not 'require instances with no solution'; the standard barrier is stated for Karp-reduction-completeness of the associated decision problem. Reported, not corrected.",
    "severity": "low",
-   "affectsEdges": [
-    "bar-tpinh-to-nec"
-   ]
+   "affectsEdges": []
   },
   {
    "file": "content/Primitives/digital-signature.md",
@@ -768,7 +704,7 @@
    "problem": "SUSPECTED ERROR IN THE SKETCH (reported, not fixed): the parenthetical 'knowing the message and signature reveals nothing useful about the key' is a secrecy statement, which is not what one-wayness of signing means and is not the argument. The real argument builds a OWF from $\\KeyGen$'s randomness (or from $(\\sk, m) \\mapsto \\Sign(\\sk,m)$ for a fixed $m$) and inverts it to forge.",
    "severity": "low",
    "affectsEdges": [
-    "red-ds-to-hf"
+    "red-ds-to-hash-function"
    ]
   },
   {
@@ -777,9 +713,7 @@
    "claim": "The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, which is a transparent polynomial commitment scheme based on proximity testing to Reed-Solomon codes.",
    "problem": "SUSPECTED TERMINOLOGY ERROR: FRI is an IOP of proximity (a low-degree/proximity test), not itself a polynomial commitment scheme; a polynomial commitment is built FROM FRI plus Merkle commitments. Reported, not fixed.",
    "severity": "low",
-   "affectsEdges": [
-    "red-fri-to-sa"
-   ]
+   "affectsEdges": []
   }
  ]
 }

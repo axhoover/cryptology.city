@@ -164,6 +164,17 @@ A hyperedge endpoint resolves against, in order:
 2. a `variants` key on any page,
 3. a key in `propositions.yaml` (barrier consequences only).
 
+A barrier consequence's `target` resolves by its `kind`: `object` against 1–2,
+`complexity` against 3, and `reduction` against the `id` of a page under
+`content/Reductions/`. The lint rejects a target that does not resolve for its
+kind.
+
+Each variant is its own section. Hyperedges are keyed by id, so two variant ids
+on one anchor are two nodes: a barrier on one never meets a reduction on the
+other, and the contradiction check stays silent. Synonyms keep one id; distinct
+notions sharing a section get a heading each. The lint warns on a shared anchor
+(`variant-shared-anchor`).
+
 `id` and `variants` declare node _identity_, not edges, which is why they are
 allowed on object pages when relation fields (`implies`, `implied-by`, …) are
 not. Relations on object pages are always generated, never hand-authored — an
@@ -239,7 +250,10 @@ the same hyperedge **iff `C implies* B`** — iff every `C`-reduction is also a
 `unstated` is a sentinel, not a class: it is comparable to nothing, so the
 contradiction check never fires on it. It is the honest value when the source
 does not say and the proof shape does not justify a class (below), and it buys
-no protection.
+no protection. A reduction and a barrier on one hyperedge with either class
+`unstated` may conflict without the check noticing, so the lint warns
+(`barrier-conflict-unstated`) unless the barrier lists the reduction in
+`circumvented-by` or the reduction is `heuristic`.
 
 Idealised computation models are the **`model`** axis, never `class`. A
 generic-group lower bound is a reduction `{ggm} ⇒ X` with
@@ -331,6 +345,11 @@ two sentences justifying it from the proof shape or the source.
   existing page, so justify the partial-order placement in the commit message.
 - A new **proposition** needs a `title`, a `believed` flag, and a `page` when
   the wiki has one. `believed: false` is what makes the lint's soft flag fire
-  ("this would be a major result — confirm the class").
+  ("this would be a major result — confirm the class"). A barrier whose
+  `complexity` consequence is `believed: true` draws a warning
+  (`barrier-believed-consequence`): forcing something proved or expected rules
+  nothing out, so such a page is usually a reduction `{A} ⇒ Q` or a proved
+  fact. It stands only when the target is an open problem whose proof would
+  itself be a major result, as `p-neq-np` is for Impagliazzo–Rudich.
 - A **rejected** value is how the vocabulary teaches. Prefer adding a rejection
   with a good message over silently accepting a vague value.

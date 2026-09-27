@@ -17,14 +17,23 @@
 //                  mandated sections for their type
 //   generated      "Participates in" regions match their checksum (no hand edits)
 //   contradiction  no reduction claims a class a barrier rules out on the same
-//                  hyperedge; the class partial order decides when it bites
+//                  hyperedge; the class partial order decides when it bites.
+//                  Warns when a reduction and a barrier share a hyperedge and
+//                  either class is `unstated`, so the order cannot decide
 //   hyperedges     reduction/barrier pages are well-formed: >=1 hypothesis,
 //                  exactly one conclusion, every endpoint resolves to an object
 //                  id or variant, class is in schema/reduction-classes.yaml, no
 //                  self-loops; object pages never hand-author relation fields;
 //                  `heuristic` is a boolean and appears only on reductions;
 //                  `circumvented-by` appears only on barriers and lists
-//                  reduction ids that resolve
+//                  reduction ids that resolve; a barrier consequence's target
+//                  resolves for its kind (object -> object id or variant,
+//                  reduction -> reduction id); warns on a `complexity`
+//                  consequence marked `believed: true`
+//   variants       warns when two variant ids on one page share an anchor
+//                  (synonyms split one hyperedge in two)
+//
+// The cross-page checks live in scripts/lint-edges.mjs, which the tests share.
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -36,6 +45,13 @@ const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 import { closure as classClosureOf, bites } from "./reduction-classes.mjs";
+import {
+  hyperKey,
+  undecidedConflicts,
+  sharedVariantAnchors,
+  unresolvedConsequenceTargets,
+  believedConsequences,
+} from "./lint-edges.mjs";
 
 const ROOT = path.resolve(
   path.dirname(new URL(import.meta.url).pathname),
@@ -819,6 +835,18 @@ for (const p of pages) {
     }
   }
 }
+// Hyperedges are keyed by id, so two variant ids for one section are two nodes:
+// a barrier on one never meets a reduction on the other.
+for (const { page, anchor, ids } of sharedVariantAnchors(
+  pages.filter((p) => TYPES[p.fm.type]?.object),
+)) {
+  warn(
+    page.file,
+    1,
+    "variant-shared-anchor",
+    `variants ${ids.map((v) => `"${v}"`).join(", ")} all point at "${anchor}". Hyperedges are keyed by id, so the contradiction check reads them as ${ids.length} different nodes and never compares a barrier on one with a reduction on another. If they name one notion, keep one id and point every reduction and barrier at it; if they are distinct notions, give each its own heading.`,
+  );
+}
 for (const id of Object.keys(PROPOSITIONS)) {
   if (objectIds.has(id))
     err(
@@ -850,10 +878,6 @@ for (const p of pages) {
       resolveEndpoint(p, h, "hypothesis");
   if (typeof p.fm.conclusion === "string")
     resolveEndpoint(p, p.fm.conclusion, "conclusion");
-  for (const c of Array.isArray(p.fm.consequences) ? p.fm.consequences : []) {
-    if (c && c.kind === "object" && c.target)
-      resolveEndpoint(p, c.target, "consequence target");
-  }
 }
 
 // A barrier's `circumvented-by` names reduction pages by id.
@@ -876,6 +900,28 @@ for (const p of pages) {
       `circumvented-by "${id}" is not the id of any reduction page. List the "id:" of a page under content/Reductions/ (e.g. red-oihf-to-ot-bh26); if the circumventing result has no reduction page yet, create one or keep it in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
     );
   }
+}
+
+// A barrier consequence's target resolves by its kind: `object` against object
+// ids and variants, `reduction` against reduction page ids.
+for (const { page, index, kind, target } of unresolvedConsequenceTargets(
+  pages,
+  objectIds,
+  reductionIds,
+)) {
+  if (kind === "object") {
+    resolveEndpoint(page, target, `consequences[${index}].target`);
+    continue;
+  }
+  const near = [...reductionIds.keys()]
+    .filter((k) => k.includes(target) || target.includes(k))
+    .slice(0, 3);
+  err(
+    page.file,
+    1,
+    "edge-unresolved-id",
+    `consequences[${index}] has kind "reduction", so its target "${target}" must be the "id:" of a page under content/Reductions/. ${objectIds.has(target) ? `"${target}" is an object id; if the consequence is that object, use kind: object. ` : ""}If the reduction has no page yet, create one or state the consequence in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+  );
 }
 
 // ------------------------------------------------- generated region integrity ----
@@ -920,9 +966,6 @@ for (const p of pages) {
 // Stated in one direction only, because the other reading is a live bug: a
 // barrier against a NARROWER class than the reduction claims is not a
 // contradiction and must not fire.
-const hyperKey = (fm) =>
-  `${[...(fm.hypotheses ?? [])].sort().join("+")}=>${fm.conclusion}`;
-
 const barriersByEdge = new Map();
 for (const p of pages) {
   if (p.fm.type !== "barrier") continue;
@@ -959,6 +1002,37 @@ for (const p of pages) {
       }
     }
   }
+}
+
+// `unstated` is comparable to nothing, so the check above never fires on it. A
+// reduction and a barrier on one hyperedge with either class unstated may
+// conflict, and nothing would say so.
+for (const {
+  reduction: r,
+  barrier: b,
+  claimed,
+  ruledOut,
+} of undecidedConflicts(pages, CLASSES)) {
+  warn(
+    r.file,
+    1,
+    "barrier-conflict-unstated",
+    `this page records {${(r.fm.hypotheses ?? []).join(", ")}} => ${r.fm.conclusion} with class: ${claimed}, and ${rel(b.file)} rules out ${ruledOut.join(" / ")} reductions on the same hyperedge. "unstated" is comparable to nothing, so the contradiction check cannot tell whether the two pages conflict. Record the class the source states on whichever page is unstated (schema/README.md § Which class to record); if the reduction gets around the barrier, list its id in the barrier's circumvented-by.`,
+  );
+}
+
+// A barrier's consequence is what the reduction would force. Forcing something
+// the community already believes rules nothing out.
+for (const { page, index, target, title } of believedConsequences(
+  pages,
+  PROPOSITIONS,
+)) {
+  warn(
+    page.file,
+    1,
+    "barrier-believed-consequence",
+    `consequences[${index}] targets "${target}" (${title || target}), which schema/propositions.yaml marks believed: true. A barrier says a reduction would force its consequence, and forcing something proved or expected rules nothing out: a proved statement (a relativized separation) is no barrier, and "A gives Q" is a reduction {A} => Q. Record the consequence the source proves — a collapse or containment believed false, or contradiction — or move the claim to a reduction page. Keep it only when the target is an open problem whose proof would itself be a major result, as P != NP is for Impagliazzo–Rudich.`,
+  );
 }
 
 // -------------------------------------------------------------- wikilinks ----
