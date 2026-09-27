@@ -27,7 +27,7 @@ Fix the verifier. The optimal acceptance probability of a partial transcript is 
 
 ## Notes
 
-`class: free`: proven complexity-class containment; the reduction-class axis does not discriminate.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 - The relativized separation $\classIP^A \neq \classPSPACE^A$ for almost all oracles $A$ ([[CCG+94 - The random oracle hypothesis is false|CCG+94]]) is a distinct statement, recorded at [[no-rom-to-roh-ccg-94]].
 - The `-ccg-94` slug suffix is historical; the containment is folklore.

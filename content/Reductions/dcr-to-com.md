@@ -7,7 +7,7 @@ id: red-dcr-to-com
 kind: implication
 hypotheses: [dcr]
 conclusion: com
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
@@ -29,6 +29,6 @@ With $g$ a random $n$-th residue (a CRS, or receiver-generated with a proof of r
 
 ## Notes
 
-`class: unstated`: the hypothesis is an assumption rather than a primitive, so the RTV04 axes do not apply, and no source states a class.
+`class: fully-black-box`: no source states a class; inferred from the proof shape. Each flavour is one fixed construction of Paillier form, and each reduction runs the adversary once as an oracle: the hiding adversary on a Paillier challenge ciphertext, or the committer on a DCR challenge $g$ given as the CRS.
 
 - Commitment flavour is not part of the conclusion identifier.

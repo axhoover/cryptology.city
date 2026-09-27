@@ -115,8 +115,12 @@ Default to the **smallest correct change**. Concretely:
      paper.
   3. **Never invent a class.** `class` comes from
      `schema/reduction-classes.yaml`. Use `unstated` unless the paper itself
-     says which notion of reduction it means. `black-box` and
-     `non-black-box` are rejected values — the lint names the notion to use.
+     says which notion of reduction it means, or the Notes justify
+     `fully-black-box` from the proof shape; a barrier refuting one named
+     construction (the identity map, Fiat–Shamir) is `fixed-construction`.
+     `schema/README.md` § Reduction classes has the rule and the stock
+     class-note sentences. `black-box` and `non-black-box` are rejected
+     values — the lint names the notion to use.
      Idealized models (ROM, generic group, AGM) go in `model`, never `class`.
   4. **Every endpoint must already resolve.** `hypotheses` and `conclusion`
      are object ids — a page `id` or a `variants` key that already exists in

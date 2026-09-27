@@ -23,4 +23,4 @@ $\classSZK \subseteq \classIP$: a [[statistical-zero-knowledge|statistical zero-
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

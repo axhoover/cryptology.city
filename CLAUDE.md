@@ -191,7 +191,8 @@ Three rules, all lint-enforced:
 
 `schema/README.md` is the full contract and `CONTRIBUTING.md` has a worked
 example of each type. `schema/reduction-classes.yaml` holds the class
-vocabulary as a partial order (RTV04); `docs/relations-json.md` documents the
+vocabulary as a partial order (RTV04, plus `fixed-construction` for barriers
+against one named construction); `docs/relations-json.md` documents the
 `relations.json` manifest as an interface for CCwiki and the formalization repo.
 
 ### Cross-linking

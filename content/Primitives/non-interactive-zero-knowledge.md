@@ -66,13 +66,13 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
 - [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
 - [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 - [[nizk-to-com|NIZK ⇒ COM]]
 - [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
 
-<!-- BEGIN GENERATED participates-in 0236858d93bc -->
+<!-- BEGIN GENERATED participates-in 0fc9ec47d0fc -->
 
 ## Participates in
 
@@ -96,6 +96,6 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 
 **Barriers**
 
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 
 <!-- END GENERATED participates-in -->

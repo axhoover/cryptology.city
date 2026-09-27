@@ -28,6 +28,6 @@ Amplify the error below $2^{-n}$; a union bound over the $2^n$ inputs of length 
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention `class: free`.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 - The two-sided-error ($\classBPP$) form of Adleman's theorem, by the same argument with a majority vote — [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]].

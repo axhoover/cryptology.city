@@ -1,25 +1,25 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from Fiat-Shamir + Hash function to DS"
+title: "No fixed-construction reduction from Fiat-Shamir + Hash function to DS"
 aliases: []
 id: bar-fiat-shamir-and-hash-function-to-ds-gk03
 hypotheses: [fiat-shamir, hash-function]
 conclusion: ds
-class: free
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: free
+    class: fixed-construction
 strength: conditional
 conditional-on: [owf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
 ---
 
-# No reduction from Fiat-Shamir + Hash function to DS
+# No fixed-construction reduction from Fiat-Shamir + Hash function to DS
 
-A reduction of class `free` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[hash-function|Hash function]] to [[digital-signature|DS]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[hash-function|Hash function]] to [[digital-signature|DS]] would imply a contradiction.
 
 ## Statement
 
@@ -31,7 +31,7 @@ The scheme adds an escape hatch: the prover may commit in its first message to a
 
 ## Notes
 
-`class: free`: a counterexample against every efficient hash function refutes the implication itself, not a proof technique.
+`class: fixed-construction`: the construction is the Fiat–Shamir transform with the random oracle instantiated by the hash function, and a counterexample against every efficient hash function refutes it. Signatures built from a hash function by other means are not ruled out.
 
 `strength: conditional`: GK03 derive the theorem from [[hash-function#preimage-resistance-one-wayness|one-way functions]], by cases on whether [[hash-function#collision-resistance|collision-resistant hash functions]] exist; when they do, the counterexample's universal arguments are built from them — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 

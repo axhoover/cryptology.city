@@ -28,6 +28,6 @@ The client derives a prime $p_i$ from index $i$ via a shared prime-sequence gene
 
 ## Notes
 
-`class: unstated`: [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] state no reduction notion, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply.
+`class: unstated`: the source does not state which notion of reduction is meant. The page records the scheme but not [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]'s privacy reduction, so no class is inferred from the proof shape.
 
 - A variant of Φ-hiding yields single-database PIR with constant communication rate — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].

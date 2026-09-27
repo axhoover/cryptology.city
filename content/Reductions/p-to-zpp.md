@@ -23,4 +23,4 @@ security-loss: ""
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

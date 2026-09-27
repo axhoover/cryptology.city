@@ -28,7 +28,7 @@ The signer samples a short masking vector $\mathbf{y}$, commits to the high bits
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. The proof rewinds the adversary via the forking lemma in the random-oracle model, and no source places it in the RTV04 taxonomy.
 
 `model: rom`: The Fiat–Shamir-with-aborts challenge hash is modeled as a (classical or quantum) random oracle.
 

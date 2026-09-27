@@ -23,6 +23,6 @@ When the group order is known and membership $h \in \langle g \rangle$ is checka
 
 ## Notes
 
-`class: free`: A containment of a search problem in a complexity class is proved by any argument, so the reduction-class axis does not discriminate (repo convention for inclusions).
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
 
 - Suitable formulations of discrete logarithm over general groups are complete for PPP and PWPP, the pigeonhole subclasses of TFNP, answering an open question of [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]] — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]]

@@ -28,7 +28,7 @@ For a step function $F$, the prover at step $t$ proves with the SNARK that there
 
 ## Notes
 
-`class: free`: The compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code rather than on oracle access to it, and the security argument nests the SNARK's extractor. Neither Val08 nor BCCT13 places the reduction in an RTV class; `free` records only that the implication is proved, the schema's value for an unclassified non-black-box construction.
+`class: free`: the compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code and no black-box class applies; `free` records only that the implication is proved. Knowledge soundness nests the SNARK's extractor, and neither Val08 nor BCCT13 places the reduction in an RTV04 class.
 
 - Removes the instantiated random oracle of Val08's CS-proof-based IVC, working in the plain model from any SNARK — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]
 - Concretely efficient recursion needs a SNARK whose verifier is efficiently arithmetizable (recursion-friendly); the typed hypothesis does not record this — folklore.

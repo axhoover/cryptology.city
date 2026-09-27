@@ -23,6 +23,6 @@ $\classQSZK \subseteq \classQIP$, since a [[quantum-statistical-zero-knowledge|q
 
 ## Notes
 
-`class: free`: definitional containment between complexity classes; the reduction-class axis does not discriminate here (repo convention).
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: repo convention for results about quantum classes.

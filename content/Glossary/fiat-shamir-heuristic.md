@@ -38,7 +38,7 @@ $$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{
 
 Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits. This raises serious questions about the security of deployed non-interactive succinct arguments based on Fiat-Shamir.
 
-<!-- BEGIN GENERATED participates-in 900aec2a6926 -->
+<!-- BEGIN GENERATED participates-in f938222abc9f -->
 
 ## Participates in
 
@@ -50,8 +50,8 @@ Prior counterexamples to Fiat-Shamir were contrived — protocols specifically e
 
 **Barriers**
 
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 
 <!-- END GENERATED participates-in -->

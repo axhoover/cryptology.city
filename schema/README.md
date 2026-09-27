@@ -139,7 +139,21 @@ notion to the **broader** one, and means set containment on reductions:
 fully-black-box ──→ semi-black-box ──→ weakly-black-box ──────┐
       │                    │                  │               ↓
       └──→ relativizing ──→ ∀∃-semi-black-box ─→ ∀∃-weakly ──→ free
+                                                              ↑
+                                     fixed-construction ──────┘
 ```
+
+`fixed-construction` is this wiki's addition; RTV04 have no such class. The
+construction is the one named on the page — the identity map on schemes, or a
+named transform such as Fiat–Shamir — and the security proof is unrestricted.
+It exists for barriers that refute one construction: "selective security of a
+HIBE does not give its adaptive security" rules out the identity map, not every
+way of building an adaptively secure HIBE from a selectively secure one, so
+recording it as `free` would assert an open problem, and on edges such as
+CPA-secure SKE ⇒ IND$-CPA-secure SKE a false one. It implies only `free`, so a
+barrier against it bites only a reduction that claims the same named
+construction. Title such a barrier "No fixed-construction reduction from A to
+B".
 
 **The contradiction rule**, stated in one direction only so it cannot be
 misread: a barrier ruling out class `B` contradicts a reduction of class `C` on
@@ -155,11 +169,56 @@ the same hyperedge **iff `C implies* B`** — iff every `C`-reduction is also a
 
 `unstated` is a sentinel, not a class: it is comparable to nothing, so the
 contradiction check never fires on it. It is the honest value when the source
-does not say, and it buys no protection.
+does not say and the proof shape does not justify a class (below), and it buys
+no protection.
 
 Idealised computation models are the **`model`** axis, never `class`. A
 generic-group lower bound is `class: free, model: generic-group` — it rules out
 every algorithm in that model, which is the `free` class scoped by the model.
+
+### Which class to record
+
+- **The source states a class:** record it.
+- **The source is silent:** record `fully-black-box` when the Notes justify it
+  from the proof shape — one fixed construction that uses the hypotheses only
+  as oracles, and one fixed reduction that uses the adversary only as an
+  oracle and works for every adversary. When a hypothesis is a hardness
+  assumption, its problem plays the primitive's role: the construction uses
+  only its public sampler (a group or modulus generator), and the reduction
+  turns any adversary into a solver for it. An assumption-to-assumption edge
+  has no construction component; the shape is a reduction that uses an
+  arbitrary solver for the conclusion only as an oracle
+  (`content/Reductions/sivp-to-lwe-reg05.md`). Otherwise record `unstated`.
+- **The construction uses a hypothesis scheme's code** (bootstrapping
+  evaluates the scheme's own decryption circuit; recursive SNARKs prove
+  statements about the scheme's own verifier): record `free`. The construction
+  depends on the scheme's code, so no black-box class applies; `free` records
+  only that the implication is proved.
+
+### The class note
+
+The Notes of every reduction and barrier page carry a paragraph that opens
+`` `class: …`: `` and says why that class. Two cases have a fixed stock
+sentence:
+
+| Case                                                                    | Stock sentence                                                                                                         |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `class: unstated`                                                       | `` `class: unstated`: the source does not state which notion of reduction is meant. ``                                 |
+| `class: free` on a containment between complexity classes (`inclusion`) | `` `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply. `` |
+
+On an `equivalence` between complexity classes, "equality" replaces
+"containment"; when an endpoint is a problem rather than a class (DLOG ∈ NP),
+"containment of a problem in a complexity class" replaces "containment between
+complexity classes".
+
+The `unstated` stock line stands alone only when the source is silent and
+nothing more is known. When the source states a notion outside the vocabulary
+(a query bound, non-adaptivity, a UC hybrid model), or there is a substantive
+reason no class is recorded (a formalization-dependent claim, an efficiency
+requirement outside the RTV04 axes, a proof scoped to an idealised model that
+no source classifies), follow it with one sentence giving that reason. A
+recorded class (`fully-black-box`, `free`, `fixed-construction`) gets one or
+two sentences justifying it from the proof shape or the source.
 
 ## Adding to these files
 

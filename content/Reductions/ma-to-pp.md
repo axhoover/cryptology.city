@@ -28,4 +28,4 @@ Amplify the MA verifier's error below $2^{-(\ell+2)}$ by repetition on independe
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; repo convention assigns class free to such inclusions.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

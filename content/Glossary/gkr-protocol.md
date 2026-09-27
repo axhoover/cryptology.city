@@ -15,12 +15,12 @@ A public-coin interactive proof for any language computable by a log-space-unifo
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 7b60731fd2b0 -->
+<!-- BEGIN GENERATED participates-in 2cbb9e33bbd3 -->
 
 ## Participates in
 
 **Barriers**
 
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
 <!-- END GENERATED participates-in -->

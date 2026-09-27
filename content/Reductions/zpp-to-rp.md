@@ -27,4 +27,4 @@ Replace the output $?$ by reject: the machine never accepts a no-instance and ac
 
 ## Notes
 
-`class: free`: A containment between complexity classes, proved by direct simulation with no restriction on technique. Matches [[p-to-zpp]] and [[rp-to-bpp]].
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

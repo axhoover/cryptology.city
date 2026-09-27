@@ -167,12 +167,16 @@ set containment on reductions: every `fully-black-box` reduction is also a
 reduction of class `C` on the same hyperedge **iff `C implies* B`** in the
 transitive closure. A barrier against `relativizing` kills a `fully-black-box`
 reduction; a barrier against `fully-black-box` does not touch a `free` one.
+`fixed-construction` is not an RTV04 class: it marks a barrier refuting one
+construction named on the page (the identity map on schemes, Fiat–Shamir), and
+implies only `free`, so such a barrier bites no RTV04-classed reduction.
 
 `classSentinels` lists values that are _not_ classes and sit outside the order —
 currently just `unstated`, which is comparable to nothing, so the contradiction
 rule never fires on it. Most of the corpus is `unstated`, because the source
-pages rarely say which notion they mean, and recording a class the wiki does not
-state would fabricate a claim.
+pages rarely say which notion they mean. A `fully-black-box` the source does not
+state appears only where the page's Notes justify it from the proof shape (see
+`schema/README.md` § Reduction classes).
 
 ## `propositions`
 

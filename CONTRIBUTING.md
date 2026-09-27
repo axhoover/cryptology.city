@@ -183,10 +183,18 @@ Why this class, what the caveats are, anything suspected and left unfixed.
 - **Split composite chains.** "OWF → PRG (HILL99) → PRF via GGM (GGM86)" is
   **two** pages, each with its own `source`. Never one OWF ⇒ PRF page.
 
-`class` is `unstated` unless the source says which notion it means. Recording a
-class the wiki does not state adds a mathematical claim, which is not your job
-when transcribing one. `source` is either citations or the bare token
-`folklore`; never invent a reference, and `standard` is not a provenance value.
+`class` is `unstated` unless the source says which notion it means, or the
+Notes justify `fully-black-box` from the proof shape: one fixed construction
+using the hypotheses only as oracles, and one fixed reduction using the
+adversary only as an oracle (for a hardness assumption, the reduction turns the
+adversary into a solver for it). A construction that uses a hypothesis scheme's
+code (bootstrapping, recursive SNARKs) is `free`. Recording a class nobody
+justifies adds a mathematical claim, which is not your job when transcribing
+one. The Notes carry a `` `class: …`: `` paragraph; `schema/README.md` §
+Reduction classes has the stock sentences for `unstated` and for complexity
+containments, and says when to add a reason. `source` is either citations or
+the bare token `folklore`; never invent a reference, and `standard` is not a
+provenance value.
 
 **Which paper goes in `source`.** List every paper whose theorem the Statement
 asserts. A paper that only introduced the notion, or proved a weaker precursor,
@@ -252,6 +260,13 @@ contradicts a reduction of class `C` on the same hyperedge **iff `C implies* B`*
 barrier against `fully-black-box` does not touch a `free` one. The lint enforces
 this as a hard error, and warns separately when a reduction would prove
 something a barrier says is a major result.
+
+A barrier that refutes one named construction — the identity map on schemes
+("selective security of a HIBE does not give its adaptive security"), or a
+transform such as Fiat–Shamir — is `class: fixed-construction`, titled "No
+fixed-construction reduction from A to B", and its Notes name the construction.
+Never record it as `free`: that would say the conclusion cannot be built from
+the hypothesis at all, which is usually open or false.
 
 ### Generated sections — do not hand-edit
 

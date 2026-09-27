@@ -27,4 +27,4 @@ Only a $\poly(n)$-bit counter of accepting runs persists across the $2^{\poly(n)
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention `class: free`.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

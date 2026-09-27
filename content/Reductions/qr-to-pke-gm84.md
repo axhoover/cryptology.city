@@ -7,7 +7,7 @@ id: red-qr-to-pke-gm84
 kind: implication
 hypotheses: [qr]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
@@ -28,4 +28,4 @@ The reduction sets $y$ to the QR challenge $a$: if $a \notin \QR_N$ it simulates
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: [[GM84 - Probabilistic encryption|GM84]] state no reduction notion; inferred from the proof shape. One fixed construction on the QR modulus, and one fixed reduction that sets $y$ to the QR challenge $a$ and runs the IND-CPA adversary once as an oracle.

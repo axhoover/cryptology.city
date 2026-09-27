@@ -28,4 +28,4 @@ Amplify the MA verifier's soundness error below $2^{-\ell}/3$ by repetition on i
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; by repo convention (cf. [[bpp-to-am-gs86]], [[qcma-to-qma]]) such inclusions carry class free.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

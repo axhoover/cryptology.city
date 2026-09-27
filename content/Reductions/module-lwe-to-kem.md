@@ -28,7 +28,7 @@ The CPA scheme is the module analogue of the [[LPR10 - On ideal lattices and lea
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy.
 
 `model: rom`: The IND-CPA scheme is standard-model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the (classical and quantum) random-oracle model.
 

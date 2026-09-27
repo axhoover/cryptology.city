@@ -25,6 +25,6 @@ $\classQIP = \classPSPACE$ — [[JJUW10 - QIP = PSPACE|JJUW10]]. For $\classQIP 
 
 ## Notes
 
-`class: free`: Proven complexity-class equality; the reduction-class axis does not discriminate here (repo convention for containments).
+`class: free`: an unconditional equality between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: Kept as migrated; wiki convention for results about quantum classes.

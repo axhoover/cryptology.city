@@ -7,7 +7,7 @@ id: red-d-th-composite-residuosity-to-he
 kind: implication
 hypotheses: [d-th-composite-residuosity]
 conclusion: he
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
@@ -28,6 +28,6 @@ $\Eval$ for addition is multiplication modulo $n^{d+1}$. Decryption raises the c
 
 ## Notes
 
-`class: unstated`: [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] state no reduction notion, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply.
+`class: fully-black-box`: [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] state no reduction notion; inferred from the proof shape. One fixed construction on the RSA modulus, and one fixed reduction that embeds a $d$-th composite residuosity challenge $z$ as $c^* = (1+n)^{m_b} \cdot z \bmod n^{d+1}$ and runs the IND-CPA adversary once as an oracle, as for Paillier ([[dcr-to-partially-homomorphic-encryption-phe-pai99]]).
 
 - `d-th-composite-residuosity` is a section of [[decisional-composite-residuosity|DCR]], not its own page.

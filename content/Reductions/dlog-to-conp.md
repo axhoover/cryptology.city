@@ -23,4 +23,4 @@ The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, p, X, t)
 
 ## Notes
 
-`class: free`: Membership of a problem in a complexity class is proved by any argument at all; free is the repo convention for proven complexity containments.
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.

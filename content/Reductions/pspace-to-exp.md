@@ -23,4 +23,4 @@ $\classPSPACE \subseteq \classEXP$: a deterministic machine running in space $p(
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

@@ -28,6 +28,6 @@ Each cross term $a^i b^j$ of a secret-shared triple is computed pairwise by corr
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. MASCOT is proved UC-secure in a hybrid model with an OT-extension functionality, the hypothesis, and that protocol-composition statement does not map onto the RTV04 taxonomy.
 
 - The hypothesis `ot-extension` has no dedicated page (it is a section of [[oblivious-transfer]]), and the conclusion `mpc-with-preprocessing` is a section of [[secure-multi-party-computation]].

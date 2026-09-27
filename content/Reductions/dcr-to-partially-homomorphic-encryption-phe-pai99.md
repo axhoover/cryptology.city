@@ -7,7 +7,7 @@ id: red-dcr-to-partially-homomorphic-encryption-phe-pai99
 kind: implication
 hypotheses: [dcr]
 conclusion: additively-homomorphic-encryption
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
@@ -28,7 +28,7 @@ An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge 
 
 ## Notes
 
-`class: unstated`: [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]] states no reduction notion, and the hypothesis is a hardness assumption rather than a primitive, so the RTV04 axes do not apply.
+`class: fully-black-box`: [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]] states no reduction notion; inferred from the proof shape. One fixed construction on the DCR modulus, and one fixed reduction that embeds the DCR challenge $z$ as $c^* = g^{m_b} \cdot z \bmod n^2$ and runs the IND-CPA adversary once as an oracle.
 
 - Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]
 - `additively-homomorphic-encryption` is a variant id resolving to the PHE section of [[homomorphic-encryption|HE]], not its own page.

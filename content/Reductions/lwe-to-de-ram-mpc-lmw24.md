@@ -28,6 +28,6 @@ Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies maliciously secur
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. The conclusion bundles an efficiency requirement, sublinear online time, with security, and that requirement lies outside the RTV04 axes.
 
 - Hypothesis changed from `lwe` to `ring-lwe`, with title and H1 to match: LMW24 instantiate from Ring-LWE via the LMW23 DEPIR; the abstract names no plain-LWE instantiation.

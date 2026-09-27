@@ -25,7 +25,7 @@ $\classSZK \subseteq \classQSZK$: a classical [[statistical-zero-knowledge|stati
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: $\classQSZK$ is defined over quantum verifiers, messages and simulators.
 

@@ -23,4 +23,4 @@ $\classRP \subseteq \classBPP$: running an $\classRP$ machine twice independentl
 
 ## Notes
 
-`class: free`: A containment between complexity classes, proved by any argument; the reduction-class axis does not discriminate. Matches the sibling pages [[p-to-bpp]], [[zpp-to-rp]] and [[rp-to-np]].
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

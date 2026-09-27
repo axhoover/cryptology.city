@@ -1,24 +1,24 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from Fiat-Shamir + GKR to SNARK"
+title: "No fixed-construction reduction from Fiat-Shamir + GKR to SNARK"
 aliases: []
 id: bar-fiat-shamir-and-gkr-to-snark-krs25
 hypotheses: [fiat-shamir, gkr-protocol]
 conclusion: snark
-class: free
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: free
+    class: fixed-construction
 strength: unconditional
 source:
   - "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]"
 ---
 
-# No reduction from Fiat-Shamir + GKR to SNARK
+# No fixed-construction reduction from Fiat-Shamir + GKR to SNARK
 
-A reduction of class `free` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[gkr-protocol|GKR]] to [[succinct-argument|SNARK]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[gkr-protocol|GKR]] to [[succinct-argument|SNARK]] would imply a contradiction.
 
 ## Statement
 
@@ -26,6 +26,6 @@ Applying [[fiat-shamir-heuristic|Fiat-Shamir]] to the [[gkr-protocol|GKR]]-based
 
 ## Notes
 
-`class: free`: an attack against every hash function refutes the implication itself, not a proof technique.
+`class: fixed-construction`: the construction is Fiat–Shamir applied to the GKR-based argument, and an attack against every hash function refutes it. SNARKs built by other means are not ruled out.
 
 - The KRS25 result is stated twice, in different words, on content/Glossary/random-oracle-model.md and content/Glossary/fiat-shamir-heuristic.md; neither page links the other.

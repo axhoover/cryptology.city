@@ -44,6 +44,12 @@
   "free": {
    "title": "Free",
    "implies": []
+  },
+  "fixed-construction": {
+   "title": "Fixed construction",
+   "implies": [
+    "free"
+   ]
   }
  },
  "classSentinels": [
@@ -4778,7 +4784,7 @@
     "somewhat-homomorphic-encryption"
    ],
    "conclusion": "he",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
@@ -5020,7 +5026,7 @@
     "d-th-composite-residuosity"
    ],
    "conclusion": "he",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
@@ -5061,7 +5067,7 @@
     "dcr"
    ],
    "conclusion": "com",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "folklore"
@@ -5101,7 +5107,7 @@
     "dcr"
    ],
    "conclusion": "additively-homomorphic-encryption",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
@@ -6772,7 +6778,7 @@
     "higher-residuosity"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
@@ -8003,7 +8009,7 @@
     "worst-case-module-lattice-problems"
    ],
    "conclusion": "module-lwe",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "quantum",
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -8023,7 +8029,7 @@
     "worst-case-module-lattice-problems"
    ],
    "conclusion": "module-sis",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -9353,7 +9359,7 @@
     "qr"
    ],
    "conclusion": "pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]"
@@ -9976,7 +9982,7 @@
     "somewhat-homomorphic-encryption"
    ],
    "conclusion": "he",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
@@ -10779,32 +10785,6 @@
    "title": "No reduction from AGM to GGM"
   },
   {
-   "id": "bar-binding-and-hiding-to-com",
-   "hypotheses": [
-    "statistically-binding-commitment",
-    "statistically-hiding-commitment"
-   ],
-   "conclusion": "com",
-   "class": "free",
-   "consequences": [
-    {
-     "kind": "contradiction",
-     "target": "",
-     "class": "free"
-    }
-   ],
-   "strength": "unconditional",
-   "conditionalOn": [],
-   "source": [
-    "folklore"
-   ],
-   "status": "draft",
-   "page": "content/Barriers/no-binding-and-hiding-to-com.md",
-   "slug": "no-binding-and-hiding-to-com",
-   "graphSlug": "Barriers/no-binding-and-hiding-to-com",
-   "title": "No reduction from Binding + Hiding to COM"
-  },
-  {
    "id": "bar-bqp-to-np",
    "hypotheses": [
     "bqp"
@@ -10835,12 +10815,12 @@
     "cpa-security"
    ],
    "conclusion": "ind-dollar-cpa-security",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "unconditional",
@@ -10852,7 +10832,7 @@
    "page": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
    "slug": "no-cpa-security-to-ind-cpa-security",
    "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
-   "title": "No reduction from CPA Security to IND$-CPA Security"
+   "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
   },
   {
    "id": "bar-depir-to-ot-dmo00",
@@ -10991,12 +10971,12 @@
     "gkr-protocol"
    ],
    "conclusion": "snark",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "unconditional",
@@ -11008,7 +10988,7 @@
    "page": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
    "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
    "graphSlug": "Barriers/no-fiat-shamir-and-gkr-to-snark-krs25",
-   "title": "No reduction from Fiat-Shamir + GKR to SNARK"
+   "title": "No fixed-construction reduction from Fiat-Shamir + GKR to SNARK"
   },
   {
    "id": "bar-fiat-shamir-and-hash-function-to-ds-gk03",
@@ -11017,12 +10997,12 @@
     "hash-function"
    ],
    "conclusion": "ds",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "conditional",
@@ -11036,7 +11016,7 @@
    "page": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
    "slug": "no-fiat-shamir-and-hash-function-to-ds-gk03",
    "graphSlug": "Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03",
-   "title": "No reduction from Fiat-Shamir + Hash function to DS"
+   "title": "No fixed-construction reduction from Fiat-Shamir + Hash function to DS"
   },
   {
    "id": "bar-fiat-shamir-to-nizk-gk03",
@@ -11044,12 +11024,12 @@
     "fiat-shamir"
    ],
    "conclusion": "nizk",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "conditional",
@@ -11063,7 +11043,7 @@
    "page": "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
    "slug": "no-fiat-shamir-to-nizk-gk03",
    "graphSlug": "Barriers/no-fiat-shamir-to-nizk-gk03",
-   "title": "No reduction from Fiat-Shamir to NIZK"
+   "title": "No fixed-construction reduction from Fiat-Shamir to NIZK"
   },
   {
    "id": "bar-ggm-to-cdh-sho97",
@@ -11171,12 +11151,12 @@
     "he"
    ],
    "conclusion": "ind-cca-security",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "unconditional",
@@ -11188,7 +11168,7 @@
    "page": "content/Barriers/no-he-to-cca-security.md",
    "slug": "no-he-to-cca-security",
    "graphSlug": "Barriers/no-he-to-cca-security",
-   "title": "No reduction from HE to CCA Security"
+   "title": "No fixed-construction reduction from HE to CCA Security"
   },
   {
    "id": "bar-he-to-szk-bl13",
@@ -11224,12 +11204,12 @@
     "hibe-selective-security"
    ],
    "conclusion": "hibe-adaptive-security",
-   "class": "free",
+   "class": "fixed-construction",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "free"
+     "class": "fixed-construction"
     }
    ],
    "strength": "unconditional",
@@ -11241,7 +11221,7 @@
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
    "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
    "graphSlug": "Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
-   "title": "No reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security"
+   "title": "No fixed-construction reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security"
   },
   {
    "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security-2",

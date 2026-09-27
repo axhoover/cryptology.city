@@ -7,7 +7,7 @@ id: red-higher-residuosity-to-pke
 kind: implication
 hypotheses: [higher-residuosity]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
@@ -28,7 +28,7 @@ Encryption randomizes within the coset $g^m (\ZZ_N^*)^d$, so distinguishing encr
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: [[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]] state no reduction notion; inferred from the proof shape. One fixed construction on the modulus, and one fixed reduction that sets $g$ to the higher-residuosity challenge, as [[qr-to-pke-gm84|GM84]] sets $y$ to the QR challenge, and runs the IND-CPA adversary once as an oracle: for a $d$-th non-residue the public key is distributed as in the scheme, and for a $d$-th residue every ciphertext is a uniform $d$-th residue, independent of the message.
 
 - Dense variant with ciphertext expansion arbitrarily close to $1$ (the Benaloh cryptosystem) — [[Ben94 - Dense Probabilistic Encryption|Ben94]]
 - Corrected key-generation conditions for the dense scheme, whose original parameters can make decryption ambiguous — [[FLA11 - Benaloh's Dense Probabilistic Encryption Revisited|FLA11]]

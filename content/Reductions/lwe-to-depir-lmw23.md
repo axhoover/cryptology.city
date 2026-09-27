@@ -28,7 +28,7 @@ LMW23 first build a PIR whose server computation is evaluating a fixed multivari
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes.
 
 - LMW23 also construct RAM-FHE from Ring-LWE plus circular security; RAM-FHE has no object page.
 - Hypothesis changed from `lwe` to `ring-lwe`, with title and H1 to match: LMW23 prove security under Ring-LWE (title and abstract); ring-lwe is a declared variant id on the LWE page.

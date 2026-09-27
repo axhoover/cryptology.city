@@ -55,10 +55,15 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
 - **Split composite chains.** "OWF -> PRG (HILL99) -> PRF via GGM (GGM86)" is
   TWO pages, each with its own `source` — never one OWF => PRF page.
 - **Do not invent a class.** `class` comes from `schema/reduction-classes.yaml`
-  (the RTV04 taxonomy as a partial order); use `unstated` when the source does
-  not say which notion it means. Recording a class the wiki does not state adds
-  a mathematical claim. `black-box` and `non-black-box` are rejected values —
-  the lint message names the notion to use instead.
+  (the RTV04 taxonomy as a partial order, plus `fixed-construction`); use
+  `unstated` when the source does not say which notion it means, unless the
+  Notes justify `fully-black-box` from the proof shape (fixed construction,
+  adversary used only as an oracle). A construction using a scheme's code is
+  `free`; a barrier refuting one named construction (the identity map,
+  Fiat–Shamir) is `fixed-construction`, never `free`. Recording a class nobody
+  justifies adds a mathematical claim. Class notes use the stock sentences in
+  `schema/README.md` § Reduction classes. `black-box` and `non-black-box` are
+  rejected values — the lint message names the notion to use instead.
 - **Do not invent a citation.** `source` is either `[[KEY - Full Title|KEY]]`
   wikilinks or the bare token `folklore`. `standard` is not a provenance value.
   It lists every paper whose theorem the Statement asserts; a paper that only

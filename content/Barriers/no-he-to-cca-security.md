@@ -1,23 +1,23 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from HE to CCA Security"
+title: "No fixed-construction reduction from HE to CCA Security"
 aliases: []
 id: bar-he-to-cca-security
 hypotheses: [he]
 conclusion: ind-cca-security
-class: free
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: free
+    class: fixed-construction
 strength: unconditional
 source: folklore
 ---
 
-# No reduction from HE to CCA Security
+# No fixed-construction reduction from HE to CCA Security
 
-A reduction of class `free` from [[homomorphic-encryption|HE]] to [[public-key-encryption#cca-security|CCA Security]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[homomorphic-encryption|HE]] to [[public-key-encryption#cca-security|CCA Security]] would imply a contradiction.
 
 ## Statement
 
@@ -29,7 +29,7 @@ Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$. Given the challen
 
 ## Notes
 
-`class: free`: the hyperedge is read for one scheme (homomorphism ⇒ IND-CCA2 security), and the attack refutes it outright. Building a separate IND-CCA2-secure scheme from an HE scheme is not ruled out.
+`class: fixed-construction`: the construction is the identity map — the hyperedge is read for one scheme (homomorphism ⇒ IND-CCA2 security of the same scheme) — and the attack refutes it outright. Building a separate IND-CCA2-secure scheme from an HE scheme is not ruled out.
 
 - IND-CCA1-secure fully homomorphic encryption is constructed from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]]
 - Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]]

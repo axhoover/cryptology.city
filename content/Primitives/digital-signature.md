@@ -192,7 +192,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ Hash function]]
 
-<!-- BEGIN GENERATED participates-in 98a79d714c0e -->
+<!-- BEGIN GENERATED participates-in 8502c9392d6f -->
 
 ## Participates in
 
@@ -225,6 +225,6 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 
 **Barriers**
 
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 
 <!-- END GENERATED participates-in -->

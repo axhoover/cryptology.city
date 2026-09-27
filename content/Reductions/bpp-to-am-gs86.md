@@ -27,6 +27,6 @@ With Merlin's message discarded, completeness $2/3$ and soundness $1/3$ are exac
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention the reduction-class axis does not discriminate here.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 - The `-gs86` slug suffix is historical; the containment is folklore.

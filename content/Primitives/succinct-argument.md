@@ -101,7 +101,7 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in d9a546747064 -->
+<!-- BEGIN GENERATED participates-in 997a162e3305 -->
 
 ## Participates in
 
@@ -130,6 +130,6 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 **Barriers**
 
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
 <!-- END GENERATED participates-in -->

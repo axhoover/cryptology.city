@@ -1,25 +1,25 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from Fiat-Shamir to NIZK"
+title: "No fixed-construction reduction from Fiat-Shamir to NIZK"
 aliases: []
 id: bar-fiat-shamir-to-nizk-gk03
 hypotheses: [fiat-shamir]
 conclusion: nizk
-class: free
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: free
+    class: fixed-construction
 strength: conditional
 conditional-on: [crhf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
 ---
 
-# No reduction from Fiat-Shamir to NIZK
+# No fixed-construction reduction from Fiat-Shamir to NIZK
 
-A reduction of class `free` from [[fiat-shamir-heuristic|Fiat-Shamir]] to [[non-interactive-zero-knowledge|NIZK]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[fiat-shamir-heuristic|Fiat-Shamir]] to [[non-interactive-zero-knowledge|NIZK]] would imply a contradiction.
 
 ## Statement
 
@@ -27,7 +27,7 @@ The [[fiat-shamir-heuristic|Fiat-Shamir]] transform of GK03's 3-round public-coi
 
 ## Notes
 
-`class: free`: a counterexample against every efficient hash function refutes the implication itself, not a proof technique.
+`class: fixed-construction`: the construction is the Fiat–Shamir transform, and a counterexample against every efficient hash function refutes it. Non-interactive arguments built by other means are not ruled out.
 
 `strength: conditional`: GK03 prove the theorem assuming [[hash-function#collision-resistance|collision-resistant hash functions]], which the counterexample's universal arguments use — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 

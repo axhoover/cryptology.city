@@ -7,7 +7,7 @@ id: red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
 hypotheses: [circular-security, somewhat-homomorphic-encryption]
 conclusion: he
-class: unstated
+class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
@@ -28,6 +28,6 @@ The public key includes encryptions of the secret key. To refresh a noisy cipher
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: free`: bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies; `free` records only that the implication is proved.
 
 - The SHE hypothesis is a section of the conclusion's page (homomorphic-encryption.md), so the edge renders as a near self-loop until SHE gets its own page.

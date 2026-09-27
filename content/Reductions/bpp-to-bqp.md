@@ -28,6 +28,6 @@ Each deterministic step of the probabilistic machine is executed reversibly, and
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention `class: free`.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: The containment is witnessed by a quantum simulation of the probabilistic machine; sibling BQP edges (e.g. [[bqp-to-pp]]) use `model: quantum`.

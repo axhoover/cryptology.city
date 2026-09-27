@@ -7,7 +7,7 @@ id: red-module-svp-to-module-sis-ls15
 kind: implication
 hypotheses: [worst-case-module-lattice-problems]
 conclusion: module-sis
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -28,4 +28,4 @@ The reduction of [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: worst-case-to-average-case oracle reduction; the worst-case algorithm builds random Module-SIS instances from its input module lattice and uses an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape, as for [[gapsvp-to-sis-ajt96]] and [[ideal-svp-to-ring-sis-lm06]].

@@ -28,7 +28,7 @@ Strong error reduction drives the completeness and soundness errors of a QMA ver
 
 ## Notes
 
-`class: free`: proven containment between complexity classes; the reduction-class axis does not discriminate here (repo convention).
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: repo convention for results about quantum classes.
 

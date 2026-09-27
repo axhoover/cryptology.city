@@ -7,7 +7,7 @@ id: red-module-svp-to-module-lwe-ls15
 kind: implication
 hypotheses: [worst-case-module-lattice-problems]
 conclusion: module-lwe
-class: unstated
+class: fully-black-box
 model: quantum
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -28,6 +28,6 @@ The iterative quantum step of [[Reg05 - On Lattices, Learning with Errors, Rando
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: worst-case-to-average-case oracle reduction; the quantum reduction uses an arbitrary Module LWE solver only as an oracle inside its iterative step, and works for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape, as for [[sivp-to-lwe-reg05]] and [[ideal-svp-to-ring-lwe-lpr10]].
 
 `model: quantum`: The step turning the bounded-distance-decoding solver into a discrete Gaussian sampler is quantum; the Module-SIS reduction in the same paper ([[module-svp-to-module-sis-ls15]]) is classical.

@@ -24,6 +24,6 @@ Assuming public-coin evasive circular LWE (a circular variant of [[learning-with
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: unstated`: the source does not state which notion of reduction is meant. The hypothesis is an implication-style lattice assumption quantified over samplers, not a primitive or a single problem that a reduction uses as an oracle.
 
 - Given the AMYY25 counterexample, the edge stands only as a conditional theorem; the schema has no marker for a refuted hypothesis.

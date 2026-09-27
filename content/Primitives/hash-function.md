@@ -110,7 +110,7 @@ is negligible.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 47fcbbc3064b -->
+<!-- BEGIN GENERATED participates-in edcf8fc99afe -->
 
 ## Participates in
 
@@ -154,7 +154,7 @@ is negligible.
 
 **Barriers**
 
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from Hash function to PKE]]
 - [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
 

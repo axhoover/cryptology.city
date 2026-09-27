@@ -23,6 +23,6 @@ $\classQCMA \subseteq \classQMA$: the QMA verifier measures the witness register
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; the reduction-class axis does not discriminate here (repo convention for containments).
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: Kept as migrated; wiki convention for containments among quantum classes.

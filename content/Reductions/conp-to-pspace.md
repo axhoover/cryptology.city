@@ -23,4 +23,4 @@ $\classcoNP \subseteq \classPSPACE$: $\classNP \subseteq \classPSPACE$ by enumer
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention `class: free`.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

@@ -27,6 +27,6 @@ Totality is the fundamental theorem of arithmetic; the verifier checks $\prod_i 
 
 ## Notes
 
-`class: free`: a proven inclusion holds by any argument; repo convention, as in [[bpp-to-pspace]].
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
 
 - Factoring reduces in randomized polynomial time to a problem in PPA and to WeakPigeon in PPP; under the generalized Riemann hypothesis both reductions are deterministic — [[Jer16 - Integer factoring and modular square roots|Jer16]]

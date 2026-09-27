@@ -24,6 +24,6 @@ $\classSZK \subseteq \classcoAM$: the complement of every promise problem with a
 
 ## Notes
 
-`class: free`: Unconditional containment between complexity classes; the reduction-class axis does not apply.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 - The $\classSZK$-completeness of Statistical Difference gives a simpler, unified proof of this bound and of $\classSZK \subseteq \classAM$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]

@@ -28,7 +28,7 @@ For a polynomial-time quantum machine with rational amplitudes, the acceptance p
 
 ## Notes
 
-`class: free`: Proven complexity-class containment; per repo convention `class: free`.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: Matches sibling containments of quantum classes ([[bpp-to-bqp]], [[qcma-to-pp]], [[qma-to-pp]]); the proof itself is a classical counting argument.
 

@@ -7,7 +7,7 @@ id: red-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
 hypotheses: [somewhat-homomorphic-encryption]
 conclusion: he
-class: unstated
+class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
@@ -28,6 +28,6 @@ To refresh a noisy ciphertext $c$, homomorphically evaluate $\Dec(\cdot, c)$ on 
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: free`: bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies; `free` records only that the implication is proved.
 
 - No wiki page for SHE or FHE as objects distinct from `he`: the hypothesis and the conclusion both anchor into homomorphic-encryption.md, so the edge renders as a near self-loop.

@@ -70,7 +70,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[ddh-to-com|DDH ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in 591ac2af1d63 -->
+<!-- BEGIN GENERATED participates-in bdf96c225a37 -->
 
 ## Participates in
 
@@ -91,9 +91,5 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[qr-to-com|QR ⇒ COM]]
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
-
-**Barriers**
-
-- [[no-binding-and-hiding-to-com|No reduction from Binding + Hiding to COM]]
 
 <!-- END GENERATED participates-in -->

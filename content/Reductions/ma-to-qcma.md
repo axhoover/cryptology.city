@@ -27,6 +27,6 @@ The quantum verifier runs the classical verification circuit, sampling Arthur's 
 
 ## Notes
 
-`class: free`: Immediate containment between complexity classes (a probabilistic verifier is a special case of a quantum verifier); repo convention assigns class free to such inclusions.
+`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
 `model: quantum`: Repo convention for inclusions among quantum proof-system classes (cf. [[qcma-to-qma]], [[qma-to-pp]], [[bpp-to-bqp]]).

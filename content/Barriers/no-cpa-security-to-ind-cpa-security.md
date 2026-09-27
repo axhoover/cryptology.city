@@ -1,23 +1,23 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from CPA Security to IND$-CPA Security"
+title: "No fixed-construction reduction from CPA Security to IND$-CPA Security"
 aliases: []
 id: bar-cpa-security-to-ind-cpa-security
 hypotheses: [cpa-security]
 conclusion: ind-dollar-cpa-security
-class: free
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: free
+    class: fixed-construction
 strength: unconditional
 source: folklore
 ---
 
-# No reduction from CPA Security to IND$-CPA Security
+# No fixed-construction reduction from CPA Security to IND$-CPA Security
 
-A reduction of class `free` from [[symmetric-key-encryption#cpa-security|CPA Security]] to [[symmetric-key-encryption#ind-cpa-security|IND$-CPA Security]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[symmetric-key-encryption#cpa-security|CPA Security]] to [[symmetric-key-encryption#ind-cpa-security|IND$-CPA Security]] would imply a contradiction.
 
 ## Statement
 
@@ -29,4 +29,4 @@ The appended bit is independent of the message, so a CPA adversary against the m
 
 ## Notes
 
-`class: free`: the separation is a counterexample, not a restriction on proof technique, so it rules out the implication itself.
+`class: fixed-construction`: the construction is the identity map — the hyperedge is read for one scheme (CPA security of $\SKE$ ⇒ IND\$-CPA security of the same $\SKE$) — and the counterexample refutes it. Building a separate IND\$-CPA-secure scheme from a CPA-secure one is not ruled out.

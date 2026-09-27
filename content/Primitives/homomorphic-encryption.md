@@ -74,7 +74,7 @@ An FHE scheme is **compact** if there is a polynomial $p$ such that every cipher
 - Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in 601301307e28 -->
+<!-- BEGIN GENERATED participates-in af72689d4fb6 -->
 
 ## Participates in
 
@@ -95,7 +95,7 @@ An FHE scheme is **compact** if there is a polynomial $p$ such that every cipher
 
 **Barriers**
 
-- [[no-he-to-cca-security|No reduction from HE to CCA Security]]
+- [[no-he-to-cca-security|No fixed-construction reduction from HE to CCA Security]]
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
 
 <!-- END GENERATED participates-in -->

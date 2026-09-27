@@ -23,6 +23,6 @@ The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, h, t)$, 
 
 ## Notes
 
-`class: free`: A containment between complexity classes is proved by any argument, so the reduction-class axis does not discriminate (repo convention for inclusions).
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
 
 - Membership in $\classNP \cap \classcoNP$ additionally needs the group order and its factorization, certified by Pratt primality certificates, so that the discrete logarithm is unique and certifiable — folklore. The $\classcoNP$ side is [[dlog-to-conp]].
