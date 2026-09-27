@@ -132,7 +132,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in cf6e95fdb2cc -->
+<!-- BEGIN GENERATED participates-in 7c1787ecbe53 -->
 
 ## Participates in
 
@@ -159,7 +159,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 **Barriers**
 
 - [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
+- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]] — circumvented by [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-tdp-to-ot|No reduction from TDP to OT]]
 

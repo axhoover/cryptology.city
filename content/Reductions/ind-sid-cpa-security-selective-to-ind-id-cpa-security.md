@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security"
+title: "Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security"
 aliases: []
 id: red-ind-sid-cpa-security-selective-to-ind-id-cpa-security
 kind: implication
-hypotheses: [ind-sid-cpa]
+hypotheses: [subexp-ind-sid-cpa]
 conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security"
 ---
 
-# IND-sID-CPA Security (Selective) ⇒ IND-ID-CPA Security
+# Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security
 
-[[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]] implies [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]], with a multiplicative security loss of $|\calI|$ (complexity leveraging).
+[[identity-based-encryption#sub-exponential-ind-sid-cpa-security|Sub-exponential IND-sID-CPA Security]] implies [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]], with a multiplicative security loss of $|\calI|$ (complexity leveraging).
 
 ## Statement
 
-Every [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme with identity space $\calI$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with a multiplicative loss of $|\calI|$: the reduction guesses the challenge identity in advance and aborts on a wrong guess. For super-polynomial $|\calI|$ the loss is super-polynomial, so the implication requires sub-exponential selective security (complexity leveraging) [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].
+Every [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme with identity space $\calI$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with a multiplicative loss of $|\calI|$: the reduction guesses the challenge identity in advance and aborts on a wrong guess. For super-polynomial $|\calI|$ the loss is super-polynomial, so the implication requires [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponential selective security]] (complexity leveraging) [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].
 
 ## Sketch
 

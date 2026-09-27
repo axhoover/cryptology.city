@@ -54,6 +54,11 @@ Two further rules follow, and the lint enforces both:
   encoded inside a single page.
 - **Composite chains are split.** "OWF → PRG (HILL99) → PRF via GGM (GGM86)" is
   two reduction pages, each with its own source — never one OWF ⇒ PRF page.
+  The rule targets pages whose proof is the chain, not direct results that a
+  chain also implies: `p-to-bpp` stays beside P ⊆ ZPP ⊆ RP ⊆ BPP, and a
+  sourced direct result such as MA ⊆ AM (BM88) is kept whatever else implies
+  it. `generate-relations.mjs --redundant` reports such edges and never
+  deletes them.
 
 ### What a hypothesis is: `hypotheses` and `via`
 
@@ -108,6 +113,35 @@ An oracle separation is `unconditional`: its oracle is carried by
 `class: relativizing` and described in `oracle`, not listed in
 `conditional-on`. A barrier's `consequences` are what it concludes, never what
 it assumes.
+
+### Getting around a barrier: `circumvented-by`
+
+A barrier rules out one class of reduction on one hyperedge. A reduction that
+reaches the conclusion anyway, by a class the barrier does not rule out or by a
+technique outside its scope, is listed on the barrier in the optional
+`circumvented-by`, by reduction id:
+
+```yaml
+# content/Barriers/no-oihf-to-ot-bh26.md
+class: fully-black-box
+circumvented-by: [red-oihf-to-ot-bh26] # BH26's non-black-box OIHF ⇒ OT
+```
+
+The lint allows the key only on barriers and requires each entry to be the `id`
+of a reduction page. `relations.json` carries it as `circumventedBy`, and the
+generated "Participates in" sections name the circumventing reduction beside
+the barrier. A circumvention with no reduction page yet — Bar01's non-black-box
+simulation against `no-zkp-to-argument-systems` — stays in the barrier's
+Statement or Notes until the page exists.
+
+### Refutations are attacks, not barriers
+
+A refutation of an assumption or of one of its variants — the counterexamples
+to private-coin and circular evasive LWE (BUW24, AMYY25) — goes in the
+assumption page's `# Attacks` section with its citation. It is never a barrier
+from the variant to the assumption, nor a self-loop: a barrier says which
+reductions between two objects can exist, and a refutation says that one object
+fails.
 
 ## Object ids
 
@@ -208,8 +242,9 @@ does not say and the proof shape does not justify a class (below), and it buys
 no protection.
 
 Idealised computation models are the **`model`** axis, never `class`. A
-generic-group lower bound is `class: free, model: generic-group` — it rules out
-every algorithm in that model, which is the `free` class scoped by the model.
+generic-group lower bound is a reduction `{ggm} ⇒ X` with
+`class: free, model: generic-group` — it is proved for every algorithm in that
+model, which is the `free` class scoped by the model (§ Which model to record).
 
 ### Which model to record
 
@@ -223,7 +258,12 @@ every algorithm in that model, which is the `free` class scoped by the model.
   hypothesis, since a hyperedge needs one, `{model} ⇒ X` reads "X holds in the
   model": `{rom} ⇒ oblivious-interactive-hash-function`
   (`rom-to-oihf-bh26`), `{agm} ⇒ kea` (`agm-to-kea`). On a barrier, which has
-  no `model` field, the model's node is the hypothesis.
+  no `model` field, the model's node is the hypothesis, and the barrier says X
+  fails in the model: `{rom} ⇏ ke` (`no-rom-to-ke-hmo-19`). A lower bound on
+  attacks in an idealised model is therefore a reduction, never a barrier: Sho97's
+  generic-group bound is `{ggm} ⇒ dlog` with `model: generic-group`
+  (`ggm-to-dlog-sho97`), while a barrier on that hyperedge would say DLOG is
+  not hard for generic algorithms.
 - **One model per edge.** `model` is single-valued. A proof using both a
   random oracle and a trusted structured reference string takes `model: rom`,
   with the SRS named in the Statement. A group model combined with a random

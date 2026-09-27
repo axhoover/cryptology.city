@@ -74,15 +74,21 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
   separation is `unconditional`; its oracle is `class: relativizing`.
 - Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`, and
   are not also listed in `hypotheses` (`{dlog} => schnorr-signature`,
-  `model: rom`). Transforms and techniques (Fiat–Shamir, arithmetization) go
-  in `via`. A candidate construction with no security reduction is
-  `heuristic: true`. Exceptions and the `model` conventions:
-  `schema/README.md` § What a hypothesis is, § Which model to record.
+  `model: rom`). A lower bound on attacks in an idealized model is a reduction
+  with the model as sole hypothesis (`{ggm} => dlog`, `model: generic-group`: DLOG
+  holds in the model), never a barrier. Transforms and techniques
+  (Fiat–Shamir, arithmetization) go in `via`. A candidate construction with
+  no security reduction is `heuristic: true`. Exceptions and the `model`
+  conventions: `schema/README.md` § What a hypothesis is, § Which model to
+  record.
 
 A **barrier** generalizes separations: `(exists a reduction of class C from
 {A_i} to B) => Q`, where Q is `contradiction`, an object, a complexity claim
 (a key of `schema/propositions.yaml`), or another hyperedge. `consequences` is a
-LIST — one theorem can carry several framings over one hyperedge.
+LIST — one theorem can carry several framings over one hyperedge. A reduction
+that gets around a barrier is listed in the barrier's optional
+`circumvented-by` (reduction ids). A refutation of an assumption variant is
+never a barrier: it goes in the assumption page's `# Attacks` section.
 
 Object pages declare **identity**, which is allowed because it is not an edge:
 `id` (stable, survives renames — the formalization repo joins on it) and

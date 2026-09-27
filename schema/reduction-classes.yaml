@@ -171,9 +171,9 @@ rejected:
   generic-group:
     message: >-
       Idealized computation models are the `model:` axis, not the `class:` axis.
-      Set model: generic-group and class: free (a generic-group lower bound rules
-      out every algorithm in that model, which is the `free` class scoped by the
-      model).
+      Set model: generic-group and class: free (a generic-group lower bound is a
+      reduction {ggm} => X proved for every algorithm in that model, which is the
+      `free` class scoped by the model).
   generic-ring:
     message: >-
       See `generic-group`: set model: other, class: free, and name the ring model

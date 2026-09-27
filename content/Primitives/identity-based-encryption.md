@@ -9,6 +9,7 @@ id: ibe
 variants:
   ind-id-cpa: "#ind-id-cpa-security"
   ind-sid-cpa: "#ind-sid-cpa-security-selective"
+  subexp-ind-sid-cpa: "#sub-exponential-ind-sid-cpa-security"
 ---
 
 # Identity-based encryption
@@ -95,6 +96,10 @@ $$
 $$
 
 is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure; the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\calI|$.
+
+#### Sub-exponential IND-sID-CPA Security
+
+An IBE scheme $\IBE$ is **sub-exponentially IND-sID-CPA-secure** if there is a constant $\epsilon > 0$ such that for all sufficiently large $\secpar$, every admissible $\calA$ of size at most $2^{\secpar^{\epsilon}}$ has $\Adv^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) \le 2^{-\secpar^{\epsilon}}$.
 
 # Variations
 

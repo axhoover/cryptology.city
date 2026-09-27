@@ -45,7 +45,7 @@ is negligible.
 ## Known Results
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
-- [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
+- [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
 - In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{cdh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 # Variations
@@ -58,7 +58,7 @@ deterministically.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 2823d6b232cf -->
+<!-- BEGIN GENERATED participates-in ef0974f0acf5 -->
 
 ## Participates in
 
@@ -72,9 +72,6 @@ deterministically.
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-
-**Barriers**
-
-- [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
+- [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
 
 <!-- END GENERATED participates-in -->

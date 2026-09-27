@@ -11,6 +11,7 @@ variants:
   anonymous-hibe: "#anonymous-hibe"
   hibe-adaptive-security: "#ind-hibe-cpa-security"
   hibe-selective-security: "#ind-shibe-cpa-security-selective"
+  hibe-subexp-selective-security: "#sub-exponential-ind-shibe-cpa-security"
   selective-hibe-security: "#ind-shibe-cpa-security-selective"
 ---
 
@@ -74,6 +75,10 @@ is negligible. The prefix constraint is necessary because $\Delegate$ is publicl
 ### IND-sHIBE-CPA Security (Selective)
 
 In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. When $|\Sigma^{\le d}|$ is superpolynomial, selective security of a scheme does not imply its adaptive security, and guessing $\vec{\mathit{id}}^*$ recovers adaptive security only at a loss factor of $|\Sigma^{\le d}|$ — folklore. For HIBE schemes with a checkability property on keys and ciphertexts, any simple black-box reduction proving adaptive security from a non-interactive assumption loses a factor exponential in $d$ — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]].
+
+#### Sub-exponential IND-sHIBE-CPA Security
+
+An HIBE scheme $\HIBE$ is **sub-exponentially IND-sHIBE-CPA-secure** if there is a constant $\epsilon > 0$ such that for all sufficiently large $\secpar$, every admissible selective adversary $\calA$ of size at most $2^{\secpar^{\epsilon}}$ has advantage at most $2^{-\secpar^{\epsilon}}$.
 
 # Variations
 

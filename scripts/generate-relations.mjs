@@ -155,6 +155,7 @@ for (const p of pages) {
       consequences: p.fm.consequences ?? [],
       strength: p.fm.strength,
       conditionalOn: p.fm["conditional-on"] ?? [],
+      circumventedBy: [].concat(p.fm["circumvented-by"] ?? []),
       source: [].concat(p.fm.source ?? []),
       status: p.fm.status,
       page: p.rel,
@@ -281,6 +282,18 @@ const linkTo = (id) => {
     : `[[${o.slug}|${o.title}]]`;
 };
 const edgeLink = (e) => `[[${e.slug}|${e.title}]]`;
+const reductionById = new Map(reductions.map((r) => [r.id, r]));
+// A barrier line names the reductions that get around it, so a reader of the
+// object page does not take the barrier for the last word.
+const barrierLine = (b) => {
+  const around = (b.circumventedBy ?? [])
+    .map((id) => reductionById.get(id))
+    .filter(Boolean)
+    .map(edgeLink);
+  return around.length
+    ? `${edgeLink(b)} — circumvented by ${around.join(", ")}`
+    : edgeLink(b);
+};
 
 function participatesIn(id) {
   const asHyp = reductions.filter((r) => r.hypotheses.includes(id));
@@ -291,15 +304,15 @@ function participatesIn(id) {
   if (!asHyp.length && !asConcl.length && !bars.length) return null;
 
   const lines = ["## Participates in", ""];
-  const section = (heading, xs) => {
+  const section = (heading, xs, line = edgeLink) => {
     if (!xs.length) return;
     lines.push(`**${heading}**`, "");
-    for (const e of xs) lines.push(`- ${edgeLink(e)}`);
+    for (const e of xs) lines.push(`- ${line(e)}`);
     lines.push("");
   };
   section(`Builds on ${objects.get(id)?.title ?? id}`, byId(asHyp));
   section(`Produces ${objects.get(id)?.title ?? id}`, byId(asConcl));
-  section("Barriers", byId(bars));
+  section("Barriers", byId(bars), barrierLine);
   return lines.join("\n").trimEnd();
 }
 

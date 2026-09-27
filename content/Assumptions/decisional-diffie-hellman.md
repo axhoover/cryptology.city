@@ -49,7 +49,7 @@ is negligible.
 ## Known Results
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
-- [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
+- [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
 - DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — Joux–Nguyen, J. Cryptology 2003
@@ -83,7 +83,7 @@ TODO
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 5dc512cb01b6 -->
+<!-- BEGIN GENERATED participates-in 91d6b777ba9c -->
 
 ## Participates in
 
@@ -103,9 +103,6 @@ TODO
 
 - [[cdh-to-ddh|CDH ⇒ DDH]]
 - [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
-
-**Barriers**
-
-- [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
+- [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 
 <!-- END GENERATED participates-in -->

@@ -17,7 +17,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 
 # Known Results
 
-- [[no-rom-to-roh-ccg-94|No relativizing reduction from ROM to ROH]]
+- [[random-oracle-hypothesis#refutation|The refutation of the ROH]]
 
 - **[[fiat-shamir-heuristic|Fiat-Shamir]] is uninstantiable in the standard model** — Goldwasser and Kalai constructed a 3-round public-coin protocol whose Fiat-Shamir transform is existentially forgeable under every concrete hash function, even though it is secure in the ROM [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. This shows the random oracle cannot always be replaced by a concrete function.
 
@@ -27,7 +27,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 90c058f4c5af -->
+<!-- BEGIN GENERATED participates-in 8a08e4dc884b -->
 
 ## Participates in
 
@@ -44,6 +44,5 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[no-rom-to-merkle-puzzles-bm09|No reduction from ROM to Merkle puzzles]]
-- [[no-rom-to-roh-ccg-94|No reduction from ROM to ROH]]
 
 <!-- END GENERATED participates-in -->

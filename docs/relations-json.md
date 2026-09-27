@@ -105,7 +105,8 @@ Four rules a consumer can rely on:
   relies on is in `model`, not also a hypothesis, and a transform or technique
   (Fiat–Shamir, arithmetization) is in `via`, so one theorem yields one
   hyperedge. A model or technique id is a hypothesis only when it is the sole
-  one: `{rom} ⇒ X` reads "X holds in the random-oracle model".
+  one: `{rom} ⇒ X` reads "X holds in the random-oracle model", so a
+  generic-group lower bound is the edge `{ggm} ⇒ dlog`.
 - **`source` is either citations or the token `folklore`.** A citation is the
   wiki's own link form, `[[<reference filename minus .md>|<key>]]`. `folklore`
   means the wiki has no attribution — never that none exists. No source is ever
@@ -139,6 +140,7 @@ the general case, `Q = P ≠ NP`. One type covers both.
   ],
   "strength": "unconditional", // unconditional | conditional
   "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on
+  "circumventedBy": [], // reductions[].id that reach the conclusion outside the barrier's class or scope
   "source": ["[[IR89 - ...|IR89]]"],
   "status": "draft",
   "page": "content/Barriers/no-owp-to-key-agreement-ir89.md",
@@ -155,6 +157,12 @@ the general case, `Q = P ≠ NP`. One type covers both.
 | `object`        | an `objects[].id`                                  |
 | `complexity`    | a key of `propositions`                            |
 | `reduction`     | a `reductions[].id` — these chain into the closure |
+
+`circumventedBy` lists reductions that get around the barrier — BH26's
+non-black-box OIHF ⇒ OT is `circumventedBy` on the fully-black-box barrier
+`bar-oihf-to-ot-bh26`. A circumventing reduction need not share the barrier's
+hyperedge. A consumer must not read a barrier as the last word on its
+conclusion without checking this list.
 
 ## `classes` — the partial order
 
@@ -232,4 +240,6 @@ worse loss.
   navigation.
 - Not every relation on the wiki is in here. Class inclusions between complexity
   classes, attacks, and definitional statements were deferred rather than
-  forced into a shape that would misrepresent them.
+  forced into a shape that would misrepresent them. A refutation of an
+  assumption is an attack, recorded in the assumption page's prose, never a
+  barrier.

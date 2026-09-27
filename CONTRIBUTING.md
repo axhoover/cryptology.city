@@ -245,6 +245,7 @@ consequences: # a LIST — one hyperedge can carry several framings
 strength: unconditional # unconditional | conditional
 conditional-on: [] # required when conditional: the unproven assumption(s) the theorem rests on
 oracle: "a uniformly random permutation π : {0,1}^n → {0,1}^n"
+# circumvented-by: [<reduction id>] # optional, non-empty when present: reductions that reach the conclusion outside this class or scope
 source:
   - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
 ---
@@ -275,6 +276,14 @@ transform such as Fiat–Shamir — is `class: fixed-construction`, titled "No
 fixed-construction reduction from A to B", and its Notes name the construction.
 Never record it as `free`: that would say the conclusion cannot be built from
 the hypothesis at all, which is usually open or false.
+
+A reduction that gets around a barrier — BH26's non-black-box OIHF ⇒ OT
+against the fully-black-box barrier — goes in the barrier's `circumvented-by`
+by reduction id. Two things are never barriers: a lower bound on attacks in an
+idealised model, which is a reduction with the model as its sole hypothesis
+(`{ggm} ⇒ dlog`, `model: generic-group`: DLOG holds in the model), and a
+refutation of an assumption variant, which goes in the assumption page's
+`# Attacks` section (`schema/README.md` § Refutations are attacks).
 
 ### Generated sections — do not hand-edit
 

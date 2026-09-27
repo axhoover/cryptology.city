@@ -14,6 +14,7 @@ consequences:
 strength: conditional
 conditional-on:
   - standard-model OIHF currently requires Cryptomania assumptions
+circumvented-by: [red-oihf-to-ot-bh26]
 source:
   - "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
 ---
@@ -30,4 +31,4 @@ A reduction of class `fully-black-box` from [[oblivious-interactive-hash-functio
 
 `class: fully-black-box`: the composition in the Statement needs the OT construction to use the OIHF, and its security reduction the OT adversary, only as oracles. Whether OIHFs exist relative to the IR89 oracle (a random permutation plus a $\classPSPACE$-complete oracle), which would extend the barrier to `relativizing`, is not settled by BH26's abstract.
 
-- The data model has no edge type for 'circumvents barrier X by leaving class C', which is what BH26's non-black-box OIHF ⇒ OT reduction does to IR89.
+`circumvented-by`: BH26's [[oihf-to-ot-bh26|OIHF ⇒ OT]] is non-black-box (`class: free`), outside the class this barrier rules out.

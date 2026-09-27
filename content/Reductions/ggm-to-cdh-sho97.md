@@ -1,24 +1,22 @@
 ---
-type: barrier
+type: reduction
 status: draft
-title: "No free reduction from GGM to CDH"
+title: "GGM ⇒ CDH"
 aliases: []
-id: bar-ggm-to-cdh-sho97
+id: red-ggm-to-cdh-sho97
+kind: implication
 hypotheses: [ggm]
 conclusion: cdh
 class: free
-consequences:
-  - kind: contradiction
-    target: ""
-    class: free
-strength: unconditional
+model: generic-group
 source:
   - "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
+security-loss: "a generic algorithm making $q$ queries succeeds with probability $O(q^2/p)$, $p$ the prime group order"
 ---
 
-# No free reduction from GGM to CDH
+# GGM ⇒ CDH
 
-A reduction of class `free` from [[generic-group-model|GGM]] to [[computational-diffie-hellman|CDH]] would imply a contradiction.
+[[computational-diffie-hellman|CDH]] holds in the [[generic-group-model|generic group model]]: every generic algorithm needs $\Omega(\sqrt{p})$ group operations to solve it in a group of prime order $p$.
 
 ## Statement
 
@@ -30,6 +28,6 @@ Treat $x, y$ as indeterminates, answer group-oracle queries with random labels, 
 
 ## Notes
 
-`class: free`: Sho97 bounds every generic algorithm, whatever its structure, so the class ruled out is `free`, scoped to the generic-group model; `schema/reduction-classes.yaml` rejects `generic-group` as a class and prescribes this pairing.
+`class: free`: the hypothesis is a computational model, not a primitive, so the black-box classes do not apply; Sho97 bound every generic algorithm unconditionally, which is the `free` class scoped by the model.
 
-- A model-relative lower bound, not a barrier against a proof technique: the hypothesis is that the adversary is generic, not another assumption, so the barrier record type fits imperfectly.
+`model: generic-group`: the bound holds only for generic algorithms; nothing is claimed in the standard model.

@@ -22,7 +22,9 @@
 //                  exactly one conclusion, every endpoint resolves to an object
 //                  id or variant, class is in schema/reduction-classes.yaml, no
 //                  self-loops; object pages never hand-author relation fields;
-//                  `heuristic` is a boolean and appears only on reductions
+//                  `heuristic` is a boolean and appears only on reductions;
+//                  `circumvented-by` appears only on barriers and lists
+//                  reduction ids that resolve
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -98,6 +100,7 @@ const OPTIONAL_KEYS = new Set([
   "security-loss",
   "via",
   "heuristic", // reductions only: a candidate construction with no security reduction
+  "circumvented-by", // barriers only: reduction ids that get around the barrier
   "oracle",
   "conditional-on",
   "source",
@@ -519,6 +522,28 @@ for (const p of pages) {
       );
   }
 
+  if (fm["circumvented-by"] !== undefined) {
+    const cb = fm["circumvented-by"];
+    if (fm.type !== "barrier")
+      err(
+        f,
+        1,
+        "edge-circumvented-by",
+        `circumvented-by applies only to barrier pages, where it lists the reductions that get around the barrier. Remove the key from this ${fm.type} page.`,
+      );
+    else if (
+      !Array.isArray(cb) ||
+      cb.length === 0 ||
+      cb.some((x) => typeof x !== "string" || !OBJECT_ID.test(x))
+    )
+      err(
+        f,
+        1,
+        "edge-circumvented-by",
+        `circumvented-by must be a non-empty YAML list of reduction ids, e.g.\n  circumvented-by: [red-oihf-to-ot-bh26]\nOmit the key when no reduction page records the circumvention; describe it in the Notes instead.`,
+      );
+  }
+
   if (isEdge) {
     for (const k of TYPES[fm.type].required) {
       if (fm[k] === undefined || fm[k] === null || fm[k] === "")
@@ -828,6 +853,28 @@ for (const p of pages) {
   for (const c of Array.isArray(p.fm.consequences) ? p.fm.consequences : []) {
     if (c && c.kind === "object" && c.target)
       resolveEndpoint(p, c.target, "consequence target");
+  }
+}
+
+// A barrier's `circumvented-by` names reduction pages by id.
+const reductionIds = new Map(); // id -> file
+for (const p of pages)
+  if (p.fm.type === "reduction" && typeof p.fm.id === "string")
+    reductionIds.set(p.fm.id, p.file);
+for (const p of pages) {
+  if (p.fm.type !== "barrier" || !Array.isArray(p.fm["circumvented-by"]))
+    continue;
+  for (const id of p.fm["circumvented-by"]) {
+    if (typeof id !== "string" || reductionIds.has(id)) continue;
+    const near = [...reductionIds.keys()]
+      .filter((k) => k.includes(id) || id.includes(k))
+      .slice(0, 3);
+    err(
+      p.file,
+      1,
+      "edge-circumvented-by",
+      `circumvented-by "${id}" is not the id of any reduction page. List the "id:" of a page under content/Reductions/ (e.g. red-oihf-to-ot-bh26); if the circumventing result has no reduction page yet, create one or keep it in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+    );
   }
 }
 

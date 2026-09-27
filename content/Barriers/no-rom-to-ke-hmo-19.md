@@ -30,7 +30,7 @@ For protocols with uniformly random honest queries the communication bound is pr
 
 ## Notes
 
-`class: free`: the results bound every random-oracle protocol, not a proof technique — the `free` class scoped by the model axis, as `schema/reduction-classes.yaml` prescribes for idealized-model lower bounds and [[no-ggm-to-dlog-sho97]] uses. Merkle's puzzles does not contradict the barrier: its query gap is quadratic, hence polynomial.
+`class: free`: the results bound every random-oracle protocol, not a proof technique — the `free` class scoped by the model axis, as `schema/reduction-classes.yaml` prescribes for idealized-model lower bounds and [[ggm-to-dlog-sho97]] records. Merkle's puzzles does not contradict the barrier: its query gap is quadratic, hence polynomial.
 
 `model: rom`: eavesdroppers are query-bounded and computationally unbounded — not the information-theoretic setting, as [[key-exchange]] wrongly calls it. Barrier frontmatter has no `model` field, so the Statement names the model.
 
