@@ -23,7 +23,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:R#r
 
 - $\classP \subseteq \classRP \subseteq \classBPP$: RP is a "one-sided" restriction of BPP (which allows two-sided error).
 - $\classRP \subseteq \classNP$: a polynomial-time machine that accepts on at least half of its random strings provides an NP witness (any accepting random string serves as the certificate).
-- $\classZPP = \classRP \cap \mathbf{coRP}$: the zero-error probabilistic class is exactly the intersection of RP and its complement class coRP.
+- $\classZPP = \classRP \cap \classcoRP$: the zero-error probabilistic class is exactly the intersection of RP and its complement class coRP.
 - It is widely believed that $\classRP = \classP$, which would follow from sufficiently strong derandomization assumptions (e.g., the existence of functions in $\mathbf{E}$ that require exponential-size circuits — TODO citation).
 
 ## Notable problems

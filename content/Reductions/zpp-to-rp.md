@@ -19,7 +19,7 @@ security-loss: ""
 
 ## Statement
 
-$\classZPP \subseteq \classRP$. With the symmetric $\classZPP \subseteq \mathbf{coRP}$, this is one half of $\classZPP = \classRP \cap \mathbf{coRP}$ — folklore.
+$\classZPP \subseteq \classRP$. With the symmetric $\classZPP \subseteq \classcoRP$, this is one half of $\classZPP = \classRP \cap \classcoRP$ — folklore.
 
 ## Sketch
 

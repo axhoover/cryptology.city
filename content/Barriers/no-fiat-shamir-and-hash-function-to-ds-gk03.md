@@ -11,7 +11,8 @@ consequences:
   - kind: contradiction
     target: ""
     class: free
-strength: unconditional
+strength: conditional
+conditional-on: [owf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
 ---
@@ -31,6 +32,8 @@ The scheme adds an escape hatch: the prover may commit in its first message to a
 ## Notes
 
 `class: free`: a counterexample against every efficient hash function refutes the implication itself, not a proof technique.
+
+`strength: conditional`: GK03 derive the theorem from [[hash-function#preimage-resistance-one-wayness|one-way functions]], by cases on whether [[hash-function#collision-resistance|collision-resistant hash functions]] exist; when they do, the counterexample's universal arguments are built from them — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 
 - The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the theorem is 'there exists an identification scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'.
 - $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the `\ufcma`/`\eufcma` macros.

@@ -32,3 +32,4 @@ Receiver privacy: $(y_0, y_1)$ are two independent uniform domain elements (up t
 
 - Introduces the enhanced one-wayness hypothesis and proves the EGL protocol secure under it; for a TDP whose domain sampler's coins reveal a preimage, the protocol is insecure — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]
 - Enhanced TDPs suffice for EGL OT, while NIZK needs doubly enhanced TDPs; intermediate notions are separated — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]
+- The `-gkm-00` slug suffix is historical; the source is [[EGL85 - A randomized protocol for signing contracts|EGL85]].

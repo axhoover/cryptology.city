@@ -27,3 +27,4 @@ Two-message rate-1 string [[oblivious-transfer|OT]] follows from a [[trapdoor-ha
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 - AMR25's is the first trapdoor hash function from low-noise LPN, and its PIR the first with communication $o(L)$ from a code-based assumption; both rest on quasi-polynomial hardness of LPN with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, $\beta > 0$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
+- The `-amr25` slug suffix is historical: the reduction is [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]'s; AMR25 instantiate the TDH from LPN.

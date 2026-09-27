@@ -10,7 +10,7 @@ conclusion: incremental-verifiable-computation
 class: free
 model: standard
 source:
-  - "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
+  - "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
 security-loss: ""
 ---
 

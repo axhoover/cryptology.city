@@ -24,3 +24,5 @@ security-loss: ""
 ## Notes
 
 `class: free`: Proven complexity-class containment; per repo convention `class: free`.
+
+- The `-gs86` slug suffix is historical; the containment is folklore.

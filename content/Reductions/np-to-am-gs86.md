@@ -28,3 +28,5 @@ Completeness and soundness are those of the NP verifier, hence perfect.
 ## Notes
 
 `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+
+- The `-gs86` slug suffix is historical; the containment is folklore.

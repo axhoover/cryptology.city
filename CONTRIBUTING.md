@@ -188,6 +188,16 @@ class the wiki does not state adds a mathematical claim, which is not your job
 when transcribing one. `source` is either citations or the bare token
 `folklore`; never invent a reference, and `standard` is not a provenance value.
 
+**Which paper goes in `source`.** List every paper whose theorem the Statement
+asserts. A paper that only introduced the notion, or proved a weaker precursor,
+is cited in the Statement or Notes, not in `source` — `relations.json`
+attributes the edge to its `source`. On
+[`snark-to-recursive-snarks.md`](content/Reductions/snark-to-recursive-snarks.md)
+the Statement asserts BCCT13's plain-model theorem, so `source` is BCCT13;
+Val08, which introduced IVC, is cited in the Statement. A paper suffix in the
+slug (`-gkm-00`) records where the page came from; `source` is authoritative
+(see `schema/README.md` § Object ids).
+
 ### Barrier (`content/Barriers/`)
 
 A barrier says what the _existence_ of a reduction would imply:
@@ -217,7 +227,7 @@ consequences: # a LIST — one hyperedge can carry several framings
     target: "" # contradiction takes no target
     class: fully-black-box
 strength: unconditional # unconditional | conditional
-conditional-on: [] # required when strength is conditional
+conditional-on: [] # required when conditional: the unproven assumption(s) the theorem rests on
 oracle: "a uniformly random permutation π : {0,1}^n → {0,1}^n"
 source:
   - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
@@ -228,6 +238,12 @@ source:
 same hyperedge and one proof — IR89 is both "no relativizing reduction exists"
 and "a proof would give P ≠ NP". Splitting those into two pages would duplicate
 the sketch.
+
+`strength` is `conditional` iff the barrier theorem assumes an unproven hardness
+assumption, which `conditional-on` names — GW11's SNARG separation assumes a
+language with a sub-exponentially hard subset-membership problem. An oracle
+separation is `unconditional`: its oracle is carried by `class: relativizing`
+and described in `oracle`, not listed in `conditional-on`.
 
 **How the classes interact.** `schema/reduction-classes.yaml` is a partial order
 of generality (see `schema/README.md`). A barrier ruling out class `B`

@@ -641,7 +641,7 @@ for (const p of pages) {
         f,
         1,
         "barrier-conditional",
-        `strength: conditional requires a non-empty "conditional-on" list naming the oracle or assumption the barrier rests on, e.g.\n  conditional-on: [lwe]`,
+        `strength: conditional requires a non-empty "conditional-on" list naming the assumption the barrier rests on, e.g.\n  conditional-on: [lwe]`,
       );
     }
     if (fm.consequences !== undefined) {

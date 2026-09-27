@@ -34,3 +34,4 @@ FLS give an unconditional NIZK for Hamiltonicity in the hidden-bits model and co
 
 - For families over $\bits^n$ the certified-permutation hypothesis can be dropped: the prover certifies the index with a NIZK proof that it describes an (almost) permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]]
 - Doubly enhanced families still leave the FLS instantiation unsound for adversarially chosen indices whose domain is not recognizable; _certifiable injectivity_ closes the gap and suffices for the FLS paradigm even for trapdoor functions — [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]
+- The `-bfm88` slug suffix is historical: NIZK for NP from trapdoor permutations is [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]; [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]] introduced NIZK from a number-theoretic assumption.

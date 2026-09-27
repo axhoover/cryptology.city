@@ -13,10 +13,10 @@ id: zpp
 The class of decision problems solvable by a probabilistic polynomial-time algorithm that always outputs the correct answer but may occasionally output "?" (i.e., a Las Vegas algorithm with expected polynomial running time). Equivalently,
 
 $$
-\classZPP = \classRP \cap \mathbf{coRP}.
+\classZPP = \classRP \cap \classcoRP.
 $$
 
-For $L \in \classRP \cap \mathbf{coRP}$, take an RP machine $M_1$ for $L$ and an RP machine $M_0$ for its complement (each accepts every instance in its language with probability at least 1/2 and accepts no instance outside it), and run both on input $x$: output "yes" if $M_1$ accepts, "no" if $M_0$ accepts, and "?" otherwise. Every non-"?" answer is correct and "?" occurs with probability at most 1/2, so this is a Las Vegas algorithm for $L$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
+For $L \in \classRP \cap \classcoRP$, take an RP machine $M_1$ for $L$ and an RP machine $M_0$ for its complement (each accepts every instance in its language with probability at least 1/2 and accepts no instance outside it), and run both on input $x$: output "yes" if $M_1$ accepts, "no" if $M_0$ accepts, and "?" otherwise. Every non-"?" answer is correct and "?" occurs with probability at most 1/2, so this is a Las Vegas algorithm for $L$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Z#zpp).
 

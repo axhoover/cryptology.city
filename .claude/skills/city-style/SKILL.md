@@ -61,6 +61,12 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
   the lint message names the notion to use instead.
 - **Do not invent a citation.** `source` is either `[[KEY - Full Title|KEY]]`
   wikilinks or the bare token `folklore`. `standard` is not a provenance value.
+  It lists every paper whose theorem the Statement asserts; a paper that only
+  introduced the notion is cited in the body. A paper suffix in the slug is
+  historical — `source` is authoritative, and slugs are never renamed.
+- **Barrier `strength`** is `conditional` iff the barrier theorem assumes an
+  unproven hardness assumption, named in `conditional-on`. An oracle
+  separation is `unconditional`; its oracle is `class: relativizing`.
 - Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`.
 
 A **barrier** generalizes separations: `(exists a reduction of class C from

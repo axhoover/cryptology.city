@@ -55,6 +55,25 @@ Two further rules follow, and the lint enforces both:
 - **Composite chains are split.** "OWF → PRG (HILL99) → PRF via GGM (GGM86)" is
   two reduction pages, each with its own source — never one OWF ⇒ PRF page.
 
+### Provenance: `source`
+
+`source` lists every paper whose theorem the page's Statement asserts, or the
+bare token `folklore`. A paper that only introduced the notion, or proved a
+weaker precursor, is cited in the Statement or Notes, not in `source`:
+`relations.json` attributes the edge to its `source`.
+
+### How strong a barrier is: `strength`
+
+| `strength`      | Means                                                                                  |
+| --------------- | -------------------------------------------------------------------------------------- |
+| `conditional`   | the barrier theorem assumes an unproven hardness assumption, named in `conditional-on` |
+| `unconditional` | the barrier theorem assumes none                                                       |
+
+An oracle separation is `unconditional`: its oracle is carried by
+`class: relativizing` and described in `oracle`, not listed in
+`conditional-on`. A barrier's `consequences` are what it concludes, never what
+it assumes.
+
 ## Object ids
 
 Every object page carries an `id` in its frontmatter that is independent of its
@@ -96,6 +115,12 @@ variants:
 
 Both the string form and the mapping form are accepted, so nothing has to be
 rewritten later.
+
+A reduction or barrier slug's paper suffix records the page's origin; `source`
+is authoritative. When the two disagree, keep the filename (a live URL) and the
+`id` (`relations.json` and the formalization repo join on it) and add a Notes
+bullet naming the real source, e.g. "The `-gro16` slug suffix is historical;
+the source is GW11."
 
 ## Reduction classes
 

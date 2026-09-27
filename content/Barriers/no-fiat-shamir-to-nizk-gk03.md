@@ -11,7 +11,8 @@ consequences:
   - kind: contradiction
     target: ""
     class: free
-strength: unconditional
+strength: conditional
+conditional-on: [crhf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
 ---
@@ -27,5 +28,7 @@ The [[fiat-shamir-heuristic|Fiat-Shamir]] transform of GK03's 3-round public-coi
 ## Notes
 
 `class: free`: a counterexample against every efficient hash function refutes the implication itself, not a proof technique.
+
+`strength: conditional`: GK03 prove the theorem assuming [[hash-function#collision-resistance|collision-resistant hash functions]], which the counterexample's universal arguments use — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 
 - GK03's protocol is contrived; Fiat-Shamir applied to the standard GKR-based succinct argument is also unsound, for explicit circuit families and every hash function — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]

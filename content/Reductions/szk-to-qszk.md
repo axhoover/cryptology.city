@@ -11,6 +11,7 @@ class: free
 model: quantum
 source:
   - "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]"
+  - "[[Wat06 - Zero-knowledge against quantum attacks|Wat06]]"
 security-loss: ""
 ---
 

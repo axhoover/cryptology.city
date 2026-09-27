@@ -9959,7 +9959,7 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
+    "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -10479,7 +10479,8 @@
    "class": "free",
    "model": "quantum",
    "source": [
-    "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]"
+    "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]",
+    "[[Wat06 - Zero-knowledge against quantum attacks|Wat06]]"
    ],
    "via": [],
    "securityLoss": "",
@@ -10970,8 +10971,10 @@
      "class": "fully-black-box"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "the language has a sub-exponentially hard subset-membership problem"
+   ],
    "source": [
     "[[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]"
    ],
@@ -11022,8 +11025,10 @@
      "class": "free"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "owf"
+   ],
    "source": [
     "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
    ],
@@ -11047,8 +11052,10 @@
      "class": "free"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "crhf"
+   ],
    "source": [
     "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
    ],

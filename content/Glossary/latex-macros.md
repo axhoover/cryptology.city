@@ -38,6 +38,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\classAM`     | $\classAM$     |
 | `\classMA`     | $\classMA$     |
 | `\classcoAM`   | $\classcoAM$   |
+| `\classcoRP`   | $\classcoRP$   |
 | `\classFP`     | $\classFP$     |
 | `\classPP`     | $\classPP$     |
 | `\classPpoly`  | $\classPpoly$  |

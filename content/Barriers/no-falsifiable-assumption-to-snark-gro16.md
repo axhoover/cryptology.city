@@ -11,7 +11,9 @@ consequences:
   - kind: contradiction
     target: ""
     class: fully-black-box
-strength: unconditional
+strength: conditional
+conditional-on:
+  - the language has a sub-exponentially hard subset-membership problem
 source:
   - "[[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]"
 ---
@@ -33,3 +35,4 @@ Succinctness and the hardness of the language yield an unbounded cheating prover
 `class: fully-black-box`: GW11 allow an arbitrary SNARG construction but require the reduction to use the cheating prover only as an oracle. Fully-black-box reductions are a subclass of these; semi- and weakly-black-box reductions, which may depend on the adversary's code, are untouched.
 
 - Adaptively sound SNARGs for NP nonetheless exist in the plain model, from sub-exponentially hard indistinguishability obfuscation and one-way functions together with the polynomial hardness of discrete log or factoring — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]]
+- The `-gro16` slug suffix is historical; the source is [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].

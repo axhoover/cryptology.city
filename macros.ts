@@ -40,6 +40,7 @@ export const customMacros: Record<string, string> = {
   "\\classAM": "\\mathbf{AM}",
   "\\classMA": "\\mathbf{MA}",
   "\\classcoAM": "\\mathbf{coAM}",
+  "\\classcoRP": "\\mathbf{coRP}",
   "\\classPP": "\\mathbf{PP}",
   "\\classPpoly": "\\mathbf{P/poly}",
   "\\classEXP": "\\mathbf{EXP}",

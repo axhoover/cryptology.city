@@ -132,7 +132,7 @@ the general case, `Q = P ≠ NP`. One type covers both.
     { "kind": "contradiction", "target": "", "class": "fully-black-box" },
   ],
   "strength": "unconditional", // unconditional | conditional
-  "conditionalOn": [], // oracle or assumption the barrier rests on
+  "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on
   "source": ["[[IR89 - ...|IR89]]"],
   "status": "draft",
   "page": "content/Barriers/no-owp-to-key-agreement-ir89.md",
