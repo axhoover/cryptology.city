@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "COM + SS ⇒ Verifiable secret sharing (VSS)"
+status: draft
+title: "DLOG ⇒ Verifiable secret sharing (VSS)"
 aliases: []
-id: red-com-and-ss-to-verifiable-secret-sharing-vss
+id: red-dlog-to-verifiable-secret-sharing-vss-ped91
 kind: implication
-hypotheses: [com, ss]
+hypotheses: [dlog]
 conclusion: verifiable-secret-sharing
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
 security-loss: ""
 ---
 
-# COM + SS ⇒ Verifiable secret sharing (VSS)
+# DLOG ⇒ Verifiable secret sharing (VSS)
 
-[[commitment-scheme|COM]] together with [[secret-sharing|SS]] implies [[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing (VSS)]].
+[[discrete-logarithm|DLOG]] implies non-interactive [[secret-sharing#verifiable-secret-sharing-vss|verifiable secret sharing (VSS)]].
 
 ## Statement
 
-Migrated verbatim from [[secret-sharing]]:
-
-> A secret sharing scheme augmented with commitments so that parties can verify their shares are consistent, even against a malicious dealer. Used in [[secure-multi-party-computation|MPC]] and distributed key generation.
+Let $g, h$ generate a prime-order group $\GG$, with $\log_g h$ unknown to the dealer. The dealer broadcasts Pedersen commitments $g^{a_j} h^{b_j}$ to the coefficients of a degree-$(k-1)$ Shamir polynomial $f$ with $f(0) = s$ and of a random polynomial $f'$. Each of the $n$ parties checks its private share $(f(i), f'(i))$ against the commitments without interacting with the others. Fewer than $k$ parties get no Shannon information about $s$, and every $k$ parties holding accepted shares reconstruct the same secret unless the dealer can compute $\log_g h$; verifiability therefore holds if [[discrete-logarithm|DLOG]] is hard — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: standard`: the scheme needs public $g, h$ whose discrete-log relation the dealer does not know, and a broadcast channel for the commitments. The single-valued model field records neither.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Construction stated as 'augmented with commitments' — conjunctive hypotheses ({secret sharing, commitment scheme}) but no citation and no wikilink to `[[commitment-scheme]]`.
-- Second claim in the same sentence ('Used in MPC and distributed key generation') is an application, recorded separately below in spirit; the MPC half is cited only later, on line 64.
-- 'verifiable-secret-sharing' has no page of its own.
+- This file used to record "COM + SS ⇒ VSS", migrated from a definitional gloss. Commitments to the shares alone do not let the parties check that the shares lie on one polynomial. The consistency check comes from committing homomorphically to the polynomial's coefficients, as above. The slug keeps the old hypotheses because filenames are live URLs.
