@@ -61,5 +61,3 @@ A forgery on $\hat{m} \ne m$ must reveal a preimage of some $y_{i,1-m_i}$ not op
 `class: fully-black-box`: Key generation and verification evaluate the one-way function only as an oracle; the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot and answering the single signing query with the remaining preimages — the RTV04 fully-black-box shape.
 
 - The Winternitz variant signs several message bits per hash chain, trading $\hash$ evaluations for signature size — [[Mer89 - A Certified Digital Signature|Mer89]].
-- Suspected error on [[digital-signature]] (reported, not fixed): its 'sign one bit per hash chain' describes Winternitz; Lamport publishes two images per message bit and reveals one preimage per bit, with no chains.
-- Suspected error on [[digital-signature]] (reported, not fixed): Lamport signatures are $O(\secpar \cdot |m|)$ bits for an $|m|$-bit message ($O(\secpar^2)$ with hashed messages), not $O(\secpar)$.
