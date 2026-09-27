@@ -1,40 +1,30 @@
 ---
 type: reduction
-status: stub
-title: "Succinct LWE ⇒ Evasive LWE"
+status: draft
+title: "Evasive LWE + LWE ⇒ Succinct LWE"
 aliases: []
-id: red-succinct-lwe-to-evasive-lwe
+id: red-evasive-lwe-and-lwe-to-succinct-lwe-wee24
 kind: implication
-hypotheses: [succinct-lwe]
-conclusion: evasive-lwe
+hypotheses: [evasive-lwe, lwe]
+conclusion: succinct-lwe
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]"
 security-loss: ""
 ---
 
-# Succinct LWE ⇒ Evasive LWE
+# Evasive LWE + LWE ⇒ Succinct LWE
 
-[[learning-with-errors#succinct-lwe|Succinct LWE]] implies [[learning-with-errors#evasive-lwe|Evasive LWE]].
+[[learning-with-errors#evasive-lwe|Evasive LWE]], together with [[learning-with-errors|LWE]], implies [[learning-with-errors#succinct-lwe|succinct LWE]].
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Succinct LWE:
-
-> is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to $T_\mathbf{B}$ itself, making the condition equivalent to standard LWE. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE implies Evasive LWE. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+Hardness of $\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] follows from [[learning-with-errors#evasive-lwe|evasive LWE]]. Succinct LWE is falsifiable, and evasive LWE is the stronger assumption — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- One paragraph packs four claims (l=1 equivalence to LWE; monotonicity in l; Succinct LWE => Evasive LWE; circular small-secret variant). Recorded separately.
-- A substantive reduction ("Succinct LWE implies Evasive LWE") stated with NO citation at all — CLAUDE.md requires one.
-- No parameter relation is given between the l of Succinct LWE and the sampler class of Evasive LWE, so the edge cannot be instantiated.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the implication is inverted: [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]], which introduced $\ell$-succinct LWE, calls it "a falsifiable assumption which is implied by evasive LWE" (with LWE supplying evasive LWE's pre-condition). The correct edge, evasive LWE ⇒ succinct LWE, has no page yet.
+- The `lwe` hypothesis records that evasive LWE is a conditional assumption, whose pre-condition must be established separately; it is taken here to follow from LWE. Wee24's abstract says only "implied by evasive LWE", so neither the need for LWE nor the evasive-LWE variant used (public- or private-coin) has been checked against the body. An extra hypothesis cannot make the edge false.
+- Replaces a migrated edge "Succinct LWE ⇒ Evasive LWE", which inverted Wee24's direction (sourcing pass, 2026-09). The filename slug is kept because filenames are live URLs, and it reads opposite to the edge.

@@ -26,4 +26,4 @@ If plain [[learning-with-errors|LWE]] is hard (with parameters corresponding to 
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-- Replaces `lwe-to-lattice-based-signatures` (sourcing pass, 2026-09), which recorded LWE ⇒ hash-and-sign signatures in the ROM, distilled from a bullet on [[non-interactive-zero-knowledge]] § Other results describing NIZK from LWE "via hash-and-sign signatures and SIS-based commitments" under the label "standard". No such construction is known; the SIS ⇒ hash-and-sign link is [[isis-inhomogeneous-sis-to-ds-gpv08]].
+- Replaces `lwe-to-lattice-based-signatures` (sourcing pass, 2026-09), which recorded LWE ⇒ hash-and-sign signatures in the ROM, distilled from a bullet on [[non-interactive-zero-knowledge]] § Other results describing NIZK from LWE "via hash-and-sign signatures and SIS-based commitments" under the label "standard". No such construction is known; the SIS ⇒ hash-and-sign link is [[sis-to-ds]].

@@ -7,7 +7,7 @@ id: red-module-lwe-to-lwe-ls15
 kind: equivalence
 hypotheses: [module-lwe-rank-n]
 conclusion: lwe
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
@@ -16,26 +16,18 @@ security-loss: ""
 
 # Module LWE ⇔ LWE
 
-[[learning-with-errors#module-lwe|Module LWE]] is equivalent to [[learning-with-errors|LWE]].
+[[learning-with-errors#module-lwe|Module LWE]] over ring degree 1 is equivalent to [[learning-with-errors|LWE]].
 
 ## Statement
 
-Migrated verbatim from [[LS15 - Worst-case to average-case reductions for module lattices]]:
+[[learning-with-errors#module-lwe|Module LWE]] over the degree-1 ring $R = \ZZ$ (so $R_q = \ZZ_q$) at module rank $n$ is [[learning-with-errors|LWE]] in dimension $n$: $\mathbf{A} \in \ZZ_q^{m \times n}$ and $\mathbf{s} \in \ZZ_q^n$, so the sample distributions, hence the problems, coincide — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $n$ over a degree-$n$ ring does not recover LWE: the module has $\ZZ_q$-dimension $n^2$, and $\mathbf{A}$ has structured $n \times n$ blocks (negacyclic for $f = x^n + 1$).
 
-> Introduced Module LWE (MLWE), which generalizes Ring LWE by considering rank-$k$ modules over a polynomial ring $R_q$. When $k = 1$ this recovers Ring LWE; when $k = n$ this recovers plain LWE. The module structure interpolates between the two extremes, yielding a flexible parameter trade-off between efficiency and security assumptions. Kyber (ML-KEM) and Dilithium (ML-DSA), the NIST post-quantum standards, are based on Module LWE.
+## Sketch
+
+A degree-1 Module LWE sample $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ over $\ZZ_q$ is an LWE sample; the identity map is a reduction in both directions.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: Both directions are the identity map, so instances and adversaries pass through unchanged — one fixed construction and one fixed reduction, each using its input only as an oracle.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- STRUCTURAL: no ## Abstract heading; unlabelled editorial paragraph.
-- SUSPECTED IMPRECISION (recorded, not fixed): 'when k = n this recovers plain LWE' is wrong as stated. Plain LWE is the degree-1 ring R = Z at rank n; over a degree-n ring, rank n gives a module of total dimension n^2, not plain LWE. The k=1 => Ring LWE half is correct.
-- MAJOR OMISSION: the page's own title promises worst-case to average-case reductions for module lattices, and the inventory already records that edge (Assumptions/learning-with-errors.md:129 [worst-case-module-lattice-problems => module-lwe], sourced to LS15). This editorial summary omits the paper's actual theorem entirely and describes only the definition and deployments.
-- The Kyber/Dilithium sub-edge is a deployment claim with NO citation and no reference page for either scheme — sources[] left empty rather than fabricated.
-- The two specialisation equivalences (rank-1 = RLWE, rank-n = LWE) are NOT in the existing 861-record inventory; they are the only genuinely new content on this page.
-- No inline citations.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — a rank-$n$ module over a degree-$n$ ring $R_q$ has $\ZZ_q$-dimension $n^2$ and a block-structured (negacyclic) sample matrix, so rank-$n$ Module LWE is neither syntactically nor known to be computationally equivalent to plain LWE; the parenthetical $R_q \cong \ZZ_q^n$ in [[learning-with-errors#module-lwe|LWE § Module LWE]] is a module isomorphism, not a ring isomorphism. [[LS15 - Worst-case to average-case reductions for module lattices|LS15]] supports the correct definitional edge, Module LWE at ring degree 1 ($R = \ZZ$) and rank $n$ ⇔ LWE, which has no page yet.
+- The hypothesis key `module-lwe-rank-n` denotes Module LWE over $R = \ZZ$ at rank $n$; the key name predates this reading.

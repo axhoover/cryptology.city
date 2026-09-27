@@ -24,3 +24,5 @@ Every [[public-key-encryption#cca1-security|CCA1]]-secure [[public-key-encryptio
 ## Notes
 
 `class: fully-black-box`: the construction is the identity (the scheme is used unchanged, as an oracle), and the reduction runs any CPA adversary unchanged as a CCA1 adversary that never queries the decryption oracle. Fixed construction, fixed reduction.
+
+- The implication is strict: if any CPA-secure scheme exists, one exists that is not CCA1-secure ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].

@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "MAC + SKE ⇒ CCA Security"
+title: "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
 aliases: []
 id: red-mac-and-ske-to-cca-security
 kind: implication
-hypotheses: [mac, ske]
+hypotheses: [suf-cma-mac, cpa-security]
 conclusion: cca-secure-symmetric-key-encryption
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# MAC + SKE ⇒ CCA Security
+# SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE
 
-A strongly unforgeable [[message-authentication-code|MAC]] together with a CPA-secure [[symmetric-key-encryption|SKE]] scheme implies [[symmetric-key-encryption#cca-security|CCA Security]], via encrypt-then-MAC.
+A [[message-authentication-code#strong-unforgeability|strongly unforgeable]] [[message-authentication-code|MAC]] together with a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme implies [[symmetric-key-encryption#cca-security|CCA Security]], via encrypt-then-MAC.
 
 ## Statement
 
-Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a strongly unforgeable (SUF-CMA) [[message-authentication-code|MAC]]. Encrypt-then-MAC — encrypt under an SKE key, then tag the ciphertext under an independent MAC key — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme. With a merely UF-CMA MAC the composition can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]]. Encrypt-then-MAC — encrypt under an SKE key, then tag the ciphertext under an independent MAC key — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme. With a merely UF-CMA MAC the composition can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
 ## Sketch
 

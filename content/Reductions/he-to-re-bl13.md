@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "HE ⇒ RE"
+title: "Strongly homomorphic encryption ⇒ RE"
 aliases: []
 id: red-he-to-re-bl13
 kind: implication
-hypotheses: [he]
+hypotheses: [strongly-homomorphic-encryption]
 conclusion: rerandomizable-encryption
 class: unstated
 model: standard
@@ -14,17 +14,18 @@ source:
 security-loss: ""
 ---
 
-# HE ⇒ RE
+# Strongly homomorphic encryption ⇒ RE
 
-[[homomorphic-encryption|HE]] with a strong (distribution-preserving) homomorphic evaluator implies [[rerandomizable-encryption|RE]].
+[[homomorphic-encryption#strongly-homomorphic-encryption|Strongly homomorphic encryption]] implies [[rerandomizable-encryption|RE]].
 
 ## Statement
 
-A public-key bit [[homomorphic-encryption|encryption scheme]] with a strong (distribution-preserving) homomorphic evaluator for a non-trivial boolean function is rerandomizable: every encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. BL13 use rerandomizability to place ciphertext distinguishing in $\classSZK$; see [[no-he-to-szk-bl13|No reduction from HE to SZK]].
+A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorphic-encryption#strongly-homomorphic-encryption|strong]] (distribution-preserving) homomorphic evaluator for a boolean function $f$ is rerandomizable, for every $f$ other than the trivial functions, NOT, AND and OR: an encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ independent of the input, up to negligible statistical distance when the evaluator's error is negligible — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. BL13 use rerandomizability to place ciphertext distinguishing in $\classSZK$; see [[no-he-to-szk-bl13|No reduction from HE to SZK]].
 
 ## Notes
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 - `rerandomizable-encryption` is an unlisted stub with no syntax or security definition.
+- The function-class condition is from the ECCC abstract of BL13 (TR12-156); the lemma number and the $\classSZK$ sentence of the Statement were not checked against the paper body.
 - The migrated chain's second arrow (rerandomizable encryption → $\classSZK \ne \classBPP$) is barrier content and lives on [[no-he-to-szk-bl13]].

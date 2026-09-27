@@ -117,7 +117,7 @@ where $(\sk, D') \gets \Setup(1^\secpar, D)$ and $(q, \st) \gets \Query(\sk, i)$
 
 ### Security
 
-The adversary acts as the server: it chooses the database, then sees the encoded database $D'$ and polynomially many online queries under the same $\sk$, each for index $i_b$ of a pair $(i_0, i_1)$ it chooses adaptively. $\Setup$ runs once, and $\sk$ and $D'$ are reused across all queries with no update — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]], [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]. Security requires the queries to reveal nothing about the indices despite the adversary knowing $D'$.
+The adversary acts as the server: it chooses the database, then sees the encoded database $D'$ and polynomially many online queries under the same $\sk$, each for index $i_b$ of an adaptively chosen pair $(i_0, i_1)$. $\Setup$ runs once, and neither $\sk$ nor $D'$ is updated between queries — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]], [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]. Security requires the queries to reveal nothing about $b$ despite the adversary knowing $D'$.
 
 ```pseudocode
 \begin{algorithm}

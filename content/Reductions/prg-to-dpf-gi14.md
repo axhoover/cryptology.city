@@ -24,7 +24,7 @@ A [[pseudorandom-generator|PRG]] yields a two-party [[distributed-point-function
 
 ## Notes
 
-`class: fully-black-box`: GI14 use the PRG only as an oracle, building the keys recursively with random key portions replaced at each level by PRG seeds expanded at evaluation time; hiding is a hybrid over PRG invocations whose reduction runs the DPF adversary as an oracle. Fixed construction, fixed reduction, as on [[hash-function-to-dpf-gi14]].
+`class: fully-black-box`: GI14 use the PRG only as an oracle, building the keys recursively with random key portions replaced at each level by PRG seeds expanded at evaluation time; hiding is a hybrid over PRG invocations whose reduction runs the DPF adversary as an oracle. Fixed construction, fixed reduction.
 
 - [[BGI15 - Function Secret Sharing|BGI15]] reduce the key length to $O(\secpar \log N)$ with a PRG-based tree construction.
 - [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]] reduce the key size of the BGI15 scheme by roughly a further factor of 4 and optimize its computational cost.

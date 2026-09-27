@@ -25,4 +25,4 @@ Every [[public-key-encryption#cca-security|CCA2]]-secure [[public-key-encryption
 
 `class: fully-black-box`: the construction is the identity on schemes, used only as an oracle, and the reduction runs the CCA1 adversary once, unchanged, forwarding its Phase-1 decryption queries. Fixed construction, fixed reduction.
 
-- [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] prove the implication formally and show it is strict: if any CCA1-secure scheme exists, one exists that is not CCA2-secure.
+- [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]] prove the implication formally and show it is strict: if any CCA1-secure scheme exists, one exists that is not CCA2-secure ([[no-pke-cca1-security-to-pke-cca2-security-bdpr98|CCA1 ⇏ CCA2]]).

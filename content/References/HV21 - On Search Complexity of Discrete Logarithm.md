@@ -2,7 +2,7 @@
 type: reference
 status: stub
 title: "HV21"
-source: https://doi.org/10.4230/LIPIcs.MFCS.2021.60
+source: https://arxiv.org/abs/2107.02617
 authors: Pavel Hubáček, Jan Václavek
 venue: MFCS 2021
 published: 2021
@@ -18,13 +18,14 @@ bibtex: |
     pages     = {60:1--60:16},
     publisher = {Schloss Dagstuhl -- Leibniz-Zentrum f{\"u}r Informatik},
     year      = {2021},
-    doi       = {10.4230/LIPIcs.MFCS.2021.60}
+    doi       = {10.4230/LIPIcs.MFCS.2021.60},
+    url       = {https://arxiv.org/abs/2107.02617}
   }
 ---
 
 # [HV21] On Search Complexity of Discrete Logarithm
 
-**Authors:** Pavel Hubáček, Jan Václavek | **Venue:** MFCS 2021 | [Source](https://doi.org/10.4230/LIPIcs.MFCS.2021.60)
+**Authors:** Pavel Hubáček, Jan Václavek | **Venue:** MFCS 2021 | [Source](https://arxiv.org/abs/2107.02617)
 
 ## Abstract
 

@@ -28,7 +28,7 @@ Under a new conjecture related to the hardness of learning a hidden linear subsp
 
 They introduce the _Learning Subspace with Noise (LSN)_ conjecture. They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
 
-- [[secret-key-pir-sk-pir-to-depir-bipw17|Secret-Key PIR (SK-PIR) ⇒ DEPIR]]
+- Unlike SK-PIR, which bounds only communication, the secret-key DEPIR of [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] also makes per-query server work sublinear; see [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]].
 - I guess secret-key PIR that is not doubly efficient could be interesting...?
 
 How is SK-PIR different from prepreprocessing PIR?
@@ -36,7 +36,7 @@ How is SK-PIR different from prepreprocessing PIR?
 - The secret key is independent of the PIR database
 - So, first sk is generated -> then used to encode a database $x$
 - But only the sk is given to decoding
-- [[secret-key-pir-sk-pir-and-ske-to-depir|Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR]]
+- Idea (unverified): preprocess the database and store the client state encrypted on the server, then run a two-round protocol whose first round downloads the encrypted state. This moves the state but not the server's work: the result is [[doubly-efficient-pir#secret-key-depir|SK-DEPIR]] only if the underlying scheme already has $o(n)$ server computation, and per-query communication is at least $|\st|$ unless amortised.
 
 ## Circuit Sizes
 

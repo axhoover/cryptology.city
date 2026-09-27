@@ -24,4 +24,4 @@ bibtex: |
 
 ## Abstract
 
-We introduce a QMA variant where each proof must be "internally separable": after tracing out one register, a small number of qubits must be separable from the rest of the state. This is a restriction on the entanglement structure of the witness. We show that with a single such proof, the class is strictly less powerful than QMA(2) assuming EXP ≠ NEXP. This provides a new route toward proving QMA(2) = NEXP that avoids a key technical obstacle in prior approaches based on product-state witnesses.
+We find a modification to QMA where having one quantum proof is strictly less powerful than having two unentangled proofs, assuming EXP ≠ NEXP. This gives a new route to prove QMA(2) = NEXP that overcomes the primary drawback of a recent approach [arXiv:2402.18790] (QIP 2024). Our modification endows each proof with a form of multipartite unentanglement: after tracing out one register, a small number of qubits are separable from the rest of the state.

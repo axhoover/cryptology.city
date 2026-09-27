@@ -47,7 +47,7 @@ The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and i
 
 ### Secret-key DEPIR
 
-In secret-key DEPIR, $\calA$ is not given $k$ and makes polynomially many adaptive left-or-right queries, all answered under the same $k$ with no key update — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]], [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]. Single-query privacy is too weak here: storing $EDB[\pi(j)] = DB[j] \oplus F(j)$ for a secret [[pseudorandom-permutation|PRP]] $\pi$ and [[pseudorandom-function|PRF]] $F$ and sending $q = \pi(i)$ meets it from [[hash-function|one-way functions]] alone, while two queries to one index versus two distinct indices break it — folklore.
+In secret-key DEPIR, $\calA$ is not given $k$ and makes polynomially many adaptive left-or-right queries, all answered under the same $k$ with no key update — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]], [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]. A single-query notion is met from [[hash-function|one-way functions]] alone by storing $EDB[\pi(j)] = DB[j] \oplus F(j)$ for a secret [[pseudorandom-permutation|PRP]] $\pi$ and [[pseudorandom-function|PRF]] $F$ and sending $q = \pi(i)$; this scheme fails the many-query notion, since repeated queries to one index repeat $q$ — folklore.
 
 ```pseudocode
 \begin{algorithm}

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "DDH ⇒ COM"
+title: "DLOG ⇒ Statistically hiding commitment"
 aliases: []
-id: red-ddh-to-com
+id: red-dlog-to-com-ped91
 kind: implication
-hypotheses: [ddh]
-conclusion: com
+hypotheses: [dlog]
+conclusion: statistically-hiding-commitment
 class: fully-black-box
 model: standard
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: "tight: one call to the binding adversary yields $\\log_g h$"
 ---
 
-# DDH ⇒ COM
+# DLOG ⇒ Statistically hiding commitment
 
-[[decisional-diffie-hellman|DDH]] implies [[commitment-scheme|COM]].
+[[discrete-logarithm|DLOG]] implies a [[commitment-scheme#hiding|statistically hiding commitment]].
 
 ## Statement
 
-The Pedersen commitment over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $h \getsr \GG \setminus \{1\}$ commits to $m \in \ZZ_p$ as $c = g^m h^r$ for $r \getsr \ZZ_p$. It is perfectly hiding, and computationally binding under [[discrete-logarithm|DLOG]] (implied by [[decisional-diffie-hellman|DDH]] via [[ddh-to-cdh|DDH ⇒ CDH]] and [[cdh-to-dlog|CDH ⇒ DLOG]]), since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
+The Pedersen commitment over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $h \getsr \GG \setminus \{1\}$ commits to $m \in \ZZ_p$ as $c = g^m h^r$ for $r \getsr \ZZ_p$. It is perfectly hiding, and computationally binding under [[discrete-logarithm|DLOG]], since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 
 ## Sketch
 
@@ -59,4 +59,4 @@ Hiding: $h$ generates $\GG$, so $h^r$ is uniform over $r \getsr \ZZ_p$ and $c$ i
 
 ## Notes
 
-`class: fully-black-box`: Fixed construction; the reduction is fixed and uses the adversary only as an oracle: on DDH challenge $(X, Y, Z)$ it sets $h = X$, runs the binding adversary to obtain two openings $(m, r) \ne (m', r')$ of one commitment, computes $x = \log_g h = (m - m')(r' - r)^{-1} \bmod p$, and guesses the real world iff $Z = Y^x$. Hiding is perfect, unconditionally.
+`class: fully-black-box`: Fixed construction; the reduction is fixed and uses the adversary only as an oracle: on DLOG challenge $X$ it outputs $0$ if $X = 1$, and otherwise sets $h = X$, runs the binding adversary to obtain two openings $(m, r) \ne (m', r')$ of one commitment, and outputs $\log_g h = (m - m')(r' - r)^{-1} \bmod p$. Hiding is perfect, unconditionally.

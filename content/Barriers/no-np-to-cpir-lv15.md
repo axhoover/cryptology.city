@@ -8,8 +8,8 @@ hypotheses: [np]
 conclusion: cpir
 class: fully-black-box
 consequences:
-  - kind: contradiction
-    target: ""
+  - kind: complexity
+    target: "conp-subset-am"
     class: fully-black-box
 strength: unconditional
 source:
@@ -18,11 +18,11 @@ source:
 
 # No fully-black-box reduction from NP to cPIR
 
-A reduction of class `fully-black-box` from [[nondeterministic-polynomial-time|NP]] to [[single-server-private-information-retrieval|cPIR]] would imply a contradiction.
+A reduction of class `fully-black-box` from [[nondeterministic-polynomial-time|NP]] to [[single-server-private-information-retrieval|cPIR]] would imply $\classcoNP \subseteq \classAM$.
 
 ## Statement
 
-A probabilistic polynomial-time reduction from $\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|cPIR]] scheme that uses the adversary only as an oracle — with polynomially many, adaptively chosen queries — implies $\classNP \subseteq \classcoAM$, hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level; the privacy of such a scheme therefore cannot be based on [[nondeterministic-polynomial-time|NP]]-hardness by such a reduction. The result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].
+A probabilistic polynomial-time reduction from $\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|cPIR]] scheme that uses the adversary only as an oracle — with polynomially many, adaptively chosen queries — implies $\classNP \subseteq \classcoAM$ (equivalently $\classcoNP \subseteq \classAM$), hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level; the privacy of such a scheme therefore cannot be based on [[nondeterministic-polynomial-time|NP]]-hardness by such a reduction. The result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].
 
 ## Sketch
 

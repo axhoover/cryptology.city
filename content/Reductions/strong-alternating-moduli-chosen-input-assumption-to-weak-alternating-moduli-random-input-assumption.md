@@ -29,4 +29,4 @@ The simulation is exact unless a sampled $x$ repeats: the strong game's ideal wo
 
 `class: fully-black-box`: The construction is the identity (the same family witnesses both games); the reduction runs the weak-AM distinguisher as an oracle and answers each of its input-less queries with $(x, \calO_b(x))$ for a fresh $x \getsr \bits^n$.
 
-- Sourcing pass (2026-09), flagged for deletion: the hypothesis is false for $f_A$ as stated, since $f_A(0^n) = 0$ for every key while $R(0^n) = 0$ only with probability $3^{-\ell}$. [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]] put forward a separate depth-3 strong PRF candidate, not this map.
+- Sourcing pass (2026-09), flagged for deletion: the hypothesis is false for $f_A$, since $f_A(0^n) = 0$ for every key while $R(0^n) = 0$ only with probability $3^{-\ell}$. [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]] put forward a separate depth-3 strong PRF candidate.

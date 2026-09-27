@@ -7,7 +7,7 @@ id: red-bilinear-pairing-and-q-sdh-to-pcs-kzg10
 kind: implication
 hypotheses: [bilinear-pairing, q-strong-diffie-hellman]
 conclusion: pcs
-class: unstated
+class: fully-black-box
 model: crs
 source:
   - "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$: commitments and opening proofs are single group elements, verification is two pairings, and evaluation binding holds under [[q-strong-diffie-hellman|q-SDH]] with $q = d$ [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$: commitments and opening proofs are single group elements, verification is two pairings; evaluation binding holds under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and the Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
 
 ## Sketch
 
@@ -41,7 +41,7 @@ Commit to $f$ as $C = g^{f(\tau)}$, computable from the SRS without $\tau$; the 
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: One fixed construction that uses the bilinear group only through group operations and the pairing, and one fixed reduction that runs an evaluation-binding adversary once as an oracle and computes a $q$-SDH solution from its two openings (§ Sketch). With an assumption as hypothesis, black-boxness refers to the treatment of the adversary; this is the RTV04 fully-black-box shape.
 
 `model: crs`: The scheme needs a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$ whose trapdoor $\tau$ is discarded.
 

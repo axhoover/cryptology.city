@@ -1,41 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "BQP ⊆ DLOG"
+title: "DLOG ⊆ BQP"
 aliases: []
-id: red-bqp-to-dlog-shor97
+id: red-dlog-to-bqp-shor97
 kind: inclusion
-hypotheses: [bqp]
-conclusion: dlog
+hypotheses: [dlog]
+conclusion: bqp
 class: free
 model: quantum
 source:
   - "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+  - "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
 security-loss: ""
 ---
 
-# BQP ⊆ DLOG
+# DLOG ⊆ BQP
 
-[[bounded-error-quantum-polynomial-time|BQP]] is contained in [[discrete-logarithm|DLOG]].
+The decision version of [[discrete-logarithm|DLOG]] is contained in [[bounded-error-quantum-polynomial-time|BQP]].
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-quantum-polynomial-time]] § Notable problems:
-
-> - **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA.
+A polynomial-time quantum algorithm computes discrete logarithms in $\ZZ_p^*$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. The algorithm extends to every group whose operation is efficiently computable on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. The decision version of [[discrete-logarithm|DLOG]] (given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$) is therefore in [[bounded-error-quantum-polynomial-time|BQP]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply (the repo convention for inclusions, as on [[dlog-to-np]]).
 
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
+`model: quantum`: the containing class is defined by quantum polynomial-time algorithms.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- POLARITY INVERTED, same as sub-edge 0.
-- Not wikilinked despite content/Assumptions/discrete-logarithm.md existing.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the page asserts $\classBQP \subseteq$ DLOG, but DLOG is a problem, not a class, and Shor97 proves the converse, DLOG $\in \classBQP$. The correct edge is a `dlog-to-bqp` inclusion typed like [[dlog-to-np]], or an Attacks entry on the DLOG page. See [[discrete-logarithm]].
+- The slug still reads `bqp-to-dlog-shor97`, the inverted direction ($\classBQP \subseteq$ DLOG) this page used to record. The filename is kept because filenames are live URLs.

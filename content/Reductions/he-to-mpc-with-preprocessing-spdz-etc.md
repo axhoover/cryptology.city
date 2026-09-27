@@ -1,27 +1,26 @@
 ---
 type: reduction
 status: draft
-title: "HE ⇒ MPC with preprocessing (SPDZ, etc.)"
+title: "SHE ⇒ MPC with preprocessing (SPDZ)"
 aliases: []
 id: red-he-to-mpc-with-preprocessing-spdz-etc
 kind: implication
-hypotheses: [he]
+hypotheses: [somewhat-homomorphic-encryption]
 conclusion: mpc-with-preprocessing
 class: unstated
 model: standard
 source:
   - "[[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]"
-  - "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
 security-loss: ""
 ---
 
-# HE ⇒ MPC with preprocessing (SPDZ, etc.)
+# SHE ⇒ MPC with preprocessing (SPDZ)
 
-[[homomorphic-encryption|HE]] implies [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing (SPDZ, etc.)]].
+[[homomorphic-encryption#somewhat-homomorphic-encryption-she|SHE]] implies [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]].
 
 ## Statement
 
-The offline phase of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be instantiated from somewhat [[homomorphic-encryption|homomorphic encryption]]: SPDZ generates authenticated Beaver multiplication triples by depth-1 homomorphic evaluation under a shared SHE key with distributed decryption, giving an actively secure protocol against up to $n-1$ of $n$ corruptions whose online phase is unconditionally secure — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]. The preprocessing can also be obtained from semi-homomorphic (additively homomorphic) encryption — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
+The offline phase of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be instantiated from somewhat [[homomorphic-encryption|homomorphic encryption]]: SPDZ generates authenticated Beaver multiplication triples by depth-1 homomorphic evaluation under a shared SHE key with distributed decryption, giving an actively secure protocol against up to $n-1$ of $n$ corruptions whose online phase is unconditionally secure — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
 
 ## Sketch
 
@@ -30,3 +29,5 @@ Parties encrypt random shares under a joint SHE public key, multiply ciphertexts
 ## Notes
 
 `class: unstated`: the source does not state which notion of reduction is meant.
+
+- The `he-` slug predates splitting this edge by hypothesis; the instantiation from additively homomorphic encryption is [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|AHE ⇒ MPC with preprocessing (BDOZ)]].

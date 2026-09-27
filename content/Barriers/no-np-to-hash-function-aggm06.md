@@ -8,8 +8,8 @@ hypotheses: [np]
 conclusion: owf
 class: unstated
 consequences:
-  - kind: contradiction
-    target: ""
+  - kind: complexity
+    target: "conp-subset-am"
     class: unstated
 strength: unconditional
 source:
@@ -18,7 +18,7 @@ source:
 
 # No reduction from NP to OWF
 
-A reduction of class `unstated` from [[nondeterministic-polynomial-time|NP]] to [[hash-function#preimage-resistance-one-wayness|OWF]] would imply a contradiction.
+A reduction of class `unstated` from [[nondeterministic-polynomial-time|NP]] to [[hash-function#preimage-resistance-one-wayness|OWF]] would imply $\classcoNP \subseteq \classAM$.
 
 ## Statement
 
