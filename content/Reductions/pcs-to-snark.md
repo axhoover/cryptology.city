@@ -33,5 +33,5 @@ For knowledge soundness, the PCS extractor recovers the committed polynomials fr
 
 `model: rom`: the compilation gives a public-coin interactive argument in the standard model; both sources make it non-interactive by Fiat–Shamir in the random-oracle model.
 
-- Instantiated with the [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]] commitment scheme, the structured reference string is universal and updatable; Marlin and Plonk are instances — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]
+- Instantiated with the [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]] commitment scheme, the SNARK has a universal and updatable structured reference string; Marlin and Plonk are instances — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]
 - Plonk compiles PLONKish arithmetization, via a permutation argument and KZG commitments, into a universal-setup zk-SNARK — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]
