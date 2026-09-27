@@ -68,11 +68,11 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 
 # Other results
 
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
 - DPFs generalize to FSS for richer function classes including intervals, halfspaces, and decision trees — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
-- DPF key size lower bound: any 2-server DPF for $N$-element domain has keys of size $\Omega(\secpar + \log N)$ — standard
+- For $\beta \neq 0$, correctness makes $(k_0, k_1)$ determine $\alpha$, so $|k_0| + |k_1| \ge \log N$ — folklore
 
 <!-- BEGIN GENERATED participates-in f00f8ec6860c -->
 

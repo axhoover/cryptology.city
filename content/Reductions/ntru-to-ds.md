@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "NTRU ⇒ DS"
+title: "NTRU + NTRU-SIS ⇒ DS"
 aliases: []
 id: red-ntru-to-ds
 kind: implication
-hypotheses: [ntru]
+hypotheses: [ntru, ntru-sis]
 conclusion: ds
 class: unstated
 model: rom
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# NTRU ⇒ DS
+# NTRU + NTRU-SIS ⇒ DS
 
-[[ntru|NTRU]], together with SIS over NTRU lattices, implies [[digital-signature|DS]] in the random-oracle model.
+[[ntru|NTRU]], together with [[ntru#sis-over-ntru-lattices|SIS over NTRU lattices]], implies [[digital-signature|DS]] in the random-oracle model.
 
 ## Statement
 
-Hash-and-sign [[digital-signature|DS]] over NTRU lattices: the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] preimage-sampling paradigm, instantiated with an NTRU trapdoor $(f, g)$ for $h = g \cdot f^{-1} \bmod q$, gives signatures that are EUF-CMA in the random-oracle model under [[ntru|NTRU]] and the hardness of SIS over NTRU lattices — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon is the instantiation selected by NIST for standardization, with $666$-byte signatures at Falcon-512 — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
+Hash-and-sign [[digital-signature|DS]] over NTRU lattices: the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] preimage-sampling paradigm, instantiated with an NTRU trapdoor $(f, g)$ for $h = g \cdot f^{-1} \bmod q$, gives signatures that are EUF-CMA in the random-oracle model under [[ntru|NTRU]] and the hardness of [[ntru#sis-over-ntru-lattices|SIS over NTRU lattices]] — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon is the instantiation selected by NIST for standardization, with $666$-byte signatures at Falcon-512 — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
 
 ## Sketch
 

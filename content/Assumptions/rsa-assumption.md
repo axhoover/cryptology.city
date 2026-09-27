@@ -9,7 +9,6 @@ id: rsa
 variants:
   strong-rsa: "#strong-rsa"
   phi-hiding: "#-hiding"
-  strong-rsa-assumption: "#strong-rsa"
 ---
 
 # RSA Assumption
@@ -50,7 +49,7 @@ is negligible.
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
-- **Factoring reduces to RSA**: an algorithm that inverts $x^e \bmod n$ for _all_ $e$ can be used to factor $n$. The converse direction — whether factoring reduces to RSA for a _fixed_ $e$ — is not known in general.
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, an algebraic reduction from factoring would itself yield a factoring algorithm — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
 - Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
@@ -58,11 +57,11 @@ is negligible.
 
 ## Strong RSA
 
-The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$. This is used in constructions of signature schemes and commitments with stronger security guarantees.
+The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a collision-resistant hash it yields EUF-CMA [[digital-signature|signatures]] in the standard model — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
 
 ## Φ-Hiding
 
-The **Φ-hiding assumption** states that, given $n$ and a prime $e$, it is hard to determine whether $e \mid \phi(n)$. This is related to RSA hardness and is used in some private information retrieval constructions.
+The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\varepsilon}$, it is hard to determine whether $e \mid \phi(n)$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]; for $e > n^{1/4}$ Coppersmith's method decides it efficiently — [[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]. It underlies the polylogarithmic-communication [[single-server-private-information-retrieval|single-server PIR]] of [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
 
 # Attacks
 

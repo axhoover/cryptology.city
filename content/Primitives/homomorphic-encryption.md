@@ -10,10 +10,11 @@ title: Homomorphic encryption
 id: he
 variants:
   somewhat-homomorphic-encryption: "#somewhat-homomorphic-encryption-she"
+  bootstrappable-somewhat-homomorphic-encryption: "#bootstrappable-she"
   additively-homomorphic-encryption: "#partially-homomorphic-encryption-phe"
   leveled-fully-homomorphic-encryption: "#leveled-fully-homomorphic-encryption"
-  linearly-homomorphic-pke: "#partially-homomorphic-encryption-phe"
   multiplicatively-homomorphic-encryption: "#partially-homomorphic-encryption-phe"
+  strongly-homomorphic-encryption: "#strongly-homomorphic-encryption"
 ---
 
 # Homomorphic encryption
@@ -50,9 +51,13 @@ Supports homomorphism over a restricted class: only additions (e.g., Paillier fr
 
 Supports both additions and multiplications, but only up to a bounded number (bounded by the _multiplicative depth_ of the circuit).
 
+### Bootstrappable SHE
+
+An SHE scheme is **bootstrappable** if $\calF$ contains its own decryption circuit augmented by one NAND gate, $\sk \mapsto \lnot\left(\Dec(\sk, c_1) \land \Dec(\sk, c_2)\right)$ for all ciphertexts $c_1, c_2$ — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+
 ## Leveled fully homomorphic encryption
 
-Supports all polynomial-size circuits of a-priori bounded depth (set at key generation time), without bootstrapping. First efficient construction from [[learning-with-errors|LWE]] — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation. Leveled FHE from [[learning-with-errors|LWE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
 
 ## Fully homomorphic encryption (FHE)
 
@@ -62,16 +67,19 @@ Supports arbitrary polynomial-time computation via **bootstrapping**: a special 
 
 An FHE scheme is **compact** if there is a polynomial $p$ such that every ciphertext output by $\Eval$ has length at most $p(\secpar)$, independent of the evaluated function $f$ — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]. Gentry's original FHE is compact.
 
+## Strongly homomorphic encryption
+
+An HE scheme is **strongly homomorphic** if $\Eval$ is distribution-preserving: for all $f \in \calF$ and $m_1, \ldots, m_k \in \calM$, the output of $\Eval(\pk, f, c_1, \ldots, c_k)$ on fresh encryptions $c_i \gets \Enc(\pk, m_i)$ is statistically close to a fresh encryption $\Enc(\pk, f(m_1, \ldots, m_k))$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+
 # Other results
 
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE]]
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
 - [[lwe-to-depir-lmw23|LWE ⇒ DEPIR]]
 - [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Partially homomorphic encryption (PHE)]]
-- [[rsa-to-partially-homomorphic-encryption-phe-rsa78|RSA ⇒ Partially homomorphic encryption (PHE)]]
-- [[he-to-re-bl13|HE ⇒ RE]]
+- [[he-to-re-bl13|Strongly homomorphic encryption ⇒ RE]]
 - [[no-he-to-szk-bl13|No reduction from HE to SZK]]
-- Circular security: FHE schemes often need to encrypt their own secret key; the assumption that this is secure is called _circular security_ and is not implied by standard assumptions
+- Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
 <!-- BEGIN GENERATED participates-in af72689d4fb6 -->

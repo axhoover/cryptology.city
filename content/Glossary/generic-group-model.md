@@ -15,7 +15,7 @@ variants:
 
 # Generic Group Model
 
-The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model was independently proposed by Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] and Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]]; the two formulations differ in important ways.
+The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model goes back to Nechaev [[Nec94 - Complexity of a Determinate Algorithm for the Discrete Logarithm|Nec94]] and Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]; Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]] formalized the representation-free variant, and the two formulations differ in important ways.
 
 ## Shoup's Formulation
 
@@ -36,7 +36,7 @@ This captures a different notion of independence from the group representation, 
 
 ## Comparing the Two Formulations
 
-Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-free model encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy.
+Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-free model encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy. Zhandry showed that Shoup's model is equivalent to a type-safe variant of Maurer's for single-stage games — [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]].
 
 ## The Structured GGM
 

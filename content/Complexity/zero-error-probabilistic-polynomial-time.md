@@ -10,7 +10,7 @@ id: zpp
 
 # Zero-error probabilistic polynomial-time
 
-The class of decision problems solvable by a probabilistic polynomial-time algorithm that always outputs the correct answer but may occasionally output "?" (i.e., a Las Vegas algorithm with expected polynomial running time). Equivalently,
+The class of decision problems decided by a probabilistic polynomial-time algorithm that never outputs a wrong answer and outputs "?" with probability at most 1/2 on every input; equivalently, by a zero-error algorithm with expected polynomial running time — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]]. Equivalently,
 
 $$
 \classZPP = \classRP \cap \classcoRP.

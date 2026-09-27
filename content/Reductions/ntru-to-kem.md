@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "NTRU ⇒ KEM"
+title: "NTRU ⇒ IND-CCA KEM"
 aliases: []
 id: red-ntru-to-kem
 kind: implication
-hypotheses: [ntru]
-conclusion: kem
+hypotheses: [ntru-ow-cpa]
+conclusion: ind-cca-kem
 class: unstated
 model: rom
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# NTRU ⇒ KEM
+# NTRU ⇒ IND-CCA KEM
 
-[[ntru|NTRU]] implies [[key-encapsulation-mechanism|KEM]] in the quantum random-oracle model.
+[[ntru#one-wayness-of-ntru-encryption|One-wayness of NTRU encryption]] implies an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA KEM]] in the quantum random-oracle model.
 
 ## Statement
 
-An IND-CCA [[key-encapsulation-mechanism|KEM]] from [[ntru|NTRU]]: textbook NTRU encryption with parameters chosen for perfect correctness, lifted to a KEM by a generic transform proved IND-CCA in the quantum random-oracle model — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
+An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] [[key-encapsulation-mechanism|KEM]] from the [[ntru#one-wayness-of-ntru-encryption|one-wayness of NTRU encryption]]: textbook NTRU encryption with parameters chosen for perfect correctness, lifted to a KEM by a generic transform proved IND-CCA in the quantum random-oracle model — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
 
 ## Notes
 

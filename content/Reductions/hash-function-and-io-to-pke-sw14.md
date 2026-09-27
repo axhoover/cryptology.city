@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ PKE"
+title: "OWF + iO ⇒ PKE"
 aliases: []
 id: red-hash-function-and-io-to-pke-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: pke
 class: free
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function + iO ⇒ PKE
+# OWF + iO ⇒ PKE
 
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies [[public-key-encryption|PKE]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies [[public-key-encryption|PKE]].
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies IND-CPA-secure [[public-key-encryption|PKE]]; SW14 also give an IND-CCA-secure scheme — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies IND-CPA-secure [[public-key-encryption|PKE]]; SW14 also give an IND-CCA-secure scheme — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Sketch
 

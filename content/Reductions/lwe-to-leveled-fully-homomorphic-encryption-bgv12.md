@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-For every depth bound $L$ fixed at key generation, hardness of decision [[learning-with-errors|LWE]] with modulus-to-noise ratio growing with $L$ implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] for all polynomial-size circuits of depth $L$, without bootstrapping and without a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+For every depth bound $L$ fixed at key generation, hardness of decision [[learning-with-errors|LWE]] with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$) implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] for all polynomial-size circuits of depth $L$, without bootstrapping and without a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
 
 ## Sketch
 

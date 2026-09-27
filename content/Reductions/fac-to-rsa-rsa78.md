@@ -1,39 +1,34 @@
 ---
 type: reduction
 status: draft
-title: "FAC ⇒ RSA"
+title: "RSA ⇒ FAC"
 aliases: []
-id: red-fac-to-rsa-rsa78
+id: red-rsa-to-fac-rsa78
 kind: implication
-hypotheses: [fac]
-conclusion: rsa
-class: unstated
+hypotheses: [rsa]
+conclusion: fac
+class: fully-black-box
 model: standard
 source:
   - "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
-security-loss: ""
+security-loss: "tight: one factoring call; the RSA advantage equals the factoring success probability on the moduli that GrGen outputs"
 ---
 
-# FAC ⇒ RSA
+# RSA ⇒ FAC
 
-[[factoring|FAC]] implies [[rsa-assumption|RSA]].
+[[rsa-assumption|RSA]] implies [[factoring|FAC]].
 
 ## Statement
 
-Migrated verbatim from [[factoring]] § Known Results:
+If [[rsa-assumption|RSA]] is hard for $\GrGen$, then factoring the moduli $n$ that $\GrGen$ outputs is hard: the factors of $n$ give $\phi(n) = (p-1)(q-1)$ and hence $d \equiv e^{-1} \pmod{\phi(n)}$, which inverts $x \mapsto x^e \bmod n$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Whether factoring hardness implies RSA hardness is open in the standard model; against generic ring algorithms the two are equivalent ([[rsa-to-fac-dlo24]]).
 
-> - The [[rsa-assumption|RSA assumption]] (hardness of computing $e$-th roots mod $N$) is implied by the factoring assumption — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open (factoring may be harder than RSA)
+## Sketch
+
+Given an RSA challenge $(n, e, y)$, run the factoring algorithm on $n$. If it returns a prime factor $p$ of $n$, set $q = n/p$, compute $d \equiv e^{-1} \pmod{(p-1)(q-1)}$, and output $y^d \bmod n$, which is correct whenever factoring succeeds.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: the fixed reduction calls the factoring algorithm once as an oracle and never uses its code.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED MATHEMATICAL ERROR: The RSA assumption is implied by the factoring assumption is backwards. Factoring N breaks RSA, so RSA hardness implies factoring hardness; RSA hardness is not known to follow from factoring hardness.
-- The parenthetical (factoring may be harder than RSA) is the standard intuition and contradicts the main clause as written.
-- Two claims in one bullet (the implication and the openness of the converse).
-- RSA78 is cited for a relation it does not prove.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: factoring $N$ yields $\varphi(N)$ and hence the RSA secret exponent, so RSA hardness implies factoring hardness, and [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]] prove no implication from factoring to RSA. The correct edge is RSA ⇒ FAC; its converse is open, with an equivalence known only in the generic ring model with preprocessing. See [[rsa-to-fac-dlo24]].
+- The edge holds for the modulus distribution of $\GrGen$, which the reduction preserves. It matches the factoring game (independent uniform $\secpar$-bit primes) when $\GrGen$ samples $p, q$ that way and then picks $e$ coprime to $\phi(n)$; a $\GrGen$ with fixed $e$ conditions on $\gcd(e, \phi(n)) = 1$.
+- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ RSA, migrated from [[factoring]] § Known Results; [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]] § IX.A state only that factoring $n$ breaks the scheme. The slug reads in the old direction because filenames are live URLs.

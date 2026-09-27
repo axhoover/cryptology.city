@@ -46,7 +46,7 @@ The canonical construction works over a prime field $\FF_p$. The dealer samples 
 
 ## Blakley's geometric construction
 
-The dealer fixes a point $P \in \FF_p^t$ representing the secret, and gives each party a random hyperplane in $\FF_p^t$ passing through $P$. Any $t$ hyperplanes uniquely determine their intersection — [[Bla79 - Safeguarding cryptographic keys|Bla79]].
+The dealer fixes a point $P \in \FF_p^t$ whose first coordinate is the secret and whose other coordinates are uniform, and gives each party a hyperplane through $P$. The hyperplanes are chosen so that any $t$ of them meet only in $P$, and any $t-1$ of them meet in a line on which the first coordinate is not constant — [[Bla79 - Safeguarding cryptographic keys|Bla79]].
 
 ## Computational secret sharing
 
@@ -54,7 +54,7 @@ Relaxes perfect privacy to computational indistinguishability, which allows shar
 
 ## Verifiable secret sharing (VSS)
 
-A secret sharing scheme augmented with commitments so that parties can verify their shares are consistent, even against a malicious dealer. Used in [[secure-multi-party-computation|MPC]] and distributed key generation.
+A secret sharing scheme in which each party can check, even against a malicious dealer, that its share is consistent with a single secret, so that every $t$ parties holding accepted shares reconstruct the same value. Pedersen's scheme achieves this non-interactively by broadcasting DLOG-based homomorphic commitments to the coefficients of the Shamir polynomial ([[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ VSS]]) — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]. VSS is the sharing step of [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|information-theoretic MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
 
 ## Linear secret sharing schemes (LSSS)
 
@@ -65,7 +65,6 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 - $(t, n)$-threshold secret sharing exists information-theoretically for all $1 \le t \le n$ — [[Sha79 - How to share a secret|Sha79]], [[Bla79 - Safeguarding cryptographic keys|Bla79]]
 - Secret sharing is information-theoretically achievable; no computational hardness assumption required
 - [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
-- [[verifiable-secret-sharing-vss-to-mpc-bgw88|Verifiable secret sharing (VSS) ⇒ MPC]]
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
 - Monotone-span-program size lower bounds survive amortization: a lower bound proved for a program sharing one secret still applies, per secret, when the same program is reused to share several secrets at once — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
 - There exist access structures on $n$ parties for which every perfect multilinear scheme, over every finite field, requires shares of total size $2^{\Omega(n)}$ times the secret size — matching the known $2^{O(n)}$ upper bound and settling [Beimel, ePrint 2025/518, Question 10.4] — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]

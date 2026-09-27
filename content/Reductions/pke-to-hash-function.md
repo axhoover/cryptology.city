@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "PKE ⇒ Hash function"
+title: "PKE ⇒ OWF"
 aliases: []
 id: red-pke-to-hash-function
 kind: implication
 hypotheses: [pke]
-conclusion: hash-function
+conclusion: owf
 class: fully-black-box
 model: standard
 source:
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# PKE ⇒ Hash function
+# PKE ⇒ OWF
 
 [[public-key-encryption|PKE]] implies a [[hash-function#preimage-resistance-one-wayness|one-way function]].
 

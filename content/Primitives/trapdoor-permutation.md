@@ -49,7 +49,7 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
+An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ## Lossy trapdoor functions
 
@@ -60,7 +60,6 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[no-injective-owf-to-owp-mm11|No fully black-box reduction from length-increasing injective OWF to OWP]]
 
 <!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
 

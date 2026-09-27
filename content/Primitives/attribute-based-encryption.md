@@ -14,7 +14,6 @@ variants:
   abe-selective-security: "#selective-security"
   symmetric-cp-abe: "#symmetric-cp-abe"
   cp-abe-adaptive-security: "#cp-abe-ind-cpa-security"
-  kp-abe-selective-security: "#selective-security"
 ---
 
 # Attribute-based encryption
@@ -117,7 +116,7 @@ In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to c
 
 ## Syntactic Duality of KP-ABE and CP-ABE
 
-KP-ABE and CP-ABE are syntactically dual: swapping the roles of $\KeyGen$ and $\Enc$ converts one definition into the other. This structural observation is useful for intuition but does **not** give a black-box security reduction. In particular, a selective KP-ABE security proof does not imply adaptive CP-ABE security via the syntactic swap, because the two games have different admissibility constraints and different distributions of challenge objects.
+KP-ABE and CP-ABE are syntactically dual: swapping the roles of $\KeyGen$ and $\Enc$ converts one definition into the other. The correspondence is between definitions, not a transformation of schemes. Selective security does not imply adaptive security in either flavor — folklore; see [[no-selective-security-to-cp-abe-ind-cpa-security]].
 
 ## Large-Universe ABE
 
@@ -138,7 +137,7 @@ A symmetric CP-ABE scheme is a tuple $\ABE = (\Setup, \KeyGen, \Enc, \Dec)$ with
 - $\Enc(\sk_x, f, m) \to c,$ takes an encryptor key $\sk_x$, a policy $f \in \calF$ with $f(x) = 1$, and $m \in \calM$.
 - $\Dec(\sk_{x'}, c) \to m \in \calM$ or $\bot,$ succeeds when the decryptor's attribute set $x'$ satisfies the ciphertext policy.
 
-The IND-CCA2 game adds an encryption oracle $\calO_{\mathrm{enc}}$ absent from standard CP-ABE: since encryption requires a key, the adversary can query encryptions under keys it legitimately holds. The key oracle's admissibility constraint — no queried $\sk_x$ with $f^*(x) = 1$ — also bounds what the adversary can submit to $\calO_{\mathrm{enc}}$.
+The IND-CCA2 game adds an encryption oracle $\calO_{\mathrm{enc}}$ absent from standard CP-ABE: since encryption requires a key, the adversary can query encryptions and decryptions under attribute sets of its choice, with keys the challenger holds. Admissibility: $\calA$ outputs $x_e$ with $f^*(x_e) = 1$, makes no key query $\calO_{\mathrm{key}}(x)$ with $f^*(x) = 1$, and does not query $\calO_{\mathrm{dec}}$ on $c^*$.
 
 ```pseudocode
 \begin{algorithm}
@@ -147,14 +146,12 @@ The IND-CCA2 game adds an encryption oracle $\calO_{\mathrm{enc}}$ absent from s
 \begin{algorithmic}
 \State $\msk \gets \Setup(1^\secpar)$; $b \getsr \bits$
 \State $\calO_{\mathrm{key}}(x) := \KeyGen(\msk, x)$
-\State $\calO_{\mathrm{enc}}(\sk_x, f, m) := \Enc(\sk_x, f, m)$
-\Comment{$\sk_x$ must be a prior output of $\calO_{\mathrm{key}}$}
-\State $\calO_{\mathrm{dec}}(\sk_x, c) := \Dec(\sk_x, c)$
-\State $(f^*, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}, \calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(1^\secpar)$
-\Comment{$\calA$ may not have queried $\calO_{\mathrm{key}}(x)$ for $f^*(x) = 1$}
-\State $\sk_{x_e} \gets \KeyGen(\msk, x_e)$
-\Comment{Challenger-chosen $x_e \subseteq \calU$ with $f^*(x_e) = 1$}
-\State $c^* \gets \Enc(\sk_{x_e}, f^*, m_b)$
+\State $\calO_{\mathrm{enc}}(x, f, m) := \Enc(\KeyGen(\msk, x), f, m)$
+\Comment{only if $f(x) = 1$; else $\bot$}
+\State $\calO_{\mathrm{dec}}(x, c) := \Dec(\KeyGen(\msk, x), c)$
+\State $(f^*, x_e, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{key}}, \calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(1^\secpar)$
+\Comment{$f^*(x_e) = 1$; $\calA$ may not have queried $\calO_{\mathrm{key}}(x)$ for $f^*(x) = 1$}
+\State $c^* \gets \Enc(\KeyGen(\msk, x_e), f^*, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{key}}, \calO_{\mathrm{enc}}, \calO_{\mathrm{dec}}}(c^*, \stA)$
 \Comment{No $\calO_{\mathrm{key}}(x)$ with $f^*(x) = 1$; no $\calO_{\mathrm{dec}}(\cdot, c^*)$}
 \Return $[b' = b]$
@@ -173,17 +170,17 @@ is negligible.
 # Other results
 
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
-- [[abe-to-hibe|ABE ⇒ HIBE]]
+- The [[bdh-to-abe-gpsw06|GPSW06 KP-ABE]] supports delegation of private keys, which subsumes [[hierarchical-identity-based-encryption|HIBE]] — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]
 - [[abe-to-be|ABE ⇒ BE]]
-- ABE is incomparable to [[inner-product-predicate-encryption|IPPE]]: IPPE achieves attribute-hiding but only captures inner-product predicates; KP/CP-ABE handles arbitrary monotone formulas but leaks the policy
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
-- [[ggm-to-abe-bsw07|GGM ⇒ ABE]]
+- [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
-- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+- Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
+- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|CRHF + PRF ⇒ Symmetric CP-ABE]]
 
 <!-- BEGIN GENERATED participates-in 9ef6d6c03cce -->
 

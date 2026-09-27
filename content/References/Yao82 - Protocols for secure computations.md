@@ -1,26 +1,20 @@
 ---
 type: reference
 status: draft
-title: "Yao82"
-source: https://ieeexplore.ieee.org/document/4568388
-authors: Andrew C. Yao
+title: "Yao82b"
+source: https://doi.org/10.1109/SFCS.1982.38
+authors: Andrew Chi-Chih Yao
 venue: FOCS 1982
 published: 1982
 aliases:
+  - Yao82b
   - Yao82
-bibtex: |
-  @inproceedings{Yao82,
-    author    = {Andrew C. Yao},
-    title     = {Protocols for Secure Computations},
-    booktitle = {23rd Annual Symposium on Foundations of Computer Science (FOCS 1982)},
-    pages     = {160--164},
-    year      = {1982}
-  }
+cryptobib_key: FOCS:Yao82b
 ---
 
-# [Yao82] Protocols for Secure Computations
+# [Yao82b] Protocols for Secure Computations
 
-**Authors:** Andrew C. Yao | **Venue:** FOCS 1982 | [Source](https://ieeexplore.ieee.org/document/4568388)
+**Authors:** Andrew Chi-Chih Yao | **Venue:** FOCS 1982 | [Source](https://doi.org/10.1109/SFCS.1982.38)
 
 ## Abstract
 

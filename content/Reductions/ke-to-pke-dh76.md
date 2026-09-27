@@ -1,38 +1,34 @@
 ---
 type: reduction
-status: stub
-title: "KE ⇒ PKE"
+status: draft
+title: "NIKE ⇒ PKE"
 aliases: []
 id: red-ke-to-pke-dh76
 kind: implication
-hypotheses: [ke]
+hypotheses: [non-interactive-key-exchange]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
-source:
-  - "[[DH76 - New Directions in Cryptography|DH76]]"
-security-loss: ""
+source: folklore
+security-loss: "tight: one NIKE challenge per run of the CPA adversary"
 ---
 
-# KE ⇒ PKE
+# NIKE ⇒ PKE
 
-[[key-exchange|KE]] implies [[public-key-encryption|PKE]].
+[[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]] implies [[public-key-encryption|PKE]].
 
 ## Statement
 
-Migrated verbatim from [[key-exchange]] § Other results:
+Let $(\Gen, \mathsf{Combine})$ be a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] with key space $\calK = \bits^\ell$ whose shared key is indistinguishable from uniform given both honestly generated public keys. Then $\KeyGen := \Gen$, $\Enc(\pk, m) := (\pk', \mathsf{Combine}(\sk', \pk) \oplus m)$ for fresh $(\pk', \sk') \gets \Gen(1^\secpar)$, and $\Dec(\sk, (\pk', c)) := \mathsf{Combine}(\sk, \pk') \oplus c$ is an IND-CPA [[public-key-encryption|PKE]] with $\calM = \bits^\ell$ — folklore.
 
-> - KE implies [[public-key-encryption|PKE]] (the session key can be used with a symmetric cipher) — [[DH76 - New Directions in Cryptography|DH76]]
+## Sketch
+
+Correctness is NIKE correctness. Given a NIKE challenge $(\pk, \pk', k)$, the reduction gives $\calA$ the public key $\pk$ and the challenge ciphertext $(\pk', k \oplus m_b)$ for its own bit $b$, and outputs $[b' = b]$: for the real shared key this is the CPA game, and for uniform $k$ the ciphertext is independent of $b$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: the scheme calls $\Gen$ and $\mathsf{Combine}$ only as oracles, and the fixed reduction runs the CPA adversary once as an oracle.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Hidden extra hypothesis: the parenthetical ('the session key can be used with a symmetric cipher') means the reduction really needs an SKE/OWF alongside KE, so it may be conjunctive; the bullet names only KE.
-- SUSPECT: a general (multi-round) KE does not give PKE; the construction needs a 2-message / non-interactive KE. Report only; do not fix.
-- DH76 does not contain this reduction as a theorem.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the wiki's KE is a general interactive protocol, which gives no one-message encryption under a reusable public key, and whether general KE implies PKE is open; [[DH76 - New Directions in Cryptography|DH76]] prove no such theorem. The folklore edge is 2-message KE ⇒ PKE: the initiator's first message is the public key, $\Enc$ runs the responder and one-time-pads the plaintext with the session key (a hybrid over responder sessions handles key reuse), so no symmetric cipher is needed for messages up to the session-key length.
+- Applied to Diffie–Hellman, with $\oplus$ replaced by the group operation, the construction is ElGamal encryption — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]; see [[ddh-to-pke-elgamal85]].
+- The same construction works from any two-message KE, with the initiator's message as the public key — folklore.
+- Sourcing pass (2026-09): this page previously recorded KE ⇒ PKE for general, possibly multi-round, KE, which the construction does not cover, cited to [[DH76 - New Directions in Cryptography|DH76]], which proves no such theorem; it was migrated from [[key-exchange]] § Other results. The slug still reads ke-to-pke-dh76; filenames are live URLs and are not renamed.

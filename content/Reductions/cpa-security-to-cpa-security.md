@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "CPA Security ⇔ CPA Security"
+title: "IND-CPA ⇔ Semantic security"
 aliases: []
 id: red-cpa-security-to-cpa-security
 kind: equivalence
@@ -15,9 +15,9 @@ source:
 security-loss: ""
 ---
 
-# CPA Security ⇔ CPA Security
+# IND-CPA ⇔ Semantic security
 
-[[public-key-encryption#cpa-security|IND-CPA security]] of a [[public-key-encryption|PKE]] scheme is equivalent to semantic security.
+[[public-key-encryption#cpa-security|IND-CPA security]] of a [[public-key-encryption|PKE]] scheme is equivalent to [[public-key-encryption#semantic-security|semantic security]].
 
 ## Statement
 

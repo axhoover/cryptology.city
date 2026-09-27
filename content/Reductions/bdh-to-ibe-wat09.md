@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ IBE"
+title: "DBDH + DLIN ⇒ IBE"
 aliases: []
 id: red-bdh-to-ibe-wat09
 kind: implication
-hypotheses: [bdh]
+hypotheses: [bdh, k-linear-assumption]
 conclusion: ibe
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: "$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries"
 ---
 
-# BDH ⇒ IBE
+# DBDH + DLIN ⇒ IBE
 
-[[bilinear-map-assumptions|DBDH and DLIN]] jointly imply [[identity-based-encryption|IBE]].
+[[bilinear-map-assumptions|DBDH]] and [[bilinear-map-assumptions#k-linear-assumption|DLIN]] jointly imply [[identity-based-encryption|IBE]].
 
 ## Statement
 
-If decisional bilinear Diffie–Hellman and decision linear ([[bilinear-map-assumptions|DBDH and DLIN]]) hold in a symmetric prime-order pairing group, there is an adaptively secure [[identity-based-encryption|IBE]] in the standard model whose ciphertexts, private keys, and public parameters each consist of a constant number of group elements — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) and decision linear ([[bilinear-map-assumptions#k-linear-assumption|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure [[identity-based-encryption|IBE]] in the standard model whose ciphertexts, private keys, and public parameters each consist of a constant number of group elements — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
 
 ## Sketch
 

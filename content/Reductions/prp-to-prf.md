@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+via:
+  - "[[switching-lemma|Switching Lemma]]"
 security-loss: "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)"
 ---
 

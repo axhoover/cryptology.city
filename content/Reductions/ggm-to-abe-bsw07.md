@@ -1,37 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "GGM ⇒ ABE"
+title: "Bilinear pairing ⇒ CP-ABE"
 aliases: []
-id: red-ggm-to-abe-bsw07
+id: red-bilinear-pairing-to-cp-abe-adaptive-security-bsw07
 kind: implication
-hypotheses: [ggm]
-conclusion: abe
-class: unstated
+hypotheses: [bilinear-pairing]
+conclusion: cp-abe-adaptive-security
+class: free
 model: generic-group
 source:
   - "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
 security-loss: ""
 ---
 
-# GGM ⇒ ABE
+# Bilinear pairing ⇒ CP-ABE
 
-[[generic-group-model|GGM]] implies [[attribute-based-encryption|ABE]].
+[[pairings|Bilinear pairing]] implies adaptively secure [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE]] in the generic bilinear group model.
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]] § Other results:
-
-> - BSW07 introduced CP-ABE with a construction proved secure in the generic group model — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]
+In a [[pairings|bilinear group]], the Bethencourt–Sahai–Waters scheme is a ciphertext-policy [[attribute-based-encryption|ABE]] whose policies are monotone trees of threshold gates over attributes, which are arbitrary strings hashed into the group. It is [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]] against adversaries that are generic in the bilinear group, with the hash modeled as a random oracle — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: BSW07 bound the advantage of every generic adversary; per `schema/reduction-classes.yaml` an idealized model goes on the model axis with `class: free`, as on [[bilinear-pairing-to-snark-gro16]].
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+`model: generic-group`: the proof is in the generic bilinear group model. The hash from attributes to the group is also a random oracle, which the single-valued model field cannot record.
 
-- The 'hypothesis' is an idealized model, not a hardness assumption — the target model needs to carry the model as a field rather than as a hypothesis node.
-- content/Glossary/generic-group-model.md exists but is not wikilinked.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — GGM is an idealized model of computation, not a hardness assumption or primitive, so "GGM ⇒ ABE" is not a well-formed hyperedge; idealized models belong on the `model:` axis. The underlying fact stands — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]] prove their CP-ABE construction over bilinear groups secure in the generic bilinear-group model — and should be re-encoded with a bilinear-group hypothesis (or none), `model: generic-group`, and `class: free`.
+- Selectively secure CP-ABE under non-interactive assumptions in the standard model — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].
+- This file previously recorded "GGM ⇒ ABE", with the generic group model as a hypothesis node. The filename is kept because filenames are live URLs.

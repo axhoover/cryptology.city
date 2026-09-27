@@ -8,6 +8,7 @@ title: Supersingular Isogeny Diffie-Hellman
 id: sidh
 variants:
   csidh: "#csidh"
+  ssddh: "#decisional-variant-ssddh"
 ---
 
 # Supersingular Isogeny Diffie-Hellman
@@ -26,6 +27,35 @@ The SIDH key exchange of [[JDF11 - Towards quantum-resistant cryptosystems from 
 2. Alice chooses a secret isogeny $\phi_A : E \to E_A$ with cyclic kernel of order $2^{e_A}$; Bob chooses $\phi_B : E \to E_B$ with cyclic kernel of order $3^{e_B}$
 3. They exchange $E_A$, $E_B$ and images of each other's torsion points
 4. Shared key: $j(E_{AB})$, the $j$-invariant of the common image curve $E_{AB} = E_B / \langle \phi_B(\ker \phi_A) \rangle \cong E_A / \langle \phi_A(\ker \phi_B) \rangle$; Alice computes the first from Bob's torsion-point images, Bob the second
+
+### Decisional variant (SSDDH)
+
+The _supersingular decision Diffie-Hellman (SSDDH)_ problem is to distinguish the shared curve $E_{AB}$ from the quotient of $E$ by an independent pair of kernel points, given the SIDH transcript — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. Fix public parameters $\pp = (p, E, P_A, Q_A, P_B, Q_B)$ as in the SIDH problem.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ssddh}}_{\pp,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $b \getsr \bits$
+\State $R_A, R'_A \getsr \{R \in E[\ell_A^{e_A}] : \mathrm{ord}(R) = \ell_A^{e_A}\}$
+\State $R_B, R'_B \getsr \{R \in E[\ell_B^{e_B}] : \mathrm{ord}(R) = \ell_B^{e_B}\}$
+\State $\phi_A : E \to E_A := E/\langle R_A \rangle$ ; $\phi_B : E \to E_B := E/\langle R_B \rangle$
+\State $E_0 := E/\langle R_A, R_B \rangle$ \Comment{$E_0 \cong E_{AB}$, the shared curve}
+\State $E_1 := E/\langle R'_A, R'_B \rangle$
+\State $b' \gets \calA(\pp, E_A, E_B, \phi_A(P_B), \phi_A(Q_B), \phi_B(P_A), \phi_B(Q_A), E_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**SSDDH is hard** for $\pp$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ssddh}}_{\pp,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ssddh}}_{\pp,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 ## Known Results
 

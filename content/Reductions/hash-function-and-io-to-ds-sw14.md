@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ DS"
+title: "OWF + iO ⇒ DS"
 aliases: []
 id: red-hash-function-and-io-to-ds-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: ds
 class: free
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function + iO ⇒ DS
+# OWF + iO ⇒ DS
 
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies short, selectively secure [[digital-signature|DS]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies short, selectively secure [[digital-signature|DS]].
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies short [[digital-signature|digital signatures]] that are selectively secure: the forger commits to its target message before seeing $\vk$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies short [[digital-signature|digital signatures]] that are selectively secure: the forger commits to its target message before seeing $\vk$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Sketch
 

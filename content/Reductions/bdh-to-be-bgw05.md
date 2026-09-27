@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ BE"
+title: "n-BDHE ⇒ BE"
 aliases: []
 id: red-bdh-to-be-bgw05
 kind: implication
-hypotheses: [bdh]
+hypotheses: [n-bdhe]
 conclusion: be
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# BDH ⇒ BE
+# n-BDHE ⇒ BE
 
-The decision $n$-BDHE variant of [[bilinear-map-assumptions|BDH]] implies [[broadcast-encryption|BE]].
+[[bilinear-map-assumptions#decision-n-bdhe|Decision $n$-BDHE]] implies [[broadcast-encryption|BE]].
 
 ## Statement
 
-If the decision $n$-BDHE (bilinear Diffie–Hellman exponent) assumption — a $q$-type variant of [[bilinear-map-assumptions|BDH]] — holds in a prime-order bilinear group, there is a public-key [[broadcast-encryption|BE]] scheme for $n$ users, secure against any number of colluding revoked users, with $O(1)$-size ciphertexts and private keys and an $O(n)$-size public key; security is static: the adversary commits to the target set before setup — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
+If the [[bilinear-map-assumptions#decision-n-bdhe|decision $n$-BDHE]] (bilinear Diffie–Hellman exponent) assumption — a $q$-type variant of [[bilinear-map-assumptions|BDH]] — holds in a prime-order bilinear group, there is a public-key [[broadcast-encryption|BE]] scheme for $n$ users, secure against any number of colluding revoked users, with $O(1)$-size ciphertexts and private keys and an $O(n)$-size public key; security is static: the adversary commits to the target set before setup — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
 ## Sketch
 

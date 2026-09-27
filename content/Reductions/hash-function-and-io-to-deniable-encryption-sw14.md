@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ Deniable encryption"
+title: "OWF + iO ⇒ Deniable encryption"
 aliases: []
 id: red-hash-function-and-io-to-deniable-encryption-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: deniable-encryption
 class: free
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function + iO ⇒ Deniable encryption
+# OWF + iO ⇒ Deniable encryption
 
-[[hash-function|One-way functions]] together with [[indistinguishability-obfuscation|iO]] imply publicly (sender-)deniable [[deniable-encryption|encryption]].
+[[hash-function#preimage-resistance-one-wayness|One-way functions]] together with [[indistinguishability-obfuscation|iO]] imply publicly (sender-)deniable [[deniable-encryption|encryption]].
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for circuits and one-way functions ([[hash-function|OWF]]) yield publicly deniable — in particular sender-deniable — [[deniable-encryption|encryption]]: for any ciphertext and any message, the sender can produce randomness explaining the ciphertext as an encryption of that message, indistinguishably from the honest randomness [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation|iO]] for circuits and one-way functions ([[hash-function#preimage-resistance-one-wayness|OWF]]) yield publicly deniable — in particular sender-deniable — [[deniable-encryption|encryption]]: for any ciphertext and any message, the sender can produce randomness explaining the ciphertext as an encryption of that message, indistinguishably from the honest randomness [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Sketch
 

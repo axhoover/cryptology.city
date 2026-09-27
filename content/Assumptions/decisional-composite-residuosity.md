@@ -29,12 +29,11 @@ where $b \getsr \bits$, $c_0 := r^n \bmod n^2$ for $r \getsr \ZZ_n^*$ (a uniform
 
 ## Known Results
 
-- [[dcr-to-he-pai99|DCR ⇒ HE]]
-- DCR hardness implies [[factoring|factoring]] hardness: given $p, q$, an element $z \in \ZZ_{n^2}^*$ is an $n$-th residue iff $z^{\varphi(n)} \equiv 1 \pmod{n^2}$ — folklore. Whether factoring hardness implies DCR hardness is open.
+- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ PHE]]
+- [[fac-to-dcr-pai99|DCR ⇒ FAC]]; whether factoring hardness implies DCR hardness is open.
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-com|DCR ⇒ COM]]
-- [[dcr-to-he-pai99|DCR ⇒ HE]]
-- [[dkg-and-he-to-tpke|DKG + HE ⇒ TPKE]]
+- [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 
 # Variations
 

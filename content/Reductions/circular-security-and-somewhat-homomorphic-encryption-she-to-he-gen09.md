@@ -5,7 +5,7 @@ title: "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE"
 aliases: []
 id: red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
-hypotheses: [circular-security, somewhat-homomorphic-encryption]
+hypotheses: [circular-security, bootstrappable-somewhat-homomorphic-encryption]
 conclusion: he
 class: free
 model: standard
@@ -16,11 +16,11 @@ security-loss: ""
 
 # Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE
 
-[[circular-security|Circular security]] together with a bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme implies [[homomorphic-encryption|HE]].
+[[circular-security|Circular security]] together with a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme implies [[homomorphic-encryption|HE]].
 
 ## Statement
 
-Any bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one able to homomorphically evaluate its own augmented decryption circuit — that is [[circular-security|circular secure]] yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth; without circular security, a chain of independent key pairs gives only leveled FHE — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+Any [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one able to homomorphically evaluate its own augmented decryption circuit — that is [[circular-security|circular secure]] yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth; without circular security, a chain of independent key pairs gives only leveled FHE — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
 ## Sketch
 

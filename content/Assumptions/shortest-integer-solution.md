@@ -29,7 +29,7 @@ The assumption is parameterized by a lattice dimension $n$, a column count $m$, 
 \begin{algorithmic}
 \State $\mathbf{A} \getsr \ZZ_q^{n \times m}$
 \State $\mathbf{z} \gets \calA(1^\secpar, \mathbf{A})$
-\Return $[\mathbf{A}\mathbf{z} = \mathbf{0} \pmod{q} \;\wedge\; \mathbf{z} \neq \mathbf{0} \;\wedge\; \|\mathbf{z}\| \leq \beta]$
+\Return $[\mathbf{A}\mathbf{z} = \mathbf{0} \pmod{q} \;\wedge\; \mathbf{z} \neq \mathbf{0} \;\wedge\; \|\mathbf{z}\|_2 \leq \beta]$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -40,7 +40,7 @@ $$
 \Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar) := \Pr\!\left[\Game^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar) = 1\right]
 $$
 
-is negligible.
+is negligible. Here $\|\cdot\|$ is the Euclidean norm; the ISIS, Ring-SIS and Module-SIS variants below use the same norm on the coefficient vector. An $\ell_\infty$ version ($\|\mathbf{z}\|_\infty \leq \beta$) is also used, e.g. Module-SIS in Dilithium — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
 ## Known Results
 
@@ -74,7 +74,7 @@ Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now r
 
 **Module-SIS** interpolates between plain SIS (unstructured) and Ring-SIS (fully structured) by using rank-$k$ modules over $R_q$. The random matrix $\mathbf{A} \in R_q^{k \times \ell}$ has ring elements as entries, and a Module-SIS solution is a short nonzero vector $\mathbf{z} \in R^\ell$ with $\mathbf{Az} = \mathbf{0}$ in $R_q^k$. Setting $k = 1$ recovers Ring-SIS; setting the ring degree $n = 1$ (so $R = \ZZ$) recovers plain SIS — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
-Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Module-SIS is the hardness assumption underlying the NIST post-quantum signature standard Dilithium (ML-DSA, FIPS 204).
+Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
 <!-- BEGIN GENERATED participates-in b42b3578a60e -->
 

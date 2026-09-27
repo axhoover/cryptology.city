@@ -58,7 +58,7 @@ Setting $p = 2$ recovers [[learning-parity-with-noise#Sparse Learning Parity wit
 
 ## Search noisy $k$-LIN
 
-The search variant asks to recover $\mathbf{s}$ from $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$. The search-to-decision reduction for standard LPN does not immediately transfer to the expanding-matrix setting. GHJS25 Theorem 8.8 uses a search variant as an alternative assumption sufficient for PKE under the joint conjecture with planted clique.
+The search variant asks to recover $\mathbf{s}$ from $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$. No search-to-decision reduction is known for expanding matrices over $\FF_p$. For random $k$-sparse equations over $\FF_2$, a distinguisher for $(k-1)$LIN with $m$ samples yields a search algorithm for $k$LIN with roughly $O(nm)$ samples — [[BRT25 - Sample Efficient Search to Decision for kLIN|BRT25]]. [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] Theorem 8.8 uses a search variant as an alternative assumption sufficient for PKE under the joint conjecture with planted clique.
 
 # Attacks
 

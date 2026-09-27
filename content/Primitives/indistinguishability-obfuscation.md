@@ -51,12 +51,12 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 # Other results
 
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]] (candidate)
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[hash-function-and-io-to-pke-sw14|Hash function + iO ⇒ PKE]]
 - [[hash-function-and-io-to-fe-sw14|Hash function + iO ⇒ FE]]
 - [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
 - [[hash-function-and-io-to-deniable-encryption-sw14|Hash function + iO ⇒ Deniable encryption]]
-- [[hash-function-and-io-to-lossy-trapdoor-functions-sw14|Hash function + iO ⇒ Lossy trapdoor functions]]
+- iO together with one-way functions (or close variants of them) also yields injective trapdoor functions, CCA-secure PKE and oblivious transfer — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard
 

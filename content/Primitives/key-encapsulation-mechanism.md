@@ -85,8 +85,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - [[pke-to-kem|PKE ⇒ KEM]]
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA KEM ⇒ IND-CCA security]]
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
-- Hybrid encryption (KEM-DEM) is the standard approach in TLS 1.3, Signal, age, and OpenPGP
-- KEM with re-randomizable ciphertexts gives anonymous PKE — standard
+- The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
 - [[kem-to-ke|KEM ⇒ KE]]
 
 <!-- BEGIN GENERATED participates-in 4960c8d92081 -->

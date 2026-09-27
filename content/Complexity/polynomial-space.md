@@ -16,7 +16,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 
 ## Known relationships
 
-- $\classIP = \classPSPACE$
+- $\classIP = \classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]]; the ⊆ direction is folklore ([[ip-to-pspace-ccg-94]])
 - $\classIP \neq \classPSPACE$ in the [[random-oracle-model]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
 
 <!-- BEGIN GENERATED participates-in 8a0e31c0e561 -->

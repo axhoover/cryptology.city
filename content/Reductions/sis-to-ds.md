@@ -7,7 +7,7 @@ id: red-sis-to-ds
 kind: implication
 hypotheses: [sis]
 conclusion: ds
-class: unstated
+class: fully-black-box
 model: rom
 source:
   - "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
@@ -28,9 +28,11 @@ Trapdoor-sampled preimages have the same distribution as a discrete Gaussian con
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+`class: fully-black-box`: One fixed construction (hash-and-sign with the trapdoor preimage sampler); one fixed reduction that runs any forger once as an oracle, programming the random oracle with self-sampled syndromes, and outputs a short lattice vector from the forgery. Black-box in both the assumption and the adversary, within the ROM.
 
 `model: rom`: The GPV08 reduction programs $H$ by sampling each preimage first. The standard-model scheme of [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]] belongs on a separate `model: standard` edge.
 
+- The construction needs a trapdoor sampler for $\mathbf{A}$ (GPV08's preimage-sampleable functions): hardness of SIS/ISIS gives unforgeability, the trapdoor enables signing.
+- Viewed through [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]], which is equivalent to SIS ([[isis-inhomogeneous-sis-to-sis|ISIS ⇔ SIS]]): one-wayness of the family $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ (ISIS) alone suffices via the full-domain-hash argument, at a loss of the number of hash queries — standard.
 - Signatures from SIS in the ROM without a lattice trapdoor, via Fiat-Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].
 - Stateless hash-and-sign signatures from SIS in the standard model, via bonsai-tree basis delegation — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]].

@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Module LWE ⇔ Ring LWE"
+title: "Module LWE (rank 1) ⇔ Ring LWE"
 aliases: []
 id: red-module-lwe-to-ring-lwe-ls15
 kind: equivalence
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Module LWE ⇔ Ring LWE
+# Module LWE (rank 1) ⇔ Ring LWE
 
 [[learning-with-errors#module-lwe|Module LWE]] at module rank 1 is equivalent to [[learning-with-errors#ring-lwe|Ring LWE]].
 

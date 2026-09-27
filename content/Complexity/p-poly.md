@@ -23,8 +23,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:P#p
 ## Known relationships
 
 - $\classP \subseteq \classPpoly$: any uniform polynomial-time algorithm is also a polynomial-size circuit family.
-- $\classBPP \subseteq \classPpoly$: under the standard derandomization assumption (that $\mathbf{E}$ requires exponential-size circuits), $\classBPP = \classP$. Unconditionally, by a probabilistic argument, BPP $\subseteq$ P/poly — the advice string encodes a fixed set of random coins that works for all inputs of a given length — TODO citation.
-- **Karp-Lipton theorem**: if $\classNP \subseteq \classPpoly$, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P}$ — TODO citation. Informally, if NP problems had polynomial-size circuits, Arthur-Merlin protocols would collapse, pulling PH down with them.
+- $\classBPP \subseteq \classPpoly$: under the standard derandomization assumption (that $\mathbf{E}$ requires exponential-size circuits), $\classBPP = \classP$. Unconditionally, by a probabilistic argument, BPP $\subseteq$ P/poly — the advice string encodes a fixed set of random coins that works for all inputs of a given length — [[Adl78 - Two theorems on random polynomial time|Adl78]] ($\classRP$ case), [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]] ($\classBPP$); see [[bpp-to-p-poly]].
+- **Karp-Lipton theorem**: if $\classNP \subseteq \classPpoly$, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P}$ — [[KL80 - Some Connections between Nonuniform and Uniform Complexity Classes|KL80]]. Proof idea: for a $\Pi_2$ statement $\forall y\, \exists z\, \phi(x,y,z)$, existentially guess a polynomial-size circuit $C$ that outputs a witness $z$ whenever one exists (it exists by self-reducibility of SAT), then universally check $\phi(x, y, C(x,y))$.
 - $\classPpoly$ contains undecidable languages: every unary language is in $\classPpoly$ (one advice bit per input length), including the unary encoding of the halting problem — folklore.
 
 ## Relevance to cryptography

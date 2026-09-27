@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "$d$-th Composite Residuosity ⇒ HE"
+title: "$d$-th Composite Residuosity ⇒ PHE"
 aliases: []
 id: red-d-th-composite-residuosity-to-he
 kind: implication
 hypotheses: [d-th-composite-residuosity]
-conclusion: he
+conclusion: additively-homomorphic-encryption
 class: fully-black-box
 model: standard
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# $d$-th Composite Residuosity ⇒ HE
+# $d$-th Composite Residuosity ⇒ PHE
 
-[[decisional-composite-residuosity#d-th-composite-residuosity|$d$-th Composite Residuosity]] implies [[homomorphic-encryption|HE]].
+[[decisional-composite-residuosity#d-th-composite-residuosity|$d$-th Composite Residuosity]] implies [[homomorphic-encryption#partially-homomorphic-encryption-phe|PHE]] for addition modulo $n^d$.
 
 ## Statement
 

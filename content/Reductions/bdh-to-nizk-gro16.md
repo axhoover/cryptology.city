@@ -1,46 +1,34 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ NIZK"
+title: "DLIN ⇒ NIZK"
 aliases: []
-id: red-bdh-to-nizk-gro16
+id: red-dlin-to-nizk-gos06
 kind: implication
-hypotheses: [bdh]
+hypotheses: [decisional-linear]
 conclusion: nizk
 class: unstated
 model: crs
 source:
-  - "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+  - "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06]]"
 security-loss: ""
 ---
 
-# BDH ⇒ NIZK
+# DLIN ⇒ NIZK
 
-[[bilinear-map-assumptions|BDH]] implies [[non-interactive-zero-knowledge|NIZK]].
+[[decisional-diffie-hellman#dlin|DLIN]] implies [[non-interactive-zero-knowledge|NIZK]] proofs for $\classNP$ in the common reference string model.
 
 ## Statement
 
-Migrated verbatim from [[bilinear-map-assumptions]] § Known Results:
-
-> - DLIN (Decision Linear) assumption: a generalization of BDDH; more conservative and used in e.g. Groth-Sahai proofs — standard
-
-Migrated verbatim from [[non-interactive-zero-knowledge]] § Other results:
-
-> - Pairing-based NIZK (Groth-Sahai proofs, Groth16) achieves constant or logarithmic proof size — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]
+If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in a prime-order symmetric bilinear group, then Circuit-SAT, and hence every $\classNP$ language, has a [[non-interactive-zero-knowledge|NIZK]] proof in the common reference string model with perfect completeness, perfect soundness and computational zero-knowledge. The CRS has $O(\secpar)$ bits, and a proof for a circuit $C$ has $O(|C|\secpar)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-This relation is stated on 2 pages; the statements above are all of them.
+`model: crs`: the proof system needs a trusted common reference string.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Groth-Sahai proofs marked standard; GS08 is attributable and missing.
-- Conclusion typed as NIZK; Groth-Sahai is specifically a NIZK proof system for pairing-product equations in the CRS model.
-- Two constructions bundled (Groth-Sahai proofs and Groth16) under a single Gro16 citation; Groth-Sahai (GS08) is uncited and has no reference page.
-- The hypothesis ('pairing-based') is not a named assumption; Groth16 additionally needs a knowledge-of-exponent-style assumption or the generic/algebraic group model, which is not stated - arguably model should be generic-group.
-- SUSPECT: Groth-Sahai proofs are not constant-size in general (they are constant per equation, linear in the number of equations). Report only.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — Gro16 proves no NIZK from BDH, DLIN, or any falsifiable bilinear assumption; its knowledge soundness is proved in the generic bilinear group model. The bilinear-assumption NIZKs are Groth–Ostrovsky–Sahai (EUROCRYPT 2006: NIZK for NP from DLIN in the CRS model) and Groth–Sahai ([[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]: pairing-product equations from SXDH or DLIN). See [[bilinear-pairing-to-snark-gro16]].
+- The same paper gives non-interactive zaps (witness-indistinguishable proofs with no CRS) for every $\classNP$ language under DLIN — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06]].
+- Groth–Sahai proofs for pairing-product, multi-scalar-multiplication and quadratic equations can also be instantiated under DLIN — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]. The SXDH instantiation is [[sxdh-symmetric-external-diffie-hellman-to-nizk]].
+- The perfect NIZK arguments of Groth, Ostrovsky and Sahai at EUROCRYPT 2006 rest on the subgroup decision assumption in composite-order bilinear groups, not on DLIN — [eprint 2005/290](https://eprint.iacr.org/2005/290).
+- This file used to record "BDH ⇒ NIZK" under Gro16. Gro16 proves knowledge soundness of a SNARK only in the generic bilinear group model ([[bilinear-pairing-to-snark-gro16]]) and assumes neither BDH nor DLIN. The filename is kept because filenames are live URLs.

@@ -5,7 +5,7 @@ title: "Strong RSA ⇒ RSA"
 aliases: []
 id: red-strong-rsa-to-rsa
 kind: implication
-hypotheses: [strong-rsa-assumption]
+hypotheses: [strong-rsa]
 conclusion: rsa
 class: fully-black-box
 model: standard

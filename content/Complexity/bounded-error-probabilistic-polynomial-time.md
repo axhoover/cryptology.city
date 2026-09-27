@@ -23,7 +23,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 - $\classP \subseteq \classZPP \subseteq \classRP \subseteq \classBPP$: deterministic algorithms are a special case of Las Vegas, which are a special case of one-sided error, which are a special case of two-sided error — folklore.
 - $\classBPP \subseteq \classAM \cap \classcoAM$: BPP problems have trivial one-message Arthur-Merlin protocols (Arthur decides without Merlin) — [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]].
-- $\classBPP \subseteq \classPpoly$: for any BPP machine, a majority-vote argument shows that a fixed random string works for all inputs of a given length; that string serves as the advice — TODO citation.
+- $\classBPP \subseteq \classPpoly$: for any BPP machine, a majority-vote argument shows that a fixed random string works for all inputs of a given length; that string serves as the advice — [[Adl78 - Two theorems on random polynomial time|Adl78]] for $\classRP$, [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]] for $\classBPP$; see [[bpp-to-p-poly]].
 - $\classBPP \subseteq \classPSPACE$: randomized computation can be simulated deterministically in polynomial space by trying all random strings.
 - **Derandomization conjecture:** $\classP = \classBPP$. This is widely believed and would follow from sufficiently strong circuit lower bounds (e.g., if $\mathbf{E} = \mathbf{DTIME}(2^{O(n)})$ requires exponential-size circuits). Under plausible hardness assumptions, $\classBPP$ has subexponential-time simulations — TODO citation.
 
@@ -31,7 +31,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 In cryptography, efficient adversaries are modeled as probabilistic polynomial-time ($\PPT$) algorithms — the uniform version of BPP. Security definitions quantify over all $\PPT$ adversaries.
 
-If $\classP = \classBPP$ (the derandomization conjecture), then any cryptographic protocol secure against deterministic polynomial-time adversaries is also secure against randomized ones — but this would not render cryptography trivial, since it says nothing about the hardness of breaking schemes. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits (Nisan–Wigderson, JCSS 1994).
+Against non-uniform adversaries randomness never helps: fixing the best random tape yields a deterministic circuit with at least the same advantage — folklore. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits (Nisan–Wigderson, JCSS 1994).
 
 <!-- BEGIN GENERATED participates-in e25b9fe6b4a8 -->
 

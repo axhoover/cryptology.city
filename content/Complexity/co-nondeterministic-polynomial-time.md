@@ -18,7 +18,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 - $\classP \subseteq \classcoNP$, since P is closed under complement.
 - If a problem is [[nondeterministic-polynomial-time|NP]]-complete, then it is in $\classcoNP$ if and only if $\classNP = \classcoNP$.
-- $\classcoNP \subseteq \classcoAM$, since $\classNP \subseteq \classAM$ — folklore. Whether $\classcoNP \subseteq \classAM$ is open; it would collapse the polynomial hierarchy to its second level (Boppana–Håstad–Zachos, IPL 1987).
+- $\classcoNP \subseteq \classcoAM$, since $\classNP \subseteq \classAM$ — folklore. Whether $\classcoNP \subseteq \classAM$ is open; it would collapse the polynomial hierarchy to its second level ([[no-conp-to-am-bm88]]) — Boppana–Håstad–Zachos (IPL 1987); [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
 - Integer factorization and discrete logarithm are both in $\classNP \cap \classcoNP$: there are short certificates for both "yes" and "no" answers. This is one reason these problems are considered unlikely to be NP-complete — an NP-complete problem in coNP would imply $\classNP = \classcoNP$.
 - $\classcoNP \subseteq \classPSPACE$.
 

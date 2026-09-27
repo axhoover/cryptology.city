@@ -3,7 +3,7 @@ type: reference
 status: draft
 title: "GKM+00"
 source: https://ieeexplore.ieee.org/abstract/document/892121
-authors: Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingolds, Mahesh Viswanathan
+authors: Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingold, Mahesh Viswanathan
 venue: FOCS 2000
 published: 2000-04-01
 aliases:
@@ -13,7 +13,7 @@ cryptobib_key: FOCS:GKMRV00
 
 # [GKM+00] The relationship between public key encryption and oblivious transfer
 
-**Authors:** Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingolds, Mahesh Viswanathan | **Venue:** FOCS 2000 | [Source](https://ieeexplore.ieee.org/abstract/document/892121)
+**Authors:** Yael Gertner, Sampath Kannan, Tal Malkin, Omer Reingold, Mahesh Viswanathan | **Venue:** FOCS 2000 | [Source](https://ieeexplore.ieee.org/abstract/document/892121)
 
 ## Abstract
 

@@ -46,7 +46,7 @@ where $\mathbf{m}_i = (m_i^{(1)}, m_i^{(2)}, \ldots)$ is the ordered sequence of
 
 ## Transcript
 
-The **transcript** of an execution is the ordered sequence of all messages exchanged by both parties. The views $\View_{P_1}$ and $\View_{P_2}$ together determine the transcript (and vice versa, up to each party's private randomness and inputs).
+The **transcript** of an execution is the ordered sequence of all messages exchanged by both parties. The views $\View_{P_1}$ and $\View_{P_2}$ together determine the transcript.
 
 ## Adversary models
 
@@ -55,7 +55,7 @@ Security of a protocol is analyzed under one of two standard adversary models:
 - **Semi-honest** (_honest-but-curious_): the adversary follows the protocol specification exactly but tries to learn additional information from its view alone.
 - **Malicious**: the adversary may deviate from the protocol arbitrarily, sending any messages it chooses.
 
-Security against malicious adversaries implies security against _augmented_ semi-honest adversaries, which may substitute their input before the execution [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], but not in general against semi-honest adversaries: the malicious-model simulator may change the corrupted party's input, which the semi-honest ideal model forbids — Hazay and Lindell, Cryptology ePrint Archive 2010/551.
+Security against malicious adversaries implies security against _augmented_ semi-honest adversaries, which may substitute their input before the execution [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], but not in general against semi-honest adversaries: the malicious-model simulator may change the corrupted party's input, which the semi-honest ideal model forbids — [[HL10 - A Note on the Relation between the Definitions of Security for Semi-Honest and Malicious Adversaries|HL10]].
 
 <!-- BEGIN GENERATED participates-in 88369e71969d -->
 

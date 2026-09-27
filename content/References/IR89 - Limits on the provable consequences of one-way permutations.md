@@ -3,17 +3,17 @@ type: reference
 status: draft
 title: "IR89"
 source: https://dl.acm.org/doi/abs/10.1145/73007.73012
-authors: Russel Impagliazzo, Steven Rudich
+authors: Russell Impagliazzo, Steven Rudich
 venue: STOC 1989
 published: 1989-02-01
 aliases:
   - IR89
-cryptobib_key: C:ImpRud88
+cryptobib_key: STOC:ImpRud89
 ---
 
 # [IR89] Limits on the provable consequences of one-way permutations
 
-**Authors:** Russel Impagliazzo, Steven Rudich | **Venue:** STOC 1989 | [Source](https://dl.acm.org/doi/abs/10.1145/73007.73012)
+**Authors:** Russell Impagliazzo, Steven Rudich | **Venue:** STOC 1989 | [Source](https://dl.acm.org/doi/abs/10.1145/73007.73012)
 
 ## Abstract
 

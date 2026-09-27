@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ Hash-based signatures"
+title: "OWF ⇒ Hash-based signatures"
 aliases: []
 id: red-hash-function-to-hash-based-signatures-lam79
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: one-time-signature
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ Hash-based signatures
+# OWF ⇒ Hash-based signatures
 
-[[hash-function|Hash function]] implies one-time [[digital-signature#hash-based-signatures|hash-based signatures]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] implies one-time [[digital-signature#hash-based-signatures|hash-based signatures]].
 
 ## Statement
 
-A [[hash-function|one-way function]] implies one-time [[digital-signature#hash-based-signatures|digital signatures]] (Lamport's scheme): for $\ell$-bit messages the signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
+A [[hash-function#preimage-resistance-one-wayness|one-way function]] implies one-time [[digital-signature#hash-based-signatures|digital signatures]] (Lamport's scheme): for $\ell$-bit messages the signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
 
 ## Sketch
 

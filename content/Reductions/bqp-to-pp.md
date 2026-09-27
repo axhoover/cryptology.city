@@ -30,7 +30,7 @@ For a polynomial-time quantum machine with rational amplitudes, the acceptance p
 
 `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
-`model: quantum`: Matches sibling containments of quantum classes ([[bpp-to-bqp]], [[qcma-to-pp]], [[qma-to-pp]]); the proof itself is a classical counting argument.
+`model: quantum`: Matches sibling containments of quantum classes ([[bpp-to-bqp]], [[qma-to-pp]]); the proof itself is a classical counting argument.
 
 - Alternative proof via $\classBQP \subseteq \mathbf{PostBQP} = \classPP$ — [[Aar05 - Quantum computing, postselection, and probabilistic polynomial-time|Aar05]]
 - Strengthened to $\classBQP \subseteq \mathbf{AWPP} \subseteq \classPP$, and $\classPP^{\classBQP} = \classPP$ — [[FR99 - Complexity Limitations on Quantum Computation|FR99]]

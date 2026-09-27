@@ -21,7 +21,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Notable problems
 
-- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA.
+- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]].
 - **Unstructured search**: Grover's algorithm provides a quadratic quantum speedup for unstructured search — [[Grover96 - A fast quantum mechanical algorithm for database search|Grover96]]. This does not place unstructured search in $\classBQP$ itself, but implies that any problem with a classical $O(N)$ exhaustive-search algorithm can be solved quantumly in $O(\sqrt{N})$ queries.
 
 ## Known relationships

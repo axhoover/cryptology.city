@@ -76,12 +76,12 @@ Dropping the attribute-hiding requirement yields a simpler **payload-hiding** va
 
 ## Zero inner product vs. non-zero
 
-Some formulations flip the predicate: decryption succeeds when $\langle v, x \rangle \ne 0$. This is equivalent up to a simple transformation (append a constant coordinate) and is sometimes more natural for access control.
+Some formulations flip the predicate: decryption succeeds when $\langle v, x \rangle \ne 0$ — [[AL10 - Functional Encryption for Inner Product Achieving Constant-Size Ciphertexts with Adaptive Security or Support for Negation|AL10]].
 
 # Other results
 
 - [[ippe-to-hve|IPPE ⇒ HVE]]
-- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+- The first IPPE scheme, over composite-order bilinear groups, shows that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; it is selectively attribute-hiding under two new assumptions justified in the generic group model — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
 <!-- BEGIN GENERATED participates-in 99ea01756488 -->

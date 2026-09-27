@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ DS"
+title: "OWF ⇒ DS"
 aliases: []
 id: red-hash-function-to-ds
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: ds
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ DS
+# OWF ⇒ DS
 
-[[hash-function|Hash function]] implies [[digital-signature|DS]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[digital-signature|DS]].
 
 ## Statement
 
-If [[hash-function|one-way functions]] exist, then EUF-CMA-secure [[digital-signature|digital signatures]] exist — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]. Rompel builds universal one-way hash functions from any one-way function and instantiates the tree-based signature scheme of [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]], which needs only UOWHFs.
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then EUF-CMA-secure [[digital-signature|digital signatures]] exist — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]. Rompel builds universal one-way hash functions from any one-way function and instantiates the tree-based signature scheme of [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]], which needs only UOWHFs.
 
 ## Sketch
 

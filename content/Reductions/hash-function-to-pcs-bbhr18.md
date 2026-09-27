@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ PCS"
+title: "CRHF ⇒ PCS"
 aliases: []
 id: red-hash-function-to-pcs-bbhr18
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [crhf]
 conclusion: pcs
 class: unstated
 model: rom
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ PCS
+# CRHF ⇒ PCS
 
-[[hash-function|Hash function]] implies [[polynomial-commitment|PCS]].
+[[hash-function#collision-resistance|CRHF]] implies [[polynomial-commitment|PCS]].
 
 ## Statement
 
-[[hash-function|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test, with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+[[hash-function#collision-resistance|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test, with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
 ## Sketch
 

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Ring-LWE ⇒ DEPIR"
+title: "Ring-LWE ⇒ Unkeyed DEPIR"
 aliases: []
 id: red-lwe-to-depir-lmw23
 kind: implication
 hypotheses: [ring-lwe]
-conclusion: depir
+conclusion: unkeyed-depir
 class: unstated
 model: standard
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Ring-LWE ⇒ DEPIR
+# Ring-LWE ⇒ Unkeyed DEPIR
 
-[[learning-with-errors#ring-lwe|Ring-LWE]] implies [[doubly-efficient-pir|DEPIR]].
+[[learning-with-errors#ring-lwe|Ring-LWE]] implies [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]].
 
 ## Statement
 
-Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies unkeyed [[doubly-efficient-pir|DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
+Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies unkeyed [[doubly-efficient-pir#unkeyed-depir|DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Sketch
 

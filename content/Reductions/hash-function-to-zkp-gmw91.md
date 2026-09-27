@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ ZKP"
+title: "OWF ⇒ ZKP"
 aliases: []
 id: red-hash-function-to-zkp-gmw91
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: zkp
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ ZKP
+# OWF ⇒ ZKP
 
-[[hash-function|Hash function]] implies [[zero-knowledge-proof|ZKP]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[zero-knowledge-proof|ZKP]].
 
 ## Statement
 
-If [[hash-function|one-way functions]] exist, every language in $\classNP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol proves 3-colorability with a statistically binding commitment, which one-way functions yield — [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, every language in $\classNP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol proves 3-colorability with a statistically binding commitment, which one-way functions yield — [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
 
 ## Sketch
 

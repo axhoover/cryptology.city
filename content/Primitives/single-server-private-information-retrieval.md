@@ -117,20 +117,30 @@ where $(\sk, D') \gets \Setup(1^\secpar, D)$ and $(q, \st) \gets \Query(\sk, i)$
 
 ### Security
 
-The adversary acts as the server: it chooses the database and two challenge indices, then sees the encoded database $D'$ and a single online query. Security requires the query to reveal nothing about the index despite the adversary knowing $D'$.
+The adversary acts as the server: it chooses the database, then sees the encoded database $D'$ and polynomially many online queries under the same $\sk$, each for index $i_b$ of a pair $(i_0, i_1)$ it chooses adaptively. $\Setup$ runs once, and $\sk$ and $D'$ are reused across all queries with no update — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]], [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]. Security requires the queries to reveal nothing about the indices despite the adversary knowing $D'$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{sk\text{-}priv}}_{\PIR,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(D, i_0, i_1, \stA) \gets \calA(1^\secpar)$
+\State $(D, \stA) \gets \calA(1^\secpar)$
 \State $(\sk, D') \gets \Setup(1^\secpar, D)$
 \State $b \getsr \bits$
-\State $(q, \st) \gets \Query(\sk, i_b)$
-\State $b' \gets \calA(D', q, \stA)$
+\State $b' \gets \calA^{\calO_b}(D', \stA)$
 \Comment{$\calA$ sees $D'$ but not $\sk$}
 \Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_b(i_0, i_1)$}
+\begin{algorithmic}
+\State $(q, \st) \gets \Query(\sk, i_b)$
+\Return $q$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -156,7 +166,7 @@ is negligible.
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
 - Any PIR without preprocessing requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
-- [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
 <!-- BEGIN GENERATED participates-in 5b5c1ac96c63 -->
 

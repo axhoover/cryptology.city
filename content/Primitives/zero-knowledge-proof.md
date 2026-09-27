@@ -60,7 +60,7 @@ Weaker form where the simulator only works against an honest verifier that picks
 
 ## Sigma protocols
 
-A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for discrete log is the canonical example.
+A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
 
 ## Witness-indistinguishable (WI) proofs
 
@@ -72,14 +72,12 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 # Other results
 
-- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+- Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 - [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
 - Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - [[zkp-to-hash-function|ZKP ⇒ Hash function]]
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
 <!-- BEGIN GENERATED participates-in 71769486df05 -->
 

@@ -6,6 +6,8 @@ aliases:
   - Message authentication code
 title: Message authentication code
 id: mac
+variants:
+  suf-cma-mac: "#strong-unforgeability"
 ---
 
 # Message authentication code
@@ -67,6 +69,47 @@ A MAC $\MAC$ is **UF-CMA secure** if for all efficient $\calA$,
 
 $$
 \Adv^{\ufcma}_{\MAC,\calA}(\secpar) := \Pr\!\left[\Game^{\ufcma}_{\MAC,\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
+
+### Strong unforgeability
+
+The **strong unforgeability under chosen message attacks (SUF-CMA)** game strengthens UF-CMA: $\calQ$ records message-tag pairs, and $\calA$ wins with any valid pair $(\hat{m}, \hat{t})$ that $\calO$ did not return, including a new tag on a queried message.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\sufcma}_{\MAC,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \KeyGen(1^\secpar)$
+\State $\calQ \gets \{\}$
+\State $(\hat{m}, \hat{t}) \gets \calA^{\calO}(1^\secpar)$
+\If{$(\hat{m}, \hat{t}) \in \calQ$}
+\Comment{$(\hat{m}, \hat{t})$ cannot repeat}
+\Return $0$
+\EndIf
+\Return $[\Vrfy(k, \hat{m}, \hat{t}) = 1]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO(m)$}
+\begin{algorithmic}
+\State $t \gets \Tag(k, m)$
+\State $\calQ \gets \calQ \cup \{(m, t)\}$
+\Return $t$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A MAC $\MAC$ is **SUF-CMA secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\sufcma}_{\MAC,\calA}(\secpar) := \Pr\!\left[\Game^{\sufcma}_{\MAC,\calA}(\secpar) = 1\right]
 $$
 
 is negligible.

@@ -1,48 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "SNARK ⇒ NIZK"
+status: draft
+title: "SNARK + OWF ⇒ NIZK"
 aliases: []
-id: red-snark-to-nizk
+id: red-snark-and-owf-to-nizk-kmy20
 kind: implication
-hypotheses: [snark]
+hypotheses: [snark, owf]
 conclusion: nizk
 class: unstated
-model: standard
-source: folklore
+model: crs
+source:
+  - "[[KMY20 - NIZK from SNARG|KMY20]]"
 security-loss: ""
 ---
 
-# SNARK ⇒ NIZK
+# SNARK + OWF ⇒ NIZK
 
-[[succinct-argument|SNARK]] implies [[non-interactive-zero-knowledge|NIZK]].
+A [[succinct-argument|SNARG]] for $\classNP$ together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[non-interactive-zero-knowledge|NIZK]].
 
 ## Statement
 
-Migrated verbatim from [[non-interactive-zero-knowledge]] § zk-SNARK:
-
-> ## zk-SNARK
->
-> A **Succinct Non-interactive ARgument of Knowledge (zk-SNARK)** is a NIZK argument with the additional properties that:
->
-> - The proof $\pi$ is short (polylogarithmic in the circuit size)
-> - Verification is fast (polylogarithmic in the statement size)
-> - The prover has knowledge soundness (a witness can be extracted)
->
-> See [[succinct-argument|SNARKs]] for more detail.
+A [[succinct-argument|SNARG]] for $\classNP$ with proof size $\poly(\secpar)\cdot(|x|+|w|)^{c}$ for a constant $c < 1/2$, together with a [[hash-function#preimage-resistance-one-wayness|one-way function]], yields a [[non-interactive-zero-knowledge|NIZK]] argument for $\classNP$. The SNARG needs neither knowledge soundness nor efficient verification — [[KMY20 - NIZK from SNARG|KMY20]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`model: crs`: the SNARG and the resulting NIZK both use a common reference string.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Definitional containment (a zk-SNARK is a NIZK argument with extra properties) rather than a stated reduction; recorded because it is a Variations-section 'implies'.
-- No citation for the succinctness/knowledge-soundness properties listed.
-- SUSPECT: 'Verification is fast (polylogarithmic in the statement size)' - SNARK verification is polylogarithmic in the _circuit/witness_ size but necessarily at least linear in the statement length. Report only; do not fix.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — zero-knowledge is optional in the [[succinct-argument|SNARK]] definition and succinctness does not hide the witness, so a SNARK need not be a NIZK; no NIZK for NP from a succinct argument alone is known. The migrated text records only that a zk-SNARK is a NIZK argument, so the supportable edge is the definitional zk-SNARK ⇒ NIZK, with the hypothesis re-typed to that variant. See [[succinct-argument#zk-snark]].
+- Replaces a migrated edge SNARK ⇒ NIZK, recorded from the remark that a zk-SNARK is a NIZK argument ([[non-interactive-zero-knowledge#zk-snark]]). Zero knowledge is optional in the [[succinct-argument]] definition, so a SNARK alone is not a NIZK. The zk-SNARK containment is definitional and stays in prose (sourcing pass, 2026-09).

@@ -11,7 +11,7 @@ class: fully-black-box
 model: rom
 source:
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
-security-loss: ""
+security-loss: "Quadratic in the forger's advantage and linear in its random-oracle query count: a forger with advantage $\\varepsilon$ and $q$ oracle queries yields a witness with probability about $\\varepsilon^2/q$ (forking lemma) — PS96."
 ---
 
 # ID ⇒ DS
@@ -33,5 +33,7 @@ The reduction answers signing queries with honest transcripts obtained from the 
 `model: rom`: the reductions program the random oracle that replaces the verifier's challenge; some secure identification schemes yield forgeable signatures under every hash-function instantiation — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 
 - Forking-lemma proof of $\eufcma$ security in the ROM for identification schemes with honest-verifier zero knowledge and two-transcript extraction; the reduction rewinds the forger and loses a factor polynomial in the number of random-oracle queries — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]
+- For a three-move public-coin [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier zero-knowledge]] proof of knowledge for a hard relation, the resulting scheme is $\eufcma$-secure in the ROM: the forking lemma reruns the forger on the same coins, resampling the oracle answers from the forgery's query onward, to obtain two accepting transcripts sharing the first message, from which special soundness extracts the witness — [[PS96 - Security Proofs for Signature Schemes|PS96]]
+- Schnorr's protocol for [[discrete-logarithm|discrete log]] instantiates the transform: the signature on $m$ is $(c, z)$ with $a = g^r$, $c = \hash(a, m)$ and $z = r + c x$, and two accepting transcripts with the same $a$ and distinct challenges give $x = (z - z')/(c - c')$ — [[Sch91 - Efficient signature generation by smart cards|Sch91]]
 - The same characterization holds for forward security — [[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]
 - The [[identification-scheme]] page is an unlisted stub with no syntax or security definitions.

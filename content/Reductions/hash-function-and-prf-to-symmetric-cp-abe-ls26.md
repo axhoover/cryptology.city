@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + PRF ⇒ Symmetric CP-ABE"
+title: "CRHF + PRF ⇒ Symmetric CP-ABE"
 aliases: []
 id: red-hash-function-and-prf-to-symmetric-cp-abe-ls26
 kind: implication
-hypotheses: [hash-function, prf]
+hypotheses: [crhf, prf]
 conclusion: symmetric-cp-abe
 class: unstated
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function + PRF ⇒ Symmetric CP-ABE
+# CRHF + PRF ⇒ Symmetric CP-ABE
 
-[[hash-function|Hash function]] together with [[pseudorandom-function|PRF]] implies [[attribute-based-encryption#symmetric-cp-abe|Symmetric CP-ABE]].
+[[hash-function#collision-resistance|CRHF]] together with [[pseudorandom-function|PRF]] implies [[attribute-based-encryption#symmetric-cp-abe|Symmetric CP-ABE]].
 
 ## Statement
 
-Symmetric CP-ABE — [[attribute-based-encryption#symmetric-cp-abe|ciphertext-policy ABE]] in which the encryptor, too, must hold attributes satisfying the ciphertext policy — has an IND-CCA2-secure open-universe construction from a [[hash-function|collision-resistant hash function]] and a [[pseudorandom-function|PRF]] — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]].
+Symmetric CP-ABE — [[attribute-based-encryption#symmetric-cp-abe|ciphertext-policy ABE]] in which the encryptor, too, must hold attributes satisfying the ciphertext policy — has an IND-CCA2-secure open-universe construction from a [[hash-function#collision-resistance|collision-resistant hash function]] and a [[pseudorandom-function|PRF]] — [[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]].
 
 ## Notes
 

@@ -4,16 +4,16 @@ status: draft
 title: "AMR25"
 source: https://eprint.iacr.org/2025/416
 authors: Damiano Abram, Giulio Malavolta, Lawrence Roy
-venue: preprint
-published: 2025-03-04
+venue: TCC 2025
+published: 2025
 aliases:
   - AMR25
-cryptobib_key: EPRINT:AbrMalRoy25c
+cryptobib_key: TCC:AbrMalRoy25
 ---
 
-# [AMR25] Trapdoor Hash Functions and PIR from Low-Noise LPN
+# [AMR25] Slightly Sublinear Trapdoor Hash Functions and PIR from Low-Noise LPN
 
-**Authors:** Damiano Abram, Giulio Malavolta, Lawrence Roy | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/416)
+**Authors:** Damiano Abram, Giulio Malavolta, Lawrence Roy | **Venue:** TCC 2025 | [Source](https://eprint.iacr.org/2025/416)
 
 ## Abstract
 

@@ -32,3 +32,4 @@ The [[fiat-shamir-heuristic|Fiat-Shamir]] transform of GK03's 3-round public-coi
 `strength: conditional`: GK03 prove the theorem assuming [[hash-function#collision-resistance|collision-resistant hash functions]], which the counterexample's universal arguments use — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 
 - GK03's protocol is contrived; Fiat-Shamir applied to the standard GKR-based succinct argument is also unsound, for explicit circuit families and every hash function — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]
+- The same counterexample, read against signatures: [[no-fiat-shamir-and-hash-function-to-ds-gk03]].

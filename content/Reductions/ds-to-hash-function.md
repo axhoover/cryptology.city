@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "DS ⇒ Hash function"
+title: "DS ⇒ OWF"
 aliases: []
 id: red-ds-to-hash-function
 kind: implication
 hypotheses: [ds]
-conclusion: hash-function
+conclusion: owf
 class: fully-black-box
 model: standard
 source:
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# DS ⇒ Hash function
+# DS ⇒ OWF
 
 A perfectly correct [[digital-signature|DS]] scheme implies a one-way function ([[hash-function#preimage-resistance-one-wayness|OWF]]).
 

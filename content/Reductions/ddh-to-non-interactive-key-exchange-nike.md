@@ -9,7 +9,8 @@ hypotheses: [ddh]
 conclusion: non-interactive-key-exchange
 class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[DH76 - New Directions in Cryptography|DH76]]"
 security-loss: "tight for one honest pair: the DDH instance is forwarded unchanged"
 ---
 
@@ -30,3 +31,4 @@ $(\pk_i, \pk_j, k_{ij})$ is a DDH tuple, so a distinguisher for $k_{ij}$ is a DD
 `class: fully-black-box`: Fixed construction from the group generator; the fixed reduction sets $(\pk_i, \pk_j, k_{ij}) := (X, Y, Z)$ from the DDH challenge and runs the adversary once as an oracle.
 
 - Formal NIKE security models, including adversarially registered keys — [[FHKP13 - Non-Interactive Key Exchange|FHKP13]]
+- DH76 predates the DDH assumption; the citation attaches to the protocol, and the DDH-based security statement is a later formalization, immediate from the definition.

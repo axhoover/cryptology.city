@@ -1,25 +1,25 @@
 ---
 type: reduction
 status: draft
-title: "TDP ⇒ Hash function"
+title: "TDP ⇒ OWF"
 aliases: []
 id: red-tdp-to-hash-function
 kind: implication
 hypotheses: [tdp]
-conclusion: hash-function
+conclusion: owf
 class: fully-black-box
 model: standard
 source: folklore
 security-loss: "none: the reduction preserves the inverter's advantage"
 ---
 
-# TDP ⇒ Hash function
+# TDP ⇒ OWF
 
-[[trapdoor-permutation|TDP]] implies [[hash-function|Hash function]].
+[[trapdoor-permutation|TDP]] implies [[hash-function#preimage-resistance-one-wayness|OWF]].
 
 ## Statement
 
-A [[trapdoor-permutation|trapdoor permutation]] family $(\Gen, \Eval, \Invert)$ yields a [[hash-function|one-way function]] $g(r, x) := (f, \Eval(f, x))$, where $(f, \td) := \Gen(1^\secpar; r)$ — folklore.
+A [[trapdoor-permutation|trapdoor permutation]] family $(\Gen, \Eval, \Invert)$ yields a [[hash-function#preimage-resistance-one-wayness|one-way function]] $g(r, x) := (f, \Eval(f, x))$, where $(f, \td) := \Gen(1^\secpar; r)$ — folklore.
 
 ## Sketch
 

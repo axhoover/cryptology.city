@@ -25,3 +25,5 @@ security-loss: ""
 ## Notes
 
 `class: unstated`: the source does not state which notion of reduction is meant.
+
+- The DDH instantiation of the generic edge [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|PHE + sparse LPN ⇒ SHE]]; it stays a separate page because the wiki has no DDH ⇒ additively homomorphic PKE edge.

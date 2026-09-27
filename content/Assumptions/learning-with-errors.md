@@ -14,10 +14,10 @@ variants:
   ring-lwe: "#ring-lwe"
   succinct-lwe: "#succinct-lwe"
   decision-lwe: "#decision-lwe"
-  private-coin-evasive-lwe: "#evasive-lwe"
+  private-coin-evasive-lwe: "#private-coin-evasive-lwe"
   search-lwe: "#search-lwe"
-  circular-evasive-lwe: "#evasive-lwe"
-  evasive-lwe-private-coin: "#evasive-lwe"
+  circular-evasive-lwe: "#circular-evasive-lwe"
+  tensor-lwe: "#tensor-lwe"
   module-lwe-rank-1: "#module-lwe"
   module-lwe-rank-n: "#module-lwe"
 ---
@@ -90,7 +90,7 @@ For prime $q \le \poly(n)$, the search and decision variants of LWE are equivale
 
 **Search $\Rightarrow$ Decision** (easy direction): A search solver $\calA_s$ gives a decision adversary for free. Given a challenge $(\mathbf{A}, \mathbf{u})$, run $\hat{\mathbf{s}} \gets \calA_s(\mathbf{A}, \mathbf{u})$ and check whether $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ is small (i.e., looks like a sample from $\chi^m$). If so, guess $b=0$ (LWE world); otherwise guess $b=1$ (uniform world).
 
-**Decision $\Rightarrow$ Search** (hard direction): Recover $\mathbf{s}$ one coordinate at a time. For each index $i \in [n]$ and each candidate $\ell \in \ZZ_q$, construct modified samples that effectively zero out the contribution of $\mathbf{s}[i]$ under the hypothesis $\mathbf{s}[i] = \ell$, then query the decision oracle to test whether the result is still an LWE instance or has become uniform. The candidate that keeps the distribution looking like LWE reveals the true $\mathbf{s}[i]$. Running over all $n \cdot q$ pairs uses $O(q \cdot n \cdot m)$ samples in total when decision can be broken with $m$ samples.
+**Decision $\Rightarrow$ Search** (hard direction): Recover $\mathbf{s}$ one coordinate at a time. For each index $i \in [n]$ and each candidate $\ell \in \ZZ_q$, construct modified samples that effectively zero out the contribution of $\mathbf{s}[i]$ under the hypothesis $\mathbf{s}[i] = \ell$, then query the decision oracle to test whether the result is still an LWE instance or has become uniform. The candidate that keeps the distribution looking like LWE reveals the true $\mathbf{s}[i]$. Running over all $n \cdot q$ pairs takes $n \cdot q$ calls to the (amplified) decision procedure — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 # Reduction to lattice problems
 
@@ -105,6 +105,13 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 
 # Attacks
+
+## Evasive LWE counterexamples
+
+- Three [[#Private-coin evasive LWE|private-coin evasive LWE]] variants used in prior constructions are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]].
+- The private-coin evasive LWE assumptions behind pseudorandom functional encryption (AKY24) and pseudorandom obfuscation (BDJ+24) are false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+- Public-coin [[#Circular evasive LWE|circular evasive LWE]], the assumption behind ABE for unbounded-depth circuits ([[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]; [[evasive-lwe-to-abe]]), is false: some sampler satisfies the pre-condition but not the post-condition — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+- Public-coin evasive LWE is false when the pre-condition error may be larger than the post-condition error — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 
 # Variations
 
@@ -136,7 +143,7 @@ where $\mathbf{A} \in R_q^{m \times k}$ is a random module matrix, $\mathbf{s} \
 
 The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). Module LWE is the basis for the NIST post-quantum standards:
 
-- [[module-lwe-to-kem|Module LWE ⇒ KEM]]
+- [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 
 Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
@@ -249,7 +256,19 @@ In other words: if standard LWE remains hard even when $\mathbf{P}$ is given in 
 
 The public-coin restriction — that $\mathrm{aux}$ contains $\mathrm{Samp}$'s coin tosses — prevents obfuscation-based counterexamples where $\mathrm{aux}$ encodes a program with a hidden trapdoor for $\mathbf{P}$ — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
 
-The assumption comes in public-coin and private-coin variants. Private-coin variants have known counterexamples — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]. A _circular_ variant of evasive LWE was proposed for ABE for unbounded-depth circuits, but has also been shown vulnerable to zeroizing attacks — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+The assumption comes in public-coin and private-coin variants — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. Public-coin formulations whose pre-condition error exceeds the post-condition error are false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
+
+### Private-coin evasive LWE
+
+**Private-coin evasive LWE** uses the same PRE- and POST-condition games, but $\mathrm{aux}$ is not required to contain $\mathrm{Samp}$'s coin tosses — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. Several private-coin formulations are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
+
+### Circular evasive LWE
+
+**Circular evasive LWE** incorporates circularity into public-coin evasive LWE; [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]] assume it to construct [[evasive-lwe-to-abe|ABE for circuits of unbounded depth]] — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]. It is false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]]. TODO — formal definition.
+
+## Tensor LWE
+
+**Tensor LWE** is a variant of LWE introduced by Wee, who uses it with [[#Evasive LWE|evasive LWE]] to construct ciphertext-policy [[attribute-based-encryption|ABE]] — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]. TODO — formal definition.
 
 ## Succinct LWE
 
@@ -285,7 +304,7 @@ $$
 \Adv^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE is implied by evasive LWE — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. The assumption strengthens as $\ell$ grows. Succinct LWE is implied by evasive LWE — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 

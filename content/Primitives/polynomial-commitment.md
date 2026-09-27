@@ -10,6 +10,7 @@ aliases:
 title: Polynomial commitment scheme
 id: pcs
 variants:
+  extractable-pcs: "#extractability"
   fri: "#fri-fast-reed-solomon-iop-of-proximity"
   kzg-polynomial-commitment: "#kzg-kate-zaverucha-goldberg"
 ---
@@ -38,6 +39,16 @@ $$\Pr[\Vrfy(\mathsf{srs}, C, z, f(z), \Open(\mathsf{srs}, C, z, f(z), \mathsf{au
 
 For all efficient $\calA$: it is infeasible to produce $C, z, y \neq y', \pi, \pi'$ such that both $\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1$ and $\Vrfy(\mathsf{srs}, C, z, y', \pi') = 1$.
 
+### Extractability
+
+A PCS is **extractable** if for all efficient $\calA$ there is an efficient extractor $\calE$ such that
+
+$$
+\Pr\!\left[\Vrfy(\mathsf{srs}, C, z, y, \pi) = 1 \wedge \left(\deg f > d \vee f(z) \neq y \vee C \neq C_{f,r}\right)\right]
+$$
+
+is negligible, over $\mathsf{srs} \gets \Setup(1^\secpar, d)$, $(C, z, y, \pi) \gets \calA(\mathsf{srs})$, and $(f, r) \gets \calE(\mathsf{srs})$ run on the random coins of $\calA$, where $C_{f,r}$ is the commitment output by $\mathsf{Commit}(\mathsf{srs}, f)$ on randomness $r$. For interactive evaluation, [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] require the evaluation protocol to be an argument of knowledge of such $(f, r)$.
+
 ### Hiding (optional)
 
 The commitment $C$ reveals no information about $f$ beyond its degree and any opened evaluations.
@@ -58,7 +69,7 @@ Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
 
 ## FRI (Fast Reed-Solomon IOP of Proximity)
 
-FRI is a transparent (no trusted setup) polynomial commitment that works by repeatedly halving the degree of a Reed-Solomon codeword via a random folding step. It is the core component of [[succinct-argument|STARKs]].
+FRI is an interactive oracle proof of proximity to Reed-Solomon codes that repeatedly halves the degree of a codeword by a random folding step (Ben-Sasson, Bentov, Horesh, Riabzev, ICALP 2018). Combined with Merkle-tree commitments, it yields a transparent (no trusted setup) list polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]]. It is the core component of [[succinct-argument|STARKs]].
 
 - **Proof size**: $O(\log^2 d)$
 - **Verification time**: $O(\log^2 d)$
@@ -77,7 +88,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 
 # Other results
 
-- [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
 - FRI-based polynomial commitments give transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]

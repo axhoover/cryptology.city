@@ -55,6 +55,7 @@ is negligible.
 - **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field) and in the Jacobians of hyperelliptic curves of high genus. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$.
 - **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups.
 - **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$; best known algorithm with complexity $L_p[1/3, (64/9)^{1/3}]$.
+- **Quantum**: Shor's algorithm computes discrete logarithms in $\ZZ_p^*$ in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
 # Variations
 

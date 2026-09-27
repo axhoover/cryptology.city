@@ -35,3 +35,4 @@ Relative to a random permutation $\pi$, the eavesdropper, holding the transcript
 
 - An eavesdropper making $O(\ell^2)$ queries suffices against honest parties making $\ell$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 - [[black-box-separations]] states the separation without the $\classPSPACE$-complete oracle.
+- The one-way-function-to-PKE form: [[no-hash-function-to-pke-gkm-00]].

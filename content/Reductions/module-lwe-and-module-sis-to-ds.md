@@ -11,7 +11,7 @@ class: unstated
 model: rom
 source:
   - "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
-security-loss: "Non-tight in the classical ROM: the reduction from Module-SIS goes through the forking lemma. The QROM bound is tight only under the additional SelfTargetMSIS assumption (KLS18)."
+security-loss: "Non-tight in the classical ROM: the Module-SIS step uses the forking lemma. In the QROM, KLS18 prove the original Dilithium secure under Module LWE, Module-SIS and SelfTargetMSIS; Dilithium-QROM is tightly secure under Module LWE."
 ---
 
 # Module LWE + Module-SIS ⇒ DS

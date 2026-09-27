@@ -40,8 +40,6 @@ Migrated verbatim from [[knowledge-of-exponent]] § Known Results:
 
 This relation is stated on 4 pages; the statements above are all of them.
 
-Citations disagree across pages: [object Object]
-
 Recorded during migration and **not fixed** — these are claims about the
 source text, not changes to it:
 

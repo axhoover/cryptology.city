@@ -20,7 +20,7 @@ $$c_i := H(a_1, c_1, \ldots, a_{i-1}, c_{i-1}, a_i),$$
 
 where $H$ is a hash function modeled as a random oracle. The resulting proof $(a_1, c_1, \ldots, a_{k+1})$ can be verified by any party who recomputes the same hash challenges.
 
-The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir), and for building non-interactive zero-knowledge proofs and succinct arguments.
+The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir), and for building non-interactive zero-knowledge proofs. It creates no succinctness, since the proof is the prover's transcript; applied to a PCP or a public-coin IOP whose oracles are Merkle-committed, it yields succinct non-interactive arguments in the random oracle model — [[Mic00 - Computationally Sound Proofs|Mic00]], [[BCS16 - Interactive Oracle Proofs|BCS16]] (for IOPs, given state-restoration soundness).
 
 ## Security in the ROM
 
@@ -36,7 +36,7 @@ $$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{
 
 ### Natural Protocols (KRS25)
 
-Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits. This raises serious questions about the security of deployed non-interactive succinct arguments based on Fiat-Shamir.
+Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits.
 
 <!-- BEGIN GENERATED participates-in 51d692d2691b -->
 

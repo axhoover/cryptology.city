@@ -1,11 +1,11 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from NP to Hash function"
+title: "No reduction from NP to OWF"
 aliases: []
 id: bar-np-to-hash-function-aggm06
 hypotheses: [np]
-conclusion: hash-function
+conclusion: owf
 class: unstated
 consequences:
   - kind: contradiction
@@ -16,9 +16,9 @@ source:
   - "[[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]"
 ---
 
-# No reduction from NP to Hash function
+# No reduction from NP to OWF
 
-A reduction of class `unstated` from [[nondeterministic-polynomial-time|NP]] to [[hash-function|Hash function]] would imply a contradiction.
+A reduction of class `unstated` from [[nondeterministic-polynomial-time|NP]] to [[hash-function#preimage-resistance-one-wayness|OWF]] would imply a contradiction.
 
 ## Statement
 

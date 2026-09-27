@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Noise Level ⇒ TDH"
+title: "Low-noise LPN ⇒ TDH"
 aliases: []
 id: red-noise-level-to-tdh-amr25
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Noise Level ⇒ TDH
+# Low-noise LPN ⇒ TDH
 
 Quasi-polynomially hard [[learning-parity-with-noise#noise-level|low-noise LPN]] implies [[trapdoor-hash-function|TDH]].
 

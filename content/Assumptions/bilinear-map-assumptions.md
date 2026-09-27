@@ -4,6 +4,7 @@ status: draft
 aliases:
   - BDH
   - BDDH
+  - DBDH
   - DLIN
   - Bilinear map assumptions
   - Pairing assumptions
@@ -14,11 +15,12 @@ id: bdh
 variants:
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
   k-linear-assumption: "#k-linear-assumption"
+  n-bdhe: "#decision-n-bdhe"
 ---
 
 # Bilinear map assumptions
 
-_Bilinear map (pairing) assumptions_ concern the computational hardness of certain problems in groups $\GG_1, \GG_2, \GG_T$ equipped with a bilinear pairing $e : \GG_1 \times \GG_2 \to \GG_T$, where $e(g_1^a, g_2^b) = e(g_1, g_2)^{ab}$ for generators $g_i$. Pairings enable cryptographic primitives not known to be constructible from [[decisional-diffie-hellman|DDH]] alone, including identity-based encryption and short signatures.
+_Bilinear map (pairing) assumptions_ concern the computational hardness of certain problems in groups $\GG_1, \GG_2, \GG_T$ equipped with a bilinear pairing $e : \GG_1 \times \GG_2 \to \GG_T$, where $e(g_1^a, g_2^b) = e(g_1, g_2)^{ab}$ for generators $g_i$.
 
 ## Assumption
 
@@ -34,12 +36,11 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 
 ## Known Results
 
-- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
-- [[bdh-to-ds|BDH ⇒ DS]]
-- [[bdh-to-vrf|BDH ⇒ VRF]]
-- [[bdh-to-ac|BDH ⇒ AC]]
-- BDH hardness implies [[computational-diffie-hellman|CDH]] hardness in $\GG$: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — folklore
-- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
+- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[bdh-to-vrf|k-Lin ⇒ VRF]]
+- [[cdh-to-bdh|BDH ⇒ CDH]]: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
+- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 - Quantum computers break all pairing-based assumptions by running Shor's algorithm on $\GG_T$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 # Variations
@@ -54,7 +55,11 @@ Generalizes DLIN: given $k$ random group elements and their DH combinations, dec
 
 ## SXDH (Symmetric External Diffie-Hellman)
 
-Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric pairing. Stronger than BDDH; used for efficiently instantiating Groth-Sahai proofs.
+Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
+
+## Decision $n$-BDHE
+
+Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\alpha^{2n}})$ for a symmetric pairing $e : \GG \times \GG \to \GG_T$ with generator $g$, $h \getsr \GG$, and $\alpha \getsr \ZZ_q$, distinguish $e(g,h)^{\alpha^{n+1}}$ from uniform in $\GG_T$ — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
 # Attacks
 

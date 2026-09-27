@@ -1,11 +1,11 @@
 ---
 type: barrier
 status: draft
-title: "No fixed-construction reduction from HE to CCA Security"
+title: "No fixed-construction reduction from HE to IND-CCA2 Security"
 aliases: []
 id: bar-he-to-cca-security
 hypotheses: [he]
-conclusion: ind-cca-security
+conclusion: pke-cca2-security
 class: fixed-construction
 consequences:
   - kind: contradiction
@@ -15,9 +15,9 @@ strength: unconditional
 source: folklore
 ---
 
-# No fixed-construction reduction from HE to CCA Security
+# No fixed-construction reduction from HE to IND-CCA2 Security
 
-A reduction of class `fixed-construction` from [[homomorphic-encryption|HE]] to [[public-key-encryption#cca-security|CCA Security]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[homomorphic-encryption|HE]] to [[public-key-encryption#cca-security|IND-CCA2 security]] would imply a contradiction.
 
 ## Statement
 

@@ -10,7 +10,7 @@ unlisted: true
 
 # Merkle puzzles
 
-Merkle's Puzzles is a key-agreement protocol in the random oracle model in which the honest parties make O(n) oracle queries and any eavesdropper needs Omega(n^2) queries to recover the key - a quadratic, and by BM09 optimal, query gap.
+Merkle's Puzzles is a key-agreement protocol in the random oracle model in which the honest parties make $O(n)$ oracle queries and any eavesdropper needs $\Omega(n^2)$ queries to recover the key — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. The quadratic gap is optimal — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 
 TODO: syntax and security definition.
 

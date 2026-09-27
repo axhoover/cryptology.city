@@ -1,21 +1,21 @@
 ---
 type: reduction
 status: draft
-title: "PRG ⇒ Hash function"
+title: "PRG ⇒ OWF"
 aliases: []
 id: red-prg-to-hash-function
 kind: implication
 hypotheses: [prg]
-conclusion: hash-function
+conclusion: owf
 class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
 ---
 
-# PRG ⇒ Hash function
+# PRG ⇒ OWF
 
-[[pseudorandom-generator|PRG]] implies [[hash-function|Hash function]] in the one-wayness sense only.
+[[pseudorandom-generator|PRG]] implies [[hash-function#preimage-resistance-one-wayness|OWF]].
 
 ## Statement
 

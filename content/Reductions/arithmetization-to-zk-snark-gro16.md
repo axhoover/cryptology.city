@@ -28,7 +28,7 @@ The reference string encodes powers of a secret point $\tau$ and the trapdoor $\
 
 ## Notes
 
-`class: free`: Gro16 proves knowledge soundness by a statistical argument against generic adversaries and reduces to no computational hypothesis, so the RTV04 black-box axis does not apply. `free` scoped by `model: generic-group` follows the schema's generic-group guidance, as on [[bilinear-pairing-to-snark-gro16]] and [[kea-to-snark-gro16]].
+`class: free`: Gro16 proves knowledge soundness by a statistical argument against generic adversaries and reduces to no computational hypothesis, so the RTV04 black-box axis does not apply. `free` scoped by `model: generic-group` follows the schema's generic-group guidance, as on [[bilinear-pairing-to-snark-gro16]].
 
 `model: generic-group`: Gro16 proves knowledge soundness in the generic asymmetric bilinear group model. The circuit-specific structured reference string, previously recorded as `crs`, is part of a preprocessing SNARK's syntax and is stated in the Statement.
 

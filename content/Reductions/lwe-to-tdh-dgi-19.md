@@ -30,4 +30,4 @@ The hash of $x \in \bits^m$ is $\mathbf{A}x$ for a public $\mathbf{A} \in \ZZ_q^
 
 `class: unstated`: the source does not state which notion of reduction is meant. Index hiding is a single hybrid that replaces the encoding key by uniform under decision LWE, running the adversary as an oracle, but the TDH security definition has not been checked against DGI+19 in full, so no class is inferred from that shape.
 
-- TDH ⇒ PIR, also from [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]], is a separate edge not yet recorded.
+- TDH ⇒ PIR, also from [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]], is recorded at [[tdh-to-cpir-amr25]].

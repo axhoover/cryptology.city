@@ -13,6 +13,7 @@ title: Hash function
 id: hash-function
 variants:
   owf: "#preimage-resistance-one-wayness"
+  auxiliary-input-owf: "#auxiliary-input-one-wayness"
   crhf: "#collision-resistance"
 ---
 
@@ -67,6 +68,13 @@ $$
 
 is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
 
+### Auxiliary-input one-wayness
+
+A function $f(x, \cdot)$, efficiently computable given the auxiliary input $x$,
+is **auxiliary-input one-way** if for all efficient $\calA$ there are infinitely
+many $x$ on which $\calA$ inverts $f(x, \cdot)$ on a uniform input with
+probability negligible in $|x|$ — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].
+
 ### Collision resistance
 
 Often times, protocols require stronger properties than one-wayness alone.
@@ -99,12 +107,12 @@ is negligible.
 
 # Other results
 
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
-- [[hash-based-signatures-to-ds-mer89|Hash-based signatures ⇒ DS]]
-- [[owp-to-hash-function|OWP ⇒ Hash function]]
-- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[owp-to-hash-function|OWP ⇒ OWF]]
+- [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
 
 ## Unknown results
 

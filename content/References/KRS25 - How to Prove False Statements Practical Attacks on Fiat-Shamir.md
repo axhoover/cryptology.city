@@ -3,7 +3,7 @@ type: reference
 status: draft
 title: "KRS25"
 source: https://eprint.iacr.org/2025/118
-authors: Dmitry Khovratovich, Ron Rothblum, Oleg Soukhanov
+authors: Dmitry Khovratovich, Ron D. Rothblum, Lev Soukhanov
 venue: CRYPTO 2025
 published: 2025-01-01
 aliases:
@@ -13,7 +13,7 @@ cryptobib_key: C:KhoRotSou25
 
 # [KRS25] How to Prove False Statements: Practical Attacks on Fiat-Shamir
 
-**Authors:** Dmitry Khovratovich, Ron Rothblum, Oleg Soukhanov | **Venue:** CRYPTO 2025 | [Source](https://eprint.iacr.org/2025/118)
+**Authors:** Dmitry Khovratovich, Ron D. Rothblum, Lev Soukhanov | **Venue:** CRYPTO 2025 | [Source](https://eprint.iacr.org/2025/118)
 
 ## Abstract
 

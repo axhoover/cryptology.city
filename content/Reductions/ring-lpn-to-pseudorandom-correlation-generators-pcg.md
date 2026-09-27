@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Ring-LPN ⇒ Pseudorandom correlation generators (PCG)"
+title: "Sparse Ring-LPN ⇒ PCG"
 aliases: []
 id: red-ring-lpn-to-pseudorandom-correlation-generators-pcg
 kind: implication
-hypotheses: [ring-lpn]
+hypotheses: [sparse-ring-lpn]
 conclusion: pseudorandom-correlation-generator
 class: unstated
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Ring-LPN ⇒ Pseudorandom correlation generators (PCG)
+# Sparse Ring-LPN ⇒ PCG
 
-[[learning-parity-with-noise#ring-lpn|Ring-LPN]] with sparse secret and noise implies [[alternating-moduli#pseudorandom-correlation-generators-pcg|Pseudorandom correlation generators (PCG)]].
+[[learning-parity-with-noise#sparse-ring-lpn|Sparse Ring-LPN]] implies [[pseudorandom-correlation-generator|pseudorandom correlation generators (PCG)]].
 
 ## Statement
 
-Hardness of [[learning-parity-with-noise#ring-lpn|Ring-LPN]] over $R_p = \ZZ_p[x]/(F(x))$ with $t$-sparse secret and noise yields a [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generator]] for oblivious linear evaluation over $R_p$ (by the CRT, $\deg F$ OLEs over $\ZZ_p$ when $F$ splits into linear factors modulo $p$) and for authenticated multiplication triples: two seeds of size sublinear in the output length expand locally into the parties' shares of the correlation. The construction also uses function secret sharing for sums of point functions, hence a PRG — [[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]].
+Hardness of [[learning-parity-with-noise#sparse-ring-lpn|Sparse Ring-LPN]] over $R_p = \ZZ_p[x]/(F(x))$ with $t$-sparse secret and noise yields a [[pseudorandom-correlation-generator|pseudorandom correlation generator]] for oblivious linear evaluation over $R_p$ (by the CRT, $\deg F$ OLEs over $\ZZ_p$ when $F$ splits into linear factors modulo $p$) and for authenticated multiplication triples: two seeds of size sublinear in the output length expand locally into the parties' shares of the correlation. The construction also uses function secret sharing for sums of point functions, hence a PRG — [[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]].
 
 ## Sketch
 

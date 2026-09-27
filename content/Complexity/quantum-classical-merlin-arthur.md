@@ -23,20 +23,20 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 ## Known relationships
 
 - $\classMA \subseteq \classQCMA \subseteq \classQMA$: any MA protocol is a QCMA protocol (ignore the quantum capabilities of the verifier); any QCMA protocol is a QMA protocol (quantum states can encode classical strings).
-- $\classQCMA \subseteq \classPP \subseteq \classPSPACE$, since $\classQMA \subseteq \classPP$.
+- $\classQCMA \subseteq \classPP \subseteq \classPSPACE$, since $\classQMA \subseteq \classPP$ — [[MW05 - Quantum Arthur-Merlin games|MW05]].
 
 ## Oracle separation from QMA
 
-The question of whether $\classQCMA = \classQMA$ — i.e., whether quantum proofs are strictly more powerful than classical proofs for quantum verifiers — was resolved in the oracle model through a sequence of increasingly general results:
+Relative to oracles, $\classQMA \not\subseteq \classQCMA$ ([[no-qcma-to-qma-ak07]]):
 
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
-- [[no-qcma-to-qma-ak07|No reduction from QCMA to QMA]]
+- [[AK07 - Quantum versus Classical Proofs and Advice|AK07]]: relative to a quantum unitary oracle; also separates $\classBQP/\mathrm{qpoly}$ from $\classBQP/\mathrm{poly}$ relative to a quantum oracle.
+- [[BFM23 - On the Power of Nonstandard Quantum Oracles|BFM23]]: relative to an in-place quantum oracle, for a graph connectivity problem, via representation theory of the symmetric group.
+- [[NN23 - A Distribution Testing Oracle Separation between QMA and QCMA|NN23]]: relative to a distributional classical oracle (connectivity of a random graph), with the honest quantum witness depending only on the oracle distribution, not the sampled oracle.
+- [[BK24 - Oracle Separation of QMA and QCMA with Bounded Adaptivity|BK24]]: relative to a standard classical oracle, for verifiers of bounded adaptivity (polynomially many queries per round, few rounds).
+- [[BHNZ25 - Separating QMA from QCMA with a Classical Oracle|BHNZ25]]: relative to a standard classical oracle, with no restriction, via spectral Forrelation.
+- [[BHV26 - Separating Quantum and Classical Advice with Good Codes|BHV26]]: a simpler proof of the BHNZ25 separation via good error-correcting codes; also the first classical-oracle separation of $\classBQP/\mathrm{qpoly}$ from $\classBQP/\mathrm{poly}$.
 
-Note that all of these are oracle separations; whether $\classQCMA = \classQMA$ holds in the unrelativized world remains open.
+All of these are oracle separations; whether $\classQCMA = \classQMA$ holds in the unrelativized world remains open.
 
 ## Relevance to cryptography
 

@@ -1,46 +1,30 @@
 ---
 type: reduction
-status: stub
-title: "Subclasses ⇒ Hash function"
+status: draft
+title: "Hash function + iO ⇒ PPAD hardness"
 aliases: []
 id: red-subclasses-to-hash-function
 kind: implication
-hypotheses: [ppad-hardness]
-conclusion: hash-function
-class: unstated
+hypotheses: [hash-function, io]
+conclusion: ppad-hardness
+class: free
 model: standard
-source: folklore
+source:
+  - "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
 security-loss: ""
 ---
 
-# Subclasses ⇒ Hash function
+# Hash function + iO ⇒ PPAD hardness
 
-[[total-function-np#subclasses|Subclasses]] implies [[hash-function|Hash function]].
+[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies [[total-function-np#subclasses|PPAD hardness]].
 
 ## Statement
 
-Migrated verbatim from [[total-function-np]] § Subclasses:
-
-> - **PPAD** (Polynomial Parity Argument, Directed): contains Nash equilibrium computation. Hardness of PPAD is the basis for cryptographic constructions of collision-resistant hash functions from worst-case assumptions — TODO citation.
+Sub-exponentially secure [[indistinguishability-obfuscation|iO]] together with sub-exponentially secure [[hash-function|one-way functions]] implies that PPAD is hard: there is an efficiently sampleable distribution of PPAD instances on which every efficient algorithm finds a solution with only negligible probability — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: free`: the obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the OWF. BPR15 do not place it in the RTV04 hierarchy, so the broadest class is recorded (as on the SW14 iO pages).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED DIRECTION ERROR (reported, not corrected): the literature derives PPAD hardness FROM cryptographic assumptions (Bitansky-Paneth-Rosen; Choudhuri-Hubacek-Kamath-Pietrzak-Rosen-Rosen), not CRHFs from PPAD hardness. As recorded the reduction is inverted.
-- Uncited ('TODO citation').
-- The conclusion slug hash-function is the merged OWF/CRHF page, so 'collision-resistant hash function' cannot be a distinct node.
-- 'from worst-case assumptions' is an unsupported extra qualifier; ppad-hardness is an invented predicate node.
-- SUSPECTED DIRECTION ERROR (high-value): the known literature goes the other way — collision-resistant hashing / iO / LWE-style assumptions are used to prove HARDNESS of PPAD (Bitansky-Paneth-Rosen; Choudhuri-Hubáček-Kamath-Pietrzak-Rosen-Rosen), not 'PPAD hardness is the basis for constructing CRHFs'. As written the reduction is inverted. Reported, not corrected.
-- MISSING CITATION: 'TODO citation'.
-- Composite: Nash ∈ PPAD (in fact PPAD-complete, which the bullet understates as 'contains') plus the crypto claim.
-- 'from worst-case assumptions' is an extra qualifier with no support.
-- Conclusion recorded as 'hash-function' since that is the wiki page for collision resistance, but the bullet does not link it.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: PPAD hardness follows from cryptographic assumptions (iO plus injective OWFs, Bitansky–Paneth–Rosen, FOCS 2015; Fiat–Shamir for sumcheck under LWE-style assumptions, Choudhuri–Hubáček–Kamath–Pietrzak–Rosen–Rothblum, STOC 2019), and no primitive, collision-resistant hashing included, is known to follow from PPAD hardness. `ppad-hardness` has no page, so the correct edges (iO + OWF ⇒ PPAD hardness; Fiat–Shamir + LWE ⇒ PPAD hardness) need new pages with different endpoints.
+- Both hypotheses must be sub-exponentially secure; the hypothesis nodes carry no security level, so the requirement is stated here.
+- The slug and id are kept from a migrated edge that had this implication inverted (PPAD hardness ⇒ CRHF, which is not known).

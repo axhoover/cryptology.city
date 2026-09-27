@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ SNARK"
+title: "CRHF ⇒ SNARK"
 aliases: []
 id: red-hash-function-to-snark-bbhr18
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [crhf]
 conclusion: snark
 class: unstated
 model: rom
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ SNARK
+# CRHF ⇒ SNARK
 
-[[hash-function|Hash function]] implies [[succinct-argument|SNARK]].
+[[hash-function#collision-resistance|CRHF]] implies [[succinct-argument|SNARK]].
 
 ## Statement
 
-A [[hash-function|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields STARKs: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields STARKs: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
 
 ## Sketch
 

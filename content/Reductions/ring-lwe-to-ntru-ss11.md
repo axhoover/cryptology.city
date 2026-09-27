@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Ring LWE ⇒ NTRU"
+title: "Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)"
 aliases: []
 id: red-ring-lwe-to-ntru-ss11
 kind: implication
 hypotheses: [ring-lwe]
-conclusion: ntru
+conclusion: pke
 class: unstated
 model: standard
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# Ring LWE ⇒ NTRU
+# Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)
 
-[[learning-with-errors#ring-lwe|Ring LWE]] implies IND-CPA security of an [[ntru|NTRU]] encryption variant with discrete-Gaussian secret keys.
+[[learning-with-errors#ring-lwe|Ring LWE]] implies [[public-key-encryption|PKE]]: IND-CPA security of an NTRUEncrypt variant with discrete-Gaussian secret keys.
 
 ## Statement
 
@@ -29,3 +29,5 @@ Above the smoothing parameter of the relevant lattice the ratio $g f^{-1}$ of tw
 ## Notes
 
 `class: unstated`: the source does not state which notion of reduction is meant.
+
+- The slug names the NTRU node for historical reasons; SS11 do not reduce Ring-LWE to the NTRU problem of [[ntru|NTRU]].

@@ -5,7 +5,7 @@ title: "Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noi
 aliases: []
 id: red-partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25
 kind: implication
-hypotheses: [linearly-homomorphic-pke, sparse-lpn]
+hypotheses: [additively-homomorphic-encryption, sparse-lpn]
 conclusion: somewhat-homomorphic-encryption
 class: unstated
 model: standard

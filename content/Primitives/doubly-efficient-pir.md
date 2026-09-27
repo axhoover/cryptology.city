@@ -10,6 +10,8 @@ title: Doubly-efficient PIR
 id: depir
 variants:
   unkeyed-depir: "#unkeyed-depir"
+  sk-depir: "#secret-key-depir"
+  pk-depir: "#public-key-depir"
 ---
 
 # Doubly-efficient PIR
@@ -41,11 +43,44 @@ By default DEPIR scheme outputs no key i.e. $k = \bot$ with probability $1$. The
 
 ### Public-key DEPIR
 
-The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and indices $i_0$ and $i_1$ is defined as $$\Adv^{\mathrm{priv}}_{\calA}(\secpar) := 2\left|\Pr[\calA(1^\secpar,k,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$. A PK-DEPIR scheme is **private** if for all efficient $\calA$, $\Adv^{\mathrm{priv}}_{\calA}(\secpar)$ is negligible.
+The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and indices $i_0$ and $i_1$ is defined as $$\Adv^{\mathrm{priv}}_{\calA}(\secpar) := 2\left|\Pr[\calA(1^\secpar,k,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$. A PK-DEPIR scheme is **private** if for all efficient $\calA$, $\Adv^{\mathrm{priv}}_{\calA}(\secpar)$ is negligible. Because $\mathsf{Qry}$ uses only the public $k$, single-query privacy implies privacy for polynomially many queries by a hybrid argument — folklore.
 
 ### Secret-key DEPIR
 
-In secret-key DEPIR, the privacy advantage is relaxed to, where $\calA$ is not given access to the key $k$ as follows, $$\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar) := 2\left|\Pr[\calA(1^\secpar,EDB,q) = b] - \frac{1}{2}\right|,$$ where $(EDB,k) \gets \Setup(1^\secpar,DB)$, $b \getsr \bits$, and $(q,h) \gets \mathsf{Qry}(k,i_b)$. An SK-DEPIR scheme is **secret-key private** if for all efficient $\calA$, $\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar)$ is negligible.
+In secret-key DEPIR, $\calA$ is not given $k$ and makes polynomially many adaptive left-or-right queries, all answered under the same $k$ with no key update — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]], [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]. Single-query privacy is too weak here: storing $EDB[\pi(j)] = DB[j] \oplus F(j)$ for a secret [[pseudorandom-permutation|PRP]] $\pi$ and [[pseudorandom-function|PRF]] $F$ and sending $q = \pi(i)$ meets it from [[hash-function|one-way functions]] alone, while two queries to one index versus two distinct indices break it — folklore.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(DB, \stA) \gets \calA(1^\secpar)$
+\State $(EDB, k) \gets \Setup(1^\secpar, DB)$; $b \getsr \bits$
+\State $b' \gets \calA^{\calO_b}(EDB, \stA)$
+\Comment{Polynomially many adaptive queries, all under the same $k$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_b(i_0, i_1)$}
+\begin{algorithmic}
+\State $(q, h) \gets \mathsf{Qry}(k, i_b)$
+\Return $q$
+\end{algorithmic}
+\end{algorithm}
+```
+
+An SK-DEPIR scheme is **secret-key private** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sk\text{-}priv}}_{\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Variations
 
@@ -55,9 +90,9 @@ TODO
 
 # Other results
 
-- [[lwe-to-depir-lmw23|Ring-LWE ⇒ DEPIR]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+- [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
 - Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct SK-DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
-- [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ DEPIR]]
+- [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]]
 
 <!-- BEGIN GENERATED participates-in 794ee1079d1a -->
 

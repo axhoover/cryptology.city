@@ -10,29 +10,20 @@ conclusion: abe
 class: unstated
 model: standard
 source:
-  - "[[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]"
-security-loss: ""
+  - "[[KW19 - Compact Adaptively Secure ABE for NC1 from k-Lin|KW19]]"
+security-loss: "polynomial — KW19"
 ---
 
 # $k$-Linear assumption ⇒ ABE
 
-[[bilinear-map-assumptions#k-linear-assumption|$k$-Linear assumption]] implies [[attribute-based-encryption|ABE]].
+The [[bilinear-map-assumptions#k-linear-assumption|$k$-Linear assumption]] implies adaptively secure [[attribute-based-encryption|ABE]] for $\mathrm{NC}^1$.
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]] § Other results:
-
-> - RW13 gives large-universe KP-ABE and CP-ABE constructions for any monotone formula under variants of the $k$-linear assumption — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
+If the $k$-Lin assumption holds in prime-order bilinear groups, there are key-policy and ciphertext-policy [[attribute-based-encryption|ABE]] schemes for $\mathrm{NC}^1$ that are adaptively secure with polynomial security loss. The KP-ABE ciphertext size is linear in the attribute length and independent of the policy size, even when an attribute is used many times in the policy; the CP-ABE scheme has the analogous guarantee — [[KW19 - Compact Adaptively Secure ABE for NC1 from k-Lin|KW19]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'variants of the $k$-linear assumption' is vague — 'variants of' cannot be typed as a hypothesis node.
-- k-Lin has no page of its own: content/Assumptions/decisional-diffie-hellman.md has a '## k-Lin' section that is a bare TODO, and content/Assumptions/bilinear-map-assumptions.md discusses k-Lin/DLIN. Nothing is wikilinked here.
-- Two conclusions (KP-ABE and CP-ABE) collapse into one slug because both are aliases of attribute-based-encryption.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]] prove their large-universe KP-ABE and CP-ABE schemes selectively secure in prime-order bilinear groups under two q-type assumptions, not $k$-Lin variants. Chen–Gay–Wee (EUROCRYPT 2015; adaptive, boolean formulas) and Kowalczyk–Wee (EUROCRYPT 2019; adaptive, compact, NC1) prove $k$-Lin ⇒ ABE.
+- Sourcing pass (2026-09): this page previously cited [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]], migrated from [[attribute-based-encryption]] § Other results. RW13's large-universe KP-ABE and CP-ABE schemes are selectively secure under two $q$-type assumptions, not $k$-Lin; those assumptions have no wiki node, so that edge is not recorded. The slug still names rw13; filenames are live URLs and are not renamed.

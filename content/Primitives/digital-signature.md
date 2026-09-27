@@ -149,7 +149,7 @@ is negligible.
 
 Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. For a generator $g$ of a group of prime order $p$, to sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
 
-Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They are the basis for **EdDSA** (Ed25519, the standard in TLS, SSH, and Signal) and support efficient **multi-signatures** and **threshold signatures**.
+Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They are the basis for **EdDSA** (e.g. Ed25519) — [[BDLSY11 - High-Speed High-Security Signatures|BDLSY11]]. They support efficient **multi-signatures** and **threshold signatures**.
 
 ## BLS signatures
 
@@ -168,11 +168,10 @@ BLS signatures are used in Ethereum 2.0 for validator attestations and threshold
 
 Hash-based signatures achieve **post-quantum security** from collision-resistant hash functions alone — no number-theoretic assumptions.
 
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
-- [[hash-function-to-hash-based-signatures|Hash function ⇒ Hash-based signatures]]
-- [[hash-based-signatures-and-hash-based-signatures-to-ds|Hash-based signatures + Hash-based signatures ⇒ DS]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]]
+- SPHINCS+ is stateless: a hypertree of XMSS-style Merkle trees authenticates the keys of the few-time signature FORS at its leaves — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]]
 
 Security reduces to second-preimage resistance and pseudorandomness of the underlying hash function — no lattice or number-theoretic assumptions.
 
@@ -180,15 +179,14 @@ Security reduces to second-preimage resistance and pseudorandomness of the under
 
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
-- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
 # Other results
 
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ Hash function]]
 

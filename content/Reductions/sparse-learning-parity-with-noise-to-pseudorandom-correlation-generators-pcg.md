@@ -16,11 +16,11 @@ security-loss: ""
 
 # Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)
 
-[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] implies [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generators]] in the random-oracle model.
+[[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] implies [[pseudorandom-correlation-generator|pseudorandom correlation generators]] in the random-oracle model.
 
 ## Statement
 
-Hardness of [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] — each row of $\mathbf{A}$ of Hamming weight $d$ — yields, in the random-oracle model, a pseudorandom correlation function, in which each party derives its share of the correlation on demand from a short key, and hence, by evaluating on $N$ fixed inputs, a [[alternating-moduli#pseudorandom-correlation-generators-pcg|pseudorandom correlation generator]] — [[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]].
+Hardness of [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse LPN]] — each row of $\mathbf{A}$ of Hamming weight $d$ — yields, in the random-oracle model, a pseudorandom correlation function for VOLE and [[oblivious-transfer#random-ot|OT]] correlations, in which each party derives its share of the correlation on demand from a short key, and hence, by evaluating on $N$ fixed inputs, a [[pseudorandom-correlation-generator|pseudorandom correlation generator]] — [[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]].
 
 ## Notes
 

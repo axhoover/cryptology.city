@@ -29,3 +29,5 @@ Amplify the MA verifier's error below $2^{-(\ell+2)}$ by repetition on independe
 ## Notes
 
 `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+
+- No relativizing argument extends the containment to AM: there is an oracle relative to which $\classAM \not\subseteq \classPP$ — [[Ver92 - On the Power of PP|Ver92]]; see [[no-am-to-pp-ver92|No relativizing reduction from AM to PP]].

@@ -65,10 +65,10 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 
 # Other results
 
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[pke-to-com|PKE ⇒ COM]]
-- [[ddh-to-com|DDH ⇒ COM]]
+- [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
 <!-- BEGIN GENERATED participates-in bdf96c225a37 -->
 

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Module LWE ⇒ KEM"
+title: "Module LWE ⇒ IND-CCA KEM"
 aliases: []
 id: red-module-lwe-to-kem
 kind: implication
 hypotheses: [module-lwe]
-conclusion: kem
+conclusion: ind-cca-kem
 class: unstated
 model: rom
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# Module LWE ⇒ KEM
+# Module LWE ⇒ IND-CCA KEM
 
-[[learning-with-errors#module-lwe|Module LWE]] implies an IND-CCA [[key-encapsulation-mechanism|KEM]] in the random-oracle model.
+[[learning-with-errors#module-lwe|Module LWE]] implies an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA KEM]] in the random-oracle model.
 
 ## Statement
 

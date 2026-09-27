@@ -1,40 +1,30 @@
 ---
 type: reduction
-status: stub
-title: "OWSG ⇒ QM"
+status: draft
+title: "QM ⇒ OWSG"
 aliases: []
 id: red-owsg-to-qm
 kind: implication
-hypotheses: [one-way-state-generator]
-conclusion: quantum-money
+hypotheses: [quantum-money]
+conclusion: one-way-state-generator
 class: unstated
 model: quantum
-source: folklore
+source:
+  - "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
 security-loss: ""
 ---
 
-# OWSG ⇒ QM
+# QM ⇒ OWSG
 
-[[one-way-state-generator|OWSG]] implies [[quantum-money|QM]].
+Private-key [[quantum-money|quantum money]] with pure banknotes implies [[one-way-state-generator|OWSG]].
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Microcrypt:
-
-> - **Quantum money** and **unclonable encryption** can be constructed from one-way state generators (OWSGs), a quantum analogue of OWFs that may be weaker
+Private-key [[quantum-money|quantum money]] whose banknotes are pure states implies [[one-way-state-generator|one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: unstated`: the source does not state which notion of reduction is meant.
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- DISJUNCTIVE BUNDLE: "Quantum money and unclonable encryption can be constructed from one-way state generators (OWSGs)" is two separate reductions; this record isolates OWSG => quantum money.
-- No citation for either construction.
-- Neither "one-way-state-generator" nor "quantum-money" has a wiki page; nothing in this bullet is wikilinked.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — no construction of quantum money from OWSGs is known, and the known implication is the converse: private-key quantum money with pure banknotes implies OWSGs (Morimae–Yamakawa, TQC 2024; eprint 2022/1336). Private-key quantum money is built from pseudorandom states (Ji–Liu–Song, CRYPTO 2018).
+- The hypothesis key `quantum-money` drops the load-bearing qualifiers private-key and pure banknotes; the Statement keeps them.
+- This page replaces a migrated bullet claiming quantum money from OWSGs, which inverts this result; no such construction is known. The slug and id keep the old direction because filenames are live URLs and ids are stable.

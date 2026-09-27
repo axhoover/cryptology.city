@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Strong RSA ⇒ DS"
+title: "Strong RSA + CRHF ⇒ DS"
 aliases: []
 id: red-strong-rsa-to-ds
 kind: implication
-hypotheses: [strong-rsa]
+hypotheses: [strong-rsa, crhf]
 conclusion: ds
 class: fully-black-box
 model: standard
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Strong RSA ⇒ DS
+# Strong RSA + CRHF ⇒ DS
 
 [[rsa-assumption#strong-rsa|Strong RSA]], together with a [[hash-function#collision-resistance|collision-resistant hash function]], implies [[digital-signature|DS]] in the standard model.
 
@@ -28,7 +28,7 @@ Each signature is an $e$-th root, for a fresh random prime $e$, of a value deter
 
 ## Notes
 
-`class: fully-black-box`: One fixed scheme from the RSA modulus generator, and one fixed reduction: the Cramer-Shoup proof splits on whether the forgery reuses a prime exponent issued during signing and, in each case, runs the forger as an oracle and outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ solving the strong-RSA challenge (or a hash collision).
+`class: fully-black-box`: One fixed scheme from the RSA modulus generator and the hash function, and one fixed reduction: the Cramer-Shoup proof splits on whether the forgery reuses a prime exponent issued during signing and, in each case, runs the forger as an oracle and outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ solving the strong-RSA challenge (or a hash collision).
 
 - Concurrently and independently, a hash-and-sign scheme from strong RSA together with a division-intractable hash function — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]
 - A variant with signatures of roughly half the size and faster signing and verification, still under strong RSA — [[Fis03 - The Cramer-Shoup Strong-RSA Signature Scheme Revisited|Fis03]]

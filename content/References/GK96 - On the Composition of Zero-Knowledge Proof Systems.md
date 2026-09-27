@@ -26,4 +26,8 @@ bibtex: |
 
 ## Abstract
 
-We investigate the behavior of zero-knowledge proofs under composition. Our main negative result is that three-round black-box zero-knowledge proof systems for NP exist only if NP ⊆ BPP: no language outside BPP has a constant-round (in particular, three-round) black-box simulation zero-knowledge proof system unless the polynomial hierarchy collapses. This shows a fundamental limitation: the round complexity of zero-knowledge proofs cannot be made constant in general. We also study the composition of zero-knowledge protocols in sequential and parallel settings, showing that sequential composition preserves zero-knowledge but parallel composition may not.
+TODO — abstract.
+
+# Notes
+
+- Summary of the results, not the abstract: zero-knowledge in the original (non-auxiliary-input) sense is not closed under sequential composition, whereas auxiliary-input zero-knowledge is; zero-knowledge is not closed under parallel composition. Only $\classBPP$ languages have three-round interactive proofs, or constant-round public-coin (Arthur–Merlin) proofs, with negligible soundness error that are black-box simulation zero-knowledge.

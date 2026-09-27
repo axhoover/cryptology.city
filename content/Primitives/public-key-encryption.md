@@ -9,11 +9,10 @@ id: pke
 variants:
   pke-cca1-security: "#cca1-security"
   anonymous-public-key-encryption: "#key-hiding"
-  ind-cca-security: "#cca-security"
   ind-cpa-security: "#cpa-security"
   pke-cca2-security: "#cca-security"
   pke-cpa-security: "#cpa-security"
-  semantic-security: "#cpa-security"
+  semantic-security: "#semantic-security"
 ---
 
 # Public key encryption
@@ -70,6 +69,16 @@ $$
 
 is negligible.
 
+### Semantic security
+
+A PKE scheme $\PKE$ is **semantically secure** if for all efficient $\calA$ there is an efficient $\Sim$ such that for every distribution $\mu$ on $\calM$ and every function $f$,
+
+$$
+\left|\Pr\!\left[\calA(1^\secpar, \pk, \Enc(\pk, m)) = f(m)\right] - \Pr\!\left[\Sim(1^\secpar, \pk, |m|) = f(m)\right]\right|
+$$
+
+is negligible, over $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $m \gets \mu$, and the coins of $\Enc$, $\calA$ and $\Sim$ — [[GM84 - Probabilistic encryption|GM84]].
+
 ### CCA Security
 
 In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. To avoid a trivial win, $\calA$ is **admissible**: it may not query $\calD$ on $c^*$ itself.
@@ -115,7 +124,7 @@ TODO
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
-- [[lpn-to-pke|LPN ⇒ PKE]]
+- [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
 <!-- BEGIN GENERATED participates-in 834e480a5889 -->

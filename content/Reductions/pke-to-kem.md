@@ -19,7 +19,7 @@ security-loss: "tight: advantage and decryption-query count are preserved"
 
 ## Statement
 
-Any IND-CCA [[public-key-encryption|PKE]] whose message space contains the key space $\calK$ yields an IND-CCA [[key-encapsulation-mechanism|KEM]]: $\mathsf{Encap}(\pk)$ samples $k \getsr \calK$ and outputs $(\Enc(\pk, k), k)$; $\mathsf{Decap}(\sk, c) := \Dec(\sk, c)$. The KEM game maps query-for-query onto the PKE game — folklore.
+Any IND-CCA [[public-key-encryption|PKE]] whose message space contains the key space $\calK$ yields an IND-CCA [[key-encapsulation-mechanism|KEM]]: $\mathsf{Encap}(\pk)$ samples $k \getsr \calK$ and outputs $(\Enc(\pk, k), k)$; $\mathsf{Decap}(\sk, c) := \Dec(\sk, c)$. The KEM game maps query-for-query onto the PKE game — folklore. The same transformation turns an IND-CPA PKE into an IND-CPA KEM, since both games simply drop the decryption oracle — folklore.
 
 ## Sketch
 

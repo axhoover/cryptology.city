@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Subexponential LPN ⇒ PKE"
+title: "Subexponential LPN ⇒ IND-CCA PKE"
 aliases: []
 id: red-subexponential-lpn-to-pke-yz16
 kind: implication
 hypotheses: [subexponential-lpn]
-conclusion: pke
+conclusion: pke-cca2-security
 class: unstated
 model: standard
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# Subexponential LPN ⇒ PKE
+# Subexponential LPN ⇒ IND-CCA PKE
 
-Constant-noise [[learning-parity-with-noise#subexponential-lpn|subexponential LPN]] implies IND-CCA-secure [[public-key-encryption|PKE]].
+Constant-noise [[learning-parity-with-noise#subexponential-lpn|subexponential LPN]] implies [[public-key-encryption#cca-security|IND-CCA-secure PKE]].
 
 ## Statement
 

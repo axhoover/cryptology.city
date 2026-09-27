@@ -1,42 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "CZK = IP"
+title: "OWF + IP ⇒ CZK"
 aliases: []
 id: red-czk-to-ip-bgg-90
-kind: equivalence
-hypotheses: [czk]
-conclusion: ip
+kind: implication
+hypotheses: [owf, ip]
+conclusion: czk
 class: free
 model: standard
 source:
   - "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]"
+  - "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
+  - "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
 security-loss: ""
 ---
 
-# CZK = IP
+# OWF + IP ⇒ CZK
 
-[[computational-zero-knowledge|CZK]] is equal to [[interactive-proof-systems|IP]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then [[interactive-proof-systems|IP]] $\subseteq$ [[computational-zero-knowledge|CZK]].
 
 ## Statement
 
-Migrated verbatim from [[computational-zero-knowledge]] § Known relationships:
-
-> - And, in fact CZK actually equals [[interactive-proof-systems|IP]] = [[polynomial-space|PSPACE]] — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
+If one-way functions exist, every language with an interactive proof has a computational zero-knowledge interactive proof, so $\classIP \subseteq \classCZK$ and hence $\classCZK = \classIP$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]. BGG+90 assume a secure probabilistic encryption scheme, used as a bit commitment; a statistically binding bit commitment suffices, and any one-way function yields one — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: records the proven implication. BGG+90 predate the RTV taxonomy, and no finer class is claimed.
 
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- THE CHAIN DOES NOT DECOMPOSE AS RECORDED: the OWF hypothesis is silently dropped; BGG+90 needs bit commitments, hence one-way functions, and as a standalone unconditional equality CZK = IP is FALSE.
-- TYPING LOSS: the equality reads as a one-way inclusion once split.
-- Duplicates line 27 sub-edge 1.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]] prove $\classIP \subseteq \classCZK$ only assuming a secure bit commitment (hence one-way functions), and unconditionally only the trivial $\classCZK \subseteq \classIP$ holds. Unconditional equality cannot currently be proved, since one-way functions are necessary for non-trivial CZK ([[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]); the correct edge takes hypotheses {OWF, IP} and conclusion CZK. See [[hash-function-to-czk]].
+- Unconditionally only $\classCZK \subseteq \classIP$ is known — [[czk-to-ip|CZK ⊆ IP]]. Dropping the hypothesis would give $\classPSPACE = \classIP \subseteq \classCZK$ ([[Sha90 - IP = PSPACE|Sha90]]) unconditionally, which implies $\classPSPACE = \classBPP$ or that auxiliary-input one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].
+- Sourcing pass (2026-09): this page previously recorded an unconditional `kind: equivalence` CZK = IP, migrated from [[computational-zero-knowledge]] § Known relationships with the OWF hypothesis dropped.

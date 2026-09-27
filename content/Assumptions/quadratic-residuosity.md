@@ -51,8 +51,8 @@ is negligible.
 ## Known Results
 
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
-- [[qr-to-he-gm84|QR ⇒ HE]]
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
+- [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]]; whether factoring hardness implies QR hardness is open.
 - [[qr-to-com|QR ⇒ COM]]
 - The original [[zero-knowledge-proof|ZK proof]] of GMR85 was for quadratic residuosity — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 
@@ -68,7 +68,7 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 
 # Attacks
 
-- QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols
+- QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols — folklore
 - Quantum attacks: Shor's algorithm factors $N$ and breaks QR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 <!-- BEGIN GENERATED participates-in 19fc7b24644e -->

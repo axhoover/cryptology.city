@@ -26,7 +26,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - Unlike [[statistical-zero-knowledge|SZK]], it is not known if CZK is closed under complement
 - CZK is now known to share other properties with [[statistical-zero-knowledge|SZK]]: the verifier may as well be honest and may as well show their coins, and CZK is closed under unions — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]
 - Assuming [[hash-function|OWFs]] exist, CZK contains [[nondeterministic-polynomial-time|NP]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
-  - And, in fact CZK actually equals [[interactive-proof-systems|IP]] = [[polynomial-space|PSPACE]] — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
+  - Under the same assumption, $\classIP \subseteq \classCZK$, so $\classCZK = \classIP = \classPSPACE$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]], [[Sha90 - IP = PSPACE|Sha90]]; unconditionally only $\classCZK \subseteq \classIP$ is known — folklore
 - Contains [[statistical-zero-knowledge|SZK]] — folklore
 
 ## Limits of zero-knowledge

@@ -11,6 +11,7 @@ class: free
 model: standard
 source:
   - "[[Adl78 - Two theorems on random polynomial time|Adl78]]"
+  - "[[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]]"
 security-loss: ""
 ---
 
@@ -20,7 +21,7 @@ security-loss: ""
 
 ## Statement
 
-Every language in [[bounded-error-probabilistic-polynomial-time|BPP]] is decided by a family of polynomial-size Boolean circuits: $\classBPP \subseteq \classPpoly$ ([[p-poly|P/poly]]) [[Adl78 - Two theorems on random polynomial time|Adl78]].
+Every language in [[bounded-error-probabilistic-polynomial-time|BPP]] is decided by a family of polynomial-size Boolean circuits: $\classBPP \subseteq \classPpoly$ ([[p-poly|P/poly]]) — [[Adl78 - Two theorems on random polynomial time|Adl78]] for $\classRP$, [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]] for $\classBPP$.
 
 ## Sketch
 

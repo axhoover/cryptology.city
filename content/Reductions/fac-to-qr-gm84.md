@@ -1,46 +1,33 @@
 ---
 type: reduction
 status: draft
-title: "FAC ⇒ QR"
+title: "QR ⇒ FAC"
 aliases: []
 id: red-fac-to-qr-gm84
 kind: implication
-hypotheses: [fac]
-conclusion: qr
-class: unstated
+hypotheses: [qr]
+conclusion: factoring-blum-integers
+class: fully-black-box
 model: standard
-source:
-  - "[[GM84 - Probabilistic encryption|GM84]]"
-security-loss: ""
+source: folklore
+security-loss: "tight: one factoring call; the QR advantage equals the factoring success probability"
 ---
 
-# FAC ⇒ QR
+# QR ⇒ FAC
 
-[[factoring|FAC]] implies [[quadratic-residuosity|QR]].
+[[quadratic-residuosity|QR]] implies [[factoring#factoring-with-known-factor-structure|factoring Blum integers]].
 
 ## Statement
 
-Migrated verbatim from [[factoring]] § Known Results:
+If [[quadratic-residuosity|QR]] is hard for moduli $N = pq$ with $p \equiv q \equiv 3 \pmod 4$, then factoring such $N$ is hard. For $a \in \J_N$, $\left(\frac{a}{p}\right) = \left(\frac{a}{q}\right)$, and $a \in \QR_N$ iff $\left(\frac{a}{p}\right) = 1$, which is computable from $p$ — folklore. Whether factoring hardness implies QR hardness is open.
 
-> - The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — [[GM84 - Probabilistic encryption|GM84]]
+## Sketch
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
-
-> - QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols $\left(\frac{a}{p}\right)$ and $\left(\frac{a}{q}\right)$ — [[GM84 - Probabilistic encryption|GM84]]
+Given a QR challenge $(N, a)$, run the factoring algorithm on $N$. If it returns a prime factor $p'$ of $N$, output $0$ iff $a^{(p'-1)/2} \equiv 1 \pmod{p'}$ (Euler's criterion); otherwise output a uniform bit. When factoring succeeds the answer is always correct, so the QR advantage equals the factoring success probability.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: fully-black-box`: the fixed reduction calls the factoring algorithm once as an oracle and never uses its code.
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED MATHEMATICAL ERROR: QR hardness does not follow from factoring hardness; factoring N breaks QR, so QR hardness implies factoring hardness.
-- GM84 does not prove that factoring hardness implies the QR assumption.
-- SUSPECTED DIRECTION ERROR (report only, high confidence): "QR follows from factoring hardness" is backwards. The justification given on the same bullet — knowing p and q lets you compute the Legendre symbols — shows that a FACTORING ALGORITHM BREAKS QR, i.e. QR hardness implies factoring hardness, making QR the STRONGER assumption. QR does not follow from factoring hardness; no reduction in that direction is known.
-- The # Attacks bullet at line 68 of this same page states the correct direction and directly contradicts this bullet.
-- GM84 is cited for a claim GM84 does not make in this direction.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the edge is inverted: $p$ and $q$ give the Legendre symbols modulo $p$ and $q$, which decide quadratic residuosity modulo $N = pq$, so QR hardness implies factoring hardness; the converse is open, and [[GM84 - Probabilistic encryption|GM84]] make no such claim. The correct edge is QR ⇒ FAC (folklore; no page yet). See [[quadratic-residuosity]].
+- The conclusion is the Blum-integer variant because the reduction preserves the modulus distribution and the QR game samples $p \equiv q \equiv 3 \pmod 4$. If that game is generalized to arbitrary primes, change the conclusion to `fac`.
+- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ QR credited to [[GM84 - Probabilistic encryption|GM84]], migrated from [[factoring]] and [[quadratic-residuosity]] § Known Results. GM84 make no such claim.

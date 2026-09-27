@@ -28,10 +28,10 @@ Combining these axes gives four types of reductions:
 
 |                         | BB proof         | Non-BB proof     |
 | ----------------------- | ---------------- | ---------------- |
-| **BB construction**     | Fully black-box  | Semi-BB (type 2) |
-| **Non-BB construction** | Semi-BB (type 3) | Fully non-BB     |
+| **BB construction**     | Fully black-box  | Semi-BB          |
+| **Non-BB construction** | —                | Fully non-BB     |
 
-The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out fully black-box reductions.
+The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out relativizing, hence fully black-box, reductions — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
 > **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box: the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
 
@@ -69,7 +69,7 @@ Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$ togeth
 
 A black-box security reduction would convert this eavesdropper (which is efficient relative to $O$) into an inverter for $\pi$ — contradicting one-wayness. Hence no such reduction can exist.
 
-**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by Merkle's Puzzles [[Mer78]]. This shows that Merkle's Puzzles are _query-complexity optimal_: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper.
+**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to $O(\ell^2)$, matching the quadratic gap of Merkle's puzzles — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]: no random-oracle KA protocol achieves a better-than-quadratic query gap between the honest parties and the eavesdropper — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 
 ## Other Notable Separations
 
@@ -91,6 +91,6 @@ Oracle separations are a powerful tool but have important limitations:
 
 - [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
 
-- **The RTV04 taxonomy makes this precise.** An oracle separation rules out only fully black-box reductions (Type 1 in RTV04's taxonomy). Types 2–4, which permit non-black-box constructions or non-black-box proofs, may remain open and are not addressed by the oracle separation.
+- **The RTV04 taxonomy makes this precise.** An oracle relative to which $A$ exists and $B$ does not rules out every _relativizing_ reduction, and hence every fully black-box one; non-relativizing techniques are not addressed — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
 Oracle separations should be understood as barriers for specific _proof techniques_, not as evidence that the underlying cryptographic implication is false.

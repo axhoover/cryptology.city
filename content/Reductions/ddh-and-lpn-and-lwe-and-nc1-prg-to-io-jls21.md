@@ -1,39 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "DDH + LPN + LWE + NC1-PRG ⇒ iO"
+title: "SXDH + LWE + LPN + NC0-PRG ⇒ iO"
 aliases: []
 id: red-ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21
 kind: implication
-hypotheses: [ddh, lpn, lwe, prg-in-nc1]
+hypotheses: [sxdh, lwe, lpn, prg-in-nc0]
 conclusion: io
-class: unstated
+class: free
 model: standard
 source:
   - "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
-security-loss: ""
+security-loss: "requires sub-exponential hardness of all four hypotheses"
 ---
 
-# DDH + LPN + LWE + NC1-PRG ⇒ iO
+# SXDH + LWE + LPN + NC0-PRG ⇒ iO
 
-[[decisional-diffie-hellman|DDH]] together with [[learning-parity-with-noise|LPN]] together with [[learning-with-errors|LWE]] together with [[pseudorandom-generator-in-nc1|NC1-PRG]] implies [[indistinguishability-obfuscation|iO]].
+Sub-exponentially hard [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH]], [[learning-with-errors|LWE]], [[learning-parity-with-noise|LPN]] over $\ZZ_p$, and a Boolean [[low-complexity-prg#prg-in-nc0|PRG in $\mathrm{NC}^0$]] together imply [[indistinguishability-obfuscation|iO]].
 
 ## Statement
 
-Migrated verbatim from [[indistinguishability-obfuscation]] § Other results:
-
-> - First iO from well-founded assumptions: sub-exponential [[learning-with-errors|LWE]], [[learning-parity-with-noise|LPN]], pseudorandom generators in $\mathrm{NC}^1$, and [[decisional-diffie-hellman|DDH]] — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]
+Let $\tau > 0$ and $\delta, \varepsilon \in (0,1)$ be constants, and let $k, \ell, n$ be large enough polynomials in $\secpar$. Assume sub-exponential hardness of the following: SXDH on asymmetric bilinear groups of prime order $p = O(2^\secpar)$; LWE over $\ZZ_p$ with secret dimension $k$ and modulus-to-noise ratio $2^{k^\varepsilon}$; LPN over $\ZZ_p$ with secret dimension $\ell$, polynomially many samples and error rate $\ell^{-\delta}$; and a Boolean PRG in $\mathrm{NC}^0$ with stretch $n^{1+\tau}$. Then iO for all polynomial-size circuits exists — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
+`class: free`: records the proven implication. JLS21 do not place the construction in the RTV taxonomy. The construction builds functional encryption and applies [[fe-to-io|FE ⇒ iO]], which runs the FE encryption algorithm inside function keys, so it is not black-box in the hypotheses.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Genuinely conjunctive - four hypotheses together.
-- SUSPECT: JLS21's assumption set is sub-exponential LWE, LPN over large fields, PRGs of constant locality (NC0, not NC1), and sub-exponential SXDH on pairing-friendly groups (not plain DDH). Both 'NC^1' and 'DDH' look wrong. Report only; do not fix.
-- 'sub-exponential' qualifies LWE in the text but it applies to the whole assumption set; ambiguous as written.
-- 'pseudorandom generators in NC^1' has no wiki object identifier.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — JLS21 assume sub-exponential hardness of SXDH on asymmetric bilinear groups (not DDH), LWE, LPN over $\ZZ_p$ with polynomially many samples and inverse-polynomial error rate, and a Boolean PRG in $\mathrm{NC}^0$ with stretch $n^{1+\tau}$ (not $\mathrm{NC}^1$, a weaker hypothesis the construction does not cover).
+- LPN here is the $\ZZ_p$ generalization given in [[learning-parity-with-noise#assumption|LPN § Assumption]], not binary LPN.
+- A Boolean PRG in $\mathrm{NC}^0$ with polynomial stretch is a stronger hypothesis than a [[pseudorandom-generator-in-nc1|PRG in $\mathrm{NC}^1$]].
+- The `ddh-` and `nc1-prg` parts of the slug are historical; the frontmatter `hypotheses` are authoritative.
+- Sourcing pass (2026-09): this page previously recorded {DDH, LPN, LWE, PRG in $\mathrm{NC}^1$} ⇒ iO, migrated from [[indistinguishability-obfuscation]] § Other results.

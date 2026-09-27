@@ -9,6 +9,7 @@ title: Pseudorandom function
 id: prf
 variants:
   invertible-prf: "#invertible-prfs"
+  weak-prf: "#weak-prfs"
 ---
 
 # Pseudorandom function
@@ -112,6 +113,35 @@ is negligible.
 TODO: define these and say how they relate to PRPs
 
 ## Puncturable PRFs
+
+## Weak PRFs
+
+A **weak PRF** has the syntax of a PRF but need only be pseudorandom on uniformly random inputs: instead of choosing evaluation points, $\calA$ receives pairs $(x, \Eval(k, x))$ for fresh $x \getsr \calD$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{wprf}}_{\PRF,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $R \getsr \Funcs(\calD,\calR)$
+\Comment{Can be sampled lazily for efficiency}
+\State $\calO_0() := (x \getsr \calD;\; (x, \Eval(k,x)))$
+\State $\calO_1() := (x \getsr \calD;\; (x, R(x)))$
+\Comment{Each query samples a fresh $x$}
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PRF $\PRF$ is **weakly pseudorandom** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{wprf}}_{\PRF,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{wprf}}_{\PRF,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Other results
 

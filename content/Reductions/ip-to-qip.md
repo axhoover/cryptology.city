@@ -29,4 +29,4 @@ Measuring each prover message in the computational basis turns any quantum prove
 
 `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
 
-`model: quantum`: containment into a quantum class, as on [[bpp-to-bqp]], [[qip-to-ip]] and [[qip-to-pspace]].
+`model: quantum`: containment into a quantum class, as on [[bpp-to-bqp]] and [[qip-to-pspace]].

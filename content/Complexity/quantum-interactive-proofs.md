@@ -28,8 +28,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 ## Multi-prover extensions
 
-- **$\mathbf{MIP^*}$** (multiple quantum-entangled provers): provers share arbitrary prior entanglement but cannot communicate during the protocol. Remarkably, $\mathbf{MIP^*} = \mathbf{RE}$ (the class of recursively enumerable languages) — TODO citation (Ji, Natarajan, Vidick, Wright, Yuen 2020). This means entangled provers can convince a classical verifier of undecidable statements! This result resolved the Connes embedding conjecture in the negative.
-- [[no-mip-to-multi-prover-extensions|No reduction from MIP to Multi-prover extensions]]
+- **$\mathbf{MIP^*}$** (multiple quantum-entangled provers): provers share arbitrary prior entanglement but cannot communicate during the protocol. Remarkably, $\mathbf{MIP^*} = \mathbf{RE}$ (the class of recursively enumerable languages) — [[JNVWY20 - MIP* = RE|JNVWY20]]. This means entangled provers can convince a classical verifier of undecidable statements! This result resolved the Connes embedding conjecture in the negative.
+- $\mathbf{MIP^*} \not\subseteq \mathbf{MIP}$: $\mathbf{MIP} = \mathbf{NEXP}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], $\mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[NW19 - NEEXP is Contained in MIP-star|NW19]], and $\mathbf{NEXP} \subsetneq \mathbf{NEEXP}$ by the nondeterministic time hierarchy theorem — standard; see [[no-mip-to-multi-prover-extensions]].
 
 ## Relevance to cryptography
 

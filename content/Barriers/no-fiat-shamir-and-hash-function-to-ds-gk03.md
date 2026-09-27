@@ -27,7 +27,7 @@ There is a 3-round public-coin identification scheme, secure in the [[random-ora
 
 ## Sketch
 
-The scheme adds an escape hatch: the prover may commit in its first message to a program and later prove, with a proof checkable in time independent of the program's running time, that the program maps the first message to the challenge. Interactively the challenge is chosen after the commitment, so the hatch is useless; after the transform the challenge is $H$ of the first message, and a forger commits to the code of $H$ itself.
+The scheme adds an escape hatch: the prover may commit in its first message to a program and later prove, with a succinct argument whose verification time is polylogarithmic in the program's running time, that the program maps the first message to the challenge. Interactively the challenge is chosen after the commitment, so the hatch is useless; after the transform the challenge is $H$ of the first message, and a forger commits to the code of $H$ itself.
 
 ## Notes
 
@@ -37,3 +37,4 @@ The scheme adds an escape hatch: the prover may commit in its first message to a
 
 - The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the theorem is 'there exists an identification scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'.
 - $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the `\ufcma`/`\eufcma` macros.
+- The same counterexample, read against non-interactive arguments: [[no-fiat-shamir-to-nizk-gk03]].

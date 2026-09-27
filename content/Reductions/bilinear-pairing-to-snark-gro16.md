@@ -33,5 +33,4 @@ The circuit is arithmetized as a quadratic arithmetic program; the CRS holds enc
 `model: generic-group`: Gro16 proves knowledge soundness in the generic bilinear group model. The scheme additionally requires a per-circuit trusted CRS, which the single-valued model field cannot also record; the statement text carries it.
 
 - Knowledge soundness of Groth16 in the algebraic group model under a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
-- The quote migrated from [[succinct-argument]] to [[kea-to-snark-gro16]] gives the proof size as 3 $\GG_1$ + 1 $\GG_2$ elements; it is 2 $\GG_1$ + 1 $\GG_2$ [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. Reported, not fixed.
 - The bilinear-group hypothesis is a structure: `[[pairings]]` is a Glossary page, not an assumption page.

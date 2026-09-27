@@ -51,7 +51,7 @@ A PRC with **adaptive robustness** strengthens the robustness property to allow 
 
 ## Ideal PRC
 
-An **ideal PRC** additionally requires that codewords are indistinguishable from uniformly random strings even to an adversary who holds the decoding key $k$. That is, the joint distribution $(k, \Enc_k(m))$ is computationally indistinguishable from $(k, U_n)$ where $U_n$ is a uniformly random $n$-bit string. This is strictly stronger than pseudorandomness (which only requires indistinguishability without the key). Ideal PRCs support watermarking schemes where even a user who knows the watermarking key cannot detect whether a given string is a codeword.
+An **ideal PRC** is one for which, with $k \gets \Gen(1^\secpar)$, oracle access to $(\Enc_k, \Dec_k)$ is computationally indistinguishable from oracle access to an ideal functionality. Its encoder returns a fresh uniformly random $n$-bit string on every query. Its decoder returns $m$ on any string within Hamming distance $\varepsilon n$ of a string the encoder returned on input $m$, and $\bot$ on every other string. The adversary never receives $k$. Ideal security implies pseudorandomness, soundness and adaptive robustness against efficient channels — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]].
 
 ## Zero-bit PRC
 

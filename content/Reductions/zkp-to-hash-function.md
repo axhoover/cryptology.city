@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "ZKP ⇒ Hash function"
+title: "ZKP ⇒ Auxiliary-input OWF"
 aliases: []
 id: red-zkp-to-hash-function
 kind: implication
 hypotheses: [zkp]
-conclusion: hash-function
+conclusion: auxiliary-input-owf
 class: unstated
 model: standard
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# ZKP ⇒ Hash function
+# ZKP ⇒ Auxiliary-input OWF
 
-A [[zero-knowledge-proof|ZKP]] for a language outside $\classBPP$ implies auxiliary-input [[hash-function|one-way functions]].
+A [[zero-knowledge-proof|ZKP]] for a language outside $\classBPP$ implies auxiliary-input [[hash-function#auxiliary-input-one-wayness|one-way functions]].
 
 ## Statement
 
@@ -32,5 +32,4 @@ Suppose no auxiliary-input one-way function exists. Then the map from the simula
 
 - For all of $\classNP$ the auxiliary-input relaxation is unnecessary: a one-way function exists if and only if $\classNP \subseteq \classCZK$ and $\classNP$ is hard in the worst case — [[HN24 - One-Way Functions and Zero Knowledge|HN24]]
 - The statistical-zero-knowledge, hard-on-average case (standard one-way function as conclusion) predates OW93 — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
-- The conclusion node `hash-function` also owns collision-resistant hashing; only the one-wayness variant is meant here.
 - The hyperedge `hypotheses: [zkp]` cannot carry OW93's non-triviality qualifier (the language must lie outside $\classBPP$, or be hard on average for the standard-OWF conclusion); the qualifier survives only in the statement.

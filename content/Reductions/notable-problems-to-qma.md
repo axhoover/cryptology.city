@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Notable problems = QMA"
+title: "Local Hamiltonian is QMA-complete"
 aliases: []
 id: red-notable-problems-to-qma
 kind: equivalence
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Notable problems = QMA
+# Local Hamiltonian is QMA-complete
 
 The [[quantum-merlin-arthur#notable-problems|local Hamiltonian problem]] is [[quantum-merlin-arthur|QMA]]-complete.
 

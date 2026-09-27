@@ -1,40 +1,33 @@
 ---
 type: reduction
-status: stub
-title: "CDH ⇒ BDH"
+status: draft
+title: "BDH ⇒ CDH"
 aliases: []
-id: red-cdh-to-bdh
+id: red-bdh-to-cdh-bf01
 kind: implication
-hypotheses: [cdh]
-conclusion: bdh
-class: unstated
-model: generic-group
-source: folklore
-security-loss: ""
+hypotheses: [bdh]
+conclusion: cdh
+class: fully-black-box
+model: standard
+source:
+  - "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
+security-loss: "tight: one CDH call and one pairing evaluation"
 ---
 
-# CDH ⇒ BDH
+# BDH ⇒ CDH
 
-[[computational-diffie-hellman|CDH]] implies [[bilinear-map-assumptions|BDH]].
+[[bilinear-map-assumptions|BDH]] implies [[computational-diffie-hellman|CDH]] in the source group of the pairing.
 
 ## Statement
 
-Migrated verbatim from [[bilinear-map-assumptions]] § Known Results:
+If [[bilinear-map-assumptions|BDH]] is hard for a symmetric pairing-group generator, then [[computational-diffie-hellman|CDH]] is hard in its source group $\GG$: a CDH solver breaks BDH with at least its success probability — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]. BF01 leave the converse open.
 
-> - BDH is implied by [[computational-diffie-hellman|CDH]] in the generic group model, but no standard-model reduction is known
+## Sketch
+
+Given a BDH instance $(g, g^a, g^b, g^c)$, run the CDH solver on $(g, g^a, g^b)$ to get $Z$, and output $e(Z, g^c)$, which equals $e(g,g)^{abc}$ when $Z = g^{ab}$. The pair $(g^a, g^b)$ has the same distribution as in the CDH game, so the reduction succeeds whenever the solver does.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: the group generator is unchanged, and the fixed reduction calls the CDH solver once as an oracle and then evaluates the pairing once (the same reasoning as on [[ddh-to-cdh]] and [[cdh-to-dlog]]).
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- SUSPECTED ERROR: hardness of BDH in the generic (bilinear) group model is an unconditional lower bound, not a reduction from CDH.
-- Direction looks reversed: BDH hardness is normally seen to imply CDH hardness, since an algorithm for CDH in the pairing group breaks BDH.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — CDH ⇒ BDH is not a known theorem in any model; the migrated bullet misreads the unconditional generic-bilinear-group lower bound for BDH as a reduction from CDH. The known edge is the converse, BDH ⇒ CDH (no page yet): a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$. See [[bilinear-map-assumptions]].
+- This file used to record "CDH ⇒ BDH", migrated from a bullet that presented BDH's hardness against generic bilinear-group algorithms as a reduction from CDH. No reduction from CDH to BDH is known. The slug keeps the old direction because filenames are live URLs.

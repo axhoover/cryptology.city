@@ -1,28 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "Unkeyed DEPIR ⇒ DEPIR"
+title: "Unkeyed DEPIR ⇒ PK-DEPIR"
 aliases: []
 id: red-unkeyed-depir-to-depir
 kind: implication
 hypotheses: [unkeyed-depir]
-conclusion: depir
+conclusion: pk-depir
 class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
 ---
 
-# Unkeyed DEPIR ⇒ DEPIR
+# Unkeyed DEPIR ⇒ PK-DEPIR
 
-[[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]] implies [[doubly-efficient-pir|DEPIR]].
+[[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]] implies [[doubly-efficient-pir#public-key-depir|public-key DEPIR]].
 
 ## Statement
 
-The $\Setup$ of an unkeyed [[doubly-efficient-pir#unkeyed-depir|DEPIR]] scheme outputs $k = \bot$, so it is a public-key [[doubly-efficient-pir|DEPIR]] scheme verbatim, and a public-key DEPIR scheme is a secret-key DEPIR scheme, since a secret-key privacy adversary is a public-key privacy adversary that ignores $k$ — folklore.
+The $\Setup$ of an unkeyed [[doubly-efficient-pir#unkeyed-depir|DEPIR]] scheme outputs $k = \bot$, so it is a [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] scheme verbatim: with $k = \bot$, the public-key privacy game is the unkeyed one — folklore.
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity, so the hypothesis scheme is used only as an oracle, and any secret-key-privacy adversary runs unchanged as a public-key-privacy adversary.
+`class: fully-black-box`: The construction is the identity, so the hypothesis scheme is used only as an oracle, and any public-key-privacy adversary runs unchanged as an unkeyed-privacy adversary, with $k = \bot$.
 
-- `depir`, `SK-DEPIR` and `PK-DEPIR` are aliases of `content/Primitives/doubly-efficient-pir.md` and `unkeyed-depir` is a variant anchor of the same page, so both endpoints resolve to one slug. The edge is a self-loop until the three notions have distinct nodes.
+- The further step PK-DEPIR ⇒ SK-DEPIR is [[pk-depir-to-sk-depir]].

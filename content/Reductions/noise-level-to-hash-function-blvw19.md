@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Noise Level ⇒ Hash function"
+title: "Low-noise LPN ⇒ CRHF"
 aliases: []
 id: red-noise-level-to-hash-function-blvw19
 kind: implication
 hypotheses: [lpn-low-noise]
-conclusion: hash-function
+conclusion: crhf
 class: unstated
 model: standard
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Noise Level ⇒ Hash function
+# Low-noise LPN ⇒ CRHF
 
-[[learning-parity-with-noise#noise-level|Low-noise LPN]] implies [[hash-function#collision-resistance|collision-resistant hash functions]].
+[[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]] implies [[hash-function#collision-resistance|collision-resistant hash functions]].
 
 ## Statement
 
-[[learning-parity-with-noise#noise-level|Low-noise LPN]] with noise rate $\varepsilon = \log^2(k)/k$ implies [[hash-function#collision-resistance|collision-resistant hash functions]] [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]].
+[[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]] with noise rate $\varepsilon = \log^2(k)/k$ implies [[hash-function#collision-resistance|collision-resistant hash functions]] [[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]].
 
 ## Notes
 

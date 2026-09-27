@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Module-SVP ⇒ Module LWE"
+title: "Module-SIVP ⇒ Module LWE"
 aliases: []
 id: red-module-svp-to-module-lwe-ls15
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Module-SVP ⇒ Module LWE
+# Module-SIVP ⇒ Module LWE
 
 Worst-case hardness of [[module-lattice-problems|SIVP on module lattices]] implies, under a quantum reduction, average-case hardness of [[learning-with-errors#module-lwe|Module LWE]].
 

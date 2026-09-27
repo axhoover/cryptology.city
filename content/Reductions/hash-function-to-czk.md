@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ CZK"
+title: "OWF ⇒ CZK"
 aliases: []
 id: red-hash-function-to-czk
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: czk
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ CZK
+# OWF ⇒ CZK
 
-[[hash-function|One-way functions]] imply $\classNP \subseteq$ [[computational-zero-knowledge|CZK]].
+[[hash-function#preimage-resistance-one-wayness|One-way functions]] imply $\classNP \subseteq$ [[computational-zero-knowledge|CZK]].
 
 ## Statement
 
-If one-way functions ([[hash-function|OWF]]) exist, 3-coloring — hence every language in $\classNP$ — has a computational zero-knowledge interactive proof, so $\classNP \subseteq$ [[computational-zero-knowledge|CZK]] [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol uses only a computationally hiding, statistically binding bit commitment, which any OWF yields [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+If one-way functions ([[hash-function#preimage-resistance-one-wayness|OWF]]) exist, 3-coloring — hence every language in $\classNP$ — has a computational zero-knowledge interactive proof, so $\classNP \subseteq$ [[computational-zero-knowledge|CZK]] [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol uses only a computationally hiding, statistically binding bit commitment, which any OWF yields [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Sketch
 

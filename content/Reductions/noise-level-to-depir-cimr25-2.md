@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: stub
-title: "Noise Level ⇒ DEPIR"
+title: "High-noise LPN ⇒ SK-DEPIR"
 aliases: []
 id: red-noise-level-to-depir-cimr25-2
 kind: implication
 hypotheses: [lpn-high-noise]
-conclusion: depir
+conclusion: sk-depir
 class: unstated
 model: standard
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Noise Level ⇒ DEPIR
+# High-noise LPN ⇒ SK-DEPIR
 
-[[learning-parity-with-noise#noise-level|High-noise LPN]] implies a weak form of secret-key [[doubly-efficient-pir|DEPIR]].
+[[learning-parity-with-noise#high-noise-lpn|High-noise LPN]] implies a weak form of secret-key [[doubly-efficient-pir#secret-key-depir|DEPIR]].
 
 ## Statement
 
-Hardness of [[learning-parity-with-noise#noise-level|high-noise LPN]] (noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$, a regime not known to imply public-key encryption) implies secret-key [[doubly-efficient-pir|DEPIR]] in a weak sense: for every constant $\varepsilon > 0$, communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+Hardness of [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] (noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$, a regime not known to imply public-key encryption) implies secret-key [[doubly-efficient-pir#secret-key-depir|DEPIR]] in a weak sense: for every constant $\varepsilon > 0$, communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
 
 ## Notes
 

@@ -18,4 +18,4 @@ bibtex: |
   }
 ---
 
-[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]] introduces a symmetric CP-ABE framework in which both encryptor and decryptor must hold attributes satisfying the ciphertext policy, and gives a concrete construction from collision-resistant hash functions, a [[pseudorandom-function|PRF]], and an IND-CCA2 authenticated encryption scheme, with no bilinear map or lattice hardness assumption.
+[[LS26 - Symmetric Attribute-Based Encryption from Minimal Hardness Assumptions|LS26]] introduces a symmetric CP-ABE framework in which both encryptor and decryptor must hold attributes satisfying the ciphertext policy, and gives a concrete construction from collision-resistant hash functions and a [[pseudorandom-function|PRF]], with no bilinear map or lattice hardness assumption.

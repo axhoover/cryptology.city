@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Module-SVP ⇒ Module-SIS"
+title: "Module-SIVP ⇒ Module-SIS"
 aliases: []
 id: red-module-svp-to-module-sis-ls15
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Module-SVP ⇒ Module-SIS
+# Module-SIVP ⇒ Module-SIS
 
 Worst-case hardness of [[module-lattice-problems|SIVP on module lattices]] implies, under a classical reduction, average-case hardness of [[shortest-integer-solution#module-sis|Module-SIS]].
 

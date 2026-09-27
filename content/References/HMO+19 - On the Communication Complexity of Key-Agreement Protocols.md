@@ -2,10 +2,10 @@
 type: reference
 status: draft
 title: "HMO+19"
-source: https://arxiv.org/abs/2105.01958
+source: https://doi.org/10.4230/LIPIcs.ITCS.2019.40
 authors: Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff
-venue: ITCS 2021
-published: 2021-05-05
+venue: ITCS 2019
+published: 2019-01-10
 created: 2025-04-09
 aliases:
   - HMO+19
@@ -14,7 +14,7 @@ cryptobib_key: ITCS:HMORY19
 
 # [HMO+19] On the Communication Complexity of Key-Agreement Protocols
 
-**Authors:** Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff | **Venue:** ITCS 2021 | [Source](https://arxiv.org/abs/2105.01958)
+**Authors:** Iftach Haitner, Noam Mazor, Rotem Oshman, Omer Reingold, Amir Yehudayoff | **Venue:** ITCS 2019 | [Source](https://doi.org/10.4230/LIPIcs.ITCS.2019.40)
 
 ## Abstract
 

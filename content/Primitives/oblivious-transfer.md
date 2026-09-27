@@ -116,7 +116,7 @@ Introduced by [[Rab81]], **Rabin's OT** is a simpler variant where the sender tr
 
 A generalization where the sender holds $n$ messages $(x_1, \ldots, x_n)$ and the receiver chooses a set $S \subseteq [n]$ of size $k$, learning $\{x_i : i \in S\}$ while the sender learns nothing about $S$.
 
-The 1-out-of-$n$ variant is equivalent to single-server [[single-server-private-information-retrieval|PIR]] with data privacy ([[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|SPIR]]).
+Single-server [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|SPIR]] is 1-out-of-$n$ OT with communication sublinear in $n$, so it implies 1-out-of-$n$ OT — folklore; the converse is not known ([[symmetric-private-information-retrieval-single-server-to-ot|SPIR ⇒ OT]]).
 
 ## OT Extension
 

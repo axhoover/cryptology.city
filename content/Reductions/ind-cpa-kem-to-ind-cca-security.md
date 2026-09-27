@@ -1,26 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "IND-CPA KEM ⇒ IND-CCA security"
+title: "IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)"
 aliases: []
 id: red-ind-cpa-kem-to-ind-cca-security
 kind: implication
-hypotheses: [ind-cpa-kem]
+hypotheses: [pke-cpa-security]
 conclusion: ind-cca-kem
 class: fully-black-box
 model: rom
 source:
   - "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]"
+  - "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
 security-loss: ""
 ---
 
-# IND-CPA KEM ⇒ IND-CCA security
+# IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)
 
-[[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] implies [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]] in the [[random-oracle-model|random-oracle model]].
+[[public-key-encryption#cpa-security|IND-CPA PKE]] implies an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random-oracle model]].
 
 ## Statement
 
-The Fujisaki–Okamoto transform builds an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random-oracle model]] from any [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme (one-wayness suffices; explicit rejection additionally needs $\gamma$-spread ciphertexts): encapsulation samples a uniform message $m$, encrypts it under coins $G(m)$, and outputs the key $H(m, c)$; decapsulation decrypts $c$ to $m'$, re-encrypts under $G(m')$, and rejects — or, with implicit rejection, returns a pseudorandom key — unless the result equals $c$ [[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]], [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]. An [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] yields such a PKE by one-time-padding the message with the encapsulated key, so the transform also lifts IND-CPA KEMs to IND-CCA KEMs in the ROM — standard.
+The Fujisaki–Okamoto transform builds an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random-oracle model]] from any [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme (one-wayness suffices; explicit rejection additionally needs $\gamma$-spread ciphertexts): encapsulation samples a uniform message $m$, encrypts it under coins $G(m)$, and outputs the key $H(m, c)$; decapsulation decrypts $c$ to $m'$, re-encrypts under $G(m')$, and rejects — or, with implicit rejection, returns a pseudorandom key — unless the result equals $c$ [[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]], [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]].
 
 ## Sketch
 
@@ -34,3 +35,4 @@ Derandomising encryption with $G(m)$ makes ciphertexts checkable by re-encryptio
 
 - KEM-specific versions of the transform, proved IND-CCA in the ROM from one-way PKE — [[Den03 - A Designer's Guide to KEMs|Den03]]
 - Modular T/U decomposition with concrete bounds for a $\delta$-correct base scheme, covering explicit and implicit rejection — [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]
+- Sourcing pass (2026-09): the hypothesis was an IND-CPA KEM; FO99 and HHK17 take an IND-CPA (or one-way) PKE, so it is now `pke-cpa-security`. The slug and id are historical; filenames are live URLs and are not renamed.

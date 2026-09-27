@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Strong Security ⇒ PRP"
+title: "sPRP ⇒ PRP"
 aliases: []
 id: red-strong-security-to-prp
 kind: implication
@@ -13,9 +13,9 @@ source: folklore
 security-loss: "tight: the same adversary has the same advantage in both games"
 ---
 
-# Strong Security ⇒ PRP
+# sPRP ⇒ PRP
 
-[[pseudorandom-permutation#strong-security|Strong Security]] implies [[pseudorandom-permutation|PRP]].
+[[pseudorandom-permutation#strong-security|A strong PRP (sPRP)]] is a [[pseudorandom-permutation|PRP]].
 
 ## Statement
 

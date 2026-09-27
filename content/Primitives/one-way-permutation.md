@@ -19,8 +19,8 @@ A _one-way permutation_ is a family of efficiently computable permutations $\{\p
 
 # Other results
 
-- [[owp-to-hash-function|OWP ⇒ Hash function]]
-- [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11]]
+- [[owp-to-hash-function|OWP ⇒ OWF]] — folklore
+- [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]
 
 <!-- BEGIN GENERATED participates-in db8b1d549af6 -->
 

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Somewhat homomorphic encryption (SHE) ⇒ HE"
+title: "Bootstrappable SHE ⇒ Leveled FHE"
 aliases: []
 id: red-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
-hypotheses: [somewhat-homomorphic-encryption]
-conclusion: he
+hypotheses: [bootstrappable-somewhat-homomorphic-encryption]
+conclusion: leveled-fully-homomorphic-encryption
 class: free
 model: standard
 source:
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Somewhat homomorphic encryption (SHE) ⇒ HE
+# Bootstrappable SHE ⇒ Leveled FHE
 
-A bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme implies [[homomorphic-encryption|HE]] in its leveled fully homomorphic form.
+A [[homomorphic-encryption#bootstrappable-she|bootstrappable SHE]] scheme implies [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]].
 
 ## Statement
 
-A bootstrappable [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain; with a single key pair the same construction gives unbounded [[homomorphic-encryption|FHE]] under the additional assumption of [[circular-security|circular security]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+A [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Unbounded FHE additionally needs circular security; see [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09]].
 
 ## Sketch
 
@@ -29,5 +29,3 @@ To refresh a noisy ciphertext $c$, homomorphically evaluate $\Dec(\cdot, c)$ on 
 ## Notes
 
 `class: free`: bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies; `free` records only that the implication is proved.
-
-- No wiki page for SHE or FHE as objects distinct from `he`: the hypothesis and the conclusion both anchor into homomorphic-encryption.md, so the edge renders as a near self-loop.

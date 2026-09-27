@@ -20,7 +20,7 @@ In the generic ring model with preprocessing, [[rsa-assumption|RSA]] is equivale
 
 ## Statement
 
-Against generic ring algorithms (which access $\ZZ_N$ only through ring operations and equality tests), computing $e$-th roots modulo $N$ is equivalent to factoring $N$, even when the adversary receives an advice string from unbounded preprocessing on $N$: any such [[rsa-assumption|RSA]] adversary converts into a [[factoring|FAC]] adversary with polynomially related online complexity and polynomially longer advice — [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]. The converse holds unconditionally: the factorization of $N$ gives $\varphi(N)$ and hence $d = e^{-1} \bmod \varphi(N)$ — folklore. Algorithms that use the bit representation of ring elements are not covered.
+Against generic ring algorithms (which access $\ZZ_N$ only through ring operations and equality tests), computing $e$-th roots modulo $N$ is equivalent to factoring $N$, even when the adversary receives an advice string from unbounded preprocessing on $N$: any such [[rsa-assumption|RSA]] adversary converts into a [[factoring|FAC]] adversary with polynomially related online complexity and polynomially longer advice — [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]. The converse holds unconditionally: the factorization of $N$ gives $\varphi(N)$ and hence $d = e^{-1} \bmod \varphi(N)$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]] ([[fac-to-rsa-rsa78|RSA ⇒ FAC]]). Algorithms that use the bit representation of ring elements are not covered.
 
 ## Notes
 

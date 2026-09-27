@@ -25,9 +25,9 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:T#t
 
 TFNP contains several important subclasses defined by the combinatorial principle guaranteeing existence of a solution:
 
-- [[subclasses-to-hash-function|Subclasses ⇒ Hash function]]
-- **PPP** (Polynomial Pigeonhole Principle): contains the problem of finding either a preimage of $0^n$ or a collision in a function $f : \bits^n \to \bits^n$ (pigeonhole guarantees one exists) — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]]. Integer factorization reduces to the PPP problem WeakPigeon in randomized polynomial time, and deterministically under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
-- **PPA** (Polynomial Parity Argument): related to graph parity arguments. Discrete logarithm over groups of unknown order has connections to PPA — TODO citation.
+- **PPAD** (Polynomial Parity Argument, Directed): finding a Nash equilibrium is PPAD-complete, already for two-player games — [[DGP09 - The complexity of computing a Nash equilibrium|DGP09]], [[CDT09 - Settling the complexity of computing two-player Nash equilibria|CDT09]]. PPAD is hard assuming [[indistinguishability-obfuscation|iO]] and [[hash-function|one-way functions]], both sub-exponentially secure — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]] — or sub-exponential [[learning-with-errors|LWE]] — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]].
+- **PPP** (Polynomial Pigeonhole Principle): contains the problem of finding either a preimage of $0^n$ or a collision in a function $f : \bits^n \to \bits^n$ (pigeonhole guarantees one exists) — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]]. Integer factorization reduces to the PPP problem WeakPigeon in randomized polynomial time, and deterministically under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]]. Suitable formulations of [[discrete-logarithm|discrete logarithm]] in general groups are PPP-complete — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]].
+- **PPA** (Polynomial Parity Argument): related to graph parity arguments. Integer factorization reduces to a PPA problem in randomized polynomial time, and deterministically under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
 - **PLS** (Polynomial Local Search): finding local optima. Contains many optimization problems.
 
 ## Known relationships
@@ -37,7 +37,7 @@ TFNP contains several important subclasses defined by the combinatorial principl
 
 ## Relevance to cryptography
 
-Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure (Bitansky–Paneth–Rosen, FOCS 2015).
+Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
 <!-- BEGIN GENERATED participates-in 32249283f30d -->
 

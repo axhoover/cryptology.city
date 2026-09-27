@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ HIBE"
+title: "DBDH + DLIN ⇒ HIBE"
 aliases: []
 id: red-bdh-to-hibe-wat09
 kind: implication
-hypotheses: [bdh]
+hypotheses: [bdh, k-linear-assumption]
 conclusion: hibe
 class: fully-black-box
 model: standard
@@ -14,13 +14,13 @@ source:
 security-loss: ""
 ---
 
-# BDH ⇒ HIBE
+# DBDH + DLIN ⇒ HIBE
 
-[[bilinear-map-assumptions|DBDH and DLIN]] jointly imply [[hierarchical-identity-based-encryption|HIBE]].
+[[bilinear-map-assumptions|DBDH]] and [[bilinear-map-assumptions#k-linear-assumption|DLIN]] jointly imply [[hierarchical-identity-based-encryption|HIBE]].
 
 ## Statement
 
-If decisional bilinear Diffie–Hellman and decision linear ([[bilinear-map-assumptions|DBDH and DLIN]]) hold in a symmetric prime-order pairing group, there is an adaptively secure [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss polynomial in the number of key queries and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) and decision linear ([[bilinear-map-assumptions#k-linear-assumption|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss polynomial in the number of key queries and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
 
 ## Sketch
 

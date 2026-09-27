@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ FE"
+title: "OWF + iO ⇒ FE"
 aliases: []
 id: red-hash-function-and-io-to-fe-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: functional-encryption
 class: free
 model: standard
@@ -15,13 +15,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function + iO ⇒ FE
+# OWF + iO ⇒ FE
 
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies selectively secure [[functional-encryption|FE]] for all circuits.
+[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies selectively secure [[functional-encryption|FE]] for all circuits.
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function|one-way function]] implies selectively secure (indistinguishability-based) [[functional-encryption|functional encryption]] for all polynomial-size circuits: [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build FE from iO, [[public-key-encryption|PKE]], and statistically simulation-sound [[non-interactive-zero-knowledge|NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies selectively secure (indistinguishability-based) [[functional-encryption|functional encryption]] for all polynomial-size circuits: [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build FE from iO, [[public-key-encryption|PKE]], and statistically simulation-sound [[non-interactive-zero-knowledge|NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.
 
 ## Sketch
 

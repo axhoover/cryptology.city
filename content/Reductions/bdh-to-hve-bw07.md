@@ -26,4 +26,4 @@ In bilinear groups of composite order, [[hidden-vector-encryption|HVE]] — henc
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-- The BW07 reference filename names the wrong paper; the paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (Boneh–Waters, TCC 2007, eprint 2006/287). Filenames are live URLs and are not renamed; the reference page's source URL (eprint 2006/465) is a different paper and needs fixing.
+- The BW07 reference filename names the wrong paper; the paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (Boneh–Waters, TCC 2007, eprint 2006/287). Filenames are live URLs and are not renamed.

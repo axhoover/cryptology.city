@@ -1,39 +1,31 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from TDP to OT"
+status: draft
+title: "No fully-black-box reduction from TDP to enhanced TDP"
 aliases: []
-id: bar-tdp-to-ot
+id: bar-tdp-to-enhanced-trapdoor-permutation-haj18
 hypotheses: [tdp]
-conclusion: ot
-class: unstated
+conclusion: enhanced-trapdoor-permutation
+class: fully-black-box
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: fully-black-box
 strength: unconditional
-source: folklore
+source:
+  - "[[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]]"
 ---
 
-# No reduction from TDP to OT
+# No fully-black-box reduction from TDP to enhanced TDP
 
-A reduction of class `unstated` from [[trapdoor-permutation|TDP]] to [[oblivious-transfer|OT]] would imply a contradiction.
+A reduction of class `fully-black-box` from [[trapdoor-permutation|TDP]] to [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced TDP]] would imply a contradiction.
 
 ## Statement
 
-Migrated verbatim from [[trapdoor-permutation]] § Enhanced trapdoor permutations:
-
-> An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. This stronger property is necessary for constructing [[oblivious-transfer|OT]] from TDPs.
+There is no fully black-box construction of an [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutation]] from a standard [[trapdoor-permutation|trapdoor permutation]] — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]]. The barrier concerns the enhancement alone, not [[oblivious-transfer|OT]]: the TDP-based OT and NIZK constructions use enhanced TDPs ([[EGL85 - A randomized protocol for signing contracts|EGL85]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]), and the barrier does not separate OT from standard TDPs.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fully-black-box`: Haj18 state a fully black-box impossibility in the RTV04 sense and claim no stronger class.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'necessary for constructing OT from TDPs' is a negative claim (plain TDPs do not suffice) stated with NO citation; the relevant results are Goldreich's enhanced-TDP note and Haitner's separations.
-- Typed as a barrier because it asserts the non-existence of a construction from plain TDP, but the reduction class and the exact Q are unstated — low confidence.
-- The word 'necessary' may be intended loosely ('needed for the known proof'), in which case it is not a barrier at all.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the source sentence means only that the [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] needs the enhancement (the receiver must sample an image without learning its preimage), not that no construction from a plain [[trapdoor-permutation|TDP]] exists; no such separation is known (Hajiabadi, TCC 2018, frames it as open), and the page contradicts [[tdp-to-ot]] (`kind: equivalence`). The attributable nearby barrier is Hajiabadi's: no fully-black-box construction of an enhanced TDP from a standard TDP (conclusion `enhanced-trapdoor-permutation`, not `ot`); [[GR13 - Enhancements of Trapdoor Permutations|GR13]] explain why the standard OT and NIZK constructions need the enhancement. See [[enhanced-trapdoor-permutations-to-ot-gkm-00]].
+- Replaces a migrated barrier (no TDP ⇒ OT). That barrier misread "this stronger property is necessary for constructing OT from TDPs", a remark about the EGL85 proof, as an impossibility result.

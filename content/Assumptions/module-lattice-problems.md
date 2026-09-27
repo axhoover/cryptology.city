@@ -2,6 +2,7 @@
 type: assumption
 status: stub
 aliases:
+  - Module-SIVP
   - Module-SVP
   - Module lattice problems
 title: Module lattice problems

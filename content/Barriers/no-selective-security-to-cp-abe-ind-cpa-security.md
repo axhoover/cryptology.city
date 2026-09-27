@@ -1,39 +1,36 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from Selective Security to CP-ABE: IND-CPA Security"
+status: draft
+title: "No fixed-construction reduction from selective to adaptive CP-ABE security"
 aliases: []
 id: bar-selective-security-to-cp-abe-ind-cpa-security
-hypotheses: [kp-abe-selective-security]
+hypotheses: [abe-selective-security]
 conclusion: cp-abe-adaptive-security
-class: unstated
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: fixed-construction
 strength: unconditional
 source: folklore
+security-loss: "Complexity leveraging from selective to adaptive CP-ABE security loses a factor equal to the number of admissible challenge policies."
 ---
 
-# No reduction from Selective Security to CP-ABE: IND-CPA Security
+# No fixed-construction reduction from selective to adaptive CP-ABE security
 
-A reduction of class `unstated` from [[attribute-based-encryption#selective-security|Selective Security]] to [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]] would imply a contradiction.
+A reduction of class `fixed-construction` from [[attribute-based-encryption#selective-security|Selective Security]] to [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]] would imply a contradiction when the policy family is superpolynomial.
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]]:
+Selective security of a [[attribute-based-encryption|CP-ABE]] scheme does not imply its adaptive [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA]] security when the scheme supports a superpolynomial-size family $\calF'$ of policies: any selectively secure $\ABE$ can be modified to output plaintexts in the clear for one policy drawn uniformly from $\calF'$ into its own $\pp$, which a selective adversary, committing to $f^*$ before $\Setup$ runs, hits with probability $1/|\calF'|$. Complexity leveraging recovers adaptive security only by guessing $f^*$, at a loss of the number of admissible challenge policies, and so needs selective security against correspondingly small advantage — folklore.
 
-> KP-ABE and CP-ABE are syntactically dual: swapping the roles of $\KeyGen$ and $\Enc$ converts one definition into the other. This structural observation is useful for intuition but does **not** give a black-box security reduction. In particular, a selective KP-ABE security proof does not imply adaptive CP-ABE security via the syntactic swap, because the two games have different admissibility constraints and different distributions of challenge objects.
+## Sketch
+
+Given a selectively secure $\ABE$, let $\ABE'$ run $\Setup$ and append $f_r \getsr \calF'$ to $\pp$; $\Enc(\pp, f, m)$ outputs $m$ in the clear when $f = f_r$ and is unchanged otherwise. An adaptive adversary reads $f_r$ from $\pp$, makes no key queries, and challenges on $f_r$, winning with advantage $1$. A selective adversary commits to $f^*$ before $f_r$ is drawn; on $f^* \ne f_r$ the game is the selective game of $\ABE$, with $f_r$ sampled by the reduction, so $\ABE'$ stays selectively secure.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
+`class: fixed-construction`: the construction is the identity map — the hyperedge is read for one scheme (selective ⇒ adaptive security of the same scheme) — and the counterexample refutes it outright. Constructing a different adaptively secure CP-ABE scheme from a selectively secure one is not ruled out.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- NO CITATION. States a negative result ('does NOT give a black-box security reduction') with a reason but no source. This is the classic 'no black-box reduction' claim shape and needs either a citation or a folklore marker.
-- The justification given ('the two games have different admissibility constraints and different distributions of challenge objects') is an argument sketch, not a proof, and is presented as settled.
-- Related claim at line 108 ('the conversion for CP-ABE can incur exponential loss in the formula size') is a second uncited barrier-flavoured statement on the same page.
-- Sourcing pass (2026-09), **not fixed**: claim judged incorrect as stated — the hyperedge crosses functionality (KP- vs CP-ABE) and security notion (selective vs adaptive), while the source sentence only says the syntactic $\KeyGen$/$\Enc$ swap does not transfer a security proof; no result rules out the composed reduction. Worth recording instead: selective does not imply adaptive ABE security (folklore, as for HIBE), and the [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]] barrier against simple black-box reductions to non-interactive assumptions for ABE with checkable keys and ciphertexts. See [[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security]].
+- For HIBE and ABE systems with a checkability property on keys and ciphertexts (any two private keys that are both supposed to decrypt a ciphertext decrypt it to the same message), any simple black-box reduction to a non-interactive assumption suffers an exponential degradation of security — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]
+- The KP-ABE analogue (random attribute set $x_r \subseteq \calU$ in $\pp$; leveraging loses $2^{|\calU|}$) needs a `kp-abe-adaptive-security` variant, which does not exist yet.

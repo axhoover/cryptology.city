@@ -17,25 +17,43 @@ The _knowledge of exponent assumption (KEA)_ is a non-falsifiable assumption use
 
 ## Assumption
 
-Let $\GrGen(1^\secpar)$ output a group $\GG$ of prime order $q$ with generator $g$. The KEA states that for all efficient $\calA$ there exists an efficient **extractor** $\calE_\calA$, given the input and random coins $\rho$ of $\calA$, such that
+Let $\GrGen(1^\secpar)$ output a group $\GG$ of prime order $q$ with generator $g$. KEA1 of [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]] is the following game, in which the **extractor** $\calE_\calA$ receives the input and random coins $\rho$ of $\calA$.
 
-$$\Pr\!\left[B = A^\alpha \wedge A \ne g^{r} \;:\; \alpha \getsr \ZZ_q^*,\ (A, B) \gets \calA(g, g^\alpha; \rho),\ r \gets \calE_\calA(g, g^\alpha, \rho)\right] \le \negl(\secpar),$$
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{kea}}_{\GrGen,\calA,\calE_\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\GG, q, g) \gets \GrGen(1^\secpar)$
+\State $\alpha \getsr \ZZ_q^*$; $\rho \getsr \bits^{*}$
+\State $(A, B) \gets \calA(g, g^\alpha; \rho)$
+\State $r \gets \calE_\calA(g, g^\alpha, \rho)$
+\Comment{$\calE_\calA$ gets $\calA$'s input and coins}
+\Return $[B = A^\alpha \wedge A \ne g^r]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-over $\GrGen$, $\alpha$, $\rho$, and the coins of $\calE_\calA$ — KEA1 of Bellare–Palacio (CRYPTO 2004).
+**KEA holds** for $\GrGen$ if for all efficient $\calA$ there exists an efficient $\calE_\calA$ such that
 
-In the pairing-based setting (**$q$-Power Knowledge of Exponent**), the adversary receives $(g, g^\alpha, g^{\alpha^2}, \ldots, g^{\alpha^q})$ and any output DH-pair $(A, B)$ must be "explained" by a linear combination of the input elements.
+$$
+\Adv^{\mathrm{kea}}_{\GrGen,\calA,\calE_\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{kea}}_{\GrGen,\calA,\calE_\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
 
 ## Known Results
 
-- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
-- KEA is non-falsifiable: no polynomial-time game can witness a KEA violation, because checking "knowledge" requires inspecting internal state — standard
-- [[no-falsifiable-assumption-to-kea|No reduction from Falsifiable assumption to KEA]]
+- KEA is not falsifiable in the sense of Naor: its $\forall \calA\, \exists \calE_\calA$ form means no efficient challenger can certify that an adversary breaks it — [[Nao03 - On Cryptographic Assumptions and Challenges|Nao03]]
+- For an NP language with a sub-exponentially hard subset-membership problem, a black-box reduction from a falsifiable assumption to the adaptive soundness of a SNARG for that language exists only if the assumption is false — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]; see [[no-falsifiable-assumption-to-snark-gro16]]
 
 # Variations
 
 ## $q$-Power KEA
 
-Generalization where the adversary receives $q$ powers $g^{\alpha^i}$ and any output pair must be a committed linear combination of these — the algebraic version of KEA used in the pairing-based SNARKs of Groth (ASIACRYPT 2010) and Gennaro–Gentry–Parno–Raykova (EUROCRYPT 2013); Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
+Let $(\GG, \GG_T, e, g)$ be a bilinear group of prime order $p$, let $x, \alpha \getsr \ZZ_p^*$, and give $\calA$ the elements $(g^{x^i}, g^{\alpha x^i})_{i=0}^{q}$. The **$q$-power knowledge of exponent assumption ($q$-PKE)** states that for all efficient $\calA$ there is an efficient $\calE_\calA$ (given $\calA$'s input and coins) such that the probability that $\calA$ outputs $(c, \hat c)$ with $\hat c = c^\alpha$ while $\calE_\calA$ fails to output $a_0, \ldots, a_q$ with $c = g^{\sum_i a_i x^i}$ is negligible — [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]].
+
+$q$-PKE is used in the pairing-based SNARKs of [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]] and Gennaro–Gentry–Parno–Raykova (EUROCRYPT 2013); Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
 ## Algebraic Group Model (AGM)
 
@@ -43,8 +61,10 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 
 # Attacks
 
-- No concrete attack on KEA is known; the assumption is believed to be heuristically sound in natural cryptographic groups
-- KEA can fail in adversarially constructed groups
+- No attack on KEA1 without auxiliary input is known
+- Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], KEA with respect to arbitrary auxiliary input of unbounded polynomial length is false — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]
+- The KEA2 assumption of Hada–Tanaka is false — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]
+- KEA holds in the [[generic-group-model|generic group model]] — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]
 - The non-falsifiable nature means KEA's "attacks" are philosophical: one cannot rule out adversaries who produce valid pairs without knowledge
 
 <!-- BEGIN GENERATED participates-in 711358f8b8f1 -->
