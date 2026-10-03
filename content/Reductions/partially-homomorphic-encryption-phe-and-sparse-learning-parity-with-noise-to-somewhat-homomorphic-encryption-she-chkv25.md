@@ -31,4 +31,3 @@ Ciphertexts are matrices: homomorphic addition is matrix addition and homomorphi
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 - GENUINELY CONJUNCTIVE: sparse LPN and the linearly homomorphic PKE are both required; the parenthetical DDH/DCR is an illustrative instantiation of the second hypothesis, not a decomposition.
-- COLLIDING IDENTIFIERS: hypothesis and conclusion both wikilink into homomorphic-encryption (PHE and SHE are sections of one page), and sparse-lpn is a section of learning-parity-with-noise; the hyperedge cannot distinguish these without sub-object pages.
