@@ -144,9 +144,10 @@ circumvented-by: [red-oihf-to-ot-bh26] # BH26's non-black-box OIHF ⇒ OT
 The lint allows the key only on barriers and requires each entry to be the `id`
 of a reduction page. `relations.json` carries it as `circumventedBy`, and the
 generated "Participates in" sections name the circumventing reduction beside
-the barrier. A circumvention with no reduction page yet — Bar01's non-black-box
-simulation against `no-zkp-to-argument-systems` — stays in the barrier's
-Statement or Notes until the page exists.
+the barrier. The circumventing reduction's hypotheses may differ from the
+barrier's: `no-zkp-to-argument-systems` (hypotheses `[zkp]`) lists Bar01's
+`{crhf} ⇒ constant-round-zk-argument`. A circumvention with no reduction page
+yet stays in the barrier's Statement or Notes until the page exists.
 
 ### Refutations are attacks, not barriers
 

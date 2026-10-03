@@ -4651,6 +4651,27 @@
    "title": "cPIR ⇒ OT"
   },
   {
+   "id": "red-crhf-to-constant-round-zk-argument-bar01",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "constant-round-zk-argument",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-constant-round-zk-argument-bar01.md",
+   "slug": "crhf-to-constant-round-zk-argument-bar01",
+   "graphSlug": "Reductions/crhf-to-constant-round-zk-argument-bar01",
+   "title": "CRHF ⇒ Constant-round ZK argument (Barak)"
+  },
+  {
    "id": "red-czk-to-ip",
    "kind": "inclusion",
    "hypotheses": [
@@ -10672,7 +10693,9 @@
    ],
    "strength": "unconditional",
    "conditionalOn": [],
-   "circumventedBy": [],
+   "circumventedBy": [
+    "red-crhf-to-constant-round-zk-argument-bar01"
+   ],
    "source": [
     "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
    ],

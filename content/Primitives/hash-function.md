@@ -118,12 +118,13 @@ is negligible.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in a7a8544290e7 -->
+<!-- BEGIN GENERATED participates-in 87dc33a05a80 -->
 
 ## Participates in
 
 **Builds on Hash function**
 
+- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[hash-function#collision-resistance|crhf]])
 - [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|owf]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[hash-function#collision-resistance|crhf]])
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]] (via [[hash-function#preimage-resistance-one-wayness|owf]])

@@ -79,7 +79,7 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 6ecfb41663f5 -->
+<!-- BEGIN GENERATED participates-in fd8f515c3de8 -->
 
 ## Participates in
 
@@ -90,10 +90,11 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 **Produces Zero-knowledge proof**
 
+- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#argument-systems|constant-round-zk-argument]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 
 **Barriers**
 
-- [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]
+- [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]] — circumvented by [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]]
 
 <!-- END GENERATED participates-in -->

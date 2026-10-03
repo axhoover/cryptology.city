@@ -12,6 +12,7 @@ consequences:
     target: ""
     class: unstated
 strength: unconditional
+circumvented-by: [red-crhf-to-constant-round-zk-argument-bar01]
 source:
   - "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
 ---
@@ -31,5 +32,3 @@ GK96a run the black-box simulator against a verifier whose messages are a random
 ## Notes
 
 `class: unstated`: GK96a restrict the simulator (it may use the cheating verifier only as an oracle), not a construction or a security reduction between primitives, so no RTV04 class in `schema/reduction-classes.yaml` applies. The previously recorded `fully-black-box` was an analogy.
-
-- The same barrier is stated at [[computational-zero-knowledge#limits-of-zero-knowledge|Computational zero-knowledge § Limits of zero-knowledge]], which does not link here.
