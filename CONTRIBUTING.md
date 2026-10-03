@@ -147,7 +147,7 @@ type: reduction
 status: draft
 title: PRG ⇒ PRF (GGM)
 aliases: []
-id: red-prg-to-prf-ggm86 # stable; never changes
+id: red-prg-to-prf-ggm86 # stable while the page states this theorem
 kind: implication # implication | inclusion | equivalence
 hypotheses: [prg] # a LIST, >= 1 — a conjunction, never a disjunction
 conclusion: prf # exactly one
@@ -245,7 +245,7 @@ consequences: # a LIST — one hyperedge can carry several framings
     target: "" # contradiction takes no target
     class: fully-black-box
 strength: unconditional # unconditional | conditional
-conditional-on: [] # required when conditional: the unproven assumption(s) the theorem rests on
+conditional-on: [] # required when conditional: the unproven assumption(s) the theorem rests on, by object id where one exists
 oracle: "a uniformly random permutation π : {0,1}^n → {0,1}^n"
 # circumvented-by: [<reduction id>] # optional, non-empty when present: reductions that reach the conclusion outside this class or scope
 source:
@@ -259,10 +259,13 @@ and "a proof would give P ≠ NP". Splitting those into two pages would duplicat
 the sketch.
 
 `strength` is `conditional` iff the barrier theorem assumes an unproven hardness
-assumption, which `conditional-on` names — GW11's SNARG separation assumes a
-language with a sub-exponentially hard subset-membership problem. An oracle
+assumption, which `conditional-on` names: by object id where the wiki has a
+node (`[owf]`), in free text only where it has none — GW11's SNARG separation
+assumes a language with a sub-exponentially hard subset-membership problem. A
+property of the scheme the barrier is about stays in the Statement. An oracle
 separation is `unconditional`: its oracle is carried by `class: relativizing`
-and described in `oracle`, not listed in `conditional-on`.
+and described in `oracle`, not listed in `conditional-on`. A barrier has no
+`security-loss`; the cost of the attack it gives goes in the Notes.
 
 **How the classes interact.** `schema/reduction-classes.yaml` is a partial order
 of generality (see `schema/README.md`). A barrier ruling out class `B`

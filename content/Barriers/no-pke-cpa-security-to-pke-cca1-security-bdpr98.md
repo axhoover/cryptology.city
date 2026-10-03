@@ -12,8 +12,7 @@ consequences:
     target: ""
     class: fixed-construction
 strength: conditional
-conditional-on:
-  - an IND-CPA-secure PKE scheme exists
+conditional-on: [pke-cpa-security]
 source:
   - "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
 ---

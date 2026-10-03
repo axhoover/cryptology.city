@@ -43,7 +43,10 @@ split into hyperedges without a `kind`, both read as one-way implications.
 | `equivalence` | hypothesis and conclusion are equivalent, both directions | exactly one |
 
 `inclusion` and `equivalence` relate exactly two objects, so they take exactly
-one hypothesis; a conjunction of hypotheses is always an `implication`.
+one hypothesis; a conjunction of hypotheses is always an `implication`. There
+is no completeness kind: "local Hamiltonian is QMA-complete" is an `inclusion`
+of the problem in the class (`notable-problems-to-qma`), and its hardness half
+stays in the Statement.
 
 Two further rules follow, and the lint enforces both:
 
@@ -114,7 +117,16 @@ weaker precursor, is cited in the Statement or Notes, not in `source`:
 An oracle separation is `unconditional`: its oracle is carried by
 `class: relativizing` and described in `oracle`, not listed in
 `conditional-on`. A barrier's `consequences` are what it concludes, never what
-it assumes.
+it assumes. Each `conditional-on` entry is an object id where the wiki has a
+node (`[owf]`, `[pke-cpa-security]`), free text only for an assumption with
+none (GW11's sub-exponentially hard subset-membership problem); a property of
+the scheme the barrier is about is not an assumption and stays in the
+Statement. The lint warns on an entry that is neither an id nor multi-word free
+text (`barrier-conditional-on`).
+
+A barrier carries no `security-loss`: it rules a reduction out and has no loss
+of its own. The cost of the attack or counterexample it gives goes in a Notes
+bullet, and the lint rejects the key on a barrier (`barrier-security-loss`).
 
 ### Getting around a barrier: `circumvented-by`
 
@@ -204,10 +216,17 @@ page's `id`, with the variant named:
 `(via [[learning-with-errors#ring-lwe|ring-lwe]])`.
 
 A reduction or barrier slug's paper suffix records the page's origin; `source`
-is authoritative. When the two disagree, keep the filename (a live URL) and the
-`id` (`relations.json` and the formalization repo join on it) and add a Notes
-bullet naming the real source, e.g. "The `-gro16` slug suffix is historical;
-the source is GW11."
+is authoritative. When the two disagree on a page that still states the same
+theorem, keep the filename (a live URL) and the `id` (`relations.json` and the
+formalization repo join on it) and add a Notes bullet naming the real source,
+e.g. "The `-gro16` slug suffix is historical; the source is GW11." An id names
+one theorem and never changes while the page states it. A page rewritten to
+state a different theorem (reversed direction, different conclusion, or a
+different source theorem) retires its id and takes
+`red-<hypotheses>-to-<conclusion>[-<source>]` (`bar-…` on a barrier), while
+the filename stays; refining a node on the same theorem keeps the id. The
+commit that retires an id names it (`docs/relations-json.md` § Stability
+contract).
 
 ## Reduction classes
 

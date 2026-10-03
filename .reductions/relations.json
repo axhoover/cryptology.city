@@ -4842,6 +4842,27 @@
    "title": "DCR ⇒ COM"
   },
   {
+   "id": "red-dcr-to-fac",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "fac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: one factoring call; the DCR advantage is $(1 - 1/n)$ times the factoring success probability",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-dcr-pai99.md",
+   "slug": "fac-to-dcr-pai99",
+   "graphSlug": "Reductions/fac-to-dcr-pai99",
+   "title": "DCR ⇒ FAC"
+  },
+  {
    "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
    "kind": "implication",
    "hypotheses": [
@@ -5630,27 +5651,6 @@
    "title": "Evasive LWE ⇒ BE"
   },
   {
-   "id": "red-fac-to-dcr-pai99",
-   "kind": "implication",
-   "hypotheses": [
-    "dcr"
-   ],
-   "conclusion": "fac",
-   "class": "fully-black-box",
-   "model": "standard",
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "tight: one factoring call; the DCR advantage is $(1 - 1/n)$ times the factoring success probability",
-   "status": "draft",
-   "page": "content/Reductions/fac-to-dcr-pai99.md",
-   "slug": "fac-to-dcr-pai99",
-   "graphSlug": "Reductions/fac-to-dcr-pai99",
-   "title": "DCR ⇒ FAC"
-  },
-  {
    "id": "red-fac-to-ds-gmr88",
    "kind": "implication",
    "hypotheses": [
@@ -5670,27 +5670,6 @@
    "slug": "fac-to-ds-gmr88",
    "graphSlug": "Reductions/fac-to-ds-gmr88",
    "title": "FAC ⇒ DS"
-  },
-  {
-   "id": "red-fac-to-qr-gm84",
-   "kind": "implication",
-   "hypotheses": [
-    "qr"
-   ],
-   "conclusion": "factoring-blum-integers",
-   "class": "fully-black-box",
-   "model": "standard",
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "tight: one factoring call; the QR advantage equals the factoring success probability",
-   "status": "draft",
-   "page": "content/Reductions/fac-to-qr-gm84.md",
-   "slug": "fac-to-qr-gm84",
-   "graphSlug": "Reductions/fac-to-qr-gm84",
-   "title": "QR ⇒ FAC"
   },
   {
    "id": "red-fac-to-tfnp",
@@ -7585,7 +7564,7 @@
   },
   {
    "id": "red-notable-problems-to-qma",
-   "kind": "equivalence",
+   "kind": "inclusion",
    "hypotheses": [
     "local-hamiltonian"
    ],
@@ -7899,27 +7878,6 @@
    "slug": "owp-to-hash-function",
    "graphSlug": "Reductions/owp-to-hash-function",
    "title": "OWP ⇒ OWF"
-  },
-  {
-   "id": "red-owsg-to-qm",
-   "kind": "implication",
-   "hypotheses": [
-    "quantum-money"
-   ],
-   "conclusion": "one-way-state-generator",
-   "class": "unstated",
-   "model": "quantum",
-   "source": [
-    "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/owsg-to-qm.md",
-   "slug": "owsg-to-qm",
-   "graphSlug": "Reductions/owsg-to-qm",
-   "title": "QM ⇒ OWSG"
   },
   {
    "id": "red-p-to-bpp",
@@ -8644,6 +8602,27 @@
    "title": "QR ⇒ COM"
   },
   {
+   "id": "red-qr-to-factoring-blum-integers",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "factoring-blum-integers",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: one factoring call; the QR advantage equals the factoring success probability",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-qr-gm84.md",
+   "slug": "fac-to-qr-gm84",
+   "graphSlug": "Reductions/fac-to-qr-gm84",
+   "title": "QR ⇒ FAC"
+  },
+  {
    "id": "red-qr-to-he-gm84",
    "kind": "implication",
    "hypotheses": [
@@ -8726,6 +8705,27 @@
    "slug": "qszk-to-qip",
    "graphSlug": "Reductions/qszk-to-qip",
    "title": "QSZK ⊆ QIP"
+  },
+  {
+   "id": "red-quantum-money-to-one-way-state-generator-my22",
+   "kind": "implication",
+   "hypotheses": [
+    "quantum-money"
+   ],
+   "conclusion": "one-way-state-generator",
+   "class": "unstated",
+   "model": "quantum",
+   "source": [
+    "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owsg-to-qm.md",
+   "slug": "owsg-to-qm",
+   "graphSlug": "Reductions/owsg-to-qm",
+   "title": "QM ⇒ OWSG"
   },
   {
    "id": "red-rabin-ot-to-ot",
@@ -10243,11 +10243,8 @@
      "class": "unstated"
     }
    ],
-   "strength": "conditional",
-   "conditionalOn": [
-    "compact homomorphic evaluation of a sensitive function class (parities, majorities, or all ANDs and ORs)",
-    "public-key bit encryption"
-   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
    "circumventedBy": [],
    "source": [
     "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
@@ -10564,7 +10561,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "an IND-CCA1-secure PKE scheme exists"
+    "pke-cca1-security"
    ],
    "circumventedBy": [],
    "source": [
@@ -10592,7 +10589,7 @@
    ],
    "strength": "conditional",
    "conditionalOn": [
-    "an IND-CPA-secure PKE scheme exists"
+    "pke-cpa-security"
    ],
    "circumventedBy": [],
    "source": [

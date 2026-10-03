@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "DCR ⇒ FAC"
 aliases: []
-id: red-fac-to-dcr-pai99
+id: red-dcr-to-fac
 kind: implication
 hypotheses: [dcr]
 conclusion: fac
@@ -29,4 +29,4 @@ Given a DCR challenge $(n, c)$, run the factoring algorithm on $n$. If it return
 
 `class: fully-black-box`: the fixed reduction calls the factoring algorithm once as an oracle and never uses its code.
 
-- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ DCR credited to [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]], migrated from [[decisional-composite-residuosity]] and [[factoring]] § Known Results. Pai99 prove no such implication.
+- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ DCR credited to [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]], migrated from [[decisional-composite-residuosity]] and [[factoring]] § Known Results. Pai99 prove no such implication. The slug keeps the old direction because filenames are live URLs.

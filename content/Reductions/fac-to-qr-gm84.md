@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "QR ⇒ FAC"
 aliases: []
-id: red-fac-to-qr-gm84
+id: red-qr-to-factoring-blum-integers
 kind: implication
 hypotheses: [qr]
 conclusion: factoring-blum-integers
@@ -30,4 +30,4 @@ Given a QR challenge $(N, a)$, run the factoring algorithm on $N$. If it returns
 `class: fully-black-box`: the fixed reduction calls the factoring algorithm once as an oracle and never uses its code.
 
 - The conclusion is the Blum-integer variant because the reduction preserves the modulus distribution and the QR game samples $p \equiv q \equiv 3 \pmod 4$. If that game is generalized to arbitrary primes, change the conclusion to `fac`.
-- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ QR credited to [[GM84 - Probabilistic encryption|GM84]], migrated from [[factoring]] and [[quadratic-residuosity]] § Known Results. GM84 make no such claim.
+- Sourcing pass (2026-09): this page previously recorded the inverted edge FAC ⇒ QR credited to [[GM84 - Probabilistic encryption|GM84]], migrated from [[factoring]] and [[quadratic-residuosity]] § Known Results. GM84 make no such claim. The slug keeps the old direction because filenames are live URLs.

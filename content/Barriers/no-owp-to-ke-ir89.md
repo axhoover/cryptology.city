@@ -14,7 +14,6 @@ consequences:
 strength: unconditional
 source:
   - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
-security-loss: "Polynomially many eavesdropper queries against honest parties making $\\ell$ queries — roughly $\\ell^{6}$ for a random function and roughly $\\ell^{12}$ for a random permutation, as BM09 report IR89's attack; BM09 reduce both to the optimal $O(\\ell^2)$."
 ---
 
 # No relativizing reduction from OWP to KE
@@ -33,6 +32,6 @@ Relative to a random permutation $\pi$, the eavesdropper, holding the transcript
 
 `class: relativizing`: a construction and proof that hold relative to every oracle would hold relative to IR89's, so the separation rules out every relativizing reduction and, by the partial order in `schema/reduction-classes.yaml`, every fully-black-box one.
 
-- An eavesdropper making $O(\ell^2)$ queries suffices against honest parties making $\ell$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
+- Against honest parties making $\ell$ queries, IR89's eavesdropper makes roughly $\ell^{6}$ for a random function and roughly $\ell^{12}$ for a random permutation, as BM09 report; BM09 reduce both to $O(\ell^2)$, matching Merkle's puzzles, so no random-oracle key agreement achieves a better-than-quadratic query gap — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 - [[black-box-separations]] states the separation without the $\classPSPACE$-complete oracle.
 - The one-way-function-to-PKE form: [[no-hash-function-to-pke-gkm-00]].

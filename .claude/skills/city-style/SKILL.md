@@ -68,10 +68,17 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
   wikilinks or the bare token `folklore`. `standard` is not a provenance value.
   It lists every paper whose theorem the Statement asserts; a paper that only
   introduced the notion is cited in the body. A paper suffix in the slug is
-  historical — `source` is authoritative, and slugs are never renamed.
+  historical — `source` is authoritative, and slugs are never renamed. An id
+  names one theorem: a page rewritten to state a different one (reversed
+  direction, different conclusion, or a different source theorem) retires its
+  id and takes `red-<hypotheses>-to-<conclusion>[-<source>]`; refining a node
+  keeps it. The commit names the retired id.
 - **Barrier `strength`** is `conditional` iff the barrier theorem assumes an
-  unproven hardness assumption, named in `conditional-on`. An oracle
-  separation is `unconditional`; its oracle is `class: relativizing`.
+  unproven hardness assumption, named in `conditional-on` by object id where a
+  node exists (free text only where none does; a property of the scheme the
+  barrier is about stays in the Statement). An oracle separation is
+  `unconditional`; its oracle is `class: relativizing`. A barrier has no
+  `security-loss` (a lint error); an attack's cost goes in the Notes.
 - Idealized models (ROM, GGM, AGM) are the `model` axis, never `class`, and
   are not also listed in `hypotheses` (`{dlog} => schnorr-signature`,
   `model: rom`). A lower bound on attacks in an idealized model is a reduction

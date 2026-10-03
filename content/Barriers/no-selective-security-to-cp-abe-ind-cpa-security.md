@@ -13,7 +13,6 @@ consequences:
     class: fixed-construction
 strength: unconditional
 source: folklore
-security-loss: "Complexity leveraging from selective to adaptive CP-ABE security loses a factor equal to the number of admissible challenge policies."
 ---
 
 # No fixed-construction reduction from selective to adaptive CP-ABE security

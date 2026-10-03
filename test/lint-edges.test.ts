@@ -9,6 +9,7 @@ import {
   sharedVariantAnchors,
   unresolvedConsequenceTargets,
   believedConsequences,
+  unnamedConditions,
   // @ts-ignore
 } from "../scripts/lint-edges.mjs";
 
@@ -228,4 +229,41 @@ test("barrier-believed-consequence: a believed-true complexity target is reporte
     ],
   });
   assert.deepEqual(believedConsequences([fine], propositions), []);
+});
+
+test("barrier-conditional-on: an entry that is neither an id nor free text is reported", () => {
+  const objectIds = new Set(["owf", "pke-cpa-security"]);
+  const b = barrier("bar-x", {
+    hypotheses: ["pke-cpa-security"],
+    conclusion: "pke-cca1-security",
+    strength: "conditional",
+    "conditional-on": [
+      "pke-cpa-security", // a variant id
+      "the language has a sub-exponentially hard subset-membership problem",
+      "lwe", // a single token that resolves to nothing
+      42,
+    ],
+  });
+  assert.deepEqual(
+    unnamedConditions([b], objectIds).map(
+      (f: { index: number; entry: unknown }) => [f.index, f.entry],
+    ),
+    [
+      [2, "lwe"],
+      [3, 42],
+    ],
+  );
+
+  // Only barriers carry the field; an absent or empty list is not this
+  // check's business.
+  assert.deepEqual(
+    unnamedConditions(
+      [
+        barrier("bar-y", { strength: "unconditional" }),
+        reduction("red-z", { "conditional-on": ["lwe"] }),
+      ],
+      objectIds,
+    ),
+    [],
+  );
 });

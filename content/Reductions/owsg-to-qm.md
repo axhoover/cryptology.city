@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "QM ⇒ OWSG"
 aliases: []
-id: red-owsg-to-qm
+id: red-quantum-money-to-one-way-state-generator-my22
 kind: implication
 hypotheses: [quantum-money]
 conclusion: one-way-state-generator
@@ -27,4 +27,4 @@ Private-key [[quantum-money|quantum money]] whose banknotes are pure states impl
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 - The hypothesis key `quantum-money` drops the load-bearing qualifiers private-key and pure banknotes; the Statement keeps them.
-- This page replaces a migrated bullet claiming quantum money from OWSGs, which inverts this result; no such construction is known. The slug and id keep the old direction because filenames are live URLs and ids are stable.
+- This page replaces a migrated bullet claiming quantum money from OWSGs, which inverts this result; no such construction is known. The slug keeps the old direction because filenames are live URLs.

@@ -14,10 +14,7 @@ consequences:
   - kind: complexity
     target: conp-subset-am
     class: unstated
-strength: conditional
-conditional-on:
-  - compact homomorphic evaluation of a sensitive function class (parities, majorities, or all ANDs and ORs)
-  - public-key bit encryption
+strength: unconditional
 source:
   - "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
 ---
@@ -33,5 +30,7 @@ Let $\PKE$ be a public-key bit-encryption scheme with compact [[homomorphic-encr
 ## Notes
 
 `class: unstated`: BL13 restricts how the black-box reduction queries the adversary — constant query complexity for the $\classSZK$ bound, general adaptive for the $\classAM \cap \classcoAM$ bound — and `schema/reduction-classes.yaml` has no query-bounded class. `fully-black-box` would overstate the constant-query theorem: ruling out a special case of fully black-box reductions does not rule out the class.
+
+`strength: unconditional`: public-key bit encryption and compact homomorphic evaluation of a sensitive function class are properties of the scheme the Statement quantifies over, not hardness assumptions.
 
 - `np-complete-in-szk` is the consequence for reductions of constant query complexity; `conp-subset-am` is the consequence for general adaptive reductions.

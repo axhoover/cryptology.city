@@ -128,3 +128,28 @@ export function believedConsequences(pages, propositions) {
   }
   return out;
 }
+
+/**
+ * `conditional-on` entries that are neither an object id (or variant id) nor
+ * multi-word free text. An entry names the assumption a conditional barrier
+ * rests on: by id where the wiki has a node (`[owf]`, `[pke-cpa-security]`),
+ * in free text only for an assumption with none. A single token that resolves
+ * to nothing is a typo for an id, or a node that does not exist yet.
+ *
+ * `objectIds` is anything with `has(id)` (a Set or Map).
+ */
+export function unnamedConditions(pages, objectIds) {
+  const out = [];
+  for (const b of ofType(pages, "barrier")) {
+    const cs = b.fm["conditional-on"];
+    if (!Array.isArray(cs)) continue;
+    cs.forEach((entry, index) => {
+      if (typeof entry === "string") {
+        const v = entry.trim();
+        if (objectIds.has(v) || /\s/.test(v)) return;
+      }
+      out.push({ page: b, index, entry });
+    });
+  }
+  return out;
+}

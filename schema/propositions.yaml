@@ -50,9 +50,10 @@ propositions:
     believed: false
     page: Complexity/arthur-merlin
     note: >-
-      The actual AGGM06 consequence. content/Primitives/hash-function.md:104
-      currently states it as "a collapse of the polynomial hierarchy", which is
-      the downstream corollary, not the theorem.
+      Consequence of the AGGM06 barrier (no-np-to-hash-function-aggm06: a
+      non-adaptive reduction from NP to inverting a OWF), the LV15 barrier
+      (no-np-to-cpir-lv15) and the BL13 barrier (no-he-to-szk-bl13, for
+      general adaptive reductions). It implies ph-collapse-second-level — BHZ87.
 
   ph-collapse:
     title: The polynomial hierarchy collapses

@@ -4,7 +4,7 @@ status: draft
 title: "Local Hamiltonian is QMA-complete"
 aliases: []
 id: red-notable-problems-to-qma
-kind: equivalence
+kind: inclusion
 hypotheses: [local-hamiltonian]
 conclusion: qma
 class: free
@@ -28,11 +28,10 @@ Containment: the verifier picks a term $H_i$ at random and measures the witness 
 
 ## Notes
 
-`class: free`: unconditional completeness theorem (containment by an explicit verifier, hardness by the circuit-to-Hamiltonian reduction); complexity results take `free` by this repo's convention.
+`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
 
-`model: quantum`: QMA is a quantum class and both directions of the proof are quantum.
+`model: quantum`: QMA is a quantum class and both halves of the proof are quantum.
 
 - 3-local Hamiltonian is QMA-complete — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]]
 - 2-local Hamiltonian is QMA-complete, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]]
-- Completeness claim (in-class + hard-for-class); typed as 'equivalence' because the schema has no completeness kind.
 - local-hamiltonian has no page of its own; it resolves through quantum-merlin-arthur.md's variants map.

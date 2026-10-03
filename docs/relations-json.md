@@ -18,9 +18,14 @@ file, and a diff always means the content changed.
 
 ## Stability contract
 
-- **Ids never change.** An object's `id` is independent of its filename, so a
-  page can be renamed — or a variant promoted to its own page — without breaking
-  a formalization link. Ids are what you join on; `slug` and `page` are
+- **Ids never change while a page states the same theorem.** A page rewritten
+  to state a different theorem (reversed direction, different conclusion, or a
+  different source theorem) retires its id and takes
+  `red-<hypotheses>-to-<conclusion>[-<source>]` (`bar-…` on a barrier);
+  refining a node on the same theorem keeps the id. The commit that retires an
+  id names it. An object's `id` is independent of its filename, so a page can be
+  renamed — or a variant promoted to its own page — without breaking a
+  formalization link. Ids are what you join on; `slug` and `page` are
   presentation and may move.
 - **`version` is bumped on any breaking change** to field names, types, or
   semantics. Additive fields do not bump it, so consumers must ignore unknown
@@ -139,7 +144,7 @@ the general case, `Q = P ≠ NP`. One type covers both.
     { "kind": "contradiction", "target": "", "class": "fully-black-box" },
   ],
   "strength": "unconditional", // unconditional | conditional
-  "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on
+  "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on: an objects[].id, or free text when no node exists
   "circumventedBy": [], // reductions[].id that reach the conclusion outside the barrier's class or scope
   "source": ["[[IR89 - ...|IR89]]"],
   "status": "draft",

@@ -29,7 +29,9 @@
 //                  reduction ids that resolve; a barrier consequence's target
 //                  resolves for its kind (object -> object id or variant,
 //                  reduction -> reduction id); warns on a `complexity`
-//                  consequence marked `believed: true`
+//                  consequence marked `believed: true`; `security-loss` never
+//                  appears on a barrier; warns on a `conditional-on` entry
+//                  that is neither an object id nor multi-word free text
 //   variants       warns when two variant ids on one page share an anchor
 //                  (synonyms split one hyperedge in two)
 //
@@ -51,6 +53,7 @@ import {
   sharedVariantAnchors,
   unresolvedConsequenceTargets,
   believedConsequences,
+  unnamedConditions,
 } from "./lint-edges.mjs";
 
 const ROOT = path.resolve(
@@ -684,6 +687,13 @@ for (const p of pages) {
   }
 
   if (fm.type === "barrier") {
+    if (fm["security-loss"] !== undefined)
+      err(
+        f,
+        1,
+        "barrier-security-loss",
+        `security-loss describes a reduction's loss, and a barrier is no reduction. Remove the key; state the cost of the attack or counterexample the barrier gives in a Notes bullet.`,
+      );
     if (fm.strength !== undefined && !STRENGTHS.includes(String(fm.strength))) {
       err(
         f,
@@ -921,6 +931,17 @@ for (const { page, index, kind, target } of unresolvedConsequenceTargets(
     1,
     "edge-unresolved-id",
     `consequences[${index}] has kind "reduction", so its target "${target}" must be the "id:" of a page under content/Reductions/. ${objectIds.has(target) ? `"${target}" is an object id; if the consequence is that object, use kind: object. ` : ""}If the reduction has no page yet, create one or state the consequence in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+  );
+}
+
+// A conditional barrier names the assumption it rests on by id where the wiki
+// has a node, and in free text only where it has none.
+for (const { page, index, entry } of unnamedConditions(pages, objectIds)) {
+  warn(
+    page.file,
+    1,
+    "barrier-conditional-on",
+    `conditional-on[${index}] ${JSON.stringify(entry)} is neither an object id nor multi-word free text. Name the assumption by the id of its node (conditional-on: [owf], or a variant id such as pke-cpa-security); describe it in words only when the wiki has no node for it. A property of the scheme the barrier is about is not an assumption: it belongs in the Statement.`,
   );
 }
 

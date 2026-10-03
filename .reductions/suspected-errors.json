@@ -34,7 +34,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: DCR is not known to follow from the hardness of factoring. The known direction is the converse — factoring n breaks DCR — so DCR hardness implies factoring hardness. Pai99 does not prove factoring implies DCR.",
    "severity": "high",
    "affectsEdges": [
-    "red-fac-to-dcr-pai99"
+    "red-dcr-to-fac"
    ]
   },
   {
@@ -80,7 +80,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: QR hardness does not follow from factoring hardness; factoring N breaks QR, so QR hardness implies factoring hardness.",
    "severity": "high",
    "affectsEdges": [
-    "red-fac-to-qr-gm84"
+    "red-qr-to-factoring-blum-integers"
    ]
   },
   {
@@ -90,7 +90,7 @@
    "problem": "SUSPECTED MATHEMATICAL ERROR: same inverted direction as line 30 and as decisional-composite-residuosity.md line 30. Factoring hardness is implied by DCR hardness, not the other way round.",
    "severity": "high",
    "affectsEdges": [
-    "red-fac-to-dcr-pai99"
+    "red-dcr-to-fac"
    ]
   },
   {
@@ -136,7 +136,7 @@
    "problem": "SUSPECTED DIRECTION ERROR (report only, high confidence): \"QR follows from factoring hardness\" is backwards. The justification given on the same bullet — knowing p and q lets you compute the Legendre symbols — shows that a FACTORING ALGORITHM BREAKS QR, i.e. QR hardness implies factoring hardness, making QR the STRONGER assumption. QR does not follow from factoring hardness; no reduction in that direction is known.",
    "severity": "high",
    "affectsEdges": [
-    "red-fac-to-qr-gm84"
+    "red-qr-to-factoring-blum-integers"
    ]
   },
   {
