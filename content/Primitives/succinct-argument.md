@@ -97,7 +97,7 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 11148ade3f45 -->
+<!-- BEGIN GENERATED participates-in 4303a6070631 -->
 
 ## Participates in
 
@@ -108,7 +108,10 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 
 **Produces Succinct argument**
 
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-snark]])
+- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|transparent-succinct-argument]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|incremental-verifiable-computation]])
 
 **Barriers**
 

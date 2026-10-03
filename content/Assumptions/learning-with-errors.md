@@ -308,7 +308,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 8b31dbf82a49 -->
+<!-- BEGIN GENERATED participates-in 242e513ab858 -->
 
 ## Participates in
 
@@ -316,16 +316,36 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 
 - [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#decision-lwe|decision-lwe]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
+- [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]] (via [[learning-with-errors#circular-evasive-lwe|circular-evasive-lwe]])
+- [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]] (via [[learning-with-errors#evasive-lwe|evasive-lwe]], [[learning-with-errors#tensor-lwe|tensor-lwe]])
+- [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]] (via [[learning-with-errors#evasive-lwe|evasive-lwe]])
+- [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
+- [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|module-lwe]])
+- [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|module-lwe]])
+- [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]] (via [[learning-with-errors#module-lwe|module-lwe-rank-n]])
+- [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#module-lwe|module-lwe-rank-1]])
+- [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
+- [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|search-lwe]])
+- [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|succinct-lwe]])
+- [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]] (via [[learning-with-errors#succinct-lwe|succinct-lwe]])
 
 **Produces Learning with errors**
 
+- [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#search-lwe|search-lwe]])
+- [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]] (via [[learning-with-errors#succinct-lwe|succinct-lwe]])
 - [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
+- [[ideal-svp-to-ring-lwe-lpr10|Ideal-SVP ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
 - [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]]
+- [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
+- [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|module-lwe]])
+- [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|decision-lwe]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]
 

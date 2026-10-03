@@ -179,7 +179,7 @@ is negligible.
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
 
-<!-- BEGIN GENERATED participates-in 4f6f1b0f4196 -->
+<!-- BEGIN GENERATED participates-in 4d4b021ea568 -->
 
 ## Participates in
 
@@ -192,9 +192,14 @@ is negligible.
 **Produces Attribute-based encryption**
 
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (via [[attribute-based-encryption#cp-abe-ind-cpa-security|cp-abe-adaptive-security]])
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]]
+
+**Barriers**
+
+- [[no-selective-security-to-cp-abe-ind-cpa-security|No fixed-construction reduction from selective to adaptive CP-ABE security]] (via [[attribute-based-encryption#selective-security|abe-selective-security]], [[attribute-based-encryption#cp-abe-ind-cpa-security|cp-abe-adaptive-security]])
 
 <!-- END GENERATED participates-in -->

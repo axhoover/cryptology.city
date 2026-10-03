@@ -67,17 +67,22 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in b85479437481 -->
+<!-- BEGIN GENERATED participates-in 71c06d0862c2 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [[bilinear-map-assumptions#decision-n-bdhe|n-bdhe]])
 - [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
+- [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|sxdh]])
+- [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
+- [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|sxdh]])
 
 <!-- END GENERATED participates-in -->

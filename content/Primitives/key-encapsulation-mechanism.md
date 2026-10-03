@@ -88,17 +88,23 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
 - [[kem-to-ke|KEM ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in af8a13f02623 -->
+<!-- BEGIN GENERATED participates-in ca82ead2116c -->
 
 ## Participates in
 
 **Builds on Key encapsulation mechanism**
 
+- [[ind-cca-security-to-ind-cpa-kem|IND-CCA security ⇒ IND-CPA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|ind-cca-kem]])
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - [[kem-to-ke|KEM ⇒ KE]]
 
 **Produces Key encapsulation mechanism**
 
+- [[ind-cca-security-to-ind-cpa-kem|IND-CCA security ⇒ IND-CPA KEM]] (via [[key-encapsulation-mechanism#ind-cpa-kem|ind-cpa-kem]])
+- [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[key-encapsulation-mechanism#ind-cca-security|ind-cca-kem]])
+- [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|ind-cca-kem]])
+- [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|ind-cca-kem]])
 - [[pke-to-kem|PKE ⇒ KEM]]
+- [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]] (via [[key-encapsulation-mechanism#ind-cca-security|ind-cca-kem]])
 
 <!-- END GENERATED participates-in -->

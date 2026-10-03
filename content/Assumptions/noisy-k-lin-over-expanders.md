@@ -64,12 +64,13 @@ The search variant asks to recover $\mathbf{s}$ from $(\mathbf{M}, \mathbf{Ms}+\
 
 No efficient algorithms are known for the conjecture parameters. Over $\FF_2$ (reducing to Sparse LPN), the best known attacks are variants of information-set decoding and BKW-style algorithms, whose complexity grows polynomially in $n$ only outside the conjecture's parameter regime.
 
-<!-- BEGIN GENERATED participates-in 51d38e9f2471 -->
+<!-- BEGIN GENERATED participates-in 2c6aa418f551 -->
 
 ## Participates in
 
 **Builds on Noisy k-LIN over expanders**
 
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]] (via [[noisy-k-lin-over-expanders#search-noisy-k-lin|search-noisy-k-lin]])
 
 <!-- END GENERATED participates-in -->

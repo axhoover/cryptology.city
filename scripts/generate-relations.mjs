@@ -10,7 +10,10 @@
 // Two outputs:
 //
 //   content/**/*.md   a "Participates in" section on every object page, inside
-//                     a delimited region carrying a checksum. Regenerating when
+//                     a delimited region carrying a checksum: the edges on the
+//                     page's id or its variants, the reductions proved in the
+//                     model it defines, and those using it via `via` (built by
+//                     scripts/participates-in.mjs). Regenerating when
 //                     nothing changed produces no diff, and a hand edit inside
 //                     the region is a lint error rather than something the next
 //                     regeneration silently reverts.
@@ -28,6 +31,7 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
+import { makeParticipatesIn } from "./participates-in.mjs";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
@@ -165,7 +169,6 @@ for (const p of pages) {
     });
   }
 }
-const byId = (xs) => [...xs].sort((a, b) => a.id.localeCompare(b.id));
 reductions.sort((a, b) => a.id.localeCompare(b.id));
 barriers.sort((a, b) => a.id.localeCompare(b.id));
 
@@ -274,47 +277,10 @@ function redundant() {
 }
 
 // ------------------------------------------------------- participates-in -----
-const linkTo = (id) => {
-  const o = objects.get(id);
-  if (!o) return `\`${id}\``;
-  return o.kind === "variant"
-    ? `[[${o.slug}${o.anchor}|${o.title}]]`
-    : `[[${o.slug}|${o.title}]]`;
-};
-const edgeLink = (e) => `[[${e.slug}|${e.title}]]`;
-const reductionById = new Map(reductions.map((r) => [r.id, r]));
-// A barrier line names the reductions that get around it, so a reader of the
-// object page does not take the barrier for the last word.
-const barrierLine = (b) => {
-  const around = (b.circumventedBy ?? [])
-    .map((id) => reductionById.get(id))
-    .filter(Boolean)
-    .map(edgeLink);
-  return around.length
-    ? `${edgeLink(b)} — circumvented by ${around.join(", ")}`
-    : edgeLink(b);
-};
-
-function participatesIn(id) {
-  const asHyp = reductions.filter((r) => r.hypotheses.includes(id));
-  const asConcl = reductions.filter((r) => r.conclusion === id);
-  const bars = barriers.filter(
-    (b) => b.hypotheses.includes(id) || b.conclusion === id,
-  );
-  if (!asHyp.length && !asConcl.length && !bars.length) return null;
-
-  const lines = ["## Participates in", ""];
-  const section = (heading, xs, line = edgeLink) => {
-    if (!xs.length) return;
-    lines.push(`**${heading}**`, "");
-    for (const e of xs) lines.push(`- ${line(e)}`);
-    lines.push("");
-  };
-  section(`Builds on ${objects.get(id)?.title ?? id}`, byId(asHyp));
-  section(`Produces ${objects.get(id)?.title ?? id}`, byId(asConcl));
-  section("Barriers", byId(bars), barrierLine);
-  return lines.join("\n").trimEnd();
-}
+// The section itself is built in scripts/participates-in.mjs, which the tests
+// share: edges on the page's id or one of its variants, then the reductions
+// proved in the model the page defines or using it via `via`.
+const participatesIn = makeParticipatesIn({ objects, reductions, barriers });
 
 const digest = (s) =>
   crypto.createHash("sha256").update(s, "utf8").digest("hex").slice(0, 12);

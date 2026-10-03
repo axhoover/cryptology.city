@@ -53,7 +53,7 @@ Some protocols assume factoring is hard even given additional structural informa
 - **General Number Field Sieve (GNFS)**: sub-exponential $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — best known classical algorithm for large $N$
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 0f83729489e0 -->
+<!-- BEGIN GENERATED participates-in 9904ca10dc09 -->
 
 ## Participates in
 
@@ -61,10 +61,12 @@ Some protocols assume factoring is hard even given additional structural informa
 
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
+- [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]] (via [[factoring#factoring-with-known-factor-structure|factoring-blum-integers]])
 
 **Produces Factoring assumption**
 
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]] (via [[factoring#factoring-with-known-factor-structure|factoring-blum-integers]])
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
 

@@ -129,9 +129,13 @@ A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[pseudo
 - MACs can be constructed from [[pseudorandom-function|PRF]]s
 - CPA-secure [[symmetric-key-encryption|SKE]] can be boosted to CCA-secure SKE using a MAC (encrypt-then-MAC construction)
 
-<!-- BEGIN GENERATED participates-in 68e166a78e3d -->
+<!-- BEGIN GENERATED participates-in 63c42ca5199c -->
 
 ## Participates in
+
+**Builds on Message authentication code**
+
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[message-authentication-code#strong-unforgeability|suf-cma-mac]])
 
 **Produces Message authentication code**
 

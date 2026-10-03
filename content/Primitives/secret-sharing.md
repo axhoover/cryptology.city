@@ -68,3 +68,18 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
 - Monotone-span-program size lower bounds survive amortization: a lower bound proved for a program sharing one secret still applies, per secret, when the same program is reused to share several secrets at once — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
 - There exist access structures on $n$ parties for which every perfect multilinear scheme, over every finite field, requires shares of total size $2^{\Omega(n)}$ times the secret size — matching the known $2^{O(n)}$ upper bound and settling [Beimel, ePrint 2025/518, Question 10.4] — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
+
+<!-- BEGIN GENERATED participates-in c00917c136e8 -->
+
+## Participates in
+
+**Builds on Secret sharing**
+
+- [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]] (via [[secret-sharing#linear-secret-sharing-schemes-lsss|linear-secret-sharing-scheme]])
+- [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]] (via [[secret-sharing#linear-secret-sharing-schemes-lsss|linear-secret-sharing-scheme]])
+
+**Produces Secret sharing**
+
+- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]] (via [[secret-sharing#verifiable-secret-sharing-vss|verifiable-secret-sharing]])
+
+<!-- END GENERATED participates-in -->

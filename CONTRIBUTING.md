@@ -304,8 +304,16 @@ Every object page carries a generated region:
 <!-- END GENERATED participates-in -->
 ```
 
-It lists the reductions the object is a hypothesis of, the reductions that
-produce it, and the barriers touching it. The checksum makes a hand edit a lint
+It lists the reductions the object is a hypothesis of (**Builds on**), the
+reductions that produce it (**Produces**), and the barriers touching it
+(**Barriers**). An edge counts when an endpoint is the page's `id` or one of
+its `variants`; a line reached only through a variant names it, as in
+`(via [[public-key-encryption#cca-security|pke-cca2-security]])`. Two more
+headings list edges that use the page without having it as an endpoint:
+**Proved in the …** on a model page, for reductions whose `model` it defines
+(`rom`, `generic-group` and `algebraic-group` map to the `rom`, `ggm` and `agm`
+pages), and **Used via …** for reductions whose `via` links to the page. No
+reduction is listed twice in one region. The checksum makes a hand edit a lint
 error rather than something the next regeneration silently reverts. To change
 what appears there, edit the reduction or barrier page and run:
 

@@ -190,21 +190,29 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ Hash function]]
 
-<!-- BEGIN GENERATED participates-in 89c330b8c8b2 -->
+<!-- BEGIN GENERATED participates-in e66b4ef896e1 -->
 
 ## Participates in
 
 **Builds on Digital signature**
 
 - [[ds-to-hash-function|DS ⇒ OWF]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[digital-signature#schnorr-signatures|schnorr-identification-protocol]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#hash-based-signatures|one-time-signature]])
 
 **Produces Digital signature**
 
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[digital-signature#schnorr-signatures|schnorr-signature]])
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|boneh-lynn-shacham-signature]])
+- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[digital-signature#schnorr-signatures|schnorr-identification-protocol]])
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[digital-signature#schnorr-signatures|schnorr-signature]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
 - [[hash-function-to-ds|OWF ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]] (via [[digital-signature#hash-based-signatures|xmss]])
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[digital-signature#hash-based-signatures|one-time-signature]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]

@@ -27,7 +27,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 6368558eb389 -->
+<!-- BEGIN GENERATED participates-in 37ba533c36de -->
 
 ## Participates in
 
@@ -39,5 +39,28 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 **Barriers**
 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
+
+**Proved in the Random Oracle Model**
+
+- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
+- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[dlog-to-pcs|DLOG ⇒ PCS]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
+- [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
+- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
+- [[id-and-rom-to-ds|ID ⇒ DS]]
+- [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
+- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
+- [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
+- [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
+- [[sis-to-ds|SIS ⇒ DS]]
+- [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 
 <!-- END GENERATED participates-in -->

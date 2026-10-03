@@ -57,17 +57,22 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in 2128e4fd53ff -->
+<!-- BEGIN GENERATED participates-in b6206dec5edc -->
 
 ## Participates in
 
 **Builds on Key exchange**
 
+- [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]] (via [[key-exchange#authenticated-key-exchange-ake|authenticated-key-exchange]])
 - [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]]
+- [[ke-to-pke-dh76|NIKE ⇒ PKE]] (via [[key-exchange#non-interactive-key-exchange-nike|non-interactive-key-exchange]])
+- [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]] (via [[key-exchange#non-interactive-key-exchange-nike|non-interactive-key-exchange]])
 
 **Produces Key exchange**
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
+- [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|non-interactive-key-exchange]])
+- [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|multi-party-key-exchange]])
 - [[kem-to-ke|KEM ⇒ KE]]
 - [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]
 - [[pke-to-ke|PKE ⇒ KE]]

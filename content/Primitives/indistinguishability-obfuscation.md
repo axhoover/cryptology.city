@@ -60,12 +60,13 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard
 
-<!-- BEGIN GENERATED participates-in 05f8d5f12d30 -->
+<!-- BEGIN GENERATED participates-in 0936ba97bcde -->
 
 ## Participates in
 
 **Builds on Indistinguishability Obfuscation**
 
+- [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]] (via [[indistinguishability-obfuscation#differing-inputs-obfuscation-dio|differing-inputs-obfuscation]])
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]

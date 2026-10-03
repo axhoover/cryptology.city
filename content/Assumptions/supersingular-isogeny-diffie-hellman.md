@@ -79,3 +79,13 @@ A post-quantum [[digital-signature|digital signature]] scheme based on isogenies
 - **CD22 classical polynomial-time attack**: Exploits the auxiliary torsion-point images in SIDH to recover the secret isogeny efficiently via abelian surface arguments (Kani's theorem) — [[CD22 - An efficient key recovery attack on SIDH|CD22]]
 - **Quantum sub-exponential attack on CSIDH**: Kuperberg's algorithm for the hidden-shift problem recovers the secret key in quantum subexponential time; a classical meet-in-the-middle attack takes time $\tilde{O}(p^{1/4})$ — Castryck–Lange–Martindale–Panny–Renes (ASIACRYPT 2018)
 - The original SIDH assumption (without auxiliary torsion points) may still be hard — this is the basis for exploring modifications
+
+<!-- BEGIN GENERATED participates-in b243c2d301d1 -->
+
+## Participates in
+
+**Builds on Supersingular Isogeny Diffie-Hellman**
+
+- [[sidh-to-ke-jdf11|SSDDH ⇒ KE]] (via [[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|ssddh]])
+
+<!-- END GENERATED participates-in -->

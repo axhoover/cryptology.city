@@ -150,13 +150,14 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 249aef61cd7d -->
+<!-- BEGIN GENERATED participates-in 74cd49e974a9 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]]
+- [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|invertible-prf]])
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
@@ -164,9 +165,12 @@ is negligible.
 
 **Produces Pseudorandom function**
 
+- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[pseudorandom-function#weak-prfs|weak-prf]])
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
+- [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|invertible-prf]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|invertible-prf]])
 - [[prp-to-prf|PRP ⇒ PRF]]
 
 <!-- END GENERATED participates-in -->

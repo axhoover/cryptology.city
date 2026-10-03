@@ -81,7 +81,9 @@ when it is the only hypothesis, since a hyperedge needs one; and on a barrier,
 where the named transform is what the barrier rules out — dropping
 `fiat-shamir` from `no-fiat-shamir-and-hash-function-to-ds-gk03` would leave
 the false "no reduction from hash functions to DS". Idealised models follow the
-same pattern on the `model` axis (§ Which model to record).
+same pattern on the `model` axis (§ Which model to record). The technique's own
+page lists the reductions whose `via` links to it under **Used via** in its
+generated "Participates in" section.
 
 ### Candidates: `heuristic`
 
@@ -196,6 +198,11 @@ variants:
 Both the string form and the mapping form are accepted, so nothing has to be
 rewritten later.
 
+An edge on a variant is listed in the generated "Participates in" section of
+the page declaring the variant, under the same headings as an edge on the
+page's `id`, with the variant named:
+`(via [[learning-with-errors#ring-lwe|ring-lwe]])`.
+
 A reduction or barrier slug's paper suffix records the page's origin; `source`
 is authoritative. When the two disagree, keep the filename (a live URL) and the
 `id` (`relations.json` and the formalization repo join on it) and add a Notes
@@ -262,7 +269,12 @@ model, which is the `free` class scoped by the model (§ Which model to record).
 
 ### Which model to record
 
-`model` is the model in which the cited theorem is proved.
+`model` is the model in which the cited theorem is proved. The model's page
+lists the reductions proved in it under **Proved in the …** in its generated
+"Participates in" section, except those already under Builds on or Produces:
+`rom`, `generic-group` and `algebraic-group` map to the pages with ids `rom`,
+`ggm` and `agm` (`MODEL_PAGES` in `scripts/participates-in.mjs`); the other
+models have no page.
 
 - **Model only, not also a hypothesis.** An idealised model the proof relies
   on is recorded in `model` and named in the Statement, never also listed in

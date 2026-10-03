@@ -132,16 +132,19 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 95e85fee3ea6 -->
+<!-- BEGIN GENERATED participates-in b57acd2283cf -->
 
 ## Participates in
 
 **Builds on Oblivious transfer**
 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
+- [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|ot-extension]])
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|rabin-ot]])
+- [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|random-ot]])
 
 **Produces Oblivious transfer**
 

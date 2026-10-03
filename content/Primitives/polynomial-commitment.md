@@ -93,12 +93,13 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
-<!-- BEGIN GENERATED participates-in 3eefd62e2e48 -->
+<!-- BEGIN GENERATED participates-in 0eccc96164d7 -->
 
 ## Participates in
 
 **Builds on Polynomial commitment scheme**
 
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]] (via [[polynomial-commitment#extractability|extractable-pcs]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 
 **Produces Polynomial commitment scheme**

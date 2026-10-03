@@ -76,19 +76,23 @@ Ring-SIS enjoys the same worst-case-to-average-case hardness as plain SIS, now r
 
 Hardness of Module-SIS reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Dilithium (ML-DSA, FIPS 204) is unforgeable in the random-oracle model under Module-SIS together with [[learning-with-errors#module-lwe|Module LWE]] ([[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]) — [[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]].
 
-<!-- BEGIN GENERATED participates-in e7ff96bde0db -->
+<!-- BEGIN GENERATED participates-in 11b9d6f13adb -->
 
 ## Participates in
 
 **Builds on Shortest Integer Solution**
 
+- [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]] (via [[shortest-integer-solution#isis-inhomogeneous-sis|inhomogeneous-sis]])
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[shortest-integer-solution#module-sis|module-sis]])
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]]
 
 **Produces Shortest Integer Solution**
 
 - [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]]
+- [[ideal-svp-to-ring-sis-lm06|Ideal-SVP ⇒ Ring-SIS]] (via [[shortest-integer-solution#ring-sis|ring-sis]])
 - [[isis-inhomogeneous-sis-to-sis|ISIS (Inhomogeneous SIS) ⇔ SIS]]
+- [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]] (via [[shortest-integer-solution#module-sis|module-sis]])
 - [[sivp-to-sis-ajt96|SIVP ⇒ SIS]]
 
 <!-- END GENERATED participates-in -->

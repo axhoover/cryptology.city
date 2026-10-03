@@ -78,3 +78,18 @@ See [[pseudorandom-correlation-generator|PCG]]. Pseudorandom correlation functio
 - Algebraic attacks exploiting the mixed-moduli structure (Gröbner basis methods, linearization) remain the primary avenue
 
 [^1]: The name "Crypto Dark Matter" reflects the idea that large regions of the cryptographic assumption landscape remain unexplored.
+
+<!-- BEGIN GENERATED participates-in fc51df2b13c1 -->
+
+## Participates in
+
+**Builds on Alternating moduli assumption**
+
+- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|alternating-moduli-weak]])
+- [[strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption|Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption]] (via [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|alternating-moduli-strong]])
+
+**Produces Alternating moduli assumption**
+
+- [[strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption|Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|alternating-moduli-weak]])
+
+<!-- END GENERATED participates-in -->

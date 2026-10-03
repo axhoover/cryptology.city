@@ -78,14 +78,23 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 
-<!-- BEGIN GENERATED participates-in fa58290e460e -->
+<!-- BEGIN GENERATED participates-in 4eb144d9b50f -->
 
 ## Participates in
 
+**Builds on Secure multi-party computation**
+
+- [[honest-majority-t-lt-n-over-2-to-mpc-rb89|Honest majority ($t < n/2$) ⇒ MPC]] (via [[secure-multi-party-computation#honest-majority-t-n2|honest-majority-t-lt-n-over-2]])
+- [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$) ⇒ MPC]] (via [[secure-multi-party-computation#honest-majority-t-n3|honest-majority-t-lt-n-over-3]])
+
 **Produces Secure multi-party computation**
 
+- [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|mpc-with-preprocessing]])
+- [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]] (via [[secure-multi-party-computation#two-party-computation-2pc|two-party-computation]])
+- [[he-to-mpc-with-preprocessing-spdz-etc|SHE ⇒ MPC with preprocessing (SPDZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|mpc-with-preprocessing]])
 - [[honest-majority-t-lt-n-over-2-to-mpc-rb89|Honest majority ($t < n/2$) ⇒ MPC]]
 - [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|Honest majority ($t < n/3$) ⇒ MPC]]
+- [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|mpc-with-preprocessing]])
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
 <!-- END GENERATED participates-in -->

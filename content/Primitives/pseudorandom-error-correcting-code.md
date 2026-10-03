@@ -63,17 +63,21 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 - [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]], including zero-bit PRCs — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 
-<!-- BEGIN GENERATED participates-in 21b6457c79f0 -->
+<!-- BEGIN GENERATED participates-in 381a54090ceb -->
 
 ## Participates in
 
 **Builds on Pseudorandom error-correcting code**
 
+- [[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]] (via [[pseudorandom-error-correcting-code#adaptive-robustness|adaptively-robust-prc]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
+- [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit-prc]])
+- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit-prc]])
 
 **Produces Pseudorandom error-correcting code**
 
 - [[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]]
+- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit-prc]])
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
 
 <!-- END GENERATED participates-in -->

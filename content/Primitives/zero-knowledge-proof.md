@@ -79,12 +79,13 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 7993ab43c9a5 -->
+<!-- BEGIN GENERATED participates-in 6ecfb41663f5 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier-zero-knowledge]])
 - [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 
 **Produces Zero-knowledge proof**

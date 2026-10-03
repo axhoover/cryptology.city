@@ -70,14 +70,16 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in f714fd693aac -->
+<!-- BEGIN GENERATED participates-in bb29ffe96b81 -->
 
 ## Participates in
 
 **Produces Commitment scheme**
 
 - [[dcr-to-com|DCR ⇒ COM]]
+- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|statistically-hiding-commitment]])
 - [[ot-to-com|OT ⇒ COM]]
+- [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]] (via [[commitment-scheme#vector-commitments|vector-commitment]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[qr-to-com|QR ⇒ COM]]

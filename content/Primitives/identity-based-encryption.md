@@ -116,13 +116,16 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 261e6b8ca544 -->
+<!-- BEGIN GENERATED participates-in 916003f8c672 -->
 
 ## Participates in
 
 **Builds on Identity-based encryption**
 
 - [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-id-cpa-security|ind-id-cpa]])
+- [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|ind-sid-cpa]])
+- [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|subexp-ind-sid-cpa]])
 
 **Produces Identity-based encryption**
 
@@ -131,5 +134,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|ind-sid-cpa]])
+- [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#ind-id-cpa-security|ind-id-cpa]])
 
 <!-- END GENERATED participates-in -->
