@@ -408,7 +408,7 @@ Each reference page can opt into a _Copy BibTeX_ button by setting one of two op
 
 Pages with neither field render no button. Adoption is incremental — add `cryptobib_key` to pages as you edit them.
 
-**Validation:** `npm run sync-cryptobib` reports references whose local frontmatter (`title`, `authors`, `venue`, `published`) drifts from the cryptobib entry, plus references whose `cryptobib_key` does not resolve. A `rewrite` mode is stubbed for future use (`npm run sync-cryptobib rewrite`).
+**Validation:** `npm run sync-cryptobib` reports references whose H1 title or frontmatter (`authors`, `venue`, `published`) drifts from the cryptobib entry, plus references whose `cryptobib_key` does not resolve. TeX accents and math are decoded on both sides; `venue` is checked against the series and year the key prefix encodes (`C:` is CRYPTO, `FOCS:` is FOCS); confirmed errors in cryptobib itself go in `UPSTREAM_ERRORS` in `scripts/sync-cryptobib.ts`. A `rewrite` mode is stubbed for future use (`npm run sync-cryptobib rewrite`).
 
 **Bumping cryptobib:** `cd vendor/cryptobib && git pull origin master && cd - && git add vendor/cryptobib && git commit`. Re-run `npm run sync-cryptobib` afterwards to pick up any new keys or drift.
 

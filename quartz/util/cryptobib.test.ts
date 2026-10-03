@@ -3,9 +3,14 @@ import assert from "node:assert";
 import {
   parseBib,
   formatBibtex,
+  decodeBibTeX,
+  foldDiacritics,
+  keyYear,
   normalizeAuthors,
   normalizeForCompare,
   stripBibBraces,
+  venueMatchesKey,
+  venueMatchesName,
 } from "./cryptobib";
 
 const SAMPLE = `
@@ -102,6 +107,124 @@ describe("cryptobib parser", () => {
     assert.strictEqual(
       normalizeForCompare("Identity-Based Encryption from the {Weil} Pairing"),
       "identity based encryption from the weil pairing",
+    );
+  });
+
+  test("decodeBibTeX decodes accents, special letters and math symbols", () => {
+    assert.strictEqual(decodeBibTeX("Stehl{\\'e}"), "Stehl{é}");
+    assert.strictEqual(decodeBibTeX("Damg{\\aa}rd"), "Damg{å}rd");
+    assert.strictEqual(decodeBibTeX("H{\\r a}stad"), "H{å}stad");
+    assert.strictEqual(decodeBibTeX("Fran{\\c c}ois"), "Fran{ç}ois");
+    assert.strictEqual(decodeBibTeX("Ga{\\v{z}}i"), "Ga{ž}i");
+    assert.strictEqual(decodeBibTeX("Beno{\\^\\i}t"), "Beno{î}t");
+    assert.strictEqual(decodeBibTeX("Kloo{\\ss}"), "Kloo{ß}");
+    assert.strictEqual(decodeBibTeX("{NP} $\\cap$ {coNP}"), "{NP} $∩$ {coNP}");
+    assert.strictEqual(
+      decodeBibTeX("$\\textsf{poly}(\\text{depth},\\lambda)$"),
+      "${poly}({depth},λ)$",
+    );
+    // Unknown commands and escaped punctuation are left alone.
+    assert.strictEqual(
+      decodeBibTeX("$O(\\log n)$ \\& more"),
+      "$O(\\log n)$ \\& more",
+    );
+  });
+
+  test("foldDiacritics strips marks and folds ø, ł, ß", () => {
+    assert.strictEqual(
+      foldDiacritics("Stehlé Håstad Øygarden Michał Groß"),
+      "Stehle Hastad Oygarden Michal Gross",
+    );
+  });
+
+  test("normalizeForCompare equates TeX and Unicode spellings", () => {
+    assert.strictEqual(
+      normalizeForCompare("Damien Stehl\\'e, Ivan Damg\\aa rd"),
+      normalizeForCompare("Damien Stehlé, Ivan Damgård"),
+    );
+    assert.strictEqual(
+      normalizeForCompare("Lattice Problems in {NP} $\\cap$ {coNP}"),
+      normalizeForCompare("Lattice Problems in NP ∩ coNP"),
+    );
+  });
+
+  test("normalizeAuthors decodes accents", () => {
+    assert.strictEqual(
+      normalizeAuthors("Johan H{\\aa}stad and Mikl{\\'o}s Ajtai"),
+      "Johan Håstad, Miklós Ajtai",
+    );
+  });
+
+  test("keyYear reads the two-digit key suffix", () => {
+    assert.strictEqual(keyYear("C:ImpRud88"), "1988");
+    assert.strictEqual(keyYear("EC:AKLNPS20"), "2020");
+    assert.strictEqual(keyYear("FOCS:Yao82b"), "1982");
+    assert.strictEqual(keyYear("DifHel76"), "1976");
+  });
+
+  test("venueMatchesKey compares series acronym and key year", () => {
+    assert.deepStrictEqual(venueMatchesKey("STOC 2025", "STOC:AACDG25"), {
+      matches: true,
+      expected: "STOC 2025",
+    });
+    assert.strictEqual(
+      venueMatchesKey("Eurocrypt 2020", "EC:AKLNPS20")?.matches,
+      true,
+    );
+    assert.strictEqual(
+      venueMatchesKey("IEEE S&P 2018", "SP:BBBPWM18")?.matches,
+      true,
+    );
+    assert.strictEqual(
+      venueMatchesKey("STOC 2008, JACM 2015", "STOC:GolKalRot08")?.matches,
+      true,
+    );
+    // Wrong series, wrong year, or no venue at all.
+    assert.strictEqual(
+      venueMatchesKey("STOC 2010", "FOCS:MMPRTV10")?.matches,
+      false,
+    );
+    assert.strictEqual(
+      venueMatchesKey("CRYPTO 2002", "C:BonFra01")?.matches,
+      false,
+    );
+    assert.strictEqual(venueMatchesKey("preprint", "EC:Yeo23")?.matches, false);
+    // CRYPTO is not a word of "Cryptography and Coding".
+    assert.strictEqual(
+      venueMatchesKey("IMA Cryptography and Coding 2001", "C:BonFra01")
+        ?.matches,
+      false,
+    );
+    // Prefixes without a known series fall through to the caller.
+    assert.strictEqual(
+      venueMatchesKey("preprint", "EPRINT:Rabin05"),
+      undefined,
+    );
+    assert.strictEqual(venueMatchesKey("JACM 1991", "GolMicWig91"), undefined);
+  });
+
+  test("venueMatchesName accepts journal abbreviations and reworded names", () => {
+    assert.ok(venueMatchesName("JACM 1991", "Journal of the {ACM}"));
+    assert.ok(
+      venueMatchesName(
+        "SIAM Journal on Computing 1986",
+        "{SIAM} Journal on Computing",
+      ),
+    );
+    assert.ok(
+      venueMatchesName(
+        "Structure in Complexity Theory 1993",
+        "Proceedings of Structures in Complexity Theory",
+      ),
+    );
+    assert.ok(
+      !venueMatchesName(
+        "preprint",
+        "{IEEE} Transactions on Information Theory",
+      ),
+    );
+    assert.ok(
+      !venueMatchesName("Journal of the ACM", "{SIAM} Journal on Computing"),
     );
   });
 
