@@ -80,12 +80,13 @@ You **do not touch**:
    separation claim. For each entry:
    - read the cited paper (use the `paper_url`),
    - phrase the separation precisely on the `endpoint_b` page's
-     `# Other results` as e.g. *"No black-box construction of X from Y is
-     known to be ruled out / is ruled out — [[REF|KEY]]"*, matching what the
+     `# Other results` as e.g. _"No black-box construction of X from Y is
+     known to be ruled out / is ruled out — [[REF|KEY]]"_, matching what the
      paper actually proves,
    - set the affected page's `.fact-check/queue.json` entry to `bot_flagged`,
    - add a `TODO_SUMMARY.md` line naming the paper and the precise statement
      for human/skeptical-checker confirmation.
+
    When in doubt about direction, write the TODO and add **no** bullet.
 
 7. **`new_primitive_stubs`** (only if present) — create a minimal page

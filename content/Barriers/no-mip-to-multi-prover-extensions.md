@@ -17,7 +17,7 @@ source:
   - "[[NW19 - NEEXP is Contained in MIP-star|NW19]]"
 ---
 
-# No free reduction from MIP* to MIP
+# No free reduction from MIP\* to MIP
 
 A reduction of class `free` from [[quantum-interactive-proofs#multi-prover-extensions|MIP*]] to [[multi-prover-interactive-proofs|MIP]] would imply a contradiction.
 

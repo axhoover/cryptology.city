@@ -15,8 +15,8 @@
 //
 // Pure Node — no dependencies.
 
-import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
+import { execFileSync } from "node:child_process";
+import { createHash } from "node:crypto";
 import {
   readFileSync,
   writeFileSync,
@@ -24,32 +24,37 @@ import {
   existsSync,
   mkdirSync,
   statSync,
-} from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+} from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 
 // ----- Paths and tunables --------------------------------------------------
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = resolve(__dirname, '..');
+const REPO_ROOT = resolve(__dirname, "..");
 
-const STATE_DIR = resolve(__dirname, 'state');
-const LAST_RUN_PATH = resolve(STATE_DIR, 'last_run.json');
-const PLAN_PATH = resolve(STATE_DIR, 'plan.json');
-const REPORT_PATH = resolve(STATE_DIR, 'WEEKLY_REPORT.md');
+const STATE_DIR = resolve(__dirname, "state");
+const LAST_RUN_PATH = resolve(STATE_DIR, "last_run.json");
+const PLAN_PATH = resolve(STATE_DIR, "plan.json");
+const REPORT_PATH = resolve(STATE_DIR, "WEEKLY_REPORT.md");
 
-const QUEUE_PATH = resolve(REPO_ROOT, '.fact-check', 'queue.json');
-const TODO_PATH = resolve(REPO_ROOT, 'TODO_SUMMARY.md'); // adjust if your TODO file lives elsewhere
+const QUEUE_PATH = resolve(REPO_ROOT, ".fact-check", "queue.json");
+const TODO_PATH = resolve(REPO_ROOT, "TODO_SUMMARY.md"); // adjust if your TODO file lives elsewhere
 
-const MICROCRYPT_GV_PATH = resolve(REPO_ROOT, 'vendor', 'microcrypt-zoo', 'microcrypt.gv');
-const MICROCRYPT_SYNC_STATE_PATH = resolve(STATE_DIR, 'microcrypt-sync.json');
+const MICROCRYPT_GV_PATH = resolve(
+  REPO_ROOT,
+  "vendor",
+  "microcrypt-zoo",
+  "microcrypt.gv",
+);
+const MICROCRYPT_SYNC_STATE_PATH = resolve(STATE_DIR, "microcrypt-sync.json");
 
-const CONTENT_DIR = 'content';
+const CONTENT_DIR = "content";
 const DEEP_DIRS = [
-  'content/Primitives',
-  'content/Complexity',
-  'content/Assumptions',
-  'content/Glossary',
+  "content/Primitives",
+  "content/Complexity",
+  "content/Assumptions",
+  "content/Glossary",
 ];
 
 const QUIET_DAYS_FOR_REFACTOR = 30;
@@ -58,24 +63,24 @@ const ROT_SWEEP_EVERY_N_RUNS = 4;
 const TODO_TRIAGE_THRESHOLD = 25;
 
 const BOT_KEYS = [
-  'editor',
-  'reference_fixer',
-  'skeptical_checker',
-  'refactor_simplifier',
-  'todo_triage',
-  'microcrypt_sync',
+  "editor",
+  "reference_fixer",
+  "skeptical_checker",
+  "refactor_simplifier",
+  "todo_triage",
+  "microcrypt_sync",
 ];
 
 // ----- Small utilities -----------------------------------------------------
 
 function git(args) {
-  return execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8' }).trim();
+  return execFileSync("git", args, { cwd: REPO_ROOT, encoding: "utf8" }).trim();
 }
 
 function readJsonOrNull(path) {
   if (!existsSync(path)) return null;
   try {
-    return JSON.parse(readFileSync(path, 'utf8'));
+    return JSON.parse(readFileSync(path, "utf8"));
   } catch (err) {
     console.error(`Warning: failed to parse ${path}: ${err.message}`);
     return null;
@@ -89,12 +94,12 @@ function ensureDir(path) {
 // ----- Repository inspection ----------------------------------------------
 
 function currentSha() {
-  return git(['rev-parse', 'HEAD']);
+  return git(["rev-parse", "HEAD"]);
 }
 
 function shaExists(sha) {
   try {
-    git(['cat-file', '-e', `${sha}^{commit}`]);
+    git(["cat-file", "-e", `${sha}^{commit}`]);
     return true;
   } catch {
     return false;
@@ -111,22 +116,19 @@ function changedContentMd(sinceSha) {
   }
   let out;
   try {
-    out = git(['diff', '--name-only', `${sinceSha}..HEAD`, '--', CONTENT_DIR]);
+    out = git(["diff", "--name-only", `${sinceSha}..HEAD`, "--", CONTENT_DIR]);
   } catch (err) {
     console.error(`Warning: git diff failed: ${err.message}`);
     return [];
   }
-  return out
-    ? out.split('\n').filter((f) => f.endsWith('.md'))
-    : [];
+  return out ? out.split("\n").filter((f) => f.endsWith(".md")) : [];
 }
 
-const REF_PATTERN =
-  /^[+-](?!\+\+|--).*(\[\[|https?:\/\/|\\cite\{|@[\w:-]+)/m;
+const REF_PATTERN = /^[+-](?!\+\+|--).*(\[\[|https?:\/\/|\\cite\{|@[\w:-]+)/m;
 
 function looksLikeReferenceTouch(file, sinceSha) {
   try {
-    const diff = git(['diff', `${sinceSha}..HEAD`, '--', file]);
+    const diff = git(["diff", `${sinceSha}..HEAD`, "--", file]);
     return REF_PATTERN.test(diff);
   } catch {
     return false;
@@ -134,12 +136,12 @@ function looksLikeReferenceTouch(file, sinceSha) {
 }
 
 function isDeepContent(file) {
-  return DEEP_DIRS.some((d) => file.startsWith(d + '/'));
+  return DEEP_DIRS.some((d) => file.startsWith(d + "/"));
 }
 
 function countOpenTodos() {
   if (!existsSync(TODO_PATH)) return 0;
-  const txt = readFileSync(TODO_PATH, 'utf8');
+  const txt = readFileSync(TODO_PATH, "utf8");
   const matches = txt.match(/^\s*-\s*\[\s\]/gm);
   return matches ? matches.length : 0;
 }
@@ -154,7 +156,7 @@ function summarizeQueue() {
   const now = Date.now();
   for (const entry of Object.values(queue.entries)) {
     counts[entry.status] = (counts[entry.status] || 0) + 1;
-    if (entry.status === 'human_verified' && entry.verified_at) {
+    if (entry.status === "human_verified" && entry.verified_at) {
       const t = Date.parse(entry.verified_at);
       if (!Number.isNaN(t)) {
         const days = (now - t) / 86_400_000;
@@ -176,9 +178,9 @@ function skepticalCheckerHasWork(queueSummary) {
 
 function microcryptSyncShouldRun() {
   if (!existsSync(MICROCRYPT_GV_PATH)) return false;
-  const cur = createHash('sha256')
+  const cur = createHash("sha256")
     .update(readFileSync(MICROCRYPT_GV_PATH))
-    .digest('hex');
+    .digest("hex");
   const state = readJsonOrNull(MICROCRYPT_SYNC_STATE_PATH);
   const prev = state?.microcrypt_gv_sha256 ?? null;
   return cur !== prev;
@@ -217,17 +219,17 @@ function buildBasePlan({
         reason:
           changed.length > 0
             ? `${changed.length} content file(s) changed since last run`
-            : 'no content changes since last run',
+            : "no content changes since last run",
       },
       reference_fixer: {
         run: refTouched.length > 0 || doRotSweep,
-        mode: doRotSweep ? 'link-rot-sweep' : 'diff-scoped',
+        mode: doRotSweep ? "link-rot-sweep" : "diff-scoped",
         scope: doRotSweep ? [] : refTouched,
         reason: doRotSweep
           ? `periodic link-rot sweep (run #${runCount}, every ${ROT_SWEEP_EVERY_N_RUNS} runs)`
           : refTouched.length > 0
-          ? `${refTouched.length} reference-touching change(s)`
-          : 'no reference-touching changes',
+            ? `${refTouched.length} reference-touching change(s)`
+            : "no reference-touching changes",
       },
       skeptical_checker: {
         run: deepChanged.length > 0 || skepticalCheckerHasWork(queueSummary),
@@ -236,8 +238,8 @@ function buildBasePlan({
           deepChanged.length > 0
             ? `${deepChanged.length} deep-content file(s) changed`
             : queueSummary.exists
-            ? 'queue has unreviewed/stale/flagged entries'
-            : 'bootstrapping fact-check queue',
+              ? "queue has unreviewed/stale/flagged entries"
+              : "bootstrapping fact-check queue",
       },
       refactor_simplifier: {
         run:
@@ -245,13 +247,13 @@ function buildBasePlan({
             daysSinceLastRun >= QUIET_DAYS_FOR_REFACTOR &&
             changed.length === 0) ||
           (oldest !== null && oldest > HUMAN_VERIFIED_REFACTOR_AGE_DAYS),
-        scope: 'oldest-pages',
+        scope: "oldest-pages",
         reason:
           oldest !== null && oldest > HUMAN_VERIFIED_REFACTOR_AGE_DAYS
             ? `oldest human_verified page is ${Math.floor(oldest)} days old`
             : daysSinceLastRun !== null && changed.length === 0
-            ? `no content changes in ${Math.floor(daysSinceLastRun)} days`
-            : 'recent activity and verifications are fresh',
+              ? `no content changes in ${Math.floor(daysSinceLastRun)} days`
+              : "recent activity and verifications are fresh",
       },
       todo_triage: {
         run: openTodos > 0,
@@ -259,14 +261,14 @@ function buildBasePlan({
         reason:
           openTodos > 0
             ? `${openTodos} open TODOs — board refreshes; nag is delta-gated`
-            : 'no open TODOs',
+            : "no open TODOs",
       },
       microcrypt_sync: {
         run: microcryptSync,
-        scope: 'microcrypt-map',
+        scope: "microcrypt-map",
         reason: microcryptSync
-          ? 'upstream microcrypt.gv hash changed since last sync'
-          : 'microcrypt.gv hash unchanged since last sync',
+          ? "upstream microcrypt.gv hash changed since last sync"
+          : "microcrypt.gv hash unchanged since last sync",
       },
     },
   };
@@ -280,7 +282,7 @@ function buildRefinementPrompt(basePlan) {
   const truncated =
     basePlan.changed_files.length > sampleChanged.length
       ? ` (showing first 25 of ${basePlan.changed_files.length})`
-      : '';
+      : "";
 
   return `You are the weekly orchestrator for cryptology.city — a Quartz wiki of cryptography notes. A rule-based engine has produced the plan below. Your job is to refine it conservatively. Default to accepting the rule output; only override when there's a clear reason.
 
@@ -302,7 +304,7 @@ ${JSON.stringify(
 \`\`\`
 
 Changed files${truncated}:
-${sampleChanged.map((f) => `- ${f}`).join('\n') || '(none)'}
+${sampleChanged.map((f) => `- ${f}`).join("\n") || "(none)"}
 
 # What you can do
 - Flip any bot's \`run\` from true → false or false → true.
@@ -334,24 +336,24 @@ Return ONLY a single JSON object with this exact shape (no prose, no markdown fe
 async function refineWithLlm(basePlan) {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
-    return { used: false, reason: 'ANTHROPIC_API_KEY not set' };
+    return { used: false, reason: "ANTHROPIC_API_KEY not set" };
   }
-  const model = process.env.ORCHESTRATOR_MODEL || 'claude-haiku-4-5-20251001';
+  const model = process.env.ORCHESTRATOR_MODEL || "claude-haiku-4-5-20251001";
 
   const body = {
     model,
     max_tokens: 1024,
-    messages: [{ role: 'user', content: buildRefinementPrompt(basePlan) }],
+    messages: [{ role: "user", content: buildRefinementPrompt(basePlan) }],
   };
 
   let response;
   try {
-    response = await fetch('https://api.anthropic.com/v1/messages', {
-      method: 'POST',
+    response = await fetch("https://api.anthropic.com/v1/messages", {
+      method: "POST",
       headers: {
-        'content-type': 'application/json',
-        'x-api-key': apiKey,
-        'anthropic-version': '2023-06-01',
+        "content-type": "application/json",
+        "x-api-key": apiKey,
+        "anthropic-version": "2023-06-01",
       },
       body: JSON.stringify(body),
     });
@@ -360,7 +362,7 @@ async function refineWithLlm(basePlan) {
   }
 
   if (!response.ok) {
-    const text = await response.text().catch(() => '');
+    const text = await response.text().catch(() => "");
     return {
       used: false,
       reason: `HTTP ${response.status}: ${text.slice(0, 200)}`,
@@ -375,13 +377,16 @@ async function refineWithLlm(basePlan) {
   }
 
   const text = (data.content || [])
-    .filter((b) => b.type === 'text')
+    .filter((b) => b.type === "text")
     .map((b) => b.text)
-    .join('')
+    .join("")
     .trim();
 
   // Strip ```json fences if Claude adds them despite instructions.
-  const cleaned = text.replace(/^```(?:json)?\s*/i, '').replace(/```\s*$/i, '').trim();
+  const cleaned = text
+    .replace(/^```(?:json)?\s*/i, "")
+    .replace(/```\s*$/i, "")
+    .trim();
 
   let refined;
   try {
@@ -396,25 +401,29 @@ async function refineWithLlm(basePlan) {
 
   const validation = validateRefinement(basePlan, refined);
   if (!validation.ok) {
-    return { used: false, reason: `validation failed: ${validation.error}`, refined };
+    return {
+      used: false,
+      reason: `validation failed: ${validation.error}`,
+      refined,
+    };
   }
 
   return { used: true, refined, notes: refined.llm_notes ?? null };
 }
 
 function validateRefinement(basePlan, refined) {
-  if (!refined || typeof refined !== 'object' || !refined.bots) {
-    return { ok: false, error: 'missing bots object' };
+  if (!refined || typeof refined !== "object" || !refined.bots) {
+    return { ok: false, error: "missing bots object" };
   }
   for (const key of BOT_KEYS) {
     const b = refined.bots[key];
-    if (!b || typeof b !== 'object') {
+    if (!b || typeof b !== "object") {
       return { ok: false, error: `bot "${key}" missing or not an object` };
     }
-    if (typeof b.run !== 'boolean') {
+    if (typeof b.run !== "boolean") {
       return { ok: false, error: `bot "${key}".run must be boolean` };
     }
-    if (typeof b.reason !== 'string') {
+    if (typeof b.reason !== "string") {
       return { ok: false, error: `bot "${key}".reason must be string` };
     }
   }
@@ -425,7 +434,7 @@ function validateRefinement(basePlan, refined) {
     }
   }
   // Scopes for file-list bots must be a subset of base scope.
-  const fileScopeBots = ['editor', 'reference_fixer', 'skeptical_checker'];
+  const fileScopeBots = ["editor", "reference_fixer", "skeptical_checker"];
   for (const key of fileScopeBots) {
     const baseScope = basePlan.bots[key].scope;
     const newScope = refined.bots[key].scope;
@@ -468,19 +477,19 @@ function renderReport(plan) {
     `# Weekly Orchestrator Report — run #${plan.run_count}`,
     ``,
     `- **Head:** \`${plan.head_sha}\``,
-    `- **Previous:** ${plan.previous_sha ? `\`${plan.previous_sha}\`` : '(first run)'}`,
-    `- **Days since last run:** ${plan.days_since_last_run ?? 'n/a'}`,
+    `- **Previous:** ${plan.previous_sha ? `\`${plan.previous_sha}\`` : "(first run)"}`,
+    `- **Days since last run:** ${plan.days_since_last_run ?? "n/a"}`,
     `- **Changed content files:** ${plan.changed_files.length}`,
     `- **Open TODOs:** ${plan.open_todos}`,
-    `- **LLM refinement:** ${plan.llm?.used ? 'yes' : 'no'}${
-      plan.llm?.notes ? ` — ${plan.llm.notes}` : ''
+    `- **LLM refinement:** ${plan.llm?.used ? "yes" : "no"}${
+      plan.llm?.notes ? ` — ${plan.llm.notes}` : ""
     }`,
     ``,
     `## Bot decisions`,
     ``,
   ];
   for (const [name, info] of Object.entries(plan.bots)) {
-    lines.push(`### \`${name}\` — ${info.run ? '**RUN**' : 'skip'}`);
+    lines.push(`### \`${name}\` — ${info.run ? "**RUN**" : "skip"}`);
     lines.push(``);
     lines.push(`- Reason: ${info.reason}`);
     if (info.run && Array.isArray(info.scope) && info.scope.length) {
@@ -491,7 +500,7 @@ function renderReport(plan) {
     }
     lines.push(``);
   }
-  return lines.join('\n');
+  return lines.join("\n");
 }
 
 function emitGhOutputs(plan) {
@@ -499,11 +508,11 @@ function emitGhOutputs(plan) {
   if (!outPath) return;
   const lines = [];
   for (const key of BOT_KEYS) {
-    lines.push(`run_${key}=${plan.bots[key].run ? 'true' : 'false'}`);
+    lines.push(`run_${key}=${plan.bots[key].run ? "true" : "false"}`);
   }
   lines.push(`head_sha=${plan.head_sha}`);
   lines.push(`run_count=${plan.run_count}`);
-  appendFileSync(outPath, lines.join('\n') + '\n');
+  appendFileSync(outPath, lines.join("\n") + "\n");
 }
 
 // ----- Main ----------------------------------------------------------------
@@ -547,21 +556,21 @@ async function main() {
 
   // Optional LLM pass.
   let finalPlan = basePlan;
-  const llmEnabled = ['1', 'true', 'on', 'yes'].includes(
-    (process.env.ORCHESTRATOR_LLM ?? '').toLowerCase(),
+  const llmEnabled = ["1", "true", "on", "yes"].includes(
+    (process.env.ORCHESTRATOR_LLM ?? "").toLowerCase(),
   );
   if (llmEnabled) {
     const result = await refineWithLlm(basePlan);
     if (result.used) {
       finalPlan = mergeRefinement(basePlan, result.refined);
-      console.log(`LLM refinement applied. Notes: ${result.notes ?? '(none)'}`);
+      console.log(`LLM refinement applied. Notes: ${result.notes ?? "(none)"}`);
     } else {
       finalPlan.llm = { used: false, notes: `skipped: ${result.reason}` };
       console.error(`LLM refinement skipped: ${result.reason}`);
     }
   }
 
-  writeFileSync(PLAN_PATH, JSON.stringify(finalPlan, null, 2) + '\n');
+  writeFileSync(PLAN_PATH, JSON.stringify(finalPlan, null, 2) + "\n");
   writeFileSync(REPORT_PATH, renderReport(finalPlan));
   writeFileSync(
     LAST_RUN_PATH,
@@ -569,15 +578,15 @@ async function main() {
       { sha: headSha, timestamp: finalPlan.timestamp, run_count: runCount },
       null,
       2,
-    ) + '\n',
+    ) + "\n",
   );
   emitGhOutputs(finalPlan);
 
   const running = BOT_KEYS.filter((k) => finalPlan.bots[k].run);
   console.log(
     running.length > 0
-      ? `Planned to run: ${running.join(', ')}`
-      : 'No bots scheduled this run.',
+      ? `Planned to run: ${running.join(", ")}`
+      : "No bots scheduled this run.",
   );
 }
 

@@ -26,10 +26,10 @@ A _black-box security proof_ treats any adversary $\calA$ against $B$ as an orac
 
 Combining these axes gives four types of reductions:
 
-|                         | BB proof         | Non-BB proof     |
-| ----------------------- | ---------------- | ---------------- |
-| **BB construction**     | Fully black-box  | Semi-BB          |
-| **Non-BB construction** | —                | Fully non-BB     |
+|                         | BB proof        | Non-BB proof |
+| ----------------------- | --------------- | ------------ |
+| **BB construction**     | Fully black-box | Semi-BB      |
+| **Non-BB construction** | —               | Fully non-BB |
 
 The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out relativizing, hence fully black-box, reductions — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 

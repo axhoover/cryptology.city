@@ -48,13 +48,13 @@ Every Monday at 12:00 UTC (and on `workflow_dispatch`):
 
 ## Decision rules
 
-| Bot | Runs when |
-|---|---|
-| `editor` | any file under `content/` changed since the last orchestrator run |
-| `reference_fixer` | a changed file's diff contains a wikilink, URL, or citation pattern; OR every 4th run (link-rot sweep over all external URLs) |
-| `skeptical_checker` | a file in `Primitives`/`Complexity`/`Assumptions`/`Glossary` changed; OR the queue has unreviewed/stale/bot_flagged entries |
-| `refactor_simplifier` | no content changes for 30+ days; OR the oldest `human_verified` queue entry is > 180 days old |
-| `todo_triage` | open TODO checkboxes in `TODOS.md` exceed 25 |
+| Bot                   | Runs when                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `editor`              | any file under `content/` changed since the last orchestrator run                                                             |
+| `reference_fixer`     | a changed file's diff contains a wikilink, URL, or citation pattern; OR every 4th run (link-rot sweep over all external URLs) |
+| `skeptical_checker`   | a file in `Primitives`/`Complexity`/`Assumptions`/`Glossary` changed; OR the queue has unreviewed/stale/bot_flagged entries   |
+| `refactor_simplifier` | no content changes for 30+ days; OR the oldest `human_verified` queue entry is > 180 days old                                 |
+| `todo_triage`         | open TODO checkboxes in `TODOS.md` exceed 25                                                                                  |
 
 All thresholds are constants at the top of `decide.mjs`.
 
@@ -96,12 +96,12 @@ skipping.
 
 The old audit bot's responsibilities split cleanly:
 
-| Old audit-bot duty | New home |
-|---|---|
-| Dead-link / wikilink detection | `reference_fixer` |
-| Citation key / bib integrity | `reference_fixer` |
-| LaTeX macro / KaTeX syntax checks | `editor` |
-| TODO aggregation | a small step inside whatever bot creates them, plus `todo_triage` for threshold-based issue creation |
+| Old audit-bot duty                | New home                                                                                             |
+| --------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Dead-link / wikilink detection    | `reference_fixer`                                                                                    |
+| Citation key / bib integrity      | `reference_fixer`                                                                                    |
+| LaTeX macro / KaTeX syntax checks | `editor`                                                                                             |
+| TODO aggregation                  | a small step inside whatever bot creates them, plus `todo_triage` for threshold-based issue creation |
 
 The existing fact-checker prompt becomes `skeptical-checker.md` unchanged;
 its state file (`.fact-check/queue.json`) is the input the orchestrator

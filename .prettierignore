@@ -1,0 +1,9 @@
+# Build output and vendored submodules.
+public/
+vendor/
+
+# Machine-written JSON. scripts/generate-relations.mjs writes relations.json
+# with JSON.stringify(manifest, null, 1) and `--check` compares bytes, so a
+# Prettier pass would make the check fail. The other files are records of the
+# reductions audit and migration.
+.reductions/*.json

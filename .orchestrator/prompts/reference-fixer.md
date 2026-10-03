@@ -45,6 +45,7 @@ For each file in scope:
 
    If you find a non-canonical form that resolves to the same paper,
    propose the canonical replacement.
+
 6. **Cite the eprint/arxiv form when available.** If a paper is linked only
    by publisher URL (Springer, ACM, IEEE) and an eprint or arXiv version
    exists, note this as a TODO — do not rewrite the link automatically;

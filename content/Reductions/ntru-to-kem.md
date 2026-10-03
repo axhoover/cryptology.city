@@ -27,4 +27,3 @@ An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] [[key-encapsulation-
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 `model: rom`: [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]] prove IND-CCA security in the quantum random-oracle model, which the model vocabulary records as `rom`.
-

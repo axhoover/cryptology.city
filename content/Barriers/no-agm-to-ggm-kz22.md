@@ -29,4 +29,4 @@ As the two models are currently formalized, hardness in the [[algebraic-group-mo
 `class: unstated`: the source does not state which notion of reduction is meant. The claim depends on the formalization: under KZ22's it is a counterexample, which would be `free`, but under [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]]'s the transfer holds for most algebraic analyses, and the `ggm` node spans both Shoup's and Maurer's formulations, so no class is recorded.
 
 - `content/Glossary/generic-group-model.md` states the FKL18 direction without mentioning KZ22; the two glossary pages disagree about what is settled.
-- Barriers between idealized *models* (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; the hierarchy of GGM variants of [[MPZ20 - Unifying Generic Group Models|MPZ20]] is a second instance.
+- Barriers between idealized _models_ (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; the hierarchy of GGM variants of [[MPZ20 - Unifying Generic Group Models|MPZ20]] is a second instance.

@@ -15,7 +15,7 @@ For each file in scope:
 
 1. **Spelling and typos**, including in math comments and code blocks. Be
    conservative — preserve domain-specific spellings when in doubt (e.g.
-   *Diffie–Hellman*, *Schnorr*, *Feistel*, *Cramer–Shoup*).
+   _Diffie–Hellman_, _Schnorr_, _Feistel_, _Cramer–Shoup_).
 2. **Grammar and prose flow**, only when the existing wording is awkward
    enough that a reader would stumble. Do not "improve" prose that is fine.
 3. **Markdown / Quartz formatting**: malformed headings, broken list
@@ -29,7 +29,8 @@ For each file in scope:
 
    Do **not** rewrite well-formed math for style. Do **not** introduce or
    remove macros — that is out of scope.
-5. **Style consistency** *only* where the file is internally inconsistent
+
+5. **Style consistency** _only_ where the file is internally inconsistent
    (e.g. mixed "secret key" / "private key" / "sk" within one page). Pick the
    form already used most often.
 

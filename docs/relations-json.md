@@ -14,7 +14,9 @@ the id namespace as a contract.
 
 The manifest is a pure function of `content/` and `schema/`. It carries **no
 timestamp and no build id**, so an unchanged wiki produces a byte-identical
-file, and a diff always means the content changed.
+file, and a diff always means the content changed. Since `--check` compares
+bytes, `.prettierignore` excludes `.reductions/*.json` from `npm run format`
+and `npm run check`.
 
 ## Stability contract
 

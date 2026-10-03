@@ -7,6 +7,7 @@ what those sources actually prove. You work **incrementally** — a small number
 of pages per run — and you never claim a page is correct on a human's behalf.
 
 Process at most 5 queue entries per run, prioritising:
+
 1. Entries in `scope` from `.orchestrator/state/plan.json` (freshly changed files)
 2. `stale` entries, oldest first
 3. `unreviewed` entries, oldest first
@@ -119,9 +120,9 @@ Claims without citations are common on this site and are not automatically
 wrong — many are folklore. For each uncited claim:
 
 - If it is a restatement of a standard definition, check it against at least
-  one textbook reference (Goldreich *Foundations of Cryptography*, Katz-Lindell
-  *Introduction to Modern Cryptography*, Boneh-Shoup *A Graduate Course in
-  Applied Cryptography*, or Barak *An Intensive Introduction to Cryptography*)
+  one textbook reference (Goldreich _Foundations of Cryptography_, Katz-Lindell
+  _Introduction to Modern Cryptography_, Boneh-Shoup _A Graduate Course in
+  Applied Cryptography_, or Barak _An Intensive Introduction to Cryptography_)
   and record which.
 - If it is a nontrivial result with no citation, flag it as
   `missing_citation` rather than asserting it is wrong. Suggest a candidate
@@ -133,14 +134,14 @@ wrong — many are folklore. For each uncited claim:
 
 Every finding gets one of these severities:
 
-| Severity | Meaning |
-| --- | --- |
-| `error` | A claim contradicts the cited source, or a theorem is misstated. |
-| `missing_citation` | A nontrivial claim has no reference. |
-| `broken_link` | Wikilink or URL does not resolve. |
-| `notation` | Inconsistent with `macros.ts` / glossary conventions. |
-| `stub` | The page is a placeholder; deep review is not yet meaningful. |
-| `nit` | Typo, formatting, minor wording. |
+| Severity           | Meaning                                                          |
+| ------------------ | ---------------------------------------------------------------- |
+| `error`            | A claim contradicts the cited source, or a theorem is misstated. |
+| `missing_citation` | A nontrivial claim has no reference.                             |
+| `broken_link`      | Wikilink or URL does not resolve.                                |
+| `notation`         | Inconsistent with `macros.ts` / glossary conventions.            |
+| `stub`             | The page is a placeholder; deep review is not yet meaningful.    |
+| `nit`              | Typo, formatting, minor wording.                                 |
 
 ### 3.5 Decide the page's new status
 
@@ -204,15 +205,19 @@ Close last week's digest issue with a link to this week's.
 Two equivalent mechanisms, both respected by §1:
 
 **A. Edit the queue file.** Change the page's entry to:
+
 ```json
-{ "status": "human_verified",
+{
+  "status": "human_verified",
   "verified_at_sha": "<blob SHA at time of verification>",
   "verified_by": "<github-handle>",
   "verified_on": "YYYY-MM-DD",
-  "notes": "optional" }
+  "notes": "optional"
+}
 ```
 
 **B. Add frontmatter to the page** (preferred for content authors):
+
 ```yaml
 ---
 factcheck:
@@ -257,7 +262,8 @@ verification stays in `history` for traceability.
       "last_checked_at": "ISO-8601",
       "last_checked_by": "claude-factcheck | <github-handle>",
       "findings": [
-        { "severity": "error | missing_citation | broken_link | notation | stub | nit",
+        {
+          "severity": "error | missing_citation | broken_link | notation | stub | nit",
           "location": "section or line reference",
           "description": "what is wrong",
           "suggested_fix": "optional",
@@ -265,8 +271,13 @@ verification stays in `history` for traceability.
         }
       ],
       "history": [
-        { "at": "ISO-8601", "by": "...", "action": "created | stale | verified | flagged | resolved",
-          "sha": "blob SHA at the time", "note": "optional" }
+        {
+          "at": "ISO-8601",
+          "by": "...",
+          "action": "created | stale | verified | flagged | resolved",
+          "sha": "blob SHA at the time",
+          "note": "optional"
+        }
       ]
     }
   }
@@ -277,9 +288,9 @@ verification stays in `history` for traceability.
 
 ```yaml
 ---
-title: Pseudorandom Function          # existing Quartz field, unchanged
+title: Pseudorandom Function # existing Quartz field, unchanged
 factcheck:
-  status: human_verified              # only humans set this
+  status: human_verified # only humans set this
   sha: <blob SHA at verification>
   by: <github-handle>
   on: YYYY-MM-DD
