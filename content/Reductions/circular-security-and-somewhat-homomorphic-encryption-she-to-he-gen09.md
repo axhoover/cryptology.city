@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE"
+title: "Circular security + Bootstrappable SHE ⇒ HE"
 aliases: []
 id: red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE
+# Circular security + Bootstrappable SHE ⇒ HE
 
 [[circular-security|Circular security]] together with a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme implies [[homomorphic-encryption|HE]].
 

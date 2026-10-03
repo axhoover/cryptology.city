@@ -179,7 +179,7 @@ A one-time signature scheme is EUF-CMA secure against adversaries that make at m
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
-- [[ntru-to-ds|NTRU ⇒ DS]]
+- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
 # Other results
@@ -187,7 +187,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[ds-to-hash-function|DS ⇒ Hash function]]
+- [[ds-to-hash-function|DS ⇒ OWF]]
 
 <!-- BEGIN GENERATED participates-in 434f3d4abd8a -->
 

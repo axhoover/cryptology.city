@@ -19,7 +19,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 ## Notable problems
 
-- [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[hash-function-to-czk|OWF ⇒ CZK]]
 
 ## Known relationships
 

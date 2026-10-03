@@ -119,7 +119,7 @@ TODO
 
 # Other results
 
-- [[pke-to-hash-function|PKE ⇒ Hash function]]
+- [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]

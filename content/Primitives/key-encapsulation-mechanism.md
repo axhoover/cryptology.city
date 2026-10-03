@@ -83,7 +83,7 @@ RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ with no padding, and d
 # Other results
 
 - [[pke-to-kem|PKE ⇒ KEM]]
-- [[ind-cpa-kem-to-ind-cca-security|IND-CPA KEM ⇒ IND-CCA security]]
+- [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - The KEM-DEM paradigm is standardized as HPKE (RFC 9180) — [[BBLW22 - Hybrid Public Key Encryption|BBLW22]]
 - [[kem-to-ke|KEM ⇒ KE]]

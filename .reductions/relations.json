@@ -4542,7 +4542,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE"
+   "title": "Circular security + Bootstrappable SHE ⇒ HE"
   },
   {
    "id": "red-co-cdh-to-ds",

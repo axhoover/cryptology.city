@@ -28,7 +28,7 @@ In his paper, Impagliazzo illustrates the differences between "worst-case" and "
 
 These worlds follow from the following chain of implications:
 
-- [[tdp-to-hash-function|TDP ⇒ Hash function]]
+- [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[hash-function|OWFs]] exist → [[nondeterministic-polynomial-time|NP]] is hard on average
 - [[nondeterministic-polynomial-time|NP]] is hard on average → $\classP \neq \classNP$
 

@@ -73,9 +73,9 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 # Other results
 
 - Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
-- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
+- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 - Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
-- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
+- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 

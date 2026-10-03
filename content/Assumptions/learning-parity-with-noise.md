@@ -92,7 +92,7 @@ In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has ne
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 - [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
-- [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ PKE]]
+- [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]]
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]

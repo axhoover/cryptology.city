@@ -80,7 +80,7 @@ In the **public-key** setting, anyone can encrypt to any set $S$ using only the 
 
 - [[abe-to-be|ABE ⇒ BE]]
 - BE is orthogonal to [[identity-based-encryption|IBE]] in expressiveness: IBE matches a single identity exactly, while BE handles arbitrary subsets; neither is a special case of the other
-- [[bdh-to-be-bgw05|BDH ⇒ BE]]
+- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]]
 
 <!-- BEGIN GENERATED participates-in 554dc6972809 -->
 

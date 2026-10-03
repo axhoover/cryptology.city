@@ -57,7 +57,7 @@ The chosen-input analogue for $f_A$ is false, since $f_A(0^n) = 0$ for every key
 
 ## Known Results
 
-- [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
+- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]]
 - The candidates admit distributed-evaluation protocols with better round and/or communication complexity than MPC evaluation of AES, LowMC or Rasta, most so with an honest majority or with preprocessing — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]
 - The assumption is not known to follow from or imply standard lattice assumptions
 

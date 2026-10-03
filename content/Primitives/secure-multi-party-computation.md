@@ -75,7 +75,7 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [[honest-majority-t-lt-n-over-2-to-mpc-rb89|Honest majority ($t < n/2$) ⇒ MPC]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - OT extension: $O(\secpar)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
-- [[lwe-to-de-ram-mpc-lmw24|LWE ⇒ DE-RAM-MPC]]
+- [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 
 <!-- BEGIN GENERATED participates-in 4eb144d9b50f -->

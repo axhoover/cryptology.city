@@ -132,8 +132,8 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [[abe-to-be|ABE ⇒ BE]]
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
-- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
-- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]]
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
 

@@ -165,7 +165,7 @@ is negligible.
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
 - Any PIR without preprocessing requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
-- [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
+- [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
 <!-- BEGIN GENERATED participates-in 1ac5d751e6fa -->

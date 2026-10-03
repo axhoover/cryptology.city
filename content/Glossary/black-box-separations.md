@@ -73,7 +73,7 @@ A black-box security reduction would convert this eavesdropper (which is efficie
 
 ## Other Notable Separations
 
-- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+- [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
 
 - **Relativized cryptography** — [[Bra79 - Relativized cryptography|Bra79]] was among the first systematic treatments of oracle separations in a cryptographic setting, predating IR89.
 
@@ -89,7 +89,7 @@ Oracle separations are a powerful tool but have important limitations:
 
 - **They rule out fully BB proofs, not the implication itself.** An oracle separation between $A$ and $B$ does not mean that $B$ cannot be built from $A$ — only that no fully black-box proof can establish it. Non-black-box techniques can sometimes circumvent oracle separations entirely.
 
-- [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
+- [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]
 
 - **The RTV04 taxonomy makes this precise.** An oracle relative to which $A$ exists and $B$ does not rules out every _relativizing_ reduction, and hence every fully black-box one; non-relativizing techniques are not addressed — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
