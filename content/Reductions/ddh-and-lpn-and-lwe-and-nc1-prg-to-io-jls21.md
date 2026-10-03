@@ -16,7 +16,7 @@ security-loss: "requires sub-exponential hardness of all four hypotheses"
 
 # SXDH + LWE + LPN + NC0-PRG ⇒ iO
 
-Sub-exponentially hard [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH]], [[learning-with-errors|LWE]], [[learning-parity-with-noise|LPN]] over $\ZZ_p$, and a Boolean [[low-complexity-prg#prg-in-nc0|PRG in $\mathrm{NC}^0$]] together imply [[indistinguishability-obfuscation|iO]].
+Sub-exponentially hard [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]], [[learning-with-errors|LWE]], [[learning-parity-with-noise|LPN]] over $\ZZ_p$, and a Boolean [[low-complexity-prg#polynomial-stretch-prg-in-nc0|polynomial-stretch PRG in $\mathrm{NC}^0$]] together imply [[indistinguishability-obfuscation|iO]].
 
 ## Statement
 

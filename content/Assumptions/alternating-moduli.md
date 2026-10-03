@@ -9,7 +9,6 @@ aliases:
 title: Alternating moduli assumption
 id: alternating-moduli-assumption
 variants:
-  alternating-moduli-strong: "#strong-alternating-moduli-chosen-input-assumption"
   alternating-moduli-weak: "#weak-alternating-moduli-random-input-assumption"
 ---
 
@@ -79,17 +78,12 @@ See [[pseudorandom-correlation-generator|PCG]]. Pseudorandom correlation functio
 
 [^1]: The name "Crypto Dark Matter" reflects the idea that large regions of the cryptographic assumption landscape remain unexplored.
 
-<!-- BEGIN GENERATED participates-in fc51df2b13c1 -->
+<!-- BEGIN GENERATED participates-in 63b5c782d8d4 -->
 
 ## Participates in
 
 **Builds on Alternating moduli assumption**
 
 - [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|alternating-moduli-weak]])
-- [[strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption|Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption]] (via [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|alternating-moduli-strong]])
-
-**Produces Alternating moduli assumption**
-
-- [[strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption|Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|alternating-moduli-weak]])
 
 <!-- END GENERATED participates-in -->

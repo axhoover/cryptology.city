@@ -5,7 +5,7 @@ title: "IND-CPA ⇔ Semantic security"
 aliases: []
 id: red-cpa-security-to-cpa-security
 kind: equivalence
-hypotheses: [ind-cpa-security]
+hypotheses: [pke-cpa-security]
 conclusion: semantic-security
 class: fully-black-box
 model: standard

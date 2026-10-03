@@ -20,7 +20,7 @@ bibtex: |
   }
 ---
 
-# [JNVWY20] MIP* = RE
+# [JNVWY20] MIP\* = RE
 
 **Authors:** Zhengfeng Ji, Anand Natarajan, Thomas Vidick, John Wright, Henry Yuen | **Venue:** arXiv 2020 | [Source](https://arxiv.org/abs/2001.04383)
 

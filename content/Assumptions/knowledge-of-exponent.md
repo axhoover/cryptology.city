@@ -64,15 +64,14 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 - No attack on KEA1 without auxiliary input is known
 - Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], KEA with respect to arbitrary auxiliary input of unbounded polynomial length is false — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]
 - The KEA2 assumption of Hada–Tanaka is false — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]
-- KEA holds in the [[generic-group-model|generic group model]] — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]
-- The non-falsifiable nature means KEA's "attacks" are philosophical: one cannot rule out adversaries who produce valid pairs without knowledge
 
-<!-- BEGIN GENERATED participates-in 3f0e637c6b1e -->
+<!-- BEGIN GENERATED participates-in 47735000455d -->
 
 ## Participates in
 
 **Produces Knowledge of exponent assumption**
 
 - [[agm-to-kea|AGM ⇒ KEA]]
+- [[ggm-to-kea-den06|GGM ⇒ KEA]]
 
 <!-- END GENERATED participates-in -->

@@ -168,7 +168,7 @@ is negligible.
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in f747d1b6201a -->
+<!-- BEGIN GENERATED participates-in 1ac5d751e6fa -->
 
 ## Participates in
 
@@ -180,7 +180,7 @@ is negligible.
 
 **Produces Private Information Retrieval**
 
-- [[depir-to-cpir|PK-DEPIR ⇒ cPIR]]
+- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key-pir]])
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key-pir]])

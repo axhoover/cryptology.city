@@ -11,7 +11,7 @@ aliases:
 cryptobib_key: FOCS:NatWri19
 ---
 
-# [NW19] NEEXP is Contained in MIP*
+# [NW19] NEEXP is Contained in MIP\*
 
 **Authors:** Anand Natarajan, John Wright | **Venue:** FOCS 2019 | [Source](https://doi.org/10.1109/FOCS.2019.00039)
 

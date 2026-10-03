@@ -19,7 +19,7 @@ security-loss: "Factor $q_H$: the forking lemma turns a forger with success prob
 
 # Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)
 
-The [[digital-signature#schnorr-signatures|Schnorr identification protocol]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the random-oracle model, via the [[fiat-shamir-heuristic|Fiat–Shamir]] transform.
+The [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the random-oracle model, via the [[fiat-shamir-heuristic|Fiat–Shamir]] transform.
 
 ## Statement
 

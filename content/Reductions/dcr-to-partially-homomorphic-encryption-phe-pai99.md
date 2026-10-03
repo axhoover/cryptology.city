@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "DCR ⇒ Partially homomorphic encryption (PHE)"
+title: "DCR ⇒ Additively homomorphic encryption"
 aliases: []
 id: red-dcr-to-partially-homomorphic-encryption-phe-pai99
 kind: implication
@@ -14,9 +14,9 @@ source:
 security-loss: "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR."
 ---
 
-# DCR ⇒ Partially homomorphic encryption (PHE)
+# DCR ⇒ Additively homomorphic encryption
 
-[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption#partially-homomorphic-encryption-phe|Partially homomorphic encryption (PHE)]].
+[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]].
 
 ## Statement
 
@@ -32,4 +32,4 @@ An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge 
 
 - Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]
 - Threshold decryption for Paillier — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]
-- `additively-homomorphic-encryption` is a variant id resolving to the PHE section of [[homomorphic-encryption|HE]], not its own page.
+- `additively-homomorphic-encryption` is a variant id resolving to the additively homomorphic encryption section of [[homomorphic-encryption|HE]], not its own page.

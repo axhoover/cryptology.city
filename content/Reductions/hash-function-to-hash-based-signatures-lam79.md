@@ -16,11 +16,11 @@ security-loss: ""
 
 # OWF ⇒ One-time signatures (Lamport)
 
-[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[digital-signature#hash-based-signatures|one-time signatures]].
+[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[digital-signature#one-time-signatures|one-time signatures]].
 
 ## Statement
 
-A [[hash-function#preimage-resistance-one-wayness|one-way function]] implies one-time [[digital-signature#hash-based-signatures|digital signatures]] (Lamport's scheme): for $\ell$-bit messages the signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
+A [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[digital-signature#one-time-signatures|one-time digital signatures]] (Lamport's scheme): for $\ell$-bit messages the signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
 
 ## Sketch
 

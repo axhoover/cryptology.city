@@ -134,7 +134,7 @@ is negligible.
 
 ### Known results
 
-- [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
+- [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]]
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
@@ -175,7 +175,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in bdfae803622d -->
+<!-- BEGIN GENERATED participates-in 5700a9f3562a -->
 
 ## Participates in
 
@@ -192,7 +192,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|lpn-low-noise]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|lpn-mid-noise]])
 - [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]] (via [[learning-parity-with-noise#low-noise-lpn|lpn-low-noise]])
-- [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse-lpn]])
+- [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse-lpn]])
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]] (via [[learning-parity-with-noise#sparse-ring-lpn|sparse-ring-lpn]])
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse-lpn]])
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]] (via [[learning-parity-with-noise#subexponential-lpn|subexponential-lpn]])

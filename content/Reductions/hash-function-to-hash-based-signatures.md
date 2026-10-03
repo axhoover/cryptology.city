@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + PRF ⇒ XMSS"
+title: "Hash function + PRF ⇒ DS (XMSS)"
 aliases: []
 id: red-hash-function-to-hash-based-signatures
 kind: implication
 hypotheses: [hash-function, prf]
-conclusion: xmss
+conclusion: ds
 class: fully-black-box
 model: standard
 source:
@@ -14,9 +14,9 @@ source:
 security-loss: ""
 ---
 
-# Hash function + PRF ⇒ XMSS
+# Hash function + PRF ⇒ DS (XMSS)
 
-A second-preimage-resistant [[hash-function|hash function]] family together with a [[pseudorandom-function|PRF]] implies the [[digital-signature#hash-based-signatures|XMSS]] signature scheme.
+A second-preimage-resistant [[hash-function|hash function]] family together with a [[pseudorandom-function|PRF]] implies a many-time [[digital-signature|DS]] scheme (XMSS).
 
 ## Statement
 
@@ -30,4 +30,4 @@ A Winternitz one-time key signs each message; a Merkle tree over the one-time ve
 
 `class: fully-black-box`: XMSS calls the hash family and the PRF only as oracles (Winternitz chains, L-trees, Merkle tree), and the reduction embeds a second-preimage or PRF challenge and runs every EU-CMA forger as an oracle. BDH11 name no RTV class; the classification is from this proof shape.
 
-- Conclusion `xmss` is a variant id on digital-signature naming a concrete scheme, not a model object; it has no page of its own.
+- XMSS names a concrete scheme, not a model object, so the edge concludes plain [[digital-signature|DS]].

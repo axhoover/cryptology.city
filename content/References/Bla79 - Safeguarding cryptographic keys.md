@@ -17,4 +17,4 @@ cryptobib_key: Blakley79
 
 ## Abstract
 
-Demonstrates that cryptographic keys can be safeguarded by distributing partial information to $n$ holders such that any $t$ of them can reconstruct the key, while any $t - 1$ of them have absolutely no information about it. The construction uses hyperplanes in a $t$-dimensional space over a finite field: the secret is a point in the space, and each share defines a hyperplane passing through the secret. The $t$ hyperplanes uniquely determine the intersection point. This work appeared simultaneously and independently with Shamir's construction.
+TODO — abstract.

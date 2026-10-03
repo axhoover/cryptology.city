@@ -16,11 +16,11 @@ security-loss: ""
 
 # QR ⇒ Additively homomorphic encryption
 
-[[quadratic-residuosity|QR]] implies [[homomorphic-encryption#partially-homomorphic-encryption-phe|additively homomorphic encryption]] for addition mod $2$.
+[[quadratic-residuosity|QR]] implies [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] for addition mod $2$.
 
 ## Statement
 
-The Goldwasser–Micali scheme from [[quadratic-residuosity|QR]] is [[homomorphic-encryption#partially-homomorphic-encryption-phe|additively homomorphic]] for XOR on plaintext bits: with $\pk = (N, y)$ and $\Enc(\pk, b; r) = y^b r^2 \bmod N$, the product of encryptions of $b_1$ and $b_2$ is distributed exactly as a fresh encryption of $b_1 \oplus b_2$ — scheme from [[GM84 - Probabilistic encryption|GM84]]; the homomorphism — standard.
+The Goldwasser–Micali scheme from [[quadratic-residuosity|QR]] is [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]] for XOR on plaintext bits: with $\pk = (N, y)$ and $\Enc(\pk, b; r) = y^b r^2 \bmod N$, the product of encryptions of $b_1$ and $b_2$ is distributed exactly as a fresh encryption of $b_1 \oplus b_2$ — scheme from [[GM84 - Probabilistic encryption|GM84]]; the homomorphism — standard.
 
 ## Sketch
 

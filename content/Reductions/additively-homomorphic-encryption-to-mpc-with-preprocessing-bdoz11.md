@@ -16,7 +16,7 @@ security-loss: ""
 
 # Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)
 
-[[homomorphic-encryption#partially-homomorphic-encryption-phe|Additively homomorphic encryption]] implies [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]].
+[[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]] implies [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]].
 
 ## Statement
 

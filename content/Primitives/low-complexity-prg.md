@@ -9,7 +9,7 @@ aliases:
 title: Low-complexity pseudorandom generator
 id: low-complexity-prg-nc0
 variants:
-  prg-in-nc0: "#prg-in-nc0"
+  prg-in-nc0: "#polynomial-stretch-prg-in-nc0"
 unlisted: true
 ---
 
@@ -21,16 +21,16 @@ TODO: syntax and security definition.
 
 # Variations
 
-## PRG in NC0
+## Polynomial-stretch PRG in NC0
 
-A PRG $G : \bits^n \to \bits^{m(n)}$ is in $\mathrm{NC}^0$, or _local_, if each output bit depends on $O(1)$ input bits. Its stretch is polynomial if $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
+A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m(n)}$ in $\mathrm{NC}^0$ with $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
 
-<!-- BEGIN GENERATED participates-in 3966c7c027a6 -->
+<!-- BEGIN GENERATED participates-in 168ffc4796bf -->
 
 ## Participates in
 
 **Builds on Low-complexity pseudorandom generator**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#prg-in-nc0|prg-in-nc0]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|prg-in-nc0]])
 
 <!-- END GENERATED participates-in -->

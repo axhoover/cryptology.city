@@ -23,7 +23,7 @@ A reduction of class `fixed-construction` from [[fiat-shamir-heuristic|Fiat-Sham
 
 ## Statement
 
-There is a 3-round public-coin identification scheme, secure in the [[random-oracle-model|random oracle model]], whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is an existentially forgeable [[digital-signature|signature scheme]] for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. The random oracle in the transform is therefore not instantiable in general.
+There is a secure 3-round public-coin identification scheme whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is a [[digital-signature|signature scheme]] secure in the [[random-oracle-model|random oracle model]] but existentially forgeable for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. The random oracle in the transform is therefore not instantiable in general.
 
 ## Sketch
 
@@ -35,6 +35,4 @@ The scheme adds an escape hatch: the prover may commit in its first message to a
 
 `strength: conditional`: GK03 derive the theorem from [[hash-function#preimage-resistance-one-wayness|one-way functions]], by cases on whether [[hash-function#collision-resistance|collision-resistant hash functions]] exist; when they do, the counterexample's universal arguments are built from them — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
 
-- The displayed inequality on content/Glossary/fiat-shamir-heuristic.md quantifies over $H$ but leaves $\calA$ and $\Pi$ unquantified; the theorem is 'there exists an identification scheme $\Pi$, secure in the ROM, such that for every efficient $H$ there is an efficient forger $\calA$'.
-- $\Pi_H$ is not defined on content/Glossary/fiat-shamir-heuristic.md ($\Pi_{\mathsf{FS}}$ is the notation introduced earlier), and the advantage superscript $\mathrm{uf}$ should use the `\ufcma`/`\eufcma` macros.
 - The same counterexample, read against non-interactive arguments: [[no-fiat-shamir-to-nizk-gk03]].

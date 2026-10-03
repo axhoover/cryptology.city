@@ -16,11 +16,11 @@ security-loss: ""
 
 # SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK
 
-[[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]] implies [[non-interactive-zero-knowledge|NIZK]].
+[[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]] implies [[non-interactive-zero-knowledge|NIZK]].
 
 ## Statement
 
-Under [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH]] over a Type-3 pairing group, systems of pairing-product, multi-scalar-multiplication and quadratic equations over the group have non-interactive witness-indistinguishable proofs in the common reference string model, and [[non-interactive-zero-knowledge|NIZK]] proofs for multi-scalar-multiplication and quadratic equations and for pairing-product equations whose target is $1$ (or a product of pairings of public elements). Circuit satisfiability is a system of quadratic equations, so every $\classNP$ language has a NIZK proof of size linear in the circuit — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
+Under [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] over a Type-3 pairing group, systems of pairing-product, multi-scalar-multiplication and quadratic equations over the group have non-interactive witness-indistinguishable proofs in the common reference string model, and [[non-interactive-zero-knowledge|NIZK]] proofs for multi-scalar-multiplication and quadratic equations and for pairing-product equations whose target is $1$ (or a product of pairings of public elements). Circuit satisfiability is a system of quadratic equations, so every $\classNP$ language has a NIZK proof of size linear in the circuit — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
 ## Sketch
 

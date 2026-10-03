@@ -5,7 +5,6 @@ aliases:
   - BDH
   - BDDH
   - DBDH
-  - DLIN
   - Bilinear map assumptions
   - Pairing assumptions
   - BDH assumption
@@ -13,7 +12,6 @@ aliases:
 title: Bilinear map assumptions
 id: bdh
 variants:
-  sxdh: "#sxdh-symmetric-external-diffie-hellman"
   k-linear-assumption: "#k-linear-assumption"
   n-bdhe: "#decision-n-bdhe"
 ---
@@ -47,15 +45,11 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 
 ## Symmetric vs. asymmetric pairings
 
-A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). Asymmetric pairings (Type 3) support stronger assumptions (SXDH: DDH is hard in both $\GG_1$ and $\GG_2$) and are used in most modern constructions. See [[pairings|Pairings]] for the full Type 1/2/3 classification and efficiency trade-offs — [[GPS06 - Pairings for Cryptographers|GPS06]].
+A pairing can be symmetric ($\GG_1 = \GG_2$) or asymmetric ($\GG_1 \ne \GG_2$). Asymmetric pairings (Type 3) support stronger assumptions ([[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]]: DDH is hard in both $\GG_1$ and $\GG_2$) and are used in most modern constructions. See [[pairings|Pairings]] for the full Type 1/2/3 classification and efficiency trade-offs — [[GPS06 - Pairings for Cryptographers|GPS06]].
 
 ## $k$-Linear assumption
 
 Generalizes DLIN: given $k$ random group elements and their DH combinations, decide if an additional element is in the span. For $k = 1$: DDH; for $k = 2$: DLIN.
-
-## SXDH (Symmetric External Diffie-Hellman)
-
-Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
 ## Decision $n$-BDHE
 
@@ -67,7 +61,7 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 71c06d0862c2 -->
+<!-- BEGIN GENERATED participates-in 90c7a9a847d0 -->
 
 ## Participates in
 
@@ -81,8 +75,6 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|sxdh]])
 - [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
-- [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|sxdh]])
 
 <!-- END GENERATED participates-in -->

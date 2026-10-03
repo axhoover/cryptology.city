@@ -9,7 +9,6 @@ id: pke
 variants:
   pke-cca1-security: "#cca1-security"
   anonymous-public-key-encryption: "#key-hiding"
-  ind-cpa-security: "#cpa-security"
   pke-cca2-security: "#cca-security"
   pke-cpa-security: "#cpa-security"
   semantic-security: "#semantic-security"
@@ -127,7 +126,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in d119fed5b680 -->
+<!-- BEGIN GENERATED participates-in 2ba70d57cf34 -->
 
 ## Participates in
 
@@ -135,7 +134,7 @@ TODO
 
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca-security|pke-cca2-security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cca1-security|pke-cca1-security]])
-- [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#cpa-security|ind-cpa-security]])
+- [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#cpa-security|pke-cpa-security]])
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[public-key-encryption#cpa-security|pke-cpa-security]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]

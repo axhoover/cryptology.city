@@ -16,11 +16,11 @@ security-loss: "Reset Lemma: a passive impersonator with success $\\varepsilon$ 
 
 # DLOG ⇒ Schnorr identification protocol
 
-[[discrete-logarithm|DLOG]] implies security of the [[digital-signature#schnorr-signatures|Schnorr identification protocol]] against passive impersonation.
+[[discrete-logarithm|DLOG]] implies security of the [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] against passive impersonation.
 
 ## Statement
 
-The [[digital-signature#schnorr-signatures|Schnorr identification protocol]] is a three-move sigma protocol for knowledge of $x = \log_g h$: the prover sends $a = g^r$, receives a random challenge $e$, and replies $z = r + ex$; the verifier accepts iff $g^z = a h^e$. It is special sound and perfectly honest-verifier zero-knowledge unconditionally, and secure against impersonation under passive attack if [[discrete-logarithm|DLOG]] is hard — [[Sch91 - Efficient signature generation by smart cards|Sch91]].
+The [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] is a three-move sigma protocol for knowledge of $x = \log_g h$: the prover sends $a = g^r$, receives a random challenge $e$, and replies $z = r + ex$; the verifier accepts iff $g^z = a h^e$. It is special sound and perfectly honest-verifier zero-knowledge unconditionally, and secure against impersonation under passive attack if [[discrete-logarithm|DLOG]] is hard — [[Sch91 - Efficient signature generation by smart cards|Sch91]].
 
 ## Sketch
 

@@ -20,10 +20,10 @@ security-loss: ""
 
 ## Statement
 
-[[decisional-diffie-hellman|DDH]] and [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse LPN]] together yield [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]]: sparse LPN plus any [[homomorphic-encryption#partially-homomorphic-encryption-phe|linearly homomorphic PKE]] gives SHE, and DDH instantiates the linearly homomorphic component. The scheme supports $O(\log \secpar / \log \log \secpar)$ homomorphic multiplications followed by $\poly(\secpar)$ additions, and evaluated ciphertexts have bit-length a fixed polynomial in $\secpar$, independent of the number of operations applied — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].
+[[decisional-diffie-hellman|DDH]] and [[learning-parity-with-noise#sparse-learning-parity-with-noise|sparse LPN]] together yield [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]]: sparse LPN plus any [[homomorphic-encryption#additively-homomorphic-encryption|linearly homomorphic PKE]] gives SHE, and DDH instantiates the linearly homomorphic component. The scheme supports $O(\log \secpar / \log \log \secpar)$ homomorphic multiplications followed by $\poly(\secpar)$ additions, and evaluated ciphertexts have bit-length a fixed polynomial in $\secpar$, independent of the number of operations applied — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].
 
 ## Notes
 
 `class: unstated`: the source does not state which notion of reduction is meant.
 
-- The DDH instantiation of the generic edge [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|PHE + sparse LPN ⇒ SHE]]; it stays a separate page because the wiki has no DDH ⇒ additively homomorphic PKE edge.
+- The DDH instantiation of the generic edge [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]]; it stays a separate page because the wiki has no DDH ⇒ additively homomorphic PKE edge.

@@ -16,11 +16,11 @@ security-loss: ""
 
 # Module LWE (rank 1) ⇔ Ring LWE
 
-[[learning-with-errors#module-lwe|Module LWE]] at module rank 1 is equivalent to [[learning-with-errors#ring-lwe|Ring LWE]].
+[[learning-with-errors#rank-1-module-lwe|Module LWE]] at module rank 1 is equivalent to [[learning-with-errors#ring-lwe|Ring LWE]].
 
 ## Statement
 
-[[learning-with-errors#module-lwe|Module LWE]] at module rank $k = 1$ is [[learning-with-errors#ring-lwe|Ring LWE]]: a rank-1 module over $R_q$ is $R_q$ itself, so the sample distributions, hence the problems, coincide — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
+[[learning-with-errors#rank-1-module-lwe|Module LWE]] at module rank $k = 1$ is [[learning-with-errors#ring-lwe|Ring LWE]]: a rank-1 module over $R_q$ is $R_q$ itself, so the sample distributions, hence the problems, coincide — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
 ## Sketch
 

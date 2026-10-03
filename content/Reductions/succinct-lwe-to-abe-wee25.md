@@ -27,4 +27,4 @@ security-loss: ""
 `class: unstated`: the source does not state which notion of reduction is meant.
 
 - $\ell$-succinct LWE was introduced, and shown to follow from evasive LWE, in [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]
-- Unverified: the Wee25 reference page says the constructions use a circular small-secret variant of succinct LWE; the published abstract names only succinct LWE. If the circular variant is required, the hypothesis must say so.
+- Wee25's abstract names only succinct LWE; whether its theorem needs a circular variant is open (carried paper check fu-verification-gap-21).

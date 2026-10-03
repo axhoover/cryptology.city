@@ -29,7 +29,7 @@ where $b \getsr \bits$, $c_0 := r^n \bmod n^2$ for $r \getsr \ZZ_n^*$ (a uniform
 
 ## Known Results
 
-- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ PHE]]
+- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]; whether factoring hardness implies DCR hardness is open.
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-com|DCR ⇒ COM]]
@@ -47,16 +47,16 @@ Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisatio
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
 
-<!-- BEGIN GENERATED participates-in 7fb759a5bce0 -->
+<!-- BEGIN GENERATED participates-in 384bf7946f6a -->
 
 ## Participates in
 
 **Builds on Decisional composite residuosity assumption**
 
-- [[d-th-composite-residuosity-to-he|$d$-th Composite Residuosity ⇒ PHE]] (via [[decisional-composite-residuosity#d-th-composite-residuosity|d-th-composite-residuosity]])
+- [[d-th-composite-residuosity-to-he|$d$-th Composite Residuosity ⇒ Additively homomorphic encryption]] (via [[decisional-composite-residuosity#d-th-composite-residuosity|d-th-composite-residuosity]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]
-- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Partially homomorphic encryption (PHE)]]
+- [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
 - [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]

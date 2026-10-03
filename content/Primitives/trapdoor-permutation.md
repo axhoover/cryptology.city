@@ -11,7 +11,6 @@ id: tdp
 variants:
   lossy-trapdoor-function: "#lossy-trapdoor-functions"
   enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
-  lossy-functions: "#lossy-trapdoor-functions"
 ---
 
 # Trapdoor permutation

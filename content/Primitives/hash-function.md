@@ -118,7 +118,7 @@ is negligible.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 5989610f1643 -->
+<!-- BEGIN GENERATED participates-in a7a8544290e7 -->
 
 ## Participates in
 
@@ -133,7 +133,7 @@ is negligible.
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|owf]])
 - [[hash-function-to-czk|OWF ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|owf]])
 - [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|owf]])
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[hash-function#preimage-resistance-one-wayness|owf]])
 - [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]] (via [[hash-function#collision-resistance|crhf]])
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|owf]])

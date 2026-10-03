@@ -150,13 +150,13 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 74cd49e974a9 -->
+<!-- BEGIN GENERATED participates-in 5242fa1a4ca7 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
-- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ XMSS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|invertible-prf]])
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-mac|PRF ⇒ MAC]]

@@ -274,7 +274,7 @@
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
    "graphSlug": "Primitives/homomorphic-encryption",
-   "anchor": "#partially-homomorphic-encryption-phe",
+   "anchor": "#additively-homomorphic-encryption",
    "of": "he",
    "title": "additively-homomorphic-encryption",
    "aliases": [],
@@ -308,19 +308,6 @@
     "CDM",
     "Crypto Dark Matter"
    ],
-   "unlisted": false
-  },
-  {
-   "id": "alternating-moduli-strong",
-   "kind": "variant",
-   "type": "assumption",
-   "page": "content/Assumptions/alternating-moduli.md",
-   "slug": "alternating-moduli",
-   "graphSlug": "Assumptions/alternating-moduli",
-   "anchor": "#strong-alternating-moduli-chosen-input-assumption",
-   "of": "alternating-moduli-assumption",
-   "title": "alternating-moduli-strong",
-   "aliases": [],
    "unlisted": false
   },
   {
@@ -459,7 +446,6 @@
     "BDH",
     "BDDH",
     "DBDH",
-    "DLIN",
     "Bilinear map assumptions",
     "Pairing assumptions",
     "BDH assumption",
@@ -836,7 +822,8 @@
    "title": "Decisional Diffie-Hellman",
    "aliases": [
     "DDH",
-    "Decisional Diffie-Hellman"
+    "Decisional Diffie-Hellman",
+    "DLIN"
    ],
    "unlisted": false
   },
@@ -981,19 +968,6 @@
    "unlisted": false
   },
   {
-   "id": "eddsa",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/digital-signature.md",
-   "slug": "digital-signature",
-   "graphSlug": "Primitives/digital-signature",
-   "anchor": "#schnorr-signatures",
-   "of": "ds",
-   "title": "eddsa",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "enhanced-trapdoor-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -1089,19 +1063,6 @@
     "Falsifiable assumption",
     "Falsifiable assumptions"
    ],
-   "unlisted": false
-  },
-  {
-   "id": "few-time-signature",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/digital-signature.md",
-   "slug": "digital-signature",
-   "graphSlug": "Primitives/digital-signature",
-   "anchor": "#hash-based-signatures",
-   "of": "ds",
-   "title": "few-time-signature",
-   "aliases": [],
    "unlisted": false
   },
   {
@@ -1558,19 +1519,6 @@
    "unlisted": false
   },
   {
-   "id": "ind-cpa-security",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/public-key-encryption.md",
-   "slug": "public-key-encryption",
-   "graphSlug": "Primitives/public-key-encryption",
-   "anchor": "#cpa-security",
-   "of": "pke",
-   "title": "ind-cpa-security",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "ind-dollar-cpa-security",
    "kind": "variant",
    "type": "primitive",
@@ -1891,19 +1839,6 @@
    "unlisted": false
   },
   {
-   "id": "lossy-functions",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/trapdoor-permutation.md",
-   "slug": "trapdoor-permutation",
-   "graphSlug": "Primitives/trapdoor-permutation",
-   "anchor": "#lossy-trapdoor-functions",
-   "of": "tdp",
-   "title": "lossy-functions",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "lossy-trapdoor-function",
    "kind": "variant",
    "type": "primitive",
@@ -2141,7 +2076,7 @@
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
    "graphSlug": "Assumptions/learning-with-errors",
-   "anchor": "#module-lwe",
+   "anchor": "#rank-1-module-lwe",
    "of": "lwe",
    "title": "module-lwe-rank-1",
    "aliases": [],
@@ -2154,7 +2089,7 @@
    "page": "content/Assumptions/learning-with-errors.md",
    "slug": "learning-with-errors",
    "graphSlug": "Assumptions/learning-with-errors",
-   "anchor": "#module-lwe",
+   "anchor": "#degree-1-module-lwe",
    "of": "lwe",
    "title": "module-lwe-rank-n",
    "aliases": [],
@@ -2264,7 +2199,7 @@
    "page": "content/Primitives/homomorphic-encryption.md",
    "slug": "homomorphic-encryption",
    "graphSlug": "Primitives/homomorphic-encryption",
-   "anchor": "#partially-homomorphic-encryption-phe",
+   "anchor": "#multiplicatively-homomorphic-encryption",
    "of": "he",
    "title": "multiplicatively-homomorphic-encryption",
    "aliases": [],
@@ -2442,7 +2377,7 @@
    "page": "content/Primitives/digital-signature.md",
    "slug": "digital-signature",
    "graphSlug": "Primitives/digital-signature",
-   "anchor": "#hash-based-signatures",
+   "anchor": "#one-time-signatures",
    "of": "ds",
    "title": "one-time-signature",
    "aliases": [],
@@ -2778,7 +2713,7 @@
    "page": "content/Primitives/low-complexity-prg.md",
    "slug": "low-complexity-prg",
    "graphSlug": "Primitives/low-complexity-prg",
-   "anchor": "#prg-in-nc0",
+   "anchor": "#polynomial-stretch-prg-in-nc0",
    "of": "low-complexity-prg-nc0",
    "title": "prg-in-nc0",
    "aliases": [],
@@ -3108,14 +3043,14 @@
    "id": "schnorr-identification-protocol",
    "kind": "variant",
    "type": "primitive",
-   "page": "content/Primitives/digital-signature.md",
-   "slug": "digital-signature",
-   "graphSlug": "Primitives/digital-signature",
-   "anchor": "#schnorr-signatures",
-   "of": "ds",
+   "page": "content/Primitives/identification-scheme.md",
+   "slug": "identification-scheme",
+   "graphSlug": "Primitives/identification-scheme",
+   "anchor": "#schnorr-identification-protocol",
+   "of": "identification-scheme",
    "title": "schnorr-identification-protocol",
    "aliases": [],
-   "unlisted": false
+   "unlisted": true
   },
   {
    "id": "schnorr-signature",
@@ -3220,19 +3155,6 @@
    "anchor": "#shoups-formulation",
    "of": "ggm",
    "title": "shoup-generic-group-model",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
-   "id": "shoup-ggm",
-   "kind": "variant",
-   "type": "glossary",
-   "page": "content/Glossary/generic-group-model.md",
-   "slug": "generic-group-model",
-   "graphSlug": "Glossary/generic-group-model",
-   "anchor": "#shoups-formulation",
-   "of": "ggm",
-   "title": "shoup-ggm",
    "aliases": [],
    "unlisted": false
   },
@@ -3582,25 +3504,12 @@
    "id": "sxdh",
    "kind": "variant",
    "type": "assumption",
-   "page": "content/Assumptions/bilinear-map-assumptions.md",
-   "slug": "bilinear-map-assumptions",
-   "graphSlug": "Assumptions/bilinear-map-assumptions",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
    "anchor": "#sxdh-symmetric-external-diffie-hellman",
-   "of": "bdh",
+   "of": "ddh",
    "title": "sxdh",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
-   "id": "symmetric-cp-abe",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/attribute-based-encryption.md",
-   "slug": "attribute-based-encryption",
-   "graphSlug": "Primitives/attribute-based-encryption",
-   "anchor": "#symmetric-cp-abe",
-   "of": "abe",
-   "title": "symmetric-cp-abe",
    "aliases": [],
    "unlisted": false
   },
@@ -3875,19 +3784,6 @@
     "Module lattice problems"
    ],
    "unlisted": true
-  },
-  {
-   "id": "xmss",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/digital-signature.md",
-   "slug": "digital-signature",
-   "graphSlug": "Primitives/digital-signature",
-   "anchor": "#hash-based-signatures",
-   "of": "ds",
-   "title": "xmss",
-   "aliases": [],
-   "unlisted": false
   },
   {
    "id": "zero-bit-prc",
@@ -4227,7 +4123,7 @@
    "kind": "implication",
    "hypotheses": [
     "bdh",
-    "k-linear-assumption"
+    "decisional-linear"
    ],
    "conclusion": "hibe",
    "class": "fully-black-box",
@@ -4291,7 +4187,7 @@
    "kind": "implication",
    "hypotheses": [
     "bdh",
-    "k-linear-assumption"
+    "decisional-linear"
    ],
    "conclusion": "ibe",
    "class": "fully-black-box",
@@ -4715,7 +4611,7 @@
    "id": "red-cpa-security-to-cpa-security",
    "kind": "equivalence",
    "hypotheses": [
-    "ind-cpa-security"
+    "pke-cpa-security"
    ],
    "conclusion": "semantic-security",
    "class": "fully-black-box",
@@ -4818,7 +4714,7 @@
    "page": "content/Reductions/d-th-composite-residuosity-to-he.md",
    "slug": "d-th-composite-residuosity-to-he",
    "graphSlug": "Reductions/d-th-composite-residuosity-to-he",
-   "title": "$d$-th Composite Residuosity ⇒ PHE"
+   "title": "$d$-th Composite Residuosity ⇒ Additively homomorphic encryption"
   },
   {
    "id": "red-dcr-to-com",
@@ -4881,7 +4777,7 @@
    "page": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
    "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
    "graphSlug": "Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99",
-   "title": "DCR ⇒ Partially homomorphic encryption (PHE)"
+   "title": "DCR ⇒ Additively homomorphic encryption"
   },
   {
    "id": "red-dcr-to-pke-pai99",
@@ -5123,7 +5019,7 @@
    "id": "red-depir-to-cpir",
    "kind": "implication",
    "hypotheses": [
-    "pk-depir"
+    "unkeyed-depir"
    ],
    "conclusion": "cpir",
    "class": "fully-black-box",
@@ -5138,7 +5034,7 @@
    "page": "content/Reductions/depir-to-cpir.md",
    "slug": "depir-to-cpir",
    "graphSlug": "Reductions/depir-to-cpir",
-   "title": "PK-DEPIR ⇒ cPIR"
+   "title": "Unkeyed DEPIR ⇒ cPIR"
   },
   {
    "id": "red-differing-inputs-obfuscation-dio-to-io",
@@ -5952,6 +5848,27 @@
    "title": "GGM ⇒ DLOG"
   },
   {
+   "id": "red-ggm-to-kea-den06",
+   "kind": "implication",
+   "hypotheses": [
+    "ggm"
+   ],
+   "conclusion": "kea",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ggm-to-kea-den06.md",
+   "slug": "ggm-to-kea-den06",
+   "graphSlug": "Reductions/ggm-to-kea-den06",
+   "title": "GGM ⇒ KEA"
+  },
+  {
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
    "kind": "implication",
    "hypotheses": [
@@ -6133,7 +6050,7 @@
     "hash-function",
     "prf"
    ],
-   "conclusion": "xmss",
+   "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -6146,7 +6063,7 @@
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
    "graphSlug": "Reductions/hash-function-to-hash-based-signatures",
-   "title": "Hash function + PRF ⇒ XMSS"
+   "title": "Hash function + PRF ⇒ DS (XMSS)"
   },
   {
    "id": "red-hash-function-to-hash-based-signatures-lam79",
@@ -7349,7 +7266,7 @@
    "page": "content/Reductions/module-lwe-to-lwe-ls15.md",
    "slug": "module-lwe-to-lwe-ls15",
    "graphSlug": "Reductions/module-lwe-to-lwe-ls15",
-   "title": "Module LWE ⇔ LWE"
+   "title": "Module LWE (degree 1) ⇔ LWE"
   },
   {
    "id": "red-module-lwe-to-ring-lwe-ls15",
@@ -8025,7 +7942,7 @@
    "page": "content/Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25.md",
    "slug": "partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
    "graphSlug": "Reductions/partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
-   "title": "Partially homomorphic encryption (PHE) + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)"
+   "title": "Additively homomorphic encryption + Sparse LPN ⇒ SHE"
   },
   {
    "id": "red-pc-and-search-noisy-k-lin-to-pke-ghjs25",
@@ -9273,27 +9190,6 @@
    "slug": "ss-to-it-pir-cgks98",
    "graphSlug": "Reductions/ss-to-it-pir-cgks98",
    "title": "Linear SS ⇒ IT-PIR"
-  },
-  {
-   "id": "red-strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
-   "kind": "implication",
-   "hypotheses": [
-    "alternating-moduli-strong"
-   ],
-   "conclusion": "alternating-moduli-weak",
-   "class": "fully-black-box",
-   "model": "standard",
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "additive $q^2/2^{n+1}$ for $q$ oracle queries (collisions among sampled inputs)",
-   "status": "draft",
-   "page": "content/Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption.md",
-   "slug": "strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
-   "graphSlug": "Reductions/strong-alternating-moduli-chosen-input-assumption-to-weak-alternating-moduli-random-input-assumption",
-   "title": "Strong alternating moduli (chosen-input) assumption ⇒ Weak alternating moduli (random-input) assumption"
   },
   {
    "id": "red-strong-rsa-to-com",

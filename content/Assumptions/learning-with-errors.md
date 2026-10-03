@@ -18,8 +18,8 @@ variants:
   search-lwe: "#search-lwe"
   circular-evasive-lwe: "#circular-evasive-lwe"
   tensor-lwe: "#tensor-lwe"
-  module-lwe-rank-1: "#module-lwe"
-  module-lwe-rank-n: "#module-lwe"
+  module-lwe-rank-1: "#rank-1-module-lwe"
+  module-lwe-rank-n: "#degree-1-module-lwe"
 ---
 
 # Learning with errors
@@ -138,15 +138,20 @@ Ring LWE is the basis for NewHope and is closely related to the NTRU cryptosyste
 $$\mathbf{b} = \mathbf{A} \cdot \mathbf{s} + \mathbf{e} \in R_q^m,$$
 where $\mathbf{A} \in R_q^{m \times k}$ is a random module matrix, $\mathbf{s} \in R_q^k$ is the secret vector, and $\mathbf{e} \in R_q^m$ is a small error vector.
 
-- When $k = 1$: recovers Ring LWE (one ring element per equation)
-- With ring degree 1 ($R_q = \ZZ_q$) and $k = n$: recovers plain LWE (fully unstructured) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]
-
 The module structure provides a flexible trade-off between efficiency (like Ring LWE) and conservative security assumptions (less algebraic structure than Ring LWE). Module LWE is the basis for the NIST post-quantum standards:
 
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 
 Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
+
+### Rank-1 Module LWE
+
+At module rank $k = 1$, Module LWE coincides with [[#Ring LWE|Ring LWE]] (one ring element per equation) — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
+
+### Degree-1 Module LWE
+
+Over the degree-1 ring $R = \ZZ$ ($R_q = \ZZ_q$) at module rank $k = n$, Module LWE coincides with plain LWE in dimension $n$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
 ## Hint LWE
 
@@ -304,11 +309,11 @@ $$
 \Adv^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sLWE}}_{\ell,n,q,\chi,m,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. The assumption strengthens as $\ell$ grows. Succinct LWE is implied by evasive LWE — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]. The assumption strengthens as $\ell$ grows. Succinct LWE is implied by evasive LWE — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]].
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 242e513ab858 -->
+<!-- BEGIN GENERATED participates-in e635ef1af26a -->
 
 ## Participates in
 
@@ -329,8 +334,8 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|module-lwe]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|module-lwe]])
-- [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]] (via [[learning-with-errors#module-lwe|module-lwe-rank-n]])
-- [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#module-lwe|module-lwe-rank-1]])
+- [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|module-lwe-rank-n]])
+- [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|module-lwe-rank-1]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|search-lwe]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|succinct-lwe]])
@@ -342,7 +347,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]] (via [[learning-with-errors#succinct-lwe|succinct-lwe]])
 - [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
 - [[ideal-svp-to-ring-lwe-lpr10|Ideal-SVP ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
-- [[module-lwe-to-lwe-ls15|Module LWE ⇔ LWE]]
+- [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|ring-lwe]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|module-lwe]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|decision-lwe]])
