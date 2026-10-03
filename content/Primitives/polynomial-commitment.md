@@ -69,13 +69,13 @@ Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
 
 ## FRI (Fast Reed-Solomon IOP of Proximity)
 
-FRI is an interactive oracle proof of proximity to Reed-Solomon codes that repeatedly halves the degree of a codeword by a random folding step (Ben-Sasson, Bentov, Horesh, Riabzev, ICALP 2018). Combined with Merkle-tree commitments, it yields a transparent (no trusted setup) list polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]]. It is the core component of [[succinct-argument|STARKs]].
+FRI is an interactive oracle proof of proximity to Reed-Solomon codes that repeatedly halves the degree of a codeword by a random folding step — [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]]. Combined with Merkle-tree commitments, it yields a transparent (no trusted setup) list polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]]. It is the core component of [[succinct-argument|STARKs]].
 
 - **Proof size**: $O(\log^2 d)$
 - **Verification time**: $O(\log^2 d)$
 - **Setup**: Transparent (public-coin; only a hash function needed)
 - **Security**: Collision-resistant hash functions; post-quantum secure
-- **Reference**: [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
+- **Reference**: [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]
 
 ## Inner Product Argument (IPA / Bulletproofs)
 
@@ -89,7 +89,7 @@ A transparent polynomial commitment based on Pedersen commitments and a recursiv
 # Other results
 
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
-- FRI-based polynomial commitments give transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]
+- FRI-based polynomial commitments give transparent SNARKs with sublinear proof size — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]
 - Multi-point and batched opening protocols (e.g., FK20) allow proving many evaluations simultaneously with constant overhead — standard
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]]
 

@@ -155,7 +155,7 @@ Key properties:
 
 - **Deterministic**: no per-signature randomness needed
 - **Short**: one group element ($\approx 48$ bytes on BLS12-381)
-- **Aggregatable**: $n$ signatures on distinct messages can be aggregated into one signature verifiable with $n+1$ pairings, checking $e(\sigma, g_2) = \prod_{i=1}^n e(H(m_i), \pk_i)$ — Boneh, Gentry, Lynn, Shacham (EUROCRYPT 2003)
+- **Aggregatable**: $n$ signatures on distinct messages can be aggregated into one signature verifiable with $n+1$ pairings, checking $e(\sigma, g_2) = \prod_{i=1}^n e(H(m_i), \pk_i)$ — [[BGLS03 - Aggregate and Verifiably Encrypted Signatures from Bilinear Maps|BGLS03]]
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
 
 BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.

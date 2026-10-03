@@ -5110,7 +5110,7 @@
    "class": "unstated",
    "model": "crs",
    "source": [
-    "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06]]"
+    "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -6096,7 +6096,7 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+    "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
    ],
    "via": [],
    "heuristic": false,
@@ -6138,7 +6138,7 @@
    "class": "unstated",
    "model": "rom",
    "source": [
-    "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+    "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
    ],
    "via": [],
    "heuristic": false,
@@ -9922,6 +9922,7 @@
    "conditionalOn": [],
    "circumventedBy": [],
    "source": [
+    "[[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]",
     "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
    "status": "draft",
@@ -10673,7 +10674,7 @@
    "conditionalOn": [],
    "circumventedBy": [],
    "source": [
-    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]"
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
    ],
    "status": "draft",
    "page": "content/Barriers/no-zkp-to-argument-systems.md",

@@ -3,15 +3,16 @@ type: reference
 status: draft
 source: https://eprint.iacr.org/2018/046
 aliases:
+  - BBHR18a
   - BBHR18
-title: "BBHR18"
+title: "BBHR18a"
 cryptobib_key: EPRINT:BBHR18
 authors: Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, Michael Riabzev
 venue: ePrint 2018
 published: 2018-01-01
 ---
 
-# [BBHR18] Scalable, transparent, and post-quantum secure computational integrity
+# [BBHR18a] Scalable, transparent, and post-quantum secure computational integrity
 
 **Authors:** Eli Ben-Sasson, Iddo Bentov, Yinon Horesh, Michael Riabzev | **Venue:** ePrint 2018 | [Source](https://eprint.iacr.org/2018/046)
 

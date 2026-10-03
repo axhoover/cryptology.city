@@ -1,15 +1,16 @@
 ---
 type: reference
 status: draft
-title: "GK96"
+title: "GK96a"
 source: https://epubs.siam.org/doi/10.1137/S0097539791220688
 authors: Oded Goldreich, Hugo Krawczyk
 venue: SIAM Journal on Computing 1996
 published: 1996-01-01
 aliases:
+  - GK96a
   - GK96
 bibtex: |
-  @article{GK96,
+  @article{GK96a,
     author  = {Oded Goldreich and Hugo Krawczyk},
     title   = {On the Composition of Zero-Knowledge Proof Systems},
     journal = {SIAM Journal on Computing},
@@ -20,7 +21,7 @@ bibtex: |
   }
 ---
 
-# [GK96] On the Composition of Zero-Knowledge Proof Systems
+# [GK96a] On the Composition of Zero-Knowledge Proof Systems
 
 **Authors:** Oded Goldreich, Hugo Krawczyk | **Venue:** SIAM Journal on Computing 1996 | [Source](https://epubs.siam.org/doi/10.1137/S0097539791220688)
 

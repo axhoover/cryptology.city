@@ -19,7 +19,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#c
 - $\classBPP \subseteq \classcoAM$: BPP problems have a trivial one-message coAM protocol where Merlin's message is ignored (Arthur decides alone). Symmetrically, $\classBPP \subseteq \classAM$.
 - $\classSZK \subseteq \classAM \cap \classcoAM$ — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]] ($\classAM$), [[For87 - The Complexity of Perfect Zero-Knowledge|For87]] ($\classcoAM$); [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]] give a unified proof via Statistical Difference.
 - $\classcoNP \subseteq \classcoAM$, since $\classNP \subseteq \classAM$ and taking complements — folklore.
-- If graph isomorphism is $\classNP$-complete, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\mathbf{\Sigma_2^P}$. This uses the fact that graph isomorphism is in $\classcoAM$, so if GI were NP-complete then $\classNP \subseteq \classcoAM$, i.e. $\classcoNP \subseteq \classAM$, which collapses the hierarchy — Boppana, Håstad, and Zachos (IPL 1987); see also [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
+- If graph isomorphism is $\classNP$-complete, then the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to $\mathbf{\Sigma_2^P}$. This uses the fact that graph isomorphism is in $\classcoAM$, so if GI were NP-complete then $\classNP \subseteq \classcoAM$, i.e. $\classcoNP \subseteq \classAM$, which collapses the hierarchy — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]; see also [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
 
 ## Notable problems
 

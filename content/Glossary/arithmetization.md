@@ -45,7 +45,7 @@ PLONKish is used in Plonk, Halo2, and most modern universal SNARKs. The system c
 
 ### AIR (Algebraic Intermediate Representation)
 
-AIR encodes a computation as a constraint on consecutive rows of an execution trace: for each step $i$, a polynomial relation $P(\mathbf{w}_i, \mathbf{w}_{i+1}) = 0$ holds. AIR is the arithmetization underlying [[succinct-argument|STARKs]] — the FRI protocol can then verify the AIR constraints via a Reed-Solomon proximity test — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+AIR encodes a computation as a constraint on consecutive rows of an execution trace: for each step $i$, a polynomial relation $P(\mathbf{w}_i, \mathbf{w}_{i+1}) = 0$ holds. AIR is the arithmetization underlying [[succinct-argument|STARKs]] — the FRI protocol can then verify the AIR constraints via a Reed-Solomon proximity test — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 ## Results
 

@@ -50,7 +50,7 @@ The dealer fixes a point $P \in \FF_p^t$ whose first coordinate is the secret an
 
 ## Computational secret sharing
 
-Relaxes perfect privacy to computational indistinguishability, which allows shares shorter than the secret; in a perfect scheme every share is at least as long as the secret — Karnin, Greene, and Hellman, IEEE Trans. Inf. Theory 1983. Encrypting $s$ under a fresh key, sharing the key with a perfect scheme, and splitting the ciphertext with an information dispersal algorithm gives $(t, n)$ shares of length $|s|/t + O(\secpar)$ — Krawczyk, CRYPTO 1993.
+Relaxes perfect privacy to computational indistinguishability, which allows shares shorter than the secret; in a perfect scheme every share is at least as long as the secret — [[KGH83 - On Secret Sharing Systems|KGH83]]. Encrypting $s$ under a fresh key, sharing the key with a perfect scheme, and splitting the ciphertext with an information dispersal algorithm gives $(t, n)$ shares of length $|s|/t + O(\secpar)$ — [[Kra93 - Secret Sharing Made Short|Kra93]].
 
 ## Verifiable secret sharing (VSS)
 
@@ -67,7 +67,7 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 - [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
 - Monotone-span-program size lower bounds survive amortization: a lower bound proved for a program sharing one secret still applies, per secret, when the same program is reused to share several secrets at once — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
-- There exist access structures on $n$ parties for which every perfect multilinear scheme, over every finite field, requires shares of total size $2^{\Omega(n)}$ times the secret size — matching the known $2^{O(n)}$ upper bound and settling [Beimel, ePrint 2025/518, Question 10.4] — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
+- There exist access structures on $n$ parties for which every perfect multilinear scheme, over every finite field, requires shares of total size $2^{\Omega(n)}$ times the secret size — matching the known $2^{O(n)}$ upper bound and settling Question 10.4 of [[Bei25 - Secret-Sharing Schemes for General Access Structures An Introduction|Bei25]] — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
 
 <!-- BEGIN GENERATED participates-in c00917c136e8 -->
 

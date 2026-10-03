@@ -18,7 +18,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 
 - Graph non-isomorphism is in SZK — the verifier can check statistical distance between two distributions via the prover
 - SZK is closed under complement — Okamoto (STOC 1996); simpler proof in [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]
-- SZK ⊆ [[arthur-merlin|AM]] ∩ [[co-arthur-merlin|coAM]] — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]] (AM), [[For87 - The Complexity of Perfect Zero-Knowledge|For87]] (coAM); in particular SZK does not contain NP-complete problems unless PH collapses — Boppana, Håstad, and Zachos (IPL 1987)
+- SZK ⊆ [[arthur-merlin|AM]] ∩ [[co-arthur-merlin|coAM]] — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]] (AM), [[For87 - The Complexity of Perfect Zero-Knowledge|For87]] (coAM); in particular SZK does not contain NP-complete problems unless PH collapses — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]
 - Average-case-hard SZK implies [[hash-function|OWFs]]: if some language in SZK is hard on average over an efficiently samplable distribution, then one-way functions exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
   - From worst-case hardness alone (SZK ⊄ BPP), auxiliary-input one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - The complete problem for SZK is the **Statistical Difference (SD)** problem: given two circuits sampling distributions $D_0$ and $D_1$, decide whether $\|D_0 - D_1\|_{\mathrm{TV}} \geq 2/3$ or $\leq 1/3$

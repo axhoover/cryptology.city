@@ -53,7 +53,7 @@ is negligible.
 
 Let $(\GG, \GG_T, e, g)$ be a [[pairings|bilinear group]] of prime order $p$, let $x, \alpha \getsr \ZZ_p^*$, and give $\calA$ the elements $(g^{x^i}, g^{\alpha x^i})_{i=0}^{q}$. The **$q$-power knowledge of exponent assumption ($q$-PKE)** states that for all efficient $\calA$ there is an efficient $\calE_\calA$ (given $\calA$'s input and coins) such that the probability that $\calA$ outputs $(c, \hat c)$ with $\hat c = c^\alpha$ while $\calE_\calA$ fails to output $a_0, \ldots, a_q$ with $c = g^{\sum_i a_i x^i}$ is negligible — [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]].
 
-$q$-PKE is used in the pairing-based SNARKs of [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]] and Gennaro–Gentry–Parno–Raykova (EUROCRYPT 2013); Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
+$q$-PKE is used in the pairing-based SNARKs of [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]] and [[GGPR13 - Quadratic Span Programs and Succinct NIZKs without PCPs|GGPR13]]; Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
 ## Algebraic Group Model (AGM)
 

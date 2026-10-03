@@ -10,7 +10,7 @@ conclusion: transparent-succinct-argument
 class: unstated
 model: rom
 source:
-  - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]]"
+  - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
 security-loss: ""
 ---
 
@@ -20,7 +20,7 @@ security-loss: ""
 
 ## Statement
 
-A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields [[succinct-argument#stark|STARKs]]: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+A [[hash-function#collision-resistance|collision-resistant hash function]], used for Merkle commitments and modeled as a random oracle for non-interactivity, yields [[succinct-argument#stark|STARKs]]: transparent (no trusted setup) [[succinct-argument|succinct non-interactive arguments of knowledge]] with quasilinear prover time and $O(\log^2 T)$ proof size for a $T$-step computation — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 ## Sketch
 

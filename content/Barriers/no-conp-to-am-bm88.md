@@ -13,6 +13,7 @@ consequences:
     class: free
 strength: unconditional
 source:
+  - "[[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]"
   - "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
 ---
 
@@ -22,7 +23,7 @@ A reduction of class `free` from [[co-nondeterministic-polynomial-time|coNP]] to
 
 ## Statement
 
-If $\classcoNP \subseteq \classAM$, then $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P} = \classAM$, so the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its second level. The result is due to Boppana, Håstad and Zachos (IPL 1987); [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]] derive it from the collapse theorem $\classAM[k] = \classAM$. Whether $\classcoNP \subseteq \classAM$ holds is open.
+If $\classcoNP \subseteq \classAM$, then $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P} = \classAM$, so the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its second level. The result is due to [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]; [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]] derive it from the collapse theorem $\classAM[k] = \classAM$. Whether $\classcoNP \subseteq \classAM$ holds is open.
 
 ## Sketch
 
