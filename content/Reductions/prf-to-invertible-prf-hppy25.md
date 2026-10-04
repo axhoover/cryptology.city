@@ -22,4 +22,4 @@ Any [[pseudorandom-function|PRF]] (indeed any [[hash-function#preimage-resistanc
 
 ## Notes
 
-- Over a domain of superpolynomial size a [[pseudorandom-permutation|PRP]] is already an iPRF for the forward-oracle game $\Game^{\mathrm{prf}}$, by the [[switching-lemma|Switching Lemma]] ([[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]) — folklore.
+- A [[pseudorandom-permutation|PRP]] alone is an iPRF for the forward-oracle game $\Game^{\mathrm{prf}}$ only over a domain of superpolynomial size, where the [[switching-lemma|Switching Lemma]] applies ([[prp-to-invertible-prf|PRP ⇒ iPRF]]) — folklore.

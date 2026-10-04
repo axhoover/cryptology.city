@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
-security-loss: "factor $n$: one hybrid per input bit"
+security-loss: "factor $n$ over the DDH advantage: one hybrid per input bit"
 rationale:
   class: "The construction uses only the group generator's output, and each hybrid step runs the PRF distinguisher only as an oracle to build a DDH distinguisher."
 ---
@@ -25,7 +25,7 @@ If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, the Naor–Reingold f
 
 ## Sketch
 
-Hybrid $i$ replaces the contribution of the first $i$ input bits by an independent random function of the queried $i$-bit prefixes. A distinguisher between adjacent hybrids yields a DDH distinguisher, the polynomially many DDH samples sharing one exponent being derived from a single instance by random self-reducibility.
+Hybrid $i$ answers $x$ with $g^{R_i(x_1 \cdots x_i) \prod_{j > i,\, x_j = 1} a_j}$ for a random function $R_i$ on $\bits^i$, so hybrid $0$ is the Naor–Reingold function and hybrid $n$ a random function. A distinguisher between hybrids $i$ and $i+1$ tells polynomially many DDH tuples sharing the exponent $a_{i+1}$ from random ones, and random self-reducibility derives such tuples from a single DDH instance with no further multiplicative loss.
 
 ```pseudocode
 \begin{algorithm}
@@ -47,7 +47,3 @@ Hybrid $i$ replaces the contribution of the first $i$ input bits by an independe
 \end{algorithmic}
 \end{algorithm}
 ```
-
-## Notes
-
-- The loss is a factor $n$ in the DDH advantage, one hybrid per input bit: random self-reducibility reduces the multi-sample DDH needed at each level to DDH with no further multiplicative loss — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].

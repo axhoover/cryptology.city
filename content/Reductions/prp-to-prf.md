@@ -31,4 +31,4 @@ Sampled lazily, a random function on $\calD$ answers $q$ distinct queries as a r
 ## Notes
 
 - A game-playing proof of the switching lemma, correcting a conditioning flaw in the standard proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].
-- For streaming distinguishers with $m$ bits of memory the bound improves to $O(mq/|\calD|)$ — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].
+- For streaming distinguishers with $m$ bits of memory the bound is $O(mq \log q/|\calD|)$, tight up to polylogarithmic factors — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].

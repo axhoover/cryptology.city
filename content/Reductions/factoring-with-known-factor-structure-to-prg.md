@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-The Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]] if the [[quadratic-residuosity|quadratic residuosity assumption]] holds for Blum integers — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]], and already if [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. For a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$.
+If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]] prove the generator secure under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers.
 
 ## Sketch
 
-Squaring permutes the quadratic residues modulo a Blum integer, so each $x_i$ is a uniform residue and every later output bit is computable from $x_{i+1}$; Yao's equivalence of indistinguishability and unpredictability, applied right to left, turns a distinguisher into a predictor of the low-order bit of the principal square root of a random residue. For $x$ of Jacobi symbol $+1$ exactly one of $x, N - x$ is a residue and the two have opposite parity, so the predictor decides quadratic residuosity (BBS86). VV84 show that it also extracts square roots and hence factors $N$.
+Squaring permutes the quadratic residues modulo a Blum integer, so each $x_i$ is a uniform residue and the bits after $\mathrm{lsb}(x_i)$ are computable from $x_{i+1}$; Yao's equivalence of indistinguishability and unpredictability, applied right to left, turns a distinguisher into a predictor of the low-order bit of the principal square root of a random residue. For $x$ of Jacobi symbol $+1$ exactly one of $x, N - x$ is a residue and the two have opposite parity, so the predictor decides quadratic residuosity (BBS86). VV84 show that it also extracts square roots and hence factors $N$.
 
 ## Notes
 

@@ -25,4 +25,4 @@ A [[pseudorandom-permutation|PRP]] $(\KeyGen, \Eval, \Invert)$ over a domain $\c
 
 ## Sketch
 
-A permutation is an iPRF with singleton preimage sets and perfect correctness. Against forward queries a random permutation is within $O(q^2/|\calD|)$ of a random function, so PRP security transfers to $\Game^{\mathrm{prf}}$ with birthday loss.
+A permutation is an iPRF with singleton preimage sets and perfect correctness. Against forward queries a random permutation is statistically within $O(q^2/|\calD|)$ of a random function, so PRP security transfers to $\Game^{\mathrm{prf}}$ with birthday loss.
