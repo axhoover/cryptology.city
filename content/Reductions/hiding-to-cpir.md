@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], introduced for this purpose, there is a single-server [[single-server-private-information-retrieval|PIR]] scheme with total communication polylogarithmic in the database size $n$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
+Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], there is a single-server [[single-server-private-information-retrieval|PIR]] scheme with total communication polylogarithmic in the database size $n$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]], which introduces the assumption.
 
 ## Sketch
 

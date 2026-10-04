@@ -14,7 +14,7 @@ source:
   - "[[GMW87 - How to play ANY mental game|GMW87]]"
 security-loss: ""
 rationale:
-  class: "Kil88's protocol uses OT only as an ideal functionality, with zero-knowledge proofs about the evaluated circuit rather than the OT implementation, and against a real OT protocol the reduction uses any adversary only as an oracle."
+  class: "Kil88's protocol uses OT only as an ideal functionality, with commitments and zero-knowledge proofs about the evaluated circuit rather than the OT implementation, and against a real OT protocol the reduction uses any adversary only as an oracle."
 ---
 
 # OT ⇒ MPC

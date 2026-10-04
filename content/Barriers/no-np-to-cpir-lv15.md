@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]"
 rationale:
-  class: "LV15 rule out reductions that use the privacy adversary only as an oracle and are otherwise unrestricted; with NP as hypothesis there is no construction to restrict, and LV15 give no oracle separation."
+  class: "LV15 rule out reductions that use the privacy adversary only as an oracle and are otherwise unrestricted, the fully-black-box shape when NP as hypothesis leaves no construction to restrict; they give no oracle separation, so relativizing would overstate."
 ---
 
 # No fully-black-box reduction from NP to cPIR

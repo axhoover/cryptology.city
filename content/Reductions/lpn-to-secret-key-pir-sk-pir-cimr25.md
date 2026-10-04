@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), there is a [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for $N$-bit databases with communication $O(N^{\varepsilon})$ for every constant $\varepsilon > 0$ — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), then for every constant $\varepsilon > 0$ there is a [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for $N$-bit databases with communication $O(N^{\varepsilon})$ — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
 
 ## Notes
 
