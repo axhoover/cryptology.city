@@ -24,4 +24,4 @@ A [[oblivious-transfer#random-ot|random OT]] correlation — the sender holds un
 
 ## Sketch
 
-$e$ one-time-pads the real choice bit with the random one, and each $x_j$ is one-time-padded with $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$). $e$ is uniform independently of $c$, and $r_{1 \oplus c'}$ stays uniform given the receiver's view.
+The receiver's message $e = c \oplus c'$ is uniform independently of $c$, since $c'$ is uniform. Each $x_j$ is one-time-padded with $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$), and $r_{1 \oplus c'}$ is uniform given the receiver's view.

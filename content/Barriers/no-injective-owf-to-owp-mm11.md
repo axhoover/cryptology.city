@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]"
 rationale:
-  class: "MM11a rule out every construction that uses the injective OWF only as an oracle paired with a reduction that uses any OWP inverter only as an oracle, the RTV04 fully-black-box notion, and claim no stronger class."
+  class: "MM11a rule out the RTV04 fully-black-box class, a construction using the injective OWF only as an oracle paired with a reduction using any OWP inverter only as an oracle, and claim nothing broader such as relativizing reductions."
 ---
 
 # No fully-black-box reduction from length-increasing injective OWF to OWP

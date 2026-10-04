@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[oblivious-transfer#rabin-ot|Rabin OT]] and 1-out-of-2 [[oblivious-transfer|OT]] on bits are equivalent: each is realized from the other by an information-theoretically secure protocol making polynomially many calls, and the nontrivial direction builds 1-out-of-2 OT from $3n$ Rabin OTs — [[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]].
+[[oblivious-transfer#rabin-ot|Rabin OT]] and 1-out-of-2 [[oblivious-transfer|OT]] on bits are equivalent: each is realized from the other by an information-theoretically secure protocol making polynomially many calls, and the nontrivial direction builds 1-out-of-2 OT from $3n$ Rabin OTs with error exponentially small in $n$ — [[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]].
 
 ## Sketch
 
