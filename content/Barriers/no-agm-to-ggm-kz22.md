@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]"
 rationale:
-  class: "The separation is formalization-dependent, holding under KZ22's formalization while under JM24's the transfer holds for most algebraic analyses, and the GGM covers both Shoup's and Maurer's formulations, so no single class is recorded."
+  class: "Under KZ22's formalization the separation is a counterexample, which would rule out free reductions, but under JM24's the transfer holds for most algebraic analyses, and the GGM covers both Shoup's and Maurer's formulations, so no single class is recorded."
 ---
 
 # No reduction from AGM to GGM

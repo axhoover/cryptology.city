@@ -17,11 +17,11 @@ security-loss: ""
 
 ## Statement
 
-When the group order is known and membership $h \in \langle g \rangle$ is checkable in polynomial time (for prime order $p$: $g \neq 1$ and $h^p = 1$), the [[discrete-logarithm|DLOG]] search problem — given $(\GG, g, p, h)$, find $x$ with $g^x = h$ — is in [[total-function-np|TFNP]] — folklore.
+When the group order is known and membership $h \in \langle g \rangle$ is checkable in polynomial time (for prime order $p$: $g \neq 1$ and $h^p = 1$), the [[discrete-logarithm|DLOG]] search problem of finding $x$ with $g^x = h$ given $(\GG, g, p, h)$ is in [[total-function-np|TFNP]] — folklore.
 
 ## Sketch
 
-Every $h \in \langle g \rangle$ has a discrete logarithm $x \in \ZZ_p$, and a candidate $x$ is checked with one exponentiation; an input failing the membership test accepts a fixed dummy solution.
+Every $h \in \langle g \rangle$ has a discrete logarithm $x \in \ZZ_p$, and a candidate $x$ is checked with one exponentiation; on an input that fails the membership test, the verifier accepts a fixed dummy solution.
 
 ## Notes
 

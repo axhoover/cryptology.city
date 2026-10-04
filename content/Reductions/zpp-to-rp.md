@@ -21,7 +21,7 @@ security-loss: ""
 
 ## Sketch
 
-Replace the output $?$ by reject: the machine never accepts a no-instance and accepts a yes-instance with probability at least $1/2$. For the expected-polynomial-time formulation, first truncate the run at twice the expected running time and output $?$ on timeout; by Markov's inequality this happens with probability at most $1/2$, and every non-$?$ answer is correct.
+Replace the output $?$ by reject: the machine never accepts a no-instance and accepts a yes-instance with probability at least $1/2$. For the expected-polynomial-time formulation, first truncate the run at twice the polynomial bound on its expected running time and output $?$ on timeout; by Markov's inequality this happens with probability at most $1/2$, and every non-$?$ answer is correct.
 
 ## Notes
 

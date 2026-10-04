@@ -13,7 +13,7 @@ source:
   - "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
 security-loss: ""
 rationale:
-  class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function, and BPR15 state no reduction notion."
+  class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, making the construction non-black-box in the one-way function; BPR15 state no reduction notion, so the broadest class is recorded."
 ---
 
 # OWF + iO ⇒ PPAD hardness
