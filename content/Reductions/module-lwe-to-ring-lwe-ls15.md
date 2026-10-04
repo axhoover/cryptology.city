@@ -24,4 +24,4 @@ rationale:
 
 ## Sketch
 
-A rank-1 module over $R_q$ is $R_q$ itself: at $k = 1$, $\mathbf{A} \in R_q^{m \times 1}$ is a column of ring elements $a_i$ and $\mathbf{s} = s \in R_q$, so $\mathbf{A}\mathbf{s} + \mathbf{e}$ lists the Ring LWE samples $(a_i, a_i s + e_i)$. The identity map is a reduction in both directions.
+A rank-1 module over $R_q$ is $R_q$ itself: at $k = 1$, $\mathbf{A} \in R_q^{m \times 1}$ is a column of ring elements $a_i$ and $\mathbf{s} = s \in R_q$, so $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ lists the Ring LWE samples $(a_i, a_i s + e_i)$. The identity map is a reduction in both directions.

@@ -25,7 +25,7 @@ For $\alpha q > 2\sqrt{n}$, an efficient algorithm solving [[learning-with-error
 
 ## Sketch
 
-Given discrete Gaussian samples of parameter $r$ over the input lattice $L$, the LWE oracle solves bounded-distance decoding on the dual $L^*$ to within distance $\alpha q/(\sqrt{2}\,r)$, and a quantum step turns this decoder into a sampler of discrete Gaussians over $L$ with parameter $r\sqrt{n}/(\alpha q) < r/2$. Iterating shrinks the parameter to $\sqrt{2n}\,\eta_\varepsilon(L)/\alpha$, from which GapSVP is approximated to within $\tilde{O}(n/\alpha)$.
+Given discrete Gaussian samples of parameter $r$ over a lattice $L$, the LWE oracle solves bounded-distance decoding on the dual $L^*$ to within distance $\alpha q/(\sqrt{2}\,r)$, and a quantum step turns this decoder into a sampler of discrete Gaussians over $L$ with parameter $r\sqrt{n}/(\alpha q) < r/2$. Iterating yields a sampler at parameter $\sqrt{2n}\,\eta_\varepsilon(L)/\alpha$ for every lattice $L$, and such a sampler approximates GapSVP to within $\tilde{O}(n/\alpha)$.
 
 ## Notes
 

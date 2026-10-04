@@ -27,4 +27,4 @@ Given $(\mathbf{A}, \mathbf{u})$, $\calB$ runs $\calA$ to obtain $\hat{\mathbf{s
 
 ## Notes
 
-- The converse holds for prime $q = \poly(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; see [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]].
+- The converse holds for prime $q = \poly(n)$, with polynomially more samples — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; see [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]].

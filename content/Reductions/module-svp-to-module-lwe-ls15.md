@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Solving the shortest independent vectors problem on rank-$d$ [[module-lattice-problems|module lattices]] over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces in quantum polynomial time to average-case [[learning-with-errors#module-lwe|Module LWE]] of rank $d$, in its search form and, for suitable moduli, its decision form — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[learning-with-errors#ring-lwe|Ring LWE]] reduction and $n = 1$ recovers plain [[learning-with-errors|LWE]].
+Solving the shortest independent vectors problem on [[module-lattice-problems|module lattices]] of rank $d$ over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces in quantum polynomial time to average-case [[learning-with-errors#module-lwe|Module LWE]] of rank $d$, in its search form and, for suitable moduli, its decision form — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[learning-with-errors#ring-lwe|Ring LWE]] reduction and $n = 1$ recovers plain [[learning-with-errors|LWE]].
 
 ## Sketch
 
