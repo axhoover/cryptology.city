@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: stub
-title: "Noise Level ⇒ DEPIR"
+title: "High-noise LPN ⇒ SK-DEPIR"
 aliases: []
 id: red-noise-level-to-depir-cimr25-2
 kind: implication
 hypotheses: [lpn-high-noise]
-conclusion: depir
+conclusion: sk-depir
 class: unstated
 model: standard
 source:
@@ -14,24 +14,8 @@ source:
 security-loss: ""
 ---
 
-# Noise Level ⇒ DEPIR
-
-[[learning-parity-with-noise#noise-level|Noise Level]] implies [[doubly-efficient-pir|DEPIR]].
+# High-noise LPN ⇒ SK-DEPIR
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Known results:
-
-> - [[doubly-efficient-pir|SK-DEPIR]] can be built from mid and high-noise LPN — [[CIMR25 - Secret-Key PIR from Random Linear Codes]]
-
-## Notes
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- AMBIGUOUS CONJUNCTION: mid and high-noise LPN reads as two hypotheses, but the regimes are mutually exclusive parameter settings, so this is almost certainly a disjunction (either regime suffices) and should be two separate reductions.
-- The citation wikilink has no display alias, unlike every other bullet on the page, so it renders the full filename.
-- Display text SK-DEPIR differs from the target page (doubly-efficient-pir); the secret-key qualifier is not in the identifier.
+If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), then for every constant $\varepsilon > 0$ there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] in a weak sense: communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].

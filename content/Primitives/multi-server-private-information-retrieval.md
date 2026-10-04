@@ -40,7 +40,7 @@ Intuitively, this means that each server observes the same query uploaded with t
 
 Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers. In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
 
-- [[hash-function-to-dpf-gi14|Hash function ⇒ DPF]]
+- [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
 
 ## Doubly-efficient Multi-server PIR
@@ -51,7 +51,7 @@ TODO
 
 - The typical setting is the 1-bit array (also called database), since you can build a $w$-bit PIR using just $w$ copies of a 1-bit PIR.
 
-<!-- BEGIN GENERATED participates-in ae178bff9a3e -->
+<!-- BEGIN GENERATED participates-in 8fbaf879ee65 -->
 
 ## Participates in
 
@@ -61,8 +61,9 @@ TODO
 
 **Produces Multi-server Private Information Retrieval**
 
-- [[dpf-to-it-pir-gi14|DPF ⇒ IT-PIR]]
+- [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]] (via [[multi-server-private-information-retrieval#computational-multi-server-pir|Computational Multi-server PIR]])
+- [[it-pir-to-computational-multi-server-pir|IT-PIR ⇒ Computational Multi-server PIR]] (via [[multi-server-private-information-retrieval#computational-multi-server-pir|Computational Multi-server PIR]])
 - [[spir-to-it-pir|SPIR ⇒ IT-PIR]]
-- [[ss-to-it-pir-cgks98|SS ⇒ IT-PIR]]
+- [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
 
 <!-- END GENERATED participates-in -->

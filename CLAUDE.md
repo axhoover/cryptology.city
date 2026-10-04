@@ -57,9 +57,12 @@ content/             # All wiki pages (Markdown)
   Glossary/          # Notation, terminology, and macro reference
   Folklore/          # Well-known results without a canonical citation
   References/        # One file per cited paper
-  Templates/         # Templates for new Primitive/Assumption/etc. pages
+  Reductions/        # One page per reduction (hyperedge)
+  Barriers/          # One page per barrier
+  Templates/         # Templates for new Primitive/Assumption/Reduction/etc. pages
   index.md           # Homepage
 macros.ts            # Custom LaTeX macro definitions (shared site-wide)
+schema/              # Reduction-class vocabulary; README.md is the reduction/barrier page contract
 quartz.config.ts     # Site-wide Quartz settings (title, theme, plugins)
 quartz.layout.ts     # UI layout component definitions
 quartz/              # Quartz framework — modify with care
@@ -189,10 +192,15 @@ Three rules, all lint-enforced:
   Disjunction is never encoded inside a page.
 - Composite chains are split, one page per link, each with its own citation.
 
-`schema/README.md` is the full contract and `CONTRIBUTING.md` has a worked
-example of each type. `schema/reduction-classes.yaml` holds the class
-vocabulary as a partial order (RTV04); `docs/relations-json.md` documents the
-`relations.json` manifest as an interface for CCwiki and the formalization repo.
+A reduction or barrier page's body is its H1, a cited `## Statement`, and an
+optional `## Sketch` and `## Notes`; why a field holds its value goes in the
+frontmatter `rationale` mapping, and maintenance history goes nowhere (git
+keeps it). `schema/README.md` is the full contract, `CONTRIBUTING.md` has a
+worked example of each type, and `content/Templates/` has a template for each.
+`schema/reduction-classes.yaml` holds the class vocabulary as a partial order
+(RTV04, plus `fixed-construction` for barriers against one named
+construction); `docs/relations-json.md` documents the `relations.json` manifest
+as an interface for CCwiki and the formalization repo.
 
 ### Cross-linking
 
@@ -407,7 +415,7 @@ Each reference page can opt into a _Copy BibTeX_ button by setting one of two op
 
 Pages with neither field render no button. Adoption is incremental — add `cryptobib_key` to pages as you edit them.
 
-**Validation:** `npm run sync-cryptobib` reports references whose local frontmatter (`title`, `authors`, `venue`, `published`) drifts from the cryptobib entry, plus references whose `cryptobib_key` does not resolve. A `rewrite` mode is stubbed for future use (`npm run sync-cryptobib rewrite`).
+**Validation:** `npm run sync-cryptobib` reports references whose H1 title or frontmatter (`authors`, `venue`, `published`) drifts from the cryptobib entry, plus references whose `cryptobib_key` does not resolve. TeX accents and math are decoded on both sides; `venue` is checked against the series and year the key prefix encodes (`C:` is CRYPTO, `FOCS:` is FOCS); confirmed errors in cryptobib itself go in `UPSTREAM_ERRORS` in `scripts/sync-cryptobib.ts`. A `rewrite` mode is stubbed for future use (`npm run sync-cryptobib rewrite`).
 
 **Bumping cryptobib:** `cd vendor/cryptobib && git pull origin master && cd - && git add vendor/cryptobib && git commit`. Re-run `npm run sync-cryptobib` afterwards to pick up any new keys or drift.
 

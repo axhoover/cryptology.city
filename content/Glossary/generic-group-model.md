@@ -10,12 +10,11 @@ variants:
   structured-generic-group-model: "#the-structured-ggm"
   maurer-generic-group-model: "#maurers-formulation"
   shoup-generic-group-model: "#shoups-formulation"
-  shoup-ggm: "#shoups-formulation"
 ---
 
 # Generic Group Model
 
-The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model was independently proposed by Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]] and Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]]; the two formulations differ in important ways.
+The _Generic Group Model (GGM)_ is a model for analyzing the security of group-based cryptographic assumptions. It restricts adversaries to those that cannot exploit any special properties of how group elements are represented, interacting with the group only through an oracle. The model goes back to Nechaev [[Nec94 - Complexity of a Determinate Algorithm for the Discrete Logarithm|Nec94]] and Shoup [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]; Maurer [[Mau05 - Abstract Models of Computation in Cryptography|Mau05]] formalized the representation-free variant, and the two formulations differ in important ways.
 
 ## Shoup's Formulation
 
@@ -30,13 +29,13 @@ The key result of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Pro
 
 ## Maurer's Formulation
 
-In [[Mau05 - Abstract Models of Computation in Cryptography|Maurer's]] formulation, genericity is captured algebraically rather than via random encodings. A group of order $p$ is presented to the adversary via a surjective group homomorphism $\phi: \ZZ_p^n \to \GG$, where $\ZZ_p^n$ is the "label space." The adversary sees only labels (elements of $\ZZ_p^n$), and queries a group operation oracle that computes $\phi(\mathbf{u}) \cdot \phi(\mathbf{v}) = \phi(\mathbf{u} + \mathbf{v})$. An algorithm is **generic** if it succeeds for every such homomorphism $\phi$.
+In [[Mau05 - Abstract Models of Computation in Cryptography|Maurer's]] formulation, group elements receive no representation at all, random or otherwise. The elements of a group of order $p$, identified with $\ZZ_p$, are held in registers inside a black box; the adversary refers to them only by register index, may insert constants and ask the box to store the sum of two registers in a new register, and learns nothing except the answers to equality queries between registers.
 
 This captures a different notion of independence from the group representation, and connects more naturally to the algebraic structure of $\ZZ_p$.
 
 ## Comparing the Two Formulations
 
-Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-based approach encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy.
+Jager and Schwenk [[JS08 - On the Equivalence of Generic Group Models|JS08]] argued that Shoup's and Maurer's formulations are equivalent for standard cyclic groups. However, Maurer, Portmann, and Zhu [[MPZ20 - Unifying Generic Group Models|MPZ20]] showed this is not generally true. They identify a key source of divergence: in Shoup's model, the adversary can test equality of handles (implicitly, across _all_ known elements at once), whereas Maurer's label-free model encodes equality differently. MPZ20 establish a precise hierarchy of GGM variants — parameterized by the set of available queries — and show that the two original models occupy different positions in this hierarchy. Zhandry showed that Shoup's model is equivalent to a type-safe variant of Maurer's for single-stage games — [[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]].
 
 ## The Structured GGM
 
@@ -52,19 +51,25 @@ This yields tight subexponential lower bounds applicable to index-calculus algor
 
 The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
 
-<!-- BEGIN GENERATED participates-in 53914cf4f34c -->
+<!-- BEGIN GENERATED participates-in 8efbe2d98916 -->
 
 ## Participates in
 
 **Builds on Generic Group Model**
 
-- [[ggm-to-abe-bsw07|GGM ⇒ ABE]]
+- [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
+- [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- [[ggm-to-kea-den06|GGM ⇒ KEA]]
+- [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]] (via [[generic-group-model#the-structured-ggm|The Structured GGM]])
 
 **Barriers**
 
 - [[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]
-- [[no-ggm-to-cdh-sho97|No free reduction from GGM to CDH]]
-- [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
-- [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
+
+**Proved in the Generic Group Model**
+
+- [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
 
 <!-- END GENERATED participates-in -->

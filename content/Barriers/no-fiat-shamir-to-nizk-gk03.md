@@ -1,38 +1,32 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from Fiat-Shamir to NIZK"
+title: "No fixed-construction reduction from Fiat-Shamir to NIZK"
 aliases: []
 id: bar-fiat-shamir-to-nizk-gk03
 hypotheses: [fiat-shamir]
 conclusion: nizk
-class: unstated
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
-strength: unconditional
+    class: fixed-construction
+strength: conditional
+conditional-on: [crhf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
+rationale:
+  class: "The construction is the Fiat–Shamir transform, and a counterexample against every efficient hash function refutes that construction only."
+  strength: "GK03 prove the theorem assuming collision-resistant hash functions, which the counterexample's universal arguments use."
 ---
 
-# No reduction from Fiat-Shamir to NIZK
-
-A reduction of class `unstated` from [[fiat-shamir-heuristic|Fiat-Shamir]] to [[non-interactive-zero-knowledge|NIZK]] would imply a contradiction.
+# No fixed-construction reduction from Fiat-Shamir to NIZK
 
 ## Statement
 
-Migrated verbatim from [[non-interactive-zero-knowledge]] § Other results:
-
-> - Fiat-Shamir compiles sigma protocols to NIZK in the ROM — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]; but is insecure for general interactive proofs — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]
+If [[hash-function#collision-resistance|collision-resistant hash functions]] exist, the [[fiat-shamir-heuristic|Fiat–Shamir]] transform of GK03's 3-round public-coin protocol is unsound for every efficient hash function, so the transform does not in general compile interactive arguments into sound [[non-interactive-zero-knowledge|non-interactive]] ones in the standard model — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. What fails is soundness, not zero knowledge; the counterexample is an argument, not a proof. Non-interactive arguments built by other means are not ruled out.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Second half of the same bullet: FS is insecure when applied to general interactive proofs. This is a barrier on the FS transform, not on NIZK itself; the conclusion object is awkward to type.
-- GK03's result is about instantiating the random oracle with any concrete hash function (there exist proof systems whose FS transform is unsound); 'insecure for general interactive proofs' compresses this considerably. Report only.
+- GK03's protocol is contrived; Fiat–Shamir applied to the standard GKR-based succinct argument is also unsound, for explicit circuit families and every hash function — [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]] ([[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]).
+- Read against signatures, the same counterexample gives [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]] — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].

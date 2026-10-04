@@ -1,39 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: PRF ⇒ CPA-secure SKE
 aliases: []
 id: red-prf-to-ske
 kind: implication
 hypotheses: [prf]
 conclusion: ske
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "factor 2 in the PRF advantage, plus $O(\\ell q^2/2^n)$ for $q$ encryptions of $\\le \\ell$ blocks"
+rationale:
+  class: "Randomized counter mode calls the PRF only as an oracle, and the reduction runs any CPA adversary as an oracle, answering its encryption queries with its own function oracle."
 ---
 
 # PRF ⇒ CPA-secure SKE
 
-A [[pseudorandom-function|PRF]] implies a CPA-secure
-[[symmetric-key-encryption|SKE]].
+## Statement
 
-## Construction
+A [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain and range $\bits^n$ yields a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme via randomized counter mode: for $m_1, \ldots, m_\ell \in \bits^n$, $\Enc(k, m_1 \cdots m_\ell) := \left(r,\ (\Eval(k, r{+}1) \| \cdots \| \Eval(k, r{+}\ell)) \oplus (m_1 \| \cdots \| m_\ell)\right)$ with a fresh $r \getsr \bits^n$ per encryption and counters taken modulo $2^n$; $\Dec$ recomputes the pad from $r$ — folklore. [[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]] give concrete CPA bounds for this scheme (their stateless XOR scheme) and its stateful variant, in terms of the PRF advantage and the number of blocks encrypted.
 
-Migrated verbatim from [[pseudorandom-function|PRF]] § Other results:
+## Sketch
 
-> PRF implies CPA-secure [[symmetric-key-encryption|SKE]]: CTR-mode encryption $\Enc(k, m_1 \cdots m_\ell) = \PRF(k,1)\|{\cdots}\|\PRF(k,\ell) \oplus m_1\|{\cdots}\|m_\ell$
-
-## Notes
-
-`status: stub` and `source: folklore`: the claim carried no citation on the page
-it was migrated from, and none was invented.
-
-**Suspected error in the migrated sketch, recorded and not fixed.** As written
-the construction is deterministic — the counter sequence starts at $1$ for every
-message, so encrypting the same message twice repeats the ciphertext and the
-scheme cannot be CPA-secure. CTR mode samples a fresh nonce per encryption,
-which the formula omits. Compare
-[[symmetric-key-encryption|SKE]] § Other results, which states the same
-construction _with_ a fresh nonce $r$. The parenthesisation is also ambiguous:
-the $\oplus$ appears to bind only the last $\PRF$ block.
+One hybrid per world replaces $\Eval(k, \cdot)$ by a uniformly random function; each pad block is then a fresh one-time pad unless the counter windows $[r{+}1, r{+}\ell]$ of two encryptions overlap, a birthday event over $\bits^n$ of probability $O(\ell q^2 / 2^n)$ for $q$ encryptions.

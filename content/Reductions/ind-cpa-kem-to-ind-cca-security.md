@@ -1,52 +1,33 @@
 ---
 type: reduction
-status: stub
-title: "IND-CPA KEM ⇒ IND-CCA security"
+status: draft
+title: "IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)"
 aliases: []
 id: red-ind-cpa-kem-to-ind-cca-security
 kind: implication
-hypotheses: [ind-cpa-kem]
+hypotheses: [pke-cpa-security]
 conclusion: ind-cca-kem
-class: unstated
+class: fully-black-box
 model: rom
-source: folklore
+source:
+  - "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]"
+  - "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
 security-loss: ""
+rationale:
+  class: "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption."
+  model: "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known."
 ---
 
-# IND-CPA KEM ⇒ IND-CCA security
-
-[[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]] implies [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]].
+# IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]]:
+Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption|PKE]] scheme with message space $\calM$ that is $\delta$-correct for negligible $\delta$ (the decryption-failure probability, maximized over $m \in \calM$ and then averaged over $(\pk, \sk) \gets \KeyGen(1^\secpar)$, is at most $\delta$), and let $G$ and $H$ be random oracles. The Fujisaki–Okamoto [[key-encapsulation-mechanism|KEM]] encapsulates by sampling $m \getsr \calM$, encrypting it as $c = \Enc(\pk, m; G(m))$ and outputting the key $H(m, c)$; decapsulation decrypts $c$ to $m'$, re-encrypts under $G(m')$, and returns $H(m', c)$ if the result equals $c$, and otherwise rejects, explicitly with $\bot$ or implicitly with $H(s, c)$ for a uniform seed $s \in \calM$ kept in the secret key. If $\PKE$ is [[public-key-encryption#cpa-security|IND-CPA-secure]], or merely one-way, the KEM is [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] in the [[random-oracle-model|random-oracle model]]; explicit rejection additionally needs $\PKE$ to have $\gamma$-spread ciphertexts. [[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]] introduced the transform, for hybrid encryption with a symmetric scheme; [[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]] decompose it into a derandomization step and a key-derivation step, covering explicit and implicit rejection, with concrete bounds for a $\delta$-correct base scheme.
 
-> Kyber is an IND-CCA KEM based on [[learning-with-errors|Module LWE]] (rank-3 module over a polynomial ring). Standardized by NIST as ML-KEM (FIPS 203). Uses the Fujisaki-Okamoto transform to achieve IND-CCA security from an IND-CPA base scheme.
+## Sketch
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § Other results:
-
-> - The Fujisaki-Okamoto (FO) transform converts any IND-CPA KEM to an IND-CCA KEM in the random oracle model; used in all NIST PQC KEM standards (Kyber, NTRU) — standard
+Derandomizing encryption with $G(m)$ makes ciphertexts checkable by re-encryption, so the reduction answers decapsulation queries by searching the adversary's $G$ and $H$ queries for a message that re-encrypts to the queried ciphertext. An adversary that never queries $H$ at the challenge message $m^*$ has no information on $H(m^*, c^*)$; from one that does, the reduction reads off $m^*$, inverting the base encryption.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MODEL IS LOAD-BEARING: the ROM requirement is not stated on this line at all (only at line 82); dropping model:'rom' would assert a standard-model IND-CCA lift that is not known.
-- Uncited (no FO99 reference page).
-- ind-cpa-kem and ind-cca-kem are security levels of the same page, so both endpoints collapse to key-encapsulation-mechanism.
-- Composite: Module-LWE => IND-CPA base scheme, then Fujisaki-Okamoto => IND-CCA KEM in the ROM. Must be split.
-- Wikilink `[[learning-with-errors|Module LWE]]` points Module-LWE at the plain LWE page; the LWE page's aliases cover LWE/RLWE but not MLWE, so a distinct assumption is silently conflated.
-- No citation for either link (no FO99 or Kyber reference page).
-- The ROM requirement of the FO transform is not stated on this line.
-- Labelled '- standard' but the FO transform is attributable (FO99 / Hofheinz-Hoevelmanns-Kiltz 2017); folklore exception misused.
-- SUSPECT: the FO transform is normally stated as converting a OW-CPA / IND-CPA _PKE_ into an IND-CCA _KEM_; 'converts any IND-CPA KEM to an IND-CCA KEM' is a non-standard statement of it. Report only.
-- 'used in all NIST PQC KEM standards (Kyber, NTRU)' - NTRU was not standardized by NIST; only ML-KEM (Kyber) was. Factual slip, report only.
+- KEM-specific versions of the transform, proved IND-CCA in the random-oracle model from a one-way PKE — [[Den03 - A Designer's Guide to KEMs|Den03]].

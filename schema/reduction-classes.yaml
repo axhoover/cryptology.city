@@ -20,7 +20,8 @@
 # Read it as set containment on reductions:  reductions(X) subset-of reductions(Y)
 # for every Y in X.implies. So `implies` points from the NARROWER (more
 # restrictive, harder to achieve) notion to the BROADER one. `fully-black-box` is
-# the narrowest; `free` is the broadest.
+# the narrowest RTV04 class; `free` is the broadest class. `fixed-construction`
+# is not an RTV04 class: it sits beside the RTV04 chain, below `free` only.
 #
 # THE CONTRADICTION RULE the lint implements, stated in one direction only:
 #   A barrier that rules out class B (consequence.kind: contradiction) on a
@@ -45,8 +46,8 @@ classes:
     summary: >-
       One construction G and one reduction S, both fixed in advance. G uses the
       hypothesis primitive only as an oracle, and S breaks the hypothesis given
-      oracle access to any adversary against the conclusion. The most restrictive
-      notion, and the one essentially all standard cryptographic reductions meet.
+      oracle access to any adversary against the conclusion. The narrowest RTV04
+      class, and the one essentially all standard cryptographic reductions meet.
     quantifiers: "exists PPT G, exists PPT S, forall f in F_Q, forall A"
     implies: [semi-black-box, relativizing]
     defined_in: RTV04
@@ -70,21 +71,18 @@ classes:
     summary: >-
       The construction may depend on the hypothesis implementation itself (not
       merely on oracle access to it); the reduction may depend on the adversary's
-      code. RTV04 place this immediately below `relativizing`.
+      code. Every relativizing reduction is one.
     quantifiers: "forall f in F_Q, exists PPT G, forall A, exists PPT S"
     implies: [forall-exists-weakly-black-box]
     defined_in: RTV04
 
   weakly-black-box:
     rtv_name: weakly
-    aliases_in_literature: [mildly-black-box]
     title: Weakly black-box
     summary: >-
       As semi black-box, but the adversary is efficient and is NOT given oracle
       access to the hypothesis implementation (it may still depend on it).
-      RTV04 note this is close to a free reduction. Some versions of RTV04 call
-      this notion "mildly black-box"; the two names denote the same class.
-    quantifiers: "exists PPT G, forall A, forall f in F_Q, exists PPT S"
+    quantifiers: "exists PPT G, forall f in F_Q, forall A, exists PPT S"
     implies: [forall-exists-weakly-black-box, free]
     defined_in: RTV04
 
@@ -121,6 +119,20 @@ classes:
     implies: []
     defined_in: RTV04
 
+  fixed-construction:
+    title: Fixed construction
+    summary: >-
+      The construction is the one named on the page -- the identity map on
+      schemes, or a named transform such as Fiat-Shamir -- and the security
+      proof is unrestricted. For barriers that refute one construction, e.g.
+      "CPA security of a scheme does not give its IND$-CPA security", without
+      ruling out building the conclusion from the hypothesis some other way.
+      RTV04 have no such class. It implies only `free`: a barrier against it
+      bites only a reduction that claims the same named construction, never an
+      RTV04 class, since an RTV04 reduction may use any construction.
+    implies: [free]
+    defined_in: schema/README.md
+
 # `unstated` is a SENTINEL, not a class. It sits outside the order and is
 # comparable to nothing, so the contradiction check never fires on it. The lint
 # emits a soft flag (never an error) asking for a real class.
@@ -129,8 +141,10 @@ sentinels:
     title: Unstated
     summary: >-
       The wiki text does not say which class of reduction is meant. Legal, and
-      the honest value when the source is silent -- but it buys no protection
-      from the contradiction check.
+      the honest value when the source is silent and the page's Notes cannot
+      justify an inferred fully-black-box from the proof shape (see
+      schema/README.md, Reduction classes) -- but it buys no protection from
+      the contradiction check.
 
 # Values authors reach for that are NOT classes. The lint rejects each with the
 # message below, so a failing PR can be fixed from lint output alone.
@@ -143,20 +157,18 @@ rejected:
       use `unstated`.
   non-black-box:
     message: >-
-      RTV04 has no class called "non-black-box". A non-black-box *construction*
-      is one of the forall-exists notions; a non-black-box *proof* is
-      semi-black-box or weakly-black-box. If the source says only "non-black-box"
-      without saying which, use `free`.
-  mildly-black-box:
-    message: >-
-      Use `weakly-black-box`. RTV04's "weakly" is called "mildly" in some
-      versions of the paper; this vocabulary keeps one name per class.
+      RTV04 has no class called "non-black-box". A construction that uses a
+      hypothesis scheme's code (bootstrapping, recursive SNARKs) is recorded
+      `free` (schema/README.md, Which class to record); a black-box
+      construction whose proof uses the adversary's code is semi-black-box or
+      weakly-black-box. If the source says only "non-black-box" without saying
+      which, use `free`.
   generic-group:
     message: >-
       Idealized computation models are the `model:` axis, not the `class:` axis.
-      Set model: generic-group and class: free (a generic-group lower bound rules
-      out every algorithm in that model, which is the `free` class scoped by the
-      model).
+      Set model: generic-group and class: free (a generic-group lower bound is a
+      reduction {ggm} => X proved for every algorithm in that model, which is the
+      `free` class scoped by the model).
   generic-ring:
     message: >-
       See `generic-group`: set model: other, class: free, and name the ring model

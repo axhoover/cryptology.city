@@ -24,4 +24,9 @@ bibtex: |
 
 ## Abstract
 
-Every function of $n$ inputs can be efficiently computed by a complete network of $n$ processors in such a way that: (1) If the number of faulty processors is less than $n/3$, each processor gets the correct value of the function (perfect correctness), and the privacy of the inputs of honest processors is preserved (perfect privacy). (2) If the number of faulty processors is less than $n/2$, (1) holds except with exponentially small probability. The result applies to both active (Byzantine) and passive (eavesdropping) faults, and yields general, non-cryptographic protocols for secret-key agreement, oblivious circuit evaluation, Byzantine agreement, and all "multi-party computations."
+Every function of $n$ inputs can be efficiently computed by a complete network of $n$ processors in such a way that:
+
+1. If no faults occur, no set of size $t < n/2$ of players gets any additional information (other than the function value),
+2. Even if Byzantine faults are allowed, no set of size $t < n/3$ can either disrupt the computation or get additional information.
+
+Furthermore, the above bounds on $t$ are tight!

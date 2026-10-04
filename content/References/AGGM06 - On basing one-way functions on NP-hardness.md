@@ -24,3 +24,7 @@ If given $y$ one can efficiently compute $|f^{-1}(y)|$ then the existence of a (
 For any function $f$, the existence of a (randomized) _non-adaptive_ reduction of NP to the task of average-case inverting $f$ implies that coNP ⊆ AM.
 
 Our work builds upon and improves on the previous works of Feigenbaum and Fortnow (_SIAM Journal on Computing_, 1993) and Bogdanov and Trevisan (_44th FOCS_, 2003), while capitalizing on the additional "computational structure" of the search problem associated with the task of inverting polynomial-time computable functions. We believe that our results illustrate the gain of directly studying the context of one-way functions rather than inferring results for it from a the general study of worst-case to average-case reductions.
+
+## Erratum
+
+The authors report a gap in the proof of the results on adaptive reductions (the first result above, for size-verifiable $f$); only the non-adaptive result stands — [[AGGM10 - Erratum for On basing one-way functions on NP-hardness|AGGM10]]. The size-verifiable case is revisited in [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]].

@@ -13,6 +13,7 @@ title: Hash function
 id: hash-function
 variants:
   owf: "#preimage-resistance-one-wayness"
+  auxiliary-input-owf: "#auxiliary-input-one-wayness"
   crhf: "#collision-resistance"
 ---
 
@@ -23,7 +24,8 @@ in cryptography. Most often, it is required that the hash function is _one-way_
 or preimage resistant. If such a hash function exists, then many other
 primitives are known to exist. In other settings, it's important that the hash
 function is _collision resistant_, meaning that it is hard to find two
-colliding inputs and implies one-wayness.
+colliding inputs; when $|\calR|/|\calD|$ is negligible, this implies one-wayness
+(Rogaway–Shrimpton, FSE 2004).
 
 ## Syntax
 
@@ -66,11 +68,18 @@ $$
 
 is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
 
+### Auxiliary-input one-wayness
+
+A function $f(x, \cdot)$, efficiently computable given the auxiliary input $x$,
+is **auxiliary-input one-way** if for all efficient $\calA$ there are infinitely
+many $x$ on which $\calA$ inverts $f(x, \cdot)$ on a uniform input with
+probability negligible in $|x|$ — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].
+
 ### Collision resistance
 
 Often times, protocols require stronger properties than one-wayness alone.
-Collision resistant hash functions are strictly stronger than
-preimage resistance.
+When $|\calR|/|\calD|$ is negligible, collision resistance implies preimage
+resistance, but not conversely (Rogaway–Shrimpton, FSE 2004).
 
 ```pseudocode
 \begin{algorithm}
@@ -98,63 +107,61 @@ is negligible.
 
 # Other results
 
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
-- [[hash-based-signatures-to-ds-mer89|Hash-based signatures ⇒ DS]]
-- [[owp-to-hash-function|OWP ⇒ Hash function]]
-- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[owp-to-hash-function|OWP ⇒ OWF]]
+- [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
 
 ## Unknown results
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 95161fbc8d2c -->
+<!-- BEGIN GENERATED participates-in e08648a6fcd5 -->
 
 ## Participates in
 
 **Builds on Hash function**
 
-- [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
-- [[hash-function-and-io-to-deniable-encryption-sw14|Hash function + iO ⇒ Deniable encryption]]
-- [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
-- [[hash-function-and-io-to-fe-sw14|Hash function + iO ⇒ FE]]
-- [[hash-function-and-io-to-lossy-trapdoor-functions-sw14|Hash function + iO ⇒ Lossy trapdoor functions]]
-- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
-- [[hash-function-and-io-to-pke-sw14|Hash function + iO ⇒ PKE]]
-- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
-- [[hash-function-to-czk|Hash function ⇒ CZK]]
-- [[hash-function-to-dpf-gi14|Hash function ⇒ DPF]]
-- [[hash-function-to-ds|Hash function ⇒ DS]]
-- [[hash-function-to-hash-based-signatures|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-mac|Hash function ⇒ MAC]]
-- [[hash-function-to-pcs-bbhr18|Hash function ⇒ PCS]]
-- [[hash-function-to-prf|Hash function ⇒ PRF]]
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
-- [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
-- [[hash-function-to-ske|Hash function ⇒ SKE]]
-- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
-- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
+- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-to-czk|OWF ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[owf-to-prg-hill99|OWF ⇒ PRG]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 
 **Produces Hash function**
 
-- [[ds-to-hash-function|DS ⇒ Hash function]]
-- [[noise-level-to-hash-function-blvw19|Noise Level ⇒ Hash function]]
-- [[owp-to-hash-function|OWP ⇒ Hash function]]
-- [[pke-to-hash-function|PKE ⇒ Hash function]]
-- [[prg-to-hash-function|PRG ⇒ Hash function]]
-- [[sis-to-hash-function-ajt96|SIS ⇒ Hash function]]
-- [[snark-to-hash-function|SNARK ⇒ Hash function]]
-- [[subclasses-to-hash-function|Subclasses ⇒ Hash function]]
-- [[tdp-to-hash-function|TDP ⇒ Hash function]]
-- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
+- [[ds-to-hash-function|DS ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[owp-to-hash-function|OWP ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[pke-to-hash-function|PKE ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[prg-to-hash-function|PRG ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[tdp-to-hash-function|TDP ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]] (via [[hash-function#auxiliary-input-one-wayness|Auxiliary-input one-wayness]])
 
 **Barriers**
 
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
-- [[no-hash-function-to-pke-gkm-00|No fully-black-box reduction from Hash function to PKE]]
-- [[no-np-to-hash-function-aggm06|No reduction from NP to Hash function]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 
 <!-- END GENERATED participates-in -->

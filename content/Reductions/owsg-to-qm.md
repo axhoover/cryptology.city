@@ -1,39 +1,25 @@
 ---
 type: reduction
-status: stub
-title: "OWSG ⇒ QM"
+status: draft
+title: "QM ⇒ OWSG"
 aliases: []
-id: red-owsg-to-qm
+id: red-quantum-money-to-one-way-state-generator-my22
 kind: implication
-hypotheses: [one-way-state-generator]
-conclusion: quantum-money
+hypotheses: [quantum-money]
+conclusion: one-way-state-generator
 class: unstated
 model: quantum
-source: folklore
+source:
+  - "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
 security-loss: ""
 ---
 
-# OWSG ⇒ QM
-
-[[one-way-state-generator|OWSG]] implies [[quantum-money|QM]].
+# QM ⇒ OWSG
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Microcrypt:
-
-> - **Quantum money** and **unclonable encryption** can be constructed from one-way state generators (OWSGs), a quantum analogue of OWFs that may be weaker
+Private-key [[quantum-money|quantum money]] whose banknotes are pure states implies [[one-way-state-generator|one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- DISJUNCTIVE BUNDLE: "Quantum money and unclonable encryption can be constructed from one-way state generators (OWSGs)" is two separate reductions; this record isolates OWSG => quantum money.
-- No citation for either construction.
-- Neither "one-way-state-generator" nor "quantum-money" has a wiki page; nothing in this bullet is wikilinked.
+- The converse, quantum money from one-way state generators, is not known — folklore.

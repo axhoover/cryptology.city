@@ -1,43 +1,27 @@
 ---
 type: reduction
-status: stub
-title: "OWP ⇒ Hash function"
+status: draft
+title: "OWP ⇒ OWF"
 aliases: []
 id: red-owp-to-hash-function
 kind: implication
 hypotheses: [owp]
-conclusion: hash-function
-class: unstated
+conclusion: owf
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The construction is the identity, so it uses the permutation only as an oracle, and the reduction forwards any inverter of the function unchanged as an inverter of the permutation."
 ---
 
-# OWP ⇒ Hash function
-
-[[one-way-permutation|OWP]] implies [[hash-function|Hash function]].
+# OWP ⇒ OWF
 
 ## Statement
 
-Migrated verbatim from [[hash-function]] § Other results:
-
-> - One-way functions exist if [[one-way-permutation|OWP]]s exist
-
-Migrated verbatim from [[one-way-permutation]] § Other results:
-
-> - A OWP is trivially a [[hash-function|OWF]].
+Every [[one-way-permutation|one-way permutation]] $\pi$ whose input distribution $X$ is uniform on $\calD$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] with a trivial key and $\calR = \calD$: the one-wayness game, which samples $x \getsr \calD$, is then the permutation's inversion game, so an inverter for the function is an inverter for the permutation with the same advantage — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore flag (trivially true by definition, but the house style still requires the '— folklore' marker).
-- Conclusion node is the merged hash-function page rather than a dedicated OWF node.
-- No citation and no '— standard'/'— folklore' label ('trivially' is not the required label).
-- Wikilink target surprise: OWF resolves to `[[hash-function]]`, the page that also holds CRHF/collision resistance. The migration will conflate OWF with CRHF unless hash-function is split into distinct objects.
+- For $X$ sampled by an efficient $S$ from uniform coins, $r \mapsto \pi(S(r))$ is a one-way function: an $r'$ with $\pi(S(r')) = y$ gives the preimage $S(r')$ of $y$ under $\pi$ — folklore.
+- Collision resistance does not follow: no relativizing construction of a [[hash-function#collision-resistance|collision-resistant hash function]] from a one-way permutation exists ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].

@@ -16,12 +16,43 @@ test("the vocabulary is a valid partial order", () => {
     [],
     "free is the broadest class and implies nothing",
   );
-  const fromFully = closure(classes, "fully-black-box");
-  assert.equal(
-    fromFully.size,
-    Object.keys(classes).length - 1,
-    "fully-black-box is the narrowest class: every other class is above it",
+  const rtv = Object.keys(classes).filter(
+    (c) => classes[c].defined_in === "RTV04",
   );
+  const fromFully = closure(classes, "fully-black-box");
+  for (const c of rtv)
+    if (c !== "fully-black-box")
+      assert.ok(
+        fromFully.has(c),
+        `fully-black-box is the narrowest RTV04 class: ${c} must be above it`,
+      );
+});
+
+test("`fixed-construction` sits beside the RTV04 chain, below `free` only", () => {
+  assert.ok(classes["fixed-construction"], "fixed-construction must exist");
+  assert.deepEqual(
+    [...closure(classes, "fixed-construction")],
+    ["free"],
+    "fixed-construction implies free and nothing else",
+  );
+  // A barrier refuting one named construction must not bite a reduction that
+  // is free to choose its construction: CPA-secure SKE => OWF => PRF =>
+  // IND$-CPA SKE is legitimate even though the identity map fails.
+  for (const c of Object.keys(classes))
+    if (c !== "fixed-construction")
+      assert.equal(
+        bites(classes, c, "fixed-construction"),
+        false,
+        `a fixed-construction barrier must not bite a ${c} reduction`,
+      );
+  // It does bite a reduction claiming the same named construction.
+  assert.equal(
+    bites(classes, "fixed-construction", "fixed-construction"),
+    true,
+  );
+  // And no RTV04 barrier other than `free` bites it.
+  assert.equal(bites(classes, "fixed-construction", "fully-black-box"), false);
+  assert.equal(bites(classes, "fixed-construction", "relativizing"), false);
 });
 
 test("a barrier bites a reduction iff the reduction's class implies the barrier's", () => {
@@ -70,4 +101,24 @@ test("`implies` is transitive through relativizing", () => {
     !closure(classes, "relativizing").has("fully-black-box"),
     "relativizing must not reach back down to fully-black-box",
   );
+});
+
+test("every class, and `unstated`, has its own section on the glossary page the metadata line links to", async () => {
+  // @ts-ignore — plain ESM helper shared with scripts/generate-relations.mjs
+  const { headingsByAnchor } = await import("../scripts/markdown-text.mjs");
+  const fs = await import("node:fs");
+  const { default: matter } = await import("gray-matter");
+  const page = matter(
+    fs.readFileSync(
+      path.join(ROOT, "content", "Glossary", "reduction-classes.md"),
+      "utf8",
+    ),
+  ).content;
+  // relationMeta.ts links class `c` to `reduction-classes#c`.
+  const anchors: Map<string, string> = headingsByAnchor(page);
+  for (const c of [...Object.keys(classes), ...Object.keys(sentinels)])
+    assert.ok(
+      anchors.has(c),
+      `content/Glossary/reduction-classes.md needs a heading whose id is "${c}"`,
+    );
 });

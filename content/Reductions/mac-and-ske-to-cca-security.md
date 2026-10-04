@@ -1,55 +1,43 @@
 ---
 type: reduction
-status: stub
-title: "MAC + SKE ⇒ CCA Security"
+status: draft
+title: "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
 aliases: []
 id: red-mac-and-ske-to-cca-security
 kind: implication
-hypotheses: [mac, ske]
+hypotheses: [suf-cma-mac, cpa-security]
 conclusion: cca-secure-symmetric-key-encryption
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
 security-loss: ""
+rationale:
+  class: "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery."
 ---
 
-# MAC + SKE ⇒ CCA Security
-
-[[message-authentication-code|MAC]] together with [[symmetric-key-encryption|SKE]] implies [[symmetric-key-encryption#cca-security|CCA Security]].
+# SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE
 
 ## Statement
 
-Migrated verbatim from [[symmetric-key-encryption]] § Other results:
+Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]]. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$ — encrypt $m$ to $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$, and decrypt $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme, and with a MAC that is only UF-CMA it can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
-> - CCA-secure SKE can be built from OWF: combine a CPA-secure SKE with a [[message-authentication-code|MAC]] using the encrypt-then-MAC paradigm
+## Sketch
 
-Migrated verbatim from [[symmetric-key-encryption]] § Other results:
+An admissible CCA adversary never asks to decrypt an output of the encryption oracle, so by strong unforgeability all its decryption queries are rejected except with negligible probability; answering all of them with $\bot$ leaves a CPA adversary against $\SKE$.
 
-> - CPA-secure SKE can be boosted to CCA-secure SKE using a [[message-authentication-code|MAC]]
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Enc'((k_e, k_m), m)$}
+\begin{algorithmic}
+\State $c \gets \Enc(k_e, m)$
+\State $t \gets \Tag(k_m, c)$
+\Return $(c, t)$
+\end{algorithmic}
+\end{algorithm}
+```
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Class disagrees across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION: encrypt-then-MAC is Bellare-Namprempre (BN00), with no reference page and no folklore label, which the page's own citation policy requires.
-- The MAC must be strongly unforgeable for encrypt-then-MAC to give CCA security — a condition neither the bullet nor the node captures.
-- 'cca-secure-symmetric-key-encryption' has no node, so the edge would collapse to SKE => SKE.
-- MISSING CITATION entirely — encrypt-then-MAC is BN00 (Bellare-Namprempre); no citation and no folklore label, which the page's own citation policy requires.
-- COMPOSITE and CONJUNCTIVE at once: OWF => CPA-SKE, OWF => MAC, then {CPA-SKE, MAC} => CCA-SKE.
-- 'OWF' here has no wikilink at all (line 125 links it to hash-function; line 126 leaves it bare) — inconsistent within four lines.
-- The conclusion is a security level of SKE, not a distinct object; the graph needs security-level-qualified nodes or this edge becomes SKE => SKE.
-- REPAIR PATCH: Arity sweep. Wiki L126: "CCA-secure SKE can be built from OWF: combine a CPA-secure SKE with a `[[message-authentication-code|MAC]]` using the encrypt-then-MAC paradigm". The critic cites this record as a calibration example of CORRECT modelling and it is — except for the flag: the top-level edge has ONE hypothesis (OWF) and the genuine conjunction {SKE, MAC} lives in splitInto[2], where it belongs. Repair: conjunctive:false at top level. Sub-edges need their own conjunctive flag (schema defect 6.1) or this conjunction is lost on split.
-- DUPLICATE: this is the third link of the line-126 bullet restated as its own bullet; the page asserts the same reduction twice in consecutive lines.
-- MISSING CITATION (BN00).
-- Genuinely conjunctive {CPA-SKE, MAC} => CCA-SKE, and the strongest single example on this page of why conjunction must be representable.
+- Concurrently and independently, [[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]] prove that unforgeability of ciphertexts together with CPA security implies CCA security.

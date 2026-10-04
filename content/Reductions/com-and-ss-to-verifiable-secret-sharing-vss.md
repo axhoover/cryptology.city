@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "COM + SS ⇒ Verifiable secret sharing (VSS)"
+status: draft
+title: "DLOG ⇒ Verifiable secret sharing (VSS)"
 aliases: []
-id: red-com-and-ss-to-verifiable-secret-sharing-vss
+id: red-dlog-to-verifiable-secret-sharing-vss-ped91
 kind: implication
-hypotheses: [com, ss]
+hypotheses: [dlog]
 conclusion: verifiable-secret-sharing
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
 security-loss: ""
+rationale:
+  model: "The scheme uses no idealised oracle, only public generators whose discrete-logarithm relation the dealer does not know and a broadcast channel for the commitments."
 ---
 
-# COM + SS ⇒ Verifiable secret sharing (VSS)
-
-[[commitment-scheme|COM]] together with [[secret-sharing|SS]] implies [[secret-sharing#verifiable-secret-sharing-vss|Verifiable secret sharing (VSS)]].
+# DLOG ⇒ Verifiable secret sharing (VSS)
 
 ## Statement
 
-Migrated verbatim from [[secret-sharing]]:
+Let $g, h$ generate a group $\GG$ of prime order $q$, with $\log_g h$ unknown to the dealer. To share $s \in \ZZ_q$ among $n$ parties with threshold $k$, the dealer picks a degree-$(k-1)$ Shamir polynomial $f(X) = \sum_j a_j X^j$ with $f(0) = s$ and a random polynomial $f'(X) = \sum_j b_j X^j$ of the same degree, broadcasts the Pedersen commitments $E_j = g^{a_j} h^{b_j}$ to their coefficients, and sends party $i$ its share $(f(i), f'(i))$ privately. Each party checks its share against the commitments without interacting with the others. This is a non-interactive [[secret-sharing#verifiable-secret-sharing-vss|verifiable secret sharing]] scheme: fewer than $k$ parties get no Shannon information about $s$, and every $k$ parties holding accepted shares reconstruct the same secret unless the dealer can compute $\log_g h$, so verifiability holds if [[discrete-logarithm|DLOG]] is hard in $\GG$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 
-> A secret sharing scheme augmented with commitments so that parties can verify their shares are consistent, even against a malicious dealer. Used in [[secure-multi-party-computation|MPC]] and distributed key generation.
+## Sketch
+
+Party $i$ accepts iff $g^{f(i)} h^{f'(i)} = \prod_{j=0}^{k-1} E_j^{\,i^j}$. Because the $b_j$ are uniform, the commitments together with any $k-1$ shares have a distribution independent of $s$. Two sets of $k$ accepted shares interpolating different secrets give two openings $(s, t) \ne (s', t')$ of $E_0$, hence $\log_g h = (s - s')/(t' - t) \bmod q$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Construction stated as 'augmented with commitments' — conjunctive hypotheses ({secret sharing, commitment scheme}) but no citation and no wikilink to `[[commitment-scheme]]`.
-- Second claim in the same sentence ('Used in MPC and distributed key generation') is an application, recorded separately below in spirit; the MPC half is cited only later, on line 64.
-- 'verifiable-secret-sharing' has no page of its own.
+- Commitments to the individual shares alone do not let a party check that all shares lie on one polynomial of degree $k-1$; the check above uses the homomorphism of the commitments to the coefficients — folklore.

@@ -4,15 +4,17 @@ status: draft
 aliases:
   - DDH
   - Decisional Diffie-Hellman
+  - DLIN
 title: Decisional Diffie-Hellman
 id: ddh
 variants:
   decisional-linear: "#dlin"
+  sxdh: "#sxdh-symmetric-external-diffie-hellman"
 ---
 
 # Decisional Diffie-Hellman
 
-The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It is implied by the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the CDH problem can also solve DDH in the same group.
+The _Decisional Diffie-Hellman (DDH)_ assumption is a central assumption in cryptography, and one of the first used to construct key exchange [[DH76 - New Directions in Cryptography|DH76]]. It implies the [[computational-diffie-hellman|CDH]] assumption: an adversary which can solve the CDH problem can also solve DDH in the same group ([[ddh-to-cdh|DDH ⇒ CDH]]) — folklore.
 
 ## Assumption
 
@@ -49,11 +51,11 @@ is negligible.
 ## Known Results
 
 - [[ddh-to-cdh|DDH ⇒ CDH]]
-- [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
+- [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
-- DDH is easy in groups that admit efficient bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+- DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — [[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]
+- In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 ## Attacks
 
@@ -69,43 +71,46 @@ deterministically.
 
 ## DLIN
 
-TODO
+Given $(u, v, h, u^a, v^b, h^c) \in \GG^6$ for $u, v, h \getsr \GG$ and $a, b \getsr \ZZ_p$, distinguish $c = a + b$ from $c \getsr \ZZ_p$ — [[BBS04 - Short Group Signatures|BBS04]].
 
 ## k-Lin
 
-TODO
+The $k$-Linear assumption is defined on [[bilinear-map-assumptions#k-linear-assumption|Bilinear map assumptions]].
 
 ## Matrix Diffie-Hellman
 
 TODO
 
+## SXDH (Symmetric External Diffie-Hellman)
+
+Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 5dc512cb01b6 -->
+<!-- BEGIN GENERATED participates-in 64bae17ab5d8 -->
 
 ## Participates in
 
 **Builds on Decisional Diffie-Hellman**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|DDH + LPN + LWE + NC1-PRG ⇒ iO]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
-- [[ddh-to-com|DDH ⇒ COM]]
-- [[ddh-to-ke-dh76|DDH ⇒ KE]]
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]
+- [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
+- [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 
 **Produces Decisional Diffie-Hellman**
 
-- [[cdh-to-ddh|CDH ⇒ DDH]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
-
-**Barriers**
-
-- [[no-ggm-to-ddh-sho97|No free reduction from GGM to DDH]]
+- [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 
 <!-- END GENERATED participates-in -->

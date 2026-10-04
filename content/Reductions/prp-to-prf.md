@@ -7,31 +7,28 @@ id: red-prp-to-prf
 kind: implication
 hypotheses: [prp]
 conclusion: prf
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+via:
+  - "[[switching-lemma|Switching Lemma]]"
+security-loss: "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)"
+rationale:
+  class: "The construction is the identity on the PRP's evaluation algorithm, and the reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the switching-lemma gap is information-theoretic."
 ---
 
 # PRP ⇒ PRF
 
-[[pseudorandom-permutation|PRP]] implies [[pseudorandom-function|PRF]].
-
 ## Statement
 
-Migrated verbatim from [[pseudorandom-permutation]] § Other results:
+A [[pseudorandom-permutation|PRP]] over a domain $\calD$ with $|\calD|$ superpolynomial in $\secpar$ is a [[pseudorandom-function|PRF]] with $\Eval$ unchanged: for every $q$-query $\calA$, $\Adv^{\mathrm{prf}}_{\PRP,\calA}(\secpar) \le \Adv^{\mathrm{prp}}_{\PRP,\calA}(\secpar) + O(q^2/|\calD|)$ by the [[switching-lemma|Switching Lemma]], and for efficient $\calA$ the additive term is negligible — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
-> - PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and
->   in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
+## Sketch
+
+Sampled lazily, a random function on $\calD$ answers $q$ distinct queries as a random permutation does until two of its outputs collide, which happens with probability at most $q(q-1)/(2|\calD|)$; so any PRF distinguisher is a PRP distinguisher up to that additive term.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Source is a Folklore wiki page (`[[switching-lemma]]`), not a reference citation key.
-- The bullet packs a second claim in the parenthetical ('and in fact these are invertible PRFs') — that is the same statement as pseudorandom-function.md line 105 and should be a separate record.
-- 'large-domain' qualifier is on the CONCLUSION here but on the hypothesis in the PRF page's version of the same fact — one of the two phrasings is imprecise (the switching lemma needs the PERMUTATION's domain to be large).
+- The switching lemma has a game-playing proof, which corrects a conditioning flaw in the standard proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].
+- For streaming distinguishers with $m$ bits of memory the bound is $O(mq \log q/|\calD|)$, tight up to polylogarithmic factors — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].

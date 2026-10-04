@@ -1,19 +1,20 @@
 ---
 type: reference
 status: draft
-title: "MM11"
-source: https://iacr.org/archive/tcc2011/65970593/65970593.pdf
+title: "MM11a"
+source: https://doi.org/10.1007/978-3-642-19571-6_36
 authors: Takahiro Matsuda, Kanta Matsuura
 venue: TCC 2011
 published: 2011-01-01
 aliases:
+  - MM11a
   - MM11
 cryptobib_key: TCC:MatMat11
 ---
 
-# [MM11] On Black-Box Separations among Injective One-Way Functions
+# [MM11a] On Black-Box Separations among Injective One-Way Functions
 
-**Authors:** Takahiro Matsuda, Kanta Matsuura | **Venue:** TCC 2011 | [Source](https://iacr.org/archive/tcc2011/65970593/65970593.pdf)
+**Authors:** Takahiro Matsuda, Kanta Matsuura | **Venue:** TCC 2011 | [Source](https://doi.org/10.1007/978-3-642-19571-6_36)
 
 ## Abstract
 

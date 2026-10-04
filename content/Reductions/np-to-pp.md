@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "NP ⊆ PP"
 aliases: []
 id: red-np-to-pp
@@ -9,34 +9,17 @@ hypotheses: [np]
 conclusion: pp
 class: free
 model: standard
-source: folklore
+source:
+  - "[[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]]"
 security-loss: ""
 ---
 
 # NP ⊆ PP
 
-[[nondeterministic-polynomial-time|NP]] is contained in [[probabilistic-polynomial-time|PP]].
-
 ## Statement
 
-Migrated verbatim from [[probabilistic-polynomial-time]] § Known relationships:
+$\classNP \subseteq \classPP$: every language in [[nondeterministic-polynomial-time|NP]] is in [[probabilistic-polynomial-time|PP]] — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].
 
-> - $\classNP \subseteq \classPP$: given an NP machine, accept iff strictly more than half the nondeterministic paths lead to accepting, which is a PP criterion.
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED MATHEMATICAL ERROR in the proof sketch (the inclusion itself is correct, do not fix): an NP machine on a yes-instance may have as few as one accepting path out of exponentially many, so 'accept iff strictly more than half the nondeterministic paths accept' does not decide the NP language. The standard argument first pads the machine (e.g. add a coin flip that accepts on half the paths) so that yes-instances cross the 1/2 threshold. Reported, not corrected.
-- No citation.
+The $\classPP$ machine flips one coin: on heads it accepts; on tails it samples a uniform candidate witness $w \in \bits^m$ and accepts iff the NP verifier accepts $w$. It accepts with probability $1/2 + a/2^{m+1}$, with $a$ the number of accepting witnesses, which exceeds $1/2$ exactly on yes-instances.

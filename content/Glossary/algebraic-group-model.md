@@ -20,34 +20,35 @@ $$
 Z = \prod_{i=1}^{k} A_i^{\alpha_i},
 $$
 
-where $(A_1, \ldots, A_k)$ is the ordered list of all group elements $\calA$ has received as inputs or as outputs of prior computations up to that point. This vector is called a **representation** of $Z$.
+where $(A_1, \ldots, A_k)$ is the ordered list of all group elements $\calA$ has received so far, as input or in response to oracle queries. This vector is called a **representation** of $Z$.
 
-Informally, an algebraic adversary must "explain" every group element it uses. It cannot treat group elements as black-box tokens: any element it outputs must be derivable via known exponent arithmetic from elements it has already seen.
+Informally, an algebraic adversary may compute on group elements however it likes, including via their representation, but must "explain" every group element it outputs as a known combination of the group elements it has been given.
 
 ## Key Results
 
 The following results are due to [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] for algebraic adversaries in cyclic groups:
 
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
-- **Groth's SNARK:** the knowledge-soundness of Groth's zero-knowledge SNARK holds in the AGM.
+- **Groth's SNARK:** knowledge soundness of Groth's zero-knowledge SNARK reduces to $q$-DLOG in the AGM.
 
-These reductions, combined with the $\Omega(\sqrt{p})$ GGM lower bound of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], yield tight concrete lower bounds for CDH and related problems against algebraic-and-generic adversaries.
+These reductions, combined with the $\Omega(\sqrt{p})$ GGM lower bound of [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]], yield tight concrete lower bounds for CDH and related problems against adversaries that are both algebraic and generic. Whether this gives lower bounds against all generic adversaries is disputed: under the standard formalizations, hardness in the AGM need not imply hardness in the GGM ([[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]).
+
+The AGM constrains only the group elements an adversary outputs, so it places no restriction on a [[decisional-diffie-hellman|DDH]] distinguisher, which outputs a bit. Rotem and Segev introduce _algebraic distinguishers_, a strengthening of the AGM that captures decisional problems, and show that DLOG implies DDH against them — [[RS20 - Algebraic Distinguishers From Discrete Logarithms to Decisional Uber Assumptions|RS20]].
 
 ## Comparison with the GGM
 
 The relationship between the AGM and the [[generic-group-model|GGM]] has been the subject of significant study.
 
-[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every GGM-secure scheme is AGM-secure, and AGM lower bounds lift to the GGM.
+[[FKL18 - The Algebraic Group Model and its Applications|FKL18]] claimed that the AGM is _strictly weaker_ than the GGM in the sense that hardness for algebraic adversaries implies hardness for generic adversaries. Under this view, every AGM-secure scheme is GGM-secure, and AGM lower bounds lift to the GGM.
 
-[[KZ22 - An Analysis of the Algebraic Group Model|Katz and Zhang (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM. The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
+[[KZ22 - An Analysis of the Algebraic Group Model|Zhang, Zhou, and Katz (KZ22)]] challenged this claim: they showed that hardness in the AGM does not in general imply hardness in the GGM, and that generic reductions in the AGM need not yield analogous reductions in the GGM. The precise conditions under which AGM proofs transfer to the GGM remain an active area of research.
 
 ## Comparison with the Standard Model
 
-In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. In this sense, the AGM is a _conservative idealization_: it rules out adversaries that could exploit the representation of group elements in a way that a real-world adversary plausibly cannot.
+In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. Unlike the GGM, the AGM allows algorithms that exploit the representation of group elements; it rules out only adversaries that output group elements whose representation over their inputs they do not know, such as elements sampled obliviously or by hashing into the group — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
-<!-- BEGIN GENERATED participates-in 3450b391e6ac -->
+<!-- BEGIN GENERATED participates-in 06ae49b460a8 -->
 
 ## Participates in
 
@@ -58,5 +59,10 @@ In the standard model, an adversary receives group elements and may compute arbi
 **Barriers**
 
 - [[no-agm-to-ggm-kz22|No reduction from AGM to GGM]]
+
+**Proved in the Algebraic Group Model**
+
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
+- [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 
 <!-- END GENERATED participates-in -->

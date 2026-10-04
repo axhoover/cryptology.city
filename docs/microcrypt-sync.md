@@ -7,10 +7,10 @@ wiki without duplicating anything that already exists.
 
 The design splits cleanly in two:
 
-* **Deterministic core** (`scripts/microcrypt-sync.mjs`) does *all* parsing,
+- **Deterministic core** (`scripts/microcrypt-sync.mjs`) does _all_ parsing,
   diffing, dedup and idempotency. No model is involved in deciding what the
   graph says.
-* **Thin bot lane** (`.orchestrator/prompts/microcrypt-sync.md`) only writes prose
+- **Thin bot lane** (`.orchestrator/prompts/microcrypt-sync.md`) only writes prose
   for the delta the core hands it.
 
 The model never parses the `.gv`, never infers an edge direction, and never
@@ -29,18 +29,18 @@ edge [style=dashed color="red" dir="back"]
 
 The upstream file's own comment documents that the back-arrow is a rendering
 **hack**: an edge written `A -> B` in that block is drawn `B -> A` and is
-intended to mean *"B cannot be constructed from A."* A naive parser that
+intended to mean _"B cannot be constructed from A."_ A naive parser that
 treats those like the implication edges injects **reversed mathematical
 claims** into a citable wiki. That is the single highest-impact failure mode
 in this whole pipeline.
 
 Mitigation, enforced in code, not in prose:
 
-* `microcrypt-sync.mjs` classifies every edge in the separation block as
+- `microcrypt-sync.mjs` classifies every edge in the separation block as
   `kind: "separation"` and emits it as **DIRECTION-UNRESOLVED**: it reports
   the two endpoints and the paper URL but **never asserts a direction** and
   **never writes an implication-style bullet** for it.
-* The bot lane prompt requires the model to read the cited paper, phrase the
+- The bot lane prompt requires the model to read the cited paper, phrase the
   separation precisely, transition the `.fact-check` queue entry to
   `bot_flagged`, and add a `TODO_SUMMARY.md` line for the
   **skeptical-checker** lane. If the model is not confident, it writes the
@@ -52,13 +52,13 @@ alone.
 
 ## Files this lane ships
 
-| Path | Role | Edited by |
-|---|---|---|
-| `scripts/microcrypt-sync.mjs` | deterministic parser + planner | maintainer |
-| `scripts/microcrypt-graph.mjs` | embed-page / SVG generator | maintainer |
-| `.orchestrator/prompts/microcrypt-sync.md` | bot lane instructions | maintainer |
-| `.orchestrator/microcrypt-map.json` | **human-curated dedup boundary** | maintainer (ongoing) |
-| `.orchestrator/state/microcrypt-sync.json` | idempotency ledger | script only (`--write-state`) |
+| Path                                       | Role                             | Edited by                     |
+| ------------------------------------------ | -------------------------------- | ----------------------------- |
+| `scripts/microcrypt-sync.mjs`              | deterministic parser + planner   | maintainer                    |
+| `scripts/microcrypt-graph.mjs`             | embed-page / SVG generator       | maintainer                    |
+| `.orchestrator/prompts/microcrypt-sync.md` | bot lane instructions            | maintainer                    |
+| `.orchestrator/microcrypt-map.json`        | **human-curated dedup boundary** | maintainer (ongoing)          |
+| `.orchestrator/state/microcrypt-sync.json` | idempotency ledger               | script only (`--write-state`) |
 
 Mirror these into the same paths in `axhoover/cryptology.city`.
 
@@ -71,13 +71,13 @@ duplicated because nothing is auto-created until you say so.
 
 For each node you curate one of:
 
-* `"mapped"` — set `slug` to an **existing** content page
+- `"mapped"` — set `slug` to an **existing** content page
   (e.g. `Primitives/one-way-function`). The lane will add cross-result
   bullets pointing at that page but will not touch the page's definition.
-* `"new"` — the lane may create a **stub** (frontmatter + intro seeded from
+- `"new"` — the lane may create a **stub** (frontmatter + intro seeded from
   the upstream tooltip + `# Other results` + TODO section markers), set the
   queue entry to `unreviewed`, and leave the body for the editor lane.
-* `"ignore"` — out of scope; never mentioned again.
+- `"ignore"` — out of scope; never mentioned again.
 
 For each of the 30 citations: once you create (or the lane creates) the
 `content/References/<KEY> - <Title>.md` file, set `ref_exists: true` and, if
@@ -122,7 +122,7 @@ function microcryptSyncShouldRun() {
   const prev = existsSync(STATE)
     ? JSON.parse(readFileSync(STATE, "utf8")).microcrypt_gv_sha256
     : null;
-  return cur !== prev;            // first run (prev null) or upstream changed
+  return cur !== prev; // first run (prev null) or upstream changed
 }
 ```
 
@@ -138,47 +138,47 @@ regenerates the embed page — it never edits another lane's surface.
 Add, in the orchestrator job, before the model step:
 
 ```yaml
-      - name: Install GraphViz (for Microcrypt Zoo embed page)
-        run: sudo apt-get update && sudo apt-get install -y graphviz
+- name: Install GraphViz (for Microcrypt Zoo embed page)
+  run: sudo apt-get update && sudo apt-get install -y graphviz
 
-      - name: Update vendored microcrypt-zoo
-        run: |
-          git submodule update --remote vendor/microcrypt-zoo
-          echo "MICROCRYPT_COMMIT=$(git -C vendor/microcrypt-zoo rev-parse HEAD)" >> "$GITHUB_ENV"
+- name: Update vendored microcrypt-zoo
+  run: |
+    git submodule update --remote vendor/microcrypt-zoo
+    echo "MICROCRYPT_COMMIT=$(git -C vendor/microcrypt-zoo rev-parse HEAD)" >> "$GITHUB_ENV"
 ```
 
 The model step runs the planner first (read-only), acts on the plan per the
 lane prompt, then records state:
 
 ```yaml
-      - name: Plan microcrypt-zoo sync
-        run: |
-          node scripts/microcrypt-sync.mjs \
-            --gv vendor/microcrypt-zoo/microcrypt.gv \
-            --map .orchestrator/microcrypt-map.json \
-            --state .orchestrator/state/microcrypt-sync.json \
-            --content content \
-            --microcrypt-commit "$MICROCRYPT_COMMIT" \
-            --plan-out .orchestrator/state/microcrypt-plan.json
+- name: Plan microcrypt-zoo sync
+  run: |
+    node scripts/microcrypt-sync.mjs \
+      --gv vendor/microcrypt-zoo/microcrypt.gv \
+      --map .orchestrator/microcrypt-map.json \
+      --state .orchestrator/state/microcrypt-sync.json \
+      --content content \
+      --microcrypt-commit "$MICROCRYPT_COMMIT" \
+      --plan-out .orchestrator/state/microcrypt-plan.json
 
-      # ... model executes .orchestrator/prompts/microcrypt-sync.md against the plan ...
+# ... model executes .orchestrator/prompts/microcrypt-sync.md against the plan ...
 
-      - name: Rebuild Microcrypt Zoo embed page
-        run: |
-          node scripts/microcrypt-graph.mjs \
-            --gv vendor/microcrypt-zoo/microcrypt.gv \
-            --map .orchestrator/microcrypt-map.json \
-            --out "content/Microcrypt Zoo.md"
+- name: Rebuild Microcrypt Zoo embed page
+  run: |
+    node scripts/microcrypt-graph.mjs \
+      --gv vendor/microcrypt-zoo/microcrypt.gv \
+      --map .orchestrator/microcrypt-map.json \
+      --out "content/Microcrypt Zoo.md"
 
-      - name: Record sync state
-        run: |
-          node scripts/microcrypt-sync.mjs \
-            --gv vendor/microcrypt-zoo/microcrypt.gv \
-            --map .orchestrator/microcrypt-map.json \
-            --state .orchestrator/state/microcrypt-sync.json \
-            --content content \
-            --microcrypt-commit "$MICROCRYPT_COMMIT" \
-            --write-state
+- name: Record sync state
+  run: |
+    node scripts/microcrypt-sync.mjs \
+      --gv vendor/microcrypt-zoo/microcrypt.gv \
+      --map .orchestrator/microcrypt-map.json \
+      --state .orchestrator/state/microcrypt-sync.json \
+      --content content \
+      --microcrypt-commit "$MICROCRYPT_COMMIT" \
+      --write-state
 ```
 
 `--write-state` is run **last**, after the model has applied the plan, so a

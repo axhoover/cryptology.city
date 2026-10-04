@@ -1,46 +1,30 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from MIP to Multi-prover extensions"
+status: draft
+title: "No free reduction from MIP* to MIP"
 aliases: []
-id: bar-mip-to-multi-prover-extensions
-hypotheses: [mip]
-conclusion: mip-star
-class: unstated
+id: bar-mip-star-to-mip
+hypotheses: [mip-star]
+conclusion: mip
+class: free
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: free
 strength: unconditional
-source: folklore
+source:
+  - "[[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]"
+  - "[[NW19 - NEEXP is Contained in MIP-star|NW19]]"
+rationale:
+  class: "The non-inclusion is proved outright, so it rules out the inclusion whatever proof would establish it, not one proof technique."
 ---
 
-# No reduction from MIP to Multi-prover extensions
-
-A reduction of class `unstated` from [[multi-prover-interactive-proofs|MIP]] to [[quantum-interactive-proofs#multi-prover-extensions|Multi-prover extensions]] would imply a contradiction.
+# No free reduction from MIP\* to MIP
 
 ## Statement
 
-Migrated verbatim from [[quantum-interactive-proofs]] § Multi-prover extensions:
-
-> - **$\mathbf{MIP^*}$** vs **$\mathbf{MIP}$**: the classical multi-prover class $\mathbf{MIP} = \mathbf{NEXP}$, so entanglement exponentially (in fact, incomparably) increases prover power.
+No reduction of any class from [[quantum-interactive-proofs#multi-prover-extensions|MIP*]] to [[multi-prover-interactive-proofs|MIP]] exists, since $\mathbf{MIP^*} \not\subseteq \mathbf{MIP}$: $\mathbf{MIP} = \mathbf{NEXP}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]; $\mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[NW19 - NEEXP is Contained in MIP-star|NW19]]; and $\mathbf{NEXP} \subsetneq \mathbf{NEEXP}$ by the nondeterministic time hierarchy theorem — standard.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Derived by combining MIP = NEXP here with MIP\* = RE at line 28, not stated as a theorem, and nothing marks it as derived.
-- TYPING LOSS: the bare pair {MIP} => {MIP\*} is indistinguishable from a plain inclusion.
-- The page's gloss 'exponentially (in fact, incomparably) increases prover power' is imprecise and half-corrects itself in the same sentence: RE versus NEXP is not an exponential gap.
-- Uncited.
-- MISSING CITATION for MIP = NEXP (Babai-Fortnow-Lund 1991).
-- Composite: the theorem MIP = NEXP plus the derived separation MIP ⊊ MIP* (obtained by combining with MIP* = RE on line 28).
-- 'exponentially (in fact, incomparably) increases prover power' is imprecise: RE vs NEXP is not an 'exponential' gap, and the parenthetical half-corrects the first half in the same sentence.
-- MIP, NEXP have no wiki pages.
+- The converse $\mathbf{MIP} \subseteq \mathbf{MIP^*}$ holds: $\mathbf{MIP} = \mathbf{NEXP} \subseteq \mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], [[NW19 - NEEXP is Contained in MIP-star|NW19]].

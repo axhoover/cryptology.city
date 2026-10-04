@@ -11,15 +11,14 @@ aliases:
 title: Succinct argument
 id: snark
 variants:
-  groth16: "#zk-snark"
-  groth16-snark: "#zk-snark"
+  zk-snark: "#zk-snark"
   incremental-verifiable-computation: "#recursive-snarks"
   transparent-succinct-argument: "#stark"
 ---
 
 # Succinct argument
 
-A **succinct non-interactive argument of knowledge** (SNARK) is a proof system in which a prover can convince a verifier that a statement $x \in L$ is true using a single short message, where the proof is short relative to the witness size and verification is fast. The "knowledge" variant (SNARK) additionally requires that the prover must "know" a witness — formalized via an extractor. A **STARK** (Scalable Transparent ARgument of Knowledge) is a SNARK variant that requires no trusted setup and relies only on collision-resistant hash functions, making it post-quantum secure.
+A **succinct non-interactive argument of knowledge** (SNARK) is a proof system in which a prover can convince a verifier that a statement $x \in L$ is true using a single short message, where the proof is short relative to the witness size and verification is fast. The "knowledge" variant (SNARK) additionally requires that the prover must "know" a witness — formalized via an extractor. A **STARK** (Scalable Transparent ARgument of Knowledge) is a SNARK variant that requires no trusted setup, is secure in the random oracle model, and is plausibly post-quantum.
 
 ## Syntax
 
@@ -38,7 +37,7 @@ $$\Pr[\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1] = 1.$$
 
 ### Knowledge soundness
 
-There exists a polynomial-time extractor $\calE$ such that for all efficient $\calA$: if $\calA(\crs)$ outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE^{\calA}(\crs)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
+For all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that: if $\calA(\crs; r)$, run on coins $r$, outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE_\calA(\crs, r)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
 
 ### Succinctness
 
@@ -53,12 +52,12 @@ A **zk-SNARK** additionally satisfies zero-knowledge: there exists a simulator t
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{ks}}_{\calA,\calE}(\secpar)$}
+\caption{$\Game^{\mathrm{ks}}_{\calA,\calE_\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\crs \gets \Setup(1^\secpar)$
-\State $(x, \pi) \gets \calA(\crs)$
-\State $w \gets \calE^{\calA}(\crs)$
-\Comment{Extractor runs $\calA$ as a subroutine}
+\State $\crs \gets \Setup(1^\secpar, C)$
+\State $r \getsr \bits^{*}$; $(x, \pi) \gets \calA(\crs; r)$
+\State $w \gets \calE_{\calA}(\crs, r)$
+\Comment{$\calE_\calA$ gets $\calA$'s input and coins}
 \If{$\Vrfy(\crs, x, \pi) = 1$ and $(x, w) \notin \calR$}
 \Return $1$
 \Comment{$\calA$ wins: valid proof but extractor failed}
@@ -68,7 +67,7 @@ A **zk-SNARK** additionally satisfies zero-knowledge: there exists a simulator t
 \end{algorithm}
 ```
 
-A succinct argument is **knowledge-sound** if for all efficient $\calA$ there exists a polynomial-time extractor $\calE$ such that $\Pr[\Game^{\mathrm{ks}}_{\calA, \calE}(\secpar) = 1]$ is negligible.
+A succinct argument is **knowledge-sound** if for all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that $\Pr[\Game^{\mathrm{ks}}_{\calA, \calE_\calA}(\secpar) = 1]$ is negligible.
 
 # Variations
 
@@ -78,13 +77,13 @@ A SNARK with zero-knowledge. The verifier learns nothing about the witness beyon
 
 ## STARK
 
-A **Scalable Transparent ARgument of Knowledge** achieves succinctness without any trusted setup: the $\Setup$ algorithm is public-coin (the CRS is just a random oracle / hash function). Security relies only on collision-resistant hash functions, so STARKs are post-quantum secure. Proof size is $O(\log^2 T)$ for a computation of size $T$, larger than pairing-based SNARKs but still sublinear — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18]].
+A **Scalable Transparent ARgument of Knowledge** achieves succinctness without any trusted setup: the $\Setup$ algorithm is public-coin (the CRS is just a random oracle / hash function). Security is proven in the [[random-oracle-model|ROM]] — [[BCS16 - Interactive Oracle Proofs|BCS16]]; the same compiler is sound in the quantum ROM when the IOP is round-by-round sound — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]] — so STARKs are plausibly post-quantum. Proof size is $O(\log^2 T)$ for a computation of size $T$, larger than pairing-based SNARKs but still sublinear — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
-The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, which is a transparent polynomial commitment scheme based on proximity testing to Reed-Solomon codes.
+The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, an interactive oracle proof of proximity to Reed-Solomon codes — [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]]. Combined with Merkle-tree commitments, FRI yields a transparent (list) polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].
 
 ## Universal/updatable SNARKs
 
-Systems like Plonk and Marlin use a single universal trusted setup for all circuits up to size $N$, rather than a per-circuit setup. Plonk uses PLONKish [[arithmetization]] and KZG [[polynomial-commitment|polynomial commitments]] — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+Systems like Plonk and Marlin use a single universal trusted setup for all circuits up to size $N$, rather than a per-circuit setup. Plonk uses PLONKish [[arithmetization]] and KZG [[polynomial-commitment|polynomial commitments]] ([[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]) — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]].
 
 ## Recursive SNARKs
 
@@ -92,44 +91,31 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 
 # Other results
 
-- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
-- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
-- [[snark-to-hash-function|SNARK ⇒ Hash function]]
-- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
-- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
-- SNARKs are constructed via two steps: (1) [[arithmetization]] — convert the computation to polynomial constraints; (2) a [[polynomial-commitment|polynomial commitment scheme]] — commit and open evaluations — standard
-- [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
+- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
+- The Fiat–Shamir transform removes interaction from a public-coin protocol but keeps its communication, so in the random oracle model it yields succinct arguments only from succinct protocols: Merkle-committed PCPs (CS proofs) — [[Mic00 - Computationally Sound Proofs|Mic00]]; public-coin IOPs with state-restoration soundness — [[BCS16 - Interactive Oracle Proofs|BCS16]]
+- Many SNARKs (e.g. Plonk, Marlin) compile a polynomial IOP, obtained from an [[arithmetization]], with a [[polynomial-commitment|polynomial commitment scheme]] — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in d9a546747064 -->
+<!-- BEGIN GENERATED participates-in cd0922d440c1 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
-- [[snark-to-hash-function|SNARK ⇒ Hash function]]
-- [[snark-to-nizk|SNARK ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 
 **Produces Succinct argument**
 
-- [[arithmetization-and-fri-fast-reed-solomon-iop-of-proximity-to-snark-bbhr18|Arithmetization + FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
-- [[arithmetization-and-pcs-to-snark-kzg10|Arithmetization + PCS ⇒ SNARK]]
-- [[arithmetization-to-snark-bbhr18|Arithmetization ⇒ SNARK]]
-- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ SNARK]]
-- [[falsifiable-assumption-to-snark-gro16|Falsifiable assumption ⇒ SNARK]]
-- [[fri-fast-reed-solomon-iop-of-proximity-to-snark|FRI (Fast Reed-Solomon IOP of Proximity) ⇒ SNARK]]
-- [[hash-function-to-snark-bbhr18|Hash function ⇒ SNARK]]
-- [[interactive-protocol-and-rom-to-snark|interactive protocol + ROM ⇒ SNARK]]
-- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
-- [[kea-to-snark-gro16|KEA ⇒ SNARK]]
-- [[kzg-kate-zaverucha-goldberg-to-snark-kzg10|KZG (Kate-Zaverucha-Goldberg) ⇒ SNARK]]
-- [[pcs-to-snark|PCS ⇒ SNARK]]
+- [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
+- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
+- [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|Recursive SNARKs]])
 
 **Barriers**
 
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
 <!-- END GENERATED participates-in -->

@@ -116,7 +116,7 @@ Introduced by [[Rab81]], **Rabin's OT** is a simpler variant where the sender tr
 
 A generalization where the sender holds $n$ messages $(x_1, \ldots, x_n)$ and the receiver chooses a set $S \subseteq [n]$ of size $k$, learning $\{x_i : i \in S\}$ while the sender learns nothing about $S$.
 
-The 1-out-of-$n$ variant is equivalent to single-server [[single-server-private-information-retrieval|PIR]] with data privacy ([[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|SPIR]]).
+Single-server [[single-server-private-information-retrieval#Symmetric private information retrieval (Single-server)|SPIR]] is 1-out-of-$n$ OT with communication sublinear in $n$, so it implies 1-out-of-$n$ OT — folklore; the converse is not known ([[symmetric-private-information-retrieval-single-server-to-ot|SPIR ⇒ OT]]).
 
 ## OT Extension
 
@@ -130,38 +130,37 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
 - [[ot-to-com|OT ⇒ COM]]
-- [[pke-to-ot|PKE ⇒ OT]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 5d78a77787e7 -->
+<!-- BEGIN GENERATED participates-in 217acd37eda4 -->
 
 ## Participates in
 
 **Builds on Oblivious transfer**
 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
+- [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
+- [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
+- [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
 
 **Produces Oblivious transfer**
 
-- [[com-to-ot-kil88|COM ⇒ OT]]
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
-- [[mpc-to-ot-bh26|MPC ⇒ OT]]
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
-- [[pke-to-ot|PKE ⇒ OT]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
-- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇔ OT]]
-- [[tdp-to-ot|TDP ⇔ OT]]
+- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
 
 **Barriers**
 
-- [[no-depir-to-ot-dmo00|No reduction from DEPIR to OT]]
-- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
-- [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
-- [[no-tdp-to-ot|No reduction from TDP to OT]]
+- [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]] — circumvented by [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
+- [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
+- [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 
 <!-- END GENERATED participates-in -->

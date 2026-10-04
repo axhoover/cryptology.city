@@ -29,9 +29,9 @@ $$
 
 ## Known Results
 
-- [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
-- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
+- [[rsa-assumption|RSA]] hardness implies factoring hardness, since the factors of $N$ give $\varphi(N)$ and hence the decryption exponent — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]; the converse is open in the standard model, and [[rsa-to-fac-dlo24|RSA ⇔ FAC]] holds in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]] (for Blum moduli); the converse is open.
+- [[fac-to-dcr-pai99|DCR ⇒ FAC]]; the converse is open.
 - Quantum computers can factor in polynomial time via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 # Variations
@@ -53,20 +53,21 @@ Some protocols assume factoring is hard even given additional structural informa
 - **General Number Field Sieve (GNFS)**: sub-exponential $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — best known classical algorithm for large $N$
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 430f5196a42f -->
+<!-- BEGIN GENERATED participates-in d06ffee379ff -->
 
 ## Participates in
 
 **Builds on Factoring assumption**
 
-- [[fac-to-dcr-pai99|FAC ⇒ DCR]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
-- [[fac-to-rsa-rsa78|FAC ⇒ RSA]]
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
+- [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 
 **Produces Factoring assumption**
 
+- [[fac-to-dcr-pai99|DCR ⇒ FAC]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
 
 <!-- END GENERATED participates-in -->

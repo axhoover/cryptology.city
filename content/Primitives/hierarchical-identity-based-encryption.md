@@ -7,11 +7,10 @@ aliases:
 title: Hierarchical identity-based encryption
 id: hibe
 variants:
-  adaptive-hibe-security: "#ind-hibe-cpa-security"
   anonymous-hibe: "#anonymous-hibe"
   hibe-adaptive-security: "#ind-hibe-cpa-security"
   hibe-selective-security: "#ind-shibe-cpa-security-selective"
-  selective-hibe-security: "#ind-shibe-cpa-security-selective"
+  hibe-subexp-selective-security: "#sub-exponential-ind-shibe-cpa-security"
 ---
 
 # Hierarchical identity-based encryption
@@ -73,7 +72,11 @@ is negligible. The prefix constraint is necessary because $\Delegate$ is publicl
 
 ### IND-sHIBE-CPA Security (Selective)
 
-In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. The selective–adaptive separation is known to be strict for HIBE: there is no black-box complexity-leveraging argument that avoids an exponential loss in the depth $d$.
+In the **selective** variant, the adversary commits to the challenge identity $\vec{\mathit{id}}^*$ before $\Setup$ runs. When $|\Sigma^{\le d}|$ is superpolynomial, selective security of a scheme does not imply its adaptive security, and guessing $\vec{\mathit{id}}^*$ recovers adaptive security only at a loss factor of $|\Sigma^{\le d}|$ — folklore. For HIBE schemes with a checkability property on keys and ciphertexts, any simple black-box reduction proving adaptive security from a non-interactive assumption loses a factor exponential in $d$ — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]]. An adaptively secure HIBE can be built from any selectively secure IBE — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]].
+
+#### Sub-exponential IND-sHIBE-CPA Security
+
+An HIBE scheme $\HIBE$ is **sub-exponentially IND-sHIBE-CPA-secure** if there is a constant $\epsilon > 0$ such that for all sufficiently large $\secpar$, every admissible selective adversary $\calA$ of size at most $2^{\secpar^{\epsilon}}$ has advantage at most $2^{-\secpar^{\epsilon}}$.
 
 # Variations
 
@@ -84,22 +87,29 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 # Other results
 
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
-- [[abe-to-hibe|ABE ⇒ HIBE]]
+- [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 833c8e964344 -->
+<!-- BEGIN GENERATED participates-in 0c7b42118b4c -->
 
 ## Participates in
 
 **Builds on Hierarchical identity-based encryption**
 
+- [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]] (via [[hierarchical-identity-based-encryption#anonymous-hibe|Anonymous HIBE]])
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|Sub-exponential IND-sHIBE-CPA Security]])
 
 **Produces Hierarchical identity-based encryption**
 
-- [[abe-to-hibe|ABE ⇒ HIBE]]
 - [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]]
-- [[bdh-to-hibe-wat09|BDH ⇒ HIBE]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
+- [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]
+- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]])
+
+**Barriers**
+
+- [[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]], [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA Security (Selective)]])
 
 <!-- END GENERATED participates-in -->

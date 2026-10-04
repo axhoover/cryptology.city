@@ -96,7 +96,7 @@ $$
 \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. IND\$-CPA implies CPA security, but not vice versa.
+is negligible. IND\$-CPA implies CPA security, but not vice versa — standard.
 
 ### CCA Security
 
@@ -127,27 +127,30 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 
 # Other results
 
-- [[hash-function-to-prg-hill99|Hash function ⇒ PRG]]
-- [[hash-function-to-ske|Hash function ⇒ SKE]]
-- [[hash-function-to-mac|Hash function ⇒ MAC]]
-- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
-- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]]
+- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+- [[prf-to-mac|PRF ⇒ MAC]]
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 
-<!-- BEGIN GENERATED participates-in fc578ab06145 -->
+<!-- BEGIN GENERATED participates-in 33cbbc1a6a1a -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
+- [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
-- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
-- [[secret-key-pir-sk-pir-and-ske-to-depir|Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR]]
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
 
-- [[hash-function-to-ske|Hash function ⇒ SKE]]
+- [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
-- [[prg-to-ske|PRG ⇒ SKE]]
+
+**Barriers**
+
+- [No fixed-construction reduction from CPA Security to IND\$-CPA Security](no-cpa-security-to-ind-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]], [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 
 <!-- END GENERATED participates-in -->

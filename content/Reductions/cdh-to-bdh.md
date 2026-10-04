@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "CDH ⇒ BDH"
+status: draft
+title: "BDH ⇒ CDH"
 aliases: []
-id: red-cdh-to-bdh
+id: red-bdh-to-cdh-bf01
 kind: implication
-hypotheses: [cdh]
-conclusion: bdh
-class: unstated
-model: generic-group
-source: folklore
-security-loss: ""
+hypotheses: [bdh]
+conclusion: cdh
+class: fully-black-box
+model: standard
+source:
+  - "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
+security-loss: "tight: one CDH call and one pairing evaluation"
+rationale:
+  class: "The group generator is unchanged, and the fixed reduction calls the CDH solver once as an oracle and then evaluates the pairing once."
 ---
 
-# CDH ⇒ BDH
-
-[[computational-diffie-hellman|CDH]] implies [[bilinear-map-assumptions|BDH]].
+# BDH ⇒ CDH
 
 ## Statement
 
-Migrated verbatim from [[bilinear-map-assumptions]] § Known Results:
+If [[bilinear-map-assumptions|BDH]] is hard for a symmetric pairing-group generator, then [[computational-diffie-hellman|CDH]] is hard in its source group $\GG$: every CDH solver yields, with one call and one pairing evaluation, a BDH solver with at least its success probability — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
 
-> - BDH is implied by [[computational-diffie-hellman|CDH]] in the generic group model, but no standard-model reduction is known
+## Sketch
+
+Given a BDH instance $(g, g^a, g^b, g^c)$, run the CDH solver on $(g, g^a, g^b)$ and output $e(Z, g^c)$ for its answer $Z$. This equals $e(g,g)^{abc}$ whenever $Z = g^{ab}$, and $(g^a, g^b)$ is distributed as in the CDH game.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- SUSPECTED ERROR: hardness of BDH in the generic (bilinear) group model is an unconditional lower bound, not a reduction from CDH.
-- Direction looks reversed: BDH hardness is normally seen to imply CDH hardness, since an algorithm for CDH in the pairing group breaks BDH.
+- The converse, that CDH hardness implies BDH hardness, is open — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].

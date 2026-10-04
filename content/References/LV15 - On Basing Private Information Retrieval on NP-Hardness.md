@@ -4,8 +4,8 @@ status: draft
 title: "LV15"
 source: https://eprint.iacr.org/2015/1061
 authors: Tianren Liu, Vinod Vaikuntanathan
-venue: TCC 2015
-published: 2015-10-30
+venue: TCC 2016-A
+published: 2016-01-10
 aliases:
   - LV15
 cryptobib_key: TCC:LiuVai16
@@ -13,7 +13,7 @@ cryptobib_key: TCC:LiuVai16
 
 # [LV15] On Basing Private Information Retrieval on NP-Hardness
 
-**Authors:** Tianren Liu, Vinod Vaikuntanathan | **Venue:** TCC 2015 | [Source](https://eprint.iacr.org/2015/1061)
+**Authors:** Tianren Liu, Vinod Vaikuntanathan | **Venue:** TCC 2016-A | [Source](https://eprint.iacr.org/2015/1061)
 
 ## Abstract
 

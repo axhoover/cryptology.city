@@ -1,41 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE"
+title: "Circular security + Bootstrappable SHE ⇒ HE"
 aliases: []
 id: red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
-hypotheses: [circular-security, somewhat-homomorphic-encryption]
+hypotheses: [circular-security, bootstrappable-somewhat-homomorphic-encryption]
 conclusion: he
-class: unstated
+class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
 security-loss: ""
+rationale:
+  class: "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
 ---
 
-# Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE
-
-[[circular-security|Circular security]] together with [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]] implies [[homomorphic-encryption|HE]].
+# Circular security + Bootstrappable SHE ⇒ HE
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
+Any [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme — one able to homomorphically evaluate its own decryption circuit augmented by a NAND gate — that is [[circular-security|circular secure]] yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth; without circular security, a chain of independent key pairs gives only [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
-> - First fully homomorphic encryption scheme from ideal lattices using bootstrapping — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]
+## Sketch
 
-## Notes
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- NODE COLLAPSE: fully-homomorphic-encryption is an ALIAS of content/Primitives/homomorphic-encryption.md, the same page the parent's hypothesis resolves to, so this edge is a self-loop.
-- Bootstrapping also needs the base scheme to be BOOTSTRAPPABLE (able to evaluate its own augmented decryption circuit) — no node captures that.
-- 'circular-security' has no page; it is described only in prose at line 66.
-- Without the circular-security hypothesis the construction yields only LEVELED FHE, so dropping the conjunction would make the edge false.
-- Composite: 'from ideal lattices using bootstrapping' chains a base SHE construction with the bootstrapping theorem; must be split.
-- Duplicate of the intro claim (line 14) and of line 52.
-- REPAIR PATCH: T10 (the critic numbers this T10; the task brief mislabels T10 as Complexity/merlin-arthur.md, which is the critic’s T6 and is dropped separately). Wiki L60 reads in full: "- First fully homomorphic encryption scheme from ideal lattices using bootstrapping — `[[Gen09]]`". The word circular-security appears nowhere on that line; it is stated in a DIFFERENT bullet at L66 ("Circular security: FHE schemes often need to encrypt their own secret key ... not implied by standard assumptions"). Removing it from splitInto[1] per the brief (record what the source states). NOTE the cost, recorded not fixed: bootstrapping to unbounded FHE really does need a circular-security assumption, so the repaired sub-edge understates the hypothesis; at migration the L66 bullet should be attached to this chain by a human rather than re-inferred by an extractor.
+The public key includes an encryption of the secret key under its own public key. A NAND gate on ciphertexts $c_1, c_2$ is evaluated by homomorphically evaluating $\sk \mapsto \lnot\left(\Dec(\sk, c_1) \land \Dec(\sk, c_2)\right)$ on that encryption, so every output ciphertext carries the bounded noise of one augmented decryption and circuits of any depth can be evaluated gate by gate. Encrypting each $\sk_i$ under a fresh $\pk_{i+1}$ instead, one key pair per level, gives leveled FHE without circular security.

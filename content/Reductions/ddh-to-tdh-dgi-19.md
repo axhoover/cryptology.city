@@ -16,22 +16,15 @@ security-loss: ""
 
 # DDH ⇒ TDH
 
-[[decisional-diffie-hellman|DDH]] implies [[trapdoor-hash-function|TDH]].
-
 ## Statement
 
-Migrated verbatim from [[single-server-private-information-retrieval]] § Constructions:
+[[decisional-diffie-hellman|DDH]] implies [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: for every index $i$, an encoding key hides $i$, and its trapdoor recovers $x_i$ from the hash $H(x)$ and the hint — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
-> - PIR with $\polylog(n)$ bandwidth can be built from [[decisional-diffie-hellman|DDH]], QR, or [[learning-with-errors|LWE]] — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
->   - This result goes through the use of [[trapdoor-hash-function|TDH]], which can be used to build PIR generically
+## Sketch
+
+The hash key is a matrix $(g_{j,b})_{j \in [n], b \in \bits}$ of group elements and $H(x) = \prod_j g_{j,x_j}$; the encoding key for index $i$ raises every entry to a secret exponent $s$ and multiplies the $(i,1)$ entry by $g$, so evaluating it on $x$ gives $H(x)^s \cdot g^{x_i}$. The trapdoor $s$ recovers $x_i$ from $H(x)$ and this value, a distributed discrete-logarithm step compresses the hint to one bit, and under DDH the encoding key is pseudorandom given the hash key, which hides $i$.
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The sub-bullet, not the main bullet, is what licenses this split; the main bullet alone would give a one-link DDH => PIR edge.
-- DGI+19's DDH-based TDH has its own rate/parameter constraints the edge cannot carry.
-- DISJUNCTIVE bullet: DDH, QR, or LWE are three separate reductions — split into three records; this is the DDH branch.
-- COMPOSITE: the sub-bullet says the construction routes through trapdoor hash functions, so each branch is a two-link chain (assumption => TDH => PIR).
-- The $\polylog(n)$ bandwidth qualifier is a quantitative property the edge cannot carry.
+- The same framework gives one-bit-hint trapdoor hash functions from QR, DCR and LWE ([[qr-to-tdh-dgi-19|QR ⇒ TDH]], [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]], [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]) — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+- The DDH-based construction carries rate and correctness-error constraints, on which the polylog-communication PIR of [[tdh-to-cpir-amr25|TDH ⇒ cPIR]] depends — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].

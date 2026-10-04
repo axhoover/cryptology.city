@@ -8,14 +8,10 @@ aliases:
 title: Digital signature
 id: ds
 variants:
-  one-time-signature: "#hash-based-signatures"
-  schnorr-identification-protocol: "#schnorr-signatures"
+  one-time-signature: "#one-time-signatures"
   schnorr-signature: "#schnorr-signatures"
   hash-and-sign-signature: "#lattice-based-signatures"
-  xmss: "#hash-based-signatures"
   boneh-lynn-shacham-signature: "#bls-signatures"
-  eddsa: "#schnorr-signatures"
-  few-time-signature: "#hash-based-signatures"
 ---
 
 # Digital signature
@@ -147,84 +143,81 @@ is negligible.
 
 ## Schnorr signatures
 
-Schnorr signatures are built from the **Schnorr identification protocol** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. To sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
+Schnorr signatures are built from the **[[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]]** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. For a generator $g$ of a group of prime order $p$, to sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
 
-Schnorr signatures are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. They are the basis for **EdDSA** (Ed25519, the standard in TLS, SSH, and Signal) and support efficient **multi-signatures** and **threshold signatures**.
+Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They are the basis for **EdDSA** (e.g. Ed25519) — [[BDLSY11 - High-Speed High-Security Signatures|BDLSY11]]. They support efficient **multi-signatures** and **threshold signatures**.
 
 ## BLS signatures
 
-BLS signatures (Boneh-Lynn-Shacham) use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
+BLS signatures (Boneh-Lynn-Shacham) [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
 
 Key properties:
 
 - **Deterministic**: no per-signature randomness needed
 - **Short**: one group element ($\approx 48$ bytes on BLS12-381)
-- **Aggregatable**: $n$ signatures on different messages can be aggregated into one signature verifiable with $n$ pairings
+- **Aggregatable**: $n$ signatures on distinct messages can be aggregated into one signature verifiable with $n+1$ pairings, checking $e(\sigma, g_2) = \prod_{i=1}^n e(H(m_i), \pk_i)$ — [[BGLS03 - Aggregate and Verifiably Encrypted Signatures from Bilinear Maps|BGLS03]]
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
 
 BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.
 
 ## Hash-based signatures
 
-Hash-based signatures achieve **post-quantum security** from collision-resistant hash functions alone — no number-theoretic assumptions.
+Hash-based signatures need no number-theoretic or lattice assumption: one-time signatures follow from OWF — [[Lam79 - Constructing digital signatures from a one way function|Lam79]] — and many-time signatures from OWF — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
-- [[hash-function-to-hash-based-signatures|Hash function ⇒ Hash-based signatures]]
-- [[hash-based-signatures-and-hash-based-signatures-to-ds|Hash-based signatures + Hash-based signatures ⇒ DS]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- SPHINCS+ is stateless: a hypertree of XMSS-style Merkle trees authenticates the keys of the few-time signature FORS at its leaves — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]]
 
-Security reduces to second-preimage resistance and pseudorandomness of the underlying hash function — no lattice or number-theoretic assumptions.
+### One-time signatures
+
+A one-time signature scheme is EUF-CMA secure against adversaries that make at most one signing query.
+
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 
 ## Lattice-based signatures
 
 Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
 
-- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
-- [[ntru-to-ds|NTRU ⇒ DS]]
+- [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
+- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
 # Other results
 
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-to-hash-based-signatures-lam79|Hash function ⇒ Hash-based signatures]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[ds-to-hash-function|DS ⇒ Hash function]]
+- [[ds-to-hash-function|DS ⇒ OWF]]
 
-<!-- BEGIN GENERATED participates-in 98a79d714c0e -->
+<!-- BEGIN GENERATED participates-in 62c58f139b8b -->
 
 ## Participates in
 
 **Builds on Digital signature**
 
-- [[ds-to-hash-function|DS ⇒ Hash function]]
+- [[ds-to-hash-function|DS ⇒ OWF]]
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 
 **Produces Digital signature**
 
-- [[bdh-to-ds|BDH ⇒ DS]]
-- [[bilinear-pairing-to-ds|Bilinear pairing ⇒ DS]]
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
-- [[dlog-to-ds-sch91|DLOG ⇒ DS]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[fiat-shamir-and-schnorr-signatures-to-ds|Fiat-Shamir + Schnorr signatures ⇒ DS]]
-- [[hash-based-signatures-and-hash-based-signatures-to-ds|Hash-based signatures + Hash-based signatures ⇒ DS]]
-- [[hash-based-signatures-to-ds-mer89|Hash-based signatures ⇒ DS]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|Hash function + Hash-based signatures ⇒ DS]]
-- [[hash-function-and-io-to-ds-sw14|Hash function + iO ⇒ DS]]
-- [[hash-function-to-ds|Hash function ⇒ DS]]
-- [[id-and-rom-to-ds|ID + ROM ⇒ DS]]
-- [[isis-inhomogeneous-sis-to-ds-gpv08|ISIS (Inhomogeneous SIS) ⇒ DS]]
-- [[lwe-and-sis-to-ds-ls15|LWE + SIS ⇒ DS]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
+- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
+- [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
+- [[hash-function-to-ds|OWF ⇒ DS]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
+- [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
-- [[module-sis-to-ds|Module-SIS ⇒ DS]]
-- [[ntru-to-ds|NTRU ⇒ DS]]
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
+- [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
-- [[strong-rsa-to-ds|Strong RSA ⇒ DS]]
+- [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]]
 
 **Barriers**
 
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 
 <!-- END GENERATED participates-in -->

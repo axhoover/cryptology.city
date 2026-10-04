@@ -10,35 +10,23 @@ conclusion: ot
 class: fully-black-box
 model: standard
 source:
-  - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+  - "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
 security-loss: ""
+rationale:
+  class: "The EGL protocol uses the TDP only through its generation, evaluation, inversion and domain-sampling algorithms, and the sender-privacy reduction turns any receiver-view distinguisher, used only as an oracle, into an inverter via the black-box Goldreich–Levin decoder."
 ---
 
 # Enhanced trapdoor permutations ⇒ OT
 
-[[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]] implies [[oblivious-transfer|OT]].
-
 ## Statement
 
-Migrated verbatim from [[trapdoor-permutation]] § Enhanced trapdoor permutations:
+An [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permutation]] yields 1-out-of-2 [[oblivious-transfer|OT]] on bits secure against semi-honest parties, via the EGL protocol: the sender, holding $(x_0, x_1)$, samples $(f, \td) \gets \Gen(1^\secpar)$ and sends $f$; the receiver, holding $c$, picks $z \getsr \calD$, sets $y_c = \Eval(f, z)$, samples $y_{1-c}$ obliviously from the domain, and sends $(y_0, y_1)$; the sender returns $x_b \oplus h(\Invert(\td, y_b))$ for $b \in \bits$, where $h$ is a hard-core predicate, and the receiver unmasks $x_c$ with $h(z)$ — [[EGL85 - A randomized protocol for signing contracts|EGL85]]. Enhanced one-wayness ($f$ stays hard to invert on an obliviously sampled $y$ even given the sampling coins) keeps $x_{1-c}$ hidden from the receiver, who holds those coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
 
-> An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. This stronger property is necessary for constructing [[oblivious-transfer|OT]] from TDPs.
+## Sketch
 
-Migrated verbatim from [[trapdoor-permutation]] § Other results:
-
-> - [[oblivious-transfer|OT]] can be constructed from enhanced trapdoor permutations — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]
+Receiver privacy is statistical: $(y_0, y_1)$ are two independent uniform domain elements, up to the sampler's statistical error, whatever $c$ is. Sender privacy: predicting $h(f^{-1}(y_{1-c}))$ from the sampling coins of $y_{1-c}$ is predicting a hard-core bit of an obliviously sampled image, and the Goldreich–Levin decoder turns such a predictor into an inverter, contradicting enhanced one-wayness.
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation here (GKM+00 is cited for the same edge at line 55 — duplicate).
-- 'enhanced-trapdoor-permutation' is a variation section of this page, not its own slug; the graph needs enhanced TDP as a distinct node from TDP since the whole point of the sentence is that they differ.
-- Duplicates the uncited claim at line 46.
-- 'enhanced trapdoor permutations' is plain prose with no wikilink to the '## Enhanced trapdoor permutations' section on this same page.
-- GKM+00 is primarily a PKE-vs-OT separation paper; whether it is the right citation for the positive enhanced-TDP => OT construction (usually EGL85 + Goldreich's enhancement) is worth checking.
+- Gol04 introduces enhanced one-wayness; for a TDP whose domain sampler's coins reveal a preimage, the protocol is insecure — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
+- Enhanced TDPs suffice for EGL OT, while NIZK needs doubly enhanced TDPs; intermediate notions are separated — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].

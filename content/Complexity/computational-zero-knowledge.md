@@ -19,35 +19,36 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 ## Notable problems
 
-- [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[hash-function-to-czk|OWF ⇒ CZK]]
 
 ## Known relationships
 
 - Unlike [[statistical-zero-knowledge|SZK]], it is not known if CZK is closed under complement
 - CZK is now known to share other properties with [[statistical-zero-knowledge|SZK]]: the verifier may as well be honest and may as well show their coins, and CZK is closed under unions — [[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]
 - Assuming [[hash-function|OWFs]] exist, CZK contains [[nondeterministic-polynomial-time|NP]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
-  - And, in fact CZK actually equals [[interactive-proof-systems|IP]] = [[polynomial-space|PSPACE]] — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
-- Contains [[statistical-zero-knowledge|SZK]]
+  - Under the same assumption, $\classIP \subseteq \classCZK$, so $\classCZK = \classIP = \classPSPACE$ — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]], [[Sha90 - IP = PSPACE|Sha90]]; unconditionally only $\classCZK \subseteq \classIP$ is known — folklore
+- Contains [[statistical-zero-knowledge|SZK]] — folklore
 
 ## Limits of zero-knowledge
 
-- **OWFs are necessary for non-trivial CZK**: if a language outside BPP has a CZK proof system, then one-way functions exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
+- **OWFs are necessary for non-trivial CZK**: if a language outside BPP has a CZK proof system, then auxiliary-input one-way functions exist; if the language is hard on average, one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
   - Informally: any ZK proof that convinces a verifier of something hard must "hide" information in a computationally meaningful way, which requires a one-way function
-- **Constant-round ZK for NP is impossible with black-box simulation**: any constant-round proof system for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
-  - This explains why practical ZK protocols (e.g., Sigma protocols) require a super-constant number of rounds or use non-black-box techniques
-- **Parallel composition breaks ZK**: repeating a ZK protocol in parallel to reduce soundness error may destroy the zero-knowledge property — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
+- **Constant-round public-coin ZK for NP is impossible with black-box simulation**: any 3-round, or constant-round public-coin, proof system with negligible soundness error for an NP-complete language with black-box zero-knowledge simulation implies NP ⊆ BPP — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]; see [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]
+  - Beyond three rounds the public-coin restriction is necessary: five-round private-coin black-box ZK proofs for NP exist assuming claw-free functions — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]]
+- **Parallel composition breaks ZK**: repeating a ZK protocol in parallel to reduce soundness error may destroy the zero-knowledge property — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 
-<!-- BEGIN GENERATED participates-in 089be31ff60f -->
+<!-- BEGIN GENERATED participates-in 22c6282b7abd -->
 
 ## Participates in
 
 **Builds on Computational zero-knowledge**
 
-- [[czk-to-ip-bgg-90|CZK = IP]]
+- [[czk-to-ip|CZK ⊆ IP]]
 
 **Produces Computational zero-knowledge**
 
-- [[hash-function-to-czk|Hash function ⇒ CZK]]
+- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]]
+- [[hash-function-to-czk|OWF ⇒ CZK]]
 - [[szk-to-czk|SZK ⊆ CZK]]
 
 <!-- END GENERATED participates-in -->

@@ -1,39 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ HIBE"
+title: "DBDH + DLIN ⇒ HIBE"
 aliases: []
 id: red-bdh-to-hibe-wat09
 kind: implication
-hypotheses: [bdh]
+hypotheses: [bdh, decisional-linear]
 conclusion: hibe
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
 security-loss: ""
+rationale:
+  class: "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the HIBE adversary once as an oracle against a DLIN or DBDH challenge."
 ---
 
-# BDH ⇒ HIBE
-
-[[bilinear-map-assumptions|BDH]] implies [[hierarchical-identity-based-encryption|HIBE]].
+# DBDH + DLIN ⇒ HIBE
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]] § Other results:
-
-> - The dual system encryption technique of Wat09 gives adaptively secure IBE, HIBE, and ABE under simple pairing-based assumptions — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) and decision linear ([[decisional-diffie-hellman#dlin|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure ([[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]]) [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss $O(q)$ for an adversary making $q$ key queries ($O(q)$ DLIN steps and one DBDH step) and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Same umbrella-hypothesis problem as the IBE sub-edge.
-- HIBE is not wikilinked on this bullet although the page exists.
-- Multi-conclusion bullet (IBE, HIBE, ABE) rather than a chain — must still be split into three reductions, one per conclusion. 'isComposite' is used here in that sense.
-- 'simple pairing-based assumptions' is vague and unlinked (Wat09 uses decisional bilinear Diffie-Hellman and decisional linear); the hypothesis cannot be pinned to a specific assumption node.
-- IBE and HIBE targets are not wikilinked on this bullet even though both pages exist.
+- Dual system encryption in composite-order groups (a product of three primes) gives fully secure HIBE with short ciphertexts under static assumptions — [[LW10 - New Techniques for Dual System Encryption and Fully Secure HIBE with Short Ciphertexts|LW10]].

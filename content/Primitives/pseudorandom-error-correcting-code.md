@@ -31,17 +31,17 @@ A _zero-bit_ PRC has the same requirements as an $L$-bit PRC, except that the me
 
 ### Pseudorandomness
 
-We define the advantage of a distinguisher $D$ as $$\Adv^{\mathrm{prc}}_D(\secpar) \le \left|\Pr[D^{\Enc_k}(1^\secpar) = 1] - \Pr[D^{R}(1^\secpar) = 1]\right|,$$where $k \gets \Gen(1^\secpar)$ and $R$ is a random response oracle, which on each query gives a uniformly random $n$-bit string (even on the same input, unlike a random oracle).
+We define the advantage of a distinguisher $D$ as $$\Adv^{\mathrm{prc}}_D(\secpar) := \left|\Pr[D^{\Enc_k}(1^\secpar) = 1] - \Pr[D^{R}(1^\secpar) = 1]\right|,$$where $k \gets \Gen(1^\secpar)$ and $R$ is a random response oracle, which on each query gives a uniformly random $n$-bit string (even on the same input, unlike a random oracle).
 
 A PRC is _pseudorandom_ if for all efficient $D$, there exists a negligible function $\nu$, such that: $\Adv^{\mathrm{prc}}_D(\secpar)\le \nu(\secpar)$.
 
 ### Completeness/Robustness
 
-A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\Dec_k(\calE(\Enc_k(m))) \ne m] \le \nu(\secpar),$$where $k \gets \Gen(1^\secpar)$ and $\calE$ is any $\varepsilon$-bounded channel. Meaning that $\calE$ is a length preserving function with the property that for every $n$-bit string $c$, $|\calE(c) - c| \le \varepsilon \cdot n$.
+A PRC is $\varepsilon$-robust if there is a negligible function $\nu$, such that for every message $m$, $$\Pr[\Dec_k(\calE(\Enc_k(m))) \ne m] \le \nu(\secpar),$$where $k \gets \Gen(1^\secpar)$ and $\calE$ is any $\varepsilon$-bounded channel. Meaning that $\calE$ is a length preserving function with the property that for every $n$-bit string $c$, $\calE(c)$ and $c$ have Hamming distance at most $\varepsilon \cdot n$.
 
 ### Soundness
 
-A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \Gen(1^\secpar)}[\Dec_k(\hat{c}) = \bot] \le \nu(\secpar).$$
+A PRC is _sound_ if there is a negligible function $\nu$, such that for all $\hat{c}$, $$\Pr_{k \gets \Gen(1^\secpar)}[\Dec_k(\hat{c}) \ne \bot] \le \nu(\secpar)$$ — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
 
 # Variations
 
@@ -51,7 +51,7 @@ A PRC with **adaptive robustness** strengthens the robustness property to allow 
 
 ## Ideal PRC
 
-An **ideal PRC** additionally requires that codewords are indistinguishable from uniformly random strings even to an adversary who holds the decoding key $k$. That is, the joint distribution $(k, \Enc_k(m))$ is computationally indistinguishable from $(k, U_n)$ where $U_n$ is a uniformly random $n$-bit string. This is strictly stronger than pseudorandomness (which only requires indistinguishability without the key). Ideal PRCs support watermarking schemes where even a user who knows the watermarking key cannot detect whether a given string is a codeword.
+An **ideal PRC** is one for which, with $k \gets \Gen(1^\secpar)$, oracle access to $(\Enc_k, \Dec_k)$ is computationally indistinguishable from oracle access to an ideal functionality. Its encoder returns a fresh uniformly random $n$-bit string on every query. Its decoder returns $m$ on any string within Hamming distance $\varepsilon n$ of a string the encoder returned on input $m$, and $\bot$ on every other string. The adversary never receives $k$. Ideal security implies pseudorandomness, soundness and adaptive robustness against efficient channels — [[AACDG25 - Ideal Pseudorandom Codes|AACDG25]].
 
 ## Zero-bit PRC
 
@@ -61,22 +61,23 @@ A **zero-bit PRC** has a singleton message space $\{1\}$: the encoder takes no m
 
 - PRCs were introduced in [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] motivated by undetectable watermarking of AI-generated content
 - [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]
-- [[lwe-to-prc-cg24|LWE ⇒ PRC]]
-- [[lwe-to-zero-bit-prc-cg24|LWE ⇒ Zero-bit PRC]]
+- [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]], including zero-bit PRCs — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]]
 
-<!-- BEGIN GENERATED participates-in f18ff0dfa797 -->
+<!-- BEGIN GENERATED participates-in f7e313e54f70 -->
 
 ## Participates in
 
 **Builds on Pseudorandom error-correcting code**
 
+- [[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]] (via [[pseudorandom-error-correcting-code#adaptive-robustness|Adaptive robustness]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
+- [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
+- [[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
 
 **Produces Pseudorandom error-correcting code**
 
 - [[adaptive-robustness-to-prc|Adaptive robustness ⇒ PRC]]
-- [[ideal-prc-to-prc|Ideal PRC ⇒ PRC]]
-- [[lwe-to-prc-cg24|LWE ⇒ PRC]]
+- [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]])
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
 
 <!-- END GENERATED participates-in -->

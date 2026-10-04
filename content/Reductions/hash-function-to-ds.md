@@ -1,50 +1,33 @@
 ---
 type: reduction
-status: stub
-title: "Hash function ⇒ DS"
+status: draft
+title: "OWF ⇒ DS"
 aliases: []
 id: red-hash-function-to-ds
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: ds
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
 security-loss: ""
+rationale:
+  class: "The UOWHFs, one-time signatures and authentication tree evaluate the one-way function only as an oracle, and the reduction runs any forger as an oracle to extract a UOWHF collision or a preimage of the one-way function."
 ---
 
-# Hash function ⇒ DS
-
-[[hash-function|Hash function]] implies [[digital-signature|DS]].
+# OWF ⇒ DS
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Breaking up Cryptomania:
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is an [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable [[digital-signature|signature scheme]] — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]. Rompel constructs universal one-way hash functions (UOWHFs) from any one-way function, and UOWHFs give signatures through the tree-based scheme of [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
 
-> Early work of [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] lays out how these different primitives relate to each other. Importantly, there is a large gap between OWF and TDP in Cryptomania: OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures, but **not** public-key encryption. TDPs (equivalently, the existence of PKE or OT) unlock the full power of asymmetric cryptography. [[Oblivious transfer|OT]] is complete for all of MPC, so Cryptomania is also the world where general secure computation is possible.
+## Sketch
 
-Migrated verbatim from [[digital-signature]] § Hash-based signatures:
-
-> Hash-based signatures achieve **post-quantum security** from collision-resistant hash functions alone — no number-theoretic assumptions.
+A UOWHF compresses messages for a one-time signature, and a tree of fresh one-time keys, each authenticated by its parent (Naor–Yung), turns one-time signatures into a many-time EUF-CMA scheme.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- DISJUNCTIVE BUNDLE: "OWFs imply PRGs, PRFs, SKE, MACs, and digital signatures" is five separate one-hypothesis reductions; this record isolates OWF => digital signature. Must not be stored as one hyperedge with five conclusions.
-- No citation on the clause — the canonical sources (HILL99 for OWF=>PRG, GGM86 for PRG=>PRF, Rom90/NY89 for OWF=>signatures) are absent. GKM+00 is cited earlier in the paragraph but for a different claim.
-- None of the five conclusions is wikilinked here — they are bare abbreviations in prose.
-- Hypothesis OWF is only reachable via the hash-function page alias.
-- No citation.
-- CONTRADICTS line 165 of the same section, which says security reduces to 'second-preimage resistance and pseudorandomness' — a different (weaker) hypothesis set than 'collision-resistant hash functions alone'. The page states the hypothesis two incompatible ways six lines apart.
-- `[[hash-function]]` is not wikilinked here; the CRHF/OWF conflation on that page makes the hypothesis ambiguous.
-- 'post-quantum security' is a claim about the adversary model (quantum), which the schema records only via 'model'.
+- Conversely, perfectly correct signatures imply one-way functions ([[ds-to-hash-function|DS ⇒ OWF]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+- Signatures from one-to-one one-way functions, via UOWHFs, predate Rompel's result — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
+- Rompel's STOC paper gives the proof only in outline; the first complete proof is [[KK05 - On Constructing Universal One-Way Hash Functions from Arbitrary One-Way Functions|KK05]].

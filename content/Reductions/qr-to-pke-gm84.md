@@ -7,38 +7,25 @@ id: red-qr-to-pke-gm84
 kind: implication
 hypotheses: [qr]
 conclusion: pke
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
 security-loss: ""
+rationale:
+  class: "GM84 state no reduction notion; the construction uses only the modulus generator, and one fixed reduction sets the public non-residue to the QR challenge and runs the IND-CPA adversary once as an oracle."
 ---
 
 # QR ⇒ PKE
 
-[[quadratic-residuosity|QR]] implies [[public-key-encryption|PKE]].
-
 ## Statement
 
-Migrated verbatim from [[quadratic-residuosity]] § Quadratic residuosity assumption:
+If [[quadratic-residuosity|QR]] is hard, the Goldwasser–Micali scheme is an IND-CPA-secure [[public-key-encryption|PKE]] for one-bit messages: $\pk = (N, y)$ with $N = pq$ and $y \in \J_N \setminus \QR_N$, $\sk = (p, q)$; $\Enc(\pk, \beta) = y^\beta r^2 \bmod N$ for $r \getsr \ZZ_N^*$; $\Dec$ outputs $0$ iff the ciphertext lies in $\QR_N$, decided with $(p, q)$. Encryptions of $0$ are uniform in $\QR_N$ and encryptions of $1$ uniform in $\J_N \setminus \QR_N$, so IND-CPA security is equivalent to QR — [[GM84 - Probabilistic encryption|GM84]].
 
-> The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
+## Sketch
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
-
-> - QR → CPA-secure [[public-key-encryption|PKE]]: Goldwasser-Micali encryption (the first IND-CPA PKE scheme) encrypts one bit at a time — [[GM84 - Probabilistic encryption|GM84]]
+The reduction sets $y$ to the QR challenge $a$: if $a \notin \QR_N$ it simulates the real scheme exactly, and if $a \in \QR_N$ encryptions of $0$ and $1$ are identically distributed, so the IND-CPA advantage decides the residuosity of $a$. Conversely a QR decider decrypts.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Duplicate of the ## Known Results bullet at line 50.
-- SUSPECTED ERROR (report only): "The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard" is self-contradictory — if residuosity were information-theoretically hidden no assumption would be needed. The intended statement is that the Jacobi symbol alone does not reveal residuosity.
-- Uses a bare arrow ("QR -> CPA-secure PKE") rather than prose; the arrow convention is not used consistently elsewhere in the repo.
-- The one-bit-at-a-time efficiency limitation is stated but the resulting ciphertext expansion is not.
+- GM84 introduce semantic security, and this scheme is the first PKE proved to achieve it — [[GM84 - Probabilistic encryption|GM84]].

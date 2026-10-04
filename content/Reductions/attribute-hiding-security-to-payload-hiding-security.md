@@ -1,36 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Attribute-Hiding Security ⇒ Payload-Hiding Security"
 aliases: []
 id: red-attribute-hiding-security-to-payload-hiding-security
 kind: implication
 hypotheses: [hve-attribute-hiding]
 conclusion: hve-payload-hiding
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: the reduction preserves the advantage exactly"
+rationale:
+  class: "The construction is the identity on HVE schemes, and the reduction runs the payload-hiding adversary unchanged, using it only as an oracle."
 ---
 
 # Attribute-Hiding Security ⇒ Payload-Hiding Security
 
-[[hidden-vector-encryption#attribute-hiding-security|Attribute-Hiding Security]] implies [[hidden-vector-encryption#payload-hiding-security|Payload-Hiding Security]].
-
 ## Statement
 
-Migrated verbatim from [[hidden-vector-encryption]] § Attribute-Hiding Security:
+Every [[hidden-vector-encryption#attribute-hiding-security|attribute-hiding]] [[hidden-vector-encryption|HVE]] scheme is [[hidden-vector-encryption#payload-hiding-security|payload-hiding]]: for every efficient admissible payload-hiding adversary there is an efficient admissible attribute-hiding adversary with the same advantage — folklore.
 
-> is negligible. Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$).
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (folklore not flagged).
-- 'strictly implies' also asserts a separation (payload-hiding =/=> attribute-hiding), which the parenthetical does not prove and nothing on the page substantiates.
-- Both endpoints are security notions of the same primitive, not distinct objects — the target model needs notion-level nodes.
+Setting $x_0 = x_1 = x^*$ specializes the attribute-hiding game to the payload-hiding game: the challenge $(x^*, m_0, m_1)$ becomes $((x^*, m_0), (x^*, m_1))$, and payload-hiding admissibility (no queried pattern matches $x^*$) implies attribute-hiding admissibility.

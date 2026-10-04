@@ -1,38 +1,34 @@
 ---
 type: barrier
-status: stub
-title: "No fully-black-box reduction from ZKP to Argument systems"
+status: draft
+title: "No reduction from ZKP to Argument systems"
 aliases: []
 id: bar-zkp-to-argument-systems
 hypotheses: [zkp]
 conclusion: constant-round-zk-argument
-class: fully-black-box
+class: unstated
 consequences:
   - kind: contradiction
     target: ""
-    class: fully-black-box
+    class: unstated
 strength: unconditional
-source: folklore
+circumvented-by: [red-crhf-to-constant-round-zk-argument-bar01]
+source:
+  - "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
+rationale:
+  class: "GK96a restrict the simulator, which may use the cheating verifier only as an oracle, rather than a construction or a security reduction between primitives, so no RTV04 class applies."
 ---
 
-# No fully-black-box reduction from ZKP to Argument systems
-
-A reduction of class `fully-black-box` from [[zero-knowledge-proof|ZKP]] to [[zero-knowledge-proof#argument-systems|Argument systems]] would imply a contradiction.
+# No reduction from ZKP to Argument systems
 
 ## Statement
 
-Migrated verbatim from [[black-box-separations]] § Limitations:
+No language outside [[bounded-error-probabilistic-polynomial-time|BPP]] has a constant-round public-coin [[zero-knowledge-proof|zero-knowledge]] proof or [[zero-knowledge-proof#argument-systems|argument]] with negligible soundness error whose simulator uses the cheating verifier only as an oracle, and none has a three-round one, public-coin or not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]. Constant-round public-coin zero-knowledge arguments for $\classNP$ with negligible soundness error and black-box simulation therefore exist only if $\classNP \subseteq \classBPP$.
 
-> - **Non-black-box constructions exist.** Barak's non-black-box zero-knowledge construction uses the circuit of the adversary to achieve constant-round ZK arguments, bypassing oracle-separation impossibilities that apply to fully BB zero-knowledge protocols.
+## Sketch
+
+For the public-coin case, GK96a run the black-box simulator against a cheating verifier whose coins are a random function of the transcript so far, and accept iff the simulated transcript is accepting. On $x \in L$ it is accepting by completeness and zero knowledge. On $x \notin L$, if the simulated transcript is accepting with probability $p$, a cheating prover that runs the simulator and forwards one guessed query per round to the real verifier convinces it with probability at least $p/q^c$ for $q$ simulator queries and $c = O(1)$ rounds, so negligible soundness error makes $p$ negligible.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- NO CITATION. 'Barak's non-black-box zero-knowledge construction' names an author and a result with no wikilink and no reference page. content/References/ has no Bar01/Barak entry. CLAUDE.md requires a citation for exactly this kind of claim, and it is not folklore.
-- This is a barrier CIRCUMVENTION, not a barrier: it records that a known impossibility (GK96, constant-round black-box-simulation ZK) is bypassed by a non-black-box technique. The data model needs an explicit 'circumvents barrier X' edge type; there is nowhere to put this.
-- The barrier it circumvents (GK96) is stated on a different page (content/Complexity/computational-zero-knowledge.md:35) with no cross-link in either direction.
+- Non-black-box simulation gets around the barrier: assuming [[hash-function#collision-resistance|collision-resistant hash functions]], $\classNP$ has a constant-round public-coin zero-knowledge argument with negligible soundness error whose simulator uses the cheating verifier's code ([[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]]) — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]].

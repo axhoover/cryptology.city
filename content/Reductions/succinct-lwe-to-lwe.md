@@ -1,38 +1,30 @@
 ---
 type: reduction
-status: stub
-title: "Succinct LWE ⇔ LWE"
+status: draft
+title: "Succinct LWE ⇒ LWE"
 aliases: []
 id: red-succinct-lwe-to-lwe
-kind: equivalence
+kind: implication
 hypotheses: [succinct-lwe]
 conclusion: lwe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "additive in the statistical distance of $\\mathrm{TrapGen}$'s $\\mathbf{B}$ from uniform"
+rationale:
+  class: "The fixed reduction runs any LWE distinguisher once as an oracle on the succinct-LWE challenge and discards the trapdoor data."
 ---
 
-# Succinct LWE ⇔ LWE
-
-[[learning-with-errors#succinct-lwe|Succinct LWE]] is equivalent to [[learning-with-errors|LWE]].
+# Succinct LWE ⇒ LWE
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Succinct LWE:
+For every $\ell$, if $\ell$-[[learning-with-errors#succinct-lwe|succinct LWE]] is hard for $(n, q, \chi, m)$, then [[learning-with-errors|LWE]] is hard for the same $(n, q, \chi, m)$ — folklore.
 
-> is negligible. When $\ell = 1$ there is no $\mathbf{W}$ block and $T$ reduces to $T_\mathbf{B}$ itself, making the condition equivalent to standard LWE. The assumption strengthens as $\ell$ grows — larger $\ell$ allows encoding more circuit-depth information in the trapdoor structure. Succinct LWE implies Evasive LWE. A circular small-secret variant (where the trapdoor preimage is related to a low-norm secret) is also used in applications.
+## Sketch
+
+On a succinct-LWE challenge $(\mathbf{B}, \mathbf{W}, T, \mathbf{u}_b)$, run the LWE distinguisher on $(\mathbf{B}^\top, \mathbf{u}_b^\top)$ and output its guess, ignoring $(\mathbf{W}, T)$. The $\mathbf{B}$ output by $\mathrm{TrapGen}$ is statistically close to uniform, so the only loss is additive in that statistical distance.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- One paragraph packs four claims (l=1 equivalence to LWE; monotonicity in l; Succinct LWE => Evasive LWE; circular small-secret variant). Recorded separately.
-- No citation on the l = 1 equivalence.
+- For $\ell = 1$ the converse holds, since $(\mathbf{W}, T)$ can be sampled from a uniform $\mathbf{B}$ using a trapdoor for $\mathbf{W}$ alone; for $\ell > 1$ no reduction from LWE is known — folklore.

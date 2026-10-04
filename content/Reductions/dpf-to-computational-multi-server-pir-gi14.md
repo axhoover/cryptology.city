@@ -7,30 +7,50 @@ id: red-dpf-to-computational-multi-server-pir-gi14
 kind: implication
 hypotheses: [dpf]
 conclusion: computational-multi-server-pir
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
 security-loss: ""
+rationale:
+  class: "One fixed construction calls the DPF only through its key generation and evaluation algorithms, and the privacy reduction runs any query distinguisher once as an oracle on the key it receives, which makes it a DPF hiding adversary."
 ---
 
 # DPF ⇒ Computational Multi-server PIR
 
-[[distributed-point-function|DPF]] implies [[multi-server-private-information-retrieval#computational-multi-server-pir|Computational Multi-server PIR]].
-
 ## Statement
 
-Migrated verbatim from [[multi-server-private-information-retrieval]] § Computational Multi-server PIR:
+A [[distributed-point-function|DPF]] for domain $[N]$ and range $\ZZ_2$ yields a 2-server [[multi-server-private-information-retrieval#computational-multi-server-pir|computational PIR]] for an $N$-bit database $D$ in which each query is one DPF key and each answer one bit: the client sends $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$, one key to each server; server $b$ returns $a_b = \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$; and $D[i] = a_0 + a_1$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]].
 
-> - This can be constructed from [[hash-function|OWFs]] via the use of [[distributed-point-function|DPFs]] — [[GI14 - Distributed Point Functions and Their Applications|GI14]]
+## Sketch
 
-## Notes
+Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctness. Privacy: server $b$'s entire view of a query is $k_b$, so a distinguisher between queries for $i$ and $i'$ is an adversary against [[distributed-point-function#hiding-security|DPF hiding]] for key $k_b$ with the same advantage.
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Query(i)$}
+\begin{algorithmic}
+\State $(k_0, k_1) \gets \Gen(1^\secpar, i, 1)$
+\Return $(k_0, k_1)$
+\end{algorithmic}
+\end{algorithm}
 
-- 'computational-multi-server-pir' is a '## Computational Multi-server PIR' variation section with no node of its own, so the conclusion collapses to the base page.
-- The construction is for TWO servers (distributed-point-function.md:48 says 'Computational 2-server PIR'); the server count is a parameter the edge drops.
-- Composite: OWF => DPF => computational multi-server PIR. Must be split into two links.
-- This is a sub-bullet nested under the 'Computational Multi-server PIR' variation, so its conclusion is the variant, not the base page object.
-- OWF is wikilinked to hash-function (site convention).
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Answer(b, k_b, D)$}
+\begin{algorithmic}
+\State $a_b \gets \sum_{j \in [N]} D[j] \cdot \Eval(b, k_b, j)$
+\Comment{sum in $\ZZ_2$}
+\Return $a_b$
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\algname{Algorithm}
+\caption{$\Recon(i, a_0, a_1)$}
+\begin{algorithmic}
+\Return $a_0 + a_1$
+\end{algorithmic}
+\end{algorithm}
+```

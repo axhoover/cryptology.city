@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "Hash function ⇒ Hash-based signatures"
+status: draft
+title: "Hash function + PRF ⇒ DS (XMSS)"
 aliases: []
 id: red-hash-function-to-hash-based-signatures
 kind: implication
-hypotheses: [hash-function]
-conclusion: xmss
-class: unstated
+hypotheses: [hash-function, prf]
+conclusion: ds
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
 security-loss: ""
+rationale:
+  class: "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any EUF-CMA forger as an oracle."
 ---
 
-# Hash function ⇒ Hash-based signatures
-
-[[hash-function|Hash function]] implies [[digital-signature#hash-based-signatures|Hash-based signatures]].
+# Hash function + PRF ⇒ DS (XMSS)
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Hash-based signatures:
+XMSS is a stateful, forward-secure, many-time [[digital-signature#hash-based-signatures|hash-based signature scheme]]; it is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable if its [[hash-function|hash function]] family is second-preimage resistant and its function family is a [[pseudorandom-function|PRF]] — [[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]].
 
-> - **SPHINCS+**: stateless hash-based signatures; uses a hyper-tree of XMSS instances and a few-time signature at the leaves; standardized by NIST as SLH-DSA (FIPS 205); signatures are $\sim 8$–50 KB
+## Sketch
+
+Each message is signed under a fresh Winternitz one-time key, and a Merkle tree over the one-time verification keys authenticates them under one root public key. Each pair of child nodes is XORed with public bitmasks before hashing, which lets second-preimage resistance replace collision resistance.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'xmss' is a named concrete scheme, not a model object, and has no wiki page — the edge relates artifacts, not primitives.
-- Uncited (no SPHINCS+ or XMSS reference page).
-- SPHINCS+ uses XMSS-like subtrees plus FORS few-time signatures; naming the sub-object 'xmss' is an approximation of the real construction.
-- No wiki citation (FIPS 205 named in prose only; the SPHINCS+ paper has no reference page).
-- Hypotheses 'xmss' and 'few-time-signature' are concrete schemes/variants with no pages — the relation is between named artifacts, not model objects.
-- Concrete size claim ($\sim 8$–50 KB) uncited, which CLAUDE.md forbids.
+- SPHINCS+ removes the state with a hypertree of XMSS-style subtrees and the few-time signature FORS at the leaves — [[BHK+19 - The SPHINCS+ Signature Framework|BHK+19]].

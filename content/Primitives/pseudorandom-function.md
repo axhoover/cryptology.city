@@ -9,6 +9,7 @@ title: Pseudorandom function
 id: prf
 variants:
   invertible-prf: "#invertible-prfs"
+  weak-prf: "#weak-prfs"
 ---
 
 # Pseudorandom function
@@ -113,6 +114,35 @@ TODO: define these and say how they relate to PRPs
 
 ## Puncturable PRFs
 
+## Weak PRFs
+
+A **weak PRF** has the syntax of a PRF but need only be pseudorandom on uniformly random inputs: instead of choosing evaluation points, $\calA$ receives pairs $(x, \Eval(k, x))$ for fresh $x \getsr \calD$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{wprf}}_{\PRF,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $R \getsr \Funcs(\calD,\calR)$
+\Comment{Can be sampled lazily for efficiency}
+\State $\calO_0() := (x \getsr \calD;\; (x, \Eval(k,x)))$
+\State $\calO_1() := (x \getsr \calD;\; (x, R(x)))$
+\Comment{Each query samples a fresh $x$}
+\State $b' \gets \calA^{\calO_b}(1^\secpar)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PRF $\PRF$ is **weakly pseudorandom** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{wprf}}_{\PRF,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{wprf}}_{\PRF,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]] then [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
@@ -120,14 +150,14 @@ TODO: define these and say how they relate to PRPs
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 4a0f125ffa3b -->
+<!-- BEGIN GENERATED participates-in 865206d47c53 -->
 
 ## Participates in
 
 **Builds on Pseudorandom function**
 
-- [[ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26|AE + Hash function + PRF ⇒ Symmetric CP-ABE]]
-- [[hash-function-and-prf-to-symmetric-cp-abe-ls26|Hash function + PRF ⇒ Symmetric CP-ABE]]
+- [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
+- [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
@@ -135,11 +165,12 @@ TODO: define these and say how they relate to PRPs
 
 **Produces Pseudorandom function**
 
-- [[alternating-moduli-assumption-to-prf-bip-18|Alternating moduli assumption ⇒ PRF]]
+- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
-- [[hash-function-to-prf|Hash function ⇒ PRF]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
+- [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
 
 <!-- END GENERATED participates-in -->

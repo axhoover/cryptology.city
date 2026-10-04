@@ -1,51 +1,33 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + Hash-based signatures ⇒ DS"
+title: "CRHF + One-time signature ⇒ DS"
 aliases: []
 id: red-hash-function-and-hash-based-signatures-to-ds-mer89
 kind: implication
-hypotheses: [hash-function, one-time-signature]
+hypotheses: [crhf, one-time-signature]
 conclusion: ds
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Mer89 - A Certified Digital Signature|Mer89]]"
 security-loss: ""
+rationale:
+  class: "The construction calls the one-time signature scheme and the hash function only as oracles, and the reduction runs any forger as an oracle and outputs a hash collision at some tree node or a one-time forgery."
 ---
 
-# Hash function + Hash-based signatures ⇒ DS
-
-[[hash-function|Hash function]] together with [[digital-signature#hash-based-signatures|Hash-based signatures]] implies [[digital-signature|DS]].
+# CRHF + One-time signature ⇒ DS
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Hash-based signatures:
+A [[hash-function#collision-resistance|collision-resistant hash function]] and a [[digital-signature#one-time-signatures|one-time signature]] scheme yield a stateful many-time [[digital-signature|signature]] scheme: the public key is the root of a Merkle tree over $2^h$ one-time verification keys — a single $O(\secpar)$-bit hash — and the $i$-th signature is a one-time signature under the $i$-th key together with that key and its authentication path of $h$ hashes, so signatures have size $O(h \secpar)$ plus one one-time key and signature — [[Mer89 - A Certified Digital Signature|Mer89]].
 
-> - **XMSS** (eXtended Merkle Signature Scheme): stateful many-time scheme; uses a Merkle tree of Lamport/Winternitz one-time keys; standardized in RFC 8391
+## Sketch
 
-Migrated verbatim from [[digital-signature]] § Other results:
-
-> - Many-time signatures from OWFs are obtained by authenticating a collection of one-time verification keys using a Merkle hash tree, giving $O(\secpar)$-size signatures with a $\poly(\secpar)$-size public key — [[Mer89 - A Certified Digital Signature|Mer89]]
+The reduction plants the one-time challenge key at a random leaf. A forgery under index $i$ either carries a verification key or authentication path other than the honest ones, and then it and the honest path hash to the same root, giving a collision at some tree node; or it carries the honest $\vk_i$ and path, and then its one-time signature, on a message never signed under $\vk_i$, is a one-time forgery, against the challenge key when that leaf is $i$.
 
 ## Notes
 
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No wiki citation at all: RFC 8391 is named in prose only and has no reference page.
-- The conclusion is a STATEFUL many-time scheme, a variant with no node; as recorded it claims plain digital signatures.
-- The Merkle step needs collision resistance (or UOWHFs), not merely a one-way function; the hypothesis node cannot express that.
-- No wiki citation — RFC 8391 is named in prose only and has no reference page.
-- COMPOSITE: one-time keys (themselves from hashes) plus a Merkle tree; the two steps have separate provenance.
-- The conclusion is a stateful many-time signature, a variant with no node in the model.
-- MISSING STEP: a Merkle tree built from OWFs alone is not collision resistant; the standard route needs universal one-way hash functions (Naor-Yung 89 / Rompel 90), neither cited nor referenced anywhere.
-- SUSPECTED EFFICIENCY ERROR (reported, not corrected): the bullet's 'O(secpar)-size signatures with a poly(secpar)-size public key' looks reversed — Merkle signatures are O(secpar \* log T) and the public key is a single O(secpar) hash.
-- The same step is recorded at Primitives/hash-function.md:102 with a SINGLE hypothesis ({one-time-signature}); the two records disagree on the hypothesis set for one claim.
-- COMPOSITE: OWF => one-time signature (Lam79, cited on the previous bullet only) then one-time signature + Merkle tree => many-time signature (Mer89).
-- MISSING STEP: a Merkle tree built from OWFs alone is not collision resistant — the standard route needs universal one-way hash functions (Naor-Yung 89 / Rompel 90), neither cited nor referenced.
-- SUSPECTED EFFICIENCY ERROR: Merkle-tree signatures are $O(\secpar \cdot \log T)$ (or $O(\secpar^2)$) in size, and the public key is a single hash value of size $O(\secpar)$ — the bullet's '$O(\secpar)$-size signatures with a $\poly(\secpar)$-size public key' looks reversed/wrong.
+- One-time signatures exist from one-way functions ([[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]) — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
+- Universal one-way (target-collision-resistant) hash functions, obtainable from any one-to-one one-way function, suffice for many-time signatures — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
+- Any one-way function suffices for many-time signatures ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

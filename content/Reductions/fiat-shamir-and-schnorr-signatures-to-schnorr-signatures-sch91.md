@@ -1,41 +1,36 @@
 ---
 type: reduction
 status: draft
-title: "Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures"
+title: "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
 aliases: []
 id: red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91
 kind: implication
-hypotheses: [fiat-shamir, schnorr-identification-protocol]
+hypotheses: [schnorr-identification-protocol]
 conclusion: schnorr-signature
 class: unstated
 model: rom
 source:
   - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
-security-loss: ""
+  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+security-loss: "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries"
+rationale:
+  model: "The challenge is a hash modeled as a programmable random oracle, which the security proof reprograms when it rewinds the forger."
 ---
 
-# Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures
-
-[[fiat-shamir-heuristic|Fiat-Shamir]] together with [[digital-signature#schnorr-signatures|Schnorr signatures]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]].
+# Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)
 
 ## Statement
 
-Migrated verbatim from [[Sch91 - Efficient signature generation by smart cards]]:
+The [[digital-signature#schnorr-signatures|Schnorr signature scheme]] is the [[fiat-shamir-heuristic|Fiat–Shamir transform]] of the [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]]. For a generator $g$ of a group of prime order $p$ and key pair $(\sk, \pk) = (x, g^x)$, signing $m$ samples $r \getsr \ZZ_p$ and outputs $(R, s)$ with $R = g^r$, $c = H(R \| m)$, $s = r + cx \bmod p$; verification checks $g^s = R \cdot \pk^c$. The signature is an accepting transcript whose challenge is the hash — [[Sch91 - Efficient signature generation by smart cards|Sch91]], [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]. With $H$ a random oracle, the scheme is EUF-CMA secure if [[discrete-logarithm|DLOG]] is hard in the group — [[PS96 - Security Proofs for Signature Schemes|PS96]].
 
-> Introduced the Schnorr identification protocol and signature scheme. The identification protocol is a three-message sigma protocol (commit–challenge–response) for proving knowledge of a discrete logarithm, and is honest-verifier zero-knowledge under the discrete logarithm assumption. Applying the Fiat-Shamir transform (heuristically in the random oracle model) yields Schnorr signatures, which are EUF-CMA secure under the discrete logarithm assumption in the ROM. Schnorr signatures are the basis for EdDSA (Ed25519) and play a central role in the Schnorr multi-signature and threshold signature literature.
+## Sketch
+
+The reduction answers signing queries with the HVZK simulator, programming $H(R \| m) := c$; it runs the forger, rewinds it to the hash query behind the forgery's challenge, and reprograms the random oracle from there. Two accepting transcripts $(R, c, s)$, $(R, c', s')$ with $c \ne c'$ give $x = (s - s')/(c - c') \bmod p$ (forking lemma).
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- COMPOSITE CHAIN — exactly the case the target model requires splitting: DLOG -> Schnorr identification -> (Fiat-Shamir) -> Schnorr signatures -> EdDSA. Four sub-edges, two of which are conjunctions.
-- SUSPECTED IMPRECISION (recorded, not fixed): 'is honest-verifier zero-knowledge under the discrete logarithm assumption'. Schnorr's sigma protocol is PERFECT honest-verifier zero-knowledge unconditionally — the simulator works with no assumption. DLOG is what the protocol proves knowledge of and what security against impersonation rests on, not what HVZK rests on.
-- STRUCTURAL: no ## Abstract heading; unlabelled editorial paragraph.
-- The EdDSA/Ed25519 sub-edge is a deployment lineage claim with no citation and no reference page — sources[] left empty rather than fabricated.
-- 'play a central role in the Schnorr multi-signature and threshold signature literature' is an untypable trailing generality, like the 'and more' pattern the inventory already flags elsewhere.
-- No inline citations.
-- DUPLICATION: the inventory already has Primitives/digital-signature.md:142 [discrete-logarithm => digital-signature] sourced to Sch91. The HVZK claim and the EdDSA lineage are new.
+- The forking lemma turns a forger with success probability $\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\varepsilon)$ — [[PS96 - Security Proofs for Signature Schemes|PS96]].
+- The loss is essentially optimal: under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the random-oracle model loses a factor close to $q_H$ in the time-to-success ratio — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]].
+- The identification protocol is perfectly honest-verifier zero-knowledge unconditionally; DLOG underlies its impersonation resistance — standard.

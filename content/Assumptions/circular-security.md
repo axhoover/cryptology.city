@@ -14,13 +14,13 @@ The assumption that an encryption scheme remains secure when the adversary is gi
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 441f742c0625 -->
+<!-- BEGIN GENERATED participates-in 986d523b2717 -->
 
 ## Participates in
 
 **Builds on Circular security**
 
 - [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
-- [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Somewhat homomorphic encryption (SHE) ⇒ HE]]
+- [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Bootstrappable SHE ⇒ HE]]
 
 <!-- END GENERATED participates-in -->

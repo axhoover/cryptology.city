@@ -1,39 +1,27 @@
 ---
 type: reduction
-status: stub
-title: "Hash function ⇒ CZK"
+status: draft
+title: "OWF ⇒ CZK"
 aliases: []
 id: red-hash-function-to-czk
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: czk
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
 security-loss: ""
+rationale:
+  class: "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 chain from a one-way function to the commitment is fully black-box, soundness needs only statistical binding, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
 ---
 
-# Hash function ⇒ CZK
-
-[[hash-function|Hash function]] implies [[computational-zero-knowledge|CZK]].
+# OWF ⇒ CZK
 
 ## Statement
 
-Migrated verbatim from [[computational-zero-knowledge]] § Notable problems:
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, Graph 3-Coloring, and hence every language in $\classNP$, has a computational zero-knowledge interactive proof, so $\classNP$ is contained in [[computational-zero-knowledge|CZK]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. GMW91 state the protocol for a generic bit commitment; a computationally hiding, statistically binding one suffices, and any one-way function yields one — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
-> - 3-coloring — assuming [[hash-function|OWFs]] exist
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (GMW87/GMW91 is the source, and GMW91 IS cited six lines later for the general NP statement).
-- The wikilink target for OWF is `[[hash-function]]` — the wiki has no one-way-function page, so OWF, CRH, and 'hash function' all collapse onto one node. This will lose the OWF-vs-CRH distinction in the migrated graph.
-- Elliptical bullet: the actual claim is '3-coloring has a CZK proof system', with membership implicit.
+Each round the prover commits to a uniformly re-permuted 3-coloring, the verifier names a random edge, and the prover opens its two endpoints, which must carry distinct colors. If the graph is not 3-colorable, every assignment of the three colors to its vertices has a monochromatic edge, so by binding a cheating prover is caught with probability at least $1/|E|$ per round, and sequential repetition makes the soundness error negligible. A simulator that guesses the edge, commits to a coloring valid only there, and rewinds on a wrong guess gives zero knowledge from commitment hiding.

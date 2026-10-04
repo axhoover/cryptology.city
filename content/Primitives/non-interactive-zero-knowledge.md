@@ -32,7 +32,7 @@ For all $x \in L$ with witness $w$, $\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1$ wit
 
 ### Soundness / Argument
 
-For all efficient $P^*$: $\Pr[\Vrfy(\crs, x, P^*(\crs, x)) = 1 \wedge x \notin L] \le \negl(\secpar).$
+For all $P^*$, $\Pr\!\left[\Vrfy(\crs, x, \pi) = 1 \wedge x \notin L\right] \le \negl(\secpar)$ over $\crs \gets \Setup(1^\secpar)$ and $(x, \pi) \gets P^*(\crs)$.
 
 If soundness holds only against efficient provers (using computational hardness), the system is called a **NIZK argument**.
 
@@ -51,52 +51,42 @@ An SS-NIZK remains sound even against adversaries who have seen simulated proofs
 A **Succinct Non-interactive ARgument of Knowledge (zk-SNARK)** is a NIZK argument with the additional properties that:
 
 - The proof $\pi$ is short (polylogarithmic in the circuit size)
-- Verification is fast (polylogarithmic in the statement size)
+- Verification is fast (polynomial in $\secpar$ and $|x|$, polylogarithmic in the circuit size) — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]
 - The prover has knowledge soundness (a witness can be extracted)
 
 See [[succinct-argument|SNARKs]] for more detail.
 
 ## NIZK in the random oracle model
 
-Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-proof|sigma protocol]] can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the prover's commitment.
+Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-proof|sigma protocol]] with a superpolynomial-size challenge space can be compiled to a NIZK argument in the random oracle model by replacing the verifier's random challenge with a hash of the statement and the prover's commitment — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]].
 
 # Other results
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
-- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
-- [[nizk-to-com|NIZK ⇒ COM]]
-- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
+- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
-- [[lwe-to-lattice-based-signatures|LWE ⇒ Lattice-based signatures]]
+- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in 0236858d93bc -->
+<!-- BEGIN GENERATED participates-in 306efafdd536 -->
 
 ## Participates in
 
-**Builds on Non-interactive zero-knowledge**
-
-- [[arithmetization-and-nizk-and-pcs-to-snark|Arithmetization + NIZK + PCS ⇒ SNARK]]
-- [[nizk-to-com|NIZK ⇒ COM]]
-
 **Produces Non-interactive zero-knowledge**
 
-- [[bdh-to-nizk-gro16|BDH ⇒ NIZK]]
-- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK]]
-- [[hash-function-and-io-to-nizk-sw14|Hash function + iO ⇒ NIZK]]
-- [[interactive-protocol-and-rom-to-nizk|interactive protocol + ROM ⇒ NIZK]]
-- [[pcs-to-nizk|PCS ⇒ NIZK]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
-- [[snark-to-nizk|SNARK ⇒ NIZK]]
+- [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
+- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
 
 **Barriers**
 
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 
 <!-- END GENERATED participates-in -->

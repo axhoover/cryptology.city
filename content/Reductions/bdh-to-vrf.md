@@ -1,43 +1,25 @@
 ---
 type: reduction
-status: stub
-title: "BDH ⇒ VRF"
+status: draft
+title: "k-Lin ⇒ VRF"
 aliases: []
 id: red-bdh-to-vrf
 kind: implication
-hypotheses: [bdh]
+hypotheses: [k-linear-assumption]
 conclusion: verifiable-random-function
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]]"
 security-loss: ""
 ---
 
-# BDH ⇒ VRF
-
-[[bilinear-map-assumptions|BDH]] implies [[verifiable-random-function|VRF]].
+# k-Lin ⇒ VRF
 
 ## Statement
 
-Migrated verbatim from [[bilinear-map-assumptions]] § Known Results:
-
-> - BDDH → short signatures (Boneh-Lynn-Shacham BLS), VRFs, and anonymous credential schemes — standard
+In symmetric bilinear groups, the [$k$-linear assumption](bilinear-map-assumptions#k-linear-assumption) for any $k \ge 2$, in particular decision linear (DLIN, $k = 2$), implies a [[verifiable-random-function|VRF]] with exponential-size input space and full adaptive security — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- verifiable-random-function has no wiki page; identifier invented.
-- Uncited; the '- standard' folklore label is misapplied (pairing-based VRFs are attributable).
-- Same decisional-versus-computational hypothesis doubt as sub-edge 0.
-- Three conclusions bundled (BLS signatures, VRFs, anonymous credentials) — must be split.
-- SUSPECTED MATHEMATICAL ERROR: BLS short signatures are proved under (co-)CDH / gap-DH in pairing groups, not under decisional BDH; a decisional assumption is the wrong hypothesis for an unforgeability result.
-- Marked standard where BLS01 and the VRF literature are attributable.
-- verifiable-random-function and anonymous-credentials have no pages.
+- Under DLIN, proofs shrink to $\ell$ group elements for any $\ell \in \omega(1)$, down from $\Omega(L)$ for input length $L$ — [[Koh19 - Hunting and Gathering Verifiable Random Functions from Standard Assumptions with Short Proofs|Koh19]].

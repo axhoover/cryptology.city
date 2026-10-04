@@ -1,40 +1,24 @@
 ---
 type: reduction
 status: draft
-title: "BQP ⊆ DLOG"
+title: "DLOG ⊆ BQP"
 aliases: []
-id: red-bqp-to-dlog-shor97
+id: red-dlog-to-bqp-shor97
 kind: inclusion
-hypotheses: [bqp]
-conclusion: dlog
+hypotheses: [dlog]
+conclusion: bqp
 class: free
 model: quantum
 source:
   - "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+  - "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
 security-loss: ""
+rationale:
+  model: "The conclusion BQP is defined by quantum polynomial-time algorithms, and the cited discrete-logarithm algorithms are quantum."
 ---
 
-# BQP ⊆ DLOG
-
-[[bounded-error-quantum-polynomial-time|BQP]] is contained in [[discrete-logarithm|DLOG]].
+# DLOG ⊆ BQP
 
 ## Statement
 
-Migrated verbatim from [[bounded-error-quantum-polynomial-time]] § Notable problems:
-
-> - **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA.
-
-## Notes
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- POLARITY INVERTED, same as sub-edge 0.
-- Not wikilinked despite content/Assumptions/discrete-logarithm.md existing.
+A polynomial-time quantum algorithm computes discrete logarithms in $\ZZ_p^*$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. The algorithm extends to every group whose operation is efficiently computable on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. The decision version of [[discrete-logarithm|DLOG]] (given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$) is therefore in [[bounded-error-quantum-polynomial-time|BQP]].

@@ -9,7 +9,9 @@
 //   frontmatter    parses, has the required fields for its `type`, values valid
 //   wikilinks      every [[target]] resolves to a page slug, alias, folder, or
 //                  embedded file; known-missing targets live in
-//                  scripts/stub-inventory.json and only warn
+//                  scripts/stub-inventory.json and only warn; no unescaped `$`
+//                  inside a wikilink, which remark-math splits so the link
+//                  renders raw (write [text $x$](target) instead)
 //   aliases        no alias (or page slug) is claimed by two pages
 //   macros         every \command in math or pseudocode is a KaTeX built-in or
 //                  defined in macros.ts; no \newcommand/\def in content
@@ -17,11 +19,39 @@
 //                  mandated sections for their type
 //   generated      "Participates in" regions match their checksum (no hand edits)
 //   contradiction  no reduction claims a class a barrier rules out on the same
-//                  hyperedge; the class partial order decides when it bites
+//                  hyperedge; the class partial order decides when it bites.
+//                  Warns when a reduction and a barrier share a hyperedge and
+//                  either class is `unstated`, so the order cannot decide
 //   hyperedges     reduction/barrier pages are well-formed: >=1 hypothesis,
 //                  exactly one conclusion, every endpoint resolves to an object
 //                  id or variant, class is in schema/reduction-classes.yaml, no
-//                  self-loops; object pages never hand-author relation fields
+//                  self-loops; object pages never hand-author relation fields;
+//                  `heuristic` is a boolean and appears only on reductions;
+//                  `circumvented-by` appears only on barriers and lists
+//                  reduction ids that resolve; a barrier consequence's target
+//                  resolves for its kind (object -> object id or variant,
+//                  reduction -> reduction id); warns on a `complexity`
+//                  consequence marked `believed: true`; `security-loss` never
+//                  appears on a barrier; warns on a `conditional-on` entry
+//                  that is neither an object id nor multi-word free text
+//   variants       every variant anchor is the id of a heading on its page;
+//                  warns when two variant ids on one page share an anchor
+//                  (synonyms split one hyperedge in two)
+//   rationale      `rationale` appears only on reductions and barriers, is a
+//                  mapping from a typing field the page sets (class, model,
+//                  kind, strength, …) to one single-line sentence, and is never
+//                  a stock sentence, history or a reading note; warns when a
+//                  recorded class has no rationale.class (the stock `free` on
+//                  a complexity-class containment excepted)
+//   body           a reduction or barrier body is "# <title>", then
+//                  ## Statement (citing every `source` entry), then optional
+//                  ## Sketch and ## Notes, with nothing between the H1 and the
+//                  Statement and no scaffolding: field justifications,
+//                  maintenance history, notes about the wiki itself, reading
+//                  notes, review labels (schema/README.md § The page body)
+//
+// The cross-page and body checks live in scripts/lint-edges.mjs, which the
+// tests share.
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -33,6 +63,26 @@ const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 import { closure as classClosureOf, bites } from "./reduction-classes.mjs";
+import {
+  headingsByAnchor,
+  headingAt,
+  dollarWikilinks,
+  hasMath,
+  link,
+} from "./markdown-text.mjs";
+import {
+  hyperKey,
+  undecidedConflicts,
+  sharedVariantAnchors,
+  unresolvedConsequenceTargets,
+  believedConsequences,
+  unnamedConditions,
+  rationaleProblems,
+  RATIONALE_FIELDS,
+  bodyContract,
+  BODY_SECTIONS,
+  unjustifiedClasses,
+} from "./lint-edges.mjs";
 
 const ROOT = path.resolve(
   path.dirname(new URL(import.meta.url).pathname),
@@ -96,9 +146,12 @@ const OPTIONAL_KEYS = new Set([
   "model",
   "security-loss",
   "via",
+  "heuristic", // reductions only: a candidate construction with no security reduction
+  "circumvented-by", // barriers only: reduction ids that get around the barrier
   "oracle",
   "conditional-on",
   "source",
+  "rationale", // reductions and barriers only: why a field holds its value
 ]);
 // Relation fields may never be hand-authored on an object page: an edge list
 // cannot express {DDH, CRHF} => B without misrepresenting each hypothesis.
@@ -500,6 +553,64 @@ for (const p of pages) {
     }
   }
 
+  if (fm.heuristic !== undefined) {
+    if (fm.type !== "reduction")
+      err(
+        f,
+        1,
+        "edge-heuristic",
+        `heuristic applies only to reduction pages, where it marks a candidate construction with no security reduction. Remove the key from this ${fm.type} page.`,
+      );
+    else if (typeof fm.heuristic !== "boolean")
+      err(
+        f,
+        1,
+        "edge-heuristic",
+        `heuristic must be true or false, got ${JSON.stringify(fm.heuristic)}. Set "heuristic: true" on a candidate construction whose source gives no security reduction (the GGHRSW13 iO candidate); omit the key otherwise.`,
+      );
+  }
+
+  if (fm["circumvented-by"] !== undefined) {
+    const cb = fm["circumvented-by"];
+    if (fm.type !== "barrier")
+      err(
+        f,
+        1,
+        "edge-circumvented-by",
+        `circumvented-by applies only to barrier pages, where it lists the reductions that get around the barrier. Remove the key from this ${fm.type} page.`,
+      );
+    else if (
+      !Array.isArray(cb) ||
+      cb.length === 0 ||
+      cb.some((x) => typeof x !== "string" || !OBJECT_ID.test(x))
+    )
+      err(
+        f,
+        1,
+        "edge-circumvented-by",
+        `circumvented-by must be a non-empty YAML list of reduction ids, e.g.\n  circumvented-by: [red-oihf-to-ot-bh26]\nOmit the key when no reduction page records the circumvention; describe it in the Notes instead.`,
+      );
+  }
+
+  for (const r of rationaleProblems(fm)) {
+    const fields = Object.keys(RATIONALE_FIELDS[fm.type] ?? {});
+    const at = r.field === undefined ? "rationale" : `rationale.${r.field}`;
+    const msg = {
+      "wrong-type": `rationale applies only to reduction and barrier pages, where it says why a relation field holds its value. Remove the key from this ${fm.type} page.`,
+      "not-mapping": `rationale must be a YAML mapping from a frontmatter field to one sentence, e.g.\n  rationale:\n    class: "The construction calls the PRG only as an oracle, and the reduction runs the distinguisher as an oracle."`,
+      "empty-mapping": `rationale has no entries. Remove the key; it is optional.`,
+      "unknown-field": `${at}: "${r.field}" takes no rationale.${fields.includes(String(r.field).toLowerCase()) ? ` Keys are lower-case: ${String(r.field).toLowerCase()}.` : ""} On a ${fm.type} page each key names the field whose recorded value it explains: ${fields.join(", ")}. A remark about the hypotheses, conclusion or circumventing reductions that a reader needs is a Notes bullet; a modelling gap goes in TODO_SUMMARY.md.`,
+      "absent-field": `${at} explains "${r.field}", which this page does not set. Set the field, or remove the entry.`,
+      "not-string": `${at} must be one sentence (a string), got ${JSON.stringify(r.value)}. Quote it: ${r.field}: "<why this value>".`,
+      empty: `${at} is empty. Give one sentence saying why the value was recorded, or remove the entry.`,
+      multiline: `${at} spans several lines. A rationale is one sentence on one line; anything a reader of the page needs belongs in the Statement or Notes instead.`,
+      todo: `${at} carries a TODO marker. A rationale states a reason that is known; report open work in TODO_SUMMARY.md and remove the entry until it is.`,
+      stock: `${at} is a stock sentence ("the source does not state which notion of reduction is meant", "the reduction-class axis does not apply"). Stock sentences get no rationale entry: remove it, keeping only a substantive reason (a query bound, non-adaptivity, a UC hybrid model) if there is one.`,
+      scaffolding: `${at} carries ${JSON.stringify(r.match)} (${r.rule}). A rationale says why the value was recorded, from the source or the proof shape; history, review labels and notes on what was read or checked are dropped, and open questions go in TODO_SUMMARY.md.`,
+    }[r.code];
+    err(f, 1, "edge-rationale", msg);
+  }
+
   if (isEdge) {
     for (const k of TYPES[fm.type].required) {
       if (fm[k] === undefined || fm[k] === null || fm[k] === "")
@@ -624,6 +735,13 @@ for (const p of pages) {
   }
 
   if (fm.type === "barrier") {
+    if (fm["security-loss"] !== undefined)
+      err(
+        f,
+        1,
+        "barrier-security-loss",
+        `security-loss describes a reduction's loss, and a barrier is no reduction. Remove the key; state the cost of the attack or counterexample the barrier gives in a Notes bullet.`,
+      );
     if (fm.strength !== undefined && !STRENGTHS.includes(String(fm.strength))) {
       err(
         f,
@@ -641,7 +759,7 @@ for (const p of pages) {
         f,
         1,
         "barrier-conditional",
-        `strength: conditional requires a non-empty "conditional-on" list naming the oracle or assumption the barrier rests on, e.g.\n  conditional-on: [lwe]`,
+        `strength: conditional requires a non-empty "conditional-on" list naming the assumption the barrier rests on, e.g.\n  conditional-on: [lwe]`,
       );
     }
     if (fm.consequences !== undefined) {
@@ -750,30 +868,36 @@ for (const p of pages) {
   if (!TYPES[p.fm.type]?.object) continue;
   declareId(p.fm.id, p.file, "page");
   if (p.fm.variants && typeof p.fm.variants === "object") {
+    const headings = headingsByAnchor(p.body);
     for (const [vid, v] of Object.entries(p.fm.variants)) {
       const anchor = typeof v === "string" ? v : v?.anchor;
       declareId(vid, p.file, "variant", anchor);
-      // The anchor must be a real heading on the declaring page.
+      // The anchor must be the id the site gives a heading on the declaring
+      // page (rehype-slug), matched as a link to it resolves (OFM slugs the
+      // anchor). generate-relations.mjs titles the variant by that heading.
       if (typeof anchor === "string" && anchor.startsWith("#")) {
-        const want = anchor.slice(1).toLowerCase();
-        const headings = [...p.body.matchAll(/^#{1,6}\s+(.+?)\s*$/gm)].map(
-          (m) =>
-            m[1]
-              .replace(/[^\w\s-]/g, "")
-              .trim()
-              .toLowerCase()
-              .replace(/\s+/g, "-"),
-        );
-        if (!headings.includes(want))
+        if (headingAt(headings, anchor) === undefined)
           err(
             p.file,
             1,
             "variant-anchor",
-            `variant "${vid}" points at "${anchor}", which is not a heading on this page. Headings here: ${headings.map((h) => "#" + h).join(", ") || "(none)"}.`,
+            `variant "${vid}" points at "${anchor}", which is not a heading id on this page. Heading ids here: ${[...headings.keys()].map((h) => "#" + h).join(", ") || "(none)"}.`,
           );
       }
     }
   }
+}
+// Hyperedges are keyed by id, so two variant ids for one section are two nodes:
+// a barrier on one never meets a reduction on the other.
+for (const { page, anchor, ids } of sharedVariantAnchors(
+  pages.filter((p) => TYPES[p.fm.type]?.object),
+)) {
+  warn(
+    page.file,
+    1,
+    "variant-shared-anchor",
+    `variants ${ids.map((v) => `"${v}"`).join(", ")} all point at "${anchor}". Hyperedges are keyed by id, so the contradiction check reads them as ${ids.length} different nodes and never compares a barrier on one with a reduction on another. If they name one notion, keep one id and point every reduction and barrier at it; if they are distinct notions, give each its own heading.`,
+  );
 }
 for (const id of Object.keys(PROPOSITIONS)) {
   if (objectIds.has(id))
@@ -806,10 +930,146 @@ for (const p of pages) {
       resolveEndpoint(p, h, "hypothesis");
   if (typeof p.fm.conclusion === "string")
     resolveEndpoint(p, p.fm.conclusion, "conclusion");
-  for (const c of Array.isArray(p.fm.consequences) ? p.fm.consequences : []) {
-    if (c && c.kind === "object" && c.target)
-      resolveEndpoint(p, c.target, "consequence target");
+}
+
+// A barrier's `circumvented-by` names reduction pages by id.
+const reductionIds = new Map(); // id -> file
+for (const p of pages)
+  if (p.fm.type === "reduction" && typeof p.fm.id === "string")
+    reductionIds.set(p.fm.id, p.file);
+for (const p of pages) {
+  if (p.fm.type !== "barrier" || !Array.isArray(p.fm["circumvented-by"]))
+    continue;
+  for (const id of p.fm["circumvented-by"]) {
+    if (typeof id !== "string" || reductionIds.has(id)) continue;
+    const near = [...reductionIds.keys()]
+      .filter((k) => k.includes(id) || id.includes(k))
+      .slice(0, 3);
+    err(
+      p.file,
+      1,
+      "edge-circumvented-by",
+      `circumvented-by "${id}" is not the id of any reduction page. List the "id:" of a page under content/Reductions/ (e.g. red-oihf-to-ot-bh26); if the circumventing result has no reduction page yet, create one or keep it in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+    );
   }
+}
+
+// A barrier consequence's target resolves by its kind: `object` against object
+// ids and variants, `reduction` against reduction page ids.
+for (const { page, index, kind, target } of unresolvedConsequenceTargets(
+  pages,
+  objectIds,
+  reductionIds,
+)) {
+  if (kind === "object") {
+    resolveEndpoint(page, target, `consequences[${index}].target`);
+    continue;
+  }
+  const near = [...reductionIds.keys()]
+    .filter((k) => k.includes(target) || target.includes(k))
+    .slice(0, 3);
+  err(
+    page.file,
+    1,
+    "edge-unresolved-id",
+    `consequences[${index}] has kind "reduction", so its target "${target}" must be the "id:" of a page under content/Reductions/. ${objectIds.has(target) ? `"${target}" is an object id; if the consequence is that object, use kind: object. ` : ""}If the reduction has no page yet, create one or state the consequence in the Statement. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+  );
+}
+
+// A conditional barrier names the assumption it rests on by id where the wiki
+// has a node, and in free text only where it has none.
+for (const { page, index, entry } of unnamedConditions(pages, objectIds)) {
+  warn(
+    page.file,
+    1,
+    "barrier-conditional-on",
+    `conditional-on[${index}] ${JSON.stringify(entry)} is neither an object id nor multi-word free text. Name the assumption by the id of its node (conditional-on: [owf], or a variant id such as pke-cpa-security); describe it in words only when the wiki has no node for it. A property of the scheme the barrier is about is not an assumption: it belongs in the Statement.`,
+  );
+}
+
+// ----------------------------------------------- reduction / barrier body ----
+// The body states the result and nothing else: "# <title>", "## Statement",
+// then optional "## Sketch" and "## Notes". Why a field holds its value is
+// frontmatter `rationale`; maintenance history is git's (schema/README.md §
+// The page body).
+const SECTIONS_HINT = `${BODY_SECTIONS.map((h) => "## " + h).join(", ")}`;
+const DROP = `Delete it: git keeps the history. If it names work still to do, report that in TODO_SUMMARY.md or the review queue.`;
+const bodyMessage = (p, x) => {
+  const type = p.fm.type;
+  const title = String(p.fm.title ?? "<title>");
+  const m = JSON.stringify(x.match ?? "");
+  switch (x.rule) {
+    case "body-h1":
+      if (x.problem === "missing")
+        return `the body has no H1. A ${type} page opens with "# ${title}" (its frontmatter title), followed directly by "## Statement".`;
+      if (x.problem === "extra")
+        return `"# ${x.heading}" is a second H1. A ${type} page has exactly one H1, its title; its sections are H2s (${SECTIONS_HINT}).`;
+      return `the H1 "${x.heading}" differs from the frontmatter title "${x.title}". The H1 is the title: make them identical.`;
+    case "body-preamble":
+      return `text ${x.beforeH1 ? "before the H1" : 'between the H1 and "## Statement"'} ("${x.text}"). Delete it: the site renders the relation fields (kind, class, model, sources) in one line under the H1, and the Statement states the result. Move any mathematics it carries into the Statement.`;
+    case "body-statement":
+      return `no "## Statement" section. A ${type} page states its theorem under "## Statement" — precisely, in the wiki's notation, cited inline ([[KEY - Full Title|KEY]], or "— folklore") — then has optional ## Sketch and ## Notes.`;
+    case "body-sections":
+      if (x.problem === "unknown")
+        return `"## ${x.heading}" is not a ${type} section. The body has only ${SECTIONS_HINT}, in that order: a construction or theorem goes in the Statement, a short proof idea in the Sketch, a cited remark in the Notes.`;
+      if (x.problem === "duplicate")
+        return `"## ${x.heading}" appears twice. Merge the two sections.`;
+      if (x.problem === "order")
+        return `"## ${x.heading}" comes after "## ${x.after}". The order is ${SECTIONS_HINT}.`;
+      return `"## ${x.heading}" is empty. Omit the heading when there is nothing to say.`;
+    case "body-statement-source":
+      return x.entry === "folklore"
+        ? `source is "folklore", but the Statement carries no folklore flag. End the sentence stating the result with "— folklore" (or "— standard").`
+        : `the Statement does not cite the source ${x.entry}. Cite every paper in \`source\` inline where its result is stated, as [[KEY - Full Title|KEY]].`;
+    case "body-field-justification":
+      return `a paragraph opening with a frontmatter field (${m}) justifies the field in the body. Move a substantive reason into the frontmatter as one sentence,\n  rationale:\n    <field>: "<why this value>"\nand delete the paragraph. Stock sentences ("the source does not state which notion of reduction is meant", "the reduction-class axis does not apply") are dropped with no rationale entry. Mathematics in the paragraph a reader needs (a converse, a loss, a parameter caveat) moves to the Notes.`;
+    case "body-sourcing-pass":
+      return `sourcing-pass history (${m}) does not belong in a page body. ${DROP}`;
+    case "body-page-history":
+      return `page or migration history (${m}) does not belong in a page body. ${DROP} A misattribution a reader needs to know about stays only as a cited Notes remark about the mathematics.`;
+    case "body-slug-history":
+      return `the body discusses a slug or filename (${m}). Delete it: filenames are live URLs and are never renamed, the id is stable, and \`source\` and the Statement name the real source.`;
+    case "body-reported-not-fixed":
+      return `${m} is a review label. Delete it and report the item in TODO_SUMMARY.md or the review queue.`;
+    case "body-suspected-error":
+      return `a suspected-error note (${m}) is about the state of the wiki, not the mathematics. Delete it here and report it in TODO_SUMMARY.md or the review queue.`;
+    case "body-machine-label":
+      return `${m} is a machine-style label. Delete it; if it carried information, say it as a sentence about the mathematics ("the theorem needs both assumptions").`;
+    case "body-wiki-state":
+      return (
+        {
+          files: `${m} names a repository file, the schema or the wiki itself, not the mathematics. Keep any mathematics in the sentence, stated about the objects themselves, and drop the rest.`,
+          pages: `${m} is about a wiki page (its state, a section, a claim made on it), not the mathematics. Drop it; a missing page, a stub, or a claim elsewhere that looks wrong goes in TODO_SUMMARY.md.`,
+          review: `${m} belongs to the review process, not the page. Drop it and report the item in TODO_SUMMARY.md or the review queue.`,
+          model: `${m} describes how the graph records the result (nodes, ids, edges, typed fields), not the mathematics. Say any mathematics in it about the objects themselves (a parameter regime, a qualifier the result needs) and drop the rest: a modelling gap goes in TODO_SUMMARY.md, and why a field holds its value goes in rationale.`,
+          code: `${m} quotes an id or a field value in backticks. Name the object in words and link it on first mention ([[slug|Name]]); a field's value is frontmatter, and the reason for it is rationale.`,
+        }[x.hint] ??
+        `${m} describes the wiki (its files, pages, nodes, ids or schema), not the mathematics. Keep any mathematics in the sentence, stated about the objects themselves, and drop the rest; a missing page or node to add goes in TODO_SUMMARY.md.`
+      );
+    case "body-reading-notes":
+      return `${m} records what was read or checked. State the result as the source proves it, cite it, and drop the note; a claim that could not be confirmed is reported for review in TODO_SUMMARY.md rather than hedged on the page.`;
+    default:
+      return x.rule;
+  }
+};
+for (const p of pages) {
+  if (p.fm.type !== "reduction" && p.fm.type !== "barrier") continue;
+  for (const x of bodyContract(p.body, p.fm))
+    err(p.file, p.fmLines + x.line, x.rule, bodyMessage(p, x));
+}
+
+// A recorded class says why in `rationale.class`; only the stock cases go
+// without (schema/README.md § Recording why).
+const typeOfFile = new Map(pages.map((p) => [p.file, p.fm.type]));
+for (const { page, class: cls } of unjustifiedClasses(pages, CLASSES, (id) =>
+  typeOfFile.get(objectIds.get(id)?.file),
+)) {
+  warn(
+    page.file,
+    1,
+    "edge-rationale-class",
+    `class: ${cls} is recorded without a rationale.class. Say in one sentence why the source or the proof shape gives this class, e.g.\n  rationale:\n    class: "The construction uses the PRG only as an oracle, and the reduction runs the distinguisher only as an oracle."\nIf nothing justifies it, record class: unstated (schema/README.md § Which class to record).`,
+  );
 }
 
 // ------------------------------------------------- generated region integrity ----
@@ -854,9 +1114,6 @@ for (const p of pages) {
 // Stated in one direction only, because the other reading is a live bug: a
 // barrier against a NARROWER class than the reduction claims is not a
 // contradiction and must not fire.
-const hyperKey = (fm) =>
-  `${[...(fm.hypotheses ?? [])].sort().join("+")}=>${fm.conclusion}`;
-
 const barriersByEdge = new Map();
 for (const p of pages) {
   if (p.fm.type !== "barrier") continue;
@@ -893,6 +1150,37 @@ for (const p of pages) {
       }
     }
   }
+}
+
+// `unstated` is comparable to nothing, so the check above never fires on it. A
+// reduction and a barrier on one hyperedge with either class unstated may
+// conflict, and nothing would say so.
+for (const {
+  reduction: r,
+  barrier: b,
+  claimed,
+  ruledOut,
+} of undecidedConflicts(pages, CLASSES)) {
+  warn(
+    r.file,
+    1,
+    "barrier-conflict-unstated",
+    `this page records {${(r.fm.hypotheses ?? []).join(", ")}} => ${r.fm.conclusion} with class: ${claimed}, and ${rel(b.file)} rules out ${ruledOut.join(" / ")} reductions on the same hyperedge. "unstated" is comparable to nothing, so the contradiction check cannot tell whether the two pages conflict. Record the class the source states on whichever page is unstated (schema/README.md § Which class to record); if the reduction gets around the barrier, list its id in the barrier's circumvented-by.`,
+  );
+}
+
+// A barrier's consequence is what the reduction would force. Forcing something
+// the community already believes rules nothing out.
+for (const { page, index, target, title } of believedConsequences(
+  pages,
+  PROPOSITIONS,
+)) {
+  warn(
+    page.file,
+    1,
+    "barrier-believed-consequence",
+    `consequences[${index}] targets "${target}" (${title || target}), which schema/propositions.yaml marks believed: true. A barrier says a reduction would force its consequence, and forcing something proved or expected rules nothing out: a proved statement (a relativized separation) is no barrier, and "A gives Q" is a reduction {A} => Q. Record the consequence the source proves — a collapse or containment believed false, or contradiction — or move the claim to a reduction page. Keep it only when the target is an open problem whose proof would itself be a major result, as P != NP is for Impagliazzo–Rudich.`,
+  );
 }
 
 // -------------------------------------------------------------- wikilinks ----
@@ -944,6 +1232,43 @@ for (const p of pages) {
         );
       }
     }
+  }
+}
+
+// ------------------------------------------------------ math in wikilinks ----
+// remark-math reads `$…$` before ObsidianFlavoredMarkdown resolves wikilinks,
+// so a math span splits a wikilink and the link renders as raw `[[…]]`; a lone
+// `$` inside one pairs with the next `$` in the paragraph. A markdown link's
+// text is parsed as inline content, so `[$k$-Linear](target)` renders. The
+// generated "Participates in" sections use that form (scripts/participates-in.mjs),
+// so a hit inside one means the generator regressed, not a hand edit. The scan
+// is dollarWikilinks in scripts/markdown-text.mjs.
+for (const p of pages) {
+  const generated = [...p.body.matchAll(GEN_RE)].map((m) => [
+    m.index,
+    m.index + m[0].length,
+  ]);
+  for (const { index, raw, target, text } of dollarWikilinks(p.body)) {
+    const line = p.fmLines + lineOf(p.body, index);
+    const shown = raw.length > 90 ? `${raw.slice(0, 87)}...` : raw;
+    if (generated.some(([a, b]) => index >= a && index < b)) {
+      err(
+        p.file,
+        line,
+        "wikilink-math",
+        `${shown} in a generated "Participates in" section has "$" in its display text, so it renders as raw [[…]]. scripts/participates-in.mjs links such titles as markdown links; run "node scripts/generate-relations.mjs", and if the link persists, fix the generator.`,
+      );
+      continue;
+    }
+    const hint = hasMath(text)
+      ? `Move the math out of the link ("the [[bilinear-map-assumptions#k-linear-assumption|Linear assumption]] for $k = 2$", "$\\mathrm{GapSVP}_\\gamma$ ([[shortest-vector-problem|GapSVP]])"), or write a markdown link, whose text renders math: ${link(target, text)}.`
+      : 'For a literal dollar sign (IND$-CPA) write "\\$" or use a markdown link.';
+    err(
+      p.file,
+      line,
+      "wikilink-math",
+      `${shown} has "$" in a wikilink. remark-math parses $…$ before wikilinks are resolved, so the link renders as raw [[…]], and a lone "$" pairs with the next one in the paragraph. ${hint}`,
+    );
   }
 }
 
@@ -1074,7 +1399,23 @@ const shownErrors = errors.filter(shown);
 const shownWarnings = warnings.filter(shown);
 for (const w of shownWarnings) console.log(`warning: ${w}`);
 for (const e of shownErrors) console.log(`error: ${e}`);
+const byRule = (msgs) =>
+  Object.entries(
+    msgs.reduce((acc, m) => {
+      const rule = /: \[([\w-]+)\]/.exec(m)?.[1] ?? "?";
+      acc[rule] = (acc[rule] ?? 0) + 1;
+      return acc;
+    }, {}),
+  )
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([r, n]) => `${r} ${n}`)
+    .join(", ");
 console.log(
   `\n${pages.length} pages checked: ${shownErrors.length} error(s), ${shownWarnings.length} warning(s)`,
 );
-process.exit(shownErrors.length ? 1 : 0);
+if (shownErrors.length) console.log(`errors by rule: ${byRule(shownErrors)}`);
+if (shownWarnings.length)
+  console.log(`warnings by rule: ${byRule(shownWarnings)}`);
+// exitCode, not exit(): process.exit() can cut off stdout when it is a pipe
+// (CI logs, `| grep`), dropping errors from a long report.
+process.exitCode = shownErrors.length ? 1 : 0;

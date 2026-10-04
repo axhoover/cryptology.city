@@ -1,39 +1,30 @@
 ---
 type: reduction
-status: stub
-title: "PRG ⇒ Hash function"
+status: draft
+title: "PRG ⇒ OWF"
 aliases: []
 id: red-prg-to-hash-function
 kind: implication
 hypotheses: [prg]
-conclusion: hash-function
-class: unstated
+conclusion: owf
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The one-way function is the PRG itself, used only as an oracle, and the reduction runs any inverter once as an oracle and outputs 1 iff the returned preimage maps to its input."
 ---
 
-# PRG ⇒ Hash function
-
-[[pseudorandom-generator|PRG]] implies [[hash-function|Hash function]].
+# PRG ⇒ OWF
 
 ## Statement
 
-Migrated verbatim from [[pseudorandom-generator]] § Other results:
+Every [[pseudorandom-generator|PRG]] $G : \bits^n \to \bits^m$ with $m > n$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: an efficient inverter for $G$ with success probability $\varepsilon$ yields an efficient PRG distinguisher with advantage at least $(1 - 2^{n-m})\varepsilon \ge \varepsilon/2$ — folklore.
 
-> - Conversely, any PRG is a one-way function (the seed is a preimage of the output), so OWF $\Leftrightarrow$ PRG
+## Sketch
+
+Given an inverter $\calA$, the distinguisher $D(y)$ runs $\hat{x} \gets \calA(y)$ and outputs $1$ iff $G(\hat{x}) = y$. On $y = G(s)$ it outputs $1$ with probability $\varepsilon$; on uniform $y$ with probability at most $2^{n-m}\varepsilon$, since each $y$ in the image of $G$ has probability $2^{-m} \le 2^{n-m}\Pr_s[G(s) = y]$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Sub-bullet under line 85; states the converse direction and then asserts the EQUIVALENCE 'OWF <=> PRG'. The equivalence is a third claim derived from the two directions and should not be migrated as a separate primitive fact.
-- No citation on the converse direction (folklore, but unlabelled).
-- The parenthetical justification ('the seed is a preimage of the output') silently relies on the PRG being length-expanding.
+- Conversely, every one-way function yields a PRG ([[owf-to-prg-hill99|OWF ⇒ PRG]]) — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].

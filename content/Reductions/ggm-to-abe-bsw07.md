@@ -1,36 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "GGM ⇒ ABE"
+title: "Bilinear pairing ⇒ CP-ABE"
 aliases: []
-id: red-ggm-to-abe-bsw07
+id: red-bilinear-pairing-to-cp-abe-adaptive-security-bsw07
 kind: implication
-hypotheses: [ggm]
-conclusion: abe
-class: unstated
+hypotheses: [bilinear-pairing]
+conclusion: cp-abe-adaptive-security
+class: free
 model: generic-group
 source:
   - "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
 security-loss: ""
+rationale:
+  class: "BSW07 bound the advantage of every generic adversary, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption."
+  model: "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle."
 ---
 
-# GGM ⇒ ABE
-
-[[generic-group-model|GGM]] implies [[attribute-based-encryption|ABE]].
+# Bilinear pairing ⇒ CP-ABE
 
 ## Statement
 
-Migrated verbatim from [[attribute-based-encryption]] § Other results:
-
-> - BSW07 introduced CP-ABE with a construction proved secure in the generic group model — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]
+In a [[pairings|bilinear group]], the Bethencourt–Sahai–Waters scheme is a ciphertext-policy [[attribute-based-encryption|ABE]] whose policies are monotone trees of threshold gates over attributes, which are arbitrary strings hashed into the group. It is [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-IND-CPA-secure]] against adversaries that are generic in the bilinear group, with the hash modeled as a random oracle — [[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The 'hypothesis' is an idealized model, not a hardness assumption — the target model needs to carry the model as a field rather than as a hypothesis node.
-- content/Glossary/generic-group-model.md exists but is not wikilinked.
+- Selectively secure CP-ABE for monotone formulas exists in the standard model under the non-interactive decisional $q$-parallel BDHE assumption, and less efficiently under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].

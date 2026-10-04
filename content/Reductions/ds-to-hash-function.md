@@ -1,39 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "DS ⇒ Hash function"
+status: draft
+title: "DS ⇒ OWF"
 aliases: []
 id: red-ds-to-hash-function
 kind: implication
 hypotheses: [ds]
-conclusion: hash-function
-class: unstated
+conclusion: owf
+class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
 security-loss: ""
+rationale:
+  class: "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
 ---
 
-# DS ⇒ Hash function
-
-[[digital-signature|DS]] implies [[hash-function|Hash function]].
+# DS ⇒ OWF
 
 ## Statement
 
-Migrated verbatim from [[digital-signature]] § Other results:
+If a perfectly correct [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable [[digital-signature|signature scheme]] exists, so does a [[hash-function#preimage-resistance-one-wayness|one-way function]]: $f(r) := \vk$, where $(\sk, \vk) := \KeyGen(1^\secpar; r)$, is one-way — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 
-> - Digital signatures imply [[hash-function|OWFs]]: if signing is hard to forge, the signing algorithm is a one-way function (knowing the message and signature reveals nothing useful about the key)
+## Sketch
+
+Given $\vk$, an inverter returns $r'$ with $\KeyGen(1^\secpar; r') = (\sk', \vk)$, and perfect correctness makes $\Sign(\sk', m)$ verify under $\vk$ for every $m$: a forgery with no signing query. A forger therefore succeeds with at least the inverter's probability, which unforgeability makes negligible.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore flag (the standard reference is Rompel 1990 / folklore).
-- SUSPECTED ERROR IN THE SKETCH (reported, not fixed): the parenthetical 'knowing the message and signature reveals nothing useful about the key' is a secrecy statement, which is not what one-wayness of signing means and is not the argument. The real argument builds a OWF from $\KeyGen$'s randomness (or from $(\sk, m) \mapsto \Sign(\sk,m)$ for a fixed $m$) and inverts it to forge.
-- Conclusion node `[[hash-function]]` again conflates OWF with CRHF.
+- Conversely, one-way functions give EUF-CMA-unforgeable signatures ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

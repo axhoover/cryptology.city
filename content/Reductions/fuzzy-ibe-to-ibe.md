@@ -1,52 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Fuzzy IBE ⇒ IBE"
 aliases: []
 id: red-fuzzy-ibe-to-ibe
 kind: implication
 hypotheses: [fuzzy-ibe]
 conclusion: ibe
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight (the IBE adversary is forwarded unchanged)"
+rationale:
+  class: "The IBE runs the Fuzzy IBE algorithms as oracles on singleton attribute sets with threshold 1, and the reduction forwards any IBE adversary unchanged as a Fuzzy IBE adversary."
 ---
 
 # Fuzzy IBE ⇒ IBE
 
-[[fuzzy-identity-based-encryption|Fuzzy IBE]] implies [[identity-based-encryption|IBE]].
-
 ## Statement
 
-Migrated verbatim from [[fuzzy-identity-based-encryption]] § Fuzzy identity-based encryption:
+A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme ([[SW05 - Fuzzy Identity-Based Encryption|SW05]]) over attribute universe $\calU$ with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme with identity space $\calU$: a key for $\omega = \{\mathit{id}\}$ decrypts a ciphertext for $\omega' = \{\mathit{id}'\}$ iff $\mathit{id} = \mathit{id}'$. If the Fuzzy IBE is [[fuzzy-identity-based-encryption#ind-fibe-cpa-security|IND-FIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore.
 
-> **Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$.
+## Sketch
 
-Migrated verbatim from [[fuzzy-identity-based-encryption]] § Other results:
-
-> - Fuzzy IBE generalizes [[identity-based-encryption|IBE]]: setting $t = 1$ and $|\omega| = |\omega'| = 1$ recovers exact-identity matching
-
-Migrated verbatim from [[identity-based-encryption]] § Other results:
-
-> - IBE is generalized by [[fuzzy-identity-based-encryption|Fuzzy IBE]], which allows partial identity matching via a threshold overlap condition
-
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation.
-- Duplicates the 'Other results' bullet at line 79 of the same page.
-- 'is an extension of' reverses the arrow relative to the word order (FIBE => IBE).
-- No citation and no folklore flag.
-- Duplicates the intro sentence at line 13.
-- No citation (SW05 fuzzy IBE).
+Every IBE adversary is, unchanged, a Fuzzy IBE adversary: its key queries for identities $\mathit{id} \ne \mathit{id}^*$ are singletons with $|\{\mathit{id}\} \cap \{\mathit{id}^*\}| = 0 < t$, so IBE admissibility is Fuzzy IBE admissibility.

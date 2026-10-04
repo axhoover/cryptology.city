@@ -1,46 +1,33 @@
 ---
 type: reduction
-status: stub
-title: "PCS ⇒ SNARK"
+status: draft
+title: "Extractable PCS ⇒ SNARK"
 aliases: []
 id: red-pcs-to-snark
 kind: implication
-hypotheses: [pcs]
+hypotheses: [extractable-pcs]
 conclusion: snark
 class: unstated
-model: standard
-source: folklore
+model: rom
+source:
+  - "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]"
+  - "[[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]"
 security-loss: ""
+rationale:
+  class: "The compiler uses the PCS as a black box, but knowledge soundness invokes the PCS extractor rather than only oracle access to the adversary, and neither source places the compilation in the RTV04 taxonomy."
+  model: "The compilation gives a public-coin interactive argument in the standard model, which both sources make non-interactive by Fiat–Shamir in the random-oracle model."
 ---
 
-# PCS ⇒ SNARK
-
-[[polynomial-commitment|PCS]] implies [[succinct-argument|SNARK]].
+# Extractable PCS ⇒ SNARK
 
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]] § Polynomial commitment scheme:
+Any [[polynomial-commitment#extractability|extractable polynomial commitment scheme]] (PCS) with succinct commitments and evaluation proofs yields a preprocessing [[succinct-argument|SNARK]] for NP in the random-oracle model: the prover of a polynomial IOP for NP, which exists unconditionally, commits to each round's polynomials and answers the verifier's evaluation queries with evaluation proofs, and [[fiat-shamir-heuristic|Fiat–Shamir]] makes the resulting public-coin argument non-interactive; [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]] compile algebraic holographic proofs and [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]] polynomial IOPs. The setup of the PCS carries over, so a transparent PCS yields a transparent SNARK, and a hiding PCS with zero-knowledge evaluation proofs, compiling a zero-knowledge polynomial IOP, yields a zk-SNARK — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]], [[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]].
 
-> A **polynomial commitment scheme** (PCS) allows a prover to commit to a polynomial $f \in \FF_p[X]_{\le d}$ (of degree at most $d$) and later prove evaluations $f(z) = y$ for any point $z$ queried by a verifier, without revealing $f$ itself. Polynomial commitments are the key bridge between [[arithmetization]] and proof systems: they allow a [[succinct-argument|SNARK]] to efficiently check that a prover's claimed polynomial satisfies the required constraints.
+## Sketch
 
-Migrated verbatim from [[polynomial-commitment]]:
-
-> FRI is a transparent (no trusted setup) polynomial commitment that works by repeatedly halving the degree of a Reed-Solomon codeword via a random folding step. It is the core component of [[succinct-argument|STARKs]].
+For knowledge soundness, the PCS extractor recovers the committed polynomials from a convincing prover; these define a polynomial-IOP prover, from which the polynomial-IOP extractor recovers a witness.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Intro prose ('the key bridge between arithmetization and proof systems') — a motivational claim, not a typed reduction; PCS alone does not imply a SNARK (a PIOP/IOP is also needed).
-- No citation.
-- 'It is the core component of STARKs' — a componenthood claim, not a reduction; no citation on the sentence.
-- STARK resolves to `[[succinct-argument]]`, the same page as SNARK — distinct objects collapse to one slug.
+- With the [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]] commitment scheme the SNARK has a universal and updatable structured reference string; Marlin and Plonk are instances — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]. Plonk compiles PLONKish [[arithmetization]], via a permutation argument and KZG commitments, into a universal-setup zk-SNARK — [[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]].

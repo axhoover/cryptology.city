@@ -1,15 +1,16 @@
 ---
 type: reference
 status: draft
-title: "GK96"
+title: "GK96a"
 source: https://epubs.siam.org/doi/10.1137/S0097539791220688
 authors: Oded Goldreich, Hugo Krawczyk
 venue: SIAM Journal on Computing 1996
 published: 1996-01-01
 aliases:
+  - GK96a
   - GK96
 bibtex: |
-  @article{GK96,
+  @article{GK96a,
     author  = {Oded Goldreich and Hugo Krawczyk},
     title   = {On the Composition of Zero-Knowledge Proof Systems},
     journal = {SIAM Journal on Computing},
@@ -20,10 +21,14 @@ bibtex: |
   }
 ---
 
-# [GK96] On the Composition of Zero-Knowledge Proof Systems
+# [GK96a] On the Composition of Zero-Knowledge Proof Systems
 
 **Authors:** Oded Goldreich, Hugo Krawczyk | **Venue:** SIAM Journal on Computing 1996 | [Source](https://epubs.siam.org/doi/10.1137/S0097539791220688)
 
 ## Abstract
 
-We investigate the behavior of zero-knowledge proofs under composition. Our main negative result is that three-round black-box zero-knowledge proof systems for NP exist only if NP ⊆ BPP: no language outside BPP has a constant-round (in particular, three-round) black-box simulation zero-knowledge proof system unless the polynomial hierarchy collapses. This shows a fundamental limitation: the round complexity of zero-knowledge proofs cannot be made constant in general. We also study the composition of zero-knowledge protocols in sequential and parallel settings, showing that sequential composition preserves zero-knowledge but parallel composition may not.
+TODO — abstract.
+
+# Notes
+
+- Summary of the results, not the abstract: zero-knowledge in the original (non-auxiliary-input) sense is not closed under sequential composition, whereas auxiliary-input zero-knowledge is; zero-knowledge is not closed under parallel composition. Only $\classBPP$ languages have three-round interactive proofs, or constant-round public-coin (Arthur–Merlin) proofs, with negligible soundness error that are black-box simulation zero-knowledge.

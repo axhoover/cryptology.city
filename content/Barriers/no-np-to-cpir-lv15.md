@@ -1,35 +1,29 @@
 ---
 type: barrier
 status: draft
-title: "No reduction from NP to cPIR"
+title: "No fully-black-box reduction from NP to cPIR"
 aliases: []
 id: bar-np-to-cpir-lv15
 hypotheses: [np]
 conclusion: cpir
-class: unstated
+class: fully-black-box
 consequences:
-  - kind: contradiction
-    target: ""
-    class: unstated
+  - kind: complexity
+    target: "conp-subset-am"
+    class: fully-black-box
 strength: unconditional
 source:
   - "[[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]"
+rationale:
+  class: "LV15 rule out reductions that use the privacy adversary only as an oracle and are otherwise unrestricted, the fully-black-box shape when NP as hypothesis leaves no construction to restrict; they give no oracle separation, so relativizing would overstate."
 ---
 
-# No reduction from NP to cPIR
-
-A reduction of class `unstated` from [[nondeterministic-polynomial-time|NP]] to [[single-server-private-information-retrieval|cPIR]] would imply a contradiction.
+# No fully-black-box reduction from NP to cPIR
 
 ## Statement
 
-Migrated verbatim from [[single-server-private-information-retrieval]] § Other results:
-
-> - Single-round PIR cannot be based on NP-hardness unless [[polynomial-time-hierarchy|PH]] collapses to the second level — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]
+A probabilistic polynomial-time reduction from the [[nondeterministic-polynomial-time|NP]]-complete problem $\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|PIR]] scheme, using the privacy adversary only as an oracle with polynomially many adaptively chosen queries, implies $\classNP \subseteq \classcoAM$, equivalently $\classcoNP \subseteq \classAM$ — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]] — and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]. The result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Barrier Q is a complexity claim ('PH collapses to the second level') — fits the barrier schema exactly; hypothesis is 'NP-hardness of the underlying problem', typed here as the class NP.
-- The reduction class is not named on the page (LV15 concerns general/black-box reductions from an NP-hard problem); 'black-box' is my inference, not the page's word.
+- The proof breaks the privacy of every single-server, single-round PIR scheme efficiently given an $\classSZK$ oracle — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].

@@ -1,44 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "Somewhat homomorphic encryption (SHE) ⇒ HE"
+status: draft
+title: "Bootstrappable SHE ⇒ Leveled FHE"
 aliases: []
 id: red-somewhat-homomorphic-encryption-she-to-he-gen09
 kind: implication
-hypotheses: [somewhat-homomorphic-encryption]
-conclusion: he
-class: unstated
+hypotheses: [bootstrappable-somewhat-homomorphic-encryption]
+conclusion: leveled-fully-homomorphic-encryption
+class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
 security-loss: ""
+rationale:
+  class: "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
 ---
 
-# Somewhat homomorphic encryption (SHE) ⇒ HE
-
-[[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]] implies [[homomorphic-encryption|HE]].
+# Bootstrappable SHE ⇒ Leveled FHE
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]]:
+A [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — one that homomorphically evaluates its own decryption circuit augmented by one gate — yields [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] for circuits of any a-priori bounded depth, via a chain of independent key pairs, one per level, with each secret key encrypted under the next public key in the chain — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
-> Supports both additions and multiplications, but only up to a bounded number (bounded by the _multiplicative depth_ of the circuit).
+## Sketch
 
-Migrated verbatim from [[homomorphic-encryption]]:
-
-> Supports arbitrary polynomial-time computation via **bootstrapping**: a special homomorphic evaluation of the decryption circuit that refreshes the noise in a ciphertext. First construction based on ideal lattices — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+Given ciphertexts $c_1, c_2$ under $\pk_i$, homomorphically evaluate the augmented decryption circuit $\sk \mapsto \lnot\left(\Dec(\sk, c_1) \land \Dec(\sk, c_2)\right)$ on the encryption of $\sk_i$ under $\pk_{i+1}$: the result encrypts the NAND of the two plaintexts under $\pk_{i+1}$, with noise set by the depth of that circuit, not by the computation so far. Each level of NAND gates moves one key pair along the chain, so the chain's length bounds the depth.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section; SHE => HE is implicit, never asserted. No citation.
-- No wiki slug 'somewhat-homomorphic-encryption'.
-- The bootstrapping reduction needs the SHE scheme to be bootstrappable (able to evaluate its own decryption circuit) and, for unbounded FHE without leveling, a circular-security assumption - neither is listed as a hypothesis here (circular security is mentioned only at line 66).
-- No wiki slugs for SHE / FHE as distinct objects.
+- Unbounded-depth FHE by bootstrapping additionally needs [[circular-security|circular security]]: a single key pair publishes an encryption of its own secret key — [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Bootstrappable SHE ⇒ HE]], [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].

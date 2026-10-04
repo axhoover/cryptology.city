@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "MA ⊆ PP"
 aliases: []
 id: red-ma-to-pp
@@ -9,34 +9,21 @@ hypotheses: [ma]
 conclusion: pp
 class: free
 model: standard
-source: folklore
+source:
+  - "[[Ver92 - On the Power of PP|Ver92]]"
 security-loss: ""
 ---
 
 # MA ⊆ PP
 
-[[merlin-arthur|MA]] is contained in [[probabilistic-polynomial-time|PP]].
-
 ## Statement
 
-Migrated verbatim from [[merlin-arthur]] § Known relationships:
+$\classMA \subseteq \classPP$: every language with a [[merlin-arthur|Merlin–Arthur]] proof system is decidable in unbounded-error [[probabilistic-polynomial-time|probabilistic polynomial time]] — [[Ver92 - On the Power of PP|Ver92]].
 
-> - $\classMA \subseteq \classPP$ — TODO citation.
+## Sketch
+
+Repeat the MA verifier on independent coins with the same witness, driving its error below $2^{-(\ell+2)}$, where $\ell$ is the witness length. A machine that samples a uniform witness and runs the amplified verifier accepts with probability at least $2^{-\ell}(1 - 2^{-(\ell+2)}) \ge \tfrac{3}{4} \cdot 2^{-\ell}$ when $x \in L$ and at most $2^{-(\ell+2)}$ when $x \notin L$; shifting the separating threshold $2^{-(\ell+1)}$ to $1/2$ gives a $\classPP$ machine — standard.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Explicit 'TODO citation'.
-- PP maps to slug 'probabilistic-polynomial-time' on this wiki, which is easily confused with the crypto abbreviation PPT.
+- No relativizing argument extends the containment to AM: there is an oracle relative to which $\classAM \not\subseteq \classPP$ — [[Ver92 - On the Power of PP|Ver92]]; see [[no-am-to-pp-ver92|No relativizing reduction from AM to PP]].

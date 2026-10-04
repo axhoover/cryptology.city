@@ -17,4 +17,4 @@ cryptobib_key: ITCS:BraGenVai12
 
 ## Abstract
 
-We present a modulus-switching technique that reduces the noise growth in FHE schemes based on the Learning with Errors (LWE) problem. As a result, we obtain a leveled fully homomorphic encryption scheme that can evaluate circuits of arbitrary polynomial depth without ever bootstrapping, under the standard LWE hardness assumption. Our scheme is the first FHE scheme that does not require a circular security assumption, and is substantially more efficient than previous FHE schemes.
+TODO — abstract.

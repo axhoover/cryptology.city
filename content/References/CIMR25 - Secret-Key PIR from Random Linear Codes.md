@@ -18,41 +18,41 @@ cryptobib_key: EPRINT:CIMR25
 
 ## Abstract
 
-Private information retrieval (PIR) allows to privately read a chosen bit from an $N$-bit database $x$ with $o(N)$ bits of communication. Lin, Mook, and Wichs (STOC 2023) showed that by preprocessing $x$ into an encoded database $x^\prime$, it suffices to access only $polylog(N)$ bits of $x^\prime$ per query. This requires $|x^\prime| \ge N \cdot polylog(N)$, and prohibitively large server circuit size.
+Private information retrieval (PIR) allows to privately read a chosen bit from an $N$-bit database $x$ with $o(N)$ bits of communication. Lin, Mook, and Wichs (STOC 2023) showed that by preprocessing $x$ into an encoded database $x^\prime$, it suffices to access only $\polylog(N)$ bits of $x^\prime$ per query. This requires $|x^\prime| \ge N \cdot \polylog(N)$, and prohibitively large server circuit size.
 
-We consider an alternative preprocessing model (Boyle et al. and Canetti et al., TCC 2017), where the encoding $x^\prime$ depends on a client's short secret key. In this secret-key PIR (sk-PIR) model we construct a protocol with $O(N\epsilon)$ communication, for any constant $\epsilon > 0$, from the Learning Parity with Noise assumption in a parameter regime not known to imply public-key encryption. This is evidence against public-key encryption being necessary for sk-PIR.
+We consider an alternative preprocessing model (Boyle et al. and Canetti et al., TCC 2017), where the encoding $x^\prime$ depends on a client's short secret key. In this secret-key PIR (sk-PIR) model we construct a protocol with $O(N^\epsilon)$ communication, for any constant $\epsilon > 0$, from the Learning Parity with Noise assumption in a parameter regime not known to imply public-key encryption. This is evidence against public-key encryption being necessary for sk-PIR.
 
-Under a new conjecture related to the hardness of learning a hidden linear subspace of $\mathbb{F}_2^n$ with noise, we construct sk-PIR with similar communication and encoding size $|x^\prime| = (1 + \epsilon) \cdot N$ in which the server is implemented by a Boolean circuit of size $(4 + \epsilon) \cdot N$. This is the first candidate PIR scheme with such a circuit complexity.
+Under a new conjecture related to the hardness of learning a hidden linear subspace of $\FF_2^n$ with noise, we construct sk-PIR with similar communication and encoding size $|x^\prime| = (1 + \epsilon) \cdot N$ in which the server is implemented by a Boolean circuit of size $(4 + \epsilon) \cdot N$. This is the first candidate PIR scheme with such a circuit complexity.
 
 # Notes
 
-They introduce the _Learning Subspace with Noise (LSN)_ conjecture. They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
+They conjecture hardness of the _Learning Subspace with Noise (LSN)_ problem of [[DKL09 - On cryptography with auxiliary input|DKL09]] in a new regime ($k \ge \rho n$, $\mu \ge 1 - o(1)$). They show how to build secret-key PIR from both [[learning-parity-with-noise|LPN]] and LSN.
 
-- [[secret-key-pir-sk-pir-to-depir-bipw17|Secret-Key PIR (SK-PIR) ⇒ DEPIR]]
-- I guess secret-key PIR that is not doubly efficient could be interesting...?
+- Unlike SK-PIR, which bounds only communication, the secret-key DEPIR of [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] also makes per-query server work sublinear; see [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]].
 
-How is SK-PIR different from prepreprocessing PIR?
+How is SK-PIR different from preprocessing PIR?
 
 - The secret key is independent of the PIR database
 - So, first sk is generated -> then used to encode a database $x$
 - But only the sk is given to decoding
-- [[secret-key-pir-sk-pir-and-ske-to-depir|Secret-Key PIR (SK-PIR) + SKE ⇒ DEPIR]]
+- Idea (unverified): preprocess the database and store the client state encrypted on the server, then run a two-round protocol whose first round downloads the encrypted state. This moves the state but not the server's work: the result is [[doubly-efficient-pir#secret-key-depir|SK-DEPIR]] only if the underlying scheme already has $o(n)$ server computation, and per-query communication is at least $|\st|$ unless amortised.
 
 ## Circuit Sizes
 
 - The paper focuses on minimizing the communication and _circuit size_, rather than the sublinear runtime in the RAM/cell-probe model
-  - Although, som eof their constructions also achieve this
--
+  - Although, some of their constructions also achieve this
 
 ## Learning Subspace with Noise (LSN)
 
-The **learning subspace with noise assumption** $(k,n,\mu)$-LSN asserts
+The **learning subspace with noise assumption** $(k,n,\mu)$-LSN asserts that for a uniformly random secret rank-$k$ matrix $\mathbf{C}\in \FF^{k\times n}$ and any polynomial number of samples $m:= m(\secpar)$, it holds that
 
-- **Wait** actually is this just taken from [[DKL09 - On cryptography with auxiliary input|DKL09]]?
+$$
+(\mathbf{c}_1 + \mathbf{e}_1,\ldots, \mathbf{c}_m + \mathbf{e}_m) \approx_c (\mathbf{u}_1,\ldots,\mathbf{u}_m),
+$$
 
-that for a uniformly random secret rank-$k$ matrix $\mathbf{C}\in \mathbb{F}^{k\times n}$ and any polynomial number of samples $m:= m(\lambda)$, it holds that:$$(\mathbf{c_1} + \mathbf{e}_1,\ldots, \mathbf{c}_m + \mathbf{e}_m) \approx_c (\mathbf{u}_1,\ldots,\mathbf{u}_m),$$ where $\mathbf{c}_i = \mathbf{a}_i^T \mathbf{C}$ for $\mathbf{a}_i \gets \mathbb{F}^k$, $\mathbf{e}_i$ is uniformly random in $\mathbf{F}^n$ with probability. $\mu$ and $\mathbf{e}_i = 0 \in \mathbf{F}^n$ otherwise, and $\mathbf{F}^n$ .
+where $\mathbf{c}_i = \mathbf{a}_i^T\mathbf{C}$ for $\mathbf{a}_i \getsr \FF^k$, and $\mathbf{e}_i$ is uniform in $\FF^n$ with probability $\mu$ and $\mathbf{0}$ otherwise.
 
-Essentially this means that each you take a $k$ subspace fo the $n$ dimentional latent space. Then, give $\approx(1-\mu)m$ samples of this subspace planted randomly among $\mu m$ real samples of the subspace.
+About $(1-\mu)m$ samples lie in the row space of $\mathbf{C}$, hidden among about $\mu m$ uniform vectors.
 
 **Conjecture:** For every $0< \rho < 1$, the $(k,n,\mu)$-LSN assumption holds when $k \ge \rho n$ and $\mu \ge 1 - o(1)$.
 
@@ -62,7 +62,7 @@ Essentially this means that each you take a $k$ subspace fo the $n$ dimentional 
 
 1. If $\mu < 1-(k/n)^d$, there is a $n^{O(d)}$-time LSN distinguisher
 2. For a constant code rate $\rho = k/n$ and $\eta = 1-\mu = o(1)$, $(k,n,\mu)$-LSN implies LPN with code dimension $k$, code length $k(1+\Omega(\eta))$, and noise rate $\eta$
-3. LPN with noise rate $\varepsilon$ implies a variant of LSN with the following noise pattern: Let $I$ be a random set of $k$ linearly independent columns of $\mathbf{C}$.Then, for each sampled codeword $\mathbf{c}_i$, flip each bit _outside_ $I$ with $\varepsilon$ probability.
-4. [[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]] showed that when $n = k+1$, the _search version_ of the LSN assumption of $\mathbb{F}_2$ is equivalent to the standard LPN assumption with noise rate $\mu/2$
+3. LPN with noise rate $\varepsilon$ implies a variant of LSN with the following noise pattern: Let $I$ be a random set of $k$ linearly independent columns of $\mathbf{C}$. Then, for each sampled codeword $\mathbf{c}_i$, flip each bit _outside_ $I$ with $\varepsilon$ probability.
+4. [[CDV21 - Learning a mixture of two subspaces over finite fields|CDV21]] showed that when $n = k+1$, the _search version_ of the LSN assumption of $\FF_2$ is equivalent to the standard LPN assumption with noise rate $\mu/2$
 
 ## Split LSN

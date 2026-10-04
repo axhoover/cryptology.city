@@ -1,40 +1,32 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from CPA Security to IND$-CPA Security"
+status: draft
+title: "No fixed-construction reduction from CPA Security to IND$-CPA Security"
 aliases: []
 id: bar-cpa-security-to-ind-cpa-security
 hypotheses: [cpa-security]
 conclusion: ind-dollar-cpa-security
-class: unstated
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: fixed-construction
 strength: unconditional
 source: folklore
+rationale:
+  class: "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself IND$-CPA-secure; building some other IND$-CPA-secure scheme from a CPA-secure one is not ruled out."
 ---
 
-# No reduction from CPA Security to IND$-CPA Security
-
-A reduction of class `unstated` from [[symmetric-key-encryption#cpa-security|CPA Security]] to [[symmetric-key-encryption#ind-cpa-security|IND$-CPA Security]] would imply a contradiction.
+# No fixed-construction reduction from CPA Security to IND$-CPA Security
 
 ## Statement
 
-Migrated verbatim from [[symmetric-key-encryption]] § IND$-CPA Security:
+The identity map is not a reduction from [[symmetric-key-encryption#cpa-security|CPA security]] to [[symmetric-key-encryption#ind-cpa-security|IND\$-CPA security]] of [[symmetric-key-encryption|SKE]]: appending a constant bit to every ciphertext of a CPA-secure $\SKE$, so that the ciphertext space becomes $\calC \times \bits$, preserves CPA security, while an IND\$-CPA adversary that checks the bit on one query has advantage $1/2$ — folklore.
 
-> is negligible. IND\$-CPA implies CPA security, but not vice versa.
+## Sketch
+
+The appended bit is independent of the message, so a CPA adversary against the modified scheme yields one against the original; a uniform ciphertext carries the constant bit only with probability $1/2$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The 'but not vice versa' half is a separation stated with no counterexample and no citation.
-- Separation is unconditional-by-counterexample (a CPA-secure scheme with structured ciphertexts), which the page does not give.
+- The converse holds: IND\$-CPA security implies CPA security, with a factor-2 loss ([[ind-dollar-cpa-security-to-cpa-security|IND\$-CPA ⇒ CPA]]) — standard.

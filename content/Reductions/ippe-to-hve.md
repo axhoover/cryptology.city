@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "IPPE ⇒ HVE"
 aliases: []
 id: red-ippe-to-hve
@@ -9,45 +9,23 @@ hypotheses: [ippe]
 conclusion: hve
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
 security-loss: ""
+rationale:
+  class: "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$."
 ---
 
 # IPPE ⇒ HVE
 
-[[inner-product-predicate-encryption|IPPE]] implies [[hidden-vector-encryption|HVE]].
-
 ## Statement
 
-Migrated verbatim from [[hidden-vector-encryption]] § Other results:
+An attribute-hiding [[inner-product-predicate-encryption|IPPE]] scheme of dimension $2n$ over $\ZZ_p$ yields an [[hidden-vector-encryption|HVE]] scheme for patterns in $(\Sigma \cup \{*\})^n$ with $\Sigma \subseteq \ZZ_p$: a pattern $v$ with wildcard set $S$ and an attribute $x$ are encoded as vectors whose inner product is $\sum_{i \notin S} r_i (x_i - v_i)$ for uniformly random coefficients $r_i$, which vanishes when $v$ matches $x$ and otherwise with probability $1/p$. Attribute-hiding transfers whenever an HVE adversary's encoded queries stay admissible in the IPPE game, that is, unless it finds a non-matching attribute whose encoded inner product vanishes — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].
 
-> - HVE is generalized by [[inner-product-predicate-encryption|IPPE]]: a conjunctive pattern predicate over $\Sigma^n$ can be encoded as an inner product over $\ZZ_p$ with an appropriate alphabet embedding
+## Sketch
 
-Migrated verbatim from [[inner-product-predicate-encryption]] § Inner-product predicate encryption:
-
-> **Inner-product predicate encryption (IPPE)** is a form of predicate encryption in which keys and ciphertexts are each associated with vectors over $\ZZ_p$. A key for vector $v \in \ZZ_p^n$ can decrypt a ciphertext for vector $x \in \ZZ_p^n$ if and only if $\langle v, x \rangle = 0 \pmod{p}$. IPPE achieves **full attribute-hiding**: a ciphertext hides both the encrypted payload and the attribute vector $x$. It subsumes [[hidden-vector-encryption|HVE]] and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation—making it the practical ceiling before full predicate encryption.
-
-Migrated verbatim from [[inner-product-predicate-encryption]] § Other results:
-
-> - IPPE generalizes [[hidden-vector-encryption|HVE]]: a conjunctive pattern predicate over $\Sigma^n$ can be encoded as an inner-product predicate by choosing an alphabet embedding into $\ZZ_p$
+Encode $x$ as $(x_1, 1, \ldots, x_n, 1)$ and $v$ as $(r_1, -r_1 v_1, \ldots, r_n, -r_n v_n)$ with $r_i = 0$ for $i \in S$ and $r_i \getsr \ZZ_p$ otherwise, sampled at key generation; $\Setup$, $\KeyGen$, $\Enc$, $\Dec$ of the HVE scheme call the IPPE algorithms once each on the encoded vectors.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 3 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (the encoding is from BW07/KSW08).
-- 'is generalized by' reverses the arrow relative to word order (IPPE => HVE).
-- The encoding sketch is incomplete: encoding a conjunction as a single inner product requires randomized coefficients to avoid accidental zero inner products (false accepts); as written the sketch suggests a deterministic embedding suffices.
-- Intro claim ('It subsumes HVE'); no citation here (KSW08 appears only at line 81).
-- Same paragraph also claims support for disjunctions/CNF/DNF/polynomial evaluation - those are expressiveness claims with no object identifiers.
-- No citation, though this encoding is due to KSW08 (cited two bullets later).
-- Duplicate of the intro claim at line 13.
+- IPPE attribute-hiding constrains ciphertexts, not keys, so a scheme may reveal its key vectors (for instance, append them in the clear). An adaptive HVE adversary can then read off the $r_i$ and choose a non-matching challenge attribute with zero encoded inner product, trivially when $\Sigma = \ZZ_p$; such a challenge is admissible in the HVE game but not in the IPPE game. The transfer therefore needs an extra hypothesis: the encoded key vectors are hidden, or HVE security is selective — folklore.

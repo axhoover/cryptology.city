@@ -1,45 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ DEPIR"
+title: "Ring-LWE ⇒ Unkeyed DEPIR"
 aliases: []
 id: red-lwe-to-depir-lmw23
 kind: implication
-hypotheses: [lwe]
-conclusion: depir
+hypotheses: [ring-lwe]
+conclusion: unkeyed-depir
 class: unstated
 model: standard
 source:
   - "[[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]"
 security-loss: ""
+rationale:
+  class: "The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes."
 ---
 
-# LWE ⇒ DEPIR
-
-[[learning-with-errors|LWE]] implies [[doubly-efficient-pir|DEPIR]].
+# Ring-LWE ⇒ Unkeyed DEPIR
 
 ## Statement
 
-Migrated verbatim from [[doubly-efficient-pir]] § Other results:
-
-> - Unkeyed DEPIR can be built with server storage $O(N^{1+\varepsilon})$ and online computation and bandwidth $O(\log^{1/\varepsilon}(n))$ from [[learning-with-errors#ring-lwe|Ring LWE]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
-
-Migrated verbatim from [[homomorphic-encryption]] § Other results:
-
-> - FHE + [[doubly-efficient-pir|DEPIR]]: doubly-efficient PIR and RAM computation from Ring-LWE — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
+If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates to the preprocessed database cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Hypothesis is the Ring-LWE variant, a section of `[[learning-with-errors]]` rather than a node of its own; the anchor is written lowercase-hyphenated ('#ring-lwe') while the heading is '## Ring LWE' and other pages in the repo use the verbatim-heading form — style inconsistency, likely still resolving.
-- Notational inconsistency in the efficiency claim: database size is $N$ in the storage bound but $n$ in the online bound (and $n$ in this page's syntax).
-- Bullet prefix 'FHE + DEPIR:' reads as a conjunction of hypotheses, but the actual claim is Ring-LWE => (DEPIR and FHE RAM). The prefix is a topic label, not a hypothesis set - easy to mis-migrate.
-- No wiki page for Ring-LWE; the LWE page carries an 'RLWE' alias, so Ring-LWE is conflated with plain LWE site-wide.
-- Second conclusion (fully homomorphic RAM computation) has no object identifier.
+- On top of this DEPIR, LMW23 construct fully homomorphic encryption for RAM programs under Ring-LWE with circular security, with homomorphic evaluation time $T^{1+\varepsilon} \cdot \polylog(|x| + |y|)$ for a RAM program of worst-case run-time $T$ on client input $x$ and preprocessed server input $y$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].

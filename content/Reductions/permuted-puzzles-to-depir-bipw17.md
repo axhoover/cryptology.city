@@ -1,38 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "Permuted puzzles ⇒ DEPIR"
+title: "Permuted puzzles ⇒ SK-DEPIR"
 aliases: []
 id: red-permuted-puzzles-to-depir-bipw17
 kind: implication
 hypotheses: [bipw17-permuted-puzzles-assumption]
-conclusion: depir
+conclusion: sk-depir
 class: unstated
 model: standard
 source:
   - "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
 security-loss: ""
+rationale:
+  class: "BIPW17 argue security directly from a conjecture about the scheme's own query distribution, so there is no reduction separate from the construction to classify."
 ---
 
-# Permuted puzzles ⇒ DEPIR
-
-[[permuted-puzzles|Permuted puzzles]] implies [[doubly-efficient-pir|DEPIR]].
+# Permuted puzzles ⇒ SK-DEPIR
 
 ## Statement
 
-Migrated verbatim from [[doubly-efficient-pir]] § Other results:
+Under the [[permuted-puzzles|permuted-puzzles assumption]] of BIPW17 — a secretly permuted set of Reed–Muller local-decoding queries is indistinguishable from a uniformly random set of points — there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]]: the database is encoded once at polynomial cost, after which the key holder retrieves any bit by reading a sublinear number of encoding positions, and the access pattern hides the index from an observer who sees the encoding but not the key — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
 
-> - SK-DEPIR can be built from a non-standard assumption — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]
->   - This was analyzed further in [[BHMW21 - On the Security of Doubly Efficient PIR|BHMW21]], which didn't break the core assumption but broke the generalized proposed assumption
+## Sketch
+
+The database is encoded as a Reed–Muller codeword, the evaluation table of a low-degree multivariate polynomial, with positions permuted by a secret permutation. To fetch a bit, the client reads the positions of a random low-degree curve through the target point and interpolates, so each query is a permuted Reed–Muller decoding set, which the assumption makes indistinguishable from random positions.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The hypothesis is literally 'a non-standard assumption' — unnamed, so the edge cannot be typed. BIPW17's assumption is a permuted-puzzles / Reed-Muller-code hardness conjecture; the identifier used here is my reconstruction, not the page's.
-- No page exists for the assumption.
-- 'SK-DEPIR' is an alias of this page rather than a node of its own.
+- The assumption family is formalized and studied as _permuted puzzles_ — [[BHW19 - Permuted Puzzles and Cryptographic Hardness|BHW19]].
+- An attack breaks the BIPW17 _toy conjecture_, a simplified variant posed for cryptanalysis, but not the assumption underlying the construction — [[BHMW21 - On the Security of Doubly Efficient PIR|BHMW21]].

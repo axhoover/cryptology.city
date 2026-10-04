@@ -1,38 +1,26 @@
 ---
 type: reduction
-status: stub
-title: "DEPIR ⇒ cPIR"
+status: draft
+title: "Unkeyed DEPIR ⇒ cPIR"
 aliases: []
 id: red-depir-to-cpir
 kind: implication
-hypotheses: [depir]
+hypotheses: [unkeyed-depir]
 conclusion: cpir
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The construction is the identity, and any PIR privacy adversary runs unchanged, as an oracle, as an unkeyed DEPIR privacy adversary."
 ---
 
-# DEPIR ⇒ cPIR
-
-[[doubly-efficient-pir|DEPIR]] implies [[single-server-private-information-retrieval|cPIR]].
+# Unkeyed DEPIR ⇒ cPIR
 
 ## Statement
 
-Migrated verbatim from [[doubly-efficient-pir]] § Doubly-efficient PIR:
-
-> Double efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and computation at **query time** is $o(n)$, where $n$ is the size of the database.
+Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is a [[single-server-private-information-retrieval|single-server PIR]] whose database is preprocessed by the server itself: the server runs $\Setup(1^\secpar, DB)$, and the query phase is a two-message PIR with query-time communication and computation $o(n)$; correctness and query privacy carry over unchanged — folklore.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Taxonomy statement ('is a type of'), not a reduction with a proof; no citation.
-- The implication direction is DEPIR => single-server PIR, opposite to the surface word order.
+- Keyed DEPIR does not give a two-party PIR this way: [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] needs a trusted party to preprocess the database — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]] — and in [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] the client runs $\Setup$ on the database — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].

@@ -41,7 +41,7 @@ over $(\pp, \msk) \gets \Setup(1^\secpar, p, n)$ and randomness of $\KeyGen$ and
 
 ### Full Attribute-Hiding Security
 
-In the full attribute-hiding game, the adversary submits two ciphertext candidates $(x_0, m_0)$ and $(x_1, m_1)$ and receives an encryption of one of them. Admissibility requires that every queried key vector $v$ is consistent with both candidates: $\langle v, x_0 \rangle = 0 \Leftrightarrow \langle v, x_1 \rangle = 0 \pmod{p}$.
+In the full attribute-hiding game, the adversary submits two ciphertext candidates $(x_0, m_0)$ and $(x_1, m_1)$ and receives an encryption of one of them. Admissibility requires that every queried key vector $v$ is consistent with both candidates: $\langle v, x_0 \rangle = 0 \Leftrightarrow \langle v, x_1 \rangle = 0 \pmod{p}$; and if some queried $v$ has $\langle v, x_0 \rangle = \langle v, x_1 \rangle = 0$, then $m_0 = m_1$, since that key decrypts $c^*$ — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]].
 
 ```pseudocode
 \begin{algorithm}
@@ -51,7 +51,7 @@ In the full attribute-hiding game, the adversary submits two ciphertext candidat
 \State $(\pp, \msk) \gets \Setup(1^\secpar, p, n)$; $b \getsr \bits$
 \State $\calO_{\mathrm{key}}(v) := \KeyGen(\msk, v)$
 \State $((x_0, m_0), (x_1, m_1), \stA) \gets \calA^{\calO_{\mathrm{key}}}(1^\secpar, \pp)$
-\Comment{For all queried $v$: $\langle v, x_0 \rangle = 0$ iff $\langle v, x_1 \rangle = 0$ (mod $p$)}
+\Comment{For all queried $v$: $\langle v, x_0 \rangle = 0$ iff $\langle v, x_1 \rangle = 0$ (mod $p$); if some queried $v$ has $\langle v, x_0 \rangle = 0$, then $m_0 = m_1$}
 \State $c^* \gets \Enc(\pp, x_b, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{key}}}(c^*, \stA)$
 \Comment{Same admissibility constraint holds throughout}
@@ -76,15 +76,15 @@ Dropping the attribute-hiding requirement yields a simpler **payload-hiding** va
 
 ## Zero inner product vs. non-zero
 
-Some formulations flip the predicate: decryption succeeds when $\langle v, x \rangle \ne 0$. This is equivalent up to a simple transformation (append a constant coordinate) and is sometimes more natural for access control.
+Some formulations flip the predicate: decryption succeeds when $\langle v, x \rangle \ne 0$ — [[AL10 - Functional Encryption for Inner Product Achieving Constant-Size Ciphertexts with Adaptive Security or Support for Negation|AL10]].
 
 # Other results
 
 - [[ippe-to-hve|IPPE ⇒ HVE]]
-- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+- The first IPPE scheme, over composite-order bilinear groups, shows that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; it is selectively attribute-hiding under two new assumptions justified in the generic group model — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
-<!-- BEGIN GENERATED participates-in 99ea01756488 -->
+<!-- BEGIN GENERATED participates-in 64db66e25dc6 -->
 
 ## Participates in
 
@@ -96,9 +96,6 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 **Produces Inner-product predicate encryption**
 
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
-
-**Barriers**
-
-- [[no-ippe-to-abe|No reduction from IPPE to ABE]]
+- [[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]] (via [[inner-product-predicate-encryption#payload-only-hiding|Payload-only hiding]])
 
 <!-- END GENERATED participates-in -->

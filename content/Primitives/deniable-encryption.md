@@ -14,12 +14,12 @@ A public-key encryption scheme in which a sender who is forced to reveal both th
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in dd25bf2abf26 -->
+<!-- BEGIN GENERATED participates-in 4435ddd74f94 -->
 
 ## Participates in
 
 **Produces Deniable encryption**
 
-- [[hash-function-and-io-to-deniable-encryption-sw14|Hash function + iO ⇒ Deniable encryption]]
+- [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 
 <!-- END GENERATED participates-in -->

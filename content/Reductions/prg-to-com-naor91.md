@@ -7,31 +7,25 @@ id: red-prg-to-com-naor91
 kind: implication
 hypotheses: [prg]
 conclusion: com
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
-security-loss: ""
+security-loss: "hiding: at most twice the PRG advantage; binding: statistical, error at most $2^{-\\secpar}$"
+rationale:
+  class: "The committer calls the PRG only as an oracle, the hiding reduction runs any distinguisher as an oracle in two PRG hybrids, and binding is statistical and needs no reduction."
 ---
 
 # PRG ⇒ COM
 
-[[pseudorandom-generator|PRG]] implies [[commitment-scheme|COM]].
-
 ## Statement
 
-Migrated verbatim from [[commitment-scheme]] § Other results:
+A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding, computationally hiding bit [[commitment-scheme|commitment]]: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
-> - COM from [[pseudorandom-generator|PRG]] (and hence from [[hash-function|OWF]]): Naor's construction uses a PRG to commit to a single bit in a statistically binding, computationally hiding scheme — [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
+## Sketch
+
+Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so commitments to $0$ and $1$ are two hybrids apart. Binding: opening to both bits requires seeds $s_0, s_1$ with $G(s_0) \oplus G(s_1) = \pp$; at most $2^{2\secpar}$ of the $2^{3\secpar}$ strings $\pp$ admit such a pair, so binding fails with probability at most $2^{-\secpar}$ over the receiver's message.
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Naor's commitment is INTERACTIVE (the receiver first sends a random string), but the bullet presents it as matching the page's non-interactive (Gen, Com, Open) syntax.
-- 'statistically binding, computationally hiding' is a security flavour with no node — the conclusion collapses to plain commitment-scheme.
-- The scheme commits to a single bit; the length extension is not stated.
-- COMPOSITE: the parenthetical '(and hence from OWF)' silently chains OWF => PRG, whose citation (HILL99) is not on this bullet.
-- `[[hash-function|OWF]]` resolves to the merged hash-function page, which conflates OWF and CRHF as one node — a recurring modeling problem across this chunk.
-- Naor's commitment is interactive (the receiver sends a random string first); the bullet presents it as a plain non-interactive scheme matching the page's $(\Gen, \Com, \Open)$ syntax.
+- The commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|commitment]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters.

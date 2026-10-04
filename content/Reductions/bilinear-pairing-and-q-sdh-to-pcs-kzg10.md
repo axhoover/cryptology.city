@@ -7,40 +7,35 @@ id: red-bilinear-pairing-and-q-sdh-to-pcs-kzg10
 kind: implication
 hypotheses: [bilinear-pairing, q-strong-diffie-hellman]
 conclusion: pcs
-class: unstated
+class: fully-black-box
 model: crs
 source:
   - "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
 security-loss: ""
+rationale:
+  class: "The construction uses the bilinear group only through group operations and the pairing, and the reduction runs any evaluation-binding adversary once as an oracle and turns its two openings into a q-SDH solution."
+  model: "The scheme needs a trusted structured reference string of powers of a secret exponent that is discarded after setup."
 ---
 
 # Bilinear pairing + q-SDH ⇒ PCS
 
-[[pairings|Bilinear pairing]] together with [[q-strong-diffie-hellman|q-SDH]] implies [[polynomial-commitment|PCS]].
-
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]]:
+In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$ whose commitments and opening proofs are single group elements and whose verification is two pairings. It is evaluation binding under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and its Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
 
-> The KZG scheme commits to $f$ as $C = g^{f(\tau)}$ in a bilinear group, where $\tau$ is a secret known only during trusted setup. An opening proof for $f(z) = y$ is the single group element $\pi = g^{(f(\tau) - y)/(\tau - z)}$ (the "quotient polynomial" evaluated at $\tau$). Verification checks $e(C / g^y, g) = e(\pi, g^\tau / g^z)$ using the pairing.
->
-> - **Proof size**: $O(1)$ (one group element)
-> - **Verification time**: $O(1)$ (two pairings)
-> - **Setup**: Trusted; requires a structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$
-> - **Security**: $q$-Strong Diffie-Hellman assumption in a bilinear group
-> - **Reference**: [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]
->
-> Used in: Plonk, Marlin, KZG-based zkRollups, Ethereum EIP-4844.
+## Sketch
 
-## Notes
+```pseudocode
+\begin{algorithm}
+\algname{Algorithm}
+\caption{KZG polynomial commitment}
+\begin{algorithmic}
+\State $\Setup(1^\secpar, d)$: $\tau \getsr \ZZ_p^{*}$; $\mathsf{srs} \gets (g, g^{\tau}, \ldots, g^{\tau^{d}})$; discard $\tau$
+\State $\mathsf{Commit}(\mathsf{srs}, f)$ for $f = \sum_{i=0}^{d} f_{i} X^{i}$: $C \gets \prod_{i=0}^{d} (g^{\tau^{i}})^{f_{i}} = g^{f(\tau)}$; $\mathsf{aux} \gets f$
+\State $\Open(\mathsf{srs}, C, z, y, \mathsf{aux})$: $\psi(X) \gets (f(X) - y)/(X - z)$; $\pi \gets g^{\psi(\tau)}$
+\State $\Vrfy(\mathsf{srs}, C, z, y, \pi) := [\, e(C/g^{y}, g) = e(\pi, g^{\tau}/g^{z}) \,]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'q-Strong Diffie-Hellman' has NO assumption page (content/Assumptions/bilinear-map-assumptions.md does not mention q-SDH) — dangling hypothesis.
-- The bilinear-group requirement is a second hypothesis carried only in prose ('in a bilinear group'); `[[pairings]]` is a Glossary page, not an assumption.
-- Trusted setup: the reduction holds only in a structured-reference-string model, stated in a bullet rather than as part of the claim.
-- Efficiency bullets (proof size / verification time) are attached to the same block and would be lost if only the implication is migrated.
+Two accepting openings $(y, \pi)$, $(y', \pi')$ at one point $z$ with $y \neq y'$ give $(\pi/\pi')^{1/(y'-y)} = g^{1/(\tau - z)}$, a $q$-SDH solution with $c = -z$.

@@ -1,38 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "SPIR ⇒ IT-PIR"
 aliases: []
 id: red-spir-to-it-pir
 kind: implication
 hypotheses: [spir]
 conclusion: it-pir
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "None: construction and reduction are the identity."
+rationale:
+  class: "The construction is the identity, using the SPIR protocol only as an oracle, and since SPIR's per-server query-privacy requirement is multi-server PIR's, the reduction forwards any privacy adversary unchanged."
 ---
 
 # SPIR ⇒ IT-PIR
 
-[[symmetric-private-information-retrieval-multi-server|SPIR]] implies [[multi-server-private-information-retrieval|IT-PIR]].
-
 ## Statement
 
-Migrated verbatim from [[symmetric-private-information-retrieval-multi-server]]:
+[[symmetric-private-information-retrieval-multi-server|Multi-server SPIR]] strengthens [[multi-server-private-information-retrieval|multi-server PIR]] by data privacy — the client learns nothing about the database beyond the retrieved entry — and keeps its correctness and per-server query-privacy requirements, so every SPIR protocol is an IT-PIR protocol, with the servers' shared randomness that information-theoretic SPIR uses folded into the answer algorithm — folklore.
 
-> Symmetric private information retrieval is a stronger version of [[multi-server-private-information-retrieval|Multi-server PIR]] that in addition to protecting the querier's privacy, also protects the data privacy. It was first introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], which showed how to construct it in the multi-server setting with information-theoretic security.
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The implication is implicit in 'stronger version of' — the page never states SPIR => PIR as a result, and gives no citation for it.
-- Duplicates the same sentence on content/Primitives/single-server-private-information-retrieval.md line 87 (near-verbatim copy across two pages).
+Drop the data-privacy requirement from the SPIR definition; what remains is the multi-server PIR definition, met by the same queries and answers.

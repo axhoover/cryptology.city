@@ -9,6 +9,7 @@ id: ibe
 variants:
   ind-id-cpa: "#ind-id-cpa-security"
   ind-sid-cpa: "#ind-sid-cpa-security-selective"
+  subexp-ind-sid-cpa: "#sub-exponential-ind-sid-cpa-security"
 ---
 
 # Identity-based encryption
@@ -96,6 +97,10 @@ $$
 
 is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure; the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\calI|$.
 
+#### Sub-exponential IND-sID-CPA Security
+
+An IBE scheme $\IBE$ is **sub-exponentially IND-sID-CPA-secure** if there is a constant $\epsilon > 0$ such that for all sufficiently large $\secpar$, every admissible $\calA$ of size at most $2^{\secpar^{\epsilon}}$ has $\Adv^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) \le 2^{-\secpar^{\epsilon}}$.
+
 # Variations
 
 ## IND-ID-CCA Security
@@ -111,19 +116,25 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in df16b99f0695 -->
+<!-- BEGIN GENERATED participates-in 312766c38b67 -->
 
 ## Participates in
 
 **Builds on Identity-based encryption**
 
 - [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
+- [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|Sub-exponential IND-sID-CPA Security]])
 
 **Produces Identity-based encryption**
 
 - [[abe-to-ibe|ABE ⇒ IBE]]
-- [[bdh-to-ibe-wat09|BDH ⇒ IBE]]
+- [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
+- [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
+- [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 
 <!-- END GENERATED participates-in -->

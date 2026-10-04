@@ -22,7 +22,7 @@ A _key exchange_ (or _key agreement_) protocol allows two parties communicating 
 
 A two-party key exchange protocol is a pair of interactive algorithms $(\mathsf{KE}_A, \mathsf{KE}_B)$ run between parties $A$ and $B$ over a shared transcript. Following execution, both parties output a key $k \in \calK$. In the non-interactive setting:
 
-- $\mathsf{KE} = (\Gen, \mathsf{Combine})$ where $\Gen(1^\secpar) \to (\pk, \sk)$ and each party publishes $\pk_A, \pk_B$, then computes $k = \mathsf{Combine}(\sk_A, \pk_B) = \mathsf{Combine}(\sk_B, \pk_A)$.
+- $\mathsf{KE} = (\Gen, \Combine)$ where $\Gen(1^\secpar) \to (\pk, \sk)$ and each party publishes $\pk_A, \pk_B$, then computes $k = \Combine(\sk_A, \pk_B) = \Combine(\sk_B, \pk_A)$.
 
 ## Properties
 
@@ -50,34 +50,37 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 # Other results
 
-- [[ddh-to-ke-dh76|DDH ⇒ KE]]
-- [[ke-to-pke-dh76|KE ⇒ PKE]]
-- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ NIKE]]
+- [[ke-to-pke-dh76|NIKE ⇒ PKE]]
+- [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]] — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
-- [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
-<!-- BEGIN GENERATED participates-in 3dc717f7466f -->
+<!-- BEGIN GENERATED participates-in f0fabc7b22d1 -->
 
 ## Participates in
 
 **Builds on Key exchange**
 
+- [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]] (via [[key-exchange#authenticated-key-exchange-ake|Authenticated key exchange (AKE)]])
 - [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]]
-- [[ke-to-pke-dh76|KE ⇒ PKE]]
+- [[ke-to-pke-dh76|NIKE ⇒ PKE]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
+- [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 
 **Produces Key exchange**
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
-- [[ddh-to-ke-dh76|DDH ⇒ KE]]
+- [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
+- [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
 - [[kem-to-ke|KEM ⇒ KE]]
+- [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]
 - [[pke-to-ke|PKE ⇒ KE]]
-- [[sidh-to-ke-jdf11|SIDH ⇒ KE]]
+- [[sidh-to-ke-jdf11|SSDDH ⇒ KE]]
 
 **Barriers**
 
-- [[no-owp-to-ke-ir89|No reduction from OWP to KE]]
+- [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
 <!-- END GENERATED participates-in -->

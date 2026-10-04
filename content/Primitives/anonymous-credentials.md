@@ -15,12 +15,6 @@ A credential system in which a user obtains a credential from an issuer and late
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 14fc8516b086 -->
+# Other results
 
-## Participates in
-
-**Produces Anonymous credentials**
-
-- [[bdh-to-ac|BDH ⇒ AC]]
-
-<!-- END GENERATED participates-in -->
+- Anonymous credentials from bilinear maps, via signatures secure under the interactive LRSW assumption — [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]

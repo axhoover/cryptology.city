@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "QR ⇒ HE"
+title: "QR ⇒ Additively homomorphic encryption"
 aliases: []
 id: red-qr-to-he-gm84
 kind: implication
 hypotheses: [qr]
-conclusion: he
+conclusion: additively-homomorphic-encryption
 class: unstated
 model: standard
 source:
@@ -14,23 +14,12 @@ source:
 security-loss: ""
 ---
 
-# QR ⇒ HE
-
-[[quadratic-residuosity|QR]] implies [[homomorphic-encryption|HE]].
+# QR ⇒ Additively homomorphic encryption
 
 ## Statement
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
+The Goldwasser–Micali scheme, with $\pk = (N, y)$ for $N = pq$ and $y \in \J_N \setminus \QR_N$ and $\Enc(\pk, \beta; r) = y^\beta r^2 \bmod N$ for $\beta \in \bits$ and $r \getsr \ZZ_N^*$, is IND-CPA-secure if [[quadratic-residuosity|QR]] is hard — [[GM84 - Probabilistic encryption|GM84]]. It is [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]] over $\ZZ_2$: the product of encryptions of $\beta_1$ and $\beta_2$ is distributed exactly as a fresh encryption of $\beta_1 \oplus \beta_2$ — standard.
 
-> - Goldwasser-Micali is multiplicatively homomorphic: $\Enc(b_1) \cdot \Enc(b_2) = \Enc(b_1 \oplus b_2 \bmod 2)$ — [[GM84 - Probabilistic encryption|GM84]]
+## Sketch
 
-## Notes
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- A property of the specific GM scheme rather than a reduction from the assumption; the target object (XOR-homomorphic bit encryption) is not the wiki homomorphic-encryption page and is not wikilinked at all.
-- MINOR: "Enc(b1) . Enc(b2) = Enc(b1 XOR b2 mod 2)" is redundant — XOR is already mod 2 — and the operation is called "multiplicatively homomorphic" while the plaintext operation is additive mod 2.
+$(y^{\beta_1} r_1^2)(y^{\beta_2} r_2^2) = y^{\beta_1 \oplus \beta_2}\,(y^{\beta_1 \beta_2} r_1 r_2)^2$, and $y^{\beta_1 \beta_2} r_1 r_2$ is uniform in $\ZZ_N^*$ when $r_1$ is. CPA security is the reduction on [[qr-to-pke-gm84|QR ⇒ PKE]], which sets $y$ to the QR challenge.

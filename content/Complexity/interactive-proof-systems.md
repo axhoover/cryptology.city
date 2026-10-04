@@ -19,25 +19,27 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:I#i
 
 ## Known relationships
 
-- $\classIP = \classPSPACE$ — TODO citation
+- $\classIP = \classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]]; the $\subseteq$ direction is folklore ([[ip-to-pspace-ccg-94]])
 - $\classIP \neq \classPSPACE$ relative in the [[random-oracle-model|ROM]] — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]
 
-<!-- BEGIN GENERATED participates-in cee5d09e61ee -->
+<!-- BEGIN GENERATED participates-in ff06d4cca17b -->
 
 ## Participates in
 
 **Builds on Interactive Proof Systems**
 
-- [[ip-and-rom-to-snark-fs86|IP + ROM ⇒ SNARK]]
-- [[ip-to-am-gs86|IP ⊆ AM]]
+- [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]]
 - [[ip-to-pspace-ccg-94|IP ⊆ PSPACE]]
 - [[ip-to-qip|IP ⊆ QIP]]
-- [[ip-to-szk-bgg-90|IP ⊆ SZK]]
 
 **Produces Interactive Proof Systems**
 
-- [[czk-to-ip-bgg-90|CZK = IP]]
-- [[qip-to-ip|QIP = IP]]
+- [[czk-to-ip|CZK ⊆ IP]]
+- [[pspace-to-ip-sha90|PSPACE ⊆ IP]]
 - [[szk-to-ip|SZK ⊆ IP]]
+
+**Barriers**
+
+- [[no-ip-to-am-sha90|IP ⊆ AM collapses the polynomial hierarchy]]
 
 <!-- END GENERATED participates-in -->

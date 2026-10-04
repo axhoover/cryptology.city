@@ -16,7 +16,7 @@ A **black-box separation** between cryptographic primitives $A$ and $B$ is a for
 
 ## Types of Black-Box Reductions
 
-Following [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]], black-box reductions are classified along two orthogonal axes.
+Following [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]], black-box reductions are classified along two orthogonal axes. [[reduction-classes|Reduction classes]] defines each class this wiki records, including the ∀∃, weakly black-box, free and fixed-construction classes, and the order between them.
 
 **Construction: black-box vs. non-black-box.**
 A _black-box construction_ of $B$ from $A$ uses $A$ only as an oracle — the implementation of $A$ is never inspected, only its input/output behavior. A _non-black-box construction_ may use the code (circuit description) of $A$ directly, for example by hardwiring it into the construction.
@@ -26,12 +26,12 @@ A _black-box security proof_ treats any adversary $\calA$ against $B$ as an orac
 
 Combining these axes gives four types of reductions:
 
-|                         | BB proof         | Non-BB proof     |
-| ----------------------- | ---------------- | ---------------- |
-| **BB construction**     | Fully black-box  | Semi-BB (type 2) |
-| **Non-BB construction** | Semi-BB (type 3) | Fully non-BB     |
+|                         | BB proof        | Non-BB proof |
+| ----------------------- | --------------- | ------------ |
+| **BB construction**     | Fully black-box | Semi-BB      |
+| **Non-BB construction** | —               | Fully non-BB |
 
-The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out fully black-box reductions.
+The most common and most restrictive notion is **fully black-box**, which covers essentially all "standard" cryptographic reductions. Oracle separations rule out relativizing, hence fully black-box, reductions — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
 > **Example (fully BB).** The [[pseudorandom-function|GGM construction]] of a $\PRF$ from a $\PRG$ is fully black-box: the $\PRG$ is invoked as an oracle, and the security proof reduces any $\PRF$ adversary (treated as an oracle) to a $\PRG$ distinguisher.
 
@@ -57,23 +57,23 @@ The landmark result of [[IR89 - Limits on the provable consequences of one-way p
 **Corollaries.**
 
 1. No fully black-box construction of KA from OWP can exist.
-2. Any proof that $\mathrm{OWP} \Rightarrow \mathrm{KA}$ must use non-black-box techniques.
-3. Such a proof would be as hard as proving $\classP \neq \classNP$: the oracle separation shows that in the random permutation world, any black-box security argument must rule out a concrete polynomial-time eavesdropper, which is equivalent to proving $\classP \neq \classNP$ relative to that oracle.
+2. No relativizing proof can show that $\mathrm{OWP} \Rightarrow \mathrm{KA}$ — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
+3. Relative to a random permutation, if $\classP = \classNP$ then every KA protocol is broken, so proving secure any KA protocol that uses a OWP as a black box is as hard as proving $\classP \neq \classNP$ — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
 **Proof sketch.**
-Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$. The argument proceeds in two parts:
+Take $O$ to be a uniformly random permutation $\pi : \bits^n \to \bits^n$ together with a $\classPSPACE$-complete oracle. The argument proceeds in two parts:
 
 - _OWP exists relative to $O$:_ A random permutation is information-theoretically one-way — no algorithm, regardless of running time, can invert it with non-negligible probability without querying $\pi$ near-exhaustively.
 
-- _KA is impossible relative to $O$:_ Consider any two-party protocol in which Alice and Bob each make at most $\ell$ queries to $\pi$ and exchange a public transcript. An eavesdropper, given the transcript and oracle access to $\pi$, can recover the shared key by exhaustively exploring the parties' computation trees. The key insight is that conditioned on the public transcript, a consistent lazy extension of $\pi$ to new points is uniformly distributed; the eavesdropper simulates Alice's and Bob's computation path through the protocol tree, querying $\pi$ on branches they might have explored, and recovers their shared key using $O(\ell^6)$ queries.
+- _KA is impossible relative to $O$:_ Consider any two-party protocol in which Alice and Bob each make at most $\ell$ queries to $\pi$ and exchange a public transcript. An eavesdropper, given the transcript and oracle access to $\pi$, can recover the shared key by exhaustively exploring the parties' computation trees. The key insight is that conditioned on the public transcript, a consistent lazy extension of $\pi$ to new points is uniformly distributed; the eavesdropper simulates Alice's and Bob's computation path through the protocol tree, querying $\pi$ on branches they might have explored, and recovers their shared key using $\tilde{O}(\ell^{12})$ queries to $\pi$ ($\tilde{O}(\ell^6)$ when the oracle is a random function); the $\classPSPACE$ oracle makes its remaining computation polynomial-time — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].
 
 A black-box security reduction would convert this eavesdropper (which is efficient relative to $O$) into an inverter for $\pi$ — contradicting one-wayness. Hence no such reduction can exist.
 
-**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper from $O(\ell^6)$ to the optimal $O(\ell^2)$, matching the quadratic gap achieved by Merkle's Puzzles [[Mer78]]. This shows that Merkle's Puzzles are _query-complexity optimal_: no random-oracle KA protocol can achieve a better-than-quadratic query gap between the honest parties and the eavesdropper. Together, IR89 and BM09 give a complete picture of the complexity of key agreement in the random oracle model.
+**Barak–Mahmoody strengthening.** [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] tightened the query complexity of the eavesdropper against random-oracle protocols from IR89's $\tilde{O}(\ell^6)$ to $O(\ell^2)$, matching the quadratic gap of Merkle's puzzles — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]: no random-oracle KA protocol achieves a better-than-quadratic query gap between the honest parties and the eavesdropper — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
 
 ## Other Notable Separations
 
-- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
+- [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
 
 - **Relativized cryptography** — [[Bra79 - Relativized cryptography|Bra79]] was among the first systematic treatments of oracle separations in a cryptographic setting, predating IR89.
 
@@ -89,8 +89,8 @@ Oracle separations are a powerful tool but have important limitations:
 
 - **They rule out fully BB proofs, not the implication itself.** An oracle separation between $A$ and $B$ does not mean that $B$ cannot be built from $A$ — only that no fully black-box proof can establish it. Non-black-box techniques can sometimes circumvent oracle separations entirely.
 
-- [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
+- [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]
 
-- **The RTV04 taxonomy makes this precise.** An oracle separation rules out only fully black-box reductions (Type 1 in RTV04's taxonomy). Types 2–4, which permit non-black-box constructions or non-black-box proofs, may remain open and are not addressed by the oracle separation.
+- **The RTV04 taxonomy makes this precise.** An oracle relative to which $A$ exists and $B$ does not rules out every _relativizing_ reduction, and hence every fully black-box one; non-relativizing techniques are not addressed — [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]].
 
 Oracle separations should be understood as barriers for specific _proof techniques_, not as evidence that the underlying cryptographic implication is false.

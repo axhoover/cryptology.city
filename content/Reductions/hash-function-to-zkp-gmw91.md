@@ -1,34 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ ZKP"
+title: "OWF ⇒ ZKP"
 aliases: []
 id: red-hash-function-to-zkp-gmw91
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: zkp
 class: fully-black-box
 model: standard
 source:
   - "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
 security-loss: ""
+rationale:
+  class: "The protocol uses the commitment only as an oracle and Naor's commitment on the HILL generator uses the one-way function only as an oracle; soundness is statistical, and the zero-knowledge reduction runs any simulation distinguisher only as an oracle to break hiding, hence to invert the function."
 ---
 
-# Hash function ⇒ ZKP
-
-[[hash-function|Hash function]] implies [[zero-knowledge-proof|ZKP]].
+# OWF ⇒ ZKP
 
 ## Statement
 
-Migrated verbatim from [[zero-knowledge-proof]] § Other results:
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, every language in $\classNP$ has a computational [[zero-knowledge-proof|zero-knowledge proof]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]. The protocol proves graph 3-colorability with a statistically binding commitment, which one-way functions yield — [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
 
-> - All NP languages have computational ZK proofs assuming [[hash-function|OWF]] — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
+## Sketch
 
-## Notes
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- COMPOSITE in substance though not in wording: GMW91 builds ZK for NP from bit COMMITMENTS; OWF => commitment is Nao91 (Naor). The OWF hypothesis therefore hides a two-link chain OWF => commitment-scheme => ZK-for-NP.
-- `[[hash-function|OWF]]` again routes the OWF node to the page that also owns CRHF.
-- The conclusion is 'ZK proofs for all of NP', a language-class-qualified object the flat slug zero-knowledge-proof cannot express.
+The prover commits to a uniformly permuted 3-coloring of the graph; the verifier picks a random edge and the prover opens its two endpoints, which must carry distinct colors. Sequential repetition drives the per-round soundness error $1 - 1/|E|$ down to a negligible one; a simulator that guesses the challenged edge and rewinds gives computational zero knowledge.

@@ -10,7 +10,7 @@ id: dlog
 
 # Discrete logarithm
 
-The _discrete logarithm (DLOG)_ assumption is used throughout cryptography. It is a natural strengthening of the [[computational-diffie-hellman|CDH]] assumption. In other words, an adversary which can solve the DLOG problem can also solve [[computational-diffie-hellman|CDH]] in the same group.
+The _discrete logarithm (DLOG)_ assumption is used throughout cryptography. It is implied by the [[computational-diffie-hellman|CDH]] assumption: an adversary which can solve the DLOG problem can also solve [[computational-diffie-hellman|CDH]] in the same group — folklore.
 
 ## Assumption
 
@@ -46,15 +46,16 @@ is negligible.
 ## Related results
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
-- [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
-- In the [[generic-group-model|Generic Group Model]], $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+- [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{dl}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 ## Attacks
 
-- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Therefore, this is optimal in the [[generic-group-model|GGM]] — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
+- The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Its running time $O(\sqrt{p})$, attained at $S = O(\sqrt{p})$, is optimal in the [[generic-group-model|GGM]] for groups of prime order $p$: every generic algorithm needs $\Omega(\sqrt{p})$ group operations — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 - **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field) and in the Jacobians of hyperelliptic curves of high genus. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$.
 - **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups.
 - **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$; best known algorithm with complexity $L_p[1/3, (64/9)^{1/3}]$.
+- **Quantum**: Shor's algorithm computes discrete logarithms in $\ZZ_p^*$ in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
 # Variations
 
@@ -104,34 +105,29 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 0d4eceec60e8 -->
+<!-- BEGIN GENERATED participates-in 74754683475b -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
-- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG + ROM ⇒ Schnorr signatures]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
+- [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
+- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]]
 - [[dlog-to-conp|DLOG ⊆ coNP]]
-- [[dlog-to-ddh-fkl18|DLOG ⇒ DDH]]
-- [[dlog-to-ds-sch91|DLOG ⇒ DS]]
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
-- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
+- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
+- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
 
 **Produces Discrete logarithm**
 
-- [[bqp-to-dlog-shor97|BQP ⊆ DLOG]]
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
-
-**Barriers**
-
-- [[no-ggm-to-dlog-sho97|No free reduction from GGM to DLOG]]
-- [[no-the-structured-ggm-to-dlog-chw26|No free reduction from The Structured GGM to DLOG]]
+- [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
 
 <!-- END GENERATED participates-in -->

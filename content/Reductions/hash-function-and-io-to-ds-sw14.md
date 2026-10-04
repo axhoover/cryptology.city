@@ -1,37 +1,31 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ DS"
+title: "OWF + iO ⇒ DS"
 aliases: []
 id: red-hash-function-and-io-to-ds-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: ds
-class: unstated
+class: free
 model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
 ---
 
-# Hash function + iO ⇒ DS
-
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies [[digital-signature|DS]].
+# OWF + iO ⇒ DS
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Obfustopia:
+If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a [[digital-signature|signature scheme]] with short signatures that is selectively unforgeable under chosen-message attack: for all efficient $\calA$ that commit to a target message $m^*$ before seeing $\vk$ and then query signatures on messages other than $m^*$, the probability that $\calA$ outputs a valid signature on $m^*$ is negligible — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
-> **[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+## Sketch
+
+The signing key is a puncturable PRF key $K$, the signature on $m$ is $F(K, m)$, and $\vk$ obfuscates the program accepting $(m, \sigma)$ iff $f(\sigma) = f(F(K, m))$, for a one-way function $f$. The reduction punctures $K$ at $m^*$ and hardcodes $y^* = f(F(K, m^*))$, which iO hides because the program's input–output behavior is unchanged; punctured-PRF security then replaces $F(K, m^*)$ by a uniform value, so a forgery on $m^*$ is a preimage of $y^*$ under $f$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CONJUNCTIVE and DISJUNCTIVELY BUNDLED: "combined with OWFs, it implies PKE, digital signatures, NIZK proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more" is one hypothesis SET {iO, OWF} with five separate conclusions; this record isolates {iO, OWF} => digital signatures.
-- "and much more" is an unbounded, untypeable tail that a migration must drop.
-- OWF hypothesis is again the hash-function page alias.
+- One-way functions alone give adaptively EUF-CMA-unforgeable signatures ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]; the contribution of the iO construction is short signatures.

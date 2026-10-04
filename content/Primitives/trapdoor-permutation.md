@@ -11,7 +11,6 @@ id: tdp
 variants:
   lossy-trapdoor-function: "#lossy-trapdoor-functions"
   enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
-  lossy-functions: "#lossy-trapdoor-functions"
 ---
 
 # Trapdoor permutation
@@ -37,8 +36,9 @@ $$\Pr\!\left[\Invert(\td, \Eval(f, x)) = x\right] = 1.$$
 
 ### One-wayness
 
-A TDP is **one-way** if there is some negligible function $\nu$ such that for every efficient $\calA$:
-$$\Pr_{(f,\td) \gets \Gen(1^\secpar),\, x \getsr \calD}\!\left[\Eval(f, x') = \Eval(f, x) : x' \gets \calA(1^\secpar, f, \Eval(f, x))\right] \le \nu(\secpar).$$
+A TDP is **one-way** if for all efficient $\calA$,
+$$\Pr\!\left[\Eval(f, x') = \Eval(f, x) : (f,\td) \gets \Gen(1^\secpar),\ x \getsr \calD,\ x' \gets \calA(1^\secpar, f, \Eval(f, x))\right]$$
+is negligible.
 
 ### Easy inversion with trapdoor
 
@@ -48,38 +48,38 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ additionally requires that the TDP remain hard to invert even when given a random coin $r$ and a random element $y = \Eval(f, x)$ sampled using $r$ in a specific way. This stronger property is necessary for constructing [[oblivious-transfer|OT]] from TDPs.
+An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ## Lossy trapdoor functions
 
-A generalization where there are two modes: an injective mode (standard TDP) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply TDPs and are useful for constructing CCA-secure encryption.
+A lossy trapdoor function has two computationally indistinguishable modes: an injective mode (an injective trapdoor function, not necessarily a permutation) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 # Other results
 
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[no-injective-owf-to-owp-mm11|No reduction from Injective OWF to OWP]]
 
-<!-- BEGIN GENERATED participates-in 5e85a0497ddb -->
+<!-- BEGIN GENERATED participates-in d6eb1fd38254 -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
-- [[tdp-to-hash-function|TDP ⇒ Hash function]]
+- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
-- [[tdp-to-ot|TDP ⇔ OT]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 
 **Produces Trapdoor permutation**
 
-- [[dlog-to-tdp|DLOG ⇒ TDP]]
-- [[lossy-trapdoor-functions-to-tdp|Lossy trapdoor functions ⇒ TDP]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
 **Barriers**
 
-- [[no-tdp-to-ot|No reduction from TDP to OT]]
+- [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
+- [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
+- [[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]
 
 <!-- END GENERATED participates-in -->

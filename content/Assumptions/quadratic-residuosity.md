@@ -14,11 +14,11 @@ variants:
 
 # Quadratic residuosity assumption
 
-The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The Jacobi symbol restriction ensures that quadratic residuosity is information-theoretically hidden; the QR assumption makes this computationally hard. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
+The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
 
 ## Assumption
 
-Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. When $p \equiv q \equiv 3 \pmod 4$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$, so membership is information-theoretically hidden.
+Let $N = pq$ for random $\secpar$-bit primes $p \equiv q \equiv 3 \pmod{4}$ (or general primes). Let $\QR_N = \{a \in \ZZ_N^* : \exists x,\, x^2 \equiv a \pmod{N}\}$ and $\J_N = \{a \in \ZZ_N^* : \left(\frac{a}{N}\right) = 1\} \supseteq \QR_N$. For any distinct odd primes $p, q$, the group $\J_N$ splits evenly: exactly half its elements are in $\QR_N$ and half are in $\J_N \setminus \QR_N$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -51,8 +51,8 @@ is negligible.
 ## Known Results
 
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
-- [[qr-to-he-gm84|QR ⇒ HE]]
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
+- [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]]; whether factoring hardness implies QR hardness is open.
 - [[qr-to-com|QR ⇒ COM]]
 - The original [[zero-knowledge-proof|ZK proof]] of GMR85 was for quadratic residuosity — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 
@@ -68,23 +68,20 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 
 # Attacks
 
-- QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols
+- QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols — folklore
 - Quantum attacks: Shor's algorithm factors $N$ and breaks QR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 19fc7b24644e -->
+<!-- BEGIN GENERATED participates-in f1e1cb13146b -->
 
 ## Participates in
 
 **Builds on Quadratic residuosity assumption**
 
+- [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]] (via [[quadratic-residuosity#higher-residuosity|Higher residuosity]])
 - [[qr-to-com|QR ⇒ COM]]
-- [[qr-to-he-gm84|QR ⇒ HE]]
+- [[fac-to-qr-gm84|QR ⇒ FAC]]
+- [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]]
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
-- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
-
-**Produces Quadratic residuosity assumption**
-
-- [[fac-to-qr-gm84|FAC ⇒ QR]]
 
 <!-- END GENERATED participates-in -->

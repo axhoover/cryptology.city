@@ -1,43 +1,24 @@
 ---
 type: reduction
-status: stub
-title: "DKG + HE ⇒ TPKE"
+status: draft
+title: "DCR ⇒ TPKE"
 aliases: []
 id: red-dkg-and-he-to-tpke
 kind: implication
-hypotheses: [distributed-key-generation, he]
+hypotheses: [dcr]
 conclusion: threshold-encryption
-class: unstated
-model: standard
-source: folklore
+class: free
+model: rom
+source:
+  - "[[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]"
+  - "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
 security-loss: ""
+rationale:
+  class: "Neither FPS00 nor DJ01 places the reduction in the RTV04 taxonomy, and free records only that the implication is proved."
 ---
 
-# DKG + HE ⇒ TPKE
-
-[[distributed-key-generation|DKG]] together with [[homomorphic-encryption|HE]] implies [[threshold-encryption|TPKE]].
+# DCR ⇒ TPKE
 
 ## Statement
 
-Migrated verbatim from [[decisional-composite-residuosity]] § Known Results:
-
-> - DCR → threshold encryption (via Paillier with distributed key generation) — standard
-
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- GENUINELY CONJUNCTIVE while the parent record is marked conjunctive:false - both hypotheses are needed together on this link.
-- threshold-encryption and distributed-key-generation have no wiki pages; identifiers invented.
-- Uncited (Fouque-Poupard-Stern / Damgard-Jurik would be the standard sources); the '- standard' label is misapplied.
-- This link is inferred from a parenthetical construction sketch; the page never states it as a theorem.
-- via Paillier with distributed key generation chains two construction steps.
-- Marked standard where Fouque-Poupard-Stern / Damgard-Jurik are attributable.
-- threshold-encryption and distributed-key-generation have no pages.
+In threshold Paillier, a trusted dealer generates a Paillier key and Shamir-shares its decryption exponent among the servers; each server publishes a partial decryption with a non-interactive proof that it is correct, and enough partial decryptions combine to the plaintext. Under [[decisional-composite-residuosity|DCR]] and in the random oracle model, this [[threshold-encryption|threshold encryption]] scheme is IND-CPA secure against an active, static adversary corrupting fewer than the threshold number of servers — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]. [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]] give a threshold variant, also with a trusted dealer, of their generalisation modulo $n^{s+1}$.

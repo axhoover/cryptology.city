@@ -21,14 +21,14 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:B#b
 
 ## Notable problems
 
-- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA.
+- **Integer factorization** and **discrete logarithm** are in $\classBQP$ via Shor's algorithm — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. This directly breaks RSA, Diffie-Hellman, DSA, and ECDSA — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]].
 - **Unstructured search**: Grover's algorithm provides a quadratic quantum speedup for unstructured search — [[Grover96 - A fast quantum mechanical algorithm for database search|Grover96]]. This does not place unstructured search in $\classBQP$ itself, but implies that any problem with a classical $O(N)$ exhaustive-search algorithm can be solved quantumly in $O(\sqrt{N})$ queries.
 
 ## Known relationships
 
 - $\classP \subseteq \classBPP \subseteq \classBQP$: classical probabilistic computation is a special case of quantum computation.
-- $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — Adleman, DeMarrais, and Huang (1997).
-- [[no-bqp-to-np|No reduction from BQP to NP]]
+- $\classBQP \subseteq \classPP \subseteq \classPSPACE$: quantum computation can be simulated with unbounded-error classical randomness, and in polynomial space — [[ADH97 - Quantum Computability|ADH97]].
+- [[no-bqp-to-np|No relativizing reduction from BQP to NP]] — [[RT19 - Oracle Separation of BQP and PH|RT19]]
 - **PostBQP $= \classPP$** (Aaronson 2005): $\classBQP$ augmented with postselection on measurement outcomes equals $\classPP$. This gives an elegant proof of $\classBQP \subseteq \classPP$.
 
 ## Relevance to cryptography
@@ -37,21 +37,21 @@ BQP defines the power of a quantum adversary. All post-quantum cryptographic sch
 
 Grover's algorithm gives a generic quadratic speedup on unstructured search, implying that symmetric-key schemes need security parameters roughly twice as large (e.g., AES-256 instead of AES-128) to maintain $\secpar$-bit post-quantum security. However, based on [NIST post-quantum standards](<https://csrc.nist.gov/projects/post-quantum-cryptography/post-quantum-cryptography-standardization/evaluation-criteria/security-(evaluation-criteria)>) suggest that this may not be necessary. Primarily, this is because Grover's algorithm cannot be parallelized ([[Zal97 - Grover's quantum searching algorithm is optimal | Zal97]]), and therefore the speedup requires a very long serial computation that may be infeasible.
 
-<!-- BEGIN GENERATED participates-in 2d42e5639c47 -->
+<!-- BEGIN GENERATED participates-in 540c897aa6e9 -->
 
 ## Participates in
 
 **Builds on Bounded-Error Quantum Polynomial-Time**
 
-- [[bqp-to-dlog-shor97|BQP ⊆ DLOG]]
 - [[bqp-to-pp|BQP ⊆ PP]]
 
 **Produces Bounded-Error Quantum Polynomial-Time**
 
 - [[bpp-to-bqp|BPP ⊆ BQP]]
+- [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 
 **Barriers**
 
-- [[no-bqp-to-np|No reduction from BQP to NP]]
+- [[no-bqp-to-np|No relativizing reduction from BQP to NP]]
 
 <!-- END GENERATED participates-in -->

@@ -1,7 +1,7 @@
 ---
 type: reduction
-status: stub
-title: "Evasive LWE ⇒ ABE"
+status: draft
+title: "Evasive circular LWE ⇒ ABE"
 aliases: []
 id: red-evasive-lwe-to-abe
 kind: implication
@@ -9,31 +9,19 @@ hypotheses: [circular-evasive-lwe]
 conclusion: abe
 class: unstated
 model: standard
-source: folklore
+source:
+  - "[[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]"
 security-loss: ""
+rationale:
+  class: "The hypothesis is an implication between two indistinguishability conditions quantified over samplers, not a primitive or a single problem that a reduction can use as an oracle."
 ---
 
-# Evasive LWE ⇒ ABE
-
-[[learning-with-errors#evasive-lwe|Evasive LWE]] implies [[attribute-based-encryption|ABE]].
+# Evasive circular LWE ⇒ ABE
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Evasive LWE:
-
-> The assumption comes in public-coin and private-coin variants. Private-coin variants have known counterexamples — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]. A _circular_ variant of evasive LWE was proposed for ABE for unbounded-depth circuits, but has also been shown vulnerable to zeroizing attacks — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+Assuming public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]], a circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]], there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- One paragraph packs three claims (public-coin vs private-coin split; private-coin counterexamples; circular-variant zeroizing attack). Recorded separately.
-- The proposal ("A circular variant of evasive LWE was proposed for ABE for unbounded-depth circuits") is uncited; only the attack on it is cited.
-- Since the hypothesis is reported broken in the same sentence, this edge is only of historical interest and needs a "refuted" status.
+- Public-coin circular evasive LWE as HLL23 state it is false: [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]] exhibit a sampler for which the pre-condition holds but the post-condition fails.

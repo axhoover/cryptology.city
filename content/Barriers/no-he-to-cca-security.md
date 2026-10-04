@@ -1,40 +1,33 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from HE to CCA Security"
+status: draft
+title: "No fixed-construction reduction from HE to IND-CCA2 Security"
 aliases: []
 id: bar-he-to-cca-security
 hypotheses: [he]
-conclusion: ind-cca-security
-class: unstated
+conclusion: pke-cca2-security
+class: fixed-construction
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: fixed-construction
 strength: unconditional
 source: folklore
+rationale:
+  class: "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
 ---
 
-# No reduction from HE to CCA Security
-
-A reduction of class `unstated` from [[homomorphic-encryption|HE]] to [[public-key-encryption#cca-security|CCA Security]] would imply a contradiction.
+# No fixed-construction reduction from HE to IND-CCA2 Security
 
 ## Statement
 
-Migrated verbatim from [[homomorphic-encryption]] § Security:
+The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: no HE scheme whose function class $\calF$ contains an $f$ that is neither constant nor the identity on $\calM$ (after fixing any further arguments of $f$ by fresh encryptions) is IND-CCA2-secure, since $\Eval$ turns the challenge ciphertext into an admissible decryption query that reveals the challenge bit — folklore.
 
-> A homomorphic encryption scheme is **IND-CPA secure** if the standard [[public-key-encryption|PKE]] semantic security game is satisfied: no efficient adversary can distinguish $\Enc(\pk, m_0)$ from $\Enc(\pk, m_1)$ for any $m_0, m_1$. (CCA security is incompatible with homomorphism.)
+## Sketch
+
+Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$, and on challenge $c^*$ compute $c' \gets \Eval(\pk, f, c^*)$. If $c' \ne c^*$, the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b)$, which determines $b$; if $c' = c^*$, correctness forces $f(m_b) = m_b$, so $b = 1$.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Parenthetical claim '(CCA security is incompatible with homomorphism.)' is a genuine barrier statement with no citation and no folklore label, violating the citation policy in CLAUDE.md.
-- Imprecise: the incompatibility is with full IND-CCA2 and unrestricted homomorphism; HE can be IND-CCA1, and targeted/controlled-malleable CCA notions exist. Report only.
+- IND-CCA1-secure fully homomorphic encryption is constructed from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].
+- Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]].

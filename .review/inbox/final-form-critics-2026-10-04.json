@@ -1,0 +1,218 @@
+{
+  "source": "final-form completeness critics 2026-10-04",
+  "items": [
+    {
+      "id": "ffc:verification-gap-1",
+      "kind": "verification-gap",
+      "confidence": "medium",
+      "needs_paper": false,
+      "summary": "enhanced-trapdoor-permutations-to-ot-gkm-00's GR13 Note says NIZK needs doubly enhanced TDPs and that the intermediate notions are separated; GR13's abstract claims neither",
+      "pages": [
+        "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md"
+      ],
+      "proposed_action": "In '## Notes' of content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md replace the bullet '- Enhanced TDPs suffice for EGL OT, while NIZK needs doubly enhanced TDPs; intermediate notions are separated — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].' with '- Enhanced TDPs suffice for EGL OT and doubly enhanced TDPs for the FLS90 NIZK ([[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]); GR13 explain why these applications need the enhancements and show that they suffice — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].', which matches the GR13 bullets on rsa-to-tdp-rsa78 and no-tdp-to-ot. If the intermediate notions are to be mentioned, cite Rothblum's 2010 taxonomy ('A Taxonomy of Enhanced Trapdoor Permutations'), which GR13's abstract names, after creating its reference page. Run npm run lint.",
+      "rationale": "GR13's abstract, verbatim on its reference page, says they clarify why the enhanced and doubly enhanced notions are needed in the OT and NIZK applications and show that they suffice; it attributes the intermediate notions to Rothblum (2010) and claims no separation. Read literally, 'NIZK needs doubly enhanced TDPs' is false, since NIZK for NP also follows from LWE (lwe-to-nizk-ps19). Raised by critic 2; the replacement uses only what the abstract states.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["critic-2#flags-7", "final#claims_believed_wrong-12"],
+      "related": ["ffr:schema-convention-5"]
+    },
+    {
+      "id": "ffc:verification-gap-2",
+      "kind": "verification-gap",
+      "confidence": "medium",
+      "needs_paper": false,
+      "summary": "DBDH + DLIN ⇒ IBE states Wat09's bound as exactly O(q) DLIN advantages plus one DBDH advantage, while its HIBE sibling was weakened to 'security loss O(q)' because the hybrid may add a statistical term",
+      "pages": [
+        "content/Reductions/bdh-to-ibe-wat09.md",
+        "content/Reductions/bdh-to-hibe-wat09.md"
+      ],
+      "proposed_action": "Recommended, without the paper: in '## Statement' of content/Reductions/bdh-to-ibe-wat09.md replace ': the advantage of an efficient adversary making $q$ private-key queries is at most the sum of $O(q)$ DLIN advantages and one DBDH advantage' with ', with security loss $O(q)$ for an adversary making $q$ private-key queries ($O(q)$ DLIN steps and one DBDH step)', the form bdh-to-hibe-wat09.md uses; `security-loss` ('$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries') names the hybrid's steps, not an inequality, and stays. With Wat09 in hand (CRYPTO 2009, eprint 2009/385), read the IBE and HIBE security theorems: if the bound is exactly the sum of the hybrid terms, state that inequality on both pages and give bdh-to-hibe-wat09.md the same `security-loss`; if it adds a statistical term (for example $O(q/p)$ for a key tag equal to the challenge tag), state the inequality with that term on both pages and add the term to both `security-loss` fields; if Wat09 state no explicit bound, keep the recommended wording. Run npm run lint.",
+      "rationale": "The b17 verifier deliberately weakened the HIBE wording to 'security loss O(q)' because Wat09's dual-system hybrid may carry an additive negligible statistical term, but the IBE page kept the exact inequality. If the term exists, the IBE inequality is false as written; the weakened form holds either way and makes the siblings read alike. Raised by critic 3, who had briefly given the HIBE page the IBE page's exact wording and reverted it for this reason.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": [
+        "critic-3#claims_believed_wrong-1",
+        "final#claims_believed_wrong-17"
+      ],
+      "related": []
+    },
+    {
+      "id": "ffc:verification-gap-3",
+      "kind": "verification-gap",
+      "confidence": "low",
+      "needs_paper": true,
+      "summary": "CRHF ⇒ PCS credits the FRI-based polynomial commitment to BBHR18a, which builds a STARK; KPV22, cited only in Notes, may be the paper that states and proves the (list) PCS",
+      "pages": [
+        "content/Reductions/hash-function-to-pcs-bbhr18.md",
+        "content/References/KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments.md"
+      ],
+      "proposed_action": "Read BBHR18a (eprint 2018/046) and KPV22 (eprint 2019/1400), and paste KPV22's abstract verbatim over its 'TODO — abstract.'. If BBHR18a state a polynomial-commitment theorem from collision resistance, keep the page and name the theorem in the Statement's citation. Otherwise set `source` to KPV22, end the Statement with the KPV22 citation (keeping BBHR18b for FRI and BBHR18a for the STARK inline), and drop the Notes bullet it replaces; if KPV22's object is a list polynomial commitment (binding only to a short list of polynomials close to the committed word), write 'a transparent list polynomial commitment' in the Statement and say in Notes that this is the notion the SNARK compilers use. Keep the id: the edge is the same theorem (docs/relations-json.md § Stability contract). Run generate-relations and lint.",
+      "rationale": "schema/README § Provenance puts in `source` the paper whose theorem the Statement asserts. BBHR18a construct a STARK; by the page's own Note, KPV22 make FRI's polynomial-commitment abstraction explicit. Raised by critic 2 at low confidence. ffr:verification-gap-20 checks the same page's soundness model and needs the same paper, so the two are best read together.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["critic-2#flags-10", "final#claims_believed_wrong-15"],
+      "related": ["ffr:verification-gap-20", "ffr:reference-page-1"]
+    },
+    {
+      "id": "ffc:title-or-slug-1",
+      "kind": "title-or-slug",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "The BW07 and Wat11 reference filenames carry titles that are not the papers' ('Conjunctive Normal Form Encryption and Attribute Based Encryption', 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover'); their H1s and bibliographic data are right",
+      "pages": [
+        "content/References/BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption.md",
+        "content/References/Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover.md",
+        "content/Reductions/bdh-to-hve-bw07.md",
+        "content/Reductions/hve-to-subset-and-range-queries.md",
+        "content/Reductions/bdh-to-abe-gpsw06.md",
+        "content/Reductions/ggm-to-abe-bsw07.md",
+        ".reductions/relations.json",
+        "TODO_SUMMARY.md"
+      ],
+      "proposed_action": "The maintainer chooses one option for both files, as for LM06 (ffr:title-or-slug-2). (A, recommended) Keep both files: the H1s, `title`, BW07's cryptobib_key TCC:BonWat07, Wat11's inline bibtex and every citation's display text already name the right papers, BW07 'Conjunctive, Subset, and Range Queries on Encrypted Data' (TCC 2007) and Wat11 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization' (PKC 2011), so only the URLs are wrong. Add one line under '## Low Priority / Inferred' in TODO_SUMMARY.md recording both mismatches, so that no bot retitles the H1s to match the filenames. (B) `git mv` the files to 'BW07 - Conjunctive, Subset, and Range Queries on Encrypted Data.md' and 'Wat11 - Ciphertext-Policy Attribute-Based Encryption An Expressive, Efficient, and Provably Secure Realization.md' (colon dropped, as in other filenames), add each old basename to the file's `aliases` so Quartz emits a redirect from the old URL, retarget the links ([[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]: two each on bdh-to-hve-bw07.md and hve-to-subset-and-range-queries.md; [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]: one each on bdh-to-abe-gpsw06.md and ggm-to-abe-bsw07.md), then run node scripts/generate-relations.mjs (the `source` fields name the files) and npm run lint.",
+      "rationale": "Filenames are live URLs, so CLAUDE.md forbids renames, but these two URLs carry titles that are not BW07's and Wat11's. Readers see the wrong titles only in URLs and link previews, since every link shows the key. Routed by critic 1 (BW07) and critic 2 (Wat11) for the reference-fixer; neither is in TODO_SUMMARY.md.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": [
+        "final#routed_by_critics_not_actioned-1",
+        "final#routed_by_critics_not_actioned-4",
+        "critic-2#routed-1",
+        "final#claims_believed_wrong-1"
+      ],
+      "related": ["ffr:title-or-slug-2"]
+    },
+    {
+      "id": "ffc:title-or-slug-2",
+      "kind": "title-or-slug",
+      "confidence": "medium",
+      "needs_paper": false,
+      "summary": "The Fiat–Shamir glossary page and the three Fiat–Shamir barriers are titled with a hyphen ('Fiat-Shamir'), while reduction titles, schema/README, CONTRIBUTING and the critics' prose use the en dash",
+      "pages": [
+        "content/Glossary/fiat-shamir-heuristic.md",
+        "content/Barriers/no-fiat-shamir-to-nizk-gk03.md",
+        "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
+        "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
+        "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
+        "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
+        "content/Glossary/random-oracle-model.md",
+        "content/Glossary/gkr-protocol.md",
+        "content/Primitives/digital-signature.md",
+        "content/Primitives/zero-knowledge-proof.md",
+        "content/Primitives/non-interactive-zero-knowledge.md",
+        "content/Primitives/hash-function.md",
+        "content/Primitives/succinct-argument.md",
+        "schema/reduction-classes.yaml",
+        ".reductions/relations.json"
+      ],
+      "proposed_action": "Write the name with an en dash wherever it is the wiki's own text. (1) content/Glossary/fiat-shamir-heuristic.md: `title` and H1 'Fiat–Shamir Heuristic', add the alias 'Fiat–Shamir' (keep 'Fiat-Shamir' and 'Fiat-Shamir Heuristic' for search), and every prose use in the body. (2) The `title` and H1 of no-fiat-shamir-to-nizk-gk03.md, no-fiat-shamir-and-gkr-to-snark-krs25.md and no-fiat-shamir-and-hash-function-to-ds-gk03.md, and in the last its rationale.class and its Statement and Notes prose. (3) Hand-written prose and link display text: the Notes of no-fiat-shamir-to-nizk-gk03.md, the Notes of fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md, rationale.model of dlog-and-rom-to-schnorr-signatures-sch91.md, the three uses in random-oracle-model.md (two in the GK03 bullet, one a barrier title as display text), the Schnorr paragraph of digital-signature.md, the HVZK paragraph of zero-knowledge-proof.md and the two hand-written uses in non-interactive-zero-knowledge.md. (4) The `fixed-construction` summary in schema/reduction-classes.yaml ('a named transform such as Fiat-Shamir'). Leave reference filenames, reference titles and wikilink targets (they quote paper titles such as GK03, KRS25 and AABN02), barrier ids and slugs unchanged. Run node scripts/generate-relations.mjs, which rewrites the generated sections of hash-function.md, digital-signature.md, non-interactive-zero-knowledge.md, succinct-argument.md, gkr-protocol.md and fiat-shamir-heuristic.md and .reductions/relations.json, then npm run lint.",
+      "rationale": "schema/README, CONTRIBUTING, docs/relations-json.md, the city-style skill and the titles 'HVZK ⇒ NIZK (Fiat–Shamir)' and 'Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)' write the name with an en dash, and the completeness critics moved barrier prose to it, but that pass left titles alone. So the barrier H1s, breadcrumbs and generated lists still say 'Fiat-Shamir', sometimes next to 'Fiat–Shamir' on the same page. Seen by the final validator.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["final#out_of_scope_observations-2"],
+      "related": [
+        "ffr:content-error-20",
+        "ffr:content-error-21",
+        "ffr:schema-convention-8",
+        "ffc:schema-convention-2"
+      ]
+    },
+    {
+      "id": "ffc:schema-convention-1",
+      "kind": "schema-convention",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "Titles and headings with $…$ show raw TeX in the Quartz chrome: breadcrumbs, backlinks, folder listings and the table of contents (7 page titles and 13 section headings)",
+      "pages": [
+        "quartz/util/mathTitle.ts (new)",
+        "quartz/util/mathTitle.test.ts (new)",
+        "quartz/components/Breadcrumbs.tsx",
+        "quartz/components/Backlinks.tsx",
+        "quartz/components/PageList.tsx",
+        "quartz/components/TableOfContents.tsx",
+        "quartz/plugins/transformers/toc.ts",
+        "quartz/components/Head.tsx",
+        "quartz/plugins/emitters/contentIndex.tsx"
+      ],
+      "proposed_action": "Add quartz/util/mathTitle.ts exporting titleToHtml(text) and titleToText(text). titleToHtml splits the text into inline-math spans (an unescaped `$` followed by a non-space, up to the next unescaped `$` preceded by a non-space, so the lone `$` of 'IND$-CPA' stays text), renders each span with katex.renderToString(span, { macros: the customMacros of macros.ts, throwOnError: false }) and HTML-escapes the rest; titleToText drops the delimiters. Render titleToHtml(…) through dangerouslySetInnerHTML for the crumb text in quartz/components/Breadcrumbs.tsx, the backlink title in Backlinks.tsx and the page title in PageList.tsx (folder and tag listings). In quartz/plugins/transformers/toc.ts keep `text` and the slug as they are, so anchors do not move, and add an `html` field built by titleToHtml from the heading with its inlineMath children re-wrapped in `$…$` (toString drops the delimiters); render that field in TableOfContents.tsx. Use titleToText for <title> in Head.tsx and for `title` in the content index (contentIndex.tsx), which feeds the Explorer, search and graph labels and cannot run KaTeX. Cover '$k$-Linear assumption ⇒ ABE', 'Honest majority ($t < n/2$) ⇒ MPC', 'IND$-CPA Security ⇒ CPA Security' (no math) and a macro ('$\\ZZ_p$') in mathTitle.test.ts. Rebuild and check the breadcrumbs of Reductions/d-th-composite-residuosity-to-he, the backlinks of Assumptions/decisional-composite-residuosity and the Reductions folder page at 1280px and 375px, and the TOC of Assumptions/noisy-k-lin-over-expanders at 1280px (it is desktop-only); run npm run check and npm test.",
+      "rationale": "Breadcrumbs.tsx, Backlinks.tsx and PageList.tsx print frontmatter.title as plain text, so '$d$-th Composite Residuosity ⇒ Additively homomorphic encryption', 'Honest majority ($t < n/2$) ⇒ MPC' and '$k$-Linear assumption ⇒ ABE' show their dollar signs in breadcrumbs, backlinks and the Reductions folder listing, and toc.ts takes heading text with mdast toString, so '## Noisy $k$-LIN over $\\FF_2$ (Sparse LPN)' appears as TeX source. Page bodies and generated sections render the same titles. Pre-existing; seen by the final validator. CLAUDE.md asks for a clear reason before changing quartz/; readers seeing TeX source is one.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["final#out_of_scope_observations-0"],
+      "related": ["ffc:schema-convention-2"]
+    },
+    {
+      "id": "ffc:schema-convention-2",
+      "kind": "schema-convention",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "Breadcrumbs replace every hyphen in a page title with a space ('Attribute based encryption', 'No fixed construction reduction from Fiat Shamir to NIZK', 'IND$ CPA Security ⇒ CPA Security')",
+      "pages": ["quartz/components/Breadcrumbs.tsx"],
+      "proposed_action": "In quartz/components/Breadcrumbs.tsx remove hyphens only from names that come from a slug or file segment, never from a frontmatter title: make formatCrumb take the trie node and set displayName to node.data?.title ? node.displayName : node.displayName.replaceAll(\"-\", \" \"), passing the node from the pathNodes.map callback. Rebuild and check the crumbs of Barriers/no-fiat-shamir-to-nizk-gk03 (its title verbatim), Primitives/attribute-based-encryption ('Attribute-based encryption') and a folder crumb ('Reductions'); run npm run check.",
+      "rationale": "formatCrumb applies displayName.replaceAll('-', ' ') to every crumb. That was written for names taken from slugs, but a trie node with data takes its displayName from the frontmatter title (quartz/util/fileTrie.ts), so it also rewrites the current page's title; the resolveFrontmatterTitle option is declared but never read. 135 non-reference titles contain a hyphen. Pre-existing Quartz behaviour; the final validator saw it on barrier titles, and the built pages show it on primitives too.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["final#out_of_scope_observations-1"],
+      "related": ["ffc:schema-convention-1"]
+    },
+    {
+      "id": "ffc:schema-convention-3",
+      "kind": "schema-convention",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "At 375px a floated pseudocode comment can split a keyword mid-word; dcr-to-pke-pai99 was worked around by moving its comment, and quadratic-residuosity, planted-clique and succinct-argument still render 'end if' as 'en' / 'd if'",
+      "pages": [
+        "quartz/plugins/transformers/pseudocode.ts",
+        "content/Reductions/dcr-to-pke-pai99.md"
+      ],
+      "proposed_action": "In the CSS that quartz/plugins/transformers/pseudocode.ts injects, next to the `.ps-comment { float: right; padding-left: 2em; }` rule, add `.ps-root .ps-keyword { white-space: nowrap; }`, so that no keyword ('return', 'end if', 'end for') breaks inside. The break comes from `overflow-wrap: break-word` on `p` in quartz/styles/base.scss, which pseudocode.js's `p.ps-line` inherits. Rebuild and check at 375px that every `.ps-keyword` on the 44 built pages with pseudocode has a single client rect. Then, in the Dec block of content/Reductions/dcr-to-pke-pai99.md, move `\\Comment{$u = 1 + m \\varphi n \\bmod n^2$}` from after the \\Return line back to after the `\\State $u \\gets c^{\\varphi} \\bmod n^2$` line it annotates.",
+      "rationale": "The final validator saw 'return' rendered as 'r' / 'eturn' on dcr-to-pke-pai99 and fixed only that page, which moved the comment off the line it explains. Rerunning its 375px scan on all 44 pseudocode pages of the final build finds 'end if' split as 'en' / 'd if' on Assumptions/quadratic-residuosity and Primitives/succinct-argument, and as 'en' / 'd' / 'if' on Assumptions/planted-clique, each on the \\EndIf that follows a line carrying a \\Comment. One CSS rule fixes the cause on every page.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["final#validator_fixes-0"],
+      "related": []
+    },
+    {
+      "id": "ffc:schema-convention-4",
+      "kind": "schema-convention",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "remark-smartypants turns an apostrophe right after inline math into a left quote ($\\calA$'s renders as 𝒜‘s) on 15 built pages",
+      "pages": [
+        "quartz/plugins/transformers/gfm.ts",
+        "quartz/plugins/transformers/gfm.test.ts (new)",
+        "content/Assumptions/knowledge-of-exponent.md",
+        "content/Assumptions/learning-with-errors.md",
+        "content/Glossary/black-box-separations.md",
+        "content/Glossary/interactive-protocol.md",
+        "content/Primitives/pseudorandom-correlation-generator.md",
+        "content/Reductions/cpa-security-to-cpa-security.md",
+        "content/Reductions/dpf-to-computational-multi-server-pir-gi14.md",
+        "content/Reductions/dpf-to-multi-point-functions.md",
+        "content/Reductions/ind-dollar-cpa-security-to-cpa-security.md",
+        "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
+        "content/Reductions/pk-depir-to-sk-depir.md",
+        "content/Reductions/prg-to-prf-ggm86.md",
+        "content/Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg.md",
+        "content/Reductions/succinct-lwe-to-lwe.md",
+        "content/References/GGM86 - How to construct random functions.md"
+      ],
+      "proposed_action": "Recommended: in quartz/plugins/transformers/gfm.ts add a remark plugin that runs after smartypants (markdownPlugins returns [remarkGfm, smartypants, quoteAfterMath] when enableSmartyPants is on). It visits every parent node and, for each text child whose previous sibling is an inlineMath node and whose value starts with '‘' followed by a letter, replaces that '‘' with '’' (U+2019). RelationMeta's metadata line goes through the same pipeline, so the security-loss line of succinct-lwe-to-lwe is covered. In gfm.test.ts check that '$\\calA$'s output' yields '’s' and that `$x$ 'word'` (space after the math) keeps its opening quote. Alternative, content only: type '’' directly after the math in the 20 occurrences on the 15 listed source pages (two on knowledge-of-exponent, three on learning-with-errors, two each on ind-id-cpa-security-to-ind-sid-cpa-security-selective and ring-lpn-to-pseudorandom-correlation-generators-pcg, one on each other page, the succinct-lwe-to-lwe one in `security-loss`); new pages would keep hitting the bug. Rebuild and check that no built page contains a KaTeX span followed by '‘' and a letter.",
+      "rationale": "smartypants sees the text node after an inlineMath node in isolation, so an apostrophe at its start reads as an opening quote. A scan of the final build finds a KaTeX span followed by '‘' and a letter on 15 pages: Assumptions/knowledge-of-exponent, Assumptions/learning-with-errors, Glossary/black-box-separations, Glossary/interactive-protocol, Primitives/pseudorandom-correlation-generator, nine Reductions pages and References/GGM86. The \\Comment in succinct-argument's pseudocode is rendered by pseudocode.js and is unaffected. Pre-existing (12 pages in the polish build); recorded by the final-form fix executor and verifier.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": ["fix.exec#open_items-1", "fix.verify#open_items-1"],
+      "related": ["ffc:schema-convention-5"]
+    },
+    {
+      "id": "ffc:schema-convention-5",
+      "kind": "schema-convention",
+      "confidence": "high",
+      "needs_paper": false,
+      "summary": "The GGM86 abstract writes $ƒ_r$ with U+0192 inside math, so every build logs a KaTeX strict-mode warning",
+      "pages": [
+        "content/References/GGM86 - How to construct random functions.md"
+      ],
+      "proposed_action": "In '## Abstract' of content/References/GGM86 - How to construct random functions.md replace both `$ƒ_r$` with `$f_r$`. If ffc:schema-convention-4 is applied by its content-only alternative, write the second as `$f_r$’s`. Rebuild and check that the build log has no 'Unicode text character' warning.",
+      "rationale": "KaTeX reports 'Unicode text character ƒ used in math mode' for this page on every build, the only warning left in the final build. The ƒ is an extraction artifact of the paper's italic f, so the change keeps the abstract verbatim. Pre-existing; seen by the final validator.",
+      "origin": "final-form completeness critics 2026-10-04",
+      "merged_from": [
+        "final#out_of_scope_observations-3",
+        "fix.exec#open_items-0",
+        "fix.verify#open_items-1"
+      ],
+      "related": ["ffc:schema-convention-4"]
+    }
+  ]
+}

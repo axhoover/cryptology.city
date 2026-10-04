@@ -1,37 +1,26 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "Authenticated key exchange (AKE) ⇒ KE"
 aliases: []
 id: red-authenticated-key-exchange-ake-to-ke
 kind: implication
 hypotheses: [authenticated-key-exchange]
 conclusion: ke
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The construction is the identity, and the reduction runs the KE eavesdropper unchanged inside an AKE adversary that relays messages faithfully, using it only as an oracle."
 ---
 
 # Authenticated key exchange (AKE) ⇒ KE
 
-[[key-exchange#authenticated-key-exchange-ake|Authenticated key exchange (AKE)]] implies [[key-exchange|KE]].
-
 ## Statement
 
-Migrated verbatim from [[key-exchange]]:
+Every [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is, unchanged, a [[key-exchange|key exchange]] protocol secure against eavesdroppers — folklore. The AKE security game additionally gives the adversary control of the network and requires the parties to authenticate each other.
 
-> An AKE additionally guarantees that the parties authenticate each other's identities during the protocol, preventing man-in-the-middle attacks.
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Variation section; AKE => KE is implicit, never asserted. No citation. No slug for AKE.
+A KE eavesdropper is run as an AKE adversary that relays one honest session's messages faithfully and tests that session's key.

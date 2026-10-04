@@ -1,40 +1,31 @@
 ---
 type: reduction
 status: draft
-title: "Module LWE ⇔ LWE"
+title: "Module LWE (degree 1) ⇔ LWE"
 aliases: []
 id: red-module-lwe-to-lwe-ls15
 kind: equivalence
 hypotheses: [module-lwe-rank-n]
 conclusion: lwe
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
 security-loss: ""
+rationale:
+  class: "Both directions are the identity map on instances, so each reduction runs the adversary unchanged as an oracle."
 ---
 
-# Module LWE ⇔ LWE
-
-[[learning-with-errors#module-lwe|Module LWE]] is equivalent to [[learning-with-errors|LWE]].
+# Module LWE (degree 1) ⇔ LWE
 
 ## Statement
 
-Migrated verbatim from [[LS15 - Worst-case to average-case reductions for module lattices]]:
+[[learning-with-errors#degree-1-module-lwe|Module LWE]] over the degree-1 ring $R = \ZZ$ at module rank $n$ is [[learning-with-errors|LWE]] in dimension $n$ with the same modulus, error distribution and number of samples, so each is hard if and only if the other is — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
 
-> Introduced Module LWE (MLWE), which generalizes Ring LWE by considering rank-$k$ modules over a polynomial ring $R_q$. When $k = 1$ this recovers Ring LWE; when $k = n$ this recovers plain LWE. The module structure interpolates between the two extremes, yielding a flexible parameter trade-off between efficiency and security assumptions. Kyber (ML-KEM) and Dilithium (ML-DSA), the NIST post-quantum standards, are based on Module LWE.
+## Sketch
+
+With $R_q = \ZZ_q$, the Module LWE sample $(\mathbf{A}, \mathbf{A}\mathbf{s} + \mathbf{e})$ has $\mathbf{A} \in \ZZ_q^{m \times n}$ and $\mathbf{s} \in \ZZ_q^n$, so it is an LWE sample; the identity map is a reduction in both directions.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- STRUCTURAL: no ## Abstract heading; unlabelled editorial paragraph.
-- SUSPECTED IMPRECISION (recorded, not fixed): 'when k = n this recovers plain LWE' is wrong as stated. Plain LWE is the degree-1 ring R = Z at rank n; over a degree-n ring, rank n gives a module of total dimension n^2, not plain LWE. The k=1 => Ring LWE half is correct.
-- MAJOR OMISSION: the page's own title promises worst-case to average-case reductions for module lattices, and the inventory already records that edge (Assumptions/learning-with-errors.md:129 [worst-case-module-lattice-problems => module-lwe], sourced to LS15). This editorial summary omits the paper's actual theorem entirely and describes only the definition and deployments.
-- The Kyber/Dilithium sub-edge is a deployment claim with NO citation and no reference page for either scheme — sources[] left empty rather than fabricated.
-- The two specialisation equivalences (rank-1 = RLWE, rank-n = LWE) are NOT in the existing 861-record inventory; they are the only genuinely new content on this page.
-- No inline citations.
+- Rank $n$ over a degree-$n$ ring does not recover LWE: the module has $\ZZ_q$-dimension $n^2$, and $\mathbf{A}$ has structured $n \times n$ blocks (negacyclic for $f = x^n + 1$) — folklore.

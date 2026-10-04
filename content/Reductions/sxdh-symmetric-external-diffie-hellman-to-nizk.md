@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK"
 aliases: []
 id: red-sxdh-symmetric-external-diffie-hellman-to-nizk
@@ -9,30 +9,23 @@ hypotheses: [sxdh]
 conclusion: nizk
 class: unstated
 model: crs
-source: folklore
+source:
+  - "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
 security-loss: ""
+rationale:
+  model: "The common reference string is a commitment key, binding in the real setup and hiding in the simulated one."
 ---
 
 # SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK
 
-[[bilinear-map-assumptions#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]] implies [[non-interactive-zero-knowledge|NIZK]].
-
 ## Statement
 
-Migrated verbatim from [[bilinear-map-assumptions]]:
+Under [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] over a Type-3 pairing group, systems of pairing-product, multi-scalar-multiplication and quadratic equations over the group have non-interactive witness-indistinguishable proofs in the common reference string model, and [[non-interactive-zero-knowledge|NIZK]] proofs for multi-scalar-multiplication and quadratic equations and for pairing-product equations whose target is $1$ (or a product of pairings of public elements). Circuit satisfiability is a system of quadratic equations, so every $\classNP$ language has a NIZK proof of size linear in the circuit — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
-> Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric pairing. Stronger than BDDH; used for efficiently instantiating Groth-Sahai proofs.
+## Sketch
+
+The CRS is a commitment key for group elements and exponents; under SXDH a binding key (extractable, giving soundness) and a hiding key (perfectly hiding, with a simulation trapdoor, giving zero knowledge) are indistinguishable. A proof consists of commitments to the witness plus group elements that make the equation verify once the commitment randomness cancels.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (GS08 missing).
-- Duplicates the Groth-Sahai claim at line 36 with a different hypothesis (DLIN there, SXDH here) — two distinct reductions to the same conclusion.
+- GS08 also instantiate the proofs under the subgroup decision assumption and under [[decisional-diffie-hellman#dlin|DLIN]] — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].

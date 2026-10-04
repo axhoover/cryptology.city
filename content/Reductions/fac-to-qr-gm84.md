@@ -1,45 +1,31 @@
 ---
 type: reduction
 status: draft
-title: "FAC ⇒ QR"
+title: "QR ⇒ FAC"
 aliases: []
-id: red-fac-to-qr-gm84
+id: red-qr-to-factoring-blum-integers
 kind: implication
-hypotheses: [fac]
-conclusion: qr
-class: unstated
+hypotheses: [qr]
+conclusion: factoring-blum-integers
+class: fully-black-box
 model: standard
-source:
-  - "[[GM84 - Probabilistic encryption|GM84]]"
-security-loss: ""
+source: folklore
+security-loss: "tight: one factoring call; the QR advantage equals the factoring success probability"
+rationale:
+  class: "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
 ---
 
-# FAC ⇒ QR
-
-[[factoring|FAC]] implies [[quadratic-residuosity|QR]].
+# QR ⇒ FAC
 
 ## Statement
 
-Migrated verbatim from [[factoring]] § Known Results:
+If [[quadratic-residuosity|QR]] is hard for moduli $N = pq$ with $p \equiv q \equiv 3 \pmod 4$, then [[factoring#factoring-with-known-factor-structure|factoring]] such $N$ (Blum integers) is hard — folklore.
 
-> - The [[quadratic-residuosity|QR assumption]] follows from factoring hardness — [[GM84 - Probabilistic encryption|GM84]]
+## Sketch
 
-Migrated verbatim from [[quadratic-residuosity]] § Known Results:
-
-> - QR follows from [[factoring|factoring hardness]]: knowing $p$ and $q$ allows computing the Legendre symbols $\left(\frac{a}{p}\right)$ and $\left(\frac{a}{q}\right)$ — [[GM84 - Probabilistic encryption|GM84]]
+Given a QR challenge $(N, a)$, run the factoring algorithm on $N$; if it returns a prime factor $p'$, output $0$ iff $a^{(p'-1)/2} \equiv 1 \pmod{p'}$, and otherwise output a uniform bit. For $a \in \J_N$, $\left(\frac{a}{p}\right) = \left(\frac{a}{q}\right)$, so $a \in \QR_N$ iff $a$ is a square modulo $p'$, which Euler's criterion decides; the QR advantage therefore equals the factoring success probability.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- SUSPECTED MATHEMATICAL ERROR: QR hardness does not follow from factoring hardness; factoring N breaks QR, so QR hardness implies factoring hardness.
-- GM84 does not prove that factoring hardness implies the QR assumption.
-- SUSPECTED DIRECTION ERROR (report only, high confidence): "QR follows from factoring hardness" is backwards. The justification given on the same bullet — knowing p and q lets you compute the Legendre symbols — shows that a FACTORING ALGORITHM BREAKS QR, i.e. QR hardness implies factoring hardness, making QR the STRONGER assumption. QR does not follow from factoring hardness; no reduction in that direction is known.
-- The # Attacks bullet at line 68 of this same page states the correct direction and directly contradicts this bullet.
-- GM84 is cited for a claim GM84 does not make in this direction.
+- The reduction preserves the modulus distribution: QR hardness for any distribution of $N = pq$ with $p, q$ distinct odd primes gives factoring hardness for the same distribution — folklore.
+- Whether factoring hardness implies QR hardness is open — folklore.

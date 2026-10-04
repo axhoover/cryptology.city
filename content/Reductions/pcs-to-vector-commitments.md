@@ -1,39 +1,26 @@
 ---
 type: reduction
-status: stub
-title: "PCS ⇔ Vector commitments"
+status: draft
+title: "PCS ⇒ Vector commitments"
 aliases: []
 id: red-pcs-to-vector-commitments
-kind: equivalence
+kind: implication
 hypotheses: [pcs]
 conclusion: vector-commitment
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: a position-binding adversary is forwarded unchanged as an evaluation-binding adversary"
+rationale:
+  class: "The vector-commitment algorithms call the PCS only as an oracle after public interpolation over fixed points, and the fixed reduction runs a position-binding adversary once and forwards its two conflicting openings as an evaluation-binding break."
 ---
 
-# PCS ⇔ Vector commitments
-
-[[polynomial-commitment|PCS]] is equivalent to [[commitment-scheme#vector-commitments|Vector commitments]].
+# PCS ⇒ Vector commitments
 
 ## Statement
 
-Migrated verbatim from [[polynomial-commitment]] § Other results:
+A [[polynomial-commitment|PCS]] over $\FF$ for degree bound $n-1$, with $n \le |\FF|$, yields a [[commitment-scheme#vector-commitments|vector commitment]] for $\FF^n$: fix distinct $\omega_1, \dots, \omega_n \in \FF$, commit to $(v_1, \dots, v_n)$ as a commitment to the polynomial $f$ of degree $< n$ with $f(\omega_i) = v_i$, and open position $i$ with an evaluation proof for $f(\omega_i) = v_i$. Position binding follows from [[polynomial-commitment#evaluation-binding|evaluation binding]] at $\omega_i$ — folklore.
 
-> - Polynomial commitments are equivalent to vector commitments with position-binding under certain reductions — standard
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'under certain reductions' is an untypeable hedge — the reduction class is exactly what the target model needs and the page refuses to name it.
-- 'vector commitment' has no page (dangling object).
-- Uncited, '— standard' label on a non-obvious equivalence.
+Two accepted openings of one commitment at position $i$ to $v \ne v'$ are two accepted evaluation proofs at $\omega_i$ with values $v$ and $v'$ against that commitment, an evaluation-binding break.

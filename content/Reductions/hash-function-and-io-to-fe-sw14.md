@@ -1,50 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "Hash function + iO ⇒ FE"
+title: "OWF + iO ⇒ FE"
 aliases: []
 id: red-hash-function-and-io-to-fe-sw14
 kind: implication
-hypotheses: [hash-function, io]
+hypotheses: [owf, io]
 conclusion: functional-encryption
-class: unstated
+class: free
 model: standard
 source:
-  - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+  - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
 ---
 
-# Hash function + iO ⇒ FE
-
-[[hash-function|Hash function]] together with [[indistinguishability-obfuscation|iO]] implies [[functional-encryption|FE]].
+# OWF + iO ⇒ FE
 
 ## Statement
 
-Migrated verbatim from [[impagliazzos-five-worlds]] § Obfustopia:
+If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a selectively secure, indistinguishability-based [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits: for all efficient $\calA$ that announce $(m_0, m_1)$ before seeing the public parameters and request functional keys only for circuits $f$ with $f(m_0) = f(m_1)$, the advantage in distinguishing an encryption of $m_0$ from one of $m_1$ is negligible. [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build the scheme from iO, [[public-key-encryption|PKE]] and a statistically [[non-interactive-zero-knowledge#simulation-sound-nizk-ss-nizk|simulation-sound NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.
 
-> **[[indistinguishability-obfuscation|Indistinguishability obfuscation]] (iO)** together with [[hash-function|OWFs]] defines an even richer world beyond Cryptomania, sometimes called _Obfustopia_. iO is an extremely powerful primitive: combined with OWFs, it implies [[public-key-encryption|PKE]], [[digital-signature|digital signatures]], [[non-interactive-zero-knowledge|NIZK]] proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+## Sketch
 
-Migrated verbatim from [[indistinguishability-obfuscation]] § Other results:
-
-> - iO + OWF → functional encryption for all circuits — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]], [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
-
-## Notes
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Citations disagree across pages: [object Object]
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- CONJUNCTIVE and DISJUNCTIVELY BUNDLED: "combined with OWFs, it implies PKE, digital signatures, NIZK proofs without a CRS, functional encryption for all circuits, deniable encryption, and much more" is one hypothesis SET {iO, OWF} with five separate conclusions; this record isolates {iO, OWF} => functional encryption for all circuits.
-- "and much more" is an unbounded, untypeable tail that a migration must drop.
-- OWF hypothesis is again the hash-function page alias.
-- "functional-encryption" has no wiki page (content/Primitives has ABE, IBE, HVE, inner-product predicate encryption, but no functional encryption page).
-- 'OWF' here is bare text, not a wikilink (unlike line 51).
-- No page for functional encryption; conclusion slug invented.
-- Two citations on one bullet - unclear whether both prove the same statement or different variants.
+A ciphertext is two PKE encryptions of $m$ with a statistically simulation-sound NIZK proof that both encrypt the same message, and the functional key for $f$ obfuscates the program that verifies the proof, decrypts one component and outputs $f(m)$. Security is a Naor–Yung-style hybrid in which iO switches the component the functional key decrypts, the two programs being functionally equivalent by statistical simulation soundness and $f(m_0) = f(m_1)$.

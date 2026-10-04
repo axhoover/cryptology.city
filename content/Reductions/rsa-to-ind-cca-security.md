@@ -1,7 +1,7 @@
 ---
 type: reduction
-status: stub
-title: "RSA ⇒ IND-CCA security"
+status: draft
+title: "RSA ⇒ IND-CCA KEM"
 aliases: []
 id: red-rsa-to-ind-cca-security
 kind: implication
@@ -9,31 +9,19 @@ hypotheses: [rsa]
 conclusion: ind-cca-kem
 class: unstated
 model: rom
-source: folklore
+source:
+  - "[[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]"
 security-loss: ""
+rationale:
+  model: "The proof models the key-derivation hash as a random oracle whose query list the reduction reads, and no standard-model IND-CCA proof of RSA-KEM from RSA is known."
 ---
 
-# RSA ⇒ IND-CCA security
-
-[[rsa-assumption|RSA]] implies [[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]].
+# RSA ⇒ IND-CCA KEM
 
 ## Statement
 
-Migrated verbatim from [[key-encapsulation-mechanism]] § RSA-KEM / RSAES-OAEP:
+RSA-KEM samples $r \getsr \ZZ_N$, sends $c = r^e \bmod N$ and derives the key $\hash(r)$. If the [[rsa-assumption|RSA]] assumption holds, RSA-KEM is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the [[random-oracle-model|random oracle model]] — [[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]].
 
-> RSA-based KEM using OAEP padding. IND-CCA secure in the [[random-oracle-model|random oracle model]].
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation (BR94 OAEP / Shoup RSA-KEM absent).
-- Conflates two different things: RSA-KEM (hash the RSA preimage) and RSAES-OAEP (a PKE padding scheme), which have different proofs and different assumptions.
-- Hypothesis is not stated on the line; 'RSA-based' is inferred.
+An adversary that distinguishes $\hash(r)$ from uniform must query $\hash$ at the $e$-th root of the challenge ciphertext. The reduction plants its RSA instance as $c^*$, reads the preimage off the query list, and uses the same list, with lazily assigned keys, to simulate decapsulation.

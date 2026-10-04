@@ -12,7 +12,7 @@ id: pc
 
 # Planted clique assumption
 
-The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $\calG(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n \log n})$, efficient spectral algorithms solve the detection problem; the conjecture concerns sub-square-root clique sizes $k = n^\delta$ for $\delta \in (0, 1/2)$. The variant used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] strengthens this to sub-exponential adversaries.
+The _planted clique assumption_ conjectures that no efficient adversary can distinguish an Erdős–Rényi random graph $\calG(n,1/2)$ from one in which a uniformly random $k$-clique has been planted. For $k = \Omega(\sqrt{n})$, efficient spectral algorithms solve the detection problem ([[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]); the conjecture concerns sub-square-root clique sizes $k = n^\delta$ for $\delta \in (0, 1/2)$. The variant used in [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] strengthens this to sub-exponential adversaries.
 
 ## Assumption
 
@@ -49,15 +49,15 @@ The **GHJS25 planted clique conjecture** ([[GHJS25 - Public-Key Encryption from 
 
 ## Known Results
 
-- For $k = \Omega(\sqrt{n \log n})$, the planted clique can be detected in polynomial time via spectral methods: the top eigenvector of the centered adjacency matrix $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ concentrates on the planted set — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
+- For $k = \Omega(\sqrt{n})$, the planted clique can be detected in polynomial time via spectral methods: the top eigenvector of the centered adjacency matrix $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ concentrates on the planted set — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
-- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+- [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
 
 # Variations
 
 ## Standard planted clique ($k = \Theta(\sqrt{n})$)
 
-The most-studied regime takes $k = c\sqrt{n}$ for a constant $c$. At $c$ large enough, spectral and combinatorial algorithms succeed; for $c$ small, no efficient algorithm is known. This $\sqrt{n}$ threshold is widely believed to be the computational barrier and has been used as an average-case hardness assumption in complexity theory and statistics.
+The most-studied regime takes $k = c\sqrt{n}$ for a constant $c$. Polynomial-time algorithms find the clique for every constant $c > 0$ — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]. This $\sqrt{n}$ threshold is widely believed to be the computational barrier and has been used as an average-case hardness assumption in complexity theory and statistics.
 
 ## Planted dense subgraph
 
@@ -65,16 +65,16 @@ Planted dense subgraph generalizes planted clique: a random $k$-vertex subgraph 
 
 # Attacks
 
-- **Spectral**: For $k = \Omega(\sqrt{n \log n})$, the top eigenvector of $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ (where $\mathbf{J}$ is the all-ones matrix) concentrates on $S$, enabling detection and recovery in $O(n^2)$ time — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
-- **Degree threshold**: Vertices in the planted clique have expected degree $\tfrac{n-1}{2} + k - 1$ versus $\tfrac{n-1}{2}$ for unplanted vertices; thresholding on degree finds $S$ when $k = \Omega(\sqrt{n \log n})$
+- **Spectral**: For $k = \Omega(\sqrt{n})$, the top eigenvector of $\mathbf{G} - \tfrac{1}{2}\mathbf{J}$ (where $\mathbf{J}$ is the all-ones matrix) concentrates on $S$, enabling detection and recovery in polynomial time — [[AKS98 - Finding a Large Hidden Clique in a Random Graph|AKS98]]
+- **Degree threshold**: Vertices in the planted clique have expected degree $\tfrac{n-1}{2} + \tfrac{k-1}{2}$ versus $\tfrac{n-1}{2}$ for unplanted vertices; thresholding on degree finds $S$ when $k = \Omega(\sqrt{n \log n})$ — Kučera, _Expected complexity of graph partitioning problems_ (Discrete Applied Mathematics, 1995)
 
-<!-- BEGIN GENERATED participates-in 708b4adc986a -->
+<!-- BEGIN GENERATED participates-in c227a8882205 -->
 
 ## Participates in
 
 **Builds on Planted clique assumption**
 
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
-- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+- [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
 
 <!-- END GENERATED participates-in -->

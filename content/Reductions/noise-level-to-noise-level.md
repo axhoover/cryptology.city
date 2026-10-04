@@ -1,43 +1,26 @@
 ---
 type: reduction
-status: stub
-title: "Noise Level ⇒ Noise Level"
+status: draft
+title: "Low-noise LPN ⇒ Mid-noise LPN"
 aliases: []
 id: red-noise-level-to-noise-level
 kind: implication
 hypotheses: [lpn-low-noise]
-conclusion: lpn-constant-noise
-class: unstated
+conclusion: lpn-mid-noise
+class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "tight: advantage-preserving, one oracle call"
+rationale:
+  class: "A fixed sample map (add independent Bernoulli noise to each label) feeds the higher-noise distinguisher, which the reduction runs once as an oracle without using its code."
 ---
 
-# Noise Level ⇒ Noise Level
-
-[[learning-parity-with-noise#noise-level|Noise Level]] implies [[learning-parity-with-noise#noise-level|Noise Level]].
+# Low-noise LPN ⇒ Mid-noise LPN
 
 ## Statement
 
-Migrated verbatim from [[learning-parity-with-noise]] § Noise Level:
+If $(k,\varepsilon)$-[[learning-parity-with-noise|LPN]] is hard at noise rate $\varepsilon = \log^c(k)/k$ for a constant $c > 1$ (the [[learning-parity-with-noise#low-noise-lpn|low-noise regime]]), then $(k,\varepsilon')$-LPN is hard at noise rate $\varepsilon' = k^{-\gamma}$ for every constant $1/2 \le \gamma < 1$ (the [[learning-parity-with-noise#mid-noise-lpn|mid-noise regime]]): $\varepsilon < \varepsilon'$ for all large $k$, and LPN hardness is monotone in the noise rate — folklore.
 
-> - **Constant-noise:** $0 < \varepsilon < 1/2$ (weakest assumption)
-> - **High-noise**: $\varepsilon = 1/k^\gamma$ for $0 < \gamma < 1/2$
-> - **Mid-noise**: $\varepsilon = 1/k^\gamma$ for every $\gamma < 1$
-> - **Low-noise**: $\varepsilon = \log^c(k) / k$ for some $c > 1$. (strongest assumption)
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The ordering of the four regimes (weakest to strongest) is conveyed only by parentheticals; the implications between regimes are never stated as reductions and are uncited.
-- SUSPECTED DEFINITION ERROR: High-noise is epsilon = 1/k^gamma for 0 < gamma < 1/2 while Mid-noise is epsilon = 1/k^gamma for every gamma < 1, so the mid-noise range strictly contains the high-noise range — the regimes are not disjoint as presented.
-- Naming is counterintuitive: the high-noise regime has strictly less noise than the constant-noise regime.
-- None of the four regimes has its own page identifier, yet later bullets on the page cite them as distinct hypotheses.
+Map an instance $(\mathbf{A}, \mathbf{v})$ to $(\mathbf{A}, \mathbf{v} + \mathbf{e}')$ with $\mathbf{e}' \getsr \mathrm{Ber}(\tau)^m$ and $\tau = (\varepsilon' - \varepsilon)/(1 - 2\varepsilon)$, so that each coordinate of $\mathbf{e} + \mathbf{e}'$ is $1$ with probability $\varepsilon(1-\tau) + \tau(1-\varepsilon) = \varepsilon'$. Rate-$\varepsilon$ instances become rate-$\varepsilon'$ instances with the same $\mathbf{A}$ and $\mathbf{s}$, and uniform $\mathbf{v}$ stays uniform, so a distinguisher for the noisier problem breaks the less noisy one with the same advantage; the same map works for search LPN.

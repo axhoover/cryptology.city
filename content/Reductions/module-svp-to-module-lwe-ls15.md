@@ -1,36 +1,32 @@
 ---
 type: reduction
 status: draft
-title: "Module-SVP ⇒ Module LWE"
+title: "Module-SIVP ⇒ Module LWE"
 aliases: []
 id: red-module-svp-to-module-lwe-ls15
 kind: implication
 hypotheses: [worst-case-module-lattice-problems]
 conclusion: module-lwe
-class: unstated
-model: standard
+class: fully-black-box
+model: quantum
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
 security-loss: ""
+rationale:
+  class: "The quantum reduction uses an arbitrary Module LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability."
+  model: "The step turning the bounded-distance-decoding solver into a discrete Gaussian sampler is a quantum algorithm."
 ---
 
-# Module-SVP ⇒ Module LWE
-
-[[module-lattice-problems|Module-SVP]] implies [[learning-with-errors#module-lwe|Module LWE]].
+# Module-SIVP ⇒ Module LWE
 
 ## Statement
 
-Migrated verbatim from [[learning-with-errors]] § Module LWE:
+Solving the shortest independent vectors problem on [[module-lattice-problems|module lattices]] of rank $d$ over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces in quantum polynomial time to average-case [[learning-with-errors#module-lwe|Module LWE]] of rank $d$, in its search form and, for suitable moduli, its decision form — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[learning-with-errors#ring-lwe|Ring LWE]] reduction and $n = 1$ recovers plain [[learning-with-errors|LWE]].
 
-> Hardness of Module LWE reduces to worst-case problems on module lattices — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]].
+## Sketch
+
+The iterative quantum step of [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]], carried over to rank-$d$ module lattices: the Module LWE oracle solves bounded-distance decoding on the dual module lattice, a quantum Fourier step turns that decoder into a sampler of narrower discrete Gaussians over the primal, and iterating drives the Gaussian width down to the target approximation factor.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- Direction language is backwards from the standard convention: "Hardness of Module LWE reduces to worst-case problems on module lattices" should read "worst-case module-lattice problems reduce to Module LWE".
-- The worst-case problem is unnamed ("worst-case problems on module lattices"), so the hypothesis node is a placeholder.
+- The reduction to [[shortest-integer-solution#module-sis|Module-SIS]] in the same paper is classical — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]; see [[module-svp-to-module-sis-ls15|Module-SIVP ⇒ Module-SIS]].

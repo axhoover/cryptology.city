@@ -18,7 +18,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 - $\classP \subseteq \classcoNP$, since P is closed under complement.
 - If a problem is [[nondeterministic-polynomial-time|NP]]-complete, then it is in $\classcoNP$ if and only if $\classNP = \classcoNP$.
-- $\classcoNP \subseteq \classAM$: this follows from the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] showing that coNP has Arthur-Merlin protocols.
+- $\classcoNP \subseteq \classcoAM$, since $\classNP \subseteq \classAM$ — folklore. Whether $\classcoNP \subseteq \classAM$ is open; it would collapse the polynomial hierarchy to its second level ([[no-conp-to-am-bm88]]) — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]; [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]].
 - Integer factorization and discrete logarithm are both in $\classNP \cap \classcoNP$: there are short certificates for both "yes" and "no" answers. This is one reason these problems are considered unlikely to be NP-complete — an NP-complete problem in coNP would imply $\classNP = \classcoNP$.
 - $\classcoNP \subseteq \classPSPACE$.
 
@@ -28,20 +28,22 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\classSZK$ and $\classcoAM$).
 - **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — TODO citation).
 
-<!-- BEGIN GENERATED participates-in af0b9d6ea3dd -->
+<!-- BEGIN GENERATED participates-in f156fcfd802b -->
 
 ## Participates in
 
 **Builds on Co-nondeterministic polynomial-time**
 
-- [[conp-to-am-gs86|coNP ⊆ AM]]
 - [[conp-to-coam|coNP ⊆ coAM]]
 - [[conp-to-pspace|coNP ⊆ PSPACE]]
 
 **Produces Co-nondeterministic polynomial-time**
 
 - [[dlog-to-conp|DLOG ⊆ coNP]]
-- [[np-to-conp|NP = coNP]]
 - [[p-to-conp|P ⊆ coNP]]
+
+**Barriers**
+
+- [[no-conp-to-am-bm88|coNP ⊆ AM collapses the polynomial hierarchy]]
 
 <!-- END GENERATED participates-in -->

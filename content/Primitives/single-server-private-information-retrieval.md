@@ -117,20 +117,30 @@ where $(\sk, D') \gets \Setup(1^\secpar, D)$ and $(q, \st) \gets \Query(\sk, i)$
 
 ### Security
 
-The adversary acts as the server: it chooses the database and two challenge indices, then sees the encoded database $D'$ and a single online query. Security requires the query to reveal nothing about the index despite the adversary knowing $D'$.
+The adversary acts as the server: it chooses the database, then sees the encoded database $D'$ and polynomially many online queries under the same $\sk$, each for index $i_b$ of an adaptively chosen pair $(i_0, i_1)$. $\Setup$ runs once, and neither $\sk$ nor $D'$ is updated between queries — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]], [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]. Security requires the queries to reveal nothing about $b$ despite the adversary knowing $D'$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{sk\text{-}priv}}_{\PIR,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(D, i_0, i_1, \stA) \gets \calA(1^\secpar)$
+\State $(D, \stA) \gets \calA(1^\secpar)$
 \State $(\sk, D') \gets \Setup(1^\secpar, D)$
 \State $b \getsr \bits$
-\State $(q, \st) \gets \Query(\sk, i_b)$
-\State $b' \gets \calA(D', q, \stA)$
+\State $b' \gets \calA^{\calO_b}(D', \stA)$
 \Comment{$\calA$ sees $D'$ but not $\sk$}
 \Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO_b(i_0, i_1)$}
+\begin{algorithmic}
+\State $(q, \st) \gets \Query(\sk, i_b)$
+\Return $q$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -154,28 +164,32 @@ is negligible.
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
-- Any PIR requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
-- [[lpn-to-secret-key-pir-sk-pir-cimr25|LPN ⇒ Secret-Key PIR (SK-PIR)]]
-- [[hash-function-to-secret-key-pir-sk-pir-bm26|Hash function ⇒ Secret-Key PIR (SK-PIR)]]
+- Any PIR without preprocessing requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
+- [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 2a083aa122bb -->
+<!-- BEGIN GENERATED participates-in 050cb6a33f01 -->
 
 ## Participates in
 
 **Builds on Private Information Retrieval**
 
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
+- [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 
 **Produces Private Information Retrieval**
 
-- [[depir-to-cpir|DEPIR ⇒ cPIR]]
+- [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]]
+- [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]]
-- [[k-out-of-n-ot-to-cpir|$k$-out-of-$n$ OT ⇔ cPIR]]
+- [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
+- [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 
 **Barriers**
 
-- [[no-np-to-cpir-lv15|No reduction from NP to cPIR]]
+- [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to cPIR]]
 
 <!-- END GENERATED participates-in -->

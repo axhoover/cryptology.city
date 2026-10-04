@@ -10,14 +10,18 @@
 // Two outputs:
 //
 //   content/**/*.md   a "Participates in" section on every object page, inside
-//                     a delimited region carrying a checksum. Regenerating when
+//                     a delimited region carrying a checksum: the edges on the
+//                     page's id or its variants, the reductions proved in the
+//                     model it defines, and those using it via `via` (built by
+//                     scripts/participates-in.mjs). Regenerating when
 //                     nothing changed produces no diff, and a hand edit inside
 //                     the region is a lint error rather than something the next
 //                     regeneration silently reverts.
 //
 //   .reductions/relations.json
 //                     the machine-readable manifest: objects, propositions, the
-//                     class partial order, hyperedges, barriers. This is the
+//                     class partial order, hyperedges, barriers (each with its
+//                     frontmatter `rationale`, when it has one). This is the
 //                     interface CCwiki consumes and the formalization repo joins
 //                     against — see docs/relations-json.md. It carries no
 //                     timestamp, on purpose: the file is a pure function of the
@@ -28,6 +32,9 @@ import fs from "node:fs";
 import path from "node:path";
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
+import { makeParticipatesIn } from "./participates-in.mjs";
+import { rationaleRecord } from "./lint-edges.mjs";
+import { headingsByAnchor, headingAt } from "./markdown-text.mjs";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
@@ -91,9 +98,19 @@ const propositions =
   )?.propositions ?? {};
 
 // ------------------------------------------------------------------ model ----
+// A variant is titled by the heading its anchor points at on the host page,
+// markdown removed and math kept (`Ring LWE`, `$k$-Linear assumption`). The
+// anchor is matched the way a link to it resolves: OFM slugs a wikilink's
+// anchor, and rehype-slug gives each heading its id. With no matching heading
+// the title falls back to the id, and the lint rejects the anchor
+// (`variant-anchor`).
+const variantTitle = (headings, vid, anchor) =>
+  (typeof anchor === "string" && headingAt(headings, anchor)) || vid;
+
 const objects = new Map(); // id -> object record
 for (const p of pages) {
   if (!OBJECT_TYPES.has(p.fm.type)) continue;
+  const headings = p.fm.variants ? headingsByAnchor(p.body) : new Map();
   if (p.fm.id)
     objects.set(p.fm.id, {
       id: p.fm.id,
@@ -117,7 +134,7 @@ for (const p of pages) {
       graphSlug: p.graphSlug,
       anchor,
       of: p.fm.id,
-      title: vid,
+      title: variantTitle(headings, vid, anchor),
       aliases: [],
       unlisted: p.fm.unlisted === true,
       ...(typeof v === "object" && v?.formal ? { formal: v.formal } : {}),
@@ -125,6 +142,10 @@ for (const p of pages) {
   }
 }
 
+const withRationale = (fm) => {
+  const rationale = rationaleRecord(fm);
+  return rationale ? { rationale } : {};
+};
 const reductions = [];
 const barriers = [];
 for (const p of pages) {
@@ -138,7 +159,11 @@ for (const p of pages) {
       model: p.fm.model ?? "standard",
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
+      heuristic: p.fm.heuristic === true,
       securityLoss: p.fm["security-loss"] ?? "",
+      // Why a field holds its value, keyed by this record's field names; the
+      // key is omitted when the page has no `rationale`.
+      ...withRationale(p.fm),
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,
@@ -154,7 +179,9 @@ for (const p of pages) {
       consequences: p.fm.consequences ?? [],
       strength: p.fm.strength,
       conditionalOn: p.fm["conditional-on"] ?? [],
+      circumventedBy: [].concat(p.fm["circumvented-by"] ?? []),
       source: [].concat(p.fm.source ?? []),
+      ...withRationale(p.fm),
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,
@@ -163,7 +190,6 @@ for (const p of pages) {
     });
   }
 }
-const byId = (xs) => [...xs].sort((a, b) => a.id.localeCompare(b.id));
 reductions.sort((a, b) => a.id.localeCompare(b.id));
 barriers.sort((a, b) => a.id.localeCompare(b.id));
 
@@ -176,10 +202,13 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
 // both directions — because "IP subset-of PSPACE" licenses concluding PSPACE
 // from IP exactly as an implication does.
+//
+// A `heuristic` edge is a candidate construction with no security reduction,
+// not a theorem, so it never fires.
 function buildRules() {
   const rules = [];
   for (const r of reductions) {
-    if (!r.conclusion || !r.hypotheses.length) continue;
+    if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion });
     if (r.kind === "equivalence")
       rules.push({
@@ -254,7 +283,7 @@ function derivation(target, seed, provenance) {
 function redundant() {
   const out = [];
   for (const r of reductions) {
-    if (!r.conclusion || !r.hypotheses.length) continue;
+    if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
     const { derived, provenance } = closure(r.hypotheses, { exclude: r.id });
     if (derived.has(r.conclusion))
       out.push({
@@ -269,35 +298,10 @@ function redundant() {
 }
 
 // ------------------------------------------------------- participates-in -----
-const linkTo = (id) => {
-  const o = objects.get(id);
-  if (!o) return `\`${id}\``;
-  return o.kind === "variant"
-    ? `[[${o.slug}${o.anchor}|${o.title}]]`
-    : `[[${o.slug}|${o.title}]]`;
-};
-const edgeLink = (e) => `[[${e.slug}|${e.title}]]`;
-
-function participatesIn(id) {
-  const asHyp = reductions.filter((r) => r.hypotheses.includes(id));
-  const asConcl = reductions.filter((r) => r.conclusion === id);
-  const bars = barriers.filter(
-    (b) => b.hypotheses.includes(id) || b.conclusion === id,
-  );
-  if (!asHyp.length && !asConcl.length && !bars.length) return null;
-
-  const lines = ["## Participates in", ""];
-  const section = (heading, xs) => {
-    if (!xs.length) return;
-    lines.push(`**${heading}**`, "");
-    for (const e of xs) lines.push(`- ${edgeLink(e)}`);
-    lines.push("");
-  };
-  section(`Builds on ${objects.get(id)?.title ?? id}`, byId(asHyp));
-  section(`Produces ${objects.get(id)?.title ?? id}`, byId(asConcl));
-  section("Barriers", byId(bars));
-  return lines.join("\n").trimEnd();
-}
+// The section itself is built in scripts/participates-in.mjs, which the tests
+// share: edges on the page's id or one of its variants, then the reductions
+// proved in the model the page defines or using it via `via`.
+const participatesIn = makeParticipatesIn({ objects, reductions, barriers });
 
 const digest = (s) =>
   crypto.createHash("sha256").update(s, "utf8").digest("hex").slice(0, 12);

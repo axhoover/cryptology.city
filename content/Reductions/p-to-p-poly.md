@@ -1,6 +1,6 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: "P ⊆ P/poly"
 aliases: []
 id: red-p-to-p-poly
@@ -15,27 +15,10 @@ security-loss: ""
 
 # P ⊆ P/poly
 
-[[polynomial-time|P]] is contained in [[p-poly|P/poly]].
-
 ## Statement
 
-Migrated verbatim from [[p-poly]] § Known relationships:
+[[polynomial-time|P]] $\subseteq$ [[p-poly|P/poly]] — folklore.
 
-> - $\classP \subseteq \classPpoly$: any uniform polynomial-time algorithm is also a polynomial-size circuit family.
+## Sketch
 
-## Notes
-
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- No citation and no folklore/standard marker.
+The tableau simulation turns a Turing machine running in time $t(n)$ into a circuit of size $O(t(n)^2)$ for each input length $n$, so a polynomial-time decider yields a polynomial-size circuit family; in the advice formulation, empty advice suffices.

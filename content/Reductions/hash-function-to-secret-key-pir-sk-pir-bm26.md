@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Hash function ⇒ Secret-Key PIR (SK-PIR)"
+title: "OWF ⇒ Secret-Key PIR (SK-PIR)"
 aliases: []
 id: red-hash-function-to-secret-key-pir-sk-pir-bm26
 kind: implication
-hypotheses: [hash-function]
+hypotheses: [owf]
 conclusion: secret-key-pir
 class: unstated
 model: standard
@@ -14,24 +14,13 @@ source:
 security-loss: ""
 ---
 
-# Hash function ⇒ Secret-Key PIR (SK-PIR)
-
-[[hash-function|Hash function]] implies [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]].
+# OWF ⇒ Secret-Key PIR (SK-PIR)
 
 ## Statement
 
-Migrated verbatim from [[single-server-private-information-retrieval]] § Constructions:
-
-> - SK-PIR with online communication $\tilde{O}(\sqrt{N} \cdot \secpar)$ (server time $O(N \cdot \poly(\secpar))$ per query) follows from one-way functions alone, matching the minimal known lower bound — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]]
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a [[single-server-private-information-retrieval#secret-key-pir-sk-pir|secret-key PIR]] scheme for size-$N$ databases with online communication $\tilde{O}(\sqrt{N})$ per query and, more generally, for all $N_c, N_s$ with $N_c \cdot N_s = N$, one with client-to-server communication $\tilde{O}(N_c)$ and server-to-client communication $N_s$ — [[BM26 - Secret-Key PIR from One-Way Functions|BM26]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The hypothesis 'one-way functions' has no wikilink here; elsewhere the wiki routes OWF to content/Primitives/hash-function.md (which also hosts CRHF) — the OWF identifier is ambiguous site-wide.
-- 'matching the minimal known lower bound' is a second, uncited claim riding on the same bullet.
-- 'secret-key-pir' is an in-page section, not its own slug.
+- Under [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]], communication drops to $O(N^{\varepsilon})$ for every constant $\varepsilon > 0$ — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] ([[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]).
+- Without the secret-key preprocessing, non-trivial single-server PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]] ([[cpir-to-ot-dmo00|cPIR ⇒ OT]]).

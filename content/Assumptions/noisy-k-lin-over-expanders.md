@@ -18,14 +18,14 @@ The _noisy $k$-LIN over expanders_ conjecture posits that no efficient adversary
 
 ## Assumption
 
-A matrix $\mathbf{M} \in \FF_p^{m \times n}$ is _$(\gamma, d, N)$-expanding_ if each column has exactly $d$ nonzero entries drawn from $\FF_p^*$, and for every set $S \subseteq [n]$ with $|S| \le N$, the neighborhood $\{i : M_{ij} \ne 0 \text{ for some } j \in S\}$ has size at least $\gamma d |S|$. The GHJS25 conjecture instantiates this with $d = \Omega(\log n)$ and $N = 2^{(\log n)^\alpha}$ for some $\alpha \in (0,1)$.
+A matrix $\mathbf{M} \in \FF_p^{m \times n}$ is _$(\gamma, d, N)$-expanding_ if each row has exactly $d$ nonzero entries drawn from $\FF_p^*$, and for every set $S \subseteq [m]$ of rows with $|S| \le N$, the neighborhood $\{j : M_{ij} \ne 0 \text{ for some } i \in S\}$ has size at least $\gamma d |S|$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]. The GHJS25 conjecture instantiates this with $d = \Omega(\log n)$ and $N = 2^{(\log n)^\alpha}$ for some $\alpha \in (0,1)$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{nklin}}_{\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathbf{M} \getsr \FF_p^{m \times n}$ with each column $(\gamma, d, N)$-expanding
+\State $\mathbf{M} \getsr \FF_p^{m \times n}$ that is $(\gamma, d, N)$-expanding
 \State $\mathbf{s} \getsr \FF_p^n$ ; $\mathbf{e} \getsr \mathrm{Ber}_p(\varepsilon)^m$
 \Comment{Each $e_i = 0$ w.p. $1-\varepsilon$, uniform in $\FF_p^*$ w.p. $\varepsilon$}
 \State $b \getsr \bits$
@@ -48,32 +48,29 @@ is negligible.
 
 - Noisy $k$-LIN over expanders is an $\FF_p$ generalization of [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]; the two names refer to the same family of assumptions specialized to $\FF_2$ vs. $\FF_p$ — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], footnote 2
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
-- [[pc-and-search-noisy-k-lin-to-pke-ghjs25|PC + Search noisy $k$-LIN ⇒ PKE]]
+- [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
 
 # Variations
 
 ## Noisy $k$-LIN over $\FF_2$ (Sparse LPN)
 
-Setting $p = 2$ recovers [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]: the noise over $\FF_2^* = \{1\}$ is simply a Bernoulli bit flip. Earlier works on pseudorandom correlation generators (PCGs) used "Sparse LPN" for this $\FF_2$ case; GHJS25 adopts "noisy $k$-LIN" to emphasize the $\FF_p$ generalization and the column-$k$-sparse structure of $\mathbf{M}$.
+Setting $p = 2$ recovers [[learning-parity-with-noise#Sparse Learning Parity with Noise|Sparse LPN]]: the noise over $\FF_2^* = \{1\}$ is simply a Bernoulli bit flip. Earlier works on pseudorandom correlation generators (PCGs) used "Sparse LPN" for this $\FF_2$ case; GHJS25 adopts "noisy $k$-LIN" to emphasize the $\FF_p$ generalization and the row sparsity of $\mathbf{M}$ ($d$ nonzero entries per equation).
 
 ## Search noisy $k$-LIN
 
-The search variant asks to recover $\mathbf{s}$ from $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$. The search-to-decision reduction for standard LPN does not immediately transfer to the expanding-matrix setting. GHJS25 Theorem 8.8 uses a search variant as an alternative assumption sufficient for PKE under the joint conjecture with planted clique.
+The search variant asks to recover $\mathbf{s}$ from $(\mathbf{M}, \mathbf{Ms}+\mathbf{e})$. No search-to-decision reduction is known for expanding matrices over $\FF_p$. For random $k$-sparse equations over $\FF_2$, a distinguisher for $(k-1)$LIN with $m$ samples yields a search algorithm for $k$LIN with roughly $O(nm)$ samples — [[BRT25 - Sample Efficient Search to Decision for kLIN|BRT25]]. [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]] Theorem 8.8 uses a search variant as an alternative assumption sufficient for PKE under the joint conjecture with planted clique.
 
 # Attacks
 
 No efficient algorithms are known for the conjecture parameters. Over $\FF_2$ (reducing to Sparse LPN), the best known attacks are variants of information-set decoding and BKW-style algorithms, whose complexity grows polynomially in $n$ only outside the conjecture's parameter regime.
 
-<!-- BEGIN GENERATED participates-in de9eda437c8a -->
+<!-- BEGIN GENERATED participates-in f4ad1dcfc082 -->
 
 ## Participates in
 
 **Builds on Noisy k-LIN over expanders**
 
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
-
-**Barriers**
-
-- [[no-search-noisy-k-lin-to-noisy-k-lin|No reduction from Search noisy $k$-LIN to Noisy k-LIN]]
+- [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25) (via [Search noisy $k$-LIN](noisy-k-lin-over-expanders#search-noisy-k-lin))
 
 <!-- END GENERATED participates-in -->

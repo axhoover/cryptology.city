@@ -46,7 +46,7 @@ A stronger notion: there exists an efficient **extractor** $E$ such that if $P^*
 
 ### Zero-knowledge
 
-The interaction reveals nothing beyond $x \in L$. Formally, there exists an efficient **simulator** $\Sim$ such that for all $x \in L$, the distribution of $\Sim(x)$ is computationally (or statistically, or perfectly) indistinguishable from the real interaction transcript $\langle P(x, w), V^*(x) \rangle$ for any $V^*$.
+The interaction reveals nothing beyond $x \in L$. Formally, for every efficient verifier $V^*$ there exists an efficient **simulator** $\Sim$ such that for all $x \in L$, the distribution of $\Sim(x)$ is computationally (or statistically, or perfectly) indistinguishable from the view of $V^*$ in the real interaction $\langle P(x, w), V^*(x) \rangle$ — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]].
 
 # Variations
 
@@ -60,7 +60,7 @@ Weaker form where the simulator only works against an honest verifier that picks
 
 ## Sigma protocols
 
-A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for discrete log is the canonical example.
+A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
 
 ## Witness-indistinguishable (WI) proofs
 
@@ -72,35 +72,29 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 # Other results
 
-- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
-- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
-- All languages in IP (= [[polynomial-space|PSPACE]]) have statistical ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]
-- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
-- Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96]]
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
+- Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
+- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
+- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
+- Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in ac519d22a12c -->
+<!-- BEGIN GENERATED participates-in 71ecdf9658f4 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
-- [[rom-and-zkp-to-ds-fs86|ROM + ZKP ⇒ DS]]
-- [[rom-and-zkp-to-nizk-fs86|ROM + ZKP ⇒ NIZK]]
-- [[zkp-to-hash-function|ZKP ⇒ Hash function]]
-- [[zkp-to-nizk-fs86|ZKP ⇒ NIZK]]
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
+- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 
 **Produces Zero-knowledge proof**
 
-- [[dlog-to-zkp|DLOG ⇒ ZKP]]
-- [[hash-function-to-zkp-gmw91|Hash function ⇒ ZKP]]
-- [[qr-to-zkp-gmr85|QR ⇒ ZKP]]
+- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#argument-systems|Argument systems]])
+- [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 
 **Barriers**
 
-- [[no-zkp-to-argument-systems|No fully-black-box reduction from ZKP to Argument systems]]
+- [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]] — circumvented by [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]]
 
 <!-- END GENERATED participates-in -->

@@ -1,36 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ DE-RAM-MPC"
+title: "Ring-LWE ⇒ DE-RAM-MPC"
 aliases: []
 id: red-lwe-to-de-ram-mpc-lmw24
 kind: implication
-hypotheses: [lwe]
+hypotheses: [ring-lwe]
 conclusion: doubly-efficient-ram-mpc
 class: unstated
 model: standard
 source:
   - "[[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]"
 security-loss: ""
+rationale:
+  class: "The conclusion bundles an efficiency requirement, sublinear online time, with security, and that requirement lies outside the RTV04 axes."
 ---
 
-# LWE ⇒ DE-RAM-MPC
-
-[[learning-with-errors|LWE]] implies [[doubly-efficient-ram-mpc|DE-RAM-MPC]].
+# Ring-LWE ⇒ DE-RAM-MPC
 
 ## Statement
 
-Migrated verbatim from [[secure-multi-party-computation]] § Other results:
-
-> - Doubly-efficient RAM-MPC (computation sublinear in the database size) from [[learning-with-errors|LWE]] — [[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]
+If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, there is a maliciously secure [[doubly-efficient-ram-mpc|doubly efficient RAM-MPC]] in the plain model: each party preprocesses its input once offline, then runs arbitrarily many executions with arbitrary other parties in online time proportional to the program's RAM running time, which may be sublinear in the input size — [[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]].
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- 'doubly-efficient-ram-mpc' has no page (closest existing page is doubly-efficient-pir); flagged non-slug identifier.
-- LMW24 is (to my knowledge) stated under LWE with a preprocessing/RAM model qualifier the bullet compresses away.
+- LMW24 build the protocol from [[doubly-efficient-pir|DEPIR]], and the Ring-LWE instantiation is the DEPIR of [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]. On the way, LMW24 construct doubly efficient commitments, whose sender commits and opens individual bits in sublinear online time after preprocessing, and doubly succinct arguments, whose prover runs each proof in sublinear online time after preprocessing — [[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]].

@@ -1,37 +1,30 @@
 ---
 type: barrier
-status: stub
-title: "No reduction from PKE to OT"
+status: draft
+title: "No fully-black-box reduction from PKE to OT"
 aliases: []
 id: bar-pke-to-ot-gkm-00
 hypotheses: [pke]
 conclusion: ot
-class: unstated
+class: fully-black-box
 consequences:
   - kind: contradiction
     target: ""
-    class: unstated
+    class: fully-black-box
 strength: unconditional
 source:
   - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+rationale:
+  class: "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses PKE, with a proof that uses the OT adversary, only as an oracle."
 ---
 
-# No reduction from PKE to OT
-
-A reduction of class `unstated` from [[public-key-encryption|PKE]] to [[oblivious-transfer|OT]] would imply a contradiction.
+# No fully-black-box reduction from PKE to OT
 
 ## Statement
 
-Migrated verbatim from [[black-box-separations]] § Other Notable Separations:
-
-> - **PKE, OT, and related primitives** — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]] establishes implications and oracle separations among public-key encryption, oblivious transfer, and related primitives, mapping out the landscape of what can and cannot be black-box reduced to what.
+There is no fully-black-box construction of [[oblivious-transfer|OT]] from a trapdoor predicate, i.e. single-bit [[public-key-encryption|PKE]]: the two primitives are incomparable under black-box reductions, by oracle separations following [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]. Bitwise encryption under a trapdoor predicate is a semantically secure multi-bit PKE — [[GM84 - Probabilistic encryption|GM84]] — so a fully-black-box construction of OT from multi-bit PKE would compose into one from trapdoor predicates, and none exists.
 
 ## Notes
 
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- VAGUE, CANNOT BE TYPED: 'establishes implications and oracle separations among public-key encryption, oblivious transfer, and related primitives' names neither a direction nor a specific pair. It is simultaneously an implies-edge and a separation-edge placeholder.
-- 'and related primitives' leaves the object set open-ended.
-- Neither PKE nor OT is wikilinked here, although content/Primitives/public-key-encryption.md and content/Primitives/oblivious-transfer.md exist.
-- Direction recorded as 'unclear'; the hypothesis/conclusion pair below is a placeholder, not an assertion of the page.
+- A restricted, strengthened form of each primitive does imply the other — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].
+- The converse separation: [[no-ot-to-pke-gkm-00|OT ⇏ PKE]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].

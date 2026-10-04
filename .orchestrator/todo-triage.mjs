@@ -35,28 +35,27 @@
 //   GITHUB_REF_NAME     branch for source links (default "main")
 //   TODO_TRIAGE_DRYRUN  if set, parse + render + decide, print, no network
 
-import {
-  readFileSync,
-  writeFileSync,
-  existsSync,
-  mkdirSync,
-} from 'node:fs';
-import { resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
-import { createHash } from 'node:crypto';
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from "node:fs";
+import { resolve, dirname } from "node:path";
+import { fileURLToPath } from "node:url";
+import { createHash } from "node:crypto";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const REPO_ROOT = resolve(__dirname, '..');
-const TODO_PATH = resolve(REPO_ROOT, 'TODO_SUMMARY.md');
-const STATE_DIR = resolve(__dirname, 'state');
-const STATE_PATH = resolve(STATE_DIR, 'todo_state.json');
-const PLAN_PATH = resolve(STATE_DIR, 'plan.json');
+const REPO_ROOT = resolve(__dirname, "..");
+const TODO_PATH = resolve(REPO_ROOT, "TODO_SUMMARY.md");
+const STATE_DIR = resolve(__dirname, "state");
+const STATE_PATH = resolve(STATE_DIR, "todo_state.json");
+const PLAN_PATH = resolve(STATE_DIR, "plan.json");
 
-const MARKER = '<!-- orchestrator:todo-triage v1 -->';
-const ISSUE_TITLE = '📋 Contributor TODO board';
+const MARKER = "<!-- orchestrator:todo-triage v1 -->";
+const ISSUE_TITLE = "📋 Contributor TODO board";
 const LABELS = [
-  { name: 'orchestrator', color: '0075ca', description: 'Maintained by the weekly orchestrator' },
-  { name: 'triage', color: 'e4e669', description: 'Backlog / triage tracking' },
+  {
+    name: "orchestrator",
+    color: "0075ca",
+    description: "Maintained by the weekly orchestrator",
+  },
+  { name: "triage", color: "e4e669", description: "Backlog / triage tracking" },
 ];
 
 const CAP_START = 12;
@@ -65,12 +64,12 @@ const CAP_REVIEW = 15;
 const PERIODIC_RUNS = 4;
 
 const PRIORITIES = {
-  0: { label: 'Critical', dot: '🔴' },
-  1: { label: 'High', dot: '🟠' },
-  2: { label: 'Medium', dot: '🟡' },
-  3: { label: 'Low', dot: '⚪' },
-  4: { label: 'Needs review', dot: '🔍' },
-  5: { label: 'Other', dot: '▫️' },
+  0: { label: "Critical", dot: "🔴" },
+  1: { label: "High", dot: "🟠" },
+  2: { label: "Medium", dot: "🟡" },
+  3: { label: "Low", dot: "⚪" },
+  4: { label: "Needs review", dot: "🔍" },
+  5: { label: "Other", dot: "▫️" },
 };
 
 // ----- Parsing -------------------------------------------------------------
@@ -82,7 +81,8 @@ function sectionPriority(title) {
   if (/^high/.test(t)) return 1;
   if (/^medium/.test(t)) return 2;
   if (/^low/.test(t)) return 3;
-  if (/cannot verify|needs human review|needs review|human review/.test(t)) return 4;
+  if (/cannot verify|needs human review|needs review|human review/.test(t))
+    return 4;
   return 5;
 }
 
@@ -91,15 +91,15 @@ const CAT_RE = /^\[([A-Za-z][A-Za-z /-]{0,18})\]\s+(.*)$/;
 const DETAIL_PATH_RE = /`([^`]+\.(?:md|ts))(?::(\d+))?`/;
 
 function splitSource(rest) {
-  const idx = rest.indexOf('_source:');
+  const idx = rest.indexOf("_source:");
   if (idx < 0) return { description: rest.trim(), source: null };
   let description = rest
     .slice(0, idx)
-    .replace(/[—\-\s]+$/u, '')
+    .replace(/[—\-\s]+$/u, "")
     .trim();
-  let source = rest.slice(idx + '_source:'.length);
+  let source = rest.slice(idx + "_source:".length);
   // Drop the closing italics underscore and any trailing "(note)".
-  source = source.replace(/_\s*(\(.*\))?\s*$/u, '').trim();
+  source = source.replace(/_\s*(\(.*\))?\s*$/u, "").trim();
   return { description, source: source || null };
 }
 
@@ -134,7 +134,7 @@ function parseTodoSummary(text) {
     const status = it[1].toLowerCase();
     let body = it[2];
 
-    let category = 'Uncategorized';
+    let category = "Uncategorized";
     const cm = body.match(CAT_RE);
     if (cm) {
       category = cm[1].trim();
@@ -148,7 +148,7 @@ function parseTodoSummary(text) {
     let j = i + 1;
     for (; j < lines.length; j++) {
       const d = lines[j];
-      if (d.trim() === '') break;
+      if (d.trim() === "") break;
       if (/^(##\s|---|\s*-\s\[)/.test(d) && !/^\s+/.test(d)) break;
       if (!/^\s+/.test(d)) break;
       detail.push(d.trim());
@@ -166,12 +166,12 @@ function parseTodoSummary(text) {
       }
     }
 
-    if (status !== ' ') continue; // only open items count
+    if (status !== " ") continue; // only open items count
 
     items.push({
       priority,
       category,
-      description: description.replace(/\s+/g, ' ').trim(),
+      description: description.replace(/\s+/g, " ").trim(),
       sourceRaw: source,
       sourcePath: src ? src.path : null,
       sourceLine: src ? src.line : null,
@@ -187,7 +187,7 @@ const GOOD_FIRST_RE =
   /\bstub\b|\bempty\b|bare\s+`?TODO|no content|missing (the )?required|placeholder|skips directly to|has no content|single .*TODO|empty\b.*section/i;
 
 function isGoodFirst(item) {
-  if (!['Content', 'Navigation'].includes(item.category)) return false;
+  if (!["Content", "Navigation"].includes(item.category)) return false;
   return GOOD_FIRST_RE.test(item.description);
 }
 
@@ -196,8 +196,8 @@ function itemKey(it) {
     it.priority,
     it.category.toLowerCase(),
     it.description.toLowerCase(),
-    it.sourceRaw || '',
-  ].join('|');
+    it.sourceRaw || "",
+  ].join("|");
 }
 
 function classify(items) {
@@ -219,9 +219,9 @@ function classify(items) {
     good_first: items.filter((x) => x.goodFirst).length,
   };
   const hiKeys = [...byPriority[0], ...byPriority[1]].map(itemKey).sort();
-  const fingerprint = createHash('sha256')
-    .update(items.map(itemKey).sort().join('\n'))
-    .digest('hex')
+  const fingerprint = createHash("sha256")
+    .update(items.map(itemKey).sort().join("\n"))
+    .digest("hex")
     .slice(0, 16);
   return { byPriority, byCategory, counts, hiKeys, fingerprint };
 }
@@ -229,46 +229,53 @@ function classify(items) {
 // ----- Rendering -----------------------------------------------------------
 
 function repoSlug() {
-  return process.env.GITHUB_REPOSITORY || 'OWNER/REPO';
+  return process.env.GITHUB_REPOSITORY || "OWNER/REPO";
 }
 
 function sourceLink(it) {
-  if (!it.sourcePath) return it.sourceRaw ? `\`${it.sourceRaw}\`` : '';
-  const branch = process.env.GITHUB_REF_NAME || 'main';
+  if (!it.sourcePath) return it.sourceRaw ? `\`${it.sourceRaw}\`` : "";
+  const branch = process.env.GITHUB_REF_NAME || "main";
   const encoded = it.sourcePath
-    .split('/')
+    .split("/")
     .map((s) => encodeURIComponent(s))
-    .join('/');
-  const anchor = it.sourceLine ? `#L${it.sourceLine}` : '';
-  const label = it.sourceLine ? `${it.sourcePath}:${it.sourceLine}` : it.sourcePath;
+    .join("/");
+  const anchor = it.sourceLine ? `#L${it.sourceLine}` : "";
+  const label = it.sourceLine
+    ? `${it.sourcePath}:${it.sourceLine}`
+    : it.sourcePath;
   return `[${label}](https://github.com/${repoSlug()}/blob/${branch}/${encoded}${anchor})`;
 }
 
 function clip(s, n = 180) {
-  return s.length > n ? s.slice(0, n - 1).trimEnd() + '…' : s;
+  return s.length > n ? s.slice(0, n - 1).trimEnd() + "…" : s;
 }
 
 function renderItem(it) {
-  const extra = it.detailCount > 0 ? ` _(+${it.detailCount} detail)_` : '';
+  const extra = it.detailCount > 0 ? ` _(+${it.detailCount} detail)_` : "";
   const link = sourceLink(it);
-  const where = link ? ` — ${link}` : '';
+  const where = link ? ` — ${link}` : "";
   return `- **[${it.category}]** ${clip(it.description)}${where}${extra}`;
 }
 
 function renderList(arr, cap) {
   const shown = arr.slice(0, cap).map(renderItem);
   if (arr.length > cap) {
-    shown.push(`- …and **${arr.length - cap} more** — see [\`TODO_SUMMARY.md\`](https://github.com/${repoSlug()}/blob/${process.env.GITHUB_REF_NAME || 'main'}/TODO_SUMMARY.md)`);
+    shown.push(
+      `- …and **${arr.length - cap} more** — see [\`TODO_SUMMARY.md\`](https://github.com/${repoSlug()}/blob/${process.env.GITHUB_REF_NAME || "main"}/TODO_SUMMARY.md)`,
+    );
   }
-  return shown.join('\n');
+  return shown.join("\n");
 }
 
 function renderBody(model, meta) {
   const { byPriority, byCategory, counts, fingerprint } = model;
   const p = PRIORITIES;
 
-  const goodFirst = [...byPriority[0], ...byPriority[1], ...byPriority[2]]
-    .filter((x) => x.goodFirst);
+  const goodFirst = [
+    ...byPriority[0],
+    ...byPriority[1],
+    ...byPriority[2],
+  ].filter((x) => x.goodFirst);
   const important = [...byPriority[0], ...byPriority[1]];
   const review = byPriority[4];
 
@@ -283,7 +290,7 @@ function renderBody(model, meta) {
   const catRows = Object.entries(byCategory)
     .sort((a, b) => b[1] - a[1])
     .map(([c, n]) => `| ${c} | ${n} |`)
-    .join('\n');
+    .join("\n");
 
   const sections = [];
 
@@ -291,49 +298,44 @@ function renderBody(model, meta) {
 Mostly filling stubs and empty sections. Pick one, open a PR, and check off
 its box in \`TODO_SUMMARY.md\` in the same PR.
 
-${goodFirst.length ? renderList(goodFirst, CAP_START) : '_None right now._'}`);
+${goodFirst.length ? renderList(goodFirst, CAP_START) : "_None right now._"}`);
 
   sections.push(`### 🔴 Most important
-${important.length ? renderList(important, CAP_IMPORTANT) : '_None right now._'}`);
+${important.length ? renderList(important, CAP_IMPORTANT) : "_None right now._"}`);
 
   sections.push(`### 🔍 Needs human review
 These can't be auto-resolved by a bot — a maintainer needs to look.
 
-${review.length ? renderList(review, CAP_REVIEW) : '_None right now._'}`);
+${review.length ? renderList(review, CAP_REVIEW) : "_None right now._"}`);
 
   sections.push(`### By category
 | Category | Open |
 |---|---|
-${catRows || '| — | 0 |'}
+${catRows || "| — | 0 |"}
 
-Full list: [\`TODO_SUMMARY.md\`](https://github.com/${repoSlug()}/blob/${process.env.GITHUB_REF_NAME || 'main'}/TODO_SUMMARY.md)`);
+Full list: [\`TODO_SUMMARY.md\`](https://github.com/${repoSlug()}/blob/${process.env.GITHUB_REF_NAME || "main"}/TODO_SUMMARY.md)`);
 
   const footer =
     `---\n_To clear an item: check its box (\`- [x]\`) or delete the line in ` +
     `\`TODO_SUMMARY.md\` via a PR — the board refreshes on the next weekly run._\n` +
     `<!-- fp:${fingerprint} total:${counts.total} -->`;
 
-  return [
-    MARKER,
-    snapshot,
-    sections.join('\n\n'),
-    footer,
-  ].join('\n\n');
+  return [MARKER, snapshot, sections.join("\n\n"), footer].join("\n\n");
 }
 
 // ----- GitHub API ----------------------------------------------------------
 
-const API = 'https://api.github.com';
+const API = "https://api.github.com";
 
 function gh(path, init = {}) {
   return fetch(`${API}${path}`, {
     ...init,
     headers: {
       authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-      accept: 'application/vnd.github+json',
-      'x-github-api-version': '2022-11-28',
-      'user-agent': 'cryptology-city-orchestrator',
-      ...(init.body ? { 'content-type': 'application/json' } : {}),
+      accept: "application/vnd.github+json",
+      "x-github-api-version": "2022-11-28",
+      "user-agent": "cryptology-city-orchestrator",
+      ...(init.body ? { "content-type": "application/json" } : {}),
       ...(init.headers || {}),
     },
   });
@@ -342,11 +344,13 @@ function gh(path, init = {}) {
 async function ensureLabels() {
   for (const l of LABELS) {
     const r = await gh(`/repos/${repoSlug()}/labels`, {
-      method: 'POST',
+      method: "POST",
       body: JSON.stringify(l),
     });
     if (!r.ok && r.status !== 422) {
-      console.error(`Warning: could not ensure label "${l.name}": HTTP ${r.status}`);
+      console.error(
+        `Warning: could not ensure label "${l.name}": HTTP ${r.status}`,
+      );
     }
   }
 }
@@ -358,14 +362,14 @@ async function findIssue() {
   if (!r.ok) throw new Error(`list issues failed: HTTP ${r.status}`);
   const arr = await r.json();
   const matches = arr
-    .filter((x) => !x.pull_request && (x.body || '').includes(MARKER))
+    .filter((x) => !x.pull_request && (x.body || "").includes(MARKER))
     .sort((a, b) => a.number - b.number);
   return matches[0] || null;
 }
 
 async function createIssue(body) {
   const r = await gh(`/repos/${repoSlug()}/issues`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({
       title: ISSUE_TITLE,
       body,
@@ -378,15 +382,15 @@ async function createIssue(body) {
 
 async function updateIssue(number, body) {
   const r = await gh(`/repos/${repoSlug()}/issues/${number}`, {
-    method: 'PATCH',
-    body: JSON.stringify({ body, state: 'open' }),
+    method: "PATCH",
+    body: JSON.stringify({ body, state: "open" }),
   });
   if (!r.ok) throw new Error(`update issue failed: HTTP ${r.status}`);
 }
 
 async function addComment(number, text) {
   const r = await gh(`/repos/${repoSlug()}/issues/${number}/comments`, {
-    method: 'POST',
+    method: "POST",
     body: JSON.stringify({ body: text }),
   });
   if (!r.ok) throw new Error(`comment failed: HTTP ${r.status}`);
@@ -397,7 +401,7 @@ async function addComment(number, text) {
 function loadState() {
   if (!existsSync(STATE_PATH)) return null;
   try {
-    return JSON.parse(readFileSync(STATE_PATH, 'utf8'));
+    return JSON.parse(readFileSync(STATE_PATH, "utf8"));
   } catch {
     return null;
   }
@@ -406,7 +410,7 @@ function loadState() {
 function runNumber(prev) {
   if (existsSync(PLAN_PATH)) {
     try {
-      const plan = JSON.parse(readFileSync(PLAN_PATH, 'utf8'));
+      const plan = JSON.parse(readFileSync(PLAN_PATH, "utf8"));
       if (Number.isInteger(plan.run_count)) return plan.run_count;
     } catch {
       /* fall through */
@@ -422,7 +426,8 @@ function decideComment(prev, model, run, isCreate) {
   const reasons = [];
   const prevHi = new Set(prev.hi_keys || []);
   const newHi = model.hiKeys.filter((k) => !prevHi.has(k));
-  if (newHi.length > 0) reasons.push(`${newHi.length} new high-priority item(s)`);
+  if (newHi.length > 0)
+    reasons.push(`${newHi.length} new high-priority item(s)`);
 
   if (model.counts.total > (prev.high_water_total ?? 0)) {
     reasons.push(`backlog reached a new high (${model.counts.total})`);
@@ -443,7 +448,7 @@ function decideComment(prev, model, run, isCreate) {
 function commentText(model, reasons, run) {
   const c = model.counts;
   return (
-    `📋 **TODO board updated** (run #${run}): ${reasons.join('; ')}.\n\n` +
+    `📋 **TODO board updated** (run #${run}): ${reasons.join("; ")}.\n\n` +
     `${c.total} open — ${c.critical} critical, ${c.high} high, ` +
     `${c.good_first} good-first, ${c.review} need human review. ` +
     `See the board above for the worklist.`
@@ -454,10 +459,10 @@ function commentText(model, reasons, run) {
 
 async function main() {
   if (!existsSync(TODO_PATH)) {
-    console.log('No TODO_SUMMARY.md; nothing to triage.');
+    console.log("No TODO_SUMMARY.md; nothing to triage.");
     return;
   }
-  const text = readFileSync(TODO_PATH, 'utf8');
+  const text = readFileSync(TODO_PATH, "utf8");
   const items = parseTodoSummary(text);
   const model = classify(items);
 
@@ -470,17 +475,17 @@ async function main() {
 
   if (dryRun) {
     const { comment, reasons } = decideComment(prev, model, run, !prev);
-    console.log('--- DRY RUN ---');
-    console.log('counts:', JSON.stringify(model.counts));
-    console.log('fingerprint:', model.fingerprint);
-    console.log('would comment:', comment, reasons);
-    console.log('--- ISSUE BODY ---');
+    console.log("--- DRY RUN ---");
+    console.log("counts:", JSON.stringify(model.counts));
+    console.log("fingerprint:", model.fingerprint);
+    console.log("would comment:", comment, reasons);
+    console.log("--- ISSUE BODY ---");
     console.log(body);
     return;
   }
 
   if (!process.env.GITHUB_TOKEN) {
-    console.error('GITHUB_TOKEN not set; cannot reach the API.');
+    console.error("GITHUB_TOKEN not set; cannot reach the API.");
     process.exit(1);
   }
 
@@ -495,7 +500,7 @@ async function main() {
     console.log(`Created board issue #${number}.`);
   } else {
     number = existing.number;
-    if ((existing.body || '') !== body) {
+    if ((existing.body || "") !== body) {
       await updateIssue(number, body);
       console.log(`Refreshed board issue #${number}.`);
     } else {
@@ -506,9 +511,9 @@ async function main() {
   const { comment, reasons } = decideComment(prev, model, run, isCreate);
   if (comment) {
     await addComment(number, commentText(model, reasons, run));
-    console.log(`Posted nag comment: ${reasons.join('; ')}`);
+    console.log(`Posted nag comment: ${reasons.join("; ")}`);
   } else {
-    console.log('No comment (delta gate closed or first run).');
+    console.log("No comment (delta gate closed or first run).");
   }
 
   mkdirSync(STATE_DIR, { recursive: true });
@@ -519,15 +524,15 @@ async function main() {
     counts: model.counts,
     hi_keys: model.hiKeys,
     high_water_total: Math.max(prev?.high_water_total ?? 0, model.counts.total),
-    last_comment_run: comment ? run : prev?.last_comment_run ?? 0,
+    last_comment_run: comment ? run : (prev?.last_comment_run ?? 0),
     last_comment_fingerprint: comment
       ? model.fingerprint
-      : prev?.last_comment_fingerprint ?? null,
+      : (prev?.last_comment_fingerprint ?? null),
     runs: run,
     updated_at: new Date().toISOString(),
   };
-  writeFileSync(STATE_PATH, JSON.stringify(next, null, 2) + '\n');
-  console.log('Wrote .orchestrator/state/todo_state.json');
+  writeFileSync(STATE_PATH, JSON.stringify(next, null, 2) + "\n");
+  console.log("Wrote .orchestrator/state/todo_state.json");
 }
 
 main().catch((err) => {

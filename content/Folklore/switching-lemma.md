@@ -14,3 +14,14 @@ For any distinguisher $A$ issuing $q$ queries to its oracle, $$\left|\Pr[A^{R} =
 ## Memory bounded version
 
 This has been subsequently improved by [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]] for streaming distinguishers with $m$ bits of memory to $$\left|\Pr[A^{R} = 1] - \Pr[A^{\pi} = 1]\right| \le O\left(\frac{mq}{|\calD|}\right),$$ where $R$ is a random function and $\pi$ is a random permutation, both from $\calD$ to $\calD$.
+
+<!-- BEGIN GENERATED participates-in 51a3b8bb07b2 -->
+
+## Participates in
+
+**Used via Switching Lemma**
+
+- [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]
+- [[prp-to-prf|PRP ⇒ PRF]]
+
+<!-- END GENERATED participates-in -->

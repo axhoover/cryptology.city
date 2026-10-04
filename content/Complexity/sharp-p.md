@@ -20,7 +20,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 ## Known relationships
 
 - Every $\classsharpP$ function can be computed in polynomial time with a PP oracle: $\classsharpP \subseteq \classFP^{\classPP}$.
-- **Toda's theorem**: $\mathbf{PH} \subseteq \classP^{\classsharpP}$ — TODO citation (Toda 1991). The entire polynomial hierarchy can be decided in polynomial time with access to a single $\classsharpP$ oracle, which is a remarkable collapse of complexity.
+- **Toda's theorem**: $\mathbf{PH} \subseteq \classP^{\classsharpP}$ — [[Tod91 - PP is as Hard as the Polynomial-Time Hierarchy|Tod91]]. The entire polynomial hierarchy can be decided in polynomial time with access to a single $\classsharpP$ oracle, which is a remarkable collapse of complexity.
 - $\classsharpP$-hardness implies NP-hardness (under polynomial-time Turing reductions): if you can count solutions in polynomial time, you can certainly decide existence.
 - Approximate counting (computing a $(1 \pm \varepsilon)$-multiplicative approximation) is sometimes feasible when exact counting is $\classsharpP$-hard. For self-reducible problems in NP, approximate counting reduces to approximate uniform sampling (Jerrum-Valiant-Vazirani) — TODO citation.
 

@@ -14,13 +14,13 @@ The _Fiat-Shamir heuristic_ (or _Fiat-Shamir transform_) is a technique for comp
 
 ## Description
 
-Given a $(2k+1)$-message public-coin interactive protocol $\Pi = (P, V)$ with messages $a_1, c_1, \ldots, a_k, c_k, a_{k+1}$, the Fiat-Shamir transform produces a non-interactive protocol $\Pi_\mathsf{FS}$ as follows: the prover computes each verifier challenge itself as
+Given a $(2k+1)$-message public-coin interactive protocol $\Pi = (P, V)$ with messages $a_1, c_1, \ldots, a_k, c_k, a_{k+1}$, the Fiat-Shamir transform produces a non-interactive protocol $\Pi_{\mathrm{FS}}$ as follows: the prover computes each verifier challenge itself as
 
 $$c_i := H(a_1, c_1, \ldots, a_{i-1}, c_{i-1}, a_i),$$
 
 where $H$ is a hash function modeled as a random oracle. The resulting proof $(a_1, c_1, \ldots, a_{k+1})$ can be verified by any party who recomputes the same hash challenges.
 
-The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir), and for building non-interactive zero-knowledge proofs and succinct arguments.
+The transform is particularly useful for constructing [[digital-signature|digital signatures]] from identification schemes (the original application of Fiat and Shamir), and for building non-interactive zero-knowledge proofs. It creates no succinctness, since the proof is the prover's transcript; applied to a PCP or a public-coin IOP whose oracles are Merkle-committed, it yields succinct non-interactive arguments in the random oracle model — [[Mic00 - Computationally Sound Proofs|Mic00]], [[BCS16 - Interactive Oracle Proofs|BCS16]] (for IOPs, given state-restoration soundness).
 
 ## Security in the ROM
 
@@ -30,28 +30,29 @@ In the [[random-oracle-model|random oracle model]], the Fiat-Shamir transform pr
 
 ### Standard Model (GK03)
 
-Goldwasser and Kalai showed that the Fiat-Shamir transform is uninstantiable in the standard model [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. They constructed a 3-round public-coin identification scheme that is secure in the ROM, yet whose Fiat-Shamir transform is existentially forgeable under _every_ concrete hash function. This demonstrates that the random oracle cannot always be replaced by an actual hash function, even a cryptographically strong one.
+Goldwasser and Kalai showed that the Fiat-Shamir transform is uninstantiable in the standard model [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]: there is a secure 3-round public-coin identification scheme $\Pi$ whose Fiat-Shamir signature scheme is secure in the ROM, yet for every efficient $H$ there is an efficient $\calA$ with
 
-$$\Adv^{\mathrm{uf}}_{\Pi_H, \calA}(\secpar) \ge 1 - \negl(\secpar) \quad \text{for all } H.$$
+$$\Adv^{\eufcma}_{\Pi_{\mathrm{FS}}^H,\calA}(\secpar) \ge 1 - \negl(\secpar),$$
+
+where $\Pi_{\mathrm{FS}}^H$ is the transform of $\Pi$ with $H$ in place of the oracle. This demonstrates that the random oracle cannot always be replaced by an actual hash function, even a cryptographically strong one.
 
 ### Natural Protocols (KRS25)
 
-Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits. This raises serious questions about the security of deployed non-interactive succinct arguments based on Fiat-Shamir.
+Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits.
 
-<!-- BEGIN GENERATED participates-in 900aec2a6926 -->
+<!-- BEGIN GENERATED participates-in 7ca24eaf5306 -->
 
 ## Participates in
 
-**Builds on Fiat-Shamir Heuristic**
-
-- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|Fiat-Shamir + Honest-verifier ZK (HVZK) ⇒ NIZK]]
-- [[fiat-shamir-and-schnorr-signatures-to-ds|Fiat-Shamir + Schnorr signatures ⇒ DS]]
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Fiat-Shamir + Schnorr signatures ⇒ Schnorr signatures]]
-
 **Barriers**
 
-- [[no-fiat-shamir-and-gkr-to-snark-krs25|No reduction from Fiat-Shamir + GKR to SNARK]]
-- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No reduction from Fiat-Shamir + Hash function to DS]]
-- [[no-fiat-shamir-to-nizk-gk03|No reduction from Fiat-Shamir to NIZK]]
+- [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
+
+**Used via Fiat-Shamir Heuristic**
+
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 
 <!-- END GENERATED participates-in -->

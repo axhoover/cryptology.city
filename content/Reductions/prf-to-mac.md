@@ -1,36 +1,31 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: PRF ⇒ MAC
 aliases: []
 id: red-prf-to-mac
 kind: implication
 hypotheses: [prf]
 conclusion: mac
-class: unstated
+class: fully-black-box
 model: standard
-source: folklore
-security-loss: ""
+source:
+  - "[[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]]"
+security-loss: "$\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + 1/|\\calR|$"
+rationale:
+  class: "The MAC calls the PRF only as an oracle, and the reduction runs the forger once as an oracle, answering its tag queries and testing its forgery with its own function oracle."
 ---
 
 # PRF ⇒ MAC
 
-A [[pseudorandom-function|PRF]] implies a
-[[message-authentication-code|MAC]].
+## Statement
 
-## Construction
+For a [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain $\calD$ and range $\calR$ of superpolynomial size, $\Tag(k, m) := \Eval(k, m)$ with canonical verification $\Vrfy(k, m, t) := [t = \Eval(k, m)]$ is a UF-CMA-secure [[message-authentication-code|MAC]] with message space $\calM = \calD$ — [[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]].
 
-Migrated verbatim from [[pseudorandom-function|PRF]] § Other results:
+## Sketch
 
-> PRF implies [[message-authentication-code|MAC]]: $\Tag(k, m) = \PRF(k, m)$ is a secure one-time MAC; extending to many messages uses standard domain-extension techniques
+Verification recomputes the tag, so correctness is perfect. The distinguisher $\calB$ runs the forger $\calA$, answers each $\Tag$ query with one query to its own oracle, and outputs $1$ iff one further query confirms the forgery. With a truly random function the tag of an unqueried message is uniform in $\calR$, so $\calB$ outputs $1$ with probability at most $1/|\calR|$, and the bound follows.
 
 ## Notes
 
-`status: stub` and `source: folklore`: the claim carried no citation on the page
-it was migrated from, and none was invented.
-
-**Suspected imprecision in the migrated sketch, recorded and not fixed.**
-$\Tag(k,m) = \PRF(k,m)$ is a secure many-time (EUF-CMA) fixed-length MAC, not
-merely a one-time MAC; the _one-time_ qualifier understates the standard result.
-The following clause also conflates message _count_ with message _length_ —
-domain extension buys long messages, not more queries.
+- Domain extension, such as CBC-MAC, enlarges the message space beyond $\calD$ — standard.

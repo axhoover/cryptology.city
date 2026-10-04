@@ -1,44 +1,31 @@
 ---
 type: reduction
-status: stub
-title: "Notable problems = QMA"
+status: draft
+title: "Local Hamiltonian is QMA-complete"
 aliases: []
 id: red-notable-problems-to-qma
-kind: equivalence
+kind: inclusion
 hypotheses: [local-hamiltonian]
 conclusion: qma
 class: free
 model: quantum
-source: folklore
+source:
+  - "[[KSV02 - Classical and Quantum Computation|KSV02]]"
 security-loss: ""
+rationale:
+  model: "QMA is a quantum complexity class, and both halves of the proof are quantum: the containment verifier measures a quantum witness, and the hardness proof encodes quantum verifier circuits as Hamiltonians."
 ---
 
-# Notable problems = QMA
-
-[[quantum-merlin-arthur#notable-problems|Notable problems]] is equal to [[quantum-merlin-arthur|QMA]].
+# Local Hamiltonian is QMA-complete
 
 ## Statement
 
-Migrated verbatim from [[quantum-merlin-arthur]] § Notable problems:
+Given $H = \sum_i H_i$ on $n$ qubits with $\poly(n)$ terms, each acting on at most $k$ qubits and of norm at most $\poly(n)$, and thresholds $a < b$ with $b - a \ge 1/\poly(n)$, the [[quantum-merlin-arthur#notable-problems|local Hamiltonian problem]] with locality $k$ asks whether the ground-state energy of $H$ is at most $a$ or at least $b$, promised one holds. For every constant $k \ge 5$ it is in [[quantum-merlin-arthur|QMA]] and QMA-hard, hence QMA-complete — [[KSV02 - Classical and Quantum Computation|KSV02]].
 
-> - **Local Hamiltonian** (k-LH): given a $k$-local Hamiltonian $H = \sum_i H_i$ on $n$ qubits and a threshold $a$, is the ground state energy of $H$ at most $a$? This is QMA-complete — TODO citation (Kitaev 1999). The Local Hamiltonian problem is the quantum analogue of SAT.
+## Sketch
+
+Containment: the verifier picks a term $H_i$ at random and measures the witness against it, rejecting with probability proportional to its energy; the gap between the cases is inverse-polynomial, and QMA error reduction amplifies it. Hardness: the Feynman–Kitaev clock construction encodes a QMA verifier circuit into a local Hamiltonian whose low-energy states are history states, superpositions over the computation's time steps, so ground energy below the threshold certifies an accepting witness.
 
 ## Notes
 
-`source: folklore`: the claim carried no citation on the page it was
-migrated from, and none was invented.
-
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-`class: free` because a containment between complexity classes is proved
-by any argument at all; the reduction-class axis does not discriminate
-here, and `unstated` would wrongly suggest the information is missing.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- MISSING CITATION: 'TODO citation (Kitaev 1999)'; no reference page linked.
-- Completeness claim (in-class + hard-for-class); typed as 'equivalent' because the schema has no completeness direction.
-- The promise-gap parameters are omitted: k-LH is QMA-complete only with a promise gap inverse-polynomial in $n$ (the stated decision question with a single threshold $a$ and no gap is not the QMA-complete problem). Possible imprecision — reported, not corrected.
-- 'Local Hamiltonian' has no wiki page; identifier invented.
+- The problem remains QMA-complete for $k = 3$ — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]] — and for $k = 2$, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]].

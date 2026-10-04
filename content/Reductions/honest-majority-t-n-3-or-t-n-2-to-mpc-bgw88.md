@@ -1,45 +1,34 @@
 ---
 type: reduction
 status: draft
-title: "Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC"
+title: "Honest majority ($t < n/3$) ⇒ MPC"
 aliases: []
 id: red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88
 kind: implication
 hypotheses: [honest-majority-t-lt-n-over-3]
 conclusion: mpc
-class: unstated
+class: free
 model: standard
 source:
   - "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
 security-loss: ""
+rationale:
+  class: "The theorem is unconditional and its hypothesis is a corruption threshold, not a primitive a construction could use as an oracle, so no black-box class applies."
 ---
 
-# Honest majority ($t < n/3$ or $t < n/2$) ⇒ MPC
-
-[[secure-multi-party-computation#honest-majority-t-n3-or-t-n2|Honest majority ($t < n/3$ or $t < n/2$)]] implies [[secure-multi-party-computation|MPC]].
+# Honest majority ($t < n/3$) ⇒ MPC
 
 ## Statement
 
-Migrated verbatim from [[secure-multi-party-computation]]:
+In the secure-channels model, every $n$-party functionality has an [[secure-multi-party-computation|MPC]] protocol that is perfectly secure against a malicious adversary corrupting any $t < n/3$ of the parties ([[secure-multi-party-computation#honest-majority-t--n3|honest majority]]) — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
 
-> When fewer than a threshold fraction of parties are corrupt, information-theoretic (unconditional) security is achievable. For $t < n/3$, perfect security against malicious adversaries is achievable; for $t < n/2$, statistical security is achievable with broadcast — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+## Sketch
 
-Migrated verbatim from [[secure-multi-party-computation]] § Other results:
-
-> - MPC with perfect security for any function when fewer than $n/3$ parties are corrupt (no cryptographic assumptions) — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]
+Each party Shamir-shares its input with a degree-$t$ polynomial; addition gates are local, and at a multiplication gate each party shares the product of its two shares and the parties take the Lagrange combination of these sub-sharings, a degree-$t$ sharing of the product. Against malicious parties every sharing is verifiable and every product sharing is checked, and opening a degree-$t$ sharing with $t$ corrupted shares is Reed–Solomon decoding, which needs $n \ge 3t + 1$.
 
 ## Notes
 
-`class: unstated`: no citing page says which notion of reduction is meant.
-Recording a class the wiki does not state would add a claim.
-
-This relation is stated on 2 pages; the statements above are all of them.
-
-Recorded during migration and **not fixed** — these are claims about the
-source text, not changes to it:
-
-- The hypothesis is a corruption-threshold setting ('t < n/3'), not a cryptographic object; 'honest-majority-t-lt-n-over-3' is a flagged non-slug identifier.
-- This paragraph packs TWO distinct unconditional results (t<n/3 perfect, t<n/2 statistical + broadcast); split into two records — this is the first.
-- Conclusion is really 'perfectly-secure MPC against malicious adversaries', a security-level qualifier the flat slug loses.
-- Duplicate of the claim already made at line 43 (## Honest majority) — the same result appears twice on the page.
-- Hypothesis set is empty of cryptographic objects: this is an unconditional result whose only hypothesis is the corruption threshold. A hyperedge model needs a way to express 'no hypotheses, setting = t<n/3'.
+- Against a semi-honest adversary, perfect security holds for $t < n/2$ in the same model; both thresholds are optimal for perfect security — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+- Unconditionally secure MPC for $t < n/3$ with exponentially small error was obtained concurrently and independently — [[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]].
+- The BGW protocol has a complete simulation-based proof — [[AL17 - A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation|AL17]].
+- Against a malicious adversary corrupting $t < n/2$ parties, statistical security is achievable given a broadcast channel — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]] ([Honest majority ($t < n/2$) ⇒ MPC](honest-majority-t-lt-n-over-2-to-mpc-rb89)).

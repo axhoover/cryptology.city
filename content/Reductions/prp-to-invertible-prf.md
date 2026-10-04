@@ -1,50 +1,28 @@
 ---
 type: reduction
-status: stub
+status: draft
 title: PRP ⇒ iPRF (large domains)
 aliases: []
 id: red-prp-to-invertible-prf
 kind: implication
 hypotheses: [prp]
 conclusion: invertible-prf
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 via:
   - "[[switching-lemma|Switching Lemma]]"
 security-loss: "$O(q^2/|\\calD|)$ for $q$ queries, per the switching lemma"
+rationale:
+  class: "The iPRF is the PRP with its inversion wrapped to return a singleton, calling the PRP only as an oracle, and the reduction runs any distinguisher unchanged as a PRP distinguisher; the switching-lemma gap is information-theoretic."
 ---
 
 # PRP ⇒ iPRF (large domains)
 
-A [[pseudorandom-permutation|PRP]] over a large domain is an
-[[pseudorandom-function#invertible-prfs|invertible PRF]].
-
 ## Statement
 
-Migrated verbatim from [[pseudorandom-function|PRF]] § Related results:
+A [[pseudorandom-permutation|PRP]] $(\KeyGen, \Eval, \Invert)$ over a domain $\calD$ with $|\calD|$ superpolynomial in $\secpar$ is an [[pseudorandom-function#invertible-prfs|invertible PRF]] for the traditional (forward-oracle) game $\Game^{\mathrm{prf}}$, with inversion algorithm $y \mapsto \{\Invert(k, y)\}$: for every $q$-query $\calA$ the PRF advantage is at most the PRP advantage plus the $O(q^2/|\calD|)$ term of the [[switching-lemma|Switching Lemma]], as in [[prp-to-prf|PRP ⇒ PRF]] — folklore. Strong security under $\Game^{\mathrm{iprf}}$, where $\calA$ also queries the inversion oracle, fails for every permutation, since $\{\Invert(k, y)\}$ is never empty while a random function's preimage set is empty with constant probability — folklore.
 
-> [[pseudorandom-permutation|PRP]]s over large domains are iPRFs — [[switching-lemma|Switching Lemma]]
+## Sketch
 
-The same claim is stated from the other end at
-[[pseudorandom-permutation|PRP]] § Other results:
-
-> PRPs imply the existence of large-domain [[pseudorandom-function|PRFs]] (and in fact these are invertible PRFs) — [[switching-lemma|Switching Lemma]]
-
-## Notes
-
-`source: folklore` with `via: switching-lemma`. Before this pass the switching
-lemma sat in the _citation_ slot, which made an unattributed claim read as an
-attributed one: [[switching-lemma|Switching Lemma]] is a wiki page with no
-author, year, or venue, not a bibliographic record. It is the _technique_, so it
-belongs in `via`; the statement itself has no citation and says so.
-
-`status: stub`, for two reasons recorded and not fixed:
-
-- _over large domains_ is a hypothesis qualifier carried in prose. The switching
-  lemma is only meaningful for superpolynomial $|\calD|$; compare
-  [[pseudorandom-permutation#small-domain-prps|small-domain PRPs]].
-- The iPRF security game gives $\calA$ an **inversion** oracle, so the forward-
-  only switching lemma does not by itself justify the claim — a strong PRP and a
-  two-sided bound appear to be needed. This is already flagged against both
-  pages in the fact-check queue.
+A permutation is an iPRF with singleton preimage sets and perfect correctness. Against forward queries a random permutation is statistically within $O(q^2/|\calD|)$ of a random function, so PRP security transfers to $\Game^{\mathrm{prf}}$ with birthday loss.

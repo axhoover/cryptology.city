@@ -3,7 +3,7 @@ type: reference
 status: draft
 title: "KZ22"
 source: https://eprint.iacr.org/2022/210
-authors: Katz, Jonathan; Zhang, Cong
+authors: Cong Zhang, Hong-Sheng Zhou, Jonathan Katz
 venue: ASIACRYPT 2022
 published: 2022-01-01
 aliases:
@@ -13,7 +13,7 @@ cryptobib_key: AC:ZhaZhoKat22
 
 # [KZ22] An Analysis of the Algebraic Group Model
 
-**Authors:** Katz, Jonathan; Zhang, Cong | **Venue:** ASIACRYPT 2022 | [Source](https://eprint.iacr.org/2022/210)
+**Authors:** Cong Zhang, Hong-Sheng Zhou, Jonathan Katz | **Venue:** ASIACRYPT 2022 | [Source](https://eprint.iacr.org/2022/210)
 
 ## Abstract
 

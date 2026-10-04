@@ -6,6 +6,8 @@ aliases:
   - Message authentication code
 title: Message authentication code
 id: mac
+variants:
+  suf-cma-mac: "#strong-unforgeability"
 ---
 
 # Message authentication code
@@ -71,6 +73,47 @@ $$
 
 is negligible.
 
+### Strong unforgeability
+
+The **strong unforgeability under chosen message attacks (SUF-CMA)** game strengthens UF-CMA: $\calQ$ records message-tag pairs, and $\calA$ wins with any valid pair $(\hat{m}, \hat{t})$ that $\calO$ did not return, including a new tag on a queried message.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\sufcma}_{\MAC,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $k \gets \KeyGen(1^\secpar)$
+\State $\calQ \gets \{\}$
+\State $(\hat{m}, \hat{t}) \gets \calA^{\calO}(1^\secpar)$
+\If{$(\hat{m}, \hat{t}) \in \calQ$}
+\Comment{$(\hat{m}, \hat{t})$ cannot repeat}
+\Return $0$
+\EndIf
+\Return $[\Vrfy(k, \hat{m}, \hat{t}) = 1]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Oracle}
+\caption{$\calO(m)$}
+\begin{algorithmic}
+\State $t \gets \Tag(k, m)$
+\State $\calQ \gets \calQ \cup \{(m, t)\}$
+\Return $t$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A MAC $\MAC$ is **SUF-CMA secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\sufcma}_{\MAC,\calA}(\secpar) := \Pr\!\left[\Game^{\sufcma}_{\MAC,\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
+
 # Variations
 
 ## Deterministic MACs
@@ -86,18 +129,16 @@ A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[pseudo
 - MACs can be constructed from [[pseudorandom-function|PRF]]s
 - CPA-secure [[symmetric-key-encryption|SKE]] can be boosted to CCA-secure SKE using a MAC (encrypt-then-MAC construction)
 
-<!-- BEGIN GENERATED participates-in 9a8ac3d63fcd -->
+<!-- BEGIN GENERATED participates-in 152db0b76d62 -->
 
 ## Participates in
 
 **Builds on Message authentication code**
 
-- [[mac-and-ske-to-cca-security|MAC + SKE ⇒ CCA Security]]
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[message-authentication-code#strong-unforgeability|Strong unforgeability]])
 
 **Produces Message authentication code**
 
-- [[hash-function-to-mac|Hash function ⇒ MAC]]
 - [[prf-to-mac|PRF ⇒ MAC]]
-- [[ring-lpn-to-mac|Ring-LPN ⇒ MAC]]
 
 <!-- END GENERATED participates-in -->

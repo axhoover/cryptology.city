@@ -19,7 +19,7 @@ Arthur, a [[bounded-error-probabilistic-polynomial-time|BPP]] verifier, generate
 
 Surprisingly, it turns out that such a system is just as powerful as a private-coin one, in which Arthur does not need to send his random coins to Merlin [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]]. So, Arthur never needs to hide information from Merlin.
 
-Furthermore, define AM[k] similarly to AM, except that Arthur and Merlin have $k$ rounds of interaction. Then for all constant k>2, AM[k] = AM[2] = AM [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]. Also, the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] can then be stated as follows: [[interactive-proof-systems|IP]][k] is contained in AM[k+2] for every k (constant or non-constant).
+Furthermore, define AM[k] similarly to AM, except that Arthur and Merlin have $k$ rounds of interaction. Then for all constant k>2, AM[k] = AM[2] = AM [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]. Also, the result of [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]] can then be stated as follows: [[interactive-proof-systems|IP]][k] is contained in AM[k+2] for every k (constant or non-constant). Hence $\classIP[k] \subseteq \classAM$ for every constant $k$, while $\classIP \subseteq \classAM$ would collapse the [[polynomial-time-hierarchy|polynomial hierarchy]] ([[no-ip-to-am-sha90]]).
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#am) and its complement class [coAM here](https://complexityzoo.net/Complexity_Zoo:A#coam).
 
@@ -29,21 +29,21 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:A#a
 
 ## Known relationships
 
-<!-- BEGIN GENERATED participates-in ed2e7102bd6c -->
+<!-- BEGIN GENERATED participates-in cbc963aa5da7 -->
 
 ## Participates in
-
-**Builds on Arthur-Merlin**
-
-- [[am-to-coam|AM = coAM]]
 
 **Produces Arthur-Merlin**
 
 - [[bpp-to-am-gs86|BPP ⊆ AM]]
-- [[conp-to-am-gs86|coNP ⊆ AM]]
-- [[ip-to-am-gs86|IP ⊆ AM]]
 - [[ma-to-am|MA ⊆ AM]]
 - [[np-to-am-gs86|NP ⊆ AM]]
 - [[szk-to-am|SZK ⊆ AM]]
+
+**Barriers**
+
+- [[no-am-to-pp-ver92|No relativizing reduction from AM to PP]]
+- [[no-conp-to-am-bm88|coNP ⊆ AM collapses the polynomial hierarchy]]
+- [[no-ip-to-am-sha90|IP ⊆ AM collapses the polynomial hierarchy]]
 
 <!-- END GENERATED participates-in -->
