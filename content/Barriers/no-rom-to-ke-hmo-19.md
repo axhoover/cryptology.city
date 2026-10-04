@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-No reduction of any kind from the [[random-oracle-model|random oracle model]] to [[key-exchange|key agreement]] exists. In the random oracle model every key-agreement protocol whose honest parties make $\ell$ oracle queries is broken by an eavesdropper making $\tilde{O}(\ell^6)$ queries — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] — and by one making $O(\ell^2)$ queries, matching the quadratic gap of [[merkle-puzzles|Merkle's puzzles]] — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]. The eavesdroppers are bounded in oracle queries, not in computation, so no random-oracle key agreement is secure against polynomial-query eavesdroppers.
+No reduction of any kind from the [[random-oracle-model|random oracle model]] to [[key-exchange|key agreement]] exists. In the random oracle model every key-agreement protocol whose honest parties make $\ell$ oracle queries is broken by an eavesdropper making $\tilde{O}(\ell^6)$ queries — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] — and by one making $O(\ell^2)$ queries, matching the quadratic gap of [[merkle-puzzles|Merkle's puzzles]] — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]. Hence no random-oracle key agreement is secure against eavesdroppers making polynomially many queries; both eavesdroppers are bounded in oracle queries, not in computation.
 
 ## Notes
 

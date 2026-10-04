@@ -23,7 +23,7 @@ A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \mathsf{Encap}, \mathsf{Decap})
 
 ## Sketch
 
-An eavesdropper's view $(\pk, c, k)$ is the IND-CPA KEM challenge $(\pk, c^*, k_b)$, so a key-exchange distinguisher is forwarded unchanged as a KEM distinguisher.
+The eavesdropper's input, the transcript $(\pk, c)$ with the real or a uniform key, is the IND-CPA KEM challenge $(\pk, c^*, k_b)$, so a key-exchange distinguisher is forwarded unchanged as a KEM distinguisher.
 
 ## Notes
 

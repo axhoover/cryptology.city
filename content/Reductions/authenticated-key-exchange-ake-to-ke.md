@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is, unchanged, a [[key-exchange|key exchange]] protocol secure against eavesdroppers — folklore. The AKE security game additionally gives the adversary control of the network and requires the parties to authenticate each other; a passive eavesdropper is the AKE adversary that relays every message faithfully.
+Every [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is, unchanged, a [[key-exchange|key exchange]] protocol secure against eavesdroppers — folklore. The AKE security game additionally gives the adversary control of the network and requires the parties to authenticate each other.
 
 ## Sketch
 

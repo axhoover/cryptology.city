@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme with $\calK \subseteq \calM$. The two-message protocol in which $B$ sends $\pk$ for $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $A$ replies with $c \gets \Enc(\pk, k)$ for $k \getsr \calK$ and outputs $k$, and $B$ outputs $\Dec(\sk, c)$, is a [[key-exchange|key exchange]] secure against eavesdroppers — folklore.
+Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme with message space $\calM$, and $\calK \subseteq \calM$ a key space. The two-message protocol in which $B$ sends $\pk$ for $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $A$ replies with $c \gets \Enc(\pk, k)$ for $k \getsr \calK$ and outputs $k$, and $B$ outputs $\Dec(\sk, c)$, is a [[key-exchange|key exchange]] secure against eavesdroppers — folklore.
 
 ## Sketch
 
