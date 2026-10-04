@@ -12,20 +12,16 @@ model: standard
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
 security-loss: ""
+rationale:
+  class: "The worst-case algorithm builds random Module-SIS instances from its input module lattice and calls an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability."
 ---
 
 # Module-SIVP ⇒ Module-SIS
 
-Worst-case hardness of [[module-lattice-problems|SIVP on module lattices]] implies, under a classical reduction, average-case hardness of [[shortest-integer-solution#module-sis|Module-SIS]].
-
 ## Statement
 
-Solving the shortest independent vectors problem on [[module-lattice-problems|rank-$d$ module lattices]] over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces classically to average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[shortest-integer-solution#ring-sis|Ring-SIS]] reduction and $n = 1$ recovers plain [[shortest-integer-solution|SIS]].
+Solving the shortest independent vectors problem on [[module-lattice-problems|module lattices]] of rank $d$ over the ring of integers of a degree-$n$ number field, in the worst case and to within polynomial approximation factors, reduces classically to average-case [[shortest-integer-solution#module-sis|Module-SIS]] of rank $d$ — [[LS15 - Worst-case to average-case reductions for module lattices|LS15]]. Rank $d = 1$ is the [[shortest-integer-solution#ring-sis|Ring-SIS]] reduction and $n = 1$ recovers plain [[shortest-integer-solution|SIS]].
 
 ## Sketch
 
-The reduction of [[Ajt96 - Generating hard instances of lattice problems|Ajt96]], carried over to modules: sample discrete Gaussian vectors from the worst-case module lattice, reduce them modulo $q$ relative to the current basis to obtain a uniform Module-SIS instance, and use a short solution $\mathbf{z}$ to combine the samples into a lattice vector shorter than the longest current basis vector; iterating yields short independent vectors.
-
-## Notes
-
-`class: fully-black-box`: worst-case-to-average-case oracle reduction; the worst-case algorithm builds random Module-SIS instances from its input module lattice and uses an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability. There is no construction component; on the assumption-to-assumption reading this is the fully-black-box shape, as for [[gapsvp-to-sis-ajt96]] and [[ideal-svp-to-ring-sis-lm06]].
+Ajtai's iterative basis shortening ([[Ajt96 - Generating hard instances of lattice problems|Ajt96]]) over modules: discrete Gaussian vectors of the worst-case module lattice, with their coordinates with respect to the current basis reduced mod $q$, form a nearly uniform Module-SIS instance, and a short solution $\mathbf{z}$ combines the samples into a lattice vector shorter than the longest current basis vector; iterating yields short independent vectors.

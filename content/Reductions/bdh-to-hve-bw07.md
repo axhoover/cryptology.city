@@ -16,14 +16,6 @@ security-loss: ""
 
 # BDH ⇒ HVE
 
-In composite-order bilinear groups, [[bilinear-map-assumptions|DBDH]], bilinear subgroup decision, and C3DH jointly imply [[hidden-vector-encryption|HVE]].
-
 ## Statement
 
-In bilinear groups of composite order, [[hidden-vector-encryption|HVE]] — hence conjunctive equality, comparison, subset, and range queries on encrypted data — exists with selective security (payload- and attribute-hiding) under the decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]), bilinear subgroup decision, and composite 3-party Diffie–Hellman (C3DH, introduced there) assumptions — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
-
-## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- The BW07 reference filename names the wrong paper; the paper is 'Conjunctive, Subset, and Range Queries on Encrypted Data' (Boneh–Waters, TCC 2007, eprint 2006/287). Filenames are live URLs and are not renamed.
+In bilinear groups of composite order, [[hidden-vector-encryption|HVE]], and hence conjunctive equality, comparison, subset and range queries on encrypted data, exists with selective payload- and attribute-hiding security under three assumptions jointly: the decisional bilinear Diffie–Hellman assumption ([[bilinear-map-assumptions|DBDH]]), the bilinear subgroup decision assumption, and the composite 3-party Diffie–Hellman assumption (C3DH, introduced there) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].

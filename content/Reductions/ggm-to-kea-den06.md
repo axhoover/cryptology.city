@@ -12,18 +12,13 @@ model: generic-group
 source:
   - "[[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]"
 security-loss: ""
+rationale:
+  class: "The hypothesis is a model of computation, not a primitive, so no black-box class applies; Den06 prove the statement for every generic adversary, which is the free class scoped by the model."
+  model: "The extraction holds only for generic adversaries; nothing is claimed in the standard model."
 ---
 
 # GGM ⇒ KEA
 
-[[knowledge-of-exponent|KEA]] holds in the [[generic-group-model|generic group model]].
-
 ## Statement
 
-The [[knowledge-of-exponent|knowledge-of-exponent assumption]] KEA1 (Damgård's DHK problem) holds against generic adversaries — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]].
-
-## Notes
-
-`class: free`: The hypothesis is a computational model, not a primitive, so the black-box classes do not apply; Den06 proves the statement for every generic adversary, which is the `free` class scoped by the model.
-
-`model: generic-group`: The extraction holds only for generic adversaries; nothing is claimed in the standard model.
+In the [[generic-group-model|generic group model]], the [[knowledge-of-exponent|knowledge-of-exponent assumption]] KEA1 (Damgård's DHK problem) holds against every generic adversary — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]].

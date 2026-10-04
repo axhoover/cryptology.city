@@ -13,26 +13,23 @@ source:
   - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
   - "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
-security-loss: "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00."
+security-loss: "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries"
+rationale:
+  class: "One fixed construction uses only the group operation and the hash, and the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning it with a reprogrammed random oracle."
+  model: "The Fiat-Shamir hash is a random oracle, which the reduction programs to simulate signatures and reprograms to fork the forger."
 ---
 
 # DLOG ⇒ Schnorr signatures
 
-[[discrete-logarithm|DLOG]] implies [[digital-signature#schnorr-signatures|Schnorr signatures]] in the [[random-oracle-model|random-oracle model]].
-
 ## Statement
 
-[[digital-signature#schnorr-signatures|Schnorr signatures]] — the [[fiat-shamir-heuristic|Fiat-Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] of the Schnorr identification protocol [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[discrete-logarithm|DLOG]] is hard in the underlying prime-order group — [[PS96 - Security Proofs for Signature Schemes|PS96]].
+[[digital-signature#schnorr-signatures|Schnorr signatures]] over a group of prime order $p$ — the [[fiat-shamir-heuristic|Fiat-Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] of the [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[discrete-logarithm|DLOG]] is hard in the group — [[PS96 - Security Proofs for Signature Schemes|PS96]].
 
 ## Sketch
 
-The reduction simulates signing with the HVZK simulator (sample $z, e$ uniformly; set $a = g^z h^{-e}$; program the oracle to $e$ at $(a, m)$) and forks the forger: rerunning it on the same coins with the oracle reprogrammed at the forgery's query yields two forgeries $(a, e, z)$, $(a, e', z')$ with $e \neq e'$, and $x = (z - z')/(e - e')$ is the discrete logarithm of $h$.
+The reduction, given $\pk = g^x$, answers signing queries with the HVZK simulator (sample $c, s \getsr \ZZ_p$, set $R = g^s \pk^{-c}$, program $H(R \| m) := c$) and forks the forger: rerunning it on the same coins with $H$ reprogrammed from the query behind the forgery yields two forgeries $(R, c, s)$, $(R, c', s')$ with $c \ne c'$, and $x = (s - s')/(c - c') \bmod p$.
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction (Fiat-Shamir of Schnorr identification) using only the group operation and the hash; the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning with a reprogrammed random oracle.
-
-`model: rom`: The Fiat-Shamir hash is a random oracle, which PS96's reduction programs and reprograms.
-
-- Exact-security form of the forking lemma, extended to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]
-- Under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the ROM loses a factor close to $q_h$ in the time-to-success ratio, so the forking-lemma loss is essentially optimal — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]
+- The forking lemma turns a forger with success probability $\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\varepsilon)$ — [[PS96 - Security Proofs for Signature Schemes|PS96]]; PS00 give its exact-security form and extend it to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]].
+- The loss is essentially optimal: under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the random-oracle model loses a factor close to $q_H$ in the time-to-success ratio — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]].

@@ -15,14 +15,10 @@ security-loss: ""
 
 # BPP ⊆ coAM
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is contained in [[co-arthur-merlin|coAM]].
-
 ## Statement
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is closed under complement and $\classBPP \subseteq \classAM$ via the protocol in which Arthur ignores Merlin, so the complement of every BPP language is in $\classAM$: $\classBPP \subseteq \classcoAM$ ([[co-arthur-merlin|coAM]]) — folklore.
+[[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[co-arthur-merlin|coAM]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The `-gs86` slug suffix is historical; the containment is folklore.
+$\classBPP$ is closed under complement, and $\classBPP \subseteq \classAM$ by the [[arthur-merlin|Arthur–Merlin]] protocol in which Arthur ignores Merlin's message and runs the BPP decider, so the complement of every BPP language is in $\classAM$.

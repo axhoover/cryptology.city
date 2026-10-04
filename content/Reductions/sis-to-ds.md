@@ -12,27 +12,23 @@ model: rom
 source:
   - "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
 security-loss: ""
+rationale:
+  class: "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages."
+  model: "The GPV08 reduction programs the random oracle by sampling each preimage first."
 ---
 
 # SIS ⇒ DS
 
-[[shortest-integer-solution|SIS]] implies [[digital-signature|DS]] in the random oracle model.
-
 ## Statement
 
-The [[shortest-integer-solution|SIS]] assumption implies [[digital-signature|DS]] in the random oracle model: a GPV signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian using a short basis of $\Lambda_q^\perp(\mathbf{A})$, and the scheme is strongly unforgeable under chosen-message attack whenever $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ is collision resistant on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+If [[shortest-integer-solution|SIS]] is hard, the GPV hash-and-sign [[digital-signature|signature scheme]] is [[digital-signature#strong-unforgeability|SUF-CMA]]-unforgeable in the random-oracle model: the signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian with a short basis of $\Lambda_q^\perp(\mathbf{A})$ generated together with $\mathbf{A}$ (a preimage-sampleable function), and strong unforgeability follows from collision resistance of $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
 ## Sketch
 
-Trapdoor-sampled preimages have the same distribution as a discrete Gaussian conditioned on its image, so the reduction, holding a challenge $\mathbf{A}$ without a trapdoor, answers each hash query by sampling $\mathbf{z}$ first and programming $H(\mu) := \mathbf{A}\mathbf{z}$, and answers signing queries with those $\mathbf{z}$. A forgery $\mathbf{z}^*$ on $\mu^*$ differs from the reduction's own preimage $\mathbf{z}'$ of $H(\mu^*)$ except with negligible probability (preimage min-entropy), and $\mathbf{z}^* - \mathbf{z}'$ is a short nonzero SIS solution for $\mathbf{A}$.
+Trapdoor-sampled preimages are distributed as a discrete Gaussian conditioned on their image, so the reduction, holding a challenge $\mathbf{A}$ without a trapdoor, answers each hash query by sampling $\mathbf{z}$ first and programming $H(\mu) := \mathbf{A}\mathbf{z}$, and answers signing queries with those $\mathbf{z}$. A forgery $\mathbf{z}^*$ on $\mu^*$ differs from the reduction's own preimage $\mathbf{z}'$ of $H(\mu^*)$ except with negligible probability (preimage min-entropy), and $\mathbf{z}^* - \mathbf{z}'$ is a short nonzero SIS solution for $\mathbf{A}$.
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction (hash-and-sign with the trapdoor preimage sampler); one fixed reduction that runs any forger once as an oracle, programming the random oracle with self-sampled syndromes, and outputs a short lattice vector from the forgery. Black-box in both the assumption and the adversary, within the ROM.
-
-`model: rom`: The GPV08 reduction programs $H$ by sampling each preimage first. The standard-model scheme of [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]] belongs on a separate `model: standard` edge.
-
-- The construction needs a trapdoor sampler for $\mathbf{A}$ (GPV08's preimage-sampleable functions): hardness of SIS/ISIS gives unforgeability, the trapdoor enables signing.
-- Viewed through [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]], which is equivalent to SIS ([[isis-inhomogeneous-sis-to-sis|ISIS ⇔ SIS]]): one-wayness of the family $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ (ISIS) alone suffices via the full-domain-hash argument, at a loss of the number of hash queries — standard.
-- Signatures from SIS in the ROM without a lattice trapdoor, via Fiat-Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].
+- Through [[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]], which is equivalent to SIS ([[isis-inhomogeneous-sis-to-sis|ISIS ⇔ SIS]]), one-wayness of $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ alone gives EUF-CMA by the full-domain-hash argument, at a loss of the number of hash queries — standard.
+- Signatures from SIS in the ROM without a lattice trapdoor, via Fiat–Shamir with aborts and rejection sampling — [[Lyu12 - Lattice Signatures Without Trapdoors|Lyu12]].
 - Stateless hash-and-sign signatures from SIS in the standard model, via bonsai-tree basis delegation — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]].

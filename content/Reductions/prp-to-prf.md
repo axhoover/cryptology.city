@@ -14,11 +14,11 @@ source:
 via:
   - "[[switching-lemma|Switching Lemma]]"
 security-loss: "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)"
+rationale:
+  class: "The construction is the identity on the PRP's evaluation algorithm, and the reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the switching-lemma gap is information-theoretic."
 ---
 
 # PRP ⇒ PRF
-
-A [[pseudorandom-permutation|PRP]] over a large domain is a [[pseudorandom-function|PRF]].
 
 ## Statement
 
@@ -26,11 +26,9 @@ A [[pseudorandom-permutation|PRP]] over a domain $\calD$ with $|\calD|$ superpol
 
 ## Sketch
 
-In the ideal worlds, a random permutation and a random function on $\calD$ are statistically indistinguishable up to the birthday bound $O(q^2/|\calD|)$ — an output collision is the only distinguishing event — so any PRF distinguisher is a PRP distinguisher with an additive $O(q^2/|\calD|)$ loss.
+Sampled lazily, a random function on $\calD$ answers $q$ distinct queries as a random permutation does until two of its outputs collide, which happens with probability at most $q(q-1)/(2|\calD|)$; so any PRF distinguisher is a PRP distinguisher up to that additive term.
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity: the PRP's $\Eval$ is used unchanged as the PRF, so the hypothesis is invoked only as an oracle. The security reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the remaining ideal-world gap (random permutation vs. random function) is the information-theoretic switching-lemma term and needs no access to the adversary's code.
-
-- Game-playing proof of the switching lemma, correcting the conditioning flaw in the standard proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]
-- For streaming distinguishers with $m$ bits of memory the bound improves to $O(mq/|\calD|)$ — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]]
+- A game-playing proof of the switching lemma, correcting a conditioning flaw in the standard proof — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].
+- For streaming distinguishers with $m$ bits of memory the bound improves to $O(mq/|\calD|)$ — [[Din20 - On the Streaming Indistinguishability of a Random Permutation and a Random Function|Din20]].

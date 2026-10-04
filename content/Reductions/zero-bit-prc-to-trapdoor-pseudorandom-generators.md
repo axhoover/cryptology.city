@@ -15,12 +15,10 @@ security-loss: ""
 
 # Zero-bit PRC ⇒ Trapdoor pseudorandom generators
 
-[[pseudorandom-error-correcting-code#zero-bit-prc|Zero-bit PRC]] implies [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor pseudorandom generators]].
-
 ## Statement
 
-A zero-bit [[pseudorandom-error-correcting-code#zero-bit-prc|PRC]] $(\Gen, \Enc, \Dec)$ is a [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor pseudorandom generator]] with the PRC key as trapdoor $t$ and the encoder's coins as key $k$: $\Eval(t,k)$ runs $\Enc_t$ on coins $k$ and $\Invert(t,r) = [\Dec_t(r) \neq \bot]$. PRC pseudorandomness gives pseudorandomness, robustness at zero noise gives completeness, and PRC soundness, which makes $\Pr_t[\Dec_t(r) \neq \bot]$ negligible for every fixed $r$, gives soundness after averaging over $r \getsr \calR$. PRC robustness makes completeness survive any $\varepsilon$-bounded channel — folklore.
+A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] $(\Gen, \Enc, \Dec)$ is a pseudorandom [[pseudorandom-generator#trapdoor-pseudorandom-generators|trapdoor PRG]] with the PRC key as trapdoor $t$, the encoder's coins as key $k$, $\Eval(t,k)$ running $\Enc_t$ on coins $k$, and $\Invert(t,r) = [\Dec_t(r) \neq \bot]$; it is $(1-\nu)$-complete and $(1-\nu)$-sound for a negligible $\nu$, and if the PRC is $\varepsilon$-robust, completeness survives any $\varepsilon$-bounded channel applied to $\Eval(t,k)$ — folklore.
 
-## Notes
+## Sketch
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+The trapdoor-PRG oracle $\calO_t$ is exactly $\Enc_t$, so PRC pseudorandomness gives pseudorandomness, and robustness (at zero noise, or against the channel) gives completeness. PRC soundness bounds $\Pr_t[\Dec_t(r) \neq \bot]$ by a negligible $\nu$ for every fixed $r$, hence also for $r \getsr \calR$.

@@ -11,22 +11,20 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "factor $t$ over the DPF key-indistinguishability advantage (hybrid over the $t$ instances)"
+rationale:
+  class: "The combined key generation and evaluation call the DPF's Gen and Eval once per point as oracles, and the fixed hybrid reduction runs any distinguisher only as an oracle."
 ---
 
 # DPF ⇒ Multi-point functions
 
-[[distributed-point-function|DPF]] implies [[distributed-point-function#multi-point-functions|multi-point FSS]].
-
 ## Statement
 
-A multi-point function with value $\beta_i$ at each of $t$ distinct points $\alpha_1, \ldots, \alpha_t$ is the sum $\sum_{i=1}^{t} f_{\alpha_i, \beta_i}$ of point functions; sharing each summand with an independent [[distributed-point-function|DPF]] and summing the component shares in $\Eval$ gives a [[distributed-point-function#multi-point-functions|multi-point FSS]] whose keys are $t$ DPF keys — folklore.
+For distinct points $\alpha_1, \ldots, \alpha_t \in [N]$ and values $\beta_1, \ldots, \beta_t \in \GG$, the multi-point function $\sum_{i=1}^{t} f_{\alpha_i, \beta_i}$ is shared by running the key generation of a [[distributed-point-function|DPF]] independently on each $(\alpha_i, \beta_i)$: party $b$ holds $(k_{b,1}, \ldots, k_{b,t})$ and evaluates $\sum_{i=1}^{t} \Eval(b, k_{b,i}, x)$. This is a correct [[distributed-point-function#multi-point-functions|multi-point FSS]], hiding between any two multi-point functions with the same number $t$ of points if the DPF is hiding: for every efficient $\calA$ there is an efficient $\calB$ whose DPF hiding advantage is at least a $1/t$ fraction of $\calA$'s — folklore.
 
 ## Sketch
 
-Correctness is additivity of the shares. Hiding is a hybrid over the $t$ instances, swapping one key at a time, so any distinguisher yields a DPF key-indistinguishability adversary with a factor-$t$ loss.
+Correctness is additivity of the shares. Hiding is a hybrid over the $t$ instances that swaps one DPF key at a time; $\calB$ picks the swapped instance at random and generates the other $t - 1$ keys itself.
 
 ## Notes
 
-`class: fully-black-box`: one fixed construction uses the DPF only as an oracle (the combined $\Gen$ runs the DPF's $\Gen$ once per point; the combined $\Eval$ sums the component calls); the proof is a fixed hybrid over the $t$ instances that runs any distinguisher as an oracle. RTV04 fully-black-box shape.
-
-- Multi-point FSS (MPFSS) defined and built from DPFs via combinatorial batch codes; full-domain evaluation costs linear in $N$ instead of the naive construction's $t$ full-domain DPF evaluations — [[BCGI18 - Compressing Vector OLE|BCGI18]]
+- [[BCGI18 - Compressing Vector OLE|BCGI18]] define multi-point FSS and build it from DPFs via combinatorial batch codes, with full-domain evaluation linear in $N$ rather than the $t$ full-domain DPF evaluations of the construction above.

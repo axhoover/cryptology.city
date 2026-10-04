@@ -15,18 +15,10 @@ security-loss: ""
 
 # NP ⊆ AM
 
-[[nondeterministic-polynomial-time|NP]] is contained in [[arthur-merlin|AM]].
-
 ## Statement
 
-$\classNP \subseteq \classAM$: every language in [[nondeterministic-polynomial-time|NP]] has an [[arthur-merlin|Arthur–Merlin]] proof in which Arthur's message is ignored, Merlin sends an NP witness, and Arthur verifies it deterministically — folklore.
+$\classNP \subseteq \classAM$: every language in [[nondeterministic-polynomial-time|NP]] has an [[arthur-merlin|Arthur–Merlin]] proof system with perfect completeness and perfect soundness — folklore.
 
 ## Sketch
 
-Completeness and soundness are those of the NP verifier, hence perfect.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The `-gs86` slug suffix is historical; the containment is folklore.
+Arthur's message is ignored, Merlin sends an $\classNP$ witness, and Arthur checks it with the deterministic $\classNP$ verifier, so completeness and soundness are those of that verifier.

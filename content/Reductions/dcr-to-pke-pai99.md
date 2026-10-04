@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
 security-loss: "tight: one call to the CPA adversary"
+rationale:
+  class: "The Paillier construction uses only the modulus generator, and the fixed reduction embeds the DCR challenge in the challenge ciphertext and runs any CPA adversary once as an oracle."
 ---
 
 # DCR ⇒ PKE
 
-[[decisional-composite-residuosity|DCR]] implies [[public-key-encryption|PKE]].
-
 ## Statement
 
-[[decisional-composite-residuosity|DCR]] implies CPA-secure [[public-key-encryption|PKE]]: the Paillier cryptosystem has public key $(n, g)$ with $n = pq$ an RSA modulus and $g \in \ZZ_{n^2}^*$ of order a nonzero multiple of $n$ ($g = 1+n$ suffices), and encrypts $m \in \ZZ_n$ as $c = g^m r^n \bmod n^2$ for $r \getsr \ZZ_n^*$; the scheme is semantically secure iff DCR is hard — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+[[decisional-composite-residuosity|DCR]] implies [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]]: the Paillier cryptosystem has public key $(n, g)$ with $n = pq$ an RSA modulus and $g \in \ZZ_{n^2}^*$ of order a nonzero multiple of $n$ ($g = 1+n$ suffices), and encrypts $m \in \ZZ_n$ as $c = g^m r^n \bmod n^2$ for $r \getsr \ZZ_n^*$; the scheme is semantically secure iff DCR is hard — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
 
 ## Sketch
 
@@ -60,6 +60,4 @@ The reduction sets the challenge ciphertext to $g^{m_b} \cdot c^*$ for DCR chall
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction (Paillier) and one fixed reduction: given a DCR challenge $c^*$, the reduction sets the challenge ciphertext to $g^{m_b} \cdot c^*$ and runs any CPA adversary once as an oracle. This is the RTV04 fully-black-box shape.
-
-- The simplification $g = 1+n$ and the generalisation to modulus $n^{s+1}$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]
+- The simplification $g = 1+n$ and the generalisation to modulus $n^{s+1}$ are from [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].

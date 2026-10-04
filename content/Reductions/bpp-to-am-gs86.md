@@ -15,18 +15,10 @@ security-loss: ""
 
 # BPP ⊆ AM
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is contained in [[arthur-merlin|AM]].
-
 ## Statement
 
-Every [[bounded-error-probabilistic-polynomial-time|BPP]] language has an [[arthur-merlin|Arthur–Merlin]] protocol in which Arthur ignores Merlin's message and runs the BPP decider, so $\classBPP \subseteq \classAM$ — folklore.
+$\classBPP \subseteq \classAM$: every [[bounded-error-probabilistic-polynomial-time|BPP]] language has an [[arthur-merlin|Arthur–Merlin]] proof system — folklore.
 
 ## Sketch
 
-With Merlin's message discarded, completeness $2/3$ and soundness $1/3$ are exactly the BPP acceptance conditions, so the containment is definitional.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The `-gs86` slug suffix is historical; the containment is folklore.
+Arthur ignores Merlin's message and runs the BPP decider; completeness $2/3$ and soundness error $1/3$ are then exactly the BPP acceptance conditions.

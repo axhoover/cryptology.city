@@ -12,11 +12,11 @@ model: standard
 source:
   - "[[Bea95 - Precomputing Oblivious Transfer|Bea95]]"
 security-loss: "none (perfect security)"
+rationale:
+  class: "The protocol uses the random-OT correlation once as a black box, and perfect security gives a straight-line simulator that uses the adversary only as a black box."
 ---
 
 # Random OT ⇒ OT
-
-[[oblivious-transfer#random-ot|Random OT]] implies [[oblivious-transfer|OT]].
 
 ## Statement
 
@@ -24,8 +24,4 @@ A [[oblivious-transfer#random-ot|random OT]] correlation — the sender holds un
 
 ## Sketch
 
-$e$ one-time-pads the real choice bit with the random one, and each $x_j$ is one-time-padded with the random-OT message $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$); $e$ is uniform independently of $c$, and $r_{1 \oplus c'}$ stays uniform given the receiver's view.
-
-## Notes
-
-`class: fully-black-box`: the protocol uses the random-OT correlation once as a black box, and perfect security gives a straight-line simulator that uses the adversary only as a black box.
+$e$ one-time-pads the real choice bit with the random one, and each $x_j$ is one-time-padded with $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$). $e$ is uniform independently of $c$, and $r_{1 \oplus c'}$ stays uniform given the receiver's view.

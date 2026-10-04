@@ -12,24 +12,20 @@ model: rom
 source:
   - "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
 security-loss: ""
+rationale:
+  model: "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model."
 ---
 
 # NTRU + NTRU-SIS ⇒ DS
 
-[[ntru|NTRU]], together with [[ntru#sis-over-ntru-lattices|SIS over NTRU lattices]], implies [[digital-signature|DS]] in the random-oracle model.
-
 ## Statement
 
-Hash-and-sign [[digital-signature|DS]] over NTRU lattices: the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] preimage-sampling paradigm, instantiated with an NTRU trapdoor $(f, g)$ for $h = g \cdot f^{-1} \bmod q$, gives signatures that are EUF-CMA in the random-oracle model under [[ntru|NTRU]] and the hardness of [[ntru#sis-over-ntru-lattices|SIS over NTRU lattices]] — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon is the instantiation selected by NIST for standardization, with $666$-byte signatures at Falcon-512 — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
+If [[ntru|NTRU]] and [[ntru#sis-over-ntru-lattices|SIS over NTRU lattices]] are hard, the [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] hash-and-sign [[digital-signature|signature scheme]], instantiated with an NTRU trapdoor $(f, g)$ for $h = g \cdot f^{-1} \bmod q$, is [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable in the random-oracle model — [[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]. Falcon, the instantiation selected by NIST for standardization, samples preimages by fast Fourier sampling over the NTRU trapdoor and has $666$-byte signatures at Falcon-512 — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
 
 ## Sketch
 
-The signer's trapdoor is a short basis of the lattice $\{(s_1, s_2) : s_1 + s_2 h = 0 \bmod q\}$, from which it samples a short $(s_1, s_2)$ with $s_1 + s_2 h = H(m)$; verification checks this equation and the norm bound. The GPV reduction programs $H(m)$ as the image of a fresh short vector, so a forgery on $m$ yields a second short preimage of $H(m)$, and the difference of the two is a short nonzero vector in the NTRU lattice.
+The trapdoor is a short basis of the NTRU lattice $\{(s_1, s_2) : s_1 + s_2 h = 0 \bmod q\}$, with which the signer samples a short $(s_1, s_2)$ with $s_1 + s_2 h = H(m)$; verification checks this equation and the norm bound. The GPV reduction programs $H(m)$ as the image of a fresh short vector, so a forgery on $m$ is, except with negligible probability, a second short preimage of $H(m)$, and the difference of the two is a short nonzero vector in the NTRU lattice.
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-`model: rom`: GPV hash-and-sign signatures are EUF-CMA in the random-oracle model — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]; Falcon's proof is in the (quantum) random-oracle model — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
-
-- Falcon samples preimages by fast Fourier sampling over the NTRU trapdoor — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].
+- Falcon's security proof is also given in the quantum random-oracle model — [[FHK+20 - Falcon Fast-Fourier Lattice-based Compact Signatures over NTRU|FHK+20]].

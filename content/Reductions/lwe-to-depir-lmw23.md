@@ -12,23 +12,16 @@ model: standard
 source:
   - "[[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]"
 security-loss: ""
+rationale:
+  class: "The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes."
 ---
 
 # Ring-LWE ⇒ Unkeyed DEPIR
 
-[[learning-with-errors#ring-lwe|Ring-LWE]] implies [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]].
-
 ## Statement
 
-Hardness of [[learning-with-errors#ring-lwe|Ring-LWE]] implies unkeyed [[doubly-efficient-pir#unkeyed-depir|DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
-
-## Sketch
-
-LMW23 first build a PIR whose server computation is evaluating a fixed multivariate polynomial: the database is encoded as a low-degree polynomial, the query is a Ring-LWE somewhat-homomorphic encryption of the index point, and homomorphic evaluation is polynomial evaluation over the ciphertext ring. Preprocessing that polynomial with the Kedlaya–Umans data structure for fast multipoint evaluation makes each online evaluation cost $\polylog(N)$.
+If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates to the preprocessed database cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant. The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes.
-
-- LMW23 also construct RAM-FHE from Ring-LWE plus circular security; RAM-FHE has no object page.
-- Hypothesis changed from `lwe` to `ring-lwe`, with title and H1 to match: LMW23 prove security under Ring-LWE (title and abstract); ring-lwe is a declared variant id on the LWE page.
+- On top of this DEPIR, LMW23 construct fully homomorphic encryption for RAM programs under Ring-LWE with circular security, with homomorphic evaluation time $T^{1+\varepsilon} \cdot \polylog(|x| + |y|)$ for a RAM program of worst-case run-time $T$ on client input $x$ and preprocessed server input $y$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].

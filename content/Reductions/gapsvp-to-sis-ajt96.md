@@ -12,22 +12,16 @@ model: standard
 source:
   - "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
 security-loss: ""
+rationale:
+  class: "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
 ---
 
 # GapSVP ⇒ SIS
 
-[[shortest-vector-problem|GapSVP]] implies [[shortest-integer-solution|SIS]].
-
 ## Statement
 
-An efficient algorithm solving [[shortest-integer-solution|SIS]] on a noticeable fraction of uniform $\mathbf{A} \in \ZZ_q^{n \times m}$, for suitable $q, m = \poly(n)$, yields an efficient classical algorithm estimating $\lambda_1$ — that is, solving [[shortest-vector-problem|GapSVP]] — to within a fixed polynomial factor $n^{O(1)}$ on every $n$-dimensional lattice [[Ajt96 - Generating hard instances of lattice problems|Ajt96]].
+For a fixed polynomial factor $\gamma = n^{O(1)}$ and suitable $q, m = \poly(n)$, an efficient algorithm solving [[shortest-integer-solution|SIS]] with noticeable probability over uniform $\mathbf{A} \in \ZZ_q^{n \times m}$ yields an efficient classical algorithm that estimates $\lambda_1$ to within $\gamma$, that is, solves [[shortest-vector-problem|GapSVP]], on every $n$-dimensional lattice — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Hence worst-case hardness of $\mathrm{GapSVP}_\gamma$ implies average-case hardness of SIS. [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]] tighten the factor to $\gamma = \tilde{O}(n)$ for GapSVP and SIVP using Gaussian measures.
 
 ## Sketch
 
-Sample lattice points from a wide distribution over the input lattice; their basis coordinates, scaled by $q$ and reduced mod $q$, form a nearly uniform SIS instance $\mathbf{A}$, and a short solution $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = \mathbf{0} \bmod q$ recombines the samples into a lattice vector shorter than the sampling scale. Iterating shortens the basis until its length is within a polynomial factor of optimal.
-
-## Notes
-
-`class: fully-black-box`: Worst-case-to-average-case oracle reduction: the worst-case algorithm generates random SIS instances from its input lattice and invokes an arbitrary average-case SIS solver only as an oracle; it works for every solver with noticeable success probability. No construction component; this is the fully-black-box shape.
-
-- The worst-case approximation factor is tightened to $\tilde{O}(n)$ for GapSVP and SIVP using Gaussian measures — [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]].
+Each step samples $m$ points $\mathbf{y}_i$ of the input lattice $L$ from a wide distribution and lets the columns of $\mathbf{A}$ be their coordinates with respect to the current basis, reduced mod $q$, which makes $\mathbf{A}$ nearly uniform; a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = \mathbf{0} \bmod q$ puts $\sum_i z_i \mathbf{y}_i$ in $qL$, and $\frac{1}{q}\sum_i z_i \mathbf{y}_i$ is a vector of $L$ shorter than the longest basis vector. Collecting $n$ independent such vectors and iterating shortens the basis to within a polynomial factor of $\lambda_n$. Run on the dual lattice $L^*$, this estimates $\lambda_n(L^*)$, and transference, $1 \le \lambda_1(L)\,\lambda_n(L^*) \le n$, turns that into an estimate of $\lambda_1(L)$ within a polynomial factor.

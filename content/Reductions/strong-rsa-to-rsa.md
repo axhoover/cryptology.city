@@ -11,20 +11,20 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "tight: one oracle call, advantage preserved"
+rationale:
+  class: "The fixed reduction calls the RSA inverter once as an oracle on the strong-RSA instance and never uses its code."
 ---
 
 # Strong RSA ⇒ RSA
 
-[[rsa-assumption#strong-rsa|Strong RSA]] implies [[rsa-assumption|RSA]].
-
 ## Statement
 
-If [[rsa-assumption#strong-rsa|strong RSA]] is hard for $\GrGen$, then [[rsa-assumption|RSA]] is hard for $\GrGen$: the strong-RSA adversary receives $(n, y)$ and may output any $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$, so an inverter for the exponent $e$ that $\GrGen$ outputs is already a strong-RSA solver; the converse is not known — folklore.
+If [[rsa-assumption#strong-rsa|strong RSA]] is hard for $\GrGen$, then [[rsa-assumption|RSA]] is hard for $\GrGen$, provided the exponent $e$ that $\GrGen$ outputs can be sampled given $n$ alone (a fixed $e$, or a random prime, for the usual choices) — folklore.
 
 ## Sketch
 
-On a strong-RSA challenge $(n, y)$, sample $e$ as $\GrGen$ does given $n$ — a fixed $e$ or a random prime, for the usual choices — run the RSA inverter on $(n, e, y)$ to get $\hat{x}$ with $\hat{x}^{e} \equiv y \pmod{n}$, and output $(\hat{x}, e)$.
+On a strong-RSA challenge $(n, y)$, sample $e$ as $\GrGen$ does given $n$, run the RSA inverter on $(n, e, y)$, and output its answer $\hat{x}$ together with $e$. Since $y$ is uniform in $\ZZ_n^*$, the inverter sees a correctly distributed RSA instance, and whenever it succeeds, $(\hat{x}, e)$ with $\hat{x}^{e} \equiv y \pmod{n}$ and $e > 1$ is a strong-RSA solution.
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity on instances, and the one fixed reduction (§ Sketch) calls the RSA inverter once, as an oracle.
+- Whether RSA hardness implies strong-RSA hardness is open — folklore.

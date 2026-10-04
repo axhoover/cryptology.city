@@ -12,15 +12,16 @@ model: rom
 source:
   - "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
 security-loss: ""
+rationale:
+  class: "One fixed construction, a Pedersen vector commitment with the inner-product argument, uses only the group operation, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges."
+  model: "Openings are non-interactive proofs obtained by applying Fiat–Shamir to the public-coin inner-product argument; the interactive protocol needs no random oracle."
 ---
 
 # DLOG ⇒ PCS
 
-[[discrete-logarithm|DLOG]] implies [[polynomial-commitment|PCS]].
-
 ## Statement
 
-If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector of a degree-$d$ polynomial $f$ with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\log d)$-size openings and $O(d)$ verifier time — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme applies Fiat-Shamir to the public-coin protocol and is proven secure under DLOG in the ROM — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].
+If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[polynomial-commitment|polynomial commitment scheme]] exists: commit to the coefficient vector of a degree-$d$ polynomial $f$ with a Pedersen vector commitment and prove $f(z) = y$ with the recursive inner-product argument, giving $O(\log d)$-size openings and $O(d)$ verifier time — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]. The non-interactive scheme $\mathrm{PC}_{\mathrm{DL}}$ applies [[fiat-shamir-heuristic|Fiat–Shamir]] to the public-coin protocol and is secure under DLOG in the [[random-oracle-model|ROM]] — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]].
 
 ## Sketch
 
@@ -28,10 +29,4 @@ The claim $f(z) = y$ is the inner product $\langle \vec{f}, (1, z, \dots, z^d) \
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction (Pedersen vector commitment plus the recursive inner-product argument) using only the group operation; the extractor runs the prover only as an oracle, rewinding it over a tree of challenges (forking in the ROM version).
-
-`model: rom`: The wiki's PCS syntax is non-interactive ($\Open$ outputs a proof $\pi$), so openings apply Fiat-Shamir to the public-coin inner-product argument; the interactive BCCGP16 protocol is standard-model.
-
-- Bulletproofs halve the communication of the inner-product argument — [[BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More|BBB+18]]
-- The polynomial-commitment abstraction $\mathrm{PC}_{\mathrm{DL}}$ of this scheme — [[BCMS20 - Recursive Proof Composition from Accumulation Schemes|BCMS20]]
-- The construction factors as DLOG ⇒ Pedersen commitment ⇒ IPA-based PCS; split this edge if a Pedersen-commitment node is added.
+- Bulletproofs halve the communication of the inner-product argument — [[BBB+18 - Bulletproofs Short Proofs for Confidential Transactions and More|BBB+18]].

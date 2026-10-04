@@ -12,23 +12,16 @@ model: standard
 source:
   - "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
 security-loss: ""
+rationale:
+  class: "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
 ---
 
 # SIVP ⇒ SIS
 
-Worst-case hardness of [[shortest-independent-vectors-problem|SIVP]] implies average-case hardness of [[shortest-integer-solution|SIS]].
-
 ## Statement
 
-An efficient algorithm solving [[shortest-integer-solution|SIS]] on a noticeable fraction of uniform $\mathbf{A} \in \ZZ_q^{n \times m}$, for suitable $q, m = \poly(n)$, yields an efficient classical algorithm that on every $n$-dimensional lattice outputs $n$ linearly independent vectors whose longest is within a fixed polynomial factor $n^{O(1)}$ of optimal (worst-case [[shortest-independent-vectors-problem|SIVP]]) — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Hence worst-case hardness of $\mathrm{SIVP}_\gamma$ for $\gamma = n^{O(1)}$ implies average-case hardness of SIS.
+For a fixed polynomial factor $\gamma = n^{O(1)}$ and suitable $q, m = \poly(n)$, an efficient algorithm solving [[shortest-integer-solution|SIS]] with noticeable probability over uniform $\mathbf{A} \in \ZZ_q^{n \times m}$ yields an efficient classical algorithm that on every $n$-dimensional lattice outputs $n$ linearly independent lattice vectors whose longest is within $\gamma$ of optimal, that is, solves [[shortest-independent-vectors-problem|SIVP]] — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Hence worst-case hardness of $\mathrm{SIVP}_\gamma$ implies average-case hardness of SIS. [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]] tighten the factor, for SIVP and GapSVP, to $\gamma = \beta \cdot \tilde{O}(\sqrt{n})$ for SIS norm bound $\beta$, any $m = \poly(n)$ and sufficiently large $q \ge \beta \cdot \poly(n)$, using Gaussian measures; [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] lower the modulus to $q \ge \beta \cdot \tilde{O}(\sqrt{n})$ with the same factor.
 
 ## Sketch
 
-Sample lattice points from a wide distribution over the input lattice; their basis coordinates, scaled by $q$ and reduced mod $q$, form a nearly uniform SIS instance $\mathbf{A}$, and a short solution $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = \mathbf{0} \bmod q$ recombines the samples into a lattice vector shorter than the sampling scale. Iterating shortens the basis until its length is within a polynomial factor of optimal; its vectors are the independent set.
-
-## Notes
-
-`class: fully-black-box`: Worst-case-to-average-case oracle reduction: the worst-case algorithm generates random SIS instances from its input lattice and invokes an arbitrary average-case SIS solver only as an oracle; it works for every solver with noticeable success probability. No construction component; this is the fully-black-box shape, as recorded on the sibling [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]].
-
-- The approximation factor is tightened to $\gamma = \beta \cdot \tilde{O}(\sqrt{n})$ for SIVP (and GapSVP), for any $m = \poly(n)$ and sufficiently large $q \ge \beta \cdot \poly(n)$, using Gaussian measures — [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]]
-- The modulus requirement is lowered to $q \ge \beta \cdot \tilde{O}(\sqrt{n})$ with the same factor — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]
+Each step samples $m$ points $\mathbf{y}_i$ of the input lattice $L$ from a wide distribution and lets the columns of $\mathbf{A}$ be their coordinates with respect to the current basis, reduced mod $q$, which makes $\mathbf{A}$ nearly uniform; a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = \mathbf{0} \bmod q$ puts $\sum_i z_i \mathbf{y}_i$ in $qL$, and $\frac{1}{q}\sum_i z_i \mathbf{y}_i$ is a vector of $L$ shorter than the longest basis vector. Collecting $n$ independent such vectors and iterating shortens the basis until it is within a polynomial factor of $\lambda_n$; its vectors are the independent set.

@@ -12,20 +12,12 @@ model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "The punctured-programs construction obfuscates circuits containing the code of puncturable PRFs built from the one-way function, so it uses the hypotheses non-black-box."
 ---
 
 # OWF + iO ⇒ Deniable encryption
 
-[[hash-function#preimage-resistance-one-wayness|One-way functions]] together with [[indistinguishability-obfuscation|iO]] imply publicly (sender-)deniable [[deniable-encryption|encryption]].
-
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for circuits and one-way functions ([[hash-function#preimage-resistance-one-wayness|OWF]]) yield publicly deniable — in particular sender-deniable — [[deniable-encryption|encryption]]: for any ciphertext and any message, the sender can produce randomness explaining the ciphertext as an encryption of that message, indistinguishably from the honest randomness [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
-
-## Sketch
-
-The public key is a pair of obfuscated programs built from puncturable PRFs (obtained from the OWF): Encrypt behaves normally except on a sparse hidden set of trigger inputs, where it outputs the ciphertext encoded in the trigger; Explain samples trigger randomness for any desired ciphertext–message pair. Punctured-key hybrids reduce deniability and CPA security to iO and PRF security.
-
-## Notes
-
-`class: free`: The punctured-programs technique applies iO to circuits containing the code of puncturable PRFs derived from the OWF, so the construction is non-black-box in the hypothesis primitives. SW14 do not place the reduction in the RTV taxonomy; `free` records the proven implication without a technique restriction.
+[[indistinguishability-obfuscation|iO]] for circuits and [[hash-function#preimage-resistance-one-wayness|one-way functions]] yield CPA-secure, publicly deniable — in particular sender-deniable — [[deniable-encryption|encryption]]: for any ciphertext and any message, the sender can produce randomness explaining the ciphertext as an encryption of that message, indistinguishably from the honest randomness — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].

@@ -11,16 +11,17 @@ class: free
 model: generic-group
 source:
   - "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
-security-loss: "a generic distinguisher making $q$ queries has advantage $O(q^2/p)$, $p$ the prime group order"
+security-loss: "advantage $O(q^2/p)$ for $q$ queries, $p$ the prime group order"
+rationale:
+  class: "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bound every generic algorithm unconditionally, which is the free class scoped by the model."
+  model: "Sho97's bound holds only for generic algorithms; nothing is claimed in the standard model."
 ---
 
 # GGM ⇒ DDH
 
-[[decisional-diffie-hellman|DDH]] holds in the [[generic-group-model|generic group model]]: every generic distinguisher needs $\Omega(\sqrt{p})$ group operations to decide it in a group of prime order $p$.
-
 ## Statement
 
-A generic distinguisher making $q$ group-operation queries in a cyclic group of prime order $p$ has advantage $O(q^2/p)$ between $(g, g^x, g^y, g^{xy})$ and $(g, g^x, g^y, g^z)$, so deciding [[decisional-diffie-hellman|DDH]] in the [[generic-group-model|generic group model]] takes $\Omega(\sqrt{p})$ queries — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
+In the [[generic-group-model|generic group model]], [[decisional-diffie-hellman|DDH]] is hard in groups of prime order $p$: every generic distinguisher $\calA$ between $(g, g^x, g^y, g^{xy})$ and $(g, g^x, g^y, g^z)$ making $q$ group-operation queries has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) = O(q^2/p)$, so deciding DDH generically takes $\Omega(\sqrt{p})$ queries — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]].
 
 ## Sketch
 
@@ -28,8 +29,4 @@ Treat $x, y, z$ as indeterminates, answer group-oracle queries with random label
 
 ## Notes
 
-`class: free`: the hypothesis is a computational model, not a primitive, so the black-box classes do not apply; Sho97 bound every generic algorithm unconditionally, which is the `free` class scoped by the model.
-
-`model: generic-group`: the bound holds only for generic algorithms; nothing is claimed in the standard model.
-
-- Prime order is load-bearing, and so is genericity: a small prime factor of the group order gives a generic distinguisher (project onto the small subgroup), and a symmetric pairing, which is not a generic operation, decides DDH outright — standard; see [[decisional-diffie-hellman#attacks|DDH § Attacks]].
+- Prime order and genericity are both needed: a small prime factor of the group order gives a generic distinguisher (project onto the small subgroup), and a symmetric pairing, which is not a generic operation, decides DDH outright — standard; see [[decisional-diffie-hellman#attacks|DDH attacks]].

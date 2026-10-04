@@ -12,21 +12,20 @@ class: fully-black-box
 model: standard
 source:
   - "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
-security-loss: "factor $n$ over the DDH advantage: one hybrid per input bit, the per-level multi-sample DDH being exact by random self-reducibility"
+security-loss: "factor $n$: one hybrid per input bit"
+rationale:
+  class: "The construction uses only the group generator's output, and each hybrid step runs the PRF distinguisher only as an oracle to build a DDH distinguisher."
 ---
 
 # DDH ⇒ PRF (Naor–Reingold)
 
-[[decisional-diffie-hellman|DDH]] implies a [[pseudorandom-function|PRF]], by the
-Naor–Reingold construction.
-
 ## Statement
 
-[[decisional-diffie-hellman|DDH]] implies [[pseudorandom-function|PRF]]s: the Naor–Reingold function over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with key $(a_0, a_1, \ldots, a_n) \getsr [p]^{n+1}$ maps $x \in \bits^n$ to $g^{a_0 \prod_{i : x_i = 1} a_i} \in \GG$, and is pseudorandom if DDH is hard for $\GrGen$ — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].
+If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, the Naor–Reingold function is a [[pseudorandom-function|PRF]]: over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with key $(a_0, a_1, \ldots, a_n) \getsr [p]^{n+1}$, it maps $x \in \bits^n$ to $g^{a_0 \prod_{i : x_i = 1} a_i} \in \GG$ — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].
 
 ## Sketch
 
-A hybrid over the $n$ input bits replaces, one level at a time, the contribution of the first $i$ bits by an independent random function of the queried $i$-bit prefixes; a distinguisher between adjacent hybrids yields a DDH distinguisher, the polynomially many DDH samples needed at each level being derived from a single instance by random self-reducibility.
+Hybrid $i$ replaces the contribution of the first $i$ input bits by an independent random function of the queried $i$-bit prefixes. A distinguisher between adjacent hybrids yields a DDH distinguisher, the polynomially many DDH samples sharing one exponent being derived from a single instance by random self-reducibility.
 
 ```pseudocode
 \begin{algorithm}
@@ -51,4 +50,4 @@ A hybrid over the $n$ input bits replaces, one level at a time, the contribution
 
 ## Notes
 
-`class: fully-black-box`: one fixed construction from the group generator; each hybrid step (§ Sketch) turns the PRF distinguisher, used only as an oracle, into a DDH distinguisher.
+- The loss is a factor $n$ in the DDH advantage, one hybrid per input bit: random self-reducibility reduces the multi-sample DDH needed at each level to DDH with no further multiplicative loss — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]].

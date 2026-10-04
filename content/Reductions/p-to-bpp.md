@@ -15,12 +15,10 @@ security-loss: ""
 
 # P ⊆ BPP
 
-[[polynomial-time|P]] is contained in [[bounded-error-probabilistic-polynomial-time|BPP]].
-
 ## Statement
 
-[[polynomial-time|P]] $\subseteq$ [[bounded-error-probabilistic-polynomial-time|BPP]]: a deterministic polynomial-time machine is a probabilistic polynomial-time machine that ignores its random tape and errs with probability $0$ — folklore.
+[[polynomial-time|P]] $\subseteq$ [[bounded-error-probabilistic-polynomial-time|BPP]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+A deterministic polynomial-time machine is a probabilistic polynomial-time machine that ignores its random tape and errs with probability $0$.

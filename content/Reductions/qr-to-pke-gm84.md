@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
 security-loss: ""
+rationale:
+  class: "GM84 state no reduction notion; the construction uses only the modulus generator, and one fixed reduction sets the public non-residue to the QR challenge and runs the IND-CPA adversary once as an oracle."
 ---
 
 # QR ⇒ PKE
 
-[[quadratic-residuosity|QR]] implies [[public-key-encryption|PKE]].
-
 ## Statement
 
-[[quadratic-residuosity|QR]] implies IND-CPA-secure [[public-key-encryption|PKE]] via the Goldwasser–Micali scheme, the first PKE with a proof of semantic security: $\pk = (N, y)$ with $N = pq$ and $y \in \J_N \setminus \QR_N$, $\sk = (p, q)$; $\Enc(\pk, b) = y^b r^2 \bmod N$ for $r \getsr \ZZ_N^*$; $\Dec$ outputs $0$ iff the ciphertext lies in $\QR_N$, decided with $(p, q)$. Encryptions of $0$ are uniform in $\QR_N$ and encryptions of $1$ uniform in $\J_N \setminus \QR_N$, so IND-CPA security is equivalent to QR — [[GM84 - Probabilistic encryption|GM84]].
+If [[quadratic-residuosity|QR]] is hard, the Goldwasser–Micali scheme is an IND-CPA-secure [[public-key-encryption|PKE]] for one-bit messages: $\pk = (N, y)$ with $N = pq$ and $y \in \J_N \setminus \QR_N$, $\sk = (p, q)$; $\Enc(\pk, \beta) = y^\beta r^2 \bmod N$ for $r \getsr \ZZ_N^*$; $\Dec$ outputs $0$ iff the ciphertext lies in $\QR_N$, decided with $(p, q)$. Encryptions of $0$ are uniform in $\QR_N$ and encryptions of $1$ uniform in $\J_N \setminus \QR_N$, so IND-CPA security is equivalent to QR — [[GM84 - Probabilistic encryption|GM84]].
 
 ## Sketch
 
@@ -28,4 +28,4 @@ The reduction sets $y$ to the QR challenge $a$: if $a \notin \QR_N$ it simulates
 
 ## Notes
 
-`class: fully-black-box`: [[GM84 - Probabilistic encryption|GM84]] state no reduction notion; inferred from the proof shape. One fixed construction on the QR modulus, and one fixed reduction that sets $y$ to the QR challenge $a$ and runs the IND-CPA adversary once as an oracle.
+- GM84 introduce semantic security, and this scheme is the first PKE proved to achieve it — [[GM84 - Probabilistic encryption|GM84]].

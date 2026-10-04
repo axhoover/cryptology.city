@@ -12,22 +12,20 @@ model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
 ---
 
 # OWF + iO ⇒ DS
 
-[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies short, selectively secure [[digital-signature|DS]].
-
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies short [[digital-signature|digital signatures]] that are selectively secure: the forger commits to its target message before seeing $\vk$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a [[digital-signature|signature scheme]] with short signatures that is selectively [[digital-signature#existential-unforgeability|EUF-CMA]]-unforgeable: for all efficient $\calA$ that commit to a target message $m^*$ before seeing $\vk$ and then query signatures on messages other than $m^*$, the probability that $\calA$ outputs a valid signature on $m^*$ is negligible — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Sketch
 
-The signing key is a puncturable PRF key $K$, the signature on $m$ is $\sigma = F(K, m)$, and the verification key is an obfuscation of the program accepting $(m, \sigma)$ iff $f(\sigma) = f(F(K, m))$ for a one-way function $f$. The reduction punctures $K$ at the target message $m^*$ and hardcodes $y^* = f(F(K, m^*))$, which iO hides because the program's input–output behavior is unchanged; punctured-PRF security then replaces $F(K, m^*)$ by a uniform value, so a forgery on $m^*$ is a preimage of $y^*$ under $f$.
+The signature on $m$ is $F(K, m)$ for a puncturable PRF key $K$, and $\vk$ obfuscates the program accepting $(m, \sigma)$ iff $f(\sigma) = f(F(K, m))$, for a one-way function $f$. The reduction punctures $K$ at $m^*$ and hardcodes $y^* = f(F(K, m^*))$, which iO hides because the program's input–output behavior is unchanged; punctured-PRF security then replaces $F(K, m^*)$ by a uniform value, so a forgery on $m^*$ is a preimage of $y^*$ under $f$.
 
 ## Notes
 
-`class: free`: The construction hands iO a circuit containing the code of a puncturable PRF built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. Neither SW14 nor any follow-up places the reduction in the RTV04 hierarchy, so the broadest class is recorded.
-
-- One-way functions alone suffice for adaptively EUF-CMA-secure signatures — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]; the iO construction's contribution is short signatures.
+- One-way functions alone give adaptively EUF-CMA-unforgeable signatures ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]; the contribution of the iO construction is short signatures.

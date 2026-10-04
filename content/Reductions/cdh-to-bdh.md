@@ -12,22 +12,20 @@ model: standard
 source:
   - "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
 security-loss: "tight: one CDH call and one pairing evaluation"
+rationale:
+  class: "The group generator is unchanged, and the fixed reduction calls the CDH solver once as an oracle and then evaluates the pairing once."
 ---
 
 # BDH ⇒ CDH
 
-[[bilinear-map-assumptions|BDH]] implies [[computational-diffie-hellman|CDH]] in the source group of the pairing.
-
 ## Statement
 
-If [[bilinear-map-assumptions|BDH]] is hard for a symmetric pairing-group generator, then [[computational-diffie-hellman|CDH]] is hard in its source group $\GG$: a CDH solver breaks BDH with at least its success probability — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]. BF01 leave the converse open.
+If [[bilinear-map-assumptions|BDH]] is hard for a symmetric pairing-group generator, then [[computational-diffie-hellman|CDH]] is hard in its source group $\GG$: every CDH solver yields, with one call and one pairing evaluation, a BDH solver with at least its success probability — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
 
 ## Sketch
 
-Given a BDH instance $(g, g^a, g^b, g^c)$, run the CDH solver on $(g, g^a, g^b)$ to get $Z$, and output $e(Z, g^c)$, which equals $e(g,g)^{abc}$ when $Z = g^{ab}$. The pair $(g^a, g^b)$ has the same distribution as in the CDH game, so the reduction succeeds whenever the solver does.
+Given a BDH instance $(g, g^a, g^b, g^c)$, run the CDH solver on $(g, g^a, g^b)$ and output $e(Z, g^c)$ for its answer $Z$. This equals $e(g,g)^{abc}$ whenever $Z = g^{ab}$, and $(g^a, g^b)$ is distributed as in the CDH game.
 
 ## Notes
 
-`class: fully-black-box`: the group generator is unchanged, and the fixed reduction calls the CDH solver once as an oracle and then evaluates the pairing once (the same reasoning as on [[ddh-to-cdh]] and [[cdh-to-dlog]]).
-
-- This file used to record "CDH ⇒ BDH", migrated from a bullet that presented BDH's hardness against generic bilinear-group algorithms as a reduction from CDH. No reduction from CDH to BDH is known. The slug keeps the old direction because filenames are live URLs.
+- The converse, that CDH hardness implies BDH hardness, is open — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].

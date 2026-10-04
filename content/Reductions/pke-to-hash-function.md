@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
 security-loss: ""
+rationale:
+  class: "The one-way function runs the PKE algorithms only as oracles (for a perfectly correct scheme, key generation on its input coins), and the reduction runs any inverter as an oracle to obtain a secret key consistent with the public key and decrypt the challenge."
 ---
 
 # PKE ⇒ OWF
 
-[[public-key-encryption|PKE]] implies a [[hash-function#preimage-resistance-one-wayness|one-way function]].
-
 ## Statement
 
-Any CPA-secure [[public-key-encryption|PKE]] implies a [[hash-function#preimage-resistance-one-wayness|one-way function]] [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]], an instance of the theorem that private-key encryption, identification, commitment and coin flipping each require one-way functions.
+If a [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]] scheme exists, so does a [[hash-function#preimage-resistance-one-wayness|one-way function]] — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]. This is an instance of IL89's theorem that private-key encryption, identification, commitment and coin flipping each require one-way functions.
 
 ## Sketch
 
@@ -28,4 +28,4 @@ For a perfectly correct scheme, $f(r) := \pk$ where $(\sk, \pk) = \KeyGen(1^\sec
 
 ## Notes
 
-`class: fully-black-box`: the one-way function runs the PKE algorithms as oracles (e.g. $r \mapsto \pk$), and the reduction runs any inverter as an oracle to obtain a secret key consistent with $\pk$ and decrypt the CPA challenge. Fixed construction, fixed reduction.
+- The converse has no relativizing proof: relative to a random permutation with a $\classPSPACE$-complete oracle, one-way functions exist and PKE does not ([[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]]) — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]].

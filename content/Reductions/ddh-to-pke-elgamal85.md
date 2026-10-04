@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
 security-loss: "tight: one oracle call, advantage-preserving"
+rationale:
+  class: "The ElGamal construction uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
 ---
 
 # DDH ⇒ PKE
 
-[[decisional-diffie-hellman|DDH]] implies [[public-key-encryption|PKE]].
-
 ## Statement
 
-[[decisional-diffie-hellman|DDH]] implies CPA-secure [[public-key-encryption|PKE]]: the ElGamal scheme over $(\GG, g, p) \gets \GrGen(1^\secpar)$ has $\sk = x \getsr [p]$ and $\pk = y = g^x$, encrypts $m \in \GG$ as $(g^r, m \cdot y^r)$ for $r \getsr [p]$, and decrypts $(c_1, c_2)$ as $c_2 \cdot c_1^{-x}$. The scheme is from [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]; it is semantically secure iff DDH is hard for $\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
+[[decisional-diffie-hellman|DDH]] implies [[public-key-encryption#cpa-security|CPA-secure]] [[public-key-encryption|PKE]]: the ElGamal scheme over $(\GG, g, p) \gets \GrGen(1^\secpar)$ has $\sk = x \getsr [p]$ and $\pk = y = g^x$, encrypts $m \in \GG$ as $(g^r, m \cdot y^r)$ for $r \getsr [p]$, and decrypts $(c_1, c_2)$ as $c_2 \cdot c_1^{-x}$. The scheme is from [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]; it is semantically secure iff DDH is hard for $\GrGen$ — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
 
 ## Sketch
 
@@ -58,6 +58,4 @@ On DDH challenge $(X, Y, Z)$ the reduction sets $\pk = X$ and answers the challe
 
 ## Notes
 
-`class: fully-black-box`: One fixed construction from the group generator, and one fixed reduction: on DDH challenge $(X, Y, Z)$ set $\pk = X$ and answer the challenge query with $(Y, m_b \cdot Z)$, running the CPA adversary once as an oracle.
-
-- ElGamal85 predates the DDH assumption; the citation attaches to the scheme, and the DDH-based CPA proof is later — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
+- ElGamal85 predates the DDH assumption; the DDH-based CPA proof is later — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].

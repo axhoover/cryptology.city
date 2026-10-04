@@ -11,11 +11,11 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "none: the reduction preserves the inverter's advantage"
+rationale:
+  class: "One fixed construction calls $\\Gen$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle."
 ---
 
 # TDP ⇒ OWF
-
-[[trapdoor-permutation|TDP]] implies [[hash-function#preimage-resistance-one-wayness|OWF]].
 
 ## Statement
 
@@ -23,8 +23,4 @@ A [[trapdoor-permutation|trapdoor permutation]] family $(\Gen, \Eval, \Invert)$ 
 
 ## Sketch
 
-$g$ discards $\td$. The reduction forwards its challenge $(f, y)$ to a $g$-inverter and returns the $x$ component of the answer: any preimage of $(f, y)$ under $g$ contains the unique $x$ with $\Eval(f, x) = y$, since $\Eval(f, \cdot)$ is a bijection.
-
-## Notes
-
-`class: fully-black-box`: One fixed construction calls $\Gen$ and $\Eval$ as oracles; one fixed reduction runs any $g$-inverter as an oracle.
+$g$ discards $\td$. The reduction forwards its challenge $(f, y)$ to a $g$-inverter and returns the $x$ component of the answer, which is the unique preimage of $y$ under the bijection $\Eval(f, \cdot)$.

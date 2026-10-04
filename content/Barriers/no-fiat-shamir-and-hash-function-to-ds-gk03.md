@@ -15,24 +15,17 @@ strength: conditional
 conditional-on: [owf]
 source:
   - "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
+rationale:
+  class: "The construction is the Fiat-Shamir transform with the random oracle instantiated by the hash function, and a counterexample against every efficient hash function refutes it."
+  strength: "GK03 derive the theorem from one-way functions by cases on whether collision-resistant hash functions exist, building the counterexample's universal arguments from them when they do."
 ---
 
 # No fixed-construction reduction from Fiat-Shamir + Hash function to DS
 
-A reduction of class `fixed-construction` from [[fiat-shamir-heuristic|Fiat-Shamir]] together with [[hash-function|Hash function]] to [[digital-signature|DS]] would imply a contradiction.
-
 ## Statement
 
-There is a secure 3-round public-coin identification scheme whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is a [[digital-signature|signature scheme]] secure in the [[random-oracle-model|random oracle model]] but existentially forgeable for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. The random oracle in the transform is therefore not instantiable in general.
-
-## Sketch
-
-The scheme adds an escape hatch: the prover may commit in its first message to a program and later prove, with a succinct argument whose verification time is polylogarithmic in the program's running time, that the program maps the first message to the challenge. Interactively the challenge is chosen after the commitment, so the hatch is useless; after the transform the challenge is $H$ of the first message, and a forger commits to the code of $H$ itself.
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a secure 3-round public-coin identification scheme whose [[fiat-shamir-heuristic|Fiat-Shamir]] transform is a [[digital-signature|signature scheme]] secure in the [[random-oracle-model|random oracle model]] but existentially forgeable for every efficient [[hash-function|hash function]] instantiating the oracle — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. Hence the Fiat-Shamir transform with the oracle instantiated by a hash function does not compile every secure identification scheme into a secure signature scheme: the random oracle is not instantiable in general. Signatures built from hash functions by other constructions are not ruled out.
 
 ## Notes
 
-`class: fixed-construction`: the construction is the Fiat–Shamir transform with the random oracle instantiated by the hash function, and a counterexample against every efficient hash function refutes it. Signatures built from a hash function by other means are not ruled out.
-
-`strength: conditional`: GK03 derive the theorem from [[hash-function#preimage-resistance-one-wayness|one-way functions]], by cases on whether [[hash-function#collision-resistance|collision-resistant hash functions]] exist; when they do, the counterexample's universal arguments are built from them — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
-
-- The same counterexample, read against non-interactive arguments: [[no-fiat-shamir-to-nizk-gk03]].
+- Read against non-interactive arguments, the same counterexample shows that the Fiat-Shamir transform does not in general give sound ones in the standard model ([[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]) — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].

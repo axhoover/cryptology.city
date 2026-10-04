@@ -11,20 +11,20 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The reduction runs any search-LWE solver once as an oracle on the decision instance and checks the residual, never using the solver's code."
 ---
 
 # Decision LWE ⇒ Search LWE
 
-[[learning-with-errors#decision-lwe|Decision LWE]] implies [[learning-with-errors#search-lwe|Search LWE]].
-
 ## Statement
 
-If [[learning-with-errors#decision-lwe|decision LWE]] is hard for $(n, q, \chi, m)$ then [[learning-with-errors#search-lwe|search LWE]] is hard for the same parameters, provided $\chi$ is efficiently recognizable (e.g. bounded) and $m$ is large enough that a uniform $\mathbf{u} \in \ZZ_q^m$ lies within error distance of some $\mathbf{A}\mathbf{s}$ only with negligible probability: a search solver yields a decision distinguisher with the same advantage up to a negligible term — folklore.
+Let $\chi$ have efficiently recognizable support (e.g. $\chi$ bounded), and let $m$ be large enough that $\delta := \Pr\!\left[\exists\, \mathbf{s} : \mathbf{u} - \mathbf{A}\mathbf{s} \in \mathrm{supp}(\chi^m)\right]$, over uniform $\mathbf{A} \in \ZZ_q^{m \times n}$ and $\mathbf{u} \in \ZZ_q^m$, is negligible. If [[learning-with-errors#decision-lwe|decision LWE]] is hard for $(n, q, \chi, m)$, then [[learning-with-errors#search-lwe|search LWE]] is hard for the same parameters: for every search solver $\calA$ there is a distinguisher $\calB$, running $\calA$ once, with $\Adv^{\text{lwe}}_{n,q,\chi,m,\calB}(\secpar) \ge \Adv^{\text{slwe}}_{n,q,\chi,m,\calA}(\secpar) - \delta$ — folklore.
 
 ## Sketch
 
-Given $(\mathbf{A}, \mathbf{u})$, run the search solver to obtain $\hat{\mathbf{s}}$ and output "LWE" iff $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ lies in the support of $\chi^m$. On LWE samples the check passes whenever the solver succeeds; on uniform samples no candidate secret passes except with negligible probability.
+Given $(\mathbf{A}, \mathbf{u})$, $\calB$ runs $\calA$ to obtain $\hat{\mathbf{s}}$ and outputs "LWE" iff $\mathbf{u} - \mathbf{A}\hat{\mathbf{s}}$ lies in $\mathrm{supp}(\chi^m)$. On LWE samples the check passes whenever $\calA$ succeeds; on uniform samples it passes with probability at most $\delta$.
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity, and the reduction is one fixed algorithm that runs any search-LWE solver once as an oracle and checks the residual; this is the [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]] fully-black-box shape, degenerately instantiated for an assumption-to-assumption edge, in the parameter regime of the statement.
+- The converse holds for prime $q = \poly(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; see [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]].

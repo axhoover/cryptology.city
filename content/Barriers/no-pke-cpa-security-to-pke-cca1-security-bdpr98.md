@@ -15,24 +15,21 @@ strength: conditional
 conditional-on: [pke-cpa-security]
 source:
   - "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+rationale:
+  class: "The counterexample refutes the identity map, CPA security of a scheme implying CCA1 security of the same scheme, and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction."
+  strength: "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
 ---
 
 # No fixed-construction reduction from CPA security to CCA1 security
 
-A reduction of class `fixed-construction` from [[public-key-encryption#cpa-security|CPA security]] to [[public-key-encryption#cca1-security|CCA1 security]] would imply a contradiction, if an IND-CPA-secure [[public-key-encryption|PKE]] scheme exists.
-
 ## Statement
 
-If an IND-CPA-secure [[public-key-encryption|PKE]] scheme exists, then there is a PKE scheme that is IND-CPA-secure but not [[public-key-encryption#cca1-security|IND-CCA1]]-secure — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+If an [[public-key-encryption#cpa-security|IND-CPA]]-secure [[public-key-encryption|PKE]] scheme exists, then there is a PKE scheme that is IND-CPA-secure but not [[public-key-encryption#cca1-security|IND-CCA1]]-secure, so the identity map is no reduction from CPA to CCA1 security — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
 
 ## Sketch
 
-Given an IND-CPA-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = 0 \| \Enc(\pk, m)$, let $\Dec'(\sk, 0 \| c) = \Dec(\sk, c)$, and let $\Dec'$ return $\sk$ on the designated ciphertext $1$, which $\Enc'$ never outputs. The CPA game never calls $\Dec'$, so $\PKE'$ is IND-CPA-secure; a CCA1 adversary queries $1$ in Phase 1, receives $\sk$, and decrypts $c^*$ — standard.
+Given an IND-CPA-secure $\PKE = (\KeyGen, \Enc, \Dec)$, let $\Enc'(\pk, m) = 0 \| \Enc(\pk, m)$ and $\Dec'(\sk, 0 \| c) = \Dec(\sk, c)$, and let $\Dec'$ return $\sk$ on the designated ciphertext $1$, which $\Enc'$ never outputs. The CPA game never calls $\Dec'$, so $\PKE'$ is IND-CPA-secure; a CCA1 adversary queries $1$ in Phase 1, receives $\sk$, and decrypts $c^*$ — standard.
 
 ## Notes
 
-`class: fixed-construction`: the construction is the identity map — the hyperedge is read for one scheme (CPA security of $\PKE$ ⇒ CCA1 security of the same $\PKE$) — and the counterexample refutes it. Building a CCA1-secure scheme from a CPA-secure one by another construction is not ruled out.
-
-`strength: conditional`: BDPR98 prove each separation assuming the first notion can be met at all; if no IND-CPA-secure scheme exists, the identity-map implication holds vacuously.
-
-- The converse holds for every scheme: [[cca1-security-to-cpa-security|CCA1 security ⇒ CPA security]].
+- The converse holds for every scheme: [[cca1-security-to-cpa-security|CCA1 security ⇒ CPA security]] — folklore.

@@ -12,11 +12,11 @@ model: standard
 source:
   - "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
 security-loss: ""
+rationale:
+  class: "BH26 call the reduction non-black-box without placing it in the RTV04 hierarchy, so only the implication itself is recorded."
 ---
 
 # OIHF ⇒ OT
-
-[[oblivious-interactive-hash-function|OIHF]] implies [[oblivious-transfer|OT]].
 
 ## Statement
 
@@ -24,6 +24,4 @@ An [[oblivious-interactive-hash-function|OIHF]] implies [[oblivious-transfer|OT]
 
 ## Notes
 
-`class: free`: BH26 call the reduction non-black-box without placing it in the RTV hierarchy, so it is recorded as `free`, the broadest class in `schema/reduction-classes.yaml`. `free` does not imply fully-black-box, so the edge is consistent with [[no-oihf-to-ot-bh26]].
-
-- Standard-model OIHFs are known only from Cryptomania assumptions — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]] — so this edge does not by itself place OT in Minicrypt.
+- Conversely, OT implies OIHFs, and standard-model OIHFs are known only from Cryptomania assumptions, so the result does not place OT in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].

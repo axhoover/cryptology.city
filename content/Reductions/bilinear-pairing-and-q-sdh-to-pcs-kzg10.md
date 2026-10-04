@@ -12,19 +12,18 @@ model: crs
 source:
   - "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
 security-loss: ""
+rationale:
+  class: "The construction uses the bilinear group only through group operations and the pairing, and the reduction runs any evaluation-binding adversary once as an oracle and turns its two openings into a q-SDH solution."
+  model: "The scheme needs a trusted structured reference string of powers of a secret exponent that is discarded after setup."
 ---
 
 # Bilinear pairing + q-SDH ⇒ PCS
 
-[[pairings|Bilinear pairing]] together with [[q-strong-diffie-hellman|q-SDH]] implies [[polynomial-commitment|PCS]], given a trusted structured reference string.
-
 ## Statement
 
-In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$: commitments and opening proofs are single group elements, verification is two pairings; evaluation binding holds under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and the Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
+In a [[pairings|bilinear group]] with a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$, the KZG scheme is a [[polynomial-commitment|polynomial commitment]] for polynomials of degree at most $d$ whose commitments and opening proofs are single group elements and whose verification is two pairings. It is evaluation binding under [[q-strong-diffie-hellman|q-SDH]] with $q = d$, and its Pedersen variant is unconditionally hiding — [[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]].
 
 ## Sketch
-
-Commit to $f$ as $C = g^{f(\tau)}$, computable from the SRS without $\tau$; the opening at $z$ is $\pi = g^{\psi(\tau)}$ for the quotient $\psi(X) = (f(X) - y)/(X - z)$, and the verifier checks $e(C/g^y, g) = e(\pi, g^\tau/g^z)$. Two accepting openings $(y, \pi)$, $(y', \pi')$ at the same $z$ with $y \neq y'$ give $(\pi/\pi')^{1/(y'-y)} = g^{1/(\tau - z)}$, a $q$-SDH solution with $c = -z$.
 
 ```pseudocode
 \begin{algorithm}
@@ -39,10 +38,4 @@ Commit to $f$ as $C = g^{f(\tau)}$, computable from the SRS without $\tau$; the 
 \end{algorithm}
 ```
 
-## Notes
-
-`class: fully-black-box`: One fixed construction that uses the bilinear group only through group operations and the pairing, and one fixed reduction that runs an evaluation-binding adversary once as an oracle and computes a $q$-SDH solution from its two openings (§ Sketch). With an assumption as hypothesis, black-boxness refers to the treatment of the adversary; this is the RTV04 fully-black-box shape.
-
-`model: crs`: The scheme needs a trusted structured reference string $(g, g^\tau, \ldots, g^{\tau^d})$ whose trapdoor $\tau$ is discarded.
-
-- The bilinear-group requirement is a structural hypothesis: `[[pairings]]` is a Glossary page, not an assumption page.
+Two accepting openings $(y, \pi)$, $(y', \pi')$ at one point $z$ with $y \neq y'$ give $(\pi/\pi')^{1/(y'-y)} = g^{1/(\tau - z)}$, a $q$-SDH solution with $c = -z$.

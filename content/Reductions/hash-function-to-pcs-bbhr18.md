@@ -12,15 +12,15 @@ model: rom
 source:
   - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
 security-loss: ""
+rationale:
+  model: "The non-interactive scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle."
 ---
 
 # CRHF ⇒ PCS
 
-[[hash-function#collision-resistance|CRHF]] implies [[polynomial-commitment|PCS]].
-
 ## Statement
 
-[[hash-function#collision-resistance|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test, with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the random-oracle model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
+[[hash-function#collision-resistance|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test of [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]], with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the [[random-oracle-model|random-oracle model]] — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 ## Sketch
 
@@ -28,8 +28,5 @@ FRI folds the committed codeword round by round: writing $f_i(x) = g_i(x^2) + x\
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-`model: rom`: FRI is an interactive oracle proof of proximity; the commitment Merkle-hashes the prover's oracles and becomes non-interactive through the [[BCS16 - Interactive Oracle Proofs|BCS16]] (Fiat–Shamir) compilation, whose soundness is proven with the hash modeled as a random oracle (the model of BBHR18a's non-interactive STARK). Interactively, binding rests on collision resistance alone.
-
-- The polynomial-commitment abstraction of FRI (as a _list_ polynomial commitment) is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].
+- Interactively, with each FRI oracle sent as a Merkle root, binding rests on collision resistance alone — folklore; the non-interactive scheme is the random-oracle compilation of this interactive oracle proof — [[BCS16 - Interactive Oracle Proofs|BCS16]].
+- The polynomial-commitment abstraction of FRI, as a _list_ polynomial commitment, is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].

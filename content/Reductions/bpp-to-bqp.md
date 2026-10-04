@@ -12,22 +12,16 @@ model: quantum
 source:
   - "[[BV97 - Quantum Complexity Theory|BV97]]"
 security-loss: ""
+rationale:
+  model: "The conclusion is a quantum complexity class, and the proof simulates the probabilistic machine on a quantum Turing machine."
 ---
 
 # BPP ⊆ BQP
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is contained in [[bounded-error-quantum-polynomial-time|BQP]].
-
 ## Statement
 
-A quantum Turing machine simulates any bounded-error probabilistic polynomial-time computation with polynomial overhead, so [[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[bounded-error-quantum-polynomial-time|BQP]] [[BV97 - Quantum Complexity Theory|BV97]].
+A quantum Turing machine simulates every bounded-error probabilistic polynomial-time computation with polynomial overhead, so [[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[bounded-error-quantum-polynomial-time|BQP]] — [[BV97 - Quantum Complexity Theory|BV97]].
 
 ## Sketch
 
-Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh cell rotated into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: The containment is witnessed by a quantum simulation of the probabilistic machine; sibling BQP edges (e.g. [[bqp-to-pp]]) use `model: quantum`.
+Each deterministic step of the probabilistic machine is executed reversibly, and each coin toss is a fresh qubit put into an equal superposition of $0$ and $1$; measuring at the end reproduces the acceptance probabilities.

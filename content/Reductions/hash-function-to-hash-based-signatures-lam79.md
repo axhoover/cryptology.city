@@ -12,19 +12,19 @@ model: standard
 source:
   - "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
 security-loss: ""
+rationale:
+  class: "Key generation and verification evaluate the one-way function only as an oracle, and the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot."
 ---
 
 # OWF ⇒ One-time signatures (Lamport)
 
-[[hash-function#preimage-resistance-one-wayness|OWF]] implies [[digital-signature#one-time-signatures|one-time signatures]].
-
 ## Statement
 
-A [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[digital-signature#one-time-signatures|one-time digital signatures]] (Lamport's scheme): for $\ell$-bit messages the signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$; a key pair signs one message — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
+If $\hash$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]], Lamport's scheme on $\ell$-bit messages is a [[digital-signature#one-time-signatures|one-time signature]]: EUF-CMA-unforgeable against all efficient adversaries making at most one signing query. The signing key is $2\ell$ uniform preimages $x_{i,b}$, the verification key is their images $y_{i,b} = \hash(k, x_{i,b})$, and the signature on $m$ reveals $(x_{i,m_i})_{i \le \ell}$ — [[Lam79 - Constructing digital signatures from a one way function|Lam79]].
 
 ## Sketch
 
-A forgery on $\hat{m} \ne m$ must reveal a preimage of some $y_{i,1-m_i}$ not opened by the signature on $m$. The reduction plants its one-wayness challenge at a uniformly random slot among the $2\ell$, aborts if the single signing query opens that slot, answers it with the remaining preimages, and inverts $\hash(k, \cdot)$ whenever the forgery opens the planted slot — a factor-$2\ell$ loss.
+A forgery on $\hat{m} \ne m$ reveals a preimage of some $y_{i,1-m_i}$ that the signature on $m$ did not open. The reduction plants its one-wayness challenge at a uniformly random one of the $2\ell$ slots, aborts if the signing query opens it, answers that query with the preimages it holds, and inverts $\hash(k, \cdot)$ whenever the forgery opens it — a factor-$2\ell$ loss.
 
 ```pseudocode
 \begin{algorithm}
@@ -57,7 +57,5 @@ A forgery on $\hat{m} \ne m$ must reveal a preimage of some $y_{i,1-m_i}$ not op
 ```
 
 ## Notes
-
-`class: fully-black-box`: Key generation and verification evaluate the one-way function only as an oracle; the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot and answering the single signing query with the remaining preimages — the RTV04 fully-black-box shape.
 
 - The Winternitz variant signs several message bits per hash chain, trading $\hash$ evaluations for signature size — [[Mer89 - A Certified Digital Signature|Mer89]].

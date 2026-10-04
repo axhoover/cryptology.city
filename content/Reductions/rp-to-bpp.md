@@ -15,12 +15,10 @@ security-loss: ""
 
 # RP ⊆ BPP
 
-[[randomized-polynomial-time|RP]] is contained in [[bounded-error-probabilistic-polynomial-time|BPP]].
-
 ## Statement
 
-$\classRP \subseteq \classBPP$: running an $\classRP$ machine twice independently and accepting if either run accepts raises the acceptance probability on yes-instances from at least $1/2$ to at least $3/4 \ge 2/3$ and leaves it at $0$ on no-instances — folklore.
+[[randomized-polynomial-time|RP]] $\subseteq$ [[bounded-error-probabilistic-polynomial-time|BPP]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+Run the $\classRP$ machine twice on independent coins and accept if either run accepts: the acceptance probability rises from at least $1/2$ to at least $3/4 \ge 2/3$ on yes-instances and stays $0$ on no-instances.

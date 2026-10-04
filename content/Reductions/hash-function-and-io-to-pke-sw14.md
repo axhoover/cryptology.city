@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "The construction obfuscates a circuit containing the code of a puncturable PRF and a PRG built from the one-way function, so it is not black-box in the OWF, and SW14 state no reduction notion."
 ---
 
 # OWF + iO ⇒ PKE
 
-[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies [[public-key-encryption|PKE]].
-
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies IND-CPA-secure [[public-key-encryption|PKE]]; SW14 also give an IND-CCA-secure scheme — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Sketch
 
@@ -28,4 +28,4 @@ The secret key is a puncturable PRF key $K$; the public key is an obfuscation of
 
 ## Notes
 
-`class: free`: The construction hands iO a circuit containing the code of a puncturable PRF and PRG built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. SW14 do not place the reduction in the RTV04 hierarchy, so the broadest class is recorded.
+- The same punctured-programs technique also gives [[public-key-encryption#cca-security|IND-CCA-secure]] PKE — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
