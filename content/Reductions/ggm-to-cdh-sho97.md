@@ -13,7 +13,7 @@ source:
   - "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
 security-loss: "success probability $O(q^2/p)$ for $q$ queries, $p$ the prime group order"
 rationale:
-  class: "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bound every generic algorithm unconditionally, which is the free class scoped by the model."
+  class: "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bounds every generic algorithm unconditionally, which is the free class scoped by the model."
   model: "Sho97's bound holds only for generic algorithms; nothing is claimed in the standard model."
 ---
 
