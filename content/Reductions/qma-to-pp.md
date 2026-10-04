@@ -24,7 +24,7 @@ $\classQMA \subseteq \classPP$: every language in [[quantum-merlin-arthur|QMA]] 
 
 ## Sketch
 
-Strong error reduction drives the completeness and soundness errors of a QMA verifier to $2^{-p}$ without lengthening its $m$-qubit witness. The trace of the verifier's acceptance operator is then at least $1 - 2^{-p}$ on yes-instances and at most $2^{m-p}$ on no-instances, which separate once $p > m + 1$; the trace is the sum over witness basis states of the circuit's acceptance probabilities, hence computable in $\mathrm{GapP}$, and a $\classPP$ machine thresholds it.
+Strong error reduction drives the completeness and soundness errors of a QMA verifier to $2^{-p}$ without lengthening its $m$-qubit witness. The trace of the verifier's acceptance operator is then at least $1 - 2^{-p}$ on yes-instances and at most $2^{m-p}$ on no-instances, which separate once $p > m + 1$; the trace is the sum over witness basis states of the circuit's acceptance probabilities, hence a $\mathrm{GapP}$ function up to a fixed denominator, and a $\classPP$ machine thresholds it.
 
 ## Notes
 

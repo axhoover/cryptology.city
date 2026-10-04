@@ -13,7 +13,7 @@ source:
   - "[[KSV02 - Classical and Quantum Computation|KSV02]]"
 security-loss: ""
 rationale:
-  model: "QMA is a quantum complexity class, and both the containment verifier and the hardness reduction from verifier circuits are quantum."
+  model: "QMA is a quantum complexity class, and both halves of the proof are quantum: the containment verifier measures a quantum witness, and the hardness proof encodes quantum verifier circuits as Hamiltonians."
 ---
 
 # Local Hamiltonian is QMA-complete
@@ -28,4 +28,4 @@ Containment: the verifier picks a term $H_i$ at random and measures the witness 
 
 ## Notes
 
-- QMA-hardness holds already for $k = 3$ — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]] — and for $k = 2$, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]].
+- The problem remains QMA-complete for $k = 3$ — [[KR03 - 3-Local Hamiltonian is QMA-complete|KR03]] — and for $k = 2$, via perturbation-theory gadgets — [[KKR06 - The Complexity of the Local Hamiltonian Problem|KKR06]].

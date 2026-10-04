@@ -17,7 +17,7 @@ source:
   - "[[BHNZ25 - Separating QMA from QCMA with a Classical Oracle|BHNZ25]]"
   - "[[BHV26 - Separating Quantum and Classical Advice with Good Codes|BHV26]]"
 rationale:
-  class: "An oracle relative to which QMA is not contained in QCMA rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+  class: "BHNZ25 give an oracle relative to which QMA is not contained in QCMA, which rules out exactly the relativizing proofs of the inclusion (and, by the partial order, every fully-black-box one) and says nothing about non-relativizing ones."
 ---
 
 # No relativizing reduction from QMA to QCMA

@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-[[bounded-error-quantum-polynomial-time|BQP]] $\subseteq$ [[probabilistic-polynomial-time|PP]]: every language decided with bounded error by a polynomial-time quantum machine is decided by an unbounded-error probabilistic polynomial-time machine — [[ADH97 - Quantum Computability|ADH97]].
+[[bounded-error-quantum-polynomial-time|BQP]] $\subseteq$ [[probabilistic-polynomial-time|PP]]: every language decided with bounded error by a polynomial-time quantum machine with algebraic transition amplitudes is decided by an unbounded-error probabilistic polynomial-time machine — [[ADH97 - Quantum Computability|ADH97]].
 
 ## Sketch
 
-With rational amplitudes, the acceptance probability of a polynomial-time quantum machine is a sum, over pairs of computation paths, of products of amplitudes; after clearing a common denominator it is the difference of two $\classsharpP$ functions, and comparing it with $1/2$ is a $\classPP$ predicate. ADH97 extend the argument to algebraic amplitudes.
+With rational amplitudes, the acceptance probability of a polynomial-time quantum machine is a sum, over pairs of computation paths ending in the same accepting configuration, of products of amplitudes; after clearing a common denominator it is the difference of two $\classsharpP$ functions, and comparing it with $1/2$ is a $\classPP$ predicate. ADH97 extend the argument to algebraic amplitudes.
 
 ## Notes
 
