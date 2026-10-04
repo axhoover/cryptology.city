@@ -1,0 +1,15 @@
+// The metadata line RelationMeta (quartz/plugins/transformers/relationMeta.ts)
+// renders under the H1 of reduction and barrier pages: kind, class, model,
+// sources. Muted and compact; links and math keep their body styling.
+article p.relation-meta {
+  margin: -0.15rem 0 1.25rem;
+  font-family: var(--headerFont);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--darkgray) 80%, var(--light));
+  overflow-wrap: break-word;
+
+  .katex {
+    font-size: 1em;
+  }
+}

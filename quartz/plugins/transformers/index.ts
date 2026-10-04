@@ -8,6 +8,7 @@ export { CrawlLinks } from "./links";
 export { ObsidianFlavoredMarkdown } from "./ofm";
 export { OxHugoFlavouredMarkdown } from "./oxhugofm";
 export { Pseudocode } from "./pseudocode";
+export { RelationMeta } from "./relationMeta";
 export { SyntaxHighlighting } from "./syntax";
 export { TableOfContents } from "./toc";
 export { HardLineBreaks } from "./linebreaks";

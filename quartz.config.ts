@@ -65,6 +65,9 @@ const config: QuartzConfig = {
         },
         keepBackground: false,
       }),
+      // Before ObsidianFlavoredMarkdown: its text transform splices markdown
+      // (wikilinks, math) under the H1 that the stages below must still see.
+      Plugin.RelationMeta(),
       Plugin.ObsidianFlavoredMarkdown({ enableInHtmlEmbed: false }),
       Plugin.GitHubFlavoredMarkdown(),
       Plugin.Bibtex(),
