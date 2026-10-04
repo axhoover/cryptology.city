@@ -24,7 +24,7 @@ The [[quadratic-residuosity#higher-residuosity|higher residuosity]] assumption i
 
 ## Sketch
 
-The reduction sets $g$ to the higher-residuosity challenge: for a $d$-th non-residue the public key is distributed as in the scheme, and for a $d$-th residue every ciphertext is a uniform $d$-th residue, independent of the message. Knowing $\phi(N)$, the decryptor computes $c^{\phi(N)/d} = (g^{\phi(N)/d})^m$ and recovers $m$ by exhaustive search in the order-$d$ subgroup, efficient for $d \le \poly(\secpar)$.
+The reduction sets $g$ to the higher-residuosity challenge, as the [[qr-to-pke-gm84|GM84 reduction]] does with the QR challenge: for a $d$-th non-residue the public key is distributed as in the scheme, and for a $d$-th residue every ciphertext is a uniform $d$-th residue, independent of the message. Knowing $\phi(N)$, the decryptor computes $c^{\phi(N)/d} = (g^{\phi(N)/d})^m$ and recovers $m$ by exhaustive search in the order-$d$ subgroup, efficient for $d \le \poly(\secpar)$.
 
 ## Notes
 
