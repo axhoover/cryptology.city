@@ -13,14 +13,14 @@ source:
   - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
 security-loss: ""
 rationale:
-  model: "The non-interactive scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle."
+  model: "The non-interactive scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle; interactively, binding rests on collision resistance alone."
 ---
 
 # CRHF ⇒ PCS
 
 ## Statement
 
-[[hash-function#collision-resistance|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test of [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]], with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme is secure in the [[random-oracle-model|random-oracle model]] — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
+[[hash-function#collision-resistance|Collision-resistant hash functions]] yield a transparent [[polynomial-commitment|polynomial commitment scheme]]: the commitment to a polynomial of degree $< d$ is the Merkle root of its Reed–Solomon codeword, and low-degreeness and openings are proved with the FRI proximity test of [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]], with $O(\log^2 d)$ proof size and verification time; the non-interactive scheme, the [[BCS16 - Interactive Oracle Proofs|BCS16]] compilation of this interactive oracle proof, is secure in the [[random-oracle-model|random-oracle model]] — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 ## Sketch
 
@@ -28,5 +28,4 @@ FRI folds the committed codeword round by round: writing $f_i(x) = g_i(x^2) + x\
 
 ## Notes
 
-- Interactively, with each FRI oracle sent as a Merkle root, binding rests on collision resistance alone — folklore; the non-interactive scheme is the random-oracle compilation of this interactive oracle proof — [[BCS16 - Interactive Oracle Proofs|BCS16]].
 - The polynomial-commitment abstraction of FRI, as a _list_ polynomial commitment, is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].

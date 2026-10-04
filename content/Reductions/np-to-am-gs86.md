@@ -21,4 +21,4 @@ $\classNP \subseteq \classAM$: every language in [[nondeterministic-polynomial-t
 
 ## Sketch
 
-Arthur's message is ignored, Merlin sends an $\classNP$ witness, and Arthur checks it with the deterministic $\classNP$ verifier, so completeness and soundness are those of that verifier.
+Merlin ignores Arthur's coins and sends an $\classNP$ witness, which Arthur checks with the deterministic $\classNP$ verifier, so completeness and soundness are those of that verifier.

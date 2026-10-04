@@ -13,8 +13,8 @@ source:
   - "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
 security-loss: ""
 rationale:
-  class: "One fixed construction, a Pedersen vector commitment with the inner-product argument, uses only the group operation, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges."
-  model: "Openings are non-interactive proofs obtained by applying Fiat–Shamir to the public-coin inner-product argument; the interactive protocol needs no random oracle."
+  class: "One fixed construction, a Pedersen vector commitment with the inner-product argument, uses only the group operation, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges, or forking it in the random-oracle version."
+  model: "The wiki's PCS syntax makes an opening a non-interactive proof, so openings apply Fiat–Shamir to the public-coin inner-product argument; the interactive BCCGP16 protocol needs no random oracle."
 ---
 
 # DLOG ⇒ PCS
@@ -25,7 +25,7 @@ If [[discrete-logarithm|DLOG]] is hard in a prime-order group, a transparent [[p
 
 ## Sketch
 
-The claim $f(z) = y$ is the inner product $\langle \vec{f}, (1, z, \dots, z^d) \rangle = y$. Each round folds both vectors in half with a random challenge; after $\log d$ rounds the prover reveals the two remaining scalars and the verifier checks one commitment equation. The extractor rewinds each round to build a tree of accepting transcripts, and two openings of one commitment to distinct polynomials give a nontrivial discrete-log relation among the public generators.
+The claim $f(z) = y$ is the inner product $\langle \vec{f}, (1, z, \dots, z^d) \rangle = y$. Each round folds both vectors in half with a random challenge; after $\log d$ rounds the prover reveals the last entry of the folded $\vec{f}$, and the verifier, which folds the public vector and the generators itself in $O(d)$ time, checks one commitment equation. The extractor rewinds each round to build a tree of accepting transcripts, and two openings of one commitment to distinct polynomials give a nontrivial discrete-log relation among the public generators.
 
 ## Notes
 

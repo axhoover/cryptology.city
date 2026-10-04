@@ -17,7 +17,7 @@ security-loss: ""
 
 ## Statement
 
-$\classBPP \subseteq \classAM$: every [[bounded-error-probabilistic-polynomial-time|BPP]] language has an [[arthur-merlin|Arthur–Merlin]] proof system — folklore.
+[[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[arthur-merlin|AM]] — folklore.
 
 ## Sketch
 

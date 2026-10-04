@@ -22,4 +22,4 @@ $2^{O(\sqrt{n})}$-hardness of [[learning-parity-with-noise#subexponential-lpn|LP
 
 ## Notes
 
-- The same zero-bit PRC follows from polynomial hardness of LPN together with the low-density planted-XOR assumption — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
+- The same conclusion follows from polynomial hardness of LPN together with the low-density planted-XOR assumption — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].

@@ -28,4 +28,4 @@ The weak-AM game for $f_A$ and the weak-PRF game for $(\KeyGen, \Eval)$ coincide
 
 ## Notes
 
-- BIP+18 conjecture only this random-input form: the [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|chosen-input variant]] fails for $f_A$, since $f_A(0^n) = 0$ for every key — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]].
+- BIP+18 conjecture only this random-input form — [[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]. The [[alternating-moduli#strong-alternating-moduli-chosen-input-assumption|chosen-input variant]] fails for $f_A$, since $f_A(0^n) = 0$ for every key.
