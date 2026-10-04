@@ -21,4 +21,4 @@ security-loss: ""
 
 ## Sketch
 
-$\classNP \subseteq \classAM$ via the [[arthur-merlin|AM]] protocol in which Arthur ignores his coins and accepts iff Merlin's message is an $\classNP$ witness; complementing both sides gives the claim.
+$\classNP \subseteq \classAM$ via the [[arthur-merlin|AM]] protocol in which Arthur ignores his coins and accepts iff Merlin's message is an $\classNP$ witness ([[np-to-am-gs86|NP ⊆ AM]]); complementing both sides gives the claim.

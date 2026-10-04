@@ -21,4 +21,4 @@ security-loss: ""
 
 ## Sketch
 
-$\classP$ is closed under complement, so for $L \in \classP$ the complement $\bar{L}$ lies in $\classP \subseteq \classNP$, placing $L$ in $\classcoNP$.
+$\classP$ is closed under complement, so for $L \in \classP$ the complement $\bar{L}$ lies in $\classP \subseteq \classNP$ ([[p-to-np|P ⊆ NP]]), placing $L$ in $\classcoNP$.

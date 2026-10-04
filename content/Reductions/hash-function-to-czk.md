@@ -13,7 +13,7 @@ source:
   - "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
 security-loss: ""
 rationale:
-  class: "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 commitment uses the one-way function only as an oracle, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
+  class: "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 chain from a one-way function to the commitment is fully black-box, soundness needs only statistical binding, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
 ---
 
 # OWF ⇒ CZK
@@ -24,4 +24,4 @@ If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, Gr
 
 ## Sketch
 
-Each round the prover commits to a uniformly re-permuted 3-coloring, the verifier names a random edge, and the prover opens its two endpoints, which must carry distinct colors. Every coloring of a non-3-colorable graph has a monochromatic edge, so by binding a cheating prover is caught with probability at least $1/|E|$ per round, and sequential repetition makes the soundness error negligible. A simulator that guesses the edge, commits to a coloring valid only there, and rewinds on a wrong guess gives zero knowledge from commitment hiding.
+Each round the prover commits to a uniformly re-permuted 3-coloring, the verifier names a random edge, and the prover opens its two endpoints, which must carry distinct colors. If the graph is not 3-colorable, every assignment of the three colors to its vertices has a monochromatic edge, so by binding a cheating prover is caught with probability at least $1/|E|$ per round, and sequential repetition makes the soundness error negligible. A simulator that guesses the edge, commits to a coloring valid only there, and rewinds on a wrong guess gives zero knowledge from commitment hiding.
