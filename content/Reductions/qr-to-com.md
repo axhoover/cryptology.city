@@ -17,7 +17,7 @@ security-loss: ""
 
 ## Statement
 
-[[quadratic-residuosity|QR]] implies a perfectly binding, computationally hiding bit [[commitment-scheme|commitment]]. With $\pp = (N, y)$ for $N = pq$ and $y \in \J_N \setminus \QR_N$, a commitment to $b \in \bits$ is $c = y^b r^2 \bmod N$ for $r \getsr \ZZ_N^*$, opened by revealing $(b, r)$. Binding is perfect since $c \in \QR_N$ iff $b = 0$; hiding holds under QR since commitments to $0$ are uniform in $\QR_N$ and commitments to $1$ uniform in $\J_N \setminus \QR_N$ — folklore.
+[[quadratic-residuosity|QR]] implies a perfectly binding, computationally hiding bit [[commitment-scheme|commitment]]. With $\pp = (N, y)$ for $N = pq$ and $y \getsr \J_N \setminus \QR_N$, a commitment to $b \in \bits$ is $c = y^b r^2 \bmod N$ for $r \getsr \ZZ_N^*$, opened by revealing $(b, r)$. Binding is perfect since $c \in \QR_N$ iff $b = 0$; hiding holds under QR since commitments to $0$ are uniform in $\QR_N$ and commitments to $1$ uniform in $\J_N \setminus \QR_N$ — folklore.
 
 ## Sketch
 
