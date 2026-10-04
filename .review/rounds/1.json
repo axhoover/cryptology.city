@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "round": 1,
+  "dates": {
+    "start": "2026-09-26",
+    "end": "2026-09-27"
+  },
+  "branch": "claude/cryptology-results-docs-upc1hc",
+  "commits": {
+    "base": "",
+    "from": "32d9f333477b4598054e6206309810ac0a75e9e5",
+    "to": "b7630259b3e6b83f6c5ef094cd49fff611d8207a"
+  },
+  "pr": null,
+  "paper_hosts": {
+    "reachable": false,
+    "note": "eprint, arXiv, doi.org and Springer were blocked from the session's environment"
+  },
+  "scope": {
+    "summary": "Sourcing pass over reduction and barrier pages",
+    "since": null,
+    "main": "",
+    "rotation": null,
+    "pages": []
+  },
+  "itemized": false,
+  "notes": [
+    "Before the monthly pipeline. The round-1 page embedded its 790 items; they are not itemized here. Their decisions (787 approved, 1 with changes, 2 rejected) are in the artifact's `decisions` collection under the round-1 ids (wc:, ud:, ob:, fx:, fu:, pg:).",
+    "The 16 actions blocked on paper access are the items fu:fu-verification-gap-{2,7,8,9,12,13,14,15,16,17,20,21,26,27,28,29}; they are carried, already approved, and itemized in round 2's record.",
+    "The 2 rejected items are fu:fu-missing-edge-14 and fu:fu-node-granularity-24 (the 1 with changes is pg:ae-and-hash-function-and-prf-to-symmetric-cp-abe-ls26). Their text was on the round-1 page only, so `round.mjs known` cannot list them and a later audit may raise them again; the maintainer can reject such a finding on the page.",
+    "Execution ran as file-disjoint groups, each applied by one agent and checked by a second; deletions the agents could not run were checked and made by hand. Residue (6 stale Notes and duplicate bullets, stale TODO_SUMMARY lines) was cleaned up afterwards."
+  ],
+  "item_counts": {
+    "wc: wrong claims": 84,
+    "ud: unsourced": 5,
+    "ob: object-page calls": 106,
+    "fx: applied fixes": 167,
+    "fu: follow-ups": 137,
+    "pg: sourced pages": 291
+  },
+  "decision_counts": {
+    "approve": 787,
+    "change": 1,
+    "reject": 2
+  },
+  "action_counts": {
+    "actions": 331,
+    "applied": 273,
+    "partial": 42,
+    "blocked_on_paper": 16
+  },
+  "carried": [
+    "fu:fu-verification-gap-2",
+    "fu:fu-verification-gap-7",
+    "fu:fu-verification-gap-8",
+    "fu:fu-verification-gap-9",
+    "fu:fu-verification-gap-12",
+    "fu:fu-verification-gap-13",
+    "fu:fu-verification-gap-14",
+    "fu:fu-verification-gap-15",
+    "fu:fu-verification-gap-16",
+    "fu:fu-verification-gap-17",
+    "fu:fu-verification-gap-20",
+    "fu:fu-verification-gap-21",
+    "fu:fu-verification-gap-26",
+    "fu:fu-verification-gap-27",
+    "fu:fu-verification-gap-28",
+    "fu:fu-verification-gap-29"
+  ],
+  "applied": [],
+  "items": [],
+  "overflow": [],
+  "decisions": null,
+  "outcomes": null,
+  "history": {
+    "dates": "26–27 Sep 2026",
+    "scope": "Sourcing pass over reduction and barrier pages",
+    "items": 790,
+    "decisions": "787 approved · 1 with changes · 2 rejected",
+    "outcome": "331 actions: 273 applied, 42 applied in part, 16 blocked on paper access (carried)",
+    "commits": "32d9f33 → b763025"
+  }
+}

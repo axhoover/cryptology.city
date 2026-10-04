@@ -1,0 +1,8 @@
+{
+  "artifact": "https://claude.ai/artifact/HnCB6oD1FDbTLG1NjxeQfh",
+  "repo": "https://github.com/axhoover/cryptology.city",
+  "last_round": 2,
+  "last_audited_commit": "c86c43fae37abdf19f8c4999df247dfa43e41d24",
+  "rotation": { "cursor": 0, "slice": 149 },
+  "proposal_cap": 40
+}

@@ -439,3 +439,7 @@ created with.
 - Never commit `public/`, never rename or move files under `content/`
   (live URLs), never touch `.orchestrator/state/` or `.fact-check/queue.json`
   outside the rules in [CLAUDE.md](CLAUDE.md).
+- `review/round-<n>` branches and their "Review round <n>" PRs come from the
+  monthly review round: the runbook is
+  [`.claude/skills/review-round/SKILL.md`](.claude/skills/review-round/SKILL.md),
+  its state and round records are in [`.review/`](.review/README.md).

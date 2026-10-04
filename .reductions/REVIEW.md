@@ -1,5 +1,11 @@
 # Review queue — how decisions are applied
 
+Since 2026-10-04 review rounds run monthly through the `review-round` skill:
+its runbook, [`.claude/skills/review-round/SKILL.md`](../.claude/skills/review-round/SKILL.md),
+supersedes the procedure below, and [`.review/`](../.review/README.md) holds
+the state, the round records (rounds 1 and 2 backfilled) and the page
+builder. What follows is how rounds 1 and 2 were applied.
+
 The review page, https://claude.ai/artifact/HnCB6oD1FDbTLG1NjxeQfh (private
 to its owner), lists the proposed changes that need a maintainer's eye, one
 round at a time. Applied items leave the page; the rounds are logged below

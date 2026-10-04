@@ -1,0 +1,1110 @@
+<title>Review Queue</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap"
+/>
+<style>
+  :root {
+    --paper: #ffffff;
+    --surface: #f6f3fb;
+    --surface-2: #f0edf7;
+    --rule: #ddd3ea;
+    --rule-strong: #c0b0d5;
+    --ink: #1a0a2e;
+    --ink-2: #3a2d4a;
+    --muted: #6b5d7c;
+    --accent: #5a1f8a;
+    --accent-2: #7a30b8;
+    --accent-soft: rgba(90, 31, 138, 0.08);
+    --ok: #1d6b45;
+    --ok-soft: #e3f3ea;
+    --bad: #a3221b;
+    --bad-soft: #fbe7e5;
+    --warn: #8a5300;
+    --warn-soft: #fbefd9;
+    --font-ui: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-text: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --font-mono:
+      "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141414;
+      --surface: #1c1b1f;
+      --surface-2: #242424;
+      --rule: #34303a;
+      --rule-strong: #4a4a4a;
+      --ink: #f0f0f0;
+      --ink-2: #d0d0d0;
+      --muted: #a39cab;
+      --accent: #c89af0;
+      --accent-2: #b07ad4;
+      --accent-soft: rgba(176, 122, 212, 0.14);
+      --ok: #74c99a;
+      --ok-soft: #16301f;
+      --bad: #f19a90;
+      --bad-soft: #3a1b18;
+      --warn: #e6b35c;
+      --warn-soft: #33260f;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141414;
+    --surface: #1c1b1f;
+    --surface-2: #242424;
+    --rule: #34303a;
+    --rule-strong: #4a4a4a;
+    --ink: #f0f0f0;
+    --ink-2: #d0d0d0;
+    --muted: #a39cab;
+    --accent: #c89af0;
+    --accent-2: #b07ad4;
+    --accent-soft: rgba(176, 122, 212, 0.14);
+    --ok: #74c99a;
+    --ok-soft: #16301f;
+    --bad: #f19a90;
+    --bad-soft: #3a1b18;
+    --warn: #e6b35c;
+    --warn-soft: #33260f;
+    color-scheme: dark;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-ui);
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 0 64px;
+  }
+  a {
+    color: var(--accent);
+  }
+  a:focus-visible,
+  button:focus-visible,
+  textarea:focus-visible,
+  input:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--accent-2);
+    outline-offset: 2px;
+  }
+
+  /* Header */
+  header.top {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+  }
+  header.top .wrap {
+    padding-block: 14px 12px;
+    display: grid;
+    gap: 10px;
+  }
+  .titlerow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 16px;
+  }
+  h1 {
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h1 .site {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .meter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12.5px;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .bar {
+    width: 140px;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--surface-2);
+    overflow: hidden;
+    display: flex;
+  }
+  .bar i {
+    display: block;
+    height: 100%;
+  }
+  .bar .a {
+    background: var(--ok);
+  }
+  .bar .c {
+    background: var(--warn);
+  }
+  .bar .r {
+    background: var(--bad);
+  }
+  nav.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  nav.tabs button {
+    font: 500 13px var(--font-ui);
+    color: var(--ink-2);
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    padding: 6px 10px;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  nav.tabs button:hover {
+    background: var(--surface);
+  }
+  nav.tabs button[aria-selected="true"] {
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-color: var(--rule);
+  }
+  nav.tabs .n {
+    font-variant-numeric: tabular-nums;
+    color: var(--muted);
+    margin-left: 6px;
+    font-weight: 400;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .controls input[type="search"] {
+    flex: 1 1 220px;
+    min-width: 0;
+    font: 13px var(--font-ui);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  .controls select {
+    font: 13px var(--font-ui);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 6px 8px;
+  }
+  .bulk {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+  }
+
+  /* Intro */
+  .intro {
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: var(--surface);
+    border-radius: 8px;
+    display: grid;
+    /* minmax(0, …): the Rounds table scrolls inside its box instead of
+       widening the column (and the page) on a phone */
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+  .intro p {
+    margin: 0;
+    max-width: 72ch;
+    color: var(--ink-2);
+  }
+  .intro code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 1px 5px;
+  }
+  .section-help {
+    margin: 18px 0 6px;
+    color: var(--ink-2);
+    max-width: 72ch;
+  }
+  .section-help b {
+    color: var(--ink);
+  }
+  .banner {
+    margin-top: 12px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    background: var(--warn-soft);
+    color: var(--warn);
+    font-weight: 500;
+  }
+
+  /* Cards */
+  .list {
+    display: grid;
+    gap: 12px;
+    margin-top: 12px;
+  }
+  .card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: grid;
+    gap: 10px;
+  }
+  .card[data-state="approve"] {
+    border-color: color-mix(in srgb, var(--ok) 45%, var(--rule));
+  }
+  .card[data-state="reject"] {
+    border-color: color-mix(in srgb, var(--bad) 45%, var(--rule));
+  }
+  .card[data-state="change"] {
+    border-color: color-mix(in srgb, var(--warn) 45%, var(--rule));
+  }
+  .head {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+  .edge {
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--ink);
+    overflow-wrap: anywhere;
+  }
+  .slug {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--muted);
+    overflow-wrap: anywhere;
+  }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+  }
+  .chip {
+    font: 500 11.5px var(--font-ui);
+    letter-spacing: 0.02em;
+    color: var(--ink-2);
+    background: var(--surface-2);
+    border-radius: 999px;
+    padding: 2px 8px;
+    white-space: nowrap;
+  }
+  .chip.k {
+    font-family: var(--font-mono);
+    font-weight: 400;
+  }
+  .chip.act {
+    background: var(--accent-soft);
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .chip.low {
+    background: var(--warn-soft);
+    color: var(--warn);
+  }
+  .state {
+    font: 600 11.5px var(--font-ui);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-radius: 999px;
+    padding: 2px 9px;
+  }
+  .state.approve {
+    background: var(--ok-soft);
+    color: var(--ok);
+  }
+  .state.reject {
+    background: var(--bad-soft);
+    color: var(--bad);
+  }
+  .state.change {
+    background: var(--warn-soft);
+    color: var(--warn);
+  }
+  .summary {
+    font-family: var(--font-text);
+    font-size: 15.5px;
+    line-height: 1.5;
+    color: var(--ink);
+    max-width: 72ch;
+  }
+  .summary strong {
+    font-weight: 600;
+  }
+  .prose {
+    font-family: var(--font-text);
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--ink-2);
+    max-width: 72ch;
+    display: grid;
+    gap: 6px;
+  }
+  .prose p {
+    margin: 0;
+  }
+  .prose ul {
+    margin: 0;
+    padding-left: 20px;
+    display: grid;
+    gap: 3px;
+  }
+  .prose .lbl {
+    font: 600 11px var(--font-ui);
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  .ref {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--accent);
+  }
+  .prose code,
+  .summary code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+  }
+  details {
+    border-top: 1px solid var(--rule);
+    padding-top: 8px;
+  }
+  details summary {
+    cursor: pointer;
+    font: 500 12.5px var(--font-ui);
+    color: var(--muted);
+  }
+  details[open] summary {
+    margin-bottom: 8px;
+  }
+  .diff {
+    display: grid;
+    gap: 6px;
+  }
+  .diff div {
+    font-family: var(--font-text);
+    font-size: 14px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    max-width: 72ch;
+  }
+  .diff .old {
+    background: var(--bad-soft);
+    color: var(--ink-2);
+    text-decoration: line-through;
+    text-decoration-color: color-mix(in srgb, var(--bad) 50%, transparent);
+  }
+  .diff .new {
+    background: var(--ok-soft);
+    color: var(--ink);
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .actions button,
+  .bulk button,
+  .noterow button {
+    font: 500 13px var(--font-ui);
+    border-radius: 6px;
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 1px solid var(--rule-strong);
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .actions button:hover,
+  .bulk button:hover,
+  .noterow button:hover {
+    background: var(--surface);
+  }
+  .actions button[disabled],
+  .bulk button[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  .actions button.approve[aria-pressed="true"] {
+    background: var(--ok-soft);
+    border-color: var(--ok);
+    color: var(--ok);
+  }
+  .actions button.reject[aria-pressed="true"] {
+    background: var(--bad-soft);
+    border-color: var(--bad);
+    color: var(--bad);
+  }
+  .actions button.change[aria-pressed="true"] {
+    background: var(--warn-soft);
+    border-color: var(--warn);
+    color: var(--warn);
+  }
+  .actions .open {
+    margin-left: auto;
+    font-size: 12.5px;
+  }
+  .noterow {
+    display: grid;
+    gap: 6px;
+  }
+  .noterow textarea {
+    width: 100%;
+    min-height: 64px;
+    resize: vertical;
+    font: 14px var(--font-text);
+    color: var(--ink);
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 8px 10px;
+  }
+  .noterow .row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .noterow .saved {
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .shownote {
+    font-family: var(--font-text);
+    font-size: 14px;
+    color: var(--ink-2);
+    background: var(--surface);
+    border-radius: 6px;
+    padding: 6px 10px;
+  }
+  .shownote b {
+    font-family: var(--font-ui);
+    font-size: 11px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-right: 6px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+  .history {
+    border-top: 1px solid var(--rule);
+    padding-top: 8px;
+  }
+  .history summary {
+    font: 500 12.5px var(--font-ui);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .history .scroll {
+    overflow-x: auto;
+    margin-top: 8px;
+  }
+  .history table {
+    border-collapse: collapse;
+    font-size: 12.5px;
+    min-width: 560px;
+  }
+  .history th,
+  .history td {
+    text-align: left;
+    vertical-align: top;
+    padding: 5px 10px 5px 0;
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-2);
+  }
+  .history th {
+    font-weight: 600;
+    color: var(--muted);
+  }
+  .history td.n {
+    font-variant-numeric: tabular-nums;
+  }
+  .history code {
+    font-size: 11.5px;
+  }
+  .empty {
+    color: var(--muted);
+    padding: 24px 0;
+    text-align: center;
+  }
+  .more {
+    justify-self: center;
+    margin-top: 8px;
+  }
+  mjx-container {
+    font-size: 105% !important;
+  }
+  @media (max-width: 520px) {
+    .bar {
+      width: 90px;
+    }
+    .actions .open {
+      margin-left: 0;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+    }
+  }
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <div class="titlerow">
+      <h1><span class="site">cryptology.city</span> · Review Queue</h1>
+      <div class="meter" id="meter" aria-live="polite"></div>
+    </div>
+    <nav
+      class="tabs"
+      id="tabs"
+      role="tablist"
+      aria-label="Review sections"
+    ></nav>
+    <div class="controls">
+      <input
+        type="search"
+        id="q"
+        placeholder="Filter by slug, edge, citation key, text"
+        aria-label="Filter items"
+      />
+      <select id="stateFilter" aria-label="Decision filter">
+        <option value="undecided">Undecided</option>
+        <option value="all">All</option>
+        <option value="approve">Approved</option>
+        <option value="change">Needs change</option>
+        <option value="reject">Rejected</option>
+      </select>
+      <div class="bulk" id="bulk"></div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="banner" class="banner" hidden></div>
+  <section class="intro" aria-label="How this review works">
+    <p>
+      <b>How this works.</b> Each card is one proposed change to the wiki. Mark
+      it, and add a note when your answer is "with changes". Marks save as you
+      click.
+    </p>
+    <p>
+      Claude reads your marks at the start of the next monthly review round (or
+      sooner, if you ask Claude to run the <code>review-round</code> skill). It
+      executes approved items exactly as written, with your notes applied; drops
+      rejected ones; amends or reverts applied changes as you mark them; and
+      opens one pull request per round. The page is then republished with the
+      new round. Unmarked items stay.
+    </p>
+    <details class="history" id="history">
+      <summary>Rounds</summary>
+      <div class="scroll" id="historyTable"></div>
+    </details>
+    <p id="meta" style="color: var(--muted); font-size: 12.5px"></p>
+  </section>
+  <p class="section-help" id="help"></p>
+  <div class="list" id="list"></div>
+</main>
+
+<script id="review-data" type="application/json">
+  __DATA__
+</script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [["$", "$"]],
+      displayMath: [["$$", "$$"]],
+      macros: __MACROS__,
+    },
+    svg: { fontCache: "global" },
+    startup: { typeset: false },
+    options: { enableMenu: false },
+  };
+</script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"
+  async
+></script>
+<script>
+  (function () {
+    const DATA = JSON.parse(document.getElementById("review-data").textContent);
+    const SECTIONS = DATA.sections;
+    const ITEMS = DATA.items;
+    const byId = new Map(ITEMS.map((it) => [it.id, it]));
+    const decisions = new Map();
+    let db = null,
+      writable = false;
+    let current = SECTIONS[0].key;
+    let pageSize = 40,
+      shown = 40;
+    let bulkArmed = false;
+
+    try {
+      const t = localStorage.getItem("review.tab");
+      if (t && SECTIONS.some((s) => s.key === t)) current = t;
+    } catch (e) {}
+    const fromHash = (location.hash || "").slice(1);
+    if (fromHash && SECTIONS.some((s) => s.key === fromHash))
+      current = fromHash;
+
+    // A decision the pipeline already acted on (it is still in the database, since
+    // ids are stable) does not count for the card shown now: compare with `consumed`.
+    const consumed = (id, v) => {
+      const c = (byId.get(id) || {}).consumed;
+      return !!(
+        c &&
+        v &&
+        c.decision === v.decision &&
+        (c.note || "") === (v.note || "") &&
+        (c.at || "") === (v.at || "")
+      );
+    };
+
+    const $ = (id) => document.getElementById(id);
+    const esc = (s) =>
+      String(s == null ? "" : s).replace(
+        /[&<>"]/g,
+        (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+      );
+
+    // Minimal wiki-markdown to HTML: keeps $...$ math intact for MathJax.
+    function inline(text) {
+      const parts = String(text || "").split(
+        /(\$\$[\s\S]+?\$\$|\$[^$\n]+?\$)/g,
+      );
+      return parts
+        .map((p, i) => {
+          if (i % 2 === 1) return esc(p);
+          let h = esc(p);
+          h = h.replace(
+            /\[\[([^\]|]+?)(?:\|([^\]]+?))?\]\]/g,
+            (m, target, disp) => {
+              const key = /^([A-Za-z+]+\d{2}[a-z]?) - /.exec(target);
+              if (key)
+                return '<span class="ref">[' + (disp || key[1]) + "]</span>";
+              return "<em>" + (disp || target.split("#")[0]) + "</em>";
+            },
+          );
+          h = h.replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>");
+          h = h.replace(/`([^`]+)`/g, "<code>$1</code>");
+          return h;
+        })
+        .join("");
+    }
+    function block(text) {
+      const lines = String(text || "").split(/\n/);
+      let out = "",
+        inList = false;
+      for (const raw of lines) {
+        const line = raw.trimEnd();
+        const li = /^\s*[-*] (.*)$/.exec(line);
+        if (li) {
+          if (!inList) {
+            out += "<ul>";
+            inList = true;
+          }
+          out += "<li>" + inline(li[1]) + "</li>";
+          continue;
+        }
+        if (inList) {
+          out += "</ul>";
+          inList = false;
+        }
+        if (line.trim()) out += "<p>" + inline(line) + "</p>";
+      }
+      if (inList) out += "</ul>";
+      return out;
+    }
+
+    function counts(key) {
+      const its = ITEMS.filter((i) => i.section === key);
+      const c = { total: its.length, approve: 0, reject: 0, change: 0 };
+      for (const i of its) {
+        const d = decisions.get(i.id);
+        if (d && c[d.decision] != null) c[d.decision]++;
+      }
+      c.decided = c.approve + c.reject + c.change;
+      return c;
+    }
+
+    function renderTabs() {
+      $("tabs").innerHTML = SECTIONS.map((s) => {
+        const c = counts(s.key);
+        return `<button role="tab" id="tab-${s.key}" aria-selected="${s.key === current}" data-key="${s.key}">${esc(s.title)}<span class="n">${c.decided}/${c.total}</span></button>`;
+      }).join("");
+    }
+    function renderMeter() {
+      const all = { total: ITEMS.length, approve: 0, reject: 0, change: 0 };
+      for (const i of ITEMS) {
+        const d = decisions.get(i.id);
+        if (d && all[d.decision] != null) all[d.decision]++;
+      }
+      const done = all.approve + all.reject + all.change;
+      const pct = (n) =>
+        (all.total ? (100 * n) / all.total : 0).toFixed(2) + "%";
+      $("meter").innerHTML =
+        `<span>${done} of ${all.total} decided</span><span class="bar" aria-hidden="true"><i class="a" style="width:${pct(all.approve)}"></i><i class="c" style="width:${pct(all.change)}"></i><i class="r" style="width:${pct(all.reject)}"></i></span>`;
+    }
+
+    const LABELS = {
+      proposal: {
+        approve: "Approve",
+        change: "Approve with changes",
+        reject: "Reject",
+      },
+      fix: { approve: "Keep", change: "Amend", reject: "Revert" },
+      page: {
+        approve: "Looks right",
+        change: "Needs work",
+        reject: "Revert to unsourced",
+      },
+    };
+    const STATE_TEXT = {
+      approve: "Approved",
+      change: "Needs change",
+      reject: "Rejected",
+    };
+
+    function cardHTML(it) {
+      const d = decisions.get(it.id);
+      const st = d ? d.decision : "";
+      const L = LABELS[it.kind] || LABELS.proposal;
+      const chips = (it.chips || [])
+        .map((c) => `<span class="chip ${c.cls || ""}">${esc(c.text)}</span>`)
+        .join("");
+      const body = (it.blocks || [])
+        .map((b) => {
+          if (b.type === "diff")
+            return `<div class="diff">${b.old ? `<div class="old">${inline(b.old)}</div>` : ""}${b.new ? `<div class="new">${inline(b.new)}</div>` : ""}</div>`;
+          if (b.type === "details")
+            return `<details><summary>${esc(b.title)}</summary><div class="prose">${block(b.text)}</div></details>`;
+          return `<div class="prose">${b.label ? `<p><span class="lbl">${esc(b.label)}</span></p>` : ""}${block(b.text)}</div>`;
+        })
+        .join("");
+      const note =
+        d && d.note
+          ? `<div class="shownote"><b>Your note</b>${esc(d.note)}</div>`
+          : "";
+      const dis = writable ? "" : " disabled";
+      return `<article class="card" id="c-${esc(it.id)}" data-id="${esc(it.id)}" data-state="${st}">
+      <div class="head">
+        <div class="edge">${inline(it.edge || it.title)}</div>
+        ${st ? `<span class="state ${st}">${STATE_TEXT[st]}</span>` : ""}
+      </div>
+      <div class="chips">${it.slug ? `<span class="slug">${esc(it.slug)}</span>` : ""}${chips}</div>
+      ${it.summary ? `<div class="summary">${inline(it.summary)}</div>` : ""}
+      ${body}
+      ${note}
+      <div class="actions">
+        <button class="approve" data-act="approve" aria-pressed="${st === "approve"}"${dis}>${L.approve}</button>
+        <button class="change" data-act="change" aria-pressed="${st === "change"}"${dis}>${L.change}…</button>
+        <button class="reject" data-act="reject" aria-pressed="${st === "reject"}"${dis}>${L.reject}</button>
+        ${it.url ? `<a class="open" href="${esc(it.url)}" target="_blank" rel="noopener">Open on GitHub ↗</a>` : ""}
+      </div>
+      <div class="noterow" hidden>
+        <textarea id="note-${esc(it.id)}" placeholder="What should change? Claude applies this note with the item.">${esc(d && d.note ? d.note : "")}</textarea>
+        <div class="row"><button data-act="savenote">Save note</button><button data-act="cancelnote">Cancel</button><span class="saved"></span></div>
+      </div>
+    </article>`;
+    }
+
+    function visibleItems() {
+      const q = $("q").value.trim().toLowerCase();
+      const sf = $("stateFilter").value;
+      return ITEMS.filter((it) => {
+        if (it.section !== current) return false;
+        const d = decisions.get(it.id);
+        if (sf === "undecided" && d) return false;
+        if (sf !== "all" && sf !== "undecided" && (!d || d.decision !== sf))
+          return false;
+        if (q && !(it.search || "").includes(q)) return false;
+        return true;
+      });
+    }
+
+    let io = null;
+    function observe(card) {
+      if (
+        !window.MathJax ||
+        !MathJax.typesetPromise ||
+        !("IntersectionObserver" in window)
+      )
+        return;
+      if (!io)
+        io = new IntersectionObserver(
+          (entries) => {
+            for (const e of entries)
+              if (e.isIntersecting) {
+                io.unobserve(e.target);
+                MathJax.typesetPromise([e.target]).catch(() => {});
+              }
+          },
+          { rootMargin: "400px 0px" },
+        );
+      io.observe(card);
+    }
+    function typesetLater(root) {
+      root.querySelectorAll(".card").forEach(observe);
+    }
+
+    function renderList() {
+      const sec = SECTIONS.find((s) => s.key === current);
+      $("help").innerHTML = sec.help;
+      const its = visibleItems();
+      const slice = its.slice(0, shown);
+      $("list").innerHTML = slice.length
+        ? slice.map(cardHTML).join("") +
+          (its.length > shown
+            ? `<button class="more" id="more">Show ${Math.min(pageSize, its.length - shown)} more of ${its.length - shown}</button>`
+            : "")
+        : `<p class="empty">Nothing ${$("stateFilter").value === "undecided" ? "left to decide" : "matches"} in this section.</p>`;
+      renderBulk(its);
+      typesetLater($("list"));
+    }
+    function renderBulk(its) {
+      const und = its.filter((i) => !decisions.get(i.id));
+      const sec = SECTIONS.find((s) => s.key === current);
+      if (!writable || !und.length || !sec.bulk) {
+        $("bulk").innerHTML = "";
+        bulkArmed = false;
+        return;
+      }
+      const verb = (LABELS[sec.kind] || LABELS.proposal).approve;
+      $("bulk").innerHTML = bulkArmed
+        ? `<button id="bulkGo">Confirm: ${esc(verb.toLowerCase())} ${und.length} shown</button><button id="bulkCancel">Cancel</button>`
+        : `<button id="bulkArm">${esc(verb)} all ${und.length} shown…</button>`;
+    }
+    function renderAll() {
+      renderTabs();
+      renderMeter();
+      renderList();
+    }
+
+    function updateCard(id) {
+      const el = document.getElementById("c-" + id);
+      const it = byId.get(id);
+      if (!el || !it) return;
+      const tmp = document.createElement("div");
+      tmp.innerHTML = cardHTML(it);
+      const fresh = tmp.firstElementChild;
+      el.replaceWith(fresh);
+      observe(fresh);
+    }
+
+    async function write(id, decision, note) {
+      if (!db) return;
+      const it = byId.get(id);
+      const body = {
+        item: id,
+        section: it.section,
+        decision,
+        note: note || "",
+        at: new Date().toISOString(),
+      };
+      decisions.set(id, body);
+      updateCard(id);
+      renderTabs();
+      renderMeter();
+      try {
+        await db.collection("decisions").doc(id).set(body);
+      } catch (e) {
+        if (e && e.code === "invalid_argument") {
+          writable = false;
+          showBanner(
+            "This view can read decisions but not save them. Ask the owner for Contributor access.",
+          );
+          renderAll();
+        } else
+          showBanner(
+            "A decision did not save (" +
+              (e && e.code ? e.code : "error") +
+              "). Click it again.",
+          );
+      }
+    }
+    async function clear(id) {
+      if (!db) return;
+      decisions.delete(id);
+      updateCard(id);
+      renderTabs();
+      renderMeter();
+      try {
+        await db.collection("decisions").doc(id).delete();
+      } catch (e) {
+        showBanner("Clearing did not save. Click it again.");
+      }
+    }
+    function showBanner(t) {
+      const b = $("banner");
+      b.textContent = t;
+      b.hidden = false;
+    }
+
+    $("list").addEventListener("click", (ev) => {
+      const btn = ev.target.closest("button");
+      if (!btn) return;
+      if (btn.id === "more") {
+        shown += pageSize;
+        renderList();
+        return;
+      }
+      const card = btn.closest(".card");
+      if (!card) return;
+      const id = card.dataset.id,
+        act = btn.dataset.act;
+      const nr = card.querySelector(".noterow");
+      const cur = decisions.get(id);
+      if (act === "approve" || act === "reject") {
+        if (cur && cur.decision === act) clear(id);
+        else write(id, act, cur && cur.decision === act ? cur.note : "");
+      } else if (act === "change") {
+        nr.hidden = false;
+        card.querySelector("textarea").focus();
+      } else if (act === "savenote") {
+        const note = card.querySelector("textarea").value.trim();
+        if (!note) {
+          card.querySelector(".saved").textContent =
+            "Write what should change first.";
+          return;
+        }
+        write(id, "change", note);
+      } else if (act === "cancelnote") {
+        nr.hidden = true;
+      }
+    });
+    $("tabs").addEventListener("click", (ev) => {
+      const b = ev.target.closest("button");
+      if (!b) return;
+      current = b.dataset.key;
+      shown = pageSize;
+      bulkArmed = false;
+      applyFilter();
+      try {
+        localStorage.setItem("review.tab", current);
+      } catch (e) {}
+      renderAll();
+      window.scrollTo({ top: 0 });
+    });
+    $("bulk").addEventListener("click", async (ev) => {
+      const b = ev.target.closest("button");
+      if (!b) return;
+      if (b.id === "bulkArm") {
+        bulkArmed = true;
+        renderBulk(visibleItems());
+      } else if (b.id === "bulkCancel") {
+        bulkArmed = false;
+        renderBulk(visibleItems());
+      } else if (b.id === "bulkGo") {
+        bulkArmed = false;
+        const und = visibleItems().filter((i) => !decisions.get(i.id));
+        b.disabled = true;
+        for (const it of und) await write(it.id, "approve", "");
+        renderAll();
+      }
+    });
+    $("q").addEventListener("input", () => {
+      shown = pageSize;
+      renderList();
+    });
+    $("stateFilter").addEventListener("change", () => {
+      shown = pageSize;
+      renderList();
+    });
+
+    function applyFilter() {
+      const sec = SECTIONS.find((s) => s.key === current);
+      $("stateFilter").value = (sec && sec.filter) || "undecided";
+    }
+    applyFilter();
+    $("historyTable").innerHTML =
+      `<table><thead><tr><th>Round</th><th>Dates</th><th>Scope</th><th>Items</th><th>Decisions</th><th>Outcome</th><th>Commits</th></tr></thead><tbody>${(
+        DATA.history || []
+      )
+        .map(
+          (r) =>
+            `<tr><td>${esc(r.round)}</td><td>${esc(r.dates)}</td><td>${esc(r.scope)}</td><td class="n">${esc(r.items)}</td><td>${esc(r.decisions)}</td><td>${esc(r.outcome)}</td><td>${r.commits ? `<code>${esc(r.commits)}</code>` : ""}${r.pr ? ` <a href="${esc(r.pr)}" target="_blank" rel="noopener">PR</a>` : ""}</td></tr>`,
+        )
+        .join("")}</tbody></table>`;
+    $("meta").textContent = DATA.meta;
+    renderAll();
+    const mjWait = setInterval(() => {
+      if (window.MathJax && MathJax.typesetPromise) {
+        clearInterval(mjWait);
+        typesetLater($("list"));
+      }
+    }, 300);
+
+    (async () => {
+      const api =
+        window.claude && window.claude.use
+          ? await window.claude.use("db")
+          : null;
+      if (!api) {
+        showBanner(
+          "Decisions cannot be saved in this view. Open the page on claude.ai to review.",
+        );
+        renderAll();
+        return;
+      }
+      db = api;
+      writable = true;
+      db.collection("decisions").onSnapshot(
+        (snap) => {
+          decisions.clear();
+          for (const doc of snap.docs) {
+            const v = doc.data();
+            if (v && v.decision && byId.has(doc.id) && !consumed(doc.id, v))
+              decisions.set(doc.id, v);
+          }
+          renderTabs();
+          renderMeter();
+          document.querySelectorAll(".card").forEach((c) => {
+            const d = decisions.get(c.dataset.id);
+            if ((d ? d.decision : "") !== c.dataset.state)
+              updateCard(c.dataset.id);
+          });
+        },
+        (e) => {
+          showBanner(
+            "Live updates stopped (" + (e && e.code) + "). Reload the page.",
+          );
+        },
+      );
+      renderAll();
+    })();
+  })();
+</script>
