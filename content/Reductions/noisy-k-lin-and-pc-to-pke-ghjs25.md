@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If the [[planted-clique|planted clique]] conjecture holds against $n^{\log^\alpha n}$-time adversaries for some $\alpha \in (0,1)$, and [noisy $k$-LIN](<noisy-k-lin-over-expanders>) holds over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanding matrices over $\FF_p$, then there is a [[public-key-encryption|PKE]] scheme semantically secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12.
+If the [[planted-clique|planted clique]] conjecture holds against non-uniform circuits of size $n^{\log^\alpha n}$ for some $\alpha \in (0,1)$, and [noisy $k$-LIN](noisy-k-lin-over-expanders) holds over $(\gamma, \Omega(\log n), 2^{(\log n)^\alpha})$-expanding matrices over $\FF_p$, then there is a [[public-key-encryption|PKE]] scheme semantically secure against non-uniform polynomial-size circuits — [[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]], Theorem 5.12.
 
 ## Notes
 

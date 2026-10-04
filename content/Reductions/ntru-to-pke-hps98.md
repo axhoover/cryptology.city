@@ -29,5 +29,5 @@ Decryption computes $f \cdot c = p \cdot r \cdot g + f \cdot m \bmod q$, which f
 
 ## Notes
 
-- The unpadded scheme is not IND-CPA: $g(1) = 0$ forces $h(1) = 0$, hence $c(1) \equiv m(1) \pmod q$ — folklore.
+- The unpadded scheme is not IND-CPA: HPS98 sample $g$ with equally many coefficients $+1$ and $-1$, so $g(1) = 0$ forces $h(1) = 0$, hence $c(1) \equiv m(1) \pmod q$ — folklore.
 - With discrete-Gaussian secret keys over $\ZZ[x]/(x^n+1)$ the public key is statistically close to uniform, and the modified NTRUEncrypt is IND-CPA under [[learning-with-errors#ring-lwe|Ring LWE]] — [[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]] ([[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]).
