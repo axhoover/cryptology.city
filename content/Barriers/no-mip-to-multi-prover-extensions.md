@@ -24,3 +24,7 @@ rationale:
 ## Statement
 
 No reduction of any class from [[quantum-interactive-proofs#multi-prover-extensions|MIP*]] to [[multi-prover-interactive-proofs|MIP]] exists, since $\mathbf{MIP^*} \not\subseteq \mathbf{MIP}$: $\mathbf{MIP} = \mathbf{NEXP}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]; $\mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[NW19 - NEEXP is Contained in MIP-star|NW19]]; and $\mathbf{NEXP} \subsetneq \mathbf{NEEXP}$ by the nondeterministic time hierarchy theorem — standard.
+
+## Notes
+
+- The converse $\mathbf{MIP} \subseteq \mathbf{MIP^*}$ holds: $\mathbf{MIP} = \mathbf{NEXP} \subseteq \mathbf{NEEXP} \subseteq \mathbf{MIP^*}$ — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]], [[NW19 - NEEXP is Contained in MIP-star|NW19]].

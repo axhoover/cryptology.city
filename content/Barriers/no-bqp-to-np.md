@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[RT19 - Oracle Separation of BQP and PH|RT19]]"
 rationale:
-  class: "RT19 give an oracle relative to which BQP is not contained in NP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+  class: "RT19 give an oracle relative to which BQP is not contained in NP, which rules out exactly the relativizing proofs of the inclusion (by the partial order, every fully-black-box one too) and says nothing about non-relativizing ones."
 ---
 
 # No relativizing reduction from BQP to NP

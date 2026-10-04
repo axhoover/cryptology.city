@@ -19,7 +19,7 @@ security-loss: ""
 
 ## Statement
 
-Every language in [[bounded-error-probabilistic-polynomial-time|BPP]] is decided by a family of polynomial-size Boolean circuits, so $\classBPP \subseteq$ [[p-poly|P/poly]]. [[Adl78 - Two theorems on random polynomial time|Adl78]] proves the $\classRP$ case; [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]] extend it to $\classBPP$ by the same argument with a majority vote.
+[[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[p-poly|P/poly]]: every language in $\classBPP$ is decided by a family of polynomial-size Boolean circuits. [[Adl78 - Two theorems on random polynomial time|Adl78]] proves the $\classRP$ case; [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]] extend it to $\classBPP$ by the same argument with a majority vote.
 
 ## Sketch
 
