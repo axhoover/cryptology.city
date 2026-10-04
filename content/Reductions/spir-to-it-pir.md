@@ -11,11 +11,11 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "None: construction and reduction are the identity."
+rationale:
+  class: "The construction is the identity, using the SPIR protocol only as an oracle, and since SPIR's per-server query-privacy requirement is multi-server PIR's, the reduction forwards any privacy adversary unchanged."
 ---
 
 # SPIR ⇒ IT-PIR
-
-[[symmetric-private-information-retrieval-multi-server|SPIR]] implies [[multi-server-private-information-retrieval|IT-PIR]].
 
 ## Statement
 
@@ -24,7 +24,3 @@ security-loss: "None: construction and reduction are the identity."
 ## Sketch
 
 Drop the data-privacy requirement from the SPIR definition; what remains is the multi-server PIR definition, met by the same queries and answers.
-
-## Notes
-
-`class: fully-black-box`: Identity construction, using the SPIR protocol only as an oracle; SPIR's per-server query-privacy requirement is multi-server PIR's, so the reduction forwards any privacy adversary unchanged.

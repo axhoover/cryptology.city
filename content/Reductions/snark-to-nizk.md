@@ -12,11 +12,11 @@ model: crs
 source:
   - "[[KMY20 - NIZK from SNARG|KMY20]]"
 security-loss: ""
+rationale:
+  model: "The SNARG and the resulting NIZK both use a common reference string."
 ---
 
 # SNARK + OWF ⇒ NIZK
-
-A [[succinct-argument|SNARG]] for $\classNP$ together with a [[hash-function#preimage-resistance-one-wayness|one-way function]] implies [[non-interactive-zero-knowledge|NIZK]].
 
 ## Statement
 
@@ -24,8 +24,4 @@ A [[succinct-argument|SNARG]] for $\classNP$ with proof size $\poly(\secpar)\cdo
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-`model: crs`: the SNARG and the resulting NIZK both use a common reference string.
-
-- Replaces a migrated edge SNARK ⇒ NIZK, recorded from the remark that a zk-SNARK is a NIZK argument ([[non-interactive-zero-knowledge#zk-snark]]). Zero knowledge is optional in the [[succinct-argument]] definition, so a SNARK alone is not a NIZK. The zk-SNARK containment is definitional and stays in prose (sourcing pass, 2026-09).
+- A SNARK need not be zero-knowledge, so it is not by itself a NIZK; a [[non-interactive-zero-knowledge#zk-snark|zk-SNARK]] is a NIZK argument by definition — standard.

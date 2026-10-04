@@ -12,11 +12,11 @@ model: crs
 source:
   - "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
 security-loss: ""
+rationale:
+  model: "The common reference string is a commitment key, binding in the real setup and hiding in the simulated one."
 ---
 
 # SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK
-
-[[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]] implies [[non-interactive-zero-knowledge|NIZK]].
 
 ## Statement
 
@@ -24,12 +24,8 @@ Under [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] 
 
 ## Sketch
 
-The CRS is a commitment key for group elements and exponents; under SXDH the binding key (extractable, giving soundness) and the hiding key (perfectly hiding, with a simulation trapdoor, giving zero knowledge) are indistinguishable. A proof consists of commitments to the witness plus group elements that make the equation verify once the commitment randomness cancels.
+The CRS is a commitment key for group elements and exponents; under SXDH a binding key (extractable, giving soundness) and a hiding key (perfectly hiding, with a simulation trapdoor, giving zero knowledge) are indistinguishable. A proof consists of commitments to the witness plus group elements that make the equation verify once the commitment randomness cancels.
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-`model: crs`: The CRS is the commitment key described in the Sketch.
-
-- GS08 also instantiate the proofs under the subgroup decision assumption and DLIN — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]
+- GS08 also instantiate the proofs under the subgroup decision assumption and under [[decisional-diffie-hellman#dlin|DLIN]] — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].

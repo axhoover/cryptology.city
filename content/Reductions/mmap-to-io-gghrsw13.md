@@ -14,7 +14,7 @@ source:
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
 security-loss: ""
 rationale:
-  heuristic: "GGHRSW13 give the NC1 obfuscator as a candidate and prove no reduction from a multilinear-map assumption."
+  heuristic: "GGHRSW13 give the NC1 obfuscator as a candidate and prove no reduction from a standard-model multilinear-map assumption."
 ---
 
 # MMap + Leveled FHE ⇒ iO

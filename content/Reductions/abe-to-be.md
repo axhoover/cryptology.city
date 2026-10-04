@@ -27,4 +27,4 @@ The BE relation $i \in S$ is the CP-ABE relation $f_S(\{i\}) = 1$, so BE admissi
 
 ## Notes
 
-- The BE ciphertext is a CP-ABE ciphertext for a policy of size $|S|$, so short BE ciphertexts need CP-ABE with ciphertexts succinct in the policy — folklore.
+- The resulting BE has no ciphertext-size guarantee: its ciphertext is a CP-ABE ciphertext for a policy of size $|S|$, so short BE ciphertexts need CP-ABE with ciphertexts succinct in the policy — folklore.

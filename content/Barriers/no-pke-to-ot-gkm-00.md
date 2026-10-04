@@ -14,16 +14,17 @@ consequences:
 strength: unconditional
 source:
   - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+rationale:
+  class: "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses PKE, with a proof that uses the OT adversary, only as an oracle."
 ---
 
 # No fully-black-box reduction from PKE to OT
 
-A reduction of class `fully-black-box` from [[public-key-encryption|PKE]] to [[oblivious-transfer|OT]] would imply a contradiction.
-
 ## Statement
 
-There is no fully-black-box construction of [[oblivious-transfer|OT]] from [[public-key-encryption|PKE]]: the two primitives are incomparable under black-box reductions, shown by oracle separations following Impagliazzo–Rudich. A restricted, strengthened form of each primitive does imply the other — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].
+There is no fully-black-box construction of [[oblivious-transfer|OT]] from a trapdoor predicate, i.e. single-bit [[public-key-encryption|PKE]]: the two primitives are incomparable under black-box reductions, by oracle separations following [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]. Bitwise encryption under a trapdoor predicate is a semantically secure multi-bit PKE — [[GM84 - Probabilistic encryption|GM84]] — so a fully-black-box construction of OT from multi-bit PKE would compose into one from trapdoor predicates, and none exists.
 
 ## Notes
 
-`class: fully-black-box`: GKM+00 separate the primitives under black-box reductions, which rules out at least constructions that use PKE, with proofs that use the OT adversary, only as oracles. The abstract does not settle whether a single oracle separates them, which would rule out the broader class `relativizing`, so the narrower value is recorded.
+- A restricted, strengthened form of each primitive does imply the other — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].
+- The converse separation: [[no-ot-to-pke-gkm-00|OT ⇏ PKE]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].

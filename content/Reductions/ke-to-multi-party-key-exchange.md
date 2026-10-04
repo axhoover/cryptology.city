@@ -23,4 +23,4 @@ Two-party [[key-exchange|key exchange]] secure against eavesdroppers implies $n$
 
 ## Sketch
 
-A hybrid over the $n-1$ sessions replaces each session key by an independent uniform key; the reduction embeds its two-party challenge in one session and runs the others itself. In the last hybrid every pad is uniform, so $K$ is independent of the transcript.
+A hybrid over the $n-1$ sessions replaces each session key by an independent uniform key; the reduction embeds its two-party challenge in one session and runs the others itself. In the last hybrid every pad is uniform and independent of $K$, so $K$ is independent of the transcript.

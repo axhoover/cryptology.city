@@ -20,8 +20,8 @@ rationale:
 
 ## Statement
 
-If public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]], a circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]], holds, there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
+Assuming public-coin [[learning-with-errors#circular-evasive-lwe|circular evasive LWE]], a circular variant of [[learning-with-errors#evasive-lwe|evasive LWE]], there is a lattice-based [[attribute-based-encryption|ABE]] scheme for circuits of unbounded depth — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
 
 ## Notes
 
-- Circular evasive LWE as stated in HLL23 has a counterexample: a sampler for which the pre-condition holds but the post-condition fails — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
+- Public-coin circular evasive LWE as HLL23 state it is false: [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]] exhibit a sampler for which the pre-condition holds but the post-condition fails.

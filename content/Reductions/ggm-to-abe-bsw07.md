@@ -25,4 +25,4 @@ In a [[pairings|bilinear group]], the Bethencourt–Sahai–Waters scheme is a c
 
 ## Notes
 
-- CP-ABE for monotone formulas is selectively secure in the standard model under non-interactive assumptions (decisional $q$-parallel BDHE, or less efficiently DBDH) — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].
+- Selectively secure CP-ABE for monotone formulas exists in the standard model under the non-interactive decisional $q$-parallel BDHE assumption, and less efficiently under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].

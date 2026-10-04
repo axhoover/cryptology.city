@@ -12,11 +12,11 @@ model: standard
 source:
   - "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
 security-loss: ""
+rationale:
+  class: "One fixed construction calls the DPF only through its key generation and evaluation algorithms, and the privacy reduction runs any query distinguisher once as an oracle on the key it receives, which makes it a DPF hiding adversary."
 ---
 
 # DPF ⇒ Computational Multi-server PIR
-
-[[distributed-point-function|DPF]] implies [[multi-server-private-information-retrieval#computational-multi-server-pir|Computational Multi-server PIR]].
 
 ## Statement
 
@@ -24,7 +24,7 @@ A [[distributed-point-function|DPF]] for domain $[N]$ and range $\ZZ_2$ yields a
 
 ## Sketch
 
-Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctness. Privacy: server $b$'s entire view of a query is $k_b$, so a distinguisher between queries for $i$ and $i'$ is a DPF key-indistinguishability adversary with the same advantage.
+Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctness. Privacy: server $b$'s entire view of a query is $k_b$, so a distinguisher between queries for $i$ and $i'$ is an adversary against [[distributed-point-function#hiding-security|DPF hiding]] for key $k_b$ with the same advantage.
 
 ```pseudocode
 \begin{algorithm}
@@ -54,9 +54,3 @@ Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctnes
 \end{algorithmic}
 \end{algorithm}
 ```
-
-## Notes
-
-`class: fully-black-box`: one fixed construction calls the DPF only through $\Gen$ and $\Eval$; the fixed privacy reduction runs any query distinguisher once as an oracle on $k_b$, which makes it an adversary against DPF key indistinguishability (GI14's security notion). RTV04 fully-black-box shape.
-
-- The construction is 2-server; the conclusion node computational-multi-server-pir does not record the server count.

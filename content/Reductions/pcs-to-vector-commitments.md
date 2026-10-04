@@ -23,4 +23,4 @@ A [[polynomial-commitment|PCS]] over $\FF$ for degree bound $n-1$, with $n \le |
 
 ## Sketch
 
-Two accepted openings of position $i$ to $v \ne v'$ are two accepted evaluation proofs for $f(\omega_i) = v$ and $f(\omega_i) = v'$ against one commitment, an evaluation-binding break.
+Two accepted openings of one commitment at position $i$ to $v \ne v'$ are two accepted evaluation proofs at $\omega_i$ with values $v$ and $v'$ against that commitment, an evaluation-binding break.

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
-security-loss: "hiding: factor $2$ in the PRG advantage; binding: statistical, error $2^{-\\secpar}$"
+security-loss: "hiding: factor $2$ in the PRG advantage; binding: statistical, error at most $2^{-\\secpar}$"
 rationale:
   class: "The committer calls the PRG only as an oracle, the hiding reduction runs any distinguisher as an oracle in two PRG hybrids, and binding is statistical and needs no reduction."
 ---

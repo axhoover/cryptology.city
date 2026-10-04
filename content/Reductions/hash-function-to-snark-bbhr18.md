@@ -29,3 +29,4 @@ The computation is expressed as an [[arithmetization#air-algebraic-intermediate-
 ## Notes
 
 - Only the interactive variant, before the BCS transform, reduces to collision resistance in the standard model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]; instantiating the random oracle with a concrete hash function is heuristic — standard.
+- Post-quantum soundness of the non-interactive argument needs a quantum-random-oracle analysis: the BCS transform of a round-by-round sound IOP is sound in the quantum random-oracle model — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]].

@@ -25,7 +25,7 @@ Kyber, the basis of ML-KEM (FIPS 203), is a [[key-encapsulation-mechanism|KEM]] 
 
 ## Sketch
 
-The IND-CPA scheme is the module analogue of the [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]] scheme: the public key is $(\mathbf{A}, \mathbf{t} = \mathbf{A}\mathbf{s} + \mathbf{e})$ and a ciphertext is a pair of compressed Module LWE samples carrying the message in the high-order bits, so key and ciphertext are pseudorandom under Module LWE. The [[ind-cpa-kem-to-ind-cca-security|Fujisaki–Okamoto transform]] then derives the encryption coins and the session key by hashing the message and, when re-encryption fails, outputs a pseudorandom key derived from a secret seed.
+The IND-CPA scheme is the module analogue of the [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]] scheme: the public key is $(\mathbf{A}, \mathbf{t} = \mathbf{A}\mathbf{s} + \mathbf{e})$ and a ciphertext is a pair of compressed Module LWE samples carrying the message in the high-order bits, so key and ciphertext are pseudorandom under Module LWE. The [[ind-cpa-kem-to-ind-cca-security|Fujisaki–Okamoto transform]] then derives the encryption coins and the session key by hashing the message; decapsulation re-encrypts and, on a mismatch, outputs a pseudorandom key derived from a secret seed.
 
 ## Notes
 

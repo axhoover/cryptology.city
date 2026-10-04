@@ -24,4 +24,4 @@ For $d \ge 1$, under the [[decisional-composite-residuosity#d-th-composite-resid
 
 ## Sketch
 
-The reduction embeds a challenge $z$ as $c^* = (1+n)^{m_b} \cdot z \bmod n^{d+1}$: an $n^d$-th residue $z$ makes $c^*$ a fresh encryption of $m_b$, and a uniform $z$ makes $c^*$ uniform, independent of $b$. Decryption raises the ciphertext to an exponent that is $0 \bmod \lambda$ and $1 \bmod n^d$, with $\lambda = \mathrm{lcm}(p-1, q-1)$; this kills the $r^{n^d}$ component and leaves $(1+n)^m$, from which $m$ is read off digit by digit modulo $n, n^2, \ldots, n^d$ using the binomial expansion.
+The reduction embeds a challenge $z$ as $c^* = (1+n)^{m_b} \cdot z \bmod n^{d+1}$: an $n^d$-th residue $z$ makes $c^*$ a fresh encryption of $m_b$, and a uniform $z$ makes $c^*$ uniform, independent of $b$. Decryption raises the ciphertext to a secret exponent that is $0 \bmod \lambda$ and $1 \bmod n^d$, with $\lambda = \mathrm{lcm}(p-1, q-1)$; this kills the $r^{n^d}$ component and leaves $(1+n)^m$, from which $m$ is read off digit by digit modulo $n, n^2, \ldots, n^d$ using the binomial expansion.

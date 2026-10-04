@@ -12,11 +12,11 @@ model: standard
 source:
   - "[[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]]"
 security-loss: ""
+rationale:
+  class: "Bar01 predates the RTV04 taxonomy and claims no class, and simulating with the cheating verifier's code is a property of the simulator rather than a reduction class, so only the proved implication is recorded."
 ---
 
 # CRHF ⇒ Constant-round ZK argument (Barak)
-
-[[hash-function#collision-resistance|Collision-resistant hash functions]] imply a constant-round public-coin [[zero-knowledge-proof#argument-systems|zero-knowledge argument]] for [[nondeterministic-polynomial-time|NP]] with non-black-box simulation.
 
 ## Statement
 
@@ -28,7 +28,4 @@ The prover commits to a program and gives a witness-indistinguishable universal 
 
 ## Notes
 
-`class: free`: records the proven implication; Bar01 predates the RTV04 taxonomy. Simulating with the cheating verifier's code is a property of the simulator, not a reduction class, as the Notes of [[no-zkp-to-argument-systems]] explain.
-
-- The protocol circumvents [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]], which rules out such protocols with black-box simulation for every language outside [[bounded-error-probabilistic-polynomial-time|BPP]] — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]].
-- Whether Bar01 assumes collision resistance against polynomial-size circuits or against circuits of some superpolynomial size is not yet checked against the paper; `hypotheses: [crhf]` records the assumption as the Statement names it.
+- The protocol circumvents [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]: with black-box simulation, only languages in [[bounded-error-probabilistic-polynomial-time|BPP]] have such protocols — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]].

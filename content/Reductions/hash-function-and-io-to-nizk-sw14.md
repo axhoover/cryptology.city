@@ -12,11 +12,12 @@ model: crs
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: ""
+rationale:
+  class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the OWF, and SW14 do not place it in the RTV04 hierarchy."
+  model: "A trusted setup publishes the obfuscated programs as the common reference string."
 ---
 
 # OWF + iO ⇒ NIZK
-
-[[hash-function#preimage-resistance-one-wayness|OWF]] together with [[indistinguishability-obfuscation|iO]] implies [[non-interactive-zero-knowledge|NIZK]].
 
 ## Statement
 
@@ -24,6 +25,4 @@ security-loss: ""
 
 ## Notes
 
-`class: free`: The construction hands iO circuits containing the code of a puncturable PRF built from the one-way function, so it is not black-box in the OWF hypothesis; iO itself is applied only to circuits. SW14 do not place the reduction in the RTV04 hierarchy, so the broadest class is recorded.
-
-`model: crs`: the setup publishes obfuscated programs as the CRS; with no setup, non-interactive zero knowledge exists only for languages in $\classBPP$ — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]].
+- Without setup, non-interactive zero knowledge exists only for languages in $\classBPP$ — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]].

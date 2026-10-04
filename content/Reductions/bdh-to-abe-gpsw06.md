@@ -28,4 +28,4 @@ $\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key 
 
 ## Notes
 
-- The ciphertext-policy counterpart: CP-ABE for monotone formulas with ciphertext size linear in the formula, selectively secure in the standard model, most efficiently under decisional $q$-parallel BDHE and less efficiently under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].
+- The ciphertext-policy counterpart, selectively secure CP-ABE for monotone formulas in the standard model, has ciphertext size linear in the formula under decisional $q$-parallel BDHE; a less efficient scheme rests on DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].

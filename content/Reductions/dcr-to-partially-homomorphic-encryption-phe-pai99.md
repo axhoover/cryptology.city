@@ -29,3 +29,4 @@ An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge 
 ## Notes
 
 - Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR ([[d-th-composite-residuosity-to-he|higher-degree composite residuosity ⇒ additively homomorphic encryption]]) — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].
+- The Paillier cryptosystem admits threshold decryption ([[dkg-and-he-to-tpke|DCR ⇒ TPKE]]) — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]].

@@ -22,4 +22,4 @@ If the [$k$-Lin assumption](bilinear-map-assumptions#k-linear-assumption) holds 
 
 ## Notes
 
-- Large-universe KP-ABE and CP-ABE in prime-order bilinear groups are selectively secure under two $q$-type assumptions rather than $k$-Lin — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]].
+- [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]] give large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure under two $q$-type assumptions rather than $k$-Lin.

@@ -12,7 +12,7 @@ model: standard
 source: folklore
 security-loss: "tight: the eavesdropper's advantage equals the CPA advantage"
 rationale:
-  class: "The protocol runs KeyGen and Enc only as oracles, and the fixed reduction embeds its CPA challenge as the transcript and runs any eavesdropper on it as an oracle."
+  class: "The protocol runs KeyGen, Enc and Dec only as oracles, and the fixed reduction embeds its CPA challenge as the transcript and runs any eavesdropper on it as an oracle."
 ---
 
 # PKE ⇒ KE

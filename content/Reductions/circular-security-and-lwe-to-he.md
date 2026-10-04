@@ -23,4 +23,6 @@ Assuming [[learning-with-errors|LWE]] is hard, there is a [[homomorphic-encrypti
 ## Notes
 
 - The passage from a bootstrappable scheme to leveled FHE, and with circular security to FHE, is Gentry's bootstrapping theorem ([[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Bootstrappable SHE ⇒ HE]]) — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+- Dimension-modulus reduction shrinks the decryption circuit until the scheme is bootstrappable, replacing the squashing step of [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 - Leveled FHE for any a-priori polynomial depth follows from LWE alone without bootstrapping, via modulus switching — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+- The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]].
