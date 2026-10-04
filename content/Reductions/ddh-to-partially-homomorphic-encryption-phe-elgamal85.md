@@ -25,7 +25,7 @@ The ElGamal scheme over $(\GG, g, p) \gets \GrGen(1^\secpar)$, with $\pk = y = g
 
 ## Sketch
 
-$(g^{r_1}, m_1 y^{r_1}) \cdot (g^{r_2}, m_2 y^{r_2}) = (g^{r_1 + r_2}, m_1 m_2 \cdot y^{r_1 + r_2})$, and $r_1 + r_2 \bmod p$ is uniform in $[p]$ when $r_1$ is. CPA security is the reduction on [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]: on DDH challenge $(X, Y, Z)$ set $\pk = X$ and answer the challenge query with $(Y, m_b \cdot Z)$.
+$(g^{r_1}, m_1 y^{r_1}) \cdot (g^{r_2}, m_2 y^{r_2}) = (g^{r_1 + r_2}, m_1 m_2 \cdot y^{r_1 + r_2})$, and $r_1 + r_2 \bmod p$ is uniform in $\ZZ_p$ when $r_1$ is. CPA security is the reduction on [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]: on DDH challenge $(X, Y, Z)$ set $\pk = X$ and answer the challenge query with $(Y, m_b \cdot Z)$.
 
 ## Notes
 

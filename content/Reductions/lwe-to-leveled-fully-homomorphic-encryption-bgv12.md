@@ -13,7 +13,7 @@ source:
   - "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
 security-loss: ""
 rationale:
-  class: "One fixed construction from LWE samples, whose public key is an acyclic chain of key-switching hints, and a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
+  class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
 ---
 
 # LWE ⇒ Leveled fully homomorphic encryption

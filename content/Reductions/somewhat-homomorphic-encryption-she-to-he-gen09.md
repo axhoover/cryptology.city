@@ -24,7 +24,7 @@ A [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-enc
 
 ## Sketch
 
-To refresh a noisy ciphertext $c$, homomorphically evaluate $\Dec(\cdot, c)$ on an encryption of the secret key: the result is a fresh encryption of the same plaintext whose noise depends on the depth of the decryption circuit, not on the computation so far. Refreshing after each gate, under the next key pair in the chain, evaluates circuits as deep as the chain is long.
+Given ciphertexts $c_1, c_2$ under $\pk_i$, homomorphically evaluate the augmented decryption circuit $\sk \mapsto \lnot\left(\Dec(\sk, c_1) \land \Dec(\sk, c_2)\right)$ on the encryption of $\sk_i$ under $\pk_{i+1}$: the result encrypts the NAND of the two plaintexts under $\pk_{i+1}$, with noise set by the depth of that circuit, not by the computation so far. Each level of NAND gates moves one key pair along the chain, so the chain's length bounds the depth.
 
 ## Notes
 
