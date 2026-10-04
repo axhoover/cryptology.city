@@ -27,5 +27,5 @@ The reduction samples $\vec{\mathit{id}}' \getsr \Sigma^{\le d}$, commits to it 
 
 ## Notes
 
-- Polynomial selective security does not suffice: when $\Sigma^{\le d}$ is superpolynomial, selective security of a scheme does not imply its adaptive security ([[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA to IND-HIBE-CPA security]]) — folklore.
+- Polynomial selective security does not suffice: when $\Sigma^{\le d}$ is superpolynomial, IND-sHIBE-CPA security of a scheme does not imply its IND-HIBE-CPA security ([[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA to IND-HIBE-CPA security]]) — folklore.
 - The IBE analogue loses the size $|\calI|$ of the identity space ([[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA ⇒ IND-ID-CPA security]]) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].

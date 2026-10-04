@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
 rationale:
-  class: "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses PKE, with a proof that uses the TDP inverter, only as an oracle."
+  class: "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses PKE only as an oracle with a security proof that uses a TDP inverter only as an oracle."
 ---
 
 # No fully-black-box reduction from PKE to TDP

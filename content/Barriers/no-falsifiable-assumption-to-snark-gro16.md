@@ -28,7 +28,7 @@ Let $L$ be an NP language with a sub-exponentially hard subset-membership proble
 
 ## Sketch
 
-Succinctness and the hardness of $L$ give an inefficient cheating prover $P^*$ that outputs false statements with accepting proofs, whose statement–proof pairs are indistinguishable from those of an efficient prover $P$ that samples true statements with witnesses and proves them honestly (the short proof is simulated as leakage on the witness). The assumption's challenger is efficient, so the reduction $R^{P}$ wins the assumption's game with probability negligibly close to that of $R^{P^*}$; $R^{P}$ is efficient, so the assumption is false.
+Succinctness and the hardness of $L$ give an inefficient cheating prover $P^*$ that outputs false statements with accepting proofs, whose statement–proof pairs are indistinguishable from those of an efficient prover $P$ that samples true statements with witnesses and proves them honestly (the short proof is simulated as leakage on the witness). Since $P^*$ breaks adaptive soundness, the reduction $R^{P^*}$ breaks the assumption; the assumption's challenger is efficient, so $R^{P}$ wins its game with probability negligibly close to that of $R^{P^*}$, and $R^{P}$ is efficient, so the assumption is false.
 
 ## Notes
 

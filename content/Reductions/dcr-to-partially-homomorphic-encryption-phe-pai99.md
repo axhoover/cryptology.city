@@ -13,7 +13,7 @@ source:
   - "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
 security-loss: "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR."
 rationale:
-  class: "Pai99 state no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the DCR challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
+  class: "Pai99 states no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the DCR challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
 ---
 
 # DCR ⇒ Additively homomorphic encryption

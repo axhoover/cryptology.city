@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is a [[hierarchical-identity-based-encryption|HIBE]], with the same scheme: anonymity requires ciphertexts to hide the recipient identity vector $\vec{\mathit{id}}$ in addition to the payload — folklore.
+Every [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous HIBE]] is itself a [[hierarchical-identity-based-encryption|HIBE]]: anonymity requires ciphertexts to hide the recipient identity vector $\vec{\mathit{id}}$ in addition to the payload — folklore.
 
 ## Sketch
 
