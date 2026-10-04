@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-For a fixed polynomial factor $\gamma = n^{O(1)}$ and suitable $q, m = \poly(n)$, an efficient algorithm solving [[shortest-integer-solution|SIS]] with noticeable probability over uniform $\mathbf{A} \in \ZZ_q^{n \times m}$ yields an efficient classical algorithm that estimates $\lambda_1$ to within $\gamma$, that is, solves [[shortest-vector-problem|GapSVP]], on every $n$-dimensional lattice — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Hence worst-case hardness of $\mathrm{GapSVP}_\gamma$ implies average-case hardness of SIS. [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]] tighten the factor to $\gamma = \tilde{O}(n)$ for GapSVP and SIVP using Gaussian measures.
+For a fixed polynomial factor $\gamma = n^{O(1)}$ and suitable $q, m = \poly(n)$, an efficient algorithm solving [[shortest-integer-solution|SIS]] with noticeable probability over uniform $\mathbf{A} \in \ZZ_q^{n \times m}$ yields an efficient classical algorithm that estimates $\lambda_1$ to within $\gamma$, that is, solves [[shortest-vector-problem|GapSVP]], on every $n$-dimensional lattice — [[Ajt96 - Generating hard instances of lattice problems|Ajt96]]. Hence worst-case hardness of $\mathrm{GapSVP}_\gamma$ implies average-case hardness of SIS. [[MR07 - Worst-Case to Average-Case Reductions Based on Gaussian Measures|MR07]] tighten the factor, for GapSVP and SIVP, to $\gamma = \beta \cdot \tilde{O}(\sqrt{n})$ for SIS norm bound $\beta$, which is $\tilde{O}(n)$ at the smallest admissible $\beta = \tilde{O}(\sqrt{n})$, using Gaussian measures.
 
 ## Sketch
 

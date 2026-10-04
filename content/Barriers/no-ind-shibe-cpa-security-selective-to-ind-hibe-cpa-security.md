@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-When the identity-vector space $\Sigma^{\le d}$ is superpolynomial, selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a [[hierarchical-identity-based-encryption|HIBE]] scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any selectively secure $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate. Complexity leveraging recovers adaptive security only by guessing the challenge identity vector, at a loss of $|\Sigma^{\le d}|$, and so needs sub-exponential selective security — folklore.
+When the identity-vector space $\Sigma^{\le d}$ is superpolynomial, selective [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA]] security of a [[hierarchical-identity-based-encryption|HIBE]] scheme does not imply its adaptive [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]] security, so the identity map is no reduction from selective to adaptive security: any selectively secure $\HIBE$ can be modified to output plaintexts in the clear for one identity vector drawn into its own $\pp$, which a selective adversary, committing before $\Setup$ runs, cannot anticipate — folklore.
 
 ## Sketch
 
@@ -29,6 +29,6 @@ Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup$ and append a unifo
 
 ## Notes
 
-- [[subexp-selective-hibe-to-adaptive-hibe|Complexity leveraging]] is consistent with this: its hypothesis, [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponential selective security]], is strictly stronger than selective security — folklore.
+- [[subexp-selective-hibe-to-adaptive-hibe|Complexity leveraging]] recovers adaptive security only by guessing the challenge identity vector, at a loss of $|\Sigma^{\le d}|$, so its hypothesis is [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponential selective security]], strictly stronger than selective security — folklore.
 - For HIBE and ABE systems with a checkability property on keys and ciphertexts (any two different private keys that are both supposed to decrypt a ciphertext decrypt it to the same message), any simple black-box reduction to a non-interactive assumption loses a factor exponential in the hierarchy depth — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]].
 - An adaptively secure HIBE can be built from any selectively secure IBE, hence from the depth-1 restriction of any selectively secure HIBE — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]].

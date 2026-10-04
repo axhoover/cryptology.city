@@ -23,7 +23,7 @@ rationale:
 
 ## Sketch
 
-With $g = 1+n$, $(m, r) \mapsto c$ is a bijection $\ZZ_n \times \ZZ_n^* \to \ZZ_{n^2}^*$, so binding is perfect, and hiding is IND-CPA security of Paillier encryption under DCR [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. With $g$ a random $n$-th residue, $c$ is a uniform $n$-th residue independent of $m$; under a uniform $g$ binding is statistical, so a committer that opens one $c$ two ways distinguishes the DCR challenge $g$ from uniform.
+With $g = 1+n$, $(m, r) \mapsto c$ is a bijection $\ZZ_n \times \ZZ_n^* \to \ZZ_{n^2}^*$, so binding is perfect, and hiding is IND-CPA security of Paillier encryption under DCR ([[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]). With $g$ a random $n$-th residue, $c$ is a uniform $n$-th residue independent of $m$; under a uniform $g$ binding is statistical, so a committer that opens one $c$ two ways distinguishes the DCR challenge $g$ from uniform.
 
 ## Notes
 

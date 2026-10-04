@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[secret-sharing#linear-secret-sharing-schemes-lsss|linear secret-sharing scheme]] over a finite field $\FF$ — every share a linear function of the secret and the dealer's randomness — is equivalent to a [[monotone-span-program|monotone span program]] over $\FF$: an MSP of size $m$ computing an access structure $\Gamma$ yields an LSSS for $\Gamma$ with total share size $m$ field elements, and every LSSS for $\Gamma$ induces an MSP of the same size computing $\Gamma$ [[KW93 - On Span Programs|KW93]], [[Bei96 - Secure Schemes for Secret Sharing and Key Distribution|Bei96]]. In particular, MSPs over $\FF$ compute exactly the access structures realizable by LSSS over $\FF$.
+A [[secret-sharing#linear-secret-sharing-schemes-lsss|linear secret-sharing scheme]] over a finite field $\FF$ — every share a linear function of the secret and the dealer's randomness — is equivalent to a [[monotone-span-program|monotone span program]] over $\FF$: an MSP of size $m$ computing an access structure $\Gamma$ yields an LSSS for $\Gamma$ with total share size $m$ field elements, and every LSSS for $\Gamma$ induces an MSP of the same size computing $\Gamma$ — [[KW93 - On Span Programs|KW93]], [[Bei96 - Secure Schemes for Secret Sharing and Key Distribution|Bei96]]. In particular, MSPs over $\FF$ compute exactly the access structures realizable by LSSS over $\FF$.
 
 ## Sketch
 

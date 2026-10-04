@@ -22,5 +22,5 @@ If [[learning-with-errors#evasive-lwe|evasive LWE]] holds and [[learning-with-er
 
 ## Notes
 
-- [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]] states the result as implied by evasive LWE; evasive LWE is conditional on a pre-condition, here taken to follow from LWE.
+- [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]] states the result as implied by evasive LWE alone; the LWE hypothesis covers the pre-condition on which evasive LWE is conditional.
 - Succinct LWE is falsifiable — [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]].

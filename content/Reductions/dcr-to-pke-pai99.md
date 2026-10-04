@@ -24,7 +24,7 @@ rationale:
 
 ## Sketch
 
-The reduction sets the challenge ciphertext to $g^{m_b} \cdot c^*$ for DCR challenge $c^*$: if $c^*$ is an $n$-th residue this is a correctly distributed encryption of $m_b$, and if $c^*$ is uniform in $\ZZ_{n^2}^*$ the ciphertext is uniform and independent of $b$.
+The reduction sets the challenge ciphertext to $c^* = g^{m_b} \cdot z \bmod n^2$ for DCR challenge $z$: if $z$ is an $n$-th residue this is a correctly distributed encryption of $m_b$, and if $z$ is uniform in $\ZZ_{n^2}^*$ the ciphertext is uniform and independent of $b$.
 
 ```pseudocode
 \begin{algorithm}
@@ -52,8 +52,8 @@ The reduction sets the challenge ciphertext to $g^{m_b} \cdot c^*$ for DCR chall
 \caption{$\Dec(\sk, c)$}
 \begin{algorithmic}
 \State $u \gets c^{\varphi} \bmod n^2$
-\Comment{$u = 1 + m \varphi n \bmod n^2$}
 \Return $m \gets \frac{u - 1}{n} \cdot \varphi^{-1} \bmod n$
+\Comment{$u = 1 + m \varphi n \bmod n^2$}
 \end{algorithmic}
 \end{algorithm}
 ```

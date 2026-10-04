@@ -28,5 +28,5 @@ Given an RSA challenge $(n, e, y)$, run the factoring algorithm on $n$; if it re
 
 ## Notes
 
-- The reduction preserves the modulus distribution of $\GrGen$. This is the distribution of the factoring game (independent uniform $\secpar$-bit primes) when $\GrGen$ samples $p, q$ that way and then picks $e$ coprime to $\phi(n)$; a $\GrGen$ with fixed $e$ conditions $p, q$ on $\gcd(e, \phi(n)) = 1$.
+- The reduction preserves the modulus distribution of $\GrGen$. This is the distribution of the factoring game (independent uniform $\secpar$-bit primes) when $\GrGen$ samples $p, q$ that way and then picks $e$ coprime to $\phi(n)$; a $\GrGen$ with fixed $e$ conditions $p, q$ on $\gcd(e, \phi(n)) = 1$ — folklore.
 - Whether factoring hardness implies RSA hardness is open in the standard model; against generic ring algorithms the two are equivalent ([[rsa-to-fac-dlo24|RSA ⇔ FAC]]) — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]].

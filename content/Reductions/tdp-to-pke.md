@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A family of [[trapdoor-permutation|trapdoor permutations]] $f$ with hard-core predicate $b$ gives a [[public-key-encryption#cpa-security|CPA-secure PKE]] scheme: $\pk$ is the permutation index, $\sk$ its trapdoor, a bit $m$ is encrypted as $\Enc(\pk, m) = (f(x),\, b(x) \oplus m)$ for $x \getsr \calD$, and longer messages bit by bit — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. No second hypothesis is needed: for every trapdoor permutation $f$, $g(x, r) = (f(x), r)$ is a trapdoor permutation with hard-core predicate $\langle x, r \rangle \bmod 2$ — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].
+A family of [[trapdoor-permutation|trapdoor permutations]] $f$ with hard-core predicate $b$ gives a [[public-key-encryption#cpa-security|CPA-secure PKE]] scheme: $\pk$ is the permutation index, $\sk$ its trapdoor, a bit $m$ is encrypted as $\Enc(\pk, m) = (f(x),\, b(x) \oplus m)$ for $x \getsr \calD$, and longer messages bit by bit — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. A hard-core predicate need not be assumed: for every trapdoor permutation $f$, $g(x, r) = (f(x), r)$ is a trapdoor permutation with hard-core predicate $\langle x, r \rangle \bmod 2$ — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].
 
 ## Sketch
 

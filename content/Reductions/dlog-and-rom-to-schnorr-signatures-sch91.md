@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-[[digital-signature#schnorr-signatures|Schnorr signatures]] over a group of prime order $p$ — the [[fiat-shamir-heuristic|Fiat-Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] of the [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[discrete-logarithm|DLOG]] is hard in the group — [[PS96 - Security Proofs for Signature Schemes|PS96]].
+[[digital-signature#schnorr-signatures|Schnorr signatures]] over a group of prime order $p$ — the [[fiat-shamir-heuristic|Fiat–Shamir transform]] [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]] of the [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]] [[Sch91 - Efficient signature generation by smart cards|Sch91]] — are EUF-CMA secure in the [[random-oracle-model|random-oracle model]] if [[discrete-logarithm|DLOG]] is hard in the group — [[PS96 - Security Proofs for Signature Schemes|PS96]].
 
 ## Sketch
 

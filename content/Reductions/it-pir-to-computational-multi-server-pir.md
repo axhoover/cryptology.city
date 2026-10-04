@@ -20,7 +20,3 @@ rationale:
 ## Statement
 
 Every [[multi-server-private-information-retrieval|IT-PIR]] scheme is a [[multi-server-private-information-retrieval#computational-multi-server-pir|computational multi-server PIR]]: per-server query distributions that are identical for every pair of indices are in particular computationally indistinguishable — folklore.
-
-## Sketch
-
-The construction is the identity, and a distinguisher between the queries sent to server $s$ for indices $i$ and $j$ sees identical distributions, so its advantage is $0$.
