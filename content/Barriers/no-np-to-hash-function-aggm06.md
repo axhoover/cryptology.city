@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-For every polynomial-time computable $f$, a randomized non-adaptive reduction of [[nondeterministic-polynomial-time|NP]] to inverting $f$ on average implies $\classcoNP \subseteq \classAM$ — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]] — and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]. The [[hash-function#preimage-resistance-one-wayness|one-wayness]] of $f$ therefore cannot be based on worst-case $\classNP$-hardness by such a reduction unless $\classcoNP \subseteq \classAM$.
+For every polynomial-time computable $f$, a randomized non-adaptive reduction of [[nondeterministic-polynomial-time|NP]] to inverting $f$ on average implies $\classcoNP \subseteq \classAM$ — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]. The [[hash-function#preimage-resistance-one-wayness|one-wayness]] of $f$ therefore cannot be based on worst-case $\classNP$-hardness by such a reduction unless $\classcoNP \subseteq \classAM$, which collapses the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]].
 
 ## Notes
 

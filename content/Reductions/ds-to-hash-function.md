@@ -24,7 +24,7 @@ If a perfectly correct [[digital-signature#existential-unforgeability|EUF-CMA]]-
 
 ## Sketch
 
-An inverter returns $r'$ with $\KeyGen(1^\secpar; r') = (\sk', \vk)$, and perfect correctness makes $\Sign(\sk', m)$ verify under $\vk$ for every $m$: a forgery with no signing query. A forger therefore succeeds with at least the inverter's probability, which unforgeability makes negligible.
+Given $\vk$, an inverter returns $r'$ with $\KeyGen(1^\secpar; r') = (\sk', \vk)$, and perfect correctness makes $\Sign(\sk', m)$ verify under $\vk$ for every $m$: a forgery with no signing query. A forger therefore succeeds with at least the inverter's probability, which unforgeability makes negligible.
 
 ## Notes
 
