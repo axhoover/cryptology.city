@@ -15,11 +15,9 @@ security-loss: ""
 
 # ZPP ⊆ RP
 
-[[zero-error-probabilistic-polynomial-time|ZPP]] is contained in [[randomized-polynomial-time|RP]].
-
 ## Statement
 
-$\classZPP \subseteq \classRP$. With the symmetric $\classZPP \subseteq \classcoRP$, this is one half of $\classZPP = \classRP \cap \classcoRP$ — folklore.
+[[zero-error-probabilistic-polynomial-time|ZPP]] $\subseteq$ [[randomized-polynomial-time|RP]] — folklore.
 
 ## Sketch
 
@@ -27,4 +25,4 @@ Replace the output $?$ by reject: the machine never accepts a no-instance and ac
 
 ## Notes
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+- Replacing $?$ by accept instead gives $\classZPP \subseteq \classcoRP$, and $\classZPP = \classRP \cap \classcoRP$ — [[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]].

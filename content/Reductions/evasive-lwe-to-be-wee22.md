@@ -16,12 +16,10 @@ security-loss: ""
 
 # Evasive LWE ⇒ BE
 
-[[learning-with-errors#evasive-lwe|Evasive LWE]] implies [[broadcast-encryption|BE]].
-
 ## Statement
 
-[[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors|LWE]] yields optimal [[broadcast-encryption|BE]]: for $N$ users, the public key, each secret key and the ciphertext have size $\poly(\secpar, \log N)$; security is selective (the adversary fixes the recipient set before seeing the public key). It is the first optimal-BE candidate that is plausibly post-quantum secure — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
+[[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors|LWE]] yields optimal [[broadcast-encryption|BE]]: for $N$ users, the public key, each secret key and the ciphertext have size $\poly(\secpar, \log N)$, and security is [[broadcast-encryption#ind-sbe-cpa-security-selective|selective]], the adversary fixing the recipient set before seeing the public key — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
+- First candidate optimal BE that is plausibly post-quantum secure — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].

@@ -11,12 +11,12 @@ class: fully-black-box
 model: standard
 source:
   - "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
-security-loss: "hiding: at most twice the PRG advantage; binding: statistical, failing with probability at most $2^{-\\secpar}$ over the receiver's first message"
+security-loss: "hiding: factor $2$ in the PRG advantage; binding: statistical, error $2^{-\\secpar}$"
+rationale:
+  class: "The committer calls the PRG only as an oracle, the hiding reduction runs any distinguisher as an oracle in two PRG hybrids, and binding is statistical and needs no reduction."
 ---
 
 # PRG ⇒ COM
-
-[[pseudorandom-generator|PRG]] implies [[commitment-scheme|COM]].
 
 ## Statement
 
@@ -28,7 +28,4 @@ Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so co
 
 ## Notes
 
-`class: fully-black-box`: The committer calls the PRG $G$ only as an oracle; hiding turns any distinguisher, used as an oracle, into a PRG distinguisher via two hybrids; binding is statistical and needs no reduction. One fixed construction, one fixed reduction.
-
-- Naor's commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|COM]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters.
-- The scheme commits to a single bit; length extension is not part of this edge.
+- The commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|commitment]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters.

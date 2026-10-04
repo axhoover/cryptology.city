@@ -15,14 +15,10 @@ security-loss: ""
 
 # PP ⊆ PSPACE
 
-[[probabilistic-polynomial-time|PP]] is contained in [[polynomial-space|PSPACE]].
-
 ## Statement
 
-$\classPP \subseteq \classPSPACE$: a [[polynomial-space|PSPACE]] machine enumerates all $2^{\poly(n)}$ coin sequences of the [[probabilistic-polynomial-time|PP]] machine, reusing space across runs and keeping a $\poly(n)$-bit count of accepting runs, and accepts iff a strict majority accept — folklore.
+[[probabilistic-polynomial-time|PP]] $\subseteq$ [[polynomial-space|PSPACE]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The slug `probabilistic-polynomial-time` denotes the counting class PP, while PPT elsewhere on the wiki abbreviates probabilistic polynomial time — a name collision inherited from the migration.
+Run the $\classPP$ machine on each of its $2^{\poly(n)}$ coin sequences in turn, reusing space across runs and keeping a $\poly(n)$-bit count of accepting runs; accept iff a strict majority accept.

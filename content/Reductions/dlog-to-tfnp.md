@@ -15,14 +15,14 @@ security-loss: ""
 
 # DLOG ⊆ TFNP
 
-[[discrete-logarithm|DLOG]], with the group order known and subgroup membership checkable, is contained in [[total-function-np|TFNP]].
-
 ## Statement
 
-When the group order is known and membership $h \in \langle g \rangle$ is checkable in polynomial time (for prime order $p$: $g \neq 1$ and $h^p = 1$), the [[discrete-logarithm|DLOG]] search problem is total — every such $h$ has a discrete logarithm — and a solution $x$ is checked with one exponentiation, so DLOG lies in [[total-function-np|TFNP]] — folklore.
+When the group order is known and membership $h \in \langle g \rangle$ is checkable in polynomial time (for prime order $p$: $g \neq 1$ and $h^p = 1$), the [[discrete-logarithm|DLOG]] search problem — given $(\GG, g, p, h)$, find $x$ with $g^x = h$ — is in [[total-function-np|TFNP]] — folklore.
+
+## Sketch
+
+Every $h \in \langle g \rangle$ has a discrete logarithm $x \in \ZZ_p$, and a candidate $x$ is checked with one exponentiation; an input failing the membership test accepts a fixed dummy solution.
 
 ## Notes
 
-`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
-
-- Suitable formulations of discrete logarithm over general groups are complete for PPP and PWPP, the pigeonhole subclasses of TFNP, answering an open question of [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]] — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]]
+- Suitable formulations of discrete logarithm over general groups are complete for PPP and PWPP, the pigeonhole subclasses of TFNP, answering an open question of [[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]] — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]].

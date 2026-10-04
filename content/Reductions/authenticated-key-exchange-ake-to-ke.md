@@ -11,22 +11,16 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The construction is the identity, and the reduction runs the KE eavesdropper unchanged inside an AKE adversary that relays messages faithfully, using it only as an oracle."
 ---
 
 # Authenticated key exchange (AKE) ⇒ KE
 
-[[key-exchange#authenticated-key-exchange-ake|Authenticated key exchange (AKE)]] implies [[key-exchange|KE]].
-
 ## Statement
 
-An [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is a [[key-exchange|key exchange]] protocol whose security game additionally gives the adversary control of the network and requires the parties to authenticate each other. A passive eavesdropper is an AKE adversary that relays every message faithfully, so every AKE protocol is, unchanged, a KE protocol — folklore.
+Every [[key-exchange#authenticated-key-exchange-ake|authenticated key exchange (AKE)]] protocol is, unchanged, a [[key-exchange|key exchange]] protocol secure against eavesdroppers — folklore. The AKE security game additionally gives the adversary control of the network and requires the parties to authenticate each other; a passive eavesdropper is the AKE adversary that relays every message faithfully.
 
 ## Sketch
 
-The construction is the identity; a KE eavesdropper is run as an AKE adversary that relays one honest session's messages faithfully and tests that session's key.
-
-## Notes
-
-`class: fully-black-box`: the construction is the identity and the reduction runs the KE eavesdropper unchanged inside a relaying AKE adversary; both are fixed and oracle-only.
-
-- `authenticated-key-exchange` has no page; it resolves as a variant (section anchor) of [[key-exchange]].
+A KE eavesdropper is run as an AKE adversary that relays one honest session's messages faithfully and tests that session's key.

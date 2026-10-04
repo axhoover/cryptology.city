@@ -11,22 +11,16 @@ class: free
 model: quantum
 source: folklore
 security-loss: ""
+rationale:
+  model: "The conclusion is a quantum complexity class, and the proof runs the classical verifier on a quantum computer."
 ---
 
 # MA ⊆ QCMA
 
-[[merlin-arthur|MA]] is contained in [[quantum-classical-merlin-arthur|QCMA]].
-
 ## Statement
 
-$\classMA \subseteq \classQCMA$: a [[merlin-arthur|Merlin–Arthur]] verifier is a [[quantum-classical-merlin-arthur|QCMA]] verifier that computes classically; the witness is already a classical string, and completeness and soundness are unchanged — folklore.
+$\classMA \subseteq \classQCMA$: every [[merlin-arthur|Merlin–Arthur]] proof system is a [[quantum-classical-merlin-arthur|QCMA]] proof system whose verifier computes classically, with the same classical witnesses, completeness and soundness — folklore.
 
 ## Sketch
 
-The quantum verifier runs the classical verification circuit, sampling Arthur's coins by measuring qubits prepared in the uniform superposition; acceptance probabilities are preserved exactly.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: Repo convention for inclusions among quantum proof-system classes (cf. [[qcma-to-qma]], [[qma-to-pp]], [[bpp-to-bqp]]).
+The quantum verifier runs the classical verification circuit, drawing Arthur's coins by measuring qubits prepared in the uniform superposition, so every acceptance probability is preserved exactly.

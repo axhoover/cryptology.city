@@ -16,14 +16,6 @@ security-loss: ""
 
 # Low-noise LPN ⇒ TDH
 
-Quasi-polynomially hard [[learning-parity-with-noise#noise-level|low-noise LPN]] implies [[trapdoor-hash-function|TDH]].
-
 ## Statement
 
-Quasi-polynomial hardness of [[learning-parity-with-noise#noise-level|low-noise LPN]] with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta > 0$ implies [[trapdoor-hash-function|trapdoor hash functions]] with compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, the first TDH construction from LPN [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
-
-## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- The noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ and quasi-polynomial hardness are not captured by the flat hypothesis `lpn-low-noise`.
+Quasi-polynomial hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, for a constant $\beta > 0$, implies [[trapdoor-hash-function|trapdoor hash functions]] with compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$; this is the first trapdoor hash function from LPN — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].

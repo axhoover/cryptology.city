@@ -11,18 +11,16 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "tight: the reduction preserves the advantage exactly"
+rationale:
+  class: "The construction is the identity, and the reduction runs any IND-CPA adversary unchanged, using it only as an oracle."
 ---
 
 # IND-CCA security ⇒ IND-CPA KEM
 
-[[key-encapsulation-mechanism#ind-cca-security|IND-CCA security]] implies [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA KEM]].
-
 ## Statement
 
-An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]]-secure [[key-encapsulation-mechanism|KEM]] is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA]]-secure: the games differ only in the decapsulation oracle, so an IND-CPA adversary is an IND-CCA adversary making no decapsulation queries, with identical advantage — folklore.
+Every [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]]: for every efficient IND-CPA adversary there is an efficient IND-CCA adversary with the same advantage — folklore.
 
-## Notes
+## Sketch
 
-`class: fully-black-box`: identity construction; the reduction runs the IND-CPA adversary unchanged, using it only as an oracle.
-
-- Both endpoints are security notions of the same primitive, not separate pages — the target model needs notion-level nodes.
+The IND-CPA game is the IND-CCA game without the decapsulation oracle, so an IND-CPA adversary is an IND-CCA adversary that makes no decapsulation queries.

@@ -15,14 +15,10 @@ security-loss: ""
 
 # DLOG ⊆ NP
 
-The decision version of [[discrete-logarithm|DLOG]] is contained in [[nondeterministic-polynomial-time|NP]].
-
 ## Statement
 
 The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, h, t)$, decide whether some $x \le t$ satisfies $g^x = h$ — is in [[nondeterministic-polynomial-time|NP]]: the exponent $x$ is a polynomial-size certificate, checked with one exponentiation — folklore.
 
 ## Notes
 
-`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
-
-- Membership in $\classNP \cap \classcoNP$ additionally needs the group order and its factorization, certified by Pratt primality certificates, so that the discrete logarithm is unique and certifiable — folklore. The $\classcoNP$ side is [[dlog-to-conp]].
+- Membership in $\classNP \cap \classcoNP$ additionally needs the group order and its factorization, certified by Pratt primality certificates, so that the discrete logarithm is unique and certifiable — folklore; the $\classcoNP$ side is [[dlog-to-conp|DLOG ⊆ coNP]].

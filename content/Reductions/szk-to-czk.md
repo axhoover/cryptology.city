@@ -15,12 +15,6 @@ security-loss: ""
 
 # SZK ⊆ CZK
 
-[[statistical-zero-knowledge|SZK]] is contained in [[computational-zero-knowledge|CZK]].
-
 ## Statement
 
-$\classSZK \subseteq \classCZK$: statistical closeness of the verifier's view to the simulator's output implies computational indistinguishability, so every [[statistical-zero-knowledge|statistical]] zero-knowledge proof system is a [[computational-zero-knowledge|computational]] one with the same protocol and simulator — folklore.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+$\classSZK \subseteq \classCZK$: statistical closeness of the verifier's view to the simulator's output implies computational indistinguishability, so every [[statistical-zero-knowledge|statistical zero-knowledge]] proof system is a [[computational-zero-knowledge|computational zero-knowledge]] proof system with the same protocol and simulator — folklore.

@@ -15,12 +15,10 @@ security-loss: ""
 
 # P ⊆ P/poly
 
-[[polynomial-time|P]] is contained in [[p-poly|P/poly]].
-
 ## Statement
 
-[[polynomial-time|P]] $\subseteq$ [[p-poly|P/poly]]: the tableau simulation turns a Turing machine running in time $t(n)$ into a circuit of size $O(t(n)^2)$ for each input length, so a polynomial-time machine yields a polynomial-size circuit family; in the advice formulation, empty advice suffices — folklore.
+[[polynomial-time|P]] $\subseteq$ [[p-poly|P/poly]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+The tableau simulation turns a Turing machine running in time $t(n)$ into a circuit of size $O(t(n)^2)$ for each input length $n$, so a polynomial-time decider yields a polynomial-size circuit family; in the advice formulation, empty advice suffices.

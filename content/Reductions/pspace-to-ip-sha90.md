@@ -16,14 +16,15 @@ security-loss: ""
 
 # PSPACE ⊆ IP
 
-[[polynomial-space|PSPACE]] is contained in [[interactive-proof-systems|IP]].
-
 ## Statement
 
-$\classPSPACE \subseteq \classIP$: TQBF has an interactive proof, by arithmetizing the quantified formula and running a sum-check-style protocol with degree reduction — [[Sha90 - IP = PSPACE|Sha90]].
+[[polynomial-space|PSPACE]] $\subseteq$ [[interactive-proof-systems|IP]]: the $\classPSPACE$-complete language TQBF of true quantified Boolean formulas has an interactive proof — [[Sha90 - IP = PSPACE|Sha90]].
+
+## Sketch
+
+Arithmetize the quantified formula over a large finite field and run a sum-check-style protocol, with degree reduction keeping each univariate polynomial the prover sends of low degree.
 
 ## Notes
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The precursor $\classP^{\classsharpP} \subseteq \classIP$, by arithmetization and the sum-check protocol — [[LFKN90 - Algebraic Methods for Interactive Proof Systems|LFKN90]]
+- The converse [[ip-to-pspace-ccg-94|IP ⊆ PSPACE]] is folklore, so $\classIP = \classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]].
+- The precursor $\classP^{\classsharpP} \subseteq \classIP$, by arithmetization and the sum-check protocol — [[LFKN90 - Algebraic Methods for Interactive Proof Systems|LFKN90]].

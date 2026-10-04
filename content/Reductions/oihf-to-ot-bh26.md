@@ -24,4 +24,4 @@ An [[oblivious-interactive-hash-function|OIHF]] implies [[oblivious-transfer|OT]
 
 ## Notes
 
-- Conversely, OT implies OIHFs, and standard-model OIHFs are known only from Cryptomania assumptions, so the result does not place OT in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
+- Conversely, [[ot-to-oihf-bh26|OT implies OIHFs]], and standard-model OIHFs are known only from Cryptomania assumptions, so the result does not place OT in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].

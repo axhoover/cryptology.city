@@ -15,12 +15,6 @@ security-loss: ""
 
 # P ⊆ NP
 
-[[polynomial-time|P]] is contained in [[nondeterministic-polynomial-time|NP]].
-
 ## Statement
 
 [[polynomial-time|P]] $\subseteq$ [[nondeterministic-polynomial-time|NP]]: a polynomial-time decider is a polynomial-time verifier that ignores its certificate (a nondeterministic machine that makes no nondeterministic choices) — folklore.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.

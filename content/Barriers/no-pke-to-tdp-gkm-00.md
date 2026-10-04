@@ -14,18 +14,17 @@ consequences:
 strength: unconditional
 source:
   - "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
+rationale:
+  class: "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses PKE, with a proof that uses the TDP inverter, only as an oracle."
 ---
 
 # No fully-black-box reduction from PKE to TDP
 
-A reduction of class `fully-black-box` from [[public-key-encryption|PKE]] to [[trapdoor-permutation|TDP]] would imply a contradiction.
-
 ## Statement
 
-Trapdoor predicates, i.e. single-bit [[public-key-encryption|PKE]], do not imply [[trapdoor-permutation|trapdoor permutations]] under black-box reductions, shown by an oracle separation following Impagliazzo–Rudich — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]. Hence there is no fully-black-box construction of a trapdoor permutation from PKE.
+There is no fully-black-box construction of a [[trapdoor-permutation|trapdoor permutation]] from a trapdoor predicate, i.e. single-bit [[public-key-encryption|PKE]], by an oracle separation following [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]. Bitwise encryption under a trapdoor predicate is a semantically secure multi-bit PKE — [[GM84 - Probabilistic encryption|GM84]] — so a fully-black-box construction of a trapdoor permutation from multi-bit PKE would compose into one from trapdoor predicates, and none exists.
 
 ## Notes
 
-`class: fully-black-box`: GKM+00 separate the primitives under black-box reductions, which rules out at least constructions that use PKE, with proofs that use the TDP inverter, only as oracles. The abstract does not settle whether a single oracle separates them, which would rule out the broader class `relativizing`, so the narrower value is recorded.
-
-- GKM+00 state the separation for trapdoor predicates. Bitwise encryption under a trapdoor predicate is a semantically secure multi-bit PKE — [[GM84 - Probabilistic encryption|GM84]] — so a fully-black-box construction of a TDP from multi-bit PKE would compose into one from trapdoor predicates, and the barrier covers `pke`.
+- The converse holds: a trapdoor permutation with a hard-core predicate gives semantically secure PKE ([[tdp-to-pke|TDP ⇒ PKE]]) — [[GM84 - Probabilistic encryption|GM84]].
+- OT does not give trapdoor permutations either: [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].

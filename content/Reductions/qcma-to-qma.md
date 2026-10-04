@@ -11,18 +11,16 @@ class: free
 model: quantum
 source: folklore
 security-loss: ""
+rationale:
+  model: "Both classes are defined by quantum polynomial-time verifiers."
 ---
 
 # QCMA ⊆ QMA
 
-[[quantum-classical-merlin-arthur|QCMA]] is contained in [[quantum-merlin-arthur|QMA]].
-
 ## Statement
 
-$\classQCMA \subseteq \classQMA$: the QMA verifier measures the witness register in the computational basis and runs the QCMA verifier on the outcome. Completeness holds with the classical witness sent as a basis state; soundness holds because measuring any quantum witness yields a distribution over classical strings, and the acceptance probability is the average of the QCMA acceptance probabilities over it — folklore.
+$\classQCMA \subseteq \classQMA$: every [[quantum-classical-merlin-arthur|QCMA]] proof system becomes a [[quantum-merlin-arthur|QMA]] proof system when the verifier first measures the witness register in the computational basis — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: Kept as migrated; wiki convention for containments among quantum classes.
+The honest classical witness is sent as a computational-basis state, so completeness is unchanged. Measuring any quantum witness yields a distribution over classical strings, and the acceptance probability is the average of the QCMA verifier's acceptance probabilities over it, hence at most $1/3$ on no-instances.

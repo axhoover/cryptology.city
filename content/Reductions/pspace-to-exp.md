@@ -15,12 +15,10 @@ security-loss: ""
 
 # PSPACE ⊆ EXP
 
-[[polynomial-space|PSPACE]] is contained in [[exponential-time|EXP]].
-
 ## Statement
 
-$\classPSPACE \subseteq \classEXP$: a deterministic machine running in space $p(n) = \poly(n)$ has at most $2^{O(p(n))}$ configurations, so on any input it halts within $2^{O(p(n))}$ steps or never; simulating it for that many steps decides its language in time $2^{\poly(n)}$ — folklore.
+[[polynomial-space|PSPACE]] $\subseteq$ [[exponential-time|EXP]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+A deterministic machine running in space $p(n) = \poly(n)$ has at most $2^{O(p(n))}$ configurations, so on any input it halts within $2^{O(p(n))}$ steps or never; simulating it for that many steps decides its language in time $2^{\poly(n)}$.

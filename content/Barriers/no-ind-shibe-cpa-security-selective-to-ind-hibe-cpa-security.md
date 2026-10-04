@@ -25,7 +25,7 @@ When the identity-vector space $\Sigma^{\le d}$ is superpolynomial, selective [[
 
 ## Sketch
 
-Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup$ and append a uniform $\vec{r} \in \Sigma^{d}$ to $\pp$; $\Enc(\pp, \vec{\mathit{id}}, m)$ outputs $m$ in the clear when $\vec{\mathit{id}} = \vec{r}$ and is unchanged otherwise. An adaptive adversary reads $\vec{r}$ from $\pp$, makes no key queries, and challenges on $\vec{r}$, winning with advantage $1$. A selective adversary commits to $\vec{\mathit{id}}^*$ before $\vec{r}$ is drawn and hits it with probability $|\Sigma|^{-d}$; otherwise its game is the selective game of $\HIBE$ with $\vec{r}$ sampled by the reduction, so $\HIBE'$ stays selectively secure.
+Given a selectively secure $\HIBE$, let $\HIBE'$ run $\Setup$ and append a uniform $\vec{r} \in \Sigma^{d}$ to $\pp$; $\Enc(\pp, \vec{\mathit{id}}, m)$ outputs $m$ in the clear when $\vec{\mathit{id}} = \vec{r}$ and is unchanged otherwise. An adaptive adversary reads $\vec{r}$ from $\pp$, makes no key queries, and challenges on $\vec{r}$, winning with advantage $1$. A selective adversary commits to $\vec{\mathit{id}}^*$ before $\vec{r}$ is drawn and hits it with probability at most $|\Sigma|^{-d}$; otherwise its game is the selective game of $\HIBE$ with $\vec{r}$ sampled by the reduction, so $\HIBE'$ stays selectively secure.
 
 ## Notes
 

@@ -22,4 +22,4 @@ Any non-trivial single-server [[single-server-private-information-retrieval|PIR]
 
 ## Notes
 
-- Composed with [[IR89 - Limits on the provable consequences of one-way permutations|IR89]], the result is strong evidence that one-way functions are necessary but not sufficient for non-trivial PIR — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].
+- Composed with [[IR89 - Limits on the provable consequences of one-way permutations|IR89]], which rules out relativizing constructions of key agreement from one-way permutations, the result is strong evidence that one-way functions are necessary but not sufficient for non-trivial PIR — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].

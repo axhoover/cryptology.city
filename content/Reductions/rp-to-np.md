@@ -15,12 +15,6 @@ security-loss: ""
 
 # RP ⊆ NP
 
-[[randomized-polynomial-time|RP]] is contained in [[nondeterministic-polynomial-time|NP]].
-
 ## Statement
 
-$\classRP \subseteq \classNP$: for $x \in L$ at least half of the machine's polynomial-length random strings accept, and any accepting one is a certificate that a deterministic verifier checks by running the machine on it; for $x \notin L$ none accepts — folklore.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+[[randomized-polynomial-time|RP]] $\subseteq$ [[nondeterministic-polynomial-time|NP]]: for $L \in \classRP$ and $x \in L$, at least half of the $\classRP$ machine's polynomial-length random strings accept, and any accepting one is a certificate that a deterministic verifier checks by running the machine on it; for $x \notin L$ none accepts — folklore.

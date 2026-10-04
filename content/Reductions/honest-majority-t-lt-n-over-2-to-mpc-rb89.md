@@ -12,19 +12,17 @@ model: standard
 source:
   - "[[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]"
 security-loss: ""
+rationale:
+  class: "The theorem is unconditional, and the corruption threshold is a setting rather than a primitive a construction could call as an oracle, so no black-box class applies."
 ---
 
 # Honest majority ($t < n/2$) ⇒ MPC
 
-[[secure-multi-party-computation#honest-majority-t-n2|Honest majority ($t < n/2$)]] implies [[secure-multi-party-computation|MPC]].
-
 ## Statement
 
-In the secure-channels model with a broadcast channel and [[secure-multi-party-computation#honest-majority-t-n2|honest majority $t < n/2$]], every $n$-party functionality has an [[secure-multi-party-computation|MPC]] protocol that is statistically secure against a malicious adversary corrupting $t < n/2$ parties — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].
+In the secure-channels model with a broadcast channel, every $n$-party functionality has an [[secure-multi-party-computation|MPC]] protocol that is statistically secure against a malicious adversary corrupting $t < n/2$ parties (an [[secure-multi-party-computation#honest-majority-t--n2|honest majority]]) — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].
 
 ## Notes
 
-`class: free`: the theorem is unconditional; the corruption threshold is a setting, not an object a construction could use as an oracle, so the black-box classes do not apply. `free` is the repo convention for unconditional implications.
-
-- The protocol rests on a [[secret-sharing#verifiable-secret-sharing-vss|VSS]] with negligible error for $t < n/2$, given broadcast — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]
-- Perfect security for $t < n/3$ is [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88]].
+- The protocol rests on a [[secret-sharing#verifiable-secret-sharing-vss|VSS]] with negligible error for $t < n/2$, given broadcast — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]].
+- For $t < n/3$, perfect security against a malicious adversary is achievable — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]; see [Honest majority ($t < n/3$) ⇒ MPC](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88).

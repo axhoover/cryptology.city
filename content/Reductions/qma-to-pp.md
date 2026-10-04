@@ -12,11 +12,11 @@ model: quantum
 source:
   - "[[MW05 - Quantum Arthur-Merlin games|MW05]]"
 security-loss: ""
+rationale:
+  model: "The hypothesis is a quantum complexity class."
 ---
 
 # QMA ⊆ PP
-
-[[quantum-merlin-arthur|QMA]] is contained in [[probabilistic-polynomial-time|PP]].
 
 ## Statement
 
@@ -24,13 +24,8 @@ $\classQMA \subseteq \classPP$: every language in [[quantum-merlin-arthur|QMA]] 
 
 ## Sketch
 
-Strong error reduction drives the completeness and soundness errors of a QMA verifier to $2^{-p}$ without lengthening its $m$-qubit witness. The trace of the verifier's acceptance operator is then at least $1 - 2^{-p}$ on yes-instances and at most $2^{m-p}$ on no-instances, which separate once $p > m + 1$; the trace is a sum over witness basis states of circuit acceptance probabilities, hence computable in $\mathrm{GapP}$, and a $\classPP$ machine thresholds it.
+Strong error reduction drives the completeness and soundness errors of a QMA verifier to $2^{-p}$ without lengthening its $m$-qubit witness. The trace of the verifier's acceptance operator is then at least $1 - 2^{-p}$ on yes-instances and at most $2^{m-p}$ on no-instances, which separate once $p > m + 1$; the trace is the sum over witness basis states of the circuit's acceptance probabilities, hence computable in $\mathrm{GapP}$, and a $\classPP$ machine thresholds it.
 
 ## Notes
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: repo convention for results about quantum classes.
-
-- First stated, without proof, by Kitaev and Watrous — [[KW00 - Parallelization, amplification, and exponential time simulation of quantum interactive proof systems|KW00]]
-- The first written proof gives the stronger $\classQMA \subseteq \mathrm{A_0PP} \subseteq \classPP$ — [[Vya03 - QMA=PP implies that PP contains PH|Vya03]]
+- Kitaev and Watrous first stated the containment, without proof — [[KW00 - Parallelization, amplification, and exponential time simulation of quantum interactive proof systems|KW00]]; the first written proof gives the stronger $\classQMA \subseteq \mathrm{A_0PP} \subseteq \classPP$ — [[Vya03 - QMA=PP implies that PP contains PH|Vya03]].

@@ -11,18 +11,16 @@ class: fully-black-box
 model: standard
 source: folklore
 security-loss: "tight (the IBE adversary is forwarded unchanged)"
+rationale:
+  class: "The IBE runs the Fuzzy IBE algorithms as oracles on singleton attribute sets with threshold 1, and the reduction forwards any IBE adversary unchanged as a Fuzzy IBE adversary."
 ---
 
 # Fuzzy IBE ⇒ IBE
 
-[[fuzzy-identity-based-encryption|Fuzzy IBE]] implies [[identity-based-encryption|IBE]].
-
 ## Statement
 
-A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme: a key for $\omega = \{\mathrm{id}\}$ decrypts a ciphertext for $\omega' = \{\mathrm{id}'\}$ iff $\mathrm{id} = \mathrm{id}'$, and an IBE adversary is, unchanged, an admissible Fuzzy IBE adversary — folklore.
+A [[fuzzy-identity-based-encryption|Fuzzy IBE]] scheme ([[SW05 - Fuzzy Identity-Based Encryption|SW05]]) over attribute universe $\calU$ with threshold $t = 1$, restricted to singleton attribute sets, is an [[identity-based-encryption|IBE]] scheme with identity space $\calU$: a key for $\omega = \{\mathit{id}\}$ decrypts a ciphertext for $\omega' = \{\mathit{id}'\}$ iff $\mathit{id} = \mathit{id}'$. If the Fuzzy IBE is [[fuzzy-identity-based-encryption#ind-fibe-cpa-security|IND-FIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore.
 
-## Notes
+## Sketch
 
-`class: fully-black-box`: The IBE scheme runs the Fuzzy IBE algorithms on singleton attribute sets with threshold $t = 1$, using the scheme only as an oracle; the security reduction forwards any IBE adversary unchanged as an admissible Fuzzy IBE adversary (its key queries for identities other than the challenge are singletons disjoint from the challenge set).
-
-- Fuzzy IBE is defined in [[SW05 - Fuzzy Identity-Based Encryption|SW05]] as IBE with threshold set-overlap matching; the specialization to $t = 1$ is immediate.
+Every IBE adversary is, unchanged, a Fuzzy IBE adversary: its key queries for identities $\mathit{id} \ne \mathit{id}^*$ are singletons with $|\{\mathit{id}\} \cap \{\mathit{id}^*\}| = 0 < t$, so IBE admissibility is Fuzzy IBE admissibility.

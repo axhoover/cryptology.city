@@ -12,19 +12,19 @@ model: standard
 source:
   - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
 security-loss: "tight: one call to the binding adversary yields $\\log_g h$"
+rationale:
+  class: "One fixed construction uses the group only through its generator and group operations, and the fixed reduction plants the DLOG challenge as h and runs the binding adversary once as an oracle."
 ---
 
 # DLOG ⇒ Statistically hiding commitment
 
-[[discrete-logarithm|DLOG]] implies a [[commitment-scheme#hiding|statistically hiding commitment]].
-
 ## Statement
 
-The Pedersen commitment over $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $h \getsr \GG \setminus \{1\}$ commits to $m \in \ZZ_p$ as $c = g^m h^r$ for $r \getsr \ZZ_p$. It is perfectly hiding, and computationally binding under [[discrete-logarithm|DLOG]], since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
+For $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $\GG$ of prime order $p$ and $h \getsr \GG \setminus \{1\}$, the Pedersen commitment to $m \in \ZZ_p$ is $c = g^m h^r$ for $r \getsr \ZZ_p$, opened by revealing $(m, r)$. It is [[commitment-scheme#hiding|perfectly hiding]], and computationally binding if [[discrete-logarithm|DLOG]] is hard for $\GrGen$, since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 
 ## Sketch
 
-Hiding: $h$ generates $\GG$, so $h^r$ is uniform over $r \getsr \ZZ_p$ and $c$ is uniform, independent of $m$. Binding: two openings of one $c$ yield $\log_g h$, contradicting DLOG for $h$ sampled with unknown discrete logarithm.
+Hiding: $h$ generates $\GG$, so $h^r$ is uniform over $r \getsr \ZZ_p$ and $c$ is uniform, independent of $m$. Binding: on DLOG challenge $X$ the reduction outputs $0$ if $X = 1$, and otherwise sets $h = X$, runs the binding adversary and turns its two openings into $\log_g X$.
 
 ```pseudocode
 \begin{algorithm}
@@ -56,7 +56,3 @@ Hiding: $h$ generates $\GG$, so $h^r$ is uniform over $r \getsr \ZZ_p$ and $c$ i
 \end{algorithmic}
 \end{algorithm}
 ```
-
-## Notes
-
-`class: fully-black-box`: Fixed construction; the reduction is fixed and uses the adversary only as an oracle: on DLOG challenge $X$ it outputs $0$ if $X = 1$, and otherwise sets $h = X$, runs the binding adversary to obtain two openings $(m, r) \ne (m', r')$ of one commitment, and outputs $\log_g h = (m - m')(r' - r)^{-1} \bmod p$. Hiding is perfect, unconditionally.

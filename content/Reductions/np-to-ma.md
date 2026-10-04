@@ -15,16 +15,10 @@ security-loss: ""
 
 # NP ⊆ MA
 
-[[nondeterministic-polynomial-time|NP]] is contained in [[merlin-arthur|MA]].
-
 ## Statement
 
-$\classNP \subseteq \classMA$: every language in [[nondeterministic-polynomial-time|NP]] has a [[merlin-arthur|Merlin–Arthur]] proof in which Merlin sends an NP witness and Arthur verifies it deterministically — folklore.
+$\classNP \subseteq \classMA$: every language in [[nondeterministic-polynomial-time|NP]] has a [[merlin-arthur|Merlin–Arthur]] proof system with perfect completeness and perfect soundness — folklore.
 
 ## Sketch
 
-Completeness and soundness are those of the NP verifier, hence perfect.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+Merlin sends an $\classNP$ witness and Arthur, ignoring his coins, checks it with the deterministic $\classNP$ verifier, so completeness and soundness are those of that verifier.

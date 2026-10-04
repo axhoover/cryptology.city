@@ -14,19 +14,16 @@ consequences:
 strength: unconditional
 source:
   - "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]"
+rationale:
+  class: "The separation is formalization-dependent, holding under KZ22's formalization while under JM24's the transfer holds for most algebraic analyses, and the GGM covers both Shoup's and Maurer's formulations, so no single class is recorded."
 ---
 
 # No reduction from AGM to GGM
 
-A reduction of class `unstated` from [[algebraic-group-model|AGM]] to [[generic-group-model|GGM]] would imply a contradiction.
-
 ## Statement
 
-As the two models are currently formalized, hardness in the [[algebraic-group-model|AGM]] does not imply hardness in the [[generic-group-model|GGM]], and a generic reduction in the AGM need not yield a corresponding reduction in the GGM — [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]. This refutes the transfer claimed by [[FKL18 - The Algebraic Group Model and its Applications|FKL18]] under that formalization; under the alternative formalization of generic and algebraic computation of [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]] the transfer holds for most algebraic analyses in the literature.
+Under the standard formalizations of the two models, hardness in the [[algebraic-group-model|AGM]] does not imply hardness in the [[generic-group-model|GGM]], and a generic reduction in the AGM need not yield a corresponding reduction in the GGM — [[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]. This refutes, under those formalizations, the transfer claimed by [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant. The claim depends on the formalization: under KZ22's it is a counterexample, which would be `free`, but under [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]]'s the transfer holds for most algebraic analyses, and the `ggm` node spans both Shoup's and Maurer's formulations, so no class is recorded.
-
-- `content/Glossary/generic-group-model.md` states the FKL18 direction without mentioning KZ22; the two glossary pages disagree about what is settled.
-- Barriers between idealized _models_ (rather than primitives or assumptions) are a hypothesis shape the hyperedge schema does not type; the hierarchy of GGM variants of [[MPZ20 - Unifying Generic Group Models|MPZ20]] is a second instance.
+- Under the alternative formalization of generic and algebraic computation of [[JM24 - Generic and Algebraic Computation Models When AGM Proofs Transfer to the GGM|JM24]], the transfer holds for most algebraic analyses in the literature.

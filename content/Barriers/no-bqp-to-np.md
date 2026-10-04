@@ -14,20 +14,16 @@ consequences:
 strength: unconditional
 source:
   - "[[RT19 - Oracle Separation of BQP and PH|RT19]]"
+rationale:
+  class: "RT19 give an oracle relative to which BQP is not contained in NP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
 ---
 
 # No relativizing reduction from BQP to NP
 
-A reduction of class `relativizing` from [[bounded-error-quantum-polynomial-time|BQP]] to [[nondeterministic-polynomial-time|NP]] would imply a contradiction.
-
 ## Statement
 
-There is an oracle relative to which $\classBQP \not\subseteq \mathbf{PH}$, hence one relative to which $\classBQP \not\subseteq \classNP$ — [[RT19 - Oracle Separation of BQP and PH|RT19]]. No relativizing argument places [[bounded-error-quantum-polynomial-time|BQP]] inside [[nondeterministic-polynomial-time|NP]]; unrelativized, neither containment between the two classes is known.
-
-## Sketch
-
-Raz and Tal exhibit a distribution over $\{\pm 1\}^{2N}$, a variant of Forrelation, that a quantum algorithm making one query distinguishes from uniform with advantage $\Omega(1/\log N)$, while no constant-depth circuit of quasi-polynomial size distinguishes it with advantage better than $\polylog(N)/\sqrt{N}$; the standard diagonalization turns this black-box separation into the oracle.
+No relativizing reduction from [[bounded-error-quantum-polynomial-time|BQP]] to [[nondeterministic-polynomial-time|NP]] exists: there is an oracle, built from a variant of the Forrelation problem, relative to which $\classBQP \not\subseteq \mathbf{PH}$, and hence $\classBQP \not\subseteq \classNP$ — [[RT19 - Oracle Separation of BQP and PH|RT19]].
 
 ## Notes
 
-`class: relativizing`: an oracle separation rules out exactly the relativizing class, and by the partial order every fully-black-box argument; it says nothing about non-relativizing ones.
+- Unrelativized, neither $\classBQP \subseteq \classNP$ nor $\classNP \subseteq \classBQP$ is known — standard.

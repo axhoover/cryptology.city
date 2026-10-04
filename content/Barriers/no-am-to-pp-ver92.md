@@ -14,18 +14,16 @@ consequences:
 strength: unconditional
 source:
   - "[[Ver92 - On the Power of PP|Ver92]]"
+rationale:
+  class: "Ver92 gives an oracle relative to which AM is not contained in PP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
 ---
 
 # No relativizing reduction from AM to PP
 
-A reduction of class `relativizing` from [[arthur-merlin|AM]] to [[probabilistic-polynomial-time|PP]] would imply a contradiction.
-
 ## Statement
 
-There is an oracle relative to which $\classAM \not\subseteq \classPP$ — [[Ver92 - On the Power of PP|Ver92]]; no relativizing argument places [[arthur-merlin|AM]] inside [[probabilistic-polynomial-time|PP]].
+No relativizing reduction from [[arthur-merlin|AM]] to [[probabilistic-polynomial-time|PP]] exists: there is an oracle relative to which $\classAM \not\subseteq \classPP$ — [[Ver92 - On the Power of PP|Ver92]].
 
 ## Notes
 
-`class: relativizing`: an oracle separation rules out exactly the relativizing class, and by the partial order every fully-black-box argument; it says nothing about non-relativizing ones.
-
-- The same paper proves [[ma-to-pp|MA ⊆ PP]].
+- [[Ver92 - On the Power of PP|Ver92]] also proves [[ma-to-pp|MA ⊆ PP]].

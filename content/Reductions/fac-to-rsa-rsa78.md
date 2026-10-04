@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
-security-loss: "tight: one factoring call; equal advantage on the moduli GrGen outputs"
+security-loss: "tight: one factoring call; RSA advantage equals factoring success on GrGen's moduli"
 rationale:
   class: "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
 ---

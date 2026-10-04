@@ -13,18 +13,12 @@ source:
   - "[[JJUW10 - QIP = PSPACE|JJUW10]]"
   - "[[Sha90 - IP = PSPACE|Sha90]]"
 security-loss: ""
+rationale:
+  model: "QIP is a quantum complexity class, defined by interactive proofs with a quantum verifier and prover."
 ---
 
 # QIP = PSPACE
 
-[[quantum-interactive-proofs|QIP]] is equal to [[polynomial-space|PSPACE]].
-
 ## Statement
 
-$\classQIP = \classPSPACE$ — [[JJUW10 - QIP = PSPACE|JJUW10]]. For $\classQIP \subseteq \classPSPACE$, the maximum acceptance probability of a (three-message) quantum interactive proof is the value of a semidefinite program, which a polynomial-space parallel implementation of the matrix multiplicative weights update method approximates to within the completeness–soundness gap; $\classPSPACE \subseteq \classQIP$ follows from $\classPSPACE \subseteq \classIP$ — [[Sha90 - IP = PSPACE|Sha90]] — and $\classIP \subseteq \classQIP$.
-
-## Notes
-
-`class: free`: an unconditional equality between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: Kept as migrated; wiki convention for results about quantum classes.
+[[quantum-interactive-proofs|QIP]] $=$ [[polynomial-space|PSPACE]] — [[JJUW10 - QIP = PSPACE|JJUW10]], who prove $\classQIP \subseteq \classPSPACE$; the reverse inclusion follows from [[pspace-to-ip-sha90|PSPACE ⊆ IP]] — [[Sha90 - IP = PSPACE|Sha90]] — and [[ip-to-qip|IP ⊆ QIP]].

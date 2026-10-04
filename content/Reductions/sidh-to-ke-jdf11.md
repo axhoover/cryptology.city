@@ -16,11 +16,9 @@ security-loss: ""
 
 # SSDDH ⇒ KE
 
-[[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|SSDDH]] implies [[key-exchange|KE]].
-
 ## Statement
 
-The [[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|SSDDH]] assumption, the decisional variant of [[supersingular-isogeny-diffie-hellman|SIDH]], implies [[key-exchange|KE]]. Over a supersingular $E/\FF_{p^2}$ with $p = \ell_A^{e_A}\ell_B^{e_B} f \pm 1$, each party computes a secret isogeny with kernel $\langle [m]P + [n]Q \rangle$ for a basis $\{P, Q\}$ of its own $\ell^{e}$-torsion, publishes the image curve together with the images of the other party's torsion basis, and both derive $j(E_{AB})$; the session key is indistinguishable from random in the authenticated-links model of Canetti and Krawczyk under SSDDH — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. The hypothesis is false: the published torsion images make the secret isogeny, hence $E_{AB}$, computable in classical polynomial time — [[CD22 - An efficient key recovery attack on SIDH|CD22]].
+If the [[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|SSDDH]] problem, the decisional variant of [[supersingular-isogeny-diffie-hellman|SIDH]], is hard, the SIDH protocol is a [[key-exchange|key exchange]] whose session key is indistinguishable from random in the authenticated-links model of Canetti and Krawczyk — [[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]. Over a supersingular $E/\FF_{p^2}$ with $p = \ell_A^{e_A}\ell_B^{e_B} f \pm 1$, each party computes a secret isogeny with kernel $\langle [m]P + [n]Q \rangle$ for a basis $\{P, Q\}$ of its own $\ell^{e}$-torsion, publishes the image curve together with the images of the other party's torsion basis, and both derive $j(E_{AB})$.
 
 ## Sketch
 
@@ -28,6 +26,4 @@ Given $\phi_A(P_B), \phi_A(Q_B)$, Bob computes $E_A / \langle [m_B]\phi_A(P_B) +
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- The `sidh` in the slug and id is historical: the hypothesis is the decisional variant `ssddh`, which the proof uses.
+- SSDDH does not hold: the published torsion-point images make the secret isogeny, hence $E_{AB}$, computable in classical polynomial time — [[CD22 - An efficient key recovery attack on SIDH|CD22]].

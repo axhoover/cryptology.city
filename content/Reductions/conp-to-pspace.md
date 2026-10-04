@@ -15,12 +15,10 @@ security-loss: ""
 
 # coNP ⊆ PSPACE
 
-[[co-nondeterministic-polynomial-time|coNP]] is contained in [[polynomial-space|PSPACE]].
-
 ## Statement
 
-$\classcoNP \subseteq \classPSPACE$: $\classNP \subseteq \classPSPACE$ by enumerating all candidate certificates in reused space, and $\classPSPACE$ is closed under complement — folklore.
+[[co-nondeterministic-polynomial-time|coNP]] $\subseteq$ [[polynomial-space|PSPACE]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+$\classNP \subseteq \classPSPACE$ by enumerating all candidate certificates in reused space ([[np-to-pspace|NP ⊆ PSPACE]]), and $\classPSPACE$ is closed under complement.

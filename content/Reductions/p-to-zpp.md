@@ -15,12 +15,10 @@ security-loss: ""
 
 # P ⊆ ZPP
 
-[[polynomial-time|P]] is contained in [[zero-error-probabilistic-polynomial-time|ZPP]].
-
 ## Statement
 
-[[polynomial-time|P]] $\subseteq$ [[zero-error-probabilistic-polynomial-time|ZPP]]: a deterministic polynomial-time machine is a Las Vegas machine that never outputs "?" and whose expected running time equals its worst-case polynomial running time — folklore.
+[[polynomial-time|P]] $\subseteq$ [[zero-error-probabilistic-polynomial-time|ZPP]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+A deterministic polynomial-time machine is a zero-error probabilistic machine that ignores its random tape and never outputs $?$; its expected running time is its worst-case polynomial running time.

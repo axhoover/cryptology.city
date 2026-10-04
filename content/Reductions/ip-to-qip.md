@@ -11,22 +11,16 @@ class: free
 model: quantum
 source: folklore
 security-loss: ""
+rationale:
+  model: "The conclusion is a quantum complexity class."
 ---
 
 # IP ⊆ QIP
 
-[[interactive-proof-systems|IP]] is contained in [[quantum-interactive-proofs|QIP]].
-
 ## Statement
 
-$\classIP \subseteq \classQIP$: a classical [[interactive-proof-systems|IP]] protocol is a [[quantum-interactive-proofs|QIP]] protocol whose verifier measures each incoming message in the computational basis and otherwise runs the classical verifier — folklore.
+$\classIP \subseteq \classQIP$: a classical [[interactive-proof-systems|IP]] protocol is a [[quantum-interactive-proofs|QIP]] protocol whose verifier measures each incoming message in the computational basis and otherwise runs the classical verifier, with the same completeness and soundness — folklore.
 
 ## Sketch
 
-Measuring each prover message in the computational basis turns any quantum prover into a randomized classical prover: the distribution of each message given the classical transcript so far is a classical strategy. Completeness and soundness of the classical protocol carry over unchanged.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-`model: quantum`: containment into a quantum class, as on [[bpp-to-bqp]] and [[qip-to-pspace]].
+Measuring each prover message in the computational basis turns any quantum prover into a randomized classical one: the distribution of its next message given the classical transcript so far is a classical strategy, so the soundness of the classical protocol bounds its success.

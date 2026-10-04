@@ -16,15 +16,6 @@ security-loss: ""
 
 # TDH ⇒ cPIR
 
-[[trapdoor-hash-function|TDH]] implies [[single-server-private-information-retrieval|cPIR]].
-
 ## Statement
 
-Two-message rate-1 string [[oblivious-transfer|OT]] follows from a [[trapdoor-hash-function|trapdoor hash function]] with one-bit hints, and [[single-server-private-information-retrieval|single-server PIR]] from rate-1 OT; with the DDH- and QR-based hash functions this gives PIR with communication $\polylog(L)$ for a database of size $L$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]. The communication is governed by the hash function's compression: the low-noise-LPN trapdoor hash function of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], with compression factor $2^{\Theta(\log^{1-\beta}\secpar)}$, gives communication $L/2^{\Theta(\log^{1-\beta}L)}$.
-
-## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- AMR25's is the first trapdoor hash function from low-noise LPN, and its PIR the first with communication $o(L)$ from a code-based assumption; both rest on quasi-polynomial hardness of LPN with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, $\beta > 0$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]
-- The `-amr25` slug suffix is historical: the reduction is [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]'s; AMR25 instantiate the TDH from LPN.
+A [[trapdoor-hash-function|trapdoor hash function]] with one-bit hints gives two-message rate-1 string [[oblivious-transfer|OT]], and rate-1 OT gives [[single-server-private-information-retrieval|single-server PIR]]; with the DDH- and QR-based trapdoor hash functions this is PIR with communication $\polylog(L)$ for a database of size $L$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]. The communication is governed by the hash function's compression: the trapdoor hash function of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]] from quasi-polynomially hard [[learning-parity-with-noise#noise-level|low-noise LPN]] with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$, $\beta > 0$ ([[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]]), has compression factor $2^{\Theta(\log^{1-\beta}\secpar)}$ and gives communication $L/2^{\Theta(\log^{1-\beta}L)}$, the first $o(L)$ PIR from a code-based assumption.

@@ -11,21 +11,21 @@ class: fully-black-box
 model: standard
 source:
   - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
-security-loss: "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security"
+security-loss: "multiplicative $|\\calI|$"
+rationale:
+  class: "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
 ---
 
 # Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security
 
-[[identity-based-encryption#sub-exponential-ind-sid-cpa-security|Sub-exponential IND-sID-CPA Security]] implies [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]], with a multiplicative security loss of $|\calI|$ (complexity leveraging).
-
 ## Statement
 
-Every [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] scheme with identity space $\calI$ is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with a multiplicative loss of $|\calI|$: the reduction guesses the challenge identity in advance and aborts on a wrong guess. For super-polynomial $|\calI|$ the loss is super-polynomial, so the implication requires [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponential selective security]] (complexity leveraging) [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].
+For an [[identity-based-encryption|IBE]] scheme with identity space $\calI$, every efficient adaptive ([[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]) adversary with advantage $\delta$ yields a selective ([[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]) adversary of similar size with advantage $\delta / |\calI|$ (complexity leveraging) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]. Hence a [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponentially IND-sID-CPA-secure]] IBE, with constant $\epsilon > 0$, is IND-ID-CPA-secure whenever $|\calI| \cdot 2^{-\secpar^{\epsilon}}$ is negligible. For super-polynomial $|\calI|$, a merely negligible selective advantage does not bound $\delta$ by a negligible function.
 
 ## Sketch
 
-The reduction samples $\mathit{id}' \getsr \calI$, commits to it as its selective challenge identity and runs the adaptive adversary, forwarding all queries; with probability $1/|\calI|$ the adversary's challenge identity is $\mathit{id}'$ and the reduction's advantage equals the adversary's.
+The reduction samples $\mathit{id}' \getsr \calI$, commits to it as its selective challenge identity and runs the adaptive adversary, forwarding extraction queries and aborting with a random bit if the adversary queries $\mathit{id}'$ or challenges on another identity. The guess is independent of the adversary's view, so it equals the adversary's challenge identity with probability $1/|\calI|$, and then an admissible adversary never triggers an abort; the reduction's advantage is the adversary's divided by $|\calI|$.
 
 ## Notes
 
-`class: fully-black-box`: The construction is the identity map on IBE schemes; the reduction samples a guess for the adaptive adversary's challenge identity, runs the adversary once as an oracle, and aborts on a wrong guess. Fixed construction, fixed black-box reduction.
+- The HIBE analogue loses the number $|\Sigma^{\le d}|$ of identity vectors ([[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]]) — folklore.

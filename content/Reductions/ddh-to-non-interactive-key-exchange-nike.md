@@ -12,23 +12,21 @@ model: standard
 source:
   - "[[DH76 - New Directions in Cryptography|DH76]]"
 security-loss: "tight for one honest pair: the DDH instance is forwarded unchanged"
+rationale:
+  class: "The construction uses only the group generator, and the fixed reduction embeds the DDH challenge as the two public keys and the shared key and runs the adversary once as an oracle."
 ---
 
 # DDH ⇒ Non-interactive key exchange (NIKE)
 
-[[decisional-diffie-hellman|DDH]] implies [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]].
-
 ## Statement
 
-Diffie–Hellman ([[DH76 - New Directions in Cryptography|DH76]]) is a [[key-exchange#non-interactive-key-exchange-nike|NIKE]]: over $(\GG, g, p) \gets \GrGen(1^\secpar)$, party $i$ samples $x_i \getsr [p]$ and publishes $\pk_i = g^{x_i}$; parties $i$ and $j$ each compute $k_{ij} = \pk_j^{x_i} = \pk_i^{x_j} = g^{x_i x_j}$. For honestly generated keys, indistinguishability of $k_{ij}$ from uniform given $(\pk_i, \pk_j)$ is the [[decisional-diffie-hellman|DDH]] game verbatim — folklore.
+Diffie–Hellman is a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] — [[DH76 - New Directions in Cryptography|DH76]]: over $(\GG, g, p) \gets \GrGen(1^\secpar)$, party $i$ samples $x_i \getsr [p]$ and publishes $\pk_i = g^{x_i}$, and parties $i$ and $j$ each compute $k_{ij} = \pk_j^{x_i} = \pk_i^{x_j} = g^{x_i x_j}$. If [[decisional-diffie-hellman|DDH]] is hard for $\GrGen$, then for honestly generated keys $k_{ij}$ is indistinguishable from uniform given $(\pk_i, \pk_j)$ — folklore.
 
 ## Sketch
 
-$(\pk_i, \pk_j, k_{ij})$ is a DDH tuple, so a distinguisher for $k_{ij}$ is a DDH distinguisher.
+$(\pk_i, \pk_j, k_{ij}) = (g^{x_i}, g^{x_j}, g^{x_i x_j})$ is a DDH tuple, so the reduction sets $(\pk_i, \pk_j, k_{ij}) := (X, Y, Z)$ from its DDH challenge, and a distinguisher for $k_{ij}$ is a DDH distinguisher.
 
 ## Notes
 
-`class: fully-black-box`: Fixed construction from the group generator; the fixed reduction sets $(\pk_i, \pk_j, k_{ij}) := (X, Y, Z)$ from the DDH challenge and runs the adversary once as an oracle.
-
-- Formal NIKE security models, including adversarially registered keys — [[FHKP13 - Non-Interactive Key Exchange|FHKP13]]
-- DH76 predates the DDH assumption; the citation attaches to the protocol, and the DDH-based security statement is a later formalization, immediate from the definition.
+- DH76 predates the DDH assumption: the protocol is DH76's, and its security under DDH is immediate from the definition — folklore.
+- The statement covers one pair of honestly generated keys; NIKE security models with adversarially registered public keys are formalized in [[FHKP13 - Non-Interactive Key Exchange|FHKP13]].

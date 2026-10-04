@@ -15,12 +15,10 @@ security-loss: ""
 
 # DLOG ⊆ coNP
 
-The decision version of [[discrete-logarithm|DLOG]] is in [[co-nondeterministic-polynomial-time|coNP]].
-
 ## Statement
 
-The decision version of [[discrete-logarithm|DLOG]] — given $(\GG, g, p, X, t)$, decide whether the $x \in [p]$ with $g^x = X$ satisfies $x \le t$ — is in [[co-nondeterministic-polynomial-time|coNP]]: a no-instance is certified by $x$ itself, since $g^x = X$ and $x > t$ are checkable in polynomial time and $x$ is unique once the order $p$ of $g$ is certified by its prime factorization with primality certificates — folklore.
+The decision version of [[discrete-logarithm|DLOG]], which given $(\GG, g, p, X, t)$ asks whether the $x \in [p]$ with $g^x = X$ satisfies $x \le t$, is in [[co-nondeterministic-polynomial-time|coNP]] — folklore.
 
-## Notes
+## Sketch
 
-`class: free`: an unconditional containment of a problem in a complexity class; the reduction-class axis does not apply.
+A no-instance is certified by $x$ itself: $g^x = X$ and $x > t$ are checkable in polynomial time, and $x$ is unique once the order $p$ of $g$ is certified by its prime factorization with primality certificates.

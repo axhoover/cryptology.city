@@ -15,12 +15,6 @@ security-loss: ""
 
 # BPP ⊆ PP
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is contained in [[probabilistic-polynomial-time|PP]].
-
 ## Statement
 
-A [[bounded-error-probabilistic-polynomial-time|BPP]] machine accepts yes-instances with probability at least $2/3$ and no-instances with probability at most $1/3$, so it satisfies the strict-majority criterion of [[probabilistic-polynomial-time|PP]] as is: $\classBPP \subseteq \classPP$ — folklore.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+[[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[probabilistic-polynomial-time|PP]]: a $\classBPP$ machine accepts yes-instances with probability at least $2/3$ and no-instances with probability at most $1/3$, so it meets the strict-majority criterion of $\classPP$ as is — folklore.

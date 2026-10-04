@@ -15,16 +15,10 @@ security-loss: ""
 
 # BPP ⊆ PSPACE
 
-[[bounded-error-probabilistic-polynomial-time|BPP]] is contained in [[polynomial-space|PSPACE]].
-
 ## Statement
 
-A [[polynomial-space|PSPACE]] machine decides any [[bounded-error-probabilistic-polynomial-time|BPP]] language by enumerating all polynomially long random strings, reusing space across runs, and accepting on the majority outcome: $\classBPP \subseteq \classPSPACE$ — folklore.
+[[bounded-error-probabilistic-polynomial-time|BPP]] $\subseteq$ [[polynomial-space|PSPACE]] — folklore.
 
 ## Sketch
 
-Only a $\poly(n)$-bit counter of accepting runs persists across the $2^{\poly(n)}$ runs.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+Run the $\classBPP$ machine on each of its $2^{\poly(n)}$ random strings in turn, reusing space across runs, and accept iff a majority of runs accept; only a $\poly(n)$-bit counter of accepting runs persists between runs.

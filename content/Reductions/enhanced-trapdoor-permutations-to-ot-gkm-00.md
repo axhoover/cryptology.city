@@ -24,7 +24,7 @@ An [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced trapdoor permu
 
 ## Sketch
 
-Receiver privacy: $(y_0, y_1)$ are two independent uniform domain elements, up to the sampler's statistical error, whatever $c$ is. Sender privacy: predicting $h(f^{-1}(y_{1-c}))$ from the sampling coins of $y_{1-c}$ is predicting a hard-core bit of an obliviously sampled image, and the Goldreich–Levin decoder turns such a predictor into an inverter, contradicting enhanced one-wayness.
+Receiver privacy is statistical: $(y_0, y_1)$ are two independent uniform domain elements, up to the sampler's statistical error, whatever $c$ is. Sender privacy: predicting $h(f^{-1}(y_{1-c}))$ from the sampling coins of $y_{1-c}$ is predicting a hard-core bit of an obliviously sampled image, and the Goldreich–Levin decoder turns such a predictor into an inverter, contradicting enhanced one-wayness.
 
 ## Notes
 

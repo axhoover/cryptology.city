@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
 security-loss: ""
+rationale:
+  class: "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
 ---
 
 # BDH ⇒ ABE
 
-Decisional [[bilinear-map-assumptions|BDH]] implies selectively secure key-policy [[attribute-based-encryption|ABE]].
-
 ## Statement
 
-If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) holds, there is a key-policy [[attribute-based-encryption|ABE]] for monotone access structures (monotone Boolean formulas or LSSS) with selective IND-CPA security — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) holds, there is a key-policy [[attribute-based-encryption|ABE]] for monotone access structures (monotone Boolean formulas or LSSS) that is [[attribute-based-encryption#selective-security|selectively]] [[attribute-based-encryption#kp-abe-ind-cpa-security|KP-IND-CPA-secure]]: the adversary commits to the challenge attribute set before $\Setup$ runs — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].
 
 ## Sketch
 
@@ -28,7 +28,4 @@ $\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key 
 
 ## Notes
 
-`class: fully-black-box`: one fixed construction in the bilinear group and one fixed selective-security reduction (see Sketch) that runs the ABE adversary once as an oracle. With an assumption as hypothesis, black-boxness refers to the treatment of the adversary.
-
-- Ciphertext-policy ABE for monotone formulas with ciphertext size linear in the formula, selectively secure in the standard model; the most efficient construction is under decisional $q$-parallel BDHE, a less efficient one under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]]
-- The Wat11 reference filename says 'Ciphertext-Policy Attribute-Based Encryption from Subset Cover', but the paper (PKC 2011, eprint 2008/290) is titled 'Ciphertext-Policy Attribute-Based Encryption: An Expressive, Efficient, and Provably Secure Realization'; filenames are live URLs, so the link is kept.
+- The ciphertext-policy counterpart: CP-ABE for monotone formulas with ciphertext size linear in the formula, selectively secure in the standard model, most efficiently under decisional $q$-parallel BDHE and less efficiently under DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].

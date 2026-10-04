@@ -16,18 +16,14 @@ security-loss: ""
 
 # Φ-Hiding ⇒ cPIR
 
-[[rsa-assumption#-hiding|Φ-Hiding]] implies [[single-server-private-information-retrieval|cPIR]].
-
 ## Statement
 
-Under the [[rsa-assumption#-hiding|Φ-hiding]] assumption, introduced in the same work, there is a single-server [[single-server-private-information-retrieval|cPIR]] scheme with total communication polylogarithmic in the database size $n$ [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
+Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], introduced for this purpose, there is a single-server [[single-server-private-information-retrieval|PIR]] scheme with total communication polylogarithmic in the database size $n$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
 
 ## Sketch
 
-The client derives a prime $p_i$ from index $i$ via a shared prime-sequence generator, sends a modulus $m$ with $p_i \mid \phi(m)$ — which by Φ-hiding hides $p_i$ — and a $p_i$-th non-residue $x \in \ZZ_m^*$. The server returns $x^e \bmod m$ for $e = \prod_j p_j^{b_j}$; knowing the factorization of $m$, the client tests whether the reply is a $p_i$-th residue, which holds iff $b_i = 1$.
+The client maps each index $j$ to a prime $p_j$ by a shared prime-sequence generator and sends a modulus $m$ with $p_i \mid \phi(m)$, which by Φ-hiding hides $p_i$, together with an $x \in \ZZ_m^*$ that is not a $p_i$-th residue. The server returns $x^Q \bmod m$ for $Q = \prod_j p_j^{b_j}$, where $b_j$ is the $j$-th database bit; knowing the factorization of $m$, the client tests whether the reply is a $p_i$-th residue, which holds iff $b_i = 1$.
 
 ## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant. The page records the scheme but not [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]'s privacy reduction, so no class is inferred from the proof shape.
 
 - A variant of Φ-hiding yields single-database PIR with constant communication rate — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].

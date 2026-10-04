@@ -12,18 +12,12 @@ model: rom
 source:
   - "[[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]"
 security-loss: ""
+rationale:
+  model: "HRSS17 prove IND-CCA security in the quantum random-oracle model."
 ---
 
 # NTRU ⇒ IND-CCA KEM
 
-[[ntru#one-wayness-of-ntru-encryption|One-wayness of NTRU encryption]] implies an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA KEM]] in the quantum random-oracle model.
-
 ## Statement
 
-An [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] [[key-encapsulation-mechanism|KEM]] from the [[ntru#one-wayness-of-ntru-encryption|one-wayness of NTRU encryption]]: textbook NTRU encryption with parameters chosen for perfect correctness, lifted to a KEM by a generic transform proved IND-CCA in the quantum random-oracle model — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].
-
-## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-`model: rom`: [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]] prove IND-CCA security in the quantum random-oracle model, which the model vocabulary records as `rom`.
+If [[ntru#one-wayness-of-ntru-encryption|NTRU encryption is one-way]] for parameters chosen so that decryption is perfectly correct, there is an [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]] [[key-encapsulation-mechanism|KEM]] in the quantum random-oracle model: textbook NTRU encryption lifted to a KEM by a generic transform — [[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]].

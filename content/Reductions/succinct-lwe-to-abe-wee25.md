@@ -16,15 +16,10 @@ security-loss: ""
 
 # Succinct LWE ⇒ ABE
 
-[[learning-with-errors#succinct-lwe|Succinct LWE]] implies [[attribute-based-encryption|ABE]].
-
 ## Statement
 
 [[learning-with-errors#succinct-lwe|Succinct LWE]] implies key-policy and ciphertext-policy [[attribute-based-encryption|ABE]] for depth-$d$ circuits over $\ell$-bit inputs with ciphertext, secret-key and public-key size $O(1)$, and laconic function evaluation with ciphertext size $\ell + O(1)$ and CRS and digest size $O(1)$, where $O(\cdot)$ hides $\poly(d, \secpar)$ factors — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- $\ell$-succinct LWE was introduced, and shown to follow from evasive LWE, in [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]
-- Wee25's abstract names only succinct LWE; whether its theorem needs a circular variant is open (carried paper check fu-verification-gap-21).
+- $\ell$-succinct LWE was introduced, and shown to follow from [[learning-with-errors#evasive-lwe|evasive LWE]], in [[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]].

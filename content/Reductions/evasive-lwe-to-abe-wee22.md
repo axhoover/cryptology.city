@@ -16,12 +16,6 @@ security-loss: ""
 
 # Evasive LWE + Tensor LWE ⇒ ABE
 
-[[learning-with-errors#evasive-lwe|Evasive LWE]] and [[learning-with-errors#tensor-lwe|tensor LWE]] jointly imply ciphertext-policy [[attribute-based-encryption|ABE]].
-
 ## Statement
 
 [[learning-with-errors#evasive-lwe|Evasive LWE]] together with [[learning-with-errors#tensor-lwe|tensor LWE]] (introduced in the same work) and [[learning-with-errors|LWE]] yields ciphertext-policy [[attribute-based-encryption|ABE]] for circuits of a-priori bounded polynomial depth, with parameter sizes independent of the circuit size; security is very selective (the adversary fixes the challenge policy and all key queries in advance) — [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]].
-
-## Notes
-
-`class: unstated`: the source does not state which notion of reduction is meant.

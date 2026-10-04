@@ -12,11 +12,12 @@ model: generic-group
 source:
   - "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
 security-loss: ""
+rationale:
+  class: "BSW07 bound the advantage of every generic adversary, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption."
+  model: "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle."
 ---
 
 # Bilinear pairing ⇒ CP-ABE
-
-[[pairings|Bilinear pairing]] implies adaptively secure [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE]] in the generic bilinear group model.
 
 ## Statement
 
@@ -24,9 +25,4 @@ In a [[pairings|bilinear group]], the Bethencourt–Sahai–Waters scheme is a c
 
 ## Notes
 
-`class: free`: BSW07 bound the advantage of every generic adversary; per `schema/reduction-classes.yaml` an idealized model goes on the model axis with `class: free`, as on [[bilinear-pairing-to-snark-gro16]].
-
-`model: generic-group`: the proof is in the generic bilinear group model. The hash from attributes to the group is also a random oracle, which the single-valued model field cannot record.
-
-- Selectively secure CP-ABE under non-interactive assumptions in the standard model — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].
-- This file previously recorded "GGM ⇒ ABE", with the generic group model as a hypothesis node. The filename is kept because filenames are live URLs.
+- CP-ABE for monotone formulas is selectively secure in the standard model under non-interactive assumptions (decisional $q$-parallel BDHE, or less efficiently DBDH) — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].

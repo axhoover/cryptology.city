@@ -16,14 +16,10 @@ security-loss: ""
 
 # k-Lin ⇒ VRF
 
-[[bilinear-map-assumptions#k-linear-assumption|$k$-Lin]] implies [[verifiable-random-function|VRF]].
-
 ## Statement
 
-A [[verifiable-random-function|VRF]] with exponential-size input space and full adaptive security exists in symmetric bilinear groups under the [[bilinear-map-assumptions#k-linear-assumption|$k$-linear assumption]] for any $k \ge 2$, in particular under decision linear (DLIN) — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
+In symmetric bilinear groups, the [$k$-linear assumption](bilinear-map-assumptions#k-linear-assumption) for any $k \ge 2$, in particular decision linear (DLIN, $k = 2$), implies a [[verifiable-random-function|VRF]] with exponential-size input space and full adaptive security — [[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]].
 
 ## Notes
 
-`class: unstated`: the source does not state which notion of reduction is meant.
-
-- Proofs of $\ell$ group elements for any $\ell \in \omega(1)$, down from $\Omega(L)$ for input length $L$, under DLIN — [[Koh19 - Hunting and Gathering Verifiable Random Functions from Standard Assumptions with Short Proofs|Koh19]]
+- Under DLIN, proofs shrink to $\ell$ group elements for any $\ell \in \omega(1)$, down from $\Omega(L)$ for input length $L$ — [[Koh19 - Hunting and Gathering Verifiable Random Functions from Standard Assumptions with Short Proofs|Koh19]].

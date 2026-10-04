@@ -12,15 +12,15 @@ model: standard
 source:
   - "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
 security-loss: "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR."
+rationale:
+  class: "Pai99 state no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the DCR challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
 ---
 
 # DCR ⇒ Additively homomorphic encryption
 
-[[decisional-composite-residuosity|DCR]] implies [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]].
-
 ## Statement
 
-Under [[decisional-composite-residuosity|DCR]], the Paillier cryptosystem is an IND-CPA-secure [[public-key-encryption|PKE]] that is additively homomorphic: for an RSA modulus $n$ and $g \in \ZZ_{n^2}^*$ of order divisible by $n$ (e.g. $g = n+1$), $\Enc(\pk, m; r) = g^m \cdot r^n \bmod n^2$ with $m \in \ZZ_n$ and $r \getsr \ZZ_n^*$, and $\Enc(\pk, m_1; r_1) \cdot \Enc(\pk, m_2; r_2) \bmod n^2$ encrypts $m_1 + m_2 \bmod n$ [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Semantic security of the scheme is equivalent to DCR [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
+Under [[decisional-composite-residuosity|DCR]], the Paillier cryptosystem is an IND-CPA-secure [[public-key-encryption|PKE]] that is [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]]: for an RSA modulus $n$ and $g \in \ZZ_{n^2}^*$ of order divisible by $n$ (e.g. $g = n+1$), $\Enc(\pk, m; r) = g^m \cdot r^n \bmod n^2$ with $m \in \ZZ_n$ and $r \getsr \ZZ_n^*$, and $\Enc(\pk, m_1; r_1) \cdot \Enc(\pk, m_2; r_2) \bmod n^2$ encrypts $m_1 + m_2 \bmod n$ — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]. Semantic security of the scheme is equivalent to DCR — [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]].
 
 ## Sketch
 
@@ -28,8 +28,4 @@ An encryption of $m$ is $g^m$ times a random $n$-th residue, so a DCR challenge 
 
 ## Notes
 
-`class: fully-black-box`: [[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]] states no reduction notion; inferred from the proof shape. One fixed construction on the DCR modulus, and one fixed reduction that embeds the DCR challenge $z$ as $c^* = g^{m_b} \cdot z \bmod n^2$ and runs the IND-CPA adversary once as an oracle.
-
-- Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]
-- Threshold decryption for Paillier — [[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]
-- `additively-homomorphic-encryption` is a variant id resolving to the additively homomorphic encryption section of [[homomorphic-encryption|HE]], not its own page.
+- Damgård–Jurik generalize the scheme to modulus $n^{d+1}$ and message space $\ZZ_{n^d}$ for any $d \ge 1$, still additively homomorphic and semantically secure under DCR ([[d-th-composite-residuosity-to-he|higher-degree composite residuosity ⇒ additively homomorphic encryption]]) — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].

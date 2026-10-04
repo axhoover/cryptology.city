@@ -15,19 +15,15 @@ security-loss: ""
 
 # IP ⊆ PSPACE
 
-[[interactive-proof-systems|IP]] is contained in [[polynomial-space|PSPACE]].
-
 ## Statement
 
-$\classIP \subseteq \classPSPACE$: for every [[interactive-proof-systems|IP]] verifier, the maximum acceptance probability over all prover strategies is computable in [[polynomial-space|PSPACE]] by recursion over the interaction tree — folklore.
+[[interactive-proof-systems|IP]] $\subseteq$ [[polynomial-space|PSPACE]]: for every $\classIP$ verifier, the maximum acceptance probability on input $x$ over all prover strategies is computable in space polynomial in $|x|$ — folklore.
 
 ## Sketch
 
-Fix the verifier. The optimal acceptance probability of a partial transcript is the maximum over the prover's next message at prover moves and the average over the verifier's coins at verifier moves. Depth-first evaluation of this recursion over the polynomial-depth interaction tree uses polynomial space; accept iff the value at the root is at least $2/3$.
+Fix the verifier and its $r$ coins. For a partial transcript $\tau$, let $N(\tau)$ be the maximum, over prover continuations, of the number of coin strings consistent with $\tau$ on which the verifier accepts: $N(\tau)$ is the maximum of $N(\tau m)$ over the prover's next message $m$ at prover moves and the sum of $N(\tau a)$ over the verifier's next message $a$ at verifier moves. Depth-first evaluation over the polynomial-depth interaction tree uses polynomial space; the maximum acceptance probability is $N(\varepsilon)/2^r$ for the empty transcript $\varepsilon$, and $x$ is accepted iff it is at least $2/3$.
 
 ## Notes
 
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
-
-- The relativized separation $\classIP^A \neq \classPSPACE^A$ for almost all oracles $A$ ([[CCG+94 - The random oracle hypothesis is false|CCG+94]]) is a distinct statement, recorded at [[random-oracle-hypothesis#refutation|the refutation of the ROH]].
-- The `-ccg-94` slug suffix is historical; the containment is folklore.
+- The converse [[pspace-to-ip-sha90|PSPACE ⊆ IP]] holds, so $\classIP = \classPSPACE$ — [[Sha90 - IP = PSPACE|Sha90]].
+- For almost all oracles $A$, $\classIP^A \neq \classPSPACE^A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]]; see [[random-oracle-hypothesis#refutation|the refutation of the random oracle hypothesis]].

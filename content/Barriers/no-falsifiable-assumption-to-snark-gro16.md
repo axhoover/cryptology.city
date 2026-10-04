@@ -16,23 +16,20 @@ conditional-on:
   - the language has a sub-exponentially hard subset-membership problem
 source:
   - "[[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]"
+rationale:
+  class: "GW11 allow any SNARG construction and rule out every reduction that uses the cheating prover only as an oracle, which contains the fully-black-box reductions; reductions that use the adversary's code, as semi- and weakly-black-box ones may, are untouched."
 ---
 
 # No fully-black-box reduction from Falsifiable assumption to SNARK
 
-A reduction of class `fully-black-box` from [[falsifiable-assumptions|Falsifiable assumption]] to [[succinct-argument|SNARK]] would imply a contradiction.
-
 ## Statement
 
-For any NP language with a sub-exponentially hard subset-membership problem, a black-box reduction from a [[falsifiable-assumptions|falsifiable assumption]] to the adaptive soundness of a [[succinct-argument|SNARG]] for that language in the CRS model exists only if the assumption is false. The separation covers designated-verifier SNARGs and slightly succinct ones, whose proofs need only be sublinear in the statement and witness length — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+Let $L$ be an NP language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ in the CRS model from a [[falsifiable-assumptions|falsifiable assumption]], then the assumption is false; the separation covers designated-verifier SNARGs and slightly succinct ones, whose proofs need only be sublinear in the statement and witness length — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
 
 ## Sketch
 
-Succinctness and the hardness of the language yield an unbounded cheating prover $P^*$ that outputs false statements with accepting proofs, whose statement–proof pairs are indistinguishable from those of an efficient prover $P$ that samples true statements with witnesses and proves them honestly (a leakage-simulation argument: the proof is a short function of the witness). A black-box reduction $R^{P^*}$ breaks the assumption; $R^{P}$ behaves indistinguishably, is efficient, and so breaks the assumption outright.
+Succinctness and the hardness of $L$ give an inefficient cheating prover $P^*$ that outputs false statements with accepting proofs, whose statement–proof pairs are indistinguishable from those of an efficient prover $P$ that samples true statements with witnesses and proves them honestly (the short proof is simulated as leakage on the witness). The assumption's challenger is efficient, so the reduction $R^{P}$ wins the assumption's game with probability negligibly close to that of $R^{P^*}$; $R^{P}$ is efficient, so the assumption is false.
 
 ## Notes
 
-`class: fully-black-box`: GW11 allow an arbitrary SNARG construction but require the reduction to use the cheating prover only as an oracle. Fully-black-box reductions are a subclass of these; semi- and weakly-black-box reductions, which may depend on the adversary's code, are untouched.
-
-- Adaptively sound SNARGs for NP nonetheless exist in the plain model, from sub-exponentially hard indistinguishability obfuscation and one-way functions together with the polynomial hardness of discrete log or factoring — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]]
-- The `-gro16` slug suffix is historical; the source is [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+- Adaptively sound SNARGs for NP nonetheless exist in the plain model, from sub-exponentially hard indistinguishability obfuscation and one-way functions together with the polynomial hardness of discrete log or factoring — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]].

@@ -15,16 +15,10 @@ security-loss: ""
 
 # NP ⊆ PSPACE
 
-[[nondeterministic-polynomial-time|NP]] is contained in [[polynomial-space|PSPACE]].
-
 ## Statement
 
-$\classNP \subseteq \classPSPACE$: every language in [[nondeterministic-polynomial-time|NP]] is decidable in [[polynomial-space|polynomial space]] — folklore.
+[[nondeterministic-polynomial-time|NP]] $\subseteq$ [[polynomial-space|PSPACE]] — folklore.
 
 ## Sketch
 
-Enumerate all candidate certificates, reusing one polynomial-size tape to run the NP verifier on each; accept iff some candidate is accepted.
-
-## Notes
-
-`class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply.
+Enumerate all candidate certificates, reusing one polynomial-size tape to run the $\classNP$ verifier on each; accept iff some candidate is accepted.
