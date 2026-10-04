@@ -28,4 +28,4 @@ Verification recomputes the tag, so correctness is perfect. The distinguisher $\
 
 ## Notes
 
-- The MAC is many-time secure as it stands: domain extension, such as CBC-MAC, buys longer messages, not more $\Tag$ queries — standard.
+- $\Tag = \Eval$ is already secure against any polynomial number of $\Tag$ queries; domain extension, such as CBC-MAC, enlarges the message space beyond $\calD$ — standard.
