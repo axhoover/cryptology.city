@@ -18,4 +18,4 @@ security-loss: ""
 
 ## Statement
 
-If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] in a weak sense: for every constant $\varepsilon > 0$, communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), then for every constant $\varepsilon > 0$ there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] in a weak sense: communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]]: for every constant $\varepsilon > 0$, the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates to the preprocessed database cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
+If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates to the preprocessed database cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Notes
 
