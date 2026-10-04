@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[random-oracle-model|random oracle]] yields an [[oblivious-interactive-hash-function|oblivious interactive hash function]] secure, unconditionally, against every adversary with a bounded query budget, placing OIHFs in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
+A [[random-oracle-model|random oracle]] yields an [[oblivious-interactive-hash-function|oblivious interactive hash function]] that is unconditionally secure against every adversary with a bounded query budget, placing OIHFs in Minicrypt — [[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]].
 
 ## Notes
 
