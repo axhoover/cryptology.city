@@ -22,4 +22,4 @@ A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorph
 
 ## Notes
 
-- [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]] use rerandomizability to place distinguishing encryptions of $0$ from encryptions of $1$ in $\classSZK$; see [[no-he-to-szk-bl13|No reduction from NP to HE]].
+- [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]] use rerandomizability to place the problem of distinguishing encryptions of $0$ from encryptions of $1$ in $\classSZK$; see [[no-he-to-szk-bl13|No reduction from NP to HE]].

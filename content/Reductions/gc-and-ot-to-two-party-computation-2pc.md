@@ -28,4 +28,4 @@ The evaluator's view is simulated from a simulated garbled circuit and input lab
 
 ## Notes
 
-- Garbling schemes were later formalized as a standalone primitive whose privacy notion is the one this simulation uses — [[BHR12 - Foundations of Garbled Circuits|BHR12]].
+- Garbling schemes were later formalized as a standalone primitive whose privacy notion is the one the evaluator's simulator uses — [[BHR12 - Foundations of Garbled Circuits|BHR12]].

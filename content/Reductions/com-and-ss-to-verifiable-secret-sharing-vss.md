@@ -13,7 +13,7 @@ source:
   - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
 security-loss: ""
 rationale:
-  model: "No idealised model is used; the public generators with unknown discrete-logarithm relation and the broadcast channel that the scheme needs are stated in the Statement."
+  model: "The scheme uses no idealised oracle, only public generators whose discrete-logarithm relation the dealer does not know and a broadcast channel for the commitments."
 ---
 
 # DLOG ⇒ Verifiable secret sharing (VSS)
@@ -25,3 +25,7 @@ Let $g, h$ generate a group $\GG$ of prime order $q$, with $\log_g h$ unknown to
 ## Sketch
 
 Party $i$ accepts iff $g^{f(i)} h^{f'(i)} = \prod_{j=0}^{k-1} E_j^{\,i^j}$. Because the $b_j$ are uniform, the commitments together with any $k-1$ shares have a distribution independent of $s$. Two sets of $k$ accepted shares interpolating different secrets give two openings $(s, t) \ne (s', t')$ of $E_0$, hence $\log_g h = (s - s')/(t' - t) \bmod q$.
+
+## Notes
+
+- Commitments to the individual shares alone do not let a party check that all shares lie on one polynomial of degree $k-1$; the check above uses the homomorphism of the commitments to the coefficients — folklore.

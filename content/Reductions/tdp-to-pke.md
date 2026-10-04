@@ -13,7 +13,7 @@ source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
 security-loss: ""
 rationale:
-  class: "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit, which the Goldreich–Levin list decoder turns into an inverter."
+  class: "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit; for the Goldreich–Levin predicate, the list decoder turns that predictor into an inverter."
 ---
 
 # TDP ⇒ PKE

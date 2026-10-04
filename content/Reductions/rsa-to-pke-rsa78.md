@@ -22,7 +22,7 @@ The [[rsa-assumption|RSA assumption]] implies [[public-key-encryption|PKE]]. The
 
 ## Sketch
 
-Decryption recovers $x = y^d \bmod n$ from $y = x^e \bmod n$ with the trapdoor $d$. A CPA adversary distinguishing encryptions of $0$ and $1$ is a predictor for $h(x)$ given $y$, which the hard-core reduction turns into an RSA inverter.
+Decryption recovers $x = y^d \bmod n$ from $y = x^e \bmod n$ with the trapdoor $d$. A CPA adversary distinguishing encryptions of $0$ and $1$ is a predictor for $h(x)$ given $(n, e, y)$, which the hard-core reduction turns into an RSA inverter.
 
 ## Notes
 
