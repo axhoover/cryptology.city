@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If constant-noise [[learning-parity-with-noise|LPN]] is [[learning-parity-with-noise#subexponential-lpn|subexponentially hard]], namely $2^{k^{1/2+\delta}}$-hard for a constant $\delta > 0$ or $2^{\Omega(k/\log k)}$-hard given $\poly(k)$ samples, then [[hash-function#collision-resistance|collision-resistant hash functions]] exist, via the binary shortest-vector problem — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
+If constant-noise [[learning-parity-with-noise|LPN]] is $2^{k^{1/2+\delta}}$-hard for a constant $\delta > 0$ ([[learning-parity-with-noise#subexponential-lpn|subexponential LPN]] with exponent above $1/2$) or $2^{\Omega(k/\log k)}$-hard given $\poly(k)$ samples, then [[hash-function#collision-resistance|collision-resistant hash functions]] exist, via the binary shortest-vector problem — [[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]].
 
 ## Notes
 

@@ -13,7 +13,7 @@ source:
   - "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
 security-loss: ""
 rationale:
-  class: "KSW08 do not classify it, and a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$ and let an adaptive HVE adversary choose a non-matching challenge attribute with zero encoded inner product, trivially when $\\Sigma = \\ZZ_p$."
+  class: "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$."
 ---
 
 # IPPE ⇒ HVE
@@ -25,3 +25,7 @@ An attribute-hiding [[inner-product-predicate-encryption|IPPE]] scheme of dimens
 ## Sketch
 
 Encode $x$ as $(x_1, 1, \ldots, x_n, 1)$ and $v$ as $(r_1, -r_1 v_1, \ldots, r_n, -r_n v_n)$ with $r_i = 0$ for $i \in S$ and $r_i \getsr \ZZ_p$ otherwise, sampled at key generation; $\Setup$, $\KeyGen$, $\Enc$, $\Dec$ of the HVE scheme call the IPPE algorithms once each on the encoded vectors.
+
+## Notes
+
+- IPPE attribute-hiding constrains ciphertexts, not keys, so a scheme may reveal its key vectors (for instance, append them in the clear). An adaptive HVE adversary can then read off the $r_i$ and choose a non-matching challenge attribute with zero encoded inner product, trivially when $\Sigma = \ZZ_p$; such a challenge is admissible in the HVE game but not in the IPPE game. The transfer therefore needs an extra hypothesis: the encoded key vectors are hidden, or HVE security is selective — folklore.
