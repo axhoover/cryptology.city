@@ -25,4 +25,4 @@ A public-key [[functional-encryption|FE]] scheme for $\classPpoly$ that is singl
 
 ## Sketch
 
-The obfuscation of an $n$-bit-input circuit $C$ is an FE ciphertext of the empty input prefix together with a chain of function keys, one per input bit: decrypting a ciphertext of prefix $x_{<i}$ with key $i$ yields ciphertexts of $x_{<i}0$ and $x_{<i}1$ under the next FE instance, computed by running the FE encryption algorithm inside the function, and a final key evaluates $C$ on the fully encrypted input. A hybrid over the $2^n$ inputs reduces obfuscation security to FE security.
+The obfuscation of an $n$-bit-input circuit $C$ is an FE ciphertext of $C$ with the empty input prefix together with a chain of function keys, one per input bit: decrypting a ciphertext of $C$ with prefix $x_{<i}$ under key $i$ yields ciphertexts of $C$ with prefixes $x_{<i}0$ and $x_{<i}1$ under the next FE instance, computed by running the FE encryption algorithm inside the function, and a final key for the universal circuit maps a ciphertext of $C$ with input $x$ to $C(x)$. A hybrid over the $2^n$ inputs reduces obfuscation security to FE security.
