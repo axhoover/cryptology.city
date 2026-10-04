@@ -13,7 +13,7 @@ source:
   - "[[BLS01 - Short Signatures from the Weil Pairing|BLS01]]"
 security-loss: "factor $e(q_S+1)$ in advantage for $q_S$ signing queries"
 rationale:
-  class: "One fixed construction uses only group, hash and pairing operations, and the reduction runs the forger once as an oracle, programming its random oracle, and extracts a co-CDH solution from the forgery."
+  class: "The construction is fixed and uses only group, hash and pairing operations; the reduction runs the forger once as an oracle, programs its random oracle, and extracts a co-CDH solution from the forgery."
   model: "The reduction programs the hash-to-group function as a random oracle to embed the challenge and to answer signing queries."
 ---
 
@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-[[digital-signature#bls-signatures|BLS signatures]]: in a bilinear group pair $(\GG_1, \GG_2)$ of prime order $p$ with pairing $e : \GG_1 \times \GG_2 \to \GG_T$ and hash $H : \bits^* \to \GG_1$, $\sk = x \getsr \ZZ_p$, $\pk = g_2^x$ for a generator $g_2$ of $\GG_2$, $\Sign(\sk, m) = H(m)^x$, and $\Vrfy$ accepts $(m, \sigma)$ iff $e(\sigma, g_2) = e(H(m), \pk)$. With $H$ a random oracle, the scheme is EUF-CMA secure if [[co-computational-diffie-hellman|co-CDH]] is hard in $(\GG_1, \GG_2)$ — [[BLS01 - Short Signatures from the Weil Pairing|BLS01]]. The journal version states the theorem in the general co-GDH framework, with the asymmetric-pairing formulation of co-CDH and an explicit loss — [[BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)|BLS04]].
+[[digital-signature#bls-signatures|BLS signatures]]: in a bilinear group pair $(\GG_1, \GG_2)$ of prime order $p$ with pairing $e : \GG_1 \times \GG_2 \to \GG_T$, an efficiently computable isomorphism $\psi : \GG_2 \to \GG_1$ and hash $H : \bits^* \to \GG_1$, $\sk = x \getsr \ZZ_p$, $\pk = g_2^x$ for a generator $g_2$ of $\GG_2$, $\Sign(\sk, m) = H(m)^x$, and $\Vrfy$ accepts $(m, \sigma)$ iff $e(\sigma, g_2) = e(H(m), \pk)$. With $H$ a random oracle, the scheme is EUF-CMA secure if [[co-computational-diffie-hellman|co-CDH]] is hard in $(\GG_1, \GG_2)$ — [[BLS01 - Short Signatures from the Weil Pairing|BLS01]]. The journal version states the theorem in the general co-GDH framework, with the asymmetric-pairing formulation of co-CDH and an explicit loss — [[BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)|BLS04]].
 
 ## Sketch
 
-The reduction receives a co-CDH challenge $(g_2^a, h)$ with $h \in \GG_1$, sets $\pk = g_2^a$, and answers each new $H$-query by $\psi(g_2)^{r}$ for a fresh known $r$, except with probability $1/(q_S+1)$ by $h \cdot \psi(g_2)^{r}$; here $\psi : \GG_2 \to \GG_1$ is the efficiently computable isomorphism of the co-GDH setting. It signs a point of the first kind as $\psi(g_2^a)^{r}$, and a forgery $\sigma$ on a point of the second kind yields $h^a = \sigma / \psi(g_2^a)^{r}$.
+The reduction receives a co-CDH challenge $(g_2^a, h)$ with $h \in \GG_1$, sets $\pk = g_2^a$, and answers each new $H$-query by $\psi(g_2)^{r}$ for a fresh known $r$, except with probability $1/(q_S+1)$ by $h \cdot \psi(g_2)^{r}$. It signs a point of the first kind as $\psi(g_2^a)^{r}$, and a forgery $\sigma$ on a point of the second kind yields $h^a = \sigma / \psi(g_2^a)^{r}$.
 
 ## Notes
 

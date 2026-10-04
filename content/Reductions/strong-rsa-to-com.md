@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[rsa-assumption#strong-rsa|Strong RSA]] implies a statistically hiding, computationally binding [[commitment-scheme|commitment scheme]] to integers. For an RSA modulus $n$ and public bases $g \in \langle h \rangle \subseteq \ZZ_n^*$ whose order is hidden from the committer, a commitment to $x \in \ZZ$ is $c = g^x h^r \bmod n$ with $r$ uniform in a range much larger than $\mathrm{ord}(h)$. Hiding is statistical, and two openings of $c$ to distinct integers yield a strong-RSA solution — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. DF02 generalize the scheme to any abelian group whose order is hidden from the committer, with binding under the strong root assumption, and fill the gaps in FO97's soundness proofs — [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
+[[rsa-assumption#strong-rsa|Strong RSA]] implies a statistically hiding, computationally binding [[commitment-scheme|commitment scheme]] to integers. For an RSA modulus $n$ and public bases $g \in \langle h \rangle \subseteq \ZZ_n^*$ whose order is hidden from the committer, a commitment to $x \in \ZZ$ is $c = g^x h^r \bmod n$ with $r$ uniform in a range much larger than $\mathrm{ord}(h)$. Hiding is statistical, and two openings of $c$ to distinct integers yield a strong-RSA solution — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]] generalize the scheme to any abelian group whose order is hidden from the committer, with binding under the strong root assumption, and fill the gaps in FO97's soundness proofs.
 
 ## Sketch
 

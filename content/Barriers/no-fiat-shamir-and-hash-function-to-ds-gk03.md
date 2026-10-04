@@ -28,4 +28,4 @@ If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, th
 
 ## Notes
 
-- Read against non-interactive arguments, the same counterexample shows that the Fiat-Shamir transform does not in general give sound ones in the standard model ([[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]) — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].
+- Read against non-interactive arguments, the same counterexample shows that the Fiat-Shamir transform does not in general yield sound non-interactive arguments in the standard model ([[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]) — [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]].

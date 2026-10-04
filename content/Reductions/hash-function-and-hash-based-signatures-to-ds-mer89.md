@@ -24,7 +24,7 @@ A [[hash-function#collision-resistance|collision-resistant hash function]] and a
 
 ## Sketch
 
-A forgery under index $i$ either carries a verification key or authentication path other than the honest ones, so recomputing the root from it and from the honest path gives a hash collision at some tree node, or carries the honest key $\vk_i$ and path, so its one-time signature, on a message never signed under $\vk_i$, is a one-time forgery.
+The reduction plants the one-time challenge key at a random leaf. A forgery under index $i$ either carries a verification key or authentication path other than the honest ones, and then it and the honest path hash to the same root, giving a collision at some tree node; or it carries the honest $\vk_i$ and path, and then its one-time signature, on a message never signed under $\vk_i$, is a one-time forgery, against the challenge key when that leaf is $i$.
 
 ## Notes
 

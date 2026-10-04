@@ -13,7 +13,7 @@ source:
   - "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
 security-loss: ""
 rationale:
-  class: "One fixed stateful tree-based construction, generic over claw-free trapdoor permutation pairs, uses the pair only as an oracle, and one fixed reduction runs any forger as an oracle and turns its forgery into a claw, which for the factoring-based pair factors the challenge modulus."
+  class: "The stateful tree-based construction is generic over claw-free trapdoor permutation pairs and uses the pair only as an oracle; the reduction runs any forger as an oracle and turns its forgery into a claw, which for the factoring-based pair factors the challenge modulus."
 ---
 
 # FAC ⇒ DS

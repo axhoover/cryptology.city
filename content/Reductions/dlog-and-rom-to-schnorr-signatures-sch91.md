@@ -15,7 +15,7 @@ source:
   - "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
 security-loss: "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries"
 rationale:
-  class: "One fixed construction uses only the group operation and the hash, and the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning it with a reprogrammed random oracle."
+  class: "The construction is fixed and uses only the group operation and the hash; the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning it with a reprogrammed random oracle."
   model: "The Fiat-Shamir hash is a random oracle, which the reduction programs to simulate signatures and reprograms to fork the forger."
 ---
 
@@ -31,5 +31,5 @@ The reduction, given $\pk = g^x$, answers signing queries with the HVZK simulato
 
 ## Notes
 
-- The forking lemma turns a forger with success probability $\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\varepsilon)$ — [[PS96 - Security Proofs for Signature Schemes|PS96]]; PS00 give its exact-security form and extend it to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]].
+- In its exact-security form, the forking lemma turns a forger with success probability $\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\varepsilon)$, and it extends to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]].
 - The loss is essentially optimal: under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the random-oracle model loses a factor close to $q_H$ in the time-to-success ratio — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]].
