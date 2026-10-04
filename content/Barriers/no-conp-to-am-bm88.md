@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-If [[co-nondeterministic-polynomial-time|coNP]] is contained in [[arthur-merlin|AM]], then $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P} = \classAM$, so the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]; [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]] derive it as an immediate consequence of the collapse theorem $\classAM[k] = \classAM$. Whether $\classcoNP \subseteq \classAM$ holds is open.
+If [[co-nondeterministic-polynomial-time|coNP]] is contained in [[arthur-merlin|AM]], then $\mathbf{\Sigma_2^P} = \mathbf{\Pi_2^P} = \classAM$, so the [[polynomial-time-hierarchy|polynomial hierarchy]] collapses to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]; [[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]] derive it from the collapse theorem $\classAM[k] = \classAM$. Whether $\classcoNP \subseteq \classAM$ holds is open.
 
 ## Sketch
 

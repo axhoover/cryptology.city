@@ -10,7 +10,7 @@ conclusion: lwe
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: "additive in the statistical distance of TrapGen's $\\mathbf{B}$ from uniform"
+security-loss: "additive in the statistical distance of $\\mathrm{TrapGen}$'s $\\mathbf{B}$ from uniform"
 rationale:
   class: "The fixed reduction runs any LWE distinguisher once as an oracle on the succinct-LWE challenge and discards the trapdoor data."
 ---

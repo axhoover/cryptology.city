@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-[[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] and [[shortest-integer-solution|SIS]] are equivalent up to a polynomial change of the column count and norm bound — folklore. One direction is immediate: if SIS is hard for $(n, m, q, \sqrt{\beta^2 + 1})$, then ISIS is hard for $(n, m - 1, q, \beta)$. The other, solving ISIS with a SIS oracle, holds only under conditions on the column count and norm bound.
+[[shortest-integer-solution#isis-inhomogeneous-sis|ISIS]] and [[shortest-integer-solution|SIS]] are equivalent up to a polynomial change of the column count and norm bound — folklore. One direction is immediate: if SIS is hard for $(n, m, q, \sqrt{\beta^2 + 1})$, then ISIS is hard for $(n, m - 1, q, \beta)$. The other, ISIS hardness implying SIS hardness (solving ISIS with a SIS oracle), holds only under conditions on the column count and norm bound.
 
 ## Sketch
 

@@ -24,7 +24,7 @@ For monic $f \in \ZZ[x]$ of degree $n$, irreducible over $\ZZ$ and with polynomi
 
 ## Sketch
 
-Ajtai's iterative basis shortening ([[Ajt96 - Generating hard instances of lattice problems|Ajt96]]) over the ring: random Ring-SIS instances are generated from Gaussian-perturbed points of the worst-case ideal lattice, and a short solution combines the samples into a vector of the ideal lattice shorter than the current basis vectors; iterating shortens the basis to within a polynomial factor of the shortest vector.
+Ajtai's iterative basis shortening ([[Ajt96 - Generating hard instances of lattice problems|Ajt96]]) over the ring: random Ring-SIS instances are generated from Gaussian-perturbed points of the worst-case ideal lattice, and a short solution combines the samples into a vector of the ideal lattice shorter than the longest current basis vector; iterating shortens the basis to within a polynomial factor of the shortest vector.
 
 ## Notes
 

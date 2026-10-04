@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-If [[rsa-assumption#strong-rsa|strong RSA]] is hard for $\GrGen$, then [[rsa-assumption|RSA]] is hard for $\GrGen$, provided the exponent $e$ that $\GrGen$ outputs can be sampled given $n$ alone (a fixed $e$, or a random prime, for the usual choices) — folklore.
+If [[rsa-assumption#strong-rsa|strong RSA]] is hard for $\GrGen$, then [[rsa-assumption|RSA]] is hard for $\GrGen$, provided that, given $n$, the exponent $e$ can be sampled efficiently from its conditional distribution under $\GrGen$ (true of the usual choices: a fixed $e$, or a random prime) — folklore.
 
 ## Sketch
 
