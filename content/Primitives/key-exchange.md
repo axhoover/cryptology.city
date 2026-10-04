@@ -22,7 +22,7 @@ A _key exchange_ (or _key agreement_) protocol allows two parties communicating 
 
 A two-party key exchange protocol is a pair of interactive algorithms $(\mathsf{KE}_A, \mathsf{KE}_B)$ run between parties $A$ and $B$ over a shared transcript. Following execution, both parties output a key $k \in \calK$. In the non-interactive setting:
 
-- $\mathsf{KE} = (\Gen, \mathsf{Combine})$ where $\Gen(1^\secpar) \to (\pk, \sk)$ and each party publishes $\pk_A, \pk_B$, then computes $k = \mathsf{Combine}(\sk_A, \pk_B) = \mathsf{Combine}(\sk_B, \pk_A)$.
+- $\mathsf{KE} = (\Gen, \Combine)$ where $\Gen(1^\secpar) \to (\pk, \sk)$ and each party publishes $\pk_A, \pk_B$, then computes $k = \Combine(\sk_A, \pk_B) = \Combine(\sk_B, \pk_A)$.
 
 ## Properties
 

@@ -60,6 +60,9 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\GrGen`    | $\GrGen$    |
 | `\Enc`      | $\Enc$      |
 | `\Dec`      | $\Dec$      |
+| `\Encap`    | $\Encap$    |
+| `\Decap`    | $\Decap$    |
+| `\Combine`  | $\Combine$  |
 | `\Setup`    | $\Setup$    |
 | `\Query`    | $\Query$    |
 | `\Eval`     | $\Eval$     |

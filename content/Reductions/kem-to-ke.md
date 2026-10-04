@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \mathsf{Encap}, \mathsf{Decap})$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \mathsf{Encap}(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\mathsf{Decap}(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers — folklore.
+A [[key-encapsulation-mechanism|KEM]] $(\KeyGen, \Encap, \Decap)$ yields a two-message [[key-exchange|key exchange]] over an authenticated channel: the receiver samples $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and sends $\pk$; the sender runs $(c, k) \gets \Encap(\pk)$, sends $c$, and outputs $k$; the receiver outputs $\Decap(\sk, c)$. If the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]], the protocol is secure against eavesdroppers — folklore.
 
 ## Sketch
 

@@ -20,18 +20,18 @@ A **key encapsulation mechanism** (KEM) is a public-key primitive that allows a 
 
 ## Syntax
 
-A KEM is a tuple of efficient algorithms $(\KeyGen, \mathsf{Encap}, \mathsf{Decap})$ with key space $\calK$:
+A KEM is a tuple of efficient algorithms $(\KeyGen, \Encap, \Decap)$ with key space $\calK$:
 
 - $\KeyGen(1^\secpar) \to (\pk, \sk),$ is a randomized algorithm that generates a public/secret key pair.
-- $\mathsf{Encap}(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK$.
-- $\mathsf{Decap}(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext.
+- $\Encap(\pk) \to (c, k),$ is a randomized algorithm that takes a public key and outputs a ciphertext $c$ and a symmetric key $k \in \calK$.
+- $\Decap(\sk, c) \to k,$ is a deterministic algorithm that recovers the symmetric key from the ciphertext.
 
 ## Properties
 
 ### Correctness
 
 For all $\secpar \in \NN$ and $(\pk, \sk) \gets \KeyGen(1^\secpar)$:
-$$\Pr[(c, k) \gets \mathsf{Encap}(\pk) : \mathsf{Decap}(\sk, c) = k] = 1.$$
+$$\Pr[(c, k) \gets \Encap(\pk) : \Decap(\sk, c) = k] = 1.$$
 
 ### IND-CCA security
 
@@ -41,11 +41,11 @@ $$\Pr[(c, k) \gets \mathsf{Encap}(\pk) : \mathsf{Decap}(\sk, c) = k] = 1.$$
 \caption{$\Game^{\mathrm{cca}}_{\mathrm{KEM},\calA}(\secpar)$}
 \begin{algorithmic}
 \State $(\pk, \sk) \gets \KeyGen(1^\secpar)$
-\State $(c^*, k_0) \gets \mathsf{Encap}(\pk)$
+\State $(c^*, k_0) \gets \Encap(\pk)$
 \State $k_1 \getsr \calK$
 \State $b \getsr \bits$
-\State $b' \gets \calA^{\mathsf{Decap}(\sk, \cdot)}(\pk, c^*, k_b)$
-\Comment{$\calA$ may not query $\mathsf{Decap}$ on $c^*$}
+\State $b' \gets \calA^{\Decap(\sk, \cdot)}(\pk, c^*, k_b)$
+\Comment{$\calA$ may not query $\Decap$ on $c^*$}
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
@@ -61,8 +61,8 @@ is negligible. The adversary cannot query the decapsulation oracle on the challe
 
 Given an IND-CCA KEM and a one-time IND-CCA SKE (DEM), the following construction achieves IND-CCA [[public-key-encryption|PKE]]:
 
-- $\Enc(\pk, m)$: run $(c_1, k) \gets \mathsf{Encap}(\pk)$; run $c_2 \gets \mathsf{SKE.Enc}(k, m)$; output $(c_1, c_2)$.
-- $\Dec(\sk, (c_1, c_2))$: run $k \gets \mathsf{Decap}(\sk, c_1)$; output $\mathsf{SKE.Dec}(k, c_2)$.
+- $\Enc(\pk, m)$: run $(c_1, k) \gets \Encap(\pk)$; run $c_2 \gets \SKE.\Enc(k, m)$; output $(c_1, c_2)$.
+- $\Dec(\sk, (c_1, c_2))$: run $k \gets \Decap(\sk, c_1)$; output $\SKE.\Dec(k, c_2)$.
 
 This achieves IND-CCA security as long as the KEM is IND-CCA secure and the DEM is one-time IND-CCA secure — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]. An IND-CPA DEM does not suffice: with CTR mode as DEM, $\calA$ flips a bit in the masked part of $c_2^*$, queries $\Dec$ on $(c_1^*, c_2')$ for the result $c_2' \neq c_2^*$, and receives $m_b$ with that bit flipped; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study which KEM/DEM notion pairs suffice.
 

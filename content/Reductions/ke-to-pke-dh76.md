@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $(\Gen, \mathsf{Combine})$ be a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] with key space $\calK = \bits^\ell$ whose shared key is indistinguishable from uniform given both honestly generated public keys. Then $\KeyGen := \Gen$, $\Enc(\pk, m) := (\pk', \mathsf{Combine}(\sk', \pk) \oplus m)$ for fresh $(\pk', \sk') \gets \Gen(1^\secpar)$, and $\Dec(\sk, (\pk', c)) := \mathsf{Combine}(\sk, \pk') \oplus c$ is an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] with $\calM = \bits^\ell$ — folklore.
+Let $(\Gen, \Combine)$ be a [[key-exchange#non-interactive-key-exchange-nike|NIKE]] with key space $\calK = \bits^\ell$ whose shared key is indistinguishable from uniform given both honestly generated public keys. Then $\KeyGen := \Gen$, $\Enc(\pk, m) := (\pk', \Combine(\sk', \pk) \oplus m)$ for fresh $(\pk', \sk') \gets \Gen(1^\secpar)$, and $\Dec(\sk, (\pk', c)) := \Combine(\sk, \pk') \oplus c$ is an [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] with $\calM = \bits^\ell$ — folklore.
 
 ## Sketch
 

@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption|PKE]] scheme whose message space contains the key space $\calK$, and define a [[key-encapsulation-mechanism|KEM]] by letting $\mathsf{Encap}(\pk)$ sample $k \getsr \calK$ and output $(\Enc(\pk, k), k)$, and $\mathsf{Decap}(\sk, c) := \Dec(\sk, c)$. If $\PKE$ is [[public-key-encryption#cca-security|IND-CCA-secure]], the KEM is [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]]; if $\PKE$ is [[public-key-encryption#cpa-security|IND-CPA-secure]], the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]]. In both cases every KEM adversary yields a PKE adversary with the same advantage and the same number of decryption queries — folklore.
+Let $\PKE = (\KeyGen, \Enc, \Dec)$ be a [[public-key-encryption|PKE]] scheme whose message space contains the key space $\calK$, and define a [[key-encapsulation-mechanism|KEM]] by letting $\Encap(\pk)$ sample $k \getsr \calK$ and output $(\Enc(\pk, k), k)$, and $\Decap(\sk, c) := \Dec(\sk, c)$. If $\PKE$ is [[public-key-encryption#cca-security|IND-CCA-secure]], the KEM is [[key-encapsulation-mechanism#ind-cca-security|IND-CCA-secure]]; if $\PKE$ is [[public-key-encryption#cpa-security|IND-CPA-secure]], the KEM is [[key-encapsulation-mechanism#ind-cpa-kem|IND-CPA-secure]]. In both cases every KEM adversary yields a PKE adversary with the same advantage and the same number of decryption queries — folklore.
 
 ## Sketch
 
