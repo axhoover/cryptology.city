@@ -21,4 +21,4 @@ security-loss: ""
 
 ## Sketch
 
-Run the $\classPP$ machine on each of its $2^{\poly(n)}$ coin sequences in turn, reusing space across runs and keeping a $\poly(n)$-bit count of accepting runs; accept iff a strict majority accept.
+Run the $\classPP$ machine on each of its $2^{\poly(n)}$ random strings in turn, reusing space across runs and keeping a $\poly(n)$-bit count of accepting runs; accept iff a strict majority accept.

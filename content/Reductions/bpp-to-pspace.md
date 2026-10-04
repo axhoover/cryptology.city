@@ -21,4 +21,4 @@ security-loss: ""
 
 ## Sketch
 
-Run the $\classBPP$ machine on each of its $2^{\poly(n)}$ random strings in turn, reusing space across runs, and accept iff a majority of runs accept; only a $\poly(n)$-bit counter of accepting runs persists between runs.
+Run the $\classBPP$ machine on each of its $2^{\poly(n)}$ random strings in turn, reusing space across runs and keeping a $\poly(n)$-bit count of accepting runs; accept iff a majority accept.

@@ -21,7 +21,7 @@ security-loss: ""
 
 ## Sketch
 
-Fix the verifier and its $r$ coins. For a partial transcript $\tau$, let $N(\tau)$ be the maximum, over prover continuations, of the number of coin strings consistent with $\tau$ on which the verifier accepts: $N(\tau)$ is the maximum of $N(\tau m)$ over the prover's next message $m$ at prover moves and the sum of $N(\tau a)$ over the verifier's next message $a$ at verifier moves. Depth-first evaluation over the polynomial-depth interaction tree uses polynomial space; the maximum acceptance probability is $N(\varepsilon)/2^r$ for the empty transcript $\varepsilon$, and $x$ is accepted iff it is at least $2/3$.
+Fix the verifier, which tosses $r = \poly(|x|)$ coins. For a partial transcript $\tau$, let $N(\tau)$ be the maximum, over prover continuations, of the number of coin strings in $\bits^r$ consistent with $\tau$ on which the verifier accepts; then $N(\tau) = \max_m N(\tau m)$ over the prover's next message $m$ at prover moves, and $N(\tau) = \sum_a N(\tau a)$ over the verifier's next message $a$ at verifier moves. Depth-first evaluation over the polynomial-depth interaction tree uses polynomial space, and $x$ is accepted iff the maximum acceptance probability $N(\varepsilon)/2^r$, for the empty transcript $\varepsilon$, is at least $2/3$.
 
 ## Notes
 

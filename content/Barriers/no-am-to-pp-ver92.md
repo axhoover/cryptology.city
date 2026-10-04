@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[Ver92 - On the Power of PP|Ver92]]"
 rationale:
-  class: "Ver92 gives an oracle relative to which AM is not contained in PP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+  class: "Ver92 gives an oracle relative to which AM is not contained in PP, which rules out exactly the relativizing proofs of the inclusion (and, by the partial order, every fully-black-box one) and says nothing about non-relativizing ones."
 ---
 
 # No relativizing reduction from AM to PP
