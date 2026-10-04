@@ -91,6 +91,10 @@ A hyperedge: a **set** of hypotheses implying **one** conclusion.
   "via": [], // transform, lemma or technique used, e.g. Fiat–Shamir, the switching lemma
   "heuristic": false, // true: a candidate construction with no security reduction
   "securityLoss": "", // free text
+  "rationale": {
+    // optional: why a field holds its value, keyed by this record's field names
+    "class": "The construction calls the PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle.",
+  },
   "status": "draft", // stub | draft | complete
   "page": "content/Reductions/prg-to-prf-ggm86.md",
   "slug": "prg-to-prf-ggm86",
@@ -123,6 +127,26 @@ Four rules a consumer can rely on:
 "IP implies PSPACE") and `equivalence` holds in both directions. Both take
 exactly one hypothesis.
 
+### `rationale`
+
+`rationale`, on a reduction or a barrier, says in one sentence per field why the
+page records the value it does. It comes from the page's frontmatter
+`rationale` mapping and is the only place that justification lives: the page
+body states the result and does not repeat it (`schema/README.md` § Reduction
+and barrier pages).
+
+- The key is **omitted** when the page has no rationale. Most entries have
+  none: a stock case (`class: unstated` with nothing more known, `class: free`
+  on a complexity-class containment) never gets one.
+- Keys are the record's own field names, in the record's field order:
+  `kind`, `class`, `model`, `source`, `via`, `heuristic`, `securityLoss` on a
+  reduction; `class`, `strength`, `conditionalOn`, `oracle`, `source` on a
+  barrier. `oracle` is the one key with no field of the same name in the
+  record. The endpoints, `consequences` and `circumventedBy` never carry one.
+- Each value is a single-line string. It explains a recorded value; it never
+  changes what the value means, so a consumer reasoning over the graph can
+  ignore it.
+
 ## `barriers`
 
 A barrier says what the _existence_ of a reduction would imply:
@@ -136,23 +160,27 @@ the general case, `Q = P ≠ NP`. One type covers both.
 
 ```jsonc
 {
-  "id": "bar-owp-to-ka-ir89",
+  "id": "bar-owp-to-ke-ir89",
   "hypotheses": ["owp"], // the hyperedge being ruled out
-  "conclusion": "key-agreement",
+  "conclusion": "ke",
   "class": "relativizing", // the class of reduction the barrier applies to
   "consequences": [
     // a LIST: one hyperedge can carry several framings
-    { "kind": "complexity", "target": "p-neq-np", "class": "relativizing" },
-    { "kind": "contradiction", "target": "", "class": "fully-black-box" },
+    { "kind": "contradiction", "target": "", "class": "relativizing" },
+    { "kind": "complexity", "target": "p-neq-np", "class": "fully-black-box" },
   ],
   "strength": "unconditional", // unconditional | conditional
   "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on: an objects[].id, or free text when no node exists
   "circumventedBy": [], // reductions[].id that reach the conclusion outside the barrier's class or scope
   "source": ["[[IR89 - ...|IR89]]"],
+  "rationale": {
+    // optional, as on reductions
+    "class": "A construction and security proof that hold relative to every oracle hold relative to IR89's, under which one-way permutations exist and key agreement does not.",
+  },
   "status": "draft",
-  "page": "content/Barriers/no-owp-to-key-agreement-ir89.md",
-  "slug": "no-owp-to-key-agreement-ir89",
-  "title": "No relativizing reduction from OWP to key agreement",
+  "page": "content/Barriers/no-owp-to-ke-ir89.md",
+  "slug": "no-owp-to-ke-ir89",
+  "title": "No relativizing reduction from OWP to KE",
 }
 ```
 
@@ -196,8 +224,8 @@ implies only `free`, so such a barrier bites no RTV04-classed reduction.
 currently just `unstated`, which is comparable to nothing, so the contradiction
 rule never fires on it. Most of the corpus is `unstated`, because the source
 pages rarely say which notion they mean. A `fully-black-box` the source does not
-state appears only where the page's Notes justify it from the proof shape (see
-`schema/README.md` § Reduction classes).
+state appears only where the proof shape justifies it, and the record's
+`rationale.class` says why (see `schema/README.md` § Reduction classes).
 
 ## `propositions`
 
@@ -238,8 +266,9 @@ worse loss.
 
 ## Caveats a consumer should encode
 
-- `status: "stub"` means the relation was migrated but could not be typed
-  confidently. Do not treat a stub's `class` or `model` as evidence.
+- `status: "stub"` means the page is skeletal: the relation is recorded but its
+  fields were not typed confidently. Do not treat a stub's `class` or `model`
+  as evidence.
 - `class: "unstated"` is the honest majority, not a defect to be defaulted away.
 - `heuristic: true` marks a candidate construction whose source gives no
   security reduction (GGHRSW13's iO from multilinear maps). It is an edge of

@@ -20,7 +20,8 @@
 //
 //   .reductions/relations.json
 //                     the machine-readable manifest: objects, propositions, the
-//                     class partial order, hyperedges, barriers. This is the
+//                     class partial order, hyperedges, barriers (each with its
+//                     frontmatter `rationale`, when it has one). This is the
 //                     interface CCwiki consumes and the formalization repo joins
 //                     against — see docs/relations-json.md. It carries no
 //                     timestamp, on purpose: the file is a pure function of the
@@ -32,6 +33,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
 import { makeParticipatesIn } from "./participates-in.mjs";
+import { rationaleRecord } from "./lint-edges.mjs";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
@@ -129,6 +131,10 @@ for (const p of pages) {
   }
 }
 
+const withRationale = (fm) => {
+  const rationale = rationaleRecord(fm);
+  return rationale ? { rationale } : {};
+};
 const reductions = [];
 const barriers = [];
 for (const p of pages) {
@@ -144,6 +150,9 @@ for (const p of pages) {
       via: [].concat(p.fm.via ?? []),
       heuristic: p.fm.heuristic === true,
       securityLoss: p.fm["security-loss"] ?? "",
+      // Why a field holds its value, keyed by this record's field names; the
+      // key is omitted when the page has no `rationale`.
+      ...withRationale(p.fm),
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,
@@ -161,6 +170,7 @@ for (const p of pages) {
       conditionalOn: p.fm["conditional-on"] ?? [],
       circumventedBy: [].concat(p.fm["circumvented-by"] ?? []),
       source: [].concat(p.fm.source ?? []),
+      ...withRationale(p.fm),
       status: p.fm.status,
       page: p.rel,
       slug: p.slug,

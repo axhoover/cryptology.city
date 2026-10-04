@@ -1,6 +1,6 @@
 ---
 name: city-style
-description: House style and mechanical contract for cryptology.city wiki pages. Use whenever creating or editing any page under content/ (Primitives, Assumptions, Complexity, Glossary, Folklore, References), writing security definitions or pseudocode games, adding citations or references, or preparing a PR against this repo.
+description: House style and mechanical contract for cryptology.city wiki pages. Use whenever creating or editing any page under content/ (Primitives, Assumptions, Complexity, Glossary, Folklore, References, Reductions, Barriers), writing security definitions or pseudocode games, adding citations or references, or preparing a PR against this repo.
 ---
 
 # Cryptology City house style
@@ -57,22 +57,25 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
 - **Do not invent a class.** `class` comes from `schema/reduction-classes.yaml`
   (the RTV04 taxonomy as a partial order, plus `fixed-construction`); use
   `unstated` when the source does not say which notion it means, unless the
-  Notes justify `fully-black-box` from the proof shape (fixed construction,
-  adversary used only as an oracle). A construction using a scheme's code is
-  `free`; a barrier refuting one named construction (the identity map,
-  Fiat–Shamir) is `fixed-construction`, never `free`. Recording a class nobody
-  justifies adds a mathematical claim. Class notes use the stock sentences in
-  `schema/README.md` § Reduction classes. `black-box` and `non-black-box` are
-  rejected values — the lint message names the notion to use instead.
+  proof shape justifies `fully-black-box` (fixed construction, adversary used
+  only as an oracle). A construction using a scheme's code is `free`; a
+  barrier refuting one named construction (the identity map, Fiat–Shamir) is
+  `fixed-construction`, never `free`. Recording a class nobody justifies adds
+  a mathematical claim. Why a class was recorded is one sentence in the
+  frontmatter `rationale.class`; `unstated` with nothing more known, and
+  `free` on a complexity-class containment, get no entry (`schema/README.md`
+  § Recording why). `black-box` and `non-black-box` are rejected values — the
+  lint message names the notion to use instead.
 - **Do not invent a citation.** `source` is either `[[KEY - Full Title|KEY]]`
   wikilinks or the bare token `folklore`. `standard` is not a provenance value.
   It lists every paper whose theorem the Statement asserts; a paper that only
-  introduced the notion is cited in the body. A paper suffix in the slug is
-  historical — `source` is authoritative, and slugs are never renamed. An id
-  names one theorem: a page rewritten to state a different one (reversed
-  direction, different conclusion, or a different source theorem) retires its
-  id and takes `red-<hypotheses>-to-<conclusion>[-<source>]`; refining a node
-  keeps it. The commit names the retired id.
+  introduced the notion is cited in the body. A paper suffix in the slug may
+  be stale — `source` is authoritative, slugs are never renamed, and the body
+  never mentions the slug. An id names one theorem: a page rewritten to state
+  a different one (reversed direction, different conclusion, or a different
+  source theorem) retires its id and takes
+  `red-<hypotheses>-to-<conclusion>[-<source>]`; refining a node keeps it. The
+  commit names the retired id.
 - **Barrier `strength`** is `conditional` iff the barrier theorem assumes an
   unproven hardness assumption, named in `conditional-on` by object id where a
   node exists (free text only where none does; a property of the scheme the
@@ -88,6 +91,22 @@ _set_ of hypotheses implying _one_ conclusion, of some reduction class.
   no security reduction is `heuristic: true`. Exceptions and the `model`
   conventions: `schema/README.md` § What a hypothesis is, § Which model to
   record.
+
+**A reduction or barrier body states the result and nothing else.** `# <title>`
+(identical to `title`), then `## Statement` (the theorem, precisely, citing
+every `source` entry inline), then optional `## Sketch` (one to three sentences,
+a pseudocode block, or both, only for a simple or standard argument) and
+optional `## Notes` (cited mathematical remarks: converse, loss, parameter
+caveats, neighbouring results). No intro sentence between the H1 and the
+Statement — the site renders the relation fields under the H1. A justification
+of a field goes in the frontmatter `rationale` mapping (`class:`, `model:`, …,
+one single-line sentence each), never a `` `class: …`: `` paragraph. Maintenance
+history (sourcing passes, migrations, slug history), notes about the wiki's own
+pages, nodes and modelling ("this edge", an id in backticks — name the object
+and link it instead), reading notes ("the abstract says…") and machine labels
+are dropped, and none of them moves into `rationale`; work still to do goes to
+`TODO_SUMMARY.md`. The lint enforces all of it (`body-*` rules). Templates:
+`content/Templates/Reduction.md`, `content/Templates/Barrier.md`.
 
 A **barrier** generalizes separations: `(exists a reduction of class C from
 {A_i} to B) => Q`, where Q is `contradiction`, an object, a complexity claim

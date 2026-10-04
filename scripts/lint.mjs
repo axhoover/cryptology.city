@@ -34,8 +34,21 @@
 //                  that is neither an object id nor multi-word free text
 //   variants       warns when two variant ids on one page share an anchor
 //                  (synonyms split one hyperedge in two)
+//   rationale      `rationale` appears only on reductions and barriers, is a
+//                  mapping from a typing field the page sets (class, model,
+//                  kind, strength, …) to one single-line sentence, and is never
+//                  a stock sentence, history or a reading note; warns when a
+//                  recorded class has no rationale.class (the stock `free` on
+//                  a complexity-class containment excepted)
+//   body           a reduction or barrier body is "# <title>", then
+//                  ## Statement (citing every `source` entry), then optional
+//                  ## Sketch and ## Notes, with nothing between the H1 and the
+//                  Statement and no scaffolding: field justifications,
+//                  maintenance history, notes about the wiki itself, reading
+//                  notes, review labels (schema/README.md § The page body)
 //
-// The cross-page checks live in scripts/lint-edges.mjs, which the tests share.
+// The cross-page and body checks live in scripts/lint-edges.mjs, which the
+// tests share.
 //
 // Errors print as  file:line: [rule] message  and exit 1. Warnings exit 0.
 
@@ -54,6 +67,11 @@ import {
   unresolvedConsequenceTargets,
   believedConsequences,
   unnamedConditions,
+  rationaleProblems,
+  RATIONALE_FIELDS,
+  bodyContract,
+  BODY_SECTIONS,
+  unjustifiedClasses,
 } from "./lint-edges.mjs";
 
 const ROOT = path.resolve(
@@ -123,6 +141,7 @@ const OPTIONAL_KEYS = new Set([
   "oracle",
   "conditional-on",
   "source",
+  "rationale", // reductions and barriers only: why a field holds its value
 ]);
 // Relation fields may never be hand-authored on an object page: an edge list
 // cannot express {DDH, CRHF} => B without misrepresenting each hypothesis.
@@ -563,6 +582,25 @@ for (const p of pages) {
       );
   }
 
+  for (const r of rationaleProblems(fm)) {
+    const fields = Object.keys(RATIONALE_FIELDS[fm.type] ?? {});
+    const at = r.field === undefined ? "rationale" : `rationale.${r.field}`;
+    const msg = {
+      "wrong-type": `rationale applies only to reduction and barrier pages, where it says why a relation field holds its value. Remove the key from this ${fm.type} page.`,
+      "not-mapping": `rationale must be a YAML mapping from a frontmatter field to one sentence, e.g.\n  rationale:\n    class: "The construction calls the PRG only as an oracle, and the reduction runs the distinguisher as an oracle."`,
+      "empty-mapping": `rationale has no entries. Remove the key; it is optional.`,
+      "unknown-field": `${at}: "${r.field}" takes no rationale.${fields.includes(String(r.field).toLowerCase()) ? ` Keys are lower-case: ${String(r.field).toLowerCase()}.` : ""} On a ${fm.type} page each key names the field whose recorded value it explains: ${fields.join(", ")}. A remark about the hypotheses, conclusion or circumventing reductions that a reader needs is a Notes bullet; a modelling gap goes in TODO_SUMMARY.md.`,
+      "absent-field": `${at} explains "${r.field}", which this page does not set. Set the field, or remove the entry.`,
+      "not-string": `${at} must be one sentence (a string), got ${JSON.stringify(r.value)}. Quote it: ${r.field}: "<why this value>".`,
+      empty: `${at} is empty. Give one sentence saying why the value was recorded, or remove the entry.`,
+      multiline: `${at} spans several lines. A rationale is one sentence on one line; anything a reader of the page needs belongs in the Statement or Notes instead.`,
+      todo: `${at} carries a TODO marker. A rationale states a reason that is known; report open work in TODO_SUMMARY.md and remove the entry until it is.`,
+      stock: `${at} is a stock sentence ("the source does not state which notion of reduction is meant", "the reduction-class axis does not apply"). Stock sentences get no rationale entry: remove it, keeping only a substantive reason (a query bound, non-adaptivity, a UC hybrid model) if there is one.`,
+      scaffolding: `${at} carries ${JSON.stringify(r.match)} (${r.rule}). A rationale says why the value was recorded, from the source or the proof shape; history, review labels and notes on what was read or checked are dropped, and open questions go in TODO_SUMMARY.md.`,
+    }[r.code];
+    err(f, 1, "edge-rationale", msg);
+  }
+
   if (isEdge) {
     for (const k of TYPES[fm.type].required) {
       if (fm[k] === undefined || fm[k] === null || fm[k] === "")
@@ -930,7 +968,7 @@ for (const { page, index, kind, target } of unresolvedConsequenceTargets(
     page.file,
     1,
     "edge-unresolved-id",
-    `consequences[${index}] has kind "reduction", so its target "${target}" must be the "id:" of a page under content/Reductions/. ${objectIds.has(target) ? `"${target}" is an object id; if the consequence is that object, use kind: object. ` : ""}If the reduction has no page yet, create one or state the consequence in the Notes. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
+    `consequences[${index}] has kind "reduction", so its target "${target}" must be the "id:" of a page under content/Reductions/. ${objectIds.has(target) ? `"${target}" is an object id; if the consequence is that object, use kind: object. ` : ""}If the reduction has no page yet, create one or state the consequence in the Statement. ${near.length ? `Did you mean: ${near.join(", ")}?` : ""}`,
   );
 }
 
@@ -942,6 +980,91 @@ for (const { page, index, entry } of unnamedConditions(pages, objectIds)) {
     1,
     "barrier-conditional-on",
     `conditional-on[${index}] ${JSON.stringify(entry)} is neither an object id nor multi-word free text. Name the assumption by the id of its node (conditional-on: [owf], or a variant id such as pke-cpa-security); describe it in words only when the wiki has no node for it. A property of the scheme the barrier is about is not an assumption: it belongs in the Statement.`,
+  );
+}
+
+// ----------------------------------------------- reduction / barrier body ----
+// The body states the result and nothing else: "# <title>", "## Statement",
+// then optional "## Sketch" and "## Notes". Why a field holds its value is
+// frontmatter `rationale`; maintenance history is git's (schema/README.md §
+// The page body).
+const SECTIONS_HINT = `${BODY_SECTIONS.map((h) => "## " + h).join(", ")}`;
+const DROP = `Delete it: git keeps the history. If it names work still to do, report that in TODO_SUMMARY.md or the review queue.`;
+const bodyMessage = (p, x) => {
+  const type = p.fm.type;
+  const title = String(p.fm.title ?? "<title>");
+  const m = JSON.stringify(x.match ?? "");
+  switch (x.rule) {
+    case "body-h1":
+      if (x.problem === "missing")
+        return `the body has no H1. A ${type} page opens with "# ${title}" (its frontmatter title), followed directly by "## Statement".`;
+      if (x.problem === "extra")
+        return `"# ${x.heading}" is a second H1. A ${type} page has exactly one H1, its title; its sections are H2s (${SECTIONS_HINT}).`;
+      return `the H1 "${x.heading}" differs from the frontmatter title "${x.title}". The H1 is the title: make them identical.`;
+    case "body-preamble":
+      return `text ${x.beforeH1 ? "before the H1" : 'between the H1 and "## Statement"'} ("${x.text}"). Delete it: the site renders the relation fields (kind, class, model, sources) in one line under the H1, and the Statement states the result. Move any mathematics it carries into the Statement.`;
+    case "body-statement":
+      return `no "## Statement" section. A ${type} page states its theorem under "## Statement" — precisely, in the wiki's notation, cited inline ([[KEY - Full Title|KEY]], or "— folklore") — then has optional ## Sketch and ## Notes.`;
+    case "body-sections":
+      if (x.problem === "unknown")
+        return `"## ${x.heading}" is not a ${type} section. The body has only ${SECTIONS_HINT}, in that order: a construction or theorem goes in the Statement, a short proof idea in the Sketch, a cited remark in the Notes.`;
+      if (x.problem === "duplicate")
+        return `"## ${x.heading}" appears twice. Merge the two sections.`;
+      if (x.problem === "order")
+        return `"## ${x.heading}" comes after "## ${x.after}". The order is ${SECTIONS_HINT}.`;
+      return `"## ${x.heading}" is empty. Omit the heading when there is nothing to say.`;
+    case "body-statement-source":
+      return x.entry === "folklore"
+        ? `source is "folklore", but the Statement carries no folklore flag. End the sentence stating the result with "— folklore" (or "— standard").`
+        : `the Statement does not cite the source ${x.entry}. Cite every paper in \`source\` inline where its result is stated, as [[KEY - Full Title|KEY]].`;
+    case "body-field-justification":
+      return `a paragraph opening with a frontmatter field (${m}) justifies the field in the body. Move a substantive reason into the frontmatter as one sentence,\n  rationale:\n    <field>: "<why this value>"\nand delete the paragraph. Stock sentences ("the source does not state which notion of reduction is meant", "the reduction-class axis does not apply") are dropped with no rationale entry. Mathematics in the paragraph a reader needs (a converse, a loss, a parameter caveat) moves to the Notes.`;
+    case "body-sourcing-pass":
+      return `sourcing-pass history (${m}) does not belong in a page body. ${DROP}`;
+    case "body-page-history":
+      return `page or migration history (${m}) does not belong in a page body. ${DROP} A misattribution a reader needs to know about stays only as a cited Notes remark about the mathematics.`;
+    case "body-slug-history":
+      return `the body discusses a slug or filename (${m}). Delete it: filenames are live URLs and are never renamed, the id is stable, and \`source\` and the Statement name the real source.`;
+    case "body-reported-not-fixed":
+      return `${m} is a review label. Delete it and report the item in TODO_SUMMARY.md or the review queue.`;
+    case "body-suspected-error":
+      return `a suspected-error note (${m}) is about the state of the wiki, not the mathematics. Delete it here and report it in TODO_SUMMARY.md or the review queue.`;
+    case "body-machine-label":
+      return `${m} is a machine-style label. Delete it; if it carried information, say it as a sentence about the mathematics ("the theorem needs both assumptions").`;
+    case "body-wiki-state":
+      return (
+        {
+          files: `${m} names a repository file, the schema or the wiki itself, not the mathematics. Keep any mathematics in the sentence, stated about the objects themselves, and drop the rest.`,
+          pages: `${m} is about a wiki page (its state, a section, a claim made on it), not the mathematics. Drop it; a missing page, a stub, or a claim elsewhere that looks wrong goes in TODO_SUMMARY.md.`,
+          review: `${m} belongs to the review process, not the page. Drop it and report the item in TODO_SUMMARY.md or the review queue.`,
+          model: `${m} describes how the graph records the result (nodes, ids, edges, typed fields), not the mathematics. Say any mathematics in it about the objects themselves (a parameter regime, a qualifier the result needs) and drop the rest: a modelling gap goes in TODO_SUMMARY.md, and why a field holds its value goes in rationale.`,
+          code: `${m} quotes an id or a field value in backticks. Name the object in words and link it on first mention ([[slug|Name]]); a field's value is frontmatter, and the reason for it is rationale.`,
+        }[x.hint] ??
+        `${m} describes the wiki (its files, pages, nodes, ids or schema), not the mathematics. Keep any mathematics in the sentence, stated about the objects themselves, and drop the rest; a missing page or node to add goes in TODO_SUMMARY.md.`
+      );
+    case "body-reading-notes":
+      return `${m} records what was read or checked. State the result as the source proves it, cite it, and drop the note; a claim that could not be confirmed is reported for review in TODO_SUMMARY.md rather than hedged on the page.`;
+    default:
+      return x.rule;
+  }
+};
+for (const p of pages) {
+  if (p.fm.type !== "reduction" && p.fm.type !== "barrier") continue;
+  for (const x of bodyContract(p.body, p.fm))
+    err(p.file, p.fmLines + x.line, x.rule, bodyMessage(p, x));
+}
+
+// A recorded class says why in `rationale.class`; only the stock cases go
+// without (schema/README.md § Recording why).
+const typeOfFile = new Map(pages.map((p) => [p.file, p.fm.type]));
+for (const { page, class: cls } of unjustifiedClasses(pages, CLASSES, (id) =>
+  typeOfFile.get(objectIds.get(id)?.file),
+)) {
+  warn(
+    page.file,
+    1,
+    "edge-rationale-class",
+    `class: ${cls} is recorded without a rationale.class. Say in one sentence why the source or the proof shape gives this class, e.g.\n  rationale:\n    class: "The construction uses the PRG only as an oracle, and the reduction runs the distinguisher only as an oracle."\nIf nothing justifies it, record class: unstated (schema/README.md § Which class to record).`,
   );
 }
 
@@ -1235,7 +1358,23 @@ const shownErrors = errors.filter(shown);
 const shownWarnings = warnings.filter(shown);
 for (const w of shownWarnings) console.log(`warning: ${w}`);
 for (const e of shownErrors) console.log(`error: ${e}`);
+const byRule = (msgs) =>
+  Object.entries(
+    msgs.reduce((acc, m) => {
+      const rule = /: \[([\w-]+)\]/.exec(m)?.[1] ?? "?";
+      acc[rule] = (acc[rule] ?? 0) + 1;
+      return acc;
+    }, {}),
+  )
+    .sort(([a], [b]) => a.localeCompare(b))
+    .map(([r, n]) => `${r} ${n}`)
+    .join(", ");
 console.log(
   `\n${pages.length} pages checked: ${shownErrors.length} error(s), ${shownWarnings.length} warning(s)`,
 );
-process.exit(shownErrors.length ? 1 : 0);
+if (shownErrors.length) console.log(`errors by rule: ${byRule(shownErrors)}`);
+if (shownWarnings.length)
+  console.log(`warnings by rule: ${byRule(shownWarnings)}`);
+// exitCode, not exit(): process.exit() can cut off stdout when it is a pipe
+// (CI logs, `| grep`), dropping errors from a long report.
+process.exitCode = shownErrors.length ? 1 : 0;

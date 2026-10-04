@@ -2,8 +2,10 @@
 
 These files are read by `scripts/lint.mjs` and by the `relations.json` emitter.
 They are the single source of truth for the values a `reduction` or `barrier`
-page may use. Editing a page is cheap; editing these files changes what the
-whole wiki is allowed to say, so change them deliberately.
+page may use, and this README is the contract for those pages: their fields,
+and what their body may say (§ Reduction and barrier pages). Editing a page is
+cheap; editing these files changes what the whole wiki is allowed to say, so
+change them deliberately.
 
 | File                     | Holds                                                                                        |
 | ------------------------ | -------------------------------------------------------------------------------------------- |
@@ -96,9 +98,10 @@ HPS98's NTRU encryption. The page keeps the construction linked from both
 endpoints, but the edge is not a theorem: `relations.json` carries the flag,
 `generate-relations.mjs --derive` and `--redundant` never fire the edge, and a
 consumer deriving consequences should skip it. There is no reduction to
-classify, so such a page records `class: unstated`, and its Notes carry a
-`` `heuristic: true`: `` line. The key is optional (absent means `false`); the
-lint requires a boolean and allows it only on reductions.
+classify, so such a page records `class: unstated`; its Statement says that the
+source gives no security reduction, and `rationale.heuristic` may say what is
+missing. The key is optional (absent means `false`); the lint requires a
+boolean and allows it only on reductions.
 
 ### Provenance: `source`
 
@@ -219,15 +222,14 @@ page's `id`, with the variant named:
 A reduction or barrier slug's paper suffix records the page's origin; `source`
 is authoritative. When the two disagree on a page that still states the same
 theorem, keep the filename (a live URL) and the `id` (`relations.json` and the
-formalization repo join on it) and add a Notes bullet naming the real source,
-e.g. "The `-gro16` slug suffix is historical; the source is GW11." An id names
-one theorem and never changes while the page states it. A page rewritten to
-state a different theorem (reversed direction, different conclusion, or a
-different source theorem) retires its id and takes
-`red-<hypotheses>-to-<conclusion>[-<source>]` (`bar-…` on a barrier), while
-the filename stays; refining a node on the same theorem keeps the id. The
-commit that retires an id names it (`docs/relations-json.md` § Stability
-contract).
+formalization repo join on it). The Statement cites the real source, and the
+body says nothing about the slug. An id names one theorem and never changes
+while the page states it. A page rewritten to state a different theorem
+(reversed direction, different conclusion, or a different source theorem)
+retires its id and takes `red-<hypotheses>-to-<conclusion>[-<source>]`
+(`bar-…` on a barrier), while the filename stays; refining a node on the same
+theorem keeps the id. The commit that retires an id names it
+(`docs/relations-json.md` § Stability contract).
 
 ## Reduction classes
 
@@ -323,21 +325,22 @@ models have no page.
   `model: quantum`.
 - **Hybrid models.** An ideal-functionality hybrid (a UC proof with an OT or
   commitment functionality) counts as `standard`, even when the source
-  instantiates a functionality in the random-oracle model; the Notes record
-  the instantiation, as on `ot-extension-to-mpc-with-preprocessing-spdz-etc`.
+  instantiates a functionality in the random-oracle model; `rationale.model`
+  records the instantiation, as on
+  `ot-extension-to-mpc-with-preprocessing-spdz-etc`.
 
 ### Which class to record
 
 - **The source states a class:** record it.
-- **The source is silent:** record `fully-black-box` when the Notes justify it
-  from the proof shape — one fixed construction that uses the hypotheses only
-  as oracles, and one fixed reduction that uses the adversary only as an
-  oracle and works for every adversary. When a hypothesis is a hardness
-  assumption, its problem plays the primitive's role: the construction uses
-  only its public sampler (a group or modulus generator), and the reduction
-  turns any adversary into a solver for it. An assumption-to-assumption edge
-  has no construction component; the shape is a reduction that uses an
-  arbitrary solver for the conclusion only as an oracle
+- **The source is silent:** record `fully-black-box` when the proof shape
+  justifies it — one fixed construction that uses the hypotheses only as
+  oracles, and one fixed reduction that uses the adversary only as an oracle
+  and works for every adversary — and say so in `rationale.class`. When a
+  hypothesis is a hardness assumption, its problem plays the primitive's role:
+  the construction uses only its public sampler (a group or modulus
+  generator), and the reduction turns any adversary into a solver for it. An
+  assumption-to-assumption edge has no construction component; the shape is a
+  reduction that uses an arbitrary solver for the conclusion only as an oracle
   (`content/Reductions/sivp-to-lwe-reg05.md`). Otherwise record `unstated`.
 - **The construction uses a hypothesis scheme's code** (bootstrapping
   evaluates the scheme's own decryption circuit; recursive SNARKs prove
@@ -345,30 +348,142 @@ models have no page.
   depends on the scheme's code, so no black-box class applies; `free` records
   only that the implication is proved.
 
-### The class note
+### Recording why: `rationale.class`
 
-The Notes of every reduction and barrier page carry a paragraph that opens
-`` `class: …`: `` and says why that class. Two cases have a fixed stock
-sentence:
+Why a page records its class is frontmatter data, `rationale.class` (§ Why a
+field holds its value), never a paragraph of the body. Two cases are stock and
+get no entry:
 
-| Case                                                                    | Stock sentence                                                                                                         |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `class: unstated`                                                       | `` `class: unstated`: the source does not state which notion of reduction is meant. ``                                 |
-| `class: free` on a containment between complexity classes (`inclusion`) | `` `class: free`: an unconditional containment between complexity classes; the reduction-class axis does not apply. `` |
+- `class: unstated` when the source is silent and nothing more is known;
+- `class: free` on an `inclusion` or `equivalence` between complexity classes,
+  or of a problem in a class (DLOG ∈ NP), where the reduction-class axis does
+  not apply.
 
-On an `equivalence` between complexity classes, "equality" replaces
-"containment"; when an endpoint is a problem rather than a class (DLOG ∈ NP),
-"containment of a problem in a complexity class" replaces "containment between
-complexity classes".
+Every other case gets one sentence. A recorded class (`fully-black-box`,
+`relativizing`, `free`, `fixed-construction`) gets the reason from the proof
+shape or the source:
 
-The `unstated` stock line stands alone only when the source is silent and
-nothing more is known. When the source states a notion outside the vocabulary
-(a query bound, non-adaptivity, a UC hybrid model), or there is a substantive
-reason no class is recorded (a formalization-dependent claim, an efficiency
-requirement outside the RTV04 axes, a proof scoped to an idealised model that
-no source classifies), follow it with one sentence giving that reason. A
-recorded class (`fully-black-box`, `free`, `fixed-construction`) gets one or
-two sentences justifying it from the proof shape or the source.
+```yaml
+class: fully-black-box
+rationale:
+  class: "The reduction calls the factoring algorithm once as an oracle and never uses its code."
+```
+
+An `unstated` class gets one when the source states a notion outside the
+vocabulary (a query bound, non-adaptivity, a UC hybrid model), or when there is
+a substantive reason no class is recorded (a formalization-dependent claim, an
+efficiency requirement outside the RTV04 axes, a proof scoped to an idealised
+model that no source classifies). The sentence gives that reason alone: "BL13
+rule out black-box reductions of constant query complexity, and the vocabulary
+has no query-bounded class." The lint warns when a class other than `unstated`
+has no `rationale.class`, the stock `free` case excepted
+(`edge-rationale-class`).
+
+## Reduction and barrier pages
+
+A reduction page states the reduction, cites it, and, for a simple reduction,
+gives the idea of the proof. A barrier page does the same for the barrier. Why a
+field holds its value is frontmatter data. The site renders the relation fields
+(a reduction's kind, class and model; a barrier's strength and class) and the
+sources in one line under the H1, so the body does not restate them. `content/Templates/Reduction.md` and
+`content/Templates/Barrier.md` are the starting points; `CONTRIBUTING.md` has a
+worked example of each.
+
+### The page body
+
+In this order:
+
+1. **`# <title>`**, the H1, identical to frontmatter `title`. Nothing sits
+   between it and `## Statement`: no intro sentence restating the edge.
+2. **`## Statement`**, required. The theorem, precisely, in the wiki's
+   notation: quantifiers matching the formal definitions (for all efficient
+   $\calA$), the parameter regime, and the hypothesis and conclusion linked on
+   first mention to their canonical page or anchor. Every result is cited
+   inline where it is stated (`[[KEY - Full Title|KEY]]`, or _— folklore_ /
+   _— standard_), so the Statement cites every `source` entry. With several
+   sources, each is cited for its contribution; a later work that made the
+   result concrete, tight or more general gets one short sentence with its
+   citation. A barrier's Statement says which reductions (class, hypotheses,
+   conclusion) cannot exist unless its consequence holds; an oracle separation
+   names its oracle, and a fixed-construction barrier names the construction.
+3. **`## Sketch`**, optional. Only for a simple or standard argument that can
+   be stated correctly without the paper: one to three sentences, a pseudocode
+   block following `CLAUDE.md` § Pseudocode Blocks, or both. No sketch for a
+   complex result, and never a paraphrase of the paper's abstract.
+4. **`## Notes`**, optional. Reader-facing mathematical remarks, each cited or
+   flagged folklore: the converse (known, open, false); tightness or security
+   loss in words; parameter caveats; the relation to a neighbouring result; an
+   attribution fact a cryptographer needs ("ElGamal85 predates the DDH
+   assumption; TY98 prove IND-CPA under DDH"). The heading is omitted when
+   there is nothing to say.
+5. A `<!-- BEGIN GENERATED … -->` region, if the page has one, stays untouched.
+
+### Why a field holds its value: `rationale`
+
+`rationale` is an optional mapping on reduction and barrier pages. Each key
+names a frontmatter field the page sets, one of the typing decisions below;
+each value is one sentence, a single-line string with no TODO, saying why that
+value was recorded. Stock sentences get no entry (§ Recording why:
+`rationale.class`), and neither does history, a review label or a note on what
+was read or checked: the body's rules for those (`body-sourcing-pass`,
+`body-page-history`, `body-slug-history`, `body-reported-not-fixed`,
+`body-suspected-error`, `body-machine-label`, `body-reading-notes`) apply to
+each value. The endpoints, `consequences` and `circumvented-by` take no
+rationale; a remark about them a reader needs is a Notes bullet, and a
+modelling gap goes to `TODO_SUMMARY.md`. The lint checks all of this
+(`edge-rationale`) and rejects the key on any other page type.
+
+| Page type   | Keys                                                                    |
+| ----------- | ----------------------------------------------------------------------- |
+| `reduction` | `kind`, `class`, `model`, `source`, `via`, `heuristic`, `security-loss` |
+| `barrier`   | `class`, `strength`, `conditional-on`, `oracle`, `source`               |
+
+```yaml
+model: rom
+rationale:
+  model: "The reduction programs the random oracle to simulate signatures and rewinds the forger to extract the discrete logarithm."
+```
+
+`relations.json` carries the mapping on each reduction and barrier as
+`rationale`, keyed by the record's own field names (`securityLoss`,
+`conditionalOn`; `docs/relations-json.md`). It is data for
+consumers; the page body does not repeat it.
+
+### What stays out of the body
+
+The lint rejects each of these on a reduction or barrier page, under the rule
+named after it:
+
+- **Field justifications** (`body-field-justification`): a paragraph or bullet
+  opening with a frontmatter field in backticks, `` `class: …`: ``,
+  `` `model: …` — ``, `` `heuristic: true` because ``. A substantive reason
+  becomes `rationale.<field>`; a stock sentence is dropped; mathematics a
+  reader needs (a converse, a loss, a parameter caveat) moves to the Notes.
+- **Maintenance history** (`body-sourcing-pass`, `body-page-history`,
+  `body-slug-history`): sourcing passes, migrations, what the page used to
+  record, slug, filename and id history. Git keeps it.
+- **Notes about the wiki rather than the mathematics** (`body-wiki-state`,
+  `body-suspected-error`, `body-reported-not-fixed`): repository files and the
+  schema; wiki pages, their sections and their state (a stub, a missing page,
+  an uncited or over-claimed statement on another page); the review process
+  (the fact-check queue, the skeptical-checker, an instruction to change the
+  conclusion); how the graph records the result (nodes, ids, "this edge",
+  "the flat hypothesis", the target model, modelling gaps); anything in
+  backticks, which on these pages is always an id or a field value — name the
+  object and link it instead; suspected errors on other pages; review labels
+  such as "(reported, not fixed)".
+- **Reading notes** (`body-reading-notes`): what was or was not checked, what
+  an abstract says.
+- **Machine-style labels** (`body-machine-label`): GENUINELY CONJUNCTIVE,
+  COLLIDING IDENTIFIERS, and the same labels in sentence case ("Conjunctive:").
+
+A preamble is reported once, as `body-preamble`, and not scanned again. Any of
+these that names work still to do goes to `TODO_SUMMARY.md` or the review
+queue; pure history is dropped. The structure itself is checked by
+`body-h1` (one H1, equal to `title`), `body-preamble` (nothing before the
+Statement), `body-statement`, `body-sections` (only Statement, Sketch, Notes,
+once each, in order, none empty) and `body-statement-source` (the Statement
+cites every `source` entry).
 
 ## Adding to these files
 

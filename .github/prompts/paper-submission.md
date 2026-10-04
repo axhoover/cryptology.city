@@ -115,13 +115,14 @@ Default to the **smallest correct change**. Concretely:
      paper.
   3. **Never invent a class.** `class` comes from
      `schema/reduction-classes.yaml`. Use `unstated` unless the paper itself
-     says which notion of reduction it means, or the Notes justify
-     `fully-black-box` from the proof shape; a barrier refuting one named
-     construction (the identity map, Fiat–Shamir) is `fixed-construction`.
-     `schema/README.md` § Reduction classes has the rule and the stock
-     class-note sentences. `black-box` and `non-black-box` are rejected
-     values — the lint names the notion to use.
-     Idealized models (ROM, generic group, AGM) go in `model`, never `class`.
+     says which notion of reduction it means, or the proof shape justifies
+     `fully-black-box`; a barrier refuting one named construction (the
+     identity map, Fiat–Shamir) is `fixed-construction`. Say why in one
+     sentence in the frontmatter `rationale.class`; `schema/README.md` §
+     Recording why lists the two stock cases that get no entry. `black-box`
+     and `non-black-box` are rejected values — the lint names the notion to
+     use. Idealized models (ROM, generic group, AGM) go in `model`, never
+     `class`.
   4. **Every endpoint must already resolve.** `hypotheses` and `conclusion`
      are object ids — a page `id` or a `variants` key that already exists in
      the repo. If the paper's result relates an object the wiki has no id
@@ -135,6 +136,19 @@ Default to the **smallest correct change**. Concretely:
   `[[<KEY> - <Full Title>|<KEY>]]`, copied byte-for-byte from the filename.
   Never `standard`; `folklore` only when the paper attributes a result to no
   one, which for a submitted paper's own results is never.
+
+  Start each page from `content/Templates/Reduction.md` or
+  `content/Templates/Barrier.md`. The body is `# <title>` (identical to
+  `title`), then `## Statement` — the theorem as the paper states it, cited
+  inline — then an optional `## Sketch` (one to three sentences, a pseudocode
+  block, or both, only for a simple argument you can state correctly; never a
+  paraphrase of the abstract) and an optional `## Notes` (cited mathematical
+  remarks only). Nothing else: no intro sentence above the Statement, no
+  paragraph justifying a field (that is one sentence in the frontmatter
+  `rationale`), no note on what you checked, what the abstract says, or which
+  wiki pages are missing — those go in the PR description. `schema/README.md` §
+  Reduction and barrier pages is the contract, and `npm run lint` rejects each
+  violation by name.
 
   `status: draft` when you have the theorem in front of you; `status: stub`
   when you are transcribing a result the paper only states in passing.
