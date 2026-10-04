@@ -6,7 +6,8 @@ quartz/.quartz-cache/
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 
-# Track the project skill; keep personal Claude state ignored
+# Track the project skills and saved workflows; keep personal Claude state ignored
 !.claude/
 .claude/*
 !.claude/skills/
+!.claude/workflows/
