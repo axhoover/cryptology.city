@@ -48,7 +48,7 @@ export function sectionDefaults(key, round, count) {
       title: "Proposals",
       kind: "proposal",
       bulk: true,
-      help: `<b>${plural(count, "proposed change")}</b>: findings of the round-${round} audit that two independent verifiers confirmed, and undecided proposals from earlier rounds. <b>Approve</b> runs the proposal as written; <b>Approve with changes</b> runs it with your note applied; <b>Reject</b> drops it, and later audits do not raise it again unless the page changes.`,
+      help: `<b>${plural(count, "proposed change")}</b>: findings of the round-${round} audit (and of the review inbox, marked <b>from the inbox</b>) that two independent verifiers confirmed, and undecided proposals from earlier rounds. <b>Approve</b> runs the proposal as written; <b>Approve with changes</b> runs it with your note applied; <b>Reject</b> drops it, and later audits do not raise it again unless the page changes.`,
     };
   if (key === "paper")
     return {
@@ -57,7 +57,7 @@ export function sectionDefaults(key, round, count) {
       kind: "proposal",
       bulk: false,
       filter: "all",
-      help: `<b>${plural(count, "item")} that need a claim checked against a paper</b>, which the routine's environment could not reach. Claude does the approved ones once the paper hosts are reachable (environment settings → Network access). If you read a paper yourself, choose <b>Approve with changes</b> and write what it says; Claude applies that instead. <b>Reject</b> drops the check.`,
+      help: `<b>${plural(count, "item")} that need a claim checked against a paper</b>, which the routine's environment could not reach. Claude does the approved ones once the paper hosts are reachable (environment settings → Network access). If you read a paper yourself, choose <b>Approve with changes</b> and write what it says; Claude applies that instead. <b>Reject</b> drops the check. A check marked <b>not verified</b> came from the review inbox and skipped the verifiers for the same reason.`,
     };
   throw new Error(`unknown section ${key}`);
 }
@@ -159,6 +159,9 @@ export function summarizeOutcome(rec) {
   const fresh = (i) => i.origin === rec.round || i.applied_in === rec.round;
   const newIn = (section) =>
     items.filter((i) => i.section === section && i.origin === rec.round).length;
+  const inboxCount = (outcome) =>
+    ((rec.inbox && rec.inbox.items) || []).filter((i) => i.outcome === outcome)
+      .length;
   const parts = [
     [decided("applied"), "decided item applied", "decided items applied"],
     [decided("partial"), "applied in part"],
@@ -183,6 +186,16 @@ export function summarizeOutcome(rec) {
       (rec.overflow || []).length,
       "finding over the cap (logged for the next round)",
       "findings over the cap (logged for the next round)",
+    ],
+    [
+      inboxCount("dropped"),
+      "inbox item dropped (refuted, or a duplicate)",
+      "inbox items dropped (refuted, or duplicates)",
+    ],
+    [
+      inboxCount("unaccounted"),
+      "inbox item not reported on (offered again next round)",
+      "inbox items not reported on (offered again next round)",
     ],
   ];
   return (

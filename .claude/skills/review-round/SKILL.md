@@ -1,6 +1,6 @@
 ---
 name: review-round
-description: Run one monthly review round of the cryptology.city wiki — apply the decisions the maintainer marked on the review page, audit every page changed on main since the last round plus a rotating slice of the rest, deliver the round's changes as one pull request, and republish the review page with the round's history. Use when the monthly routine fires ("run the review-round skill"), or when the maintainer asks to run a review round or to apply review decisions.
+description: Run one monthly review round of the cryptology.city wiki — apply the decisions the maintainer marked on the review page, audit every page changed on main since the last round plus a rotating slice of the rest, verify the findings waiting in the review inbox, deliver the round's changes as one pull request, and republish the review page with the round's history. Use when the monthly routine fires ("run the review-round skill"), or when the maintainer asks to run a review round or to apply review decisions.
 ---
 
 # Review round
@@ -26,8 +26,17 @@ Rules for the whole round:
   for new ones; carried items keep theirs, including the older `fu:`/`fu2:`
   ids), so decisions in the artifact's database stay attached. Never renumber.
 - **No silent caps.** Whatever a step leaves undone (a failed group, findings
-  over the cap, an unaudited batch) is carried to the next round by the
-  scripts and named in the PR body and the report.
+  over the cap, an unaudited batch, an inbox item the audit did not report
+  on) is carried to the next round by the scripts and named in the PR body
+  and the report.
+- **The inbox is input, not a to-do list.** Findings raised outside the
+  pipeline (a one-off pass such as the final-form rewrite, a bot, the
+  maintainer) wait in `.review/inbox/*.json` and go through the same
+  verification as the audit's findings (§ 2, steps 2–5), except that a
+  paper check while the paper hosts are unreachable goes to Needs the
+  paper unverified, for the maintainer to decide; never apply one
+  directly. Never edit, delete or move an inbox file by hand: the record
+  step moves the files the round consumed to `.review/inbox/done/`.
 - `CLAUDE.md` and the `city-style` skill govern every wiki edit. Never edit
   `.orchestrator/state/`; `.fact-check/queue.json` changes only as
   `CLAUDE.md` § State files says (a changed claim on a `human_verified` page
@@ -148,21 +157,38 @@ Rules for the whole round:
    with `<`, nothing counts as changed and only the rotation slice is
    audited: the output's `notes` say so; repeat the note in the PR body and
    the report. Step 5 records the `main` commit this round audited.
-2. `node scripts/review/round.mjs known --round <n>` writes
+2. `node scripts/review/round.mjs inbox --round <n> --paper <PAPER>` reads
+   the review inbox (`.review/inbox/*.json`, format in `.review/README.md`
+   § The inbox) and last round's inbox findings over the cap, and writes
+   the items to offer under `.review/work/round-<n>/inbox/`. It prints
+   `inbox` (the `review-audit` argument, or `null` when there is nothing to
+   offer), the files with their counts, `invalid` (files it left untouched:
+   name each, with its errors, in the PR body and the report; the next
+   round reads them again) and `skipped` (items an earlier round already
+   settled). A `needs_paper` item while PAPER is `unreachable` goes
+   straight to Needs the paper, unverified; every other item goes to the
+   verifiers with the audit's findings.
+3. `node scripts/review/round.mjs known --round <n>` writes
    `.review/work/round-<n>/known.json`: the items still open, the items the
-   maintainer rejected, and last round's findings over the cap.
-3. Run the `review-audit` workflow with
-   `args = {repo, round: <n>, batches: <scope.json's batches>, paper_reachable}`.
-   One auditor per batch, two adversarial verifiers per finding (a finding
-   is kept when both confirm, or one confirms and the other is unsure, at
-   low confidence), and a consolidator that drops duplicates of open items
-   and repeats of rejected ones unless the page changed since. It writes
+   maintainer rejected, last round's audit findings over the cap, and this
+   round's inbox items.
+4. Run the `review-audit` workflow with
+   `args = {repo, round: <n>, batches: <scope.json's batches>, paper_reachable, inbox: <the inbox field step 2 printed>}`
+   (leave `inbox` out when step 2 printed `"inbox": null`; otherwise pass
+   that field's value, `{dir, verify, paper}`, as a JSON object, not a
+   string). One auditor per batch, two adversarial verifiers per finding
+   (a finding is kept when both confirm, or one confirms and the other is
+   unsure, at low confidence; inbox findings start no auditor and are
+   judged by the same rule), and a consolidator that merges inbox findings
+   with duplicate audit findings, drops duplicates of open items and
+   repeats of rejected ones unless the page changed since, and passes the
+   unverified paper checks through deduplicated. It writes
    `.review/work/round-<n>/audit/consolidated.json`. Then:
    - If the result lists `failed_batches`, save that array to
      `.review/work/round-<n>/audit/failed.json` (their pages are audited
      next round).
    - If it says the file could not be written, write
-     `{"findings": <findings_if_unwritten>, "unverified": <unverified_if_unwritten>}`
+     `{"findings": <findings_if_unwritten>, "unverified": <unverified_if_unwritten>, "dropped": <dropped_if_unwritten>, "paper_unverified": <paper_unverified_if_unwritten>}`
      there yourself.
    - If the workflow errors, relaunch it once with `resumeFromRunId`, as in
      step 1.5 (`.claude/workflows/review-audit.js`). If it errors again, or
@@ -170,12 +196,20 @@ Rules for the whole round:
      (`node -e 'JSON.parse(require("fs").readFileSync(process.argv[1]))' <file>`),
      write `{"findings": [], "unverified": []}` there and save every batch to
      `failed.json`: the audit is deferred to the next round, not lost; say
-     so in the PR body and the report.
-4. `node scripts/review/round.mjs findings --round <n> --cap <state.proposal_cap, default 40>`.
-   It numbers the findings (`r<n>:<kind>-<k>`), keeps the top proposals by
-   severity under the cap and logs the rest as overflow for the next round,
-   and writes the mechanical-fix groups to `.review/work/round-<n>/fixes/`.
-5. If it printed fix groups, run `review-apply` again with `step: "fixes"`
+     so in the PR body and the report. The inbox items are then not
+     reported on: their files stay in the inbox, and those carried over
+     last round's cap stay in the overflow, for the next round.
+5. `node scripts/review/round.mjs findings --round <n> --cap <state.proposal_cap, default 40>`.
+   It numbers the audit findings (`r<n>:<kind>-<k>`; inbox findings keep
+   their id), keeps the top proposals and paper checks by severity under
+   the cap, inbox findings included, and logs the rest as overflow for the
+   next round, accounts for every inbox item (`inbox` in its output:
+   shown, merged, overflow, dropped, unaccounted; `inbox_files`: the files
+   the record step will move to `done/`, keep, or leave as invalid), and
+   writes the mechanical-fix groups to `.review/work/round-<n>/fixes/`. If
+   it notes inbox items the audit did not report on, say so in the PR body
+   and the report (the next round offers them again).
+6. If it printed fix groups, run `review-apply` again with `step: "fixes"`
    and those groups. Mechanical fixes (lint errors, broken links, typos,
    macro use) are applied directly and listed on the page for spot-check;
    one an executor finds not clear-cut becomes a proposal instead. Handle
@@ -207,8 +241,12 @@ ROUND_BASE is not this round's: note it in the PR body and leave it.
    instead of opening a second one. Body: the review page link;
    counts of what was applied (decided items applied, in part, already done,
    kept, amended, reverted, dropped), mechanical fixes, new proposals and
-   paper checks, carried items; every item skipped or not finished, with
-   its reason; validation results; and, when START was an unmerged review
+   paper checks (and how many of them came from the inbox, and how many
+   of those are unverified), carried items; the inbox (items offered,
+   shown, merged, dropped, over the cap, not reported on; files consumed,
+   kept, invalid, from `findings`' `inbox_files`); every item skipped or
+   not finished, with its reason;
+   validation results; and, when START was an unmerged review
    branch, that this PR includes that round's commits (and should be merged
    after that round's PR, if it has one). Read the counts from `.review/work/round-<n>/plan.json`, the
    workflow results and `findings.json`.
@@ -217,12 +255,18 @@ ROUND_BASE is not this round's: note it in the PR body and leave it.
 
 1. `node scripts/review/round.mjs record --round <n> --scope .review/work/round-<n>/scope.json --paper <PAPER> --branch review/round-<n> [--pr <PR url>]`.
    It writes `.review/rounds/<n>.json` (every card the page shows: what was
-   applied, proposals, paper checks, carried items under their ids), the
-   previous record's outcomes, and `.review/state.json` (`last_round`,
+   applied, proposals, paper checks, carried items under their ids; and
+   under `inbox`, what became of every inbox item), the previous record's
+   outcomes, and `.review/state.json` (`last_round`,
    `last_audited_commit` = the main commit audited, the advanced rotation
-   cursor, pages to carry).
-2. Commit `.review/state.json` and `.review/rounds/` (stage those paths)
-   as `review round <n>: record and state`, and push the branch.
+   cursor, pages to carry). Once those are written it moves every inbox
+   file the round consumed (each of its items accounted for) to
+   `.review/inbox/done/`, and prints the files it moved and the ones it
+   kept. Running it again in the same round moves nothing twice.
+2. Commit `.review/state.json`, `.review/rounds/` and `.review/inbox/`
+   (stage those paths: `git add .review/state.json .review/rounds .review/inbox`
+   also records the moves) as
+   `review round <n>: record and state`, and push the branch.
 3. `node scripts/review/build-page.mjs --out .review/work/round-<n>/review.html`.
 4. Publish it: `Artifact` publish with `url` = state's `artifact` and
    `file_path` = that file; no `capabilities` (the page keeps its `db`), no
@@ -243,6 +287,7 @@ the Rounds table with one row per round.
 
 End with a short summary for the maintainer: the round number, the PR link
 (or "no wiki changes, no PR"), the review page link, the counts (applied,
-mechanical fixes, new proposals, paper checks, carried, over the cap), the
-paper hosts' reachability, and every failure or skipped item with its
-reason.
+mechanical fixes, new proposals, paper checks, carried, over the cap, and
+the inbox's: offered, shown, dropped, not reported on, files moved to
+`done/`), the paper hosts' reachability, and every failure, skipped item
+or invalid inbox file with its reason.

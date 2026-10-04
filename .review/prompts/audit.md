@@ -12,8 +12,9 @@ and barrier pages is the page contract; § Reduction classes for `class` and
 
 Inputs (in your prompt): the batch's pages, `known.json` (items already open
 on the review page, items the maintainer rejected, findings carried from the
-last round), and whether the paper hosts (eprint, arXiv, doi.org, Springer)
-are reachable.
+last round, and under `inbox` the findings raised outside the pipeline that
+this round verifies), and whether the paper hosts (eprint, arXiv, doi.org,
+Springer) are reachable.
 
 ## What to look for, page by page
 
@@ -49,9 +50,10 @@ frontmatter). "Could be clearer" is not a finding. Do not report text inside
 `<!-- BEGIN GENERATED … -->` regions: report its source page instead.
 
 Do not raise what `known.json` already covers: an open item about the same
-problem, or a rejected item, unless the page changed since that item's
-`since` commit (`git log --oneline <since>..HEAD -- <page>`) in a way that
-bears on it. Do not re-litigate a decision: an open item whose `action` is
+problem, an inbox item about the same problem (`known.inbox`: the verifiers
+judge it this round), or a rejected item, unless the page changed since
+that item's `since` commit (`git log --oneline <since>..HEAD -- <page>`) in
+a way that bears on it. Do not re-litigate a decision: an open item whose `action` is
 `execute`, `amend`, `revert` or `keep` was decided by the maintainer, and a
 finding that would undo or rework what it does is not raised. If the change
 as executed departs from what the item asked, or is wrong in a way the item

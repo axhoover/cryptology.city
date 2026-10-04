@@ -419,6 +419,207 @@ test("review-audit: with no consolidator at all, the result carries the findings
   assert.deepEqual(result.unverified_if_unwritten, []);
 });
 
+const inboxArgs = {
+  ...auditArgs,
+  batches: [auditArgs.batches[0]],
+  inbox: {
+    dir: "/r/.review/work/round-3/inbox",
+    verify: [
+      { id: "ffr:keep", confidence: "high" },
+      { id: "ffr:gone", confidence: "high" },
+      { id: "ffr:low", confidence: "medium" },
+    ],
+    paper: ["ffr:paper"],
+  },
+};
+
+test("review-audit: inbox findings take the two verifiers without an auditor; paper checks skip them", async () => {
+  const verdict: Record<string, Record<string, unknown>> = {
+    "inbox:ffr:keep:claim": {
+      verdict: "confirm",
+      confidence: "high",
+      note: "real",
+    },
+    "inbox:ffr:keep:change": {
+      verdict: "confirm",
+      confidence: "high",
+      note: "ok",
+      corrected_change: "better",
+    },
+    "inbox:ffr:gone:claim": {
+      verdict: "refute",
+      confidence: "high",
+      note: "fixed since",
+    },
+    "inbox:ffr:gone:change": {
+      verdict: "confirm",
+      confidence: "high",
+      note: "ok",
+    },
+    "inbox:ffr:low:claim": {
+      verdict: "confirm",
+      confidence: "high",
+      note: "real",
+    },
+    "inbox:ffr:low:change": {
+      verdict: "unsure",
+      confidence: "low",
+      note: "paper",
+    },
+  };
+  let consPrompt = "";
+  const { result, calls } = await run(AUDIT, inboxArgs, (prompt, o) => {
+    if (o.label === "audit:b01")
+      return { batch: "b01", pages_read: 1, findings: [finding("keep")] };
+    if (o.label.startsWith("verify:inbox:"))
+      return verdict[o.label.slice("verify:".length)];
+    if (o.label.startsWith("verify:"))
+      return { verdict: "confirm", confidence: "high", note: "ok" };
+    if (o.label === "consolidate") {
+      consPrompt = prompt;
+      return { findings: 3, dropped: 1, file: "f" };
+    }
+    return null;
+  });
+  // one auditor (the inbox has none), two verifiers per finding, no paper verifier
+  assert.deepEqual(
+    calls.filter((c) => c.label.startsWith("audit:")).map((c) => c.label),
+    ["audit:b01"],
+  );
+  assert.equal(calls.filter((c) => c.label.startsWith("verify:")).length, 8);
+  assert.ok(
+    !calls.some(
+      (c) => c.label.includes("ffr:paper") && c.label.startsWith("verify:"),
+    ),
+  );
+  const v = calls.find(
+    (c) => c.label === "verify:inbox:ffr:keep:claim",
+  )!.prompt;
+  assert.match(v, /The finding \(inbox:ffr:keep\)/);
+  assert.match(v, /\/r\/\.review\/work\/round-3\/inbox\/ffr:keep\.json/);
+  assert.match(v, /§ Inbox findings of audit-verify\.md/);
+  assert.match(v, /CLAIM lens/);
+  // the same keep/drop rule as audit findings
+  const kept = JSON.parse(
+    consPrompt
+      .split("Findings that survived verification (3):\n")[1]
+      .split("\n\n")[0],
+  );
+  const by = Object.fromEntries(kept.map((f: { key: string }) => [f.key, f]));
+  assert.deepEqual(Object.keys(by).sort(), [
+    "b01:1",
+    "inbox:ffr:keep",
+    "inbox:ffr:low",
+  ]);
+  assert.equal(by["inbox:ffr:keep"].inbox, "ffr:keep");
+  assert.equal(
+    by["inbox:ffr:keep"].file,
+    "/r/.review/work/round-3/inbox/ffr:keep.json",
+  );
+  assert.deepEqual(by["inbox:ffr:keep"].corrected_changes, ["better"]);
+  assert.equal(by["inbox:ffr:keep"].confidence, "high");
+  assert.equal(by["inbox:ffr:low"].confidence, "low");
+  assert.equal(
+    by["inbox:ffr:low"].summary,
+    undefined,
+    "the item's text stays in its file",
+  );
+  const paper = JSON.parse(
+    consPrompt
+      .split('write the rest into "paper_unverified" as given:\n')[1]
+      .split("\n\n")[0],
+  );
+  assert.deepEqual(paper, [
+    {
+      inbox: "ffr:paper",
+      file: "/r/.review/work/round-3/inbox/ffr:paper.json",
+      sources: ["inbox:ffr:paper"],
+    },
+  ]);
+  const dropped = JSON.parse(
+    consPrompt
+      .split('copy them verbatim into "dropped":\n')[1]
+      .split("\n\n")[0],
+  );
+  assert.equal(dropped.length, 1);
+  assert.equal(dropped[0].source, "inbox:ffr:gone");
+  assert.match(
+    dropped[0].reason,
+    /^refuted or not confirmed by the verifiers: .*fixed since/,
+  );
+  assert.deepEqual(result.inbox, {
+    verified: 3,
+    kept: 2,
+    dropped: 1,
+    unverified: 0,
+    paper_unverified: 1,
+  });
+  assert.deepEqual(result.failed_batches, []);
+  assert.deepEqual(
+    result.dropped_by_verifiers.map((d: { key: string }) => d.key),
+    ["inbox:ffr:gone"],
+  );
+});
+
+test("review-audit: without a consolidator, the inbox's dropped items and paper checks are in the result", async () => {
+  let fallback = "";
+  const { result } = await run(
+    AUDIT,
+    { ...inboxArgs, batches: [] },
+    (prompt, o) => {
+      if (o.label.startsWith("verify:"))
+        return { verdict: "refute", confidence: "high", note: "no" };
+      if (o.label === "consolidate:fallback") fallback = prompt;
+      return null;
+    },
+  );
+  assert.match(fallback, /"paper_unverified": <the paper list below>/);
+  assert.match(fallback, /dropped 3\)/);
+  assert.equal(result.file, "");
+  assert.equal(result.dropped_if_unwritten.length, 3);
+  assert.deepEqual(
+    result.paper_unverified_if_unwritten.map((p: { inbox: string }) => p.inbox),
+    ["ffr:paper"],
+  );
+});
+
+test("review-audit: bad inbox args are refused, and no inbox leaves the prompts as they were", async () => {
+  await assert.rejects(
+    run(
+      AUDIT,
+      { ...auditArgs, inbox: { dir: "/d", verify: "x", paper: [] } },
+      () => null,
+    ),
+    /args\.inbox must be/,
+  );
+  await assert.rejects(
+    run(
+      AUDIT,
+      { ...auditArgs, inbox: { dir: "/d", verify: [{}], paper: [] } },
+      () => null,
+    ),
+    /args\.inbox must be/,
+  );
+  let consPrompt = "";
+  const { result } = await run(
+    AUDIT,
+    { ...auditArgs, batches: [auditArgs.batches[0]] },
+    (prompt, o) => {
+      if (o.label === "audit:b01")
+        return { batch: "b01", pages_read: 1, findings: [finding("keep")] };
+      if (o.label.startsWith("verify:"))
+        return { verdict: "confirm", confidence: "high", note: "ok" };
+      if (o.label === "consolidate") {
+        consPrompt = prompt;
+        return { findings: 1, dropped: 0, file: "f" };
+      }
+      return null;
+    },
+  );
+  assert.equal(result.inbox, null);
+  assert.ok(!/inbox/.test(consPrompt));
+});
+
 test("review-audit: the verification limit leaves room in the 1000-agent cap", () => {
   const src = fs.readFileSync(AUDIT, "utf8");
   const m = /const VERIFY_LIMIT = ([\s\S]*?);\n/.exec(src);

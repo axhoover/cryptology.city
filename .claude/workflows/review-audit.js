@@ -1,7 +1,7 @@
 export const meta = {
   name: "review-audit",
   description:
-    "Audit a cryptology.city review round's pages in batches: one auditor per batch finds concrete problems with an exact fix, two independent adversarial verifiers judge every finding, and a consolidator dedupes against the open and rejected items; read-only on the wiki",
+    "Audit a cryptology.city review round's pages in batches: one auditor per batch finds concrete problems with an exact fix, findings from the review inbox join them, two independent adversarial verifiers judge every finding, and a consolidator dedupes against the open and rejected items; read-only on the wiki",
   whenToUse:
     "Step 2 of the review-round skill (.claude/skills/review-round/SKILL.md), on the batches scripts/review/select-pages.mjs printed",
   phases: [
@@ -9,7 +9,7 @@ export const meta = {
     {
       title: "Verify",
       detail:
-        "two adversarial verifiers per finding: the claim lens and the change lens",
+        "two adversarial verifiers per finding, audit or inbox: the claim lens and the change lens",
     },
     {
       title: "Consolidate",
@@ -24,9 +24,15 @@ export const meta = {
 //   round: n,
 //   batches: [{ batch: 'b01', pages: ['content/...'] }] as printed by select-pages.mjs,
 //   paper_reachable: boolean,
+//   inbox: {dir, verify: [{id, confidence}], paper: [id]} as printed by
+//     round.mjs inbox (optional; omit it when that printed null),
 // }
-// Reads .review/work/round-<n>/known.json (round.mjs known); writes
-// .review/work/round-<n>/audit/consolidated.json (through the consolidator).
+// Reads .review/work/round-<n>/known.json (round.mjs known) and the inbox
+// items under inbox.dir; writes .review/work/round-<n>/audit/consolidated.json
+// (through the consolidator). Inbox findings skip the auditors and go through
+// the same two verifiers and the same keep/drop rule as audit findings; the
+// paper checks in inbox.paper (paper hosts unreachable) skip the verifiers
+// and reach the consolidator unverified, for deduplication only.
 const A = args || {};
 if (!A.repo || !A.round || !Array.isArray(A.batches))
   throw new Error(
@@ -44,10 +50,44 @@ if (A.batches.length > 150)
   throw new Error(
     `${A.batches.length} batches: split the audit into runs of at most 150`,
   );
+const IN = A.inbox || null;
+const inboxId = (x) => (typeof x === "string" ? x : x && x.id);
+if (
+  IN &&
+  (typeof IN.dir !== "string" ||
+    !Array.isArray(IN.verify) ||
+    !Array.isArray(IN.paper) ||
+    ![...IN.verify, ...IN.paper].every(
+      (x) => typeof inboxId(x) === "string" && inboxId(x),
+    ))
+)
+  throw new Error(
+    "review-audit: args.inbox must be {dir, verify: [{id, confidence}], paper: [id]} as round.mjs inbox printed it",
+  );
+const inboxFile = (id) => `${IN.dir}/${id}.json`;
+// an inbox finding travels as its key, its file and its confidence; the
+// verifiers and the consolidator read the rest from the file
+const INBOX = IN
+  ? IN.verify.map((x) => ({
+      key: `inbox:${inboxId(x)}`,
+      inbox: inboxId(x),
+      file: inboxFile(inboxId(x)),
+      confidence: (x && x.confidence) || "medium",
+      mechanical: false,
+    }))
+  : [];
+const INBOX_PAPER = IN
+  ? IN.paper.map((x) => ({
+      inbox: inboxId(x),
+      file: inboxFile(inboxId(x)),
+      sources: [`inbox:${inboxId(x)}`],
+    }))
+  : [];
 // Two verifier agents per finding. A run may start at most 1000 agents,
 // retries included: keep room for every auditor to be retried, for one
 // verifier in ten to be retried, and for the consolidator and its fallback.
-// Findings over the limit are passed on unverified, never dropped.
+// Findings over the limit are passed on unverified, never dropped. Inbox
+// findings start no auditor and claim their verification slots first.
 const VERIFY_LIMIT = Math.min(
   400,
   Math.floor(((1000 - 8 - 2 * A.batches.length) * 0.9) / 2),
@@ -159,7 +199,11 @@ const verifyPrompt = (
 Read ${PROMPTS}/audit-verify.md FIRST and follow it exactly. Do not edit any file.
 
 The finding (${f.key}):
-${JSON.stringify(f, null, 1)}
+${
+  f.inbox
+    ? `It was raised outside the audit and reached this round through the review inbox (§ Inbox findings of audit-verify.md). Read it from ${f.file}: it has the fields an auditor's finding has.`
+    : JSON.stringify(f, null, 1)
+}
 
 ${PAPER}
 
@@ -206,17 +250,23 @@ function judge(f, v1, v2) {
 }
 
 let verifySlots = VERIFY_LIMIT;
+// the inbox rides along as a batch whose findings are already found
+const UNITS = INBOX.length
+  ? [{ batch: "inbox", inbox: true, pages: [] }, ...A.batches]
+  : A.batches;
 phase("Audit");
 const perBatch = await pipeline(
-  A.batches,
+  UNITS,
   (b) =>
-    attempt(`audit:${b.batch}`, () =>
-      agent(auditPrompt(b), {
-        label: `audit:${b.batch}`,
-        phase: "Audit",
-        schema: AUDIT,
-      }),
-    ),
+    b.inbox
+      ? Promise.resolve({ batch: "inbox", pages_read: 0, findings: INBOX })
+      : attempt(`audit:${b.batch}`, () =>
+          agent(auditPrompt(b), {
+            label: `audit:${b.batch}`,
+            phase: "Audit",
+            schema: AUDIT,
+          }),
+        ),
   async (a, b) => {
     if (!a) {
       log(
@@ -231,10 +281,12 @@ const perBatch = await pipeline(
         unverified: [],
       };
     }
-    const findings = (a.findings || []).map((f, k) => ({
-      ...f,
-      key: `${b.batch}:${k + 1}`,
-    }));
+    const findings = b.inbox
+      ? a.findings
+      : (a.findings || []).map((f, k) => ({
+          ...f,
+          key: `${b.batch}:${k + 1}`,
+        }));
     const now = [];
     const unverified = [];
     for (const f of findings) {
@@ -293,9 +345,9 @@ const perBatch = await pipeline(
 const done = perBatch.map(
   (r, i) =>
     r || {
-      batch: A.batches[i].batch,
+      batch: UNITS[i].batch,
       failed: true,
-      pages: A.batches[i].pages,
+      pages: UNITS[i].pages,
       kept: [],
       dropped: [],
       unverified: [],
@@ -304,10 +356,28 @@ const done = perBatch.map(
 const kept = done.flatMap((r) => r.kept);
 const dropped = done.flatMap((r) => r.dropped);
 const unverified = done.flatMap((r) => r.unverified);
-const failed = done.filter((r) => r.failed);
+// the inbox is no batch of pages: if its stage failed, its items are simply
+// not reported, and round.mjs leaves their files in the inbox
+const failed = done.filter((r) => r.failed && r.batch !== "inbox");
+if (done.some((r) => r.failed && r.batch === "inbox"))
+  log(
+    `the inbox findings could not be verified this run; their files stay in the inbox for round ${A.round + 1}`,
+  );
+const isInbox = (k) => String(k || "").startsWith("inbox:");
+// refuted or unconfirmed inbox findings are recorded as dropped, with why
+const inboxDropped = dropped
+  .filter((d) => isInbox(d.key))
+  .map((d) => ({
+    source: d.key,
+    reason: `refuted or not confirmed by the verifiers: ${(d.notes || []).join(" ")}`,
+  }));
 log(
   `${kept.length} findings kept, ${dropped.length} dropped by the verifiers, ${unverified.length} unverified, ${failed.length} batches failed`,
 );
+if (IN)
+  log(
+    `inbox: ${INBOX.length} verified (${kept.filter((f) => f.inbox).length} kept, ${inboxDropped.length} dropped, ${unverified.filter((f) => f.inbox).length} unverified), ${INBOX_PAPER.length} paper checks passed on unverified`,
+  );
 
 phase("Consolidate");
 const consPrompt = `You consolidate the audit of review round ${A.round} of the cryptology.city wiki (repo at ${REPO}).
@@ -320,7 +390,19 @@ Findings that survived verification (${kept.length}):
 ${JSON.stringify(kept)}
 
 Findings no verifier could check this run (${unverified.length}); copy them verbatim into "unverified" in the output, do not include them in "findings":
-${JSON.stringify(unverified)}
+${JSON.stringify(unverified)}${
+  IN
+    ? `
+
+Findings whose key starts with "inbox:" came through the review inbox; above they carry only their key, their file and the verdicts. Read each from its file and handle it as § Inbox findings of consolidate.md says.
+
+Inbox paper checks no verifier judged, because the paper hosts are unreachable (${INBOX_PAPER.length}); drop one only as a duplicate, never for lack of verification, and write the rest into "paper_unverified" as given:
+${JSON.stringify(INBOX_PAPER)}
+
+Inbox findings the verifiers refuted or did not confirm (${inboxDropped.length}); copy them verbatim into "dropped":
+${JSON.stringify(inboxDropped)}`
+    : ""
+}
 
 Return the structured summary (file "${OUT}").`;
 let cons = await attempt("consolidate", () =>
@@ -338,15 +420,21 @@ if (!cons) {
   );
   cons = await attempt("consolidate:fallback", () =>
     agent(
-      `In ${REPO}, write the file ${OUT} (create its directory) with exactly this JSON, adding nothing: {"findings": <the findings below, each with "sources": [its key] and "verifier_notes" as given>, "dropped": [], "unverified": <the unverified list below>, "deduplicated": false}.
+      `In ${REPO}, write the file ${OUT} (create its directory) with exactly this JSON, adding nothing: {"findings": <the findings below, each with "sources": [its key] and "verifier_notes" as given>, "dropped": <the dropped list below>, "unverified": <the unverified list below>, "paper_unverified": <the paper list below>, "deduplicated": false}.
 
 Findings:
 ${JSON.stringify(kept)}
 
+Dropped:
+${JSON.stringify(inboxDropped)}
+
 Unverified:
 ${JSON.stringify(unverified)}
 
-Return the structured summary (file "${OUT}", dropped 0).`,
+Paper:
+${JSON.stringify(INBOX_PAPER)}
+
+Return the structured summary (file "${OUT}", dropped ${inboxDropped.length}).`,
       { label: "consolidate:fallback", phase: "Consolidate", schema: CONS },
     ),
   );
@@ -371,6 +459,17 @@ return {
   consolidated,
   consolidate: cons,
   file: cons ? OUT : "",
+  inbox: IN
+    ? {
+        verified: INBOX.length,
+        kept: kept.filter((f) => f.inbox).length,
+        dropped: inboxDropped.length,
+        unverified: unverified.filter((f) => f.inbox).length,
+        paper_unverified: INBOX_PAPER.length,
+      }
+    : null,
   findings_if_unwritten: cons ? [] : kept,
   unverified_if_unwritten: cons ? [] : unverified,
+  dropped_if_unwritten: cons ? [] : inboxDropped,
+  paper_unverified_if_unwritten: cons ? [] : INBOX_PAPER,
 };
