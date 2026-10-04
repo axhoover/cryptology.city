@@ -21,4 +21,4 @@ rationale:
 
 ## Statement
 
-In the [[generic-group-model|generic group model]], the [[knowledge-of-exponent|knowledge-of-exponent assumption]] KEA1 (Damgård's DHK problem) holds against every generic adversary — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]].
+The [[knowledge-of-exponent|knowledge-of-exponent assumption]] KEA1 (Damgård's DHK problem) holds against every adversary in the [[generic-group-model|generic group model]] — [[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]].

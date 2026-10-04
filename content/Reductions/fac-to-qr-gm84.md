@@ -28,4 +28,4 @@ Given a QR challenge $(N, a)$, run the factoring algorithm on $N$; if it returns
 ## Notes
 
 - The reduction preserves the modulus distribution: QR hardness for any distribution of $N = pq$ with $p, q$ distinct odd primes gives factoring hardness for the same distribution — folklore.
-- Whether factoring hardness implies QR hardness is open.
+- Whether factoring hardness implies QR hardness is open — folklore.
