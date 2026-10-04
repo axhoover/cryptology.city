@@ -31,4 +31,4 @@ $\calB_c$ answers each query $(m_0, m_1)$ of $\calA$ with its own oracle on $m_c
 
 ## Notes
 
-- The converse fails for the same scheme: appending a constant bit to every ciphertext preserves CPA security and breaks IND\$-CPA security ([[no-cpa-security-to-ind-cpa-security|CPA ⇏ IND\$-CPA]]) — folklore.
+- The converse fails for the identity construction: appending a constant bit to every ciphertext preserves CPA security and breaks IND\$-CPA security ([[no-cpa-security-to-ind-cpa-security|CPA ⇏ IND\$-CPA]]) — folklore.

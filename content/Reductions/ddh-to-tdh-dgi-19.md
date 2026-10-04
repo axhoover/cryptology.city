@@ -22,7 +22,7 @@ security-loss: ""
 
 ## Sketch
 
-The hash key is a $2 \times n$ matrix of group elements $(g_{j,b})$ and $H(x) = \prod_j g_{j,x_j}$; the encoding key for index $i$ raises every entry to a secret exponent $s$ and multiplies the $(i,1)$ entry by $g$, so evaluating it on $x$ gives $H(x)^s \cdot g^{x_i}$. The trapdoor $s$ recovers $x_i$ from $H(x)$ and this value, a distributed discrete-logarithm step compresses the hint to one bit, and DDH makes the perturbed entry indistinguishable from the others, hiding $i$.
+The hash key is a matrix $(g_{j,b})_{j \in [n], b \in \bits}$ of group elements and $H(x) = \prod_j g_{j,x_j}$; the encoding key for index $i$ raises every entry to a secret exponent $s$ and multiplies the $(i,1)$ entry by $g$, so evaluating it on $x$ gives $H(x)^s \cdot g^{x_i}$. The trapdoor $s$ recovers $x_i$ from $H(x)$ and this value, a distributed discrete-logarithm step compresses the hint to one bit, and under DDH the encoding key is pseudorandom given the hash key, which hides $i$.
 
 ## Notes
 
