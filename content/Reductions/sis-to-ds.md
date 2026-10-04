@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[shortest-integer-solution|SIS]] is hard, the GPV hash-and-sign [[digital-signature|signature scheme]] is [[digital-signature#strong-unforgeability|SUF-CMA]]-unforgeable in the random-oracle model: the signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian with a short basis of $\Lambda_q^\perp(\mathbf{A})$ generated together with $\mathbf{A}$ (a preimage-sampleable function), and strong unforgeability follows from collision resistance of $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+If [[shortest-integer-solution|SIS]] is hard, the GPV hash-and-sign [[digital-signature|signature scheme]] is [[digital-signature#strong-unforgeability|SUF-CMA]]-unforgeable in the random-oracle model: the signature on $\mu$ is a short $\mathbf{z}$ with $\mathbf{A}\mathbf{z} = H(\mu) \bmod q$, sampled from a discrete Gaussian using a short basis of $\Lambda_q^\perp(\mathbf{A})$ generated together with $\mathbf{A}$, which makes $\mathbf{z} \mapsto \mathbf{A}\mathbf{z}$ a preimage-sampleable function; strong unforgeability follows from its collision resistance on short inputs, which is SIS — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
 ## Sketch
 

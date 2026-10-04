@@ -24,7 +24,7 @@ If [[rsa-assumption#strong-rsa|strong RSA]] is hard and the hash function is [[h
 
 ## Sketch
 
-Each signature is an $e$-th root, for a fresh random prime $e$, of a value determined by the public key and the message. The reduction plants the strong-RSA challenge $z$ in the public key raised to the product of the primes it will use to answer signing queries, so it signs without computing roots; a forgery under a new prime $e^*$ gives $y^{e^*} = z^{a}$ with $\gcd(e^*, a) = 1$, and Bézout coefficients yield $z^{1/e^*}$ (Shamir's trick). A forgery that reuses a signing prime $e_j$ is handled by guessing $j$ in advance and embedding $z$ so that the forgery yields a root of $z$ or a hash collision.
+Each signature is an $e$-th root, for a fresh random prime $e$, of a value determined by the public key and the message. The reduction plants the strong-RSA challenge $z$ in the public key as $z$ raised to the product of the primes it will use to answer signing queries, so it signs without computing roots; a forgery under a new prime $e^*$ gives $y^{e^*} = z^{a}$ with $\gcd(e^*, a) = 1$, and Bézout coefficients yield $z^{1/e^*}$ (Shamir's trick). A forgery that reuses a signing prime $e_j$ is handled by guessing $j$ in advance and embedding $z$ so that the forgery yields a root of $z$ or a hash collision.
 
 ## Notes
 
