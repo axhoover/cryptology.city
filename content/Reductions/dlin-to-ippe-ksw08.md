@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-diffie-hellman#dlin|DLIN]] holds in prime-order bilinear groups, there is an [[inner-product-predicate-encryption|inner-product predicate encryption]] scheme that is [[inner-product-predicate-encryption#full-attribute-hiding-security|fully attribute-hiding]] against adaptive adversaries, in the sense of [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], in the standard model — [[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]].
+If [[decisional-diffie-hellman#dlin|DLIN]] holds in prime-order bilinear groups, there is an [[inner-product-predicate-encryption|inner-product predicate encryption]] scheme that is adaptively secure and [[inner-product-predicate-encryption#full-attribute-hiding-security|fully attribute-hiding]] in the sense of [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]], in the standard model — [[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]].
 
 ## Notes
 
