@@ -102,3 +102,23 @@ test("`implies` is transitive through relativizing", () => {
     "relativizing must not reach back down to fully-black-box",
   );
 });
+
+test("every class, and `unstated`, has its own section on the glossary page the metadata line links to", async () => {
+  // @ts-ignore — plain ESM helper shared with scripts/generate-relations.mjs
+  const { headingsByAnchor } = await import("../scripts/markdown-text.mjs");
+  const fs = await import("node:fs");
+  const { default: matter } = await import("gray-matter");
+  const page = matter(
+    fs.readFileSync(
+      path.join(ROOT, "content", "Glossary", "reduction-classes.md"),
+      "utf8",
+    ),
+  ).content;
+  // relationMeta.ts links class `c` to `reduction-classes#c`.
+  const anchors: Map<string, string> = headingsByAnchor(page);
+  for (const c of [...Object.keys(classes), ...Object.keys(sentinels)])
+    assert.ok(
+      anchors.has(c),
+      `content/Glossary/reduction-classes.md needs a heading whose id is "${c}"`,
+    );
+});

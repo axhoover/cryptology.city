@@ -8,6 +8,12 @@
 // page the edge is about. Two further headings list the edges that use the page
 // without having it as an endpoint: reductions proved in the idealised model
 // the page defines (`model`), and reductions whose `via` links to the page.
+//
+// A title or variant heading with `$…$` math is linked as a markdown link
+// (scripts/markdown-text.mjs `link`), since a wikilink whose display text holds
+// math renders as raw `[[…]]`; headings escape a lone `$` the same way.
+
+import { link, escapeOutsideMath } from "./markdown-text.mjs";
 
 /**
  * The object page each idealised `model` value is defined on. A model with no
@@ -29,7 +35,8 @@ const wikilinkTarget = (s) =>
  * Builds the section renderer once for a whole graph.
  *
  *   objects     Map id -> { id, kind: "object" | "variant", slug, title,
- *               aliases?, anchor? (variants), of? (variants: the page's id) }
+ *               aliases?, anchor? (variants), of? (variants: the page's id) };
+ *               a variant's title is the heading its anchor points at
  *   reductions  [{ id, slug, title, hypotheses, conclusion, model?, via? }]
  *   barriers    [{ id, slug, title, hypotheses, conclusion, circumventedBy? }]
  *
@@ -64,11 +71,12 @@ export function makeParticipatesIn({ objects, reductions, barriers }) {
   const linkTo = (id) => {
     const o = objects.get(id);
     if (!o) return `\`${id}\``;
+    const text = o.title || id;
     return o.kind === "variant"
-      ? `[[${o.slug}${o.anchor}|${o.title}]]`
-      : `[[${o.slug}|${o.title}]]`;
+      ? link(`${o.slug}${o.anchor ?? ""}`, text)
+      : link(o.slug, text);
   };
-  const edgeLink = (e) => `[[${e.slug}|${e.title}]]`;
+  const edgeLink = (e) => link(e.slug, e.title || e.id);
   const reductionById = new Map(reductions.map((r) => [r.id, r]));
   // A barrier line names the reductions that get around it, so a reader of the
   // object page does not take the barrier for the last word.
@@ -122,7 +130,7 @@ export function makeParticipatesIn({ objects, reductions, barriers }) {
     )
       return null;
 
-    const title = objects.get(id)?.title ?? id;
+    const title = escapeOutsideMath(objects.get(id)?.title ?? id);
     const lines = ["## Participates in", ""];
     const section = (heading, rows) => {
       if (!rows.length) return;

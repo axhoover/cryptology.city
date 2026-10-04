@@ -74,7 +74,7 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 - DPFs generalize to FSS for richer function classes including intervals, halfspaces, and decision trees — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]
 - For $\beta \neq 0$, correctness makes $(k_0, k_1)$ determine $\alpha$, so $|k_0| + |k_1| \ge \log N$ — folklore
 
-<!-- BEGIN GENERATED participates-in 6f9c7912cdc2 -->
+<!-- BEGIN GENERATED participates-in f4d5414fe8c5 -->
 
 ## Participates in
 
@@ -82,11 +82,11 @@ Distributes a function that is non-zero on multiple points. Can be built by comp
 
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
 - [[dpf-to-multi-point-functions|DPF ⇒ Multi-point functions]]
-- [[function-secret-sharing-fss-to-dpf-bgi15|Function secret sharing (FSS) ⇒ DPF]] (via [[distributed-point-function#function-secret-sharing-fss|function-secret-sharing]])
+- [[function-secret-sharing-fss-to-dpf-bgi15|Function secret sharing (FSS) ⇒ DPF]] (via [[distributed-point-function#function-secret-sharing-fss|Function secret sharing (FSS)]])
 
 **Produces Distributed Point Functions**
 
-- [[dpf-to-multi-point-functions|DPF ⇒ Multi-point functions]] (via [[distributed-point-function#multi-point-functions|multi-point-function-secret-sharing]])
+- [[dpf-to-multi-point-functions|DPF ⇒ Multi-point functions]] (via [[distributed-point-function#multi-point-functions|Multi-point functions]])
 - [[function-secret-sharing-fss-to-dpf-bgi15|Function secret sharing (FSS) ⇒ DPF]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 

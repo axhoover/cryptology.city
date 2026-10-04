@@ -359,8 +359,8 @@ Every object page carries a generated region:
 It lists the reductions the object is a hypothesis of (**Builds on**), the
 reductions that produce it (**Produces**), and the barriers touching it
 (**Barriers**). An edge counts when an endpoint is the page's `id` or one of
-its `variants`; a line reached only through a variant names it, as in
-`(via [[public-key-encryption#cca-security|pke-cca2-security]])`. Two more
+its `variants`; a line reached only through a variant names it by its heading,
+as in `(via [[public-key-encryption#cca-security|CCA Security]])`. Two more
 headings list edges that use the page without having it as an endpoint:
 **Proved in the …** on a model page, for reductions whose `model` it defines
 (`rom`, `generic-group` and `algebraic-group` map to the `rom`, `ggm` and `agm`

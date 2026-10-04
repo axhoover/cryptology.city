@@ -78,12 +78,12 @@ See [[pseudorandom-correlation-generator|PCG]]. Pseudorandom correlation functio
 
 [^1]: The name "Crypto Dark Matter" reflects the idea that large regions of the cryptographic assumption landscape remain unexplored.
 
-<!-- BEGIN GENERATED participates-in 63b5c782d8d4 -->
+<!-- BEGIN GENERATED participates-in 8f7310995058 -->
 
 ## Participates in
 
 **Builds on Alternating moduli assumption**
 
-- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|alternating-moduli-weak]])
+- [[alternating-moduli-assumption-to-prf-bip-18|Weak alternating moduli ⇒ weak PRF]] (via [[alternating-moduli#weak-alternating-moduli-random-input-assumption|Weak alternating moduli (random-input) assumption]])
 
 <!-- END GENERATED participates-in -->

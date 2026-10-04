@@ -80,12 +80,12 @@ A post-quantum [[digital-signature|digital signature]] scheme based on isogenies
 - **Quantum sub-exponential attack on CSIDH**: Kuperberg's algorithm for the hidden-shift problem recovers the secret key in quantum subexponential time; a classical meet-in-the-middle attack takes time $\tilde{O}(p^{1/4})$ — Castryck–Lange–Martindale–Panny–Renes (ASIACRYPT 2018)
 - The original SIDH assumption (without auxiliary torsion points) may still be hard — this is the basis for exploring modifications
 
-<!-- BEGIN GENERATED participates-in b243c2d301d1 -->
+<!-- BEGIN GENERATED participates-in 55abebe116cf -->
 
 ## Participates in
 
 **Builds on Supersingular Isogeny Diffie-Hellman**
 
-- [[sidh-to-ke-jdf11|SSDDH ⇒ KE]] (via [[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|ssddh]])
+- [[sidh-to-ke-jdf11|SSDDH ⇒ KE]] (via [[supersingular-isogeny-diffie-hellman#decisional-variant-ssddh|Decisional variant (SSDDH)]])
 
 <!-- END GENERATED participates-in -->

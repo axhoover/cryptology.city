@@ -250,7 +250,7 @@
    "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#selective-security",
    "of": "abe",
-   "title": "abe-selective-security",
+   "title": "Selective Security",
    "aliases": [],
    "unlisted": false
   },
@@ -263,7 +263,7 @@
    "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#adaptive-robustness",
    "of": "prc",
-   "title": "adaptively-robust-prc",
+   "title": "Adaptive robustness",
    "aliases": [],
    "unlisted": false
   },
@@ -276,7 +276,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#additively-homomorphic-encryption",
    "of": "he",
-   "title": "additively-homomorphic-encryption",
+   "title": "Additively homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -319,7 +319,7 @@
    "graphSlug": "Assumptions/alternating-moduli",
    "anchor": "#weak-alternating-moduli-random-input-assumption",
    "of": "alternating-moduli-assumption",
-   "title": "alternating-moduli-weak",
+   "title": "Weak alternating moduli (random-input) assumption",
    "aliases": [],
    "unlisted": false
   },
@@ -360,7 +360,7 @@
    "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#anonymous-hibe",
    "of": "hibe",
-   "title": "anonymous-hibe",
+   "title": "Anonymous HIBE",
    "aliases": [],
    "unlisted": false
   },
@@ -373,7 +373,7 @@
    "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#key-hiding",
    "of": "pke",
-   "title": "anonymous-public-key-encryption",
+   "title": "Key-hiding",
    "aliases": [],
    "unlisted": false
   },
@@ -417,7 +417,7 @@
    "graphSlug": "Primitives/key-exchange",
    "anchor": "#authenticated-key-exchange-ake",
    "of": "ke",
-   "title": "authenticated-key-exchange",
+   "title": "Authenticated key exchange (AKE)",
    "aliases": [],
    "unlisted": false
   },
@@ -430,7 +430,7 @@
    "graphSlug": "Primitives/hash-function",
    "anchor": "#auxiliary-input-one-wayness",
    "of": "hash-function",
-   "title": "auxiliary-input-owf",
+   "title": "Auxiliary-input one-wayness",
    "aliases": [],
    "unlisted": false
   },
@@ -522,7 +522,7 @@
    "graphSlug": "Primitives/digital-signature",
    "anchor": "#bls-signatures",
    "of": "ds",
-   "title": "boneh-lynn-shacham-signature",
+   "title": "BLS signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -535,7 +535,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#bootstrappable-she",
    "of": "he",
-   "title": "bootstrappable-somewhat-homomorphic-encryption",
+   "title": "Bootstrappable SHE",
    "aliases": [],
    "unlisted": false
   },
@@ -576,7 +576,7 @@
    "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#cca-security",
    "of": "ske",
-   "title": "cca-secure-symmetric-key-encryption",
+   "title": "CCA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -603,7 +603,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#circular-evasive-lwe",
    "of": "lwe",
-   "title": "circular-evasive-lwe",
+   "title": "Circular evasive LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -672,7 +672,7 @@
    "graphSlug": "Primitives/multi-server-private-information-retrieval",
    "anchor": "#computational-multi-server-pir",
    "of": "it-pir",
-   "title": "computational-multi-server-pir",
+   "title": "Computational Multi-server PIR",
    "aliases": [],
    "unlisted": false
   },
@@ -699,7 +699,7 @@
    "graphSlug": "Primitives/zero-knowledge-proof",
    "anchor": "#argument-systems",
    "of": "zkp",
-   "title": "constant-round-zk-argument",
+   "title": "Argument systems",
    "aliases": [],
    "unlisted": false
   },
@@ -712,7 +712,7 @@
    "graphSlug": "Primitives/attribute-based-encryption",
    "anchor": "#cp-abe-ind-cpa-security",
    "of": "abe",
-   "title": "cp-abe-adaptive-security",
+   "title": "CP-ABE: IND-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -725,7 +725,7 @@
    "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#cpa-security",
    "of": "ske",
-   "title": "cpa-security",
+   "title": "CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -753,7 +753,7 @@
    "graphSlug": "Primitives/hash-function",
    "anchor": "#collision-resistance",
    "of": "hash-function",
-   "title": "crhf",
+   "title": "Collision resistance",
    "aliases": [],
    "unlisted": false
   },
@@ -766,7 +766,7 @@
    "graphSlug": "Assumptions/supersingular-isogeny-diffie-hellman",
    "anchor": "#csidh",
    "of": "sidh",
-   "title": "csidh",
+   "title": "CSIDH",
    "aliases": [],
    "unlisted": false
   },
@@ -793,7 +793,7 @@
    "graphSlug": "Assumptions/decisional-composite-residuosity",
    "anchor": "#d-th-composite-residuosity",
    "of": "dcr",
-   "title": "d-th-composite-residuosity",
+   "title": "$d$-th Composite Residuosity",
    "aliases": [],
    "unlisted": false
   },
@@ -836,7 +836,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#decision-lwe",
    "of": "lwe",
-   "title": "decision-lwe",
+   "title": "Decision LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -849,7 +849,7 @@
    "graphSlug": "Assumptions/decisional-diffie-hellman",
    "anchor": "#dlin",
    "of": "ddh",
-   "title": "decisional-linear",
+   "title": "DLIN",
    "aliases": [],
    "unlisted": false
   },
@@ -891,7 +891,7 @@
    "graphSlug": "Primitives/indistinguishability-obfuscation",
    "anchor": "#differing-inputs-obfuscation-dio",
    "of": "io",
-   "title": "differing-inputs-obfuscation",
+   "title": "Differing-inputs obfuscation (diO)",
    "aliases": [],
    "unlisted": false
   },
@@ -976,7 +976,7 @@
    "graphSlug": "Primitives/trapdoor-permutation",
    "anchor": "#enhanced-trapdoor-permutations",
    "of": "tdp",
-   "title": "enhanced-trapdoor-permutation",
+   "title": "Enhanced trapdoor permutations",
    "aliases": [],
    "unlisted": false
   },
@@ -989,7 +989,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#evasive-lwe",
    "of": "lwe",
-   "title": "evasive-lwe",
+   "title": "Evasive LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -1017,7 +1017,7 @@
    "graphSlug": "Primitives/polynomial-commitment",
    "anchor": "#extractability",
    "of": "pcs",
-   "title": "extractable-pcs",
+   "title": "Extractability",
    "aliases": [],
    "unlisted": false
   },
@@ -1047,7 +1047,7 @@
    "graphSlug": "Assumptions/factoring",
    "anchor": "#factoring-with-known-factor-structure",
    "of": "fac",
-   "title": "factoring-blum-integers",
+   "title": "Factoring with known factor structure",
    "aliases": [],
    "unlisted": false
   },
@@ -1116,7 +1116,7 @@
    "graphSlug": "Primitives/polynomial-commitment",
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
-   "title": "fri",
+   "title": "FRI (Fast Reed-Solomon IOP of Proximity)",
    "aliases": [],
    "unlisted": false
   },
@@ -1129,7 +1129,7 @@
    "graphSlug": "Primitives/distributed-point-function",
    "anchor": "#function-secret-sharing-fss",
    "of": "dpf",
-   "title": "function-secret-sharing",
+   "title": "Function secret sharing (FSS)",
    "aliases": [],
    "unlisted": false
   },
@@ -1227,7 +1227,7 @@
    "graphSlug": "Primitives/digital-signature",
    "anchor": "#lattice-based-signatures",
    "of": "ds",
-   "title": "hash-and-sign-signature",
+   "title": "Lattice-based signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -1289,7 +1289,7 @@
    "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-hibe-cpa-security",
    "of": "hibe",
-   "title": "hibe-adaptive-security",
+   "title": "IND-HIBE-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1302,7 +1302,7 @@
    "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#ind-shibe-cpa-security-selective",
    "of": "hibe",
-   "title": "hibe-selective-security",
+   "title": "IND-sHIBE-CPA Security (Selective)",
    "aliases": [],
    "unlisted": false
   },
@@ -1315,7 +1315,7 @@
    "graphSlug": "Primitives/hierarchical-identity-based-encryption",
    "anchor": "#sub-exponential-ind-shibe-cpa-security",
    "of": "hibe",
-   "title": "hibe-subexp-selective-security",
+   "title": "Sub-exponential IND-sHIBE-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1328,7 +1328,7 @@
    "graphSlug": "Assumptions/quadratic-residuosity",
    "anchor": "#higher-residuosity",
    "of": "qr",
-   "title": "higher-residuosity",
+   "title": "Higher residuosity",
    "aliases": [],
    "unlisted": false
   },
@@ -1339,9 +1339,9 @@
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
    "graphSlug": "Primitives/secure-multi-party-computation",
-   "anchor": "#honest-majority-t-n2",
+   "anchor": "#honest-majority-t--n2",
    "of": "mpc",
-   "title": "honest-majority-t-lt-n-over-2",
+   "title": "Honest majority ($t < n/2$)",
    "aliases": [],
    "unlisted": false
   },
@@ -1352,9 +1352,9 @@
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
    "graphSlug": "Primitives/secure-multi-party-computation",
-   "anchor": "#honest-majority-t-n3",
+   "anchor": "#honest-majority-t--n3",
    "of": "mpc",
-   "title": "honest-majority-t-lt-n-over-3",
+   "title": "Honest majority ($t < n/3$)",
    "aliases": [],
    "unlisted": false
   },
@@ -1367,7 +1367,7 @@
    "graphSlug": "Primitives/zero-knowledge-proof",
    "anchor": "#honest-verifier-zk-hvzk",
    "of": "zkp",
-   "title": "honest-verifier-zero-knowledge",
+   "title": "Honest-verifier ZK (HVZK)",
    "aliases": [],
    "unlisted": false
   },
@@ -1394,7 +1394,7 @@
    "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#attribute-hiding-security",
    "of": "hve",
-   "title": "hve-attribute-hiding",
+   "title": "Attribute-Hiding Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1407,7 +1407,7 @@
    "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#payload-hiding-security",
    "of": "hve",
-   "title": "hve-payload-hiding",
+   "title": "Payload-Hiding Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1447,7 +1447,7 @@
    "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#ideal-prc",
    "of": "prc",
-   "title": "ideal-prc",
+   "title": "Ideal PRC",
    "aliases": [],
    "unlisted": false
   },
@@ -1488,7 +1488,7 @@
    "graphSlug": "Primitives/succinct-argument",
    "anchor": "#recursive-snarks",
    "of": "snark",
-   "title": "incremental-verifiable-computation",
+   "title": "Recursive SNARKs",
    "aliases": [],
    "unlisted": false
   },
@@ -1501,7 +1501,7 @@
    "graphSlug": "Primitives/key-encapsulation-mechanism",
    "anchor": "#ind-cca-security",
    "of": "kem",
-   "title": "ind-cca-kem",
+   "title": "IND-CCA security",
    "aliases": [],
    "unlisted": false
   },
@@ -1514,7 +1514,7 @@
    "graphSlug": "Primitives/key-encapsulation-mechanism",
    "anchor": "#ind-cpa-kem",
    "of": "kem",
-   "title": "ind-cpa-kem",
+   "title": "IND-CPA KEM",
    "aliases": [],
    "unlisted": false
   },
@@ -1527,7 +1527,7 @@
    "graphSlug": "Primitives/symmetric-key-encryption",
    "anchor": "#ind-cpa-security",
    "of": "ske",
-   "title": "ind-dollar-cpa-security",
+   "title": "IND$-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1540,7 +1540,7 @@
    "graphSlug": "Primitives/identity-based-encryption",
    "anchor": "#ind-id-cpa-security",
    "of": "ibe",
-   "title": "ind-id-cpa",
+   "title": "IND-ID-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1553,7 +1553,7 @@
    "graphSlug": "Primitives/identity-based-encryption",
    "anchor": "#ind-sid-cpa-security-selective",
    "of": "ibe",
-   "title": "ind-sid-cpa",
+   "title": "IND-sID-CPA Security (Selective)",
    "aliases": [],
    "unlisted": false
   },
@@ -1577,7 +1577,7 @@
    "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#isis-inhomogeneous-sis",
    "of": "sis",
-   "title": "inhomogeneous-sis",
+   "title": "ISIS (Inhomogeneous SIS)",
    "aliases": [],
    "unlisted": false
   },
@@ -1621,7 +1621,7 @@
    "graphSlug": "Primitives/pseudorandom-function",
    "anchor": "#invertible-prfs",
    "of": "prf",
-   "title": "invertible-prf",
+   "title": "Invertible PRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -1691,7 +1691,7 @@
    "graphSlug": "Assumptions/bilinear-map-assumptions",
    "anchor": "#k-linear-assumption",
    "of": "bdh",
-   "title": "k-linear-assumption",
+   "title": "$k$-Linear assumption",
    "aliases": [],
    "unlisted": false
   },
@@ -1754,7 +1754,7 @@
    "graphSlug": "Primitives/polynomial-commitment",
    "anchor": "#kzg-kate-zaverucha-goldberg",
    "of": "pcs",
-   "title": "kzg-polynomial-commitment",
+   "title": "KZG (Kate-Zaverucha-Goldberg)",
    "aliases": [],
    "unlisted": false
   },
@@ -1808,7 +1808,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#leveled-fully-homomorphic-encryption",
    "of": "he",
-   "title": "leveled-fully-homomorphic-encryption",
+   "title": "Leveled fully homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -1821,7 +1821,7 @@
    "graphSlug": "Primitives/secret-sharing",
    "anchor": "#linear-secret-sharing-schemes-lsss",
    "of": "ss",
-   "title": "linear-secret-sharing-scheme",
+   "title": "Linear secret sharing schemes (LSSS)",
    "aliases": [],
    "unlisted": false
   },
@@ -1834,7 +1834,7 @@
    "graphSlug": "Complexity/quantum-merlin-arthur",
    "anchor": "#notable-problems",
    "of": "qma",
-   "title": "local-hamiltonian",
+   "title": "Notable problems",
    "aliases": [],
    "unlisted": false
   },
@@ -1847,7 +1847,7 @@
    "graphSlug": "Primitives/trapdoor-permutation",
    "anchor": "#lossy-trapdoor-functions",
    "of": "tdp",
-   "title": "lossy-trapdoor-function",
+   "title": "Lossy trapdoor functions",
    "aliases": [],
    "unlisted": false
   },
@@ -1890,7 +1890,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#constant-noise-lpn",
    "of": "lpn",
-   "title": "lpn-constant-noise",
+   "title": "Constant-noise LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -1903,7 +1903,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#high-noise-lpn",
    "of": "lpn",
-   "title": "lpn-high-noise",
+   "title": "High-noise LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -1916,7 +1916,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#low-noise-lpn",
    "of": "lpn",
-   "title": "lpn-low-noise",
+   "title": "Low-noise LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -1929,7 +1929,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#mid-noise-lpn",
    "of": "lpn",
-   "title": "lpn-mid-noise",
+   "title": "Mid-noise LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -1986,7 +1986,7 @@
    "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#malicious-security",
    "of": "ot",
-   "title": "malicious-ot-security",
+   "title": "Malicious Security",
    "aliases": [],
    "unlisted": false
   },
@@ -1999,7 +1999,7 @@
    "graphSlug": "Glossary/interactive-protocol",
    "anchor": "#adversary-models",
    "of": "interactive-protocol",
-   "title": "malicious-security",
+   "title": "Adversary models",
    "aliases": [],
    "unlisted": false
   },
@@ -2012,7 +2012,7 @@
    "graphSlug": "Glossary/generic-group-model",
    "anchor": "#maurers-formulation",
    "of": "ggm",
-   "title": "maurer-generic-group-model",
+   "title": "Maurer's Formulation",
    "aliases": [],
    "unlisted": false
   },
@@ -2052,7 +2052,7 @@
    "graphSlug": "Complexity/quantum-interactive-proofs",
    "anchor": "#multi-prover-extensions",
    "of": "qip",
-   "title": "mip-star",
+   "title": "Multi-prover extensions",
    "aliases": [],
    "unlisted": false
   },
@@ -2065,7 +2065,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#module-lwe",
    "of": "lwe",
-   "title": "module-lwe",
+   "title": "Module LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -2078,7 +2078,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#rank-1-module-lwe",
    "of": "lwe",
-   "title": "module-lwe-rank-1",
+   "title": "Rank-1 Module LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -2091,7 +2091,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#degree-1-module-lwe",
    "of": "lwe",
-   "title": "module-lwe-rank-n",
+   "title": "Degree-1 Module LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -2104,7 +2104,7 @@
    "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#module-sis",
    "of": "sis",
-   "title": "module-sis",
+   "title": "Module-SIS",
    "aliases": [],
    "unlisted": false
   },
@@ -2148,7 +2148,7 @@
    "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#mpc-with-preprocessing-spdz-etc",
    "of": "mpc",
-   "title": "mpc-with-preprocessing",
+   "title": "MPC with preprocessing (SPDZ, etc.)",
    "aliases": [],
    "unlisted": false
   },
@@ -2161,7 +2161,7 @@
    "graphSlug": "Primitives/key-exchange",
    "anchor": "#multi-party-key-exchange",
    "of": "ke",
-   "title": "multi-party-key-exchange",
+   "title": "Multi-party key exchange",
    "aliases": [],
    "unlisted": false
   },
@@ -2174,7 +2174,7 @@
    "graphSlug": "Primitives/distributed-point-function",
    "anchor": "#multi-point-functions",
    "of": "dpf",
-   "title": "multi-point-function-secret-sharing",
+   "title": "Multi-point functions",
    "aliases": [],
    "unlisted": false
   },
@@ -2201,7 +2201,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#multiplicatively-homomorphic-encryption",
    "of": "he",
-   "title": "multiplicatively-homomorphic-encryption",
+   "title": "Multiplicatively homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -2214,7 +2214,7 @@
    "graphSlug": "Assumptions/bilinear-map-assumptions",
    "anchor": "#decision-n-bdhe",
    "of": "bdh",
-   "title": "n-bdhe",
+   "title": "Decision $n$-BDHE",
    "aliases": [],
    "unlisted": false
   },
@@ -2259,7 +2259,7 @@
    "graphSlug": "Primitives/key-exchange",
    "anchor": "#non-interactive-key-exchange-nike",
    "of": "ke",
-   "title": "non-interactive-key-exchange",
+   "title": "Non-interactive key exchange (NIKE)",
    "aliases": [],
    "unlisted": false
   },
@@ -2272,7 +2272,7 @@
    "graphSlug": "Primitives/inner-product-predicate-encryption",
    "anchor": "#zero-inner-product-vs-non-zero",
    "of": "ippe",
-   "title": "nonzero-ippe",
+   "title": "Zero inner product vs. non-zero",
    "aliases": [],
    "unlisted": false
   },
@@ -2312,7 +2312,7 @@
    "graphSlug": "Assumptions/ntru",
    "anchor": "#one-wayness-of-ntru-encryption",
    "of": "ntru",
-   "title": "ntru-ow-cpa",
+   "title": "One-wayness of NTRU encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -2325,7 +2325,7 @@
    "graphSlug": "Assumptions/ntru",
    "anchor": "#sis-over-ntru-lattices",
    "of": "ntru",
-   "title": "ntru-sis",
+   "title": "SIS over NTRU lattices",
    "aliases": [],
    "unlisted": false
   },
@@ -2366,7 +2366,7 @@
    "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#k-out-of-n-ot",
    "of": "ot",
-   "title": "one-out-of-n-ot",
+   "title": "$k$-out-of-$n$ OT",
    "aliases": [],
    "unlisted": false
   },
@@ -2379,7 +2379,7 @@
    "graphSlug": "Primitives/digital-signature",
    "anchor": "#one-time-signatures",
    "of": "ds",
-   "title": "one-time-signature",
+   "title": "One-time signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -2435,7 +2435,7 @@
    "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#ot-extension",
    "of": "ot",
-   "title": "ot-extension",
+   "title": "OT Extension",
    "aliases": [],
    "unlisted": false
   },
@@ -2448,7 +2448,7 @@
    "graphSlug": "Primitives/hash-function",
    "anchor": "#preimage-resistance-one-wayness",
    "of": "hash-function",
-   "title": "owf",
+   "title": "Preimage resistance (one-wayness)",
    "aliases": [],
    "unlisted": false
   },
@@ -2490,7 +2490,7 @@
    "graphSlug": "Primitives/inner-product-predicate-encryption",
    "anchor": "#payload-only-hiding",
    "of": "ippe",
-   "title": "payload-hiding-ippe",
+   "title": "Payload-only hiding",
    "aliases": [],
    "unlisted": false
   },
@@ -2549,9 +2549,9 @@
    "page": "content/Assumptions/rsa-assumption.md",
    "slug": "rsa-assumption",
    "graphSlug": "Assumptions/rsa-assumption",
-   "anchor": "#-hiding",
+   "anchor": "#φ-hiding",
    "of": "rsa",
-   "title": "phi-hiding",
+   "title": "Φ-Hiding",
    "aliases": [],
    "unlisted": false
   },
@@ -2564,7 +2564,7 @@
    "graphSlug": "Primitives/doubly-efficient-pir",
    "anchor": "#public-key-depir",
    "of": "depir",
-   "title": "pk-depir",
+   "title": "Public-key DEPIR",
    "aliases": [],
    "unlisted": false
   },
@@ -2591,7 +2591,7 @@
    "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cca1-security",
    "of": "pke",
-   "title": "pke-cca1-security",
+   "title": "CCA1 Security",
    "aliases": [],
    "unlisted": false
   },
@@ -2604,7 +2604,7 @@
    "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cca-security",
    "of": "pke",
-   "title": "pke-cca2-security",
+   "title": "CCA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -2617,7 +2617,7 @@
    "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#cpa-security",
    "of": "pke",
-   "title": "pke-cpa-security",
+   "title": "CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -2644,7 +2644,7 @@
    "graphSlug": "Complexity/total-function-np",
    "anchor": "#subclasses",
    "of": "tfnp",
-   "title": "ppad-hardness",
+   "title": "Subclasses",
    "aliases": [],
    "unlisted": false
   },
@@ -2715,7 +2715,7 @@
    "graphSlug": "Primitives/low-complexity-prg",
    "anchor": "#polynomial-stretch-prg-in-nc0",
    "of": "low-complexity-prg-nc0",
-   "title": "prg-in-nc0",
+   "title": "Polynomial-stretch PRG in NC0",
    "aliases": [],
    "unlisted": true
   },
@@ -2742,7 +2742,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#private-coin-evasive-lwe",
    "of": "lwe",
-   "title": "private-coin-evasive-lwe",
+   "title": "Private-coin evasive LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -2899,7 +2899,7 @@
    "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#rabin-ot",
    "of": "ot",
-   "title": "rabin-ot",
+   "title": "Rabin OT",
    "aliases": [],
    "unlisted": false
   },
@@ -2926,7 +2926,7 @@
    "graphSlug": "Primitives/oblivious-transfer",
    "anchor": "#random-ot",
    "of": "ot",
-   "title": "random-ot",
+   "title": "Random OT",
    "aliases": [],
    "unlisted": false
   },
@@ -2939,7 +2939,7 @@
    "graphSlug": "Primitives/hidden-vector-encryption",
    "anchor": "#subset-and-range-queries",
    "of": "hve",
-   "title": "range-query-encryption",
+   "title": "Subset and range queries",
    "aliases": [],
    "unlisted": false
   },
@@ -2966,7 +2966,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#ring-lpn",
    "of": "lpn",
-   "title": "ring-lpn",
+   "title": "Ring-LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -2979,7 +2979,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#ring-lwe",
    "of": "lwe",
-   "title": "ring-lwe",
+   "title": "Ring LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -2992,7 +2992,7 @@
    "graphSlug": "Assumptions/shortest-integer-solution",
    "anchor": "#ring-sis",
    "of": "sis",
-   "title": "ring-sis",
+   "title": "Ring-SIS",
    "aliases": [],
    "unlisted": false
   },
@@ -3048,7 +3048,7 @@
    "graphSlug": "Primitives/identification-scheme",
    "anchor": "#schnorr-identification-protocol",
    "of": "identification-scheme",
-   "title": "schnorr-identification-protocol",
+   "title": "Schnorr identification protocol",
    "aliases": [],
    "unlisted": true
   },
@@ -3061,7 +3061,7 @@
    "graphSlug": "Primitives/digital-signature",
    "anchor": "#schnorr-signatures",
    "of": "ds",
-   "title": "schnorr-signature",
+   "title": "Schnorr signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -3074,7 +3074,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#search-lwe",
    "of": "lwe",
-   "title": "search-lwe",
+   "title": "Search LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -3087,7 +3087,7 @@
    "graphSlug": "Assumptions/noisy-k-lin-over-expanders",
    "anchor": "#search-noisy-k-lin",
    "of": "noisy-k-lin",
-   "title": "search-noisy-k-lin",
+   "title": "Search noisy $k$-LIN",
    "aliases": [],
    "unlisted": false
   },
@@ -3100,7 +3100,7 @@
    "graphSlug": "Primitives/single-server-private-information-retrieval",
    "anchor": "#secret-key-pir-sk-pir",
    "of": "cpir",
-   "title": "secret-key-pir",
+   "title": "Secret-Key PIR (SK-PIR)",
    "aliases": [],
    "unlisted": false
   },
@@ -3113,7 +3113,7 @@
    "graphSlug": "Primitives/public-key-encryption",
    "anchor": "#semantic-security",
    "of": "pke",
-   "title": "semantic-security",
+   "title": "Semantic security",
    "aliases": [],
    "unlisted": false
   },
@@ -3126,7 +3126,7 @@
    "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#privacy-semi-honest",
    "of": "mpc",
-   "title": "semi-honest-security",
+   "title": "Privacy (semi-honest)",
    "aliases": [],
    "unlisted": false
   },
@@ -3154,7 +3154,7 @@
    "graphSlug": "Glossary/generic-group-model",
    "anchor": "#shoups-formulation",
    "of": "ggm",
-   "title": "shoup-generic-group-model",
+   "title": "Shoup's Formulation",
    "aliases": [],
    "unlisted": false
   },
@@ -3181,7 +3181,7 @@
    "graphSlug": "Primitives/non-interactive-zero-knowledge",
    "anchor": "#simulation-sound-nizk-ss-nizk",
    "of": "nizk",
-   "title": "simulation-sound-nizk",
+   "title": "Simulation-sound NIZK (SS-NIZK)",
    "aliases": [],
    "unlisted": false
   },
@@ -3194,7 +3194,7 @@
    "graphSlug": "Primitives/single-server-private-information-retrieval",
    "anchor": "#symmetric-private-information-retrieval-single-server",
    "of": "cpir",
-   "title": "single-server-symmetric-pir",
+   "title": "Symmetric private information retrieval (Single-server)",
    "aliases": [],
    "unlisted": false
   },
@@ -3235,7 +3235,7 @@
    "graphSlug": "Primitives/doubly-efficient-pir",
    "anchor": "#secret-key-depir",
    "of": "depir",
-   "title": "sk-depir",
+   "title": "Secret-key DEPIR",
    "aliases": [],
    "unlisted": false
   },
@@ -3281,7 +3281,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#somewhat-homomorphic-encryption-she",
    "of": "he",
-   "title": "somewhat-homomorphic-encryption",
+   "title": "Somewhat homomorphic encryption (SHE)",
    "aliases": [],
    "unlisted": false
   },
@@ -3294,7 +3294,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#sparse-learning-parity-with-noise",
    "of": "lpn",
-   "title": "sparse-lpn",
+   "title": "Sparse Learning Parity with Noise",
    "aliases": [],
    "unlisted": false
   },
@@ -3307,7 +3307,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#sparse-ring-lpn",
    "of": "lpn",
-   "title": "sparse-ring-lpn",
+   "title": "Sparse Ring-LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -3353,7 +3353,7 @@
    "graphSlug": "Assumptions/supersingular-isogeny-diffie-hellman",
    "anchor": "#decisional-variant-ssddh",
    "of": "sidh",
-   "title": "ssddh",
+   "title": "Decisional variant (SSDDH)",
    "aliases": [],
    "unlisted": false
   },
@@ -3366,7 +3366,7 @@
    "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#binding",
    "of": "com",
-   "title": "statistically-binding-commitment",
+   "title": "Binding",
    "aliases": [],
    "unlisted": false
   },
@@ -3379,7 +3379,7 @@
    "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#hiding",
    "of": "com",
-   "title": "statistically-hiding-commitment",
+   "title": "Hiding",
    "aliases": [],
    "unlisted": false
   },
@@ -3392,7 +3392,7 @@
    "graphSlug": "Primitives/pseudorandom-permutation",
    "anchor": "#strong-security",
    "of": "prp",
-   "title": "strong-pseudorandom-permutation",
+   "title": "Strong Security",
    "aliases": [],
    "unlisted": false
   },
@@ -3405,7 +3405,7 @@
    "graphSlug": "Assumptions/rsa-assumption",
    "anchor": "#strong-rsa",
    "of": "rsa",
-   "title": "strong-rsa",
+   "title": "Strong RSA",
    "aliases": [],
    "unlisted": false
   },
@@ -3418,7 +3418,7 @@
    "graphSlug": "Primitives/homomorphic-encryption",
    "anchor": "#strongly-homomorphic-encryption",
    "of": "he",
-   "title": "strongly-homomorphic-encryption",
+   "title": "Strongly homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -3431,7 +3431,7 @@
    "graphSlug": "Glossary/generic-group-model",
    "anchor": "#the-structured-ggm",
    "of": "ggm",
-   "title": "structured-generic-group-model",
+   "title": "The Structured GGM",
    "aliases": [],
    "unlisted": false
   },
@@ -3444,7 +3444,7 @@
    "graphSlug": "Primitives/identity-based-encryption",
    "anchor": "#sub-exponential-ind-sid-cpa-security",
    "of": "ibe",
-   "title": "subexp-ind-sid-cpa",
+   "title": "Sub-exponential IND-sID-CPA Security",
    "aliases": [],
    "unlisted": false
   },
@@ -3457,7 +3457,7 @@
    "graphSlug": "Assumptions/learning-parity-with-noise",
    "anchor": "#subexponential-lpn",
    "of": "lpn",
-   "title": "subexponential-lpn",
+   "title": "Subexponential LPN",
    "aliases": [],
    "unlisted": false
   },
@@ -3470,7 +3470,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#succinct-lwe",
    "of": "lwe",
-   "title": "succinct-lwe",
+   "title": "Succinct LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -3483,7 +3483,7 @@
    "graphSlug": "Primitives/message-authentication-code",
    "anchor": "#strong-unforgeability",
    "of": "mac",
-   "title": "suf-cma-mac",
+   "title": "Strong unforgeability",
    "aliases": [],
    "unlisted": false
   },
@@ -3509,7 +3509,7 @@
    "graphSlug": "Assumptions/decisional-diffie-hellman",
    "anchor": "#sxdh-symmetric-external-diffie-hellman",
    "of": "ddh",
-   "title": "sxdh",
+   "title": "SXDH (Symmetric External Diffie-Hellman)",
    "aliases": [],
    "unlisted": false
   },
@@ -3566,7 +3566,7 @@
    "graphSlug": "Assumptions/learning-with-errors",
    "anchor": "#tensor-lwe",
    "of": "lwe",
-   "title": "tensor-lwe",
+   "title": "Tensor LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -3607,7 +3607,7 @@
    "graphSlug": "Primitives/succinct-argument",
    "anchor": "#stark",
    "of": "snark",
-   "title": "transparent-succinct-argument",
+   "title": "STARK",
    "aliases": [],
    "unlisted": false
   },
@@ -3620,7 +3620,7 @@
    "graphSlug": "Primitives/pseudorandom-generator",
    "anchor": "#trapdoor-pseudorandom-generators",
    "of": "prg",
-   "title": "trapdoor-pseudorandom-generator",
+   "title": "Trapdoor pseudorandom generators",
    "aliases": [],
    "unlisted": false
   },
@@ -3633,7 +3633,7 @@
    "graphSlug": "Primitives/secure-multi-party-computation",
    "anchor": "#two-party-computation-2pc",
    "of": "mpc",
-   "title": "two-party-computation",
+   "title": "Two-party computation (2PC)",
    "aliases": [],
    "unlisted": false
   },
@@ -3660,7 +3660,7 @@
    "graphSlug": "Glossary/pairings",
    "anchor": "#types",
    "of": "bilinear-pairing",
-   "title": "type-3-pairing",
+   "title": "Types",
    "aliases": [],
    "unlisted": false
   },
@@ -3700,7 +3700,7 @@
    "graphSlug": "Primitives/doubly-efficient-pir",
    "anchor": "#unkeyed-depir",
    "of": "depir",
-   "title": "unkeyed-depir",
+   "title": "Unkeyed DEPIR",
    "aliases": [],
    "unlisted": false
   },
@@ -3713,7 +3713,7 @@
    "graphSlug": "Primitives/commitment-scheme",
    "anchor": "#vector-commitments",
    "of": "com",
-   "title": "vector-commitment",
+   "title": "Vector commitments",
    "aliases": [],
    "unlisted": false
   },
@@ -3740,7 +3740,7 @@
    "graphSlug": "Primitives/secret-sharing",
    "anchor": "#verifiable-secret-sharing-vss",
    "of": "ss",
-   "title": "verifiable-secret-sharing",
+   "title": "Verifiable secret sharing (VSS)",
    "aliases": [],
    "unlisted": false
   },
@@ -3753,7 +3753,7 @@
    "graphSlug": "Primitives/indistinguishability-obfuscation",
    "anchor": "#virtual-black-box-obfuscation-vbb",
    "of": "io",
-   "title": "virtual-black-box-obfuscation",
+   "title": "Virtual black-box obfuscation (VBB)",
    "aliases": [],
    "unlisted": false
   },
@@ -3766,7 +3766,7 @@
    "graphSlug": "Primitives/pseudorandom-function",
    "anchor": "#weak-prfs",
    "of": "prf",
-   "title": "weak-prf",
+   "title": "Weak PRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -3794,7 +3794,7 @@
    "graphSlug": "Primitives/pseudorandom-error-correcting-code",
    "anchor": "#zero-bit-prc",
    "of": "prc",
-   "title": "zero-bit-prc",
+   "title": "Zero-bit PRC",
    "aliases": [],
    "unlisted": false
   },
@@ -3807,7 +3807,7 @@
    "graphSlug": "Primitives/succinct-argument",
    "anchor": "#zk-snark",
    "of": "snark",
-   "title": "zk-snark",
+   "title": "zk-SNARK",
    "aliases": [],
    "unlisted": false
   },
@@ -3860,6 +3860,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
+   "rationale": {
+    "class": "The BE algorithms call the CP-ABE algorithms as oracles on locally computed singleton attribute sets and disjunctive policies, and the reduction runs the BE adversary once as an oracle, forwarding each key query and the challenge unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/abe-to-be.md",
    "slug": "abe-to-be",
@@ -3881,6 +3884,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
+   "rationale": {
+    "class": "The Fuzzy IBE algorithms call the KP-ABE algorithms as oracles on a locally computed threshold policy, and the reduction runs any Fuzzy IBE adversary as an oracle, forwarding its key queries and challenge unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/abe-to-fuzzy-ibe.md",
    "slug": "abe-to-fuzzy-ibe",
@@ -3902,6 +3908,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none (the reduction preserves the advantage)",
+   "rationale": {
+    "class": "The IBE algorithms call the ABE algorithms as oracles on locally computed encodings, and the reduction runs the IBE adversary once as an oracle, forwarding each extraction query as an ABE key query and the challenge unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/abe-to-ibe.md",
    "slug": "abe-to-ibe",
@@ -3923,6 +3932,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none (property restriction on the same object)",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction passes every channel and every pseudorandomness or soundness adversary through unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/adaptive-robustness-to-prc.md",
    "slug": "adaptive-robustness-to-prc",
@@ -3965,6 +3977,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is a model of computation, not a primitive, so no black-box class applies; the extractor uses only the representation every algebraic adversary outputs, with no hardness assumption.",
+    "model": "The extraction holds only for algebraic adversaries; nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/agm-to-kea.md",
    "slug": "agm-to-kea",
@@ -3986,6 +4002,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "additive $q^2/2^{n+1}$ for $q$ samples (repeated inputs)",
+   "rationale": {
+    "class": "The construction is the identity on the alternating-moduli family, and the reduction runs any weak-PRF distinguisher unchanged as a weak-AM distinguisher."
+   },
    "status": "draft",
    "page": "content/Reductions/alternating-moduli-assumption-to-prf-bip-18.md",
    "slug": "alternating-moduli-assumption-to-prf-bip-18",
@@ -4007,6 +4026,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes, and the reduction forwards the adversary unchanged, using it only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/anonymous-hibe-to-hibe.md",
    "slug": "anonymous-hibe-to-hibe",
@@ -4028,6 +4050,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "rationale": {
+    "class": "The construction is the identity on HVE schemes, and the reduction runs the payload-hiding adversary unchanged, using it only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/attribute-hiding-security-to-payload-hiding-security.md",
    "slug": "attribute-hiding-security-to-payload-hiding-security",
@@ -4070,6 +4095,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-abe-gpsw06.md",
    "slug": "bdh-to-abe-gpsw06",
@@ -4091,6 +4119,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction uses the bilinear group only through group operations and the pairing, and the static reduction programs the public key and the revoked users' keys around the committed target set from a decision n-BDHE instance and runs the adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-be-bgw05.md",
    "slug": "bdh-to-be-bgw05",
@@ -4112,6 +4143,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one CDH call and one pairing evaluation",
+   "rationale": {
+    "class": "The group generator is unchanged, and the fixed reduction calls the CDH solver once as an oracle and then evaluates the pairing once."
+   },
    "status": "draft",
    "page": "content/Reductions/cdh-to-bdh.md",
    "slug": "cdh-to-bdh",
@@ -4134,6 +4168,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the HIBE adversary once as an oracle against a DLIN or DBDH challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-hibe-wat09.md",
    "slug": "bdh-to-hibe-wat09",
@@ -4176,6 +4213,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is one fixed scheme over the pairing group, and the reduction runs the IBE adversary only as an oracle to solve BDH.",
+    "model": "The reduction programs the scheme's hash functions, modelled as random oracles."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-bf01.md",
    "slug": "bdh-to-ibe-bf01",
@@ -4198,6 +4239,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "$O(q)$ DLIN terms plus one DBDH term, for $q$ private-key queries",
+   "rationale": {
+    "class": "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the IBE adversary once as an oracle against a DLIN or DBDH challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-wat09.md",
    "slug": "bdh-to-ibe-wat09",
@@ -4241,6 +4285,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction uses the bilinear group only through group operations and the pairing, and the reduction runs any evaluation-binding adversary once as an oracle and turns its two openings into a q-SDH solution.",
+    "model": "The scheme needs a trusted structured reference string of powers of a secret exponent that is discarded after setup."
+   },
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-pcs-kzg10.md",
    "slug": "bilinear-pairing-and-q-sdh-to-pcs-kzg10",
@@ -4262,6 +4310,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "BSW07 bound the advantage of every generic adversary, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption.",
+    "model": "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ggm-to-abe-bsw07.md",
    "slug": "ggm-to-abe-bsw07",
@@ -4283,6 +4335,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Gro16 prove knowledge soundness directly against every generic bilinear-group adversary, with no reduction to an assumption, which is the free class scoped by the generic-group model.",
+    "model": "Gro16 prove knowledge soundness in the generic bilinear group model; the per-circuit trusted CRS the scheme also needs is stated in the theorem."
+   },
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-to-snark-gro16.md",
    "slug": "bilinear-pairing-to-snark-gro16",
@@ -4325,6 +4381,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The conclusion is a quantum complexity class, and the proof simulates the probabilistic machine on a quantum Turing machine."
+   },
    "status": "draft",
    "page": "content/Reductions/bpp-to-bqp.md",
    "slug": "bpp-to-bqp",
@@ -4431,6 +4490,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The hypothesis is a quantum complexity class; the proof itself is a classical counting argument."
+   },
    "status": "draft",
    "page": "content/Reductions/bqp-to-pp.md",
    "slug": "bqp-to-pp",
@@ -4452,6 +4514,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the CCA1 adversary once, unchanged, forwarding its Phase-1 decryption queries."
+   },
    "status": "draft",
    "page": "content/Reductions/cca-security-to-cca1-security.md",
    "slug": "cca-security-to-cca1-security",
@@ -4473,6 +4538,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any CPA adversary unchanged as a CCA1 adversary that makes no decryption queries."
+   },
    "status": "draft",
    "page": "content/Reductions/cca1-security-to-cpa-security.md",
    "slug": "cca1-security-to-cpa-security",
@@ -4494,6 +4562,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one DLOG call, advantage-preserving",
+   "rationale": {
+    "class": "The group generator is unchanged, and the fixed reduction calls the DLOG solver once as an oracle and then exponentiates, never using the solver's code."
+   },
    "status": "draft",
    "page": "content/Reductions/cdh-to-dlog.md",
    "slug": "cdh-to-dlog",
@@ -4538,6 +4609,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
+   },
    "status": "draft",
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
@@ -4558,7 +4632,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $e(q_S+1)$ over the co-CDH advantage: a forger with advantage $\\varepsilon$ making $q_S$ signing queries yields a co-CDH solver with advantage $\\varepsilon/(e(q_S+1))$ and $O(q_H + q_S)$ extra group operations",
+   "securityLoss": "factor $e(q_S+1)$ in advantage for $q_S$ signing queries",
+   "rationale": {
+    "class": "One fixed construction uses only group, hash and pairing operations, and the reduction runs the forger once as an oracle, programming its random oracle, and extracts a co-CDH solution from the forgery.",
+    "model": "The reduction programs the hash-to-group function as a random oracle to embed the challenge and to answer signing queries."
+   },
    "status": "draft",
    "page": "content/Reductions/co-cdh-to-ds.md",
    "slug": "co-cdh-to-ds",
@@ -4623,6 +4701,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Both directions keep the scheme unchanged, and each fixed reduction runs the given adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/cpa-security-to-cpa-security.md",
    "slug": "cpa-security-to-cpa-security",
@@ -4710,6 +4791,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "BGG+90 predate the RTV04 taxonomy and claim no finer class, so only the proved implication is recorded."
+   },
    "status": "draft",
    "page": "content/Reductions/czk-to-ip-bgg-90.md",
    "slug": "czk-to-ip-bgg-90",
@@ -4731,6 +4815,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "DJ01 state no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the residuosity challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/d-th-composite-residuosity-to-he.md",
    "slug": "d-th-composite-residuosity-to-he",
@@ -4752,6 +4839,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "No source states a class; each flavour is one fixed Paillier-form construction, and each reduction runs the adversary once as an oracle, the hiding adversary on a Paillier challenge ciphertext or the committer on a DCR challenge planted as g."
+   },
    "status": "draft",
    "page": "content/Reductions/dcr-to-com.md",
    "slug": "dcr-to-com",
@@ -4772,7 +4862,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one factoring call; the DCR advantage is $(1 - 1/n)$ times the factoring success probability",
+   "securityLoss": "tight: one factoring call, advantage factor $1 - 1/n$",
+   "rationale": {
+    "class": "The fixed reduction calls the factoring algorithm once as an oracle, on the challenge modulus, and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/fac-to-dcr-pai99.md",
    "slug": "fac-to-dcr-pai99",
@@ -4794,6 +4887,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "Tight: one call to the IND-CPA adversary; semantic security is equivalent to DCR.",
+   "rationale": {
+    "class": "Pai99 state no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the DCR challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dcr-to-partially-homomorphic-encryption-phe-pai99.md",
    "slug": "dcr-to-partially-homomorphic-encryption-phe-pai99",
@@ -4815,6 +4911,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one call to the CPA adversary",
+   "rationale": {
+    "class": "The Paillier construction uses only the modulus generator, and the fixed reduction embeds the DCR challenge in the challenge ciphertext and runs any CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dcr-to-pke-pai99.md",
    "slug": "dcr-to-pke-pai99",
@@ -4860,6 +4959,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "requires sub-exponential hardness of all four hypotheses",
+   "rationale": {
+    "class": "The construction builds functional encryption from the hypotheses and applies the FE-to-iO transformation, which runs the FE encryption algorithm inside function keys, so it is not black-box in the hypotheses."
+   },
    "status": "draft",
    "page": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
    "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
@@ -4903,6 +5005,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight up to an additive $1/p$: one CDH call",
+   "rationale": {
+    "class": "The group generator is unchanged, and the fixed reduction runs any CDH adversary once as an oracle and compares its output with the challenge element."
+   },
    "status": "draft",
    "page": "content/Reductions/ddh-to-cdh.md",
    "slug": "ddh-to-cdh",
@@ -4946,6 +5051,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one oracle call, advantage-preserving",
+   "rationale": {
+    "class": "The ElGamal construction uses only the group generator, with homomorphic evaluation the componentwise group product, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ddh-to-partially-homomorphic-encryption-phe-elgamal85.md",
    "slug": "ddh-to-partially-homomorphic-encryption-phe-elgamal85",
@@ -4967,6 +5075,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one oracle call, advantage-preserving",
+   "rationale": {
+    "class": "The ElGamal construction uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ddh-to-pke-elgamal85.md",
    "slug": "ddh-to-pke-elgamal85",
@@ -4987,7 +5098,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "factor $n$ over the DDH advantage: one hybrid per input bit, the per-level multi-sample DDH being exact by random self-reducibility",
+   "securityLoss": "factor $n$: one hybrid per input bit",
+   "rationale": {
+    "class": "The construction uses only the group generator's output, and each hybrid step runs the PRF distinguisher only as an oracle to build a DDH distinguisher."
+   },
    "status": "draft",
    "page": "content/Reductions/ddh-to-prf-nr97.md",
    "slug": "ddh-to-prf-nr97",
@@ -5030,6 +5144,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The reduction runs any search-LWE solver once as an oracle on the decision instance and checks the residual, never using the solver's code."
+   },
    "status": "draft",
    "page": "content/Reductions/decision-lwe-to-search-lwe.md",
    "slug": "decision-lwe-to-search-lwe",
@@ -5051,6 +5168,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity, and any PIR privacy adversary runs unchanged, as an oracle, as an unkeyed DEPIR privacy adversary."
+   },
    "status": "draft",
    "page": "content/Reductions/depir-to-cpir.md",
    "slug": "depir-to-cpir",
@@ -5072,6 +5192,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity map on obfuscators, and an iO distinguisher for a functionally equivalent pair is used unchanged as a diO adversary for the sampler that outputs that pair."
+   },
    "status": "draft",
    "page": "content/Reductions/differing-inputs-obfuscation-dio-to-io.md",
    "slug": "differing-inputs-obfuscation-dio-to-io",
@@ -5094,6 +5217,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Neither FPS00 nor DJ01 places the reduction in the RTV04 taxonomy, and free records only that the implication is proved."
+   },
    "status": "draft",
    "page": "content/Reductions/dkg-and-he-to-tpke.md",
    "slug": "dkg-and-he-to-tpke",
@@ -5115,6 +5241,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved."
+   },
    "status": "draft",
    "page": "content/Reductions/dlin-to-ippe-ksw08.md",
    "slug": "dlin-to-ippe-ksw08",
@@ -5158,7 +5287,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "Non-tight: the forking lemma turns a forger with success $\\varepsilon$, running time $T$, and $q_h$ random-oracle queries into a DLOG solver with expected time $O(q_h T / \\varepsilon)$ — a factor $\\Theta(q_h)$ in the time-to-success ratio — PS00.",
+   "securityLoss": "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries",
+   "rationale": {
+    "class": "One fixed construction uses only the group operation and the hash, and the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning it with a reprogrammed random oracle.",
+    "model": "The Fiat-Shamir hash is a random oracle, which the reduction programs to simulate signatures and reprograms to fork the forger."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-and-rom-to-schnorr-signatures-sch91.md",
    "slug": "dlog-and-rom-to-schnorr-signatures-sch91",
@@ -5180,6 +5313,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight",
+   "rationale": {
+    "model": "FKL18 prove the theorem for algebraic forgers, with the hash-to-group function modeled as a programmable random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
    "slug": "dlog-to-bls-signatures-fkl18",
@@ -5202,6 +5338,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The conclusion BQP is defined by quantum polynomial-time algorithms, and the cited discrete-logarithm algorithms are quantum."
+   },
    "status": "draft",
    "page": "content/Reductions/bqp-to-dlog-shor97.md",
    "slug": "bqp-to-dlog-shor97",
@@ -5223,6 +5362,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: same advantage and essentially the same running time (FKL18)",
+   "rationale": {
+    "model": "The reduction reads the representation that an algebraic adversary outputs with its answer, so it applies only to algebraic adversaries."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-cdh-fkl18.md",
    "slug": "dlog-to-cdh-fkl18",
@@ -5244,6 +5386,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one call to the binding adversary yields $\\log_g h$",
+   "rationale": {
+    "class": "One fixed construction uses the group only through its generator and group operations, and the fixed reduction plants the DLOG challenge as h and runs the binding adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-com-ped91.md",
    "slug": "dlog-to-com-ped91",
@@ -5307,6 +5452,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction, a Pedersen vector commitment with the inner-product argument, uses only the group operation, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges.",
+    "model": "Openings are non-interactive proofs obtained by applying Fiat–Shamir to the public-coin inner-product argument; the interactive protocol needs no random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-pcs.md",
    "slug": "dlog-to-pcs",
@@ -5328,6 +5477,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction uses only the group operation, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-prg-bm84.md",
    "slug": "dlog-to-prg-bm84",
@@ -5348,7 +5500,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "Reset Lemma: a passive impersonator with success $\\varepsilon$ yields a DLOG solver with success at least $(\\varepsilon - 1/|C|)^2$, $C$ the challenge space — BP02.",
+   "securityLoss": "DLOG success $\\ge (\\varepsilon - 1/|C|)^2$ for impersonation success $\\varepsilon$",
+   "rationale": {
+    "class": "One fixed protocol uses only the group operation, and the reduction runs the impersonator only as an oracle, rewinding it to two accepting transcripts with a common commitment."
+   },
    "status": "draft",
    "page": "content/Reductions/dlog-to-schnorr-signatures-sch91.md",
    "slug": "dlog-to-schnorr-signatures-sch91",
@@ -5391,6 +5546,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "No idealised model is used; the public generators with unknown discrete-logarithm relation and the broadcast channel that the scheme needs are stated in the Statement."
+   },
    "status": "draft",
    "page": "content/Reductions/com-and-ss-to-verifiable-secret-sharing-vss.md",
    "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
@@ -5433,6 +5591,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "factor $t$ over the DPF key-indistinguishability advantage (hybrid over the $t$ instances)",
+   "rationale": {
+    "class": "The combined key generation and evaluation call the DPF's Gen and Eval once per point as oracles, and the fixed hybrid reduction runs any distinguisher only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/dpf-to-multi-point-functions.md",
    "slug": "dpf-to-multi-point-functions",
@@ -5454,6 +5615,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
+   },
    "status": "draft",
    "page": "content/Reductions/ds-to-hash-function.md",
    "slug": "ds-to-hash-function",
@@ -5475,6 +5639,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The EGL protocol uses the TDP only through its generation, evaluation, inversion and domain-sampling algorithms, and the sender-privacy reduction turns any receiver-view distinguisher, used only as an oracle, into an inverter via the black-box Goldreich–Levin decoder."
+   },
    "status": "draft",
    "page": "content/Reductions/enhanced-trapdoor-permutations-to-ot-gkm-00.md",
    "slug": "enhanced-trapdoor-permutations-to-ot-gkm-00",
@@ -5518,6 +5685,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is an implication between two indistinguishability conditions quantified over samplers, not a primitive or a single problem that a reduction can use as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/evasive-lwe-to-abe.md",
    "slug": "evasive-lwe-to-abe",
@@ -5582,6 +5752,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed stateful tree-based construction, generic over claw-free trapdoor permutation pairs, uses the pair only as an oracle, and one fixed reduction runs any forger as an oracle and turns its forgery into a claw, which for the factoring-based pair factors the challenge modulus."
+   },
    "status": "draft",
    "page": "content/Reductions/fac-to-ds-gmr88.md",
    "slug": "fac-to-ds-gmr88",
@@ -5624,6 +5797,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
+   },
    "status": "draft",
    "page": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
    "slug": "factoring-with-known-factor-structure-to-prg",
@@ -5646,6 +5822,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "factor $2^n$ for $n$-bit inputs; requires sub-exponentially secure FE",
+   "rationale": {
+    "class": "The obfuscator issues FE function keys for circuits that run the FE encryption algorithm, so the construction depends on the scheme's code, not on oracle access to it."
+   },
    "status": "draft",
    "page": "content/Reductions/fe-to-io.md",
    "slug": "fe-to-io",
@@ -5692,7 +5871,10 @@
     "[[fiat-shamir-heuristic|Fiat–Shamir]]"
    ],
    "heuristic": false,
-   "securityLoss": "Factor $q_H$: the forking lemma turns a forger with success probability $\\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\\varepsilon)$ — PS96.",
+   "securityLoss": "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries",
+   "rationale": {
+    "model": "The challenge is a hash modeled as a programmable random oracle, which the security proof reprograms when it rewinds the forger."
+   },
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
    "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
@@ -5714,6 +5896,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The DPF is the FSS scheme restricted to point functions, and the reduction passes any DPF adversary unchanged to the FSS hiding game; both use their objects only as oracles."
+   },
    "status": "draft",
    "page": "content/Reductions/function-secret-sharing-fss-to-dpf-bgi15.md",
    "slug": "function-secret-sharing-fss-to-dpf-bgi15",
@@ -5735,6 +5920,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight (the IBE adversary is forwarded unchanged)",
+   "rationale": {
+    "class": "The IBE runs the Fuzzy IBE algorithms as oracles on singleton attribute sets with threshold 1, and the reduction forwards any IBE adversary unchanged as a Fuzzy IBE adversary."
+   },
    "status": "draft",
    "page": "content/Reductions/fuzzy-ibe-to-ibe.md",
    "slug": "fuzzy-ibe-to-ibe",
@@ -5756,6 +5944,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The quantum reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
+    "model": "The LWE oracle is used classically to solve bounded-distance decoding, but the step converting that decoder into narrower discrete-Gaussian samples is a quantum algorithm."
+   },
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-lwe-reg05.md",
    "slug": "gapsvp-to-lwe-reg05",
@@ -5777,6 +5969,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
+   },
    "status": "draft",
    "page": "content/Reductions/gapsvp-to-sis-ajt96.md",
    "slug": "gapsvp-to-sis-ajt96",
@@ -5799,6 +5994,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The protocol uses the garbling scheme and OT only through their interfaces, and the LP09 simulators and hybrid reductions run the view distinguisher only as an oracle, as the modular garbling treatment of BHR12 makes explicit."
+   },
    "status": "draft",
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
    "slug": "gc-and-ot-to-two-party-computation-2pc",
@@ -5819,7 +6017,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a generic algorithm making $q$ queries succeeds with probability $O(q^2/p)$, $p$ the prime group order",
+   "securityLoss": "success probability $O(q^2/p)$ for $q$ queries, $p$ the prime group order",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bound every generic algorithm unconditionally, which is the free class scoped by the model.",
+    "model": "Sho97's bound holds only for generic algorithms; nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/ggm-to-cdh-sho97.md",
    "slug": "ggm-to-cdh-sho97",
@@ -5840,7 +6042,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a generic distinguisher making $q$ queries has advantage $O(q^2/p)$, $p$ the prime group order",
+   "securityLoss": "advantage $O(q^2/p)$ for $q$ queries, $p$ the prime group order",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bound every generic algorithm unconditionally, which is the free class scoped by the model.",
+    "model": "Sho97's bound holds only for generic algorithms; nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/ggm-to-ddh-sho97.md",
    "slug": "ggm-to-ddh-sho97",
@@ -5861,7 +6067,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a generic algorithm making $q$ queries succeeds with probability $O(q^2/p)$, $p$ the largest prime factor of the group order",
+   "securityLoss": "success probability $O(q^2/p)$ for $q$ queries, $p$ the largest prime factor of the group order",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; Sho97 bound every generic algorithm unconditionally, which is the free class scoped by the model.",
+    "model": "Sho97's bound holds only for generic algorithms; nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/ggm-to-dlog-sho97.md",
    "slug": "ggm-to-dlog-sho97",
@@ -5883,6 +6093,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is a model of computation, not a primitive, so no black-box class applies; Den06 prove the statement for every generic adversary, which is the free class scoped by the model.",
+    "model": "The extraction holds only for generic adversaries; nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/ggm-to-kea-den06.md",
    "slug": "ggm-to-kea-den06",
@@ -5905,6 +6119,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the one-time signature scheme and the hash function only as oracles, and the reduction runs any forger as an oracle and outputs a hash collision at some tree node or a one-time forgery."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-hash-based-signatures-to-ds-mer89.md",
    "slug": "hash-function-and-hash-based-signatures-to-ds-mer89",
@@ -5927,6 +6144,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The punctured-programs construction obfuscates circuits containing the code of puncturable PRFs built from the one-way function, so it uses the hypotheses non-black-box."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-deniable-encryption-sw14.md",
    "slug": "hash-function-and-io-to-deniable-encryption-sw14",
@@ -5949,6 +6169,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-ds-sw14.md",
    "slug": "hash-function-and-io-to-ds-sw14",
@@ -5972,6 +6195,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
    "slug": "hash-function-and-io-to-fe-sw14",
@@ -6016,6 +6242,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction obfuscates a circuit containing the code of a puncturable PRF and a PRG built from the one-way function, so it is not black-box in the OWF, and SW14 state no reduction notion."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-pke-sw14.md",
    "slug": "hash-function-and-io-to-pke-sw14",
@@ -6037,6 +6266,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 commitment uses the one-way function only as an oracle, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-czk.md",
    "slug": "hash-function-to-czk",
@@ -6058,6 +6290,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The UOWHFs, one-time signatures and authentication tree evaluate the one-way function only as an oracle, and the reduction runs any forger as an oracle to extract a UOWHF collision or a preimage of the one-way function."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-ds.md",
    "slug": "hash-function-to-ds",
@@ -6080,6 +6315,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "XMSS calls the hash family and the PRF only as oracles, and the reduction embeds a second-preimage or PRF challenge and runs any EUF-CMA forger as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures.md",
    "slug": "hash-function-to-hash-based-signatures",
@@ -6101,6 +6339,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Key generation and verification evaluate the one-way function only as an oracle, and the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-hash-based-signatures-lam79.md",
    "slug": "hash-function-to-hash-based-signatures-lam79",
@@ -6122,6 +6363,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The non-interactive scheme compiles the Merkle-committed FRI protocol with the BCS16 transformation, whose soundness is proved with the hash modelled as a random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-pcs-bbhr18.md",
    "slug": "hash-function-to-pcs-bbhr18",
@@ -6164,6 +6408,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model."
+   },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-snark-bbhr18.md",
    "slug": "hash-function-to-snark-bbhr18",
@@ -6248,6 +6495,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight (advantage-preserving)",
+   "rationale": {
+    "class": "The IBE calls the HIBE algorithms only as oracles, and the reduction runs the IBE adversary unchanged as a depth-1 HIBE adversary."
+   },
    "status": "draft",
    "page": "content/Reductions/hibe-to-ibe.md",
    "slug": "hibe-to-ibe",
@@ -6290,6 +6540,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "CF85 state no reduction notion; the proof shape is one fixed construction on the modulus and one fixed reduction that plants the higher-residuosity challenge as the public non-residue and runs any IND-CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/higher-residuosity-to-pke.md",
    "slug": "higher-residuosity-to-pke",
@@ -6311,6 +6564,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional, and the corruption threshold is a setting rather than a primitive a construction could call as an oracle, so no black-box class applies."
+   },
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89.md",
    "slug": "honest-majority-t-lt-n-over-2-to-mpc-rb89",
@@ -6332,6 +6588,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and its hypothesis is a corruption threshold, not a primitive a construction could use as an oracle, so no black-box class applies."
+   },
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
    "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
@@ -6353,6 +6612,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed encoding of attributes and predicates into HVE vectors and patterns invokes the HVE algorithms only as oracles, and the reduction translates the adversary's key queries and challenge through the same encoding and runs it unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/hve-to-subset-and-range-queries.md",
    "slug": "hve-to-subset-and-range-queries",
@@ -6374,6 +6636,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "rationale": {
+    "class": "The construction calls the IBE's Setup, Extract, Enc and Dec only as oracles with one identity hardwired, and the fixed reduction runs the PKE adversary unchanged."
+   },
    "status": "draft",
    "page": "content/Reductions/ibe-to-pke.md",
    "slug": "ibe-to-pke",
@@ -6394,7 +6659,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "Quadratic in the forger's advantage and linear in its random-oracle query count: a forger with advantage $\\varepsilon$ and $q$ oracle queries yields a witness with probability about $\\varepsilon^2/q$ (forking lemma) — PS96.",
+   "securityLoss": "$\\approx \\varepsilon^2/q$ for advantage $\\varepsilon$ and $q$ random-oracle queries (PS96)",
+   "rationale": {
+    "class": "The transform uses the identification scheme's prover and verifier only as oracles, and the reductions run the forger only as an oracle, programming the random oracle (AABN02) and rewinding the forger (PS00).",
+    "model": "The reductions program the random oracle that replaces the verifier's challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/id-and-rom-to-ds.md",
    "slug": "id-and-rom-to-ds",
@@ -6416,6 +6685,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The quantum reduction and the search-to-decision step each use the Ring LWE solver only as an oracle and work for every solver with noticeable success probability.",
+    "model": "The worst-case to average-case step is quantum; the search-to-decision step is classical."
+   },
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-lwe-lpr10.md",
    "slug": "ideal-svp-to-ring-lwe-lpr10",
@@ -6437,6 +6710,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The worst-case algorithm builds random Ring-SIS instances from its input ideal lattice and calls the collision finder only as an oracle, for every solver with noticeable success probability."
+   },
    "status": "draft",
    "page": "content/Reductions/ideal-svp-to-ring-sis-lm06.md",
    "slug": "ideal-svp-to-ring-sis-lm06",
@@ -6458,6 +6734,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction runs any IND-CPA adversary unchanged, using it only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ind-cca-security-to-ind-cpa-kem.md",
    "slug": "ind-cca-security-to-ind-cpa-kem",
@@ -6480,6 +6759,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption.",
+    "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known."
+   },
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
    "slug": "ind-cpa-kem-to-ind-cca-security",
@@ -6501,6 +6784,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "factor 2",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and each of the two reductions runs the CPA adversary once, only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ind-dollar-cpa-security-to-cpa-security.md",
    "slug": "ind-dollar-cpa-security-to-cpa-security",
@@ -6522,6 +6808,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the two advantages are equal",
+   "rationale": {
+    "class": "The construction is the identity map on IBE schemes, and the reduction runs the selective adversary once as an oracle, submitting its pre-committed identity as the adaptive challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/ind-id-cpa-security-to-ind-sid-cpa-security-selective.md",
    "slug": "ind-id-cpa-security-to-ind-sid-cpa-security-selective",
@@ -6564,7 +6853,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "multiplicative factor $|\\calI|$; for super-polynomial identity spaces this requires sub-exponentially hard selective security",
+   "securityLoss": "multiplicative $|\\calI|$",
+   "rationale": {
+    "class": "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
+   },
    "status": "draft",
    "page": "content/Reductions/ind-sid-cpa-security-selective-to-ind-id-cpa-security.md",
    "slug": "ind-sid-cpa-security-selective-to-ind-id-cpa-security",
@@ -6586,6 +6878,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the PRF advantage equals the iPRF advantage of the wrapped distinguisher",
+   "rationale": {
+    "class": "The construction is the identity map that forgets the inversion algorithm, and the reduction runs any PRF distinguisher unchanged as an iPRF distinguisher."
+   },
    "status": "draft",
    "page": "content/Reductions/invertible-prfs-to-prf.md",
    "slug": "invertible-prfs-to-prf",
@@ -6628,6 +6923,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The conclusion is a quantum complexity class."
+   },
    "status": "draft",
    "page": "content/Reductions/ip-to-qip.md",
    "slug": "ip-to-qip",
@@ -6649,6 +6947,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "KSW08 do not classify it, and a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$ and let an adaptive HVE adversary choose a non-matching challenge attribute with zero encoded inner product, trivially when $\\Sigma = \\ZZ_p$."
+   },
    "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
    "slug": "ippe-to-hve",
@@ -6670,6 +6971,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight (advantage preserved exactly)",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction forwards any payload-hiding adversary unchanged into the attribute-hiding game, using scheme and adversary only as oracles."
+   },
    "status": "draft",
    "page": "content/Reductions/ippe-to-payload-only-hiding.md",
    "slug": "ippe-to-payload-only-hiding",
@@ -6691,6 +6995,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Each direction calls a solver for the other problem only as an oracle, on instances derived from its own, and post-processes the answers."
+   },
    "status": "draft",
    "page": "content/Reductions/isis-inhomogeneous-sis-to-sis.md",
    "slug": "isis-inhomogeneous-sis-to-sis",
@@ -6775,6 +7082,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one NIKE challenge per run of the CPA adversary",
+   "rationale": {
+    "class": "The scheme calls Gen and Combine only as oracles, and the fixed reduction runs the CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ke-to-pke-dh76.md",
    "slug": "ke-to-pke-dh76",
@@ -6796,7 +7106,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the hybrid's CCA advantage is at most the KEM's CCA advantage plus the DEM's one-time CCA advantage, plus the KEM's bad-key-pair probability (CS03, Theorem 5)",
+   "securityLoss": "additive: KEM CCA advantage + DEM one-time CCA advantage + KEM bad-key-pair probability",
+   "rationale": {
+    "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
@@ -6839,6 +7152,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The equivalence is an unconditional linear-algebraic correspondence, with no assumption or adversary to use as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/linear-secret-sharing-schemes-lsss-to-msp.md",
    "slug": "linear-secret-sharing-schemes-lsss-to-msp",
@@ -6859,7 +7175,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: for the IND-CPA scheme, one injective/lossy index-indistinguishability hop plus a statistical leftover-hash term; the IND-CCA proof adds a constant number of hops (one-time-signature unforgeability, all-but-one branch hiding)",
+   "securityLoss": "tight: a constant number of hybrids plus a statistical leftover-hash term",
+   "rationale": {
+    "class": "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-functions-to-pke.md",
    "slug": "lossy-trapdoor-functions-to-pke",
@@ -6881,6 +7200,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: advantage-preserving, one oracle call",
+   "rationale": {
+    "class": "A fixed sample map (add independent Bernoulli noise to each label) feeds the higher-noise distinguisher, which the reduction runs once as an oracle without using its code."
+   },
    "status": "draft",
    "page": "content/Reductions/lpn-high-noise-to-lpn-constant-noise.md",
    "slug": "lpn-high-noise-to-lpn-constant-noise",
@@ -6902,6 +7224,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: advantage-preserving, one oracle call",
+   "rationale": {
+    "class": "A fixed sample map (add independent Bernoulli noise to each label) feeds the higher-noise distinguisher, which the reduction runs once as an oracle without using its code."
+   },
    "status": "draft",
    "page": "content/Reductions/lpn-mid-noise-to-lpn-high-noise.md",
    "slug": "lpn-mid-noise-to-lpn-high-noise",
@@ -6986,6 +7311,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The conclusion bundles an efficiency requirement, sublinear online time, with security, and that requirement lies outside the RTV04 axes."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-de-ram-mpc-lmw24.md",
    "slug": "lwe-to-de-ram-mpc-lmw24",
@@ -7007,6 +7335,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-depir-lmw23.md",
    "slug": "lwe-to-depir-lmw23",
@@ -7028,6 +7359,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction from LWE samples, whose public key is an acyclic chain of key-switching hints, and a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
@@ -7070,6 +7404,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-pke-reg05.md",
    "slug": "lwe-to-pke-reg05",
@@ -7175,6 +7512,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The conclusion is a quantum complexity class, and the proof runs the classical verifier on a quantum computer."
+   },
    "status": "draft",
    "page": "content/Reductions/ma-to-qcma.md",
    "slug": "ma-to-qcma",
@@ -7197,6 +7537,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery."
+   },
    "status": "draft",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
    "slug": "mac-and-ske-to-cca-security",
@@ -7219,6 +7562,9 @@
    "via": [],
    "heuristic": true,
    "securityLoss": "",
+   "rationale": {
+    "heuristic": "GGHRSW13 give the NC1 obfuscator as a candidate and prove no reduction from a multilinear-map assumption."
+   },
    "status": "draft",
    "page": "content/Reductions/mmap-to-io-gghrsw13.md",
    "slug": "mmap-to-io-gghrsw13",
@@ -7240,7 +7586,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "Non-tight in the classical ROM: the Module-SIS step uses the forking lemma. In the QROM, KLS18 prove the original Dilithium secure under Module LWE, Module-SIS and SelfTargetMSIS; Dilithium-QROM is tightly secure under Module LWE.",
+   "securityLoss": "non-tight in the ROM: forking lemma on the Module-SIS step",
+   "rationale": {
+    "class": "The proof rewinds the forger via the forking lemma in the random-oracle model, and no source places it in the RTV04 taxonomy.",
+    "model": "The Fiat–Shamir-with-aborts challenge hash is modelled as a classical or quantum random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/module-lwe-and-module-sis-to-ds.md",
    "slug": "module-lwe-and-module-sis-to-ds",
@@ -7262,6 +7612,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy.",
+    "model": "The IND-CPA scheme is secure in the standard model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the classical and quantum random-oracle models."
+   },
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-kem.md",
    "slug": "module-lwe-to-kem",
@@ -7283,6 +7637,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Both directions are the identity map on instances, so each reduction runs the adversary unchanged as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-lwe-ls15.md",
    "slug": "module-lwe-to-lwe-ls15",
@@ -7304,6 +7661,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Both directions are the identity map on instances, so each reduction runs the adversary unchanged as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/module-lwe-to-ring-lwe-ls15.md",
    "slug": "module-lwe-to-ring-lwe-ls15",
@@ -7325,6 +7685,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The quantum reduction uses an arbitrary Module LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
+    "model": "The step turning the bounded-distance-decoding solver into a discrete Gaussian sampler is a quantum algorithm."
+   },
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-lwe-ls15.md",
    "slug": "module-svp-to-module-lwe-ls15",
@@ -7346,6 +7710,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The worst-case algorithm builds random Module-SIS instances from its input module lattice and calls an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability."
+   },
    "status": "draft",
    "page": "content/Reductions/module-svp-to-module-sis-ls15.md",
    "slug": "module-svp-to-module-sis-ls15",
@@ -7409,6 +7776,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: advantage-preserving, one oracle call",
+   "rationale": {
+    "class": "A fixed sample map (add independent Bernoulli noise to each label) feeds the higher-noise distinguisher, which the reduction runs once as an oracle without using its code."
+   },
    "status": "draft",
    "page": "content/Reductions/noise-level-to-noise-level.md",
    "slug": "noise-level-to-noise-level",
@@ -7430,6 +7800,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction uses LPN samples only as data, and each of the two hybrid reductions (public key, then ciphertext, to uniform) runs the IND-CPA adversary once as an oracle to distinguish LPN samples from uniform."
+   },
    "status": "draft",
    "page": "content/Reductions/noise-level-to-pke-ale03.md",
    "slug": "noise-level-to-pke-ale03",
@@ -7515,6 +7888,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "QMA is a quantum complexity class, and both the containment verifier and the hardness reduction from verifier circuits are quantum."
+   },
    "status": "draft",
    "page": "content/Reductions/notable-problems-to-qma.md",
    "slug": "notable-problems-to-qma",
@@ -7621,6 +7997,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model."
+   },
    "status": "draft",
    "page": "content/Reductions/ntru-to-ds.md",
    "slug": "ntru-to-ds",
@@ -7642,6 +8021,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "HRSS17 prove IND-CCA security in the quantum random-oracle model."
+   },
    "status": "draft",
    "page": "content/Reductions/ntru-to-kem.md",
    "slug": "ntru-to-kem",
@@ -7663,6 +8045,9 @@
    "via": [],
    "heuristic": true,
    "securityLoss": "",
+   "rationale": {
+    "heuristic": "HPS98 give no security reduction for the scheme, from the NTRU problem or from any other assumption."
+   },
    "status": "draft",
    "page": "content/Reductions/ntru-to-pke-hps98.md",
    "slug": "ntru-to-pke-hps98",
@@ -7684,6 +8069,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "BH26 call the reduction non-black-box without placing it in the RTV04 hierarchy, so only the implication itself is recorded."
+   },
    "status": "draft",
    "page": "content/Reductions/oihf-to-ot-bh26.md",
    "slug": "oihf-to-ot-bh26",
@@ -7705,6 +8093,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "KOS16 prove UC security in a hybrid model with an OT-extension functionality, a composition statement the RTV04 classes do not capture.",
+    "model": "The proof is in a hybrid model with OT-extension and commitment functionalities, and MASCOT instantiates the commitment functionality with a hash function modelled as a random oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ot-extension-to-mpc-with-preprocessing-spdz-etc.md",
    "slug": "ot-extension-to-mpc-with-preprocessing-spdz-etc",
@@ -7726,6 +8118,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction invokes OT only as an ideal functionality, hiding and binding hold statistically in the OT-hybrid model, and against a real OT protocol the reduction runs any adversary against the composed commitment as an oracle to distinguish real from ideal OT."
+   },
    "status": "draft",
    "page": "content/Reductions/ot-to-com.md",
    "slug": "ot-to-com",
@@ -7748,6 +8143,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Kil88's protocol uses OT only as an ideal functionality, with zero-knowledge proofs about the evaluated circuit rather than the OT implementation, and against a real OT protocol the reduction uses any adversary only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
    "slug": "ot-to-mpc-kil88",
@@ -7790,6 +8188,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the one-way function only as an oracle, and one fixed reduction inverts it given oracle access to any PRG distinguisher (hybrid argument plus Goldreich–Levin decoding); HRV10 treat HILL as the reference fully-black-box construction."
+   },
    "status": "draft",
    "page": "content/Reductions/owf-to-prg-hill99.md",
    "slug": "owf-to-prg-hill99",
@@ -7811,6 +8212,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity, so it uses the permutation only as an oracle, and the reduction forwards any inverter of the function unchanged as an inverter of the permutation."
+   },
    "status": "draft",
    "page": "content/Reductions/owp-to-hash-function.md",
    "slug": "owp-to-hash-function",
@@ -8003,6 +8407,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The compiler uses the PCS as a black box, but knowledge soundness invokes the PCS extractor rather than only oracle access to the adversary, and neither source places the compilation in the RTV04 taxonomy.",
+    "model": "The compilation gives a public-coin interactive argument in the standard model, which both sources make non-interactive by Fiat–Shamir in the random-oracle model."
+   },
    "status": "draft",
    "page": "content/Reductions/pcs-to-snark.md",
    "slug": "pcs-to-snark",
@@ -8045,6 +8453,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "BIPW17 argue security directly from a conjecture about the scheme's own query distribution, so there is no reduction separate from the construction to classify."
+   },
    "status": "draft",
    "page": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
    "slug": "permuted-puzzles-to-depir-bipw17",
@@ -8066,6 +8477,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity, and the hybrid reduction runs any secret-key privacy adversary only as an oracle, answering all but one of its queries itself from the public key."
+   },
    "status": "draft",
    "page": "content/Reductions/pk-depir-to-sk-depir.md",
    "slug": "pk-depir-to-sk-depir",
@@ -8108,6 +8522,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The one-way function runs the PKE algorithms only as oracles (for a perfectly correct scheme, key generation on its input coins), and the reduction runs any inverter as an oracle to obtain a secret key consistent with the public key and decrypt the challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/pke-to-hash-function.md",
    "slug": "pke-to-hash-function",
@@ -8150,6 +8567,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: advantage and decryption-query count are preserved",
+   "rationale": {
+    "class": "Encapsulation and decapsulation call the PKE algorithms only as oracles, and one fixed reduction runs any KEM adversary as an oracle, forwarding its decapsulation queries to the decryption oracle with a challenge embedding fixed in advance."
+   },
    "status": "draft",
    "page": "content/Reductions/pke-to-kem.md",
    "slug": "pke-to-kem",
@@ -8192,6 +8612,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "CPA advantage at most twice the PRC pseudorandomness advantage (one hybrid per world)",
+   "rationale": {
+    "class": "The construction is the identity on the PRC, and the reduction runs any CPA adversary only as an oracle, in one pseudorandomness hybrid per world."
+   },
    "status": "draft",
    "page": "content/Reductions/prc-to-ske-cg24.md",
    "slug": "prc-to-ske-cg24",
@@ -8254,7 +8677,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a $q$-query distinguisher's advantage is at most the sum of the round PRF advantages plus $O(q^2/2^n)$ (birthday term), so the construction is meaningful only for superpolynomial $2^n$",
+   "securityLoss": "sum of the round PRF advantages plus additive $O(q^2/2^n)$ for $q$ queries",
+   "rationale": {
+    "class": "The Feistel network calls the round PRFs only as oracles, each hybrid's reduction runs the distinguisher only as an oracle, and the random-function core is bounded information-theoretically."
+   },
    "status": "draft",
    "page": "content/Reductions/prf-to-prp-lr88.md",
    "slug": "prf-to-prp-lr88",
@@ -8275,7 +8701,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "for $q$ encryptions of at most $\\ell$ blocks each, the CPA advantage is at most twice the PRF advantage plus a counter-window collision term $O(\\ell q^2 / 2^n)$",
+   "securityLoss": "factor 2 in the PRF advantage, plus $O(\\ell q^2/2^n)$ for $q$ encryptions of $\\le \\ell$ blocks",
+   "rationale": {
+    "class": "Randomized counter mode calls the PRF only as an oracle, and the reduction runs any CPA adversary as an oracle, answering its encryption queries with its own function oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/prf-to-ske.md",
    "slug": "prf-to-ske",
@@ -8318,6 +8747,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "GI14 use the PRG only as an oracle, replacing random key portions at each recursion level by seeds expanded at evaluation time, and prove hiding by a hybrid over PRG invocations that runs the DPF adversary only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/prg-to-dpf-gi14.md",
    "slug": "prg-to-dpf-gi14",
@@ -8339,6 +8771,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The one-way function is the PRG itself, used only as an oracle, and the reduction runs any inverter once as an oracle and outputs 1 iff the returned preimage maps to its input."
+   },
    "status": "draft",
    "page": "content/Reductions/prg-to-hash-function.md",
    "slug": "prg-to-hash-function",
@@ -8360,6 +8795,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the length-doubling PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle to build a PRG distinguisher."
+   },
    "status": "draft",
    "page": "content/Reductions/prg-to-prf-ggm86.md",
    "slug": "prg-to-prf-ggm86",
@@ -8383,6 +8821,9 @@
    ],
    "heuristic": false,
    "securityLoss": "$O(q^2/|\\calD|)$ for $q$ queries, per the switching lemma",
+   "rationale": {
+    "class": "The iPRF is the PRP with its inversion wrapped to return a singleton, calling the PRP only as an oracle, and the reduction runs any distinguisher unchanged as a PRP distinguisher; the switching-lemma gap is information-theoretic."
+   },
    "status": "draft",
    "page": "content/Reductions/prp-to-invertible-prf.md",
    "slug": "prp-to-invertible-prf",
@@ -8406,6 +8847,9 @@
    ],
    "heuristic": false,
    "securityLoss": "$\\Adv^{\\mathrm{prf}} \\le \\Adv^{\\mathrm{prp}} + q(q-1)/(2|\\calD|)$ for $q$ queries (birthday bound)",
+   "rationale": {
+    "class": "The construction is the identity on the PRP's evaluation algorithm, and the reduction runs any PRF distinguisher once, unchanged, as a PRP distinguisher; the switching-lemma gap is information-theoretic."
+   },
    "status": "draft",
    "page": "content/Reductions/prp-to-prf.md",
    "slug": "prp-to-prf",
@@ -8469,6 +8913,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "Both classes are defined by quantum polynomial-time verifiers."
+   },
    "status": "draft",
    "page": "content/Reductions/qcma-to-qma.md",
    "slug": "qcma-to-qma",
@@ -8491,6 +8938,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "QIP is a quantum complexity class, defined by interactive proofs with a quantum verifier and prover."
+   },
    "status": "draft",
    "page": "content/Reductions/qip-to-pspace.md",
    "slug": "qip-to-pspace",
@@ -8512,6 +8962,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The hypothesis is a quantum complexity class."
+   },
    "status": "draft",
    "page": "content/Reductions/qma-to-pp.md",
    "slug": "qma-to-pp",
@@ -8554,6 +9007,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one factoring call; the QR advantage equals the factoring success probability",
+   "rationale": {
+    "class": "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/fac-to-qr-gm84.md",
    "slug": "fac-to-qr-gm84",
@@ -8596,6 +9052,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "GM84 state no reduction notion; the construction uses only the modulus generator, and one fixed reduction sets the public non-residue to the QR challenge and runs the IND-CPA adversary once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/qr-to-pke-gm84.md",
    "slug": "qr-to-pke-gm84",
@@ -8638,6 +9097,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "Both classes are quantum complexity classes."
+   },
    "status": "draft",
    "page": "content/Reductions/qszk-to-qip.md",
    "slug": "qszk-to-qip",
@@ -8680,6 +9142,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Each direction calls the given OT only as a subprotocol on locally chosen inputs, and its security is information-theoretic given ideal calls, so the simulators use the adversary only as a black box."
+   },
    "status": "draft",
    "page": "content/Reductions/rabin-ot-to-ot.md",
    "slug": "rabin-ot-to-ot",
@@ -8701,6 +9166,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The protocol uses the random-OT correlation once as a black box, and perfect security gives a straight-line simulator that uses the adversary only as a black box."
+   },
    "status": "draft",
    "page": "content/Reductions/random-ot-to-ot.md",
    "slug": "random-ot-to-ot",
@@ -8848,6 +9316,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "DLO24 prove the equivalence for every generic ring algorithm with preprocessing, restricting only its access to the ring and not its technique, which is the free class scoped by the model.",
+    "model": "The theorem is proved in the generic ring model with preprocessing, which is none of the named models and differs from the generic group model."
+   },
    "status": "draft",
    "page": "content/Reductions/rsa-to-fac-dlo24.md",
    "slug": "rsa-to-fac-dlo24",
@@ -8868,7 +9340,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: one factoring call; the RSA advantage equals the factoring success probability on the moduli that GrGen outputs",
+   "securityLoss": "tight: one factoring call; RSA advantage equals factoring success on GrGen's moduli",
+   "rationale": {
+    "class": "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/fac-to-rsa-rsa78.md",
    "slug": "fac-to-rsa-rsa78",
@@ -8890,6 +9365,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known."
+   },
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-pke-oaep-fops01.md",
    "slug": "rsa-to-ind-cca-pke-oaep-fops01",
@@ -8911,6 +9389,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "The proof models the key-derivation hash as a random oracle whose query list the reduction reads, and no standard-model IND-CCA proof of RSA-KEM from RSA is known."
+   },
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-security.md",
    "slug": "rsa-to-ind-cca-security",
@@ -9016,6 +9497,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages.",
+    "model": "The GPV08 reduction programs the random oracle by sampling each preimage first."
+   },
    "status": "draft",
    "page": "content/Reductions/sis-to-ds.md",
    "slug": "sis-to-ds",
@@ -9037,6 +9522,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "Tight: one call to the collision finder, $\\Adv^{\\mathrm{cr}} \\le \\Adv^{\\mathrm{sis}}$.",
+   "rationale": {
+    "class": "One fixed construction, $\\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z} \\bmod q$ keyed by the uniform SIS matrix, and one fixed reduction that runs any collision finder once as an oracle and outputs the difference of the colliding inputs."
+   },
    "status": "draft",
    "page": "content/Reductions/sis-to-hash-function-ajt96.md",
    "slug": "sis-to-hash-function-ajt96",
@@ -9058,6 +9546,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The quantum reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
+    "model": "The LWE oracle is used classically to solve bounded-distance decoding, but the step converting that decoder into narrower discrete-Gaussian samples is a quantum algorithm."
+   },
    "status": "draft",
    "page": "content/Reductions/sivp-to-lwe-reg05.md",
    "slug": "sivp-to-lwe-reg05",
@@ -9079,6 +9571,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
+   },
    "status": "draft",
    "page": "content/Reductions/sivp-to-sis-ajt96.md",
    "slug": "sivp-to-sis-ajt96",
@@ -9122,6 +9617,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code and no black-box class applies."
+   },
    "status": "draft",
    "page": "content/Reductions/snark-to-recursive-snarks.md",
    "slug": "snark-to-recursive-snarks",
@@ -9143,6 +9641,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
+   },
    "status": "draft",
    "page": "content/Reductions/somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
@@ -9164,6 +9665,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "BCM+25 prove security of their pseudorandom correlation functions in the random-oracle model."
+   },
    "status": "draft",
    "page": "content/Reductions/sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg.md",
    "slug": "sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
@@ -9227,6 +9731,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The commitment uses the modulus and bases only through group operations, and the binding reduction runs the committer once as an oracle and turns two openings into a nontrivial root of the planted strong-RSA challenge."
+   },
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-com.md",
    "slug": "strong-rsa-to-com",
@@ -9249,6 +9756,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses only the RSA modulus generator and the hash function, and the reduction runs any forger as an oracle and, in each forgery case, outputs a strong-RSA solution or a hash collision."
+   },
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-ds.md",
    "slug": "strong-rsa-to-ds",
@@ -9270,6 +9780,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: one oracle call, advantage preserved",
+   "rationale": {
+    "class": "The fixed reduction calls the RSA inverter once as an oracle on the strong-RSA instance and never uses its code."
+   },
    "status": "draft",
    "page": "content/Reductions/strong-rsa-to-rsa.md",
    "slug": "strong-rsa-to-rsa",
@@ -9291,6 +9804,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "tight: the same adversary has the same advantage in both games",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the PRP distinguisher unchanged, using it only as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/strong-security-to-prp.md",
    "slug": "strong-security-to-prp",
@@ -9312,6 +9828,10 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "time $\\Omega(\\min(\\sqrt{p}, 1/\\delta))$",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; CHW26 bound every algorithm in the structured GGM, whatever its technique, which is the free class scoped by the model.",
+    "model": "The structured GGM is a generic-group model with a bounded non-generic budget, and nothing is claimed in the standard model."
+   },
    "status": "draft",
    "page": "content/Reductions/structured-generic-group-model-to-dlog-chw26.md",
    "slug": "structured-generic-group-model-to-dlog-chw26",
@@ -9334,6 +9854,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function, and BPR15 state no reduction notion."
+   },
    "status": "draft",
    "page": "content/Reductions/subclasses-to-hash-function.md",
    "slug": "subclasses-to-hash-function",
@@ -9355,6 +9878,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "multiplicative $|\\Sigma^{\\le d}|$",
+   "rationale": {
+    "class": "The construction is the identity map on HIBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity vector, aborting on a wrong guess."
+   },
    "status": "draft",
    "page": "content/Reductions/subexp-selective-hibe-to-adaptive-hibe.md",
    "slug": "subexp-selective-hibe-to-adaptive-hibe",
@@ -9480,7 +10006,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "advantage-preserving up to the statistical distance between $\\mathrm{TrapGen}(1^n,1^m,q)$'s $\\mathbf{B}$ and uniform",
+   "securityLoss": "additive in the statistical distance of TrapGen's $\\mathbf{B}$ from uniform",
+   "rationale": {
+    "class": "The fixed reduction runs any LWE distinguisher once as an oracle on the succinct-LWE challenge and discards the trapdoor data."
+   },
    "status": "draft",
    "page": "content/Reductions/succinct-lwe-to-lwe.md",
    "slug": "succinct-lwe-to-lwe",
@@ -9523,6 +10052,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity, which uses the SPIR scheme only as an oracle, and the identity reduction runs any cPIR query-privacy adversary unchanged, as an oracle, against the SPIR scheme."
+   },
    "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-cpir.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-cpir",
@@ -9544,6 +10076,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity on SPIR protocols, and each security reduction runs the OT adversary unchanged, as an oracle, against the corresponding SPIR property."
+   },
    "status": "draft",
    "page": "content/Reductions/symmetric-private-information-retrieval-single-server-to-ot.md",
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
@@ -9650,6 +10185,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "model": "QSZK is defined over quantum verifiers, messages and simulators."
+   },
    "status": "draft",
    "page": "content/Reductions/szk-to-qszk.md",
    "slug": "szk-to-qszk",
@@ -9692,6 +10230,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "none: the reduction preserves the inverter's advantage",
+   "rationale": {
+    "class": "One fixed construction calls $\\Gen$ and $\\Eval$ only as oracles, and one fixed reduction runs any inverter of $g$ once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/tdp-to-hash-function.md",
    "slug": "tdp-to-hash-function",
@@ -9734,6 +10275,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit, which the Goldreich–Levin list decoder turns into an inverter."
+   },
    "status": "draft",
    "page": "content/Reductions/tdp-to-pke.md",
    "slug": "tdp-to-pke",
@@ -9755,6 +10299,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity, and any public-key privacy adversary runs unchanged, as an oracle, as an unkeyed privacy adversary."
+   },
    "status": "draft",
    "page": "content/Reductions/unkeyed-depir-to-depir.md",
    "slug": "unkeyed-depir-to-depir",
@@ -9818,6 +10365,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis, a zero-knowledge proof for a language outside $\\classBPP$, is a hardness statement about a language rather than an RTV04 primitive."
+   },
    "status": "draft",
    "page": "content/Reductions/zkp-to-hash-function.md",
    "slug": "zkp-to-hash-function",
@@ -9867,6 +10417,9 @@
    "source": [
     "[[KZ22 - An Analysis of the Algebraic Group Model|KZ22]]"
    ],
+   "rationale": {
+    "class": "The separation is formalization-dependent, holding under KZ22's formalization while under JM24's the transfer holds for most algebraic analyses, and the GGM covers both Shoup's and Maurer's formulations, so no single class is recorded."
+   },
    "status": "draft",
    "page": "content/Barriers/no-agm-to-ggm-kz22.md",
    "slug": "no-agm-to-ggm-kz22",
@@ -9893,6 +10446,9 @@
    "source": [
     "[[Ver92 - On the Power of PP|Ver92]]"
    ],
+   "rationale": {
+    "class": "Ver92 gives an oracle relative to which AM is not contained in PP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+   },
    "status": "draft",
    "page": "content/Barriers/no-am-to-pp-ver92.md",
    "slug": "no-am-to-pp-ver92",
@@ -9919,6 +10475,9 @@
    "source": [
     "[[RT19 - Oracle Separation of BQP and PH|RT19]]"
    ],
+   "rationale": {
+    "class": "RT19 give an oracle relative to which BQP is not contained in NP, which rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+   },
    "status": "draft",
    "page": "content/Barriers/no-bqp-to-np.md",
    "slug": "no-bqp-to-np",
@@ -9946,6 +10505,9 @@
     "[[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]",
     "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
+   "rationale": {
+    "class": "The collapse follows from the inclusion itself, whatever proof establishes it."
+   },
    "status": "draft",
    "page": "content/Barriers/no-conp-to-am-bm88.md",
    "slug": "no-conp-to-am-bm88",
@@ -9972,6 +10534,9 @@
    "source": [
     "folklore"
    ],
+   "rationale": {
+    "class": "The construction is the identity map, so the counterexample refutes only the claim that every CPA-secure scheme is itself IND$-CPA-secure; building some other IND$-CPA-secure scheme from a CPA-secure one is not ruled out."
+   },
    "status": "draft",
    "page": "content/Barriers/no-cpa-security-to-ind-cpa-security.md",
    "slug": "no-cpa-security-to-ind-cpa-security",
@@ -10000,6 +10565,9 @@
    "source": [
     "[[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]]"
    ],
+   "rationale": {
+    "class": "GW11 allow any SNARG construction and rule out every reduction that uses the cheating prover only as an oracle, which contains the fully-black-box reductions; reductions that use the adversary's code, as semi- and weakly-black-box ones may, are untouched."
+   },
    "status": "draft",
    "page": "content/Barriers/no-falsifiable-assumption-to-snark-gro16.md",
    "slug": "no-falsifiable-assumption-to-snark-gro16",
@@ -10027,6 +10595,9 @@
    "source": [
     "[[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]"
    ],
+   "rationale": {
+    "class": "The construction is Fiat–Shamir applied to the GKR-based argument, and an attack against every hash function refutes that construction only; SNARKs built by other means are not ruled out."
+   },
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-and-gkr-to-snark-krs25.md",
    "slug": "no-fiat-shamir-and-gkr-to-snark-krs25",
@@ -10056,6 +10627,10 @@
    "source": [
     "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]"
    ],
+   "rationale": {
+    "class": "The construction is the Fiat-Shamir transform with the random oracle instantiated by the hash function, and a counterexample against every efficient hash function refutes it.",
+    "strength": "GK03 derive the theorem from one-way functions by cases on whether collision-resistant hash functions exist, building the counterexample's universal arguments from them when they do."
+   },
    "status": "draft",
    "page": "content/Barriers/no-fiat-shamir-and-hash-function-to-ds-gk03.md",
    "slug": "no-fiat-shamir-and-hash-function-to-ds-gk03",
@@ -10110,6 +10685,9 @@
    "source": [
     "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
+   "rationale": {
+    "class": "IR89 give an oracle separation, which defeats every construction and security proof that holds relative to all oracles, fully-black-box ones included."
+   },
    "status": "draft",
    "page": "content/Barriers/no-hash-function-to-pke-gkm-00.md",
    "slug": "no-hash-function-to-pke-gkm-00",
@@ -10136,6 +10714,9 @@
    "source": [
     "folklore"
    ],
+   "rationale": {
+    "class": "The attack refutes the identity map, IND-CCA2 security of the homomorphic scheme itself, and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
+   },
    "status": "draft",
    "page": "content/Barriers/no-he-to-cca-security.md",
    "slug": "no-he-to-cca-security",
@@ -10167,6 +10748,10 @@
    "source": [
     "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
    ],
+   "rationale": {
+    "class": "BL13 rule out black-box reductions of constant query complexity (the SZK bound) and general adaptive black-box reductions (the AM ∩ coAM bound), and the vocabulary has no query-bounded class; recording fully-black-box would overstate the constant-query theorem.",
+    "strength": "Public-key bit encryption and compact homomorphic evaluation of a sensitive function collection are properties of the scheme the barrier quantifies over, not hardness assumptions."
+   },
    "status": "draft",
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
@@ -10193,6 +10778,9 @@
    "source": [
     "folklore"
    ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map, selective security of a scheme implying adaptive security of the same scheme, and does not rule out building an adaptively secure HIBE from a selectively secure one by another construction."
+   },
    "status": "draft",
    "page": "content/Barriers/no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security.md",
    "slug": "no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -10219,6 +10807,9 @@
    "source": [
     "[[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]"
    ],
+   "rationale": {
+    "class": "MM11a rule out every construction that uses the injective OWF only as an oracle paired with a reduction that uses any OWP inverter only as an oracle, the RTV04 fully-black-box notion, and claim no stronger class."
+   },
    "status": "draft",
    "page": "content/Barriers/no-injective-owf-to-owp-mm11.md",
    "slug": "no-injective-owf-to-owp-mm11",
@@ -10246,6 +10837,9 @@
     "[[Sha90 - IP = PSPACE|Sha90]]",
     "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
+   "rationale": {
+    "class": "The collapse follows from the inclusion itself, whatever proof establishes it."
+   },
    "status": "draft",
    "page": "content/Barriers/no-ip-to-am-sha90.md",
    "slug": "no-ip-to-am-sha90",
@@ -10273,6 +10867,9 @@
     "[[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]",
     "[[NW19 - NEEXP is Contained in MIP-star|NW19]]"
    ],
+   "rationale": {
+    "class": "The non-inclusion is proved outright, so it rules out the inclusion whatever proof would establish it, not one proof technique."
+   },
    "status": "draft",
    "page": "content/Barriers/no-mip-to-multi-prover-extensions.md",
    "slug": "no-mip-to-multi-prover-extensions",
@@ -10299,6 +10896,9 @@
    "source": [
     "[[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]"
    ],
+   "rationale": {
+    "class": "LV15 rule out reductions that use the privacy adversary only as an oracle and are otherwise unrestricted; with NP as hypothesis there is no construction to restrict, and LV15 give no oracle separation."
+   },
    "status": "draft",
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
@@ -10325,6 +10925,9 @@
    "source": [
     "[[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]"
    ],
+   "rationale": {
+    "class": "AGGM06's surviving result covers only randomized non-adaptive reductions, and the vocabulary has no class for an adaptivity restriction."
+   },
    "status": "draft",
    "page": "content/Barriers/no-np-to-hash-function-aggm06.md",
    "slug": "no-np-to-hash-function-aggm06",
@@ -10379,6 +10982,9 @@
    "source": [
     "[[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]]"
    ],
+   "rationale": {
+    "class": "GKM+00 separate the primitives under black-box reductions, which rules out at least every construction that uses OT, with a proof that uses the PKE adversary, only as an oracle."
+   },
    "status": "draft",
    "page": "content/Barriers/no-ot-to-pke-gkm-00.md",
    "slug": "no-ot-to-pke-gkm-00",
@@ -10431,6 +11037,9 @@
    "source": [
     "[[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]]"
    ],
+   "rationale": {
+    "class": "Sim98 give an oracle relative to which one-way permutations exist and collision-resistant hash functions do not, and a construction and proof that hold relative to every oracle would hold relative to it."
+   },
    "status": "draft",
    "page": "content/Barriers/no-owp-to-crhf-sim98.md",
    "slug": "no-owp-to-crhf-sim98",
@@ -10457,6 +11066,9 @@
    "source": [
     "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
+   "rationale": {
+    "class": "IR89 give an oracle separation, which defeats every construction and security proof that holds relative to all oracles, fully-black-box ones included."
+   },
    "status": "draft",
    "page": "content/Barriers/no-owp-to-ke-ir89.md",
    "slug": "no-owp-to-ke-ir89",
@@ -10485,6 +11097,10 @@
    "source": [
     "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
    ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map, CCA1 security of a scheme implying CCA2 security of the same scheme, and does not rule out building a CCA2-secure scheme from a CCA1-secure one by another construction.",
+    "strength": "BDPR98 prove the separation assuming an IND-CCA1-secure scheme exists; without one, the identity-map implication holds vacuously."
+   },
    "status": "draft",
    "page": "content/Barriers/no-pke-cca1-security-to-pke-cca2-security-bdpr98.md",
    "slug": "no-pke-cca1-security-to-pke-cca2-security-bdpr98",
@@ -10513,6 +11129,10 @@
    "source": [
     "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
    ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map, CPA security of a scheme implying CCA1 security of the same scheme, and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction.",
+    "strength": "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
+   },
    "status": "draft",
    "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-bdpr98.md",
    "slug": "no-pke-cpa-security-to-pke-cca1-security-bdpr98",
@@ -10592,6 +11212,9 @@
     "[[BHNZ25 - Separating QMA from QCMA with a Classical Oracle|BHNZ25]]",
     "[[BHV26 - Separating Quantum and Classical Advice with Good Codes|BHV26]]"
    ],
+   "rationale": {
+    "class": "An oracle relative to which QMA is not contained in QCMA rules out every relativizing proof of the inclusion and, by the partial order, every fully-black-box one."
+   },
    "status": "draft",
    "page": "content/Barriers/no-qcma-to-qma-ak07.md",
    "slug": "no-qcma-to-qma-ak07",
@@ -10619,6 +11242,9 @@
     "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]",
     "[[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]]"
    ],
+   "rationale": {
+    "class": "IR89 and BM09 break every random-oracle key-agreement protocol whatever its security proof, so every reduction is ruled out: the free class, scoped to the random-oracle model."
+   },
    "status": "draft",
    "page": "content/Barriers/no-rom-to-ke-hmo-19.md",
    "slug": "no-rom-to-ke-hmo-19",
@@ -10645,6 +11271,9 @@
    "source": [
     "folklore"
    ],
+   "rationale": {
+    "class": "The counterexample is one scheme that is selectively but not adaptively secure, which refutes the identity map on schemes and no other construction."
+   },
    "status": "draft",
    "page": "content/Barriers/no-selective-security-to-cp-abe-ind-cpa-security.md",
    "slug": "no-selective-security-to-cp-abe-ind-cpa-security",

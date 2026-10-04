@@ -9,7 +9,9 @@
 //   frontmatter    parses, has the required fields for its `type`, values valid
 //   wikilinks      every [[target]] resolves to a page slug, alias, folder, or
 //                  embedded file; known-missing targets live in
-//                  scripts/stub-inventory.json and only warn
+//                  scripts/stub-inventory.json and only warn; no unescaped `$`
+//                  inside a wikilink, which remark-math splits so the link
+//                  renders raw (write [text $x$](target) instead)
 //   aliases        no alias (or page slug) is claimed by two pages
 //   macros         every \command in math or pseudocode is a KaTeX built-in or
 //                  defined in macros.ts; no \newcommand/\def in content
@@ -32,7 +34,8 @@
 //                  consequence marked `believed: true`; `security-loss` never
 //                  appears on a barrier; warns on a `conditional-on` entry
 //                  that is neither an object id nor multi-word free text
-//   variants       warns when two variant ids on one page share an anchor
+//   variants       every variant anchor is the id of a heading on its page;
+//                  warns when two variant ids on one page share an anchor
 //                  (synonyms split one hyperedge in two)
 //   rationale      `rationale` appears only on reductions and barriers, is a
 //                  mapping from a typing field the page sets (class, model,
@@ -60,6 +63,13 @@ const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
 import { closure as classClosureOf, bites } from "./reduction-classes.mjs";
+import {
+  headingsByAnchor,
+  headingAt,
+  dollarWikilinks,
+  hasMath,
+  link,
+} from "./markdown-text.mjs";
 import {
   hyperKey,
   undecidedConflicts,
@@ -858,26 +868,20 @@ for (const p of pages) {
   if (!TYPES[p.fm.type]?.object) continue;
   declareId(p.fm.id, p.file, "page");
   if (p.fm.variants && typeof p.fm.variants === "object") {
+    const headings = headingsByAnchor(p.body);
     for (const [vid, v] of Object.entries(p.fm.variants)) {
       const anchor = typeof v === "string" ? v : v?.anchor;
       declareId(vid, p.file, "variant", anchor);
-      // The anchor must be a real heading on the declaring page.
+      // The anchor must be the id the site gives a heading on the declaring
+      // page (rehype-slug), matched as a link to it resolves (OFM slugs the
+      // anchor). generate-relations.mjs titles the variant by that heading.
       if (typeof anchor === "string" && anchor.startsWith("#")) {
-        const want = anchor.slice(1).toLowerCase();
-        const headings = [...p.body.matchAll(/^#{1,6}\s+(.+?)\s*$/gm)].map(
-          (m) =>
-            m[1]
-              .replace(/[^\w\s-]/g, "")
-              .trim()
-              .toLowerCase()
-              .replace(/\s+/g, "-"),
-        );
-        if (!headings.includes(want))
+        if (headingAt(headings, anchor) === undefined)
           err(
             p.file,
             1,
             "variant-anchor",
-            `variant "${vid}" points at "${anchor}", which is not a heading on this page. Headings here: ${headings.map((h) => "#" + h).join(", ") || "(none)"}.`,
+            `variant "${vid}" points at "${anchor}", which is not a heading id on this page. Heading ids here: ${[...headings.keys()].map((h) => "#" + h).join(", ") || "(none)"}.`,
           );
       }
     }
@@ -1228,6 +1232,43 @@ for (const p of pages) {
         );
       }
     }
+  }
+}
+
+// ------------------------------------------------------ math in wikilinks ----
+// remark-math reads `$…$` before ObsidianFlavoredMarkdown resolves wikilinks,
+// so a math span splits a wikilink and the link renders as raw `[[…]]`; a lone
+// `$` inside one pairs with the next `$` in the paragraph. A markdown link's
+// text is parsed as inline content, so `[$k$-Linear](target)` renders. The
+// generated "Participates in" sections use that form (scripts/participates-in.mjs),
+// so a hit inside one means the generator regressed, not a hand edit. The scan
+// is dollarWikilinks in scripts/markdown-text.mjs.
+for (const p of pages) {
+  const generated = [...p.body.matchAll(GEN_RE)].map((m) => [
+    m.index,
+    m.index + m[0].length,
+  ]);
+  for (const { index, raw, target, text } of dollarWikilinks(p.body)) {
+    const line = p.fmLines + lineOf(p.body, index);
+    const shown = raw.length > 90 ? `${raw.slice(0, 87)}...` : raw;
+    if (generated.some(([a, b]) => index >= a && index < b)) {
+      err(
+        p.file,
+        line,
+        "wikilink-math",
+        `${shown} in a generated "Participates in" section has "$" in its display text, so it renders as raw [[…]]. scripts/participates-in.mjs links such titles as markdown links; run "node scripts/generate-relations.mjs", and if the link persists, fix the generator.`,
+      );
+      continue;
+    }
+    const hint = hasMath(text)
+      ? `Move the math out of the link ("the [[bilinear-map-assumptions#k-linear-assumption|Linear assumption]] for $k = 2$", "$\\mathrm{GapSVP}_\\gamma$ ([[shortest-vector-problem|GapSVP]])"), or write a markdown link, whose text renders math: ${link(target, text)}.`
+      : 'For a literal dollar sign (IND$-CPA) write "\\$" or use a markdown link.';
+    err(
+      p.file,
+      line,
+      "wikilink-math",
+      `${shown} has "$" in a wikilink. remark-math parses $…$ before wikilinks are resolved, so the link renders as raw [[…]], and a lone "$" pairs with the next one in the paragraph. ${hint}`,
+    );
   }
 }
 

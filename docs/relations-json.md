@@ -64,12 +64,22 @@ wiki having to split the LWE page.
   "slug": "learning-with-errors",
   "anchor": "#ring-lwe", // variants only
   "of": "lwe", // variants only: the host object's id
-  "title": "Ring-LWE",
+  "title": "Ring LWE", // a page: its frontmatter title; a variant: the heading its anchor points at
   "aliases": ["RLWE"],
   "unlisted": false, // hidden from the explorer and folder listings
   "formal": "CryptoCity.Assumptions.RLWE", // optional, reserved for the formalization repo
 }
 ```
+
+A variant's `title` is the text of the heading its `anchor` points at on the
+host page, with markdown (links, emphasis, code) removed and math kept as
+`$…$` TeX: `"$k$-Linear assumption"`, `"Honest majority ($t < n/2$)"`. The
+anchor is matched as the site resolves a link to it, against the heading ids
+rehype-slug assigns, and the lint rejects an anchor that matches no heading;
+`title` falls back to the variant's `id` only if one slips through. Any
+`title` may contain `$…$` math, and a literal `$` stands for itself
+(`"IND$-CPA Security"`), so a consumer rendering titles as markdown escapes a
+`$` that opens no math span, as the wiki's own generated links do.
 
 `formal` is the seam for Lean/EasyCrypt: a variant is already a named security
 notion or syntax, so pointing one at a formal definition needs no new mechanism.

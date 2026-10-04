@@ -34,6 +34,7 @@ import crypto from "node:crypto";
 import { createRequire } from "node:module";
 import { makeParticipatesIn } from "./participates-in.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
+import { headingsByAnchor, headingAt } from "./markdown-text.mjs";
 const require = createRequire(import.meta.url);
 const matter = require("gray-matter");
 const yaml = require("js-yaml");
@@ -97,9 +98,19 @@ const propositions =
   )?.propositions ?? {};
 
 // ------------------------------------------------------------------ model ----
+// A variant is titled by the heading its anchor points at on the host page,
+// markdown removed and math kept (`Ring LWE`, `$k$-Linear assumption`). The
+// anchor is matched the way a link to it resolves: OFM slugs a wikilink's
+// anchor, and rehype-slug gives each heading its id. With no matching heading
+// the title falls back to the id, and the lint rejects the anchor
+// (`variant-anchor`).
+const variantTitle = (headings, vid, anchor) =>
+  (typeof anchor === "string" && headingAt(headings, anchor)) || vid;
+
 const objects = new Map(); // id -> object record
 for (const p of pages) {
   if (!OBJECT_TYPES.has(p.fm.type)) continue;
+  const headings = p.fm.variants ? headingsByAnchor(p.body) : new Map();
   if (p.fm.id)
     objects.set(p.fm.id, {
       id: p.fm.id,
@@ -123,7 +134,7 @@ for (const p of pages) {
       graphSlug: p.graphSlug,
       anchor,
       of: p.fm.id,
-      title: vid,
+      title: variantTitle(headings, vid, anchor),
       aliases: [],
       unlisted: p.fm.unlisted === true,
       ...(typeof v === "object" && v?.formal ? { formal: v.formal } : {}),

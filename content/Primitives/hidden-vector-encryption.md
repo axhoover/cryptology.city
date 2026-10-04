@@ -108,20 +108,20 @@ The BW07 paper also formalizes subset predicates (is $x_i \in T_i$ for some set 
 - [[ippe-to-hve|IPPE ⇒ HVE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 
-<!-- BEGIN GENERATED participates-in 2ae8b1ed1624 -->
+<!-- BEGIN GENERATED participates-in 0a93b5a9f4de -->
 
 ## Participates in
 
 **Builds on Hidden vector encryption**
 
-- [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]] (via [[hidden-vector-encryption#attribute-hiding-security|hve-attribute-hiding]])
+- [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]] (via [[hidden-vector-encryption#attribute-hiding-security|Attribute-Hiding Security]])
 - [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]]
 
 **Produces Hidden vector encryption**
 
-- [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]] (via [[hidden-vector-encryption#payload-hiding-security|hve-payload-hiding]])
+- [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]] (via [[hidden-vector-encryption#payload-hiding-security|Payload-Hiding Security]])
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
-- [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]] (via [[hidden-vector-encryption#subset-and-range-queries|range-query-encryption]])
+- [[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]] (via [[hidden-vector-encryption#subset-and-range-queries|Subset and range queries]])
 - [[ippe-to-hve|IPPE ⇒ HVE]]
 
 <!-- END GENERATED participates-in -->

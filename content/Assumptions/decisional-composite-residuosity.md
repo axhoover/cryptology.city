@@ -47,13 +47,13 @@ Generalizes DCR to $n^d$-th powers modulo $n^{d+1}$ — [[DJ01 - A Generalisatio
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
 
-<!-- BEGIN GENERATED participates-in 384bf7946f6a -->
+<!-- BEGIN GENERATED participates-in 74a0739ba1d9 -->
 
 ## Participates in
 
 **Builds on Decisional composite residuosity assumption**
 
-- [[d-th-composite-residuosity-to-he|$d$-th Composite Residuosity ⇒ Additively homomorphic encryption]] (via [[decisional-composite-residuosity#d-th-composite-residuosity|d-th-composite-residuosity]])
+- [$d$-th Composite Residuosity ⇒ Additively homomorphic encryption](d-th-composite-residuosity-to-he) (via [$d$-th Composite Residuosity](decisional-composite-residuosity#d-th-composite-residuosity))
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]
 - [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]

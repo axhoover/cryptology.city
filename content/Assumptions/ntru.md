@@ -122,14 +122,14 @@ is negligible.
 - **Meet-in-the-middle**: applies when $d_f$ or $d_g$ is small relative to $n$.
 - NTRU has no known quantum speedup beyond the generic square-root speedup of Grover's algorithm applied to brute-force lattice search.
 
-<!-- BEGIN GENERATED participates-in 9f1dcb7467eb -->
+<!-- BEGIN GENERATED participates-in f71c66281418 -->
 
 ## Participates in
 
 **Builds on NTRU**
 
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
-- [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]] (via [[ntru#one-wayness-of-ntru-encryption|ntru-ow-cpa]])
+- [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]] (via [[ntru#one-wayness-of-ntru-encryption|One-wayness of NTRU encryption]])
 - [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 
 <!-- END GENERATED participates-in -->

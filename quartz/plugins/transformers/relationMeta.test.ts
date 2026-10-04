@@ -11,7 +11,7 @@ import { Root as HtmlRoot, Element } from "hast";
 import { visit } from "unist-util-visit";
 import { VFile } from "vfile";
 import {
-  headingsBySlug,
+  escapeOutsideMath,
   insertUnderH1,
   ObjectIndex,
   readFrontmatter,
@@ -52,9 +52,9 @@ const objects: ObjectIndex = new Map([
       kind: "variant",
       type: "primitive",
       slug: "hash-function",
-      graphSlug: "Primitives/hash-function",
       anchor: "#preimage-resistance-one-wayness",
-      title: "owf",
+      // relations.json titles a variant by the heading its anchor points at.
+      title: "Preimage resistance (one-wayness)",
     },
   ],
 ]);
@@ -63,7 +63,8 @@ const objects: ObjectIndex = new Map([
 const line = (fm: Record<string, unknown>) =>
   relationMetaParts(fm, objects).join(" · ");
 
-const CLASS = "black-box-separations#types-of-black-box-reductions";
+// Each class links to its own section of the glossary page.
+const CLASS = (cls: string) => `reduction-classes#${cls}`;
 const DLO24 = "[[DLO24 - Breaking RSA Generically|DLO24]]";
 
 describe("relationMetaParts: reductions", () => {
@@ -77,7 +78,7 @@ describe("relationMetaParts: reductions", () => {
         conclusion: "fac",
         source: [DLO24],
       }),
-      `Equivalence · [[${CLASS}|free reduction]] · non-standard model · ${DLO24}`,
+      `Equivalence · [[${CLASS("free")}|free reduction]] · non-standard model · ${DLO24}`,
     );
     assert.strictEqual(
       line({
@@ -110,13 +111,13 @@ describe("relationMetaParts: reductions", () => {
 
   test("the class phrase is written attributively, as in page titles", () => {
     const fm = { type: "reduction", kind: "implication", model: "standard" };
-    assert.match(
+    assert.strictEqual(
       line({ ...fm, class: "fully-black-box" }),
-      /^\[\[[^|]+\|Fully-black-box reduction\]\] · standard model$/,
+      `[[${CLASS("fully-black-box")}|Fully-black-box reduction]] · standard model`,
     );
-    assert.match(
+    assert.strictEqual(
       line({ ...fm, class: "forall-exists-semi-black-box" }),
-      /\|∀∃-semi-black-box reduction\]\]/,
+      `[[${CLASS("forall-exists-semi-black-box")}|∀∃-semi-black-box reduction]] · standard model`,
     );
   });
 
@@ -132,7 +133,7 @@ describe("relationMetaParts: reductions", () => {
         source: ["[[BKR94 - The Security of CBC|BKR94]]", "folklore"],
         "security-loss": "additive\n  $q(q-1)/(2|\\calD|)$ for $q$ queries",
       }),
-      `[[${CLASS}|Fully-black-box reduction]] · standard model · heuristic candidate · ` +
+      `[[${CLASS("fully-black-box")}|Fully-black-box reduction]] · standard model · heuristic candidate · ` +
         "via [[switching-lemma|Switching Lemma]] · [[BKR94 - The Security of CBC|BKR94]], folklore · " +
         "security loss: additive $q(q-1)/(2|\\calD|)$ for $q$ queries",
     );
@@ -152,7 +153,7 @@ describe("relationMetaParts: reductions", () => {
     );
     assert.strictEqual(
       line({ ...fm, model: "quantum" }),
-      "Inclusion · quantum · folklore",
+      "Inclusion · quantum setting · folklore",
     );
     // An equivalence of assumptions keeps them.
     assert.match(
@@ -218,8 +219,8 @@ describe("relationMetaParts: barriers", () => {
           "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]",
         ],
       }),
-      `Conditional · against [[${CLASS}|fixed-construction reductions]] · ` +
-        "assuming [[hash-function#preimage-resistance-one-wayness|owf]], [[factoring|Factoring]], no-such-id · " +
+      `Conditional · against [[${CLASS("fixed-construction")}|fixed-construction reductions]] · ` +
+        "assuming [[hash-function#preimage-resistance-one-wayness|preimage resistance (one-wayness)]], [[factoring|Factoring]], no-such-id · " +
         "[[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]",
     );
   });
@@ -245,20 +246,33 @@ describe("relationMetaParts: barriers", () => {
           title: "$|x| \\le [B]$-bounded",
         },
       ],
+      [
+        "ind-dollar",
+        {
+          id: "ind-dollar",
+          kind: "variant",
+          slug: "symmetric-key-encryption",
+          anchor: "#ind-cpa-security",
+          title: "IND$-CPA Security",
+        },
+      ],
     ]);
     assert.deepStrictEqual(
       relationMetaParts(
         {
           type: "barrier",
           strength: "conditional",
-          "conditional-on": ["q-sdh", "abs"],
+          "conditional-on": ["q-sdh", "abs", "ind-dollar", "ind-dollar"],
         },
         withMath,
       ),
       [
         "Conditional",
         "assuming [$q$-Strong Diffie-Hellman assumption](<q-strong-diffie-hellman>), " +
-          "[$|x| \\le [B]$-bounded](<x#bounded>)",
+          "[$|x| \\le [B]$-bounded](<x#bounded>), " +
+          // A lone dollar is escaped, so two of them cannot pair into math.
+          "[IND\\$-CPA Security](<symmetric-key-encryption#ind-cpa-security>), " +
+          "[IND\\$-CPA Security](<symmetric-key-encryption#ind-cpa-security>)",
       ],
     );
   });
@@ -300,33 +314,14 @@ test("renderSource shows the citation key", () => {
 });
 
 describe("variant display", () => {
-  test("headings by anchor slug, skipping frontmatter comments and fences", () => {
-    const src = [
-      "---",
-      "# not a heading: a YAML comment",
-      "variants:",
-      '  owf: "#preimage-resistance-one-wayness"',
-      "---",
-      "",
-      "# Hash functions",
-      "```",
-      "## Inside a fence",
-      "```",
-      "### Preimage resistance (one-wayness)",
-      "### [[collision-resistance|Collision resistance]] ##",
-    ].join("\n");
-    const h = headingsBySlug(src);
-    assert.strictEqual(
-      h.get("preimage-resistance-one-wayness"),
-      "Preimage resistance (one-wayness)",
-    );
-    assert.strictEqual(h.get("collision-resistance"), "Collision resistance");
-    assert.strictEqual(h.get("inside-a-fence"), undefined);
-    assert.strictEqual(h.get("not-a-heading-a-yaml-comment"), undefined);
-    // CRLF files, and frontmatter whose YAML does not parse.
-    const crlf = headingsBySlug("---\r\n# c: [\r\n---\r\n### CPA Security\r\n");
-    assert.strictEqual(crlf.get("cpa-security"), "CPA Security");
-    assert.strictEqual(crlf.get("c"), undefined);
+  test("escapeOutsideMath keeps math and code spans and escapes the rest", () => {
+    assert.strictEqual(escapeOutsideMath("$k$-Linear"), "$k$-Linear");
+    assert.strictEqual(escapeOutsideMath("IND$-CPA"), "IND\\$-CPA");
+    assert.strictEqual(escapeOutsideMath("a $x$ b $"), "a $x$ b \\$");
+    assert.strictEqual(escapeOutsideMath("$$x$ $y$$"), "$$x$ $y$$");
+    assert.strictEqual(escapeOutsideMath("IND\\$-CPA"), "IND\\$-CPA");
+    assert.strictEqual(escapeOutsideMath("`$` [B]"), "`$` \\[B\\]");
+    assert.strictEqual(escapeOutsideMath("$[B]$"), "$[B]$");
   });
 
   test("an ordinary capitalised heading is lower-cased; an acronym is kept", () => {
@@ -391,11 +386,6 @@ test("pipeline: class on the paragraph, marker gone, description starts at the S
     path.join(dir, ".reductions", "relations.json"),
     JSON.stringify({ objects: [...objects.values()] }),
   );
-  fs.mkdirSync(path.join(dir, "content", "Primitives"));
-  fs.writeFileSync(
-    path.join(dir, "content", "Primitives", "hash-function.md"),
-    "---\ntitle: Hash functions\n---\n\n# Hash functions\n\n### Preimage resistance (one-wayness)\n",
-  );
   const ctx = {
     argv: { directory: path.join(dir, "content") },
   } as unknown as BuildCtx;
@@ -420,7 +410,7 @@ test("pipeline: class on the paragraph, marker gone, description starts at the S
     transformed,
     /# No fully-black-box reduction from X to SNARK\n\nConditional\u00a0· /,
   );
-  // A variant is named by the heading its anchor points at, not by its id.
+  // A variant is named by its relations.json title (its heading), not its id.
   assert.ok(
     transformed.includes(
       "assuming [[hash-function#preimage-resistance-one-wayness|preimage resistance (one-wayness)]]",

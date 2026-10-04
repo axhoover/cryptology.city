@@ -79,18 +79,18 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in fd8f515c3de8 -->
+<!-- BEGIN GENERATED participates-in 71ecdf9658f4 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
-- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|honest-verifier-zero-knowledge]])
+- [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
 - [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 
 **Produces Zero-knowledge proof**
 
-- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#argument-systems|constant-round-zk-argument]])
+- [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#argument-systems|Argument systems]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 
 **Barriers**

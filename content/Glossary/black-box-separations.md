@@ -16,7 +16,7 @@ A **black-box separation** between cryptographic primitives $A$ and $B$ is a for
 
 ## Types of Black-Box Reductions
 
-Following [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]], black-box reductions are classified along two orthogonal axes.
+Following [[RTV04 - Notions of Reducibility between Cryptographic Primitives|RTV04]], black-box reductions are classified along two orthogonal axes. [[reduction-classes|Reduction classes]] defines each class this wiki records, including the ∀∃, weakly black-box, free and fixed-construction classes, and the order between them.
 
 **Construction: black-box vs. non-black-box.**
 A _black-box construction_ of $B$ from $A$ uses $A$ only as an oracle — the implementation of $A$ is never inspected, only its input/output behavior. A _non-black-box construction_ may use the code (circuit description) of $A$ directly, for example by hardwiring it into the construction.

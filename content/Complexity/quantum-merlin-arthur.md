@@ -44,15 +44,15 @@ Recent work has studied how modifications to the proof model change QMA's power:
 
 ## Relevance to cryptography
 
-For every $\gamma \ge 1$, [[shortest-vector-problem|$\mathrm{GapSVP}_\gamma$]] is in $\classNP \subseteq \classQMA$, since a short vector is a classical witness — folklore. For $\gamma \ge \sqrt{n}$, $\mathrm{GapSVP}_\gamma \in \classNP \cap \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]], so it is not QMA-hard under Karp reductions unless $\classQMA \subseteq \classNP \cap \classcoNP$.
+For every $\gamma \ge 1$, the [[shortest-vector-problem|gap shortest vector problem]] $\mathrm{GapSVP}_\gamma$ is in $\classNP \subseteq \classQMA$, since a short vector is a classical witness — folklore. For $\gamma \ge \sqrt{n}$, $\mathrm{GapSVP}_\gamma \in \classNP \cap \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]], so it is not QMA-hard under Karp reductions unless $\classQMA \subseteq \classNP \cap \classcoNP$.
 
-<!-- BEGIN GENERATED participates-in a042e53ff89f -->
+<!-- BEGIN GENERATED participates-in 8c46155f5e70 -->
 
 ## Participates in
 
 **Builds on Quantum Merlin-Arthur**
 
-- [[notable-problems-to-qma|Local Hamiltonian is QMA-complete]] (via [[quantum-merlin-arthur#notable-problems|local-hamiltonian]])
+- [[notable-problems-to-qma|Local Hamiltonian is QMA-complete]] (via [[quantum-merlin-arthur#notable-problems|Notable problems]])
 - [[qma-to-pp|QMA ⊆ PP]]
 
 **Produces Quantum Merlin-Arthur**

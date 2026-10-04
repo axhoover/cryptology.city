@@ -60,14 +60,14 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in fc5ddaec779d -->
+<!-- BEGIN GENERATED participates-in d6eb1fd38254 -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
-- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|enhanced-trapdoor-permutation]])
-- [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|lossy-trapdoor-function]])
+- [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
 - [[tdp-to-pke|TDP ⇒ PKE]]

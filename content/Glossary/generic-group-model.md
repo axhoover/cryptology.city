@@ -51,7 +51,7 @@ This yields tight subexponential lower bounds applicable to index-calculus algor
 
 The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
 
-<!-- BEGIN GENERATED participates-in 817089c0effc -->
+<!-- BEGIN GENERATED participates-in 8efbe2d98916 -->
 
 ## Participates in
 
@@ -61,7 +61,7 @@ The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[ggm-to-kea-den06|GGM ⇒ KEA]]
-- [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]] (via [[generic-group-model#the-structured-ggm|structured-generic-group-model]])
+- [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]] (via [[generic-group-model#the-structured-ggm|The Structured GGM]])
 
 **Barriers**
 

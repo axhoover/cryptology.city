@@ -1,7 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 import yaml from "js-yaml";
-import { slug as slugAnchor } from "github-slugger";
 import { Root, Paragraph, Heading } from "mdast";
 import { toString } from "mdast-util-to-string";
 import { QuartzTransformerPlugin } from "../types";
@@ -31,7 +30,10 @@ export const RELATION_META_CLASS = "relation-meta";
 const MARKER = "<!-- relation-meta -->";
 
 export interface Options {
-  /** Wikilink target that defines reduction classes. */
+  /**
+   * Wikilink target of the page defining the reduction classes. A class links
+   * to `<classPage>#<class id>`; each class's heading there slugs to its id.
+   */
   classPage: string;
   /** Wikilink target per idealised model; models without one render as text. */
   modelPages: Record<string, string>;
@@ -42,9 +44,10 @@ export interface Options {
 }
 
 const defaultOptions: Options = {
-  // RTV04's taxonomy as the wiki states it. The page has no per-class anchors,
-  // so every class links to the section.
-  classPage: "black-box-separations#types-of-black-box-reductions",
+  // content/Glossary/reduction-classes.md: one section per class in
+  // schema/reduction-classes.yaml (test/reduction-classes.test.ts checks the
+  // anchors).
+  classPage: "reduction-classes",
   // The pages carrying the ids that MODEL_PAGES in scripts/participates-in.mjs
   // maps these models to (rom, ggm, agm). No other model has a page yet.
   modelPages: {
@@ -58,7 +61,7 @@ const defaultOptions: Options = {
     crs: "CRS model",
     "generic-group": "generic group model",
     "algebraic-group": "algebraic group model",
-    quantum: "quantum",
+    quantum: "quantum setting",
     other: "non-standard model",
   },
   relationsJson: "../.reductions/relations.json",
@@ -71,9 +74,8 @@ export interface ObjectRef {
   kind: "object" | "variant";
   type?: string;
   slug: string;
-  /** The page's path under the content directory, without `.md`. */
-  graphSlug?: string;
   anchor?: string;
+  /** A variant's title is the heading its anchor points at (relations.json). */
   title: string;
 }
 
@@ -106,7 +108,6 @@ function loadObjectIndex(file: string): ObjectIndex {
         kind: o.kind === "variant" ? "variant" : "object",
         type: str(o.type),
         slug: o.slug,
-        graphSlug: str(o.graphSlug),
         anchor: str(o.anchor),
         title: str(o.title) || o.id,
       });
@@ -123,93 +124,16 @@ function loadObjectIndex(file: string): ObjectIndex {
   return index;
 }
 
-// A variant's relations.json title is its id (`pke-cca1-security`), which is
-// not reader-facing text. The line names a variant by the heading its anchor
-// points at instead, read from the host page.
-const headingCache = new Map<
-  string,
-  { mtime: number; headings: Map<string, string> }
->();
-
-/** Heading text that a `[[page#heading]]` link would show. */
-export function headingText(raw: string): string {
-  return oneLine(
-    raw
-      .replace(/\[\[([^\]|]+)\|([^\]]*)\]\]/g, "$2")
-      .replace(/\[\[([^\]]+)\]\]/g, "$1")
-      .replace(/(\*\*|__|`)/g, ""),
-  );
-}
-
-/** Headings of a markdown file by anchor slug, frontmatter and fences skipped. */
-export function headingsBySlug(src: string): Map<string, string> {
-  const headings = new Map<string, string>();
-  // The frontmatter block is skipped even when its YAML does not parse.
-  const bodyStart = FRONTMATTER.exec(src)?.[0].length ?? 0;
-  let fence: string | null = null;
-  for (const l of src.slice(bodyStart).split(/\r?\n/)) {
-    const f = /^ {0,3}(`{3,}|~{3,})/.exec(l);
-    if (f) {
-      if (fence === null) fence = f[1];
-      else if (f[1][0] === fence[0] && f[1].length >= fence.length)
-        fence = null;
-      continue;
-    }
-    if (fence !== null) continue;
-    const h = /^ {0,3}#{1,6}[ \t]+(.*?)(?:[ \t]+#+)?[ \t]*$/.exec(l);
-    if (!h) continue;
-    const text = headingText(h[1]);
-    const key = slugAnchor(text);
-    if (text && !headings.has(key)) headings.set(key, text);
-  }
-  return headings;
-}
-
-function variantHeading(contentDir: string, o: ObjectRef): string | undefined {
-  if (!o.anchor || !o.graphSlug) return undefined;
-  const file = path.join(contentDir, `${o.graphSlug}.md`);
-  try {
-    const mtime = fs.statSync(file).mtimeMs;
-    let entry = headingCache.get(file);
-    if (!entry || entry.mtime !== mtime) {
-      const headings = headingsBySlug(fs.readFileSync(file, "utf8"));
-      entry = { mtime, headings };
-      headingCache.set(file, entry);
-    }
-    return entry.headings.get(o.anchor.replace(/^#/, "").toLowerCase());
-  } catch {
-    // A missing or unreadable host page: the variant keeps its id.
-    return undefined;
-  }
-}
-
 /**
- * Display text for a variant whose title is only its id: the heading its
- * anchor names, lower-cased when it starts with an ordinary capitalised word
- * ("Collision resistance" → "collision resistance", "CCA1 Security" kept).
+ * Display text for a variant in the line: its relations.json title (the
+ * heading its anchor points at), lower-cased when it starts with an ordinary
+ * capitalised word ("Collision resistance" → "collision resistance", "CCA1
+ * Security" kept), since it reads mid-sentence ("assuming …").
  */
 export const variantDisplay = (heading: string) =>
   /^\p{Lu}\p{Ll}/u.test(heading)
     ? heading.charAt(0).toLowerCase() + heading.slice(1)
     : heading;
-
-/** `objects`, with reader-facing titles for the variant ids in `ids`. */
-function withVariantTitles(
-  objects: ObjectIndex,
-  ids: string[],
-  contentDir: string,
-): ObjectIndex {
-  let out: ObjectIndex | null = null;
-  for (const id of ids) {
-    const o = objects.get(id);
-    if (!o || o.kind !== "variant" || (o.title && o.title !== o.id)) continue;
-    const heading = variantHeading(contentDir, o);
-    if (!heading) continue;
-    out ??= new Map(objects);
-    out.set(id, { ...o, title: variantDisplay(heading) });
-  }
-  return out ?? objects;
-}
 
 // --------------------------------------------------------------- the line ----
 
@@ -241,17 +165,64 @@ const own = <T>(rec: Record<string, T>, key: string): T | undefined =>
 /** Wikilink display text cannot contain `|`, `[` or `]`. */
 const linkText = (s: string) => s.replace(/[|[\]]/g, " ").trim();
 
+const ASCII_PUNCT = /[!-/:-@[-`{-~]/;
+
 /**
- * A link to `target` showing `text`. Display text with `$…$` math is written
- * as a markdown link: remark-math splits a wikilink whose alias holds math
- * before ObsidianFlavoredMarkdown sees it, which leaves the `[[…]]` raw, while
- * a markdown link's text is parsed as inline content, so the math renders.
+ * `text` as markdown showing exactly `text`: `$…$` and backtick spans kept,
+ * and outside them every `$`, `[` and `]` escaped, so a lone dollar (IND$-CPA)
+ * cannot pair with a dollar elsewhere in the line. A run of n dollars or
+ * backticks closes at the next run of exactly n, as micromark reads it. The
+ * same rule as `escapeOutsideMath` in scripts/markdown-text.mjs, which the
+ * generated "Participates in" sections use; change both together.
+ */
+export function escapeOutsideMath(text: string): string {
+  let out = "";
+  for (let i = 0; i < text.length; ) {
+    const c = text[i];
+    if (c === "\\" && i + 1 < text.length && ASCII_PUNCT.test(text[i + 1])) {
+      out += text.slice(i, i + 2);
+      i += 2;
+    } else if (c === "$" || c === "`") {
+      let end = i;
+      while (text[end] === c) end++;
+      const n = end - i;
+      let close = -1;
+      for (let j = end; j < text.length && close < 0; ) {
+        if (text[j] !== c) {
+          j++;
+          continue;
+        }
+        let k = j;
+        while (text[k] === c) k++;
+        if (k - j === n) close = j;
+        j = k;
+      }
+      if (close < 0) {
+        out += c === "$" ? "\\$".repeat(n) : text.slice(i, end);
+        i = end;
+      } else {
+        out += text.slice(i, close + n);
+        i = close + n;
+      }
+    } else {
+      out += c === "[" || c === "]" ? `\\${c}` : c;
+      i++;
+    }
+  }
+  return out;
+}
+
+/**
+ * A link to `target` showing `text`. Display text with a `$` is written as a
+ * markdown link: remark-math splits a wikilink whose alias holds math before
+ * ObsidianFlavoredMarkdown sees it, which leaves the `[[…]]` raw, while a
+ * markdown link's text is parsed as inline content, so the math renders.
  * CrawlLinks resolves both forms alike. Brackets and bars inside the math are
  * left alone: a math span binds tighter than link brackets, as a code span does.
  */
 const wikilink = (target: string, text: string) =>
   text.includes("$")
-    ? `[${text.trim()}](<${target}>)`
+    ? `[${escapeOutsideMath(text.trim())}](<${target}>)`
     : `[[${target}|${linkText(text)}]]`;
 
 const WIKILINK = /^\[\[([^\]|]+?)(\|[^\]]*)?\]\]$/;
@@ -281,7 +252,7 @@ export function renderObject(id: string, objects: ObjectIndex): string {
   const o = objects.get(id);
   if (!o) return id;
   return o.kind === "variant"
-    ? wikilink(`${o.slug}${o.anchor ?? ""}`, o.title || id)
+    ? wikilink(`${o.slug}${o.anchor ?? ""}`, variantDisplay(o.title || id))
     : wikilink(o.slug, o.title || id);
 }
 
@@ -321,7 +292,7 @@ export function relationMetaParts(
   const parts: string[] = [];
   const cls = scalar(fm.class);
   const classLink = (noun: string) =>
-    wikilink(opts.classPage, `${classPhrase(cls)} ${noun}`);
+    wikilink(`${opts.classPage}#${cls}`, `${classPhrase(cls)} ${noun}`);
   const sources = asList(fm.source).map(renderSource);
 
   if (fm.type === "reduction") {
@@ -445,11 +416,8 @@ export const RelationMeta: QuartzTransformerPlugin<Partial<Options>> = (
     textTransform(ctx, src) {
       const fm = readFrontmatter(src);
       if (!fm || !isRelationPage(fm.data)) return src;
-      const contentDir = path.resolve(ctx.argv.directory);
-      const objects = withVariantTitles(
-        loadObjectIndex(path.resolve(contentDir, opts.relationsJson)),
-        asList(fm.data["conditional-on"]),
-        contentDir,
+      const objects = loadObjectIndex(
+        path.resolve(ctx.argv.directory, opts.relationsJson),
       );
       const parts = relationMetaParts(fm.data, objects, opts);
       if (!parts.length) return src;

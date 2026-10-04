@@ -132,25 +132,25 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 
-<!-- BEGIN GENERATED participates-in c0d083819562 -->
+<!-- BEGIN GENERATED participates-in 33cbbc1a6a1a -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
-- [[ind-dollar-cpa-security-to-cpa-security|IND$-CPA Security ⇒ CPA Security]] (via [[symmetric-key-encryption#ind-cpa-security|ind-dollar-cpa-security]])
+- [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|cpa-security]])
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
 
-- [[ind-dollar-cpa-security-to-cpa-security|IND$-CPA Security ⇒ CPA Security]] (via [[symmetric-key-encryption#cpa-security|cpa-security]])
-- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|cca-secure-symmetric-key-encryption]])
+- [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 
 **Barriers**
 
-- [[no-cpa-security-to-ind-cpa-security|No fixed-construction reduction from CPA Security to IND$-CPA Security]] (via [[symmetric-key-encryption#cpa-security|cpa-security]], [[symmetric-key-encryption#ind-cpa-security|ind-dollar-cpa-security]])
+- [No fixed-construction reduction from CPA Security to IND\$-CPA Security](no-cpa-security-to-ind-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]], [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 
 <!-- END GENERATED participates-in -->

@@ -216,8 +216,15 @@ rewritten later.
 
 An edge on a variant is listed in the generated "Participates in" section of
 the page declaring the variant, under the same headings as an edge on the
-page's `id`, with the variant named:
-`(via [[learning-with-errors#ring-lwe|ring-lwe]])`.
+page's `id`, with the variant named by the heading its anchor points at:
+`(via [[learning-with-errors#ring-lwe|Ring LWE]])`. The anchor is the id the
+site gives that heading (github-slugger over the heading text, math by its TeX
+source: `## Honest majority ($t < n/2$)` is `#honest-majority-t--n2`); the lint
+rejects an anchor that matches no heading (`variant-anchor`). A title or
+heading with `$…$` math is linked as a markdown link,
+`[$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption)`,
+because a wikilink whose display text holds math renders as raw `[[…]]`
+(`wikilink-math`).
 
 A reduction or barrier slug's paper suffix records the page's origin; `source`
 is authoritative. When the two disagree on a page that still states the same
@@ -239,6 +246,9 @@ restatement and hierarchy diagram of Baecher–Brzuska–Fischlin, _Notions of
 Black-Box Reductions, Revisited_ (Asiacrypt 2013,
 [eprint 2013/101](https://eprint.iacr.org/2013/101)), Figure 1(a) and Figure 3.
 RTV04 is not on ePrint; cite the wiki's reference page.
+`content/Glossary/reduction-classes.md` defines each class for readers, one
+section per class, and states the order; the class shown under a reduction or
+barrier page's title links to its section.
 
 `implies` points from the **narrower** (more restrictive, harder to achieve)
 notion to the **broader** one, and means set containment on reductions:
@@ -490,6 +500,11 @@ cites every `source` entry).
 - A new **class** needs a `title`, a `summary`, its `implies` edges, and a
   `defined_in` citation. Adding one changes the contradiction check for every
   existing page, so justify the partial-order placement in the commit message.
+  It also needs a section on `content/Glossary/reduction-classes.md` whose
+  heading's id is the class name, and a row in that page's order table: the
+  line under a reduction or barrier page's title links each class to
+  `reduction-classes#<class>`, and `test/reduction-classes.test.ts` checks
+  every class has its section.
 - A new **proposition** needs a `title`, a `believed` flag, and a `page` when
   the wiki has one. `believed: false` is what makes the lint's soft flag fire
   ("this would be a major result — confirm the class"). A barrier whose

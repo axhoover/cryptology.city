@@ -9,8 +9,14 @@ import {
 type Obj = Record<string, unknown> & { id: string };
 const obj = (id: string, slug: string, title: string, aliases: string[] = []) =>
   ({ id, kind: "object", slug, title, aliases }) as Obj;
-const variant = (id: string, of: string, slug: string, anchor: string) =>
-  ({ id, kind: "variant", of, slug, anchor, title: id, aliases: [] }) as Obj;
+// generate-relations.mjs titles a variant by the heading its anchor points at.
+const variant = (
+  id: string,
+  of: string,
+  slug: string,
+  anchor: string,
+  title: string,
+) => ({ id, kind: "variant", of, slug, anchor, title, aliases: [] }) as Obj;
 const red = (id: string, fm: Record<string, unknown>) => ({
   id: `red-${id}`,
   slug: id,
@@ -32,9 +38,27 @@ const bar = (id: string, fm: Record<string, unknown>) => ({
 const objects = new Map(
   [
     obj("pke", "public-key-encryption", "Public-key encryption"),
-    variant("pke-cpa", "pke", "public-key-encryption", "#cpa-security"),
-    variant("pke-cca1", "pke", "public-key-encryption", "#cca1-security"),
-    variant("pke-cca2", "pke", "public-key-encryption", "#cca-security"),
+    variant(
+      "pke-cpa",
+      "pke",
+      "public-key-encryption",
+      "#cpa-security",
+      "CPA Security",
+    ),
+    variant(
+      "pke-cca1",
+      "pke",
+      "public-key-encryption",
+      "#cca1-security",
+      "CCA1 Security",
+    ),
+    variant(
+      "pke-cca2",
+      "pke",
+      "public-key-encryption",
+      "#cca-security",
+      "CCA Security",
+    ),
     obj("lwe", "learning-with-errors", "Learning with errors"),
     obj("ot", "oblivious-transfer", "Oblivious transfer"),
     obj("rom", "random-oracle-model", "Random Oracle Model", ["ROM"]),
@@ -113,21 +137,21 @@ test("an edge on the page's own id is listed with no annotation", () => {
 test("an edge reached only through a variant is listed and names the variant", () => {
   const out = render("pke");
   assert.deepEqual(under(out, "Builds on Public-key encryption"), [
-    "[[cca1-to-cpa|cca1-to-cpa]] (via [[public-key-encryption#cca1-security|pke-cca1]])",
+    "[[cca1-to-cpa|cca1-to-cpa]] (via [[public-key-encryption#cca1-security|CCA1 Security]])",
     "[[id-to-ds|id-to-ds]]",
     "[[pke-and-cpa-to-ot|pke-and-cpa-to-ot]]",
     "[[pke-to-ot|pke-to-ot]]",
   ]);
   assert.deepEqual(under(out, "Produces Public-key encryption"), [
-    "[[cca1-to-cpa|cca1-to-cpa]] (via [[public-key-encryption#cpa-security|pke-cpa]])",
+    "[[cca1-to-cpa|cca1-to-cpa]] (via [[public-key-encryption#cpa-security|CPA Security]])",
     "[[lwe-to-pke|lwe-to-pke]]",
-    "[[lwe-to-pke-cca|lwe-to-pke-cca]] (via [[public-key-encryption#cca-security|pke-cca2]])",
+    "[[lwe-to-pke-cca|lwe-to-pke-cca]] (via [[public-key-encryption#cca-security|CCA Security]])",
   ]);
 });
 
 test("a barrier between two variants names both, sorted, before any circumvention", () => {
   assert.deepEqual(under(render("pke"), "Barriers"), [
-    "[[no-cpa-to-cca1|no-cpa-to-cca1]] (via [[public-key-encryption#cca1-security|pke-cca1]], [[public-key-encryption#cpa-security|pke-cpa]])",
+    "[[no-cpa-to-cca1|no-cpa-to-cca1]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])",
     "[[no-pke-to-ot|no-pke-to-ot]] — circumvented by [[pke-to-ot|pke-to-ot]]",
   ]);
 });
@@ -202,4 +226,52 @@ test("the output depends on the graph, not on the order it was loaded in", () =>
     barriers: [...barriers].reverse(),
   });
   for (const id of objects.keys()) assert.equal(shuffled(id), render(id));
+});
+
+test("a title or variant heading with a dollar is linked as a markdown link, escaped", () => {
+  const out = makeParticipatesIn({
+    objects: new Map(
+      [
+        obj("ske", "symmetric-key-encryption", "Symmetric-key encryption"),
+        variant(
+          "ind-dollar",
+          "ske",
+          "symmetric-key-encryption",
+          "#ind-cpa-security",
+          "IND$-CPA Security",
+        ),
+        variant(
+          "cpa",
+          "ske",
+          "symmetric-key-encryption",
+          "#cpa-security",
+          "CPA Security",
+        ),
+        obj("klin", "bilinear-map-assumptions", "Bilinear map assumptions"),
+      ].map((o) => [o.id, o]),
+    ),
+    reductions: [
+      {
+        ...red("ind-dollar-to-cpa", {
+          hypotheses: ["ind-dollar"],
+          conclusion: "cpa",
+        }),
+        title: "IND$-CPA Security ⇒ CPA Security",
+      },
+      {
+        ...red("klin-to-ske", { hypotheses: ["klin"], conclusion: "ske" }),
+        title: "$k$-Linear assumption ⇒ SKE",
+      },
+    ],
+    barriers: [],
+  })("ske");
+  assert.deepEqual(under(out, "Builds on Symmetric-key encryption"), [
+    "[IND\\$-CPA Security ⇒ CPA Security](ind-dollar-to-cpa) (via [IND\\$-CPA Security](symmetric-key-encryption#ind-cpa-security))",
+  ]);
+  // Sorted by edge id.
+  assert.deepEqual(under(out, "Produces Symmetric-key encryption"), [
+    "[IND\\$-CPA Security ⇒ CPA Security](ind-dollar-to-cpa) (via [[symmetric-key-encryption#cpa-security|CPA Security]])",
+    "[$k$-Linear assumption ⇒ SKE](klin-to-ske)",
+  ]);
+  assert.ok(!/\[\[[^\]]*\$/.test(out), "no wikilink holds a dollar");
 });

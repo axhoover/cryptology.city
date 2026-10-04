@@ -61,20 +61,20 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 90c7a9a847d0 -->
+<!-- BEGIN GENERATED participates-in c1034c4eab09 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
 - [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
-- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [[bilinear-map-assumptions#decision-n-bdhe|n-bdhe]])
+- [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [Decision $n$-BDHE](bilinear-map-assumptions#decision-n-bdhe))
 - [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
-- [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
-- [[k-linear-assumption-to-abe-rw13|$k$-Linear assumption ⇒ ABE]] (via [[bilinear-map-assumptions#k-linear-assumption|k-linear-assumption]])
+- [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13) (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 
 <!-- END GENERATED participates-in -->

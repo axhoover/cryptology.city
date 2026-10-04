@@ -91,25 +91,25 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in b59367f8b04d -->
+<!-- BEGIN GENERATED participates-in 0c7b42118b4c -->
 
 ## Participates in
 
 **Builds on Hierarchical identity-based encryption**
 
-- [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]] (via [[hierarchical-identity-based-encryption#anonymous-hibe|anonymous-hibe]])
+- [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]] (via [[hierarchical-identity-based-encryption#anonymous-hibe|Anonymous HIBE]])
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
-- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|hibe-subexp-selective-security]])
+- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|Sub-exponential IND-sHIBE-CPA Security]])
 
 **Produces Hierarchical identity-based encryption**
 
 - [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]]
-- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|hibe-adaptive-security]])
+- [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]])
 
 **Barriers**
 
-- [[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|hibe-adaptive-security]], [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|hibe-selective-security]])
+- [[no-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security|No fixed-construction reduction from IND-sHIBE-CPA Security (Selective) to IND-HIBE-CPA Security]] (via [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA Security]], [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA Security (Selective)]])
 
 <!-- END GENERATED participates-in -->
