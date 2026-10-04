@@ -22,11 +22,11 @@ rationale:
 
 ## Statement
 
-No relativizing construction of [[public-key-encryption|PKE]] from a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists. Relative to a random permutation together with a $\classPSPACE$-complete oracle, one-way permutations exist and no [[key-exchange|key-agreement]] protocol is secure — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] ([[no-owp-to-ke-ir89|OWP ⇏ KE]]); a one-way permutation is a one-way function, and PKE gives two-message key agreement.
+No relativizing construction of [[public-key-encryption|PKE]] from a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists. Relative to a random permutation together with a $\classPSPACE$-complete oracle, one-way permutations exist and no [[key-exchange|key-agreement]] protocol is secure — [[IR89 - Limits on the provable consequences of one-way permutations|IR89]] ([[no-owp-to-ke-ir89|OWP ⇏ KE]]). A one-way permutation is a one-way function and PKE gives two-message key agreement, so relative to the same oracle one-way functions exist and PKE does not.
 
 ## Sketch
 
-Relative to that oracle the random permutation $\pi$ is one-way while $\classP = \classNP$. Against a key-agreement protocol whose parties make $q$ queries to $\pi$, the eavesdropper repeatedly queries the points that are likely to have been queried given the transcript; after $\poly(q)$ queries it holds, with high probability, every query asked by both parties, and it recovers the key by sampling a view of one party consistent with the transcript and its own queries.
+Against a key-agreement protocol whose parties make $q$ queries to the random permutation $\pi$, the eavesdropper repeatedly queries the points that are likely to have been queried given the transcript and its own queries; after $\poly(q)$ queries it holds, with high probability, every query asked by both parties, and it recovers the key by sampling a view of one party consistent with the transcript and its own queries. The $\classPSPACE$-complete oracle makes the sampling efficient, while $\pi$, being random, stays one-way against every adversary making polynomially many queries.
 
 ## Notes
 

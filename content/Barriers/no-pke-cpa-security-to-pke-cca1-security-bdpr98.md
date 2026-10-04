@@ -16,7 +16,7 @@ conditional-on: [pke-cpa-security]
 source:
   - "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
 rationale:
-  class: "The counterexample refutes the identity map, CPA security of a scheme implying CCA1 security of the same scheme, and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction."
+  class: "The counterexample refutes the identity map (CPA security of a scheme implying CCA1 security of the same scheme) and does not rule out building a CCA1-secure scheme from a CPA-secure one by another construction."
   strength: "BDPR98 prove the separation assuming an IND-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
 ---
 

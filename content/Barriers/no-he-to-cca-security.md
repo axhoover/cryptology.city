@@ -14,7 +14,7 @@ consequences:
 strength: unconditional
 source: folklore
 rationale:
-  class: "The attack refutes the identity map, IND-CCA2 security of the homomorphic scheme itself, and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
+  class: "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
 ---
 
 # No fixed-construction reduction from HE to IND-CCA2 Security
