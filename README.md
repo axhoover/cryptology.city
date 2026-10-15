@@ -10,14 +10,18 @@ Built with [Quartz v4](https://quartz.jzhao.xyz) and hosted on [Cloudflare Pages
 
 ## Running locally
 
-**Requirements:** Node.js ≥ 22, npm ≥ 10.9
+**Requirements:** Node.js ≥ 22, npm ≥ 10.9.2
 
 ```bash
-npm install
+git submodule update --init --recursive
+npm ci
 npx quartz build --serve
 ```
 
 Then open [http://localhost:8080](http://localhost:8080). Changes to `content/` rebuild automatically.
+
+The pinned `vendor/cryptobib` submodule supplies the BibTeX entries on reference
+pages. Initialize it before building so citation lookups are available.
 
 ---
 
