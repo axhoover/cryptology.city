@@ -8,7 +8,7 @@ venue: SIAM Journal on Computing 1984
 published: 1984-01-01
 aliases:
   - BM84
-cryptobib_key: FOCS:BluMic82
+cryptobib_key: BluMic84
 ---
 
 # [BM84] How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits

@@ -2,10 +2,10 @@
 type: reference
 status: draft
 title: "DH76"
-source: https://dl.acm.org/doi/abs/10.1145/3549993.3550007
+source: https://doi.org/10.1109/TIT.1976.1055638
 authors: Whitfield Diffie, Martin E. Hellman
-venue: preprint
-published: 1976-06-03
+venue: IEEE Transactions on Information Theory 1976
+published: 1976
 aliases:
   - DH76
 cryptobib_key: DifHel76
@@ -13,7 +13,7 @@ cryptobib_key: DifHel76
 
 # [DH76] New Directions in Cryptography
 
-**Authors:** Whitfield Diffie, Martin E. Hellman | **Venue:** preprint | [Source](https://dl.acm.org/doi/abs/10.1145/3549993.3550007)
+**Authors:** Whitfield Diffie, Martin E. Hellman | **Venue:** IEEE Transactions on Information Theory 1976 | [Source](https://doi.org/10.1109/TIT.1976.1055638)
 
 ## Abstract
 

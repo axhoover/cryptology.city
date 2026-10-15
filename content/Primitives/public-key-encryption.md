@@ -43,8 +43,10 @@ over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc
 
 The CPA game therefore takes the form of a single challenge:
 the adversary receives $\pk$, submits two messages, and tries to determine
-which was encrypted. Note that the adversary themselves can encrypt messages
-with $\pk.$
+which was encrypted. The adversary can encrypt messages with $\pk$.
+An admissible adversary submits $m_0, m_1 \in \calM$ with
+$|m_0| = |m_1|$; otherwise ciphertext length may reveal the challenge bit
+— standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -53,6 +55,7 @@ with $\pk.$
 \begin{algorithmic}
 \State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $(m_0, m_1, \stA) \gets \calA(1^\secpar, \pk)$
+\Comment{$m_0,m_1 \in \calM$ and $|m_0|=|m_1|$}
 \State $c^* \gets \Enc(\pk, m_b)$
 \State $b' \gets \calA(c^*, \stA)$
 \Return $[b' = b]$
@@ -60,7 +63,7 @@ with $\pk.$
 \end{algorithm}
 ```
 
-A PKE scheme $\PKE$ is **CPA-secure** if for all efficient $\calA$,
+A PKE scheme $\PKE$ is **CPA-secure** if for all admissible efficient $\calA$,
 
 $$
 \Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
@@ -80,7 +83,7 @@ is negligible, over $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $m \gets \mu$, and th
 
 ### CCA Security
 
-In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. To avoid a trivial win, $\calA$ is **admissible**: it may not query $\calD$ on $c^*$ itself.
+In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary additionally has access to a decryption oracle $\calD$ in two phases: before submitting $(m_0, m_1)$, and after receiving the challenge $c^*$. An **admissible** adversary submits equal-length messages in $\calM$ and, after receiving $c^*$, may not query $\calD$ on $c^*$ itself.
 
 ```pseudocode
 \begin{algorithm}
@@ -90,7 +93,7 @@ In the **chosen-ciphertext attack (CCA, or IND-CCA2)** game, the adversary addit
 \State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calD(c) := \Dec(\sk, c)$
 \State $(m_0, m_1, \stA) \gets \calA^{\calD}(1^\secpar, \pk)$
-\Comment{Phase 1: $\calA$ may query $\calD$ freely}
+\Comment{Phase 1: $\calD$ unrestricted; $m_0,m_1 \in \calM$, $|m_0|=|m_1|$}
 \State $c^* \gets \Enc(\pk, m_b)$
 \State $b' \gets \calA^{\calD}(c^*, \stA)$
 \Comment{Phase 2: $\calA$ may not query $\calD$ on $c^*$}

@@ -8,7 +8,7 @@ venue: STOC 1985 / SIAM Journal on Computing, 1989
 published: 1985
 aliases:
   - GMR85
-cryptobib_key: GolMicRac89
+cryptobib_key: STOC:GolMicRac85
 ---
 
 # [GMR85] The Knowledge Complexity of Interactive Proof-Systems
