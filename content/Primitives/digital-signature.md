@@ -32,7 +32,7 @@ message space $\calM$, and signature space $\calS$:
   signing key $\sk \in \calK_{\mathrm{sk}}$ and message $m \in \calM$,
   outputting signature $\sigma \in \calS$,
 - $\Vrfy(\vk, m, \sigma) \to b,$ is a deterministic algorithm which takes a
-  verification key $\vk \in \calK_{\mathrm{vk}},$ a message $m\in \calM,$ and
+  verification key $\vk \in \calK_{\mathrm{pk}},$ a message $m\in \calM,$ and
   a signature $\sigma\in\calS$, outputting a bit $b \in \bits$ indicating
   whether the signature is valid or not.
 
@@ -54,8 +54,9 @@ possibly $\Sign.$
 
 The following is the **existential unforgeability under chosen
 message attacks (EUF-CMA)** game. This security notion requires that an
-adversary cannot find a message-signature pair $(\hat{m},\hat{\sigma})$ even
-given oracle access to signatures on adversarially-chosen messages.
+adversary cannot produce a valid message-signature pair
+$(\hat{m},\hat{\sigma})$ for a message $\hat{m}$ it has not submitted to the
+signing oracle, even given signatures on adversarially chosen messages.
 
 ```pseudocode
 \begin{algorithm}
@@ -96,9 +97,9 @@ is negligible.
 
 ### Strong Unforgeability
 
-The following is the **strongly unforgeability under chosen
-message attacks (SUF-CMA)** game. This security notion strenghtens the above
-EUF-CMA notation and requires $\DS$ to prevent an adversary from "mauling"
+The following is the **strong unforgeability under chosen
+message attacks (SUF-CMA)** game. This security notion strengthens the above
+EUF-CMA notion and requires $\DS$ to prevent an adversary from "mauling"
 the signature to produce a new signature for the same message. For example,
 by rerandomizing the signature into another valid signature.
 

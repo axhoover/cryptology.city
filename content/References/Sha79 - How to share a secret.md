@@ -8,7 +8,7 @@ venue: Communications of the ACM
 published: 1979
 aliases:
   - Sha79
-cryptobib_key: EC:Mignotte82
+cryptobib_key: Shamir79
 ---
 
 # [Sha79] How to Share a Secret

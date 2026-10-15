@@ -4,7 +4,7 @@ status: draft
 title: "HS25"
 source: https://eprint.iacr.org/2025/493
 authors: Iftach Haitner, Gil Segev
-venue: preprint
+venue: IACR Communications in Cryptology (CiC) 2025
 published: 2025-03-15
 created: 2025-03-17
 aliases:
@@ -14,7 +14,7 @@ cryptobib_key: CiC:HaiSeg25
 
 # [HS25] Tighter Concrete Security for the Simplest OT
 
-**Authors:** Iftach Haitner, Gil Segev | **Venue:** preprint | [Source](https://eprint.iacr.org/2025/493)
+**Authors:** Iftach Haitner, Gil Segev | **Venue:** IACR Communications in Cryptology (CiC) 2025 | [Source](https://eprint.iacr.org/2025/493)
 
 ## Abstract
 

@@ -8,7 +8,7 @@ venue: IEEE Transactions on Information Theory 1985
 published: 1985-07-01
 aliases:
   - ElGamal85
-cryptobib_key: C:ElGamal84
+cryptobib_key: ElGamal85
 ---
 
 # [ElGamal85] A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms

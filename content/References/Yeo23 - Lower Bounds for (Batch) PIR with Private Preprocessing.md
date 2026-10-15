@@ -4,7 +4,7 @@ status: draft
 title: "Yeo23"
 source: https://eprint.iacr.org/2022/828
 authors: Kevin Yeo
-venue: preprint
+venue: EUROCRYPT 2023
 published: 2022-06-23
 aliases:
   - Yeo23
@@ -13,7 +13,7 @@ cryptobib_key: EC:Yeo23
 
 # [Yeo23] Lower Bounds for (Batch) PIR with Private Preprocessing
 
-**Authors:** Kevin Yeo | **Venue:** preprint | [Source](https://eprint.iacr.org/2022/828)
+**Authors:** Kevin Yeo | **Venue:** EUROCRYPT 2023 | [Source](https://eprint.iacr.org/2022/828)
 
 ## Abstract
 

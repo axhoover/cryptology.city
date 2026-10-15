@@ -4,8 +4,8 @@ status: draft
 title: "MMP+10"
 source: https://ieeexplore.ieee.org/abstract/document/5670946
 authors: Andrew McGregor, Ilya Mironov, Toniann Pitassi, Omer Reingold, Kunal Talwar, Salil Vadhan
-venue: STOC 2010
-published: 2010-06-01
+venue: FOCS 2010
+published: 2010
 created: 2025-03-07
 aliases:
   - MMP+10
@@ -14,7 +14,7 @@ cryptobib_key: FOCS:MMPRTV10
 
 # [MMP+10] The Limits of Two-Party Differential Privacy
 
-**Authors:** Andrew McGregor, Ilya Mironov, Toniann Pitassi, Omer Reingold, Kunal Talwar, Salil Vadhan | **Venue:** STOC 2010 | [Source](https://ieeexplore.ieee.org/abstract/document/5670946)
+**Authors:** Andrew McGregor, Ilya Mironov, Toniann Pitassi, Omer Reingold, Kunal Talwar, Salil Vadhan | **Venue:** FOCS 2010 | [Source](https://ieeexplore.ieee.org/abstract/document/5670946)
 
 ## Abstract
 

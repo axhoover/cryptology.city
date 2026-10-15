@@ -8,7 +8,7 @@ venue: STOC 2008, JACM 2015
 published: 2015-09-11
 aliases:
   - GKR15
-cryptobib_key: STOC:GolKalRot08
+cryptobib_key: JACM:GolKalRot15
 ---
 
 # [GKR15] Delegating Computation: Interactive Proofs for Muggles

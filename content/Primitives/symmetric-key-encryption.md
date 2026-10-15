@@ -47,7 +47,7 @@ $\varepsilon=0$, we say $\SKE$ is perfectly correct.
 
 ### CPA Security
 
-In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a hidden bit. The adversary wins by guessing $b$.
+In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a hidden bit. An **admissible** adversary submits $m_0,m_1 \in \calM$ with $|m_0|=|m_1|$ on every query; otherwise ciphertext length may reveal $b$. The adversary wins by guessing $b$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -57,13 +57,14 @@ In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries 
 \State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(m_0, m_1) := \Enc(k, m_0)$
 \State $\calO_1(m_0, m_1) := \Enc(k, m_1)$
+\Comment{Every query has $m_0,m_1 \in \calM$ and $|m_0|=|m_1|$}
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-A SKE scheme $\SKE$ is **CPA-secure** if for all efficient $\calA$,
+A SKE scheme $\SKE$ is **CPA-secure** if for all admissible efficient $\calA$,
 
 $$
 \Adv^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
@@ -73,7 +74,7 @@ is negligible.
 
 ### IND$-CPA Security
 
-**Indistinguishability from random (IND$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random ciphertexts, rather than encryptions of two chosen messages. The oracle in world 0 encrypts the query; in world 1 it returns a fresh uniform random ciphertext regardless of the input.
+**Indistinguishability from random (IND$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random strings of the same length. Assume an encryption of $m \in \calM$ always has length $\ell(|m|)$. The oracle in world 0 encrypts the query; in world 1 it returns a fresh uniform string in $\bits^{\ell(|m|)}$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -82,8 +83,8 @@ is negligible.
 \begin{algorithmic}
 \State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(m) := \Enc(k, m)$
-\State $\calO_1(m) \getsr \calC$
-\Comment{Each $m$ is a uniform random ciphertext}
+\State $\calO_1(m) \getsr \bits^{\ell(|m|)}$
+\Comment{Fresh random string of the encryption's length on each query}
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
 \Return $[b' = b]$
 \end{algorithmic}
@@ -100,7 +101,7 @@ is negligible. IND\$-CPA implies CPA security, but not vice versa — standard.
 
 ### CCA Security
 
-In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has access to a decryption oracle. To avoid a trivial win, $\calA$ is _admissible_: it may not query $\calD$ on any ciphertext output by the encryption oracle $\calO_b$.
+In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has access to a decryption oracle. An _admissible_ adversary submits equal-length messages in $\calM$ on every encryption query and may not query $\calD$ on any ciphertext already output by the encryption oracle $\calO_b$.
 
 ```pseudocode
 \begin{algorithm}
@@ -109,6 +110,7 @@ In the **chosen-ciphertext attack (CCA)** game, the adversary additionally has a
 \begin{algorithmic}
 \State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_b(m_0, m_1) := \Enc(k, m_b)$
+\Comment{Every query has $m_0,m_1 \in \calM$ and $|m_0|=|m_1|$}
 \State $\calD(c) := \Dec(k, c)$
 \Comment{$\calA$ may not query $\calD$ on outputs of $\calO_b$}
 \State $b' \gets \calA^{\calO_b, \calD}(1^\secpar)$
