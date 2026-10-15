@@ -16,7 +16,7 @@ variants:
 
 # Public key encryption
 
-A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while only the holder of the corresponding secret key can decrypt. This enables secure communication over untrusted channels without a pre-shared secret, unlike [[symmetric-key-encryption|SKE]].
+A **public key encryption (PKE)** scheme allows anyone to encrypt a message to a receiver using a public key, while the holder of the corresponding secret key can decrypt. Its security notions specify what an adversary can learn about the message, allowing leakage of its length.
 
 ## Syntax
 
@@ -41,7 +41,7 @@ over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc
 
 ### CPA Security
 
-The CPA game therefore takes the form of a single challenge:
+The CPA game takes the form of a single challenge:
 the adversary receives $\pk$, submits two messages, and tries to determine
 which was encrypted. The adversary can encrypt messages with $\pk$.
 An admissible adversary submits $m_0, m_1 \in \calM$ with
@@ -73,13 +73,17 @@ is negligible.
 
 ### Semantic security
 
-A PKE scheme $\PKE$ is **semantically secure** if for all efficient $\calA$ there is an efficient $\Sim$ such that for every distribution $\mu$ on $\calM$ and every function $f$,
+Semantic security compares predicting a function of the plaintext with and without its ciphertext — [[GM84 - Probabilistic encryption|GM84]]. In the following key-dependent, efficiently samplable formulation, the adversary chooses the message distribution after seeing $\pk$ — standard.
+
+For an efficient adversary $\calA = (\calA_1, \calA_2)$, sample $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$. Here $M$ describes an efficient sampler supported on equal-length messages in $\calM$, $f$ describes an efficiently computable function, and $\st$ is auxiliary state. Sample $m \gets M$ using fresh coins, and write $z := (1^\secpar, \pk, M, f, \st, |m|)$ for the information available in both experiments.
+
+A PKE scheme $\PKE$ is **semantically secure** in this formulation if for every such $\calA$ there is an efficient $\Sim$ such that
 
 $$
-\left|\Pr\!\left[\calA(1^\secpar, \pk, \Enc(\pk, m)) = f(m)\right] - \Pr\!\left[\Sim(1^\secpar, \pk, |m|) = f(m)\right]\right|
+\left|\Pr\!\left[\calA_2(z, \Enc(\pk, m)) = f(m)\right] - \Pr\!\left[\Sim(z) = f(m)\right]\right|
 $$
 
-is negligible, over $(\sk, \pk) \gets \KeyGen(1^\secpar)$, $m \gets \mu$, and the coins of $\Enc$, $\calA$ and $\Sim$ — [[GM84 - Probabilistic encryption|GM84]].
+is negligible, over key generation, $\calA_1$, the fresh draw from $M$, encryption, and the coins of $\calA_2$ or $\Sim$. The simulator receives the sampler's description, not the coins used to draw $m$. This formulation is [[cpa-security-to-cpa-security|equivalent to IND-CPA security]] — standard.
 
 ### CCA Security
 
