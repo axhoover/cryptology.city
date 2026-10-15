@@ -15,7 +15,7 @@ variants:
 
 # Symmetric key encryption
 
-A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages, such that an adversary who does not know the key cannot learn anything about the plaintext from the ciphertext.
+A **symmetric key encryption (SKE)** scheme allows a sender and receiver sharing a secret key to encrypt and decrypt messages. Its security notions specify what an adversary can learn about the message, allowing leakage of its length.
 
 ## Syntax
 
@@ -47,7 +47,7 @@ $\varepsilon=0$, we say $\SKE$ is perfectly correct.
 
 ### CPA Security
 
-In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a hidden bit. An **admissible** adversary submits $m_0,m_1 \in \calM$ with $|m_0|=|m_1|$ on every query; otherwise ciphertext length may reveal $b$. The adversary wins by guessing $b$ — standard.
+In the **chosen-plaintext attack (CPA)** game, the adversary adaptively queries a left-right encryption oracle: it submits message pairs $(m_0, m_1)$ and receives an encryption of $m_b$, where $b$ is a single hidden bit shared by all queries. Each encryption uses fresh randomness. An **admissible** adversary submits $m_0,m_1 \in \calM$ with $|m_0|=|m_1|$ on every query; otherwise ciphertext length may reveal $b$. The adversary wins by guessing $b$ — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -72,9 +72,9 @@ $$
 
 is negligible.
 
-### IND$-CPA Security
+### IND\$-CPA Security
 
-**Indistinguishability from random (IND$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random strings of the same length. Assume an encryption of $m \in \calM$ always has length $\ell(|m|)$. The oracle in world 0 encrypts the query; in world 1 it returns a fresh uniform string in $\bits^{\ell(|m|)}$ — standard.
+**Indistinguishability from random (IND\$-CPA)** is a stronger notion where the adversary must distinguish real encryptions from uniformly random strings of the same length. For each security parameter, assume an encryption of $m \in \calM$ always has length $\ell(\secpar, |m|)$, independent of the key and encryption coins. An admissible adversary queries only messages in $\calM$. The oracle in world 0 encrypts each query with fresh randomness; in world 1 it returns a fresh uniform string in $\bits^{\ell(\secpar, |m|)}$, which need not be a valid ciphertext — standard.
 
 ```pseudocode
 \begin{algorithm}
@@ -83,15 +83,15 @@ is negligible.
 \begin{algorithmic}
 \State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(m) := \Enc(k, m)$
-\State $\calO_1(m) \getsr \bits^{\ell(|m|)}$
-\Comment{Fresh random string of the encryption's length on each query}
+\State $\calO_1(m) \getsr \bits^{\ell(\secpar, |m|)}$
+\Comment{Each query has $m \in \calM$; use fresh coins in both worlds}
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-A SKE scheme $\SKE$ is **IND\$-CPA-secure** if for all efficient $\calA$,
+A SKE scheme $\SKE$ is **IND\$-CPA-secure** if for all admissible efficient $\calA$,
 
 $$
 \Adv^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ind\$\text{-}cpa}}_{\SKE,\calA}(\secpar) = 1\right] - 1\right|
