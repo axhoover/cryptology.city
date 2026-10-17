@@ -4,6 +4,7 @@ status: stub
 aliases:
   - GapSVP
   - Shortest Vector Problem
+  - SVP
 title: Shortest Vector Problem
 id: gapsvp
 ---

@@ -21,6 +21,7 @@ import { FileTrieNode } from "./quartz/util/fileTrie";
 // self-contained: no imports, no closure over module scope.
 const explorerFilter = (node: FileTrieNode) => {
   if (node.slugSegment === "tags") return false;
+  if (node.slugSegment === "Disambiguation") return false;
   if ((node.data as { unlisted?: boolean } | null)?.unlisted === true)
     return false;
   if (!node.isFolder && /^(Reductions|Barriers)\//.test(String(node.slug))) {

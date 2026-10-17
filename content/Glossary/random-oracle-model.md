@@ -5,6 +5,7 @@ aliases:
   - ROM
   - Random oracle
   - Random Oracle Model
+  - RO
 title: Random Oracle Model
 id: rom
 ---

@@ -9,6 +9,8 @@ aliases:
   - OWFs
   - One-way function
   - Collision-resistant hash function
+  - CRHF
+  - CRHFs
 title: Hash function
 id: hash-function
 variants:

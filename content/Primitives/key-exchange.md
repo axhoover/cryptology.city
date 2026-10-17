@@ -6,6 +6,7 @@ aliases:
   - Key exchange
   - Key agreement
   - DH key exchange
+  - Diffie-Hellman key exchange
 title: Key exchange
 id: ke
 variants:

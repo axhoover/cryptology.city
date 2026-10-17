@@ -5,6 +5,7 @@ aliases:
   - DS
   - Signature
   - Digital signature
+  - Signature scheme
 title: Digital signature
 id: ds
 variants:

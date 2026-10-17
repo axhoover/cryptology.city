@@ -25,7 +25,7 @@ contract the lint enforces.
 Every page under `content/` (Templates excluded) declares:
 
 ```yaml
-type: primitive | assumption | complexity-class | glossary | folklore | reference | note | reduction | barrier
+type: primitive | assumption | complexity-class | glossary | folklore | reference | note | reduction | barrier | disambiguation
 status: stub | draft | complete
 title: <string> # references: the citation key, e.g. "AMR25"
 aliases: [] # list, may be empty; each alias unique across the site
@@ -381,6 +381,18 @@ Prose about the object goes _outside_ the markers.
 [`random-oracle-model.md`](content/Glossary/random-oracle-model.md)),
 `type: folklore` (well-known results without a canonical citation), and
 `type: note` for root-level essays.
+
+### Disambiguation (`content/Disambiguation/`)
+
+Every alias is a URL shortcut (`cryptology.city/PRF`), matched
+case-insensitively, so an abbreviation several pages could claim (`PIR`, `DH`)
+is claimed by none of them: it goes on a `type: disambiguation` page, which the
+explorer hides. The body is the H1 (identical to `title`), one line naming the
+term, and one bullet per meaning — a link to the page and a one-line gloss of
+the object, cited where it states a result. Template:
+[`content/Templates/Disambiguation.md`](content/Templates/Disambiguation.md);
+example:
+[`private-information-retrieval.md`](content/Disambiguation/private-information-retrieval.md).
 
 ### Reference (`content/References/`)
 
