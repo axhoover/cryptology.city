@@ -102,6 +102,9 @@ const TYPES = {
   // Root notes host object ids too — content/impagliazzos-five-worlds.md is
   // where minicrypt / cryptomania / pessiland are defined.
   note: { dir: "", object: true }, // root pages
+  // A shortcut shared by several pages (PIR, DH) is claimed by one
+  // disambiguation page that links to each of them.
+  disambiguation: { dir: "Disambiguation" },
   reduction: {
     dir: "Reductions",
     required: [

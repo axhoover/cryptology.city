@@ -19,11 +19,13 @@ Every page: `type`, `status`, `title`, `aliases`.
 - `type` matches the directory: `primitive` (Primitives/), `assumption`
   (Assumptions/), `complexity-class` (Complexity/), `glossary`, `folklore`,
   `reference` (References/), `note` (root), `reduction` (Reductions/),
-  `barrier` (Barriers/).
+  `barrier` (Barriers/), `disambiguation` (Disambiguation/).
 - `status`: `stub` | `draft` | `complete`. Only a human sets `complete`; the
   lint then forbids TODO markers and requires the full section contract.
-- Aliases are unique site-wide; the canonical abbreviation (`PRF`, `LWE`) is
-  the first alias.
+- Aliases are unique site-wide, ignoring case; the canonical abbreviation
+  (`PRF`, `LWE`) is the first alias. Each alias is also a case-insensitive URL
+  shortcut. A shortcut several pages share (`PIR`, `DH`) goes on a
+  `content/Disambiguation/` page linking to each, never on one of them.
 
 References additionally: `authors` (one comma-separated string), `venue`,
 `published` (`YYYY-MM-DD` or `YYYY`), `source` (canonical URL: eprint >
