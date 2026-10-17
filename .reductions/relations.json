@@ -919,7 +919,10 @@
    "title": "Discrete logarithm",
    "aliases": [
     "DLOG",
-    "Discrete logarithm"
+    "Discrete logarithm",
+    "DL",
+    "DLP",
+    "Discrete log"
    ],
    "unlisted": false
   },
@@ -963,7 +966,8 @@
    "aliases": [
     "DS",
     "Signature",
-    "Digital signature"
+    "Digital signature",
+    "Signature scheme"
    ],
    "unlisted": false
   },
@@ -1172,7 +1176,8 @@
    "title": "Shortest Vector Problem",
    "aliases": [
     "GapSVP",
-    "Shortest Vector Problem"
+    "Shortest Vector Problem",
+    "SVP"
    ],
    "unlisted": false
   },
@@ -1246,7 +1251,9 @@
     "OWF",
     "OWFs",
     "One-way function",
-    "Collision-resistant hash function"
+    "Collision-resistant hash function",
+    "CRHF",
+    "CRHFs"
    ],
    "unlisted": false
   },
@@ -1707,7 +1714,8 @@
     "KE",
     "Key exchange",
     "Key agreement",
-    "DH key exchange"
+    "DH key exchange",
+    "Diffie-Hellman key exchange"
    ],
    "unlisted": false
   },
@@ -1945,7 +1953,10 @@
     "LWE",
     "Learning with errors",
     "RLWE",
-    "Ring Learning with errors"
+    "Ring Learning with errors",
+    "Ring-LWE",
+    "MLWE",
+    "Module-LWE"
    ],
    "unlisted": false
   },
@@ -3007,7 +3018,8 @@
    "aliases": [
     "ROM",
     "Random oracle",
-    "Random Oracle Model"
+    "Random Oracle Model",
+    "RO"
    ],
    "unlisted": false
   },
@@ -3208,7 +3220,10 @@
    "title": "Shortest Integer Solution",
    "aliases": [
     "SIS",
-    "Shortest Integer Solution"
+    "Shortest Integer Solution",
+    "Ring-SIS",
+    "Module-SIS",
+    "ISIS"
    ],
    "unlisted": false
   },
@@ -3250,7 +3265,9 @@
    "aliases": [
     "SKE",
     "SE",
-    "Symmetric key encryption"
+    "Symmetric key encryption",
+    "Symmetric encryption",
+    "Private-key encryption"
    ],
    "unlisted": false
   },
@@ -3674,7 +3691,8 @@
    "title": "UC Framework",
    "aliases": [
     "UC framework",
-    "Universal Composability Framework"
+    "Universal Composability Framework",
+    "UC"
    ],
    "unlisted": false
   },

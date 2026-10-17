@@ -4,6 +4,9 @@ status: draft
 aliases:
   - DLOG
   - Discrete logarithm
+  - DL
+  - DLP
+  - Discrete log
 title: Discrete logarithm
 id: dlog
 ---

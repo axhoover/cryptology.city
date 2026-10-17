@@ -6,6 +6,9 @@ aliases:
   - Learning with errors
   - RLWE
   - Ring Learning with errors
+  - Ring-LWE
+  - MLWE
+  - Module-LWE
 title: Learning with errors
 id: lwe
 variants:

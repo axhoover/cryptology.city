@@ -5,6 +5,8 @@ aliases:
   - SKE
   - SE
   - Symmetric key encryption
+  - Symmetric encryption
+  - Private-key encryption
 title: Symmetric key encryption
 id: ske
 variants:

@@ -4,6 +4,7 @@ status: stub
 aliases:
   - UC framework
   - Universal Composability Framework
+  - UC
 title: UC Framework
 id: uc-framework
 ---
