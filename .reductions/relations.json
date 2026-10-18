@@ -1204,7 +1204,6 @@
    "graphSlug": "Glossary/generic-group-model",
    "title": "Generic Group Model",
    "aliases": [
-    "GGM",
     "Generic Group Model"
    ],
    "unlisted": false
@@ -2698,7 +2697,6 @@
    "title": "Pseudorandom function",
    "aliases": [
     "PRF",
-    "iPRF",
     "Pseudorandom function"
    ],
    "unlisted": false
