@@ -4,22 +4,7 @@ import {
   QuartzComponentConstructor,
   QuartzComponentProps,
 } from "../types";
-
-// Alias shortcuts are case-insensitive: AliasRedirects also writes each alias
-// at its lowercase slug, so a miss on a mixed-case path is retried there.
-const lowercaseRetry = `(() => {
-  try {
-    const path = decodeURI(location.pathname);
-    const lower = path.toLowerCase();
-    if (lower === path) return;
-    const url = encodeURI(lower);
-    fetch(url, { method: "HEAD" })
-      .then((r) => {
-        if (r.ok) location.replace(url + location.search + location.hash);
-      })
-      .catch(() => {});
-  } catch {}
-})();`;
+import { lowercaseRetry } from "./lowercaseRetry";
 
 const NotFound: QuartzComponent = ({ cfg }: QuartzComponentProps) => {
   // If baseUrl contains a pathname after the domain, use this as the home link
