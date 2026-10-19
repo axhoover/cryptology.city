@@ -14,3 +14,13 @@ unlisted: true
 A pseudorandom generator whose output is computable by a logarithmic-depth boolean circuit family ($\mathrm{NC}^1$). The JLS21 iO construction instead assumes a Boolean PRG in $\mathrm{NC}^0$ with stretch $n^{1+\tau}$ for a constant $\tau > 0$ — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
 
 TODO: syntax and security definition.
+
+<!-- BEGIN GENERATED participates-in abd479b29d98 -->
+
+## Participates in
+
+**Builds on Pseudorandom generator in $\mathrm{NC}^1$**
+
+- [[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0 (AIK)]]
+
+<!-- END GENERATED participates-in -->

@@ -22,17 +22,21 @@ A _one-way permutation_ is a family of efficiently computable permutations $\{\p
 - [[owp-to-hash-function|OWP ⇒ OWF]] — folklore
 - [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]
 
-<!-- BEGIN GENERATED participates-in b8dfb87e9eca -->
+<!-- BEGIN GENERATED participates-in 230b4d59d0c4 -->
 
 ## Participates in
 
 **Builds on One-way permutations**
 
 - [[owp-to-hash-function|OWP ⇒ OWF]]
+- [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
+- [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]]
+- [[owp-to-uowhf-ny89|OWP ⇒ UOWHF (Naor–Yung)]]
 
 **Barriers**
 
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
+- [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]]
 - [[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
 
