@@ -4,6 +4,9 @@ status: draft
 aliases:
   - SIS
   - Shortest Integer Solution
+  - Ring-SIS
+  - Module-SIS
+  - ISIS
 title: Shortest Integer Solution
 id: sis
 variants:

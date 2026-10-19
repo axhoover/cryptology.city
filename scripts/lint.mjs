@@ -102,6 +102,9 @@ const TYPES = {
   // Root notes host object ids too — content/impagliazzos-five-worlds.md is
   // where minicrypt / cryptomania / pessiland are defined.
   note: { dir: "", object: true }, // root pages
+  // A shortcut shared by several pages (PIR, DH) is claimed by one
+  // disambiguation page that links to each of them.
+  disambiguation: { dir: "Disambiguation" },
   reduction: {
     dir: "Reductions",
     required: [
@@ -841,7 +844,7 @@ for (const [slug, files] of claims) {
       [...files][0],
       1,
       "alias-collision",
-      `"${slug}" is claimed by ${[...files].map(rel).join(" and ")} (as filename slug or alias). Every alias must resolve to exactly one page; remove it from all but one.`,
+      `"${slug}" is claimed by ${[...files].map(rel).join(" and ")} (as filename slug or alias). Every alias must resolve to exactly one page, ignoring case: remove it from all but one, or, when it names several pages, from all of them and put it on a disambiguation page in content/Disambiguation/ (see CONTRIBUTING.md).`,
     );
   }
 }

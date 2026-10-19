@@ -2,7 +2,6 @@
 type: glossary
 status: draft
 aliases:
-  - GGM
   - Generic Group Model
 title: Generic Group Model
 id: ggm

@@ -3,7 +3,6 @@ type: primitive
 status: draft
 aliases:
   - PRF
-  - iPRF
   - Pseudorandom function
 title: Pseudorandom function
 id: prf

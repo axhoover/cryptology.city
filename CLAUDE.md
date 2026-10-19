@@ -59,6 +59,7 @@ content/             # All wiki pages (Markdown)
   References/        # One file per cited paper
   Reductions/        # One page per reduction (hyperedge)
   Barriers/          # One page per barrier
+  Disambiguation/    # One page per shortcut shared by several pages (PIR, DH)
   Templates/         # Templates for new Primitive/Assumption/Reduction/etc. pages
   index.md           # Homepage
 macros.ts            # Custom LaTeX macro definitions (shared site-wide)
@@ -162,7 +163,7 @@ Every content page must include a YAML frontmatter block validated by `npm run l
 
 ```yaml
 ---
-type: primitive # matches the directory: primitive | assumption | complexity-class | glossary | folklore | reference | note | reduction | barrier
+type: primitive # matches the directory: primitive | assumption | complexity-class | glossary | folklore | reference | note | reduction | barrier | disambiguation
 status: draft # stub | draft | complete (complete is a human judgment; the lint then forbids TODOs)
 aliases:
   - ABBREV
@@ -171,7 +172,7 @@ title: Full primitive name
 ---
 ```
 
-Use the canonical abbreviation (e.g. `PRF`, `SKE`, `LWE`) as the primary alias. This enables wiki links like `[[pseudorandom-function|PRF]]` to resolve correctly. Aliases are unique site-wide — the lint rejects an alias claimed by two pages. Reference pages carry additional required fields; see `CONTRIBUTING.md` for the full schema.
+Use the canonical abbreviation (e.g. `PRF`, `SKE`, `LWE`) as the primary alias. This enables wiki links like `[[pseudorandom-function|PRF]]` to resolve correctly, and each alias is a URL shortcut (`cryptology.city/PRF`), matched case-insensitively. Aliases are unique site-wide, ignoring case — the lint rejects an alias claimed by two pages. A shortcut that several pages share (`PIR`, `DH`) belongs to a page in `content/Disambiguation/` that links to each of them; see `CONTRIBUTING.md`. Reference pages carry additional required fields; see `CONTRIBUTING.md` for the full schema.
 
 ### Relations are data
 
