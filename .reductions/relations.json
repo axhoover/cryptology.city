@@ -664,6 +664,19 @@
    "unlisted": false
   },
   {
+   "id": "compact-prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-compactly-encoded-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in compactly encoded prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -4726,6 +4739,30 @@
    "title": "COM ⇒ OWF"
   },
   {
+   "id": "red-compact-prime-order-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-prime-order-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-prime-order-dlog-to-prime-order-dlog.md",
+   "slug": "compact-prime-order-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
+   "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -5560,7 +5597,7 @@
    "id": "red-dlog-to-crhf-cvhp91",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog"
+    "compact-prime-order-dlog"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
