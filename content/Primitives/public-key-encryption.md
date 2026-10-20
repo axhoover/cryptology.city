@@ -11,6 +11,7 @@ variants:
   anonymous-public-key-encryption: "#key-hiding"
   pke-cca2-security: "#cca-security"
   pke-cpa-security: "#cpa-security"
+  perfectly-correct-pke-cpa-security: "#perfectly-correct-cpa-secure-pke"
   semantic-security: "#semantic-security"
 ---
 
@@ -112,6 +113,10 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 
 # Variations
 
+## Perfectly correct CPA-secure PKE
+
+An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsilon = 0$. Constructions of non-malleable and chosen-ciphertext-secure encryption that check a proof of consistency between ciphertext components need decryption to be errorless under all but a negligible fraction of key pairs, which perfect correctness guarantees; DNR04 immunize schemes with decryption errors to meet this weaker condition — [[DNR04 - Immunizing Encryption Schemes from Decryption Errors|DNR04]]. With negligible decryption error, a scheme may have rare encryption coins whose ciphertexts decrypt to bits of the secret key; a pair of such ciphertexts carries an honest consistency proof, and decryption queries on such pairs leak the key — standard.
+
 ## CCA1 Security
 
 **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA, assuming CCA2-secure schemes exist — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
@@ -129,7 +134,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 9536f2b1a723 -->
+<!-- BEGIN GENERATED participates-in 99f02688ed50 -->
 
 ## Participates in
 
@@ -139,6 +144,9 @@ TODO
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
@@ -150,10 +158,12 @@ TODO
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#semantic-security|Semantic security]])
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
+- [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]]
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -162,6 +172,9 @@ TODO
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 - [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
+- [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
+- [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -173,9 +186,12 @@ TODO
 
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]]
 - [[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-pke-cca1-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
 

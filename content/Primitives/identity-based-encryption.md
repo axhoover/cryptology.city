@@ -25,6 +25,8 @@ An IBE scheme is a tuple of efficient algorithms $\IBE = (\Setup, \Extract, \Enc
 - $\Enc(\pp, \mathit{id}, m) \to c,$ is a randomized algorithm that takes $\pp$, an identity $\mathit{id} \in \calI$, and a message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk_{\mathit{id}}, c) \to m,$ is a deterministic algorithm that takes a secret key $\sk_{\mathit{id}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate failure.
 
+The identity space contains $\bits^{\secpar}$. With polynomially many identities the notion is trivial: one [[public-key-encryption|PKE]] key pair per identity, published together, is an IBE scheme — standard.
+
 ## Properties
 
 ### Correctness
@@ -116,7 +118,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 312766c38b67 -->
+<!-- BEGIN GENERATED participates-in 5ca0e845e253 -->
 
 ## Participates in
 
@@ -126,6 +128,7 @@ Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provi
 - [[ind-id-cpa-security-to-ind-sid-cpa-security-selective|IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[ind-sid-cpa-security-selective-to-hibe-gkr25|IND-sID-CPA Security (Selective) ⇒ HIBE]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[ind-sid-cpa-security-selective-to-ind-id-cpa-security|Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security]] (via [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|Sub-exponential IND-sID-CPA Security]])
+- [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 
 **Produces Identity-based encryption**
 

@@ -64,6 +64,9 @@ _Last updated: 2026-10-15_
 
 ## Medium Priority
 
+- [ ] [Math] PW08 Theorem 6.4 gives the LWE-based lossy TDF residual leakage $r/n \le c_2/c_1 + o(1)$, so $c_1 > 2c_2$ yields $\rho < 1/2$ for large $n$ under the theorem's modulus, noise and dimension conditions, and Lemma 3.5 allows almost-always families; add an LWE-parameter variant carrying those conditions and an edge from it to `highly-lossy-trapdoor-function`, rather than retargeting generic `lwe-to-lossy-trapdoor-function-pw08` — _source: content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md_
+- [ ] [Math] `lwe-to-pke-reg05`, `lwe-to-nizk-ps19` and `lwe-to-tdh-dgi-19` take the bare `lwe` node, which a one-sample instance satisfies statistically; Reg05 (prime $q \in [n^2, 2n^2]$, $1/\alpha = \omega(\sqrt{n} \log n)$) and PS19 (polynomial approximation factors) fit `polynomial-ratio-lwe`, while DGI+19's ratio for negligible hint error is unverified — _source: content/Reductions/lwe-to-pke-reg05.md, content/Reductions/lwe-to-nizk-ps19.md, content/Reductions/lwe-to-tdh-dgi-19.md_
+- [ ] [Math] Derived closure from {rom} reaches `ke` via `rom-to-oihf-bh26` ⇒ `oihf-to-ot-bh26` ⇒ `ot-to-ke`, contradicting `no-rom-to-ke-hmo-19`: the free, non-black-box OIHF ⇒ OT edge uses the hash's code and must not compose with the ROM-scoped ROM ⇒ OIHF edge; `generate-relations.mjs --derive` needs a rule for this, or the edges need re-modelling — _source: content/Reductions/oihf-to-ot-bh26.md, content/Barriers/no-rom-to-ke-hmo-19.md_
 - [ ] [Math] 9 `TODO citation` entries across 7 Complexity class pages — content is present but references are missing:
   - `content/Complexity/sharp-p.md:25,29` — approximate counting, Valiant's permanent
   - `content/Complexity/bounded-error-probabilistic-polynomial-time.md:28` — derandomization

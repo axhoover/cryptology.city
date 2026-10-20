@@ -23,6 +23,7 @@ variants:
   tensor-lwe: "#tensor-lwe"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
+  polynomial-ratio-lwe: "#lwe-with-polynomial-modulus-to-noise-ratio"
 ---
 
 # Learning with errors
@@ -111,7 +112,7 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 
 ## Evasive LWE counterexamples
 
-- Three [[#Private-coin evasive LWE|private-coin evasive LWE]] variants used in prior constructions are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]].
+- If LWE is hard, three [[#Private-coin evasive LWE|private-coin evasive LWE]] variants used in prior constructions are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]].
 - The private-coin evasive LWE assumptions behind pseudorandom functional encryption (AKY24) and pseudorandom obfuscation (BDJ+24) are false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 - Public-coin [[#Circular evasive LWE|circular evasive LWE]], the assumption behind ABE for unbounded-depth circuits ([[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]; [[evasive-lwe-to-abe]]), is false: some sampler satisfies the pre-condition but not the post-condition — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 - Public-coin evasive LWE is false when the pre-condition error may be larger than the post-condition error — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
@@ -122,11 +123,15 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 [[#Ring LWE|Ring LWE (RLWE)]] replaces the random matrix $\mathbf{A}$ with structured elements from a polynomial ring $\ZZ_q[x]/\langle f(x) \rangle$, yielding more efficient constructions at the cost of additional algebraic structure.
 
+## LWE with polynomial modulus-to-noise ratio
+
+LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+
 ## Ring LWE
 
 **Ring LWE (RLWE)** restricts LWE to the polynomial ring $R_q = \ZZ_q[x]/\langle f(x)\rangle$, where $f$ is a cyclotomic polynomial of degree $n$ (typically $f(x) = x^n + 1 = \Phi_{2n}(x)$ for $n$ a power of 2) — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]. A Ring LWE sample is a pair $(a, b) \in R_q \times R_q$ where $a \getsr R_q$ is a random ring element and $b = a \cdot s + e$ for a secret $s \in R_q$ and small error $e \gets \chi^R$ drawn from an error distribution over $R_q$.
 
-The key advantage is efficiency: the random matrix $\mathbf{A} \in \ZZ_q^{m \times n}$ in plain LWE (requiring $O(n^2)$ space) is replaced by a single ring element $a \in R_q$ (requiring $O(n \log q)$ space), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
+The key advantage is efficiency: $n$ rows of the random matrix $\mathbf{A}$ in plain LWE ($n^2$ elements of $\ZZ_q$, or $n^2 \log q$ bits) are replaced by a single ring element $a \in R_q$ ($n \log q$ bits), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
 
 - **Key size**: $O(n \log q)$ bits (vs. $O(n^2 \log q)$ for plain LWE)
 - **Computation**: $O(n \log n)$ per operation (vs. $O(n^2)$)
@@ -187,7 +192,7 @@ is negligible.
 
 Hint LWE arises in:
 
-- **Amortized FHE bootstrapping**: refreshing many ciphertexts simultaneously leaks hints about the bootstrapping key — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
+- **Decryption failures and scheme constraints**: ciphertexts that fail to decrypt, and structural constraints of schemes such as LAC, Round5 and NTRU, yield hints on the secret — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
 - **Side-channel and leakage attacks**: partial key leakage from implementation attacks can be modeled as hint information, enabling lattice reduction with fewer samples — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
 
 The hardness depends sensitively on the number and precision of hints: few low-precision hints can be absorbed by adjusting the error distribution (LWE remains hard), but enough exact hints determine $\mathbf{s}$ entirely and break the assumption.
@@ -268,7 +273,7 @@ The assumption comes in public-coin and private-coin variants — [[BUW24 - Evas
 
 ### Private-coin evasive LWE
 
-**Private-coin evasive LWE** uses the same PRE- and POST-condition games, but $\mathrm{aux}$ is not required to contain $\mathrm{Samp}$'s coin tosses — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. Several private-coin formulations are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
+**Private-coin evasive LWE** uses the same PRE- and POST-condition games, but $\mathrm{aux}$ is not required to contain $\mathrm{Samp}$'s coin tosses — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. If LWE is hard, several private-coin formulations are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
 
 ### Circular evasive LWE
 
@@ -316,7 +321,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in fbe049978abd -->
+<!-- BEGIN GENERATED participates-in b56508c944f3 -->
 
 ## Participates in
 
@@ -332,6 +337,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
+- [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
@@ -339,6 +345,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
+- [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
@@ -353,6 +360,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
+- [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]]
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]

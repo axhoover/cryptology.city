@@ -621,6 +621,19 @@
    "unlisted": true
   },
   {
+   "id": "claw-free-permutations",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#claw-free-permutations",
+   "of": "tdp",
+   "title": "Claw-free permutations",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "co-cdh",
    "kind": "object",
    "type": "assumption",
@@ -1352,6 +1365,19 @@
    "unlisted": false
   },
   {
+   "id": "highly-lossy-trapdoor-function",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#highly-lossy-trapdoor-functions",
+   "of": "tdp",
+   "title": "Highly lossy trapdoor functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "honest-majority-t-lt-n-over-2",
    "kind": "variant",
    "type": "primitive",
@@ -1613,6 +1639,19 @@
     "Injective one-way function"
    ],
    "unlisted": true
+  },
+  {
+   "id": "injective-trapdoor-function",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#injective-trapdoor-functions",
+   "of": "tdp",
+   "title": "Injective trapdoor functions",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "interactive-protocol",
@@ -2551,6 +2590,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-correct-pke-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#perfectly-correct-cpa-secure-pke",
+   "of": "pke",
+   "title": "Perfectly correct CPA-secure PKE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ph",
    "kind": "object",
    "type": "complexity-class",
@@ -2641,6 +2693,19 @@
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "CPA Security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-polynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with polynomial modulus-to-noise ratio",
    "aliases": [],
    "unlisted": false
   },
@@ -4690,6 +4755,30 @@
    "title": "Circular security + Bootstrappable SHE ⇒ HE"
   },
   {
+   "id": "red-claw-free-permutations-to-crhf-dam87",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-permutations"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Dam87 - Collision Free Hash Functions and Public Key Signature Schemes|Dam87]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: every collision yields a claw",
+   "rationale": {
+    "class": "The hash evaluates the two permutations only as oracles, and one fixed reduction extracts a claw from any collision, running the collision finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-permutations-to-crhf-dam87.md",
+   "slug": "claw-free-permutations-to-crhf-dam87",
+   "graphSlug": "Reductions/claw-free-permutations-to-crhf-dam87",
+   "title": "Claw-free permutations ⇒ CRHF (Damgård)"
+  },
+  {
    "id": "red-co-cdh-to-ds",
    "kind": "implication",
    "hypotheses": [
@@ -5162,6 +5251,31 @@
    "title": "DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)"
   },
   {
+   "id": "red-ddh-and-uowhf-to-pke-cca2-security-cs98",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh",
+    "uowhf"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the CCA advantage is at most twice the sum of the DDH and target-collision advantages, plus O(Q/q) for Q decryption queries",
+   "rationale": {
+    "class": "The scheme uses only the group operations and the hash as an oracle, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its DDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-and-uowhf-to-pke-cca2-security-cs98.md",
+   "slug": "ddh-and-uowhf-to-pke-cca2-security-cs98",
+   "graphSlug": "Reductions/ddh-and-uowhf-to-pke-cca2-security-cs98",
+   "title": "DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)"
+  },
+  {
    "id": "red-ddh-to-cdh",
    "kind": "implication",
    "hypotheses": [
@@ -5184,6 +5298,30 @@
    "slug": "ddh-to-cdh",
    "graphSlug": "Reductions/ddh-to-cdh",
    "title": "DDH ⇒ CDH"
+  },
+  {
+   "id": "red-ddh-to-lossy-trapdoor-function-pw08",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "highly-lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor polynomial in n, from a hybrid over the entries of the encrypted matrix",
+   "rationale": {
+    "class": "The function uses only the group operations, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on matrices built from its DDH challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-lossy-trapdoor-function-pw08.md",
+   "slug": "ddh-to-lossy-trapdoor-function-pw08",
+   "graphSlug": "Reductions/ddh-to-lossy-trapdoor-function-pw08",
+   "title": "DDH ⇒ Highly lossy TDF (Peikert–Waters)"
   },
   {
    "id": "red-ddh-to-non-interactive-key-exchange-nike",
@@ -5987,6 +6125,54 @@
    "title": "FAC ⊆ TFNP"
   },
   {
+   "id": "red-factoring-blum-integers-to-claw-free-permutations-gmr88",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "claw-free-permutations",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of about 2: such integers are about half of all Blum integers, and every claw factors N",
+   "rationale": {
+    "class": "The pair uses only arithmetic modulo the sampled integer, and one fixed reduction factors it from any claw, running the claw finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-claw-free-permutations-gmr88.md",
+   "slug": "factoring-blum-integers-to-claw-free-permutations-gmr88",
+   "graphSlug": "Reductions/factoring-blum-integers-to-claw-free-permutations-gmr88",
+   "title": "Factoring ⇒ Claw-free permutations (GMR)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-tdp-rab79",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "tdp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor 2: an inverter succeeding with probability ε factors N with probability ε/2",
+   "rationale": {
+    "class": "The permutation uses only arithmetic modulo the sampled Blum integer, and one fixed reduction factors it by calling any inverter once, as an oracle, on the square of a uniform unit."
+   },
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-tdp-rab79.md",
+   "slug": "factoring-blum-integers-to-tdp-rab79",
+   "graphSlug": "Reductions/factoring-blum-integers-to-tdp-rab79",
+   "title": "Factoring ⇒ TDP (Rabin)"
+  },
+  {
    "id": "red-factoring-with-known-factor-structure-to-prg",
    "kind": "implication",
    "hypotheses": [
@@ -6765,6 +6951,30 @@
    "title": "Higher residuosity ⇒ PKE"
   },
   {
+   "id": "red-highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "kind": "implication",
+   "hypotheses": [
+    "highly-lossy-trapdoor-function"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the lossy trapdoor function, and the reduction forwards any mode distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function.md",
+   "slug": "highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "graphSlug": "Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "title": "Highly lossy TDF ⇒ Lossy TDF"
+  },
+  {
    "id": "red-honest-majority-t-lt-n-over-2-to-mpc-rb89",
    "kind": "implication",
    "hypotheses": [
@@ -7103,6 +7313,30 @@
    "title": "Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security"
   },
   {
+   "id": "red-ind-sid-cpa-to-pke-cca2-security-chk04",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-sid-cpa"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the CCA advantage is at most the selective-ID IBE advantage plus the strong one-time unforgeability advantage, plus the target-collision advantage when verification keys are hashed",
+   "rationale": {
+    "class": "The scheme calls the IBE and the one-time signature only as oracles, and the reduction commits to the challenge's verification key as its target identity and answers decryption queries with key-extraction queries, running any CCA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ind-sid-cpa-to-pke-cca2-security-chk04.md",
+   "slug": "ind-sid-cpa-to-pke-cca2-security-chk04",
+   "graphSlug": "Reductions/ind-sid-cpa-to-pke-cca2-security-chk04",
+   "title": "Selective-ID IBE ⇒ CCA-secure PKE (CHK)"
+  },
+  {
    "id": "red-invertible-prfs-to-prf",
    "kind": "implication",
    "hypotheses": [
@@ -7410,6 +7644,78 @@
    "title": "Linear secret sharing schemes (LSSS) ⇔ MSP"
   },
   {
+   "id": "red-lossy-trapdoor-function-to-crhf-pw08",
+   "kind": "implication",
+   "hypotheses": [
+    "highly-lossy-trapdoor-function"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage at least about ε − 2^{2r−κn}",
+   "rationale": {
+    "class": "The hash composes the lossy function, used only as an oracle, with a universal hash, and the reduction distinguishes the modes by running any collision finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lossy-trapdoor-function-to-crhf-pw08.md",
+   "slug": "lossy-trapdoor-function-to-crhf-pw08",
+   "graphSlug": "Reductions/lossy-trapdoor-function-to-crhf-pw08",
+   "title": "Highly lossy TDF ⇒ CRHF"
+  },
+  {
+   "id": "red-lossy-trapdoor-function-to-injective-trapdoor-function-pw08",
+   "kind": "implication",
+   "hypotheses": [
+    "lossy-trapdoor-function"
+   ],
+   "conclusion": "injective-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive 2^{-k} for lossiness k: an inverter with success ε distinguishes the modes with advantage ε − 2^{-k}",
+   "rationale": {
+    "class": "The injective trapdoor function is the lossy function's injective mode, used only as an oracle, and the reduction distinguishes the modes by running any inverter once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lossy-trapdoor-function-to-injective-trapdoor-function-pw08.md",
+   "slug": "lossy-trapdoor-function-to-injective-trapdoor-function-pw08",
+   "graphSlug": "Reductions/lossy-trapdoor-function-to-injective-trapdoor-function-pw08",
+   "title": "Lossy TDF ⇒ Injective TDF"
+  },
+  {
+   "id": "red-lossy-trapdoor-function-to-ot-pw08",
+   "kind": "implication",
+   "hypotheses": [
+    "lossy-trapdoor-function"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "receiver privacy: at most twice the mode-indistinguishability advantage, by two hybrids through a pair of injective indices; sender privacy is statistical, up to a leftover-hash term",
+   "rationale": {
+    "class": "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lossy-trapdoor-function-to-ot-pw08.md",
+   "slug": "lossy-trapdoor-function-to-ot-pw08",
+   "graphSlug": "Reductions/lossy-trapdoor-function-to-ot-pw08",
+   "title": "Lossy TDF ⇒ OT"
+  },
+  {
    "id": "red-lossy-trapdoor-functions-to-pke",
    "kind": "implication",
    "hypotheses": [
@@ -7419,11 +7725,12 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
+    "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: a constant number of hybrids plus a statistical leftover-hash term",
+   "securityLoss": "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term",
    "rationale": {
     "class": "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
    },
@@ -7615,6 +7922,30 @@
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "title": "LWE ⇒ Leveled fully homomorphic encryption"
+  },
+  {
+   "id": "red-lwe-to-lossy-trapdoor-function-pw08",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md",
+   "slug": "lwe-to-lossy-trapdoor-function-pw08",
+   "graphSlug": "Reductions/lwe-to-lossy-trapdoor-function-pw08",
+   "title": "LWE ⇒ Lossy TDF (Peikert–Waters)"
   },
   {
    "id": "red-lwe-to-nizk-ps19",
@@ -8379,6 +8710,30 @@
    "title": "OT ⇒ COM"
   },
   {
+   "id": "red-ot-to-ke",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the sum of the sender-privacy and receiver-privacy advantages, up to constant factors",
+   "rationale": {
+    "class": "The key-agreement parties run the OT protocol only as an oracle on uniform inputs, and the reduction turns any eavesdropper, used only as an oracle, into a distinguisher against sender or receiver privacy."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-ke.md",
+   "slug": "ot-to-ke",
+   "graphSlug": "Reductions/ot-to-ke",
+   "title": "OT ⇒ KE"
+  },
+  {
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
@@ -8814,6 +9169,30 @@
    "title": "PCS ⇒ Vector commitments"
   },
   {
+   "id": "red-perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-correct-pke-cpa-security"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security.md",
+   "slug": "perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "graphSlug": "Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
+  },
+  {
    "id": "red-permuted-puzzles-to-depir-bipw17",
    "kind": "implication",
    "hypotheses": [
@@ -8860,6 +9239,57 @@
    "slug": "pk-depir-to-sk-depir",
    "graphSlug": "Reductions/pk-depir-to-sk-depir",
    "title": "PK-DEPIR ⇒ SK-DEPIR"
+  },
+  {
+   "id": "red-pke-cpa-security-and-nizk-to-pke-cca1-security-ny90",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-correct-pke-cpa-security",
+    "nizk"
+   ],
+   "conclusion": "pke-cca1-security",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: twice the CPA advantage plus the NIZK zero-knowledge and soundness advantages",
+   "rationale": {
+    "class": "The proof system proves an NP statement about the encryption algorithm's circuit, so the construction uses the scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-and-nizk-to-pke-cca1-security-ny90.md",
+   "slug": "pke-cpa-security-and-nizk-to-pke-cca1-security-ny90",
+   "graphSlug": "Reductions/pke-cpa-security-and-nizk-to-pke-cca1-security-ny90",
+   "title": "CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)"
+  },
+  {
+   "id": "red-pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-correct-pke-cpa-security",
+    "nizk"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]",
+    "[[Sah99 - Non-Malleable Non-Interactive Zero Knowledge and Adaptive Chosen-Ciphertext Security|Sah99]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The proof system proves an NP statement about the encryption algorithm's circuit, so the construction uses the scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91.md",
+   "slug": "pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
+   "graphSlug": "Reductions/pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
+   "title": "CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)"
   },
   {
    "id": "red-pke-to-com",
@@ -8956,6 +9386,30 @@
    "slug": "pke-to-kem",
    "graphSlug": "Reductions/pke-to-kem",
    "title": "PKE ⇒ KEM"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-lwe.md",
+   "slug": "polynomial-ratio-lwe-to-lwe",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
+   "title": "LWE with polynomial ratio ⇒ LWE"
   },
   {
    "id": "red-pp-to-pspace",
@@ -10711,6 +11165,30 @@
    "title": "TDP ⇒ OWF"
   },
   {
+   "id": "red-tdp-to-injective-trapdoor-function",
+   "kind": "implication",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "injective-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the trapdoor permutation, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tdp-to-injective-trapdoor-function.md",
+   "slug": "tdp-to-injective-trapdoor-function",
+   "graphSlug": "Reductions/tdp-to-injective-trapdoor-function",
+   "title": "TDP ⇒ Injective TDF"
+  },
+  {
    "id": "red-tdp-to-nizk-bfm88",
    "kind": "implication",
    "hypotheses": [
@@ -11378,6 +11856,64 @@
    "title": "IP ⊆ AM collapses the polynomial hierarchy"
   },
   {
+   "id": "bar-ke-to-pke-rud91",
+   "hypotheses": [
+    "ke"
+   ],
+   "conclusion": "pke",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]]"
+   ],
+   "rationale": {
+    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which three-message key agreement exists and PKE, which would give two-message key agreement, does not."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ke-to-pke-rud91.md",
+   "slug": "no-ke-to-pke-rud91",
+   "graphSlug": "Barriers/no-ke-to-pke-rud91",
+   "title": "No relativizing reduction from KE to PKE"
+  },
+  {
+   "id": "bar-ke-to-tdp-rud91",
+   "hypotheses": [
+    "ke"
+   ],
+   "conclusion": "tdp",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]]"
+   ],
+   "rationale": {
+    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and injective trapdoor functions do not."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ke-to-tdp-rud91.md",
+   "slug": "no-ke-to-tdp-rud91",
+   "graphSlug": "Barriers/no-ke-to-tdp-rud91",
+   "title": "No relativizing reduction from KE to TDP"
+  },
+  {
    "id": "bar-mip-star-to-mip",
    "hypotheses": [
     "mip-star"
@@ -11555,6 +12091,35 @@
    "title": "No fully-black-box reduction from OT to TDP"
   },
   {
+   "id": "bar-owf-to-ot-ir89",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "ot",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
+   ],
+   "rationale": {
+    "class": "A construction and security proof that hold relative to every oracle hold relative to IR89's, under which one-way functions exist and every key-agreement protocol, hence every OT protocol, is broken."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-owf-to-ot-ir89.md",
+   "slug": "no-owf-to-ot-ir89",
+   "graphSlug": "Barriers/no-owf-to-ot-ir89",
+   "title": "No relativizing reduction from OWF to OT"
+  },
+  {
    "id": "bar-owf-to-owp-rud88",
    "hypotheses": [
     "owf"
@@ -11705,6 +12270,64 @@
    "slug": "no-pke-cpa-security-to-pke-cca1-security-bdpr98",
    "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-bdpr98",
    "title": "No fixed-construction reduction from CPA security to CCA1 security"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-cca1-security",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[GMM07 - Towards a Separation of Semantic and CCA Security for Public Key Encryption|GMM07]]"
+   ],
+   "rationale": {
+    "class": "GMM07 rule out shielding black-box constructions, whose decryption algorithm never calls the underlying encryption algorithm, and the vocabulary has no class for that restriction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07.md",
+   "slug": "no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "title": "No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE"
+  },
+  {
+   "id": "bar-pke-to-injective-trapdoor-function-gmr01",
+   "hypotheses": [
+    "pke"
+   ],
+   "conclusion": "injective-trapdoor-function",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]]"
+   ],
+   "rationale": {
+    "class": "GMR01's separation, in a model weaker than Impagliazzo–Rudich's, rules out constructions that use the trapdoor predicate only as an oracle with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-to-injective-trapdoor-function-gmr01.md",
+   "slug": "no-pke-to-injective-trapdoor-function-gmr01",
+   "graphSlug": "Barriers/no-pke-to-injective-trapdoor-function-gmr01",
+   "title": "No fully-black-box reduction from PKE to injective TDF"
   },
   {
    "id": "bar-pke-to-ot-gkm-00",

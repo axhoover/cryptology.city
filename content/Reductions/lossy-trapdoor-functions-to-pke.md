@@ -11,7 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
-security-loss: "tight: a constant number of hybrids plus a statistical leftover-hash term"
+  - "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
+security-loss: "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term"
 rationale:
   class: "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
 ---
@@ -20,7 +21,7 @@ rationale:
 
 ## Statement
 
-[[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]] of sufficient lossiness imply [[public-key-encryption#cca-security|IND-CCA-secure PKE]] — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. The first step is an IND-CPA scheme: the public key is an injective-mode index $s$ and a pairwise-independent hash $h$, and $m$ is encrypted as $(F_s(x), h(x) \oplus m)$ for uniform $x$. The IND-CCA scheme adds an all-but-one lossy TDF, which PW08 build from lossy TDFs of sufficient lossiness, and a strongly unforgeable one-time signature.
+[[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]] imply [[public-key-encryption#cca-security|IND-CCA-secure PKE]]: PW08 construct it from lossy TDFs of sufficient lossiness — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and MY10 from every lossy TDF, and even from slightly lossy ones that lose only a noticeable fraction of one bit — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]. The first step is an IND-CPA scheme: the public key is an injective-mode index $s$ and a pairwise-independent hash $h$, and $m$ is encrypted as $(F_s(x), h(x) \oplus m)$ for uniform $x$. The IND-CCA scheme adds an all-but-one lossy TDF, which PW08 build from lossy TDFs of sufficient lossiness, and a strongly unforgeable one-time signature.
 
 ## Sketch
 

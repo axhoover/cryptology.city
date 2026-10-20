@@ -132,7 +132,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 217acd37eda4 -->
+<!-- BEGIN GENERATED participates-in 9e1c7b42d3a9 -->
 
 ## Participates in
 
@@ -141,6 +141,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-com|OT ⇒ COM]]
+- [[ot-to-ke|OT ⇒ KE]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
@@ -150,6 +151,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
+- [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
@@ -161,6 +163,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]] — circumvented by [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
+- [[no-owf-to-ot-ir89|No relativizing reduction from OWF to OT]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 
 <!-- END GENERATED participates-in -->
