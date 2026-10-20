@@ -169,7 +169,7 @@ Collision resistance implies target collision resistance — standard.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 93df33888e92 -->
+<!-- BEGIN GENERATED participates-in f7481be0d9a2 -->
 
 ## Participates in
 
