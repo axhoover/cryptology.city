@@ -102,13 +102,13 @@ An interactive argument system for $\classNP$ whose total communication is $\pol
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 42ec0e82b49e -->
+<!-- BEGIN GENERATED participates-in 62745988db43 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
-- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 
 **Produces Succinct argument**
