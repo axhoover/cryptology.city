@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A semantically secure [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme, with fixed-length ciphertexts and perfect correctness, yields for every constant $\varepsilon > 0$ a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^{\varepsilon})$ ciphertexts, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]].
+A semantically secure [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme, with fixed-length ciphertexts and perfect correctness, yields for every constant $\varepsilon > 0$ a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^{\varepsilon})$ ciphertexts, the hidden factor polynomial in $\secpar$ for each fixed $\varepsilon$, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]].
 
 ## Sketch
 

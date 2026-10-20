@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$, the three-round Feistel network with independently keyed round functions $\Eval(k_1,\cdot), \Eval(k_2,\cdot), \Eval(k_3,\cdot)$ is a [[pseudorandom-permutation|PRP]] on $\bits^{2n}$, and the four-round network is a [[pseudorandom-permutation#strong-security|strong PRP]], secure given the inverse oracle as well — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]. Two Feistel rounds between initial and final pairwise-independent permutations already give a strong PRP, with a simpler proof — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].
+If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$ with $n = \omega(\log \secpar)$, the three-round Feistel network with independently keyed round functions $\Eval(k_1,\cdot), \Eval(k_2,\cdot), \Eval(k_3,\cdot)$ is a [[pseudorandom-permutation|PRP]] on $\bits^{2n}$, and the four-round network is a [[pseudorandom-permutation#strong-security|strong PRP]], secure given the inverse oracle as well — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]. Two Feistel rounds between initial and final pairwise-independent permutations already give a strong PRP, with a simpler proof — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].
 
 ## Sketch
 

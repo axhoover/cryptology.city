@@ -74,11 +74,12 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [Honest majority ($t < n/3$) ⇒ MPC](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88)
 - [Honest majority ($t < n/2$) ⇒ MPC](honest-majority-t-lt-n-over-2-to-mpc-rb89)
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]]
+- [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - OT extension: $O(\secpar)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 
-<!-- BEGIN GENERATED participates-in 19beb201012d -->
+<!-- BEGIN GENERATED participates-in 49c9acf583e0 -->
 
 ## Participates in
 
@@ -97,6 +98,7 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [Honest majority ($t < n/2$) ⇒ MPC](honest-majority-t-lt-n-over-2-to-mpc-rb89)
 - [Honest majority ($t < n/3$) ⇒ MPC](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88)
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing (SPDZ, etc.)]])
+- [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]]
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]]
 
