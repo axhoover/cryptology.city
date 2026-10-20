@@ -5341,6 +5341,31 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-cdh-to-non-interactive-key-exchange-dh76",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "non-interactive-key-exchange",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DH76 - New Directions in Cryptography|DH76]]",
+    "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε into a CDH solver with success probability Ω(ε²) and running time poly(L, 1/ε)",
+   "rationale": {
+    "class": "The protocol uses only the group operations, and the reduction runs any key distinguisher as an oracle inside the Goldreich–Levin decoder to compute the Diffie–Hellman value."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-non-interactive-key-exchange-dh76.md",
+   "slug": "cdh-to-non-interactive-key-exchange-dh76",
+   "graphSlug": "Reductions/cdh-to-non-interactive-key-exchange-dh76",
+   "title": "CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)"
+  },
+  {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
    "kind": "implication",
    "hypotheses": [
