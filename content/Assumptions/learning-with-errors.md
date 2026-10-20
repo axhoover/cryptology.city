@@ -97,6 +97,10 @@ For prime $q \le \poly(n)$, the search and decision variants of LWE are equivale
 
 **Decision $\Rightarrow$ Search** (hard direction): Recover $\mathbf{s}$ one coordinate at a time. For each index $i \in [n]$ and each candidate $\ell \in \ZZ_q$, construct modified samples that effectively zero out the contribution of $\mathbf{s}[i]$ under the hypothesis $\mathbf{s}[i] = \ell$, then query the decision oracle to test whether the result is still an LWE instance or has become uniform. The candidate that keeps the distribution looking like LWE reveals the true $\mathbf{s}[i]$. Running over all $n \cdot q$ pairs takes $n \cdot q$ calls to the (amplified) decision procedure — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
+### Short kernel vectors distinguish LWE samples
+
+Let $q$ be prime, let $\chi$ be the discrete Gaussian over $\ZZ$ of width $\alpha q$, and let $\beta \le 1/(4\alpha)$ with $\beta < q$. Given $(\mathbf{A}, \mathbf{u})$ with $\mathbf{A} \in \ZZ_q^{m \times n}$, a nonzero $\mathbf{z}$ with $\mathbf{A}^{\top}\mathbf{z} \equiv \mathbf{0}$ and $\|\mathbf{z}\| \le \beta$ gives $\langle \mathbf{z}, \mathbf{u} \rangle \equiv \langle \mathbf{z}, \mathbf{e} \rangle$ for LWE samples, which is subgaussian with parameter at most $q/4$ and so lies in $(-q/4, q/4)$ except with probability $2e^{-\pi} < 0.1$; for uniform $\mathbf{u}$ it is uniform modulo $q$. So hardness of decision LWE for $(n, q, \chi, m)$ implies hardness of [[shortest-integer-solution|SIS]] for $(n, m, q, \beta)$, with a constant-factor loss — folklore. The parameters are coupled: composing with [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] needs $m > n \log q$ and $\sqrt{m} \le \beta \le 1/(4\alpha)$ — standard.
+
 # Reduction to lattice problems
 
 The hardness of LWE rests on worst-case lattice problems via a quantum reduction — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]:
@@ -326,7 +330,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in cd28bcc47ec5 -->
+<!-- BEGIN GENERATED participates-in 97440df26db6 -->
 
 ## Participates in
 
@@ -348,7 +352,6 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
-- [[lwe-to-sis|LWE ⇒ SIS]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])

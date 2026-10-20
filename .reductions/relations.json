@@ -9163,30 +9163,6 @@
    "title": "LWE ⇒ PKE"
   },
   {
-   "id": "red-lwe-to-sis",
-   "kind": "implication",
-   "hypotheses": [
-    "lwe"
-   ],
-   "conclusion": "sis",
-   "class": "fully-black-box",
-   "model": "standard",
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "constant: an SIS solver with success ε gives an LWE distinguisher with advantage at least 0.4ε − O(ε/q)",
-   "rationale": {
-    "class": "The reduction hands the transposed LWE matrix to any SIS solver, run once as an oracle, and tests the inner product of its answer with the LWE vector."
-   },
-   "status": "draft",
-   "page": "content/Reductions/lwe-to-sis.md",
-   "slug": "lwe-to-sis",
-   "graphSlug": "Reductions/lwe-to-sis",
-   "title": "LWE ⇒ SIS"
-  },
-  {
    "id": "red-lwe-to-tdh-dgi-19",
    "kind": "implication",
    "hypotheses": [
