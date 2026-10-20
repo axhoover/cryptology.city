@@ -15091,6 +15091,30 @@
    "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK"
   },
   {
+   "id": "red-sxdh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "sxdh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the pairing generator's output, and the reduction forwards any DDH adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sxdh-to-ddh.md",
+   "slug": "sxdh-to-ddh",
+   "graphSlug": "Reductions/sxdh-to-ddh",
+   "title": "SXDH ⇒ DDH"
+  },
+  {
    "id": "red-symmetric-private-information-retrieval-single-server-to-cpir",
    "kind": "implication",
    "hypotheses": [
