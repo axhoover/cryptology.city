@@ -28,7 +28,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\classSZK$ and $\classcoAM$).
 - **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — [[AKS04 - PRIMES Is in P|AKS04]]).
 
-<!-- BEGIN GENERATED participates-in 7c0a16f9c526 -->
+<!-- BEGIN GENERATED participates-in 56ee9566ec7e -->
 
 ## Participates in
 
@@ -41,7 +41,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 - [[dlog-to-conp|DLOG ⊆ coNP]]
 - [[fac-to-conp-pra75|FAC ∈ coNP]]
-- [[gapsvp-to-conp-ar04|GapSVP ∈ coNP for γ ≥ √n]]
+- [[gapsvp-to-conp-ar04|GapSVP ∈ coNP for γ ≥ c√n]]
 - [[p-to-conp|P ⊆ coNP]]
 
 **Barriers**

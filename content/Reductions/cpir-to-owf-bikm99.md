@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: cPIR ⇒ OWF
+title: Non-trivial cPIR ⇒ OWF
 aliases: []
 id: red-cpir-to-owf-bikm99
 kind: implication
-hypotheses: [cpir]
+hypotheses: [nontrivial-cpir]
 conclusion: owf
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# cPIR ⇒ OWF
+# Non-trivial cPIR ⇒ OWF
 
 ## Statement
 
-If a perfectly correct [[single-server-private-information-retrieval|single-server PIR]] scheme exists in which the server sends fewer than $n$ bits on $n$-bit databases, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
+If a [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]] [[single-server-private-information-retrieval|single-server PIR]] scheme exists, perfectly correct and with the server sending fewer than $n$ bits on $n$-bit databases, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
 
 ## Notes
 

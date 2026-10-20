@@ -63,6 +63,8 @@ _Last updated: 2026-10-15_
 
 ## Medium Priority
 
+- [ ] [Math] `cpir-to-ot-dmo00` and the barrier `no-np-to-cpir-lv15` still use the generic `cpir` node, which the trivial full-download PIR satisfies, so `--derive=cpir` reaches `ot` and `owf`; check DMO00's and LV15's exact communication (server-only or total) and correctness hypotheses and retarget them to `nontrivial-cpir` or a matching variant — _source: content/Reductions/cpir-to-ot-dmo00.md, content/Barriers/no-np-to-cpir-lv15.md_
+- [ ] [Math] Check whether PW08's LWE-based lossy TDF reaches residual leakage $r \le \rho n$ for a constant $\rho < 1/2$ (PW08 §6); if so, retarget `lwe-to-lossy-trapdoor-function-pw08` to `highly-lossy-trapdoor-function`, as the DDH construction is — _source: content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md_
 - [ ] [Math] Derived closure from {rom} reaches `ke` via `rom-to-oihf-bh26` ⇒ `oihf-to-ot-bh26` ⇒ `ot-to-ke`, contradicting `no-rom-to-ke-hmo-19`: the free, non-black-box OIHF ⇒ OT edge uses the hash's code and must not compose with the ROM-scoped ROM ⇒ OIHF edge; `generate-relations.mjs --derive` needs a rule for this, or the edges need re-modelling — _source: content/Reductions/oihf-to-ot-bh26.md, content/Barriers/no-rom-to-ke-hmo-19.md_
 - [ ] [Math] Check whether GMM07's main theorem rules out shielding black-box constructions of IND-CCA1 (not only IND-CCA2) encryption from IND-CPA encryption; if so, the barrier should conclude `pke-cca1-security` under a new id — _source: content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md_
 - [ ] [Math] 9 `TODO citation` entries across 7 Complexity class pages — content is present but references are missing:
