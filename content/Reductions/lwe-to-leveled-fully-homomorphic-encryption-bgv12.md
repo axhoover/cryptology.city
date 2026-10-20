@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ Leveled fully homomorphic encryption"
+title: "LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)"
 aliases: []
 id: red-lwe-to-leveled-fully-homomorphic-encryption-bgv12
 kind: implication
@@ -16,7 +16,7 @@ rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
 ---
 
-# LWE ⇒ Leveled fully homomorphic encryption
+# LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)
 
 ## Statement
 

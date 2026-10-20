@@ -9467,7 +9467,7 @@
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12",
-   "title": "LWE ⇒ Leveled fully homomorphic encryption"
+   "title": "LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)"
   },
   {
    "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bv14",
