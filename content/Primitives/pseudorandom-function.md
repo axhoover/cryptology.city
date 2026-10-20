@@ -149,7 +149,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 865206d47c53 -->
+<!-- BEGIN GENERATED participates-in 559b0b8370f7 -->
 
 ## Participates in
 
@@ -161,6 +161,7 @@ is negligible.
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+- [[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]
 
 **Produces Pseudorandom function**
 
