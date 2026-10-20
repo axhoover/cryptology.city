@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]"
-security-loss: "a factor 2 per recursion level, from a hybrid through the all-residue query"
+security-loss: "a factor 2 at any recursion depth: setting every non-residue of the query to x r_j^2 for the QR challenge x makes each index's query indistinguishable from the all-residue query"
 rationale:
   class: "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
 ---

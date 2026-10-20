@@ -2735,6 +2735,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-correct-pke-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#perfectly-correct-cpa-secure-pke",
+   "of": "pke",
+   "title": "Perfectly correct CPA-secure PKE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ph",
    "kind": "object",
    "type": "complexity-class",
@@ -9478,7 +9491,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage",
+   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus κ times the base-OT advantage",
    "rationale": {
     "class": "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle.",
     "model": "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
@@ -9924,6 +9937,30 @@
    "title": "PCS ⇒ Vector commitments"
   },
   {
+   "id": "red-perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-correct-pke-cpa-security"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security.md",
+   "slug": "perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "graphSlug": "Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
+  },
+  {
    "id": "red-permuted-puzzles-to-depir-bipw17",
    "kind": "implication",
    "hypotheses": [
@@ -9975,7 +10012,7 @@
    "id": "red-pke-cpa-security-and-nizk-to-pke-cca1-security-ny90",
    "kind": "implication",
    "hypotheses": [
-    "pke-cpa-security",
+    "perfectly-correct-pke-cpa-security",
     "nizk"
    ],
    "conclusion": "pke-cca1-security",
@@ -10000,7 +10037,7 @@
    "id": "red-pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "kind": "implication",
    "hypotheses": [
-    "pke-cpa-security",
+    "perfectly-correct-pke-cpa-security",
     "nizk"
    ],
    "conclusion": "pke-cca2-security",
@@ -10602,7 +10639,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-residue query",
+   "securityLoss": "a factor 2 at any recursion depth: setting every non-residue of the query to x r_j^2 for the QR challenge x makes each index's query indistinguishable from the all-residue query",
    "rationale": {
     "class": "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
    },
@@ -11282,7 +11319,7 @@
    "id": "red-ske-to-owf-il89",
    "kind": "implication",
    "hypotheses": [
-    "ske"
+    "cpa-security"
    ],
    "conclusion": "owf",
    "class": "fully-black-box",
@@ -11998,7 +12035,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "cpir",
+   "conclusion": "nontrivial-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -12011,7 +12048,7 @@
    "page": "content/Reductions/tdp-to-cpir-ko00.md",
    "slug": "tdp-to-cpir-ko00",
    "graphSlug": "Reductions/tdp-to-cpir-ko00",
-   "title": "TDP ⇒ cPIR (Kushilevitz–Ostrovsky)"
+   "title": "TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)"
   },
   {
    "id": "red-tdp-to-hash-function",
@@ -12199,7 +12236,7 @@
    "heuristic": false,
    "securityLoss": "a factor polynomial in the number of signing queries and the tree depth, from guessing where the forgery departs from the signer's tree",
    "rationale": {
-    "class": "The signer calls the hash family and the one-time scheme only as oracles, and the reduction runs any forger once as an oracle, planting either a one-time verification key or a hash target at a guessed node."
+    "class": "The signer calls the hash family and the one-time scheme only as oracles, and the reduction runs any forger once as an oracle, planting either a one-time verification key or, after committing to that node's input as the target, the challenge hash key at a guessed node."
    },
    "status": "draft",
    "page": "content/Reductions/uowhf-and-ots-to-ds-ny89.md",

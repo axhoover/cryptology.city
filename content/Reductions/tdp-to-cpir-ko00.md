@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: TDP ⇒ cPIR (Kushilevitz–Ostrovsky)
+title: TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)
 aliases: []
 id: red-tdp-to-cpir-ko00
 kind: implication
 hypotheses: [tdp]
-conclusion: cpir
+conclusion: nontrivial-cpir
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# TDP ⇒ cPIR (Kushilevitz–Ostrovsky)
+# TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)
 
 ## Statement
 
-If [[trapdoor-permutation|trapdoor permutations]] exist, there is a [[single-server-private-information-retrieval|single-server PIR]] scheme for $n$-bit databases in which the client sends $O(\secpar^2)$ bits and the server $n - cn/\secpar$ bits, for any constant $c$, so total communication is below $n$ once $n$ is large relative to $\secpar$, for example $\secpar = n^{\varepsilon}$ for small $\varepsilon$ — [[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]]. The protocol is interactive and uses interactive hashing.
+If [[trapdoor-permutation|trapdoor permutations]] exist, there is a [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]], perfectly correct [[single-server-private-information-retrieval|single-server PIR]] scheme for $n$-bit databases in which the client sends $O(\secpar^2)$ bits and the server $n - cn/\secpar$ bits, for any constant $c$, so total communication is below $n$ once $n$ is large relative to $\secpar$, for example $\secpar = n^{\varepsilon}$ for small $\varepsilon$ — [[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]]. The protocol is interactive and uses interactive hashing.
 
 ## Notes
 
