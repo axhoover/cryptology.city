@@ -9145,7 +9145,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage",
+   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus κ times the base-OT advantage",
    "rationale": {
     "class": "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle.",
     "model": "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
@@ -10248,7 +10248,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-residue query",
+   "securityLoss": "a factor 2 at any recursion depth: setting every non-residue of the query to x r_j^2 for the QR challenge x makes each index's query indistinguishable from the all-residue query",
    "rationale": {
     "class": "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
    },
@@ -11572,7 +11572,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "cpir",
+   "conclusion": "nontrivial-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -11585,7 +11585,7 @@
    "page": "content/Reductions/tdp-to-cpir-ko00.md",
    "slug": "tdp-to-cpir-ko00",
    "graphSlug": "Reductions/tdp-to-cpir-ko00",
-   "title": "TDP ⇒ cPIR (Kushilevitz–Ostrovsky)"
+   "title": "TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)"
   },
   {
    "id": "red-tdp-to-hash-function",

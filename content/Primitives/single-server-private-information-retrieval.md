@@ -183,7 +183,7 @@ is negligible.
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in d155707ae478 -->
+<!-- BEGIN GENERATED participates-in aa0d31be978d -->
 
 ## Participates in
 
@@ -211,7 +211,7 @@ is negligible.
 - [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
-- [[tdp-to-cpir-ko00|TDP ⇒ cPIR (Kushilevitz–Ostrovsky)]]
+- [[tdp-to-cpir-ko00|TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 
 **Barriers**
