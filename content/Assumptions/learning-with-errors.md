@@ -24,6 +24,7 @@ variants:
   subexponential-lwe: "#sub-exponential-lwe"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
+  polynomial-ratio-lwe: "#lwe-with-polynomial-modulus-to-noise-ratio"
 ---
 
 # Learning with errors
@@ -123,9 +124,13 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 [[#Ring LWE|Ring LWE (RLWE)]] replaces the random matrix $\mathbf{A}$ with structured elements from a polynomial ring $\ZZ_q[x]/\langle f(x) \rangle$, yielding more efficient constructions at the cost of additional algebraic structure.
 
+## LWE with polynomial modulus-to-noise ratio
+
+LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+
 ## Sub-exponential LWE
 
-LWE is **sub-exponentially hard** if, for a prime $q \le \poly(n)$, $\chi$ the discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ with $1/\alpha \le \poly(n)$, and $m = \poly(n)$, there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$. Fixing the noise matters: for $\chi$ uniform on $\ZZ_q$ every adversary has advantage $0$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+LWE is **sub-exponentially hard** if for every constant $c > 0$, every prime $q \le \poly(n)$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$, with $\chi$ the discrete Gaussian of width $\alpha q$. Fixing the noise matters: for $\chi$ uniform on $\ZZ_q$ every adversary has advantage $0$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ## Ring LWE
 
@@ -321,7 +326,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in fe9f8f3640f3 -->
+<!-- BEGIN GENERATED participates-in 5bcaebb44697 -->
 
 ## Participates in
 
@@ -337,8 +342,8 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
-- [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]]
-- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]]
+- [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
@@ -346,6 +351,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
+- [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
@@ -361,6 +367,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
+- [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]]
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]

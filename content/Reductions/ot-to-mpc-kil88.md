@@ -1,27 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "OT ⇒ MPC"
+title: "UC-secure OT ⇒ MPC"
 aliases: []
 id: red-ot-to-mpc-kil88
 kind: implication
-hypotheses: [malicious-ot-security]
+hypotheses: [uc-ot]
 conclusion: mpc
 class: fully-black-box
 model: standard
 source:
   - "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
   - "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
+  - "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
 security-loss: ""
 rationale:
-  class: "Kil88 and IPS08 use OT only as an ideal functionality, and by the composition theorem a maliciously secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
+  class: "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
 ---
 
-# OT ⇒ MPC
+# UC-secure OT ⇒ MPC
 
 ## Statement
 
-[[oblivious-transfer#malicious-security|OT]] is complete for [[secure-multi-party-computation|MPC]]: in the OT-hybrid model every two-party functionality can be computed with unconditional security against malicious parties — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]. In the OT-hybrid model, every $n$-party functionality can be computed with statistical security with abort against a malicious adversary corrupting any number of parties — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]. A maliciously secure OT protocol instantiates the hybrid.
+[[oblivious-transfer|OT]] is complete for [[secure-multi-party-computation|MPC]]: in the OT-hybrid model every two-party functionality can be computed with unconditional security against malicious parties — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]. In the OT-hybrid model, every $n$-party functionality can be computed with statistical security with abort against a malicious adversary corrupting any number of parties — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]. An OT protocol that [[oblivious-transfer#uc-secure-ot|UC-realizes]] OT against malicious adversaries instantiates the hybrid, by the composition theorem — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]].
 
 ## Sketch
 

@@ -3000,6 +3000,19 @@
    "unlisted": false
   },
   {
+   "id": "polynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-polynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with polynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pp",
    "kind": "object",
    "type": "complexity-class",
@@ -4242,6 +4255,19 @@
     "Universal Composability Framework",
     "UC"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "uc-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#uc-secure-ot",
+   "of": "ot",
+   "title": "UC-secure OT",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -6166,7 +6192,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -8393,7 +8419,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: KEM CPA advantage + DEM one-time advantage",
+   "securityLoss": "additive: twice the KEM CPA advantage plus the DEM one-time advantage",
    "rationale": {
     "class": "One fixed construction calls Encap and the SKE algorithms only as oracles, and both game-hop reductions run the PKE adversary as an oracle."
    },
@@ -8845,7 +8871,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: KEM CCA advantage + DEM one-time CCA advantage + KEM bad-key-pair probability",
+   "securityLoss": "additive: twice the KEM CCA advantage plus the DEM one-time CCA advantage plus the KEM bad-key-pair probability",
    "rationale": {
     "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
    },
@@ -9187,7 +9213,7 @@
    "id": "red-lwe-to-lossy-trapdoor-function-pw08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
@@ -9211,9 +9237,9 @@
    "id": "red-lwe-to-malicious-ot-security-pvw08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -10235,26 +10261,27 @@
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
-    "malicious-ot-security"
+    "uc-ot"
    ],
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
-    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
+    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]",
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the composition theorem a maliciously secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
+    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
    "slug": "ot-to-mpc-kil88",
    "graphSlug": "Reductions/ot-to-mpc-kil88",
-   "title": "OT ⇒ MPC"
+   "title": "UC-secure OT ⇒ MPC"
   },
   {
    "id": "red-ot-to-oihf-bh26",
@@ -10977,6 +11004,30 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polynomial-ratio-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-lwe.md",
+   "slug": "polynomial-ratio-lwe-to-lwe",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
+   "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
    "id": "red-pp-to-pspace",
    "kind": "inclusion",
    "hypotheses": [
@@ -11650,7 +11701,7 @@
    "hypotheses": [
     "qr"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -13149,7 +13200,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "nontrivial-cpir",
+   "conclusion": "total-nontrivial-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -13162,7 +13213,7 @@
    "page": "content/Reductions/tdp-to-cpir-ko00.md",
    "slug": "tdp-to-cpir-ko00",
    "graphSlug": "Reductions/tdp-to-cpir-ko00",
-   "title": "TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)"
+   "title": "TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)"
   },
   {
    "id": "red-tdp-to-hash-function",
@@ -13309,6 +13360,30 @@
    "slug": "two-party-computation-to-ot",
    "graphSlug": "Reductions/two-party-computation-to-ot",
    "title": "2PC ⇒ OT"
+  },
+  {
+   "id": "red-uc-ot-to-malicious-ot-security",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-ot"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the protocol, and a stand-alone adversary is a special case of a UC adversary with an environment that only supplies inputs and reads outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-ot-to-malicious-ot-security.md",
+   "slug": "uc-ot-to-malicious-ot-security",
+   "graphSlug": "Reductions/uc-ot-to-malicious-ot-security",
+   "title": "UC-secure OT ⇒ Malicious OT"
   },
   {
    "id": "red-unkeyed-depir-to-depir",
