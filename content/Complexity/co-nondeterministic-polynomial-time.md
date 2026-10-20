@@ -28,7 +28,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP, in $\classSZK$ — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]] — and in $\classAM$ — [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]].
 - **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — [[AKS04 - PRIMES Is in P|AKS04]]).
 
-<!-- BEGIN GENERATED participates-in fa83c10d5f0f -->
+<!-- BEGIN GENERATED participates-in 79327685c40c -->
 
 ## Participates in
 
@@ -42,6 +42,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 - [[dlog-to-conp|DLOG ⊆ coNP]]
 - [[fac-to-conp-pra75|FAC ∈ coNP]]
 - [[gapsvp-to-conp-ar04|GapSVP ∈ coNP for γ ≥ c√n]]
+- [[owp-to-conp|OWP inversion ∈ NP ∩ coNP]]
 - [[p-to-conp|P ⊆ coNP]]
 - [[qr-to-conp|QR ∈ coNP]]
 

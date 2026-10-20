@@ -1418,6 +1418,19 @@
    "unlisted": false
   },
   {
+   "id": "gapsvp-poly-factor-quantum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#polynomial-factors-against-quantum-algorithms",
+   "of": "gapsvp",
+   "title": "Polynomial factors against quantum algorithms",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "gapsvp-sqrt-n",
    "kind": "variant",
    "type": "assumption",
@@ -8103,6 +8116,30 @@
    "title": "Fuzzy IBE ⇒ IBE"
   },
   {
+   "id": "red-gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor-quantum"
+   ],
+   "conclusion": "gapsvp-poly-factor",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on GapSVP instances, and the reduction forwards any classical algorithm, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-quantum-to-gapsvp-poly-factor.md",
+   "slug": "gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "graphSlug": "Reductions/gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "title": "Quantum polynomial-factor GapSVP ⇒ GapSVP for polynomial factors"
+  },
+  {
    "id": "red-gapsvp-poly-factor-to-gapsvp",
    "kind": "implication",
    "hypotheses": [
@@ -8220,7 +8257,7 @@
    "id": "red-gapsvp-to-lwe-reg05",
    "kind": "implication",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-poly-factor-quantum"
    ],
    "conclusion": "lwe",
    "class": "fully-black-box",
@@ -8239,7 +8276,7 @@
    "page": "content/Reductions/gapsvp-to-lwe-reg05.md",
    "slug": "gapsvp-to-lwe-reg05",
    "graphSlug": "Reductions/gapsvp-to-lwe-reg05",
-   "title": "GapSVP ⇒ LWE"
+   "title": "Quantum polynomial-factor GapSVP ⇒ LWE"
   },
   {
    "id": "red-gapsvp-to-np",
@@ -8266,7 +8303,7 @@
    "id": "red-gapsvp-to-sis-ajt96",
    "kind": "implication",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-poly-factor"
    ],
    "conclusion": "sis",
    "class": "fully-black-box",
@@ -8284,7 +8321,7 @@
    "page": "content/Reductions/gapsvp-to-sis-ajt96.md",
    "slug": "gapsvp-to-sis-ajt96",
    "graphSlug": "Reductions/gapsvp-to-sis-ajt96",
-   "title": "GapSVP ⇒ SIS"
+   "title": "Polynomial-factor GapSVP ⇒ SIS"
   },
   {
    "id": "red-gapsvp-to-szk-mv03",
@@ -11587,6 +11624,27 @@
    "title": "OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)"
   },
   {
+   "id": "red-owp-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owp-to-conp.md",
+   "slug": "owp-to-conp",
+   "graphSlug": "Reductions/owp-to-conp",
+   "title": "OWP inversion ∈ NP ∩ coNP"
+  },
+  {
    "id": "red-owp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -11634,6 +11692,30 @@
    "slug": "owp-to-prg-yao82a-gl89",
    "graphSlug": "Reductions/owp-to-prg-yao82a-gl89",
    "title": "OWP ⇒ PRG (Blum–Micali–Yao)"
+  },
+  {
+   "id": "red-owp-to-size-verifiable-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "size-verifiable-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-size-verifiable-owf.md",
+   "slug": "owp-to-size-verifiable-owf",
+   "graphSlug": "Reductions/owp-to-size-verifiable-owf",
+   "title": "OWP ⇒ Size-verifiable OWF"
   },
   {
    "id": "red-owp-to-statistically-hiding-commitment-novy98",
@@ -12588,6 +12670,30 @@
    "slug": "prg-to-hash-function",
    "graphSlug": "Reductions/prg-to-hash-function",
    "title": "PRG ⇒ OWF"
+  },
+  {
+   "id": "red-prg-to-np-average-case-hardness",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "np-average-case-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "one call to the algorithm: error $\\delta$ under the sampler gives PRG advantage at least $1/2 - 2\\delta$",
+   "rationale": {
+    "class": "The NP language is the image of the generator, so its verifier runs the generator's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-to-np-average-case-hardness.md",
+   "slug": "prg-to-np-average-case-hardness",
+   "graphSlug": "Reductions/prg-to-np-average-case-hardness",
+   "title": "PRG ⇒ Average-case hardness of NP"
   },
   {
    "id": "red-prg-to-prf-ggm86",
