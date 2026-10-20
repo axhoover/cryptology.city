@@ -327,7 +327,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 
 **Builds on Learning with errors**
 
-- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
+- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ Compact FHE]]
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]

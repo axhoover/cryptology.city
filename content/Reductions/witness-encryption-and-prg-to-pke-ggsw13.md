@@ -13,7 +13,7 @@ source:
   - "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
 security-loss: "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}"
 rationale:
-  class: "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code."
+  class: "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code; the security proof uses the adversary only as an oracle."
 ---
 
 # WE + PRG ⇒ PKE (GGSW)

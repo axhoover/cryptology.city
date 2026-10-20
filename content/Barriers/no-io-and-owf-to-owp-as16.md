@@ -15,14 +15,14 @@ strength: unconditional
 source:
   - "[[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]]"
 rationale:
-  class: "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle."
+  class: "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle; every construction of a permutation of each {0,1}^n is domain-invariant."
 ---
 
 # No fully-black-box reduction from iO + OWF to domain-invariant OWP
 
 ## Statement
 
-There is no fully-black-box construction of a domain-invariant [[one-way-permutation|one-way permutation]] family, in which the permutations' domains do not depend on the underlying primitives, from a [[hash-function#preimage-resistance-one-wayness|one-way function]] and [[indistinguishability-obfuscation|iO]] for circuits that call the function — [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]].
+There is no fully-black-box construction of a domain-invariant [[one-way-permutation|one-way permutation]] family, in which the permutations' domains do not depend on the underlying primitives, from a [[hash-function#preimage-resistance-one-wayness|one-way function]] and [[indistinguishability-obfuscation|iO]] for circuits that call the function — [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]]. Domain invariance allows a family's domains to depend on the permutation index but not on the underlying primitives. A [[one-way-permutation|one-way permutation]] permutes each $\bits^n$, a domain independent of the underlying primitives, so every construction of one is domain-invariant and the barrier applies to it.
 
 ## Notes
 
