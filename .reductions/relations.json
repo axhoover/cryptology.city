@@ -5552,7 +5552,7 @@
    "id": "red-dlog-to-com-ped91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
