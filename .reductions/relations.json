@@ -2522,6 +2522,19 @@
    "unlisted": false
   },
   {
+   "id": "nizk-argument-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#nizk-arguments-for-np",
+   "of": "nizk",
+   "title": "NIZK arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nizk-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -2560,6 +2573,19 @@
    "anchor": "#non-interactive-key-exchange-nike",
    "of": "ke",
    "title": "Non-interactive key exchange (NIKE)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "nonadaptive-nizk-argument-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#non-adaptively-sound-nizk-arguments-for-np",
+   "of": "nizk",
+   "title": "Non-adaptively sound NIZK arguments for NP",
    "aliases": [],
    "unlisted": false
   },
@@ -5622,6 +5648,30 @@
    "title": "IND-CPA ⇔ Semantic security"
   },
   {
+   "id": "red-cpa-security-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cpa-security-to-ske.md",
+   "slug": "cpa-security-to-ske",
+   "graphSlug": "Reductions/cpa-security-to-ske",
+   "title": "CPA-secure SKE ⇒ SKE"
+  },
+  {
    "id": "red-cpir-to-crhf-iko05",
    "kind": "implication",
    "hypotheses": [
@@ -7696,7 +7746,7 @@
     "owf",
     "io"
    ],
-   "conclusion": "nizk-for-np",
+   "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "free",
    "model": "crs",
    "source": [
@@ -7713,7 +7763,7 @@
    "page": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
    "slug": "hash-function-and-io-to-nizk-sw14",
    "graphSlug": "Reductions/hash-function-and-io-to-nizk-sw14",
-   "title": "OWF + iO ⇒ NIZK"
+   "title": "OWF + iO ⇒ Non-adaptively sound NIZK argument"
   },
   {
    "id": "red-hash-function-and-io-to-pke-sw14",
@@ -9576,6 +9626,31 @@
    "title": "Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)"
   },
   {
+   "id": "red-nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np",
+   "kind": "implication",
+   "hypotheses": [
+    "nizk-argument-for-np"
+   ],
+   "conclusion": "nonadaptive-nizk-argument-for-np",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and the reductions forward any adversary unchanged.",
+    "model": "Both nodes are proof systems with a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np.md",
+   "slug": "nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np",
+   "graphSlug": "Reductions/nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np",
+   "title": "NIZK argument for NP ⇒ Non-adaptively sound NIZK argument for NP"
+  },
+  {
    "id": "red-nizk-for-np-to-nizk",
    "kind": "implication",
    "hypotheses": [
@@ -9598,6 +9673,31 @@
    "slug": "nizk-for-np-to-nizk",
    "graphSlug": "Reductions/nizk-for-np-to-nizk",
    "title": "NIZK for NP ⇒ NIZK"
+  },
+  {
+   "id": "red-nizk-for-np-to-nizk-argument-for-np",
+   "kind": "implication",
+   "hypotheses": [
+    "nizk-for-np"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and the reductions forward any adversary unchanged.",
+    "model": "Both nodes are proof systems with a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/nizk-for-np-to-nizk-argument-for-np.md",
+   "slug": "nizk-for-np-to-nizk-argument-for-np",
+   "graphSlug": "Reductions/nizk-for-np-to-nizk-argument-for-np",
+   "title": "NIZK proof for NP ⇒ NIZK argument for NP"
   },
   {
    "id": "red-nizk-to-zap-dn00",
@@ -12241,7 +12341,7 @@
     "snark",
     "owf"
    ],
-   "conclusion": "nizk-for-np",
+   "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -12257,7 +12357,7 @@
    "page": "content/Reductions/snark-to-nizk.md",
    "slug": "snark-to-nizk",
    "graphSlug": "Reductions/snark-to-nizk",
-   "title": "SNARK + OWF ⇒ NIZK"
+   "title": "SNARK + OWF ⇒ NIZK argument"
   },
   {
    "id": "red-snark-to-recursive-snarks",
