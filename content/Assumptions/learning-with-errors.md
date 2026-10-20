@@ -148,7 +148,7 @@ LWE is **sub-exponentially hard** if for every constant $c > 0$, every prime $q 
 
 ## LWE with sub-exponential modulus-to-noise ratio
 
-LWE is hard **with sub-exponential modulus-to-noise ratio** if for some constant $\varepsilon \in (0, 1)$, some modulus $q$ and every $m = \poly(n)$, decision LWE is hard for every efficient adversary with $\chi$ a discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ and $1/\alpha = 2^{n^{\varepsilon}}$. Unlike [[#Sub-exponential LWE|sub-exponential LWE]], the adversaries are polynomial-time; the large ratio is what attribute-based encryption for circuits of polynomial depth uses — [[GVW13 - Attribute-based encryption for circuits|GVW13]].
+LWE is hard **with sub-exponential modulus-to-noise ratio** if for some constant $\varepsilon \in (0, 1)$, some modulus $q \le 2^{\poly(n)}$ and every $m = \poly(n)$, decision LWE is hard for every efficient adversary with $\chi$ a discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ and $1/\alpha = 2^{n^{\varepsilon}}$. Unlike [[#Sub-exponential LWE|sub-exponential LWE]], the adversaries are polynomial-time; the large ratio is what attribute-based encryption for circuits of polynomial depth uses — [[GVW13 - Attribute-based encryption for circuits|GVW13]].
 
 ### Sub-exponential hardness at sub-exponential ratio
 
