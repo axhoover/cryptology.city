@@ -7,18 +7,20 @@ id: red-lwe-to-lossy-trapdoor-function-pw08
 kind: implication
 hypotheses: [lwe]
 conclusion: lossy-trapdoor-function
-class: unstated
+class: fully-black-box
 model: standard
 source:
   - "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
 security-loss: ""
+rationale:
+  class: "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
 ---
 
 # LWE ⇒ Lossy TDF (Peikert–Waters)
 
 ## Statement
 
-If [[learning-with-errors|LWE]] is hard for suitable parameters, which follows from the worst-case hardness of standard lattice problems, then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. With the [[ddh-to-lossy-trapdoor-function-pw08|DDH-based construction]], these were the first injective trapdoor functions from assumptions unrelated to factoring, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+If [[learning-with-errors|LWE]] is hard for suitable parameters, which follows from the worst-case quantum hardness of standard lattice problems — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 ## Notes
 
