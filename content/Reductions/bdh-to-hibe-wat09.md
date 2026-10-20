@@ -22,6 +22,10 @@ rationale:
 
 If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) and decision linear ([[decisional-diffie-hellman#dlin|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure ([[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]]) [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss $O(q)$ for an adversary making $q$ key queries ($O(q)$ DLIN steps and one DBDH step) and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
 
+## Sketch
+
+Dual system encryption, as for the [[bdh-to-ibe-wat09|IBE]] of the same paper: keys and ciphertexts each have a semi-functional form, used only in the proof, such that a semi-functional key fails to decrypt a semi-functional ciphertext while every other combination decrypts. A hybrid makes the challenge ciphertext semi-functional and then the $q$ private keys the adversary obtains one at a time, each step under DLIN; in the last game, with every key semi-functional, a DBDH challenge is embedded so that the blinding factor of the message becomes uniform.
+
 ## Notes
 
 - Dual system encryption in composite-order groups (a product of three primes) gives fully secure HIBE with short ciphertexts under static assumptions — [[LW10 - New Techniques for Dual System Encryption and Fully Secure HIBE with Short Ciphertexts|LW10]].

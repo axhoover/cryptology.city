@@ -22,7 +22,10 @@ rationale:
 
 If an [[identification-scheme|identification scheme]] secure against impersonation exists, then a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
 
+## Sketch
+
+The one-way function is $f(r) = \pk$ for $(\pk, \sk) \gets \KeyGen(1^\secpar; r)$. If one-way functions do not exist, $f$ is not even distributionally one-way, so for infinitely many $\secpar$ an efficient inverter returns coins $r'$ nearly uniform among the preimages of $\pk$; the secret key output by $\KeyGen(1^\secpar; r')$ is then distributed almost as the prover's secret key given $\pk$, and the impersonator runs the honest prover with it — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+
 ## Notes
 
-- The proof distributionally inverts the map from key-generation coins to the public key: a nearly uniform preimage yields a secret key distributed almost as the prover's, with which the impersonator runs the honest prover — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
 - Signature schemes are treated the same way: [[ds-to-hash-function|DS ⇒ OWF]] — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

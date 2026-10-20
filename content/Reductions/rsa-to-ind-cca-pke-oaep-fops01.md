@@ -22,6 +22,10 @@ rationale:
 
 In the [[random-oracle-model|random oracle model]], OAEP over a trapdoor permutation $f$ is [[public-key-encryption#cca-security|IND-CCA-secure]] if $f$ is partial-domain one-way; by RSA's self-reducibility, partial-domain one-wayness of the RSA function is equivalent to its one-wayness, so RSAES-OAEP is IND-CCA-secure under the [[rsa-assumption|RSA assumption]] — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
 
+## Sketch
+
+OAEP encrypts $m$ with randomness $r$ as $f(s \| t)$ for $s := (m \| 0^{k_1}) \oplus G(r)$ and $t := r \oplus H(s)$. The reduction answers decryption queries from the adversary's lists of $G$- and $H$-queries; a ciphertext whose $s$ and $r$ were not both queried decrypts to $\bot$ except with negligible probability, so this simulation errs only negligibly. In the random oracle model the challenge ciphertext is independent of the challenge bit until $H$ is queried at the challenge's $s^*$, so an adversary with non-negligible IND-CCA2 advantage makes that query with non-negligible probability, and the reduction reads $s^*$, a partial preimage of $f$, off the query list. For RSA, partial preimages of $y$ and of $y \alpha^e$ for a known $\alpha$ give a two-dimensional lattice problem whose short solution yields the full preimage — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].
+
 ## Notes
 
 - The reduction from RSA is not tight — [[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]].

@@ -22,6 +22,10 @@ rationale:
 
 If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], which for prime $q \le \poly(n)$ follows from the worst-case quantum hardness of standard lattice problems to within polynomial factors — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
+## Sketch
+
+The function index is a matrix of LWE-based encryptions of either the identity matrix (injective mode) or the zero matrix (lossy mode), and evaluation multiplies the input vector into it homomorphically. In the injective mode the trapdoor decrypts the output and recovers the input; in the lossy mode the output depends on the input only through a short linear image and small accumulated noise, so the image is small. LWE makes the two kinds of index indistinguishable — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+
 ## Notes
 
 - The construction parallels the [[ddh-to-lossy-trapdoor-function-pw08|DDH-based one]]: the index is an encryption of the identity or the zero matrix under an LWE-based additively homomorphic scheme — [[PW08 - Lossy trapdoor functions and their applications|PW08]].

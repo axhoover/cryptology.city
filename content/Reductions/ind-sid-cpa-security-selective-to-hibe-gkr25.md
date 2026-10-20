@@ -20,3 +20,7 @@ security-loss: ""
 ## Statement
 
 From any [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA-secure]] [[identity-based-encryption|IBE]] there is an adaptively secure ([[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]]) [[hierarchical-identity-based-encryption|HIBE]] in the standard model — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]]. A selectively secure HIBE supporting arbitrarily many delegations was known earlier from the same hypothesis — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
+
+## Notes
+
+- The HIBE supports identities of unbounded length and an unbounded number of delegation levels, and the construction extends to an adaptively secure anonymous HIBE under CDH or LWE — [[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]].

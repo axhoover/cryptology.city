@@ -22,3 +22,7 @@ rationale:
 ## Statement
 
 If the computational [[bilinear-map-assumptions|BDH]] assumption holds and the hash functions are modelled as [[random-oracle-model|random oracles]], the Boneh–Franklin scheme FullIdent is an [[identity-based-encryption#ind-id-cca-security|IND-ID-CCA-secure]] [[identity-based-encryption|IBE]] and BasicIdent is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
+
+## Sketch
+
+In BasicIdent the master public key is $g^s$, the key of $\mathit{id}$ is $H_1(\mathit{id})^s$, and $m$ encrypts to $(g^r, m \oplus H_2(e(H_1(\mathit{id}), g^s)^r))$. The reduction embeds a BDH instance $(g^a, g^b, g^c)$ as $g^s := g^a$, the challenge's $g^r := g^b$ and $H_1(\mathit{id}^*) := g^c$ for a guessed target identity, programming $H_1(\mathit{id}) := g^{x}$ with known $x$ elsewhere so that it can answer key queries. An adversary with non-negligible advantage must query $H_2$ at $e(g,g)^{abc}$, which the reduction picks from its list of $H_2$ queries; FullIdent adds the Fujisaki–Okamoto transform for chosen-ciphertext security — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].

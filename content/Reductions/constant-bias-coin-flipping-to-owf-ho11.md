@@ -21,6 +21,10 @@ security-loss: ""
 
 If a two-party [[coin-flipping#coin-flipping-with-constant-bias|coin-flipping protocol]] with bias at most $(\sqrt{2} - 1)/2 - o(1) \approx 0.207$ exists, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]]. Any constant bias $c < 1/2$ suffices, also for weak coin flipping, in which each party only prefers one outcome — [[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]].
 
+## Sketch
+
+Without one-way functions, a party can efficiently sample a near-uniform continuation of the protocol consistent with the transcript so far. The biased-continuation attack samples such continuations at each of its rounds and keeps one that leads to its preferred outcome; this biases every protocol by about $0.207$, and a refined attack by any constant below $1/2$ — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]], [[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]].
+
 ## Notes
 
 - For negligible bias, the implication is part of [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]'s theorem that coin flipping requires one-way functions — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
