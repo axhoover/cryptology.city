@@ -29,3 +29,5 @@ Ciphertexts are LWE encryptions under a ladder of moduli $q_L > \cdots > q_0$. A
 ## Notes
 
 - The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key and no relinearization: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]].
+- Leveled FHE from LWE was first obtained by relinearization and dimension–modulus reduction, bootstrapping along a chain of independent keys — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
+- Leveled FHE can rest on the same lattice approximation factors as plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions, up to the $\varepsilon$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].

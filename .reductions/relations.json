@@ -2254,6 +2254,19 @@
    "unlisted": false
   },
   {
+   "id": "multi-party-nike",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/key-exchange.md",
+   "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
+   "anchor": "#multiparty-non-interactive-key-exchange",
+   "of": "ke",
+   "title": "Multiparty non-interactive key exchange",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "multi-point-function-secret-sharing",
    "kind": "variant",
    "type": "primitive",
@@ -3583,6 +3596,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-io",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/indistinguishability-obfuscation.md",
+   "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
+   "anchor": "#sub-exponentially-secure-io",
+   "of": "io",
+   "title": "Sub-exponentially secure iO",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "subexponential-lpn",
    "kind": "variant",
    "type": "assumption",
@@ -3929,6 +3955,20 @@
    "of": "prf",
    "title": "Weak PRFs",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "witness-encryption",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/witness-encryption.md",
+   "slug": "witness-encryption",
+   "graphSlug": "Primitives/witness-encryption",
+   "title": "Witness encryption",
+   "aliases": [
+    "WE",
+    "Witness encryption"
+   ],
    "unlisted": false
   },
   {
@@ -7629,6 +7669,55 @@
    "title": "Invertible PRFs ⇒ PRF"
   },
   {
+   "id": "red-io-and-owf-to-multi-party-nike-bz14",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "owf"
+   ],
+   "conclusion": "multi-party-nike",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The parties obfuscate a circuit that evaluates a pseudorandom generator and a puncturable PRF, so the construction uses the one-way function's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-owf-to-multi-party-nike-bz14.md",
+   "slug": "io-and-owf-to-multi-party-nike-bz14",
+   "graphSlug": "Reductions/io-and-owf-to-multi-party-nike-bz14",
+   "title": "iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)"
+  },
+  {
+   "id": "red-io-to-witness-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "io"
+   ],
+   "conclusion": "witness-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the reduction forwards the adversary's guess",
+   "rationale": {
+    "class": "Encryption obfuscates a fixed circuit through the obfuscator, used as an oracle, and the reduction runs any adversary against the witness encryption once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-to-witness-encryption.md",
+   "slug": "io-to-witness-encryption",
+   "graphSlug": "Reductions/io-to-witness-encryption",
+   "title": "iO ⇒ Witness encryption"
+  },
+  {
    "id": "red-ip-to-pspace-ccg-94",
    "kind": "inclusion",
    "hypotheses": [
@@ -8601,6 +8690,27 @@
    "slug": "module-svp-to-module-sis-ls15",
    "graphSlug": "Reductions/module-svp-to-module-sis-ls15",
    "title": "Module-SIVP ⇒ Module-SIS"
+  },
+  {
+   "id": "red-multilinear-maps-to-witness-encryption-ggsw13",
+   "kind": "implication",
+   "hypotheses": [
+    "multilinear-maps"
+   ],
+   "conclusion": "witness-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/multilinear-maps-to-witness-encryption-ggsw13.md",
+   "slug": "multilinear-maps-to-witness-encryption-ggsw13",
+   "graphSlug": "Reductions/multilinear-maps-to-witness-encryption-ggsw13",
+   "title": "MMap ⇒ Witness encryption (GGSW)"
   },
   {
    "id": "red-nizk-to-zap-dn00",
@@ -11329,6 +11439,56 @@
    "title": "Sub-exponentially selective HIBE ⇒ adaptive HIBE"
   },
   {
+   "id": "red-subexponential-io-and-owf-to-tdp-bpw16",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-io",
+    "owf"
+   ],
+   "conclusion": "tdp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The permutation is an obfuscation of a circuit that evaluates the one-way function, so the construction uses the function's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-io-and-owf-to-tdp-bpw16.md",
+   "slug": "subexponential-io-and-owf-to-tdp-bpw16",
+   "graphSlug": "Reductions/subexponential-io-and-owf-to-tdp-bpw16",
+   "title": "Sub-exponential iO + OWF ⇒ TDP (Bitansky–Paneth–Wichs)"
+  },
+  {
+   "id": "red-subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-io",
+    "rerandomizable-encryption"
+   ],
+   "conclusion": "he",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "sub-exponential in the iO security and slightly super-polynomial in the encryption's security",
+   "rationale": {
+    "class": "The evaluation key is an obfuscation of circuits that decrypt, compute and re-encrypt, so the construction uses the encryption scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-io-and-rerandomizable-encryption-to-he-cltv15.md",
+   "slug": "subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
+   "graphSlug": "Reductions/subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
+   "title": "Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)"
+  },
+  {
    "id": "red-subexponential-lpn-to-crhf-yzw-19",
    "kind": "implication",
    "hypotheses": [
@@ -11875,6 +12035,31 @@
    "title": "Weak OWF ⇒ OWF (Yao)"
   },
   {
+   "id": "red-witness-encryption-and-prg-to-pke-ggsw13",
+   "kind": "implication",
+   "hypotheses": [
+    "witness-encryption",
+    "prg"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage",
+   "rationale": {
+    "class": "The scheme calls the generator and the witness encryption only as oracles, and the reduction runs any PKE adversary once as an oracle, first on a pseudorandom and then on a uniform public key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/witness-encryption-and-prg-to-pke-ggsw13.md",
+   "slug": "witness-encryption-and-prg-to-pke-ggsw13",
+   "graphSlug": "Reductions/witness-encryption-and-prg-to-pke-ggsw13",
+   "title": "WE + PRG ⇒ PKE (GGSW)"
+  },
+  {
    "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
    "kind": "implication",
    "hypotheses": [
@@ -12388,6 +12573,66 @@
    "slug": "no-injective-owf-to-owp-mm11",
    "graphSlug": "Barriers/no-injective-owf-to-owp-mm11",
    "title": "No fully-black-box reduction from length-increasing injective OWF to OWP"
+  },
+  {
+   "id": "bar-io-and-owf-to-owp-as16",
+   "hypotheses": [
+    "io",
+    "owf"
+   ],
+   "conclusion": "owp",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]]"
+   ],
+   "rationale": {
+    "class": "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-and-owf-to-owp-as16.md",
+   "slug": "no-io-and-owf-to-owp-as16",
+   "graphSlug": "Barriers/no-io-and-owf-to-owp-as16",
+   "title": "No fully-black-box reduction from iO + OWF to OWP"
+  },
+  {
+   "id": "bar-io-and-owp-to-crhf-as15",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[AS15 - Limits on the Power of Indistinguishability Obfuscation and Functional Encryption|AS15]]"
+   ],
+   "rationale": {
+    "class": "AS15 rule out constructions that may obfuscate circuits with one-way-permutation gates, a class containing every construction that uses the obfuscator and the permutation only as oracles, with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-and-owp-to-crhf-as15.md",
+   "slug": "no-io-and-owp-to-crhf-as15",
+   "graphSlug": "Barriers/no-io-and-owp-to-crhf-as15",
+   "title": "No fully-black-box reduction from iO + OWP to CRHF"
   },
   {
    "id": "bar-ip-to-am-sha90",

@@ -9,6 +9,7 @@ id: io
 variants:
   virtual-black-box-obfuscation: "#virtual-black-box-obfuscation-vbb"
   differing-inputs-obfuscation: "#differing-inputs-obfuscation-dio"
+  subexponential-io: "#sub-exponentially-secure-io"
 ---
 
 # Indistinguishability Obfuscation
@@ -42,7 +43,11 @@ is negligible, where $b \getsr \bits$.
 
 ## Virtual black-box obfuscation (VBB)
 
-A stronger notion requiring that anything an efficient adversary can compute from the obfuscated program could be computed by a simulator with only oracle access to the program. VBB obfuscation is **impossible** for general circuits — standard (Barak et al. 2001).
+A stronger notion requiring that anything an efficient adversary can compute from the obfuscated program could be computed by a simulator with only oracle access to the program. VBB obfuscation is **impossible** for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]].
+
+## Sub-exponentially secure iO
+
+iO is **sub-exponentially secure** if there is a constant $\varepsilon > 0$ such that every adversary of size $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ in the indistinguishability game. Trapdoor permutations from iO — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]] — and fully homomorphic encryption without circular security — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]] — assume it.
 
 ## Differing-inputs obfuscation (diO)
 
@@ -58,9 +63,9 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - iO together with one-way functions (or close variants of them) also yields injective trapdoor functions, CCA-secure PKE and oblivious transfer — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - [[fe-to-io|FE ⇒ iO]]
-- VBB obfuscation is impossible for general circuits; iO is believed to be the "best possible" general obfuscation — standard
+- VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other obfuscation of comparable size — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 1a5baf5dec10 -->
+<!-- BEGIN GENERATED participates-in 2ed4657ee47c -->
 
 ## Participates in
 
@@ -72,7 +77,11 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
+- [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]
+- [[io-to-witness-encryption|iO ⇒ Witness encryption]]
 - [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]]
+- [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
+- [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 
 **Produces Indistinguishability Obfuscation**
 
@@ -80,5 +89,10 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[fe-to-io|FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
+
+**Barriers**
+
+- [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to OWP]]
+- [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
 
 <!-- END GENERATED participates-in -->

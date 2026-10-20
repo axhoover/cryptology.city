@@ -13,6 +13,7 @@ variants:
   authenticated-key-exchange: "#authenticated-key-exchange-ake"
   multi-party-key-exchange: "#multi-party-key-exchange"
   non-interactive-key-exchange: "#non-interactive-key-exchange-nike"
+  multi-party-nike: "#multiparty-non-interactive-key-exchange"
 ---
 
 # Key exchange
@@ -49,6 +50,10 @@ An AKE additionally guarantees that the parties authenticate each other's identi
 
 Generalizes two-party KE to $n$ parties. Requires additional rounds or structure (e.g., Burmester-Desmedt, pairing-based constructions).
 
+## Multiparty non-interactive key exchange
+
+An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret and the $N - 1$ other published values, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; the constructions below allow any polynomial $N$ — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
+
 # Other results
 
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ NIKE]]
@@ -58,7 +63,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in 922d33ec4713 -->
+<!-- BEGIN GENERATED participates-in 6fd0822e84c9 -->
 
 ## Participates in
 
@@ -73,6 +78,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
+- [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[key-exchange#multiparty-non-interactive-key-exchange|Multiparty non-interactive key exchange]])
 - [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
 - [[kem-to-ke|KEM ⇒ KE]]
 - [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]

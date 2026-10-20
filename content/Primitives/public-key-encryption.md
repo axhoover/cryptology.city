@@ -129,7 +129,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 8ca143e53b57 -->
+<!-- BEGIN GENERATED participates-in 9569a7d5dac3 -->
 
 ## Participates in
 
@@ -174,6 +174,7 @@ TODO
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
+- [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
 
 **Barriers**
 

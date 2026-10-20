@@ -15,9 +15,13 @@ A public-key encryption scheme with a public rerandomization algorithm that maps
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in a0fb0bb86179 -->
+<!-- BEGIN GENERATED participates-in e39a7695a152 -->
 
 ## Participates in
+
+**Builds on Rerandomizable encryption**
+
+- [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)]]
 
 **Produces Rerandomizable encryption**
 
