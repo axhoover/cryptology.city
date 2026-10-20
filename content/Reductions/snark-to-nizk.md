@@ -25,3 +25,4 @@ A [[succinct-argument|SNARG]] for $\classNP$ with proof size $\poly(\secpar)\cdo
 ## Notes
 
 - A SNARK need not be zero-knowledge, so it is not by itself a NIZK; a [[non-interactive-zero-knowledge#zk-snark|zk-SNARK]] is a NIZK argument by definition — standard.
+- The 2022 revision of the paper (its Journal of Cryptology version) relaxes the succinctness requirement to proof size $\poly(\secpar)\cdot(|x|+|w|)^{\delta}$ for any constant $\delta < 1$, still without requiring sublinear verification — [[KMY20 - NIZK from SNARG|KMY20]].
