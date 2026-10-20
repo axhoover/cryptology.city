@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorphic-encryption#strongly-homomorphic-encryption|strong]] (distribution-preserving) homomorphic evaluator for a boolean function $f$ is [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|statistically rerandomizable]], for every $f$ other than constants, projections and their negations, AND and OR: an encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ independent of the input, up to negligible statistical distance when the evaluator's error is negligible — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorphic-encryption#strongly-homomorphic-encryption|strong]] (distribution-preserving) homomorphic evaluator for a boolean function $f$ is [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|statistically rerandomizable]], for essentially every $f$ other than the trivial functions, NOT, AND and OR, the exceptions named by BL13: an encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ independent of the input, up to negligible statistical distance when the evaluator's error is negligible — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 
 ## Notes
 

@@ -48,7 +48,7 @@ $$
 \Pr\!\left[\calA(1^\secpar, N) \in \{p, q\}\right]
 $$
 
-is negligible. Blum integers underlie Rabin's trapdoor permutation — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]] — and the Blum–Blum–Shub generator — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. Other protocols assume factoring is hard for other structured moduli, such as $N = p^r q$ — standard.
+is negligible. Squaring modulo a Blum integer permutes $\mathrm{QR}_N$ — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]] — which makes Rabin's function, whose inversion is as hard as factoring — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]] — a trapdoor permutation; Blum integers also underlie the Blum–Blum–Shub generator — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. Other protocols assume factoring is hard for other structured moduli, such as $N = p^r q$ — standard.
 
 # Attacks
 
