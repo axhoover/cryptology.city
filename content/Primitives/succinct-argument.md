@@ -14,6 +14,7 @@ variants:
   zk-snark: "#zk-snark"
   incremental-verifiable-computation: "#recursive-snarks"
   transparent-succinct-argument: "#stark"
+  interactive-succinct-argument: "#interactive-succinct-arguments"
 ---
 
 # Succinct argument
@@ -89,6 +90,10 @@ Systems like Plonk and Marlin use a single universal trusted setup for all circu
 
 A SNARK that can verify its own proofs, enabling incremental verifiable computation (IVC) and proof aggregation. Used in zkRollups and zkVMs.
 
+## Interactive succinct arguments
+
+An interactive argument system for $\classNP$ whose total communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers and no common reference string — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
+
 # Other results
 
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
@@ -97,7 +102,7 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in cd0922d440c1 -->
+<!-- BEGIN GENERATED participates-in 42ec0e82b49e -->
 
 ## Participates in
 
@@ -109,8 +114,10 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 **Produces Succinct argument**
 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
+- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|Recursive SNARKs]])
 
 **Barriers**

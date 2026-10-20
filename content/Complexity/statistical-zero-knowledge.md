@@ -6,6 +6,10 @@ aliases:
   - Statistical zero-knowledge
 title: Statistical zero-knowledge
 id: szk
+variants:
+  honest-verifier-szk: "#honest-verifier-szk"
+  coszk: "#coszk"
+  statistical-difference: "#statistical-difference"
 ---
 
 # Statistical zero-knowledge
@@ -23,16 +27,37 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
   - From worst-case hardness alone (SZK ⊄ BPP), auxiliary-input one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - The complete problem for SZK is the **Statistical Difference (SD)** problem: given two circuits sampling distributions $D_0$ and $D_1$, decide whether $\|D_0 - D_1\|_{\mathrm{TV}} \geq 2/3$ or $\leq 1/3$
 
-<!-- BEGIN GENERATED participates-in 877addec1531 -->
+## Honest-verifier SZK
+
+$\mathbf{HVSZK}$ is the class of problems with an interactive proof that is statistically zero-knowledge against the honest verifier only: the simulator need only reproduce the view of the verifier that follows the protocol — [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]].
+
+## coSZK
+
+$\mathbf{coSZK}$ is the class of complements of problems in SZK — [[Oka96 - On Relationships between Statistical Zero-Knowledge Proofs|Oka96]].
+
+## Statistical Difference
+
+$\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of circuits $(C_0, C_1)$ sampling distributions $D_0, D_1$, with yes-instances $\|D_0 - D_1\|_{\mathrm{TV}} \ge \alpha$ and no-instances $\|D_0 - D_1\|_{\mathrm{TV}} \le \beta$; the standard choice is $(\alpha, \beta) = (2/3, 1/3)$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
+
+<!-- BEGIN GENERATED participates-in f512a0380dcf -->
 
 ## Participates in
 
 **Builds on Statistical zero-knowledge**
 
+- [[coszk-to-szk-oka96|SZK = coSZK]] (via [[statistical-zero-knowledge#coszk|coSZK]])
+- [[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]] (via [[statistical-zero-knowledge#honest-verifier-szk|Honest-verifier SZK]])
+- [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]] (via [[statistical-zero-knowledge#statistical-difference|Statistical Difference]])
 - [[szk-to-am|SZK ⊆ AM]]
 - [[szk-to-coam|SZK ⊆ coAM]]
 - [[szk-to-czk|SZK ⊆ CZK]]
 - [[szk-to-ip|SZK ⊆ IP]]
 - [[szk-to-qszk|SZK ⊆ QSZK]]
+
+**Produces Statistical zero-knowledge**
+
+- [[coszk-to-szk-oka96|SZK = coSZK]]
+- [[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]]
+- [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]]
 
 <!-- END GENERATED participates-in -->

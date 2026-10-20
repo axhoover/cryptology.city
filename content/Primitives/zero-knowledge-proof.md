@@ -13,6 +13,10 @@ id: zkp
 variants:
   constant-round-zk-argument: "#argument-systems"
   honest-verifier-zero-knowledge: "#honest-verifier-zk-hvzk"
+  witness-indistinguishable-proof: "#witness-indistinguishable-wi-proofs"
+  zap: "#zaps"
+  statistical-zk-argument: "#statistical-zero-knowledge-arguments"
+  constant-round-zk-proof: "#constant-round-zero-knowledge-proofs"
 ---
 
 # Zero-knowledge proof
@@ -66,9 +70,21 @@ A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment
 
 Weaker than ZK: the verifier cannot distinguish which of multiple valid witnesses the prover used. WI proofs compose concurrently (unlike ZK proofs in general) and can be built without requiring any setup.
 
+## Zaps
+
+A _zap_ is a two-message, public-coin witness-indistinguishable proof whose first message, a random string sent by the verifier, can be fixed once and reused for any number of statements — [[DN00 - Zaps and Their Applications|DN00]].
+
 ## Argument systems
 
 Proof systems with only computational (not information-theoretic) soundness. Enables much more efficient constructions; see [[non-interactive-zero-knowledge|NIZK]] and [[succinct-argument|SNARKs]].
+
+## Statistical zero-knowledge arguments
+
+An argument system whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the witness is protected against unbounded verifiers, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
+
+## Constant-round zero-knowledge proofs
+
+A zero-knowledge proof (with soundness against unbounded provers) with a constant number of messages and negligible soundness error — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]].
 
 # Other results
 
@@ -79,7 +95,7 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 - Sequential composition of ZK proofs preserves ZK; parallel composition may not — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 71ecdf9658f4 -->
+<!-- BEGIN GENERATED participates-in 318d17350872 -->
 
 ## Participates in
 
@@ -90,8 +106,13 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 **Produces Zero-knowledge proof**
 
+- [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#argument-systems|Argument systems]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[owf-to-statistical-zk-argument-nov06|OWF ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
+- [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[zero-knowledge-proof#witness-indistinguishable-wi-proofs|Witness-indistinguishable (WI) proofs]])
+- [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 
 **Barriers**
 

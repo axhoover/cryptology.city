@@ -70,12 +70,13 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 7e10126bb80a -->
+<!-- BEGIN GENERATED participates-in 14cc267f443d -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
+- [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[lossy-trapdoor-function-to-crhf-pw08|Lossy TDF ⇒ CRHF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
