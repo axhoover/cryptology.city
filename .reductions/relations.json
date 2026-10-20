@@ -10532,10 +10532,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the CPA advantage plus twice the SUF-CMA advantage",
+   "securityLoss": "factor $q_D$ in the MAC term: a CCA adversary making $q_E$ encryption and $q_D$ decryption queries has advantage at most the CPA advantage of an adversary making $q_E$ encryption queries plus $2q_D$ times the SUF-CMA advantage of a forger making $q_E$ tag queries",
    "rationale": {
-    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery.",
-    "securityLoss": "Encrypt-then-MAC has ciphertext integrity at most the SUF-CMA advantage, and integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage."
+    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and both reductions run any CCA adversary as an oracle and reject its decryption queries, the forger outputting a uniformly chosen one of them.",
+    "securityLoss": "Ciphertext integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage, and since the SUF-CMA game takes one final forgery and has no verification oracle, the forger guesses which of the $q_D$ decryption queries carries a valid tag."
    },
    "status": "draft",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
