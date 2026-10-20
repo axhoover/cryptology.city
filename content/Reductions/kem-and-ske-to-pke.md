@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]"
-security-loss: "additive: twice the KEM CCA advantage plus the DEM one-time CCA advantage plus the KEM bad-key-pair probability"
+security-loss: "additive: twice the KEM CCA advantage plus twice the KEM bad-key-pair probability plus the DEM one-time CCA advantage"
 rationale:
   class: "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
 ---
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-The KEM-DEM hybrid builds [[public-key-encryption|PKE]] from a [[key-encapsulation-mechanism|KEM]] and a one-time-secure [[symmetric-key-encryption|SKE]] (the DEM): $\Enc(\pk, m)$ runs $(c_1, k) \gets \Encap(\pk)$ and $c_2 \gets \SKE.\Enc(k, m)$ and outputs $(c_1, c_2)$; $\Dec(\sk, (c_1, c_2))$ outputs $\SKE.\Dec(\Decap(\sk, c_1), c_2)$. If the KEM is [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] secure and the DEM is one-time IND-CCA secure (e.g. encrypt-then-MAC), the hybrid is [[public-key-encryption#cca-security|IND-CCA]] secure — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]], Theorem 5. A [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme whose key generation outputs a uniform key of the KEM's key length is in particular a one-time IND-CCA DEM — standard.
+The KEM-DEM hybrid builds [[public-key-encryption|PKE]] from a [[key-encapsulation-mechanism|KEM]] and a one-time-secure [[symmetric-key-encryption|SKE]] (the DEM): $\Enc(\pk, m)$ runs $(c_1, k) \gets \Encap(\pk)$ and $c_2 \gets \SKE.\Enc(k, m)$ and outputs $(c_1, c_2)$; $\Dec(\sk, (c_1, c_2))$ outputs $\SKE.\Dec(\Decap(\sk, c_1), c_2)$. If the KEM is [[key-encapsulation-mechanism#ind-cca-security|IND-CCA]] secure and the DEM is one-time IND-CCA secure (e.g. encrypt-then-MAC), the hybrid is [[public-key-encryption#cca-security|IND-CCA]] secure — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]], Theorem 5. A [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme becomes a one-time IND-CCA DEM by using the encapsulated key as the coins of $\SKE.\KeyGen$ — standard.
 
 ## Sketch
 
