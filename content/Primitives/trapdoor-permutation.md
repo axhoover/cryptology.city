@@ -56,7 +56,7 @@ An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sa
 
 ### Doubly enhanced certified trapdoor permutations
 
-An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses.
+An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
 
 ## Injective trapdoor functions
 
