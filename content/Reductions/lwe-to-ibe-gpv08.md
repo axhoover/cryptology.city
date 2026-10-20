@@ -7,7 +7,7 @@ aliases:
 id: red-lwe-to-ibe-gpv08
 kind: implication
 hypotheses: [lwe]
-conclusion: ibe
+conclusion: ind-id-cpa
 class: fully-black-box
 model: rom
 source:
@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors|LWE]] is hard for suitable polynomial modulus and error rate, then in the [[random-oracle-model|random-oracle model]] there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme: the master public key is a uniform $\mathbf{A} \in \ZZ_q^{n \times m}$ generated with a short basis of $\Lambda_q^{\perp}(\mathbf{A})$, the key for an identity $\mathit{id}$ is a short $\mathbf{e}$ with $\mathbf{A}\mathbf{e} = H(\mathit{id}) \bmod q$ sampled from a discrete Gaussian with that basis, and encryption is dual-Regev encryption under $(\mathbf{A}, H(\mathit{id}))$ — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
+If [[learning-with-errors|LWE]] is hard for suitable polynomial modulus and error rate, then in the [[random-oracle-model|random-oracle model]] there is an [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] [[identity-based-encryption|IBE]] scheme: the master public key is an $\mathbf{A} \in \ZZ_q^{n \times m}$, statistically close to uniform, generated with a short basis of $\Lambda_q^{\perp}(\mathbf{A})$, the key for an identity $\mathit{id}$ is a short $\mathbf{e}$ with $\mathbf{A}\mathbf{e} = H(\mathit{id}) \bmod q$ sampled from a discrete Gaussian with that basis, and encryption is dual-Regev encryption under $(\mathbf{A}, H(\mathit{id}))$ — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]].
 
 ## Sketch
 

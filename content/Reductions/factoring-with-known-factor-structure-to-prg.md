@@ -10,7 +10,7 @@ conclusion: prg
 class: fully-black-box
 model: standard
 source:
-  - "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
+  - "[[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]"
 security-loss: ""
 rationale:
   class: "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]] prove the generator secure under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers.
+If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. Its security under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers is [[qr-to-prg-bbs86|QR ⇒ PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
 
 ## Sketch
 

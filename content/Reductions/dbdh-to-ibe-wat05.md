@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]"
-security-loss: "a factor O(n q) for n-bit identities and q key queries, from an artificial abort"
+security-loss: "a factor O(n q) in advantage for n-bit identities and q key queries, from the chance that the partition answers every key query and embeds the challenge; the artificial abort adds running time polynomial in nq/ε"
 rationale:
   class: "The scheme is one fixed construction over the pairing group, and the reduction runs the IBE adversary only as an oracle on parameters built from its DBDH tuple."
 ---

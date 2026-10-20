@@ -29,5 +29,5 @@ Given the DBDH tuple $(g, g^a, g^b, g^c, T)$ and the committed identity $\mathit
 
 ## Notes
 
-- Selective security with $\mathit{id}$ ranging over a polynomial-size space gives adaptive security by guessing; for general identities [[dbdh-to-ibe-wat05|Waters' scheme]] proves adaptive security directly — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]].
+- Selective security over an identity space $\calI$ gives adaptive security with loss $|\calI|$ by guessing ([[ind-sid-cpa-security-selective-to-ind-id-cpa-security|selective ⇒ adaptive IBE]]) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]; for exponentially many identities [[dbdh-to-ibe-wat05|Waters' scheme]] proves adaptive security directly — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]].
 - Selectively secure IBE gives IND-CCA2-secure PKE: [[ind-sid-cpa-to-pke-cca2-security-chk04|IND-sID-CPA IBE ⇒ CCA2 PKE]] — [[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]].
