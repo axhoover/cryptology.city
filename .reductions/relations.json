@@ -2862,6 +2862,19 @@
    "unlisted": true
   },
   {
+   "id": "prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "private-coin-evasive-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -5223,30 +5236,6 @@
    "title": "CRHF ⇒ Succinct arguments for NP (Kilian)"
   },
   {
-   "id": "red-crhf-to-owf",
-   "kind": "implication",
-   "hypotheses": [
-    "crhf"
-   ],
-   "conclusion": "owf",
-   "class": "fully-black-box",
-   "model": "standard",
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "additive 2^{-(n-m)}: an inverter with success ε gives a collision finder with success at least ε − 2^{-(n-m)}",
-   "rationale": {
-    "class": "The one-way function is the hash family itself, used only as an oracle, and the collision finder runs any inverter once as an oracle on the hash of a uniform input."
-   },
-   "status": "draft",
-   "page": "content/Reductions/crhf-to-owf.md",
-   "slug": "crhf-to-owf",
-   "graphSlug": "Reductions/crhf-to-owf",
-   "title": "CRHF ⇒ OWF"
-  },
-  {
    "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
    "kind": "implication",
    "hypotheses": [
@@ -5270,6 +5259,30 @@
    "slug": "crhf-to-statistically-hiding-commitment-dpp97",
    "graphSlug": "Reductions/crhf-to-statistically-hiding-commitment-dpp97",
    "title": "CRHF ⇒ Statistically hiding COM"
+  },
+  {
+   "id": "red-crhf-to-weak-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "weak-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive 2^{-(n-m)}: an inverter with success ε gives a collision finder with success at least ε − 2^{-(n-m)}",
+   "rationale": {
+    "class": "The weak one-way function is the hash family itself, used only as an oracle, and the collision finder runs any inverter once as an oracle on the hash of a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-weak-owf.md",
+   "slug": "crhf-to-weak-owf",
+   "graphSlug": "Reductions/crhf-to-weak-owf",
+   "title": "CRHF ⇒ Weak OWF"
   },
   {
    "id": "red-czk-to-ip",
@@ -6039,7 +6052,7 @@
    "id": "red-dlog-to-crhf-cvhp91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -10221,6 +10234,30 @@
    "slug": "prg-to-prf-ggm86",
    "graphSlug": "Reductions/prg-to-prf-ggm86",
    "title": "PRG ⇒ PRF (GGM)"
+  },
+  {
+   "id": "red-prime-order-dlog-to-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-dlog.md",
+   "slug": "prime-order-dlog-to-dlog",
+   "graphSlug": "Reductions/prime-order-dlog-to-dlog",
+   "title": "Prime-order DLOG ⇒ DLOG"
   },
   {
    "id": "red-prp-to-invertible-prf",
