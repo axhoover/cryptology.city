@@ -2416,6 +2416,19 @@
    "unlisted": false
   },
   {
+   "id": "nizk-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#nizk-for-np",
+   "of": "nizk",
+   "title": "NIZK for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "noisy-k-lin",
    "kind": "object",
    "type": "assumption",
@@ -5119,7 +5132,7 @@
    "hypotheses": [
     "common-random-string-nizk-proof"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-for-np",
    "class": "fully-black-box",
    "model": "crs",
    "source": [
@@ -6033,7 +6046,7 @@
    "hypotheses": [
     "decisional-linear"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-for-np",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -7115,7 +7128,7 @@
     "owf",
     "io"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-for-np",
    "class": "free",
    "model": "crs",
    "source": [
@@ -8532,7 +8545,7 @@
    "hypotheses": [
     "lwe"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-for-np",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -8898,6 +8911,30 @@
    "slug": "module-svp-to-module-sis-ls15",
    "graphSlug": "Reductions/module-svp-to-module-sis-ls15",
    "title": "Module-SIVP ⇒ Module-SIS"
+  },
+  {
+   "id": "red-nizk-for-np-to-nizk",
+   "kind": "implication",
+   "hypotheses": [
+    "nizk-for-np"
+   ],
+   "conclusion": "nizk",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and the reductions forward any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/nizk-for-np-to-nizk.md",
+   "slug": "nizk-for-np-to-nizk",
+   "graphSlug": "Reductions/nizk-for-np-to-nizk",
+   "title": "NIZK for NP ⇒ NIZK"
   },
   {
    "id": "red-nizk-to-zap-dn00",
@@ -10013,7 +10050,7 @@
    "kind": "implication",
    "hypotheses": [
     "perfectly-correct-pke-cpa-security",
-    "nizk"
+    "nizk-for-np"
    ],
    "conclusion": "pke-cca1-security",
    "class": "free",
@@ -10038,7 +10075,7 @@
    "kind": "implication",
    "hypotheses": [
     "perfectly-correct-pke-cpa-security",
-    "nizk"
+    "nizk-for-np"
    ],
    "conclusion": "pke-cca2-security",
    "class": "free",
@@ -11346,7 +11383,7 @@
     "snark",
     "owf"
    ],
-   "conclusion": "nizk",
+   "conclusion": "nizk-for-np",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -12108,13 +12145,14 @@
    "class": "fully-black-box",
    "model": "crs",
    "source": [
-    "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
+    "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]",
+    "[[GR13 - Enhancements of Trapdoor Permutations|GR13]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Prover, verifier and the multi-theorem PRG call the permutation's generation, evaluation, inversion, certification and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle.",
+    "class": "The single-theorem hidden-bits compilation calls the permutation's generation, evaluation, inversion, domain sampler and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle; the multi-theorem compiler, which places a PRG's circuit in an NP statement, is not needed for the conclusion.",
     "model": "The common reference string carries the hidden bits."
    },
    "status": "draft",

@@ -6,7 +6,7 @@ aliases: []
 id: red-lwe-to-nizk-ps19
 kind: implication
 hypotheses: [lwe]
-conclusion: nizk
+conclusion: nizk-for-np
 class: unstated
 model: crs
 source:

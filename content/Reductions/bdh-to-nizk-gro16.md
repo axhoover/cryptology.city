@@ -6,7 +6,7 @@ aliases: []
 id: red-dlin-to-nizk-gos06
 kind: implication
 hypotheses: [decisional-linear]
-conclusion: nizk
+conclusion: nizk-for-np
 class: unstated
 model: crs
 source:
