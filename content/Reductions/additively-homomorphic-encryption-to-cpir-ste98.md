@@ -6,7 +6,7 @@ aliases: []
 id: red-additively-homomorphic-encryption-to-cpir-ste98
 kind: implication
 hypotheses: [additively-homomorphic-encryption]
-conclusion: cpir
+conclusion: one-round-sublinear-cpir
 class: fully-black-box
 model: standard
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A semantically secure [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme yields a [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^{\varepsilon})$ ciphertexts for every constant $\varepsilon > 0$ — [[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]].
+A semantically secure [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme, with fixed-length ciphertexts and perfect correctness, yields for every constant $\varepsilon > 0$ a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^{\varepsilon})$ ciphertexts, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]].
 
 ## Sketch
 

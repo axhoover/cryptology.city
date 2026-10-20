@@ -690,6 +690,19 @@
    "unlisted": false
   },
   {
+   "id": "compact-fhe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#compact-fhe",
+   "of": "he",
+   "title": "Compact FHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -1387,6 +1400,19 @@
    "anchor": "#higher-residuosity",
    "of": "qr",
    "title": "Higher residuosity",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "highly-lossy-trapdoor-function",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#highly-lossy-trapdoor-functions",
+   "of": "tdp",
+   "title": "Highly lossy trapdoor functions",
    "aliases": [],
    "unlisted": false
   },
@@ -2393,6 +2419,19 @@
    "unlisted": false
   },
   {
+   "id": "nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#non-trivial-pir",
+   "of": "cpir",
+   "title": "Non-trivial PIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nonzero-ippe",
    "kind": "variant",
    "type": "primitive",
@@ -2496,6 +2535,19 @@
    "anchor": "#k-out-of-n-ot",
    "of": "ot",
    "title": "$k$-out-of-$n$ OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-round-sublinear-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#one-round-sublinear-pir",
+   "of": "cpir",
+   "title": "One-round sublinear PIR",
    "aliases": [],
    "unlisted": false
   },
@@ -4200,7 +4252,7 @@
    "hypotheses": [
     "additively-homomorphic-encryption"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -4237,7 +4289,7 @@
    "page": "content/Reductions/additively-homomorphic-encryption-to-crhf-iko05.md",
    "slug": "additively-homomorphic-encryption-to-crhf-iko05",
    "graphSlug": "Reductions/additively-homomorphic-encryption-to-crhf-iko05",
-   "title": "Homomorphic encryption ⇒ CRHF"
+   "title": "Additively homomorphic encryption ⇒ CRHF"
   },
   {
    "id": "red-additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
@@ -4879,7 +4931,7 @@
     "circular-security",
     "lwe"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -4892,7 +4944,7 @@
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
    "slug": "circular-security-and-lwe-to-he",
    "graphSlug": "Reductions/circular-security-and-lwe-to-he",
-   "title": "Circular security + LWE ⇒ HE"
+   "title": "Circular security + LWE ⇒ Compact FHE"
   },
   {
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
@@ -4901,7 +4953,7 @@
     "circular-security",
     "bootstrappable-somewhat-homomorphic-encryption"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "free",
    "model": "standard",
    "source": [
@@ -4917,7 +4969,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Bootstrappable SHE ⇒ HE"
+   "title": "Circular security + Bootstrappable SHE ⇒ Compact FHE"
   },
   {
    "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
@@ -5039,6 +5091,30 @@
    "title": "NIZK proofs with a common random string ⇒ NIZK"
   },
   {
+   "id": "red-compact-fhe-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-fhe"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-fhe-to-he.md",
+   "slug": "compact-fhe-to-he",
+   "graphSlug": "Reductions/compact-fhe-to-he",
+   "title": "Compact FHE ⇒ HE"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -5131,7 +5207,7 @@
    "id": "red-cpir-to-crhf-iko05",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "one-round-sublinear-cpir"
    ],
    "conclusion": "crhf",
    "class": "unstated",
@@ -5146,7 +5222,7 @@
    "page": "content/Reductions/cpir-to-crhf-iko05.md",
    "slug": "cpir-to-crhf-iko05",
    "graphSlug": "Reductions/cpir-to-crhf-iko05",
-   "title": "One-round cPIR ⇒ CRHF"
+   "title": "One-round sublinear cPIR ⇒ CRHF"
   },
   {
    "id": "red-cpir-to-ot-dmo00",
@@ -5173,7 +5249,7 @@
    "id": "red-cpir-to-owf-bikm99",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "nontrivial-cpir"
    ],
    "conclusion": "owf",
    "class": "unstated",
@@ -5188,7 +5264,7 @@
    "page": "content/Reductions/cpir-to-owf-bikm99.md",
    "slug": "cpir-to-owf-bikm99",
    "graphSlug": "Reductions/cpir-to-owf-bikm99",
-   "title": "cPIR ⇒ OWF"
+   "title": "Non-trivial cPIR ⇒ OWF"
   },
   {
    "id": "red-crhf-to-constant-round-zk-argument-bar01",
@@ -5598,7 +5674,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "lossy-trapdoor-function",
+   "conclusion": "highly-lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -5614,7 +5690,7 @@
    "page": "content/Reductions/ddh-to-lossy-trapdoor-function-pw08.md",
    "slug": "ddh-to-lossy-trapdoor-function-pw08",
    "graphSlug": "Reductions/ddh-to-lossy-trapdoor-function-pw08",
-   "title": "DDH ⇒ Lossy TDF (Peikert–Waters)"
+   "title": "DDH ⇒ Highly lossy TDF (Peikert–Waters)"
   },
   {
    "id": "red-ddh-to-malicious-ot-security-pvw08",
@@ -7181,7 +7257,7 @@
    "id": "red-he-to-cpir",
    "kind": "implication",
    "hypotheses": [
-    "he"
+    "compact-fhe"
    ],
    "conclusion": "cpir",
    "class": "fully-black-box",
@@ -7311,6 +7387,30 @@
    "slug": "higher-residuosity-to-pke",
    "graphSlug": "Reductions/higher-residuosity-to-pke",
    "title": "Higher residuosity ⇒ PKE"
+  },
+  {
+   "id": "red-highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "kind": "implication",
+   "hypotheses": [
+    "highly-lossy-trapdoor-function"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the lossy trapdoor function, and the reduction forwards any mode distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function.md",
+   "slug": "highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "graphSlug": "Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "title": "Highly lossy TDF ⇒ Lossy TDF"
   },
   {
    "id": "red-honest-majority-t-lt-n-over-2-to-mpc-rb89",
@@ -8055,7 +8155,7 @@
    "id": "red-lossy-trapdoor-function-to-crhf-pw08",
    "kind": "implication",
    "hypotheses": [
-    "lossy-trapdoor-function"
+    "highly-lossy-trapdoor-function"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -8065,7 +8165,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage about ε − 2^{2(n−k)−ℓ}",
+   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage at least about ε − 2^{2r−κn}",
    "rationale": {
     "class": "The hash composes the lossy function, used only as an oracle, with a universal hash, and the reduction distinguishes the modes by running any collision finder once as an oracle."
    },
@@ -8073,7 +8173,7 @@
    "page": "content/Reductions/lossy-trapdoor-function-to-crhf-pw08.md",
    "slug": "lossy-trapdoor-function-to-crhf-pw08",
    "graphSlug": "Reductions/lossy-trapdoor-function-to-crhf-pw08",
-   "title": "Lossy TDF ⇒ CRHF"
+   "title": "Highly lossy TDF ⇒ CRHF"
   },
   {
    "id": "red-lossy-trapdoor-function-to-injective-trapdoor-function-pw08",
@@ -10453,7 +10553,7 @@
    "hypotheses": [
     "qr"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -10783,7 +10883,7 @@
    "securityLoss": "a factor polynomial in the number of random-oracle queries",
    "rationale": {
     "class": "The theorem holds for every prover in the random-oracle model, which is the free class scoped by the model.",
-    "model": "The random oracle serves both as the hash in the Merkle tree and as the Fiat–Shamir challenge generator."
+    "model": "Two independent random oracles serve as the Merkle-tree hash and as the challenge generator applied to the statement and the root."
    },
    "status": "draft",
    "page": "content/Reductions/rom-to-snark-mic00.md",
