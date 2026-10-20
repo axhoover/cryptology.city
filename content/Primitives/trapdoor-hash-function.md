@@ -18,7 +18,7 @@ Introduced by [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
 
 ## Other results
 
-<!-- BEGIN GENERATED participates-in f928c0defcf4 -->
+<!-- BEGIN GENERATED participates-in 8fd788008e12 -->
 
 ## Participates in
 
@@ -30,7 +30,7 @@ Introduced by [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]
 
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
-- [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
+- [[lwe-to-tdh-dgi-19|LWE with sub-exponential ratio ⇒ TDH]]
 - [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 
