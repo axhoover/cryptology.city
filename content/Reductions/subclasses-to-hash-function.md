@@ -20,4 +20,4 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#sub-exponential-one-wayness|sub-exponentially secure one-way functions]] exist, then [[total-function-np#subclasses|PPAD is hard]] on average: there is an efficiently sampleable distribution over PPAD instances such that for all efficient $\calA$, the probability that $\calA$ outputs a solution is negligible — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#sub-exponential-one-wayness|sub-exponentially secure one-way functions]] exist, then [[total-function-np#ppad|PPAD is hard]] on average: there is an efficiently sampleable distribution over PPAD instances such that for all efficient $\calA$, the probability that $\calA$ outputs a solution is negligible — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].

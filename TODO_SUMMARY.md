@@ -17,6 +17,7 @@ _Last updated: 2026-10-15_
 ## Critical
 
 - [x] [Math] **9 inverted reduction directions across the assumption-page intros** — fixed 2026-09-26 by the verified object-page pass; the ambiguous rsa-assumption.md 'Factoring reduces to RSA' bullet is in the maintainer review queue —, mutually reinforcing across 4 pages: `computational-diffie-hellman.md:12`, `decisional-diffie-hellman.md:12`, `discrete-logarithm.md:12`, `decisional-composite-residuosity.md:30,31`, `quadratic-residuosity.md`, `factoring.md`, `rsa-assumption.md`. Each calls one assumption a "natural strengthening" of another in the wrong direction (DDH hardness implies CDH hardness, not the reverse). Because they agree with each other, a reader checking one against another finds no discrepancy — _source: .reductions/suspected-errors.json_
+- [ ] [Math] Check the LWE regime JKKZ21 assume (modulus-to-noise ratio and modulus size); `subexponential-lwe` now fixes prime $q \le \poly(n)$ and every polynomial ratio $1/\alpha = n^c$, the regime of the PS19 correlation-intractable hash, and needs widening if JKKZ21 use a larger ratio — _source: content/Assumptions/learning-with-errors.md_
 - [ ] [Math] `he-to-cpir` concludes the base `cpir` node, which the download-everything scheme meets, because compact FHE is only correct up to negligible error while `one-round-sublinear-cpir` demands perfect correctness; a one-round sublinear node with negligible correctness error (and IKO05's and BIKM99's exact correctness needs) would let the FHE edge feed the PIR consequences — _source: content/Reductions/he-to-cpir.md_
 - [ ] [Math] `snark-to-nizk` (KMY20) concludes `nonadaptive-nizk-argument-for-np` because KMY20's abstract claims a NIZK argument without stating adaptive soundness; if the theorem gives adaptive soundness from an adaptively sound SNARG, retarget it to `nizk-argument-for-np` — _source: content/Reductions/snark-to-nizk.md_
 - [ ] [Math] GK96b: the prover chooses the claw-free index under which the verifier commits, so statistical soundness needs hiding for every index a cheating prover may send; check whether GK96b assume an efficiently recognizable index set (or have the prover prove validity) and, if so, give `claw-free-permutations-to-constant-round-zk-proof-gk96b` a hypothesis variant with that property — _source: content/Reductions/claw-free-permutations-to-constant-round-zk-proof-gk96b.md_
@@ -108,6 +109,8 @@ _Last updated: 2026-10-15_
 - [x] [Content] `lwe-to-zero-bit-prc-cg24.md` keeps id `red-lwe-to-zero-bit-prc-cg24` for {subexponential-lpn} ⇒ zero-bit-prc — handed to the pipeline 2026-10-04: the final-form pass dropped the "ids are stable" Notes sentence, and the re-id question for this page and two others is review-inbox finding `ffr:schema-convention-6` — _source: content/Reductions/lwe-to-zero-bit-prc-cg24.md, .review/inbox/_
 
 ---
+
+- [ ] [External] `GG00`'s abstract described $n^{1/\log\log n}$ inapproximability of SVP and CVP, which is not this paper (Goldreich–Goldwasser give constant-round honest-verifier perfect zero-knowledge proofs placing GapSVP and GapCVP within $\sqrt{n/\log n}$ in $\classNP \cap \classcoAM$); it is now `TODO — abstract.` and needs the verbatim abstract — _source: content/References/GG00 - On the limits of non-approximability of lattice problems.md_
 
 ## Low Priority / Inferred
 

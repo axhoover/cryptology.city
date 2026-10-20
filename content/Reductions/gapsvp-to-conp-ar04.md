@@ -1,0 +1,27 @@
+---
+type: reduction
+status: draft
+title: GapSVP ∈ coNP for γ ≥ c√n
+aliases: []
+id: red-gapsvp-to-conp-ar04
+kind: inclusion
+hypotheses: [gapsvp-sqrt-n]
+conclusion: conp
+class: free
+model: standard
+source:
+  - "[[AR04 - Lattice Problems in NP intersect coNP|AR04]]"
+security-loss: ""
+---
+
+# GapSVP ∈ coNP for γ ≥ c√n
+
+## Statement
+
+For $\gamma = c\sqrt{n}$ with a suitable constant $c$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem#factor-square-root-of-n|GapSVP]]), and likewise $\mathrm{GapCVP}_\gamma$, lies in [[co-nondeterministic-polynomial-time|coNP]], hence in $\classNP \cap \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]].
+
+## Notes
+
+- The factor-$\sqrt{n / \log n}$ problem is in $\classNP \cap \classcoAM$ ([[gapsvp-to-coam-gg00|GapSVP ∈ coAM]]) — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].
+- Consequently $\mathrm{GapSVP}_{c\sqrt n}$ is not $\classNP$-hard under Karp reductions unless $\classNP = \classcoNP$: [[no-np-to-gapsvp-ar04|No Karp reduction from NP to GapSVPc√n]] — [[AR04 - Lattice Problems in NP intersect coNP|AR04]].
+- Regev's reduction bases LWE with noise rate $\alpha < 1$ on approximation factor $\gamma = \tilde{O}(n / \alpha)$, which exceeds $c\sqrt{n}$ ([[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]) — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]. LWE-based cryptography therefore rests on worst-case lattice problems in $\classNP \cap \classcoNP$, which are not $\classNP$-hard under Karp reductions unless $\classNP = \classcoNP$ — [[AR04 - Lattice Problems in NP intersect coNP|AR04]].
