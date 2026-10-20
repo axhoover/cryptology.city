@@ -42,7 +42,13 @@ The strong RSA assumption requires that it is hard to compute any $e$-th root of
 
 ## Factoring with known factor structure
 
-Some protocols assume factoring is hard even given additional structural information about $N$ (e.g., $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$, so-called Blum integers). Blum integers are used in the Blum-Blum-Shub PRG.
+For security parameter $\secpar$, let $p, q$ be independent uniform $\secpar$-bit primes with $p \equiv q \equiv 3 \pmod 4$, and $N := pq$, a _Blum integer_. **Factoring Blum integers is hard** if for all efficient $\calA$,
+
+$$
+\Pr\!\left[\calA(1^\secpar, N) \in \{p, q\}\right]
+$$
+
+is negligible. Blum integers underlie Rabin's trapdoor permutation — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]] — and the Blum–Blum–Shub generator — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. Other protocols assume factoring is hard for other structured moduli, such as $N = p^r q$ — standard.
 
 # Attacks
 

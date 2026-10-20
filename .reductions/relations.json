@@ -6112,7 +6112,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: every claw factors N",
+   "securityLoss": "a factor of about 2: such integers are about half of all Blum integers, and every claw factors N",
    "rationale": {
     "class": "The pair uses only arithmetic modulo the sampled integer, and one fixed reduction factors it from any claw, running the claw finder once as an oracle."
    },
@@ -7672,14 +7672,17 @@
     "lossy-trapdoor-function"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "receiver privacy loses one mode-indistinguishability hop; sender privacy is statistical, up to a leftover-hash term",
+   "rationale": {
+    "class": "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-function-to-ot-pw08.md",
    "slug": "lossy-trapdoor-function-to-ot-pw08",
@@ -7696,11 +7699,12 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
+    "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: a constant number of hybrids plus a statistical leftover-hash term",
+   "securityLoss": "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term",
    "rationale": {
     "class": "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
    },
@@ -12194,11 +12198,11 @@
    "title": "No fixed-construction reduction from CPA security to CCA1 security"
   },
   {
-   "id": "bar-pke-cpa-security-to-pke-cca2-security-gmm07",
+   "id": "bar-pke-cpa-security-to-pke-cca1-security-gmm07",
    "hypotheses": [
     "pke-cpa-security"
    ],
-   "conclusion": "pke-cca2-security",
+   "conclusion": "pke-cca1-security",
    "class": "unstated",
    "consequences": [
     {
@@ -12217,10 +12221,10 @@
     "class": "GMM07 rule out shielding black-box constructions, whose decryption algorithm never calls the underlying encryption algorithm, and the vocabulary has no class for that restriction."
    },
    "status": "draft",
-   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md",
-   "slug": "no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "title": "No shielding black-box reduction from CPA-secure PKE to CCA-secure PKE"
+   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07.md",
+   "slug": "no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "title": "No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE"
   },
   {
    "id": "bar-pke-to-injective-trapdoor-function-gmr01",

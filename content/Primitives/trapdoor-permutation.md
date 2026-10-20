@@ -63,7 +63,7 @@ A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\cal
 
 ## Lossy trapdoor functions
 
-An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is an injective trapdoor function, not necessarily a permutation, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input; $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is injective and inverted by $\Invert$ with the trapdoor, one-wayness not being assumed, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. A _lossy trapdoor function_ is an $(n, k)$-lossy one with $k = \omega(\log \secpar)$; without a lower bound on $k$, every injective trapdoor function is an $(n, 0)$-lossy one, with the same index in both modes. $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and IND-CCA-secure encryption — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]].
 
 ### Highly lossy trapdoor functions
 
