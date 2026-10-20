@@ -28,5 +28,5 @@ Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so co
 
 ## Notes
 
-- The commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|commitment]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters.
+- The commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|commitment]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 - Efficiency: committing to one bit costs one evaluation of $G$ and $3\secpar$ bits of communication. One receiver message $\pp$ serves any number of commitments, since binding fails only for the at most $2^{-\secpar}$ fraction of strings $\pp$ that admit two openings — standard.

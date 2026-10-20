@@ -129,7 +129,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 9569a7d5dac3 -->
+<!-- BEGIN GENERATED participates-in 0e22a13dafa9 -->
 
 ## Participates in
 
@@ -157,9 +157,10 @@ TODO
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
+- [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]]
-- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
@@ -184,7 +185,7 @@ TODO
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
-- [[no-pke-cpa-security-to-pke-cca2-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA-secure PKE]] (via [[public-key-encryption#cca-security|CCA Security]], [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-pke-cca1-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]

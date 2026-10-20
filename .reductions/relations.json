@@ -608,6 +608,19 @@
    "unlisted": false
   },
   {
+   "id": "circular-secure-bootstrappable-she",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circular-secure-bootstrappable-she",
+   "of": "he",
+   "title": "Circular-secure bootstrappable SHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-security",
    "kind": "object",
    "type": "assumption",
@@ -718,6 +731,19 @@
    "unlisted": false
   },
   {
+   "id": "compact-prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-compactly-encoded-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in compactly encoded prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -764,9 +790,9 @@
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
    "graphSlug": "Primitives/zero-knowledge-proof",
-   "anchor": "#argument-systems",
+   "anchor": "#constant-round-public-coin-zero-knowledge-arguments",
    "of": "zkp",
-   "title": "Argument systems",
+   "title": "Constant-round public-coin zero-knowledge arguments",
    "aliases": [],
    "unlisted": false
   },
@@ -1045,6 +1071,19 @@
     "Doubly-efficient RAM MPC"
    ],
    "unlisted": true
+  },
+  {
+   "id": "doubly-enhanced-certified-tdp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#doubly-enhanced-certified-trapdoor-permutations",
+   "of": "tdp",
+   "title": "Doubly enhanced certified trapdoor permutations",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "dpf",
@@ -2923,15 +2962,28 @@
    "unlisted": false
   },
   {
+   "id": "ppa-randomized",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#ppa-under-randomized-reductions",
+   "of": "tfnp",
+   "title": "PPA under randomized reductions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ppad-hardness",
    "kind": "variant",
    "type": "complexity-class",
    "page": "content/Complexity/total-function-np.md",
    "slug": "total-function-np",
    "graphSlug": "Complexity/total-function-np",
-   "anchor": "#subclasses",
+   "anchor": "#ppad",
    "of": "tfnp",
-   "title": "Subclasses",
+   "title": "PPAD",
    "aliases": [],
    "unlisted": false
   },
@@ -3111,6 +3163,19 @@
    "anchor": "#pwpp",
    "of": "tfnp",
    "title": "PWPP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pwpp-randomized",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#pwpp-under-randomized-reductions",
+   "of": "tfnp",
+   "title": "PWPP under randomized reductions",
    "aliases": [],
    "unlisted": false
   },
@@ -3741,6 +3806,19 @@
    "unlisted": false
   },
   {
+   "id": "statistically-rerandomizable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/rerandomizable-encryption.md",
+   "slug": "rerandomizable-encryption",
+   "graphSlug": "Primitives/rerandomizable-encryption",
+   "anchor": "#statistical-rerandomization-of-honest-ciphertexts",
+   "of": "rerandomizable-encryption",
+   "title": "Statistical rerandomization of honest ciphertexts",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "strong-pseudorandom-permutation",
    "kind": "variant",
    "type": "primitive",
@@ -3841,6 +3919,19 @@
    "anchor": "#sub-exponential-lwe",
    "of": "lwe",
    "title": "Sub-exponential LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subexponential-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#sub-exponential-one-wayness",
+   "of": "hash-function",
+   "title": "Sub-exponential one-wayness",
    "aliases": [],
    "unlisted": false
   },
@@ -3993,6 +4084,19 @@
     "Threshold encryption"
    ],
    "unlisted": true
+  },
+  {
+   "id": "total-nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-total-communication-below-n",
+   "of": "cpir",
+   "title": "PIR with total communication below $n$",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "transparent-succinct-argument",
@@ -5083,6 +5187,30 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-bootstrappable-she"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any IND-CPA adversary on the public key it receives, discarding the encryptions of the secret-key bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption.md",
+   "slug": "circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
+  },
+  {
    "id": "red-circular-security-and-lwe-to-he",
    "kind": "implication",
    "hypotheses": [
@@ -5108,8 +5236,7 @@
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
-    "circular-security",
-    "bootstrappable-somewhat-homomorphic-encryption"
+    "circular-secure-bootstrappable-she"
    ],
    "conclusion": "compact-fhe",
    "class": "free",
@@ -5127,7 +5254,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Bootstrappable SHE ⇒ Compact FHE"
+   "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
    "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
@@ -5297,6 +5424,30 @@
    "title": "Compact FHE ⇒ HE"
   },
   {
+   "id": "red-compact-prime-order-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-prime-order-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-prime-order-dlog-to-prime-order-dlog.md",
+   "slug": "compact-prime-order-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
+   "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -5432,7 +5583,7 @@
    "id": "red-cpir-to-ot-dmo00",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "total-nontrivial-cpir"
    ],
    "conclusion": "ot",
    "class": "unstated",
@@ -5447,7 +5598,7 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "cPIR ⇒ OT"
+   "title": "Non-trivial cPIR ⇒ OT"
   },
   {
    "id": "red-cpir-to-owf-bikm99",
@@ -5666,7 +5817,7 @@
    "hypotheses": [
     "dcr"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -5679,7 +5830,7 @@
    "page": "content/Reductions/dcr-to-cpir-cha04.md",
    "slug": "dcr-to-cpir-cha04",
    "graphSlug": "Reductions/dcr-to-cpir-cha04",
-   "title": "DCR ⇒ cPIR"
+   "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
    "id": "red-dcr-to-fac",
@@ -5979,7 +6130,8 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
+    "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]",
+    "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
    ],
    "via": [],
    "heuristic": false,
@@ -6187,7 +6339,7 @@
    "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "schnorr-signature",
    "class": "fully-black-box",
@@ -6197,7 +6349,9 @@
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries",
    "rationale": {
@@ -6332,7 +6486,7 @@
    "id": "red-dlog-to-crhf-cvhp91",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog"
+    "compact-prime-order-dlog"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -6532,6 +6686,30 @@
    "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
    "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
    "title": "DLOG ⇒ Verifiable secret sharing (VSS)"
+  },
+  {
+   "id": "red-doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "kind": "implication",
+   "hypotheses": [
+    "doubly-enhanced-certified-tdp"
+   ],
+   "conclusion": "enhanced-trapdoor-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation.md",
+   "slug": "doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "graphSlug": "Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "title": "Doubly enhanced certified TDP ⇒ Enhanced TDP"
   },
   {
    "id": "red-dpf-to-computational-multi-server-pir-gi14",
@@ -6832,7 +7010,7 @@
    "hypotheses": [
     "fac"
    ],
-   "conclusion": "ppa",
+   "conclusion": "ppa-randomized",
    "class": "free",
    "model": "standard",
    "source": [
@@ -6853,7 +7031,7 @@
    "hypotheses": [
     "fac"
    ],
-   "conclusion": "pwpp",
+   "conclusion": "pwpp-randomized",
    "class": "free",
    "model": "standard",
    "source": [
@@ -6903,7 +7081,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: every claw factors N",
+   "securityLoss": "a factor of about 2: such integers are about half of all Blum integers, and every claw factors N",
    "rationale": {
     "class": "The pair uses only arithmetic modulo the sampled integer, and one fixed reduction factors it from any claw, running the claw finder once as an oracle."
    },
@@ -7232,7 +7410,8 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]"
+    "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]",
+    "[[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]]"
    ],
    "via": [],
    "heuristic": false,
@@ -7585,7 +7764,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor 2ℓ, from guessing which of the 2ℓ key slots the forgery opens",
    "rationale": {
     "class": "Key generation and verification evaluate the one-way function only as an oracle, and the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot."
    },
@@ -7739,7 +7918,7 @@
    "hypotheses": [
     "strongly-homomorphic-encryption"
    ],
-   "conclusion": "rerandomizable-encryption",
+   "conclusion": "statistically-rerandomizable-encryption",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -7752,7 +7931,7 @@
    "page": "content/Reductions/he-to-re-bl13.md",
    "slug": "he-to-re-bl13",
    "graphSlug": "Reductions/he-to-re-bl13",
-   "title": "Strongly homomorphic encryption ⇒ RE"
+   "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
   },
   {
    "id": "red-hibe-to-ibe",
@@ -8085,6 +8264,31 @@
    "slug": "ind-cca-security-to-ind-cpa-kem",
    "graphSlug": "Reductions/ind-cca-security-to-ind-cpa-kem",
    "title": "IND-CCA security ⇒ IND-CPA KEM"
+  },
+  {
+   "id": "red-ind-cpa-kem-and-ske-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-cpa-kem",
+    "ske"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: KEM CPA advantage + DEM one-time advantage",
+   "rationale": {
+    "class": "One fixed construction calls Encap and the SKE algorithms only as oracles, and both game-hop reductions run the PKE adversary as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ind-cpa-kem-and-ske-to-pke-cpa-security.md",
+   "slug": "ind-cpa-kem-and-ske-to-pke-cpa-security",
+   "graphSlug": "Reductions/ind-cpa-kem-and-ske-to-pke-cpa-security",
+   "title": "IND-CPA KEM + SKE ⇒ IND-CPA PKE"
   },
   {
    "id": "red-ind-cpa-kem-to-ind-cca-security",
@@ -8517,10 +8721,10 @@
    "id": "red-kem-and-ske-to-pke",
    "kind": "implication",
    "hypotheses": [
-    "kem",
-    "ske"
+    "ind-cca-kem",
+    "cca-secure-symmetric-key-encryption"
    ],
-   "conclusion": "pke",
+   "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8536,7 +8740,7 @@
    "page": "content/Reductions/kem-and-ske-to-pke.md",
    "slug": "kem-and-ske-to-pke",
    "graphSlug": "Reductions/kem-and-ske-to-pke",
-   "title": "KEM + SKE ⇒ PKE"
+   "title": "IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE"
   },
   {
    "id": "red-kem-to-ke",
@@ -8641,14 +8845,17 @@
     "lossy-trapdoor-function"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "receiver privacy loses one mode-indistinguishability hop; sender privacy is statistical, up to a leftover-hash term",
+   "rationale": {
+    "class": "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-function-to-ot-pw08.md",
    "slug": "lossy-trapdoor-function-to-ot-pw08",
@@ -8665,11 +8872,12 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
+    "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: a constant number of hybrids plus a statistical leftover-hash term",
+   "securityLoss": "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term",
    "rationale": {
     "class": "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
    },
@@ -9691,6 +9899,30 @@
    "title": "OIHF ⇒ OT"
   },
   {
+   "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "total-nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, run on databases of a fixed polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir.md",
+   "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
+  },
+  {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
    "kind": "implication",
    "hypotheses": [
@@ -9816,20 +10048,20 @@
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
-    "ot"
+    "malicious-ot-security"
    ],
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
-    "[[GMW87 - How to play ANY mental game|GMW87]]"
+    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Kil88's protocol uses OT only as an ideal functionality, with commitments and zero-knowledge proofs about the evaluated circuit rather than the OT implementation, and against a real OT protocol the reduction uses any adversary only as an oracle."
+    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the composition theorem a maliciously secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
@@ -10555,6 +10787,27 @@
    "title": "PP ⊆ PSPACE"
   },
   {
+   "id": "red-ppa-to-ppa-randomized",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ppa"
+   ],
+   "conclusion": "ppa-randomized",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ppa-to-ppa-randomized.md",
+   "slug": "ppa-to-ppa-randomized",
+   "graphSlug": "Reductions/ppa-to-ppa-randomized",
+   "title": "PPA ⊆ PPA under randomized reductions"
+  },
+  {
    "id": "red-ppa-to-tfnp",
    "kind": "inclusion",
    "hypotheses": [
@@ -10695,11 +10948,11 @@
    "hypotheses": [
     "prf"
    ],
-   "conclusion": "ske",
+   "conclusion": "cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
    ],
    "via": [],
    "heuristic": false,
@@ -10712,6 +10965,30 @@
    "slug": "prf-to-ske",
    "graphSlug": "Reductions/prf-to-ske",
    "title": "PRF ⇒ CPA-secure SKE"
+  },
+  {
+   "id": "red-prf-to-strong-pseudorandom-permutation-lr88",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "strong-pseudorandom-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "sum of the round PRF advantages plus additive $O(q^2/2^n)$ for $q$ queries",
+   "rationale": {
+    "class": "The Feistel network calls the round PRFs only as oracles, each hybrid's reduction runs the distinguisher only as an oracle, and the random-function core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-strong-pseudorandom-permutation-lr88.md",
+   "slug": "prf-to-strong-pseudorandom-permutation-lr88",
+   "graphSlug": "Reductions/prf-to-strong-pseudorandom-permutation-lr88",
+   "title": "PRF ⇒ Strong PRP"
   },
   {
    "id": "red-prg-in-nc1-to-low-complexity-prg-nc0-aik06",
@@ -10971,6 +11248,27 @@
    "slug": "pwpp-to-ppp",
    "graphSlug": "Reductions/pwpp-to-ppp",
    "title": "PWPP ⊆ PPP"
+  },
+  {
+   "id": "red-pwpp-to-pwpp-randomized",
+   "kind": "inclusion",
+   "hypotheses": [
+    "pwpp"
+   ],
+   "conclusion": "pwpp-randomized",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/pwpp-to-pwpp-randomized.md",
+   "slug": "pwpp-to-pwpp-randomized",
+   "graphSlug": "Reductions/pwpp-to-pwpp-randomized",
+   "title": "PWPP ⊆ PWPP under randomized reductions"
   },
   {
    "id": "red-qcma-to-qma",
@@ -11319,6 +11617,30 @@
    "title": "Random OT ⇒ OT"
   },
   {
+   "id": "red-rerandomizable-encryption-to-statistically-rerandomizable-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "rerandomizable-encryption"
+   ],
+   "conclusion": "statistically-rerandomizable-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme and its rerandomizer."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rerandomizable-encryption-to-statistically-rerandomizable-encryption.md",
+   "slug": "rerandomizable-encryption-to-statistically-rerandomizable-encryption",
+   "graphSlug": "Reductions/rerandomizable-encryption-to-statistically-rerandomizable-encryption",
+   "title": "RE ⇒ Statistically rerandomizable encryption"
+  },
+  {
    "id": "red-ring-lpn-to-pseudorandom-correlation-generators-pcg",
    "kind": "implication",
    "hypotheses": [
@@ -11580,7 +11902,7 @@
    "class": "unstated",
    "model": "standard",
    "source": [
-    "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
+    "[[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]]"
    ],
    "via": [],
    "heuristic": false,
@@ -12115,8 +12437,8 @@
    "id": "red-subclasses-to-hash-function",
    "kind": "implication",
    "hypotheses": [
-    "owf",
-    "io"
+    "subexponential-owf",
+    "subexponential-io"
    ],
    "conclusion": "ppad-hardness",
    "class": "free",
@@ -12134,7 +12456,7 @@
    "page": "content/Reductions/subclasses-to-hash-function.md",
    "slug": "subclasses-to-hash-function",
    "graphSlug": "Reductions/subclasses-to-hash-function",
-   "title": "OWF + iO ⇒ PPAD hardness"
+   "title": "Sub-exponential OWF + iO ⇒ PPAD hardness"
   },
   {
    "id": "red-subexp-selective-hibe-to-adaptive-hibe",
@@ -12209,6 +12531,30 @@
    "slug": "subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
    "graphSlug": "Reductions/subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
    "title": "Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)"
+  },
+  {
+   "id": "red-subexponential-io-to-io",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-io"
+   ],
+   "conclusion": "io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the obfuscator, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-io-to-io.md",
+   "slug": "subexponential-io-to-io",
+   "graphSlug": "Reductions/subexponential-io-to-io",
+   "title": "Sub-exponentially secure iO ⇒ iO"
   },
   {
    "id": "red-subexponential-lpn-to-crhf-yzw-19",
@@ -12314,6 +12660,30 @@
    "slug": "subexponential-lwe-to-ppad-hardness-jkkz21",
    "graphSlug": "Reductions/subexponential-lwe-to-ppad-hardness-jkkz21",
    "title": "Sub-exponential LWE ⇒ PPAD hardness"
+  },
+  {
+   "id": "red-subexponential-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the function, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-owf-to-owf.md",
+   "slug": "subexponential-owf-to-owf",
+   "graphSlug": "Reductions/subexponential-owf-to-owf",
+   "title": "Sub-exponential OWF ⇒ OWF"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",
@@ -12635,7 +13005,7 @@
    "id": "red-tdp-to-nizk-bfm88",
    "kind": "implication",
    "hypotheses": [
-    "tdp"
+    "doubly-enhanced-certified-tdp"
    ],
    "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
@@ -12654,7 +13024,7 @@
    "page": "content/Reductions/tdp-to-nizk-bfm88.md",
    "slug": "tdp-to-nizk-bfm88",
    "graphSlug": "Reductions/tdp-to-nizk-bfm88",
-   "title": "TDP ⇒ NIZK"
+   "title": "Doubly enhanced certified TDP ⇒ NIZK"
   },
   {
    "id": "red-tdp-to-pke",
@@ -12679,6 +13049,30 @@
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
    "title": "TDP ⇒ PKE"
+  },
+  {
+   "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "total-nontrivial-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/total-nontrivial-cpir-to-nontrivial-cpir.md",
+   "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
+   "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
   },
   {
    "id": "red-two-party-computation-to-ot",
@@ -13229,7 +13623,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "consequences": [
     {
@@ -13257,7 +13651,7 @@
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
    "graphSlug": "Barriers/no-he-to-szk-bl13",
-   "title": "No reduction from NP to HE"
+   "title": "No reduction from NP to compact FHE"
   },
   {
    "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -13500,7 +13894,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -13522,7 +13916,7 @@
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
-   "title": "No fully-black-box reduction from NP to cPIR"
+   "title": "No fully-black-box reduction from NP to one-round sublinear cPIR"
   },
   {
    "id": "bar-np-to-gapsvp-ar04",
@@ -13883,11 +14277,11 @@
    "title": "No fixed-construction reduction from CPA security to CCA1 security"
   },
   {
-   "id": "bar-pke-cpa-security-to-pke-cca2-security-gmm07",
+   "id": "bar-pke-cpa-security-to-pke-cca1-security-gmm07",
    "hypotheses": [
     "pke-cpa-security"
    ],
-   "conclusion": "pke-cca2-security",
+   "conclusion": "pke-cca1-security",
    "class": "unstated",
    "consequences": [
     {
@@ -13906,10 +14300,10 @@
     "class": "GMM07 rule out shielding black-box constructions, whose decryption algorithm never calls the underlying encryption algorithm, and the vocabulary has no class for that restriction."
    },
    "status": "draft",
-   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md",
-   "slug": "no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "title": "No shielding black-box reduction from CPA-secure PKE to CCA-secure PKE"
+   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07.md",
+   "slug": "no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "title": "No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE"
   },
   {
    "id": "bar-pke-to-injective-trapdoor-function-gmr01",
@@ -14125,8 +14519,8 @@
    "class": "unstated",
    "consequences": [
     {
-     "kind": "contradiction",
-     "target": "",
+     "kind": "complexity",
+     "target": "np-subset-bpp",
      "class": "unstated"
     }
    ],

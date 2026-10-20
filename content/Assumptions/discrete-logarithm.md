@@ -11,6 +11,7 @@ title: Discrete logarithm
 id: dlog
 variants:
   prime-order-dlog: "#dlog-in-prime-order-groups"
+  compact-prime-order-dlog: "#dlog-in-compactly-encoded-prime-order-groups"
 ---
 
 # Discrete logarithm
@@ -70,6 +71,15 @@ is negligible.
 outputs has prime order $p$ and DLOG is hard for $\GrGen$. Exponents then form
 the field $\ZZ_p$, so a construction may divide by any nonzero exponent.
 
+## DLOG in compactly encoded prime-order groups
+
+**DLOG is hard in compactly encoded prime-order groups** for $\GrGen$ if DLOG is
+hard in prime-order groups for $\GrGen$ and every group $(\GG, g, p)$ it outputs
+encodes its elements in fewer than $2 \lfloor \log p \rfloor$ bits. The
+order-$p$ subgroup of $\ZZ_P^*$ for a safe prime $P = 2p + 1$ and prime-order
+elliptic-curve groups meet the bound; the order-$p$ subgroup of $\ZZ_P^*$ with
+$\log P \ge 2 \log p$ does not — standard.
+
 ## One-more Discrete Logarithm
 
 In some works, it is important to consider adversaries
@@ -116,19 +126,20 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 9044ed48e594 -->
+<!-- BEGIN GENERATED participates-in 3e86eca86368 -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
-- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]]
 - [[dlog-to-conp|DLOG ⊆ coNP]]
-- [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
@@ -142,6 +153,7 @@ is negligible.
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
+- [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]

@@ -21,4 +21,4 @@ For every $\gamma \ge 1$, the promise problem $\mathrm{GapSVP}_\gamma$ ([[shorte
 
 ## Notes
 
-- The complement is in $\classNP$ for $\gamma \ge \sqrt{n}$ ([[gapsvp-to-conp-ar04|GapSVP ∈ coNP]]) — [[AR04 - Lattice Problems in NP intersect coNP|AR04]] — and in $\classAM$ for $\gamma \ge \sqrt{n / \log n}$ ([[gapsvp-to-coam-gg00|GapSVP ∈ coAM]]) — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].
+- The complement is in $\classNP$ for $\gamma \ge c\sqrt{n}$ with a suitable constant $c$ ([[gapsvp-to-conp-ar04|GapSVP ∈ coNP]]) — [[AR04 - Lattice Problems in NP intersect coNP|AR04]] — and in $\classAM$ for $\gamma \ge c\sqrt{n / \log n}$ for a constant $c > 0$ ([[gapsvp-to-coam-gg00|GapSVP ∈ coAM]]) — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
-security-loss: ""
+security-loss: "a factor 2ℓ, from guessing which of the 2ℓ key slots the forgery opens"
 rationale:
   class: "Key generation and verification evaluate the one-way function only as an oracle, and the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot."
 ---

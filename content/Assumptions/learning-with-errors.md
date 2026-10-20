@@ -112,7 +112,7 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 
 ## Evasive LWE counterexamples
 
-- Three [[#Private-coin evasive LWE|private-coin evasive LWE]] variants used in prior constructions are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]].
+- If LWE is hard, three [[#Private-coin evasive LWE|private-coin evasive LWE]] variants used in prior constructions are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]].
 - The private-coin evasive LWE assumptions behind pseudorandom functional encryption (AKY24) and pseudorandom obfuscation (BDJ+24) are false — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 - Public-coin [[#Circular evasive LWE|circular evasive LWE]], the assumption behind ABE for unbounded-depth circuits ([[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]; [[evasive-lwe-to-abe]]), is false: some sampler satisfies the pre-condition but not the post-condition — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
 - Public-coin evasive LWE is false when the pre-condition error may be larger than the post-condition error — [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]].
@@ -125,13 +125,13 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 ## Sub-exponential LWE
 
-LWE is **sub-exponentially hard** for $(n, q, \chi, m)$ if there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$. For prime $q \le \poly(n)$ it follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+LWE is **sub-exponentially hard** if, for a prime $q \le \poly(n)$, $\chi$ the discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ with $1/\alpha \le \poly(n)$, and $m = \poly(n)$, there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$. Fixing the noise matters: for $\chi$ uniform on $\ZZ_q$ every adversary has advantage $0$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ## Ring LWE
 
 **Ring LWE (RLWE)** restricts LWE to the polynomial ring $R_q = \ZZ_q[x]/\langle f(x)\rangle$, where $f$ is a cyclotomic polynomial of degree $n$ (typically $f(x) = x^n + 1 = \Phi_{2n}(x)$ for $n$ a power of 2) — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]. A Ring LWE sample is a pair $(a, b) \in R_q \times R_q$ where $a \getsr R_q$ is a random ring element and $b = a \cdot s + e$ for a secret $s \in R_q$ and small error $e \gets \chi^R$ drawn from an error distribution over $R_q$.
 
-The key advantage is efficiency: the random matrix $\mathbf{A} \in \ZZ_q^{m \times n}$ in plain LWE (requiring $O(n^2)$ space) is replaced by a single ring element $a \in R_q$ (requiring $O(n \log q)$ space), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
+The key advantage is efficiency: $n$ rows of the random matrix $\mathbf{A}$ in plain LWE ($n^2$ elements of $\ZZ_q$, or $n^2 \log q$ bits) are replaced by a single ring element $a \in R_q$ ($n \log q$ bits), and multiplication in $R_q$ can be computed in $O(n \log n)$ time via the Number Theoretic Transform (NTT). This yields:
 
 - **Key size**: $O(n \log q)$ bits (vs. $O(n^2 \log q)$ for plain LWE)
 - **Computation**: $O(n \log n)$ per operation (vs. $O(n^2)$)
@@ -192,7 +192,7 @@ is negligible.
 
 Hint LWE arises in:
 
-- **Amortized FHE bootstrapping**: refreshing many ciphertexts simultaneously leaks hints about the bootstrapping key — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
+- **Decryption failures and scheme constraints**: ciphertexts that fail to decrypt, and structural constraints of schemes such as LAC, Round5 and NTRU, yield hints on the secret — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
 - **Side-channel and leakage attacks**: partial key leakage from implementation attacks can be modeled as hint information, enabling lattice reduction with fewer samples — [[DDRG20 - LWE with Side Information Attacks and Concrete Security Estimation|DDRG20]]
 
 The hardness depends sensitively on the number and precision of hints: few low-precision hints can be absorbed by adjusting the error distribution (LWE remains hard), but enough exact hints determine $\mathbf{s}$ entirely and break the assumption.
@@ -273,7 +273,7 @@ The assumption comes in public-coin and private-coin variants — [[BUW24 - Evas
 
 ### Private-coin evasive LWE
 
-**Private-coin evasive LWE** uses the same PRE- and POST-condition games, but $\mathrm{aux}$ is not required to contain $\mathrm{Samp}$'s coin tosses — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. Several private-coin formulations are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
+**Private-coin evasive LWE** uses the same PRE- and POST-condition games, but $\mathrm{aux}$ is not required to contain $\mathrm{Samp}$'s coin tosses — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]]. If LWE is hard, several private-coin formulations are false — [[BUW24 - Evasive LWE Assumptions Definitions Classes and Counterexamples|BUW24]], [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]]; see [[#Evasive LWE counterexamples]].
 
 ### Circular evasive LWE
 

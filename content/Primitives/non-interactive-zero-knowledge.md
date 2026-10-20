@@ -68,7 +68,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 # Other results
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
+- [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] — [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]
 - [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
@@ -76,7 +76,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in 8488594efbbb -->
+<!-- BEGIN GENERATED participates-in a076f81ce3e1 -->
 
 ## Participates in
 
@@ -96,7 +96,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]
-- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
+- [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 
 **Barriers**
 
