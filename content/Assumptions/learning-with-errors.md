@@ -316,13 +316,13 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 543693d7cd54 -->
+<!-- BEGIN GENERATED participates-in b107aa7c4a05 -->
 
 ## Participates in
 
 **Builds on Learning with errors**
 
-- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ HE]]
+- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ Compact FHE]]
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
