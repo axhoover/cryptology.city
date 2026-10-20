@@ -11926,7 +11926,7 @@
    "kind": "implication",
    "hypotheses": [
     "subexponential-io",
-    "owf"
+    "subexponential-owf"
    ],
    "conclusion": "tdp",
    "class": "free",
@@ -11944,7 +11944,7 @@
    "page": "content/Reductions/subexponential-io-and-owf-to-tdp-bpw16.md",
    "slug": "subexponential-io-and-owf-to-tdp-bpw16",
    "graphSlug": "Reductions/subexponential-io-and-owf-to-tdp-bpw16",
-   "title": "Sub-exponential iO + OWF ⇒ TDP (Bitansky–Paneth–Wichs)"
+   "title": "Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)"
   },
   {
    "id": "red-subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
@@ -11953,7 +11953,7 @@
     "subexponential-io",
     "superpolynomially-secure-rerandomizable-encryption"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "free",
    "model": "standard",
    "source": [
@@ -11969,7 +11969,7 @@
    "page": "content/Reductions/subexponential-io-and-rerandomizable-encryption-to-he-cltv15.md",
    "slug": "subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
    "graphSlug": "Reductions/subexponential-io-and-rerandomizable-encryption-to-he-cltv15",
-   "title": "Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)"
+   "title": "Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)"
   },
   {
    "id": "red-subexponential-io-to-io",
