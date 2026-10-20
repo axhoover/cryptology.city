@@ -9,6 +9,7 @@ id: rsa
 variants:
   strong-rsa: "#strong-rsa"
   phi-hiding: "#φ-hiding"
+  low-exponent-rsa: "#low-exponent-rsa"
 ---
 
 # RSA Assumption
@@ -49,7 +50,7 @@ is negligible.
 
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
-- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, an algebraic reduction from factoring would itself yield a factoring algorithm — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
 - Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
@@ -63,6 +64,10 @@ The **strong RSA assumption** strengthens the standard assumption by allowing th
 
 The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\varepsilon}$, it is hard to determine whether $e \mid \phi(n)$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]; for $e > n^{1/4}$ Coppersmith's method decides it efficiently — [[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]. It underlies the polylogarithmic-communication [[single-server-private-information-retrieval|single-server PIR]] of [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].
 
+## Low-exponent RSA
+
+The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small constant $e$, such as $e = 3$: $p, q$ are uniform $\secpar$-bit primes subject to $\gcd(e, (p-1)(q-1)) = 1$, $n = pq$, and $d \equiv e^{-1} \pmod{\phi(n)}$ — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]]. **Low-exponent RSA is hard** for $e$ if RSA is hard for this $\GrGen$.
+
 # Attacks
 
 - **Shor's algorithm**: a quantum computer can factor $n$ in polynomial time and thus break RSA entirely — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
@@ -70,13 +75,15 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\v
 - **Small-exponent attacks**: encrypting the same short message under many independent RSA public keys with a small exponent $e$ (e.g., $e = 3$) allows recovery via the Chinese Remainder Theorem (Håstad's broadcast attack).
 - **Chosen-ciphertext attacks**: textbook RSA (without padding) is not CCA-secure; OAEP padding is required in practice.
 
-<!-- BEGIN GENERATED participates-in 3bd749bd9ebc -->
+<!-- BEGIN GENERATED participates-in 73e8ed2d8cba -->
 
 ## Participates in
 
 **Builds on RSA Assumption**
 
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
+- [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]] (via [[rsa-assumption#low-exponent-rsa|Low-exponent RSA]])
+- [[phi-hiding-to-lossy-trapdoor-function-kos10|Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)]] (via [[rsa-assumption#φ-hiding|Φ-Hiding]])
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
@@ -89,6 +96,11 @@ The **Φ-hiding assumption** states that, given $n$ and a prime $e \le n^{1/4-\v
 
 **Produces RSA Assumption**
 
+- [[low-exponent-rsa-to-rsa|Low-exponent RSA ⇒ RSA]]
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]]
+
+**Barriers**
+
+- [[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]] (via [[rsa-assumption#low-exponent-rsa|Low-exponent RSA]])
 
 <!-- END GENERATED participates-in -->
