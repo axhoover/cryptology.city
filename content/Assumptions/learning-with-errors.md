@@ -321,7 +321,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 8c2d3bea888e -->
+<!-- BEGIN GENERATED participates-in fe9f8f3640f3 -->
 
 ## Participates in
 
