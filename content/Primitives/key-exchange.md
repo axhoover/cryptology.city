@@ -68,7 +68,7 @@ The case $N = 3$ of multiparty NIKE, with each of three parties publishing one m
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in dadef7600532 -->
+<!-- BEGIN GENERATED participates-in b2a155234e42 -->
 
 ## Participates in
 
@@ -82,6 +82,7 @@ The case $N = 3$ of multiparty NIKE, with each of three parties publishing one m
 **Produces Key exchange**
 
 - [[authenticated-key-exchange-ake-to-ke|Authenticated key exchange (AKE) ⇒ KE]]
+- [[cdh-to-non-interactive-key-exchange-dh76|CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[key-exchange#three-party-nike|Three-party NIKE]])
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]] (via [[key-exchange#non-interactive-key-exchange-nike|Non-interactive key exchange (NIKE)]])
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[key-exchange#multiparty-non-interactive-key-exchange|Multiparty non-interactive key exchange]])
