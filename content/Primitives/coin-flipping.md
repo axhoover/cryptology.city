@@ -64,11 +64,13 @@ Fair coin flipping asks for negligible bias without abort. It is impossible: in 
 
 An $r$-round protocol is optimally fair if its bias is $O(1/r)$, matching Cleve's bound — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
 
+No fully-black-box construction from a [[hash-function#preimage-resistance-one-wayness|one-way function]] is optimally fair with $r = o(n / \log n)$ rounds, for the input length $n$ of the one-way function — [[DLMM11 - On the Black-Box Complexity of Optimally-Fair Coin Tossing|DLMM11]]. The round restriction is removed for function-oblivious constructions, whose honest output, for fixed random tapes, does not depend on which one-way function is used — [[DMM14 - Can Optimally-Fair Coin Tossing Be Based on One-Way Functions|DMM14]].
+
 ## Coin flipping with constant bias
 
 A protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $1/2$ is trivial, since one party can choose the outcome — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]].
 
-<!-- BEGIN GENERATED participates-in 85f925c0a053 -->
+<!-- BEGIN GENERATED participates-in 5103f5d8e834 -->
 
 ## Participates in
 
@@ -80,9 +82,5 @@ A protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $
 
 - [[com-to-coin-flipping-blu81|COM ⇒ Coin flipping (Blum)]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]] (via [[coin-flipping#optimally-fair-coin-flipping|Optimally fair coin flipping]])
-
-**Barriers**
-
-- [[no-owf-to-optimally-fair-coin-flipping-dlmm11|No fully-black-box reduction from OWF to optimally fair coin flipping]] (via [[coin-flipping#optimally-fair-coin-flipping|Optimally fair coin flipping]])
 
 <!-- END GENERATED participates-in -->

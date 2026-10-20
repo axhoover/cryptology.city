@@ -13702,35 +13702,6 @@
    "title": "No fully-black-box reduction from OT to TDP"
   },
   {
-   "id": "bar-owf-to-optimally-fair-coin-flipping-dlmm11",
-   "hypotheses": [
-    "owf"
-   ],
-   "conclusion": "optimally-fair-coin-flipping",
-   "class": "fully-black-box",
-   "consequences": [
-    {
-     "kind": "contradiction",
-     "target": "",
-     "class": "fully-black-box"
-    }
-   ],
-   "strength": "unconditional",
-   "conditionalOn": [],
-   "circumventedBy": [],
-   "source": [
-    "[[DLMM11 - On the Black-Box Complexity of Optimally-Fair Coin Tossing|DLMM11]]"
-   ],
-   "rationale": {
-    "class": "DLMM11 rule out constructions that use the one-way function only as an oracle, by simulating any such protocol with few rounds relative to a random oracle in the plain model, with proofs that use the adversary only as an oracle."
-   },
-   "status": "draft",
-   "page": "content/Barriers/no-owf-to-optimally-fair-coin-flipping-dlmm11.md",
-   "slug": "no-owf-to-optimally-fair-coin-flipping-dlmm11",
-   "graphSlug": "Barriers/no-owf-to-optimally-fair-coin-flipping-dlmm11",
-   "title": "No fully-black-box reduction from OWF to optimally fair coin flipping"
-  },
-  {
    "id": "bar-owf-to-ot-ir89",
    "hypotheses": [
     "owf"

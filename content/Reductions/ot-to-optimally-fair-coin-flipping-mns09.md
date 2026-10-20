@@ -23,4 +23,4 @@ If [[oblivious-transfer|OT]] exists, then for every polynomial $r$ there is an $
 ## Notes
 
 - The protocol uses general secure computation, which OT provides ([[ot-to-mpc-kil88|OT ⇒ MPC]]), to deal the parties shares of a sequence of values that switch at a secret uniform round from independent coins to the final output — [[MNS09 - An Optimally Fair Coin Toss|MNS09]].
-- No fully-black-box construction from one-way functions alone reaches this bias with $o(n / \log n)$ rounds: [[no-owf-to-optimally-fair-coin-flipping-dlmm11|No fully-black-box reduction from OWF to optimally fair coin flipping]] — [[DLMM11 - On the Black-Box Complexity of Optimally-Fair Coin Tossing|DLMM11]].
+- No fully-black-box construction from one-way functions alone reaches this bias with $o(n / \log n)$ rounds, for the input length $n$ of the one-way function — [[DLMM11 - On the Black-Box Complexity of Optimally-Fair Coin Tossing|DLMM11]].

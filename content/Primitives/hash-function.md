@@ -169,7 +169,7 @@ Collision resistance implies target collision resistance — standard.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 0501c1124442 -->
+<!-- BEGIN GENERATED participates-in 12c59f3327f1 -->
 
 ## Participates in
 
@@ -243,7 +243,6 @@ Collision resistance implies target collision resistance — standard.
 - [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[no-owf-to-optimally-fair-coin-flipping-dlmm11|No fully-black-box reduction from OWF to optimally fair coin flipping]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-owf-to-ot-ir89|No relativizing reduction from OWF to OT]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
