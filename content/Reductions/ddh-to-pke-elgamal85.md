@@ -59,3 +59,4 @@ On DDH challenge $(X, Y, Z)$ the reduction sets $\pk = X$ and answers the challe
 ## Notes
 
 - ElGamal85 predates the DDH assumption; the DDH-based CPA proof is later — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
+- Efficiency: a ciphertext is two group elements for a one-element message; encryption costs two exponentiations and decryption one — standard.

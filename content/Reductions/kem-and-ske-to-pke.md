@@ -29,3 +29,4 @@ First replace the encapsulated key $k^*$ by an independent uniform key, answerin
 ## Notes
 
 - A one-time IND-CPA DEM does not suffice for an IND-CCA hybrid, even with an IND-CCA KEM: the one-time pad is one-time IND-CPA secure but malleable — [[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]], Remark 13; [[HHK10 - Some (in)sufficient conditions for secure hybrid encryption|HHK10]] study systematically which combinations of KEM and DEM security notions suffice.
+- Efficiency: the public-key work is one encapsulation per message, whatever its length, and the rest is symmetric encryption — standard.

@@ -32,3 +32,4 @@ Each party Shamir-shares its input with a degree-$t$ polynomial; addition gates 
 - Unconditionally secure MPC for $t < n/3$ with exponentially small error was obtained concurrently and independently — [[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]].
 - The BGW protocol has a complete simulation-based proof — [[AL17 - A Full Proof of the BGW Protocol for Perfectly Secure Multiparty Computation|AL17]].
 - Against a malicious adversary corrupting $t < n/2$ parties, statistical security is achievable given a broadcast channel — [[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]] ([Honest majority ($t < n/2$) ⇒ MPC](honest-majority-t-lt-n-over-2-to-mpc-rb89)).
+- Efficiency: additions are local, and each multiplication gate needs a degree-reduction step in which every party sends a share to every other, $O(n^2)$ field elements; the number of rounds grows with the multiplicative depth of the circuit — standard.

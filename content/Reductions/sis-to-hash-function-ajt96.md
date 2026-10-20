@@ -29,3 +29,4 @@ A collision $\mathbf{z} \neq \mathbf{z}'$ gives $\mathbf{A}(\mathbf{z} - \mathbf
 ## Notes
 
 - The family $\{f_{\mathbf{A}}\}$ and its one-wayness are due to [[Ajt96 - Generating hard instances of lattice problems|Ajt96]].
+- Efficiency: the key $\mathbf{A}$ has $nm \log q$ bits and evaluation costs $O(nm)$ additions modulo $q$, since $\mathbf{z}$ is binary; over ideal lattices the key shrinks to $\tilde{O}(m)$ bits — [[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]].

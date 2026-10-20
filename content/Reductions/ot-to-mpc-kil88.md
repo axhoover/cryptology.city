@@ -31,3 +31,4 @@ Parties hold XOR shares of every wire; XOR gates are local, and each AND gate co
 
 - Constant-rate, unconditionally secure MPC in the OT-hybrid model against malicious adversaries corrupting any number of parties, via a compiler that uses an honest-majority protocol as a black box — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]].
 - The converse holds: OT is itself a two-party functionality, so MPC for every functionality gives OT — standard.
+- Efficiency: the number of rounds of the GMW protocol grows with the multiplicative depth of the circuit, while [[gc-and-ot-to-two-party-computation-2pc|Yao's garbled-circuit protocol]] has a constant number — standard.

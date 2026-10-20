@@ -29,3 +29,4 @@ On input $(L_0, R_0) \in \bits^n \times \bits^n$, round $i$ sets $(L_i, R_i) \ge
 ## Notes
 
 - The birthday term $O(q^2/2^n)$ makes the bound negligible only when $2^n$ is superpolynomial in $\secpar$ — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
+- Efficiency: each round evaluates the PRF once on $n$ bits, so a $2n$-bit block costs three PRF calls, or four for a strong PRP; with pairwise-independent permutations in place of the outer rounds, two PRF calls suffice — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].

@@ -29,3 +29,4 @@ Decryption recovers $x = \Invert(\sk, c_1)$ and outputs $c_2 \oplus b(x)$. A CPA
 ## Notes
 
 - [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]] states the construction for trapdoor functions with a hard bit, decryption recovering the encryption randomness $x$.
+- Efficiency: bit-by-bit encryption costs one evaluation of $f$ per plaintext bit and expands each bit into an element of $\calD$; iterating $f$ and outputting the hard-core bits of the iterates, as in the [[owp-to-prg-yao82a-gl89|Blum–Micali–Yao generator]], encrypts an $\ell$-bit message with one element of $\calD$ and $\ell$ evaluations — standard.

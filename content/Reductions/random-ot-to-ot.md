@@ -25,3 +25,7 @@ A [[oblivious-transfer#random-ot|random OT]] correlation — the sender holds un
 ## Sketch
 
 The receiver's message $e = c \oplus c'$ is uniform independently of $c$, since $c'$ is uniform. Each $x_j$ is one-time-padded with $r_{j \oplus e}$, which the receiver holds exactly when $j = c$ (since $c \oplus e = c'$), and $r_{1 \oplus c'}$ is uniform given the receiver's view.
+
+## Notes
+
+- Efficiency: the online phase sends one bit from the receiver and two strings from the sender and computes only XORs, so the public-key cost of OT moves entirely to an input-independent offline phase — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].

@@ -29,3 +29,4 @@ The reduction sets $y$ to the QR challenge $a$: if $a \notin \QR_N$ it simulates
 ## Notes
 
 - GM84 introduce semantic security, and this scheme is the first PKE proved to achieve it — [[GM84 - Probabilistic encryption|GM84]].
+- Efficiency: each plaintext bit costs a squaring and a multiplication modulo $N$ and becomes an element of $\ZZ_N^*$, so ciphertexts are $\log N$ times longer than plaintexts; decryption computes one Legendre symbol modulo $p$ per bit — standard.

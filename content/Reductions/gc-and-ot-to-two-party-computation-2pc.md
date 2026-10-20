@@ -29,3 +29,4 @@ The evaluator's view is simulated from a simulated garbled circuit and input lab
 ## Notes
 
 - Garbling schemes were later formalized as a standalone primitive whose privacy notion is the one the evaluator's simulator uses — [[BHR12 - Foundations of Garbled Circuits|BHR12]].
+- Efficiency: the garbled circuit has four ciphertexts of $O(\secpar)$ bits per gate, the protocol has a constant number of rounds, and the evaluator needs one OT per input bit and, with point-and-permute, one decryption per gate — standard.

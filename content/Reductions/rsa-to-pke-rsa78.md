@@ -27,3 +27,4 @@ Decryption recovers $x = y^d \bmod n$ from $y = x^e \bmod n$ with the trapdoor $
 ## Notes
 
 - The Goldreich–Levin bit $\langle x, r \rangle \bmod 2$ is hard-core for $(x, r) \mapsto (x^e \bmod n, r)$, which gives the same bit encryption, with $r$ sent in the clear, without an RSA-specific argument — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]; for an arbitrary trapdoor permutation this is [[tdp-to-pke|TDP ⇒ PKE]].
+- Efficiency: encryption is one exponentiation by the public exponent, which may be small, such as $e = 2^{16} + 1$; decryption is one exponentiation by $d$, which the Chinese remainder theorem splits into two exponentiations modulo $p$ and $q$ with half-length exponents — standard.

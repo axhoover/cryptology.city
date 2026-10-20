@@ -24,3 +24,7 @@ A [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain and range 
 ## Sketch
 
 One hybrid per world replaces $\Eval(k, \cdot)$ by a uniformly random function; each pad block is then a fresh one-time pad unless the counter windows $[r{+}1, r{+}\ell]$ of two encryptions overlap, a birthday event over $\bits^n$ of probability $O(\ell q^2 / 2^n)$ for $q$ encryptions.
+
+## Notes
+
+- Efficiency: an $\ell$-block message costs $\ell$ PRF calls to encrypt or decrypt, and the ciphertext is one block, the nonce $r$, longer than the message — standard.
