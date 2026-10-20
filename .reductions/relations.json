@@ -4365,6 +4365,19 @@
    "unlisted": false
   },
   {
+   "id": "superpolynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-superpolynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with superpolynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "superpolynomially-secure-rerandomizable-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -10519,7 +10532,7 @@
    "id": "red-lwe-to-tdh-dgi-19",
    "kind": "implication",
    "hypotheses": [
-    "subexponential-modulus-lwe"
+    "superpolynomial-ratio-lwe"
    ],
    "conclusion": "tdh",
    "class": "unstated",
@@ -10534,7 +10547,7 @@
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
    "slug": "lwe-to-tdh-dgi-19",
    "graphSlug": "Reductions/lwe-to-tdh-dgi-19",
-   "title": "LWE with sub-exponential ratio ⇒ TDH"
+   "title": "LWE with superpolynomial ratio ⇒ TDH"
   },
   {
    "id": "red-lwe-to-zero-bit-prc-cg24",
@@ -14887,6 +14900,30 @@
    "slug": "subexponential-modulus-lwe-to-lwr-bpr12",
    "graphSlug": "Reductions/subexponential-modulus-lwe-to-lwr-bpr12",
    "title": "LWE with sub-exponential ratio ⇒ LWR"
+  },
+  {
+   "id": "red-subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "superpolynomial-ratio-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-superpolynomial-ratio-lwe.md",
+   "slug": "subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "title": "LWE with sub-exponential ratio ⇒ LWE with superpolynomial ratio"
   },
   {
    "id": "red-subexponential-owf-to-owf",

@@ -26,5 +26,5 @@ The hash key is a matrix $(g_{j,b})_{j \in [n], b \in \bits}$ of group elements 
 
 ## Notes
 
-- The same framework gives one-bit-hint trapdoor hash functions from QR, DCR and LWE ([[qr-to-tdh-dgi-19|QR ⇒ TDH]], [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]], [[lwe-to-tdh-dgi-19|LWE with sub-exponential ratio ⇒ TDH]]) — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+- The same framework gives one-bit-hint trapdoor hash functions from QR, DCR and LWE ([[qr-to-tdh-dgi-19|QR ⇒ TDH]], [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]], [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]) — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 - The DDH-based construction carries rate and correctness-error constraints, on which the polylog-communication PIR of [[tdh-to-cpir-amr25|TDH ⇒ cPIR]] depends — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
