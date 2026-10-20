@@ -12,6 +12,7 @@ variants:
   ot-extension: "#ot-extension"
   rabin-ot: "#rabin-ot"
   random-ot: "#random-ot"
+  uc-ot: "#uc-secure-ot"
 ---
 
 # Oblivious transfer
@@ -126,13 +127,17 @@ OT from public-key primitives requires expensive operations per transfer. **OT e
 
 In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
 
+## UC-secure OT
+
+An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functionality against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]], and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]].
+
 # Other results
 
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in a8715cbcec35 -->
+<!-- BEGIN GENERATED participates-in d7b7af026b6d -->
 
 ## Participates in
 
@@ -149,24 +154,26 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
+- [[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 
 **Produces Oblivious transfer**
 
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
-- [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
-- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
-- [[qr-to-malicious-ot-security-pvw08|QR ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[qr-to-malicious-ot-security-pvw08|QR ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
 - [[two-party-computation-to-ot|2PC ⇒ OT]]
+- [[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 
 **Barriers**
 

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard, then for every constant $\varepsilon > 0$ there is a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme for $n$-bit databases with communication $O(n^{\varepsilon})$, the hidden factor depending on $\secpar$ and $\varepsilon$, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. The basic scheme has communication $O(\sqrt{n}\,\secpar)$.
+If [[quadratic-residuosity|QR]] is hard, then for every constant $\varepsilon > 0$ there is a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme for $n$-bit databases with communication $O(n^{\varepsilon})$, the hidden factor polynomial in $\secpar$ for each fixed $\varepsilon$, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]. The basic scheme has communication $O(\sqrt{n}\,\secpar)$.
 
 ## Sketch
 
