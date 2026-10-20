@@ -35,7 +35,8 @@ The reduction receives $h$ and sets the key to $(g, h)$. A collision $(x_1, x_2)
 
 ## Notes
 
-- The encoding condition holds when elements have $(1 + o(1)) \log q$-bit encodings, as in elliptic-curve groups or the order-$q$ subgroup of $\ZZ_p^*$ for a safe prime $p = 2q + 1$ — standard.
+- CvHP91 take $\GG$ to be the quotient $\ZZ_p^* / \{\pm 1\}$ for a safe prime $p = 2q + 1$, a group of prime order $q$ whose elements are represented by $\{1, \ldots, q\}$ — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]. The order-$q$ subgroup of $\ZZ_p^*$, isomorphic to it by $\pm x \mapsto x^2$, is another presentation — standard.
+- The encoding condition holds when elements have $(1 + o(1)) \log q$-bit encodings, as in elliptic-curve groups and both presentations above — standard.
 - Prime order is needed: in a cyclic group of order $2r$ with $r$ an odd prime, $g^r$ is the unique element of order $2$ for every generator $g$, so with exponents in $\ZZ_{2r}$ the inputs $(r, 0)$ and $(0, r)$ collide under every key, even when DLOG is hard in the subgroup of order $r$ — standard.
 - Viewed as a commitment to $x_1$ with randomness $x_2$, the same function is the perfectly hiding [[dlog-to-com-ped91|Pedersen commitment]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 - Efficiency: two exponentiations, or one multi-exponentiation, per evaluation — standard.
