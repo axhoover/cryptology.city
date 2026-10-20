@@ -22,7 +22,7 @@ TODO: syntax and security definition.
 
 ## Statistical rerandomization of honest ciphertexts
 
-A scheme is **statistically rerandomizable** if for every $\pk$ output by $\KeyGen$ and every message $m$, the pair $(c, \mathsf{ReRand}(\pk, c))$ for $c \gets \Enc(\pk, m)$ is statistically close to $(c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. Exact rerandomization of every ciphertext in the support implies it.
+An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ is **statistically rerandomizable** if for every $\pk$ output by $\KeyGen$ and every message $m$, the pair $(c, \mathsf{ReRand}(\pk, c))$ for $c \gets \Enc(\pk, m)$ is statistically close to $(c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. Exact rerandomization of every ciphertext in the support implies it.
 
 ## Security against slightly super-polynomial adversaries
 
