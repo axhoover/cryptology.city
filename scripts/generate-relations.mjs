@@ -37,7 +37,7 @@ import {
   closure as closureOf,
   derivation,
   scopeNames,
-  SCOPED_MODELS,
+  modelBit,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -224,9 +224,7 @@ function redundant() {
     const result = closure(r.hypotheses, { exclude: r.id });
     // Another chain counts only if it needs no idealised model beyond this
     // edge's own.
-    const own = SCOPED_MODELS.includes(r.model)
-      ? 1 << SCOPED_MODELS.indexOf(r.model)
-      : 0;
+    const own = modelBit(r.model);
     const m = (result.scopes.get(r.conclusion) ?? []).find(
       (x) => (x & own) === x,
     );

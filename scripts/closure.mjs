@@ -5,8 +5,8 @@
 //
 // Hypergraph reachability is Horn-clause forward chaining: a reduction fires
 // once every hypothesis is derived. Each derived object also carries its
-// *scope*: the set of idealised models (SCOPED_MODELS) that the chain reaching
-// it was proved in. An object derived through `{ggm} => cdh` holds for generic
+// *scope*: the set of idealised models (every model outside UNSCOPED_MODELS)
+// that the chain reaching it was proved in. An object derived through `{ggm} => cdh` holds for generic
 // algorithms only, not for any group with code, so it is scoped to
 // `generic-group`; one derived through a random-oracle proof is scoped to `rom`.
 //
@@ -26,11 +26,20 @@
 // both directions. A `heuristic` edge is a candidate construction with no
 // security reduction, not a theorem, so it never fires.
 
+// Models whose theorems hold for every algorithm with code: an edge proved in
+// one of these leaves its conclusion unscoped. Every other model scopes it —
+// the idealised ones below by name, and any further value (`other`, e.g.
+// DLO24's generic ring model with preprocessing) as itself, so an unknown model
+// fails closed rather than passing as standard.
+export const UNSCOPED_MODELS = ["standard", "crs", "quantum"];
 export const SCOPED_MODELS = ["generic-group", "rom", "algebraic-group"];
 
-const bit = (model) => {
-  const i = SCOPED_MODELS.indexOf(model);
-  return i < 0 ? 0 : 1 << i;
+/** The scope bit of a model; a model first met here is appended. */
+export const modelBit = (model) => {
+  if (model === undefined || UNSCOPED_MODELS.includes(model)) return 0;
+  let i = SCOPED_MODELS.indexOf(model);
+  if (i < 0) i = SCOPED_MODELS.push(model) - 1;
+  return 1 << i;
 };
 
 /** The scope bitmask as model names, in SCOPED_MODELS order. */
@@ -41,7 +50,7 @@ export function buildRules(reductions) {
   const rules = [];
   for (const r of reductions) {
     if (!r.conclusion || !r.hypotheses?.length || r.heuristic) continue;
-    const base = { model: bit(r.model), cls: r.class ?? "unstated" };
+    const base = { model: modelBit(r.model), cls: r.class ?? "unstated" };
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion, ...base });
     if (r.kind === "equivalence")
       rules.push({
