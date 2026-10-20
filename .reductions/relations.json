@@ -608,6 +608,19 @@
    "unlisted": false
   },
   {
+   "id": "circular-secure-bootstrappable-she",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circular-secure-bootstrappable-she",
+   "of": "he",
+   "title": "Circular-secure bootstrappable SHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-security",
    "kind": "object",
    "type": "assumption",
@@ -3718,6 +3731,19 @@
    "unlisted": true
   },
   {
+   "id": "total-nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-total-communication-below-n",
+   "of": "cpir",
+   "title": "PIR with total communication below $n$",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "transparent-succinct-argument",
    "kind": "variant",
    "type": "primitive",
@@ -4766,6 +4792,30 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-bootstrappable-she"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any IND-CPA adversary on the public key it receives, discarding the encryptions of the secret-key bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption.md",
+   "slug": "circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
+  },
+  {
    "id": "red-circular-security-and-lwe-to-he",
    "kind": "implication",
    "hypotheses": [
@@ -4791,8 +4841,7 @@
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
-    "circular-security",
-    "bootstrappable-somewhat-homomorphic-encryption"
+    "circular-secure-bootstrappable-she"
    ],
    "conclusion": "compact-fhe",
    "class": "free",
@@ -4810,7 +4859,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Bootstrappable SHE ⇒ Compact FHE"
+   "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
    "id": "red-claw-free-permutations-to-crhf-dam87",
@@ -5025,7 +5074,7 @@
    "id": "red-cpir-to-ot-dmo00",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "total-nontrivial-cpir"
    ],
    "conclusion": "ot",
    "class": "unstated",
@@ -5040,7 +5089,7 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "cPIR ⇒ OT"
+   "title": "Non-trivial cPIR ⇒ OT"
   },
   {
    "id": "red-cpir-to-owf-bikm99",
@@ -5238,7 +5287,7 @@
    "hypotheses": [
     "dcr"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -5251,7 +5300,7 @@
    "page": "content/Reductions/dcr-to-cpir-cha04.md",
    "slug": "dcr-to-cpir-cha04",
    "graphSlug": "Reductions/dcr-to-cpir-cha04",
-   "title": "DCR ⇒ cPIR"
+   "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
    "id": "red-dcr-to-fac",
@@ -8878,6 +8927,30 @@
    "title": "OIHF ⇒ OT"
   },
   {
+   "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "total-nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, run on databases of a fixed polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir.md",
+   "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
+  },
+  {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
    "kind": "implication",
    "hypotheses": [
@@ -11575,6 +11648,30 @@
    "title": "TDP ⇒ PKE"
   },
   {
+   "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "total-nontrivial-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/total-nontrivial-cpir-to-nontrivial-cpir.md",
+   "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
+   "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
+  },
+  {
    "id": "red-two-party-computation-to-ot",
    "kind": "implication",
    "hypotheses": [
@@ -12098,7 +12195,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "consequences": [
     {
@@ -12126,7 +12223,7 @@
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
    "graphSlug": "Barriers/no-he-to-szk-bl13",
-   "title": "No reduction from NP to HE"
+   "title": "No reduction from NP to compact FHE"
   },
   {
    "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -12309,7 +12406,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -12331,7 +12428,7 @@
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
-   "title": "No fully-black-box reduction from NP to cPIR"
+   "title": "No fully-black-box reduction from NP to one-round sublinear cPIR"
   },
   {
    "id": "bar-np-to-hash-function-aggm06",
