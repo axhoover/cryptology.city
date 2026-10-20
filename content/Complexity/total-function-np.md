@@ -74,7 +74,7 @@ The total search problems that reduce to Leaf by a randomized polynomial-time re
 
 Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
-<!-- BEGIN GENERATED participates-in 033e81b87a3f -->
+<!-- BEGIN GENERATED participates-in dd5f43144ccd -->
 
 ## Participates in
 
@@ -106,5 +106,10 @@ Integer factorization and discrete logarithm — the two most historically impor
 - [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[total-function-np#ppad|PPAD]])
 - [[subexponential-ddh-to-ppad-hardness-klv23|Sub-exponential DDH ⇒ PPAD hardness]] (via [[total-function-np#ppad|PPAD]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[total-function-np#ppad|PPAD]])
+
+**Barriers**
+
+- [[no-ppad-hardness-and-owf-to-ke-rss17|No fully-black-box reduction from PPAD hardness + OWF to KE]] (via [[total-function-np#ppad|PPAD]])
+- [[no-ppad-hardness-to-owf-rss17|No fully-black-box reduction from PPAD hardness to OWF]] (via [[total-function-np#ppad|PPAD]])
 
 <!-- END GENERATED participates-in -->

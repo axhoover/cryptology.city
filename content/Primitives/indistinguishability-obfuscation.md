@@ -70,7 +70,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 17f7847cfb0f -->
+<!-- BEGIN GENERATED participates-in 1cd8e39f3b7f -->
 
 ## Participates in
 
@@ -86,6 +86,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]
 - [[io-and-owp-to-cls-hardness-hy17|iO + OWP ⇒ CLS hardness]]
 - [[io-and-owp-to-ppad-hardness-gps16|iO + OWP ⇒ PPAD hardness]]
+- [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]]
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
 - [[statistical-io-to-io|Statistical iO ⇒ iO]] (via [[indistinguishability-obfuscation#statistical-io|Statistical iO]])
 - [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
@@ -106,6 +107,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 
 - [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]
 - [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
+- [[no-io-and-owp-to-szk-hardness-bdv17|No fully-black-box reduction from iO + OWP to average-case-hard SZK]]
 - [[no-io-to-statistical-io-gr07|No reduction from iO to statistical iO]]
 
 <!-- END GENERATED participates-in -->

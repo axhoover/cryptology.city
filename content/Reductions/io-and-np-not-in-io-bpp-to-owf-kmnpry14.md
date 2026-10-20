@@ -24,5 +24,5 @@ If [[nondeterministic-polynomial-time#hardness-at-almost-every-input-length|NP �
 
 ## Notes
 
-- With no complexity assumption, iO yields statistical zero-knowledge arguments for $\classNP$ — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]].
+- With no complexity assumption, iO yields statistical zero-knowledge arguments for $\classNP$ ([[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]]) — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]].
 - An alternative version replaces $\classNP \not\subseteq \mathbf{io}\text{-}\classBPP$ by the assumption that some $\classNP$ problem is hard on average — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]].
