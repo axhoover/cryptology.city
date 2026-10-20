@@ -6,7 +6,7 @@ aliases: []
 id: red-common-random-string-nizk-proof-to-nizk
 kind: implication
 hypotheses: [common-random-string-nizk-proof]
-conclusion: nizk
+conclusion: nizk-for-np
 class: fully-black-box
 model: crs
 source: folklore

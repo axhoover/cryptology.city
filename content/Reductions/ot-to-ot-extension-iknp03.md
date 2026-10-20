@@ -12,7 +12,7 @@ class: fully-black-box
 model: rom
 source:
   - "[[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]"
-security-loss: "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage"
+security-loss: "additive: of order κ q / 2^κ for q random-oracle queries, plus κ times the base-OT advantage"
 rationale:
   class: "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle."
   model: "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."

@@ -1,13 +1,13 @@
 ---
 type: reduction
 status: draft
-title: Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)
+title: Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)
 aliases: []
 id: red-subexponential-io-and-rerandomizable-encryption-to-he-cltv15
 kind: implication
 hypotheses:
   [subexponential-io, superpolynomially-secure-rerandomizable-encryption]
-conclusion: he
+conclusion: compact-fhe
 class: free
 model: standard
 source:
@@ -17,11 +17,11 @@ rationale:
   class: "The evaluation key is an obfuscation of circuits that decrypt, compute and re-encrypt, so the construction uses the encryption scheme's code."
 ---
 
-# Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)
+# Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|secure against slightly super-polynomial adversaries]] exist, then [[homomorphic-encryption|fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|secure against slightly super-polynomial adversaries]] exist, then [[homomorphic-encryption#compact-fhe|compact fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 
 ## Notes
 

@@ -6,7 +6,7 @@ aliases: []
 id: red-snark-and-owf-to-nizk-kmy20
 kind: implication
 hypotheses: [snark, owf]
-conclusion: nizk
+conclusion: nizk-for-np
 class: unstated
 model: crs
 source:

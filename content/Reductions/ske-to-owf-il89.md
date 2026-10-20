@@ -5,7 +5,7 @@ title: SKE ⇒ OWF
 aliases: []
 id: red-ske-to-owf-il89
 kind: implication
-hypotheses: [ske]
+hypotheses: [cpa-security]
 conclusion: owf
 class: fully-black-box
 model: standard
