@@ -10,6 +10,7 @@ variants:
   virtual-black-box-obfuscation: "#virtual-black-box-obfuscation-vbb"
   differing-inputs-obfuscation: "#differing-inputs-obfuscation-dio"
   subexponential-io: "#sub-exponentially-secure-io"
+  statistical-io: "#statistical-io"
 ---
 
 # Indistinguishability Obfuscation
@@ -49,6 +50,10 @@ A stronger notion requiring that anything an efficient adversary can compute fro
 
 iO is **sub-exponentially secure** if there is a constant $\varepsilon > 0$ such that every adversary of size $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ in the indistinguishability game. Trapdoor permutations from iO — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]] — and fully homomorphic encryption without circular security — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]] — assume it.
 
+## Statistical iO
+
+An efficient, perfectly correct obfuscator $i\calO$ is **statistically secure** if for all circuit families as in the indistinguishability game, the distributions $i\calO(1^\secpar, C_{0,\secpar})$ and $i\calO(1^\secpar, C_{1,\secpar})$ are within negligible statistical distance — [[GR07 - On Best-Possible Obfuscation|GR07]]. [[statistical-io-to-io|Statistical iO is iO]], but it does not exist even for 3-CNF formulas unless the polynomial hierarchy collapses to its second level ([[no-io-to-statistical-io-gr07|No reduction from iO to statistical iO]]) — [[GR07 - On Best-Possible Obfuscation|GR07]].
+
 ## Differing-inputs obfuscation (diO)
 
 A differing-inputs obfuscator requires that for every efficient sampler of $(C_0, C_1, \mathit{aux})$ with $|C_0| = |C_1|$ such that no efficient algorithm given $(C_0, C_1, \mathit{aux})$ finds $x$ with $C_0(x) \ne C_1(x)$ except with negligible probability, $(C_0, C_1, \mathit{aux}, i\calO(1^\secpar, C_0))$ and $(C_0, C_1, \mathit{aux}, i\calO(1^\secpar, C_1))$ are computationally indistinguishable — [[BCP14 - On Extractability Obfuscation|BCP14]]. Functionally equivalent circuits have no differing input, so diO implies iO — standard. iO implies diO for circuit pairs that differ on polynomially many inputs — [[BCP14 - On Extractability Obfuscation|BCP14]] — and diO for general auxiliary input is implausible — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
@@ -65,7 +70,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in a3194ae059e0 -->
+<!-- BEGIN GENERATED participates-in 1cd8e39f3b7f -->
 
 ## Participates in
 
@@ -77,8 +82,13 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
+- [[io-and-np-not-in-io-bpp-to-owf-kmnpry14|iO + NP ⊄ io-BPP ⇒ OWF]]
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]
+- [[io-and-owp-to-cls-hardness-hy17|iO + OWP ⇒ CLS hardness]]
+- [[io-and-owp-to-ppad-hardness-gps16|iO + OWP ⇒ PPAD hardness]]
+- [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]]
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
+- [[statistical-io-to-io|Statistical iO ⇒ iO]] (via [[indistinguishability-obfuscation#statistical-io|Statistical iO]])
 - [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
@@ -90,11 +100,14 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[fe-to-io|FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
+- [[statistical-io-to-io|Statistical iO ⇒ iO]]
 - [[subexponential-io-to-io|Sub-exponentially secure iO ⇒ iO]]
 
 **Barriers**
 
 - [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]
 - [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
+- [[no-io-and-owp-to-szk-hardness-bdv17|No fully-black-box reduction from iO + OWP to average-case-hard SZK]]
+- [[no-io-to-statistical-io-gr07|No reduction from iO to statistical iO]]
 
 <!-- END GENERATED participates-in -->

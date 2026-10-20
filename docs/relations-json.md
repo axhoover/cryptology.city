@@ -265,8 +265,24 @@ node scripts/generate-relations.mjs --derive=lwe,ddh   # what follows from an as
 node scripts/generate-relations.mjs --redundant        # conclusions already reachable another way
 ```
 
-Neither mode uses a `heuristic` edge. Both ignore `model`, so a chain may mix
-standard-model and idealised-model edges.
+Neither mode uses a `heuristic` edge. Both keep model provenance
+(`scripts/closure.mjs`): every derived object carries its _scope_, the set of
+idealised models that the chain reaching it was proved in — every `model`
+except `standard`, `crs` and `quantum`, so `generic-group`, `rom`,
+`algebraic-group` and also `other` (DLO24's generic ring model), which fails
+closed rather than passing as standard. An object derived through `{ggm} => cdh` holds for
+generic algorithms only, and a generic group has no code. So a scoped object is
+consumed only by an edge whose class relativizes (`fully-black-box` or
+`relativizing`, which use their hypotheses as oracles and hold relative to
+every oracle), and the conclusion's scope is the union of the hypotheses'
+scopes and the edge's own model. A `free`, `unstated` or other edge, which may
+use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
+circuits), fires only on unscoped objects. `--derive` lists an object reached
+only through idealised models with those models, e.g.
+`cdh  [generic-group]`; `--redundant` counts another chain only when it needs
+no idealised model beyond the edge's own. A consumer computing its own closure
+should apply the same rule: without it, `{rom}` reaches key exchange through
+the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 
 `--redundant` lists reductions whose conclusion already follows from their own
 hypotheses without them, with the chain that reaches it. These are **reported,

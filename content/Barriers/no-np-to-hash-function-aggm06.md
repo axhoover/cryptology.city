@@ -27,4 +27,4 @@ For every polynomial-time computable $f$, a randomized non-adaptive reduction of
 ## Notes
 
 - AGGM06 also claim the consequence for arbitrary (adaptive) reductions whenever $|f^{-1}(y)|$ is efficiently computable from $y$; the authors retracted that claim, and only the non-adaptive result stands — [[AGGM10 - Erratum for On basing one-way functions on NP-hardness|AGGM10]].
-- For size-verifiable one-way functions the adaptive case is recovered: a general (adaptive) reduction of $\classNP$ to inverting such an $f$ implies $\classNP \subseteq \classcoAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]].
+- For [[hash-function#size-verifiable-one-wayness|size-verifiable]] one-way functions the adaptive case is recovered ([[no-np-to-size-verifiable-owf-bb15|No fully-black-box reduction from NP to size-verifiable OWF]]): a general (adaptive) reduction of $\classNP$ to inverting such an $f$ implies $\classNP \subseteq \classcoAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]].

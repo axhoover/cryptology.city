@@ -191,7 +191,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
 
-<!-- BEGIN GENERATED participates-in e15073d01488 -->
+<!-- BEGIN GENERATED participates-in 29d4edb442ed -->
 
 ## Participates in
 
@@ -203,6 +203,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 
 **Produces Digital signature**
 
+- [[bilinear-pairing-and-q-sdh-to-ds-bb04a|Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)]]
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])

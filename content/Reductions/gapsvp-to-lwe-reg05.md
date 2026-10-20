@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "GapSVP ⇒ LWE"
+title: "Quantum polynomial-factor GapSVP ⇒ LWE"
 aliases: []
 id: red-gapsvp-to-lwe-reg05
 kind: implication
-hypotheses: [gapsvp]
+hypotheses: [gapsvp-poly-factor-quantum]
 conclusion: lwe
 class: fully-black-box
 model: quantum
@@ -17,11 +17,11 @@ rationale:
   model: "The LWE oracle is used classically to solve bounded-distance decoding, but the step converting that decoder into narrower discrete-Gaussian samples is a quantum algorithm."
 ---
 
-# GapSVP ⇒ LWE
+# Quantum polynomial-factor GapSVP ⇒ LWE
 
 ## Statement
 
-For $\alpha q > 2\sqrt{n}$, an efficient algorithm solving [[learning-with-errors|LWE]] in dimension $n$ with modulus $q$ and Gaussian error parameter $\alpha$ on a noticeable fraction of instances yields an efficient quantum algorithm approximating worst-case [[shortest-vector-problem|GapSVP]] on $n$-dimensional lattices to within $\tilde{O}(n/\alpha)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; for decision LWE the modulus must be prime and $\poly(n)$. Hence if GapSVP is hard in the worst case for efficient quantum algorithms, search and decision LWE are hard on average.
+For $\alpha q > 2\sqrt{n}$, an efficient algorithm solving [[learning-with-errors|LWE]] in dimension $n$ with modulus $q$ and Gaussian error parameter $\alpha$ on a noticeable fraction of instances yields an efficient quantum algorithm approximating worst-case GapSVP on $n$-dimensional lattices to within $\tilde{O}(n/\alpha)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]; for decision LWE the modulus must be prime and $\poly(n)$. Hence if [[shortest-vector-problem#polynomial-factors-against-quantum-algorithms|GapSVP is quantumly hard for polynomial factors]], search and decision LWE are hard on average for every $\alpha \ge 1/\poly(n)$ with $\alpha q > 2\sqrt{n}$.
 
 ## Sketch
 

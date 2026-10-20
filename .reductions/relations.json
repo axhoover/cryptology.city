@@ -448,6 +448,19 @@
    "unlisted": false
   },
   {
+   "id": "barg-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#batch-arguments-for-np",
+   "of": "snark",
+   "title": "Batch arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bdh",
    "kind": "object",
    "type": "assumption",
@@ -656,6 +669,19 @@
    "anchor": "#claw-free-permutations",
    "of": "tdp",
    "title": "Claw-free permutations",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "cls-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#cls",
+   "of": "tfnp",
+   "title": "CLS",
    "aliases": [],
    "unlisted": false
   },
@@ -917,6 +943,32 @@
    "unlisted": false
   },
   {
+   "id": "czk-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#average-case-hardness",
+   "of": "czk",
+   "title": "Average-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "czk-worst-case-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#worst-case-hardness",
+   "of": "czk",
+   "title": "Worst-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "d-th-composite-residuosity",
    "kind": "variant",
    "type": "assumption",
@@ -955,6 +1007,19 @@
     "Paillier assumption",
     "Decisional composite residuosity"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "dcr-safe-primes",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-composite-residuosity.md",
+   "slug": "decisional-composite-residuosity",
+   "graphSlug": "Assumptions/decisional-composite-residuosity",
+   "anchor": "#dcr-with-safe-prime-moduli",
+   "of": "dcr",
+   "title": "DCR with safe-prime moduli",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1066,6 +1131,19 @@
     "Distributed key generation"
    ],
    "unlisted": true
+  },
+  {
+   "id": "distributional-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#distributional-one-wayness",
+   "of": "hash-function",
+   "title": "Distributional one-wayness",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "dlog",
@@ -1363,6 +1441,32 @@
     "Shortest Vector Problem",
     "SVP"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "gapsvp-poly-factor",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#polynomial-factors",
+   "of": "gapsvp",
+   "title": "Polynomial factors",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "gapsvp-poly-factor-quantum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#polynomial-factors-against-quantum-algorithms",
+   "of": "gapsvp",
+   "title": "Polynomial factors against quantum algorithms",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2015,6 +2119,19 @@
    "unlisted": false
   },
   {
+   "id": "kt-mild-average-case-hardness",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/time-bounded-kolmogorov-complexity.md",
+   "slug": "time-bounded-kolmogorov-complexity",
+   "graphSlug": "Assumptions/time-bounded-kolmogorov-complexity",
+   "title": "Time-bounded Kolmogorov complexity",
+   "aliases": [
+    "Time-bounded Kolmogorov complexity"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "kzg-polynomial-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -2137,6 +2254,19 @@
    "unlisted": true
   },
   {
+   "id": "low-exponent-rsa",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/rsa-assumption.md",
+   "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
+   "anchor": "#low-exponent-rsa",
+   "of": "rsa",
+   "title": "Low-exponent RSA",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "lpn",
    "kind": "object",
    "type": "assumption",
@@ -2219,6 +2349,19 @@
     "MLWE",
     "Module-LWE"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "lwr",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#learning-with-rounding",
+   "of": "lwe",
+   "title": "Learning with rounding",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2640,6 +2783,32 @@
     "NP",
     "Nondeterministic Polynomial-Time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "np-average-case-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/nondeterministic-polynomial-time.md",
+   "slug": "nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/nondeterministic-polynomial-time",
+   "anchor": "#average-case-hardness",
+   "of": "np",
+   "title": "Average-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "np-not-in-io-bpp",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/nondeterministic-polynomial-time.md",
+   "slug": "nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/nondeterministic-polynomial-time",
+   "anchor": "#hardness-at-almost-every-input-length",
+   "of": "np",
+   "title": "Hardness at almost every input length",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3372,6 +3541,19 @@
    "unlisted": true
   },
   {
+   "id": "quasi-polynomial-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#quasi-polynomially-hard-lwe",
+   "of": "lwe",
+   "title": "Quasi-polynomially hard LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "rabin-ot",
    "kind": "variant",
    "type": "primitive",
@@ -3712,6 +3894,19 @@
    "unlisted": true
   },
   {
+   "id": "size-verifiable-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#size-verifiable-one-wayness",
+   "of": "hash-function",
+   "title": "Size-verifiable one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sk-depir",
    "kind": "variant",
    "type": "primitive",
@@ -3739,6 +3934,19 @@
     "Symmetric encryption",
     "Private-key encryption"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "snarg-for-p",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#snargs-for-p",
+   "of": "snark",
+   "title": "SNARGs for P",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3858,6 +4066,32 @@
    "unlisted": false
   },
   {
+   "id": "statistical-io",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/indistinguishability-obfuscation.md",
+   "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
+   "anchor": "#statistical-io",
+   "of": "io",
+   "title": "Statistical iO",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistical-zap-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#statistical-zap-arguments",
+   "of": "zkp",
+   "title": "Statistical zap arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "statistical-zk-argument",
    "kind": "variant",
    "type": "primitive",
@@ -3971,6 +4205,19 @@
    "anchor": "#sub-exponential-ind-sid-cpa-security",
    "of": "ibe",
    "title": "Sub-exponential IND-sID-CPA Security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subexponential-ddh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#sub-exponential-ddh",
+   "of": "ddh",
+   "title": "Sub-exponential DDH",
    "aliases": [],
    "unlisted": false
   },
@@ -4118,6 +4365,19 @@
    "unlisted": false
   },
   {
+   "id": "superpolynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-superpolynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with superpolynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "superpolynomially-secure-rerandomizable-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -4168,6 +4428,19 @@
     "SZK",
     "Statistical zero-knowledge"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "szk-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/statistical-zero-knowledge.md",
+   "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
+   "anchor": "#average-case-hardness",
+   "of": "szk",
+   "title": "Average-case hardness",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5091,6 +5364,53 @@
    "title": "k-Lin ⇒ VRF"
   },
   {
+   "id": "red-bilinear-pairing-and-dlin-to-zap-gos06",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "decisional-linear"
+   ],
+   "conclusion": "zap",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-dlin-to-zap-gos06.md",
+   "slug": "bilinear-pairing-and-dlin-to-zap-gos06",
+   "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-zap-gos06",
+   "title": "Bilinear pairing + DLIN ⇒ Zaps (non-interactive)"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-strong-diffie-hellman"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BB04a - Short Signatures Without Random Oracles|BB04a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses the bilinear group only through group operations and the pairing, and the reduction runs any forger as an oracle and turns its forgery into a q-SDH solution."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-ds-bb04a.md",
+   "slug": "bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "title": "Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)"
+  },
+  {
    "id": "red-bilinear-pairing-and-q-sdh-to-pcs-kzg10",
    "kind": "implication",
    "hypotheses": [
@@ -5393,6 +5713,30 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-cdh-to-ind-id-cpa-dg17a",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The garbled circuits that the construction evaluates contain the code of chameleon encryption built from the group, so the construction uses the CDH group non-black-box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-ind-id-cpa-dg17a.md",
+   "slug": "cdh-to-ind-id-cpa-dg17a",
+   "graphSlug": "Reductions/cdh-to-ind-id-cpa-dg17a",
+   "title": "CDH ⇒ IBE (Döttling–Garg)"
+  },
+  {
    "id": "red-cdh-to-non-interactive-key-exchange-dh76",
    "kind": "implication",
    "hypotheses": [
@@ -5416,6 +5760,30 @@
    "slug": "cdh-to-non-interactive-key-exchange-dh76",
    "graphSlug": "Reductions/cdh-to-non-interactive-key-exchange-dh76",
    "title": "CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)"
+  },
+  {
+   "id": "red-cdh-to-uc-ot-dghmw20",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "uc-ot",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Two-round universally composable OT is proved in the common reference string model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-uc-ot-dghmw20.md",
+   "slug": "cdh-to-uc-ot-dghmw20",
+   "graphSlug": "Reductions/cdh-to-uc-ot-dghmw20",
+   "title": "CDH ⇒ UC-secure OT (DGHMW)"
   },
   {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
@@ -5509,6 +5877,30 @@
    "slug": "claw-free-permutations-to-crhf-dam87",
    "graphSlug": "Reductions/claw-free-permutations-to-crhf-dam87",
    "title": "Claw-free permutations ⇒ CRHF (Damgård)"
+  },
+  {
+   "id": "red-cls-hardness-to-ppad-hardness-dp11",
+   "kind": "implication",
+   "hypotheses": [
+    "cls-hardness"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DP11 - Continuous Local Search|DP11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction maps each instance to an End-of-Line instance by a fixed polynomial-time reduction, calls any End-of-Line solver once as an oracle, and maps its solution back."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cls-hardness-to-ppad-hardness-dp11.md",
+   "slug": "cls-hardness-to-ppad-hardness-dp11",
+   "graphSlug": "Reductions/cls-hardness-to-ppad-hardness-dp11",
+   "title": "CLS hardness ⇒ PPAD hardness"
   },
   {
    "id": "red-co-cdh-to-ds",
@@ -5949,6 +6341,54 @@
    "title": "CRHF ⇒ Weak OWF"
   },
   {
+   "id": "red-czk-hardness-to-czk-worst-case-hardness",
+   "kind": "implication",
+   "hypotheses": [
+    "czk-hardness"
+   ],
+   "conclusion": "czk-worst-case-hardness",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a BPP decider for the language succeeds with probability at least 2/3 under every distribution",
+   "rationale": {
+    "class": "The language is unchanged, and the reduction forwards any worst-case decider unchanged as an average-case one."
+   },
+   "status": "draft",
+   "page": "content/Reductions/czk-hardness-to-czk-worst-case-hardness.md",
+   "slug": "czk-hardness-to-czk-worst-case-hardness",
+   "graphSlug": "Reductions/czk-hardness-to-czk-worst-case-hardness",
+   "title": "Average-case-hard CZK ⇒ CZK ⊄ BPP"
+  },
+  {
+   "id": "red-czk-hardness-to-owf-ow93",
+   "kind": "implication",
+   "hypotheses": [
+    "czk-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is average-case hardness of a language with a zero-knowledge proof rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/czk-hardness-to-owf-ow93.md",
+   "slug": "czk-hardness-to-owf-ow93",
+   "graphSlug": "Reductions/czk-hardness-to-owf-ow93",
+   "title": "Average-case-hard CZK ⇒ OWF"
+  },
+  {
    "id": "red-czk-to-ip",
    "kind": "inclusion",
    "hypotheses": [
@@ -6078,7 +6518,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -6115,6 +6555,30 @@
    "slug": "dbdh-to-three-party-nike-jou04",
    "graphSlug": "Reductions/dbdh-to-three-party-nike-jou04",
    "title": "DBDH ⇒ Three-party NIKE (Joux)"
+  },
+  {
+   "id": "red-dcr-safe-primes-to-pke-cca2-security-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr-safe-primes"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-safe-primes-to-pke-cca2-security-cs02.md",
+   "slug": "dcr-safe-primes-to-pke-cca2-security-cs02",
+   "graphSlug": "Reductions/dcr-safe-primes-to-pke-cca2-security-cs02",
+   "title": "DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)"
   },
   {
    "id": "red-dcr-to-com",
@@ -6162,6 +6626,30 @@
    "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
+   "id": "red-dcr-to-d-th-composite-residuosity-dj01",
+   "kind": "equivalence",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "d-th-composite-residuosity",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the converse direction is tight: one distinguisher call, advantage preserved",
+   "rationale": {
+    "class": "Each direction calls a distinguisher for the other assumption only as an oracle, on challenges transformed by arithmetic modulo powers of the modulus."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-d-th-composite-residuosity-dj01.md",
+   "slug": "dcr-to-d-th-composite-residuosity-dj01",
+   "graphSlug": "Reductions/dcr-to-d-th-composite-residuosity-dj01",
+   "title": "DCR ⇔ $d$-th Composite Residuosity"
+  },
+  {
    "id": "red-dcr-to-fac",
    "kind": "implication",
    "hypotheses": [
@@ -6184,6 +6672,30 @@
    "slug": "fac-to-dcr-pai99",
    "graphSlug": "Reductions/fac-to-dcr-pai99",
    "title": "DCR ⇒ FAC"
+  },
+  {
+   "id": "red-dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "highly-lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The functions use only the modulus sampler and arithmetic modulo a power of the modulus, and the mode-indistinguishability reduction forwards a residuosity challenge as the index element to any distinguisher, used only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-highly-lossy-trapdoor-function-fgkrs10.md",
+   "slug": "dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "graphSlug": "Reductions/dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "title": "DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
   },
   {
    "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
@@ -6544,6 +7056,30 @@
    "title": "Decision LWE ⇒ Search LWE"
   },
   {
+   "id": "red-decisional-linear-to-pke-bbs04",
+   "kind": "implication",
+   "hypotheses": [
+    "decisional-linear"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BBS04 - Short Group Signatures|BBS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight up to an additive $O(1/p)$: one oracle call",
+   "rationale": {
+    "class": "Linear Encryption uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DLIN challenge and runs any CPA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/decisional-linear-to-pke-bbs04.md",
+   "slug": "decisional-linear-to-pke-bbs04",
+   "graphSlug": "Reductions/decisional-linear-to-pke-bbs04",
+   "title": "DLIN ⇒ PKE (Linear Encryption)"
+  },
+  {
    "id": "red-depir-to-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -6590,6 +7126,30 @@
    "slug": "differing-inputs-obfuscation-dio-to-io",
    "graphSlug": "Reductions/differing-inputs-obfuscation-dio-to-io",
    "title": "Differing-inputs obfuscation (diO) ⇒ iO"
+  },
+  {
+   "id": "red-distributional-owf-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "distributional-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: the one-way function's input length is polynomial in n and p(n), and the distributional inverter for f calls an inverter for it a number of times polynomial in n, p(n) and the inverse of its success probability",
+   "rationale": {
+    "class": "The one-way function evaluates f only as an oracle, on an input it also hashes with a pairwise-independent function, and one fixed reduction turns any inverter for it, run only as an oracle, into a distributional inverter for f."
+   },
+   "status": "draft",
+   "page": "content/Reductions/distributional-owf-to-owf-il89.md",
+   "slug": "distributional-owf-to-owf-il89",
+   "graphSlug": "Reductions/distributional-owf-to-owf-il89",
+   "title": "Distributional OWF ⇒ OWF (Impagliazzo–Luby)"
   },
   {
    "id": "red-dkg-and-he-to-tpke",
@@ -7313,6 +7873,30 @@
    "title": "FAC ⇒ DS"
   },
   {
+   "id": "red-fac-to-factoring-blum-integers",
+   "kind": "implication",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "factoring-blum-integers",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of about 4: a factoring instance is a Blum integer with probability 1/4 - o(1)",
+   "rationale": {
+    "class": "The reduction runs any Blum-integer factorer once as an oracle on its own instance and never uses its code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fac-to-factoring-blum-integers.md",
+   "slug": "fac-to-factoring-blum-integers",
+   "graphSlug": "Reductions/fac-to-factoring-blum-integers",
+   "title": "FAC ⇒ Factoring Blum integers"
+  },
+  {
    "id": "red-fac-to-np",
    "kind": "inclusion",
    "hypotheses": [
@@ -7417,6 +8001,27 @@
    "slug": "factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09",
    "graphSlug": "Reductions/factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09",
    "title": "Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-bqp-shor97",
+   "kind": "inclusion",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "bqp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-bqp-shor97.md",
+   "slug": "factoring-blum-integers-to-bqp-shor97",
+   "graphSlug": "Reductions/factoring-blum-integers-to-bqp-shor97",
+   "title": "Factoring Blum integers ∈ BQP (Shor)"
   },
   {
    "id": "red-factoring-blum-integers-to-claw-free-permutations-gmr88",
@@ -7618,6 +8223,102 @@
    "title": "Fuzzy IBE ⇒ IBE"
   },
   {
+   "id": "red-gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor-quantum"
+   ],
+   "conclusion": "gapsvp-poly-factor",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on GapSVP instances, and the reduction forwards any classical algorithm, run as a quantum one, unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-quantum-to-gapsvp-poly-factor.md",
+   "slug": "gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "graphSlug": "Reductions/gapsvp-poly-factor-quantum-to-gapsvp-poly-factor",
+   "title": "Quantum polynomial-factor GapSVP ⇒ GapSVP for polynomial factors"
+  },
+  {
+   "id": "red-gapsvp-poly-factor-to-gapsvp",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "gapsvp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on GapSVP instances, and the reduction forwards any algorithm unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-gapsvp.md",
+   "slug": "gapsvp-poly-factor-to-gapsvp",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-gapsvp",
+   "title": "GapSVP for polynomial factors ⇒ GapSVP"
+  },
+  {
+   "id": "red-gapsvp-poly-factor-to-lwe-blprs13",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-lwe-blprs13.md",
+   "slug": "gapsvp-poly-factor-to-lwe-blprs13",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-lwe-blprs13",
+   "title": "Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)"
+  },
+  {
+   "id": "red-gapsvp-poly-factor-to-lwe-pei09",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-lwe-pei09.md",
+   "slug": "gapsvp-poly-factor-to-lwe-pei09",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-lwe-pei09",
+   "title": "Polynomial-factor GapSVP ⇒ LWE (exponential modulus)"
+  },
+  {
    "id": "red-gapsvp-to-coam-gg00",
    "kind": "inclusion",
    "hypotheses": [
@@ -7663,7 +8364,7 @@
    "id": "red-gapsvp-to-lwe-reg05",
    "kind": "implication",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-poly-factor-quantum"
    ],
    "conclusion": "lwe",
    "class": "fully-black-box",
@@ -7682,7 +8383,7 @@
    "page": "content/Reductions/gapsvp-to-lwe-reg05.md",
    "slug": "gapsvp-to-lwe-reg05",
    "graphSlug": "Reductions/gapsvp-to-lwe-reg05",
-   "title": "GapSVP ⇒ LWE"
+   "title": "Quantum polynomial-factor GapSVP ⇒ LWE"
   },
   {
    "id": "red-gapsvp-to-np",
@@ -7709,7 +8410,7 @@
    "id": "red-gapsvp-to-sis-ajt96",
    "kind": "implication",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-poly-factor"
    ],
    "conclusion": "sis",
    "class": "fully-black-box",
@@ -7727,7 +8428,7 @@
    "page": "content/Reductions/gapsvp-to-sis-ajt96.md",
    "slug": "gapsvp-to-sis-ajt96",
    "graphSlug": "Reductions/gapsvp-to-sis-ajt96",
-   "title": "GapSVP ⇒ SIS"
+   "title": "Polynomial-factor GapSVP ⇒ SIS"
   },
   {
    "id": "red-gapsvp-to-szk-mv03",
@@ -8285,6 +8986,30 @@
    "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
   },
   {
+   "id": "red-hibe-selective-security-to-ind-sid-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "hibe-selective-security"
+   ],
+   "conclusion": "ind-sid-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The IBE algorithms call the HIBE algorithms at maximum depth 1 as oracles, and the reduction forwards any selective IBE adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-selective-security-to-ind-sid-cpa.md",
+   "slug": "hibe-selective-security-to-ind-sid-cpa",
+   "graphSlug": "Reductions/hibe-selective-security-to-ind-sid-cpa",
+   "title": "Selectively secure HIBE ⇒ Selectively secure IBE"
+  },
+  {
    "id": "red-hibe-to-ibe",
    "kind": "implication",
    "hypotheses": [
@@ -8716,6 +9441,30 @@
    "title": "IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)"
   },
   {
+   "id": "red-ind-id-cpa-to-ibe",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-id-cpa"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the IBE algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ind-id-cpa-to-ibe.md",
+   "slug": "ind-id-cpa-to-ibe",
+   "graphSlug": "Reductions/ind-id-cpa-to-ibe",
+   "title": "IND-ID-CPA IBE ⇒ IBE"
+  },
+  {
    "id": "red-ind-sid-cpa-security-selective-to-hibe-gkr25",
    "kind": "implication",
    "hypotheses": [
@@ -8747,7 +9496,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -8810,6 +9559,31 @@
    "title": "Invertible PRFs ⇒ PRF"
   },
   {
+   "id": "red-io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "np-not-in-io-bpp"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One hypothesis is a worst-case complexity separation rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-np-not-in-io-bpp-to-owf-kmnpry14.md",
+   "slug": "io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "graphSlug": "Reductions/io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "title": "iO + NP ⊄ io-BPP ⇒ OWF"
+  },
+  {
    "id": "red-io-and-owf-to-multi-party-nike-bz14",
    "kind": "implication",
    "hypotheses": [
@@ -8833,6 +9607,77 @@
    "slug": "io-and-owf-to-multi-party-nike-bz14",
    "graphSlug": "Reductions/io-and-owf-to-multi-party-nike-bz14",
    "title": "iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)"
+  },
+  {
+   "id": "red-io-and-owp-to-cls-hardness-hy17",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "cls-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[HY17 - Hardness of Continuous Local Search Query Complexity and Cryptographic Lower Bounds|HY17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hard instances are built from obfuscated circuits that evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; HY17 state no reduction notion."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-owp-to-cls-hardness-hy17.md",
+   "slug": "io-and-owp-to-cls-hardness-hy17",
+   "graphSlug": "Reductions/io-and-owp-to-cls-hardness-hy17",
+   "title": "iO + OWP ⇒ CLS hardness"
+  },
+  {
+   "id": "red-io-and-owp-to-ppad-hardness-gps16",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The obfuscated circuits evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; GPS16 state no reduction notion."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-owp-to-ppad-hardness-gps16.md",
+   "slug": "io-and-owp-to-ppad-hardness-gps16",
+   "graphSlug": "Reductions/io-and-owp-to-ppad-hardness-gps16",
+   "title": "iO + OWP ⇒ PPAD hardness"
+  },
+  {
+   "id": "red-io-to-statistical-zk-argument-kmnpry14",
+   "kind": "implication",
+   "hypotheses": [
+    "io"
+   ],
+   "conclusion": "statistical-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/io-to-statistical-zk-argument-kmnpry14.md",
+   "slug": "io-to-statistical-zk-argument-kmnpry14",
+   "graphSlug": "Reductions/io-to-statistical-zk-argument-kmnpry14",
+   "title": "iO ⇒ Statistical ZK arguments for NP"
   },
   {
    "id": "red-io-to-witness-encryption",
@@ -9118,6 +9963,27 @@
    "title": "KEM ⇒ KE"
   },
   {
+   "id": "red-kt-mild-average-case-hardness-to-owf-lp20",
+   "kind": "equivalence",
+   "hypotheses": [
+    "kt-mild-average-case-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[LP20 - On One-way Functions and Kolmogorov Complexity|LP20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/kt-mild-average-case-hardness-to-owf-lp20.md",
+   "slug": "kt-mild-average-case-hardness-to-owf-lp20",
+   "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
+   "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
+  },
+  {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
    "kind": "equivalence",
    "hypotheses": [
@@ -9239,6 +10105,30 @@
    "title": "Lossy trapdoor functions ⇒ IND-CCA PKE"
   },
   {
+   "id": "red-low-exponent-rsa-to-rsa",
+   "kind": "implication",
+   "hypotheses": [
+    "low-exponent-rsa"
+   ],
+   "conclusion": "rsa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the RSA instance distribution, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/low-exponent-rsa-to-rsa.md",
+   "slug": "low-exponent-rsa-to-rsa",
+   "graphSlug": "Reductions/low-exponent-rsa-to-rsa",
+   "title": "Low-exponent RSA ⇒ RSA"
+  },
+  {
    "id": "red-lpn-constant-noise-to-prg-bfkl93",
    "kind": "implication",
    "hypotheses": [
@@ -9287,6 +10177,30 @@
    "title": "High-noise LPN ⇒ Constant-noise LPN"
   },
   {
+   "id": "red-lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "kind": "implication",
+   "hypotheses": [
+    "lpn-low-noise",
+    "ddh"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20.md",
+   "slug": "lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "graphSlug": "Reductions/lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "title": "Low-noise LPN + DDH ⇒ NIZK argument for NP"
+  },
+  {
    "id": "red-lpn-mid-noise-to-lpn-high-noise",
    "kind": "implication",
    "hypotheses": [
@@ -9309,6 +10223,30 @@
    "slug": "lpn-mid-noise-to-lpn-high-noise",
    "graphSlug": "Reductions/lpn-mid-noise-to-lpn-high-noise",
    "title": "Mid-noise LPN ⇒ High-noise LPN"
+  },
+  {
+   "id": "red-lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "kind": "implication",
+   "hypotheses": [
+    "lpn-mid-noise"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[KMP14 - Simple Chosen-Ciphertext Security from Low-Noise LPN|KMP14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One fixed scheme uses LPN samples only as data, and the security reduction answers decryption queries with a trapdoor while running the CCA adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lpn-mid-noise-to-pke-cca2-security-kmp14.md",
+   "slug": "lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "graphSlug": "Reductions/lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "title": "Mid-noise LPN ⇒ IND-CCA PKE"
   },
   {
    "id": "red-lpn-to-secret-key-pir-sk-pir-cimr25",
@@ -9571,7 +10509,7 @@
    "id": "red-lwe-to-nizk-ps19",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "nizk-for-np",
    "class": "unstated",
@@ -9579,7 +10517,9 @@
    "source": [
     "[[PS19 - Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors|PS19]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "status": "draft",
@@ -9592,7 +10532,7 @@
    "id": "red-lwe-to-pke-reg05",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "pke",
    "class": "fully-black-box",
@@ -9616,7 +10556,7 @@
    "id": "red-lwe-to-tdh-dgi-19",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "superpolynomial-ratio-lwe"
    ],
    "conclusion": "tdh",
    "class": "unstated",
@@ -9631,7 +10571,7 @@
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
    "slug": "lwe-to-tdh-dgi-19",
    "graphSlug": "Reductions/lwe-to-tdh-dgi-19",
-   "title": "LWE ⇒ TDH"
+   "title": "LWE with superpolynomial ratio ⇒ TDH"
   },
   {
    "id": "red-lwe-to-zero-bit-prc-cg24",
@@ -9890,6 +10830,30 @@
    "slug": "module-lwe-to-ring-lwe-ls15",
    "graphSlug": "Reductions/module-lwe-to-ring-lwe-ls15",
    "title": "Module LWE (rank 1) ⇔ Ring LWE"
+  },
+  {
+   "id": "red-module-sis-to-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "module-sis"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Tight: one call to the collision finder, and each collision it finds is a Module-SIS solution.",
+   "rationale": {
+    "class": "One fixed construction, $\\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z}$ over $R_q$ keyed by the uniform Module-SIS matrix, and one fixed reduction that runs any collision finder once as an oracle and outputs the difference of the colliding inputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/module-sis-to-crhf.md",
+   "slug": "module-sis-to-crhf",
+   "graphSlug": "Reductions/module-sis-to-crhf",
+   "title": "Module-SIS ⇒ CRHF"
   },
   {
    "id": "red-module-svp-to-module-lwe-ls15",
@@ -10686,6 +11650,51 @@
    "title": "OT ⇒ OT extension (IKNP)"
   },
   {
+   "id": "red-owf-to-distributional-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "distributional-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the function is unchanged, and an algorithm whose output pair is at statistical distance Δ from (x, f(x)) inverts f with probability at least 1 − Δ",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any candidate distributional inverter unchanged as an inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-distributional-owf.md",
+   "slug": "owf-to-distributional-owf",
+   "graphSlug": "Reductions/owf-to-distributional-owf",
+   "title": "OWF ⇒ Distributional OWF"
+  },
+  {
+   "id": "red-owf-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-np.md",
+   "slug": "owf-to-np",
+   "graphSlug": "Reductions/owf-to-np",
+   "title": "OWF inversion ∈ NP"
+  },
+  {
    "id": "red-owf-to-prg-hill99",
    "kind": "implication",
    "hypotheses": [
@@ -10803,6 +11812,27 @@
    "title": "OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)"
   },
   {
+   "id": "red-owp-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owp-to-conp.md",
+   "slug": "owp-to-conp",
+   "graphSlug": "Reductions/owp-to-conp",
+   "title": "OWP inversion ∈ NP ∩ coNP"
+  },
+  {
    "id": "red-owp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -10850,6 +11880,30 @@
    "slug": "owp-to-prg-yao82a-gl89",
    "graphSlug": "Reductions/owp-to-prg-yao82a-gl89",
    "title": "OWP ⇒ PRG (Blum–Micali–Yao)"
+  },
+  {
+   "id": "red-owp-to-size-verifiable-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "size-verifiable-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-size-verifiable-owf.md",
+   "slug": "owp-to-size-verifiable-owf",
+   "graphSlug": "Reductions/owp-to-size-verifiable-owf",
+   "title": "OWP ⇒ Size-verifiable OWF"
   },
   {
    "id": "red-owp-to-statistically-hiding-commitment-novy98",
@@ -11168,6 +12222,30 @@
    "title": "Permuted puzzles ⇒ SK-DEPIR"
   },
   {
+   "id": "red-phi-hiding-to-lossy-trapdoor-function-kos10",
+   "kind": "implication",
+   "hypotheses": [
+    "phi-hiding"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none for one copy; a factor t from the hybrid over t copies when the exponent is small",
+   "rationale": {
+    "class": "The function is RSA itself, and the reduction passes the Φ-hiding instance unchanged as the index to any mode distinguisher, used only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/phi-hiding-to-lossy-trapdoor-function-kos10.md",
+   "slug": "phi-hiding-to-lossy-trapdoor-function-kos10",
+   "graphSlug": "Reductions/phi-hiding-to-lossy-trapdoor-function-kos10",
+   "title": "Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)"
+  },
+  {
    "id": "red-pk-depir-to-sk-depir",
    "kind": "implication",
    "hypotheses": [
@@ -11241,6 +12319,30 @@
    "slug": "pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "graphSlug": "Reductions/pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "title": "CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)"
+  },
+  {
+   "id": "red-pke-cpa-security-to-pke",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke.md",
+   "slug": "pke-cpa-security-to-pke",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke",
+   "title": "IND-CPA PKE ⇒ PKE"
   },
   {
    "id": "red-pke-to-com",
@@ -11339,6 +12441,29 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-barg-for-np-cjj21.md",
+   "slug": "polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "title": "LWE with polynomial ratio ⇒ BARG for NP"
+  },
+  {
    "id": "red-polynomial-ratio-lwe-to-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -11361,6 +12486,53 @@
    "slug": "polynomial-ratio-lwe-to-lwe",
    "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
    "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Constant factor: $\\Adv^{\\mathrm{lwe}} \\ge 0.4 \\cdot \\Adv^{\\mathrm{sis}}$ for prime $q \\ge 75$, with one call to the SIS solver.",
+   "rationale": {
+    "class": "The LWE distinguisher runs an arbitrary SIS solver once as an oracle on the transposed LWE matrix and tests one inner product, for every solver."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-sis.md",
+   "slug": "polynomial-ratio-lwe-to-sis",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-sis",
+   "title": "LWE with polynomial ratio ⇒ SIS"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "snarg-for-p",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-snarg-for-p-cjj21.md",
+   "slug": "polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "title": "LWE with polynomial ratio ⇒ SNARG for P"
   },
   {
    "id": "red-pp-to-pspace",
@@ -11684,6 +12856,30 @@
    "title": "PRG ⇒ OWF"
   },
   {
+   "id": "red-prg-to-np-average-case-hardness",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "np-average-case-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "one call to the algorithm: error $\\delta$ under the sampler gives PRG advantage at least $1/2 - 2\\delta$",
+   "rationale": {
+    "class": "The NP language is the image of the generator, so its verifier runs the generator's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-to-np-average-case-hardness.md",
+   "slug": "prg-to-np-average-case-hardness",
+   "graphSlug": "Reductions/prg-to-np-average-case-hardness",
+   "title": "PRG ⇒ Average-case hardness of NP"
+  },
+  {
    "id": "red-prg-to-prf-ggm86",
    "kind": "implication",
    "hypotheses": [
@@ -11962,6 +13158,53 @@
    "title": "QR ⇒ COM"
   },
   {
+   "id": "red-qr-to-common-random-string-nizk-proof-bdmp91",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "common-random-string-nizk-proof",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]",
+    "[[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The prover uses only the Blum-integer sampler and arithmetic modulo the integer it samples, soundness is statistical, and zero knowledge reduces to QR using any distinguisher only as an oracle.",
+    "model": "The uniformly random reference string carries the hidden bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-common-random-string-nizk-proof-bdmp91.md",
+   "slug": "qr-to-common-random-string-nizk-proof-bdmp91",
+   "graphSlug": "Reductions/qr-to-common-random-string-nizk-proof-bdmp91",
+   "title": "QR ⇒ NIZK proofs with a common random string (Blum–De Santis–Micali–Persiano)"
+  },
+  {
+   "id": "red-qr-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/qr-to-conp.md",
+   "slug": "qr-to-conp",
+   "graphSlug": "Reductions/qr-to-conp",
+   "title": "QR ∈ coNP"
+  },
+  {
    "id": "red-qr-to-cpir-ko97",
    "kind": "implication",
    "hypotheses": [
@@ -12031,6 +13274,30 @@
    "title": "QR ⇒ Additively homomorphic encryption"
   },
   {
+   "id": "red-qr-to-lossy-trapdoor-function-fgkrs10",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor t = ω(log λ) from the hybrid over the t copies",
+   "rationale": {
+    "class": "The functions use only the Blum-integer sampler and arithmetic modulo it, and the mode-indistinguishability reduction embeds a QR challenge as the index element of one copy and runs any distinguisher only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-lossy-trapdoor-function-fgkrs10.md",
+   "slug": "qr-to-lossy-trapdoor-function-fgkrs10",
+   "graphSlug": "Reductions/qr-to-lossy-trapdoor-function-fgkrs10",
+   "title": "QR ⇒ Lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
+  },
+  {
    "id": "red-qr-to-malicious-ot-security-pvw08",
    "kind": "implication",
    "hypotheses": [
@@ -12053,6 +13320,27 @@
    "slug": "qr-to-malicious-ot-security-pvw08",
    "graphSlug": "Reductions/qr-to-malicious-ot-security-pvw08",
    "title": "QR ⇒ UC-secure OT (PVW)"
+  },
+  {
+   "id": "red-qr-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/qr-to-np.md",
+   "slug": "qr-to-np",
+   "graphSlug": "Reductions/qr-to-np",
+   "title": "QR ∈ NP"
   },
   {
    "id": "red-qr-to-pke-gm84",
@@ -12190,6 +13478,51 @@
    "title": "QM ⇒ OWSG"
   },
   {
+   "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "quasi-polynomial-lwe"
+   ],
+   "conclusion": "polynomial-ratio-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/quasi-polynomial-lwe-to-polynomial-ratio-lwe.md",
+   "slug": "quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "graphSlug": "Reductions/quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "title": "Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio"
+  },
+  {
+   "id": "red-quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "kind": "implication",
+   "hypotheses": [
+    "quasi-polynomial-lwe"
+   ],
+   "conclusion": "statistical-zap-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/quasi-polynomial-lwe-to-statistical-zap-argument-blnww25.md",
+   "slug": "quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "graphSlug": "Reductions/quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "title": "Quasi-polynomially hard LWE ⇒ Statistical zap arguments"
+  },
+  {
    "id": "red-rabin-ot-to-ot",
    "kind": "equivalence",
    "hypotheses": [
@@ -12302,6 +13635,30 @@
    "slug": "ring-lwe-to-ntru-ss11",
    "graphSlug": "Reductions/ring-lwe-to-ntru-ss11",
    "title": "Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)"
+  },
+  {
+   "id": "red-ring-sis-to-crhf-lm06",
+   "kind": "implication",
+   "hypotheses": [
+    "ring-sis"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Tight: one call to the collision finder, $\\Adv^{\\mathrm{cr}} \\le \\Adv^{\\mathrm{ring\\text{-}sis}}$.",
+   "rationale": {
+    "class": "One fixed construction, the generalized compact knapsack keyed by the uniform Ring-SIS instance, and one fixed reduction that runs any collision finder once as an oracle and outputs the difference of the colliding inputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ring-sis-to-crhf-lm06.md",
+   "slug": "ring-sis-to-crhf-lm06",
+   "graphSlug": "Reductions/ring-sis-to-crhf-lm06",
+   "title": "Ring-SIS ⇒ CRHF"
   },
   {
    "id": "red-rom-to-merkle-puzzles-mer78",
@@ -12672,6 +14029,27 @@
    "title": "SIS ⇒ CRHF"
   },
   {
+   "id": "red-sis-to-pwpp-szz18",
+   "kind": "inclusion",
+   "hypotheses": [
+    "sis"
+   ],
+   "conclusion": "pwpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: one Karp reduction to Weak Pigeon, and a collision maps to a solution by subtraction",
+   "status": "draft",
+   "page": "content/Reductions/sis-to-pwpp-szz18.md",
+   "slug": "sis-to-pwpp-szz18",
+   "graphSlug": "Reductions/sis-to-pwpp-szz18",
+   "title": "SIS ∈ PWPP"
+  },
+  {
    "id": "red-sivp-to-lwe-reg05",
    "kind": "implication",
    "hypotheses": [
@@ -12719,6 +14097,30 @@
    "slug": "sivp-to-sis-ajt96",
    "graphSlug": "Reductions/sivp-to-sis-ajt96",
    "title": "SIVP ⇒ SIS"
+  },
+  {
+   "id": "red-size-verifiable-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "size-verifiable-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/size-verifiable-owf-to-owf.md",
+   "slug": "size-verifiable-owf-to-owf",
+   "graphSlug": "Reductions/size-verifiable-owf-to-owf",
+   "title": "Size-verifiable OWF ⇒ OWF"
   },
   {
    "id": "red-ske-to-owf-il89",
@@ -12907,6 +14309,30 @@
    "slug": "statistical-difference-to-szk-sv03",
    "graphSlug": "Reductions/statistical-difference-to-szk-sv03",
    "title": "Statistical Difference is SZK-complete"
+  },
+  {
+   "id": "red-statistical-io-to-io",
+   "kind": "implication",
+   "hypotheses": [
+    "statistical-io"
+   ],
+   "conclusion": "io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistical-io-to-io.md",
+   "slug": "statistical-io-to-io",
+   "graphSlug": "Reductions/statistical-io-to-io",
+   "title": "Statistical iO ⇒ iO"
   },
   {
    "id": "red-statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
@@ -13104,6 +14530,79 @@
    "title": "Sub-exponentially selective HIBE ⇒ adaptive HIBE"
   },
   {
+   "id": "red-subexponential-ddh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on group generators, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-ddh.md",
+   "slug": "subexponential-ddh-to-ddh",
+   "graphSlug": "Reductions/subexponential-ddh-to-ddh",
+   "title": "Sub-exponential DDH ⇒ DDH"
+  },
+  {
+   "id": "red-subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Soundness and zero knowledge hold with respect to a reference string generated by a trusted setup."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-nizk-argument-for-np-jj21.md",
+   "slug": "subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "graphSlug": "Reductions/subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "title": "Sub-exponential DDH ⇒ NIZK argument for NP"
+  },
+  {
+   "id": "red-subexponential-ddh-to-ppad-hardness-klv23",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-ppad-hardness-klv23.md",
+   "slug": "subexponential-ddh-to-ppad-hardness-klv23",
+   "graphSlug": "Reductions/subexponential-ddh-to-ppad-hardness-klv23",
+   "title": "Sub-exponential DDH ⇒ PPAD hardness"
+  },
+  {
    "id": "red-subexponential-io-and-owf-to-tdp-bpw16",
    "kind": "implication",
    "hypotheses": [
@@ -13286,6 +14785,30 @@
    "title": "Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio"
   },
   {
+   "id": "red-subexponential-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-lwe-to-lwe.md",
+   "slug": "subexponential-lwe-to-lwe",
+   "graphSlug": "Reductions/subexponential-lwe-to-lwe",
+   "title": "Sub-exponential LWE ⇒ LWE"
+  },
+  {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
    "kind": "implication",
    "hypotheses": [
@@ -13297,7 +14820,9 @@
    "source": [
     "[[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "status": "draft",
@@ -13377,6 +14902,54 @@
    "title": "LWE with sub-exponential ratio ⇒ LWE"
   },
   {
+   "id": "red-subexponential-modulus-lwe-to-lwr-bpr12",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "lwr",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BPR12 - Pseudorandom Functions and Lattices|BPR12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Additive: the LWR advantage exceeds the LWE advantage by at most $m \\cdot O(pB/q)$ plus the probability that some error exceeds $B$, negligible for $q \\ge pB \\cdot n^{\\omega(1)}$.",
+   "rationale": {
+    "class": "The LWE distinguisher rounds each sample with a fixed map and runs an arbitrary LWR distinguisher once as an oracle on the result."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-lwr-bpr12.md",
+   "slug": "subexponential-modulus-lwe-to-lwr-bpr12",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-lwr-bpr12",
+   "title": "LWE with sub-exponential ratio ⇒ LWR"
+  },
+  {
+   "id": "red-subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "superpolynomial-ratio-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-superpolynomial-ratio-lwe.md",
+   "slug": "subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-superpolynomial-ratio-lwe",
+   "title": "LWE with sub-exponential ratio ⇒ LWE with superpolynomial ratio"
+  },
+  {
    "id": "red-subexponential-owf-to-owf",
    "kind": "implication",
    "hypotheses": [
@@ -13423,6 +14996,30 @@
    "slug": "subexponential-prg-in-nc0-to-prg-in-nc0",
    "graphSlug": "Reductions/subexponential-prg-in-nc0-to-prg-in-nc0",
    "title": "Sub-exponentially secure NC0 PRG ⇒ NC0 PRG"
+  },
+  {
+   "id": "red-subexponential-sxdh-to-subexponential-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-sxdh"
+   ],
+   "conclusion": "subexponential-ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the pairing generator's output, and the reduction forwards any DDH adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-sxdh-to-subexponential-ddh.md",
+   "slug": "subexponential-sxdh-to-subexponential-ddh",
+   "graphSlug": "Reductions/subexponential-sxdh-to-subexponential-ddh",
+   "title": "Sub-exponential SXDH ⇒ Sub-exponential DDH"
   },
   {
    "id": "red-subexponential-sxdh-to-sxdh",
@@ -13518,6 +15115,30 @@
    "title": "SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK"
   },
   {
+   "id": "red-sxdh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "sxdh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the pairing generator's output, and the reduction forwards any DDH adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sxdh-to-ddh.md",
+   "slug": "sxdh-to-ddh",
+   "graphSlug": "Reductions/sxdh-to-ddh",
+   "title": "SXDH ⇒ DDH"
+  },
+  {
    "id": "red-symmetric-private-information-retrieval-single-server-to-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -13564,6 +15185,30 @@
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
    "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-ot",
    "title": "Symmetric private information retrieval (Single-server) ⇒ OT"
+  },
+  {
+   "id": "red-szk-hardness-to-owf-ost91",
+   "kind": "implication",
+   "hypotheses": [
+    "szk-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is average-case hardness of a promise problem in SZK rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/szk-hardness-to-owf-ost91.md",
+   "slug": "szk-hardness-to-owf-ost91",
+   "graphSlug": "Reductions/szk-hardness-to-owf-ost91",
+   "title": "Average-case-hard SZK ⇒ OWF"
   },
   {
    "id": "red-szk-to-am",
@@ -13961,6 +15606,30 @@
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
   },
   {
+   "id": "red-weak-owf-to-distributional-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "weak-owf"
+   ],
+   "conclusion": "distributional-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the function is unchanged, and an algorithm whose output pair is at statistical distance Δ from (x, f(x)) inverts f with probability at least 1 − Δ",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any candidate distributional inverter unchanged as an inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/weak-owf-to-distributional-owf.md",
+   "slug": "weak-owf-to-distributional-owf",
+   "graphSlug": "Reductions/weak-owf-to-distributional-owf",
+   "title": "Weak OWF ⇒ Distributional OWF"
+  },
+  {
    "id": "red-weak-owf-to-owf-yao82a",
    "kind": "implication",
    "hypotheses": [
@@ -14058,7 +15727,7 @@
    "id": "red-zkp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
-    "zkp"
+    "czk-worst-case-hardness"
    ],
    "conclusion": "auxiliary-input-owf",
    "class": "unstated",
@@ -14070,13 +15739,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The hypothesis, a zero-knowledge proof for a language outside $\\classBPP$, is a hardness statement about a language rather than an RTV04 primitive."
+    "class": "The hypothesis is worst-case hardness of a language with a zero-knowledge proof rather than an RTV04 primitive."
    },
    "status": "draft",
    "page": "content/Reductions/zkp-to-hash-function.md",
    "slug": "zkp-to-hash-function",
    "graphSlug": "Reductions/zkp-to-hash-function",
-   "title": "ZKP ⇒ Auxiliary-input OWF"
+   "title": "CZK ⊄ BPP ⇒ Auxiliary-input OWF"
   },
   {
    "id": "red-zpp-to-rp",
@@ -14189,6 +15858,39 @@
    "title": "No relativizing reduction from BQP to NP"
   },
   {
+   "id": "bar-cdh-to-ddh-jn03",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ddh",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "bdh"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]",
+    "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map on group generators, CDH hardness of a generator implying DDH hardness of the same generator, and does not rule out building a DDH-hard group from a CDH-hard one by another construction.",
+    "strength": "The separating generator has hard CDH whenever BDH is hard for it, so the barrier holds if BDH is hard for some symmetric-pairing group generator."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cdh-to-ddh-jn03.md",
+   "slug": "no-cdh-to-ddh-jn03",
+   "graphSlug": "Barriers/no-cdh-to-ddh-jn03",
+   "title": "No fixed-construction reduction from CDH to DDH"
+  },
+  {
    "id": "bar-conp-to-am-bm88",
    "hypotheses": [
     "conp"
@@ -14246,6 +15948,70 @@
    "slug": "no-cpa-security-to-ind-cpa-security",
    "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
    "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
+  },
+  {
+   "id": "bar-ddh-to-ibe-prv12",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-cdh-to-ind-id-cpa-dg17a"
+   ],
+   "source": [
+    "[[PRV12 - How powerful are the DDH hard groups|PRV12]]",
+    "[[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]]"
+   ],
+   "rationale": {
+    "class": "The attack breaks every IBE scheme that accesses a generic prime-order group only through its group-operation oracle, which is how a fully-black-box construction uses a DDH-hard group.",
+    "strength": "The attack is proved in the generic group model and assumes no unproven hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ddh-to-ibe-prv12.md",
+   "slug": "no-ddh-to-ibe-prv12",
+   "graphSlug": "Barriers/no-ddh-to-ibe-prv12",
+   "title": "No fully-black-box reduction from DDH to IBE"
+  },
+  {
+   "id": "bar-fac-to-low-exponent-rsa-bv98",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "low-exponent-rsa",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "fac"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]]"
+   ],
+   "rationale": {
+    "class": "BV98 rule out straight-line reductions, which compute on the modulus and the oracle's answers only by ring operations and make a logarithmic number of oracle queries, and the vocabulary has no algebraic or query-bounded class."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-fac-to-low-exponent-rsa-bv98.md",
+   "slug": "no-fac-to-low-exponent-rsa-bv98",
+   "graphSlug": "Barriers/no-fac-to-low-exponent-rsa-bv98",
+   "title": "No straight-line reduction from FAC to low-exponent RSA"
   },
   {
    "id": "bar-falsifiable-assumption-to-snark-gro16",
@@ -14585,6 +16351,78 @@
    "title": "No fully-black-box reduction from iO + OWP to CRHF"
   },
   {
+   "id": "bar-io-and-owp-to-szk-hardness-bdv17",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "szk-hardness",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BDV17 - Structure vs Hardness Through the Obfuscation Lens|BDV17]]"
+   ],
+   "rationale": {
+    "class": "BDV17 rule out constructions that may obfuscate circuits with one-way-permutation gates, a class containing every construction that uses the obfuscator and the permutation only as oracles, with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-and-owp-to-szk-hardness-bdv17.md",
+   "slug": "no-io-and-owp-to-szk-hardness-bdv17",
+   "graphSlug": "Barriers/no-io-and-owp-to-szk-hardness-bdv17",
+   "title": "No fully-black-box reduction from iO + OWP to average-case-hard SZK"
+  },
+  {
+   "id": "bar-io-to-statistical-io-gr07",
+   "hypotheses": [
+    "io"
+   ],
+   "conclusion": "statistical-io",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "np-complete-in-szk",
+     "class": "free"
+    },
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "free"
+    },
+    {
+     "kind": "complexity",
+     "target": "ph-collapse-second-level",
+     "class": "free"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "io"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[GR07 - On Best-Possible Obfuscation|GR07]]"
+   ],
+   "rationale": {
+    "class": "The collapse follows from the existence of statistical iO, whatever construction or proof produces it, so every reduction is ruled out.",
+    "strength": "A reduction from iO yields statistical iO, and hence the collapse, only if iO exists."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-to-statistical-io-gr07.md",
+   "slug": "no-io-to-statistical-io-gr07",
+   "graphSlug": "Barriers/no-io-to-statistical-io-gr07",
+   "title": "No reduction from iO to statistical iO"
+  },
+  {
    "id": "bar-ip-to-am-sha90",
    "hypotheses": [
     "ip"
@@ -14818,6 +16656,93 @@
    "slug": "no-np-to-hash-function-aggm06",
    "graphSlug": "Barriers/no-np-to-hash-function-aggm06",
    "title": "No reduction from NP to OWF"
+  },
+  {
+   "id": "bar-np-to-np-average-case-hardness-bt03",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "np-average-case-hardness",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "ph-collapse",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]"
+   ],
+   "rationale": {
+    "class": "BT03 rule out only non-adaptive reductions, and the vocabulary has no class for an adaptivity restriction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-np-average-case-hardness-bt03.md",
+   "slug": "no-np-to-np-average-case-hardness-bt03",
+   "graphSlug": "Barriers/no-np-to-np-average-case-hardness-bt03",
+   "title": "No non-adaptive reduction from NP to average-case NP hardness"
+  },
+  {
+   "id": "bar-np-to-owp-bra79b",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "owp",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "np-eq-conp",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Bra79b - A note on the complexity of cryptography|Bra79b]]"
+   ],
+   "rationale": {
+    "class": "The argument covers deterministic oracle reductions only, and the vocabulary has no class for a determinism restriction; fully-black-box would overstate it."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-owp-bra79b.md",
+   "slug": "no-np-to-owp-bra79b",
+   "graphSlug": "Barriers/no-np-to-owp-bra79b",
+   "title": "No deterministic reduction from NP to OWP"
+  },
+  {
+   "id": "bar-np-to-size-verifiable-owf-bb15",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "size-verifiable-owf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]"
+   ],
+   "rationale": {
+    "class": "BB15 rule out reductions that use the inverter only as an oracle, with adaptive queries and otherwise unrestricted, the fully-black-box shape when NP as hypothesis leaves no construction to restrict; they give no oracle separation, so relativizing would overstate."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-size-verifiable-owf-bb15.md",
+   "slug": "no-np-to-size-verifiable-owf-bb15",
+   "graphSlug": "Barriers/no-np-to-size-verifiable-owf-bb15",
+   "title": "No fully-black-box reduction from NP to size-verifiable OWF"
   },
   {
    "id": "bar-oihf-to-ot-bh26",
@@ -15204,6 +17129,65 @@
    "slug": "no-pke-to-tdp-gkm-00",
    "graphSlug": "Barriers/no-pke-to-tdp-gkm-00",
    "title": "No fully-black-box reduction from PKE to TDP"
+  },
+  {
+   "id": "bar-ppad-hardness-and-owf-to-ke-rss17",
+   "hypotheses": [
+    "ppad-hardness",
+    "owf"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[RSS17 - Can PPAD Hardness be Based on Standard Cryptographic Assumptions|RSS17]]"
+   ],
+   "rationale": {
+    "class": "RSS17 rule out the RTV04 fully-black-box class, a construction that uses the one-way function and the hard-on-average SVL instance distribution only as oracles paired with a reduction that uses any eavesdropper only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ppad-hardness-and-owf-to-ke-rss17.md",
+   "slug": "no-ppad-hardness-and-owf-to-ke-rss17",
+   "graphSlug": "Barriers/no-ppad-hardness-and-owf-to-ke-rss17",
+   "title": "No fully-black-box reduction from PPAD hardness + OWF to KE"
+  },
+  {
+   "id": "bar-ppad-hardness-to-owf-rss17",
+   "hypotheses": [
+    "ppad-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[RSS17 - Can PPAD Hardness be Based on Standard Cryptographic Assumptions|RSS17]]"
+   ],
+   "rationale": {
+    "class": "RSS17 rule out the RTV04 fully-black-box class, a construction that uses the hard-on-average SVL instance distribution only as an oracle paired with a reduction that uses any inverter only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ppad-hardness-to-owf-rss17.md",
+   "slug": "no-ppad-hardness-to-owf-rss17",
+   "graphSlug": "Barriers/no-ppad-hardness-to-owf-rss17",
+   "title": "No fully-black-box reduction from PPAD hardness to OWF"
   },
   {
    "id": "bar-qma-to-qcma-bhnz25",

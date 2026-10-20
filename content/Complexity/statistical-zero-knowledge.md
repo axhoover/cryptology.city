@@ -10,6 +10,7 @@ variants:
   honest-verifier-szk: "#honest-verifier-szk"
   coszk: "#coszk"
   statistical-difference: "#statistical-difference"
+  szk-hardness: "#average-case-hardness"
 ---
 
 # Statistical zero-knowledge
@@ -23,7 +24,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 - Graph non-isomorphism has a perfect zero-knowledge proof, so it lies in SZK — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
 - SZK is closed under complement ([[coszk-to-szk-oka96|SZK = coSZK]]) — [[Oka96 - On Relationships between Statistical Zero-Knowledge Proofs|Oka96]] for honest verifiers, [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]; simpler proof in [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]
 - SZK ⊆ [[arthur-merlin|AM]] ∩ [[co-arthur-merlin|coAM]] — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]] (AM), [[For87 - The Complexity of Perfect Zero-Knowledge|For87]] (coAM); in particular SZK does not contain NP-complete problems unless PH collapses — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]
-- Average-case-hard SZK implies [[hash-function|OWFs]]: if some language in SZK is hard on average over an efficiently samplable distribution, then one-way functions exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
+- [[szk-hardness-to-owf-ost91|Average-case-hard SZK implies OWFs]]: if some problem in SZK is hard on average over an efficiently samplable distribution, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
   - From worst-case hardness alone (SZK ⊄ BPP), auxiliary-input one-way functions exist — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]] — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]], [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]
 
@@ -39,7 +40,17 @@ $\mathbf{coSZK}$ is the class of complements of problems in SZK — [[Oka96 - On
 
 $\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of circuits $(C_0, C_1)$ sampling distributions $D_0, D_1$, with yes-instances $\|D_0 - D_1\|_{\mathrm{TV}} \ge \alpha$ and no-instances $\|D_0 - D_1\|_{\mathrm{TV}} \le \beta$. _Statistical Difference_ $\mathrm{SD}$ is $\mathrm{SD}^{2/3,1/3}$. For constants $\alpha^2 > \beta$, polarization reduces $\mathrm{SD}^{\alpha,\beta}$ to it — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
 
-<!-- BEGIN GENERATED participates-in 434a7e953be5 -->
+## Average-case hardness
+
+$\classSZK$ is **hard on average** if there are a promise problem $\Pi = (\Pi_Y, \Pi_N) \in \classSZK$ and a PPT sampler $D$ with $D(1^n) \in \Pi_Y \cup \Pi_N$ such that for all efficient $\calA$,
+
+$$
+\Pr_{x \gets D(1^n)}\!\left[\calA(x) = \Pi(x)\right] \le \frac{1}{2} + \negl(n),
+$$
+
+where $\Pi(x) = 1$ if $x \in \Pi_Y$ and $\Pi(x) = 0$ if $x \in \Pi_N$, and the probability is also over the coins of $\calA$ — standard.
+
+<!-- BEGIN GENERATED participates-in 841af55c5268 -->
 
 ## Participates in
 
@@ -48,6 +59,7 @@ $\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of
 - [[coszk-to-szk-oka96|SZK = coSZK]] (via [[statistical-zero-knowledge#coszk|coSZK]])
 - [[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]] (via [[statistical-zero-knowledge#honest-verifier-szk|Honest-verifier SZK]])
 - [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]] (via [[statistical-zero-knowledge#statistical-difference|Statistical Difference]])
+- [[szk-hardness-to-owf-ost91|Average-case-hard SZK ⇒ OWF]] (via [[statistical-zero-knowledge#average-case-hardness|Average-case hardness]])
 - [[szk-to-am|SZK ⊆ AM]]
 - [[szk-to-coam|SZK ⊆ coAM]]
 - [[szk-to-czk|SZK ⊆ CZK]]
@@ -62,5 +74,9 @@ $\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of
 - [[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]]
 - [[qr-to-szk-gmr85|QR ∈ SZK]]
 - [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]]
+
+**Barriers**
+
+- [[no-io-and-owp-to-szk-hardness-bdv17|No fully-black-box reduction from iO + OWP to average-case-hard SZK]] (via [[statistical-zero-knowledge#average-case-hardness|Average-case hardness]])
 
 <!-- END GENERATED participates-in -->

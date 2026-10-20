@@ -33,6 +33,13 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { createRequire } from "node:module";
 import { makeParticipatesIn } from "./participates-in.mjs";
+import {
+  closure as closureOf,
+  derivation,
+  scopeNames,
+  modelBit,
+} from "./closure.mjs";
+import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
 import { headingsByAnchor, headingAt } from "./markdown-text.mjs";
 const require = createRequire(import.meta.url);
@@ -194,87 +201,17 @@ reductions.sort((a, b) => a.id.localeCompare(b.id));
 barriers.sort((a, b) => a.id.localeCompare(b.id));
 
 // -------------------------------------------------------------- closure -----
-// Hypergraph reachability is Horn-clause forward chaining: a reduction fires
-// once every hypothesis is in the derived set. Linear in the total size of the
-// rules if each rule is woken only by its own hypotheses, which is what the
-// waiting-count index below does.
-//
-// `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
-// both directions — because "IP subset-of PSPACE" licenses concluding PSPACE
-// from IP exactly as an implication does.
-//
-// A `heuristic` edge is a candidate construction with no security reduction,
-// not a theorem, so it never fires.
-function buildRules() {
-  const rules = [];
-  for (const r of reductions) {
-    if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
-    rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion });
-    if (r.kind === "equivalence")
-      rules.push({
-        id: r.id + "~",
-        body: [r.conclusion],
-        head: r.hypotheses[0],
-      });
-  }
-  return rules;
-}
-
-function closure(seed, { exclude } = {}) {
-  const rules = buildRules().filter(
-    (r) => r.id !== exclude && r.id !== exclude + "~",
-  );
-  const wakes = new Map(); // object id -> rule indices waiting on it
-  const remaining = rules.map((r) => new Set(r.body).size);
-  rules.forEach((r, i) => {
-    for (const b of new Set(r.body)) {
-      if (!wakes.has(b)) wakes.set(b, []);
-      wakes.get(b).push(i);
-    }
-  });
-  const derived = new Set();
-  const queue = [];
-  // Which rule first derived each object, so a derivation can be replayed
-  // rather than reported as "everything that happened to fire".
-  const provenance = new Map();
-  const add = (x, rule) => {
-    if (!x || derived.has(x)) return;
-    derived.add(x);
-    if (rule) provenance.set(x, rule);
-    queue.push(x);
-  };
-  for (const s of seed) add(s, null);
-  const used = [];
-  while (queue.length) {
-    const cur = queue.pop();
-    for (const i of wakes.get(cur) ?? []) {
-      if (--remaining[i] === 0) {
-        used.push(rules[i].id.replace(/~$/, ""));
-        add(rules[i].head, rules[i]);
-      }
-    }
-  }
-  return { derived, used, provenance };
-}
-
-// Walk `provenance` back from a target to the seed, so the report shows the
-// chain that actually reaches the conclusion.
-function derivation(target, seed, provenance) {
-  const seen = new Set();
-  const steps = [];
-  const visit = (obj) => {
-    if (seen.has(obj) || seed.includes(obj)) return;
-    seen.add(obj);
-    const rule = provenance.get(obj);
-    if (!rule) return;
-    for (const b of rule.body) visit(b);
-    steps.push(
-      `{${rule.body.join(", ")}} => ${rule.head}  (${rule.id.replace(/~$/, "")})`,
-    );
-  };
-  visit(target);
-  return steps;
-}
+// Forward chaining with model provenance lives in scripts/closure.mjs, which
+// the tests share. An edge whose class relativizes (fully-black-box or
+// relativizing) may consume an object scoped to an idealised model; any other
+// edge may use its hypothesis' code and fires only on unscoped objects.
+const { classes: CLASS_DEFS } = loadClasses(ROOT);
+const relativizes = (cls) =>
+  cls === "relativizing" ||
+  (CLASS_DEFS[cls] !== undefined &&
+    classClosure(CLASS_DEFS, cls).has("relativizing"));
+const closure = (seed, opts = {}) =>
+  closureOf(reductions, seed, { ...opts, relativizes });
 
 // A reduction is redundant when its conclusion already follows from its own
 // hypotheses without it — i.e. some other chain gets there. Reported, never
@@ -284,14 +221,20 @@ function redundant() {
   const out = [];
   for (const r of reductions) {
     if (!r.conclusion || !r.hypotheses.length || r.heuristic) continue;
-    const { derived, provenance } = closure(r.hypotheses, { exclude: r.id });
-    if (derived.has(r.conclusion))
+    const result = closure(r.hypotheses, { exclude: r.id });
+    // Another chain counts only if it needs no idealised model beyond this
+    // edge's own.
+    const own = modelBit(r.model);
+    const m = (result.scopes.get(r.conclusion) ?? []).find(
+      (x) => (x & own) === x,
+    );
+    if (m !== undefined)
       out.push({
         id: r.id,
         page: r.page,
         hypotheses: r.hypotheses,
         conclusion: r.conclusion,
-        alsoVia: derivation(r.conclusion, r.hypotheses, provenance),
+        alsoVia: derivation(r.conclusion, r.hypotheses, result, m),
       });
   }
   return out;
@@ -377,12 +320,21 @@ if (deriveArg) {
     console.error(`unknown object id(s): ${unknown.join(", ")}`);
     process.exit(2);
   }
-  const { derived, used } = closure(seed);
+  const { derived, used, scopes } = closure(seed);
   const gained = [...derived].filter((d) => !seed.includes(d)).sort();
   console.log(
     `from {${seed.join(", ")}} the wiki derives ${gained.length} object(s):\n`,
   );
-  for (const g of gained) console.log(`  ${g}`);
+  // An object reached only through idealised-model edges is listed with the
+  // models it holds in; one reached without any is listed bare.
+  for (const g of gained) {
+    const ms = scopes.get(g) ?? [];
+    console.log(
+      ms.includes(0)
+        ? `  ${g}`
+        : `  ${g}  [${ms.map((m) => scopeNames(m).join(" + ")).join(" | ")}]`,
+    );
+  }
   console.log(`\nvia ${new Set(used).size} reduction(s).`);
   process.exit(0);
 }

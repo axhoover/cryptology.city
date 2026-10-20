@@ -10,6 +10,8 @@ id: gapsvp
 variants:
   gapsvp-sqrt-n: "#factor-square-root-of-n"
   gapsvp-sqrt-n-over-log-n: "#factor-square-root-of-n-over-log-n"
+  gapsvp-poly-factor: "#polynomial-factors"
+  gapsvp-poly-factor-quantum: "#polynomial-factors-against-quantum-algorithms"
 ---
 
 # Shortest Vector Problem
@@ -30,18 +32,35 @@ $\mathrm{GapSVP}_\gamma$ for $\gamma(n) \ge c\sqrt{n}$, where $c$ is the suitabl
 
 $\mathrm{GapSVP}_\gamma$ for $\gamma(n) \ge c\sqrt{n / \log n}$ for some constant $c > 0$, the regime in which it lies in $\classcoAM$ — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].
 
-<!-- BEGIN GENERATED participates-in ddc22e09b721 -->
+## Polynomial factors
+
+GapSVP is **hard for polynomial factors** if for every constant $c > 0$ no probabilistic polynomial-time classical algorithm solves $\mathrm{GapSVP}_{n^c}$ in the worst case: for every such algorithm and all sufficiently large $n$ there are a basis of an $n$-dimensional lattice $L$ and $d > 0$ with $\lambda_1(L) \le d$ or $\lambda_1(L) > n^c d$ on which it answers wrongly with probability above $1/3$. Worst-case hardness of approximating GapSVP to within small polynomial factors is the hypothesis of the classical reductions to [[learning-with-errors|LWE]] — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]], [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]].
+
+## Polynomial factors against quantum algorithms
+
+GapSVP is **quantumly hard for polynomial factors** if for every constant $c > 0$ no polynomial-time quantum algorithm solves $\mathrm{GapSVP}_{n^c}$ in the worst case: for every such algorithm and all sufficiently large $n$ there are a basis of an $n$-dimensional lattice $L$ and $d > 0$ with $\lambda_1(L) \le d$ or $\lambda_1(L) > n^c d$ on which it answers wrongly with probability above $1/3$. This is the hypothesis of the quantum reduction to [[learning-with-errors|LWE]] — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+
+<!-- BEGIN GENERATED participates-in 1a8aaaaef362 -->
 
 ## Participates in
 
 **Builds on Shortest Vector Problem**
 
+- [[gapsvp-poly-factor-quantum-to-gapsvp-poly-factor|Quantum polynomial-factor GapSVP ⇒ GapSVP for polynomial factors]] (via [[shortest-vector-problem#polynomial-factors-against-quantum-algorithms|Polynomial factors against quantum algorithms]])
+- [[gapsvp-poly-factor-to-gapsvp|GapSVP for polynomial factors ⇒ GapSVP]] (via [[shortest-vector-problem#polynomial-factors|Polynomial factors]])
+- [[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]] (via [[shortest-vector-problem#polynomial-factors|Polynomial factors]])
+- [[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]] (via [[shortest-vector-problem#polynomial-factors|Polynomial factors]])
 - [[gapsvp-to-coam-gg00|GapSVP ∈ coAM for γ ≥ √(n/log n)]] (via [[shortest-vector-problem#factor-square-root-of-n-over-log-n|Factor square root of n over log n]])
 - [[gapsvp-to-conp-ar04|GapSVP ∈ coNP for γ ≥ c√n]] (via [[shortest-vector-problem#factor-square-root-of-n|Factor square root of n]])
-- [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
+- [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]] (via [[shortest-vector-problem#polynomial-factors-against-quantum-algorithms|Polynomial factors against quantum algorithms]])
 - [[gapsvp-to-np|GapSVP ∈ NP]]
-- [[gapsvp-to-sis-ajt96|GapSVP ⇒ SIS]]
+- [[gapsvp-to-sis-ajt96|Polynomial-factor GapSVP ⇒ SIS]] (via [[shortest-vector-problem#polynomial-factors|Polynomial factors]])
 - [[gapsvp-to-szk-mv03|GapSVP ∈ SZK for γ ≥ √(n/log n)]] (via [[shortest-vector-problem#factor-square-root-of-n-over-log-n|Factor square root of n over log n]])
+
+**Produces Shortest Vector Problem**
+
+- [[gapsvp-poly-factor-quantum-to-gapsvp-poly-factor|Quantum polynomial-factor GapSVP ⇒ GapSVP for polynomial factors]] (via [[shortest-vector-problem#polynomial-factors|Polynomial factors]])
+- [[gapsvp-poly-factor-to-gapsvp|GapSVP for polynomial factors ⇒ GapSVP]]
 
 **Barriers**
 

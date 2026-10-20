@@ -30,5 +30,5 @@ The reduction chooses $u'$ and the $u_i$ so that $u' \prod_{i : v_i = 1} u_i = g
 ## Notes
 
 - Efficiency: the public parameters have $n + 4$ group elements, keys two and ciphertexts two plus one target-group element; decryption costs two pairings — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]].
-- With selective security, where the challenge identity is fixed before setup, a scheme with constant-size parameters follows from the same assumption: [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ selectively secure IBE]] — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]].
+- With selective security, where the challenge identity is fixed before setup, a scheme with constant-size parameters follows from the same assumption: [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ selectively secure IBE]] — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]].
 - In the random-oracle model, computational BDH suffices: [[bdh-to-ibe-bf01|BDH ⇒ IBE]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].

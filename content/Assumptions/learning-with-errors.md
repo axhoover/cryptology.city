@@ -23,10 +23,13 @@ variants:
   tensor-lwe: "#tensor-lwe"
   subexponential-lwe: "#sub-exponential-lwe"
   subexponential-modulus-lwe: "#lwe-with-sub-exponential-modulus-to-noise-ratio"
+  superpolynomial-ratio-lwe: "#lwe-with-superpolynomial-modulus-to-noise-ratio"
   subexponential-lwe-subexponential-ratio: "#sub-exponential-hardness-at-sub-exponential-ratio"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
   polynomial-ratio-lwe: "#lwe-with-polynomial-modulus-to-noise-ratio"
+  quasi-polynomial-lwe: "#quasi-polynomially-hard-lwe"
+  lwr: "#learning-with-rounding"
 ---
 
 # Learning with errors
@@ -101,7 +104,7 @@ For prime $q \le \poly(n)$, the search and decision variants of LWE are equivale
 
 ### Short kernel vectors distinguish LWE samples
 
-Let $q$ be prime, let $\chi$ be the discrete Gaussian over $\ZZ$ of width $\alpha q$, and let $\beta \le 1/(4\alpha)$ with $\beta < q$. Given $(\mathbf{A}, \mathbf{u})$ with $\mathbf{A} \in \ZZ_q^{m \times n}$, a nonzero $\mathbf{z}$ with $\mathbf{A}^{\top}\mathbf{z} \equiv \mathbf{0}$ and $\|\mathbf{z}\| \le \beta$ gives $\langle \mathbf{z}, \mathbf{u} \rangle \equiv \langle \mathbf{z}, \mathbf{e} \rangle$ for LWE samples, which is subgaussian with parameter at most $q/4$ and so lies in $(-q/4, q/4)$ except with probability $2e^{-\pi} < 0.1$; for uniform $\mathbf{u}$ it is uniform modulo $q$. So hardness of decision LWE for $(n, q, \chi, m)$ implies hardness of [[shortest-integer-solution|SIS]] for $(n, m, q, \beta)$, with a constant-factor loss — folklore. The parameters are coupled: composing with [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] needs $m > n \log q$ and $\sqrt{m} \le \beta \le 1/(4\alpha)$ — standard.
+Let $q$ be prime, let $\chi$ be the discrete Gaussian over $\ZZ$ of width $\alpha q$, and let $\beta \le 1/(4\alpha)$ with $\beta < q$. Given $(\mathbf{A}, \mathbf{u})$ with $\mathbf{A} \in \ZZ_q^{m \times n}$, a nonzero $\mathbf{z}$ with $\mathbf{A}^{\top}\mathbf{z} \equiv \mathbf{0}$ and $\|\mathbf{z}\| \le \beta$ gives $\langle \mathbf{z}, \mathbf{u} \rangle \equiv \langle \mathbf{z}, \mathbf{e} \rangle$ for LWE samples, which is subgaussian with parameter at most $q/4$ and so lies in $(-q/4, q/4)$ except with probability $2e^{-\pi} < 0.1$; for uniform $\mathbf{u}$ it is uniform modulo $q$. So hardness of decision LWE for $(n, q, \chi, m)$ implies hardness of [[shortest-integer-solution|SIS]] for $(n, m, q, \beta)$, with a constant-factor loss — folklore. The parameters are coupled: composing with [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] needs $m > n \log q$ and $\sqrt{m} \le \beta \le 1/(4\alpha)$ — standard. [[#LWE with polynomial modulus-to-noise ratio|LWE with polynomial modulus-to-noise ratio]] meets the coupling, for instance with $\alpha = 1/n$, a prime $q \in [2n^{1.5}, 4n^{1.5}]$, $m = \lceil 3n \log q \rceil$ and $\beta = \sqrt{m}$ for large $n$, which gives [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] — folklore.
 
 # Reduction to lattice problems
 
@@ -110,6 +113,8 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 - Solving decision (or search) LWE on a noticeable fraction of inputs is at least as hard as quantum-approximating the **Shortest Vector Problem (GapSVP)** and the **Shortest Independent Vectors Problem (SIVP)** to within polynomial factors in the worst case
 - Because GapSVP and SIVP are believed hard even for quantum computers, this gives a strong post-quantum security guarantee for LWE-based schemes
 - [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
+
+Classical reductions start from worst-case hardness of [[shortest-vector-problem#polynomial-factors|GapSVP for polynomial factors]], at the cost of an exponential modulus $q \ge 2^{n/2}$ — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]] ([[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]) — or of the dimension, LWE in dimension $n$ with polynomial modulus from GapSVP in dimension $\Theta(\sqrt{n})$ — [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]] ([[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]).
 
 ## Cryptographic constructions
 
@@ -134,9 +139,17 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
+### Quasi-polynomially hard LWE
+
+LWE with polynomial modulus-to-noise ratio is **quasi-polynomially hard** if for every choice of $c$, $q$ and $m$ above and every constant $d \ge 1$, for all sufficiently large $n$ every adversary $\calA$ of size at most $2^{(\log n)^d}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-(\log n)^d}$, with $\chi$ the discrete Gaussian of width $\alpha q$. Quasi-polynomial hardness of LWE at polynomial modulus-to-noise ratio is the assumption behind the statistical zap arguments of [[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]] ([[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]]).
+
 ## Sub-exponential LWE
 
 LWE is **sub-exponentially hard** if for every constant $c > 0$, every prime $q \le \poly(n)$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$, with $\chi$ the discrete Gaussian of width $\alpha q$. Fixing the noise matters: for $\chi$ uniform on $\ZZ_q$ every adversary has advantage $0$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+
+## LWE with superpolynomial modulus-to-noise ratio
+
+LWE is hard **with superpolynomial modulus-to-noise ratio** if for some function $r(n) = n^{\omega(1)}$, some modulus $q \le 2^{\poly(n)}$ and every $m = \poly(n)$, decision LWE is hard for every efficient adversary with $\chi$ a discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ and $1/\alpha = r(n)$. A ratio $2^{n^{\varepsilon}}$ is superpolynomial, so hardness [[#LWE with sub-exponential modulus-to-noise ratio|at sub-exponential ratio]] implies it ([[subexponential-modulus-lwe-to-superpolynomial-ratio-lwe|LWE with sub-exponential ratio ⇒ LWE with superpolynomial ratio]]) — folklore.
 
 ## LWE with sub-exponential modulus-to-noise ratio
 
@@ -145,6 +158,16 @@ LWE is hard **with sub-exponential modulus-to-noise ratio** if for some constant
 ### Sub-exponential hardness at sub-exponential ratio
 
 LWE with sub-exponential modulus-to-noise ratio is **sub-exponentially hard** if, with the parameters above, there is moreover a constant $\delta > 0$ such that for all sufficiently large $n$ every adversary of size at most $2^{n^{\delta}}$ has advantage at most $2^{-n^{\delta}}$.
+
+## Learning with rounding
+
+**Learning with rounding (LWR)** replaces the random error of LWE by deterministic rounding — [[BPR12 - Pseudorandom Functions and Lattices|BPR12]]. For moduli $q > p \ge 2$, let $\lfloor x \rceil_p := \lfloor (p/q) \cdot x \rceil \bmod p$ for $x \in \ZZ_q$, applied coordinate-wise. LWR is **hard** if there are moduli $q = q(n) \le 2^{\poly(n)}$ and $p = p(n) \ge 2$ with $q/p = n^{\omega(1)}$ such that for every $m = \poly(n)$ and all efficient $\calA$,
+
+$$
+\left|\Pr\!\left[\calA(1^\secpar, \mathbf{A}, \lfloor \mathbf{A}\mathbf{s} \rceil_p) = 1\right] - \Pr\!\left[\calA(1^\secpar, \mathbf{A}, \lfloor \mathbf{u} \rceil_p) = 1\right]\right|
+$$
+
+is negligible, over $\mathbf{A} \getsr \ZZ_q^{m \times n}$, $\mathbf{s} \getsr \ZZ_q^n$ and $\mathbf{u} \getsr \ZZ_q^m$. Decision LWE with $B$-bounded errors implies LWR for $q \ge pB \cdot n^{\omega(1)}$ ([[subexponential-modulus-lwe-to-lwr-bpr12|LWE with sub-exponential ratio ⇒ LWR]]) — [[BPR12 - Pseudorandom Functions and Lattices|BPR12]].
 
 ## Ring LWE
 
@@ -340,7 +363,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 32f7a5f9705f -->
+<!-- BEGIN GENERATED participates-in accebda3cb8f -->
 
 ## Participates in
 
@@ -360,21 +383,29 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-leveled-fully-homomorphic-encryption-bv14|LWE with polynomial ratio ⇒ Leveled FHE (BV14)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
-- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
-- [[lwe-to-pke-reg05|LWE ⇒ PKE]]
-- [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
+- [[lwe-to-nizk-ps19|LWE ⇒ NIZK]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[lwe-to-pke-reg05|LWE ⇒ PKE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]] (via [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]])
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
+- [[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#quasi-polynomially-hard-lwe|Quasi-polynomially hard LWE]])
+- [[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]] (via [[learning-with-errors#quasi-polynomially-hard-lwe|Quasi-polynomially hard LWE]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
+- [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[circular-security-and-lwe-to-he|LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]], [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[subexponential-modulus-lwe-to-abe-selective-security-gvw13|LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
+- [[subexponential-modulus-lwe-to-lwr-bpr12|LWE with sub-exponential ratio ⇒ LWR]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
+- [[subexponential-modulus-lwe-to-superpolynomial-ratio-lwe|LWE with sub-exponential ratio ⇒ LWE with superpolynomial ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 
@@ -382,16 +413,22 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 
 - [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
-- [[gapsvp-to-lwe-reg05|GapSVP ⇒ LWE]]
+- [[gapsvp-poly-factor-to-lwe-blprs13|Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)]]
+- [[gapsvp-poly-factor-to-lwe-pei09|Polynomial-factor GapSVP ⇒ LWE (exponential modulus)]]
+- [[gapsvp-to-lwe-reg05|Quantum polynomial-factor GapSVP ⇒ LWE]]
 - [[ideal-svp-to-ring-lwe-lpr10|Ideal-SVP ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]]
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]]
+- [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
+- [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]]
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]]
+- [[subexponential-modulus-lwe-to-lwr-bpr12|LWE with sub-exponential ratio ⇒ LWR]] (via [[learning-with-errors#learning-with-rounding|Learning with rounding]])
+- [[subexponential-modulus-lwe-to-superpolynomial-ratio-lwe|LWE with sub-exponential ratio ⇒ LWE with superpolynomial ratio]] (via [[learning-with-errors#lwe-with-superpolynomial-modulus-to-noise-ratio|LWE with superpolynomial modulus-to-noise ratio]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]
 
 <!-- END GENERATED participates-in -->

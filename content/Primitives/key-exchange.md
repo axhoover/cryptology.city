@@ -68,7 +68,7 @@ The case $N = 3$ of multiparty NIKE, with each of three parties publishing one m
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in b2a155234e42 -->
+<!-- BEGIN GENERATED participates-in 7b40e8a1b433 -->
 
 ## Participates in
 
@@ -98,6 +98,7 @@ The case $N = 3$ of multiparty NIKE, with each of three parties publishing one m
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
+- [[no-ppad-hardness-and-owf-to-ke-rss17|No fully-black-box reduction from PPAD hardness + OWF to KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
 <!-- END GENERATED participates-in -->

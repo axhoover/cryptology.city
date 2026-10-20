@@ -1,16 +1,16 @@
 ---
 type: reference
 status: draft
-title: "Bra79"
+title: "Bra79a"
 source: https://ieeexplore.ieee.org/abstract/document/1056754
 authors: Gilles Brassard
 venue: FOCS 1979
 published: 1979-06-01
 created: 2025-03-03
 aliases:
-  - Bra79
+  - Bra79a
 bibtex: |
-  @inproceedings{Bra79,
+  @inproceedings{Bra79a,
     author    = {Gilles Brassard},
     title     = {Relativized Cryptography},
     booktitle = {20th Annual Symposium on Foundations of Computer Science (FOCS 1979)},
@@ -19,7 +19,7 @@ bibtex: |
   }
 ---
 
-# [Bra79] Relativized cryptography
+# [Bra79a] Relativized cryptography
 
 **Authors:** Gilles Brassard | **Venue:** FOCS 1979 | [Source](https://ieeexplore.ieee.org/abstract/document/1056754)
 

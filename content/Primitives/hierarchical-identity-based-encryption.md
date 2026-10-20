@@ -29,6 +29,8 @@ An HIBE scheme is a tuple of efficient algorithms $\HIBE = (\Setup, \Extract, \D
 
 Correctness requires that a ciphertext encrypted for $\vec{\mathit{id}}$ can be decrypted by $\sk_{\vec{\mathit{id}}'}$ for any $\vec{\mathit{id}}' = \vec{\mathit{id}}$, and also by any key derived from $\sk_{\vec{\mathit{id}}'}$ via $\Delegate$. Note: keys derived via $\Delegate$ are typically less efficient (larger) than those from $\Extract$; in many constructions key size grows by $O(1)$ group elements per delegation level.
 
+The alphabet $\Sigma$ contains $\bits^{\secpar}$, as the identity space of an [[identity-based-encryption|IBE]] scheme does. With a constant-size alphabet and constant depth there are only constantly many identity vectors, and one [[public-key-encryption|PKE]] key pair per vector, published together, meets the notion — standard.
+
 ## Properties
 
 ### Correctness
@@ -91,13 +93,14 @@ An anonymous HIBE additionally hides the recipient identity $\vec{\mathit{id}}$ 
 - BBG05 achieves $O(1)$ ciphertext size and $O(d)$ key size — [[BBG05 - Hierarchical Identity Based Encryption with Constant Size Ciphertext|BBG05]]
 - The first adaptive HIBE in the standard model under simple assumptions uses dual system encryption — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in a8cd0d66c95a -->
+<!-- BEGIN GENERATED participates-in 0ab36a29a9a6 -->
 
 ## Participates in
 
 **Builds on Hierarchical identity-based encryption**
 
 - [[anonymous-hibe-to-hibe|Anonymous HIBE ⇒ HIBE]] (via [[hierarchical-identity-based-encryption#anonymous-hibe|Anonymous HIBE]])
+- [[hibe-selective-security-to-ind-sid-cpa|Selectively secure HIBE ⇒ Selectively secure IBE]] (via [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|IND-sHIBE-CPA Security (Selective)]])
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
 - [[subexp-selective-hibe-to-adaptive-hibe|Sub-exponentially selective HIBE ⇒ adaptive HIBE]] (via [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|Sub-exponential IND-sHIBE-CPA Security]])
 
