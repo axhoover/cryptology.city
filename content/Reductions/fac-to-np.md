@@ -17,7 +17,7 @@ security-loss: ""
 
 ## Statement
 
-The decision version of [[factoring|factoring]], $\{(N, k) : N \text{ has a nontrivial divisor } d \le k\}$, is in [[nondeterministic-polynomial-time|NP]]: such a divisor is a witness checked by one division — folklore. A search algorithm for factors follows from a decision algorithm by binary search on $k$.
+The decision version of [[factoring|factoring]], $\{(N, k) : N \text{ has a nontrivial divisor } d \le k\}$, is in [[nondeterministic-polynomial-time|NP]]: such a divisor is a witness checked by one division — folklore. A search algorithm for factors follows from a decision algorithm by binary search on $k$ — folklore.
 
 ## Notes
 

@@ -31,13 +31,13 @@ For all $\secpar \in \NN$, circuits $C$, and inputs $x$: $i\calO(1^\secpar, C)(x
 
 ### Indistinguishability
 
-For all pairs of circuits $C_0, C_1$ of the same size that compute the same function (i.e., $C_0(x) = C_1(x)$ for all $x$), and all efficient adversaries $\calA$:
+For every polynomial $s$, every pair of circuit families $\{C_{0,\secpar}\}_{\secpar}, \{C_{1,\secpar}\}_{\secpar}$ with $|C_{0,\secpar}| = |C_{1,\secpar}| \le s(\secpar)$ and $C_{0,\secpar}(x) = C_{1,\secpar}(x)$ for all $x$, and all efficient adversaries $\calA$,
 
 $$
-\Adv^{i\calO}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(i\calO(1^\secpar, C_b)) = b\right] - 1\right|
+\Adv^{i\calO}_{\calA}(\secpar) := \left|2\Pr\!\left[\calA(i\calO(1^\secpar, C_{b,\secpar})) = b\right] - 1\right|
 $$
 
-is negligible, where $b \getsr \bits$.
+is negligible, where $b \getsr \bits$ — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]. The circuits grow with $\secpar$: for one fixed pair, the obfuscator that outputs a canonical truth table once $\secpar$ exceeds the pair's truth-table size, and the circuit itself before, has advantage eventually $0$ yet hides nothing — standard.
 
 # Variations
 
@@ -51,7 +51,7 @@ iO is **sub-exponentially secure** if there is a constant $\varepsilon > 0$ such
 
 ## Differing-inputs obfuscation (diO)
 
-An intermediate notion between iO and VBB, which requires indistinguishability for pairs of circuits that are hard to distinguish on any input. Known to be equivalent to iO under certain conditions.
+A differing-inputs obfuscator requires that for every efficient sampler of $(C_0, C_1, \mathit{aux})$ such that no efficient algorithm given $\mathit{aux}$ finds $x$ with $C_0(x) \ne C_1(x)$ except with negligible probability, $(\mathit{aux}, i\calO(1^\secpar, C_0))$ and $(\mathit{aux}, i\calO(1^\secpar, C_1))$ are computationally indistinguishable — [[BCP14 - On Extractability Obfuscation|BCP14]]. Functionally equivalent circuits have no differing input, so diO implies iO. iO implies diO for circuit pairs that differ on polynomially many inputs — [[BCP14 - On Extractability Obfuscation|BCP14]] — and diO for general auxiliary input is implausible — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
 
 # Other results
 
@@ -65,7 +65,7 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 773df7628041 -->
+<!-- BEGIN GENERATED participates-in 6538106bae67 -->
 
 ## Participates in
 
@@ -79,9 +79,10 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
-- [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]]
+- [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
+- [[subexponential-io-to-io|Sub-exponentially secure iO ⇒ iO]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 
 **Produces Indistinguishability Obfuscation**
 
@@ -89,6 +90,7 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[fe-to-io|FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]
+- [[subexponential-io-to-io|Sub-exponentially secure iO ⇒ iO]]
 
 **Barriers**
 

@@ -88,7 +88,7 @@ Systems like Plonk and Marlin use a single universal trusted setup for all circu
 
 ## Recursive SNARKs
 
-A SNARK that can verify its own proofs, enabling incremental verifiable computation (IVC) and proof aggregation. Used in zkRollups and zkVMs.
+_Incrementally verifiable computation (IVC)_ for a step function $F$ and an initial state $s_0$ lets a prover holding $(s_t, \pi_t)$ compute a proof $\pi_{t+1}$ for $s_{t+1} = F(s_t)$, such that the verifier accepts honest proofs of $(t, s_t)$, proof size and verification time are $\poly(\secpar)$ independent of $t$, and for every polynomial $t$ no efficient prover makes the verifier accept $(t, s)$ with $s \ne F^{t}(s_0)$, except with negligible probability — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]. A _recursive SNARK_ proves at each step that the previous proof verifies, and gives IVC — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]].
 
 ## Interactive succinct arguments
 

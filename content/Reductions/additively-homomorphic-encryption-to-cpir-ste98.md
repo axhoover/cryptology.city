@@ -28,4 +28,4 @@ For a $\sqrt n \times \sqrt n$ database, the client sends $c_j \gets \Enc(\pk, [
 
 ## Notes
 
-- With Paillier's scheme, server-side communication logarithmic in $n$ is achievable: [[dcr-to-cpir-cha04|DCR ⇒ cPIR]] — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].
+- With Paillier's scheme, server-side communication logarithmic in $n$ is achievable: [[dcr-to-cpir-cha04|DCR ⇒ One-round sublinear cPIR]] — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].

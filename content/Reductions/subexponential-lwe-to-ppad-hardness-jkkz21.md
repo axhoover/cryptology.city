@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[learning-with-errors#sub-exponential-lwe|LWE is sub-exponentially hard]], then [[total-function-np#subclasses|PPAD]] contains problems that are hard on average — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]. The proof instantiates the Fiat–Shamir transform for the sum-check protocol with a lossy correlation-intractable hash family and plugs it into the reduction of [[CHKPRR19 - Finding a Nash equilibrium is no easier than breaking Fiat-Shamir|CHKPRR19]] from Fiat–Shamir soundness to PPAD hardness — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]].
+If [[learning-with-errors#sub-exponential-lwe|LWE is sub-exponentially hard]], then [[total-function-np#ppad|PPAD]] contains problems that are hard on average — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]. The proof instantiates the Fiat–Shamir transform for the sum-check protocol with a lossy correlation-intractable hash family and plugs it into the reduction of [[CHKPRR19 - Finding a Nash equilibrium is no easier than breaking Fiat-Shamir|CHKPRR19]] from Fiat–Shamir soundness to PPAD hardness — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]].
 
 ## Notes
 
