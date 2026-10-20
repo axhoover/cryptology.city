@@ -26,4 +26,4 @@ If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentia
 ## Notes
 
 - The evaluation key is a probabilistic-iO obfuscation of the randomized circuit that decrypts two ciphertexts, applies a gate and re-encrypts; CLTV15 build the probabilistic iO they need from sub-exponentially secure iO and one-way functions — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
-- Lattice-based unbounded-depth FHE goes through bootstrapping, whose security rests on a circular-security assumption ([[circular-security-and-lwe-to-he|circular security + LWE ⇒ FHE]]) — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
+- Lattice-based unbounded-depth FHE goes through bootstrapping, whose security rests on circular security of the scheme itself ([[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]], [[circular-security-and-lwe-to-he|LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)]]) — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]], [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].

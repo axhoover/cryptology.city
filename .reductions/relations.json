@@ -3936,6 +3936,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-lpn-fp",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-parity-with-noise.md",
+   "slug": "learning-parity-with-noise",
+   "graphSlug": "Assumptions/learning-parity-with-noise",
+   "anchor": "#sub-exponential-lpn-over-large-fields",
+   "of": "lpn",
+   "title": "Sub-exponential LPN over large fields",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "subexponential-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -3945,6 +3958,19 @@
    "anchor": "#sub-exponential-lwe",
    "of": "lwe",
    "title": "Sub-exponential LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subexponential-lwe-subexponential-ratio",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#sub-exponential-hardness-at-sub-exponential-ratio",
+   "of": "lwe",
+   "title": "Sub-exponential hardness at sub-exponential ratio",
    "aliases": [],
    "unlisted": false
   },
@@ -3971,6 +3997,32 @@
    "anchor": "#sub-exponential-one-wayness",
    "of": "hash-function",
    "title": "Sub-exponential one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subexponential-prg-in-nc0",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/low-complexity-prg.md",
+   "slug": "low-complexity-prg",
+   "graphSlug": "Primitives/low-complexity-prg",
+   "anchor": "#sub-exponential-security",
+   "of": "low-complexity-prg-nc0",
+   "title": "Sub-exponential security",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
+   "id": "subexponential-sxdh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#sub-exponential-sxdh",
+   "of": "ddh",
+   "title": "Sub-exponential SXDH",
    "aliases": [],
    "unlisted": false
   },
@@ -5287,28 +5339,6 @@
    "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
   },
   {
-   "id": "red-circular-security-and-lwe-to-he",
-   "kind": "implication",
-   "hypotheses": [
-    "circular-security",
-    "lwe"
-   ],
-   "conclusion": "compact-fhe",
-   "class": "unstated",
-   "model": "standard",
-   "source": [
-    "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/circular-security-and-lwe-to-he.md",
-   "slug": "circular-security-and-lwe-to-he",
-   "graphSlug": "Reductions/circular-security-and-lwe-to-he",
-   "title": "Circular security + LWE ⇒ Compact FHE"
-  },
-  {
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
@@ -6101,10 +6131,10 @@
    "id": "red-ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
    "kind": "implication",
    "hypotheses": [
-    "sxdh",
-    "lwe",
-    "lpn",
-    "prg-in-nc0"
+    "subexponential-sxdh",
+    "subexponential-lwe-subexponential-ratio",
+    "subexponential-lpn-fp",
+    "subexponential-prg-in-nc0"
    ],
    "conclusion": "io",
    "class": "free",
@@ -6122,7 +6152,7 @@
    "page": "content/Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21.md",
    "slug": "ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
    "graphSlug": "Reductions/ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21",
-   "title": "SXDH + LWE + LPN + NC0-PRG ⇒ iO"
+   "title": "Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO"
   },
   {
    "id": "red-ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25",
@@ -9294,7 +9324,7 @@
    "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "subexponential-modulus-lwe"
    ],
    "conclusion": "leveled-fully-homomorphic-encryption",
    "class": "fully-black-box",
@@ -12909,6 +12939,30 @@
    "title": "Subexponential LPN ⇒ PRC"
   },
   {
+   "id": "red-subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-lwe-subexponential-ratio"
+   ],
+   "conclusion": "subexponential-modulus-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe.md",
+   "slug": "subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe",
+   "graphSlug": "Reductions/subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe",
+   "title": "Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio"
+  },
+  {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
    "kind": "implication",
    "hypotheses": [
@@ -12952,6 +13006,27 @@
    "slug": "subexponential-modulus-lwe-to-abe-selective-security-gvw13",
    "graphSlug": "Reductions/subexponential-modulus-lwe-to-abe-selective-security-gvw13",
    "title": "LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)"
+  },
+  {
+   "id": "red-subexponential-modulus-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/circular-security-and-lwe-to-he.md",
+   "slug": "circular-security-and-lwe-to-he",
+   "graphSlug": "Reductions/circular-security-and-lwe-to-he",
+   "title": "LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)"
   },
   {
    "id": "red-subexponential-modulus-lwe-to-lwe",
@@ -13000,6 +13075,54 @@
    "slug": "subexponential-owf-to-owf",
    "graphSlug": "Reductions/subexponential-owf-to-owf",
    "title": "Sub-exponential OWF ⇒ OWF"
+  },
+  {
+   "id": "red-subexponential-prg-in-nc0-to-prg-in-nc0",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-prg-in-nc0"
+   ],
+   "conclusion": "prg-in-nc0",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-prg-in-nc0-to-prg-in-nc0.md",
+   "slug": "subexponential-prg-in-nc0-to-prg-in-nc0",
+   "graphSlug": "Reductions/subexponential-prg-in-nc0-to-prg-in-nc0",
+   "title": "Sub-exponentially secure NC0 PRG ⇒ NC0 PRG"
+  },
+  {
+   "id": "red-subexponential-sxdh-to-sxdh",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-sxdh"
+   ],
+   "conclusion": "sxdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-sxdh-to-sxdh.md",
+   "slug": "subexponential-sxdh-to-sxdh",
+   "graphSlug": "Reductions/subexponential-sxdh-to-sxdh",
+   "title": "Sub-exponential SXDH ⇒ SXDH"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",

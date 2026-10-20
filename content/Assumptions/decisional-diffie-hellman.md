@@ -10,6 +10,7 @@ id: ddh
 variants:
   decisional-linear: "#dlin"
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
+  subexponential-sxdh: "#sub-exponential-sxdh"
 ---
 
 # Decisional Diffie-Hellman
@@ -85,11 +86,15 @@ TODO
 
 Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
+### Sub-exponential SXDH
+
+SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary of size at most $2^{\secpar^{\varepsilon}}$ has advantage at most $2^{-\secpar^{\varepsilon}}$ against DDH in each of $\GG_1$ and $\GG_2$.
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in ad81419f5c93 -->
+<!-- BEGIN GENERATED participates-in b5d7a4c3ee1a -->
 
 ## Participates in
 
@@ -97,7 +102,7 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairin
 
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
@@ -110,10 +115,12 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairin
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 
 <!-- END GENERATED participates-in -->

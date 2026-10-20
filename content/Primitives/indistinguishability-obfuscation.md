@@ -56,7 +56,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 # Other results
 
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]] (candidate)
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
@@ -65,7 +65,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 6538106bae67 -->
+<!-- BEGIN GENERATED participates-in c1f61abb9725 -->
 
 ## Participates in
 
@@ -86,7 +86,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 
 **Produces Indistinguishability Obfuscation**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[differing-inputs-obfuscation-dio-to-io|Differing-inputs obfuscation (diO) ⇒ iO]]
 - [[fe-to-io|FE ⇒ iO]]
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]

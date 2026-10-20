@@ -23,6 +23,7 @@ variants:
   tensor-lwe: "#tensor-lwe"
   subexponential-lwe: "#sub-exponential-lwe"
   subexponential-modulus-lwe: "#lwe-with-sub-exponential-modulus-to-noise-ratio"
+  subexponential-lwe-subexponential-ratio: "#sub-exponential-hardness-at-sub-exponential-ratio"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
 ---
@@ -135,6 +136,10 @@ LWE is **sub-exponentially hard** if, for a prime $q \le \poly(n)$, $\chi$ the d
 ## LWE with sub-exponential modulus-to-noise ratio
 
 LWE is hard **with sub-exponential modulus-to-noise ratio** if for some constant $\varepsilon \in (0, 1)$, some modulus $q$ and every $m = \poly(n)$, decision LWE is hard for every efficient adversary with $\chi$ a discrete Gaussian of width $\alpha q \ge 2\sqrt{n}$ and $1/\alpha = 2^{n^{\varepsilon}}$. Unlike [[#Sub-exponential LWE|sub-exponential LWE]], the adversaries are polynomial-time; the large ratio is what attribute-based encryption for circuits of polynomial depth uses — [[GVW13 - Attribute-based encryption for circuits|GVW13]].
+
+### Sub-exponential hardness at sub-exponential ratio
+
+LWE with sub-exponential modulus-to-noise ratio is **sub-exponentially hard** if, with the parameters above, there is moreover a constant $\delta > 0$ such that for all sufficiently large $n$ every adversary of size at most $2^{n^{\delta}}$ has advantage at most $2^{-n^{\delta}}$.
 
 ## Ring LWE
 
@@ -330,14 +335,13 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 97440df26db6 -->
+<!-- BEGIN GENERATED participates-in 4d2926273fca -->
 
 ## Participates in
 
 **Builds on Learning with errors**
 
-- [[circular-security-and-lwe-to-he|Circular security + LWE ⇒ Compact FHE]]
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
 - [[decision-lwe-to-search-lwe|Decision LWE ⇒ Search LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[succinct-lwe-to-evasive-lwe|Evasive LWE + LWE ⇒ Succinct LWE]]
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]] (via [[learning-with-errors#circular-evasive-lwe|Circular evasive LWE]])
@@ -347,7 +351,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]]
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]
-- [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
+- [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]]
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
@@ -359,8 +363,10 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
+- [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-modulus-lwe-to-abe-selective-security-gvw13|LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
+- [[circular-security-and-lwe-to-he|LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
@@ -376,6 +382,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
+- [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]]
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]
 

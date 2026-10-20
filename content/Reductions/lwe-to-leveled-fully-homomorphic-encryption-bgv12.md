@@ -5,7 +5,7 @@ title: "LWE ⇒ Leveled fully homomorphic encryption"
 aliases: []
 id: red-lwe-to-leveled-fully-homomorphic-encryption-bgv12
 kind: implication
-hypotheses: [lwe]
+hypotheses: [subexponential-modulus-lwe]
 conclusion: leveled-fully-homomorphic-encryption
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$). It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$), a ratio $2^{n^{\varepsilon}}$ once the dimension $n$ is a large enough polynomial in $L$ and $\secpar$. It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
 
 ## Sketch
 
