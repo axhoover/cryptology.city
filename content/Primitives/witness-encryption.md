@@ -19,7 +19,7 @@ A witness encryption scheme for an $\classNP$ relation $\calR$ with language $L$
 - $\Enc(1^\secpar, x, m) \to c$, a randomized algorithm taking a statement $x$ and a message $m \in \bits$,
 - $\Dec(c, w) \to m$ or $\bot$, a deterministic algorithm taking a ciphertext and a candidate witness.
 
-Witness encryption without further qualification means a scheme for an $\classNP$-complete relation, such as Exact Cover in [[GGSW13 - Witness encryption and its applications|GGSW13]], and hence, composed with a Karp reduction, for every $\classNP$ relation. For a language in $\classP$ the notion is trivial: encrypt $m$ in the clear when $x \in L$ and a fixed string otherwise.
+Witness encryption without further qualification means a scheme for an $\classNP$-complete relation, such as Exact Cover in [[GGSW13 - Witness encryption and its applications|GGSW13]], and hence, composed with a Levin reduction (a Karp reduction together with an efficient map from witnesses of $x$ to witnesses of its image), for every $\classNP$ relation — standard. For a language in $\classP$ the notion is trivial: encrypt $m$ in the clear when $x \in L$ and a fixed string otherwise.
 
 ## Properties
 
