@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
-security-loss: ""
+security-loss: "polynomial; tight for a perfectly correct scheme, where one inversion yields a secret key that decrypts the challenge"
 rationale:
   class: "The one-way function runs the PKE algorithms only as oracles (for a perfectly correct scheme, key generation on its input coins), and the reduction runs any inverter as an oracle to obtain a secret key consistent with the public key and decrypt the challenge."
+  security-loss: "Without perfect correctness IL89 go through distributional one-wayness, whose conversion to one-wayness loses a polynomial factor."
 ---
 
 # PKE ⇒ OWF

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
-security-loss: ""
+security-loss: "tight: one inverter call, and the forger succeeds whenever the inverter does, with no signing query"
 rationale:
   class: "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
 ---

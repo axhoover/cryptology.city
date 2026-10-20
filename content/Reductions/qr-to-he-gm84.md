@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the CPA adversary with the QR challenge as the public key, whose advantage is twice the QR advantage"
 ---
 
 # QR ⇒ Additively homomorphic encryption

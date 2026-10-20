@@ -12,9 +12,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[BB04a - Short Signatures Without Random Oracles|BB04a]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: for $q_S < q$ signing queries the forger's success probability is at most twice the $q$-SDH advantage plus $O(q_S/p)$"
 rationale:
   class: "The scheme uses the bilinear group only through group operations and the pairing, and the reduction runs any forger as an oracle and turns its forgery into a q-SDH solution."
+  security-loss: "The reduction prepares for one of two kinds of forgery, one reusing the value $x + m + yr$ of a signing query and one not, and guesses which, which costs the factor 2."
 ---
 
 # Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)

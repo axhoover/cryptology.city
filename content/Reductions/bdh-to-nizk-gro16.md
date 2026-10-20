@@ -11,7 +11,7 @@ class: unstated
 model: crs
 source:
   - "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
-security-loss: ""
+security-loss: "tight: telling the real CRS from the simulated one is one DLIN instance, simulation on the latter is perfect, and soundness is perfect"
 rationale:
   model: "The proof system needs a trusted common reference string."
 ---

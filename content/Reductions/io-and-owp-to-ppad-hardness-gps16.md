@@ -11,9 +11,10 @@ class: free
 model: standard
 source:
   - "[[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The obfuscated circuits evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; GPS16 state no reduction notion."
+  security-loss: "GPS16 need only polynomial hardness of iO and of the one-way permutation, so their reduction loses at most a polynomial factor."
 ---
 
 # iO + OWP ⇒ PPAD hardness

@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
-security-loss: ""
+security-loss: "requires $2^{\\omega(n^{1/2})}$ hardness of constant-noise LPN"
 ---
 
 # Subexponential LPN ⇒ OT

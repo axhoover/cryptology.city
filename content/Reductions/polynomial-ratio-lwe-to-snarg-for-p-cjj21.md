@@ -13,7 +13,9 @@ source:
   - "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
 via:
   - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
-security-loss: ""
+security-loss: "polynomial"
+rationale:
+  security-loss: "CJJ21 assume LWE hard only against polynomial-time adversaries, so the soundness reduction runs in polynomial time with polynomially related advantage."
 ---
 
 # LWE with polynomial ratio ⇒ SNARG for P

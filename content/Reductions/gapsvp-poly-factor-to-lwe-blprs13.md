@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
 ---

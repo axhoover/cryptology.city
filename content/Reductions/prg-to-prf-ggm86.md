@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GGM86 - How to construct random functions|GGM86]]"
-security-loss: ""
+security-loss: "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level"
 rationale:
   class: "The construction calls the length-doubling PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle to build a PRG distinguisher."
 ---

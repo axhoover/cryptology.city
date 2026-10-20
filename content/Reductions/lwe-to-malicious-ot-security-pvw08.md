@@ -11,9 +11,10 @@ class: unstated
 model: crs
 source:
   - "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
-security-loss: ""
+security-loss: "additive: in each mode, statistical against one party, and against the other the advantage in telling the reference string's two modes apart, which decision LWE bounds, plus statistical terms"
 rationale:
   model: "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+  security-loss: "PVW08 simulate the party a mode protects with that mode's trapdoor and the other party by generating the reference string in the opposite mode, a single switch for the one string all transfers share."
 ---
 
 # LWE ⇒ UC-secure OT (PVW)

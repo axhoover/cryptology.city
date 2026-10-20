@@ -11,7 +11,9 @@ class: unstated
 model: standard
 source:
   - "[[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]]"
-security-loss: ""
+security-loss: "polynomial"
+rationale:
+  security-loss: "The server sees only the client's Paillier public key and ciphertexts, so privacy follows from semantic security by a hybrid over the query's ciphertexts."
 ---
 
 # DCR ⇒ One-round sublinear cPIR

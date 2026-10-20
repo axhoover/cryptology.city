@@ -11,9 +11,10 @@ class: unstated
 model: rom
 source:
   - "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
-security-loss: ""
+security-loss: "additive: the IOP's state-restoration soundness error for $t$ oracle queries plus $O(t^2 2^{-\\secpar})$ for $\\secpar$-bit oracle outputs"
 rationale:
   model: "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model."
+  security-loss: "BCS16 bound the soundness error of the compiled argument by the IOP's state-restoration soundness error plus the probability of a collision among the random oracle's answers."
 ---
 
 # CRHF ⇒ STARK
@@ -30,3 +31,4 @@ The computation is expressed as an [[arithmetization#air-algebraic-intermediate-
 
 - Only the interactive variant, before the BCS transform, reduces to collision resistance in the standard model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]; instantiating the random oracle with a concrete hash function is heuristic — standard.
 - Post-quantum soundness of the non-interactive argument needs a quantum-random-oracle analysis: the BCS transform of a round-by-round sound IOP is sound in the quantum random-oracle model — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]].
+- The verifier runs in time $\polylog(T)$ for a fixed program — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].

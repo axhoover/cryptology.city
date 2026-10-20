@@ -10,7 +10,7 @@ conclusion: ot
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: ""
+security-loss: "none: an adversary against receiver or sender privacy is a query-privacy or data-privacy adversary against the SPIR scheme with the same advantage"
 rationale:
   class: "The construction is the identity on SPIR protocols, and each security reduction runs the OT adversary unchanged, as an oracle, against the corresponding SPIR property."
 ---

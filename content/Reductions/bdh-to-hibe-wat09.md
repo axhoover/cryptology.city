@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
-security-loss: ""
+security-loss: "additive: $O(q)$ DLIN advantages plus twice the DBDH advantage, for $q$ private-key queries"
 rationale:
   class: "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the HIBE adversary once as an oracle against a DLIN or DBDH challenge."
 ---

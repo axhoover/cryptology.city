@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
-security-loss: ""
+security-loss: "tight: the adversary runs unchanged through the encodings, with the same advantage"
 rationale:
   class: "One fixed encoding of attributes and predicates into HVE vectors and patterns invokes the HVE algorithms only as oracles, and the reduction translates the adversary's key queries and challenge through the same encoding and runs it unchanged."
 ---

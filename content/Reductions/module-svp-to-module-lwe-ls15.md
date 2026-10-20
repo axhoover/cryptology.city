@@ -11,7 +11,7 @@ class: fully-black-box
 model: quantum
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The quantum reduction uses an arbitrary Module LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability."
   model: "The step turning the bounded-distance-decoding solver into a discrete Gaussian sampler is a quantum algorithm."

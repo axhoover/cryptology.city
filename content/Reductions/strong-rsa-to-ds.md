@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]"
-security-loss: ""
+security-loss: "factor $O(q_S)$ for $q_S$ signing queries, from guessing which signing prime a forgery reuses, plus the collision-finding advantage"
 rationale:
   class: "The scheme uses only the RSA modulus generator and the hash function, and the reduction runs any forger as an oracle and, in each forgery case, outputs a strong-RSA solution or a hash collision."
 ---

@@ -12,7 +12,7 @@ model: crs
 source:
   - "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]"
   - "[[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]"
-security-loss: ""
+security-loss: "polynomial: soundness is statistical, and zero knowledge reduces to QR with a hybrid over the polynomially many repetitions"
 rationale:
   class: "The prover uses only the Blum-integer sampler and arithmetic modulo the integer it samples, soundness is statistical, and zero knowledge reduces to QR using any distinguisher only as an oracle."
   model: "The uniformly random reference string carries the hidden bits."

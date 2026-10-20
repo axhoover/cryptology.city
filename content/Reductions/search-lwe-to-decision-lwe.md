@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
-security-loss: ""
+security-loss: "polynomial: for a distinguisher of advantage $\\varepsilon$ the search algorithm runs in time $\\poly(n, q, 1/\\varepsilon)$, testing each of the $nq$ guesses $s_i = \\ell$"
 ---
 
 # Search LWE ⇒ Decision LWE

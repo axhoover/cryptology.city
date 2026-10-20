@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
-security-loss: ""
+security-loss: "factor $O(\\ell d)$ for depth $d$ and $\\ell$-bit secret keys, from the hybrid over the bitwise encryptions of the secret keys along the chain"
 rationale:
   class: "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
 ---

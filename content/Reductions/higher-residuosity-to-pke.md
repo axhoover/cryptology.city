@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the IND-CPA adversary with the challenge as the public non-residue $g$, whose advantage is at most twice the advantage of distinguishing a uniform $d$-th residue from a uniform $d$-th non-residue"
 rationale:
   class: "CF85 state no reduction notion; the proof shape is one fixed construction on the modulus and one fixed reduction that plants the higher-residuosity challenge as the public non-residue and runs any IND-CPA adversary once as an oracle."
 ---

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The worst-case algorithm builds random Ring-SIS instances from its input ideal lattice and calls the collision finder only as an oracle, for every solver with noticeable success probability."
 ---

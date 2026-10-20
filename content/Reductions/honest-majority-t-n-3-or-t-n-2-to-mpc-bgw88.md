@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
-security-loss: ""
+security-loss: "none (perfect security)"
 rationale:
   class: "The theorem is unconditional and its hypothesis is a corruption threshold, not a primitive a construction could use as an oracle, so no black-box class applies."
 ---

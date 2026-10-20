@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
-security-loss: ""
+security-loss: "polynomial: decisional-LPN hybrids for the public key and for each encryption of $0$"
 rationale:
   class: "One fixed construction uses LPN samples only as data, and each of the two hybrid reductions (public key, then ciphertext, to uniform) runs the IND-CPA adversary once as an oracle to distinguish LPN samples from uniform."
 ---

@@ -11,7 +11,7 @@ class: free
 model: generic-group
 source:
   - "[[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]"
-security-loss: ""
+security-loss: "the adversary beats the extractor with probability $O(m^2/q)$ for $m$ group-oracle queries, $q$ the group order"
 rationale:
   class: "The hypothesis is a model of computation, not a primitive, so no black-box class applies; Den06 prove the statement for every generic adversary, which is the free class scoped by the model."
   model: "The extraction holds only for generic adversaries; nothing is claimed in the standard model."

@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
-security-loss: ""
+security-loss: "none: the FHE public key is the SHE public key with encryptions of its own secret-key bits, so the FHE IND-CPA game is the circular-security game"
 rationale:
   class: "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
 ---

@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]"
-security-loss: ""
+security-loss: "a factor $2^{O(w)}$ for input weight $w$: a collision finder with success $\\delta$ gives an LPN distinguisher with advantage at least $\\frac{\\delta}{2}(1-2\\varepsilon)^{2w}$"
 ---
 
 # Subexponential LPN ⇒ CRHF

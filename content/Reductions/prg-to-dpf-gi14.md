@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
-security-loss: ""
+security-loss: "polynomial: a factor the number of PRG invocations in key generation, from the hybrid over them"
 rationale:
   class: "GI14 use the PRG only as an oracle, replacing random key portions at each recursion level by seeds expanded at evaluation time, and prove hiding by a hybrid over PRG invocations that runs the DPF adversary only as an oracle."
 ---

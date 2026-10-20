@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
-security-loss: ""
+security-loss: "additive: at most twice the sum of the PRG, iO and punctured-PRF advantages, one hybrid each, and $2^{-\\secpar}$ for a uniform $t^*$ in the PRG's image, with the PRG and the punctured PRF built from the one-way function at a polynomial loss"
 rationale:
   class: "The construction obfuscates a circuit containing the code of a puncturable PRF and a PRG built from the one-way function, so it is not black-box in the OWF, and SW14 state no reduction notion."
 ---
@@ -29,3 +29,4 @@ The secret key is a puncturable PRF key $K$; the public key is an obfuscation of
 ## Notes
 
 - The same punctured-programs technique also gives [[public-key-encryption#cca-security|IND-CCA-secure]] PKE — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+- Efficiency: a ciphertext is $2\secpar$ bits longer than the message — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].

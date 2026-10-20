@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]"
-security-loss: ""
+security-loss: "a factor $k^{O(1)}$: a collision finder with success $\\delta$ gives an LPN distinguisher with advantage at least $\\frac{\\delta}{2}(1-2\\varepsilon)^{2w} = \\delta \\cdot k^{-O(1)}$"
 ---
 
 # Low-noise LPN ⇒ CRHF

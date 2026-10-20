@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
-security-loss: ""
+security-loss: "none: hiding is perfect, and two sets of accepted shares interpolating different secrets yield $\\log_g h$"
 rationale:
   model: "The scheme uses no idealised oracle, only public generators whose discrete-logarithm relation the dealer does not know and a broadcast channel for the commitments."
 ---

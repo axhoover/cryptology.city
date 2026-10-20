@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the CPA adversary on one Ring LWE sample, whose advantage is at most twice the Ring LWE advantage plus twice the statistical distance of the public key from uniform"
 ---
 
 # Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)

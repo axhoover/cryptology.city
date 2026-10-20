@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
-security-loss: ""
+security-loss: "tight: one oracle call, advantage-preserving"
 rationale:
   class: "One fixed construction calls the DPF only through its key generation and evaluation algorithms, and the privacy reduction runs any query distinguisher once as an oracle on the key it receives, which makes it a DPF hiding adversary."
 ---
@@ -54,3 +54,7 @@ Correctness: $a_0 + a_1 = \sum_j D[j] \cdot f_{i,1}(j) = D[i]$ by DPF correctnes
 \end{algorithmic}
 \end{algorithm}
 ```
+
+## Notes
+
+- With the PRG-based DPF of GI14 ([[prg-to-dpf-gi14|PRG ⇒ DPF]]), each query has length $O(\secpar \cdot (\log N)^{\log_2 3})$, polylogarithmic in $N$ when $\secpar = \polylog(N)$, as a strong one-way function allows, and each server's computation is comparable to applying a symmetric encryption scheme to the entire database — [[GI14 - Distributed Point Functions and Their Applications|GI14]].

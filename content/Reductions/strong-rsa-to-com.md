@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]"
-security-loss: ""
+security-loss: "tight up to a negligible term: one run of the binding adversary yields a strong-RSA solution for the planted challenge, except with negligible probability over the part of $\\log_h g$ hidden from the committer; hiding is statistical"
 rationale:
   class: "The commitment uses the modulus and bases only through group operations, and the binding reduction runs the committer once as an oracle and turns two openings into a nontrivial root of the planted strong-RSA challenge."
 ---

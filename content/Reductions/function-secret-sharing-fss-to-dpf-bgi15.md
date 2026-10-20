@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BGI15 - Function Secret Sharing|BGI15]]"
-security-loss: ""
+security-loss: "none: the DPF hiding game is the FSS hiding game restricted to point functions"
 rationale:
   class: "The DPF is the FSS scheme restricted to point functions, and the reduction passes any DPF adversary unchanged to the FSS hiding game; both use their objects only as oracles."
 ---

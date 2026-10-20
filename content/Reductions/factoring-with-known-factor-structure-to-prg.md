@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]"
-security-loss: ""
+security-loss: "polynomial: a factor $m$ from Yao's next-bit hybrid, and a polynomial loss in turning a low-order-bit predictor into a factoring algorithm"
 rationale:
   class: "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
+  security-loss: "VV84 extract square roots modulo $N$, and hence factor $N$, from a low-order-bit predictor in time polynomial in $\\log N$ and the inverse of its advantage."
 ---
 
 # Factoring with known factor structure ⇒ PRG

@@ -11,9 +11,10 @@ class: unstated
 model: rom
 source:
   - "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
-security-loss: ""
+security-loss: "tight up to statistical terms: the reduction programs every hash value as the image of a short vector it samples, so a forgery yields an SIS solution over the NTRU lattice without guessing"
 rationale:
   model: "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model."
+  security-loss: "In the GPV reduction no query is guessed, and the conditional min-entropy of a preimage makes the forgery differ from the programmed preimage except with negligible probability."
 ---
 
 # NTRU + NTRU-SIS ⇒ DS

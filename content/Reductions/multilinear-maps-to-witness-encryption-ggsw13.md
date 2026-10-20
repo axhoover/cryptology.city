@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
-security-loss: ""
+security-loss: "tight: the assumption is the scheme's security on Exact Cover instances without a cover, and the Karp reduction to Exact Cover preserves it"
 ---
 
 # Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)

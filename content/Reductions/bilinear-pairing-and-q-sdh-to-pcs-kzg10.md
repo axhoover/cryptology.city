@@ -11,7 +11,7 @@ class: fully-black-box
 model: crs
 source:
   - "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
-security-loss: ""
+security-loss: "tight: one call to the binding adversary yields a $q$-SDH solution"
 rationale:
   class: "The construction uses the bilinear group only through group operations and the pairing, and the reduction runs any evaluation-binding adversary once as an oracle and turns its two openings into a q-SDH solution."
   model: "The scheme needs a trusted structured reference string of powers of a secret exponent that is discarded after setup."

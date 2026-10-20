@@ -11,9 +11,10 @@ class: unstated
 model: standard
 source:
   - "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
-security-loss: ""
+security-loss: "tight up to an additive $2q/p$ for $q$ key queries when the challenge attributes are fixed first: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$"
 rationale:
   class: "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$."
+  security-loss: "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them."
 ---
 
 # IPPE ⇒ HVE

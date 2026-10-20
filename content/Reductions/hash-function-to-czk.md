@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
-security-loss: ""
+security-loss: "polynomial: zero knowledge reduces to commitment hiding by a hybrid over the polynomially many unopened commitments, on top of the polynomial loss of the commitment from the one-way function"
 rationale:
   class: "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 chain from a one-way function to the commitment is fully black-box, soundness needs only statistical binding, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
 ---

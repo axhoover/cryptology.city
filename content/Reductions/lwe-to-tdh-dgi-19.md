@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
-security-loss: ""
+security-loss: "factor 2: index hiding passes through a uniform encoding key, one LWE hybrid on each side"
 ---
 
 # LWE with superpolynomial ratio ⇒ TDH

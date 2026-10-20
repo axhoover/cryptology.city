@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the CPA adversary with the QR challenge as the public key, whose advantage is at most twice the QR advantage"
 rationale:
   class: "GM84 state no reduction notion; the construction uses only the modulus generator, and one fixed reduction sets the public non-residue to the QR challenge and runs the IND-CPA adversary once as an oracle."
 ---

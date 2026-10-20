@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
-security-loss: ""
+security-loss: "factor $q_D$ in the MAC term: a CCA adversary making $q_E$ encryption and $q_D$ decryption queries has advantage at most the CPA advantage of an adversary making $q_E$ encryption queries plus $2q_D$ times the SUF-CMA advantage of a forger making $q_E$ tag queries"
 rationale:
-  class: "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery."
+  class: "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and both reductions run any CCA adversary as an oracle and reject its decryption queries, the forger outputting a uniformly chosen one of them."
+  security-loss: "Ciphertext integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage, and since the SUF-CMA game takes one final forgery and has no verification oracle, the forger guesses which of the $q_D$ decryption queries carries a valid tag."
 ---
 
 # SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE
@@ -40,4 +41,5 @@ An admissible CCA adversary never asks to decrypt an output of the encryption or
 
 ## Notes
 
+- With strong unforgeability defined through a verification oracle, the forger forwards every decryption query, and the bound is the CPA advantage plus twice the SUF-CMA advantage at $q_D$ verification queries — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]; passing from that notion to the single-forgery one costs the factor $q_D$ — [[BGM04 - The Power of Verification Queries in Message Authentication and Authenticated Encryption|BGM04]].
 - Concurrently and independently, [[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]] prove that unforgeability of ciphertexts together with CPA security implies CCA security.

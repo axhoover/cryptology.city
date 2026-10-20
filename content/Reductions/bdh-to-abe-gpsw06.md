@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the selective adversary, whose advantage is at most twice the DBDH advantage"
 rationale:
   class: "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
 ---
@@ -29,3 +29,4 @@ $\Setup$ publishes $e(g,g)^y$ and per-attribute elements $T_i = g^{t_i}$; a key 
 ## Notes
 
 - The ciphertext-policy counterpart, selectively secure CP-ABE for monotone formulas in the standard model, has ciphertext size linear in the formula under decisional $q$-parallel BDHE; a less efficient scheme rests on DBDH — [[Wat11 - Ciphertext-Policy Attribute-Based Encryption from Subset Cover|Wat11]].
+- In the small-universe construction a ciphertext for attribute set $\gamma$ is one element of $\GG_T$ and $|\gamma|$ elements of $\GG$, a key has one element of $\GG$ per leaf of its access structure, and the public parameters have one element of $\GG$ per attribute of the universe and one of $\GG_T$ — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].

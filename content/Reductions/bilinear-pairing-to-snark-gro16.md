@@ -30,3 +30,4 @@ The circuit is arithmetized as a [[arithmetization#qap-quadratic-arithmetic-prog
 ## Notes
 
 - In the algebraic group model, knowledge soundness of Groth's construction reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+- For a circuit with $m$ wires and $n$ multiplication gates, the CRS has about $m + 2n$ elements of $\GG_1$ and $n$ of $\GG_2$, the prover computes about $m + 3n$ exponentiations in $\GG_1$ and $n$ in $\GG_2$, and the verifier computes one exponentiation in $\GG_1$ per public input and three pairings — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
