@@ -191,7 +191,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
 
-<!-- BEGIN GENERATED participates-in 906888019fac -->
+<!-- BEGIN GENERATED participates-in e15073d01488 -->
 
 ## Participates in
 
@@ -218,6 +218,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]]
+- [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]]
 
 **Barriers**

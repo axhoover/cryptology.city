@@ -53,7 +53,7 @@ Some protocols assume factoring is hard even given additional structural informa
 - **General Number Field Sieve (GNFS)**: sub-exponential $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — best known classical algorithm for large $N$
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in b4fe8e111157 -->
+<!-- BEGIN GENERATED participates-in 4b4d59588bc1 -->
 
 ## Participates in
 
@@ -67,6 +67,7 @@ Some protocols assume factoring is hard even given additional structural informa
 - [[fac-to-pwpp-jer16|FAC ∈ PWPP (under randomized reductions)]]
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
+- [[factoring-blum-integers-to-pke-cca2-security-hk09|Factoring ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 

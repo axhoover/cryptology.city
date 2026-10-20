@@ -891,6 +891,19 @@
    "unlisted": false
   },
   {
+   "id": "dbdh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/bilinear-map-assumptions.md",
+   "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
+   "anchor": "#decisional-bdh",
+   "of": "bdh",
+   "title": "Decisional BDH",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "dcr",
    "kind": "object",
    "type": "assumption",
@@ -3845,6 +3858,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-modulus-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-sub-exponential-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with sub-exponential modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -3978,6 +4004,19 @@
     "TFNP",
     "Total function NP"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "three-party-nike",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/key-exchange.md",
+   "slug": "key-exchange",
+   "graphSlug": "Primitives/key-exchange",
+   "anchor": "#three-party-nike",
+   "of": "ke",
+   "title": "Three-party NIKE",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5637,6 +5676,102 @@
    "title": "$d$-th Composite Residuosity ⇒ Additively homomorphic encryption"
   },
   {
+   "id": "red-dbdh-to-bdh",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "bdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a BDH solver with success ε gives a DBDH distinguisher with advantage ε − 1/q",
+   "rationale": {
+    "class": "The reduction runs any BDH solver once as an oracle on the first four elements of its DBDH tuple and compares the answer with the fifth."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-bdh.md",
+   "slug": "dbdh-to-bdh",
+   "graphSlug": "Reductions/dbdh-to-bdh",
+   "title": "DBDH ⇒ BDH"
+  },
+  {
+   "id": "red-dbdh-to-ibe-wat05",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor O(n q) for n-bit identities and q key queries, from an artificial abort",
+   "rationale": {
+    "class": "The scheme is one fixed construction over the pairing group, and the reduction runs the IBE adversary only as an oracle on parameters built from its DBDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-ibe-wat05.md",
+   "slug": "dbdh-to-ibe-wat05",
+   "graphSlug": "Reductions/dbdh-to-ibe-wat05",
+   "title": "DBDH ⇒ IBE (Waters, standard model)"
+  },
+  {
+   "id": "red-dbdh-to-ind-sid-cpa-bb04",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "ind-sid-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the reduction answers every key query and embeds its tuple in the challenge",
+   "rationale": {
+    "class": "The scheme is one fixed construction over the pairing group, and the reduction runs the IBE adversary only as an oracle on parameters built from its DBDH tuple and the committed challenge identity."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-ind-sid-cpa-bb04.md",
+   "slug": "dbdh-to-ind-sid-cpa-bb04",
+   "graphSlug": "Reductions/dbdh-to-ind-sid-cpa-bb04",
+   "title": "DBDH ⇒ Selectively secure IBE (Boneh–Boyen)"
+  },
+  {
+   "id": "red-dbdh-to-three-party-nike-jou04",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "three-party-nike",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Jou04 - A One Round Protocol for Tripartite Diffie–Hellman|Jou04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the transcript and key are a DBDH tuple",
+   "rationale": {
+    "class": "The protocol uses only the pairing group's operations, and the transcript with the key is exactly the DBDH challenge, which the reduction passes to any eavesdropper once."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-three-party-nike-jou04.md",
+   "slug": "dbdh-to-three-party-nike-jou04",
+   "graphSlug": "Reductions/dbdh-to-three-party-nike-jou04",
+   "title": "DBDH ⇒ Three-party NIKE (Joux)"
+  },
+  {
    "id": "red-dcr-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -6912,6 +7047,27 @@
    "slug": "factoring-blum-integers-to-claw-free-permutations-gmr88",
    "graphSlug": "Reductions/factoring-blum-integers-to-claw-free-permutations-gmr88",
    "title": "Factoring ⇒ Claw-free permutations (GMR)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-pke-cca2-security-hk09",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-pke-cca2-security-hk09.md",
+   "slug": "factoring-blum-integers-to-pke-cca2-security-hk09",
+   "graphSlug": "Reductions/factoring-blum-integers-to-pke-cca2-security-hk09",
+   "title": "Factoring ⇒ CCA-secure PKE (Hofheinz–Kiltz)"
   },
   {
    "id": "red-factoring-blum-integers-to-tdp-rab79",
@@ -8839,6 +8995,56 @@
    "title": "Ring-LWE ⇒ Unkeyed DEPIR"
   },
   {
+   "id": "red-lwe-to-hibe-selective-security-chkp10",
+   "kind": "implication",
+   "hypotheses": [
+    "lwe"
+   ],
+   "conclusion": "hibe-selective-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]]",
+    "[[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "Each scheme is one fixed construction from LWE samples and lattice trapdoors, and its reduction runs the HIBE adversary only as an oracle on parameters built from the committed challenge identity and its LWE challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-hibe-selective-security-chkp10.md",
+   "slug": "lwe-to-hibe-selective-security-chkp10",
+   "graphSlug": "Reductions/lwe-to-hibe-selective-security-chkp10",
+   "title": "LWE ⇒ Selectively secure HIBE (bonsai trees)"
+  },
+  {
+   "id": "red-lwe-to-ibe-gpv08",
+   "kind": "implication",
+   "hypotheses": [
+    "lwe"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor about the number of random-oracle queries, from guessing the challenge identity's query",
+   "rationale": {
+    "class": "The scheme is one fixed construction from LWE samples and a lattice trapdoor, and the reduction runs the IBE adversary only as an oracle on a public key built from its LWE challenge.",
+    "model": "The reduction programs the hash from identities to syndromes, modelled as a random oracle, by sampling each preimage first."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-ibe-gpv08.md",
+   "slug": "lwe-to-ibe-gpv08",
+   "graphSlug": "Reductions/lwe-to-ibe-gpv08",
+   "title": "LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)"
+  },
+  {
    "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "kind": "implication",
    "hypotheses": [
@@ -8954,6 +9160,30 @@
    "slug": "lwe-to-pke-reg05",
    "graphSlug": "Reductions/lwe-to-pke-reg05",
    "title": "LWE ⇒ PKE"
+  },
+  {
+   "id": "red-lwe-to-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "lwe"
+   ],
+   "conclusion": "sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "constant: an SIS solver with success ε gives an LWE distinguisher with advantage at least 0.4ε − O(ε/q)",
+   "rationale": {
+    "class": "The reduction hands the transposed LWE matrix to any SIS solver, run once as an oracle, and tests the inner product of its answer with the LWE vector."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-sis.md",
+   "slug": "lwe-to-sis",
+   "graphSlug": "Reductions/lwe-to-sis",
+   "title": "LWE ⇒ SIS"
   },
   {
    "id": "red-lwe-to-tdh-dgi-19",
@@ -11184,6 +11414,30 @@
    "title": "QR ⇒ PKE"
   },
   {
+   "id": "red-qr-to-prg-bbs86",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "prg",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor m in the output length, from Yao's next-bit hybrid",
+   "rationale": {
+    "class": "The generator only squares modulo the sampled Blum integer, and the reduction runs any distinguisher only as an oracle to predict the low-order bit, which decides quadratic residuosity."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-prg-bbs86.md",
+   "slug": "qr-to-prg-bbs86",
+   "graphSlug": "Reductions/qr-to-prg-bbs86",
+   "title": "QR ⇒ PRG (Blum–Blum–Shub)"
+  },
+  {
    "id": "red-qr-to-szk-gmr85",
    "kind": "inclusion",
    "hypotheses": [
@@ -12316,6 +12570,54 @@
    "title": "Sub-exponential LWE ⇒ PPAD hardness"
   },
   {
+   "id": "red-subexponential-modulus-lwe-to-abe-selective-security-gvw13",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "abe-selective-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GVW13 - Attribute-based encryption for circuits|GVW13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is one fixed construction from LWE samples and lattice trapdoors, and the reduction runs the ABE adversary only as an oracle on public parameters built from the committed challenge attribute and its LWE challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-abe-selective-security-gvw13.md",
+   "slug": "subexponential-modulus-lwe-to-abe-selective-security-gvw13",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-abe-selective-security-gvw13",
+   "title": "LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)"
+  },
+  {
+   "id": "red-subexponential-modulus-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-lwe.md",
+   "slug": "subexponential-modulus-lwe-to-lwe",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-lwe",
+   "title": "LWE with sub-exponential ratio ⇒ LWE"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -12582,6 +12884,31 @@
    "slug": "tdp-to-cpir-ko00",
    "graphSlug": "Reductions/tdp-to-cpir-ko00",
    "title": "TDP ⇒ cPIR (Kushilevitz–Ostrovsky)"
+  },
+  {
+   "id": "red-tdp-to-ds-br93",
+   "kind": "implication",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor q_H + 1 for q_H hash queries: a forger with success ε inverts the permutation with probability ε/(q_H + 1)",
+   "rationale": {
+    "class": "The scheme evaluates and inverts the permutation only as an oracle, and the reduction runs any forger once as an oracle, planting its challenge in one random-oracle answer.",
+    "model": "The reduction programs the hash onto the permutation's domain, answering every other query with the image of a point it chose."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tdp-to-ds-br93.md",
+   "slug": "tdp-to-ds-br93",
+   "graphSlug": "Reductions/tdp-to-ds-br93",
+   "title": "TDP ⇒ DS (full-domain hash, random oracle model)"
   },
   {
    "id": "red-tdp-to-hash-function",

@@ -14,6 +14,7 @@ id: bdh
 variants:
   k-linear-assumption: "#k-linear-assumption"
   n-bdhe: "#decision-n-bdhe"
+  dbdh: "#decisional-bdh"
 ---
 
 # Bilinear map assumptions
@@ -29,6 +30,8 @@ $$
 $$
 
 is negligible for uniform $a, b, c \getsr \ZZ_q$.
+
+### Decisional BDH
 
 **Decisional BDH (DBDH / BDDH):** Distinguish $(g, g^a, g^b, g^c, e(g,g)^{abc})$ from $(g, g^a, g^b, g^c, e(g,g)^r)$ for random $r \getsr \ZZ_q$.
 
@@ -61,7 +64,7 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in c1034c4eab09 -->
+<!-- BEGIN GENERATED participates-in 89e13eb9fc9c -->
 
 ## Participates in
 
@@ -75,6 +78,14 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [[dbdh-to-bdh|DBDH ⇒ BDH]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
+- [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
+- [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
+- [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13) (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+
+**Produces Bilinear map assumptions**
+
+- [[dbdh-to-bdh|DBDH ⇒ BDH]]
 
 <!-- END GENERATED participates-in -->

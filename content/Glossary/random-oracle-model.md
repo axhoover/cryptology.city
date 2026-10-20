@@ -28,7 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 4c8aa1468be3 -->
+<!-- BEGIN GENERATED participates-in 902b59a7191d -->
 
 ## Participates in
 
@@ -55,6 +55,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
+- [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
@@ -65,5 +66,6 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
+- [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
 
 <!-- END GENERATED participates-in -->
