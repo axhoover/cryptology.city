@@ -6,7 +6,7 @@ aliases: []
 id: red-tdp-to-nizk-bfm88
 kind: implication
 hypotheses: [tdp]
-conclusion: nizk
+conclusion: common-random-string-nizk-proof
 class: fully-black-box
 model: crs
 source:

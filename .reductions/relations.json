@@ -677,6 +677,19 @@
    "unlisted": false
   },
   {
+   "id": "common-random-string-nizk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#nizk-proofs-in-the-common-random-string-model",
+   "of": "nizk",
+   "title": "NIZK proofs in the common random string model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -4948,6 +4961,31 @@
    "title": "COM ⇒ OWF"
   },
   {
+   "id": "red-common-random-string-nizk-proof-to-nizk",
+   "kind": "implication",
+   "hypotheses": [
+    "common-random-string-nizk-proof"
+   ],
+   "conclusion": "nizk",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and every adversary against it is an adversary against the given proof system.",
+    "model": "The reference string is uniformly random, a special case of a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/common-random-string-nizk-proof-to-nizk.md",
+   "slug": "common-random-string-nizk-proof-to-nizk",
+   "graphSlug": "Reductions/common-random-string-nizk-proof-to-nizk",
+   "title": "NIZK proofs with a common random string ⇒ NIZK"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -8606,7 +8644,7 @@
    "id": "red-nizk-to-zap-dn00",
    "kind": "implication",
    "hypotheses": [
-    "nizk"
+    "common-random-string-nizk-proof"
    ],
    "conclusion": "zap",
    "class": "fully-black-box",
@@ -9288,7 +9326,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of parallel repetitions, from a hybrid over them",
+   "securityLoss": "polynomial: the hybrid over the parallel repetitions loses a factor of their number, on top of the commitment's loss",
    "rationale": {
     "class": "The protocol uses the commitment built from the one-way function only as an oracle, and the reduction runs any distinguishing verifier only as an oracle against one repetition at a time."
    },
@@ -11122,7 +11160,8 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]"
+    "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
+    "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
    ],
    "via": [],
    "heuristic": false,
@@ -11734,7 +11773,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "nizk",
+   "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
    "model": "crs",
    "source": [
