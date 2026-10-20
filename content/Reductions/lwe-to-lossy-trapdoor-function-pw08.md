@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], which follows from the worst-case quantum hardness of standard lattice problems to within polynomial factors — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], which for prime $q \le \poly(n)$ follows from the worst-case quantum hardness of standard lattice problems to within polynomial factors — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 ## Sketch
 
