@@ -6,7 +6,7 @@ aliases:
   - Chaum–van Heijst–Pfitzmann hash
 id: red-dlog-to-crhf-cvhp91
 kind: implication
-hypotheses: [dlog]
+hypotheses: [prime-order-dlog]
 conclusion: crhf
 class: fully-black-box
 model: standard
@@ -21,13 +21,13 @@ rationale:
 
 ## Statement
 
-Let $\GG$ be a group of prime order $q$ in which [[discrete-logarithm|DLOG]] is hard, and let $g, h$ be uniform generators. Then
+Let $\GG$ be a group of prime order $q$ in which [[discrete-logarithm#dlog-in-prime-order-groups|DLOG]] is hard, and let $g, h$ be uniform generators. Then no efficient adversary finds a collision of
 
 $$
 \hash_{g,h}(x_1, x_2) := g^{x_1} h^{x_2}, \qquad (x_1, x_2) \in \ZZ_q^2,
 $$
 
-is a [[hash-function#collision-resistance|collision-resistant]] family; CvHP91 state it in $\ZZ_p^*$ for a safe prime $p = 2q + 1$ with inputs in $\{0, \ldots, q-1\}^2$ — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]].
+except with negligible probability — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]. If group elements are encoded in fewer than $2t$ bits for $t := \lfloor \log q \rfloor$, its restriction to $x_1, x_2 < 2^t$ compresses $\bits^{2t}$ and is a [[hash-function#collision-resistance|collision-resistant hash function]].
 
 ## Sketch
 
@@ -35,6 +35,7 @@ The reduction receives $h$ and sets the key to $(g, h)$. A collision $(x_1, x_2)
 
 ## Notes
 
-- The map compresses $2 \log q$ bits to the length of a group element, so it is compressing when elements have $(1 + o(1)) \log q$-bit encodings, as in elliptic-curve groups or the order-$q$ subgroup of $\ZZ_p^*$ for a safe prime $p = 2q + 1$ — standard.
+- The encoding condition holds when elements have $(1 + o(1)) \log q$-bit encodings, as in elliptic-curve groups or the order-$q$ subgroup of $\ZZ_p^*$ for a safe prime $p = 2q + 1$ — standard.
+- Prime order is needed: in a cyclic group of order $2r$ with $r$ an odd prime, $g^r$ is the unique element of order $2$ for every generator $g$, so with exponents in $\ZZ_{2r}$ the inputs $(r, 0)$ and $(0, r)$ collide under every key, even when DLOG is hard in the subgroup of order $r$ — standard.
 - Viewed as a commitment to $x_1$ with randomness $x_2$, the same function is the perfectly hiding [[dlog-to-com-ped91|Pedersen commitment]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 - Efficiency: two exponentiations, or one multi-exponentiation, per evaluation — standard.
