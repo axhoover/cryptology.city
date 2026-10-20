@@ -10,6 +10,8 @@ id: cpir
 variants:
   secret-key-pir: "#secret-key-pir-sk-pir"
   single-server-symmetric-pir: "#symmetric-private-information-retrieval-single-server"
+  nontrivial-cpir: "#non-trivial-pir"
+  one-round-sublinear-cpir: "#one-round-sublinear-pir"
 ---
 
 # Private Information Retrieval
@@ -85,6 +87,14 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[single-server-private-information-retrieval#Secret-Key PIR (SK-PIR)|Secret-Key PIR (SK-PIR)]] achieves sublinear online communication using client preprocessing with a secret key
 - Keyword PIR
+
+## Non-trivial PIR
+
+A PIR scheme is **non-trivial** if it is perfectly correct ($\varepsilon = 0$) and on every $n$-bit database the server sends fewer than $n$ bits in total. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
+
+## One-round sublinear PIR
+
+A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| = O(n^c)$ for a constant $c < 1$, the hidden factor depending on $\secpar$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
 ## Symmetric private information retrieval (Single-server)
 
@@ -168,21 +178,21 @@ is negligible.
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in b5be5eeb3f2b -->
+<!-- BEGIN GENERATED participates-in 34370f6f8db1 -->
 
 ## Participates in
 
 **Builds on Private Information Retrieval**
 
-- [[cpir-to-crhf-iko05|One-round cPIR ⇒ CRHF]]
+- [[cpir-to-crhf-iko05|One-round sublinear cPIR ⇒ CRHF]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
-- [[cpir-to-owf-bikm99|cPIR ⇒ OWF]]
+- [[cpir-to-owf-bikm99|Non-trivial cPIR ⇒ OWF]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 
 **Produces Private Information Retrieval**
 
-- [[additively-homomorphic-encryption-to-cpir-ste98|Additively homomorphic encryption ⇒ cPIR]]
+- [[additively-homomorphic-encryption-to-cpir-ste98|Additively homomorphic encryption ⇒ cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[dcr-to-cpir-cha04|DCR ⇒ cPIR]]
 - [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
@@ -190,7 +200,7 @@ is negligible.
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
-- [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]]
+- [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 - [[tdp-to-cpir-ko00|TDP ⇒ cPIR (Kushilevitz–Ostrovsky)]]

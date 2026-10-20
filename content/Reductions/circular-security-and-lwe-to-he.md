@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Circular security + LWE ⇒ HE"
+title: "Circular security + LWE ⇒ Compact FHE"
 aliases: []
 id: red-circular-security-and-lwe-to-he
 kind: implication
 hypotheses: [circular-security, lwe]
-conclusion: he
+conclusion: compact-fhe
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Circular security + LWE ⇒ HE
+# Circular security + LWE ⇒ Compact FHE
 
 ## Statement
 
-Assuming [[learning-with-errors|LWE]] is hard, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]]; if the scheme is additionally [[circular-security|circular secure]], bootstrapping yields [[homomorphic-encryption|FHE]] for circuits of arbitrary depth — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
+Assuming [[learning-with-errors|LWE]] is hard, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]]; if the scheme is additionally [[circular-security|circular secure]], bootstrapping yields [[homomorphic-encryption#compact-fhe|compact FHE]] for circuits of arbitrary depth — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 
 ## Notes
 
