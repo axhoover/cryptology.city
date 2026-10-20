@@ -46,7 +46,7 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 - [[owp-to-hash-function|OWP ⇒ OWF]] — folklore
 - [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]
 
-<!-- BEGIN GENERATED participates-in 230b4d59d0c4 -->
+<!-- BEGIN GENERATED participates-in a23499b1829a -->
 
 ## Participates in
 
@@ -60,6 +60,8 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 **Barriers**
 
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
+- [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]
+- [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
 - [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]]
 - [[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
