@@ -26,9 +26,13 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:E#e
 
 The security parameter $\secpar$ in cryptographic definitions ensures that breaking a scheme requires super-polynomial (often near-exponential) time. A scheme that is broken in time $T(\secpar)$ is considered secure if $T(\secpar) \geq 2^{\secpar^\epsilon}$ for some $\epsilon > 0$ (sometimes stated as $T \geq 2^{\Omega(\secpar)}$). Concrete security bounds track where in the exponential regime a reduction places the hardness.
 
-<!-- BEGIN GENERATED participates-in def359a08821 -->
+<!-- BEGIN GENERATED participates-in 83c52f2ea173 -->
 
 ## Participates in
+
+**Builds on Exponential time**
+
+- [[exp-to-nexp|EXP ⊆ NEXP]]
 
 **Produces Exponential time**
 

@@ -127,14 +127,14 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in bd00767f2371 -->
+<!-- BEGIN GENERATED participates-in f0fabdec5627 -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
-- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
@@ -144,7 +144,9 @@ is negligible.
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]]
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
+- [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])

@@ -7,7 +7,12 @@ aliases:
 title: Total function NP
 id: tfnp
 variants:
-  ppad-hardness: "#subclasses"
+  ppad-hardness: "#ppad"
+  ppa: "#ppa"
+  ppa-randomized: "#ppa-under-randomized-reductions"
+  ppp: "#ppp"
+  pwpp: "#pwpp"
+  pwpp-randomized: "#pwpp-under-randomized-reductions"
 ---
 
 # Total function NP
@@ -30,6 +35,30 @@ TFNP contains several important subclasses defined by the combinatorial principl
 - **PPA** (Polynomial Parity Argument): related to graph parity arguments. Integer factorization reduces to a PPA problem in randomized polynomial time, and deterministically under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
 - **PLS** (Polynomial Local Search): finding local optima. Contains many optimization problems.
 
+### PPAD
+
+The class of total search problems reducible to End-of-Line: given circuits $S, P : \bits^n \to \bits^n$ with $P(0^n) = 0^n \ne S(0^n)$, find $x$ with $P(S(x)) \ne x$, or with $S(P(x)) \ne x \ne 0^n$ — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]]. **PPAD is hard on average** if some efficiently samplable distribution over End-of-Line instances is such that every efficient algorithm outputs a solution with negligible probability.
+
+### PPP
+
+The class of total search problems reducible to Pigeon: given a circuit $C : \bits^n \to \bits^n$, find $x$ with $C(x) = 0^n$ or a collision $x \ne y$, $C(x) = C(y)$ — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]].
+
+### PWPP
+
+The class of total search problems reducible to Weak Pigeon: given a circuit $C : \bits^n \to \bits^{n-1}$, find a collision. The class is due to [[Jer16 - Integer factoring and modular square roots|Jer16]]; $\mathbf{PWPP} \subseteq \mathbf{PPP}$, and a collision-resistant hash function family is a hard-on-average PWPP problem — standard.
+
+#### PWPP under randomized reductions
+
+The total search problems that reduce to Weak Pigeon by a randomized polynomial-time reduction succeeding with noticeable probability, repeatable since solutions are checkable. It contains PWPP, and Jer16 put factoring in it — [[Jer16 - Integer factoring and modular square roots|Jer16]].
+
+### PPA
+
+The class of total search problems reducible to Leaf: given a circuit describing an undirected graph of maximum degree two with a degree-one vertex $0^n$, find another vertex of degree one — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]].
+
+#### PPA under randomized reductions
+
+The total search problems that reduce to Leaf by a randomized polynomial-time reduction succeeding with noticeable probability. It contains PPA, and Jer16 put factoring in it — [[Jer16 - Integer factoring and modular square roots|Jer16]].
+
 ## Known relationships
 
 - $\classP \subseteq \classFP \subseteq \classTFNP \subseteq \mathbf{FNP}$.
@@ -39,14 +68,31 @@ TFNP contains several important subclasses defined by the combinatorial principl
 
 Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
-<!-- BEGIN GENERATED participates-in 05a8a650a6d7 -->
+<!-- BEGIN GENERATED participates-in 1755fd25f9d3 -->
 
 ## Participates in
 
+**Builds on Total function NP**
+
+- [[ppa-to-ppa-randomized|PPA ⊆ PPA under randomized reductions]] (via [[total-function-np#ppa|PPA]])
+- [[ppa-to-tfnp|PPA ⊆ TFNP]] (via [[total-function-np#ppa|PPA]])
+- [[ppp-to-tfnp|PPP ⊆ TFNP]] (via [[total-function-np#ppp|PPP]])
+- [[pwpp-to-ppp|PWPP ⊆ PPP]] (via [[total-function-np#pwpp|PWPP]])
+- [[pwpp-to-pwpp-randomized|PWPP ⊆ PWPP under randomized reductions]] (via [[total-function-np#pwpp|PWPP]])
+
 **Produces Total function NP**
 
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]] (via [[total-function-np#pwpp|PWPP]])
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
+- [[fac-to-ppa-jer16|FAC ∈ PPA (under randomized reductions)]] (via [[total-function-np#ppa-under-randomized-reductions|PPA under randomized reductions]])
+- [[fac-to-pwpp-jer16|FAC ∈ PWPP (under randomized reductions)]] (via [[total-function-np#pwpp-under-randomized-reductions|PWPP under randomized reductions]])
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
-- [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]] (via [[total-function-np#subclasses|Subclasses]])
+- [[ppa-to-ppa-randomized|PPA ⊆ PPA under randomized reductions]] (via [[total-function-np#ppa-under-randomized-reductions|PPA under randomized reductions]])
+- [[ppa-to-tfnp|PPA ⊆ TFNP]]
+- [[ppp-to-tfnp|PPP ⊆ TFNP]]
+- [[pwpp-to-ppp|PWPP ⊆ PPP]] (via [[total-function-np#ppp|PPP]])
+- [[pwpp-to-pwpp-randomized|PWPP ⊆ PWPP under randomized reductions]] (via [[total-function-np#pwpp-under-randomized-reductions|PWPP under randomized reductions]])
+- [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[total-function-np#ppad|PPAD]])
+- [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[total-function-np#ppad|PPAD]])
 
 <!-- END GENERATED participates-in -->

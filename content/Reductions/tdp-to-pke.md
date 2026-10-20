@@ -29,3 +29,4 @@ Decryption recovers $x = \Invert(\sk, c_1)$ and outputs $c_2 \oplus b(x)$. A CPA
 ## Notes
 
 - [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]] states the construction for trapdoor functions with a hard bit, decryption recovering the encryption randomness $x$.
+- Efficiency: for a hard-core predicate $b$, bit-by-bit encryption sends $(f(x), b(x) \oplus m)$ per plaintext bit, one element of $\calD$ and one bit, at one evaluation of $f$. Iterating $f$ as in the [[owp-to-prg-yao82a-gl89|Blum–Micali–Yao generator]] encrypts an $\ell$-bit message as $\bigl(f^{\ell}(x), m \oplus (b(x), b(f(x)), \ldots, b(f^{\ell-1}(x)))\bigr)$, one element of $\calD$ plus $\ell$ masked bits, with $\ell$ evaluations to encrypt and $\ell$ inversions to decrypt. With the Goldreich–Levin predicate $\langle x, r \rangle$ the public string $r$ is sent as well, $2n + \ell$ bits in all for an $n$-bit domain — standard.

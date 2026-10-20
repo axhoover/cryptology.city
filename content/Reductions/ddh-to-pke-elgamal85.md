@@ -11,6 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]"
+  - "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
 security-loss: "tight: one oracle call, advantage-preserving"
 rationale:
   class: "The ElGamal construction uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DDH challenge and runs any CPA adversary once as an oracle."
@@ -59,3 +60,4 @@ On DDH challenge $(X, Y, Z)$ the reduction sets $\pk = X$ and answers the challe
 ## Notes
 
 - ElGamal85 predates the DDH assumption; the DDH-based CPA proof is later — [[TY98 - On the Security of ElGamal Based Encryption|TY98]].
+- Efficiency: a ciphertext is two group elements for a one-element message; encryption costs two exponentiations and decryption one — standard.

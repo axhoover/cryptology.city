@@ -25,10 +25,10 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 ## Notable problems
 
 - **Tautology**: given a Boolean formula, is every assignment satisfying? (The complement of SAT, which is NP-complete.)
-- **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\classSZK$ and $\classcoAM$).
-- **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — TODO citation).
+- **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP, in $\classSZK$ — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]] — and in $\classAM$ — [[GS86 - Private Coins versus Public Coins in Interactive Proof Systems|GS86]].
+- **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — [[AKS04 - PRIMES Is in P|AKS04]]).
 
-<!-- BEGIN GENERATED participates-in f156fcfd802b -->
+<!-- BEGIN GENERATED participates-in 56ee9566ec7e -->
 
 ## Participates in
 
@@ -40,6 +40,8 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 **Produces Co-nondeterministic polynomial-time**
 
 - [[dlog-to-conp|DLOG ⊆ coNP]]
+- [[fac-to-conp-pra75|FAC ∈ coNP]]
+- [[gapsvp-to-conp-ar04|GapSVP ∈ coNP for γ ≥ c√n]]
 - [[p-to-conp|P ⊆ coNP]]
 
 **Barriers**

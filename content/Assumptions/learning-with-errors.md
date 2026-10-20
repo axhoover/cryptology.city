@@ -21,6 +21,7 @@ variants:
   search-lwe: "#search-lwe"
   circular-evasive-lwe: "#circular-evasive-lwe"
   tensor-lwe: "#tensor-lwe"
+  subexponential-lwe: "#sub-exponential-lwe"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
   polynomial-ratio-lwe: "#lwe-with-polynomial-modulus-to-noise-ratio"
@@ -126,6 +127,10 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 ## LWE with polynomial modulus-to-noise ratio
 
 LWE is hard **with polynomial modulus-to-noise ratio** if for every constant $c > 0$, every modulus $q \le 2^{\poly(n)}$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, decision LWE is hard for $(n, q, \chi, m)$ with $\chi$ the discrete Gaussian of width $\alpha q$. For $m = 1$ and prime $q$ hardness is statistical, since $\mathbf{A}\mathbf{s}$ is uniform for every nonzero $\mathbf{A}$ — standard. For prime $q \le \poly(n)$ it follows from worst-case quantum hardness of approximating [[shortest-vector-problem|GapSVP]] or [[shortest-independent-vectors-problem|SIVP]] to within $\tilde{O}(n/\alpha) = \tilde{O}(n^{1+c})$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+
+## Sub-exponential LWE
+
+LWE is **sub-exponentially hard** if for every constant $c > 0$, every prime $q \le \poly(n)$ with $\alpha q \ge 2\sqrt{n}$ for $\alpha := n^{-c}$, and every $m = \poly(n)$, there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$, with $\chi$ the discrete Gaussian of width $\alpha q$. Fixing the noise matters: for $\chi$ uniform on $\ZZ_q$ every adversary has advantage $0$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ## Ring LWE
 
@@ -321,7 +326,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in a57e2c57668e -->
+<!-- BEGIN GENERATED participates-in 5bcaebb44697 -->
 
 ## Participates in
 
@@ -349,6 +354,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
+- [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$, the three-round Feistel network with independently keyed round functions $\Eval(k_1,\cdot), \Eval(k_2,\cdot), \Eval(k_3,\cdot)$ is a [[pseudorandom-permutation|PRP]] on $\bits^{2n}$, and the four-round network is a [[pseudorandom-permutation#strong-security|strong PRP]], secure given the inverse oracle as well — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]. Two Feistel rounds between initial and final pairwise-independent permutations already give a strong PRP, with a simpler proof — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].
+If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$ with $n = \omega(\log \secpar)$, the three-round Feistel network with independently keyed round functions $\Eval(k_1,\cdot), \Eval(k_2,\cdot), \Eval(k_3,\cdot)$ is a [[pseudorandom-permutation|PRP]] on $\bits^{2n}$, and the four-round network is a [[pseudorandom-permutation#strong-security|strong PRP]], secure given the inverse oracle as well — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]. Two Feistel rounds between initial and final pairwise-independent permutations already give a strong PRP, with a simpler proof — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].
 
 ## Sketch
 
@@ -29,3 +29,4 @@ On input $(L_0, R_0) \in \bits^n \times \bits^n$, round $i$ sets $(L_i, R_i) \ge
 ## Notes
 
 - The birthday term $O(q^2/2^n)$ makes the bound negligible only when $2^n$ is superpolynomial in $\secpar$ — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
+- Efficiency: each round evaluates the PRF once on $n$ bits, so a $2n$-bit block costs three PRF calls, or four for a strong PRP; with pairwise-independent permutations in place of the outer rounds, two PRF calls suffice — [[NR99 - On the Construction of Pseudorandom Permutations Luby-Rackoff Revisited|NR99]].

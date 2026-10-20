@@ -12,6 +12,7 @@ variants:
   lossy-trapdoor-function: "#lossy-trapdoor-functions"
   highly-lossy-trapdoor-function: "#highly-lossy-trapdoor-functions"
   enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
+  doubly-enhanced-certified-tdp: "#doubly-enhanced-certified-trapdoor-permutations"
   injective-trapdoor-function: "#injective-trapdoor-functions"
   claw-free-permutations: "#claw-free-permutations"
 ---
@@ -53,6 +54,10 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
+### Doubly enhanced certified trapdoor permutations
+
+An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
+
 ## Injective trapdoor functions
 
 An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one — folklore.
@@ -75,13 +80,15 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 5f5ab4e7f699 -->
+<!-- BEGIN GENERATED participates-in 9d60e32bc05d -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
+- [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
+- [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[highly-lossy-trapdoor-function-to-lossy-trapdoor-function|Highly lossy TDF ⇒ Lossy TDF]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
@@ -91,18 +98,20 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[tdp-to-cpir-ko00|TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)]]
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]
-- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
+- [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
 
 **Produces Trapdoor permutation**
 
 - [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Highly lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
+- [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]
 - [[highly-lossy-trapdoor-function-to-lossy-trapdoor-function|Highly lossy TDF ⇒ Lossy TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 
 **Barriers**

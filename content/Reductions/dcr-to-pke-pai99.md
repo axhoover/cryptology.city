@@ -61,3 +61,4 @@ The reduction sets the challenge ciphertext to $c^* = g^{m_b} \cdot z \bmod n^2$
 ## Notes
 
 - The simplification $g = 1+n$ and the generalisation to modulus $n^{s+1}$ are from [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].
+- Efficiency: a ciphertext is one element of $\ZZ_{n^2}^*$, twice the length of a plaintext in $\ZZ_n$. With $g = 1 + n$, $g^m \equiv 1 + mn \pmod{n^2}$, so encryption costs one exponentiation $r^n \bmod n^2$ and decryption one exponentiation by $\varphi$ — standard. Working modulo $n^{s+1}$ with plaintexts in $\ZZ_{n^s}$ lowers the expansion to $(s+1)/s$ — [[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]].

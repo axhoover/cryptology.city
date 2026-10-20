@@ -17,6 +17,7 @@ variants:
   owf: "#preimage-resistance-one-wayness"
   auxiliary-input-owf: "#auxiliary-input-one-wayness"
   weak-owf: "#weak-one-wayness"
+  subexponential-owf: "#sub-exponential-one-wayness"
   crhf: "#collision-resistance"
   uowhf: "#target-collision-resistance-universal-one-wayness"
 ---
@@ -88,6 +89,13 @@ inverter fails with noticeable probability —
 [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every
 one-way function is weakly one-way, and
 [[weak-owf-to-owf-yao82a|weak one-way functions yield one-way functions]].
+
+### Sub-exponential one-wayness
+
+A function $\hash$ is **sub-exponentially one-way** if there is a constant
+$\varepsilon > 0$ such that for all sufficiently large $\secpar$, every
+adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has
+$\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$.
 
 ### Collision resistance
 
@@ -169,13 +177,14 @@ Collision resistance implies target collision resistance — standard.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in 55b7f571d563 -->
+<!-- BEGIN GENERATED participates-in 1d46a34ca92b -->
 
 ## Participates in
 
 **Builds on Hash function**
 
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-weak-owf|CRHF ⇒ Weak OWF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
@@ -184,7 +193,7 @@ Collision resistance implies target collision resistance — standard.
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-czk|OWF ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-ds|OWF ⇒ DS]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
@@ -194,14 +203,19 @@ Collision resistance implies target collision resistance — standard.
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-prg-hill99|OWF ⇒ PRG]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[owf-to-statistical-zk-argument-nov06|OWF ⇒ Statistical ZK arguments for NP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ Statistically hiding COM (Haitner–Reingold)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-uowhf-rom90|OWF ⇒ UOWHF (Rompel)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[hash-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
+- [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[hash-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
+- [[subexponential-owf-to-owf|Sub-exponential OWF ⇒ OWF]] (via [[hash-function#sub-exponential-one-wayness|Sub-exponential one-wayness]])
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[weak-owf-to-owf-yao82a|Weak OWF ⇒ OWF (Yao)]] (via [[hash-function#weak-one-wayness|Weak one-wayness]])
 
@@ -226,6 +240,7 @@ Collision resistance implies target collision resistance — standard.
 - [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[subexponential-owf-to-owf|Sub-exponential OWF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[tdp-to-hash-function|TDP ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[weak-owf-to-owf-yao82a|Weak OWF ⇒ OWF (Yao)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]] (via [[hash-function#auxiliary-input-one-wayness|Auxiliary-input one-wayness]])
@@ -234,6 +249,8 @@ Collision resistance implies target collision resistance — standard.
 
 - [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-owf-to-ot-ir89|No relativizing reduction from OWF to OT]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])

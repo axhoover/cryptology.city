@@ -37,7 +37,7 @@ The assumption is parameterized by a lattice dimension $n$, a column count $m$, 
 \end{algorithm}
 ```
 
-**SIS is hard** for $(n, m, q, \beta)$ if for all efficient $\calA$,
+**SIS is hard** for $(n, m, q, \beta)$ with $m > n \log q$ and $\sqrt{m} \le \beta < q$, the regime in which a $\{-1, 0, 1\}$ solution always exists and the trivial solution $q\mathbf{e}_1$ is excluded, if for all efficient $\calA$,
 
 $$
 \Adv^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar) := \Pr\!\left[\Game^{\text{sis}}_{n,m,q,\beta,\calA}(\secpar) = 1\right]

@@ -28,7 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in aec9f22fa440 -->
+<!-- BEGIN GENERATED participates-in 4c8aa1468be3 -->
 
 ## Participates in
 
@@ -36,6 +36,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
 - [[rom-to-oihf-bh26|ROM ⇒ OIHF]]
+- [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 
 **Barriers**
 

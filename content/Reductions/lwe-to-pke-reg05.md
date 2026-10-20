@@ -25,3 +25,7 @@ If decision [[learning-with-errors|LWE]] is hard with $m = \Theta(n \log q)$ sam
 ## Sketch
 
 $\KeyGen$ outputs $\pk = (\mathbf{A}, \mathbf{b} = \mathbf{A}\mathbf{s} + \mathbf{e})$ and $\sk = \mathbf{s}$; $\Enc(\pk, \mu)$ samples $\mathbf{r} \getsr \bits^m$ and outputs $(\mathbf{r}^{\top}\mathbf{A},\ \mathbf{r}^{\top}\mathbf{b} + \mu \lfloor q/2 \rfloor)$, and $\Dec(\sk, (\mathbf{c}_1, c_2))$ rounds $c_2 - \langle \mathbf{c}_1, \mathbf{s} \rangle = \mathbf{r}^{\top}\mathbf{e} + \mu \lfloor q/2 \rfloor$ to $0$ or $\lfloor q/2 \rfloor$, which is correct when $|\mathbf{r}^{\top}\mathbf{e}| < q/4$. Decision LWE replaces $(\mathbf{A}, \mathbf{b})$ by uniform, after which $(\mathbf{r}^{\top}\mathbf{A}, \mathbf{r}^{\top}\mathbf{b})$ is statistically close to uniform by the leftover hash lemma, so the ciphertext hides $\mu$.
+
+## Notes
+
+- Efficiency: the public key has $m(n+1) = \tilde{O}(n^2)$ elements of $\ZZ_q$, and a one-bit ciphertext has $n + 1$ of them, so encryption expands messages by a factor $\tilde{O}(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]. Over rings, a ciphertext is two ring elements, about $2n \log q$ bits, carrying $n$ packed message bits, so for polynomial $q$ the expansion is $O(\log q) = \tilde{O}(1)$ for $n$-bit messages but $O(n \log q)$ for a single bit; keys shrink to $\tilde{O}(n)$ bits — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].

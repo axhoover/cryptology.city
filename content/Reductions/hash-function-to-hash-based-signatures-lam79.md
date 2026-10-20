@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
-security-loss: ""
+security-loss: "a factor 2ℓ, from guessing which of the 2ℓ key slots the forgery opens"
 rationale:
   class: "Key generation and verification evaluate the one-way function only as an oracle, and the reduction runs any forger once as an oracle, planting its inversion challenge at a random key slot."
 ---
@@ -59,3 +59,4 @@ A forgery on $\hat{m} \ne m$ reveals a preimage of some $y_{i,1-m_i}$ that the s
 ## Notes
 
 - The Winternitz variant signs several message bits per hash chain, trading $\hash$ evaluations for signature size — [[Mer89 - A Certified Digital Signature|Mer89]].
+- Efficiency: for $\ell$-bit messages the keys hold $2\ell$ preimages and images and a signature holds $\ell$ preimages; signing evaluates nothing and verification evaluates $\hash$ $\ell$ times. Signing a collision-resistant hash of the message makes $\ell = O(\secpar)$ — standard.
