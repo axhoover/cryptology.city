@@ -104,7 +104,7 @@ A zero-knowledge proof (with soundness against unbounded provers) for an $\class
 - Auxiliary-input zero knowledge is preserved under sequential composition — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]; the original definition without auxiliary input is not, and zero knowledge is not closed under parallel composition — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in d30671c2a2bd -->
+<!-- BEGIN GENERATED participates-in f6fe4bce1add -->
 
 ## Participates in
 
@@ -119,6 +119,7 @@ A zero-knowledge proof (with soundness against unbounded provers) for an $\class
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[zero-knowledge-proof#zaps|Zaps]])
 - [[owf-to-statistical-zk-argument-nov06|OWF ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[zero-knowledge-proof#witness-indistinguishable-wi-proofs|Witness-indistinguishable (WI) proofs]])

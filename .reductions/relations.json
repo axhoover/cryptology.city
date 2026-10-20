@@ -1107,6 +1107,19 @@
    "unlisted": true
   },
   {
+   "id": "distributional-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#distributional-one-wayness",
+   "of": "hash-function",
+   "title": "Distributional one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "dlog",
    "kind": "object",
    "type": "assumption",
@@ -7028,6 +7041,30 @@
    "title": "Differing-inputs obfuscation (diO) ⇒ iO"
   },
   {
+   "id": "red-distributional-owf-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "distributional-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: the one-way function's input length is polynomial in n and p(n), and the distributional inverter for f calls an inverter for it a number of times polynomial in n, p(n) and the inverse of its success probability",
+   "rationale": {
+    "class": "The one-way function evaluates f only as an oracle, on an input it also hashes with a pairwise-independent function, and one fixed reduction turns any inverter for it, run only as an oracle, into a distributional inverter for f."
+   },
+   "status": "draft",
+   "page": "content/Reductions/distributional-owf-to-owf-il89.md",
+   "slug": "distributional-owf-to-owf-il89",
+   "graphSlug": "Reductions/distributional-owf-to-owf-il89",
+   "title": "Distributional OWF ⇒ OWF (Impagliazzo–Luby)"
+  },
+  {
    "id": "red-dkg-and-he-to-tpke",
    "kind": "implication",
    "hypotheses": [
@@ -9511,6 +9548,27 @@
    "title": "iO + OWP ⇒ PPAD hardness"
   },
   {
+   "id": "red-io-to-statistical-zk-argument-kmnpry14",
+   "kind": "implication",
+   "hypotheses": [
+    "io"
+   ],
+   "conclusion": "statistical-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/io-to-statistical-zk-argument-kmnpry14.md",
+   "slug": "io-to-statistical-zk-argument-kmnpry14",
+   "graphSlug": "Reductions/io-to-statistical-zk-argument-kmnpry14",
+   "title": "iO ⇒ Statistical ZK arguments for NP"
+  },
+  {
    "id": "red-io-to-witness-encryption",
    "kind": "implication",
    "hypotheses": [
@@ -11455,6 +11513,30 @@
    "slug": "ot-to-ot-extension-iknp03",
    "graphSlug": "Reductions/ot-to-ot-extension-iknp03",
    "title": "OT ⇒ OT extension (IKNP)"
+  },
+  {
+   "id": "red-owf-to-distributional-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "distributional-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the function is unchanged, and an algorithm whose output pair is at statistical distance Δ from (x, f(x)) inverts f with probability at least 1 − Δ",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any candidate distributional inverter unchanged as an inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-distributional-owf.md",
+   "slug": "owf-to-distributional-owf",
+   "graphSlug": "Reductions/owf-to-distributional-owf",
+   "title": "OWF ⇒ Distributional OWF"
   },
   {
    "id": "red-owf-to-np",
@@ -15341,6 +15423,30 @@
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
   },
   {
+   "id": "red-weak-owf-to-distributional-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "weak-owf"
+   ],
+   "conclusion": "distributional-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the function is unchanged, and an algorithm whose output pair is at statistical distance Δ from (x, f(x)) inverts f with probability at least 1 − Δ",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any candidate distributional inverter unchanged as an inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/weak-owf-to-distributional-owf.md",
+   "slug": "weak-owf-to-distributional-owf",
+   "graphSlug": "Reductions/weak-owf-to-distributional-owf",
+   "title": "Weak OWF ⇒ Distributional OWF"
+  },
+  {
    "id": "red-weak-owf-to-owf-yao82a",
    "kind": "implication",
    "hypotheses": [
@@ -16060,6 +16166,36 @@
    "slug": "no-io-and-owp-to-crhf-as15",
    "graphSlug": "Barriers/no-io-and-owp-to-crhf-as15",
    "title": "No fully-black-box reduction from iO + OWP to CRHF"
+  },
+  {
+   "id": "bar-io-and-owp-to-szk-hardness-bdv17",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "szk-hardness",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BDV17 - Structure vs Hardness Through the Obfuscation Lens|BDV17]]"
+   ],
+   "rationale": {
+    "class": "BDV17 rule out constructions that may obfuscate circuits with one-way-permutation gates, a class containing every construction that uses the obfuscator and the permutation only as oracles, with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-and-owp-to-szk-hardness-bdv17.md",
+   "slug": "no-io-and-owp-to-szk-hardness-bdv17",
+   "graphSlug": "Barriers/no-io-and-owp-to-szk-hardness-bdv17",
+   "title": "No fully-black-box reduction from iO + OWP to average-case-hard SZK"
   },
   {
    "id": "bar-io-to-statistical-io-gr07",
@@ -16810,6 +16946,65 @@
    "slug": "no-pke-to-tdp-gkm-00",
    "graphSlug": "Barriers/no-pke-to-tdp-gkm-00",
    "title": "No fully-black-box reduction from PKE to TDP"
+  },
+  {
+   "id": "bar-ppad-hardness-and-owf-to-ke-rss17",
+   "hypotheses": [
+    "ppad-hardness",
+    "owf"
+   ],
+   "conclusion": "ke",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[RSS17 - Can PPAD Hardness be Based on Standard Cryptographic Assumptions|RSS17]]"
+   ],
+   "rationale": {
+    "class": "RSS17 rule out the RTV04 fully-black-box class, a construction that uses the one-way function and the hard-on-average SVL instance distribution only as oracles paired with a reduction that uses any eavesdropper only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ppad-hardness-and-owf-to-ke-rss17.md",
+   "slug": "no-ppad-hardness-and-owf-to-ke-rss17",
+   "graphSlug": "Barriers/no-ppad-hardness-and-owf-to-ke-rss17",
+   "title": "No fully-black-box reduction from PPAD hardness + OWF to KE"
+  },
+  {
+   "id": "bar-ppad-hardness-to-owf-rss17",
+   "hypotheses": [
+    "ppad-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[RSS17 - Can PPAD Hardness be Based on Standard Cryptographic Assumptions|RSS17]]"
+   ],
+   "rationale": {
+    "class": "RSS17 rule out the RTV04 fully-black-box class, a construction that uses the hard-on-average SVL instance distribution only as an oracle paired with a reduction that uses any inverter only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ppad-hardness-to-owf-rss17.md",
+   "slug": "no-ppad-hardness-to-owf-rss17",
+   "graphSlug": "Barriers/no-ppad-hardness-to-owf-rss17",
+   "title": "No fully-black-box reduction from PPAD hardness to OWF"
   },
   {
    "id": "bar-qma-to-qcma-bhnz25",
