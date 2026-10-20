@@ -11,6 +11,7 @@ variants:
   secret-key-pir: "#secret-key-pir-sk-pir"
   single-server-symmetric-pir: "#symmetric-private-information-retrieval-single-server"
   nontrivial-cpir: "#non-trivial-pir"
+  total-nontrivial-cpir: "#pir-with-total-communication-below-n"
   one-round-sublinear-cpir: "#one-round-sublinear-pir"
 ---
 
@@ -90,7 +91,11 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 
 ## Non-trivial PIR
 
-A PIR scheme is **non-trivial** if it is perfectly correct ($\varepsilon = 0$) and on every $n$-bit database the server sends fewer than $n$ bits in total. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
+A PIR scheme is **non-trivial** if it is perfectly correct ($\varepsilon = 0$) and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the server sends fewer than $n$ bits in total. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
+
+### PIR with total communication below $n$
+
+A PIR scheme has **total communication below $n$** if it is perfectly correct and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the client and the server together send fewer than $n$ bits, the notion of non-triviality of [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such a scheme is non-trivial in the sense above.
 
 ## One-round sublinear PIR
 
@@ -165,8 +170,9 @@ is negligible.
 
 # Other results
 
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
-- [[no-np-to-cpir-lv15|No reduction from NP to cPIR]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
+- [[no-np-to-cpir-lv15|No reduction from NP to one-round sublinear cPIR]]
+- Every single-server PIR without preprocessing in which the server sends fewer than $n$ bits, built from public-key primitives in DH24's black-box model, performs $\Omega(n)$ public-key operations, however many symmetric-key operations it uses — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 
 ## Constructions
 
@@ -174,39 +180,42 @@ is negligible.
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]
-- Any PIR without preprocessing requires $\Omega(n)$ public-key operations — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 34370f6f8db1 -->
+<!-- BEGIN GENERATED participates-in d155707ae478 -->
 
 ## Participates in
 
 **Builds on Private Information Retrieval**
 
 - [[cpir-to-crhf-iko05|One-round sublinear cPIR ⇒ CRHF]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[cpir-to-owf-bikm99|Non-trivial cPIR ⇒ OWF]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
+- [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
+- [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 
 **Produces Private Information Retrieval**
 
 - [[additively-homomorphic-encryption-to-cpir-ste98|Additively homomorphic encryption ⇒ cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
-- [[dcr-to-cpir-cha04|DCR ⇒ cPIR]]
+- [[dcr-to-cpir-cha04|DCR ⇒ One-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[he-to-cpir|FHE ⇒ cPIR]]
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
+- [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 - [[tdp-to-cpir-ko00|TDP ⇒ cPIR (Kushilevitz–Ostrovsky)]]
+- [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 
 **Barriers**
 
-- [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to cPIR]]
+- [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 
 <!-- END GENERATED participates-in -->

@@ -6,7 +6,7 @@ aliases:
   - Chaum–van Heijst–Pfitzmann hash
 id: red-dlog-to-crhf-cvhp91
 kind: implication
-hypotheses: [prime-order-dlog]
+hypotheses: [compact-prime-order-dlog]
 conclusion: crhf
 class: fully-black-box
 model: standard
@@ -27,7 +27,7 @@ $$
 \hash_{g,h}(x_1, x_2) := g^{x_1} h^{x_2}, \qquad (x_1, x_2) \in \ZZ_q^2,
 $$
 
-except with negligible probability — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]. If group elements are encoded in fewer than $2t$ bits for $t := \lfloor \log q \rfloor$, its restriction to $x_1, x_2 < 2^t$ compresses $\bits^{2t}$ and is a [[hash-function#collision-resistance|collision-resistant hash function]].
+except with negligible probability — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]. If group elements are encoded in fewer than $2t$ bits for $t := \lfloor \log q \rfloor$, as in a [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|compactly encoded prime-order group]], its restriction to $x_1, x_2 < 2^t$ compresses $\bits^{2t}$ and is a [[hash-function#collision-resistance|collision-resistant hash function]].
 
 ## Sketch
 

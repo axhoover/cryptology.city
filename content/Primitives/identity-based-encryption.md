@@ -25,6 +25,8 @@ An IBE scheme is a tuple of efficient algorithms $\IBE = (\Setup, \Extract, \Enc
 - $\Enc(\pp, \mathit{id}, m) \to c,$ is a randomized algorithm that takes $\pp$, an identity $\mathit{id} \in \calI$, and a message $m \in \calM$, outputting a ciphertext $c \in \calC$,
 - $\Dec(\sk_{\mathit{id}}, c) \to m,$ is a deterministic algorithm that takes a secret key $\sk_{\mathit{id}}$ and ciphertext $c \in \calC$, outputting a message $m \in \calM$ or $\bot$ to indicate failure.
 
+The identity space contains $\bits^{\secpar}$. With polynomially many identities the notion is trivial: one [[public-key-encryption|PKE]] key pair per identity, published together, is an IBE scheme — standard.
+
 ## Properties
 
 ### Correctness

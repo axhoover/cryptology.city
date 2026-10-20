@@ -30,4 +30,4 @@ Let $\hash_k : \bits^n \to \bits^{n'}$ compress by $n - n' \ge |m| + 2\log(1/\va
 ## Notes
 
 - Efficiency: one hash evaluation; the commitment is $n' + |m|$ bits plus the description of $g$, and an opening is $n$ bits — standard.
-- One-way functions suffice when interaction is allowed: [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ statistically hiding COM]] — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]].
+- One-way functions suffice with polynomially many rounds: [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ statistically hiding COM]] — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]]. Every fully-black-box construction, even from a one-way permutation on $n$ bits, has $\Omega(n / \log n)$ rounds, against two messages from a CRHF — [[HHRS07 - Finding Collisions in Interactive Protocols - A Tight Lower Bound on the Round Complexity of Statistically-Hiding Commitments|HHRS07]].

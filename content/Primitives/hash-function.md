@@ -167,7 +167,7 @@ Collision resistance implies target collision resistance — standard.
 
 ## Unknown results
 
-- It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
+- Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
 <!-- BEGIN GENERATED participates-in 13883285cf62 -->
 
