@@ -20,9 +20,9 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then [[trapdoor-permutation|trapdoor permutations]] exist — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]. These are the first trapdoor permutations not based on the hardness of factoring. The permutations' domains depend on the sampled index, so the construction is not domain-invariant.
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then [[trapdoor-permutation|trapdoor permutations]] exist — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]. These are the first trapdoor permutations not based on the hardness of factoring. Each permutation's domain is defined through the underlying one-way function, so the construction is not domain-invariant: domain invariance allows a domain to depend on the index but not on the underlying primitives.
 
 ## Notes
 
-- Domain dependence is necessary: no fully-black-box construction of a domain-invariant one-way permutation from iO and one-way functions exists ([[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to OWP]]) — [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]].
-- The result removes the trapdoor-permutation and injective-OWF assumptions from earlier iO-based constructions — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]].
+- Domain dependence is unavoidable for constructions that use the obfuscator as an oracle on circuits calling the one-way function, a class containing this construction ([[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]) — [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]].
+- The result removes the trapdoor-permutation and injective-OWF assumptions from many earlier iO-based constructions — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]].
