@@ -37,7 +37,7 @@ In the **semi-honest** (or _honest-but-curious_) model, corrupted parties follow
 
 ### Security (malicious)
 
-In the **malicious** model, corrupted parties may deviate arbitrarily from the protocol. Full security requires simulation-based security against any such adversary, typically with guaranteed output delivery or fairness conditions.
+In the **malicious** model, corrupted parties may deviate arbitrarily from the protocol. Security with abort requires simulation-based security against any such adversary in an ideal model where the adversary receives its output first and may then deny the honest parties theirs; full security additionally guarantees output delivery, which a dishonest majority cannot achieve for every functionality — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]].
 
 # Variations
 

@@ -13,7 +13,7 @@ source:
   - "[[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]"
 security-loss: "a factor polynomial in the number of signing queries and the tree depth, from guessing where the forgery departs from the signer's tree"
 rationale:
-  class: "The signer calls the hash family and the one-time scheme only as oracles, and the reduction runs any forger once as an oracle, planting either a one-time verification key or a hash target at a guessed node."
+  class: "The signer calls the hash family and the one-time scheme only as oracles, and the reduction runs any forger once as an oracle, planting either a one-time verification key or, after committing to that node's input as the target, the challenge hash key at a guessed node."
 ---
 
 # UOWHF + One-time signature ⇒ DS (Naor–Yung)

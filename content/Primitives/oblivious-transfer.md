@@ -120,7 +120,7 @@ Single-server [[single-server-private-information-retrieval#Symmetric private in
 
 ## OT Extension
 
-OT from public-key primitives requires expensive operations per transfer. **OT extension** ([[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]) shows how to generate a large number of OTs from a small number of base OTs using only symmetric-key operations, making OT practical at scale.
+OT from public-key primitives requires expensive operations per transfer. **OT extension** generates any polynomial number $m$ of OTs from a number of base OTs that depends only on the security parameter, using only symmetric-key primitives beyond them — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]; each extended transfer costs a constant number of hash evaluations in [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
 
 ## Random OT
 
