@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
-security-loss: ""
+security-loss: "polynomial: the worst-case algorithm runs in polynomial time given any LWE solver of noticeable success probability as an oracle"
 rationale:
   class: "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
 ---

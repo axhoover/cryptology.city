@@ -11,7 +11,7 @@ class: fully-black-box
 model: rom
 source:
   - "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
-security-loss: ""
+security-loss: "tight up to statistical terms: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability"
 rationale:
   class: "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages."
   model: "The GPV08 reduction programs the random oracle by sampling each preimage first."

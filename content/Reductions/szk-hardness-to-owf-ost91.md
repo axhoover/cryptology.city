@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The hypothesis is average-case hardness of a promise problem in SZK rather than an RTV04 primitive."
 ---

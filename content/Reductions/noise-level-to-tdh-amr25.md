@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
-security-loss: ""
+security-loss: "requires quasi-polynomial hardness of low-noise LPN"
 ---
 
 # Low-noise LPN ⇒ TDH

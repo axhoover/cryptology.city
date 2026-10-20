@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
-security-loss: ""
+security-loss: "tight: the undetectability distinguisher is forwarded to the PRC pseudorandomness game, and with uniform coins the outputs are exactly the model's"
 rationale:
   class: "Generation calls the zero-bit PRC's encoder and detection its decoder, both only as oracles, and one fixed reduction runs any distinguisher between watermarked and unwatermarked text as an oracle against PRC pseudorandomness."
 ---

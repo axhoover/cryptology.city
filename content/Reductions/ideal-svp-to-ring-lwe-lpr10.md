@@ -11,7 +11,7 @@ class: fully-black-box
 model: quantum
 source:
   - "[[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]"
-security-loss: ""
+security-loss: "polynomial: the quantum worst-case algorithm and the classical search-to-decision step run in polynomial time given any Ring LWE solver of noticeable advantage as an oracle"
 rationale:
   class: "The quantum reduction and the search-to-decision step each use the Ring LWE solver only as an oracle and work for every solver with noticeable success probability."
   model: "The worst-case to average-case step is quantum; the search-to-decision step is classical."

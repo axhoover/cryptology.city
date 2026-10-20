@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
-security-loss: ""
+security-loss: "additive: at most twice the sum of one LWE advantage per secret key, $L + 1$ in dimension $n$ modulo $q$ for $L$ levels and one in dimension $k$ modulo $p$, plus a leftover-hash term for the challenge"
 ---
 
 # LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)

@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[CGKS98 - Private information retrieval|CGKS98]]"
-security-loss: ""
+security-loss: "none: privacy is perfect, each server's view being independent of $i$"
 ---
 
 # Linear SS ⇒ IT-PIR

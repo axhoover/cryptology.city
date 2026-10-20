@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
-security-loss: ""
+security-loss: "a factor polynomial in $n$, from a hybrid over the independent LWE secrets of the encrypted matrix"
 rationale:
   class: "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
+  security-loss: "The index encrypts the matrix under several LWE secrets sharing one public matrix, so mode indistinguishability passes through a uniform index by one LWE hybrid per secret."
 ---
 
 # LWE ⇒ Lossy TDF (Peikert–Waters)

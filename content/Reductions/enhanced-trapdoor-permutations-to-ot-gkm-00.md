@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
-security-loss: ""
+security-loss: "polynomial: receiver privacy is statistical, and a sender-privacy distinguisher with advantage $\\varepsilon$ predicts the hard-core bit of an obliviously sampled image, from which the Goldreich–Levin decoder inverts the permutation with probability $\\Omega(\\varepsilon)$ in time $\\poly(\\secpar, 1/\\varepsilon)$"
 rationale:
   class: "The EGL protocol uses the TDP only through its generation, evaluation, inversion and domain-sampling algorithms, and the sender-privacy reduction turns any receiver-view distinguisher, used only as an oracle, into an inverter via the black-box Goldreich–Levin decoder."
 ---

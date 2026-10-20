@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
-security-loss: ""
+security-loss: "polynomial: the worst-case algorithm runs in polynomial time given any SIS solver of noticeable success probability as an oracle"
 rationale:
   class: "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
 ---

@@ -11,7 +11,7 @@ class: free
 model: algebraic-group
 source:
   - "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
-security-loss: ""
+security-loss: "none: the extractor succeeds whenever the algebraic adversary outputs a pair with $B = A^\\alpha$"
 rationale:
   class: "The hypothesis is a model of computation, not a primitive, so no black-box class applies; the extractor uses only the representation every algebraic adversary outputs, with no hardness assumption."
   model: "The extraction holds only for algebraic adversaries; nothing is claimed in the standard model."

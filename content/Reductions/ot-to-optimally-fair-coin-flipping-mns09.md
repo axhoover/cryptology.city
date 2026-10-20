@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[MNS09 - An Optimally Fair Coin Toss|MNS09]]"
-security-loss: ""
+security-loss: "additive: the bias $O(1/r)$ with an ideal dealer, plus the simulation advantage of the secure computation replacing it"
 ---
 
 # OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)

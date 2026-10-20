@@ -12,9 +12,10 @@ model: standard
 source:
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
-security-loss: ""
+security-loss: "polynomial: a constant number of PKE and NIZK hybrids, and one iO hybrid per functional key each time the keys switch the component they decrypt"
 rationale:
   class: "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
+  security-loss: "Each functional key is a separate obfuscated program, so switching the decryption component across all keys takes one iO step per key."
 ---
 
 # OWF + iO ⇒ FE

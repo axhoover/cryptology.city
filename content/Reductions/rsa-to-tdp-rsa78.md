@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
-security-loss: ""
+security-loss: "none: an inverter for the family is an RSA solver with the same advantage"
 ---
 
 # RSA ⇒ TDP

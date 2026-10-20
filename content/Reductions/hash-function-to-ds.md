@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The UOWHFs, one-time signatures and authentication tree evaluate the one-way function only as an oracle, and the reduction runs any forger as an oracle to extract a UOWHF collision or a preimage of the one-way function."
 ---

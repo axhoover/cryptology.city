@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GM84 - Probabilistic encryption|GM84]]"
-security-loss: ""
+security-loss: "factor $\\ell$ over the hard-core-bit advantage for $\\ell$-bit messages, from the hybrid over bit positions, tight for one bit; with the Goldreich–Levin predicate, a predictor of advantage $\\varepsilon$ gives an inverter succeeding with probability $\\Omega(\\varepsilon)$ in time $\\poly(n, 1/\\varepsilon)$ for $n$-bit inputs"
 rationale:
   class: "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit; for the Goldreich–Levin predicate, the list decoder turns that predictor into an inverter."
 ---

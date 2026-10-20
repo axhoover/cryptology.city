@@ -12,7 +12,7 @@ model: standard
 source:
   - "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]"
   - "[[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]]"
-security-loss: ""
+security-loss: "additive: the garbling-privacy advantage plus, by a hybrid over the evaluator's $n$ input bits, $n$ times the OT simulation advantage"
 rationale:
   class: "The protocol uses the garbling scheme and OT only through their interfaces, and the LP09 simulators and hybrid reductions run the view distinguisher only as an oracle, as the modular garbling treatment of BHR12 makes explicit."
 ---

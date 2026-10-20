@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]"
-security-loss: ""
+security-loss: "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit"
 rationale:
   class: "The construction uses only the group operation, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
 ---
@@ -29,3 +29,4 @@ The half-interval predicate is hard-core for $x \mapsto g^x$: given $y = g^x$, E
 ## Notes
 
 - The next-bit test characterizes pseudorandomness, and the construction generalizes to a PRG from any one-way permutation — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
+- Efficiency: each output bit costs one exponentiation modulo $p$ — standard.

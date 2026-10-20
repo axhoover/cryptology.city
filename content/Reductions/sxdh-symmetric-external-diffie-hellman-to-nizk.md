@@ -11,9 +11,10 @@ class: unstated
 model: crs
 source:
   - "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
-security-loss: ""
+security-loss: "additive: soundness is perfect, and zero knowledge loses at most twice the DDH advantage in each of $\\GG_1$ and $\\GG_2$, for switching the commitment key from binding to hiding"
 rationale:
   model: "The common reference string is a commitment key, binding in the real setup and hiding in the simulated one."
+  security-loss: "On a hiding commitment key the proofs are perfectly witness-indistinguishable and the simulation is perfect, so the only computational step is telling the binding key from the hiding key, which in each source group passes through a uniform key by two DDH hybrids."
 ---
 
 # SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK

@@ -11,9 +11,10 @@ class: unstated
 model: rom
 source:
   - "[[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]]"
-security-loss: ""
+security-loss: "quadratic: RSA inversion succeeds with probability about $\\varepsilon^2/4$ for IND-CCA advantage $\\varepsilon$, in time $2t + q_H(q_H + 2q_G) \\cdot O(k^3)$ for adversary time $t$, $q_G$ and $q_H$ random-oracle queries and a $k$-bit modulus"
 rationale:
   model: "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known."
+  security-loss: "The reduction runs the adversary twice, on $y$ and on $y \\alpha^e$, to obtain two partial preimages, which squares the success probability, and tries the lattice step on pairs of hash queries."
 ---
 
 # RSA ⇒ IND-CCA PKE (RSA-OAEP)

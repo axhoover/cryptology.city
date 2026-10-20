@@ -11,7 +11,9 @@ class: unstated
 model: standard
 source:
   - "[[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]]"
-security-loss: ""
+security-loss: "polynomial"
+rationale:
+  security-loss: "HJ16 derive full adaptive security from polynomial hardness of k-Lin, with no complexity leveraging."
 ---
 
 # k-Lin ⇒ VRF

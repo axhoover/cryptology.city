@@ -5002,7 +5002,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: the extractor succeeds whenever the algebraic adversary outputs a pair with $B = A^\\alpha$",
    "rationale": {
     "class": "The hypothesis is a model of computation, not a primitive, so no black-box class applies; the extractor uses only the representation every algebraic adversary outputs, with no hardness assumption.",
     "model": "The extraction holds only for algebraic adversaries; nothing is claimed in the standard model."
@@ -5123,7 +5123,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the selective adversary, whose advantage is at most twice the DBDH advantage",
    "rationale": {
     "class": "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
    },
@@ -5147,7 +5147,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the adversary, whose advantage is at most twice the decision $n$-BDHE advantage",
    "rationale": {
     "class": "One fixed construction uses the bilinear group only through group operations and the pairing, and the static reduction programs the public key and the revoked users' keys around the committed target set from a decision n-BDHE instance and runs the adversary once as an oracle."
    },
@@ -5196,7 +5196,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: $O(q)$ DLIN advantages plus twice the DBDH advantage, for $q$ private-key queries",
    "rationale": {
     "class": "The construction uses the pairing group only through group operations and the pairing, and each step of the dual system hybrid runs the HIBE adversary once as an oracle against a DLIN or DBDH challenge."
    },
@@ -5241,10 +5241,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor $O(q_E q_{H_2})$ for BasicIdent with $q_E$ key queries and $q_{H_2}$ queries to $H_2$: IND-ID-CPA advantage $\\varepsilon$ gives BDH advantage at least $\\varepsilon/(\\mathrm{e}(1+q_E)q_{H_2})$",
    "rationale": {
     "class": "The construction is one fixed scheme over the pairing group, and the reduction runs the IBE adversary only as an oracle to solve BDH.",
-    "model": "The reduction programs the scheme's hash functions, modelled as random oracles."
+    "model": "The reduction programs the scheme's hash functions, modelled as random oracles.",
+    "securityLoss": "The reduction embeds the BDH challenge in each $H_1$ value with Coron's biased coin, so that it answers every key query and holds the challenge at the target identity with probability $1/(\\mathrm{e}(1+q_E))$, and outputs a random one of the $q_{H_2}$ queries to $H_2$."
    },
    "status": "draft",
    "page": "content/Reductions/bdh-to-ibe-bf01.md",
@@ -5291,7 +5292,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
+   "rationale": {
+    "securityLoss": "HJ16 derive full adaptive security from polynomial hardness of k-Lin, with no complexity leveraging."
+   },
    "status": "draft",
    "page": "content/Reductions/bdh-to-vrf.md",
    "slug": "bdh-to-vrf",
@@ -5335,9 +5339,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: for $q_S < q$ signing queries the forger's success probability is at most twice the $q$-SDH advantage plus $O(q_S/p)$",
    "rationale": {
-    "class": "The scheme uses the bilinear group only through group operations and the pairing, and the reduction runs any forger as an oracle and turns its forgery into a q-SDH solution."
+    "class": "The scheme uses the bilinear group only through group operations and the pairing, and the reduction runs any forger as an oracle and turns its forgery into a q-SDH solution.",
+    "securityLoss": "The reduction prepares for one of two kinds of forgery, one reusing the value $x + m + yr$ of a signing query and one not, and guesses which, which costs the factor 2."
    },
    "status": "draft",
    "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-ds-bb04a.md",
@@ -5360,7 +5365,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one call to the binding adversary yields a $q$-SDH solution",
    "rationale": {
     "class": "The construction uses the bilinear group only through group operations and the pairing, and the reduction runs any evaluation-binding adversary once as an oracle and turns its two openings into a q-SDH solution.",
     "model": "The scheme needs a trusted structured reference string of powers of a secret exponent that is discarded after setup."
@@ -5661,9 +5666,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
-    "class": "The garbled circuits that the construction evaluates contain the code of chameleon encryption built from the group, so the construction uses the CDH group non-black-box."
+    "class": "The garbled circuits that the construction evaluates contain the code of chameleon encryption built from the group, so the construction uses the CDH group non-black-box.",
+    "securityLoss": "DG17a prove adaptive security from polynomial hardness of CDH alone, so the reduction loses at most a polynomial factor."
    },
    "status": "draft",
    "page": "content/Reductions/cdh-to-ind-id-cpa-dg17a.md",
@@ -5758,7 +5764,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: the FHE public key is the SHE public key with encryptions of its own secret-key bits, so the FHE IND-CPA game is the circular-security game",
    "rationale": {
     "class": "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
    },
@@ -6337,7 +6343,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one call to the IND-CPA adversary, whose advantage is at most twice the residuosity advantage",
    "rationale": {
     "class": "DJ01 state no reduction notion; the construction uses only the RSA-modulus sampler, and the reduction embeds the residuosity challenge in the challenge ciphertext and runs the IND-CPA adversary once as an oracle."
    },
@@ -6457,9 +6463,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: twice the subset-membership advantage, which the DCR advantage bounds, plus statistical terms, one of them linear in the number of decryption queries",
    "rationale": {
-    "class": "The scheme uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
+    "class": "The scheme uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance.",
+    "securityLoss": "The hash-proof analysis runs the CCA adversary once on a challenge built from the subset-membership instance, squaring a DCR instance and multiplying it by a random sign gives that instance exactly, and the universal-2 property rejects each invalid decryption query except with statistically small probability."
    },
    "status": "draft",
    "page": "content/Reductions/dcr-safe-primes-to-pke-cca2-security-cs02.md",
@@ -6505,7 +6512,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
+   "rationale": {
+    "securityLoss": "The server sees only the client's Paillier public key and ciphertexts, so privacy follows from semantic security by a hybrid over the query's ciphertexts."
+   },
    "status": "draft",
    "page": "content/Reductions/dcr-to-cpir-cha04.md",
    "slug": "dcr-to-cpir-cha04",
@@ -6789,9 +6799,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one DDH advantage, for switching the reference string to the other mode when simulating against the party its mode protects only computationally; the rest of the simulation is statistical",
    "rationale": {
-    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode.",
+    "securityLoss": "The reference string is the only computational component, and in the DDH instantiation it is a DDH tuple in decryption mode and a non-DDH tuple in messy mode."
    },
    "status": "draft",
    "page": "content/Reductions/ddh-to-malicious-ot-security-pvw08.md",
@@ -7053,9 +7064,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the dual-system hybrid changes the secret keys one at a time, a factor linear in the number of key queries",
    "rationale": {
-    "class": "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved."
+    "class": "OT12 do not place their proof in the RTV04 taxonomy, so the page records only that the implication is proved.",
+    "securityLoss": "OT12 extend dual system encryption, whose hybrid moves each queried secret key to semi-functional form in turn, each move reducing to DLIN."
    },
    "status": "draft",
    "page": "content/Reductions/dlin-to-ippe-ksw08.md",
@@ -7077,7 +7089,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: telling the real CRS from the simulated one is one DLIN instance, simulation on the latter is perfect, and soundness is perfect",
    "rationale": {
     "model": "The proof system needs a trusted common reference string."
    },
@@ -7318,7 +7330,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a factor $m$ for $m$ output bits from the next-bit hybrid, composed with the polynomial loss of recovering the discrete logarithm from a predictor for the half-interval bit",
    "rationale": {
     "class": "The construction uses only the group operation, and the reduction runs the distinguisher only as an oracle, turning it into a next-bit predictor and the predictor into a DLOG solver."
    },
@@ -7429,7 +7441,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: hiding is perfect, and two sets of accepted shares interpolating different secrets yield $\\log_g h$",
    "rationale": {
     "model": "The scheme uses no idealised oracle, only public generators whose discrete-logarithm relation the dealer does not know and a broadcast channel for the commitments."
    },
@@ -7477,7 +7489,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one oracle call, advantage-preserving",
    "rationale": {
     "class": "One fixed construction calls the DPF only through its key generation and evaluation algorithms, and the privacy reduction runs any query distinguisher once as an oracle on the key it receives, which makes it a DPF hiding adversary."
    },
@@ -7525,7 +7537,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: one inverter call, and the forger succeeds whenever the inverter does, with no signing query",
    "rationale": {
     "class": "The one-way function runs the key generator on its input coins and outputs the verification key, using the scheme only as an oracle, and one fixed reduction runs any inverter once as an oracle and signs under the recovered key."
    },
@@ -7549,7 +7561,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: receiver privacy is statistical, and a sender-privacy distinguisher with advantage $\\varepsilon$ predicts the hard-core bit of an obliviously sampled image, from which the Goldreich–Levin decoder inverts the permutation with probability $\\Omega(\\varepsilon)$ in time $\\poly(\\secpar, 1/\\varepsilon)$",
    "rationale": {
     "class": "The EGL protocol uses the TDP only through its generation, evaluation, inversion and domain-sampling algorithms, and the sender-privacy reduction turns any receiver-view distinguisher, used only as an oracle, into an inverter via the black-box Goldreich–Levin decoder."
    },
@@ -7858,7 +7870,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the hard-core-bit step to factoring loses a polynomial factor, and the chosen-ciphertext simulation adds the target-collision advantage",
+   "rationale": {
+    "securityLoss": "The reduction decrypts every ciphertext whose tag differs from the challenge tag, so apart from a target collision the loss is that of distinguishing the encapsulated hard-core bits from uniform, which reduces to factoring with a polynomial loss."
+   },
    "status": "draft",
    "page": "content/Reductions/factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09.md",
    "slug": "factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09",
@@ -7948,9 +7963,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a factor $m$ from Yao's next-bit hybrid, and a polynomial loss in turning a low-order-bit predictor into a factoring algorithm",
    "rationale": {
-    "class": "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor."
+    "class": "The construction only squares modulo the sampled Blum integer, and the reduction runs the distinguisher only as an oracle to build a low-order-bit predictor, which it in turn uses only as an oracle to decide quadratic residuosity or to factor.",
+    "securityLoss": "VV84 extract square roots modulo $N$, and hence factor $N$, from a low-order-bit predictor in time polynomial in $\\log N$ and the inverse of its advantage."
    },
    "status": "draft",
    "page": "content/Reductions/factoring-with-known-factor-structure-to-prg.md",
@@ -7999,10 +8015,11 @@
     "[[fiat-shamir-heuristic|Fiat–Shamir]]"
    ],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "soundness: factor $O(q^r)$ over the interactive soundness error for a $q$-query prover and $r$ challenge rounds, $q + 1$ for three-move protocols; zero knowledge: the HVZK simulation error plus the probability that a programmed oracle point was queried before",
    "rationale": {
     "class": "One fixed compiler runs the protocol's prover, verifier and honest-verifier simulator only as oracles, and the soundness reduction runs any cheating prover only as an oracle, answering its oracle queries and forwarding chosen ones as its interactive messages.",
-    "model": "Soundness and zero knowledge are proved with the hash modelled as a programmable random oracle, which the simulator programs with simulated transcripts."
+    "model": "Soundness and zero knowledge are proved with the hash modelled as a programmable random oracle, which the simulator programs with simulated transcripts.",
+    "securityLoss": "An accepted proof fixes each challenge at one of the prover's oracle queries, and the interactive prover guesses one query per round to forward to the verifier."
    },
    "status": "draft",
    "page": "content/Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk.md",
@@ -8051,7 +8068,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: the DPF hiding game is the FSS hiding game restricted to point functions",
    "rationale": {
     "class": "The DPF is the FSS scheme restricted to point functions, and the reduction passes any DPF adversary unchanged to the FSS hiding game; both use their objects only as oracles."
    },
@@ -8123,7 +8140,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
    },
@@ -8147,7 +8164,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any LWE solver of noticeable success probability as an oracle",
    "rationale": {
     "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
    },
@@ -8213,7 +8230,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The quantum reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
     "model": "The LWE oracle is used classically to solve bounded-distance decoding, but the step converting that decoder into narrower discrete-Gaussian samples is a quantum algorithm."
@@ -8259,7 +8276,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any SIS solver of noticeable success probability as an oracle",
    "rationale": {
     "class": "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
    },
@@ -8306,7 +8323,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the garbling-privacy advantage plus, by a hybrid over the evaluator's $n$ input bits, $n$ times the OT simulation advantage",
    "rationale": {
     "class": "The protocol uses the garbling scheme and OT only through their interfaces, and the LP09 simulators and hybrid reductions run the view distinguisher only as an oracle, as the modular garbling treatment of BHR12 makes explicit."
    },
@@ -8405,7 +8422,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "the adversary beats the extractor with probability $O(m^2/q)$ for $m$ group-oracle queries, $q$ the group order",
    "rationale": {
     "class": "The hypothesis is a model of computation, not a primitive, so no black-box class applies; Den06 prove the statement for every generic adversary, which is the free class scoped by the model.",
     "model": "The extraction holds only for generic adversaries; nothing is claimed in the standard model."
@@ -8431,7 +8448,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the collision-finding advantage plus $2^h$ times the one-time-signature advantage, from planting the one-time challenge key at a uniformly random one of the $2^h$ leaves",
    "rationale": {
     "class": "The construction calls the one-time signature scheme and the hash function only as oracles, and the reduction runs any forger as an oracle and outputs a hash collision at some tree node or a one-time forgery."
    },
@@ -8481,7 +8498,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the forging probability is at most the iO advantage plus the punctured-PRF advantage plus the probability of inverting the one-way function, with the punctured PRF built from the one-way function at a polynomial loss",
    "rationale": {
     "class": "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
    },
@@ -8507,9 +8524,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a constant number of PKE and NIZK hybrids, and one iO hybrid per functional key each time the keys switch the component they decrypt",
    "rationale": {
-    "class": "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
+    "class": "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function.",
+    "securityLoss": "Each functional key is a separate obfuscated program, so switching the decryption component across all keys takes one iO step per key."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
@@ -8532,10 +8550,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: zero knowledge is perfect, and the soundness error is at most the iO advantages for the two obfuscated programs plus the punctured-PRF advantage plus the probability of inverting the one-way function, with the punctured PRF built from the one-way function at a polynomial loss",
    "rationale": {
     "class": "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the OWF, and SW14 do not place it in the RTV04 hierarchy.",
-    "model": "A trusted setup publishes the obfuscated programs as the common reference string."
+    "model": "A trusted setup publishes the obfuscated programs as the common reference string.",
+    "securityLoss": "For a false statement fixed in advance the prover program can use the key punctured at it, being functionally equivalent since no witness exists, and so can the verifier program with $f(F(K, x))$ hard-wired; the simulator computes the same $F(K, x)$ the prover outputs."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-and-io-to-nizk-sw14.md",
@@ -8558,7 +8577,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: at most twice the sum of the PRG, iO and punctured-PRF advantages, one hybrid each, and $2^{-\\secpar}$ for a uniform $t^*$ in the PRG's image, with the PRG and the punctured PRF built from the one-way function at a polynomial loss",
    "rationale": {
     "class": "The construction obfuscates a circuit containing the code of a puncturable PRF and a PRG built from the one-way function, so it is not black-box in the OWF, and SW14 state no reduction notion."
    },
@@ -8582,7 +8601,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: zero knowledge reduces to commitment hiding by a hybrid over the polynomially many unopened commitments, on top of the polynomial loss of the commitment from the one-way function",
    "rationale": {
     "class": "The 3-coloring protocol uses the commitment only as an oracle, the HILL99 and Naor91 chain from a one-way function to the commitment is fully black-box, soundness needs only statistical binding, and zero knowledge reduces to hiding through a simulator that runs the cheating verifier only as an oracle."
    },
@@ -8606,7 +8625,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The UOWHFs, one-time signatures and authentication tree evaluate the one-way function only as an oracle, and the reduction runs any forger as an oracle to extract a UOWHF collision or a preimage of the one-way function."
    },
@@ -8724,9 +8743,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the IOP's state-restoration soundness error for $t$ oracle queries plus $O(t^2 2^{-\\secpar})$ for $\\secpar$-bit oracle outputs",
    "rationale": {
-    "model": "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model."
+    "model": "The argument is made non-interactive by the BCS transform, whose knowledge soundness BCS16 prove in the random-oracle model.",
+    "securityLoss": "BCS16 bound the soundness error of the compiled argument by the IOP's state-restoration soundness error plus the probability of a collision among the random oracle's answers."
    },
    "status": "draft",
    "page": "content/Reductions/hash-function-to-snark-bbhr18.md",
@@ -8748,7 +8768,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: soundness is statistical, and zero knowledge reduces to commitment hiding by a hybrid over the polynomially many unopened commitments, on top of the polynomial loss of the commitment from the one-way function",
    "rationale": {
     "class": "The protocol uses the commitment only as an oracle and Naor's commitment on the HILL generator uses the one-way function only as an oracle; soundness is statistical, and the zero-knowledge reduction runs any simulation distinguisher only as an oracle to break hiding, hence to invert the function."
    },
@@ -8883,7 +8903,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the IND-CPA adversary with the challenge as the public non-residue $g$, whose advantage is at most twice the advantage of distinguishing a uniform $d$-th residue from a uniform $d$-th non-residue",
    "rationale": {
     "class": "CF85 state no reduction notion; the proof shape is one fixed construction on the modulus and one fixed reduction that plants the higher-residuosity challenge as the public non-residue and runs any IND-CPA adversary once as an oracle."
    },
@@ -8955,7 +8975,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none (perfect security)",
    "rationale": {
     "class": "The theorem is unconditional and its hypothesis is a corruption threshold, not a primitive a construction could use as an oracle, so no black-box class applies."
    },
@@ -9000,7 +9020,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: the adversary runs unchanged through the encodings, with the same advantage",
    "rationale": {
     "class": "One fixed encoding of attributes and predicates into HVE vectors and patterns invokes the HVE algorithms only as oracles, and the reduction translates the adversary's key queries and challenge through the same encoding and runs it unchanged."
    },
@@ -9073,7 +9093,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the quantum worst-case algorithm and the classical search-to-decision step run in polynomial time given any Ring LWE solver of noticeable advantage as an oracle",
    "rationale": {
     "class": "The quantum reduction and the search-to-decision step each use the Ring LWE solver only as an oracle and work for every solver with noticeable success probability.",
     "model": "The worst-case to average-case step is quantum; the search-to-decision step is classical."
@@ -9098,7 +9118,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The worst-case algorithm builds random Ring-SIS instances from its input ideal lattice and calls the collision finder only as an oracle, for every solver with noticeable success probability."
    },
@@ -9196,10 +9216,11 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$",
    "rationale": {
     "class": "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption.",
-    "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known."
+    "model": "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known.",
+    "securityLoss": "HHK17 bound the derandomization step and the key-derivation step separately, and the composed transform adds the two bounds."
    },
    "status": "draft",
    "page": "content/Reductions/ind-cpa-kem-to-ind-cca-security.md",
@@ -9463,9 +9484,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
-    "class": "The obfuscated circuits evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; GPS16 state no reduction notion."
+    "class": "The obfuscated circuits evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; GPS16 state no reduction notion.",
+    "securityLoss": "GPS16 need only polynomial hardness of iO and of the one-way permutation, so their reduction loses at most a polynomial factor."
    },
    "status": "draft",
    "page": "content/Reductions/io-and-owp-to-ppad-hardness-gps16.md",
@@ -9556,9 +9578,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to an additive $2q/p$ for $q$ key queries when the challenge attributes are fixed first: a non-matching key's encoded inner product vanishes on each challenge attribute with probability $1/p$",
    "rationale": {
-    "class": "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$."
+    "class": "KSW08 do not classify the reduction, and although the construction uses the IPPE scheme only as an oracle, a fully-black-box security reduction needs an extra hypothesis, a hidden key vector or selective HVE security, because an IPPE key may reveal the coefficients $r_i$.",
+    "securityLoss": "The coefficients $r_i$ are sampled after the challenge attributes are fixed, so each non-matching key's encoded inner product is uniform in $\\ZZ_p$ on each of them."
    },
    "status": "draft",
    "page": "content/Reductions/ippe-to-hve.md",
@@ -10168,7 +10191,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the adversary, its challenge ciphertext built from the LWE samples, whose advantage is at most twice the LWE advantage plus statistical terms from the leftover hash lemma and trapdoor sampling",
    "rationale": {
     "class": "Each scheme is one fixed construction from LWE samples and lattice trapdoors, and its reduction runs the HIBE adversary only as an oracle on parameters built from the committed challenge identity and its LWE challenge."
    },
@@ -10217,9 +10240,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: one LWE advantage per level, $L + 1$ in all, from the hybrid along the chain of keys, plus a leftover-hash term for the challenge ciphertext",
    "rationale": {
-    "class": "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
+    "class": "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform.",
+    "securityLoss": "Each level's secret is encrypted only under the level below it, so the hybrid replaces each level's samples by uniform ones from the lowest level up, after which the challenge is encrypted under a uniform public key."
    },
    "status": "draft",
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12.md",
@@ -10241,7 +10265,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: at most twice the sum of one LWE advantage per key of the chain, from the hybrid along it, the last step being IND-CPA under the first key, plus a statistical leftover-hash term in that last step",
    "rationale": {
     "class": "The construction is fixed, with a public key that is an acyclic chain of bootstrapping keys, and the proof is a hybrid over the keys of the chain in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
    },
@@ -10265,9 +10289,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor polynomial in $n$, from a hybrid over the independent LWE secrets of the encrypted matrix",
    "rationale": {
-    "class": "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
+    "class": "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges.",
+    "securityLoss": "The index encrypts the matrix under several LWE secrets sharing one public matrix, so mode indistinguishability passes through a uniform index by one LWE hybrid per secret."
    },
    "status": "draft",
    "page": "content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md",
@@ -10289,9 +10314,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: in each mode, statistical against one party, and against the other the advantage in telling the reference string's two modes apart, which decision LWE bounds, plus statistical terms",
    "rationale": {
-    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode.",
+    "securityLoss": "PVW08 simulate the party a mode protects with that mode's trapdoor and the other party by generating the reference string in the opposite mode, a single switch for the one string all transfers share."
    },
    "status": "draft",
    "page": "content/Reductions/lwe-to-malicious-ot-security-pvw08.md",
@@ -10336,7 +10362,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
    "rationale": {
     "class": "One fixed construction uses only LWE samples, and the reduction runs the IND-CPA adversary once as an oracle on a public key that is either LWE samples or uniform, the leftover hash lemma bounding its advantage in the uniform case."
    },
@@ -10360,7 +10386,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor 2: index hiding passes through a uniform encoding key, one LWE hybrid on each side",
    "status": "draft",
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
    "slug": "lwe-to-tdh-dgi-19",
@@ -10469,9 +10495,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the CPA advantage plus twice the SUF-CMA advantage",
    "rationale": {
-    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery."
+    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery.",
+    "securityLoss": "Encrypt-then-MAC has ciphertext integrity at most the SUF-CMA advantage, and integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage."
    },
    "status": "draft",
    "page": "content/Reductions/mac-and-ske-to-cca-security.md",
@@ -10566,7 +10593,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight in the random-oracle model: a constant multiple of the Module-LWE advantage plus a term of order $q\\delta$ for $q$ random-oracle queries and decryption-failure probability $\\delta$; non-tight in the quantum random-oracle model",
    "rationale": {
     "class": "The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy.",
     "model": "The IND-CPA scheme is secure in the standard model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the classical and quantum random-oracle models."
@@ -10639,7 +10666,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The quantum reduction uses an arbitrary Module LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
     "model": "The step turning the bounded-distance-decoding solver into a discrete Gaussian sampler is a quantum algorithm."
@@ -10664,7 +10691,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any Module-SIS solver of noticeable success probability as an oracle",
    "rationale": {
     "class": "The worst-case algorithm builds random Module-SIS instances from its input module lattice and calls an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability."
    },
@@ -10688,7 +10715,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: the assumption is the scheme's security on Exact Cover instances without a cover, and the Karp reduction to Exact Cover preserves it",
    "status": "draft",
    "page": "content/Reductions/multilinear-maps-to-witness-encryption-ggsw13.md",
    "slug": "multilinear-maps-to-witness-encryption-ggsw13",
@@ -10828,7 +10855,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor $k^{O(1)}$: a collision finder with success $\\delta$ gives an LPN distinguisher with advantage at least $\\frac{\\delta}{2}(1-2\\varepsilon)^{2w} = \\delta \\cdot k^{-O(1)}$",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-hash-function-blvw19.md",
    "slug": "noise-level-to-hash-function-blvw19",
@@ -10873,7 +10900,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: decisional-LPN hybrids for the public key and for each encryption of $0$",
    "rationale": {
     "class": "One fixed construction uses LPN samples only as data, and each of the two hybrid reductions (public key, then ciphertext, to uniform) runs the IND-CPA adversary once as an oracle to distinguish LPN samples from uniform."
    },
@@ -10897,7 +10924,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "requires quasi-polynomial hardness of low-noise LPN",
    "status": "draft",
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
    "slug": "noise-level-to-tdh-amr25",
@@ -11073,9 +11100,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to statistical terms: the reduction programs every hash value as the image of a short vector it samples, so a forgery yields an SIS solution over the NTRU lattice without guessing",
    "rationale": {
-    "model": "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model."
+    "model": "The GPV hash-and-sign reduction programs the random oracle on every message, and the Falcon proof is in the classical or quantum random-oracle model.",
+    "securityLoss": "In the GPV reduction no query is guessed, and the conditional min-entropy of a preimage makes the forgery differ from the programmed preimage except with negligible probability."
    },
    "status": "draft",
    "page": "content/Reductions/ntru-to-ds.md",
@@ -11243,7 +11271,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "statistical in the OT-hybrid model: hiding error at most $\\secpar \\cdot 2^{-n}$ and binding error $2^{-\\secpar}$; a real OT protocol adds its simulation advantage once per transfer, $n\\secpar$ transfers in all",
    "rationale": {
     "class": "The construction invokes OT only as an ideal functionality, hiding and binding hold statistically in the OT-hybrid model, and against a real OT protocol the reduction runs any adversary against the composed commitment as an oracle to distinguish real from ideal OT."
    },
@@ -11387,7 +11415,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: the bias $O(1/r)$ with an ideal dealer, plus the simulation advantage of the secure computation replacing it",
    "status": "draft",
    "page": "content/Reductions/ot-to-optimally-fair-coin-flipping-mns09.md",
    "slug": "ot-to-optimally-fair-coin-flipping-mns09",
@@ -11454,9 +11482,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a distinguisher of time $T$ and advantage $\\varepsilon$ yields an inverter of time-success ratio $\\poly(n, T/\\varepsilon)$, but the seed is polynomially longer than the input length $n$ of $f$, so the generator's security at seed length $m$ rests on that of $f$ at input length $m^{\\Omega(1)}$",
    "rationale": {
-    "class": "The construction calls the one-way function only as an oracle, and one fixed reduction inverts it given oracle access to any PRG distinguisher (hybrid argument plus Goldreich–Levin decoding); HRV10 treat HILL as the reference fully-black-box construction."
+    "class": "The construction calls the one-way function only as an oracle, and one fixed reduction inverts it given oracle access to any PRG distinguisher (hybrid argument plus Goldreich–Levin decoding); HRV10 treat HILL as the reference fully-black-box construction.",
+    "securityLoss": "The seed holds many independent inputs to $f$ together with the hashing keys, and the hybrid over the copies and the Goldreich–Levin decoding each lose a polynomial factor."
    },
    "status": "draft",
    "page": "content/Reductions/owf-to-prg-hill99.md",
@@ -12083,9 +12112,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial; tight for a perfectly correct scheme, where one inversion yields a secret key that decrypts the challenge",
    "rationale": {
-    "class": "The one-way function runs the PKE algorithms only as oracles (for a perfectly correct scheme, key generation on its input coins), and the reduction runs any inverter as an oracle to obtain a secret key consistent with the public key and decrypt the challenge."
+    "class": "The one-way function runs the PKE algorithms only as oracles (for a perfectly correct scheme, key generation on its input coins), and the reduction runs any inverter as an oracle to obtain a secret key consistent with the public key and decrypt the challenge.",
+    "securityLoss": "Without perfect correctness IL89 go through distributional one-wayness, whose conversion to one-wayness loses a polynomial factor."
    },
    "status": "draft",
    "page": "content/Reductions/pke-to-hash-function.md",
@@ -12228,7 +12258,10 @@
     "[[fiat-shamir-heuristic|Fiat–Shamir]]"
    ],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
+   "rationale": {
+    "securityLoss": "CJJ21 assume LWE hard only against polynomial-time adversaries, so the soundness reduction runs in polynomial time with polynomially related advantage."
+   },
    "status": "draft",
    "page": "content/Reductions/polynomial-ratio-lwe-to-snarg-for-p-cjj21.md",
    "slug": "polynomial-ratio-lwe-to-snarg-for-p-cjj21",
@@ -12522,7 +12555,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a factor the number of PRG invocations in key generation, from the hybrid over them",
    "rationale": {
     "class": "GI14 use the PRG only as an oracle, replacing random key portions at each recursion level by seeds expanded at evaluation time, and prove hiding by a hybrid over PRG invocations that runs the DPF adversary only as an oracle."
    },
@@ -12570,7 +12603,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor $q\\ell$ for $q$ queries on $\\ell$-bit inputs: a hybrid over the $\\ell$ tree levels, each step a hybrid over the at most $q$ nodes queried at that level",
    "rationale": {
     "class": "The construction calls the length-doubling PRG only as an oracle, once per input bit, and the hybrid reduction runs any PRF distinguisher only as an oracle to build a PRG distinguisher."
    },
@@ -12849,7 +12882,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: soundness is statistical, and zero knowledge reduces to QR with a hybrid over the polynomially many repetitions",
    "rationale": {
     "class": "The prover uses only the Blum-integer sampler and arithmetic modulo the integer it samples, soundness is statistical, and zero knowledge reduces to QR using any distinguisher only as an oracle.",
     "model": "The uniformly random reference string carries the hidden bits."
@@ -12943,7 +12976,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary with the QR challenge as the public key, whose advantage is twice the QR advantage",
    "status": "draft",
    "page": "content/Reductions/qr-to-he-gm84.md",
    "slug": "qr-to-he-gm84",
@@ -13033,7 +13066,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary with the QR challenge as the public key, whose advantage is at most twice the QR advantage",
    "rationale": {
     "class": "GM84 state no reduction notion; the construction uses only the modulus generator, and one fixed reduction sets the public non-residue to the QR challenge and runs the IND-CPA adversary once as an oracle."
    },
@@ -13306,7 +13339,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary on one Ring LWE sample, whose advantage is at most twice the Ring LWE advantage plus twice the statistical distance of the public key from uniform",
    "status": "draft",
    "page": "content/Reductions/ring-lwe-to-ntru-ss11.md",
    "slug": "ring-lwe-to-ntru-ss11",
@@ -13351,7 +13384,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "success probability $O(q/n^2)$ for an eavesdropper making $q$ oracle queries",
+   "rationale": {
+    "securityLoss": "The transcript fixes the key only as the preimage of one revealed oracle answer, which is uniform over the domain points the eavesdropper has not queried, so each query finds it with probability $O(1/n^2)$."
+   },
    "status": "draft",
    "page": "content/Reductions/rom-to-merkle-puzzles-mer78.md",
    "slug": "rom-to-merkle-puzzles-mer78",
@@ -13513,9 +13549,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "quadratic: RSA inversion succeeds with probability about $\\varepsilon^2/4$ for IND-CCA advantage $\\varepsilon$, in time $2t + q_H(q_H + 2q_G) \\cdot O(k^3)$ for adversary time $t$, $q_G$ and $q_H$ random-oracle queries and a $k$-bit modulus",
    "rationale": {
-    "model": "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known."
+    "model": "The proof models the OAEP padding hashes as random oracles whose query lists the reduction reads, and no standard-model IND-CCA proof of RSA-OAEP from RSA is known.",
+    "securityLoss": "The reduction runs the adversary twice, on $y$ and on $y \\alpha^e$, to obtain two partial preimages, which squares the success probability, and tries the lattice step on pairs of hash queries."
    },
    "status": "draft",
    "page": "content/Reductions/rsa-to-ind-cca-pke-oaep-fops01.md",
@@ -13537,7 +13574,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: the inverter finds the $e$-th root of the challenge ciphertext among the adversary's oracle queries by testing each, with no guessing step",
    "rationale": {
     "model": "The proof models the key-derivation hash as a random oracle whose query list the reduction reads, and no standard-model IND-CCA proof of RSA-KEM from RSA is known."
    },
@@ -13561,7 +13598,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: a CPA adversary with advantage $\\varepsilon$ predicts the least-significant bit of $x$ from $(n, e, x^e \\bmod n)$ with the same advantage, and ACGS88 turn such a predictor into an RSA inverter running in time $\\poly(\\log n, 1/\\varepsilon)$",
    "status": "draft",
    "page": "content/Reductions/rsa-to-pke-rsa78.md",
    "slug": "rsa-to-pke-rsa78",
@@ -13582,7 +13619,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: an inverter for the family is an RSA solver with the same advantage",
    "status": "draft",
    "page": "content/Reductions/rsa-to-tdp-rsa78.md",
    "slug": "rsa-to-tdp-rsa78",
@@ -13603,7 +13640,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: for a distinguisher of advantage $\\varepsilon$ the search algorithm runs in time $\\poly(n, q, 1/\\varepsilon)$, testing each of the $nq$ guesses $s_i = \\ell$",
    "status": "draft",
    "page": "content/Reductions/search-lwe-to-decision-lwe.md",
    "slug": "search-lwe-to-decision-lwe",
@@ -13670,7 +13707,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to statistical terms: one run of the forger, with every hash value programmed as the image of a self-sampled short preimage, and a forgery differs from that preimage except with negligible probability",
    "rationale": {
     "class": "Hash-and-sign is one fixed construction from the trapdoor generator and preimage sampler, and the reduction runs any forger once as an oracle, programming the random oracle with self-sampled preimages.",
     "model": "The GPV08 reduction programs the random oracle by sampling each preimage first."
@@ -13740,7 +13777,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The quantum reduction invokes an arbitrary average-case LWE solver only as an oracle inside its iterative step and works for every solver with noticeable success probability.",
     "model": "The LWE oracle is used classically to solve bounded-distance decoding, but the step converting that decoder into narrower discrete-Gaussian samples is a quantum algorithm."
@@ -13765,7 +13802,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: the worst-case algorithm runs in polynomial time given any SIS solver of noticeable success probability as an oracle",
    "rationale": {
     "class": "The worst-case algorithm builds random SIS instances from its input lattice and calls an arbitrary average-case SIS solver only as an oracle, for every solver with noticeable success probability."
    },
@@ -13862,9 +13899,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial for constant depth: each level of composition applies the SNARK extractor to the previous level's extractor, a polynomial blow-up that compounds with the depth",
    "rationale": {
-    "class": "The compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code and no black-box class applies."
+    "class": "The compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code and no black-box class applies.",
+    "securityLoss": "Knowledge soundness extracts recursively down the chain of proofs, so the extractor at depth $d$ is the SNARK extractor applied $d$ times, each time to a prover of polynomially larger size."
    },
    "status": "draft",
    "page": "content/Reductions/snark-to-recursive-snarks.md",
@@ -13886,7 +13924,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor $O(\\ell d)$ for depth $d$ and $\\ell$-bit secret keys, from the hybrid over the bitwise encryptions of the secret keys along the chain",
    "rationale": {
     "class": "Bootstrapping homomorphically evaluates the SHE scheme's own augmented decryption circuit, so the construction depends on the scheme's code and no black-box class applies."
    },
@@ -13958,7 +13996,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none: privacy is perfect, each server's view being independent of $i$",
    "status": "draft",
    "page": "content/Reductions/ss-to-it-pir-cgks98.md",
    "slug": "ss-to-it-pir-cgks98",
@@ -14049,7 +14087,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a negligible term: one run of the binding adversary yields a strong-RSA solution for the planted challenge, except with negligible probability over the part of $\\log_h g$ hidden from the committer; hiding is statistical",
    "rationale": {
     "class": "The commitment uses the modulus and bases only through group operations, and the binding reduction runs the committer once as an oracle and turns two openings into a nontrivial root of the planted strong-RSA challenge."
    },
@@ -14074,7 +14112,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor $O(q_S)$ for $q_S$ signing queries, from guessing which signing prime a forgery reuses, plus the collision-finding advantage",
    "rationale": {
     "class": "The scheme uses only the RSA modulus generator and the hash function, and the reduction runs any forger as an oracle and, in each forgery case, outputs a strong-RSA solution or a hash collision."
    },
@@ -14172,9 +14210,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard",
    "rationale": {
-    "class": "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, making the construction non-black-box in the one-way function; BPR15 state no reduction notion, so the broadest class is recorded."
+    "class": "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, making the construction non-black-box in the one-way function; BPR15 state no reduction notion, so the broadest class is recorded.",
+    "securityLoss": "BPR15 assume sub-exponential hardness to absorb, by complexity leveraging, a reduction loss larger than any polynomial."
    },
    "status": "draft",
    "page": "content/Reductions/subclasses-to-hash-function.md",
@@ -14246,7 +14285,7 @@
     "[[fiat-shamir-heuristic|Fiat–Shamir]]"
    ],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "requires sub-exponentially small DDH advantage against polynomial-time adversaries",
    "rationale": {
     "model": "Soundness and zero knowledge hold with respect to a reference string generated by a trusted setup."
    },
@@ -14294,7 +14333,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard",
    "rationale": {
     "class": "The permutation is an obfuscation of a circuit that evaluates the one-way function, so the construction uses the function's code."
    },
@@ -14367,7 +14406,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "a factor $2^{O(w)}$ for input weight $w$: a collision finder with success $\\delta$ gives an LPN distinguisher with advantage at least $\\frac{\\delta}{2}(1-2\\varepsilon)^{2w}$",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-crhf-yzw-19.md",
    "slug": "subexponential-lpn-to-crhf-yzw-19",
@@ -14388,7 +14427,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "requires $2^{\\omega(n^{1/2})}$ hardness of constant-noise LPN",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-ot-yz16.md",
    "slug": "subexponential-lpn-to-ot-yz16",
@@ -14409,7 +14448,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "requires $2^{\\omega(n^{1/2})}$-hardness of constant-noise LPN for secret length $n$",
    "status": "draft",
    "page": "content/Reductions/subexponential-lpn-to-pke-yz16.md",
    "slug": "subexponential-lpn-to-pke-yz16",
@@ -14523,7 +14562,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: at most twice the sum of one LWE advantage per secret key, $L + 1$ in dimension $n$ modulo $q$ for $L$ levels and one in dimension $k$ modulo $p$, plus a leftover-hash term for the challenge",
    "status": "draft",
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
    "slug": "circular-security-and-lwe-to-he",
@@ -14544,7 +14583,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight up to a factor 2: one run of the ABE adversary, its challenge ciphertext built from the LWE samples, whose advantage is at most twice the LWE advantage plus statistical terms from the simulated keys",
    "rationale": {
     "class": "The scheme is one fixed construction from LWE samples and lattice trapdoors, and the reduction runs the ABE adversary only as an oracle on public parameters built from the committed challenge attribute and its LWE challenge."
    },
@@ -14757,9 +14796,10 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: soundness is perfect, and zero knowledge loses at most twice the DDH advantage in each of $\\GG_1$ and $\\GG_2$, for switching the commitment key from binding to hiding",
    "rationale": {
-    "model": "The common reference string is a commitment key, binding in the real setup and hiding in the simulated one."
+    "model": "The common reference string is a commitment key, binding in the real setup and hiding in the simulated one.",
+    "securityLoss": "On a hiding commitment key the proofs are perfectly witness-indistinguishable and the simulation is perfect, so the only computational step is telling the binding key from the hiding key, which in each source group passes through a uniform key by two DDH hybrids."
    },
    "status": "draft",
    "page": "content/Reductions/sxdh-symmetric-external-diffie-hellman-to-nizk.md",
@@ -14829,7 +14869,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial",
    "rationale": {
     "class": "The hypothesis is average-case hardness of a promise problem in SZK rather than an RTV04 primitive."
    },
@@ -15078,7 +15118,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "polynomial: zero knowledge reduces to hard-core-bit unpredictability through a hybrid over the unrevealed hidden bits and the proved theorems; soundness is statistical",
    "rationale": {
     "class": "The single-theorem hidden-bits compilation calls the permutation's generation, evaluation, inversion, domain sampler and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle; the multi-theorem compiler, which places a PRG's circuit in an NP statement, is not needed for the conclusion.",
     "model": "The common reference string carries the hidden bits."
@@ -15103,7 +15143,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "factor $\\ell$ over the hard-core-bit advantage for $\\ell$-bit messages, from the hybrid over bit positions, tight for one bit; with the Goldreich–Levin predicate, a predictor of advantage $\\varepsilon$ gives an inverter succeeding with probability $\\Omega(\\varepsilon)$ in time $\\poly(n, 1/\\varepsilon)$ for $n$-bit inputs",
    "rationale": {
     "class": "The construction calls the permutation's sampler, evaluator, inverter and hard-core predicate only as oracles, and the reduction runs any CPA adversary only as an oracle to predict the hard-core bit; for the Goldreich–Levin predicate, the list decoder turns that predictor into an inverter."
    },
@@ -15318,7 +15358,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "tight: the undetectability distinguisher is forwarded to the PRC pseudorandomness game, and with uniform coins the outputs are exactly the model's",
    "rationale": {
     "class": "Generation calls the zero-bit PRC's encoder and detection its decoder, both only as oracles, and one fixed reduction runs any distinguisher between watermarked and unwatermarked text as an oracle against PRC pseudorandomness."
    },

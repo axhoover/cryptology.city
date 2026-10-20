@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
-security-loss: ""
+security-loss: "polynomial: the worst-case algorithm runs in polynomial time given any Module-SIS solver of noticeable success probability as an oracle"
 rationale:
   class: "The worst-case algorithm builds random Module-SIS instances from its input module lattice and calls an arbitrary Module-SIS solver only as an oracle, for every solver with noticeable success probability."
 ---

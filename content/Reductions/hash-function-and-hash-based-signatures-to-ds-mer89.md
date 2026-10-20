@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Mer89 - A Certified Digital Signature|Mer89]]"
-security-loss: ""
+security-loss: "additive: the collision-finding advantage plus $2^h$ times the one-time-signature advantage, from planting the one-time challenge key at a uniformly random one of the $2^h$ leaves"
 rationale:
   class: "The construction calls the one-time signature scheme and the hash function only as oracles, and the reduction runs any forger as an oracle and outputs a hash collision at some tree node or a one-time forgery."
 ---

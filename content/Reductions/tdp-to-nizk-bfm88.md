@@ -12,7 +12,7 @@ model: crs
 source:
   - "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
   - "[[GR13 - Enhancements of Trapdoor Permutations|GR13]]"
-security-loss: ""
+security-loss: "polynomial: zero knowledge reduces to hard-core-bit unpredictability through a hybrid over the unrevealed hidden bits and the proved theorems; soundness is statistical"
 rationale:
   class: "The single-theorem hidden-bits compilation calls the permutation's generation, evaluation, inversion, domain sampler and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle; the multi-theorem compiler, which places a PRG's circuit in an NP statement, is not needed for the conclusion."
   model: "The common reference string carries the hidden bits."

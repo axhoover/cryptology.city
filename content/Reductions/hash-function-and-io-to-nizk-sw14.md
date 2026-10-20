@@ -11,10 +11,11 @@ class: free
 model: crs
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
-security-loss: ""
+security-loss: "additive: zero knowledge is perfect, and the soundness error is at most the iO advantages for the two obfuscated programs plus the punctured-PRF advantage plus the probability of inverting the one-way function, with the punctured PRF built from the one-way function at a polynomial loss"
 rationale:
   class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the OWF, and SW14 do not place it in the RTV04 hierarchy."
   model: "A trusted setup publishes the obfuscated programs as the common reference string."
+  security-loss: "For a false statement fixed in advance the prover program can use the key punctured at it, being functionally equivalent since no witness exists, and so can the verifier program with $f(F(K, x))$ hard-wired; the simulator computes the same $F(K, x)$ the prover outputs."
 ---
 
 # OWF + iO ⇒ Non-adaptively sound NIZK argument

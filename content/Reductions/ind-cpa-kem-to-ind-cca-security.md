@@ -12,10 +12,11 @@ model: rom
 source:
   - "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]"
   - "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
-security-loss: ""
+security-loss: "additive in the random-oracle model from IND-CPA: a constant multiple of the IND-CPA advantage plus terms of order $q\\delta$ and $q/|\\calM|$ for $q$ random-oracle queries, and $q_D 2^{-\\gamma}$ for $q_D$ decapsulation queries with explicit rejection; from one-wayness, a factor $O(q)$"
 rationale:
   class: "One fixed construction calls the base scheme's encryption (with explicit coins) and decryption and the hash functions only as oracles, and one fixed reduction runs any IND-CCA adversary once as an oracle, answering its decapsulation queries from its random-oracle queries by re-encryption."
   model: "FO99, Den03 and HHK17 prove IND-CCA security only in the random-oracle model, and no standard-model construction of an IND-CCA KEM from IND-CPA PKE alone is known."
+  security-loss: "HHK17 bound the derandomization step and the key-derivation step separately, and the composed transform adds the two bounds."
 ---
 
 # IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)

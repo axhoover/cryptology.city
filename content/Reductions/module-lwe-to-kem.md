@@ -11,7 +11,7 @@ class: unstated
 model: rom
 source:
   - "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
-security-loss: ""
+security-loss: "tight in the random-oracle model: a constant multiple of the Module-LWE advantage plus a term of order $q\\delta$ for $q$ random-oracle queries and decryption-failure probability $\\delta$; non-tight in the quantum random-oracle model"
 rationale:
   class: "The IND-CCA proof goes through the Fujisaki–Okamoto transform in the random-oracle model, and no source places it in the RTV04 taxonomy."
   model: "The IND-CPA scheme is secure in the standard model, but the IND-CCA conclusion rests on the Fujisaki–Okamoto transform with implicit rejection, proved in the classical and quantum random-oracle models."

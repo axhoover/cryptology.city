@@ -13,10 +13,11 @@ source:
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
 via:
   - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
-security-loss: ""
+security-loss: "soundness: factor $O(q^r)$ over the interactive soundness error for a $q$-query prover and $r$ challenge rounds, $q + 1$ for three-move protocols; zero knowledge: the HVZK simulation error plus the probability that a programmed oracle point was queried before"
 rationale:
   class: "One fixed compiler runs the protocol's prover, verifier and honest-verifier simulator only as oracles, and the soundness reduction runs any cheating prover only as an oracle, answering its oracle queries and forwarding chosen ones as its interactive messages."
   model: "Soundness and zero knowledge are proved with the hash modelled as a programmable random oracle, which the simulator programs with simulated transcripts."
+  security-loss: "An accepted proof fixes each challenge at one of the prover's oracle queries, and the interactive prover guesses one query per round to forward to the verifier."
 ---
 
 # HVZK ⇒ NIZK (Fiat–Shamir)

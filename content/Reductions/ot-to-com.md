@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
-security-loss: ""
+security-loss: "statistical in the OT-hybrid model: hiding error at most $\\secpar \\cdot 2^{-n}$ and binding error $2^{-\\secpar}$; a real OT protocol adds its simulation advantage once per transfer, $n\\secpar$ transfers in all"
 rationale:
   class: "The construction invokes OT only as an ideal functionality, hiding and binding hold statistically in the OT-hybrid model, and against a real OT protocol the reduction runs any adversary against the composed commitment as an oracle to distinguish real from ideal OT."
 ---

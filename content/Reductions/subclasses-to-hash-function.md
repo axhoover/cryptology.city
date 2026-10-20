@@ -11,9 +11,10 @@ class: free
 model: standard
 source:
   - "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
-security-loss: ""
+security-loss: "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard"
 rationale:
   class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, making the construction non-black-box in the one-way function; BPR15 state no reduction notion, so the broadest class is recorded."
+  security-loss: "BPR15 assume sub-exponential hardness to absorb, by complexity leveraging, a reduction loss larger than any polynomial."
 ---
 
 # Sub-exponential OWF + iO ⇒ PPAD hardness

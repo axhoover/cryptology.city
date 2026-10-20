@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
-security-loss: ""
+security-loss: "polynomial: a distinguisher of time $T$ and advantage $\\varepsilon$ yields an inverter of time-success ratio $\\poly(n, T/\\varepsilon)$, but the seed is polynomially longer than the input length $n$ of $f$, so the generator's security at seed length $m$ rests on that of $f$ at input length $m^{\\Omega(1)}$"
 rationale:
   class: "The construction calls the one-way function only as an oracle, and one fixed reduction inverts it given oracle access to any PRG distinguisher (hybrid argument plus Goldreich–Levin decoding); HRV10 treat HILL as the reference fully-black-box construction."
+  security-loss: "The seed holds many independent inputs to $f$ together with the hashing keys, and the hybrid over the copies and the Goldreich–Levin decoding each lose a polynomial factor."
 ---
 
 # OWF ⇒ PRG

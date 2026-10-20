@@ -11,7 +11,9 @@ class: unstated
 model: rom
 source:
   - "[[Mer78 - Secure Communications Over Insecure Channels|Mer78]]"
-security-loss: ""
+security-loss: "success probability $O(q/n^2)$ for an eavesdropper making $q$ oracle queries"
+rationale:
+  security-loss: "The transcript fixes the key only as the preimage of one revealed oracle answer, which is uniform over the domain points the eavesdropper has not queried, so each query finds it with probability $O(1/n^2)$."
 ---
 
 # ROM ⇒ Merkle puzzles

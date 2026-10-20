@@ -12,7 +12,7 @@ model: standard
 source:
   - "[[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]]"
   - "[[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the adversary, its challenge ciphertext built from the LWE samples, whose advantage is at most twice the LWE advantage plus statistical terms from the leftover hash lemma and trapdoor sampling"
 rationale:
   class: "Each scheme is one fixed construction from LWE samples and lattice trapdoors, and its reduction runs the HIBE adversary only as an oracle on parameters built from the committed challenge identity and its LWE challenge."
 ---

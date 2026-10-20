@@ -11,9 +11,10 @@ class: free
 model: standard
 source:
   - "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
-security-loss: ""
+security-loss: "polynomial for constant depth: each level of composition applies the SNARK extractor to the previous level's extractor, a polynomial blow-up that compounds with the depth"
 rationale:
   class: "The compliance predicate proved at each step contains the hypothesis SNARK's own verifier as a circuit, so the construction depends on the scheme's code and no black-box class applies."
+  security-loss: "Knowledge soundness extracts recursively down the chain of proofs, so the extractor at depth $d$ is the SNARK extractor applied $d$ times, each time to a prover of polynomially larger size."
 ---
 
 # SNARK ⇒ Recursive SNARKs

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GVW13 - Attribute-based encryption for circuits|GVW13]]"
-security-loss: ""
+security-loss: "tight up to a factor 2: one run of the ABE adversary, its challenge ciphertext built from the LWE samples, whose advantage is at most twice the LWE advantage plus statistical terms from the simulated keys"
 rationale:
   class: "The scheme is one fixed construction from LWE samples and lattice trapdoors, and the reduction runs the ABE adversary only as an oracle on public parameters built from the committed challenge attribute and its LWE challenge."
 ---

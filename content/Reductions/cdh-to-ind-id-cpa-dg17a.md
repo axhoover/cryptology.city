@@ -11,9 +11,10 @@ class: free
 model: standard
 source:
   - "[[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]"
-security-loss: ""
+security-loss: "polynomial"
 rationale:
   class: "The garbled circuits that the construction evaluates contain the code of chameleon encryption built from the group, so the construction uses the CDH group non-black-box."
+  security-loss: "DG17a prove adaptive security from polynomial hardness of CDH alone, so the reduction loses at most a polynomial factor."
 ---
 
 # CDH ⇒ IBE (Döttling–Garg)

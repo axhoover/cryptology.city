@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[BV14 - Lattice-based FHE as secure as PKE|BV14]]"
-security-loss: ""
+security-loss: "additive: at most twice the sum of one LWE advantage per key of the chain, from the hybrid along it, the last step being IND-CPA under the first key, plus a statistical leftover-hash term in that last step"
 rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of bootstrapping keys, and the proof is a hybrid over the keys of the chain in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
 ---

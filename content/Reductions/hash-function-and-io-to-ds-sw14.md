@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
-security-loss: ""
+security-loss: "additive: the forging probability is at most the iO advantage plus the punctured-PRF advantage plus the probability of inverting the one-way function, with the punctured PRF built from the one-way function at a polynomial loss"
 rationale:
   class: "The verification key obfuscates a circuit containing the code of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
 ---

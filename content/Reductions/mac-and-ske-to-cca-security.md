@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
-security-loss: ""
+security-loss: "additive: the CPA advantage plus twice the SUF-CMA advantage"
 rationale:
   class: "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles, and the reduction runs any CCA adversary as an oracle, rejecting its decryption queries and outputting an accepted one as a MAC forgery."
+  security-loss: "Encrypt-then-MAC has ciphertext integrity at most the SUF-CMA advantage, and integrity with CPA security bounds the CCA advantage by the CPA advantage plus twice the integrity advantage."
 ---
 
 # SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE

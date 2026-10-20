@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
-security-loss: ""
+security-loss: "additive: twice the subset-membership advantage, which the DCR advantage bounds, plus statistical terms, one of them linear in the number of decryption queries"
 rationale:
   class: "The scheme uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
+  security-loss: "The hash-proof analysis runs the CCA adversary once on a challenge built from the subset-membership instance, squaring a DCR instance and multiplying it by a random sign gives that instance exactly, and the universal-2 property rejects each invalid decryption query except with statistically small probability."
 ---
 
 # DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)

@@ -11,7 +11,7 @@ class: unstated
 model: standard
 source:
   - "[[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]]"
-security-loss: ""
+security-loss: "polynomial: a CPA adversary with advantage $\\varepsilon$ predicts the least-significant bit of $x$ from $(n, e, x^e \\bmod n)$ with the same advantage, and ACGS88 turn such a predictor into an RSA inverter running in time $\\poly(\\log n, 1/\\varepsilon)$"
 ---
 
 # RSA ⇒ PKE

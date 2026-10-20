@@ -11,9 +11,10 @@ class: fully-black-box
 model: standard
 source:
   - "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
-security-loss: ""
+security-loss: "additive: one LWE advantage per level, $L + 1$ in all, from the hybrid along the chain of keys, plus a leftover-hash term for the challenge ciphertext"
 rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
+  security-loss: "Each level's secret is encrypted only under the level below it, so the hybrid replaces each level's samples by uniform ones from the lowest level up, after which the challenge is encrypted under a uniform public key."
 ---
 
 # LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)
@@ -31,3 +32,4 @@ Ciphertexts are LWE encryptions under a ladder of moduli $q_L > \cdots > q_0$. A
 - The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key and no relinearization: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]].
 - Leveled FHE from LWE was first obtained by relinearization and dimension–modulus reduction, bootstrapping along a chain of independent keys — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 - Leveled FHE can rest on the same lattice approximation factors as plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions, up to the $\varepsilon$, by bootstrapping at polynomial ratio: [[lwe-to-leveled-fully-homomorphic-encryption-bv14|LWE with polynomial ratio ⇒ Leveled FHE]] — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+- Over [[learning-with-errors#ring-lwe|Ring LWE]] the scheme evaluates depth-$L$ circuits with $\tilde{O}(\secpar \cdot L^3)$ computation per gate, without bootstrapping — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].

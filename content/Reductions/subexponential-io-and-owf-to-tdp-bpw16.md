@@ -11,7 +11,7 @@ class: free
 model: standard
 source:
   - "[[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]"
-security-loss: ""
+security-loss: "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard"
 rationale:
   class: "The permutation is an obfuscation of a circuit that evaluates the one-way function, so the construction uses the function's code."
 ---
