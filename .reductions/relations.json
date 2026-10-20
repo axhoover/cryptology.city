@@ -2590,6 +2590,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-correct-pke-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#perfectly-correct-cpa-secure-pke",
+   "of": "pke",
+   "title": "Perfectly correct CPA-secure PKE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ph",
    "kind": "object",
    "type": "complexity-class",
@@ -9143,6 +9156,30 @@
    "title": "PCS ⇒ Vector commitments"
   },
   {
+   "id": "red-perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-correct-pke-cpa-security"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security.md",
+   "slug": "perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "graphSlug": "Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security",
+   "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
+  },
+  {
    "id": "red-permuted-puzzles-to-depir-bipw17",
    "kind": "implication",
    "hypotheses": [
@@ -9194,7 +9231,7 @@
    "id": "red-pke-cpa-security-and-nizk-to-pke-cca1-security-ny90",
    "kind": "implication",
    "hypotheses": [
-    "pke-cpa-security",
+    "perfectly-correct-pke-cpa-security",
     "nizk"
    ],
    "conclusion": "pke-cca1-security",
@@ -9219,7 +9256,7 @@
    "id": "red-pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "kind": "implication",
    "hypotheses": [
-    "pke-cpa-security",
+    "perfectly-correct-pke-cpa-security",
     "nizk"
    ],
    "conclusion": "pke-cca2-security",
