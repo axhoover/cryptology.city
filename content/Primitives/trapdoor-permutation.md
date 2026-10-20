@@ -58,7 +58,7 @@ An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \c
 
 ## Claw-free permutations
 
-A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way. GMR88 use claw-free pairs with trapdoors for $f_0^{-1}$ and $f_1^{-1}$.
+A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for uniform $x_1$ yields a claw — standard. GMR88 use claw-free pairs with trapdoors for $f_0^{-1}$ and $f_1^{-1}$.
 
 ## Lossy trapdoor functions
 

@@ -5505,7 +5505,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the CCA advantage is at most the DDH advantage plus the target-collision advantage plus a term of order Q/q for Q decryption queries",
+   "securityLoss": "additive: the CCA advantage is at most twice the sum of the DDH and target-collision advantages, plus O(Q/q) for Q decryption queries",
    "rationale": {
     "class": "The scheme uses only the group operations and the hash as an oracle, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its DDH tuple."
    },
@@ -7956,14 +7956,17 @@
     "lossy-trapdoor-function"
    ],
    "conclusion": "crhf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage about ε − 2^{2(n−k)−ℓ}",
+   "rationale": {
+    "class": "The hash composes the lossy function, used only as an oracle, with a universal hash, and the reduction distinguishes the modes by running any collision finder once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-function-to-crhf-pw08.md",
    "slug": "lossy-trapdoor-function-to-crhf-pw08",
@@ -8229,7 +8232,7 @@
     "lwe"
    ],
    "conclusion": "lossy-trapdoor-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
@@ -8237,6 +8240,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md",
    "slug": "lwe-to-lossy-trapdoor-function-pw08",
@@ -12508,7 +12514,7 @@
     "[[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]]"
    ],
    "rationale": {
-    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and trapdoor functions do not."
+    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and injective trapdoor functions do not."
    },
    "status": "draft",
    "page": "content/Barriers/no-ke-to-tdp-rud91.md",
@@ -12924,7 +12930,7 @@
     "[[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]]"
    ],
    "rationale": {
-    "class": "GMR01 give an oracle relative to which trapdoor predicates exist and every injective trapdoor function built from them is invertible, which rules out constructions that use the encryption scheme only as an oracle with proofs that use the adversary only as an oracle."
+    "class": "GMR01's separation, in a model weaker than Impagliazzo–Rudich's, rules out constructions that use the trapdoor predicate only as an oracle with proofs that use the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Barriers/no-pke-to-injective-trapdoor-function-gmr01.md",
