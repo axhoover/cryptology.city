@@ -1352,6 +1352,19 @@
    "unlisted": false
   },
   {
+   "id": "highly-lossy-trapdoor-function",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#highly-lossy-trapdoor-functions",
+   "of": "tdp",
+   "title": "Highly lossy trapdoor functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "honest-majority-t-lt-n-over-2",
    "kind": "variant",
    "type": "primitive",
@@ -5229,7 +5242,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "lossy-trapdoor-function",
+   "conclusion": "highly-lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -5245,7 +5258,7 @@
    "page": "content/Reductions/ddh-to-lossy-trapdoor-function-pw08.md",
    "slug": "ddh-to-lossy-trapdoor-function-pw08",
    "graphSlug": "Reductions/ddh-to-lossy-trapdoor-function-pw08",
-   "title": "DDH ⇒ Lossy TDF (Peikert–Waters)"
+   "title": "DDH ⇒ Highly lossy TDF (Peikert–Waters)"
   },
   {
    "id": "red-ddh-to-non-interactive-key-exchange-nike",
@@ -6875,6 +6888,30 @@
    "title": "Higher residuosity ⇒ PKE"
   },
   {
+   "id": "red-highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "kind": "implication",
+   "hypotheses": [
+    "highly-lossy-trapdoor-function"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the lossy trapdoor function, and the reduction forwards any mode distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function.md",
+   "slug": "highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "graphSlug": "Reductions/highly-lossy-trapdoor-function-to-lossy-trapdoor-function",
+   "title": "Highly lossy TDF ⇒ Lossy TDF"
+  },
+  {
    "id": "red-honest-majority-t-lt-n-over-2-to-mpc-rb89",
    "kind": "implication",
    "hypotheses": [
@@ -7547,7 +7584,7 @@
    "id": "red-lossy-trapdoor-function-to-crhf-pw08",
    "kind": "implication",
    "hypotheses": [
-    "lossy-trapdoor-function"
+    "highly-lossy-trapdoor-function"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -7557,7 +7594,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage about ε − 2^{2(n−k)−ℓ}",
+   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage at least about ε − 2^{2r−κn}",
    "rationale": {
     "class": "The hash composes the lossy function, used only as an oracle, with a universal hash, and the reduction distinguishes the modes by running any collision finder once as an oracle."
    },
@@ -7565,7 +7602,7 @@
    "page": "content/Reductions/lossy-trapdoor-function-to-crhf-pw08.md",
    "slug": "lossy-trapdoor-function-to-crhf-pw08",
    "graphSlug": "Reductions/lossy-trapdoor-function-to-crhf-pw08",
-   "title": "Lossy TDF ⇒ CRHF"
+   "title": "Highly lossy TDF ⇒ CRHF"
   },
   {
    "id": "red-lossy-trapdoor-function-to-injective-trapdoor-function-pw08",
