@@ -71,7 +71,7 @@ A bootstrappable SHE scheme is **circular secure** if it remains IND-CPA-secure 
 
 ## Leveled fully homomorphic encryption
 
-Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]. Leveled FHE from [[learning-with-errors|LWE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]. Leveled FHE follows from [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping, at a ratio exponential in the depth — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]; and from [[learning-with-errors|LWE]] with polynomial ratio — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
 
 ## Fully homomorphic encryption (FHE)
 
