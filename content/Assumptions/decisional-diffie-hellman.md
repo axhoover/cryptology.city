@@ -74,7 +74,7 @@ deterministically.
 
 ## Sub-exponential DDH
 
-DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$, with no pairing on the group, suffices for NIZK arguments for $\classNP$ — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
+DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$ suffices for NIZK arguments for $\classNP$, and no pairing is needed — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
 
 ## DLIN
 

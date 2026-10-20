@@ -45,7 +45,7 @@ $$
 
 the probability also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in 1e869b37f14b -->
+<!-- BEGIN GENERATED participates-in 57694f5df21f -->
 
 ## Participates in
 
@@ -76,7 +76,7 @@ the probability also over the coins of $\calA$ — standard.
 - [[no-np-to-gapsvp-gg00|No Karp reduction from NP to GapSVP for γ ≥ √(n/log n) unless coNP ⊆ AM]]
 - [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
 - [[no-np-to-np-average-case-hardness-bt03|No non-adaptive reduction from NP to average-case NP hardness]]
-- [[no-np-to-owp-bra79|No deterministic reduction from NP to OWP]]
+- [[no-np-to-owp-bra79b|No deterministic reduction from NP to OWP]]
 - [[no-np-to-size-verifiable-owf-bb15|No fully-black-box reduction from NP to size-verifiable OWF]]
 
 <!-- END GENERATED participates-in -->

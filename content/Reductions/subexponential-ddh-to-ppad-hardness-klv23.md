@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[decisional-diffie-hellman#sub-exponential-ddh|DDH is sub-exponentially hard]] for some group generator, with no pairing on the group, then [[total-function-np#ppad|PPAD]] contains problems that are sub-exponentially hard on average — [[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]. The proof instantiates the Fiat–Shamir transform under DDH for a variant of the sum-check protocol, using a correlation-intractable hash family, and PPAD hardness follows from the soundness of that transform by the route of [[CHKPRR19 - Finding a Nash equilibrium is no easier than breaking Fiat-Shamir|CHKPRR19]] — [[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]].
+If [[decisional-diffie-hellman#sub-exponential-ddh|DDH is sub-exponentially hard]] for some group generator (no pairing is needed), then [[total-function-np#ppad|PPAD]] contains problems that are sub-exponentially hard on average — [[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]. The proof instantiates the Fiat–Shamir transform under DDH for a variant of the sum-check protocol, using a correlation-intractable hash family, and PPAD hardness follows from the soundness of that transform by the route of [[CHKPRR19 - Finding a Nash equilibrium is no easier than breaking Fiat-Shamir|CHKPRR19]] — [[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]].
 
 ## Notes
 

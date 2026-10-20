@@ -22,10 +22,6 @@ security-loss: ""
 
 If [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] is hard and [[decisional-diffie-hellman|DDH]] holds, every language in $\classNP$ has a computational [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK argument]] in the common random string model, with adaptive soundness and adaptive zero knowledge — [[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]]. More generally, low-noise LPN and any rate-1 [[trapdoor-hash-function|trapdoor hash function]] for constant-degree functions with an enhanced correctness property, which all existing constructions satisfy, suffice; DDH enters through the rate-1 trapdoor hash of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]] — [[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]].
 
-## Sketch
-
-Low-noise LPN gives a commitment whose extraction is approximated, bit by bit, by constant-degree functions; the trapdoor hash gives a hash family correlation intractable for relations approximable by such functions, which suffices to instantiate the [[fiat-shamir-heuristic|Fiat–Shamir transform]] soundly for a $\Sigma$-protocol built on that commitment — [[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]].
-
 ## Notes
 
 - The same construction gives NIZK arguments from low-noise LPN together with QR or DCR, through the trapdoor hash functions of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]] ([[qr-to-tdh-dgi-19|QR ⇒ TDH]], [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]) — [[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]].

@@ -27,4 +27,4 @@ If a language $L$ reduces to inverting an efficiently computable, approximately 
 ## Notes
 
 - This recovers, for size-verifiable functions, the adaptive claim of AGGM06, which its authors retracted — [[AGGM10 - Erratum for On basing one-way functions on NP-hardness|AGGM10]]; for general functions only the non-adaptive barrier stands ([[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]) — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]].
-- For one-way permutations and deterministic reductions the consequence strengthens to $\classNP = \classcoNP$ ([[no-np-to-owp-bra79|No deterministic reduction from NP to OWP]]) — [[Bra79b - A note on the complexity of cryptography|Bra79b]].
+- For one-way permutations and deterministic reductions the consequence strengthens to $\classNP = \classcoNP$ ([[no-np-to-owp-bra79b|No deterministic reduction from NP to OWP]]) — [[Bra79b - A note on the complexity of cryptography|Bra79b]].

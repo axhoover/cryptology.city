@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-diffie-hellman#sub-exponential-ddh|DDH is sub-exponentially hard]] for some group generator, with no pairing on the group, every $\classNP$ language has a [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK argument]] in the common reference string model with adaptive soundness and computational zero knowledge — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]. The proof needs DDH hardness only against polynomial-time adversaries, with sub-exponentially small advantage. It instantiates Fiat–Shamir with a correlation-intractable hash family for constant-depth threshold circuits, built from a new tool, interactive trapdoor hashing protocols — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
+If [[decisional-diffie-hellman#sub-exponential-ddh|DDH is sub-exponentially hard]] for some group generator (no pairing is needed), every $\classNP$ language has a [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK argument]] in the common reference string model with adaptive soundness and computational zero knowledge — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]. The proof needs DDH hardness only against polynomial-time adversaries, with sub-exponentially small advantage. It instantiates Fiat–Shamir with a correlation-intractable hash family for constant-depth threshold circuits, built from a new tool, interactive trapdoor hashing protocols — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
 
 ## Notes
 

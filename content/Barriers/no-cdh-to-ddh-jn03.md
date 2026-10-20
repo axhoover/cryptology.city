@@ -15,9 +15,10 @@ strength: conditional
 conditional-on: [bdh]
 source:
   - "[[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]"
+  - "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
 rationale:
   class: "The counterexample refutes the identity map on group generators, CDH hardness of a generator implying DDH hardness of the same generator, and does not rule out building a DDH-hard group from a CDH-hard one by another construction."
-  strength: "The separating generator has hard CDH only if BDH is hard for some symmetric-pairing group generator."
+  strength: "The separating generator has hard CDH whenever BDH is hard for it, so the barrier holds if BDH is hard for some symmetric-pairing group generator."
 ---
 
 # No fixed-construction reduction from CDH to DDH

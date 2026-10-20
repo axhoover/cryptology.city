@@ -28,6 +28,6 @@ For prime $e \mid p - 1$, the map $x \mapsto x^e$ has $(p-1)/e + 1$ images on $\
 
 ## Notes
 
-- The lossiness is at most about $(1/4 - \varepsilon)\,|N|$ bits, so the residual leakage is at least about $3|N|/4$ and the function is not [[trapdoor-permutation#highly-lossy-trapdoor-functions|highly lossy]] — standard.
+- In the lossy mode $x \mapsto x^e$ is at most $e^2$-to-$1$ on $\ZZ_N$, so for $e \le N^{1/4-\varepsilon}$ the lossiness is below $|N|/2$, the residual leakage exceeds half the input length, and the function is not [[trapdoor-permutation#highly-lossy-trapdoor-functions|highly lossy]] — standard.
 - A domain-extension technique of [[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]] makes RSA a lossy trapdoor permutation on a fixed domain, with considerably reduced lossiness; AKPS19 give Φ-hiding-based lossy trapdoor permutations with improved lossiness and the first all-but-one lossy trapdoor permutation from Φ-hiding — [[AKPS19 - Lossy Trapdoor Permutations with Improved Lossiness|AKPS19]].
 - KOS10 use the lossiness of RSA to prove RSA-OAEP IND-CPA-secure in the standard model, with the first round's hash function $t$-wise independent — [[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]].

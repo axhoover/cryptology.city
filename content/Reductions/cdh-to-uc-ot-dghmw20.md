@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[computational-diffie-hellman|CDH]] is hard for some group generator, with no pairing on the group, there is a two-round 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|UC-secure]] against static malicious corruptions — [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]]. The paper builds a basic two-round notion, elementary OT, from CDH and upgrades any elementary OT to UC-secure two-round OT by a generic sequence of transformations — [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]].
+If [[computational-diffie-hellman|CDH]] is hard for some group generator (no pairing is needed), there is a two-round 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|UC-secure]] against static malicious corruptions — [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]]. The paper builds a basic two-round notion, elementary OT, from CDH and upgrades any elementary OT to UC-secure two-round OT by a generic sequence of transformations — [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]].
 
 ## Notes
 

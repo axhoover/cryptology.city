@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $\chi$ be $B$-bounded except with negligible probability, $p \ge 2$ and $q \ge p B \cdot n^{\omega(1)}$. Then decision [[learning-with-errors#learning-with-rounding|LWR]] for $(n, q, p)$ with any $m = \poly(n)$ samples is at least as hard as decision [[learning-with-errors|LWE]] for $(n, q, \chi, m)$ — [[BPR12 - Pseudorandom Functions and Lattices|BPR12]]. Under [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]], with Gaussian width $\alpha q$, $1/\alpha = 2^{n^\varepsilon}$ and $B = \alpha q \cdot \omega(\sqrt{\log n})$, taking $p = \lfloor 2^{n^{\varepsilon}/2} \rfloor$ gives $q/(pB) = n^{\omega(1)}$, hence LWR hardness at the same modulus $q$, with $q > p \ge 2$ and $q/p = n^{\omega(1)}$.
+Let $\chi$ be $B$-bounded except with negligible probability, $p \ge 2$ and $q \ge p B \cdot n^{\omega(1)}$. Then decision [[learning-with-errors#learning-with-rounding|LWR]] for $(n, q, p)$ with any $m = \poly(n)$ samples is at least as hard as decision [[learning-with-errors|LWE]] for $(n, q, \chi, m)$ — [[BPR12 - Pseudorandom Functions and Lattices|BPR12]]. Under [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]], with Gaussian width $\alpha q$, $1/\alpha = 2^{n^\varepsilon}$ and $B = \alpha q \cdot \omega(\sqrt{\log n})$, taking $p = \lfloor 2^{n^{\varepsilon}/2} \rfloor$ gives $q/(pB) = n^{\omega(1)}$, hence LWR hardness at the same modulus $q \le 2^{\poly(n)}$, with $q > p \ge 2$ and $q/p = n^{\omega(1)}$.
 
 ## Sketch
 

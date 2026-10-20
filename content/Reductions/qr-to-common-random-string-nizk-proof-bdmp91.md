@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard for Blum integers, every language in $\classNP$ has a [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proof system with a uniformly random reference string]]: soundness is statistical, and zero knowledge is computational — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]], [[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]. Soundness against provers that choose the statement after seeing the string follows from soundness for each fixed statement: repeating the proof on independent segments of the string drives the error for a fixed $x$ below $2^{-2|x|}$, a union bound over the statements of length $|x|$ leaves error at most $2^{-|x|}$, and single-theorem zero knowledge survives the repetition by a hybrid argument — standard.
+If [[quadratic-residuosity|QR]] is hard for Blum integers, every language in $\classNP$ has a [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proof system with a uniformly random reference string]]: soundness is statistical, and zero knowledge is computational — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]], [[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]. Soundness against provers that choose the statement after seeing the string follows from soundness for each fixed statement: repeating the proof on independent segments of the string drives the error for a fixed $x$ below $2^{-(|x| + \secpar)}$, a union bound over the statements of length $|x|$ leaves error at most $2^{-\secpar}$, and single-theorem zero knowledge survives the repetition by a hybrid argument — standard.
 
 ## Sketch
 

@@ -2075,8 +2075,7 @@
    "graphSlug": "Assumptions/time-bounded-kolmogorov-complexity",
    "title": "Time-bounded Kolmogorov complexity",
    "aliases": [
-    "Time-bounded Kolmogorov complexity",
-    "Kolmogorov complexity"
+    "Time-bounded Kolmogorov complexity"
    ],
    "unlisted": false
   },
@@ -15402,11 +15401,12 @@
    ],
    "circumventedBy": [],
    "source": [
-    "[[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]"
+    "[[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]",
+    "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
    ],
    "rationale": {
     "class": "The counterexample refutes the identity map on group generators, CDH hardness of a generator implying DDH hardness of the same generator, and does not rule out building a DDH-hard group from a CDH-hard one by another construction.",
-    "strength": "The separating generator has hard CDH only if BDH is hard for some symmetric-pairing group generator."
+    "strength": "The separating generator has hard CDH whenever BDH is hard for it, so the barrier holds if BDH is hard for some symmetric-pairing group generator."
    },
    "status": "draft",
    "page": "content/Barriers/no-cdh-to-ddh-jn03.md",
@@ -15493,7 +15493,8 @@
     "red-cdh-to-ind-id-cpa-dg17a"
    ],
    "source": [
-    "[[PRV12 - How powerful are the DDH hard groups|PRV12]]"
+    "[[PRV12 - How powerful are the DDH hard groups|PRV12]]",
+    "[[Zha22 - To Label, or Not To Label (in Generic Groups)|Zha22]]"
    ],
    "rationale": {
     "class": "The attack breaks every IBE scheme that accesses a generic prime-order group only through its group-operation oracle, which is how a fully-black-box construction uses a DDH-hard group.",
@@ -16203,9 +16204,9 @@
     "class": "The argument covers deterministic oracle reductions only, and the vocabulary has no class for a determinism restriction; fully-black-box would overstate it."
    },
    "status": "draft",
-   "page": "content/Barriers/no-np-to-owp-bra79.md",
-   "slug": "no-np-to-owp-bra79",
-   "graphSlug": "Barriers/no-np-to-owp-bra79",
+   "page": "content/Barriers/no-np-to-owp-bra79b.md",
+   "slug": "no-np-to-owp-bra79b",
+   "graphSlug": "Barriers/no-np-to-owp-bra79b",
    "title": "No deterministic reduction from NP to OWP"
   },
   {

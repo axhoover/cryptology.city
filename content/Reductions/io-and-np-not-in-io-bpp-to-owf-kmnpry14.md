@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[nondeterministic-polynomial-time#hardness-at-almost-every-input-length|NP ⊄ io-BPP]] and an efficient [[indistinguishability-obfuscation|indistinguishability obfuscator]] for all polynomial-size circuits exists, even one that is only approximately correct, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]. Both hypotheses are needed: if $\classP = \classNP$, iO exists, by outputting the lexicographically first circuit of the same size computing the same function — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]] — while one-way functions do not ([[owf-to-np|OWF inversion ∈ NP]]) — folklore.
+If [[nondeterministic-polynomial-time#hardness-at-almost-every-input-length|NP ⊄ io-BPP]] and an efficient [[indistinguishability-obfuscation|indistinguishability obfuscator]] for all polynomial-size circuits exists, even one that is only approximately correct, then [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]. The complexity hypothesis cannot be dropped: if $\classP = \classNP$, iO exists, by outputting the lexicographically first circuit of the same size computing the same function — [[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]] — while one-way functions do not ([[owf-to-np|OWF inversion ∈ NP]]) — folklore.
 
 ## Notes
 

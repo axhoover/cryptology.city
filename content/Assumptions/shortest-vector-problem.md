@@ -33,7 +33,7 @@ $\mathrm{GapSVP}_\gamma$ for $\gamma(n) \ge c\sqrt{n / \log n}$ for some constan
 
 ## Polynomial factors
 
-GapSVP is **hard for polynomial factors** if for every constant $c > 0$ no probabilistic polynomial-time classical algorithm solves $\mathrm{GapSVP}_{n^c}$ in the worst case: for every such algorithm there are $n$, a basis of an $n$-dimensional lattice $L$ and $d > 0$ with $\lambda_1(L) \le d$ or $\lambda_1(L) > n^c d$ on which it answers wrongly with probability above $1/3$. Worst-case hardness of approximating GapSVP to within small polynomial factors is the hypothesis of the classical reductions to [[learning-with-errors|LWE]] — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]], [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]].
+GapSVP is **hard for polynomial factors** if for every constant $c > 0$ no probabilistic polynomial-time classical algorithm solves $\mathrm{GapSVP}_{n^c}$ in the worst case: for every such algorithm and all sufficiently large $n$ there are a basis of an $n$-dimensional lattice $L$ and $d > 0$ with $\lambda_1(L) \le d$ or $\lambda_1(L) > n^c d$ on which it answers wrongly with probability above $1/3$. Worst-case hardness of approximating GapSVP to within small polynomial factors is the hypothesis of the classical reductions to [[learning-with-errors|LWE]] — [[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]], [[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]].
 
 <!-- BEGIN GENERATED participates-in 68ff8a834bd8 -->
 

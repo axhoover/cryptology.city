@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If polynomially secure [[indistinguishability-obfuscation|indistinguishability obfuscation]] for all polynomial-size circuits and polynomially secure [[one-way-permutation|one-way permutations]] exist, then [[total-function-np#ppad|PPAD is hard on average]]: there is an efficiently samplable distribution over End-of-Line instances such that for all efficient $\calA$, the probability that $\calA$ outputs a solution is negligible — [[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]. No complexity leveraging is needed: the earlier construction of [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] needs quasi-polynomially secure iO and sub-exponentially secure one-way functions — [[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]], [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
+If polynomially secure [[indistinguishability-obfuscation|indistinguishability obfuscation]] for all polynomial-size circuits and polynomially secure [[one-way-permutation|one-way permutations]] exist, then [[total-function-np#ppad|PPAD is hard on average]]: there is an efficiently samplable distribution over End-of-Line instances such that for all efficient $\calA$, the probability that $\calA$ outputs a solution is negligible — [[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]. No complexity leveraging is needed: the earlier construction of [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] assumes sub-exponentially secure iO and one-way functions — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
 ## Notes
 

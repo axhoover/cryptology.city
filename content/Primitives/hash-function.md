@@ -100,7 +100,7 @@ $\Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$.
 
 ### Size-verifiable one-wayness
 
-A one-way function $f$ is **size-verifiable** if the preimage-size problem $\{(y, s) : |f^{-1}(y)| = s\}$ lies in $\classAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. It is _approximately_ size-verifiable, a weaker condition, if only a promise version that approximates $|f^{-1}(y)|$ lies in $\classAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. A [[one-way-permutation|one-way permutation]] is size-verifiable, since every $y \in \bits^n$ has exactly one preimage — standard. [[size-verifiable-owf-to-owf|A size-verifiable one-way function is a one-way function]].
+A one-way function $f$ is **size-verifiable** if the preimage-size problem $\{(y, s) : |f^{-1}(y)| = s\}$ lies in $\classAM$ — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]], [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. It is _approximately_ size-verifiable, a weaker condition, if the promise problem with yes-instances $(y, s, 1^a)$ such that $|f^{-1}(y)| \le s$ and no-instances $(y, s, 1^a)$ such that $|f^{-1}(y)| > (1 + 1/a)s$ lies in $\classAM$ — [[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]. A [[one-way-permutation|one-way permutation]] is size-verifiable, since every $y \in \bits^n$ has exactly one preimage — standard. [[size-verifiable-owf-to-owf|A size-verifiable one-way function is a one-way function]].
 
 ### Collision resistance
 

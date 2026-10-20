@@ -3,7 +3,6 @@ type: assumption
 status: draft
 aliases:
   - Time-bounded Kolmogorov complexity
-  - Kolmogorov complexity
 title: Time-bounded Kolmogorov complexity
 id: kt-mild-average-case-hardness
 ---
