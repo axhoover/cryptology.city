@@ -65,7 +65,8 @@ _Last updated: 2026-10-15_
 
 - [ ] [External] `Cle86`'s abstract described a protocol tolerating $t < n/2$ faults with $O(\log(n/\delta)/\varepsilon^2)$ rounds, which is not Cleve's result (an $\Omega(1/r)$ bias attack on every $r$-round coin-flipping protocol with a dishonest majority); it is now `TODO — abstract.` and needs the verbatim abstract from the paper — _source: content/References/Cle86 - Limits on the security of coin flips when half the processors are faulty.md_
 - [ ] [External] `LM06`'s filename carries the title of Micciancio's "Generalized compact knapsacks, cyclic lattices, and efficient one-way functions" while its H1, authors and cryptobib key are Lyubashevsky–Micciancio's "Generalized Compact Knapsacks Are Collision Resistant"; the filename is a live URL, so decide whether a separate `Mic02`/`Mic07` page is wanted — _source: content/References/LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md_
-
+- [ ] [Math] Derived closure from {rom} reaches `ke` via `rom-to-oihf-bh26` ⇒ `oihf-to-ot-bh26` ⇒ `ot-to-ke`, contradicting `no-rom-to-ke-hmo-19`: the free, non-black-box OIHF ⇒ OT edge uses the hash's code and must not compose with the ROM-scoped ROM ⇒ OIHF edge; `generate-relations.mjs --derive` needs a rule for this, or the edges need re-modelling — _source: content/Reductions/oihf-to-ot-bh26.md, content/Barriers/no-rom-to-ke-hmo-19.md_
+- [ ] [Math] Check whether GMM07's main theorem rules out shielding black-box constructions of IND-CCA1 (not only IND-CCA2) encryption from IND-CPA encryption; if so, the barrier should conclude `pke-cca1-security` under a new id — _source: content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md_
 - [ ] [Math] 9 `TODO citation` entries across 7 Complexity class pages — content is present but references are missing:
   - `content/Complexity/sharp-p.md:25,29` — approximate counting, Valiant's permanent
   - `content/Complexity/bounded-error-probabilistic-polynomial-time.md:28` — derandomization
@@ -103,6 +104,8 @@ _Last updated: 2026-10-15_
 - [x] [Content] `lwe-to-zero-bit-prc-cg24.md` keeps id `red-lwe-to-zero-bit-prc-cg24` for {subexponential-lpn} ⇒ zero-bit-prc — handed to the pipeline 2026-10-04: the final-form pass dropped the "ids are stable" Notes sentence, and the re-id question for this page and two others is review-inbox finding `ffr:schema-convention-6` — _source: content/Reductions/lwe-to-zero-bit-prc-cg24.md, .review/inbox/_
 
 ---
+
+- [ ] [External] `GG00`'s abstract described $n^{1/\log\log n}$ inapproximability of SVP and CVP, which is not this paper (Goldreich–Goldwasser give constant-round honest-verifier perfect zero-knowledge proofs placing GapSVP and GapCVP within $\sqrt{n/\log n}$ in $\classNP \cap \classcoAM$); it is now `TODO — abstract.` and needs the verbatim abstract — _source: content/References/GG00 - On the limits of non-approximability of lattice problems.md_
 
 ## Low Priority / Inferred
 

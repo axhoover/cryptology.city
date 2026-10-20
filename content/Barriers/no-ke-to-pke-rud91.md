@@ -32,4 +32,3 @@ PKE gives two-message key agreement: Alice sends a public key and Bob an encrypt
 ## Notes
 
 - The same oracle separates key agreement from trapdoor functions: [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]] — [[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]].
-- More generally, no relativizing construction turns a $k$-message key-agreement protocol into a $(k-1)$-message one — [[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]].

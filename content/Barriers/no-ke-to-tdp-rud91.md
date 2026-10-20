@@ -16,14 +16,14 @@ oracle: "Rudich's oracle relative to which three-message secret agreement exists
 source:
   - "[[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]]"
 rationale:
-  class: "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and trapdoor functions do not."
+  class: "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and injective trapdoor functions do not."
 ---
 
 # No relativizing reduction from KE to TDP
 
 ## Statement
 
-There is an oracle relative to which three-message [[key-exchange|key agreement]] exists and [[trapdoor-permutation|trapdoor functions]] do not — [[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]] — so no relativizing, and in particular no fully-black-box, construction of trapdoor permutations or trapdoor functions from key agreement exists.
+There is an oracle relative to which three-message [[key-exchange|key agreement]] exists and [[trapdoor-permutation#injective-trapdoor-functions|injective trapdoor functions]] do not — [[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]] — so no relativizing, and in particular no fully-black-box, construction of [[trapdoor-permutation|trapdoor permutations]] or injective trapdoor functions from key agreement exists.
 
 ## Notes
 

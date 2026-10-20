@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]]"
-security-loss: "additive: the CCA advantage is at most the DDH advantage plus the target-collision advantage plus a term of order Q/q for Q decryption queries"
+security-loss: "additive: the CCA advantage is at most twice the sum of the DDH and target-collision advantages, plus O(Q/q) for Q decryption queries"
 rationale:
   class: "The scheme uses only the group operations and the hash as an oracle, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its DDH tuple."
 ---
@@ -47,6 +47,6 @@ Given $(g_1, g_2, u_1, u_2)$, the reduction samples $x_1, x_2, y_1, y_2, z_1, z_
 
 ## Notes
 
-- Efficiency: a ciphertext is four group elements, encryption costs about five exponentiations, and decryption about three, roughly twice ElGamal — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]].
-- Without the $(c, d, v)$ components the scheme is [[ddh-to-pke-elgamal85|ElGamal]], which is IND-CPA-secure under DDH and malleable — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]].
+- Efficiency: a ciphertext is four group elements, twice ElGamal's; encryption costs about five exponentiations and decryption about three — [[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]].
+- Without $g_2$, $u_2$ and the $(c, d, v)$ components the scheme is [[ddh-to-pke-elgamal85|ElGamal]] — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] — which is IND-CPA-secure under DDH — [[TY98 - On the Security of ElGamal Based Encryption|TY98]] — and malleable — standard.
 - The proof generalizes to universal hash proof systems, which give IND-CCA2 encryption from quadratic residuosity and from decisional composite residuosity — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].

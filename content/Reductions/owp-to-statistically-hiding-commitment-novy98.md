@@ -30,5 +30,5 @@ To commit to $\beta$, the committer samples $x \getsr \bits^n$ and sets $y := \p
 ## Notes
 
 - Round complexity is optimal up to a logarithmic factor for this kind of construction: every fully-black-box construction of a statistically hiding commitment from a one-way permutation, or even a trapdoor permutation, on $n$ bits has $\Omega(n / \log n)$ rounds — [[HHRS07 - Finding Collisions in Interactive Protocols - A Tight Lower Bound on the Round Complexity of Statistically-Hiding Commitments|HHRS07]].
-- With a statistically hiding commitment, the [[hash-function-to-zkp-gmw91|GMW91]] protocol for Graph 3-Colouring becomes a perfect zero-knowledge argument for $\classNP$, which is NOVY98's application — [[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]].
+- With a perfectly hiding commitment, the [[hash-function-to-zkp-gmw91|GMW91]] protocol for Graph 3-Colouring becomes a perfect zero-knowledge argument for $\classNP$, which is NOVY98's application; a statistically hiding one gives statistical zero knowledge — [[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]].
 - One-way functions suffice: [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ statistically hiding COM]] — [[HR07 - Statistically-hiding commitment from any one-way function|HR07]].

@@ -26,7 +26,7 @@ There is no black-box construction of an [[public-key-encryption#cca-security|IN
 
 ## Notes
 
-- Non-shielding black-box constructions remain possible: one-bit IND-CCA2-secure encryption yields multi-bit IND-CCA2-secure encryption by a construction whose decryption re-encrypts — [[MS09 - Bit Encryption Is Complete|MS09]].
+- Non-shielding constructions evade the barrier's technique: the black-box construction of multi-bit from one-bit IND-CCA2-secure encryption is non-shielding, its decryption calling the underlying encryption algorithm — [[MS09 - Bit Encryption Is Complete|MS09]].
 - Bounded-query chosen-ciphertext security, against a fixed polynomial number of decryption queries, does follow from IND-CPA security by a black-box construction — [[CHH+07 - Bounded CCA2-Secure Encryption|CHH+07]].
 - Non-black-box constructions from CPA-secure PKE and NIZK proofs exist: [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|DDN91, Sah99]] — [[Sah99 - Non-Malleable Non-Interactive Zero Knowledge and Adaptive Chosen-Ciphertext Security|Sah99]].
 - Whether IND-CPA-secure PKE alone yields IND-CCA1 or IND-CCA2 security by any construction is open — standard.

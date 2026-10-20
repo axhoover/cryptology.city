@@ -125,7 +125,7 @@ LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$
 
 ## Sub-exponential LWE
 
-LWE is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that every adversary of size $2^{n^{\varepsilon}}$ solves it with probability at most $2^{-n^{\varepsilon}}$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], which runs in polynomial time — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
+LWE is **sub-exponentially hard** for $(n, q, \chi, m)$ if there is a constant $\varepsilon > 0$ such that every adversary $\calA$ of size at most $2^{n^{\varepsilon}}$ has $\Adv^{\text{lwe}}_{n,q,\chi,m,\calA}(\secpar) \le 2^{-n^{\varepsilon}}$. For prime $q \le \poly(n)$ it follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], whose overhead is polynomial in $n$, the adversary's size and its inverse advantage — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ## Ring LWE
 

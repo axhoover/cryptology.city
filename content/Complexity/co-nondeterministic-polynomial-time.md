@@ -26,7 +26,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:C#c
 
 - **Tautology**: given a Boolean formula, is every assignment satisfying? (The complement of SAT, which is NP-complete.)
 - **Graph non-isomorphism**: are two graphs non-isomorphic? This problem is in coNP (and also in $\classSZK$ and $\classcoAM$).
-- **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — TODO citation).
+- **Composite number**: given $n$, does $n$ have a non-trivial factor? This is in both NP and coNP (primality testing is in $\classP$ — [[AKS04 - PRIMES Is in P|AKS04]]).
 
 <!-- BEGIN GENERATED participates-in 7c0a16f9c526 -->
 

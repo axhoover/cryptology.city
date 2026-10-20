@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-From [[multilinear-maps|multilinear maps]] under a new decisional assumption on them, there is [[witness-encryption|witness encryption]] for the $\classNP$-complete problem Exact Cover, hence for every $\classNP$ relation — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+From [[multilinear-maps|multilinear maps]] under the Decision Multilinear No-Exact-Cover assumption, which GGSW13 introduce, there is [[witness-encryption|witness encryption]] for the $\classNP$-complete problem Exact Cover, hence for every $\classNP$ relation — [[GGSW13 - Witness encryption and its applications|GGSW13]].
 
 ## Notes
 
