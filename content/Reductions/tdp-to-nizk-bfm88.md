@@ -1,27 +1,28 @@
 ---
 type: reduction
 status: draft
-title: "TDP ⇒ NIZK"
+title: "Doubly enhanced certified TDP ⇒ NIZK"
 aliases: []
 id: red-tdp-to-nizk-bfm88
 kind: implication
-hypotheses: [tdp]
-conclusion: nizk
+hypotheses: [doubly-enhanced-certified-tdp]
+conclusion: common-random-string-nizk-proof
 class: fully-black-box
 model: crs
 source:
   - "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]"
+  - "[[GR13 - Enhancements of Trapdoor Permutations|GR13]]"
 security-loss: ""
 rationale:
-  class: "Prover, verifier and the multi-theorem PRG call the permutation's generation, evaluation, inversion, certification and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle."
+  class: "The single-theorem hidden-bits compilation calls the permutation's generation, evaluation, inversion, domain sampler and hard-core predicate only as oracles, soundness is statistical, and zero knowledge reduces to hard-core-bit prediction using any distinguisher only as an oracle; the multi-theorem compiler, which places a PRG's circuit in an NP statement, is not needed for the conclusion."
   model: "The common reference string carries the hidden bits."
 ---
 
-# TDP ⇒ NIZK
+# Doubly enhanced certified TDP ⇒ NIZK
 
 ## Statement
 
-A family of doubly enhanced, certified [[trapdoor-permutation|trapdoor permutations]] (indices are recognizably permutations) yields a [[non-interactive-zero-knowledge|NIZK]] proof system for every language in $\classNP$ in the common reference string model: soundness is statistical, zero-knowledge is computational, and one reference string serves polynomially many theorems — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]. The hidden-bits compilation uses the double enhancement, and double enhancement suffices for it — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
+A family of [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|doubly enhanced, certified]] [[trapdoor-permutation|trapdoor permutations]] (indices are recognizably permutations) yields a [[non-interactive-zero-knowledge|NIZK]] proof system for every language in $\classNP$ in the common reference string model: soundness is statistical, zero-knowledge is computational, and one reference string serves polynomially many theorems — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]. The hidden-bits compilation uses the double enhancement, and double enhancement suffices for it — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
 
 ## Sketch
 

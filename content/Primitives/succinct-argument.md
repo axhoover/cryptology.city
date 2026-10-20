@@ -14,6 +14,7 @@ variants:
   zk-snark: "#zk-snark"
   incremental-verifiable-computation: "#recursive-snarks"
   transparent-succinct-argument: "#stark"
+  interactive-succinct-argument: "#interactive-succinct-arguments"
 ---
 
 # Succinct argument
@@ -87,7 +88,11 @@ Systems like Plonk and Marlin use a single universal trusted setup for all circu
 
 ## Recursive SNARKs
 
-A SNARK that can verify its own proofs, enabling incremental verifiable computation (IVC) and proof aggregation. Used in zkRollups and zkVMs.
+_Incrementally verifiable computation (IVC)_ for a step function $F$ and an initial state $s_0$ lets a prover holding only $(s_t, \pi_t)$ compute a proof $\pi_{t+1}$ for $s_{t+1} = F(s_t)$ in time $\poly(\secpar, |F|, |s_t|)$ independent of $t$, such that the verifier accepts honest proofs of $(t, s_t)$, proof size and verification time are $\poly(\secpar)$ independent of $t$, and for every polynomial $t$ no efficient prover makes the verifier accept $(t, s)$ with $s \ne F^{t}(s_0)$, except with negligible probability — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]. A _recursive SNARK_ proves that earlier proofs verify. Extraction cost grows polynomially with each level of nesting, so such composition is proved sound only to constant depth; a depth reduction then gives IVC for any fixed polynomial bound on the number of steps — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]].
+
+## Interactive succinct arguments
+
+An interactive argument system for $\classNP$ whose total communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers and no common reference string — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
 
 # Other results
 
@@ -97,20 +102,22 @@ A SNARK that can verify its own proofs, enabling incremental verifiable computat
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in cd0922d440c1 -->
+<!-- BEGIN GENERATED participates-in 62745988db43 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
-- [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
+- [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 
 **Produces Succinct argument**
 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
+- [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|Recursive SNARKs]])
 
 **Barriers**

@@ -72,13 +72,14 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in 41ccd936e5c4 -->
+<!-- BEGIN GENERATED participates-in 0c1025a2fd4b -->
 
 ## Participates in
 
 **Builds on Commitment scheme**
 
 - [[com-to-owf-il89|COM ⇒ OWF]]
+- [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[commitment-scheme#hiding|Hiding]])
 
 **Produces Commitment scheme**
 
