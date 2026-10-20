@@ -59,13 +59,13 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]
-- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - iO together with one-way functions (or close variants of them) also yields injective trapdoor functions, CCA-secure PKE and oblivious transfer — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - [[fe-to-io|FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 6daf1c963693 -->
+<!-- BEGIN GENERATED participates-in ef5f0eed75d4 -->
 
 ## Participates in
 
@@ -75,7 +75,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
 - [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]
-- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
+- [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]]
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[io-and-owf-to-multi-party-nike-bz14|iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)]]
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
