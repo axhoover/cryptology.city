@@ -608,6 +608,19 @@
    "unlisted": false
   },
   {
+   "id": "circular-secure-bootstrappable-she",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circular-secure-bootstrappable-she",
+   "of": "he",
+   "title": "Circular-secure bootstrappable SHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-security",
    "kind": "object",
    "type": "assumption",
@@ -703,6 +716,19 @@
    "unlisted": false
   },
   {
+   "id": "compact-prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-compactly-encoded-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in compactly encoded prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -736,9 +762,9 @@
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
    "graphSlug": "Primitives/zero-knowledge-proof",
-   "anchor": "#argument-systems",
+   "anchor": "#constant-round-public-coin-zero-knowledge-arguments",
    "of": "zkp",
-   "title": "Argument systems",
+   "title": "Constant-round public-coin zero-knowledge arguments",
    "aliases": [],
    "unlisted": false
   },
@@ -1017,6 +1043,19 @@
     "Doubly-efficient RAM MPC"
    ],
    "unlisted": true
+  },
+  {
+   "id": "doubly-enhanced-certified-tdp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#doubly-enhanced-certified-trapdoor-permutations",
+   "of": "tdp",
+   "title": "Doubly enhanced certified trapdoor permutations",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "dpf",
@@ -3863,6 +3902,19 @@
    "unlisted": true
   },
   {
+   "id": "total-nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-total-communication-below-n",
+   "of": "cpir",
+   "title": "PIR with total communication below $n$",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "transparent-succinct-argument",
    "kind": "variant",
    "type": "primitive",
@@ -4951,6 +5003,30 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-bootstrappable-she"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any IND-CPA adversary on the public key it receives, discarding the encryptions of the secret-key bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption.md",
+   "slug": "circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
+  },
+  {
    "id": "red-circular-security-and-lwe-to-he",
    "kind": "implication",
    "hypotheses": [
@@ -4976,8 +5052,7 @@
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
-    "circular-security",
-    "bootstrappable-somewhat-homomorphic-encryption"
+    "circular-secure-bootstrappable-she"
    ],
    "conclusion": "compact-fhe",
    "class": "free",
@@ -4995,7 +5070,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Bootstrappable SHE ⇒ Compact FHE"
+   "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
    "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
@@ -5141,6 +5216,30 @@
    "title": "Compact FHE ⇒ HE"
   },
   {
+   "id": "red-compact-prime-order-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-prime-order-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-prime-order-dlog-to-prime-order-dlog.md",
+   "slug": "compact-prime-order-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
+   "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -5254,7 +5353,7 @@
    "id": "red-cpir-to-ot-dmo00",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "total-nontrivial-cpir"
    ],
    "conclusion": "ot",
    "class": "unstated",
@@ -5269,7 +5368,7 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "cPIR ⇒ OT"
+   "title": "Non-trivial cPIR ⇒ OT"
   },
   {
    "id": "red-cpir-to-owf-bikm99",
@@ -5488,7 +5587,7 @@
    "hypotheses": [
     "dcr"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -5501,7 +5600,7 @@
    "page": "content/Reductions/dcr-to-cpir-cha04.md",
    "slug": "dcr-to-cpir-cha04",
    "graphSlug": "Reductions/dcr-to-cpir-cha04",
-   "title": "DCR ⇒ cPIR"
+   "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
    "id": "red-dcr-to-fac",
@@ -6154,7 +6253,7 @@
    "id": "red-dlog-to-crhf-cvhp91",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog"
+    "compact-prime-order-dlog"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -6312,6 +6411,30 @@
    "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
    "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
    "title": "DLOG ⇒ Verifiable secret sharing (VSS)"
+  },
+  {
+   "id": "red-doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "kind": "implication",
+   "hypotheses": [
+    "doubly-enhanced-certified-tdp"
+   ],
+   "conclusion": "enhanced-trapdoor-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation.md",
+   "slug": "doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "graphSlug": "Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "title": "Doubly enhanced certified TDP ⇒ Enhanced TDP"
   },
   {
    "id": "red-dpf-to-computational-multi-server-pir-gi14",
@@ -6578,7 +6701,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: every claw factors N",
+   "securityLoss": "a factor of about 2: such integers are about half of all Blum integers, and every claw factors N",
    "rationale": {
     "class": "The pair uses only arithmetic modulo the sampled integer, and one fixed reduction factors it from any claw, running the claw finder once as an oracle."
    },
@@ -8232,14 +8355,17 @@
     "lossy-trapdoor-function"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "receiver privacy loses one mode-indistinguishability hop; sender privacy is statistical, up to a leftover-hash term",
+   "rationale": {
+    "class": "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-function-to-ot-pw08.md",
    "slug": "lossy-trapdoor-function-to-ot-pw08",
@@ -8256,11 +8382,12 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+    "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
+    "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: a constant number of hybrids plus a statistical leftover-hash term",
+   "securityLoss": "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term",
    "rationale": {
     "class": "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."
    },
@@ -9280,6 +9407,30 @@
    "slug": "oihf-to-ot-bh26",
    "graphSlug": "Reductions/oihf-to-ot-bh26",
    "title": "OIHF ⇒ OT"
+  },
+  {
+   "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "total-nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, run on databases of a fixed polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir.md",
+   "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
   },
   {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
@@ -12100,7 +12251,7 @@
    "id": "red-tdp-to-nizk-bfm88",
    "kind": "implication",
    "hypotheses": [
-    "tdp"
+    "doubly-enhanced-certified-tdp"
    ],
    "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
@@ -12119,7 +12270,7 @@
    "page": "content/Reductions/tdp-to-nizk-bfm88.md",
    "slug": "tdp-to-nizk-bfm88",
    "graphSlug": "Reductions/tdp-to-nizk-bfm88",
-   "title": "TDP ⇒ NIZK"
+   "title": "Doubly enhanced certified TDP ⇒ NIZK"
   },
   {
    "id": "red-tdp-to-pke",
@@ -12144,6 +12295,30 @@
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
    "title": "TDP ⇒ PKE"
+  },
+  {
+   "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "total-nontrivial-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/total-nontrivial-cpir-to-nontrivial-cpir.md",
+   "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
+   "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
   },
   {
    "id": "red-two-party-computation-to-ot",
@@ -12694,7 +12869,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "consequences": [
     {
@@ -12722,7 +12897,7 @@
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
    "graphSlug": "Barriers/no-he-to-szk-bl13",
-   "title": "No reduction from NP to HE"
+   "title": "No reduction from NP to compact FHE"
   },
   {
    "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -12965,7 +13140,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -12987,7 +13162,7 @@
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
-   "title": "No fully-black-box reduction from NP to cPIR"
+   "title": "No fully-black-box reduction from NP to one-round sublinear cPIR"
   },
   {
    "id": "bar-np-to-hash-function-aggm06",
@@ -13289,11 +13464,11 @@
    "title": "No fixed-construction reduction from CPA security to CCA1 security"
   },
   {
-   "id": "bar-pke-cpa-security-to-pke-cca2-security-gmm07",
+   "id": "bar-pke-cpa-security-to-pke-cca1-security-gmm07",
    "hypotheses": [
     "pke-cpa-security"
    ],
-   "conclusion": "pke-cca2-security",
+   "conclusion": "pke-cca1-security",
    "class": "unstated",
    "consequences": [
     {
@@ -13312,10 +13487,10 @@
     "class": "GMM07 rule out shielding black-box constructions, whose decryption algorithm never calls the underlying encryption algorithm, and the vocabulary has no class for that restriction."
    },
    "status": "draft",
-   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md",
-   "slug": "no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07",
-   "title": "No shielding black-box reduction from CPA-secure PKE to CCA-secure PKE"
+   "page": "content/Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07.md",
+   "slug": "no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07",
+   "title": "No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE"
   },
   {
    "id": "bar-pke-to-injective-trapdoor-function-gmr01",
@@ -13531,8 +13706,8 @@
    "class": "unstated",
    "consequences": [
     {
-     "kind": "contradiction",
-     "target": "",
+     "kind": "complexity",
+     "target": "np-subset-bpp",
      "class": "unstated"
     }
    ],

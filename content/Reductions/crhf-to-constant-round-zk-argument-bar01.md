@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Assuming [[hash-function#collision-resistance|collision-resistant hash functions]], [[nondeterministic-polynomial-time|NP]] has a constant-round public-coin [[zero-knowledge-proof|zero-knowledge]] [[zero-knowledge-proof#argument-systems|argument]] with negligible soundness error whose simulator uses the cheating verifier's code — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]].
+Assuming [[hash-function#collision-resistance|collision-resistant hash functions]], [[nondeterministic-polynomial-time|NP]] has a [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|constant-round public-coin zero-knowledge argument]] with negligible soundness error whose simulator uses the cheating verifier's code — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]].
 
 ## Sketch
 

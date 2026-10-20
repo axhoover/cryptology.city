@@ -1,11 +1,11 @@
 ---
 type: barrier
 status: draft
-title: "No fully-black-box reduction from NP to cPIR"
+title: "No fully-black-box reduction from NP to one-round sublinear cPIR"
 aliases: []
 id: bar-np-to-cpir-lv15
 hypotheses: [np]
-conclusion: cpir
+conclusion: one-round-sublinear-cpir
 class: fully-black-box
 consequences:
   - kind: complexity
@@ -18,11 +18,11 @@ rationale:
   class: "LV15 rule out reductions that use the privacy adversary only as an oracle and are otherwise unrestricted, the fully-black-box shape when NP as hypothesis leaves no construction to restrict; they give no oracle separation, so relativizing would overstate."
 ---
 
-# No fully-black-box reduction from NP to cPIR
+# No fully-black-box reduction from NP to one-round sublinear cPIR
 
 ## Statement
 
-A probabilistic polynomial-time reduction from the [[nondeterministic-polynomial-time|NP]]-complete problem $\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|PIR]] scheme, using the privacy adversary only as an oracle with polynomially many adaptively chosen queries, implies $\classNP \subseteq \classcoAM$, equivalently $\classcoNP \subseteq \classAM$ — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]] — and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]. The result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]].
+A probabilistic polynomial-time reduction from the [[nondeterministic-polynomial-time|NP]]-complete problem $\mathrm{SAT}$ to breaking the privacy of a single-server, single-round [[single-server-private-information-retrieval|PIR]] scheme, using the privacy adversary only as an oracle with polynomially many adaptively chosen queries, implies $\classNP \subseteq \classcoAM$, equivalently $\classcoNP \subseteq \classAM$ — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]] — and hence a collapse of the [[polynomial-time-hierarchy|polynomial hierarchy]] to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]. The result is tight in both the correctness and the privacy parameter of the scheme — [[LV15 - On Basing Private Information Retrieval on NP-Hardness|LV15]]. It applies in particular to [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] schemes; the trivial scheme, which downloads the database, is perfectly private and lies outside it.
 
 ## Notes
 
