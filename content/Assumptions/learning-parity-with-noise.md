@@ -10,6 +10,7 @@ variants:
   sparse-lpn: "#sparse-learning-parity-with-noise"
   lpn-low-noise: "#low-noise-lpn"
   subexponential-lpn: "#subexponential-lpn"
+  subexponential-lpn-fp: "#sub-exponential-lpn-over-large-fields"
   lpn-mid-noise: "#mid-noise-lpn"
   ring-lpn: "#ring-lpn"
   sparse-ring-lpn: "#sparse-ring-lpn"
@@ -83,6 +84,10 @@ polynomial time and achieve constant advantage.
 Some applications require assuming _subexponential LPN_, which means that they assume any algorithm which achieves non-negligible advantage in the LPN game requires running in time $2^{\omega(k^{\varepsilon})}$ for some $\varepsilon > 0$ (often $\varepsilon = 1/2$).
 
 In other words, any algorithm which runs in $2^{O(k^{\varepsilon})}$ time has negligible advantage. Whereas, the normal LPN assumption only makes an assumption about polynomial time adversaries. Typically, this assumption is made only in the constant-noise regime, making it incomparable to more standard lower-noise normal LPN assumptions.
+
+#### Sub-exponential LPN over large fields
+
+For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secret dimension $\ell$, polynomially many samples and noise rate $\ell^{-\delta}$ for a constant $\delta \in (0, 1)$ is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\ell$ every adversary of size at most $2^{\ell^{\varepsilon}}$ has advantage at most $2^{-\ell^{\varepsilon}}$ — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
 
 # Known results
 
@@ -175,14 +180,15 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in 03fe25d807cc -->
+<!-- BEGIN GENERATED participates-in 11b6e867b12d -->
 
 ## Participates in
 
 **Builds on Learning parity with noise**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]]
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[learning-parity-with-noise#sub-exponential-lpn-over-large-fields|Sub-exponential LPN over large fields]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
+- [[lpn-constant-noise-to-prg-bfkl93|Constant-noise LPN ⇒ PRG]] (via [[learning-parity-with-noise#constant-noise-lpn|Constant-noise LPN]])
 - [[lpn-high-noise-to-lpn-constant-noise|High-noise LPN ⇒ Constant-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])

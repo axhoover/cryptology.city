@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ Leveled fully homomorphic encryption"
+title: "LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)"
 aliases: []
 id: red-lwe-to-leveled-fully-homomorphic-encryption-bgv12
 kind: implication
-hypotheses: [lwe]
+hypotheses: [subexponential-modulus-lwe]
 conclusion: leveled-fully-homomorphic-encryption
 class: fully-black-box
 model: standard
@@ -16,11 +16,11 @@ rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
 ---
 
-# LWE ⇒ Leveled fully homomorphic encryption
+# LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)
 
 ## Statement
 
-For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$). It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+For every depth bound $L$ fixed at key generation, the BGV scheme is a [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] scheme for all polynomial-size circuits of depth $L$, IND-CPA-secure if decision [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE]] is hard with modulus-to-noise ratio exponential in $L$ (the largest modulus $q_L$ has $(L+1)\mu$ bits, $\mu = \Theta(\log \secpar + \log L)$), a ratio $2^{n^{\varepsilon}}$ once the dimension $n$ is a large enough polynomial in $L$ and $\secpar$. It uses neither bootstrapping nor a circular-security assumption — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
 
 ## Sketch
 
@@ -30,4 +30,4 @@ Ciphertexts are LWE encryptions under a ladder of moduli $q_L > \cdots > q_0$. A
 
 - The approximate-eigenvector method gives leveled FHE from LWE with no evaluation key and no relinearization: homomorphic addition and multiplication are matrix addition and multiplication — [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]].
 - Leveled FHE from LWE was first obtained by relinearization and dimension–modulus reduction, bootstrapping along a chain of independent keys — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
-- Leveled FHE can rest on the same lattice approximation factors as plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions, up to the $\varepsilon$ — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+- Leveled FHE can rest on the same lattice approximation factors as plain lattice-based PKE, $\tilde{O}(n^{1.5+\varepsilon})$ for GapSVP under quantum reductions, up to the $\varepsilon$, by bootstrapping at polynomial ratio: [[lwe-to-leveled-fully-homomorphic-encryption-bv14|LWE with polynomial ratio ⇒ Leveled FHE]] — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].

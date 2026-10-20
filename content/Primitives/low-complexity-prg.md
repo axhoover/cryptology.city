@@ -10,6 +10,7 @@ title: Low-complexity pseudorandom generator
 id: low-complexity-prg-nc0
 variants:
   prg-in-nc0: "#polynomial-stretch-prg-in-nc0"
+  subexponential-prg-in-nc0: "#sub-exponential-security"
 unlisted: true
 ---
 
@@ -25,16 +26,22 @@ TODO: syntax and security definition.
 
 A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m(n)}$ in $\mathrm{NC}^0$ with $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
 
-<!-- BEGIN GENERATED participates-in bb267cbdaa76 -->
+### Sub-exponential security
+
+A polynomial-stretch PRG in $\mathrm{NC}^0$ is **sub-exponentially secure** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $n$ every distinguisher of size at most $2^{n^{\varepsilon}}$ has advantage at most $2^{-n^{\varepsilon}}$.
+
+<!-- BEGIN GENERATED participates-in fba1f53a0ecd -->
 
 ## Participates in
 
 **Builds on Low-complexity pseudorandom generator**
 
-- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|Polynomial-stretch PRG in NC0]])
+- [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#sub-exponential-security|Sub-exponential security]])
+- [[subexponential-prg-in-nc0-to-prg-in-nc0|Sub-exponentially secure NC0 PRG ⇒ NC0 PRG]] (via [[low-complexity-prg#sub-exponential-security|Sub-exponential security]])
 
 **Produces Low-complexity pseudorandom generator**
 
 - [[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0 (AIK)]]
+- [[subexponential-prg-in-nc0-to-prg-in-nc0|Sub-exponentially secure NC0 PRG ⇒ NC0 PRG]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|Polynomial-stretch PRG in NC0]])
 
 <!-- END GENERATED participates-in -->

@@ -137,7 +137,7 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
 
-<!-- BEGIN GENERATED participates-in 42caa111c99b -->
+<!-- BEGIN GENERATED participates-in 5688cf05fce9 -->
 
 ## Participates in
 
@@ -154,6 +154,7 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
+- [[subexponential-modulus-lwe-to-abe-selective-security-gvw13|LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)]] (via [[attribute-based-encryption#selective-security|Selective Security]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]]
 
 **Barriers**
