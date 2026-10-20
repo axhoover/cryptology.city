@@ -762,9 +762,9 @@
    "page": "content/Primitives/zero-knowledge-proof.md",
    "slug": "zero-knowledge-proof",
    "graphSlug": "Primitives/zero-knowledge-proof",
-   "anchor": "#argument-systems",
+   "anchor": "#constant-round-public-coin-zero-knowledge-arguments",
    "of": "zkp",
-   "title": "Argument systems",
+   "title": "Constant-round public-coin zero-knowledge arguments",
    "aliases": [],
    "unlisted": false
   },
@@ -1030,6 +1030,19 @@
     "Doubly-efficient RAM MPC"
    ],
    "unlisted": true
+  },
+  {
+   "id": "doubly-enhanced-certified-tdp",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#doubly-enhanced-certified-trapdoor-permutations",
+   "of": "tdp",
+   "title": "Doubly enhanced certified trapdoor permutations",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "dpf",
@@ -6332,6 +6345,30 @@
    "slug": "com-and-ss-to-verifiable-secret-sharing-vss",
    "graphSlug": "Reductions/com-and-ss-to-verifiable-secret-sharing-vss",
    "title": "DLOG ⇒ Verifiable secret sharing (VSS)"
+  },
+  {
+   "id": "red-doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "kind": "implication",
+   "hypotheses": [
+    "doubly-enhanced-certified-tdp"
+   ],
+   "conclusion": "enhanced-trapdoor-permutation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the family, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation.md",
+   "slug": "doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "graphSlug": "Reductions/doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation",
+   "title": "Doubly enhanced certified TDP ⇒ Enhanced TDP"
   },
   {
    "id": "red-dpf-to-computational-multi-server-pir-gi14",
@@ -12028,7 +12065,7 @@
    "id": "red-tdp-to-nizk-bfm88",
    "kind": "implication",
    "hypotheses": [
-    "tdp"
+    "doubly-enhanced-certified-tdp"
    ],
    "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
@@ -12047,7 +12084,7 @@
    "page": "content/Reductions/tdp-to-nizk-bfm88.md",
    "slug": "tdp-to-nizk-bfm88",
    "graphSlug": "Reductions/tdp-to-nizk-bfm88",
-   "title": "TDP ⇒ NIZK"
+   "title": "Doubly enhanced certified TDP ⇒ NIZK"
   },
   {
    "id": "red-tdp-to-pke",
@@ -13398,8 +13435,8 @@
    "class": "unstated",
    "consequences": [
     {
-     "kind": "contradiction",
-     "target": "",
+     "kind": "complexity",
+     "target": "np-subset-bpp",
      "class": "unstated"
     }
    ],

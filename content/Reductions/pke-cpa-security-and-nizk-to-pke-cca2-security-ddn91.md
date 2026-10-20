@@ -31,4 +31,4 @@ In Sah99's proof, the single simulated proof in the challenge cannot be mauled: 
 
 - Both constructions use a one-way function for one-time signatures or simulation soundness; the CPA-secure scheme supplies one — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
 - A simpler construction uses ordinary NIZK and one-time signatures — [[Lin03 - A Simpler Construction of CCA2-Secure Public-Key Encryption under General Assumptions|Lin03]].
-- Suitably enhanced trapdoor permutations give both NIZK proofs for $\classNP$ ([[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]) and [[tdp-to-pke|PKE]], hence IND-CCA2-secure PKE — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
+- Suitably enhanced trapdoor permutations give both NIZK proofs for $\classNP$ ([[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]) and [[tdp-to-pke|PKE]], hence IND-CCA2-secure PKE — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
