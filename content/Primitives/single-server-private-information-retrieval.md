@@ -99,7 +99,7 @@ A PIR scheme has **total communication below $n$** if it is perfectly correct an
 
 ## One-round sublinear PIR
 
-A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| = O(n^c)$ for a constant $c < 1$, the hidden factor depending on $\secpar$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
+A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
 ## Symmetric private information retrieval (Single-server)
 
@@ -183,7 +183,7 @@ is negligible.
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in aa0d31be978d -->
+<!-- BEGIN GENERATED participates-in 711da33e5f4b -->
 
 ## Participates in
 
@@ -211,7 +211,7 @@ is negligible.
 - [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
-- [[tdp-to-cpir-ko00|TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
+- [[tdp-to-cpir-ko00|TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 
 **Barriers**
