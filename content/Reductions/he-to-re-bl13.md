@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Strongly homomorphic encryption ⇒ RE"
+title: "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
 aliases: []
 id: red-he-to-re-bl13
 kind: implication
 hypotheses: [strongly-homomorphic-encryption]
-conclusion: rerandomizable-encryption
+conclusion: statistically-rerandomizable-encryption
 class: unstated
 model: standard
 source:
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Strongly homomorphic encryption ⇒ RE
+# Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption
 
 ## Statement
 
-A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorphic-encryption#strongly-homomorphic-encryption|strong]] (distribution-preserving) homomorphic evaluator for a boolean function $f$ is [[rerandomizable-encryption|rerandomizable]], for essentially every $f$ other than the trivial functions, NOT, AND and OR: an encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ independent of the input, up to negligible statistical distance when the evaluator's error is negligible — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+A public-key bit [[homomorphic-encryption|encryption scheme]] with a [[homomorphic-encryption#strongly-homomorphic-encryption|strong]] (distribution-preserving) homomorphic evaluator for a boolean function $f$ is [[rerandomizable-encryption#statistical-rerandomization-of-honest-ciphertexts|statistically rerandomizable]], for every $f$ other than constants, projections and their negations, AND and OR: an encryption of a bit $b$ can be efficiently mapped to a ciphertext distributed as a fresh encryption of $b$ independent of the input, up to negligible statistical distance when the evaluator's error is negligible — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 
 ## Notes
 
