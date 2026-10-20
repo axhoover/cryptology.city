@@ -10,6 +10,7 @@ title: Non-interactive zero-knowledge
 id: nizk
 variants:
   simulation-sound-nizk: "#simulation-sound-nizk-ss-nizk"
+  common-random-string-nizk-proof: "#nizk-proofs-in-the-common-random-string-model"
 ---
 
 # Non-interactive zero-knowledge
@@ -42,6 +43,10 @@ There exists an efficient simulator $(\Sim_1, \Sim_2)$ where $\Sim_1(1^\secpar) 
 
 # Variations
 
+## NIZK proofs in the common random string model
+
+A NIZK proof whose $\Setup$ outputs a uniformly random string and whose soundness holds against unbounded provers that choose the statement after seeing $\crs$ — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]].
+
 ## Simulation-sound NIZK (SS-NIZK)
 
 An SS-NIZK remains sound even against adversaries who have seen simulated proofs. This stronger notion is essential for constructing CCA-secure encryption from NIZK.
@@ -71,25 +76,27 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in b66d17445218 -->
+<!-- BEGIN GENERATED participates-in 8488594efbbb -->
 
 ## Participates in
 
 **Builds on Non-interactive zero-knowledge**
 
-- [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]]
+- [[common-random-string-nizk-proof-to-nizk|NIZK proofs with a common random string ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
+- [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]]
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]]
 
 **Produces Non-interactive zero-knowledge**
 
+- [[common-random-string-nizk-proof-to-nizk|NIZK proofs with a common random string ⇒ NIZK]]
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ NIZK]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[snark-to-nizk|SNARK + OWF ⇒ NIZK]]
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]
-- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
+- [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 
 **Barriers**
 

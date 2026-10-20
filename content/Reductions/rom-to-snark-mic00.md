@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-In the [[random-oracle-model|random-oracle model]], every language in $\classNP$ has a non-interactive argument, a computationally sound proof, whose length and verification time are polylogarithmic in the size of the $\classNP$ verification, times a polynomial in $\secpar$ — [[Mic00 - Computationally Sound Proofs|Mic00]]. The argument is an argument of knowledge, so it is a [[succinct-argument|SNARK]] without a common reference string — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]].
+In the [[random-oracle-model|random-oracle model]], every language in $\classNP$ has a non-interactive argument, a computationally sound proof, whose proofs have length $\poly(\secpar, \log T)$ and are verified in time $\poly(\secpar, |x|, \log T)$, for statements $x$ whose $\classNP$ verification takes time $T$ — [[Mic00 - Computationally Sound Proofs|Mic00]]. The argument is an argument of knowledge, so it is a [[succinct-argument|SNARK]] without a common reference string — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]].
 
 ## Sketch
 
@@ -32,4 +32,4 @@ The prover commits to a probabilistically checkable proof by the root of a Merkl
 ## Notes
 
 - The interactive precursor needs only collision-resistant hashing: [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ succinct arguments]] — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
-- No SNARG for $\classNP$ has a black-box proof of adaptive soundness from falsifiable assumptions: [[no-falsifiable-assumption-to-snark-gro16|No reduction from falsifiable assumptions to SNARKs]] — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+- In the common reference string model, no reduction that uses the cheating prover only as an oracle proves adaptive soundness of a SNARG for an $\classNP$ language with a sub-exponentially hard subset-membership problem from a falsifiable assumption, unless the assumption is false: [[no-falsifiable-assumption-to-snark-gro16|No reduction from falsifiable assumptions to SNARKs]] — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].

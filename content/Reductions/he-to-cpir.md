@@ -23,5 +23,5 @@ A compact [[homomorphic-encryption|fully homomorphic encryption]] scheme yields 
 
 ## Notes
 
-- Efficiency: communication is polylogarithmic in $n$, while the server evaluates a circuit of size $\Theta(n)$ homomorphically, which dominates the cost — folklore. Private information retrieval is among the applications of fully homomorphic encryption listed with its first construction — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+- Efficiency: communication is polylogarithmic in $n$, while the server evaluates a circuit of size $\Theta(n)$ homomorphically, which dominates the cost — folklore. An LWE-based instantiation has communication $\secpar \cdot \polylog(\secpar) + \log n$ bits for a single-bit database entry — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 - Linear homomorphism already suffices for communication $O(n^{\varepsilon})$: [[additively-homomorphic-encryption-to-cpir-ste98|additively homomorphic encryption ⇒ cPIR]] — [[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]].

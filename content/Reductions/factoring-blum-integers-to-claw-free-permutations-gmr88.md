@@ -26,7 +26,7 @@ $$
 f_0(x) := x^2 \bmod N, \qquad f_1(x) := 4x^2 \bmod N
 $$
 
-are permutations of $\mathrm{QR}_N$ with trapdoor $(p, q)$, and if [[factoring#factoring-blum-integers|factoring such integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]].
+are permutations of $\mathrm{QR}_N$ with trapdoor $(p, q)$, and if [[factoring#factoring-with-known-factor-structure|factoring such integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]].
 
 ## Sketch
 

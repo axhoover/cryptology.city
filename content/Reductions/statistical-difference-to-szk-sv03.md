@@ -11,6 +11,7 @@ class: free
 model: standard
 source:
   - "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]"
+  - "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
 security-loss: ""
 ---
 
@@ -18,7 +19,7 @@ security-loss: ""
 
 ## Statement
 
-[[statistical-zero-knowledge#statistical-difference|Statistical Difference]] $\mathrm{SD}^{2/3, 1/3}$ lies in [[statistical-zero-knowledge|SZK]], and every promise problem in SZK reduces to it by a Karp reduction, so it is $\classSZK$-complete — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
+[[statistical-zero-knowledge#statistical-difference|Statistical Difference]] $\mathrm{SD}^{2/3, 1/3}$ has an [[statistical-zero-knowledge#honest-verifier-szk|honest-verifier]] statistical zero-knowledge proof, and every promise problem with one reduces to it by a Karp reduction — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]. Since honest-verifier and general statistical zero-knowledge coincide ([[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]]) — [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]] — $\mathrm{SD}^{2/3,1/3}$ is $\classSZK$-complete.
 
 ## Sketch
 
@@ -26,4 +27,4 @@ Polarization first amplifies the gap, so that yes-instances have statistical dis
 
 ## Notes
 
-- Completeness of Statistical Difference gives a simpler proof that [[coszk-to-szk-oka96|SZK = coSZK]] — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
+- Completeness of Statistical Difference gives a simpler proof that honest-verifier SZK is closed under complement, hence of [[coszk-to-szk-oka96|SZK = coSZK]] — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]], [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]].
