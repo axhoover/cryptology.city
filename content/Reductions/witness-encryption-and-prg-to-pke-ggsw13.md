@@ -7,13 +7,13 @@ id: red-witness-encryption-and-prg-to-pke-ggsw13
 kind: implication
 hypotheses: [witness-encryption, prg]
 conclusion: pke
-class: fully-black-box
+class: free
 model: standard
 source:
   - "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
-security-loss: "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage"
+security-loss: "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}"
 rationale:
-  class: "The scheme calls the generator and the witness encryption only as oracles, and the reduction runs any PKE adversary once as an oracle, first on a pseudorandom and then on a uniform public key."
+  class: "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code."
 ---
 
 # WE + PRG ⇒ PKE (GGSW)
@@ -24,4 +24,4 @@ rationale:
 
 ## Sketch
 
-Replace the public key by a uniform string $u$, which the adversary cannot notice by PRG security. With probability $1 - 2^{-\secpar}$, $u$ is outside the image of $G$, a false statement, so soundness security of the witness encryption hides the message — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+Replace the public key by a uniform string $u$, which the adversary cannot notice by PRG security. With probability at least $1 - 2^{-\secpar}$, $u$ is outside the image of $G$, a false statement, so soundness security of the witness encryption hides the message — [[GGSW13 - Witness encryption and its applications|GGSW13]].

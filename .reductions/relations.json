@@ -7703,7 +7703,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
    ],
    "via": [],
    "heuristic": false,
@@ -12042,16 +12042,16 @@
     "prg"
    ],
    "conclusion": "pke",
-   "class": "fully-black-box",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage",
+   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}",
    "rationale": {
-    "class": "The scheme calls the generator and the witness encryption only as oracles, and the reduction runs any PKE adversary once as an oracle, first on a pseudorandom and then on a uniform public key."
+    "class": "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code."
    },
    "status": "draft",
    "page": "content/Reductions/witness-encryption-and-prg-to-pke-ggsw13.md",
@@ -12602,7 +12602,7 @@
    "page": "content/Barriers/no-io-and-owf-to-owp-as16.md",
    "slug": "no-io-and-owf-to-owp-as16",
    "graphSlug": "Barriers/no-io-and-owf-to-owp-as16",
-   "title": "No fully-black-box reduction from iO + OWF to OWP"
+   "title": "No fully-black-box reduction from iO + OWF to domain-invariant OWP"
   },
   {
    "id": "bar-io-and-owp-to-crhf-as15",

@@ -52,7 +52,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 
 ## Multiparty non-interactive key exchange
 
-An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret and the $N - 1$ other published values, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; the constructions below allow any polynomial $N$ — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
+An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret, the $N - 1$ other published values and any public parameters, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; iO and one-way functions give it for any polynomial $N$ fixed in advance, without trusted setup — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
 
 # Other results
 

@@ -24,7 +24,7 @@ If [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistan
 
 ## Sketch
 
-Each party publishes $s_i' = G(s_i)$ for a length-doubling [[pseudorandom-generator|PRG]] $G$ and a uniform seed $s_i$. The shared key is a puncturable PRF evaluated at $(s_1', \ldots, s_N')$, computed through an obfuscated program that releases it only to a caller presenting a seed $s_i$ with $G(s_i) = s_i'$ for one of the listed values. Punctured programming, together with replacing each $s_i'$ by a uniform string outside the image of $G$, shows the key is pseudorandom to an eavesdropper. — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
+Each party publishes $s_i' = G(s_i)$ for a length-doubling [[pseudorandom-generator|PRG]] $G$ and a uniform seed $s_i$. The shared key is a puncturable PRF evaluated at $(s_1', \ldots, s_N')$, computed through an obfuscated program that releases it only to a caller presenting a seed $s_i$ with $G(s_i) = s_i'$ for one of the listed values. Punctured programming, together with replacing each $s_i'$ by a uniform string outside the image of $G$, shows the key is pseudorandom to an eavesdropper — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
 
 ## Notes
 
