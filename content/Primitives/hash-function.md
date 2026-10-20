@@ -107,15 +107,21 @@ resistance, but not conversely — [[RS04 - Cryptographic Hash-Function Basics D
 \end{algorithm}
 ```
 
-A hash function $\hash$ is **collision resistant**
-if for every efficient $\calA,$
+A compressing family $\hash$ with $\calD = \bits^{n(\secpar)}$ and
+$\calR = \bits^{m(\secpar)}$, $m(\secpar) < n(\secpar)$, is **collision
+resistant**, a **collision-resistant hash function (CRHF)**, if for every
+efficient $\calA,$
 
 $$
 \Adv^{\mathrm{cr}}_{\hash,\calA}(\secpar) :=
 \Pr\left[\Game^{\mathrm{cr}}_{\hash,\calA}(\secpar) = 1\right]
 $$
 
-is negligible.
+is negligible. Compression is part of the definition because without it the
+notion is trivial: the identity has no collisions. The amount of compression is
+immaterial: Merkle–Damgård iteration turns a family compressing by one bit into
+a collision-resistant family from $\bits^{p(\secpar)}$ to $\bits^{m(\secpar)}$
+for every polynomial $p$ — [[Dam89 - A Design Principle for Hash Functions|Dam89]].
 
 ### Target collision resistance (universal one-wayness)
 
@@ -163,15 +169,15 @@ Collision resistance implies target collision resistance — standard.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 288b624d48f4 -->
+<!-- BEGIN GENERATED participates-in 3f85358154cf -->
 
 ## Participates in
 
 **Builds on Hash function**
 
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[hash-function#collision-resistance|Collision resistance]])
-- [[crhf-to-owf|CRHF ⇒ OWF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[crhf-to-weak-owf|CRHF ⇒ Weak OWF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[czk-to-ip-bgg-90|OWF + IP ⇒ CZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[hash-function#target-collision-resistance-universal-one-wayness|Target collision resistance (universal one-wayness)]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
@@ -201,7 +207,7 @@ Collision resistance implies target collision resistance — standard.
 
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[com-to-owf-il89|COM ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
-- [[crhf-to-owf|CRHF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[crhf-to-weak-owf|CRHF ⇒ Weak OWF]] (via [[hash-function#weak-one-wayness|Weak one-wayness]])
 - [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[ds-to-hash-function|DS ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[identification-scheme-to-owf-il89|ID ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
