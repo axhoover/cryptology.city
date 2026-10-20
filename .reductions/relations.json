@@ -8282,7 +8282,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: KEM CPA advantage + DEM one-time advantage",
+   "securityLoss": "additive: twice the KEM CPA advantage plus the DEM one-time advantage",
    "rationale": {
     "class": "One fixed construction calls Encap and the SKE algorithms only as oracles, and both game-hop reductions run the PKE adversary as an oracle."
    },
@@ -8734,7 +8734,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: KEM CCA advantage + DEM one-time CCA advantage + KEM bad-key-pair probability",
+   "securityLoss": "additive: twice the KEM CCA advantage plus the DEM one-time CCA advantage plus the KEM bad-key-pair probability",
    "rationale": {
     "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
    },
@@ -10124,26 +10124,27 @@
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
-    "malicious-ot-security"
+    "uc-ot"
    ],
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
-    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
+    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]",
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the composition theorem a maliciously secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
+    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
    "slug": "ot-to-mpc-kil88",
    "graphSlug": "Reductions/ot-to-mpc-kil88",
-   "title": "OT ⇒ MPC"
+   "title": "UC-secure OT ⇒ MPC"
   },
   {
    "id": "red-ot-to-oihf-bh26",

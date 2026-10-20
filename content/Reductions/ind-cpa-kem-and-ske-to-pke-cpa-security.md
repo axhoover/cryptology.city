@@ -10,7 +10,7 @@ conclusion: pke-cpa-security
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: "additive: KEM CPA advantage + DEM one-time advantage"
+security-loss: "additive: twice the KEM CPA advantage plus the DEM one-time advantage"
 rationale:
   class: "One fixed construction calls Encap and the SKE algorithms only as oracles, and both game-hop reductions run the PKE adversary as an oracle."
 ---
