@@ -63,6 +63,9 @@ _Last updated: 2026-10-15_
 
 ## Medium Priority
 
+- [ ] [External] `Cle86`'s abstract described a protocol tolerating $t < n/2$ faults with $O(\log(n/\delta)/\varepsilon^2)$ rounds, which is not Cleve's result (an $\Omega(1/r)$ bias attack on every $r$-round coin-flipping protocol with a dishonest majority); it is now `TODO — abstract.` and needs the verbatim abstract from the paper — _source: content/References/Cle86 - Limits on the security of coin flips when half the processors are faulty.md_
+- [ ] [External] `LM06`'s filename carries the title of Micciancio's "Generalized compact knapsacks, cyclic lattices, and efficient one-way functions" while its H1, authors and cryptobib key are Lyubashevsky–Micciancio's "Generalized Compact Knapsacks Are Collision Resistant"; the filename is a live URL, so decide whether a separate `Mic02`/`Mic07` page is wanted — _source: content/References/LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions.md_
+
 - [ ] [Math] 9 `TODO citation` entries across 7 Complexity class pages — content is present but references are missing:
   - `content/Complexity/sharp-p.md:25,29` — approximate counting, Valiant's permanent
   - `content/Complexity/bounded-error-probabilistic-polynomial-time.md:28` — derandomization

@@ -132,7 +132,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 9cd41e32e219 -->
+<!-- BEGIN GENERATED participates-in d33b3408f7c3 -->
 
 ## Participates in
 
@@ -146,6 +146,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
