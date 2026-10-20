@@ -28,4 +28,4 @@ Given ciphertexts $c_1, c_2$ under $\pk_i$, homomorphically evaluate the augment
 
 ## Notes
 
-- Unbounded-depth FHE by bootstrapping additionally needs [[circular-security|circular security]]: a single key pair publishes an encryption of its own secret key — [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Bootstrappable SHE ⇒ HE]], [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+- Unbounded-depth FHE by bootstrapping additionally needs [[homomorphic-encryption#circular-secure-bootstrappable-she|circular security of the scheme itself]]: a single key pair publishes an encryption of its own secret key — [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]], [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].

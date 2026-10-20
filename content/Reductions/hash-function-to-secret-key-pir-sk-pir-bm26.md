@@ -23,4 +23,4 @@ If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, th
 ## Notes
 
 - Under [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]], communication drops to $O(N^{\varepsilon})$ for every constant $\varepsilon > 0$ — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]] ([[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]).
-- Without the secret-key preprocessing, non-trivial single-server PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]] ([[cpir-to-ot-dmo00|cPIR ⇒ OT]]).
+- Without the secret-key preprocessing, non-trivial single-server PIR implies [[oblivious-transfer|OT]] — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]] ([[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]).

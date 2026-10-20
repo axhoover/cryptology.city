@@ -37,7 +37,7 @@ In the **semi-honest** (or _honest-but-curious_) model, corrupted parties follow
 
 ### Security (malicious)
 
-In the **malicious** model, corrupted parties may deviate arbitrarily from the protocol. Full security requires simulation-based security against any such adversary, typically with guaranteed output delivery or fairness conditions.
+In the **malicious** model, corrupted parties may deviate arbitrarily from the protocol. Security with abort requires simulation-based security against any such adversary in an ideal model where the adversary receives its output first and may then deny the honest parties theirs; full security additionally guarantees output delivery, which a dishonest majority cannot achieve for every functionality — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]].
 
 # Variations
 
@@ -78,7 +78,7 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
 
-<!-- BEGIN GENERATED participates-in 84a387340330 -->
+<!-- BEGIN GENERATED participates-in c7ca89af9b7b -->
 
 ## Participates in
 
@@ -86,6 +86,8 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 
 - [Honest majority ($t < n/2$) ⇒ MPC](honest-majority-t-lt-n-over-2-to-mpc-rb89) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
 - [Honest majority ($t < n/3$) ⇒ MPC](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
+- [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[secure-multi-party-computation#privacy-semi-honest|Privacy (semi-honest)]])
+- [[two-party-computation-to-ot|2PC ⇒ OT]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 
 **Produces Secure multi-party computation**
 
@@ -96,5 +98,6 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - [Honest majority ($t < n/3$) ⇒ MPC](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88)
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing (SPDZ, etc.)]])
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
+- [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]]
 
 <!-- END GENERATED participates-in -->

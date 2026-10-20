@@ -608,6 +608,19 @@
    "unlisted": false
   },
   {
+   "id": "circular-secure-bootstrappable-she",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circular-secure-bootstrappable-she",
+   "of": "he",
+   "title": "Circular-secure bootstrappable SHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-security",
    "kind": "object",
    "type": "assumption",
@@ -674,6 +687,19 @@
     "Commitment scheme",
     "Commitment"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "compact-fhe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#compact-fhe",
+   "of": "he",
+   "title": "Compact FHE",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2326,6 +2352,19 @@
    "unlisted": false
   },
   {
+   "id": "nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#non-trivial-pir",
+   "of": "cpir",
+   "title": "Non-trivial PIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nonzero-ippe",
    "kind": "variant",
    "type": "primitive",
@@ -2429,6 +2468,19 @@
    "anchor": "#k-out-of-n-ot",
    "of": "ot",
    "title": "$k$-out-of-$n$ OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-round-sublinear-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#one-round-sublinear-pir",
+   "of": "cpir",
+   "title": "One-round sublinear PIR",
    "aliases": [],
    "unlisted": false
   },
@@ -3705,6 +3757,19 @@
    "unlisted": true
   },
   {
+   "id": "total-nontrivial-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-total-communication-below-n",
+   "of": "cpir",
+   "title": "PIR with total communication below $n$",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "transparent-succinct-argument",
    "kind": "variant",
    "type": "primitive",
@@ -3783,6 +3848,19 @@
     "Universal Composability Framework",
     "UC"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "uc-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#uc-secure-ot",
+   "of": "ot",
+   "title": "UC-secure OT",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -4073,6 +4151,51 @@
    "slug": "adaptive-robustness-to-prc",
    "graphSlug": "Reductions/adaptive-robustness-to-prc",
    "title": "Adaptive robustness ⇒ PRC"
+  },
+  {
+   "id": "red-additively-homomorphic-encryption-to-cpir-ste98",
+   "kind": "implication",
+   "hypotheses": [
+    "additively-homomorphic-encryption"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-zero query",
+   "rationale": {
+    "class": "The server computes on ciphertexts only through the scheme's homomorphic operations, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/additively-homomorphic-encryption-to-cpir-ste98.md",
+   "slug": "additively-homomorphic-encryption-to-cpir-ste98",
+   "graphSlug": "Reductions/additively-homomorphic-encryption-to-cpir-ste98",
+   "title": "Additively homomorphic encryption ⇒ cPIR"
+  },
+  {
+   "id": "red-additively-homomorphic-encryption-to-crhf-iko05",
+   "kind": "implication",
+   "hypotheses": [
+    "additively-homomorphic-encryption"
+   ],
+   "conclusion": "crhf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/additively-homomorphic-encryption-to-crhf-iko05.md",
+   "slug": "additively-homomorphic-encryption-to-crhf-iko05",
+   "graphSlug": "Reductions/additively-homomorphic-encryption-to-crhf-iko05",
+   "title": "Additively homomorphic encryption ⇒ CRHF"
   },
   {
    "id": "red-additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
@@ -4708,13 +4831,37 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-bootstrappable-she"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any IND-CPA adversary on the public key it receives, discarding the encryptions of the secret-key bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption.md",
+   "slug": "circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
+   "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
+  },
+  {
    "id": "red-circular-security-and-lwe-to-he",
    "kind": "implication",
    "hypotheses": [
     "circular-security",
     "lwe"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -4727,16 +4874,15 @@
    "page": "content/Reductions/circular-security-and-lwe-to-he.md",
    "slug": "circular-security-and-lwe-to-he",
    "graphSlug": "Reductions/circular-security-and-lwe-to-he",
-   "title": "Circular security + LWE ⇒ HE"
+   "title": "Circular security + LWE ⇒ Compact FHE"
   },
   {
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
-    "circular-security",
-    "bootstrappable-somewhat-homomorphic-encryption"
+    "circular-secure-bootstrappable-she"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "free",
    "model": "standard",
    "source": [
@@ -4752,7 +4898,7 @@
    "page": "content/Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09.md",
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
-   "title": "Circular security + Bootstrappable SHE ⇒ HE"
+   "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
    "id": "red-claw-free-permutations-to-crhf-dam87",
@@ -4826,6 +4972,30 @@
    "slug": "com-to-owf-il89",
    "graphSlug": "Reductions/com-to-owf-il89",
    "title": "COM ⇒ OWF"
+  },
+  {
+   "id": "red-compact-fhe-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-fhe"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-fhe-to-he.md",
+   "slug": "compact-fhe-to-he",
+   "graphSlug": "Reductions/compact-fhe-to-he",
+   "title": "Compact FHE ⇒ HE"
   },
   {
    "id": "red-compact-prime-order-dlog-to-prime-order-dlog",
@@ -4919,10 +5089,31 @@
    "title": "IND-CPA ⇔ Semantic security"
   },
   {
+   "id": "red-cpir-to-crhf-iko05",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "crhf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/cpir-to-crhf-iko05.md",
+   "slug": "cpir-to-crhf-iko05",
+   "graphSlug": "Reductions/cpir-to-crhf-iko05",
+   "title": "One-round sublinear cPIR ⇒ CRHF"
+  },
+  {
    "id": "red-cpir-to-ot-dmo00",
    "kind": "implication",
    "hypotheses": [
-    "cpir"
+    "total-nontrivial-cpir"
    ],
    "conclusion": "ot",
    "class": "unstated",
@@ -4937,7 +5128,28 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "cPIR ⇒ OT"
+   "title": "Non-trivial cPIR ⇒ OT"
+  },
+  {
+   "id": "red-cpir-to-owf-bikm99",
+   "kind": "implication",
+   "hypotheses": [
+    "nontrivial-cpir"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/cpir-to-owf-bikm99.md",
+   "slug": "cpir-to-owf-bikm99",
+   "graphSlug": "Reductions/cpir-to-owf-bikm99",
+   "title": "Non-trivial cPIR ⇒ OWF"
   },
   {
    "id": "red-crhf-to-constant-round-zk-argument-bar01",
@@ -5107,6 +5319,27 @@
    "slug": "dcr-to-com",
    "graphSlug": "Reductions/dcr-to-com",
    "title": "DCR ⇒ COM"
+  },
+  {
+   "id": "red-dcr-to-cpir-cha04",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-cpir-cha04.md",
+   "slug": "dcr-to-cpir-cha04",
+   "graphSlug": "Reductions/dcr-to-cpir-cha04",
+   "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
    "id": "red-dcr-to-fac",
@@ -5322,6 +5555,30 @@
    "slug": "ddh-to-lossy-trapdoor-function-pw08",
    "graphSlug": "Reductions/ddh-to-lossy-trapdoor-function-pw08",
    "title": "DDH ⇒ Highly lossy TDF (Peikert–Waters)"
+  },
+  {
+   "id": "red-ddh-to-malicious-ot-security-pvw08",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "uc-ot",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-malicious-ot-security-pvw08.md",
+   "slug": "ddh-to-malicious-ot-security-pvw08",
+   "graphSlug": "Reductions/ddh-to-malicious-ot-security-pvw08",
+   "title": "DDH ⇒ UC-secure OT (PVW)"
   },
   {
    "id": "red-ddh-to-non-interactive-key-exchange-nike",
@@ -6840,6 +7097,30 @@
    "title": "OWF ⇒ ZKP"
   },
   {
+   "id": "red-he-to-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-fhe"
+   ],
+   "conclusion": "cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor log n, from a hybrid over the encrypted index bits",
+   "rationale": {
+    "class": "The server evaluates the selection circuit through the scheme's evaluation algorithm, used only as an oracle, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/he-to-cpir.md",
+   "slug": "he-to-cpir",
+   "graphSlug": "Reductions/he-to-cpir",
+   "title": "FHE ⇒ cPIR"
+  },
+  {
    "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
    "kind": "implication",
    "hypotheses": [
@@ -7948,6 +8229,30 @@
    "title": "LWE ⇒ Lossy TDF (Peikert–Waters)"
   },
   {
+   "id": "red-lwe-to-malicious-ot-security-pvw08",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "uc-ot",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-malicious-ot-security-pvw08.md",
+   "slug": "lwe-to-malicious-ot-security-pvw08",
+   "graphSlug": "Reductions/lwe-to-malicious-ot-security-pvw08",
+   "title": "LWE ⇒ UC-secure OT (PVW)"
+  },
+  {
    "id": "red-lwe-to-nizk-ps19",
    "kind": "implication",
    "hypotheses": [
@@ -8661,6 +8966,55 @@
    "title": "OIHF ⇒ OT"
   },
   {
+   "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "total-nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, run on databases of a fixed polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir.md",
+   "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
+   "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
+  },
+  {
+   "id": "red-ot-and-owf-to-ot-extension-bea96",
+   "kind": "implication",
+   "hypotheses": [
+    "ot",
+    "owf"
+   ],
+   "conclusion": "ot-extension",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The construction securely evaluates a circuit that computes a pseudorandom generator, so it uses the one-way function's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-and-owf-to-ot-extension-bea96.md",
+   "slug": "ot-and-owf-to-ot-extension-bea96",
+   "graphSlug": "Reductions/ot-and-owf-to-ot-extension-bea96",
+   "title": "OT + OWF ⇒ OT extension (Beaver)"
+  },
+  {
    "id": "red-ot-extension-to-mpc-with-preprocessing-spdz-etc",
    "kind": "implication",
    "hypotheses": [
@@ -8734,6 +9088,30 @@
    "title": "OT ⇒ KE"
   },
   {
+   "id": "red-ot-to-malicious-ot-security-hai08",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Hai08 - Semi-honest to Malicious Oblivious Transfer - The Black-Box Way|Hai08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "Hai08 construct malicious-secure OT that calls the semi-honest protocol only as a black box, with a black-box security reduction."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-malicious-ot-security-hai08.md",
+   "slug": "ot-to-malicious-ot-security-hai08",
+   "graphSlug": "Reductions/ot-to-malicious-ot-security-hai08",
+   "title": "Semi-honest OT ⇒ Malicious OT (Haitner)"
+  },
+  {
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
@@ -8778,6 +9156,31 @@
    "slug": "ot-to-oihf-bh26",
    "graphSlug": "Reductions/ot-to-oihf-bh26",
    "title": "OT ⇒ OIHF"
+  },
+  {
+   "id": "red-ot-to-ot-extension-iknp03",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "ot-extension",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus κ times the base-OT advantage",
+   "rationale": {
+    "class": "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle.",
+    "model": "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-ot-extension-iknp03.md",
+   "slug": "ot-to-ot-extension-iknp03",
+   "graphSlug": "Reductions/ot-to-ot-extension-iknp03",
+   "title": "OT ⇒ OT extension (IKNP)"
   },
   {
    "id": "red-owf-to-prg-hill99",
@@ -9882,6 +10285,30 @@
    "title": "QR ⇒ COM"
   },
   {
+   "id": "red-qr-to-cpir-ko97",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor 2 at any recursion depth: setting every non-residue of the query to x r_j^2 for the QR challenge x makes each index's query indistinguishable from the all-residue query",
+   "rationale": {
+    "class": "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-cpir-ko97.md",
+   "slug": "qr-to-cpir-ko97",
+   "graphSlug": "Reductions/qr-to-cpir-ko97",
+   "title": "QR ⇒ cPIR (Kushilevitz–Ostrovsky)"
+  },
+  {
    "id": "red-qr-to-factoring-blum-integers",
    "kind": "implication",
    "hypotheses": [
@@ -9925,6 +10352,30 @@
    "slug": "qr-to-he-gm84",
    "graphSlug": "Reductions/qr-to-he-gm84",
    "title": "QR ⇒ Additively homomorphic encryption"
+  },
+  {
+   "id": "red-qr-to-malicious-ot-security-pvw08",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "uc-ot",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-malicious-ot-security-pvw08.md",
+   "slug": "qr-to-malicious-ot-security-pvw08",
+   "graphSlug": "Reductions/qr-to-malicious-ot-security-pvw08",
+   "title": "QR ⇒ UC-secure OT (PVW)"
   },
   {
    "id": "red-qr-to-pke-gm84",
@@ -10352,6 +10803,31 @@
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-security",
+    "owf"
+   ],
+   "conclusion": "mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GMW87 - How to play ANY mental game|GMW87]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "Each party proves in zero knowledge that its message is the protocol's next-message function applied to its committed input and coins, an NP statement about the semi-honest protocol's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-security-and-owf-to-mpc-gmw87.md",
+   "slug": "semi-honest-security-and-owf-to-mpc-gmw87",
+   "graphSlug": "Reductions/semi-honest-security-and-owf-to-mpc-gmw87",
+   "title": "Semi-honest MPC + OWF ⇒ MPC (GMW compiler)"
   },
   {
    "id": "red-sidh-to-ke-jdf11",
@@ -11141,6 +11617,27 @@
    "title": "TDH ⇒ cPIR"
   },
   {
+   "id": "red-tdp-to-cpir-ko00",
+   "kind": "implication",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "total-nontrivial-cpir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/tdp-to-cpir-ko00.md",
+   "slug": "tdp-to-cpir-ko00",
+   "graphSlug": "Reductions/tdp-to-cpir-ko00",
+   "title": "TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)"
+  },
+  {
    "id": "red-tdp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -11236,6 +11733,78 @@
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
    "title": "TDP ⇒ PKE"
+  },
+  {
+   "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "total-nontrivial-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/total-nontrivial-cpir-to-nontrivial-cpir.md",
+   "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
+   "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
+  },
+  {
+   "id": "red-two-party-computation-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OT protocol is the general protocol run on the OT functionality, and every attack on it is an attack on that protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-ot.md",
+   "slug": "two-party-computation-to-ot",
+   "graphSlug": "Reductions/two-party-computation-to-ot",
+   "title": "2PC ⇒ OT"
+  },
+  {
+   "id": "red-uc-ot-to-malicious-ot-security",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-ot"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the protocol, and a stand-alone adversary is a special case of a UC adversary with an environment that only supplies inputs and reads outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-ot-to-malicious-ot-security.md",
+   "slug": "uc-ot-to-malicious-ot-security",
+   "graphSlug": "Reductions/uc-ot-to-malicious-ot-security",
+   "title": "UC-secure OT ⇒ Malicious OT"
   },
   {
    "id": "red-unkeyed-depir-to-depir",
@@ -11737,7 +12306,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "he",
+   "conclusion": "compact-fhe",
    "class": "unstated",
    "consequences": [
     {
@@ -11765,7 +12334,7 @@
    "page": "content/Barriers/no-he-to-szk-bl13.md",
    "slug": "no-he-to-szk-bl13",
    "graphSlug": "Barriers/no-he-to-szk-bl13",
-   "title": "No reduction from NP to HE"
+   "title": "No reduction from NP to compact FHE"
   },
   {
    "id": "bar-ind-shibe-cpa-security-selective-to-ind-hibe-cpa-security",
@@ -11948,7 +12517,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "cpir",
+   "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -11970,7 +12539,7 @@
    "page": "content/Barriers/no-np-to-cpir-lv15.md",
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
-   "title": "No fully-black-box reduction from NP to cPIR"
+   "title": "No fully-black-box reduction from NP to one-round sublinear cPIR"
   },
   {
    "id": "bar-np-to-hash-function-aggm06",

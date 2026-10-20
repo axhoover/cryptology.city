@@ -12,6 +12,7 @@ variants:
   ot-extension: "#ot-extension"
   rabin-ot: "#rabin-ot"
   random-ot: "#random-ot"
+  uc-ot: "#uc-secure-ot"
 ---
 
 # Oblivious transfer
@@ -104,7 +105,7 @@ is negligible.
 
 ### Malicious Security
 
-The definitions above are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. Under **malicious security**, the adversary may deviate from the protocol arbitrarily. Game-based definitions extend naturally to this setting (e.g., in the receiver privacy game, the adversary sends arbitrary messages rather than running the honest $S$). However, game-based definitions alone do not capture all malicious-sender attacks (e.g., forcing the receiver to output a value other than $x_c$).
+The definitions above are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. An OT $\OT$ has **malicious security** if for every efficient $\calA$ that corrupts $S$ or $R$ and may deviate from the protocol arbitrarily there is an efficient simulator $\Sim$ such that, for all $x_0, x_1 \in \calM$ and $c \in \bits$, the output of $\calA$ together with the honest party's output in a real execution is computationally indistinguishable from the output of $\Sim$ together with the honest party's output in an ideal execution. There the honest party hands its input to a trusted party, $\Sim$ hands it an input of its choice for the corrupted party, the trusted party returns $x_c$ to $R$ for the resulting $(x_0, x_1)$ and $c$, and $\Sim$ also produces $\pp$ — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. The semi-honest games do not carry over by letting $\calA$ deviate: in the sender-privacy game a malicious receiver can announce $c$ and run $R$ on $1 - c$, so the simulator must extract the choice bit a malicious receiver effectively uses — standard.
 
 # Variations
 
@@ -120,43 +121,59 @@ Single-server [[single-server-private-information-retrieval#Symmetric private in
 
 ## OT Extension
 
-OT from public-key primitives requires expensive operations per transfer. **OT extension** ([[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]) shows how to generate a large number of OTs from a small number of base OTs using only symmetric-key operations, making OT practical at scale.
+OT from public-key primitives requires expensive operations per transfer. **OT extension** generates any polynomial number $m$ of OTs from a number of base OTs that depends only on the security parameter, using only symmetric-key primitives beyond them — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]; each extended transfer costs a constant number of hash evaluations in [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
 
 ## Random OT
 
 In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
 
+## UC-secure OT
+
+An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functionality in the common reference string model, with $\pp \gets \Setup(1^\secpar)$ as the reference string, against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]], and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]].
+
 # Other results
 
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 9e1c7b42d3a9 -->
+<!-- BEGIN GENERATED participates-in d7b7af026b6d -->
 
 ## Participates in
 
 **Builds on Oblivious transfer**
 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
+- [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-ke|OT ⇒ KE]]
+- [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
+- [[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 
 **Produces Oblivious transfer**
 
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
+- [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
+- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[qr-to-malicious-ot-security-pvw08|QR ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
+- [[two-party-computation-to-ot|2PC ⇒ OT]]
+- [[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 
 **Barriers**
 

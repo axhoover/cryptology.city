@@ -28,7 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 37ba533c36de -->
+<!-- BEGIN GENERATED participates-in aec9f22fa440 -->
 
 ## Participates in
 
@@ -58,6 +58,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
+- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]

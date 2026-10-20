@@ -89,7 +89,7 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairin
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 00b93117e3fe -->
+<!-- BEGIN GENERATED participates-in ad81419f5c93 -->
 
 ## Participates in
 
@@ -102,6 +102,7 @@ Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairin
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]]
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Highly lossy TDF (Peikert–Waters)]]
+- [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]]
 - [[ddh-to-non-interactive-key-exchange-nike|DDH ⇒ Non-interactive key exchange (NIKE)]]
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
