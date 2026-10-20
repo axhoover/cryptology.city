@@ -128,3 +128,30 @@ test("standard-model CDH and DDH still give IND-ID-CPA IBE", () => {
 test("the random oracle does not give key exchange (HMO19)", () => {
   assert.ok(!live(["rom"]).derived.has("ke"));
 });
+
+test("a model outside standard, crs and quantum fails closed", () => {
+  const reds = [
+    red("grm", ["fac"], "rsa", { model: "other" }),
+    red("use", ["rsa"], "pke", { class: "unstated" }),
+    red("bb", ["rsa"], "owf"),
+    red("q", ["fac"], "bqp", { model: "quantum", class: "free" }),
+    red("c", ["ddh"], "nizk", { model: "crs", class: "unstated" }),
+  ];
+  const r = run(reds, ["fac", "ddh"]);
+  assert.deepEqual(scopesOf(r, "rsa"), ["other"]);
+  assert.ok(
+    !r.derived.has("pke"),
+    "an unstated edge must not consume rsa [other]",
+  );
+  assert.deepEqual(scopesOf(r, "owf"), ["other"]);
+  assert.deepEqual(scopesOf(r, "bqp"), [""]);
+  assert.deepEqual(scopesOf(r, "nizk"), [""]);
+});
+
+test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-ring)", () => {
+  assert.ok(!scopesOf(live(["fac"]), "rsa").includes(""));
+  assert.ok(
+    scopesOf(live(["rsa"]), "fac").includes(""),
+    "RSA => FAC stays unscoped",
+  );
+});

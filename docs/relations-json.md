@@ -267,8 +267,10 @@ node scripts/generate-relations.mjs --redundant        # conclusions already rea
 
 Neither mode uses a `heuristic` edge. Both keep model provenance
 (`scripts/closure.mjs`): every derived object carries its _scope_, the set of
-idealised models — `generic-group`, `rom`, `algebraic-group` — that the chain
-reaching it was proved in. An object derived through `{ggm} => cdh` holds for
+idealised models that the chain reaching it was proved in — every `model`
+except `standard`, `crs` and `quantum`, so `generic-group`, `rom`,
+`algebraic-group` and also `other` (DLO24's generic ring model), which fails
+closed rather than passing as standard. An object derived through `{ggm} => cdh` holds for
 generic algorithms only, and a generic group has no code. So a scoped object is
 consumed only by an edge whose class relativizes (`fully-black-box` or
 `relativizing`, which use their hypotheses as oracles and hold relative to
