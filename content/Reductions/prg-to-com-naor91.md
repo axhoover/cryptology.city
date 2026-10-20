@@ -6,7 +6,7 @@ aliases: []
 id: red-prg-to-com-naor91
 kind: implication
 hypotheses: [prg]
-conclusion: com
+conclusion: adversarial-pp-hiding-commitment
 class: fully-black-box
 model: standard
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding, computationally hiding bit [[commitment-scheme|commitment]]: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding bit [[commitment-scheme|commitment]], computationally [[commitment-scheme#hiding-for-adversarial-public-parameters|hiding for every]] $\pp$: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Sketch
 
@@ -28,5 +28,5 @@ Hiding: $G(s)$ and $G(s) \oplus \pp$ are each one PRG hybrid from uniform, so co
 
 ## Notes
 
-- The commit phase is interactive: the receiver sends $\pp$ first. In the [[commitment-scheme|commitment]] syntax $(\Gen, \Com, \Open)$, $\pp$ plays the role of honestly sampled public parameters — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+- The commit phase is interactive: the receiver sends $\pp$ first, so binding uses that an honest receiver samples $\pp$ uniformly, while hiding holds for every $\pp$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 - Efficiency: committing to one bit costs one evaluation of $G$ and $3\secpar$ bits of communication. One receiver message $\pp$ serves any number of commitments, since binding fails only for the at most $2^{-\secpar}$ fraction of strings $\pp$ that admit two openings — standard.

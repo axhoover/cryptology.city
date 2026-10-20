@@ -281,6 +281,19 @@
    "unlisted": false
   },
   {
+   "id": "adversarial-pp-hiding-commitment",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/commitment-scheme.md",
+   "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
+   "anchor": "#hiding-for-adversarial-public-parameters",
+   "of": "com",
+   "title": "Hiding for adversarial public parameters",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "agm",
    "kind": "object",
    "type": "glossary",
@@ -675,6 +688,21 @@
    "unlisted": false
   },
   {
+   "id": "coin-flipping",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/coin-flipping.md",
+   "slug": "coin-flipping",
+   "graphSlug": "Primitives/coin-flipping",
+   "title": "Coin flipping",
+   "aliases": [
+    "Coin flipping",
+    "Coin tossing",
+    "Coin-flipping protocol"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "com",
    "kind": "object",
    "type": "primitive",
@@ -753,6 +781,19 @@
     "coNP",
     "Co-nondeterministic polynomial-time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "constant-bias-coin-flipping",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/coin-flipping.md",
+   "slug": "coin-flipping",
+   "graphSlug": "Primitives/coin-flipping",
+   "anchor": "#coin-flipping-with-constant-bias",
+   "of": "coin-flipping",
+   "title": "Coin flipping with constant bias",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1169,6 +1210,19 @@
    "anchor": "#factoring-with-known-factor-structure",
    "of": "fac",
    "title": "Factoring with known factor structure",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fair-coin-flipping",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/coin-flipping.md",
+   "slug": "coin-flipping",
+   "graphSlug": "Primitives/coin-flipping",
+   "anchor": "#fair-coin-flipping",
+   "of": "coin-flipping",
+   "title": "Fair coin flipping",
    "aliases": [],
    "unlisted": false
   },
@@ -2694,6 +2748,19 @@
     "One-way state generator"
    ],
    "unlisted": true
+  },
+  {
+   "id": "optimally-fair-coin-flipping",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/coin-flipping.md",
+   "slug": "coin-flipping",
+   "graphSlug": "Primitives/coin-flipping",
+   "anchor": "#optimally-fair-coin-flipping",
+   "of": "coin-flipping",
+   "title": "Optimally fair coin flipping",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "oram",
@@ -4599,6 +4666,30 @@
    "title": "Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
   },
   {
+   "id": "red-adversarial-pp-hiding-commitment-to-com",
+   "kind": "implication",
+   "hypotheses": [
+    "adversarial-pp-hiding-commitment"
+   ],
+   "conclusion": "com",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reductions forward any hiding or binding adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/adversarial-pp-hiding-commitment-to-com.md",
+   "slug": "adversarial-pp-hiding-commitment-to-com",
+   "graphSlug": "Reductions/adversarial-pp-hiding-commitment-to-com",
+   "title": "Commitment hiding for adversarial parameters ⇒ COM"
+  },
+  {
    "id": "red-agm-to-kea",
    "kind": "implication",
    "hypotheses": [
@@ -5351,6 +5442,30 @@
    "title": "co-CDH ⇒ DS"
   },
   {
+   "id": "red-com-to-coin-flipping-blu81",
+   "kind": "implication",
+   "hypotheses": [
+    "adversarial-pp-hiding-commitment"
+   ],
+   "conclusion": "coin-flipping",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Blu81 - Coin Flipping by Telephone|Blu81]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the bias is at most the hiding advantage plus the binding advantage",
+   "rationale": {
+    "class": "The protocol uses the commitment scheme only as an oracle, and the reduction runs any biasing party only as an oracle against hiding or binding."
+   },
+   "status": "draft",
+   "page": "content/Reductions/com-to-coin-flipping-blu81.md",
+   "slug": "com-to-coin-flipping-blu81",
+   "graphSlug": "Reductions/com-to-coin-flipping-blu81",
+   "title": "COM ⇒ Coin flipping (Blum)"
+  },
+  {
    "id": "red-com-to-owf-il89",
    "kind": "implication",
    "hypotheses": [
@@ -5488,6 +5603,28 @@
    "slug": "conp-to-pspace",
    "graphSlug": "Reductions/conp-to-pspace",
    "title": "coNP ⊆ PSPACE"
+  },
+  {
+   "id": "red-constant-bias-coin-flipping-to-owf-ho11",
+   "kind": "implication",
+   "hypotheses": [
+    "constant-bias-coin-flipping"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]]",
+    "[[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/constant-bias-coin-flipping-to-owf-ho11.md",
+   "slug": "constant-bias-coin-flipping-to-owf-ho11",
+   "graphSlug": "Reductions/constant-bias-coin-flipping-to-owf-ho11",
+   "title": "Constant-bias coin flipping ⇒ OWF"
   },
   {
    "id": "red-coszk-to-szk-oka96",
@@ -10193,6 +10330,27 @@
    "title": "OT ⇒ OIHF"
   },
   {
+   "id": "red-ot-to-optimally-fair-coin-flipping-mns09",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "optimally-fair-coin-flipping",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[MNS09 - An Optimally Fair Coin Toss|MNS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ot-to-optimally-fair-coin-flipping-mns09.md",
+   "slug": "ot-to-optimally-fair-coin-flipping-mns09",
+   "graphSlug": "Reductions/ot-to-optimally-fair-coin-flipping-mns09",
+   "title": "OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)"
+  },
+  {
    "id": "red-ot-to-ot-extension-iknp03",
    "kind": "implication",
    "hypotheses": [
@@ -11149,7 +11307,7 @@
    "hypotheses": [
     "prg"
    ],
-   "conclusion": "com",
+   "conclusion": "adversarial-pp-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
    "source": [

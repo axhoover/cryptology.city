@@ -137,7 +137,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in bb4dfcc1a08f -->
+<!-- BEGIN GENERATED participates-in 2c139462aebd -->
 
 ## Participates in
 
@@ -152,6 +152,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
