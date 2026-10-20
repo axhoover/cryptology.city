@@ -4023,7 +4023,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of query ciphertexts, from a hybrid over them",
+   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-zero query",
    "rationale": {
     "class": "The server computes on ciphertexts only through the scheme's homomorphic operations, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
    },
@@ -8899,7 +8899,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: of order m q / 2^κ for m extended transfers and q random-oracle queries, plus the base-OT advantage",
+   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage",
    "rationale": {
     "class": "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle.",
     "model": "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
@@ -9954,7 +9954,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of query elements, from a hybrid over them",
+   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-residue query",
    "rationale": {
     "class": "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
    },

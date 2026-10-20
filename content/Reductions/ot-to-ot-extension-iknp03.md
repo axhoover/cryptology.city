@@ -12,7 +12,7 @@ class: fully-black-box
 model: rom
 source:
   - "[[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]"
-security-loss: "additive: of order m q / 2^κ for m extended transfers and q random-oracle queries, plus the base-OT advantage"
+security-loss: "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage"
 rationale:
   class: "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle."
   model: "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
@@ -45,4 +45,4 @@ The receiver, with choice bits $r \in \bits^m$, samples a uniform matrix $T \in 
 
 - Efficiency: after $\kappa$ public-key transfers, each extended transfer costs a constant number of hash evaluations and $O(\kappa + \ell)$ bits of communication — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
 - Without a random oracle, [[ot-and-owf-to-ot-extension-bea96|Beaver's extension]] needs only a one-way function, but uses its code — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]].
-- Malicious security costs only a constant factor more — [[KOS15 - Actively Secure OT Extension with Optimal Overhead|KOS15]].
+- Malicious security adds only a small overhead to the semi-honest protocol — [[KOS15 - Actively Secure OT Extension with Optimal Overhead|KOS15]].
