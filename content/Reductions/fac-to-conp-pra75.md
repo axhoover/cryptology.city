@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-The decision version of [[factoring|factoring]] is in [[co-nondeterministic-polynomial-time|coNP]]: a witness that $N$ has no nontrivial divisor at most $k$ is the complete prime factorization of $N$ together with a succinct primality certificate for each prime factor, all of which exceed $k$ — [[Pra75 - Every Prime Has a Succinct Certificate|Pra75]]. Hence factoring is in $\classNP \cap \classcoNP$ and is not $\classNP$-hard under Cook reductions unless $\classNP = \classcoNP$ — standard.
+The decision version of [[factoring|factoring]] is in [[co-nondeterministic-polynomial-time|coNP]]: a witness that $N$ has no nontrivial divisor at most $k$ is the complete prime factorization of $N$ together with a succinct primality certificate for each prime factor, showing that $N$ is prime or that every prime factor exceeds $k$ — [[Pra75 - Every Prime Has a Succinct Certificate|Pra75]]. Hence factoring is in $\classNP \cap \classcoNP$ and is not $\classNP$-hard under Cook reductions unless $\classNP = \classcoNP$ — standard.
 
 ## Sketch
 

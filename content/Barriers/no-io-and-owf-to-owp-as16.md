@@ -1,7 +1,7 @@
 ---
 type: barrier
 status: draft
-title: "No fully-black-box reduction from iO + OWF to OWP"
+title: "No fully-black-box reduction from iO + OWF to domain-invariant OWP"
 aliases: []
 id: bar-io-and-owf-to-owp-as16
 hypotheses: [io, owf]
@@ -18,7 +18,7 @@ rationale:
   class: "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle."
 ---
 
-# No fully-black-box reduction from iO + OWF to OWP
+# No fully-black-box reduction from iO + OWF to domain-invariant OWP
 
 ## Statement
 
@@ -26,5 +26,5 @@ There is no fully-black-box construction of a domain-invariant [[one-way-permuta
 
 ## Notes
 
-- Without domain invariance the barrier does not apply: [[subexponential-io-and-owf-to-tdp-bpw16|sub-exponential iO + OWF ⇒ TDP]] gives trapdoor permutations whose domains depend on the index — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]].
-- Without iO this is Rudich's barrier: [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]] — [[Rud88 - Limits on the Provable Consequences of One-way Functions|Rud88]].
+- Without domain invariance the barrier does not apply: [[subexponential-io-and-owf-to-tdp-bpw16|sub-exponential iO + OWF ⇒ TDP]] gives trapdoor permutations whose domains depend on the underlying one-way function — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]].
+- Without iO, AS16 also rule out fully-black-box constructions of a one-way permutation from a one-way function that are not domain-invariant, removing the domain restriction of Rudich's barrier ([[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]]) — [[Rud88 - Limits on the Provable Consequences of One-way Functions|Rud88]], [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]].

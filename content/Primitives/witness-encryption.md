@@ -41,19 +41,19 @@ For all $\secpar$, all $(x, w) \in \calR$ and all $m \in \bits$, $\Pr\!\left[\De
 \end{algorithm}
 ```
 
-A witness encryption scheme is **sound-secure** if for all efficient $\calA$ and every sequence of statements $x = x_\secpar \notin L$ of polynomial length,
+A witness encryption scheme is **sound-secure** if for all efficient $\calA$ and every sequence $(x_\secpar)_{\secpar \in \NN}$ with $x_\secpar \notin L$ and $|x_\secpar| \le \poly(\secpar)$,
 
 $$
 \Adv^{\mathrm{we}}_{\calA}(\secpar, x) := \left|2\Pr\!\left[\Game^{\mathrm{we}}_{\calA}(\secpar, x) = 1\right] - 1\right|
 $$
 
-is negligible — [[GGSW13 - Witness encryption and its applications|GGSW13]]. Membership in $L$ is not efficiently checkable, so the statement is quantified over rather than chosen by the adversary.
+is negligible — [[GGSW13 - Witness encryption and its applications|GGSW13]]. The challenger cannot in general decide whether $x \notin L$, so $x$ is fixed by the quantifier rather than chosen by $\calA$.
 
 # Variations
 
 ## Extractable witness encryption
 
-A stronger notion requires that an adversary distinguishing encryptions under $x$ yields an extractor that outputs a witness for $x$, whether or not $x \in L$ is easy to decide. With auxiliary input, extractable witness encryption conflicts with plausible special-purpose obfuscation — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
+A stronger notion requires, for every statement $x$, that any efficient adversary distinguishing encryptions of $0$ and $1$ under $x$ with non-negligible advantage yields an efficient extractor that outputs a witness for $x$ with non-negligible probability — [[GKPVZ13 - How to Run Turing Machines on Encrypted Data|GKPVZ13]]. With auxiliary input, extractable witness encryption conflicts with plausible special-purpose obfuscation — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
 
 # Other results
 

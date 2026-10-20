@@ -22,5 +22,5 @@ A total formulation of the [[discrete-logarithm|discrete logarithm]] problem ove
 
 ## Notes
 
-- Membership in PWPP is the pigeonhole view of a collision: the map $(x, y) \mapsto g^x h^y$ compresses, and a collision yields $\log_g h$ ([[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]]) — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]].
+- Membership in PWPP is the pigeonhole view of a collision: the map $(x, y) \mapsto g^x h^y$ sends $p^2$ inputs to $p$ outputs, and a collision yields $\log_g h$ ([[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]]) — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]], [[HV21 - On Search Complexity of Discrete Logarithm|HV21]].
 - Average-case hardness of other TFNP subclasses, such as PPAD, from discrete logarithms would need structure beyond what collision resistance provides — [[HV21 - On Search Complexity of Discrete Logarithm|HV21]].

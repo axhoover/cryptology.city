@@ -9,7 +9,8 @@ hypotheses: [io]
 conclusion: witness-encryption
 class: fully-black-box
 model: standard
-source: folklore
+source:
+  - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
 security-loss: "none: the reduction forwards the adversary's guess"
 rationale:
   class: "Encryption obfuscates a fixed circuit through the obfuscator, used as an oracle, and the reduction runs any adversary against the witness encryption once as an oracle."
@@ -19,7 +20,7 @@ rationale:
 
 ## Statement
 
-[[indistinguishability-obfuscation|iO]] yields [[witness-encryption|witness encryption]] for every $\classNP$ relation $\calR$: $\Enc(1^\secpar, x, m)$ outputs an obfuscation of the circuit $C_{x,m}(w) := m$ if $(x, w) \in \calR$ and $\bot$ otherwise, and $\Dec(c, w)$ runs the obfuscated circuit on $w$ — folklore.
+[[indistinguishability-obfuscation|iO]] yields [[witness-encryption|witness encryption]] for every $\classNP$ relation $\calR$: $\Enc(1^\secpar, x, m)$ outputs an obfuscation of the circuit $C_{x,m}(w) := m$ if $(x, w) \in \calR$ and $\bot$ otherwise, and $\Dec(c, w)$ runs the obfuscated circuit on $w$ — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
 
 ## Sketch
 

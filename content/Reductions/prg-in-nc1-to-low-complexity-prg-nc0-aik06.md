@@ -8,13 +8,13 @@ id: red-prg-in-nc1-to-low-complexity-prg-nc0-aik06
 kind: implication
 hypotheses: [prg-in-nc1]
 conclusion: low-complexity-prg-nc0
-class: fully-black-box
+class: free
 model: standard
 source:
   - "[[AIK06 - Cryptography in NC0|AIK06]]"
 security-loss: "none: a distinguisher for the encoding is a distinguisher for G after applying the simulator"
 rationale:
-  class: "The compiled generator is a fixed randomized encoding of G computed from G's circuit, and the reduction composes any distinguisher, used only as an oracle, with the encoding's simulator."
+  class: "The compiler builds the randomized encoding from G's branching program, so the construction uses G's code; the security reduction only composes any distinguisher with the encoding's simulator."
 ---
 
 # PRG in NC1 ⇒ PRG in NC0 (AIK)

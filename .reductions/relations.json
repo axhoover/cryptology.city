@@ -677,6 +677,19 @@
    "unlisted": false
   },
   {
+   "id": "common-random-string-nizk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#nizk-proofs-in-the-common-random-string-model",
+   "of": "nizk",
+   "title": "NIZK proofs in the common random string model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -4234,7 +4247,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of query ciphertexts, from a hybrid over them",
+   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-zero query",
    "rationale": {
     "class": "The server computes on ciphertexts only through the scheme's homomorphic operations, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
    },
@@ -5040,6 +5053,31 @@
    "title": "COM ⇒ OWF"
   },
   {
+   "id": "red-common-random-string-nizk-proof-to-nizk",
+   "kind": "implication",
+   "hypotheses": [
+    "common-random-string-nizk-proof"
+   ],
+   "conclusion": "nizk",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and every adversary against it is an adversary against the given proof system.",
+    "model": "The reference string is uniformly random, a special case of a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/common-random-string-nizk-proof-to-nizk.md",
+   "slug": "common-random-string-nizk-proof-to-nizk",
+   "graphSlug": "Reductions/common-random-string-nizk-proof-to-nizk",
+   "title": "NIZK proofs with a common random string ⇒ NIZK"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -5559,7 +5597,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the CCA advantage is at most the DDH advantage plus the target-collision advantage plus a term of order Q/q for Q decryption queries",
+   "securityLoss": "additive: the CCA advantage is at most twice the sum of the DDH and target-collision advantages, plus O(Q/q) for Q decryption queries",
    "rationale": {
     "class": "The scheme uses only the group operations and the hash as an oracle, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its DDH tuple."
    },
@@ -6063,7 +6101,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: a collision gives the discrete logarithm whenever it exists",
+   "securityLoss": "none: every collision yields log_g h",
    "rationale": {
     "class": "The hash uses only the group operations, and one fixed reduction embeds its DLOG challenge as the second generator and computes the logarithm from any collision, running the collision finder once as an oracle."
    },
@@ -7986,7 +8024,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "folklore"
+    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
    ],
    "via": [],
    "heuristic": false,
@@ -8290,14 +8328,17 @@
     "lossy-trapdoor-function"
    ],
    "conclusion": "crhf",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "additive: a collision finder with success ε distinguishes the modes with advantage about ε − 2^{2(n−k)−ℓ}",
+   "rationale": {
+    "class": "The hash composes the lossy function, used only as an oracle, with a universal hash, and the reduction distinguishes the modes by running any collision finder once as an oracle."
+   },
    "status": "draft",
    "page": "content/Reductions/lossy-trapdoor-function-to-crhf-pw08.md",
    "slug": "lossy-trapdoor-function-to-crhf-pw08",
@@ -8563,7 +8604,7 @@
     "lwe"
    ],
    "conclusion": "lossy-trapdoor-function",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
@@ -8571,6 +8612,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The function uses only LWE samples and linear algebra modulo q, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on indices built from its LWE challenges."
+   },
    "status": "draft",
    "page": "content/Reductions/lwe-to-lossy-trapdoor-function-pw08.md",
    "slug": "lwe-to-lossy-trapdoor-function-pw08",
@@ -8999,7 +9043,7 @@
    "id": "red-nizk-to-zap-dn00",
    "kind": "implication",
    "hypotheses": [
-    "nizk"
+    "common-random-string-nizk-proof"
    ],
    "conclusion": "zap",
    "class": "fully-black-box",
@@ -9563,7 +9607,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: of order m q / 2^κ for m extended transfers and q random-oracle queries, plus the base-OT advantage",
+   "securityLoss": "additive: of order κ q / 2^κ for q random-oracle queries, plus the base-OT advantage",
    "rationale": {
     "class": "The extension calls the base OT and the hash only as oracles, and the simulation runs any semi-honest adversary only as an oracle.",
     "model": "The hash is modelled as a random oracle; IKNP03 also state the result for a correlation-robust hash function in the standard model."
@@ -9681,7 +9725,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of parallel repetitions, from a hybrid over them",
+   "securityLoss": "polynomial: the hybrid over the parallel repetitions loses a factor of their number, on top of the commitment's loss",
    "rationale": {
     "class": "The protocol uses the commitment built from the one-way function only as an oracle, and the reduction runs any distinguishing verifier only as an oracle against one repetition at a time."
    },
@@ -10390,7 +10434,7 @@
     "prg-in-nc1"
    ],
    "conclusion": "low-complexity-prg-nc0",
-   "class": "fully-black-box",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[AIK06 - Cryptography in NC0|AIK06]]"
@@ -10399,7 +10443,7 @@
    "heuristic": false,
    "securityLoss": "none: a distinguisher for the encoding is a distinguisher for G after applying the simulator",
    "rationale": {
-    "class": "The compiled generator is a fixed randomized encoding of G computed from G's circuit, and the reduction composes any distinguisher, used only as an oracle, with the encoding's simulator."
+    "class": "The compiler builds the randomized encoding from G's branching program, so the construction uses G's code; the security reduction only composes any distinguisher with the encoding's simulator."
    },
    "status": "draft",
    "page": "content/Reductions/prg-in-nc1-to-low-complexity-prg-nc0-aik06.md",
@@ -10726,7 +10770,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor of the number of query elements, from a hybrid over them",
+   "securityLoss": "a factor 2 per recursion level, from a hybrid through the all-residue query",
    "rationale": {
     "class": "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
    },
@@ -11599,7 +11643,8 @@
    "class": "free",
    "model": "standard",
    "source": [
-    "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]"
+    "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
+    "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
    ],
    "via": [],
    "heuristic": false,
@@ -12282,7 +12327,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "nizk",
+   "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
    "model": "crs",
    "source": [
@@ -12430,16 +12475,16 @@
     "prg"
    ],
    "conclusion": "pke",
-   "class": "fully-black-box",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage",
+   "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}",
    "rationale": {
-    "class": "The scheme calls the generator and the witness encryption only as oracles, and the reduction runs any PKE adversary once as an oracle, first on a pseudorandom and then on a uniform public key."
+    "class": "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code."
    },
    "status": "draft",
    "page": "content/Reductions/witness-encryption-and-prg-to-pke-ggsw13.md",
@@ -12990,7 +13035,7 @@
    "page": "content/Barriers/no-io-and-owf-to-owp-as16.md",
    "slug": "no-io-and-owf-to-owp-as16",
    "graphSlug": "Barriers/no-io-and-owf-to-owp-as16",
-   "title": "No fully-black-box reduction from iO + OWF to OWP"
+   "title": "No fully-black-box reduction from iO + OWF to domain-invariant OWP"
   },
   {
    "id": "bar-io-and-owp-to-crhf-as15",
@@ -13102,7 +13147,7 @@
     "[[Rud91 - The Use of Interaction in Public Cryptosystems (Extended Abstract)|Rud91]]"
    ],
    "rationale": {
-    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and trapdoor functions do not."
+    "class": "A construction and security proof that hold relative to every oracle hold relative to Rud91's, under which key agreement exists and injective trapdoor functions do not."
    },
    "status": "draft",
    "page": "content/Barriers/no-ke-to-tdp-rud91.md",
@@ -13577,7 +13622,7 @@
     "[[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]]"
    ],
    "rationale": {
-    "class": "GMR01 give an oracle relative to which trapdoor predicates exist and every injective trapdoor function built from them is invertible, which rules out constructions that use the encryption scheme only as an oracle with proofs that use the adversary only as an oracle."
+    "class": "GMR01's separation, in a model weaker than Impagliazzo–Rudich's, rules out constructions that use the trapdoor predicate only as an oracle with proofs that use the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Barriers/no-pke-to-injective-trapdoor-function-gmr01.md",

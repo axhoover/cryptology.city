@@ -63,9 +63,9 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 - [[hash-function-and-io-to-deniable-encryption-sw14|OWF + iO ⇒ Deniable encryption]]
 - iO together with one-way functions (or close variants of them) also yields injective trapdoor functions, CCA-secure PKE and oblivious transfer — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]
 - [[fe-to-io|FE ⇒ iO]]
-- VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other obfuscation of comparable size — [[GR07 - On Best-Possible Obfuscation|GR07]]
+- VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in 2ed4657ee47c -->
+<!-- BEGIN GENERATED participates-in 773df7628041 -->
 
 ## Participates in
 
@@ -92,7 +92,7 @@ An intermediate notion between iO and VBB, which requires indistinguishability f
 
 **Barriers**
 
-- [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to OWP]]
+- [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]
 - [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
 
 <!-- END GENERATED participates-in -->

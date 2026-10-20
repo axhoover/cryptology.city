@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\hash : \calK \times \bits^n \to \bits^m$ be a [[hash-function#collision-resistance|collision-resistant]] family with $m < n$. Then $(k, x) \mapsto (k, \hash(k, x))$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: an inverter succeeding with probability $\varepsilon$ yields a collision finder succeeding with probability at least $\varepsilon - 2^{m-n}$ — folklore.
+Let $\hash : \calK \times \bits^n \to \bits^m$ be a [[hash-function#collision-resistance|collision-resistant]] family with $n - m = \omega(\log \secpar)$. Then $(k, x) \mapsto (k, \hash(k, x))$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]]: an inverter succeeding with probability $\varepsilon$ yields a collision finder succeeding with probability at least $\varepsilon - 2^{m-n}$ — folklore. For $m < n$ alone the same bound shows only that the map is [[hash-function#weak-one-wayness|weakly one-way]].
 
 ## Sketch
 

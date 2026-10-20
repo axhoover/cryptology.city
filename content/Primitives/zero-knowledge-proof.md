@@ -68,7 +68,7 @@ A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment
 
 ## Witness-indistinguishable (WI) proofs
 
-Weaker than ZK: the verifier cannot distinguish which of multiple valid witnesses the prover used. WI proofs compose concurrently (unlike ZK proofs in general) and can be built without requiring any setup.
+Weaker than ZK: the verifier cannot distinguish which of multiple valid witnesses the prover used. WI proofs compose concurrently (unlike ZK proofs in general) and can be built without requiring any setup — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
 
 ## Zaps
 
@@ -80,7 +80,7 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 ## Statistical zero-knowledge arguments
 
-An argument system whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the witness is protected against unbounded verifiers, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
+An argument system whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the view leaks nothing about the witness even to an unbounded distinguisher, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
 
 ## Constant-round zero-knowledge proofs
 
