@@ -8986,6 +8986,30 @@
    "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
   },
   {
+   "id": "red-hibe-selective-security-to-ind-sid-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "hibe-selective-security"
+   ],
+   "conclusion": "ind-sid-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The IBE algorithms call the HIBE algorithms at maximum depth 1 as oracles, and the reduction forwards any selective IBE adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-selective-security-to-ind-sid-cpa.md",
+   "slug": "hibe-selective-security-to-ind-sid-cpa",
+   "graphSlug": "Reductions/hibe-selective-security-to-ind-sid-cpa",
+   "title": "Selectively secure HIBE ⇒ Selectively secure IBE"
+  },
+  {
    "id": "red-hibe-to-ibe",
    "kind": "implication",
    "hypotheses": [
