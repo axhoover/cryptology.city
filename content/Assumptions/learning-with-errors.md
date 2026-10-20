@@ -316,7 +316,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 8d94963a9a9a -->
+<!-- BEGIN GENERATED participates-in 543693d7cd54 -->
 
 ## Participates in
 
@@ -333,6 +333,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]]
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]]
+- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[lwe-to-tdh-dgi-19|LWE ⇒ TDH]]

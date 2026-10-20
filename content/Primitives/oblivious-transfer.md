@@ -132,31 +132,41 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 9e1c7b42d3a9 -->
+<!-- BEGIN GENERATED participates-in 9cd41e32e219 -->
 
 ## Participates in
 
 **Builds on Oblivious transfer**
 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Two-party computation (2PC)]]
+- [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-ke|OT ⇒ KE]]
+- [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
+- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]] (via [[oblivious-transfer#rabin-ot|Rabin OT]])
 - [[random-ot-to-ot|Random OT ⇒ OT]] (via [[oblivious-transfer#random-ot|Random OT]])
 
 **Produces Oblivious transfer**
 
 - [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
+- [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[qr-to-malicious-ot-security-pvw08|QR ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
+- [[two-party-computation-to-ot|2PC ⇒ OT]]
 
 **Barriers**
 

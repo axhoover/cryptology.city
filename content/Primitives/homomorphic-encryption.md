@@ -91,14 +91,17 @@ An HE scheme is **strongly homomorphic** if $\Eval$ is distribution-preserving: 
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in 3e9b9f5878d1 -->
+<!-- BEGIN GENERATED participates-in 52eaba57b19a -->
 
 ## Participates in
 
 **Builds on Homomorphic encryption**
 
+- [[additively-homomorphic-encryption-to-cpir-ste98|Additively homomorphic encryption ⇒ cPIR]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
+- [[additively-homomorphic-encryption-to-crhf-iko05|Homomorphic encryption ⇒ CRHF]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular security + Bootstrappable SHE ⇒ HE]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
+- [[he-to-cpir|FHE ⇒ cPIR]]
 - [[he-to-mpc-with-preprocessing-spdz-etc|SHE ⇒ MPC with preprocessing (SPDZ)]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ RE]] (via [[homomorphic-encryption#strongly-homomorphic-encryption|Strongly homomorphic encryption]])
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])

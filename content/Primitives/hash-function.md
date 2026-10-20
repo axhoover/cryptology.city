@@ -163,7 +163,7 @@ Collision resistance implies target collision resistance — standard.
 
 - It is not known whether one-way functions imply collision-resistant hash functions; no black-box construction is known and oracle separations suggest this implication is unlikely.
 
-<!-- BEGIN GENERATED participates-in 288b624d48f4 -->
+<!-- BEGIN GENERATED participates-in c2ec65c4c835 -->
 
 ## Participates in
 
@@ -188,9 +188,11 @@ Collision resistance implies target collision resistance — standard.
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-prg-hill99|OWF ⇒ PRG]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ Statistically hiding COM (Haitner–Reingold)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[owf-to-uowhf-rom90|OWF ⇒ UOWHF (Rompel)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[snark-to-nizk|SNARK + OWF ⇒ NIZK]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
@@ -199,8 +201,11 @@ Collision resistance implies target collision resistance — standard.
 
 **Produces Hash function**
 
+- [[additively-homomorphic-encryption-to-crhf-iko05|Homomorphic encryption ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[com-to-owf-il89|COM ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
+- [[cpir-to-crhf-iko05|One-round cPIR ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
+- [[cpir-to-owf-bikm99|cPIR ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[crhf-to-owf|CRHF ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[ds-to-hash-function|DS ⇒ OWF]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])

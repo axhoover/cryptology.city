@@ -70,7 +70,7 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 44cd07a9617b -->
+<!-- BEGIN GENERATED participates-in 7e10126bb80a -->
 
 ## Participates in
 
@@ -82,6 +82,7 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[tdp-to-cpir-ko00|TDP ⇒ cPIR (Kushilevitz–Ostrovsky)]]
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
