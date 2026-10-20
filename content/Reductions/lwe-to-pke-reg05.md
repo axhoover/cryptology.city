@@ -28,4 +28,4 @@ $\KeyGen$ outputs $\pk = (\mathbf{A}, \mathbf{b} = \mathbf{A}\mathbf{s} + \mathb
 
 ## Notes
 
-- Efficiency: the public key has $m(n+1) = \tilde{O}(n^2)$ elements of $\ZZ_q$, and a one-bit ciphertext has $n + 1$ of them, so encryption expands messages by a factor $\tilde{O}(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]. Over rings, keys shrink to $\tilde{O}(n)$ bits and the expansion to $\tilde{O}(1)$ — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].
+- Efficiency: the public key has $m(n+1) = \tilde{O}(n^2)$ elements of $\ZZ_q$, and a one-bit ciphertext has $n + 1$ of them, so encryption expands messages by a factor $\tilde{O}(n)$ — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]. Over rings, a ciphertext is two ring elements, about $2n \log q$ bits, carrying $n$ packed message bits, so for polynomial $q$ the expansion is $O(\log q) = \tilde{O}(1)$ for $n$-bit messages but $O(n \log q)$ for a single bit; keys shrink to $\tilde{O}(n)$ bits — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].

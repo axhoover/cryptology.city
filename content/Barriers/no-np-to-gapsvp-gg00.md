@@ -5,7 +5,7 @@ title: "No Karp reduction from NP to GapSVP for γ ≥ √(n/log n) unless coNP 
 aliases: []
 id: bar-np-to-gapsvp-gg00
 hypotheses: [np]
-conclusion: gapsvp
+conclusion: gapsvp-sqrt-n-over-log-n
 class: unstated
 consequences:
   - kind: complexity
@@ -23,4 +23,4 @@ rationale:
 
 ## Statement
 
-For $\gamma = c\sqrt{n / \log n}$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem|GapSVP]]) and $\mathrm{GapCVP}_\gamma$ lie in $\classNP \cap \classcoAM$ ([[gapsvp-to-coam-gg00|GapSVP ∈ coAM]]) — [[GG00 - On the limits of non-approximability of lattice problems|GG00]]. A Karp reduction from an $\classNP$-complete problem to them would therefore give $\classcoNP \subseteq \classAM$, which collapses the polynomial hierarchy to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]].
+For $\gamma = c\sqrt{n / \log n}$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem#factor-square-root-of-n-over-log-n|GapSVP]]) and $\mathrm{GapCVP}_\gamma$ lie in $\classNP \cap \classcoAM$ ([[gapsvp-to-coam-gg00|GapSVP ∈ coAM]]) — [[GG00 - On the limits of non-approximability of lattice problems|GG00]]. A Karp reduction from an $\classNP$-complete problem to them would therefore give $\classcoNP \subseteq \classAM$, which collapses the polynomial hierarchy to its second level — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]].

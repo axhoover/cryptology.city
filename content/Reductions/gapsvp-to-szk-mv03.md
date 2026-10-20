@@ -5,7 +5,7 @@ title: GapSVP ∈ SZK for γ ≥ √(n/log n)
 aliases: []
 id: red-gapsvp-to-szk-mv03
 kind: inclusion
-hypotheses: [gapsvp]
+hypotheses: [gapsvp-sqrt-n-over-log-n]
 conclusion: szk
 class: free
 model: standard
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-For $\gamma = c\sqrt{n / \log n}$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem|GapSVP]]) and $\mathrm{GapCVP}_\gamma$ have [[statistical-zero-knowledge|statistical zero-knowledge]] proofs whose provers are efficient given an $\classNP$ witness, a short lattice vector or, for GapCVP, a lattice vector close to the target — [[MV03 - Statistical Zero-Knowledge Proofs with Efficient Provers Lattice Problems and More|MV03]].
+For $\gamma = c\sqrt{n / \log n}$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem#factor-square-root-of-n-over-log-n|GapSVP]]) and $\mathrm{GapCVP}_\gamma$ have [[statistical-zero-knowledge|statistical zero-knowledge]] proofs whose provers are efficient given an $\classNP$ witness, a short lattice vector or, for GapCVP, a lattice vector close to the target — [[MV03 - Statistical Zero-Knowledge Proofs with Efficient Provers Lattice Problems and More|MV03]].
 
 ## Notes
 

@@ -5,7 +5,7 @@ title: GapSVP ∈ coAM for γ ≥ √(n/log n)
 aliases: []
 id: red-gapsvp-to-coam-gg00
 kind: inclusion
-hypotheses: [gapsvp]
+hypotheses: [gapsvp-sqrt-n-over-log-n]
 conclusion: coam
 class: free
 model: standard
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-For $\gamma = c\sqrt{n / \log n}$ with any constant $c > 0$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem|GapSVP]]), and likewise $\mathrm{GapCVP}_\gamma$, lies in [[co-arthur-merlin|coAM]]: there is a constant-round interactive proof that the shortest nonzero vector is long — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].
+For $\gamma = c\sqrt{n / \log n}$ with any constant $c > 0$, $\mathrm{GapSVP}_\gamma$ ([[shortest-vector-problem#factor-square-root-of-n-over-log-n|GapSVP]]), and likewise $\mathrm{GapCVP}_\gamma$, lies in [[co-arthur-merlin|coAM]]: there is a constant-round interactive proof that the shortest nonzero vector is long — [[GG00 - On the limits of non-approximability of lattice problems|GG00]].
 
 ## Sketch
 
