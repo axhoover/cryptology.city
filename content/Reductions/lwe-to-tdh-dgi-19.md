@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "LWE ⇒ TDH"
+title: "LWE with sub-exponential ratio ⇒ TDH"
 aliases: []
 id: red-lwe-to-tdh-dgi-19
 kind: implication
-hypotheses: [lwe]
+hypotheses: [subexponential-modulus-lwe]
 conclusion: tdh
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# LWE ⇒ TDH
+# LWE with sub-exponential ratio ⇒ TDH
 
 ## Statement
 
-Hardness of decision [[learning-with-errors|LWE]] implies [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: for every index $i$, an encoding key hides $i$, and its trapdoor recovers $x_i$ from the hash $H(x)$ and the hint — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE is hard with sub-exponential modulus-to-noise ratio]], there are [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: for every index $i$, an encoding key hides $i$, and for every input $x$ its trapdoor recovers $x_i$ from the hash $H(x)$ and the hint except with negligible probability over the keys. DGI+19 build them from decision LWE, with a correctness error that depends on the modulus-to-noise ratio and is negligible when the ratio is superpolynomial, as a ratio $2^{n^{\varepsilon}}$ is — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 ## Sketch
 

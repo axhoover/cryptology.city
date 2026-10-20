@@ -100,18 +100,17 @@ A zero-knowledge proof (with soundness against unbounded provers) for an $\class
 - Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
 - Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
-- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
+- Zero knowledge for a language outside $\classBPP$ implies auxiliary-input one-way functions ([[zkp-to-hash-function|CZK ⊄ BPP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - Auxiliary-input zero knowledge is preserved under sequential composition — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]; the original definition without auxiliary input is not, and zero knowledge is not closed under parallel composition — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in f6fe4bce1add -->
+<!-- BEGIN GENERATED participates-in 0382d739e335 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
-- [[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]
 
 **Produces Zero-knowledge proof**
 

@@ -943,6 +943,32 @@
    "unlisted": false
   },
   {
+   "id": "czk-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#average-case-hardness",
+   "of": "czk",
+   "title": "Average-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "czk-worst-case-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#worst-case-hardness",
+   "of": "czk",
+   "title": "Worst-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "d-th-composite-residuosity",
    "kind": "variant",
    "type": "assumption",
@@ -6302,6 +6328,54 @@
    "title": "CRHF ⇒ Weak OWF"
   },
   {
+   "id": "red-czk-hardness-to-czk-worst-case-hardness",
+   "kind": "implication",
+   "hypotheses": [
+    "czk-hardness"
+   ],
+   "conclusion": "czk-worst-case-hardness",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a BPP decider for the language succeeds with probability at least 2/3 under every distribution",
+   "rationale": {
+    "class": "The language is unchanged, and the reduction forwards any worst-case decider unchanged as an average-case one."
+   },
+   "status": "draft",
+   "page": "content/Reductions/czk-hardness-to-czk-worst-case-hardness.md",
+   "slug": "czk-hardness-to-czk-worst-case-hardness",
+   "graphSlug": "Reductions/czk-hardness-to-czk-worst-case-hardness",
+   "title": "Average-case-hard CZK ⇒ CZK ⊄ BPP"
+  },
+  {
+   "id": "red-czk-hardness-to-owf-ow93",
+   "kind": "implication",
+   "hypotheses": [
+    "czk-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is average-case hardness of a language with a zero-knowledge proof rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/czk-hardness-to-owf-ow93.md",
+   "slug": "czk-hardness-to-owf-ow93",
+   "graphSlug": "Reductions/czk-hardness-to-owf-ow93",
+   "title": "Average-case-hard CZK ⇒ OWF"
+  },
+  {
    "id": "red-czk-to-ip",
    "kind": "inclusion",
    "hypotheses": [
@@ -10398,7 +10472,7 @@
    "id": "red-lwe-to-nizk-ps19",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "nizk-for-np",
    "class": "unstated",
@@ -10421,7 +10495,7 @@
    "id": "red-lwe-to-pke-reg05",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "pke",
    "class": "fully-black-box",
@@ -10445,7 +10519,7 @@
    "id": "red-lwe-to-tdh-dgi-19",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "subexponential-modulus-lwe"
    ],
    "conclusion": "tdh",
    "class": "unstated",
@@ -10460,7 +10534,7 @@
    "page": "content/Reductions/lwe-to-tdh-dgi-19.md",
    "slug": "lwe-to-tdh-dgi-19",
    "graphSlug": "Reductions/lwe-to-tdh-dgi-19",
-   "title": "LWE ⇒ TDH"
+   "title": "LWE with sub-exponential ratio ⇒ TDH"
   },
   {
    "id": "red-lwe-to-zero-bit-prc-cg24",
@@ -10719,6 +10793,30 @@
    "slug": "module-lwe-to-ring-lwe-ls15",
    "graphSlug": "Reductions/module-lwe-to-ring-lwe-ls15",
    "title": "Module LWE (rank 1) ⇔ Ring LWE"
+  },
+  {
+   "id": "red-module-sis-to-crhf",
+   "kind": "implication",
+   "hypotheses": [
+    "module-sis"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Tight: one call to the collision finder, and each collision it finds is a Module-SIS solution.",
+   "rationale": {
+    "class": "One fixed construction, $\\mathbf{z} \\mapsto \\mathbf{A}\\mathbf{z}$ over $R_q$ keyed by the uniform Module-SIS matrix, and one fixed reduction that runs any collision finder once as an oracle and outputs the difference of the colliding inputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/module-sis-to-crhf.md",
+   "slug": "module-sis-to-crhf",
+   "graphSlug": "Reductions/module-sis-to-crhf",
+   "title": "Module-SIS ⇒ CRHF"
   },
   {
    "id": "red-module-svp-to-module-lwe-ls15",
@@ -15544,7 +15642,7 @@
    "id": "red-zkp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
-    "zkp"
+    "czk-worst-case-hardness"
    ],
    "conclusion": "auxiliary-input-owf",
    "class": "unstated",
@@ -15556,13 +15654,13 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The hypothesis, a zero-knowledge proof for a language outside $\\classBPP$, is a hardness statement about a language rather than an RTV04 primitive."
+    "class": "The hypothesis is worst-case hardness of a language with a zero-knowledge proof rather than an RTV04 primitive."
    },
    "status": "draft",
    "page": "content/Reductions/zkp-to-hash-function.md",
    "slug": "zkp-to-hash-function",
    "graphSlug": "Reductions/zkp-to-hash-function",
-   "title": "ZKP ⇒ Auxiliary-input OWF"
+   "title": "CZK ⊄ BPP ⇒ Auxiliary-input OWF"
   },
   {
    "id": "red-zpp-to-rp",

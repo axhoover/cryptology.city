@@ -28,4 +28,4 @@ The candidate one-way function maps the coins of $D$ and of the simulator, toget
 
 ## Notes
 
-- From worst-case hardness alone, $\classSZK \not\subseteq \classBPP$, auxiliary-input one-way functions exist, and the argument extends to computational zero knowledge ([[zkp-to-hash-function|ZKP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].
+- From worst-case hardness alone, $\classSZK \not\subseteq \classBPP$, auxiliary-input one-way functions exist, and the argument extends to computational zero knowledge ([[zkp-to-hash-function|CZK ⊄ BPP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]].
