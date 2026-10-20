@@ -10773,7 +10773,7 @@
    "securityLoss": "a factor polynomial in the number of random-oracle queries",
    "rationale": {
     "class": "The theorem holds for every prover in the random-oracle model, which is the free class scoped by the model.",
-    "model": "The random oracle serves both as the hash in the Merkle tree and as the Fiat–Shamir challenge generator."
+    "model": "Two independent random oracles serve as the Merkle-tree hash and as the challenge generator applied to the statement and the root."
    },
    "status": "draft",
    "page": "content/Reductions/rom-to-snark-mic00.md",
