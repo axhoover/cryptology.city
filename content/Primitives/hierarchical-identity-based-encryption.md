@@ -29,6 +29,8 @@ An HIBE scheme is a tuple of efficient algorithms $\HIBE = (\Setup, \Extract, \D
 
 Correctness requires that a ciphertext encrypted for $\vec{\mathit{id}}$ can be decrypted by $\sk_{\vec{\mathit{id}}'}$ for any $\vec{\mathit{id}}' = \vec{\mathit{id}}$, and also by any key derived from $\sk_{\vec{\mathit{id}}'}$ via $\Delegate$. Note: keys derived via $\Delegate$ are typically less efficient (larger) than those from $\Extract$; in many constructions key size grows by $O(1)$ group elements per delegation level.
 
+The alphabet $\Sigma$ contains $\bits^{\secpar}$, as the identity space of an [[identity-based-encryption|IBE]] scheme does. With a constant-size alphabet and constant depth there are only constantly many identity vectors, and one [[public-key-encryption|PKE]] key pair per vector, published together, meets the notion — standard.
+
 ## Properties
 
 ### Correctness

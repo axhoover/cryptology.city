@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[hierarchical-identity-based-encryption|HIBE]] scheme over alphabet $\Sigma$, set up with depth $d = 1$ and with $\Delegate$ discarded, is an [[identity-based-encryption|IBE]] scheme with identity space $\Sigma$. If the HIBE is [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore.
+A [[hierarchical-identity-based-encryption|HIBE]] scheme over alphabet $\Sigma \supseteq \bits^{\secpar}$, set up with depth $d = 1$ and with $\Delegate$ discarded, is an [[identity-based-encryption|IBE]] scheme with identity space $\Sigma$, which contains $\bits^{\secpar}$ as the IBE syntax requires. If the HIBE is [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]], the IBE is [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA-secure]] with the same advantage — folklore.
 
 ## Sketch
 

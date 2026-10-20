@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponentially IND-sHIBE-CPA-secure]] [[hierarchical-identity-based-encryption|HIBE]] scheme, with constant $\epsilon > 0$, is [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]] whenever $|\Sigma^{\le d}| \cdot 2^{-\secpar^{\epsilon}}$ is negligible: an adaptive adversary with advantage $\delta$ yields a selective adversary of similar size with advantage $\delta / |\Sigma^{\le d}|$ (complexity leveraging) — folklore.
+For an [[hierarchical-identity-based-encryption|HIBE]] scheme, an adaptive adversary with advantage $\delta$ yields a selective adversary of similar size with advantage $\delta / |\Sigma^{\le d}|$ (complexity leveraging) — folklore. Hence a [[hierarchical-identity-based-encryption#sub-exponential-ind-shibe-cpa-security|sub-exponentially IND-sHIBE-CPA-secure]] HIBE, with constant $\epsilon > 0$, yields an [[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA-secure]] HIBE for every depth $d \le \secpar / 2$: run it at security parameter $\secpar' = \lceil \secpar^{2/\epsilon} \rceil$ with alphabet restricted to $\bits^{\secpar}$, padded to $\secpar'$ bits, so that $|\Sigma^{\le d}| \le 2^{\secpar d + 1}$ and a polynomial-size adaptive adversary has advantage at most $2^{\secpar d + 1 - \secpar^2} \le 2^{1 - \secpar^2/2}$ — folklore.
 
 ## Sketch
 
