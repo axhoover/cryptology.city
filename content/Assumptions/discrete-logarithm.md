@@ -9,6 +9,8 @@ aliases:
   - Discrete log
 title: Discrete logarithm
 id: dlog
+variants:
+  prime-order-dlog: "#dlog-in-prime-order-groups"
 ---
 
 # Discrete logarithm
@@ -62,6 +64,12 @@ is negligible.
 
 # Variations
 
+## DLOG in prime-order groups
+
+**DLOG is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$
+outputs has prime order $p$ and DLOG is hard for $\GrGen$. Exponents then form
+the field $\ZZ_p$, so a construction may divide by any nonzero exponent.
+
 ## One-more Discrete Logarithm
 
 In some works, it is important to consider adversaries
@@ -108,7 +116,7 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 3491ef089007 -->
+<!-- BEGIN GENERATED participates-in 9044ed48e594 -->
 
 ## Participates in
 
@@ -120,7 +128,7 @@ is negligible.
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]]
 - [[dlog-to-conp|DLOG ⊆ coNP]]
-- [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]]
+- [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
@@ -129,11 +137,13 @@ is negligible.
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
+- [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
 
 <!-- END GENERATED participates-in -->
