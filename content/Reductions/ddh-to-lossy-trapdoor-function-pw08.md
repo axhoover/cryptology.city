@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: DDH ⇒ Lossy TDF (Peikert–Waters)
+title: DDH ⇒ Highly lossy TDF (Peikert–Waters)
 aliases: []
 id: red-ddh-to-lossy-trapdoor-function-pw08
 kind: implication
 hypotheses: [ddh]
-conclusion: lossy-trapdoor-function
+conclusion: highly-lossy-trapdoor-function
 class: fully-black-box
 model: standard
 source:
@@ -16,11 +16,11 @@ rationale:
   class: "The function uses only the group operations, and the mode-indistinguishability reduction runs any distinguisher only as an oracle on matrices built from its DDH challenges."
 ---
 
-# DDH ⇒ Lossy TDF (Peikert–Waters)
+# DDH ⇒ Highly lossy TDF (Peikert–Waters)
 
 ## Statement
 
-If [[decisional-diffie-hellman|DDH]] holds in a group $\GG = \langle g \rangle$ of prime order $p$, then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] on $\bits^n$ exist whose lossy mode has at most $p$ images, so it loses at least $n - \log p$ bits — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+If [[decisional-diffie-hellman|DDH]] holds in a group $\GG = \langle g \rangle$ of prime order $p$, then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] on $\bits^n$ exist whose lossy mode has at most $p$ images, so the residual leakage is at most $\log p$; for $n \ge c \log p$ with a constant $c > 2$ it is at most $n / c$, so the functions are [[trapdoor-permutation#highly-lossy-trapdoor-functions|highly lossy]] — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 ## Sketch
 
@@ -29,4 +29,4 @@ The index is an entrywise ElGamal encryption of a matrix $M \in \bits^{n \times 
 ## Notes
 
 - Efficiency: the index has $n^2 + n$ group elements, an output has $n + 1$, and an evaluation costs about $n^2$ group multiplications — standard.
-- Lossy trapdoor functions give [[lossy-trapdoor-functions-to-pke|IND-CCA2-secure PKE]], [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|injective trapdoor functions]], [[lossy-trapdoor-function-to-crhf-pw08|collision-resistant hashing]] and [[lossy-trapdoor-function-to-ot-pw08|OT]] — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+- Lossy trapdoor functions give [[lossy-trapdoor-functions-to-pke|IND-CCA2-secure PKE]], [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|injective trapdoor functions]] and [[lossy-trapdoor-function-to-ot-pw08|OT]], and highly lossy ones give [[lossy-trapdoor-function-to-crhf-pw08|collision-resistant hashing]] — [[PW08 - Lossy trapdoor functions and their applications|PW08]].

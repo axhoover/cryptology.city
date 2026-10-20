@@ -10,6 +10,7 @@ title: Trapdoor permutation
 id: tdp
 variants:
   lossy-trapdoor-function: "#lossy-trapdoor-functions"
+  highly-lossy-trapdoor-function: "#highly-lossy-trapdoor-functions"
   enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
   injective-trapdoor-function: "#injective-trapdoor-functions"
   claw-free-permutations: "#claw-free-permutations"
@@ -62,7 +63,11 @@ A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\cal
 
 ## Lossy trapdoor functions
 
-A lossy trapdoor function has two computationally indistinguishable modes: an injective mode (an injective trapdoor function, not necessarily a permutation) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is an injective trapdoor function, not necessarily a permutation, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input; $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+
+### Highly lossy trapdoor functions
+
+An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is $r \le \rho n$ for a constant $\rho < 1/2$, the regime in which it yields collision-resistant hashing — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 # Other results
 
@@ -78,7 +83,8 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
-- [[lossy-trapdoor-function-to-crhf-pw08|Lossy TDF ⇒ CRHF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[highly-lossy-trapdoor-function-to-lossy-trapdoor-function|Highly lossy TDF ⇒ Lossy TDF]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
+- [[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
@@ -90,9 +96,10 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 
 **Produces Trapdoor permutation**
 
-- [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Highly lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#highly-lossy-trapdoor-functions|Highly lossy trapdoor functions]])
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]
+- [[highly-lossy-trapdoor-function-to-lossy-trapdoor-function|Highly lossy TDF ⇒ Lossy TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
