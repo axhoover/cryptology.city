@@ -6744,7 +6744,7 @@
    "id": "red-dlog-to-com-ped91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
@@ -8749,7 +8749,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: the CCA advantage is at most the selective-ID IBE advantage plus the strong one-time unforgeability advantage",
+   "securityLoss": "additive: the CCA advantage is at most the selective-ID IBE advantage plus the strong one-time unforgeability advantage, plus the target-collision advantage when verification keys are hashed",
    "rationale": {
     "class": "The scheme calls the IBE and the one-time signature only as oracles, and the reduction commits to the challenge's verification key as its target identity and answers decryption queries with key-extraction queries, running any CCA adversary once as an oracle."
    },
@@ -9177,7 +9177,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "receiver privacy loses one mode-indistinguishability hop; sender privacy is statistical, up to a leftover-hash term",
+   "securityLoss": "receiver privacy: at most twice the mode-indistinguishability advantage, by two hybrids through a pair of injective indices; sender privacy is statistical, up to a leftover-hash term",
    "rationale": {
     "class": "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."
    },

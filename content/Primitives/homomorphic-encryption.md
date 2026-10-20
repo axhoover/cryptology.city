@@ -71,7 +71,11 @@ A bootstrappable SHE scheme is **circular secure** if it remains IND-CPA-secure 
 
 ## Leveled fully homomorphic encryption
 
+<<<<<<< HEAD
 Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]. Leveled FHE follows from [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping, at a ratio exponential in the depth — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]; and from [[learning-with-errors|LWE]] with polynomial ratio — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+=======
+Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size, a relaxation of the definition of [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]] and [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]], which require one decryption circuit for every $L$. Leveled FHE from [[learning-with-errors|LWE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]].
+>>>>>>> claude/stoic-galileo-0pxpmc-coin-flipping
 
 ## Fully homomorphic encryption (FHE)
 
@@ -83,7 +87,7 @@ An FHE scheme, IND-CPA-secure and supporting every polynomial-size circuit, is *
 
 ## Strongly homomorphic encryption
 
-A bit-encryption scheme is **strongly homomorphic** for a boolean function $f : \bits^k \to \bits$ that is not constant, not a projection or its negation, and not an AND or an OR, if its evaluator for $f$ is distribution-preserving: for all $m_1, \ldots, m_k \in \bits$, the output of $\Eval(\pk, f, c_1, \ldots, c_k)$ on fresh encryptions $c_i \gets \Enc(\pk, m_i)$ is statistically close to a fresh encryption $\Enc(\pk, f(m_1, \ldots, m_k))$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** for a boolean function $f : \bits^k \to \bits$ that is not constant, not a projection or its negation, and not an AND or OR of literals (so not NAND or NOR either), if its evaluator for $f$ is distribution-preserving: for all $m_1, \ldots, m_k \in \bits$, the output of $\Eval(\pk, f, c_1, \ldots, c_k)$ on fresh encryptions $c_i \gets \Enc(\pk, m_i)$ is statistically close to a fresh encryption $\Enc(\pk, f(m_1, \ldots, m_k))$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 
 # Other results
 
