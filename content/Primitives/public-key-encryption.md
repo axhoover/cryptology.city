@@ -115,7 +115,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 
 ## Perfectly correct CPA-secure PKE
 
-An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsilon = 0$. Constructions of non-malleable and chosen-ciphertext-secure encryption that check a proof of consistency between ciphertext components need it — [[DNR04 - Immunizing Encryption Schemes from Decryption Errors|DNR04]]. With negligible decryption error, a scheme may have rare encryption coins whose ciphertexts decrypt to bits of the secret key; a pair of such ciphertexts carries an honest consistency proof, and decryption queries on such pairs leak the key — standard.
+An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsilon = 0$. Constructions of non-malleable and chosen-ciphertext-secure encryption that check a proof of consistency between ciphertext components need decryption to be errorless under all but a negligible fraction of key pairs, which perfect correctness guarantees; DNR04 immunize schemes with decryption errors to meet this weaker condition — [[DNR04 - Immunizing Encryption Schemes from Decryption Errors|DNR04]]. With negligible decryption error, a scheme may have rare encryption coins whose ciphertexts decrypt to bits of the secret key; a pair of such ciphertexts carries an honest consistency proof, and decryption queries on such pairs leak the key — standard.
 
 ## CCA1 Security
 
