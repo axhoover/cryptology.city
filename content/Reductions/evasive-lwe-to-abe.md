@@ -24,4 +24,5 @@ Assuming public-coin [[learning-with-errors#circular-evasive-lwe|circular evasiv
 
 ## Notes
 
+- The master public key and ciphertexts have size linear in the attribute length, and secret keys have constant size, independent of the circuit's depth and size — [[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]].
 - Public-coin circular evasive LWE as HLL23 state it is false: [[AMYY25 - Evasive LWE Attacks, Variants & Obfustopia|AMYY25]] exhibit a sampler for which the pre-condition holds but the post-condition fails.

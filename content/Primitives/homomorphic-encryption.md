@@ -71,7 +71,7 @@ A bootstrappable SHE scheme is **circular secure** if it remains IND-CPA-secure 
 
 ## Leveled fully homomorphic encryption
 
-Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size, a relaxation of the definition of [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]] and [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]], which require one decryption circuit for every $L$. Leveled FHE follows from [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping, at a ratio exponential in the depth — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]; and from [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
+Supports all polynomial-size circuits of depth at most $L$, where $L$ is fixed at key generation, and evaluated ciphertexts have length bounded by a polynomial in $\secpar$ and $L$, independent of the circuit's size, a relaxation of the definition of [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]] and [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]], which require one decryption circuit for every $L$. Leveled FHE follows from [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]], together with polynomial-ratio LWE in a smaller dimension — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]; without bootstrapping, at a ratio exponential in the depth — [[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]; and from [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] — [[BV14 - Lattice-based FHE as secure as PKE|BV14]].
 
 ## Fully homomorphic encryption (FHE)
 
@@ -97,7 +97,7 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in 82183f3f7632 -->
+<!-- BEGIN GENERATED participates-in 0e3c74c188fd -->
 
 ## Participates in
 
@@ -131,7 +131,7 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 - [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[somewhat-homomorphic-encryption-she-to-he-gen09|Bootstrappable SHE ⇒ Leveled FHE]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
-- [[circular-security-and-lwe-to-he|LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
+- [[circular-security-and-lwe-to-he|LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
 
 **Barriers**
 

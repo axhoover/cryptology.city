@@ -14509,6 +14509,28 @@
    "title": "Sub-exponential LWE ⇒ PPAD hardness"
   },
   {
+   "id": "red-subexponential-modulus-lwe-and-polynomial-ratio-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe",
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/circular-security-and-lwe-to-he.md",
+   "slug": "circular-security-and-lwe-to-he",
+   "graphSlug": "Reductions/circular-security-and-lwe-to-he",
+   "title": "LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)"
+  },
+  {
    "id": "red-subexponential-modulus-lwe-to-abe-selective-security-gvw13",
    "kind": "implication",
    "hypotheses": [
@@ -14531,27 +14553,6 @@
    "slug": "subexponential-modulus-lwe-to-abe-selective-security-gvw13",
    "graphSlug": "Reductions/subexponential-modulus-lwe-to-abe-selective-security-gvw13",
    "title": "LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)"
-  },
-  {
-   "id": "red-subexponential-modulus-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11",
-   "kind": "implication",
-   "hypotheses": [
-    "subexponential-modulus-lwe"
-   ],
-   "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
-   "class": "unstated",
-   "model": "standard",
-   "source": [
-    "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/circular-security-and-lwe-to-he.md",
-   "slug": "circular-security-and-lwe-to-he",
-   "graphSlug": "Reductions/circular-security-and-lwe-to-he",
-   "title": "LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)"
   },
   {
    "id": "red-subexponential-modulus-lwe-to-lwe",

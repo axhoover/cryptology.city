@@ -22,6 +22,10 @@ rationale:
 
 If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in a prime-order symmetric bilinear group, then Circuit-SAT, and hence every $\classNP$ language, has a [[non-interactive-zero-knowledge|NIZK]] proof in the common reference string model with perfect completeness, perfect soundness and computational zero-knowledge. The CRS has $O(\secpar)$ bits, and a proof for a circuit $C$ has $O(|C|\secpar)$ bits — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
 
+## Sketch
+
+For a circuit of NAND gates, the prover commits to the value of every wire of a satisfying assignment with a DLIN-based homomorphic commitment, proves with pairing equations that each commitment opens to a bit, and for each gate $b_2 = \neg(b_0 \wedge b_1)$ proves that the homomorphically derived commitment to $b_0 + b_1 + 2b_2 - 2$ also opens to a bit, which holds exactly when the gate is satisfied. Under the real CRS the commitment is perfectly binding, which gives perfect soundness; under DLIN this CRS is indistinguishable from one under which the commitment is perfectly hiding and, given a trapdoor, equivocable, and on such a CRS the simulator proves without a witness.
+
 ## Notes
 
 - The same paper gives non-interactive zaps (witness-indistinguishable proofs with no CRS) for every $\classNP$ language under DLIN — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
