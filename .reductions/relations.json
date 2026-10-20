@@ -673,6 +673,19 @@
    "unlisted": false
   },
   {
+   "id": "cls-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#cls",
+   "of": "tfnp",
+   "title": "CLS",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "co-cdh",
    "kind": "object",
    "type": "assumption",
@@ -2054,6 +2067,20 @@
    "unlisted": false
   },
   {
+   "id": "kt-mild-average-case-hardness",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/time-bounded-kolmogorov-complexity.md",
+   "slug": "time-bounded-kolmogorov-complexity",
+   "graphSlug": "Assumptions/time-bounded-kolmogorov-complexity",
+   "title": "Time-bounded Kolmogorov complexity",
+   "aliases": [
+    "Time-bounded Kolmogorov complexity",
+    "Kolmogorov complexity"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "kzg-polynomial-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -2705,6 +2732,32 @@
     "NP",
     "Nondeterministic Polynomial-Time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "np-average-case-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/nondeterministic-polynomial-time.md",
+   "slug": "nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/nondeterministic-polynomial-time",
+   "anchor": "#average-case-hardness",
+   "of": "np",
+   "title": "Average-case hardness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "np-not-in-io-bpp",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/nondeterministic-polynomial-time.md",
+   "slug": "nondeterministic-polynomial-time",
+   "graphSlug": "Complexity/nondeterministic-polynomial-time",
+   "anchor": "#hardness-at-almost-every-input-length",
+   "of": "np",
+   "title": "Hardness at almost every input length",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3790,6 +3843,19 @@
    "unlisted": true
   },
   {
+   "id": "size-verifiable-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#size-verifiable-one-wayness",
+   "of": "hash-function",
+   "title": "Size-verifiable one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sk-depir",
    "kind": "variant",
    "type": "primitive",
@@ -3945,6 +4011,19 @@
    "anchor": "#statistical-difference",
    "of": "szk",
    "title": "Statistical Difference",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistical-io",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/indistinguishability-obfuscation.md",
+   "slug": "indistinguishability-obfuscation",
+   "graphSlug": "Primitives/indistinguishability-obfuscation",
+   "anchor": "#statistical-io",
+   "of": "io",
+   "title": "Statistical iO",
    "aliases": [],
    "unlisted": false
   },
@@ -4285,6 +4364,19 @@
     "SZK",
     "Statistical zero-knowledge"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "szk-hardness",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/statistical-zero-knowledge.md",
+   "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
+   "anchor": "#average-case-hardness",
+   "of": "szk",
+   "title": "Average-case hardness",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5721,6 +5813,30 @@
    "slug": "claw-free-permutations-to-crhf-dam87",
    "graphSlug": "Reductions/claw-free-permutations-to-crhf-dam87",
    "title": "Claw-free permutations ⇒ CRHF (Damgård)"
+  },
+  {
+   "id": "red-cls-hardness-to-ppad-hardness-dp11",
+   "kind": "implication",
+   "hypotheses": [
+    "cls-hardness"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DP11 - Continuous Local Search|DP11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction maps each instance to an End-of-Line instance by a fixed polynomial-time reduction, calls any End-of-Line solver once as an oracle, and maps its solution back."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cls-hardness-to-ppad-hardness-dp11.md",
+   "slug": "cls-hardness-to-ppad-hardness-dp11",
+   "graphSlug": "Reductions/cls-hardness-to-ppad-hardness-dp11",
+   "title": "CLS hardness ⇒ PPAD hardness"
   },
   {
    "id": "red-co-cdh-to-ds",
@@ -9235,6 +9351,31 @@
    "title": "Invertible PRFs ⇒ PRF"
   },
   {
+   "id": "red-io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "np-not-in-io-bpp"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One hypothesis is a worst-case complexity separation rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-np-not-in-io-bpp-to-owf-kmnpry14.md",
+   "slug": "io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "graphSlug": "Reductions/io-and-np-not-in-io-bpp-to-owf-kmnpry14",
+   "title": "iO + NP ⊄ io-BPP ⇒ OWF"
+  },
+  {
    "id": "red-io-and-owf-to-multi-party-nike-bz14",
    "kind": "implication",
    "hypotheses": [
@@ -9258,6 +9399,56 @@
    "slug": "io-and-owf-to-multi-party-nike-bz14",
    "graphSlug": "Reductions/io-and-owf-to-multi-party-nike-bz14",
    "title": "iO + OWF ⇒ Multiparty NIKE (Boneh–Zhandry)"
+  },
+  {
+   "id": "red-io-and-owp-to-cls-hardness-hy17",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "cls-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[HY17 - Hardness of Continuous Local Search Query Complexity and Cryptographic Lower Bounds|HY17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hard instances are built from obfuscated circuits that evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; HY17 state no reduction notion."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-owp-to-cls-hardness-hy17.md",
+   "slug": "io-and-owp-to-cls-hardness-hy17",
+   "graphSlug": "Reductions/io-and-owp-to-cls-hardness-hy17",
+   "title": "iO + OWP ⇒ CLS hardness"
+  },
+  {
+   "id": "red-io-and-owp-to-ppad-hardness-gps16",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "owp"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The obfuscated circuits evaluate the one-way permutation and primitives built from it, so the construction uses their code rather than oracle access; GPS16 state no reduction notion."
+   },
+   "status": "draft",
+   "page": "content/Reductions/io-and-owp-to-ppad-hardness-gps16.md",
+   "slug": "io-and-owp-to-ppad-hardness-gps16",
+   "graphSlug": "Reductions/io-and-owp-to-ppad-hardness-gps16",
+   "title": "iO + OWP ⇒ PPAD hardness"
   },
   {
    "id": "red-io-to-witness-encryption",
@@ -9541,6 +9732,27 @@
    "slug": "kem-to-ke",
    "graphSlug": "Reductions/kem-to-ke",
    "title": "KEM ⇒ KE"
+  },
+  {
+   "id": "red-kt-mild-average-case-hardness-to-owf-lp20",
+   "kind": "equivalence",
+   "hypotheses": [
+    "kt-mild-average-case-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[LP20 - On One-way Functions and Kolmogorov Complexity|LP20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/kt-mild-average-case-hardness-to-owf-lp20.md",
+   "slug": "kt-mild-average-case-hardness-to-owf-lp20",
+   "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
+   "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
   },
   {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
@@ -11181,6 +11393,27 @@
    "slug": "ot-to-ot-extension-iknp03",
    "graphSlug": "Reductions/ot-to-ot-extension-iknp03",
    "title": "OT ⇒ OT extension (IKNP)"
+  },
+  {
+   "id": "red-owf-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-np.md",
+   "slug": "owf-to-np",
+   "graphSlug": "Reductions/owf-to-np",
+   "title": "OWF inversion ∈ NP"
   },
   {
    "id": "red-owf-to-prg-hill99",
@@ -13494,6 +13727,30 @@
    "title": "SIVP ⇒ SIS"
   },
   {
+   "id": "red-size-verifiable-owf-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "size-verifiable-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/size-verifiable-owf-to-owf.md",
+   "slug": "size-verifiable-owf-to-owf",
+   "graphSlug": "Reductions/size-verifiable-owf-to-owf",
+   "title": "Size-verifiable OWF ⇒ OWF"
+  },
+  {
    "id": "red-ske-to-owf-il89",
    "kind": "implication",
    "hypotheses": [
@@ -13680,6 +13937,30 @@
    "slug": "statistical-difference-to-szk-sv03",
    "graphSlug": "Reductions/statistical-difference-to-szk-sv03",
    "title": "Statistical Difference is SZK-complete"
+  },
+  {
+   "id": "red-statistical-io-to-io",
+   "kind": "implication",
+   "hypotheses": [
+    "statistical-io"
+   ],
+   "conclusion": "io",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on obfuscators, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistical-io-to-io.md",
+   "slug": "statistical-io-to-io",
+   "graphSlug": "Reductions/statistical-io-to-io",
+   "title": "Statistical iO ⇒ iO"
   },
   {
    "id": "red-statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
@@ -14453,6 +14734,30 @@
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
    "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-ot",
    "title": "Symmetric private information retrieval (Single-server) ⇒ OT"
+  },
+  {
+   "id": "red-szk-hardness-to-owf-ost91",
+   "kind": "implication",
+   "hypotheses": [
+    "szk-hardness"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is average-case hardness of a promise problem in SZK rather than an RTV04 primitive."
+   },
+   "status": "draft",
+   "page": "content/Reductions/szk-hardness-to-owf-ost91.md",
+   "slug": "szk-hardness-to-owf-ost91",
+   "graphSlug": "Reductions/szk-hardness-to-owf-ost91",
+   "title": "Average-case-hard SZK ⇒ OWF"
   },
   {
    "id": "red-szk-to-am",
@@ -15569,6 +15874,48 @@
    "title": "No fully-black-box reduction from iO + OWP to CRHF"
   },
   {
+   "id": "bar-io-to-statistical-io-gr07",
+   "hypotheses": [
+    "io"
+   ],
+   "conclusion": "statistical-io",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "np-complete-in-szk",
+     "class": "free"
+    },
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "free"
+    },
+    {
+     "kind": "complexity",
+     "target": "ph-collapse-second-level",
+     "class": "free"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "io"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[GR07 - On Best-Possible Obfuscation|GR07]]"
+   ],
+   "rationale": {
+    "class": "The collapse follows from the existence of statistical iO, whatever construction or proof produces it, so every reduction is ruled out.",
+    "strength": "A reduction from iO yields statistical iO, and hence the collapse, only if iO exists."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-io-to-statistical-io-gr07.md",
+   "slug": "no-io-to-statistical-io-gr07",
+   "graphSlug": "Barriers/no-io-to-statistical-io-gr07",
+   "title": "No reduction from iO to statistical iO"
+  },
+  {
    "id": "bar-ip-to-am-sha90",
    "hypotheses": [
     "ip"
@@ -15802,6 +16149,93 @@
    "slug": "no-np-to-hash-function-aggm06",
    "graphSlug": "Barriers/no-np-to-hash-function-aggm06",
    "title": "No reduction from NP to OWF"
+  },
+  {
+   "id": "bar-np-to-np-average-case-hardness-bt03",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "np-average-case-hardness",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "ph-collapse",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BT03 - On Worst-Case to Average-Case Reductions for NP Problems|BT03]]"
+   ],
+   "rationale": {
+    "class": "BT03 rule out only non-adaptive reductions, and the vocabulary has no class for an adaptivity restriction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-np-average-case-hardness-bt03.md",
+   "slug": "no-np-to-np-average-case-hardness-bt03",
+   "graphSlug": "Barriers/no-np-to-np-average-case-hardness-bt03",
+   "title": "No non-adaptive reduction from NP to average-case NP hardness"
+  },
+  {
+   "id": "bar-np-to-owp-bra79b",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "owp",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "np-eq-conp",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Bra79b - A note on the complexity of cryptography|Bra79b]]"
+   ],
+   "rationale": {
+    "class": "The argument covers deterministic oracle reductions only, and the vocabulary has no class for a determinism restriction; fully-black-box would overstate it."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-owp-bra79.md",
+   "slug": "no-np-to-owp-bra79",
+   "graphSlug": "Barriers/no-np-to-owp-bra79",
+   "title": "No deterministic reduction from NP to OWP"
+  },
+  {
+   "id": "bar-np-to-size-verifiable-owf-bb15",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "size-verifiable-owf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BB15 - On Basing Size-Verifiable One-Way Functions on NP-Hardness|BB15]]"
+   ],
+   "rationale": {
+    "class": "BB15 rule out reductions that use the inverter only as an oracle, with adaptive queries and otherwise unrestricted, the fully-black-box shape when NP as hypothesis leaves no construction to restrict; they give no oracle separation, so relativizing would overstate."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-size-verifiable-owf-bb15.md",
+   "slug": "no-np-to-size-verifiable-owf-bb15",
+   "graphSlug": "Barriers/no-np-to-size-verifiable-owf-bb15",
+   "title": "No fully-black-box reduction from NP to size-verifiable OWF"
   },
   {
    "id": "bar-oihf-to-ot-bh26",

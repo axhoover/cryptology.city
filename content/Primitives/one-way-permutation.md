@@ -46,12 +46,14 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 - [[owp-to-hash-function|OWP ⇒ OWF]] — folklore
 - [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]
 
-<!-- BEGIN GENERATED participates-in a23499b1829a -->
+<!-- BEGIN GENERATED participates-in db8399b1154f -->
 
 ## Participates in
 
 **Builds on One-way permutations**
 
+- [[io-and-owp-to-cls-hardness-hy17|iO + OWP ⇒ CLS hardness]]
+- [[io-and-owp-to-ppad-hardness-gps16|iO + OWP ⇒ PPAD hardness]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
 - [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]]
@@ -62,6 +64,7 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
 - [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]]
 - [[no-io-and-owp-to-crhf-as15|No fully-black-box reduction from iO + OWP to CRHF]]
+- [[no-np-to-owp-bra79|No deterministic reduction from NP to OWP]]
 - [[no-owf-to-owp-rud88|No fully-black-box reduction from OWF to OWP]]
 - [[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
