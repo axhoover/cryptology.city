@@ -179,7 +179,7 @@ is negligible.
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
-- [[lwe-to-tdh-dgi-19|LWE with sub-exponential ratio ⇒ TDH]]
+- [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
