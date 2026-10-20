@@ -11,6 +11,8 @@ id: tdp
 variants:
   lossy-trapdoor-function: "#lossy-trapdoor-functions"
   enhanced-trapdoor-permutation: "#enhanced-trapdoor-permutations"
+  injective-trapdoor-function: "#injective-trapdoor-functions"
+  claw-free-permutations: "#claw-free-permutations"
 ---
 
 # Trapdoor permutation
@@ -50,6 +52,14 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
+## Injective trapdoor functions
+
+An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one — folklore.
+
+## Claw-free permutations
+
+A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way. GMR88 use claw-free pairs with trapdoors for $f_0^{-1}$ and $f_1^{-1}$.
+
 ## Lossy trapdoor functions
 
 A lossy trapdoor function has two computationally indistinguishable modes: an injective mode (an injective trapdoor function, not necessarily a permutation) and a lossy mode (where the function is many-to-one and loses information). Lossy TDFs imply injective trapdoor functions and CCA-secure encryption — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
@@ -60,25 +70,38 @@ A lossy trapdoor function has two computationally indistinguishable modes: an in
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in d6eb1fd38254 -->
+<!-- BEGIN GENERATED participates-in 44cd07a9617b -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
+- [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[lossy-trapdoor-function-to-crhf-pw08|Lossy TDF ⇒ CRHF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
+- [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]
 - [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 
 **Produces Trapdoor permutation**
 
+- [[ddh-to-lossy-trapdoor-function-pw08|DDH ⇒ Lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
+- [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
+- [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]]
+- [[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
+- [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 
 **Barriers**
 
+- [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]
 - [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
+- [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
 - [[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]
 

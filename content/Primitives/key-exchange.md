@@ -58,7 +58,7 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 
-<!-- BEGIN GENERATED participates-in f0fabc7b22d1 -->
+<!-- BEGIN GENERATED participates-in 922d33ec4713 -->
 
 ## Participates in
 
@@ -76,11 +76,14 @@ Generalizes two-party KE to $n$ parties. Requires additional rounds or structure
 - [[ke-to-multi-party-key-exchange|KE ⇒ Multi-party key exchange]] (via [[key-exchange#multi-party-key-exchange|Multi-party key exchange]])
 - [[kem-to-ke|KEM ⇒ KE]]
 - [[non-interactive-key-exchange-to-ke|NIKE ⇒ KE]]
+- [[ot-to-ke|OT ⇒ KE]]
 - [[pke-to-ke|PKE ⇒ KE]]
 - [[sidh-to-ke-jdf11|SSDDH ⇒ KE]]
 
 **Barriers**
 
+- [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
+- [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]
 - [[no-owp-to-ke-ir89|No relativizing reduction from OWP to KE]]
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 
