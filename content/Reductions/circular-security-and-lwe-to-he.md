@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)"
+title: "LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)"
 aliases: []
-id: red-subexponential-modulus-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11
+id: red-subexponential-modulus-lwe-and-polynomial-ratio-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11
 kind: implication
-hypotheses: [subexponential-modulus-lwe]
+hypotheses: [subexponential-modulus-lwe, polynomial-ratio-lwe]
 conclusion: bootstrappable-somewhat-homomorphic-encryption
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)
+# LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, with modulus $q = 2^{n^{\varepsilon}}$ and polynomial noise, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
+If [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]] is hard, with modulus $q = 2^{n^{\varepsilon}}$ and polynomial noise, and [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] is hard in the smaller dimension $k$ that dimension–modulus reduction switches to, there is a [[homomorphic-encryption#bootstrappable-she|bootstrappable]] somewhat homomorphic encryption scheme, hence [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]].
 
 ## Notes
 
