@@ -25,4 +25,4 @@ A semi-honest secure [[oblivious-transfer|OT]] protocol yields an OT protocol se
 ## Notes
 
 - The GMW compiler gives the same implication non-black-box, by proving in zero knowledge that every message follows the protocol, which needs the code of the semi-honest protocol: [[semi-honest-security-and-owf-to-mpc-gmw87|semi-honest MPC + OWF ⇒ MPC]] — [[GMW87 - How to play ANY mental game|GMW87]].
-- Combined with protocols in the OT-hybrid model ([[ot-to-mpc-kil88|OT ⇒ MPC]]), this gives malicious-secure computation of every functionality using semi-honest OT only as a black box — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]], [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]].
+- Combined with protocols in the OT-hybrid model, this gives malicious-secure computation of every functionality using semi-honest OT only as a black box: [[ot-to-mpc-hiklp10|semi-honest OT ⇒ MPC]] — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]].

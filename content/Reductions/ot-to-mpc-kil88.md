@@ -8,7 +8,7 @@ kind: implication
 hypotheses: [uc-ot]
 conclusion: mpc
 class: fully-black-box
-model: standard
+model: crs
 source:
   - "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
   - "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
@@ -16,6 +16,7 @@ source:
 security-loss: ""
 rationale:
   class: "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
+  model: "UC-secure OT needs a common reference string, so the instantiated protocol runs in that model."
 ---
 
 # UC-secure OT ⇒ MPC
@@ -32,5 +33,5 @@ Parties hold XOR shares of every wire; XOR gates are local, and each AND gate co
 
 - Constant-rate two-party computation in the OT-hybrid model, statistically UC-secure against malicious adversaries, with communication $O(s) + \poly(\secpar, d, \log s)$ for a circuit of size $s$ and depth $d$, extending to any constant number of parties, via a compiler that uses an honest-majority protocol as a black box — [[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]].
 - The converse holds: OT is itself a two-party functionality, so MPC for every functionality gives OT — standard.
-- Semi-honest OT gives maliciously secure OT through [[ot-to-malicious-ot-security-hai08|OT ⇒ malicious OT]] — [[Hai08 - Semi-honest to Malicious Oblivious Transfer - The Black-Box Way|Hai08]].
+- Semi-honest OT gives maliciously secure OT through [[ot-to-malicious-ot-security-hai08|OT ⇒ malicious OT]] — [[Hai08 - Semi-honest to Malicious Oblivious Transfer - The Black-Box Way|Hai08]] — and stand-alone maliciously secure MPC through [[ot-to-mpc-hiklp10|semi-honest OT ⇒ MPC]] — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]].
 - Efficiency: the number of rounds of the GMW protocol grows with the multiplicative depth of the circuit, while [[gc-and-ot-to-two-party-computation-2pc|Yao's garbled-circuit protocol]] has a constant number — standard.

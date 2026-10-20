@@ -105,7 +105,7 @@ is negligible.
 
 ### Malicious Security
 
-The definitions above are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. Under **malicious security**, the adversary may deviate from the protocol arbitrarily. Game-based definitions extend naturally to this setting (e.g., in the receiver privacy game, the adversary sends arbitrary messages rather than running the honest $S$). However, game-based definitions alone do not capture all malicious-sender attacks (e.g., forcing the receiver to output a value other than $x_c$).
+The definitions above are **semi-honest**: both parties follow the protocol honestly, and security holds against a party that tries to learn extra information from its view. An OT $\OT$ has **malicious security** if for every efficient $\calA$ that corrupts $S$ or $R$ and may deviate from the protocol arbitrarily there is an efficient simulator $\Sim$ such that, for all $x_0, x_1 \in \calM$ and $c \in \bits$, the output of $\calA$ together with the honest party's output in a real execution is computationally indistinguishable from the output of $\Sim$ together with the honest party's output in an ideal execution. There the honest party hands its input to a trusted party, $\Sim$ hands it an input of its choice for the corrupted party, the trusted party returns $x_c$ to $R$ for the resulting $(x_0, x_1)$ and $c$, and $\Sim$ also produces $\pp$ — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]. The semi-honest games do not carry over by letting $\calA$ deviate: in the sender-privacy game a malicious receiver can announce $c$ and run $R$ on $1 - c$, so the simulator must extract the choice bit a malicious receiver effectively uses — standard.
 
 # Variations
 
@@ -129,7 +129,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 ## UC-secure OT
 
-An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functionality against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]], and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]].
+An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functionality in the common reference string model, with $\pp \gets \Setup(1^\secpar)$ as the reference string, against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]], and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]].
 
 # Other results
 
@@ -137,7 +137,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in b3a84c018e8b -->
+<!-- BEGIN GENERATED participates-in 2c139462aebd -->
 
 ## Participates in
 
@@ -149,6 +149,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-ke|OT ⇒ KE]]
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
+- [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]

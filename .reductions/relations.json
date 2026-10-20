@@ -8871,7 +8871,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "additive: twice the KEM CCA advantage plus the DEM one-time CCA advantage plus the KEM bad-key-pair probability",
+   "securityLoss": "additive: twice the KEM CCA advantage plus twice the KEM bad-key-pair probability plus the DEM one-time CCA advantage",
    "rationale": {
     "class": "One fixed construction calls Encap, Decap and the SKE algorithms only as oracles, and both game-hop reductions of CS03 run the PKE adversary as an oracle."
    },
@@ -10258,6 +10258,30 @@
    "title": "Semi-honest OT ⇒ Malicious OT (Haitner)"
   },
   {
+   "id": "red-ot-to-mpc-hiklp10",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "HIKLP10 compile semi-honest OT into malicious OT by a fully black-box reduction and plug it into protocols that use OT only as an ideal functionality, so the construction calls the semi-honest protocol and the reduction calls the adversary only as oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-mpc-hiklp10.md",
+   "slug": "ot-to-mpc-hiklp10",
+   "graphSlug": "Reductions/ot-to-mpc-hiklp10",
+   "title": "Semi-honest OT ⇒ MPC (HIKLP)"
+  },
+  {
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
@@ -10265,7 +10289,7 @@
    ],
    "conclusion": "mpc",
    "class": "fully-black-box",
-   "model": "standard",
+   "model": "crs",
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
     "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]",
@@ -10275,7 +10299,8 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle."
+    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle.",
+    "model": "UC-secure OT needs a common reference string, so the instantiated protocol runs in that model."
    },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
