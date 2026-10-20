@@ -5,7 +5,7 @@ title: LWE ⇒ Lossy TDF (Peikert–Waters)
 aliases: []
 id: red-lwe-to-lossy-trapdoor-function-pw08
 kind: implication
-hypotheses: [lwe]
+hypotheses: [polynomial-ratio-lwe]
 conclusion: lossy-trapdoor-function
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors|LWE]] is hard for suitable parameters, which follows from the worst-case quantum hardness of standard lattice problems — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], which follows from the worst-case quantum hardness of standard lattice problems to within polynomial factors — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]] — then [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] exist, and they give the first IND-CCA2-secure encryption from worst-case lattice assumptions — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 ## Sketch
 

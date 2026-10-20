@@ -6,7 +6,7 @@ aliases: []
 id: red-ddh-to-malicious-ot-security-pvw08
 kind: implication
 hypotheses: [ddh]
-conclusion: malicious-ot-security
+conclusion: uc-ot
 class: unstated
 model: crs
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-diffie-hellman|DDH]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is universally composable against [[oblivious-transfer#malicious-security|malicious]] static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
+If [[decisional-diffie-hellman|DDH]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
 
 ## Sketch
 

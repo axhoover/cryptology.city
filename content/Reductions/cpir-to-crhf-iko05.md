@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-A perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^c)$ for a constant $c < 1$, that is, a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one, yields a [[hash-function#collision-resistance|collision-resistant hash function]] family — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
+A perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, that is, a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one, yields a [[hash-function#collision-resistance|collision-resistant hash function]] family — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
 ## Sketch
 

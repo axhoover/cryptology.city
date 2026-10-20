@@ -80,7 +80,7 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 ### Constant-round public-coin zero-knowledge arguments
 
-A zero-knowledge argument with a constant number of messages, public coins and negligible soundness error — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]].
+A zero-knowledge argument for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages, public coins and negligible soundness error — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]]. Without the restriction every language in $\classBPP$ has one, in which the verifier decides alone — standard.
 
 ## Statistical zero-knowledge arguments
 
@@ -88,7 +88,7 @@ An argument system whose zero-knowledge property is statistical: the simulator's
 
 ## Constant-round zero-knowledge proofs
 
-A zero-knowledge proof (with soundness against unbounded provers) with a constant number of messages and negligible soundness error — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]].
+A zero-knowledge proof (with soundness against unbounded provers) for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages and negligible soundness error — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]].
 
 # Other results
 

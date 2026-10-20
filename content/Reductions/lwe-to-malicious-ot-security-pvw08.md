@@ -5,8 +5,8 @@ title: LWE ⇒ UC-secure OT (PVW)
 aliases: []
 id: red-lwe-to-malicious-ot-security-pvw08
 kind: implication
-hypotheses: [lwe]
-conclusion: malicious-ot-security
+hypotheses: [polynomial-ratio-lwe]
+conclusion: uc-ot
 class: unstated
 model: crs
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors|LWE]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is universally composable against [[oblivious-transfer#malicious-security|malicious]] static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
 
 ## Sketch
 

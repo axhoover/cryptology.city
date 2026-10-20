@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$, the four-round Feistel network with independently keyed round functions is a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^{2n}$, secure against distinguishers that also query the inverse — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
+If $\PRF$ is a [[pseudorandom-function|PRF]] on $\bits^n$ with $n = \omega(\log \secpar)$, the four-round Feistel network with independently keyed round functions is a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^{2n}$, secure against distinguishers that also query the inverse — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
 
 ## Sketch
 

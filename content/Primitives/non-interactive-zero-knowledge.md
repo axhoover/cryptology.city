@@ -48,7 +48,7 @@ There exists an efficient simulator $(\Sim_1, \Sim_2)$ where $\Sim_1(1^\secpar) 
 
 ## NIZK for NP
 
-A NIZK proof system for an $\classNP$-complete language, such as circuit satisfiability, and hence, composed with Karp reductions, for every language in $\classNP$. The restriction matters for constructions that prove statements about their own algorithms: for a language in $\classP$, an empty reference string and an empty proof with a verifier that decides the language are complete, sound and zero-knowledge with no assumption — standard.
+A NIZK proof system for an $\classNP$-complete language, such as circuit satisfiability, and hence, composed with Levin reductions (Karp reductions that also map witnesses in polynomial time), for every language in $\classNP$. The restriction matters for constructions that prove statements about their own algorithms: for a language in $\classP$, an empty reference string and an empty proof with a verifier that decides the language are complete, sound and zero-knowledge with no assumption — standard.
 
 ### NIZK arguments for NP
 
@@ -56,7 +56,7 @@ A NIZK argument for an $\classNP$-complete language: soundness holds only agains
 
 #### Non-adaptively sound NIZK arguments for NP
 
-A NIZK argument for an $\classNP$-complete language whose soundness holds only against efficient provers that fix the false statement $x$ before $\crs$ is sampled. Puncturing arguments that hard-wire $x$ into the reference string give this notion and not the adaptive one — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]].
+A NIZK argument for an $\classNP$-complete language whose soundness holds only against efficient provers that fix the false statement $x$ before $\crs$ is sampled. Puncturing arguments that hard-wire the false statement $x$ into a hybrid reference string prove this notion directly; the Sahai–Waters argument was shown only non-adaptively sound, and WW24 obtain adaptive soundness for a succinct variant from sub-exponentially secure iO and one-way functions together with polynomial hardness of discrete logarithms or factoring, by complexity leveraging — [[WW24 - Adaptively-Sound Succinct Arguments for NP from Indistinguishability Obfuscation|WW24]].
 
 ## NIZK proofs in the common random string model
 
