@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-[[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]] imply [[public-key-encryption#cca-security|IND-CCA-secure PKE]]: PW08 construct it from lossy TDFs of sufficient lossiness — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and MY10 from every lossy TDF, even one that loses a non-negligible fraction of one bit — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]. The first step is an IND-CPA scheme: the public key is an injective-mode index $s$ and a pairwise-independent hash $h$, and $m$ is encrypted as $(F_s(x), h(x) \oplus m)$ for uniform $x$. The IND-CCA scheme adds an all-but-one lossy TDF, which PW08 build from lossy TDFs of sufficient lossiness, and a strongly unforgeable one-time signature.
+[[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]] imply [[public-key-encryption#cca-security|IND-CCA-secure PKE]]: PW08 construct it from lossy TDFs of sufficient lossiness — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and MY10 from every lossy TDF, and even from slightly lossy ones that lose only a noticeable fraction of one bit — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]. The first step is an IND-CPA scheme: the public key is an injective-mode index $s$ and a pairwise-independent hash $h$, and $m$ is encrypted as $(F_s(x), h(x) \oplus m)$ for uniform $x$. The IND-CCA scheme adds an all-but-one lossy TDF, which PW08 build from lossy TDFs of sufficient lossiness, and a strongly unforgeable one-time signature.
 
 ## Sketch
 
