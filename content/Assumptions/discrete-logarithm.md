@@ -108,7 +108,7 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in b8345a9a617a -->
+<!-- BEGIN GENERATED participates-in 3491ef089007 -->
 
 ## Participates in
 
@@ -124,7 +124,9 @@ is negligible.
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]]
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
+- [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
 

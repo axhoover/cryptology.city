@@ -2752,6 +2752,19 @@
    "unlisted": false
   },
   {
+   "id": "ppa",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#ppa",
+   "of": "tfnp",
+   "title": "PPA",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ppad-hardness",
    "kind": "variant",
    "type": "complexity-class",
@@ -2776,6 +2789,19 @@
     "P/poly",
     "Non-uniform polynomial-time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "ppp",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#ppp",
+   "of": "tfnp",
+   "title": "PPP",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2902,6 +2928,19 @@
     "PSPACE",
     "Polynomial-Space"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "pwpp",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#pwpp",
+   "of": "tfnp",
+   "title": "PWPP",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3618,6 +3657,19 @@
    "anchor": "#subexponential-lpn",
    "of": "lpn",
    "title": "Subexponential LPN",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subexponential-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#sub-exponential-lwe",
+   "of": "lwe",
+   "title": "Sub-exponential LWE",
    "aliases": [],
    "unlisted": false
   },
@@ -6092,6 +6144,27 @@
    "title": "DLOG ⇒ PRG"
   },
   {
+   "id": "red-dlog-to-pwpp-hv21",
+   "kind": "inclusion",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "pwpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[HV21 - On Search Complexity of Discrete Logarithm|HV21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dlog-to-pwpp-hv21.md",
+   "slug": "dlog-to-pwpp-hv21",
+   "graphSlug": "Reductions/dlog-to-pwpp-hv21",
+   "title": "DLOG ∈ PWPP"
+  },
+  {
    "id": "red-dlog-to-schnorr-signatures-sch91",
    "kind": "implication",
    "hypotheses": [
@@ -6114,6 +6187,27 @@
    "slug": "dlog-to-schnorr-signatures-sch91",
    "graphSlug": "Reductions/dlog-to-schnorr-signatures-sch91",
    "title": "DLOG ⇒ Schnorr identification protocol"
+  },
+  {
+   "id": "red-dlog-to-szk-gk93",
+   "kind": "inclusion",
+   "hypotheses": [
+    "dlog"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GK93 - A Perfect Zero-Knowledge Proof System for a Problem Equivalent to the Discrete Logarithm|GK93]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dlog-to-szk-gk93.md",
+   "slug": "dlog-to-szk-gk93",
+   "graphSlug": "Reductions/dlog-to-szk-gk93",
+   "title": "DLOG ∈ SZK"
   },
   {
    "id": "red-dlog-to-tfnp",
@@ -6367,6 +6461,48 @@
    "title": "EXP ⊆ NEXP"
   },
   {
+   "id": "red-fac-to-bqp-shor97",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "bqp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-bqp-shor97.md",
+   "slug": "fac-to-bqp-shor97",
+   "graphSlug": "Reductions/fac-to-bqp-shor97",
+   "title": "FAC ∈ BQP (Shor)"
+  },
+  {
+   "id": "red-fac-to-conp-pra75",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Pra75 - Every Prime Has a Succinct Certificate|Pra75]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-conp-pra75.md",
+   "slug": "fac-to-conp-pra75",
+   "graphSlug": "Reductions/fac-to-conp-pra75",
+   "title": "FAC ∈ coNP"
+  },
+  {
    "id": "red-fac-to-ds-gmr88",
    "kind": "implication",
    "hypotheses": [
@@ -6389,6 +6525,69 @@
    "slug": "fac-to-ds-gmr88",
    "graphSlug": "Reductions/fac-to-ds-gmr88",
    "title": "FAC ⇒ DS"
+  },
+  {
+   "id": "red-fac-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-np.md",
+   "slug": "fac-to-np",
+   "graphSlug": "Reductions/fac-to-np",
+   "title": "FAC ∈ NP"
+  },
+  {
+   "id": "red-fac-to-ppa-jer16",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "ppa",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Jer16 - Integer factoring and modular square roots|Jer16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-ppa-jer16.md",
+   "slug": "fac-to-ppa-jer16",
+   "graphSlug": "Reductions/fac-to-ppa-jer16",
+   "title": "FAC ∈ PPA (under randomized reductions)"
+  },
+  {
+   "id": "red-fac-to-pwpp-jer16",
+   "kind": "inclusion",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "pwpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Jer16 - Integer factoring and modular square roots|Jer16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/fac-to-pwpp-jer16.md",
+   "slug": "fac-to-pwpp-jer16",
+   "graphSlug": "Reductions/fac-to-pwpp-jer16",
+   "title": "FAC ∈ PWPP (under randomized reductions)"
   },
   {
    "id": "red-fac-to-tfnp",
@@ -6611,6 +6810,48 @@
    "title": "Fuzzy IBE ⇒ IBE"
   },
   {
+   "id": "red-gapsvp-to-coam-gg00",
+   "kind": "inclusion",
+   "hypotheses": [
+    "gapsvp"
+   ],
+   "conclusion": "coam",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GG00 - On the limits of non-approximability of lattice problems|GG00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-to-coam-gg00.md",
+   "slug": "gapsvp-to-coam-gg00",
+   "graphSlug": "Reductions/gapsvp-to-coam-gg00",
+   "title": "GapSVP ∈ coAM for γ ≥ √(n/log n)"
+  },
+  {
+   "id": "red-gapsvp-to-conp-ar04",
+   "kind": "inclusion",
+   "hypotheses": [
+    "gapsvp"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[AR04 - Lattice Problems in NP intersect coNP|AR04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-to-conp-ar04.md",
+   "slug": "gapsvp-to-conp-ar04",
+   "graphSlug": "Reductions/gapsvp-to-conp-ar04",
+   "title": "GapSVP ∈ coNP for γ ≥ √n"
+  },
+  {
    "id": "red-gapsvp-to-lwe-reg05",
    "kind": "implication",
    "hypotheses": [
@@ -6636,6 +6877,27 @@
    "title": "GapSVP ⇒ LWE"
   },
   {
+   "id": "red-gapsvp-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "gapsvp"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-to-np.md",
+   "slug": "gapsvp-to-np",
+   "graphSlug": "Reductions/gapsvp-to-np",
+   "title": "GapSVP ∈ NP"
+  },
+  {
    "id": "red-gapsvp-to-sis-ajt96",
    "kind": "implication",
    "hypotheses": [
@@ -6658,6 +6920,27 @@
    "slug": "gapsvp-to-sis-ajt96",
    "graphSlug": "Reductions/gapsvp-to-sis-ajt96",
    "title": "GapSVP ⇒ SIS"
+  },
+  {
+   "id": "red-gapsvp-to-szk-mv03",
+   "kind": "inclusion",
+   "hypotheses": [
+    "gapsvp"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[MV03 - Statistical Zero-Knowledge Proofs with Efficient Provers Lattice Problems and More|MV03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-to-szk-mv03.md",
+   "slug": "gapsvp-to-szk-mv03",
+   "graphSlug": "Reductions/gapsvp-to-szk-mv03",
+   "title": "GapSVP ∈ SZK for γ ≥ √(n/log n)"
   },
   {
    "id": "red-gc-and-ot-to-two-party-computation-2pc",
@@ -9942,6 +10225,48 @@
    "title": "PP ⊆ PSPACE"
   },
   {
+   "id": "red-ppa-to-tfnp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ppa"
+   ],
+   "conclusion": "tfnp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ppa-to-tfnp.md",
+   "slug": "ppa-to-tfnp",
+   "graphSlug": "Reductions/ppa-to-tfnp",
+   "title": "PPA ⊆ TFNP"
+  },
+  {
+   "id": "red-ppp-to-tfnp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ppp"
+   ],
+   "conclusion": "tfnp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ppp-to-tfnp.md",
+   "slug": "ppp-to-tfnp",
+   "graphSlug": "Reductions/ppp-to-tfnp",
+   "title": "PPP ⊆ TFNP"
+  },
+  {
    "id": "red-prc-to-ske-cg24",
    "kind": "implication",
    "hypotheses": [
@@ -10273,6 +10598,27 @@
    "title": "PSPACE ⊆ IP"
   },
   {
+   "id": "red-pwpp-to-ppp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "pwpp"
+   ],
+   "conclusion": "ppp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/pwpp-to-ppp.md",
+   "slug": "pwpp-to-ppp",
+   "graphSlug": "Reductions/pwpp-to-ppp",
+   "title": "PWPP ⊆ PPP"
+  },
+  {
    "id": "red-qcma-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -10482,6 +10828,27 @@
    "slug": "qr-to-pke-gm84",
    "graphSlug": "Reductions/qr-to-pke-gm84",
    "title": "QR ⇒ PKE"
+  },
+  {
+   "id": "red-qr-to-szk-gmr85",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/qr-to-szk-gmr85.md",
+   "slug": "qr-to-szk-gmr85",
+   "graphSlug": "Reductions/qr-to-szk-gmr85",
+   "title": "QR ∈ SZK"
   },
   {
    "id": "red-qr-to-tdh-dgi-19",
@@ -11571,6 +11938,27 @@
    "slug": "subexponential-lpn-to-prc-cg24",
    "graphSlug": "Reductions/subexponential-lpn-to-prc-cg24",
    "title": "Subexponential LPN ⇒ PRC"
+  },
+  {
+   "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-lwe"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subexponential-lwe-to-ppad-hardness-jkkz21.md",
+   "slug": "subexponential-lwe-to-ppad-hardness-jkkz21",
+   "graphSlug": "Reductions/subexponential-lwe-to-ppad-hardness-jkkz21",
+   "title": "Sub-exponential LWE ⇒ PPAD hardness"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",
@@ -12780,6 +13168,65 @@
    "slug": "no-np-to-cpir-lv15",
    "graphSlug": "Barriers/no-np-to-cpir-lv15",
    "title": "No fully-black-box reduction from NP to cPIR"
+  },
+  {
+   "id": "bar-np-to-gapsvp-ar04",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "gapsvp",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "np-eq-conp",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[AR04 - Lattice Problems in NP intersect coNP|AR04]]"
+   ],
+   "rationale": {
+    "class": "The barrier concerns Karp reductions from an NP-complete problem to the promise problem, not constructions of one primitive from another, so no class of the vocabulary applies."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-gapsvp-ar04.md",
+   "slug": "no-np-to-gapsvp-ar04",
+   "graphSlug": "Barriers/no-np-to-gapsvp-ar04",
+   "title": "No Karp reduction from NP to GapSVP for γ ≥ √n unless NP = coNP"
+  },
+  {
+   "id": "bar-np-to-gapsvp-gg00",
+   "hypotheses": [
+    "np"
+   ],
+   "conclusion": "gapsvp",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[GG00 - On the limits of non-approximability of lattice problems|GG00]]",
+    "[[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]"
+   ],
+   "rationale": {
+    "class": "The barrier concerns Karp reductions from an NP-complete problem to the promise problem, not constructions of one primitive from another, so no class of the vocabulary applies."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-np-to-gapsvp-gg00.md",
+   "slug": "no-np-to-gapsvp-gg00",
+   "graphSlug": "Barriers/no-np-to-gapsvp-gg00",
+   "title": "No Karp reduction from NP to GapSVP for γ ≥ √(n/log n) unless coNP ⊆ AM"
   },
   {
    "id": "bar-np-to-hash-function-aggm06",

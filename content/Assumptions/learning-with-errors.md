@@ -21,6 +21,7 @@ variants:
   search-lwe: "#search-lwe"
   circular-evasive-lwe: "#circular-evasive-lwe"
   tensor-lwe: "#tensor-lwe"
+  subexponential-lwe: "#sub-exponential-lwe"
   module-lwe-rank-1: "#rank-1-module-lwe"
   module-lwe-rank-n: "#degree-1-module-lwe"
 ---
@@ -121,6 +122,10 @@ The hardness of LWE rests on worst-case lattice problems via a quantum reduction
 LWE with $q = 2$ is the [[learning-parity-with-noise|LPN]] problem, where $\chi$ is a Bernoulli distribution.
 
 [[#Ring LWE|Ring LWE (RLWE)]] replaces the random matrix $\mathbf{A}$ with structured elements from a polynomial ring $\ZZ_q[x]/\langle f(x) \rangle$, yielding more efficient constructions at the cost of additional algebraic structure.
+
+## Sub-exponential LWE
+
+LWE is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such that every adversary of size $2^{n^{\varepsilon}}$ solves it with probability at most $2^{-n^{\varepsilon}}$. It follows from sub-exponential quantum hardness of worst-case lattice problems through [[sivp-to-lwe-reg05|Regev's reduction]], which runs in polynomial time — [[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]].
 
 ## Ring LWE
 
@@ -316,7 +321,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 543693d7cd54 -->
+<!-- BEGIN GENERATED participates-in 8c2d3bea888e -->
 
 ## Participates in
 
@@ -343,6 +348,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
+- [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[succinct-lwe-to-abe-wee25|Succinct LWE ⇒ ABE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]] (via [[learning-with-errors#succinct-lwe|Succinct LWE]])
 

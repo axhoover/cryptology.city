@@ -8,6 +8,9 @@ title: Total function NP
 id: tfnp
 variants:
   ppad-hardness: "#subclasses"
+  ppa: "#ppa"
+  ppp: "#ppp"
+  pwpp: "#pwpp"
 ---
 
 # Total function NP
@@ -30,6 +33,18 @@ TFNP contains several important subclasses defined by the combinatorial principl
 - **PPA** (Polynomial Parity Argument): related to graph parity arguments. Integer factorization reduces to a PPA problem in randomized polynomial time, and deterministically under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
 - **PLS** (Polynomial Local Search): finding local optima. Contains many optimization problems.
 
+### PPP
+
+The class of total search problems reducible to Pigeon: given a circuit $C : \bits^n \to \bits^n$, find $x$ with $C(x) = 0^n$ or a collision $x \ne y$, $C(x) = C(y)$ — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]].
+
+### PWPP
+
+The class of total search problems reducible to Weak Pigeon: given a circuit $C : \bits^n \to \bits^{n-1}$, find a collision. The class is due to [[Jer16 - Integer factoring and modular square roots|Jer16]]; $\mathbf{PWPP} \subseteq \mathbf{PPP}$, and a collision-resistant hash function family is a hard-on-average PWPP problem — standard.
+
+### PPA
+
+The class of total search problems reducible to Leaf: given a circuit describing an undirected graph of maximum degree two with a degree-one vertex $0^n$, find another vertex of degree one — [[Pap94 - On the complexity of the parity argument and other inefficient proofs of existence|Pap94]].
+
 ## Known relationships
 
 - $\classP \subseteq \classFP \subseteq \classTFNP \subseteq \mathbf{FNP}$.
@@ -39,14 +54,27 @@ TFNP contains several important subclasses defined by the combinatorial principl
 
 Integer factorization and discrete logarithm — the two most historically important hard problems in cryptography — are both in TFNP, formalizing the intuition that they are "hard search problems with guaranteed solutions." Recent work derives hardness of TFNP subclasses (especially PPAD) from cryptographic assumptions: PPAD is hard assuming indistinguishability obfuscation and one-way functions, both sub-exponentially secure — [[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]].
 
-<!-- BEGIN GENERATED participates-in 05a8a650a6d7 -->
+<!-- BEGIN GENERATED participates-in 0fd7c54961de -->
 
 ## Participates in
 
+**Builds on Total function NP**
+
+- [[ppa-to-tfnp|PPA ⊆ TFNP]] (via [[total-function-np#ppa|PPA]])
+- [[ppp-to-tfnp|PPP ⊆ TFNP]] (via [[total-function-np#ppp|PPP]])
+- [[pwpp-to-ppp|PWPP ⊆ PPP]] (via [[total-function-np#pwpp|PWPP]])
+
 **Produces Total function NP**
 
+- [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]] (via [[total-function-np#pwpp|PWPP]])
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
+- [[fac-to-ppa-jer16|FAC ∈ PPA (under randomized reductions)]] (via [[total-function-np#ppa|PPA]])
+- [[fac-to-pwpp-jer16|FAC ∈ PWPP (under randomized reductions)]] (via [[total-function-np#pwpp|PWPP]])
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
+- [[ppa-to-tfnp|PPA ⊆ TFNP]]
+- [[ppp-to-tfnp|PPP ⊆ TFNP]]
+- [[pwpp-to-ppp|PWPP ⊆ PPP]] (via [[total-function-np#ppp|PPP]])
 - [[subclasses-to-hash-function|OWF + iO ⇒ PPAD hardness]] (via [[total-function-np#subclasses|Subclasses]])
+- [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[total-function-np#subclasses|Subclasses]])
 
 <!-- END GENERATED participates-in -->

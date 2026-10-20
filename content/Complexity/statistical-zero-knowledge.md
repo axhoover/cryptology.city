@@ -39,7 +39,7 @@ $\mathbf{coSZK}$ is the class of complements of problems in SZK — [[Oka96 - On
 
 $\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of circuits $(C_0, C_1)$ sampling distributions $D_0, D_1$, with yes-instances $\|D_0 - D_1\|_{\mathrm{TV}} \ge \alpha$ and no-instances $\|D_0 - D_1\|_{\mathrm{TV}} \le \beta$; the standard choice is $(\alpha, \beta) = (2/3, 1/3)$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
 
-<!-- BEGIN GENERATED participates-in f512a0380dcf -->
+<!-- BEGIN GENERATED participates-in 434a7e953be5 -->
 
 ## Participates in
 
@@ -57,7 +57,10 @@ $\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of
 **Produces Statistical zero-knowledge**
 
 - [[coszk-to-szk-oka96|SZK = coSZK]]
+- [[dlog-to-szk-gk93|DLOG ∈ SZK]]
+- [[gapsvp-to-szk-mv03|GapSVP ∈ SZK for γ ≥ √(n/log n)]]
 - [[honest-verifier-szk-to-szk-gsv98|HVSZK = SZK]]
+- [[qr-to-szk-gmr85|QR ∈ SZK]]
 - [[statistical-difference-to-szk-sv03|Statistical Difference is SZK-complete]]
 
 <!-- END GENERATED participates-in -->
