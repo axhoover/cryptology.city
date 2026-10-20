@@ -5511,6 +5511,30 @@
    "title": "IND-CPA ⇔ Semantic security"
   },
   {
+   "id": "red-cpa-security-to-ske",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "ske",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cpa-security-to-ske.md",
+   "slug": "cpa-security-to-ske",
+   "graphSlug": "Reductions/cpa-security-to-ske",
+   "title": "CPA-secure SKE ⇒ SKE"
+  },
+  {
    "id": "red-cpir-to-crhf-iko05",
    "kind": "implication",
    "hypotheses": [
