@@ -8,6 +8,7 @@ aliases:
 title: Decisional Diffie-Hellman
 id: ddh
 variants:
+  subexponential-ddh: "#sub-exponential-ddh"
   decisional-linear: "#dlin"
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
   subexponential-sxdh: "#sub-exponential-sxdh"
@@ -55,7 +56,8 @@ is negligible.
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - DDH implies [[pseudorandom-function|PRF]]s via the Naor-Reingold construction, which maps inputs in $\bits^n$ to group elements using a secret exponent vector — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]
-- DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves): given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — [[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]
+- [[no-cdh-to-ddh-jn03|No fixed-construction reduction from CDH to DDH]]: DDH is easy in groups that admit efficient symmetric bilinear pairings (e.g., certain supersingular elliptic curves), where CDH can still be hard: given $(g^x, g^y, g^z)$, check whether $e(g^x, g^y) = e(g, g^z)$ — [[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]
+- [[no-ddh-to-ibe-prv12|No fully-black-box reduction from DDH to IBE]]
 - In the [[generic-group-model|Generic Group Model]], for groups of prime order $p$, $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le O(\frac{q^2}{p})$, where $q$ is the number of queries that $\calA$ issues — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
 
 ## Attacks
@@ -69,6 +71,10 @@ is negligible.
 In the above definition, we implicitly allow $\GrGen$ to choose a _random_
 generator $g$ for the group $\GG$. However, [[BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions|BMZ19]] has explored technical differences between this model and one where $g$ is selected
 deterministically.
+
+## Sub-exponential DDH
+
+DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$, with no pairing on the group, suffices for NIZK arguments for $\classNP$ — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
 
 ## DLIN
 
@@ -94,7 +100,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in b5d7a4c3ee1a -->
+<!-- BEGIN GENERATED participates-in d11843d1787d -->
 
 ## Participates in
 
@@ -102,6 +108,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]]
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]]
@@ -113,14 +120,26 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[ddh-to-prf-nr97|DDH ⇒ PRF (Naor–Reingold)]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
+- [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
+- [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
+- [[subexponential-ddh-to-ppad-hardness-klv23|Sub-exponential DDH ⇒ PPAD hardness]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
+- [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]]
+- [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
+
+**Barriers**
+
+- [[no-cdh-to-ddh-jn03|No fixed-construction reduction from CDH to DDH]]
+- [[no-ddh-to-ibe-prv12|No fully-black-box reduction from DDH to IBE]] — circumvented by [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]]
 
 <!-- END GENERATED participates-in -->

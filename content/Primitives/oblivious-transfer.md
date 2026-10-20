@@ -137,7 +137,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|UC-secure OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in 2c139462aebd -->
+<!-- BEGIN GENERATED participates-in 83305ffbe21b -->
 
 ## Participates in
 
@@ -160,6 +160,7 @@ An OT protocol is **UC-secure** if it UC-realizes the ideal 1-out-of-2 OT functi
 
 **Produces Oblivious transfer**
 
+- [[cdh-to-uc-ot-dghmw20|CDH ⇒ UC-secure OT (DGHMW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#uc-secure-ot|UC-secure OT]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]

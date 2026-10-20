@@ -99,7 +99,7 @@ A zero-knowledge proof (with soundness against unbounded provers) for an $\class
 - Auxiliary-input zero knowledge is preserved under sequential composition — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]; the original definition without auxiliary input is not, and zero knowledge is not closed under parallel composition — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 792ff38c7f3e -->
+<!-- BEGIN GENERATED participates-in bcf5806a9786 -->
 
 ## Participates in
 
@@ -110,6 +110,7 @@ A zero-knowledge proof (with soundness against unbounded provers) for an $\class
 
 **Produces Zero-knowledge proof**
 
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#zaps|Zaps]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]

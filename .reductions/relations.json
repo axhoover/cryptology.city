@@ -3975,6 +3975,19 @@
    "unlisted": false
   },
   {
+   "id": "subexponential-ddh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#sub-exponential-ddh",
+   "of": "ddh",
+   "title": "Sub-exponential DDH",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "subexponential-io",
    "kind": "variant",
    "type": "primitive",
@@ -5091,6 +5104,53 @@
    "title": "k-Lin ⇒ VRF"
   },
   {
+   "id": "red-bilinear-pairing-and-dlin-to-zap-gos06",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "decisional-linear"
+   ],
+   "conclusion": "zap",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-dlin-to-zap-gos06.md",
+   "slug": "bilinear-pairing-and-dlin-to-zap-gos06",
+   "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-zap-gos06",
+   "title": "Bilinear pairing + DLIN ⇒ Zaps (non-interactive)"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-strong-diffie-hellman"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BB04a - Short Signatures Without Random Oracles|BB04a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses the bilinear group only through group operations and the pairing, and the reduction runs any forger as an oracle and turns its forgery into a q-SDH solution."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-sdh-to-ds-bb04a.md",
+   "slug": "bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-sdh-to-ds-bb04a",
+   "title": "Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)"
+  },
+  {
    "id": "red-bilinear-pairing-and-q-sdh-to-pcs-kzg10",
    "kind": "implication",
    "hypotheses": [
@@ -5393,6 +5453,30 @@
    "title": "CDH ⇒ DLOG"
   },
   {
+   "id": "red-cdh-to-ind-id-cpa-dg17a",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The garbled circuits that the construction evaluates contain the code of chameleon encryption built from the group, so the construction uses the CDH group non-black-box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-ind-id-cpa-dg17a.md",
+   "slug": "cdh-to-ind-id-cpa-dg17a",
+   "graphSlug": "Reductions/cdh-to-ind-id-cpa-dg17a",
+   "title": "CDH ⇒ IBE (Döttling–Garg)"
+  },
+  {
    "id": "red-cdh-to-non-interactive-key-exchange-dh76",
    "kind": "implication",
    "hypotheses": [
@@ -5416,6 +5500,30 @@
    "slug": "cdh-to-non-interactive-key-exchange-dh76",
    "graphSlug": "Reductions/cdh-to-non-interactive-key-exchange-dh76",
    "title": "CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)"
+  },
+  {
+   "id": "red-cdh-to-uc-ot-dghmw20",
+   "kind": "implication",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "uc-ot",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Two-round universally composable OT is proved in the common reference string model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cdh-to-uc-ot-dghmw20.md",
+   "slug": "cdh-to-uc-ot-dghmw20",
+   "graphSlug": "Reductions/cdh-to-uc-ot-dghmw20",
+   "title": "CDH ⇒ UC-secure OT (DGHMW)"
   },
   {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
@@ -6542,6 +6650,30 @@
    "slug": "decision-lwe-to-search-lwe",
    "graphSlug": "Reductions/decision-lwe-to-search-lwe",
    "title": "Decision LWE ⇒ Search LWE"
+  },
+  {
+   "id": "red-decisional-linear-to-pke-bbs04",
+   "kind": "implication",
+   "hypotheses": [
+    "decisional-linear"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BBS04 - Short Group Signatures|BBS04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight up to an additive $O(1/p)$: one oracle call",
+   "rationale": {
+    "class": "Linear Encryption uses only the group generator, and the fixed reduction builds the public key and challenge ciphertext from the DLIN challenge and runs any CPA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/decisional-linear-to-pke-bbs04.md",
+   "slug": "decisional-linear-to-pke-bbs04",
+   "graphSlug": "Reductions/decisional-linear-to-pke-bbs04",
+   "title": "DLIN ⇒ PKE (Linear Encryption)"
   },
   {
    "id": "red-depir-to-cpir",
@@ -13104,6 +13236,75 @@
    "title": "Sub-exponentially selective HIBE ⇒ adaptive HIBE"
   },
   {
+   "id": "red-subexponential-ddh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on group generators, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-ddh.md",
+   "slug": "subexponential-ddh-to-ddh",
+   "graphSlug": "Reductions/subexponential-ddh-to-ddh",
+   "title": "Sub-exponential DDH ⇒ DDH"
+  },
+  {
+   "id": "red-subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Soundness and zero knowledge hold with respect to a reference string generated by a trusted setup."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-nizk-argument-for-np-jj21.md",
+   "slug": "subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "graphSlug": "Reductions/subexponential-ddh-to-nizk-argument-for-np-jj21",
+   "title": "Sub-exponential DDH ⇒ NIZK argument for NP"
+  },
+  {
+   "id": "red-subexponential-ddh-to-ppad-hardness-klv23",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-ddh"
+   ],
+   "conclusion": "ppad-hardness",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subexponential-ddh-to-ppad-hardness-klv23.md",
+   "slug": "subexponential-ddh-to-ppad-hardness-klv23",
+   "graphSlug": "Reductions/subexponential-ddh-to-ppad-hardness-klv23",
+   "title": "Sub-exponential DDH ⇒ PPAD hardness"
+  },
+  {
    "id": "red-subexponential-io-and-owf-to-tdp-bpw16",
    "kind": "implication",
    "hypotheses": [
@@ -13422,6 +13623,30 @@
    "slug": "subexponential-prg-in-nc0-to-prg-in-nc0",
    "graphSlug": "Reductions/subexponential-prg-in-nc0-to-prg-in-nc0",
    "title": "Sub-exponentially secure NC0 PRG ⇒ NC0 PRG"
+  },
+  {
+   "id": "red-subexponential-sxdh-to-subexponential-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-sxdh"
+   ],
+   "conclusion": "subexponential-ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the pairing generator's output, and the reduction forwards any DDH adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-sxdh-to-subexponential-ddh.md",
+   "slug": "subexponential-sxdh-to-subexponential-ddh",
+   "graphSlug": "Reductions/subexponential-sxdh-to-subexponential-ddh",
+   "title": "Sub-exponential SXDH ⇒ Sub-exponential DDH"
   },
   {
    "id": "red-subexponential-sxdh-to-sxdh",
@@ -14188,6 +14413,38 @@
    "title": "No relativizing reduction from BQP to NP"
   },
   {
+   "id": "bar-cdh-to-ddh-jn03",
+   "hypotheses": [
+    "cdh"
+   ],
+   "conclusion": "ddh",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "bdh"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[JN03 - Separating Decision Diffie-Hellman from Computational Diffie-Hellman in Cryptographic Groups|JN03]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map on group generators, CDH hardness of a generator implying DDH hardness of the same generator, and does not rule out building a DDH-hard group from a CDH-hard one by another construction.",
+    "strength": "The separating generator has hard CDH only if BDH is hard for some symmetric-pairing group generator."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cdh-to-ddh-jn03.md",
+   "slug": "no-cdh-to-ddh-jn03",
+   "graphSlug": "Barriers/no-cdh-to-ddh-jn03",
+   "title": "No fixed-construction reduction from CDH to DDH"
+  },
+  {
    "id": "bar-conp-to-am-bm88",
    "hypotheses": [
     "conp"
@@ -14245,6 +14502,38 @@
    "slug": "no-cpa-security-to-ind-cpa-security",
    "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
    "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
+  },
+  {
+   "id": "bar-ddh-to-ibe-prv12",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-cdh-to-ind-id-cpa-dg17a"
+   ],
+   "source": [
+    "[[PRV12 - How powerful are the DDH hard groups|PRV12]]"
+   ],
+   "rationale": {
+    "class": "The attack breaks every IBE scheme that accesses a generic prime-order group only through its group-operation oracle, which is how a fully-black-box construction uses a DDH-hard group.",
+    "strength": "The attack is proved in the generic group model and assumes no unproven hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-ddh-to-ibe-prv12.md",
+   "slug": "no-ddh-to-ibe-prv12",
+   "graphSlug": "Barriers/no-ddh-to-ibe-prv12",
+   "title": "No fully-black-box reduction from DDH to IBE"
   },
   {
    "id": "bar-falsifiable-assumption-to-snark-gro16",
