@@ -35,5 +35,5 @@ The inverter for $f$ plants its challenge $y$ at a uniform position $i \in [t]$ 
 
 ## Notes
 
-- Every one-way function is weakly one-way, so either kind exists iff the other does — folklore.
+- Every one-way function is weakly one-way — folklore; with this reduction, weak one-way functions exist iff one-way functions do.
 - The amplification is not security preserving: the security of $F$ on $N$-bit inputs rests on that of $f$ on $n$-bit inputs with $N = n^2 p(n)$. For a weak one-way permutation, iterating the permutation along a random walk on an expander graph replaces the independent blocks and keeps the input length linear in $n$ — [[GILVZ90 - Security Preserving Amplification of Hardness|GILVZ90]].
