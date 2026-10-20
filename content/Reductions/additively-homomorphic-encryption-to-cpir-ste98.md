@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]]"
-security-loss: "a factor of the number of query ciphertexts, from a hybrid over them"
+security-loss: "a factor 2 per recursion level, from a hybrid through the all-zero query"
 rationale:
   class: "The server computes on ciphertexts only through the scheme's homomorphic operations, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
 ---
