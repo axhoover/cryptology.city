@@ -46,7 +46,7 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 - [[owp-to-hash-function|OWP ⇒ OWF]] — folklore
 - [[no-injective-owf-to-owp-mm11|No fully black-box construction of OWP from length-increasing injective OWF]] — [[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]
 
-<!-- BEGIN GENERATED participates-in bd9bb96527ae -->
+<!-- BEGIN GENERATED participates-in 7ecb26f2c1b0 -->
 
 ## Participates in
 
@@ -54,8 +54,10 @@ is negligible — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. Har
 
 - [[io-and-owp-to-cls-hardness-hy17|iO + OWP ⇒ CLS hardness]]
 - [[io-and-owp-to-ppad-hardness-gps16|iO + OWP ⇒ PPAD hardness]]
+- [[owp-to-conp|OWP inversion ∈ NP ∩ coNP]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
+- [[owp-to-size-verifiable-owf|OWP ⇒ Size-verifiable OWF]]
 - [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]]
 - [[owp-to-uowhf-ny89|OWP ⇒ UOWHF (Naor–Yung)]]
 

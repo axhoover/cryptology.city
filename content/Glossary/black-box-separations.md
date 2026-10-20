@@ -75,7 +75,7 @@ A black-box security reduction would convert this eavesdropper (which is efficie
 
 - [[no-injective-owf-to-owp-mm11|No fully-black-box reduction from length-increasing injective OWF to OWP]]
 
-- **Relativized cryptography** — [[Bra79 - Relativized cryptography|Bra79]] was among the first systematic treatments of oracle separations in a cryptographic setting, predating IR89.
+- **Relativized cryptography** — [[Bra79 - Relativized cryptography|Bra79a]] was among the first systematic treatments of oracle separations in a cryptographic setting, predating IR89.
 
 - [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
 
