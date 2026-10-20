@@ -25,7 +25,7 @@ rationale:
 
 ## Sketch
 
-The reference string holds an obfuscation of a program that, on a statement $x$ and a valid witness, outputs $F(K, x)$ for a puncturable PRF key $K$, and an obfuscation of a program that accepts $(x, \pi)$ iff $f(\pi) = f(F(K, x))$ for a one-way function $f$. The proof is $\pi := F(K, x)$. For zero knowledge, the simulator computes $F(K, x)$ directly, and soundness follows by puncturing $K$ at a false statement $x$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
+The reference string holds an obfuscation of a program that, on a statement $x$ and a valid witness, outputs $F(K, x)$ for a puncturable PRF key $K$, and an obfuscation of a program that accepts $(x, \pi)$ iff $f(\pi) = f(F(K, x))$ for a one-way function $f$. The proof is $\pi := F(K, x)$. For zero knowledge, the simulator computes $F(K, x)$ directly. Soundness is computational and non-adaptive: for a false statement $x$ fixed before the reference string, the obfuscated programs can use $K$ punctured at $x$ with $f(F(K, x))$ hard-wired, then a uniform value in place of $F(K, x)$, after which an accepted proof for $x$ inverts $f$ — [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Notes
 
