@@ -23,7 +23,7 @@ TODO: syntax and security definition.
 
 For $h = g^x$ in a group of prime order $p$, the prover sends $a = g^r$ for $r \getsr \ZZ_p$, receives a uniform challenge $e$, and replies $z = r + ex \bmod p$; the verifier accepts iff $g^z = a h^e$. The protocol is special sound and perfectly honest-verifier zero-knowledge — [[Sch91 - Efficient signature generation by smart cards|Sch91]].
 
-<!-- BEGIN GENERATED participates-in 32c0dac240bc -->
+<!-- BEGIN GENERATED participates-in adf532c7fc6b -->
 
 ## Participates in
 
@@ -31,6 +31,7 @@ For $h = g^x$ in a group of prime order $p$, the prover sends $a = g^r$ for $r \
 
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
+- [[identification-scheme-to-owf-il89|ID ⇒ OWF]]
 
 **Produces Identification scheme**
 

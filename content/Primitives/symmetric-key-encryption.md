@@ -136,7 +136,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 
-<!-- BEGIN GENERATED participates-in 33cbbc1a6a1a -->
+<!-- BEGIN GENERATED participates-in 2ae4cf27d1a5 -->
 
 ## Participates in
 
@@ -145,6 +145,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
 - [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
+- [[ske-to-owf-il89|SKE ⇒ OWF]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Produces Symmetric key encryption**
 

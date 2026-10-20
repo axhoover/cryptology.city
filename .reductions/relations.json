@@ -664,6 +664,19 @@
    "unlisted": false
   },
   {
+   "id": "compact-prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-compactly-encoded-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in compactly encoded prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -2743,6 +2756,19 @@
    "unlisted": true
   },
   {
+   "id": "prime-order-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-prime-order-groups",
+   "of": "dlog",
+   "title": "DLOG in prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "private-coin-evasive-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -3721,6 +3747,19 @@
    "unlisted": false
   },
   {
+   "id": "uowhf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#target-collision-resistance-universal-one-wayness",
+   "of": "hash-function",
+   "title": "Target collision resistance (universal one-wayness)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "vector-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -3770,6 +3809,19 @@
    "anchor": "#virtual-black-box-obfuscation-vbb",
    "of": "io",
    "title": "Virtual black-box obfuscation (VBB)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "weak-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-function.md",
+   "slug": "hash-function",
+   "graphSlug": "Primitives/hash-function",
+   "anchor": "#weak-one-wayness",
+   "of": "hash-function",
+   "title": "Weak one-wayness",
    "aliases": [],
    "unlisted": false
   },
@@ -4663,6 +4715,54 @@
    "title": "co-CDH ⇒ DS"
   },
   {
+   "id": "red-com-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "com"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The one-way function evaluates the committer's algorithm only as an oracle, and the attack on hiding or binding runs a distributional inverter for that function, obtained from any inverter by IL89's transformation, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/com-to-owf-il89.md",
+   "slug": "com-to-owf-il89",
+   "graphSlug": "Reductions/com-to-owf-il89",
+   "title": "COM ⇒ OWF"
+  },
+  {
+   "id": "red-compact-prime-order-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-prime-order-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/compact-prime-order-dlog-to-prime-order-dlog.md",
+   "slug": "compact-prime-order-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
+   "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-conp-to-coam",
    "kind": "inclusion",
    "hypotheses": [
@@ -4773,6 +4873,55 @@
    "slug": "crhf-to-constant-round-zk-argument-bar01",
    "graphSlug": "Reductions/crhf-to-constant-round-zk-argument-bar01",
    "title": "CRHF ⇒ Constant-round ZK argument (Barak)"
+  },
+  {
+   "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "statistically-hiding-commitment",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]]",
+    "[[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: two valid openings to different messages are a collision",
+   "rationale": {
+    "class": "The committer evaluates the hash only as an oracle, and the reduction outputs the two preimages from any committer that opens one commitment two ways, running it once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-statistically-hiding-commitment-dpp97.md",
+   "slug": "crhf-to-statistically-hiding-commitment-dpp97",
+   "graphSlug": "Reductions/crhf-to-statistically-hiding-commitment-dpp97",
+   "title": "CRHF ⇒ Statistically hiding COM"
+  },
+  {
+   "id": "red-crhf-to-weak-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "weak-owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive 2^{-(n-m)}: an inverter with success ε gives a collision finder with success at least ε − 2^{-(n-m)}",
+   "rationale": {
+    "class": "The weak one-way function is the hash family itself, used only as an oracle, and the collision finder runs any inverter once as an oracle on the hash of a uniform input."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-weak-owf.md",
+   "slug": "crhf-to-weak-owf",
+   "graphSlug": "Reductions/crhf-to-weak-owf",
+   "title": "CRHF ⇒ Weak OWF"
   },
   {
    "id": "red-czk-to-ip",
@@ -5403,7 +5552,7 @@
    "id": "red-dlog-to-com-ped91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
@@ -5443,6 +5592,30 @@
    "slug": "dlog-to-conp",
    "graphSlug": "Reductions/dlog-to-conp",
    "title": "DLOG ⊆ coNP"
+  },
+  {
+   "id": "red-dlog-to-crhf-cvhp91",
+   "kind": "implication",
+   "hypotheses": [
+    "compact-prime-order-dlog"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: every collision yields log_g h",
+   "rationale": {
+    "class": "The hash uses only the group operations, and one fixed reduction embeds its DLOG challenge as the second generator and computes the logarithm from any collision, running the collision finder once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dlog-to-crhf-cvhp91.md",
+   "slug": "dlog-to-crhf-cvhp91",
+   "graphSlug": "Reductions/dlog-to-crhf-cvhp91",
+   "title": "DLOG ⇒ CRHF"
   },
   {
    "id": "red-dlog-to-np",
@@ -6760,6 +6933,30 @@
    "slug": "ideal-svp-to-ring-sis-lm06",
    "graphSlug": "Reductions/ideal-svp-to-ring-sis-lm06",
    "title": "Ideal-SVP ⇒ Ring-SIS"
+  },
+  {
+   "id": "red-identification-scheme-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "identification-scheme"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The one-way function evaluates the key generator only as an oracle, and the impersonation attack runs a distributional inverter for it, obtained from any inverter by IL89's transformation, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/identification-scheme-to-owf-il89.md",
+   "slug": "identification-scheme-to-owf-il89",
+   "graphSlug": "Reductions/identification-scheme-to-owf-il89",
+   "title": "ID ⇒ OWF"
   },
   {
    "id": "red-ind-cca-security-to-ind-cpa-kem",
@@ -8252,6 +8449,54 @@
    "title": "OWF ⇒ PRG"
   },
   {
+   "id": "red-owf-to-statistically-hiding-commitment-hr07",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "statistically-hiding-commitment",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[HR07 - Statistically-hiding commitment from any one-way function|HR07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The committer evaluates the one-way function only as an oracle, and the reduction inverts it using any binding-breaking committer only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-statistically-hiding-commitment-hr07.md",
+   "slug": "owf-to-statistically-hiding-commitment-hr07",
+   "graphSlug": "Reductions/owf-to-statistically-hiding-commitment-hr07",
+   "title": "OWF ⇒ Statistically hiding COM (Haitner–Reingold)"
+  },
+  {
+   "id": "red-owf-to-uowhf-rom90",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "uowhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The hash family evaluates the one-way function only as an oracle, and the reduction inverts it using any target-collision finder only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-uowhf-rom90.md",
+   "slug": "owf-to-uowhf-rom90",
+   "graphSlug": "Reductions/owf-to-uowhf-rom90",
+   "title": "OWF ⇒ UOWHF (Rompel)"
+  },
+  {
    "id": "red-owp-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -8274,6 +8519,79 @@
    "slug": "owp-to-hash-function",
    "graphSlug": "Reductions/owp-to-hash-function",
    "title": "OWP ⇒ OWF"
+  },
+  {
+   "id": "red-owp-to-prg-yao82a-gl89",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "prg",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]",
+    "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor ℓ (the output length) from the hybrid argument, plus the polynomial loss of Goldreich–Levin decoding",
+   "rationale": {
+    "class": "The generator evaluates the permutation only as an oracle, and the reduction turns any distinguisher, used only as an oracle, into a predictor for the inner-product bit and then, by Goldreich–Levin decoding, into an inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-prg-yao82a-gl89.md",
+   "slug": "owp-to-prg-yao82a-gl89",
+   "graphSlug": "Reductions/owp-to-prg-yao82a-gl89",
+   "title": "OWP ⇒ PRG (Blum–Micali–Yao)"
+  },
+  {
+   "id": "red-owp-to-statistically-hiding-commitment-novy98",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "statistically-hiding-commitment",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a cheating committer opening both ways with probability ε inverts the permutation with probability poly(ε, 1/n)",
+   "rationale": {
+    "class": "The committer evaluates the permutation only as an oracle, and one fixed reduction inverts it by steering the interactive hashing towards its challenge while running any binding-breaking committer only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-statistically-hiding-commitment-novy98.md",
+   "slug": "owp-to-statistically-hiding-commitment-novy98",
+   "graphSlug": "Reductions/owp-to-statistically-hiding-commitment-novy98",
+   "title": "OWP ⇒ Statistically hiding COM (NOVY)"
+  },
+  {
+   "id": "red-owp-to-uowhf-ny89",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "uowhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: an adversary finding a target collision with probability ε inverts the permutation with probability ε(1 - 2^{-n})",
+   "rationale": {
+    "class": "The hash evaluates the permutation only as an oracle, and one fixed reduction embeds its inversion challenge in the key it hands any target-collision finder, which it runs once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-uowhf-ny89.md",
+   "slug": "owp-to-uowhf-ny89",
+   "graphSlug": "Reductions/owp-to-uowhf-ny89",
+   "title": "OWP ⇒ UOWHF (Naor–Yung)"
   },
   {
    "id": "red-p-to-bpp",
@@ -8778,6 +9096,30 @@
    "title": "PRF ⇒ CPA-secure SKE"
   },
   {
+   "id": "red-prg-in-nc1-to-low-complexity-prg-nc0-aik06",
+   "kind": "implication",
+   "hypotheses": [
+    "prg-in-nc1"
+   ],
+   "conclusion": "low-complexity-prg-nc0",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[AIK06 - Cryptography in NC0|AIK06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: a distinguisher for the encoding is a distinguisher for G after applying the simulator",
+   "rationale": {
+    "class": "The compiler builds the randomized encoding from G's branching program, so the construction uses G's code; the security reduction only composes any distinguisher with the encoding's simulator."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-in-nc1-to-low-complexity-prg-nc0-aik06.md",
+   "slug": "prg-in-nc1-to-low-complexity-prg-nc0-aik06",
+   "graphSlug": "Reductions/prg-in-nc1-to-low-complexity-prg-nc0-aik06",
+   "title": "PRG in NC1 ⇒ PRG in NC0 (AIK)"
+  },
+  {
    "id": "red-prg-to-com-naor91",
    "kind": "implication",
    "hypotheses": [
@@ -8872,6 +9214,30 @@
    "slug": "prg-to-prf-ggm86",
    "graphSlug": "Reductions/prg-to-prf-ggm86",
    "title": "PRG ⇒ PRF (GGM)"
+  },
+  {
+   "id": "red-prime-order-dlog-to-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-dlog.md",
+   "slug": "prime-order-dlog-to-dlog",
+   "graphSlug": "Reductions/prime-order-dlog-to-dlog",
+   "title": "Prime-order DLOG ⇒ DLOG"
   },
   {
    "id": "red-prp-to-invertible-prf",
@@ -9653,6 +10019,30 @@
    "title": "SIVP ⇒ SIS"
   },
   {
+   "id": "red-ske-to-owf-il89",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The one-way function evaluates the encryption algorithm only as an oracle, and the attack on the scheme runs a distributional inverter for that function, obtained from any inverter by IL89's transformation, only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ske-to-owf-il89.md",
+   "slug": "ske-to-owf-il89",
+   "graphSlug": "Reductions/ske-to-owf-il89",
+   "title": "SKE ⇒ OWF"
+  },
+  {
    "id": "red-snark-and-owf-to-nizk-kmy20",
    "kind": "implication",
    "hypotheses": [
@@ -10394,6 +10784,55 @@
    "title": "Unkeyed DEPIR ⇒ PK-DEPIR"
   },
   {
+   "id": "red-uowhf-and-ots-to-ds-ny89",
+   "kind": "implication",
+   "hypotheses": [
+    "uowhf",
+    "one-time-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor polynomial in the number of signing queries and the tree depth, from guessing where the forgery departs from the signer's tree",
+   "rationale": {
+    "class": "The signer calls the hash family and the one-time scheme only as oracles, and the reduction runs any forger once as an oracle, planting either a one-time verification key or, after committing to that node's input as the target, the challenge hash key at a guessed node."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uowhf-and-ots-to-ds-ny89.md",
+   "slug": "uowhf-and-ots-to-ds-ny89",
+   "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
+   "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-weak-owf-to-owf-yao82a",
+   "kind": "implication",
+   "hypotheses": [
+    "weak-owf"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: the input grows from n to n²p(n) bits, and the inverter for f makes polynomially many calls to the inverter for F",
+   "rationale": {
+    "class": "F evaluates f only as an oracle on independent blocks, and one fixed reduction inverts f by planting its challenge in a random block of the input of any inverter for F, which it runs only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/weak-owf-to-owf-yao82a.md",
+   "slug": "weak-owf-to-owf-yao82a",
+   "graphSlug": "Reductions/weak-owf-to-owf-yao82a",
+   "title": "Weak OWF ⇒ OWF (Yao)"
+  },
+  {
    "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
    "kind": "implication",
    "hypotheses": [
@@ -11114,6 +11553,36 @@
    "slug": "no-ot-to-tdp-gkm-00",
    "graphSlug": "Barriers/no-ot-to-tdp-gkm-00",
    "title": "No fully-black-box reduction from OT to TDP"
+  },
+  {
+   "id": "bar-owf-to-owp-rud88",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "owp",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Rud88 - Limits on the Provable Consequences of One-way Functions|Rud88]]",
+    "[[KSS11 - The Dual BKR Inequality and Rudich's Conjecture|KSS11]]"
+   ],
+   "rationale": {
+    "class": "The separation defeats constructions that use the one-way function only as an oracle and whose permutation domain does not depend on it, with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-owf-to-owp-rud88.md",
+   "slug": "no-owf-to-owp-rud88",
+   "graphSlug": "Barriers/no-owf-to-owp-rud88",
+   "title": "No fully-black-box reduction from OWF to OWP"
   },
   {
    "id": "bar-owp-to-crhf-sim98",

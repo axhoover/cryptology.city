@@ -25,12 +25,16 @@ TODO: syntax and security definition.
 
 A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m(n)}$ in $\mathrm{NC}^0$ with $m(n) = n^{1+\tau}$ for a constant $\tau > 0$.
 
-<!-- BEGIN GENERATED participates-in 9831019cd94e -->
+<!-- BEGIN GENERATED participates-in bb267cbdaa76 -->
 
 ## Participates in
 
 **Builds on Low-complexity pseudorandom generator**
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[low-complexity-prg#polynomial-stretch-prg-in-nc0|Polynomial-stretch PRG in NC0]])
+
+**Produces Low-complexity pseudorandom generator**
+
+- [[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0 (AIK)]]
 
 <!-- END GENERATED participates-in -->

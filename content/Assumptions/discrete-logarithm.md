@@ -9,6 +9,9 @@ aliases:
   - Discrete log
 title: Discrete logarithm
 id: dlog
+variants:
+  prime-order-dlog: "#dlog-in-prime-order-groups"
+  compact-prime-order-dlog: "#dlog-in-compactly-encoded-prime-order-groups"
 ---
 
 # Discrete logarithm
@@ -55,12 +58,28 @@ is negligible.
 ## Attacks
 
 - The _Baby-step Giant-step_ is a generic attack which works in all groups and requires space $S$ and time $T$ with $S\cdot T \ge p$. Its running time $O(\sqrt{p})$, attained at $S = O(\sqrt{p})$, is optimal in the [[generic-group-model|GGM]] for groups of prime order $p$: every generic algorithm needs $\Omega(\sqrt{p})$ group operations — [[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]
-- **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field) and in the Jacobians of hyperelliptic curves of high genus. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$.
-- **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups.
-- **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$; best known algorithm with complexity $L_p[1/3, (64/9)^{1/3}]$.
+- **Index calculus**: sub-exponential attack on DLOG in $\FF_p^*$ (multiplicative group of a finite field). It extends to the Jacobians of hyperelliptic curves of high genus — [[ADH94 - A Subexponential Algorithm for Discrete Logarithms over the Rational Subgroup of the Jacobians of Large Genus Hyperelliptic Curves over Finite Fields|ADH94]]. Does **not** apply to generic elliptic curve groups, which is why ECDLP is believed harder than DLOG in $\FF_p^*$.
+- **Pohlig-Hellman**: reduces DLOG in a group of composite order $n = \prod p_i^{e_i}$ to DLOG in groups of prime order $p_i$ via the Chinese Remainder Theorem. Effective when $n$ is smooth; neutralized by using prime-order groups — [[PH78 - An Improved Algorithm for Computing Logarithms over GF(p) and Its Cryptographic Significance|PH78]].
+- **Number Field Sieve (NFS)**: sub-exponential algorithm for DLOG in $\FF_p^*$, heuristically running in time $L_p[1/3, 3^{2/3}]$ — [[Gor93 - Discrete Logarithms in GF(p) Using the Number Field Sieve|Gor93]].
 - **Quantum**: Shor's algorithm computes discrete logarithms in $\ZZ_p^*$ in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, elliptic-curve groups included — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
 # Variations
+
+## DLOG in prime-order groups
+
+**DLOG is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$
+outputs has prime order $p$ and DLOG is hard for $\GrGen$. Exponents then form
+the field $\ZZ_p$, so a construction may divide by any nonzero exponent.
+
+## DLOG in compactly encoded prime-order groups
+
+**DLOG is hard in compactly encoded prime-order groups** for $\GrGen$ if DLOG is
+hard in prime-order groups for $\GrGen$ and every group $(\GG, g, p)$ it outputs
+encodes its elements in fewer than $2 \lfloor \log p \rfloor$ bits. The
+order-$p$ subgroup of $\ZZ_P^*$ for a safe prime $P = 2p + 1$ and prime-order
+elliptic-curve groups with compressed points (an $x$-coordinate and one bit)
+meet the bound; uncompressed affine points, and the order-$p$ subgroup of
+$\ZZ_P^*$ with $\log P \ge 2 \log p$, do not — standard.
 
 ## One-more Discrete Logarithm
 
@@ -108,29 +127,34 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 74754683475b -->
+<!-- BEGIN GENERATED participates-in bd00767f2371 -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
+- [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[bqp-to-dlog-shor97|DLOG ⊆ BQP]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]]
+- [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-conp|DLOG ⊆ coNP]]
+- [[dlog-to-crhf-cvhp91|DLOG ⇒ CRHF]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
 - [[dlog-to-np|DLOG ⊆ NP]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
+- [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
+- [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
 
 <!-- END GENERATED participates-in -->

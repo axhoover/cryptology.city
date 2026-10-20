@@ -25,6 +25,8 @@ A _commitment scheme_ is a tuple of efficient algorithms $\mathsf{COM} = (\Gen, 
 - $\Com(\pp, m; r) \to (c, d),$ is a randomized algorithm that takes a message $m \in \calM$ and randomness $r$, and outputs a commitment $c \in \calC$ and decommitment string $d \in \calD,$
 - $\Open(\pp, c, d) \to m \text{ or } \bot,$ is a deterministic algorithm that opens a commitment $c$ using decommitment $d$, returning the message or $\bot$ on failure.
 
+More generally, the commit phase is an interactive protocol between the committer $C(m)$ and the receiver $R$ whose transcript is the commitment $c$ and after which $C$ holds a decommitment $d$; the syntax above is the case where the receiver's only message is $\pp \gets \Gen(1^\secpar)$.
+
 ## Properties
 
 ### Correctness
@@ -39,7 +41,7 @@ $$\Adv^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^
 
 is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(m_0, m_1)$ from $\calA$, picks $b \getsr \bits$, computes $(c, d) \gets \Com(\pp, m_b)$, sends $c$ to $\calA$, receives $b'$ from $\calA$, and outputs $[b' = b]$.
 
-A commitment is **statistically hiding** if this holds even against computationally unbounded adversaries.
+A commitment is **statistically hiding** if this holds even against computationally unbounded adversaries that also choose $\pp$, or, for an interactive commit phase, play the receiver.
 
 ### Binding
 
@@ -70,15 +72,22 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in 9bbe7d3f0341 -->
+<!-- BEGIN GENERATED participates-in 41ccd936e5c4 -->
 
 ## Participates in
 
+**Builds on Commitment scheme**
+
+- [[com-to-owf-il89|COM ⇒ OWF]]
+
 **Produces Commitment scheme**
 
+- [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#hiding|Hiding]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|Hiding]])
 - [[ot-to-com|OT ⇒ COM]]
+- [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ Statistically hiding COM (Haitner–Reingold)]] (via [[commitment-scheme#hiding|Hiding]])
+- [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]] (via [[commitment-scheme#hiding|Hiding]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]] (via [[commitment-scheme#vector-commitments|Vector commitments]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
