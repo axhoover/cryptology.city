@@ -958,6 +958,19 @@
    "unlisted": false
   },
   {
+   "id": "dcr-safe-primes",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-composite-residuosity.md",
+   "slug": "decisional-composite-residuosity",
+   "graphSlug": "Assumptions/decisional-composite-residuosity",
+   "anchor": "#dcr-with-safe-prime-moduli",
+   "of": "dcr",
+   "title": "DCR with safe-prime moduli",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ddh",
    "kind": "object",
    "type": "assumption",
@@ -2135,6 +2148,19 @@
     "Low-complexity pseudorandom generator"
    ],
    "unlisted": true
+  },
+  {
+   "id": "low-exponent-rsa",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/rsa-assumption.md",
+   "slug": "rsa-assumption",
+   "graphSlug": "Assumptions/rsa-assumption",
+   "anchor": "#low-exponent-rsa",
+   "of": "rsa",
+   "title": "Low-exponent RSA",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "lpn",
@@ -6117,6 +6143,30 @@
    "title": "DBDH ⇒ Three-party NIKE (Joux)"
   },
   {
+   "id": "red-dcr-safe-primes-to-pke-cca2-security-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr-safe-primes"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction answers decryption queries with a secret key it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-safe-primes-to-pke-cca2-security-cs02.md",
+   "slug": "dcr-safe-primes-to-pke-cca2-security-cs02",
+   "graphSlug": "Reductions/dcr-safe-primes-to-pke-cca2-security-cs02",
+   "title": "DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)"
+  },
+  {
    "id": "red-dcr-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -6162,6 +6212,30 @@
    "title": "DCR ⇒ One-round sublinear cPIR"
   },
   {
+   "id": "red-dcr-to-d-th-composite-residuosity-dj01",
+   "kind": "equivalence",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "d-th-composite-residuosity",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the converse direction is tight: one distinguisher call, advantage preserved",
+   "rationale": {
+    "class": "Each direction calls a distinguisher for the other assumption only as an oracle, on challenges transformed by arithmetic modulo powers of the modulus."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-d-th-composite-residuosity-dj01.md",
+   "slug": "dcr-to-d-th-composite-residuosity-dj01",
+   "graphSlug": "Reductions/dcr-to-d-th-composite-residuosity-dj01",
+   "title": "DCR ⇔ $d$-th Composite Residuosity"
+  },
+  {
    "id": "red-dcr-to-fac",
    "kind": "implication",
    "hypotheses": [
@@ -6184,6 +6258,30 @@
    "slug": "fac-to-dcr-pai99",
    "graphSlug": "Reductions/fac-to-dcr-pai99",
    "title": "DCR ⇒ FAC"
+  },
+  {
+   "id": "red-dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "highly-lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The functions use only the modulus sampler and arithmetic modulo a power of the modulus, and the mode-indistinguishability reduction forwards a residuosity challenge as the index element to any distinguisher, used only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-highly-lossy-trapdoor-function-fgkrs10.md",
+   "slug": "dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "graphSlug": "Reductions/dcr-to-highly-lossy-trapdoor-function-fgkrs10",
+   "title": "DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
   },
   {
    "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
@@ -7313,6 +7411,30 @@
    "title": "FAC ⇒ DS"
   },
   {
+   "id": "red-fac-to-factoring-blum-integers",
+   "kind": "implication",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "factoring-blum-integers",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of about 4: a factoring instance is a Blum integer with probability 1/4 - o(1)",
+   "rationale": {
+    "class": "The reduction runs any Blum-integer factorer once as an oracle on its own instance and never uses its code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fac-to-factoring-blum-integers.md",
+   "slug": "fac-to-factoring-blum-integers",
+   "graphSlug": "Reductions/fac-to-factoring-blum-integers",
+   "title": "FAC ⇒ Factoring Blum integers"
+  },
+  {
    "id": "red-fac-to-np",
    "kind": "inclusion",
    "hypotheses": [
@@ -7417,6 +7539,27 @@
    "slug": "factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09",
    "graphSlug": "Reductions/factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09",
    "title": "Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-bqp-shor97",
+   "kind": "inclusion",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "bqp",
+   "class": "free",
+   "model": "quantum",
+   "source": [
+    "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-bqp-shor97.md",
+   "slug": "factoring-blum-integers-to-bqp-shor97",
+   "graphSlug": "Reductions/factoring-blum-integers-to-bqp-shor97",
+   "title": "Factoring Blum integers ∈ BQP (Shor)"
   },
   {
    "id": "red-factoring-blum-integers-to-claw-free-permutations-gmr88",
@@ -9237,6 +9380,30 @@
    "slug": "lossy-trapdoor-functions-to-pke",
    "graphSlug": "Reductions/lossy-trapdoor-functions-to-pke",
    "title": "Lossy trapdoor functions ⇒ IND-CCA PKE"
+  },
+  {
+   "id": "red-low-exponent-rsa-to-rsa",
+   "kind": "implication",
+   "hypotheses": [
+    "low-exponent-rsa"
+   ],
+   "conclusion": "rsa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the RSA instance distribution, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/low-exponent-rsa-to-rsa.md",
+   "slug": "low-exponent-rsa-to-rsa",
+   "graphSlug": "Reductions/low-exponent-rsa-to-rsa",
+   "title": "Low-exponent RSA ⇒ RSA"
   },
   {
    "id": "red-lpn-constant-noise-to-prg-bfkl93",
@@ -11168,6 +11335,30 @@
    "title": "Permuted puzzles ⇒ SK-DEPIR"
   },
   {
+   "id": "red-phi-hiding-to-lossy-trapdoor-function-kos10",
+   "kind": "implication",
+   "hypotheses": [
+    "phi-hiding"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none for one copy; a factor t from the hybrid over t copies when the exponent is small",
+   "rationale": {
+    "class": "The function is RSA itself, and the reduction passes the Φ-hiding instance unchanged as the index to any mode distinguisher, used only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/phi-hiding-to-lossy-trapdoor-function-kos10.md",
+   "slug": "phi-hiding-to-lossy-trapdoor-function-kos10",
+   "graphSlug": "Reductions/phi-hiding-to-lossy-trapdoor-function-kos10",
+   "title": "Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)"
+  },
+  {
    "id": "red-pk-depir-to-sk-depir",
    "kind": "implication",
    "hypotheses": [
@@ -11962,6 +12153,53 @@
    "title": "QR ⇒ COM"
   },
   {
+   "id": "red-qr-to-common-random-string-nizk-proof-bdmp91",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "common-random-string-nizk-proof",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]",
+    "[[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The prover uses only the Blum-integer sampler and arithmetic modulo the integer it samples, soundness is statistical, and zero knowledge reduces to QR using any distinguisher only as an oracle.",
+    "model": "The uniformly random reference string carries the hidden bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-common-random-string-nizk-proof-bdmp91.md",
+   "slug": "qr-to-common-random-string-nizk-proof-bdmp91",
+   "graphSlug": "Reductions/qr-to-common-random-string-nizk-proof-bdmp91",
+   "title": "QR ⇒ NIZK proofs with a common random string (Blum–De Santis–Micali–Persiano)"
+  },
+  {
+   "id": "red-qr-to-conp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "conp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/qr-to-conp.md",
+   "slug": "qr-to-conp",
+   "graphSlug": "Reductions/qr-to-conp",
+   "title": "QR ∈ coNP"
+  },
+  {
    "id": "red-qr-to-cpir-ko97",
    "kind": "implication",
    "hypotheses": [
@@ -12031,6 +12269,30 @@
    "title": "QR ⇒ Additively homomorphic encryption"
   },
   {
+   "id": "red-qr-to-lossy-trapdoor-function-fgkrs10",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "lossy-trapdoor-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor t = ω(log λ) from the hybrid over the t copies",
+   "rationale": {
+    "class": "The functions use only the Blum-integer sampler and arithmetic modulo it, and the mode-indistinguishability reduction embeds a QR challenge as the index element of one copy and runs any distinguisher only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-lossy-trapdoor-function-fgkrs10.md",
+   "slug": "qr-to-lossy-trapdoor-function-fgkrs10",
+   "graphSlug": "Reductions/qr-to-lossy-trapdoor-function-fgkrs10",
+   "title": "QR ⇒ Lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
+  },
+  {
    "id": "red-qr-to-malicious-ot-security-pvw08",
    "kind": "implication",
    "hypotheses": [
@@ -12053,6 +12315,27 @@
    "slug": "qr-to-malicious-ot-security-pvw08",
    "graphSlug": "Reductions/qr-to-malicious-ot-security-pvw08",
    "title": "QR ⇒ UC-secure OT (PVW)"
+  },
+  {
+   "id": "red-qr-to-np",
+   "kind": "inclusion",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/qr-to-np.md",
+   "slug": "qr-to-np",
+   "graphSlug": "Reductions/qr-to-np",
+   "title": "QR ∈ NP"
   },
   {
    "id": "red-qr-to-pke-gm84",
@@ -14245,6 +14528,37 @@
    "slug": "no-cpa-security-to-ind-cpa-security",
    "graphSlug": "Barriers/no-cpa-security-to-ind-cpa-security",
    "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
+  },
+  {
+   "id": "bar-fac-to-low-exponent-rsa-bv98",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "low-exponent-rsa",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "fac"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]]"
+   ],
+   "rationale": {
+    "class": "BV98 rule out straight-line reductions, which compute on the modulus and the oracle's answers only by ring operations and make a logarithmic number of oracle queries, and the vocabulary has no algebraic or query-bounded class."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-fac-to-low-exponent-rsa-bv98.md",
+   "slug": "no-fac-to-low-exponent-rsa-bv98",
+   "graphSlug": "Barriers/no-fac-to-low-exponent-rsa-bv98",
+   "title": "No straight-line reduction from FAC to low-exponent RSA"
   },
   {
    "id": "bar-falsifiable-assumption-to-snark-gro16",

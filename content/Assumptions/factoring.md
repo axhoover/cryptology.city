@@ -59,7 +59,7 @@ is negligible. Squaring modulo a Blum integer permutes $\mathrm{QR}_N$ — [[BBS
 - **General Number Field Sieve (GNFS)**: sub-exponential $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — best known classical algorithm for large $N$
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in c4a5dec172f5 -->
+<!-- BEGIN GENERATED participates-in 32b8fb7e4962 -->
 
 ## Participates in
 
@@ -68,11 +68,13 @@ is negligible. Squaring modulo a Blum integer permutes $\mathrm{QR}_N$ — [[BBS
 - [[fac-to-bqp-shor97|FAC ∈ BQP (Shor)]]
 - [[fac-to-conp-pra75|FAC ∈ coNP]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
+- [[fac-to-factoring-blum-integers|FAC ⇒ Factoring Blum integers]]
 - [[fac-to-np|FAC ∈ NP]]
 - [[fac-to-ppa-jer16|FAC ∈ PPA (under randomized reductions)]]
 - [[fac-to-pwpp-jer16|FAC ∈ PWPP (under randomized reductions)]]
 - [[fac-to-tfnp|FAC ⊆ TFNP]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
+- [[factoring-blum-integers-to-bqp-shor97|Factoring Blum integers ∈ BQP (Shor)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[factoring-with-known-factor-structure-to-prg|Factoring with known factor structure ⇒ PRG]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
@@ -80,8 +82,13 @@ is negligible. Squaring modulo a Blum integer permutes $\mathrm{QR}_N$ — [[BBS
 **Produces Factoring assumption**
 
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]
+- [[fac-to-factoring-blum-integers|FAC ⇒ Factoring Blum integers]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[fac-to-qr-gm84|QR ⇒ FAC]] (via [[factoring#factoring-with-known-factor-structure|Factoring with known factor structure]])
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]
+
+**Barriers**
+
+- [[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]
 
 <!-- END GENERATED participates-in -->
