@@ -18,11 +18,11 @@ security-loss: ""
 
 ## Statement
 
-[[factoring|Factoring]] is in [[bounded-error-quantum-polynomial-time|BQP]]: a quantum algorithm finds a nontrivial factor of an $n$-bit composite $N$ with constant success probability using $\tilde{O}(n^2)$ quantum gates with fast integer multiplication, or $O(n^3)$ with schoolbook arithmetic — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
+[[factoring|Factoring]] is in [[bounded-error-quantum-polynomial-time|BQP]]: a quantum algorithm finds a nontrivial factor of an $n$-bit composite $N$ with constant success probability using $\tilde{O}(n^2)$ quantum gates with fast integer multiplication, or $\tilde{O}(n^3)$ with schoolbook arithmetic — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
 
 ## Sketch
 
-Factoring $N$ reduces classically to finding the multiplicative order $r$ of a random $a \in \ZZ_N^*$: with constant probability $r$ is even and $\gcd(a^{r/2} - 1, N)$ is a nontrivial factor. The order is the period of $x \mapsto a^x \bmod N$, which the quantum Fourier transform over $\ZZ_{2^m}$ with $2^m \approx N^2$ recovers through continued fractions — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
+Factoring $N$ reduces classically to finding the multiplicative order $r$ of a random $a \in \ZZ_N^*$: for odd $N$ that is not a prime power, the other cases being handled classically, with probability at least $1/2$ the order $r$ is even, $a^{r/2} \not\equiv -1 \pmod N$, and $\gcd(a^{r/2} - 1, N)$ is a nontrivial factor. The order is the period of $x \mapsto a^x \bmod N$, which the quantum Fourier transform over $\ZZ_{2^m}$ with $2^m \approx N^2$ recovers through continued fractions — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
 
 ## Notes
 

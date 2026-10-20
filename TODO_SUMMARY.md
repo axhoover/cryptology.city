@@ -101,6 +101,8 @@ _Last updated: 2026-10-15_
 
 ---
 
+- [ ] [External] `GG00`'s abstract described $n^{1/\log\log n}$ inapproximability of SVP and CVP, which is not this paper (Goldreich–Goldwasser give constant-round honest-verifier perfect zero-knowledge proofs placing GapSVP and GapCVP within $\sqrt{n/\log n}$ in $\classNP \cap \classcoAM$); it is now `TODO — abstract.` and needs the verbatim abstract — _source: content/References/GG00 - On the limits of non-approximability of lattice problems.md_
+
 ## Low Priority / Inferred
 
 - [ ] [Content] `index.md` contains a user-facing disclaimer "there are a lot of stubs and TODOs" — should be removed once major stubs are filled — _source: content/index.md:11_
