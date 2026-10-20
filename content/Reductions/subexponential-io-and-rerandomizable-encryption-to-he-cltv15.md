@@ -5,7 +5,8 @@ title: Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)
 aliases: []
 id: red-subexponential-io-and-rerandomizable-encryption-to-he-cltv15
 kind: implication
-hypotheses: [subexponential-io, superpolynomially-secure-rerandomizable-encryption]
+hypotheses:
+  [subexponential-io, superpolynomially-secure-rerandomizable-encryption]
 conclusion: he
 class: free
 model: standard

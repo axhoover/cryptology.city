@@ -29,4 +29,3 @@ A collision $x \ne x'$ of $H_{s,h}$ is _inner_ if $f_s(x) = f_s(x')$ and _outer_
 ## Notes
 
 - The universal hash is what compresses: $f_s$ alone maps $\bits^n$ to a larger range, $n + 1$ group elements for [[ddh-to-lossy-trapdoor-function-pw08|the DDH construction]], and is injective in the injective mode — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
-

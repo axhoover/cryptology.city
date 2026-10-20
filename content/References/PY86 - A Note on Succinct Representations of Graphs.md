@@ -23,7 +23,7 @@ bibtex: |
 
 # [PY86] A Note on Succinct Representations of Graphs
 
-**Authors:** Christos H. Papadimitriou, Mihalis Yannakakis | **Venue:** Information and Control 1986 | [Source](https://doi.org/10.1016/S0019-9958(86)80009-2)
+**Authors:** Christos H. Papadimitriou, Mihalis Yannakakis | **Venue:** Information and Control 1986 | [Source](<https://doi.org/10.1016/S0019-9958(86)80009-2>)
 
 ## Abstract
 
