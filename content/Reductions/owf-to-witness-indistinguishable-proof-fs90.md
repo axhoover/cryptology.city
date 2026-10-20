@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]"
-security-loss: "a factor of the number of parallel repetitions, from a hybrid over them"
+security-loss: "polynomial: the hybrid over the parallel repetitions loses a factor of their number, on top of the commitment's loss"
 rationale:
   class: "The protocol uses the commitment built from the one-way function only as an oracle, and the reduction runs any distinguishing verifier only as an oracle against one repetition at a time."
 ---
@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-Every zero-knowledge proof is [[zero-knowledge-proof#witness-indistinguishable-wi-proofs|witness indistinguishable]], and witness indistinguishability is preserved under parallel composition — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]. Hence, if [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, the parallel repetition of the [[hash-function-to-zkp-gmw91|GMW91]] proof for an $\classNP$-complete language is a constant-round witness-indistinguishable proof for $\classNP$ with negligible soundness error.
+Every zero-knowledge proof is [[zero-knowledge-proof#witness-indistinguishable-wi-proofs|witness indistinguishable]], and witness indistinguishability is preserved under parallel composition — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]. Hence, if [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, the parallel repetition of the [[hash-function-to-zkp-gmw91|GMW91]] proof for an $\classNP$-complete language is a constant-round witness-indistinguishable proof for $\classNP$ with negligible soundness error — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
 
 ## Sketch
 
-Witness indistinguishability compares the verifier's views under two witnesses, and a hybrid argument switches the witness in one parallel copy at a time; the copies other than the switched one are simulated by the reduction, which knows both witnesses. Zero knowledge does not survive this, since the simulator must handle all copies at once — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
+Witness indistinguishability compares the verifier's views under two witnesses, and a hybrid argument switches the witness in one parallel copy at a time; the reduction plays the honest prover in every other copy, with the witness the hybrid prescribes, since it knows both. Zero knowledge does not survive this, since the simulator must handle all copies at once — [[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]].
 
 ## Notes
 

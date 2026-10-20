@@ -63,6 +63,8 @@ _Last updated: 2026-10-15_
 
 ## Medium Priority
 
+- [ ] [Math] Derived closure from {rom} reaches `ke` via `rom-to-oihf-bh26` ⇒ `oihf-to-ot-bh26` ⇒ `ot-to-ke`, contradicting `no-rom-to-ke-hmo-19`: the free, non-black-box OIHF ⇒ OT edge uses the hash's code and must not compose with the ROM-scoped ROM ⇒ OIHF edge; `generate-relations.mjs --derive` needs a rule for this, or the edges need re-modelling — _source: content/Reductions/oihf-to-ot-bh26.md, content/Barriers/no-rom-to-ke-hmo-19.md_
+- [ ] [Math] Check whether GMM07's main theorem rules out shielding black-box constructions of IND-CCA1 (not only IND-CCA2) encryption from IND-CPA encryption; if so, the barrier should conclude `pke-cca1-security` under a new id — _source: content/Barriers/no-pke-cpa-security-to-pke-cca2-security-gmm07.md_
 - [ ] [Math] 9 `TODO citation` entries across 7 Complexity class pages — content is present but references are missing:
   - `content/Complexity/sharp-p.md:25,29` — approximate counting, Valiant's permanent
   - `content/Complexity/bounded-error-probabilistic-polynomial-time.md:28` — derandomization

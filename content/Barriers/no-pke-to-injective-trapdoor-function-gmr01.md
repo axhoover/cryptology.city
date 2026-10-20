@@ -15,7 +15,7 @@ strength: unconditional
 source:
   - "[[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]]"
 rationale:
-  class: "GMR01 give an oracle relative to which trapdoor predicates exist and every injective trapdoor function built from them is invertible, which rules out constructions that use the encryption scheme only as an oracle with proofs that use the adversary only as an oracle."
+  class: "GMR01's separation, in a model weaker than Impagliazzo–Rudich's, rules out constructions that use the trapdoor predicate only as an oracle with proofs that use the adversary only as an oracle."
 ---
 
 # No fully-black-box reduction from PKE to injective TDF
@@ -26,5 +26,5 @@ There is no fully-black-box construction of an [[trapdoor-permutation#injective-
 
 ## Notes
 
-- Trapdoor permutations, and injective trapdoor functions with a hard-core predicate, give PKE ([[tdp-to-pke|TDP ⇒ PKE]]), so trapdoor functions are strictly stronger than PKE with respect to fully-black-box constructions — [[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]].
+- Trapdoor permutations and injective trapdoor functions give PKE through the Goldreich–Levin predicate ([[tdp-to-pke|TDP ⇒ PKE]]) — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] — so injective trapdoor functions are strictly stronger than PKE with respect to fully-black-box constructions — [[GMR01 - On the Impossibility of Basing Trapdoor Functions on Trapdoor Predicates|GMR01]].
 - The permutation case is [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]] — [[GKM+00 - The relationship between public key encryption and oblivious transfer|GKM+00]].

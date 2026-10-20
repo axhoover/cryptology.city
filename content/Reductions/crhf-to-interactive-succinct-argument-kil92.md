@@ -19,7 +19,7 @@ security-loss: "polynomial"
 
 ## Statement
 
-If [[hash-function#collision-resistance|collision-resistant hash functions]] exist, every language in $\classNP$ has a four-message public-coin [[succinct-argument#interactive-succinct-arguments|interactive argument]] whose communication is polylogarithmic in the size of the $\classNP$ verification, times a polynomial in $\secpar$ — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]. The argument can be made zero-knowledge.
+If [[hash-function#collision-resistance|collision-resistant hash functions]] exist, every language in $\classNP$ has a four-message public-coin [[succinct-argument#interactive-succinct-arguments|interactive argument]] whose communication is polylogarithmic in the size of the $\classNP$ verification, times a polynomial in $\secpar$ — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]. The argument can be made zero-knowledge — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
 
 ## Sketch
 

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]"
-security-loss: "a factor of the number of query elements, from a hybrid over them"
+security-loss: "a factor 2 per recursion level, from a hybrid through the all-residue query"
 rationale:
   class: "The protocol uses only arithmetic modulo the client's modulus, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its quadratic-residuosity challenges."
 ---
@@ -28,5 +28,5 @@ View the database as a $\sqrt{n} \times \sqrt{n}$ matrix and let the client want
 
 ## Notes
 
-- Efficiency: the server performs $\Theta(n)$ modular multiplications; every single-server PIR scheme must touch every database bit, since an untouched bit reveals that it was not queried — standard.
-- Polylogarithmic communication needs stronger assumptions: [[hiding-to-cpir|Φ-hiding]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] — and [[dcr-to-cpir-cha04|DCR]] — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].
+- Efficiency: the server performs $\Theta(n)$ modular multiplications; every single-server PIR scheme without preprocessing must touch every database bit, since an untouched bit reveals that it was not queried — standard.
+- Polylogarithmic communication is achieved under [[hiding-to-cpir|Φ-hiding]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] — and, through trapdoor hash functions, under QR and DDH ([[tdh-to-cpir-amr25|TDH ⇒ cPIR]]) — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]. With Paillier encryption the server's reply alone can be made logarithmic ([[dcr-to-cpir-cha04|DCR ⇒ cPIR]]) — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].

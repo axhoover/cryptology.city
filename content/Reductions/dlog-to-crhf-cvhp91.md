@@ -12,7 +12,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]"
-security-loss: "none: a collision gives the discrete logarithm whenever it exists"
+security-loss: "none: every collision yields log_g h"
 rationale:
   class: "The hash uses only the group operations, and one fixed reduction embeds its DLOG challenge as the second generator and computes the logarithm from any collision, running the collision finder once as an oracle."
 ---
@@ -27,7 +27,7 @@ $$
 \hash_{g,h}(x_1, x_2) := g^{x_1} h^{x_2}, \qquad (x_1, x_2) \in \ZZ_q^2,
 $$
 
-is a [[hash-function#collision-resistance|collision-resistant]] family — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]].
+is a [[hash-function#collision-resistance|collision-resistant]] family; CvHP91 state it in $\ZZ_p^*$ for a safe prime $p = 2q + 1$ with inputs in $\{0, \ldots, q-1\}^2$ — [[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]].
 
 ## Sketch
 

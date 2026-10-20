@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $N = pq$ be a Blum integer ($p \equiv q \equiv 3 \pmod 4$). Squaring $x \mapsto x^2 \bmod N$ permutes the quadratic residues $\mathrm{QR}_N$, and $(p, q)$ is a trapdoor for it. If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, this family is a [[trapdoor-permutation|trapdoor permutation]]: inverting it on a uniform element of $\mathrm{QR}_N$ with probability $\varepsilon$ factors $N$ with probability $\varepsilon/2$ — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]].
+Let $N = pq$ be a Blum integer ($p \equiv q \equiv 3 \pmod 4$). Squaring $x \mapsto x^2 \bmod N$ permutes the quadratic residues $\mathrm{QR}_N$, and $(p, q)$ is a trapdoor for it — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]. If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, this family is a [[trapdoor-permutation|trapdoor permutation]]: by Rabin's argument that extracting square roots modulo $N$ is as hard as factoring, inverting it on a uniform element of $\mathrm{QR}_N$ with probability $\varepsilon$ factors $N$ with probability $\varepsilon/2$ — [[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]].
 
 ## Sketch
 
