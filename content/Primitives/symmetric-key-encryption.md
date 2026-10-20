@@ -136,14 +136,15 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 
-<!-- BEGIN GENERATED participates-in 946fac4b439f -->
+<!-- BEGIN GENERATED participates-in 7908eeeee323 -->
 
 ## Participates in
 
 **Builds on Symmetric key encryption**
 
+- [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]]
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
-- [[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]
+- [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[ske-to-owf-il89|SKE ⇒ OWF]]
 
@@ -152,7 +153,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [IND\$-CPA Security ⇒ CPA Security](ind-dollar-cpa-security-to-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (via [[symmetric-key-encryption#cca-security|CCA Security]])
 - [[prc-to-ske-cg24|PRC ⇒ SKE]]
-- [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
+- [[prf-to-ske|PRF ⇒ CPA-secure SKE]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 **Barriers**
 

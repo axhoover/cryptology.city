@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: DCR ⇒ cPIR
+title: DCR ⇒ One-round sublinear cPIR
 aliases: []
 id: red-dcr-to-cpir-cha04
 kind: implication
 hypotheses: [dcr]
-conclusion: cpir
+conclusion: one-round-sublinear-cpir
 class: unstated
 model: standard
 source:
@@ -14,8 +14,8 @@ source:
 security-loss: ""
 ---
 
-# DCR ⇒ cPIR
+# DCR ⇒ One-round sublinear cPIR
 
 ## Statement
 
-If [[decisional-composite-residuosity|DCR]] is hard, there is a [[single-server-private-information-retrieval|single-server PIR]] scheme, built from Paillier's cryptosystem, whose server-side communication is logarithmic in the database size — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].
+If [[decisional-composite-residuosity|DCR]] is hard, there is a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme, built from Paillier's cryptosystem, whose server-side communication is logarithmic in the database size $n$ and whose client-side communication is $O(n^{\varepsilon} \log n)$ for a constant $\varepsilon < 1$, the factors depending on $\secpar$, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].

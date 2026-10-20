@@ -128,11 +128,11 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 # Other results
 
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-mpc-kil88|OT ⇒ MPC]]
 
-<!-- BEGIN GENERATED participates-in d33b3408f7c3 -->
+<!-- BEGIN GENERATED participates-in 945275d96cea -->
 
 ## Participates in
 
@@ -144,7 +144,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 - [[ot-to-com|OT ⇒ COM]]
 - [[ot-to-ke|OT ⇒ KE]]
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
-- [[ot-to-mpc-kil88|OT ⇒ MPC]]
+- [[ot-to-mpc-kil88|OT ⇒ MPC]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
@@ -153,7 +153,7 @@ In a **Random OT**, the parties do not choose their inputs: the sender receives 
 
 **Produces Oblivious transfer**
 
-- [[cpir-to-ot-dmo00|cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ UC-secure OT (PVW)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]

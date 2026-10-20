@@ -24,4 +24,4 @@ If a two-party [[coin-flipping#coin-flipping-with-constant-bias|coin-flipping pr
 ## Notes
 
 - For negligible bias, the implication is part of [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]'s theorem that coin flipping requires one-way functions — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
-- One-way functions give coin flipping with bias $O(1/\sqrt{r})$ in $r$ rounds, by repeating [[com-to-coin-flipping-blu81|Blum's protocol]] — standard — so coin flipping with some constant bias below $1/2$ exists iff one-way functions do — [[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]].
+- One-way functions give coin flipping with bias $O(1/\sqrt{r})$ in $r$ rounds, by repeating [[com-to-coin-flipping-blu81|Blum's protocol]] — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]] — so coin flipping with some constant bias below $1/2$ exists iff one-way functions do — [[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]].

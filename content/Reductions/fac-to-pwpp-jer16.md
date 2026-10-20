@@ -6,7 +6,7 @@ aliases: []
 id: red-fac-to-pwpp-jer16
 kind: inclusion
 hypotheses: [fac]
-conclusion: pwpp
+conclusion: pwpp-randomized
 class: free
 model: standard
 source:
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-[[factoring|Factoring]] reduces in randomized polynomial time to Weak Pigeon, the complete problem of [[total-function-np#pwpp|PWPP]], and in deterministic polynomial time under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
+[[factoring|Factoring]] reduces in randomized polynomial time to Weak Pigeon, the complete problem of [[total-function-np#pwpp|PWPP]], so lies in [[total-function-np#pwpp-under-randomized-reductions|PWPP under randomized reductions]], and in deterministic polynomial time under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]].
 
 ## Notes
 
