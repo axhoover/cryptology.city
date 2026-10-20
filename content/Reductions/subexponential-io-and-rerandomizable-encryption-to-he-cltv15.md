@@ -5,7 +5,7 @@ title: Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)
 aliases: []
 id: red-subexponential-io-and-rerandomizable-encryption-to-he-cltv15
 kind: implication
-hypotheses: [subexponential-io, rerandomizable-encryption]
+hypotheses: [subexponential-io, superpolynomially-secure-rerandomizable-encryption]
 conclusion: he
 class: free
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme secure against slightly super-polynomial adversaries exist, then [[homomorphic-encryption|fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and a [[rerandomizable-encryption|re-randomizable PKE]] scheme [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|secure against slightly super-polynomial adversaries]] exist, then [[homomorphic-encryption|fully homomorphic encryption]] exists, with no circular-security assumption — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 
 ## Notes
 

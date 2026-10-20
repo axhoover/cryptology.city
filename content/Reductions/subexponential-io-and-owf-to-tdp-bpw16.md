@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then [[trapdoor-permutation|trapdoor permutations]] exist — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]. These are the first trapdoor permutations not based on the hardness of factoring. Each permutation's domain is defined through the underlying one-way function, so the construction is not domain-invariant: domain invariance allows a domain to depend on the index but not on the underlying primitives.
+If [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then [[trapdoor-permutation|trapdoor permutations]] exist — [[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]. These are the first trapdoor permutations not based on the hardness of factoring. The construction is not domain-invariant. Domain invariance allows a domain to depend on the permutation index, but here the domain is defined through a pseudorandom function built from the one-way function, so replacing that function changes the domain even under the same key — [[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]].
 
 ## Notes
 

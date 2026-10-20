@@ -906,6 +906,19 @@
    "unlisted": false
   },
   {
+   "id": "decision-multilinear-no-exact-cover",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/multilinear-maps.md",
+   "slug": "multilinear-maps",
+   "graphSlug": "Glossary/multilinear-maps",
+   "anchor": "#decision-multilinear-no-exact-cover-assumption",
+   "of": "multilinear-maps",
+   "title": "Decision Multilinear No-Exact-Cover assumption",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "decisional-linear",
    "kind": "variant",
    "type": "assumption",
@@ -3724,6 +3737,19 @@
    "title": "Strong unforgeability",
    "aliases": [],
    "unlisted": false
+  },
+  {
+   "id": "superpolynomially-secure-rerandomizable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/rerandomizable-encryption.md",
+   "slug": "rerandomizable-encryption",
+   "graphSlug": "Primitives/rerandomizable-encryption",
+   "anchor": "#security-against-slightly-super-polynomial-adversaries",
+   "of": "rerandomizable-encryption",
+   "title": "Security against slightly super-polynomial adversaries",
+   "aliases": [],
+   "unlisted": true
   },
   {
    "id": "switching-lemma",
@@ -8852,7 +8878,7 @@
    "id": "red-multilinear-maps-to-witness-encryption-ggsw13",
    "kind": "implication",
    "hypotheses": [
-    "multilinear-maps"
+    "decision-multilinear-no-exact-cover"
    ],
    "conclusion": "witness-encryption",
    "class": "unstated",
@@ -8867,7 +8893,7 @@
    "page": "content/Reductions/multilinear-maps-to-witness-encryption-ggsw13.md",
    "slug": "multilinear-maps-to-witness-encryption-ggsw13",
    "graphSlug": "Reductions/multilinear-maps-to-witness-encryption-ggsw13",
-   "title": "MMap ⇒ Witness encryption (GGSW)"
+   "title": "Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)"
   },
   {
    "id": "red-nizk-to-zap-dn00",
@@ -11650,7 +11676,7 @@
    "kind": "implication",
    "hypotheses": [
     "subexponential-io",
-    "rerandomizable-encryption"
+    "superpolynomially-secure-rerandomizable-encryption"
    ],
    "conclusion": "he",
    "class": "free",
@@ -12233,7 +12259,7 @@
    "heuristic": false,
    "securityLoss": "additive: the PKE advantage is at most twice the PRG advantage plus the witness-encryption advantage plus 2^{-λ}",
    "rationale": {
-    "class": "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code."
+    "class": "Ciphertexts are witness encryptions under the statement that the public key lies in the image of the generator, an NP relation containing the generator's circuit, so the construction uses the PRG's code; the security proof uses the adversary only as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/witness-encryption-and-prg-to-pke-ggsw13.md",
@@ -12778,7 +12804,7 @@
     "[[AS16 - On Constructing One-Way Permutations from Indistinguishability Obfuscation|AS16]]"
    ],
    "rationale": {
-    "class": "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle."
+    "class": "AS16 rule out domain-invariant constructions that may obfuscate circuits calling the one-way function, a class containing every domain-invariant construction that uses the obfuscator and the function only as oracles, with proofs that use the adversary only as an oracle; every construction of a permutation of each {0,1}^n is domain-invariant."
    },
    "status": "draft",
    "page": "content/Barriers/no-io-and-owf-to-owp-as16.md",

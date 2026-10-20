@@ -59,7 +59,7 @@ A stronger notion requires, for every statement $x$, that any efficient adversar
 
 - Combined with standard primitives, witness encryption gives PKE, IBE and attribute-based encryption — [[GGSW13 - Witness encryption and its applications|GGSW13]].
 
-<!-- BEGIN GENERATED participates-in 7dae66dff87f -->
+<!-- BEGIN GENERATED participates-in decdaa1bf8b4 -->
 
 ## Participates in
 
@@ -70,6 +70,6 @@ A stronger notion requires, for every statement $x$, that any efficient adversar
 **Produces Witness encryption**
 
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
-- [[multilinear-maps-to-witness-encryption-ggsw13|MMap ⇒ Witness encryption (GGSW)]]
+- [[multilinear-maps-to-witness-encryption-ggsw13|Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)]]
 
 <!-- END GENERATED participates-in -->
