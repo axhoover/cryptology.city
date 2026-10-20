@@ -180,7 +180,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in 65c03537c862 -->
+<!-- BEGIN GENERATED participates-in 11b6e867b12d -->
 
 ## Participates in
 
@@ -188,6 +188,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[learning-parity-with-noise#sub-exponential-lpn-over-large-fields|Sub-exponential LPN over large fields]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
+- [[lpn-constant-noise-to-prg-bfkl93|Constant-noise LPN ⇒ PRG]] (via [[learning-parity-with-noise#constant-noise-lpn|Constant-noise LPN]])
 - [[lpn-high-noise-to-lpn-constant-noise|High-noise LPN ⇒ Constant-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])

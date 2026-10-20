@@ -9138,6 +9138,30 @@
    "title": "Lossy trapdoor functions ⇒ IND-CCA PKE"
   },
   {
+   "id": "red-lpn-constant-noise-to-prg-bfkl93",
+   "kind": "implication",
+   "hypotheses": [
+    "lpn-constant-noise"
+   ],
+   "conclusion": "prg",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BFKL93 - Cryptographic Primitives Based on Hard Learning Problems|BFKL93]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a distinguisher for the generator is an LPN distinguisher, up to the statistical distance of the error sampling",
+   "rationale": {
+    "class": "The generator is a fixed map built from the LPN sampling procedure, and the reduction runs any distinguisher once as an oracle on its LPN challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lpn-constant-noise-to-prg-bfkl93.md",
+   "slug": "lpn-constant-noise-to-prg-bfkl93",
+   "graphSlug": "Reductions/lpn-constant-noise-to-prg-bfkl93",
+   "title": "Constant-noise LPN ⇒ PRG"
+  },
+  {
    "id": "red-lpn-high-noise-to-lpn-constant-noise",
    "kind": "implication",
    "hypotheses": [
@@ -9369,6 +9393,30 @@
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bgv12",
    "title": "LWE ⇒ Leveled fully homomorphic encryption"
+  },
+  {
+   "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bv14",
+   "kind": "implication",
+   "hypotheses": [
+    "lwe"
+   ],
+   "conclusion": "leveled-fully-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BV14 - Lattice-based FHE as secure as PKE|BV14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction is fixed, with a public key that is an acyclic chain of bootstrapping keys, and the proof is a hybrid over the keys of the chain in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bv14.md",
+   "slug": "lwe-to-leveled-fully-homomorphic-encryption-bv14",
+   "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bv14",
+   "title": "LWE ⇒ Leveled FHE at polynomial ratio (BV14)"
   },
   {
    "id": "red-lwe-to-lossy-trapdoor-function-pw08",

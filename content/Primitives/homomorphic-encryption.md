@@ -97,7 +97,7 @@ A bit-encryption scheme is **strongly homomorphic** for a boolean function $f : 
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in 3f3f044fa422 -->
+<!-- BEGIN GENERATED participates-in 0751718cc770 -->
 
 ## Participates in
 
@@ -126,6 +126,7 @@ A bit-encryption scheme is **strongly homomorphic** for a boolean function $f : 
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]] (via [[homomorphic-encryption#multiplicatively-homomorphic-encryption|Multiplicatively homomorphic encryption]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE ⇒ Leveled fully homomorphic encryption]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
+- [[lwe-to-leveled-fully-homomorphic-encryption-bv14|LWE ⇒ Leveled FHE at polynomial ratio (BV14)]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 - [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[somewhat-homomorphic-encryption-she-to-he-gen09|Bootstrappable SHE ⇒ Leveled FHE]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
