@@ -5788,7 +5788,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "none: a collision gives the discrete logarithm whenever it exists",
+   "securityLoss": "none: every collision yields log_g h",
    "rationale": {
     "class": "The hash uses only the group operations, and one fixed reduction embeds its DLOG challenge as the second generator and computes the logarithm from any collision, running the collision finder once as an oracle."
    },
@@ -9639,7 +9639,7 @@
     "prg-in-nc1"
    ],
    "conclusion": "low-complexity-prg-nc0",
-   "class": "fully-black-box",
+   "class": "free",
    "model": "standard",
    "source": [
     "[[AIK06 - Cryptography in NC0|AIK06]]"
@@ -9648,7 +9648,7 @@
    "heuristic": false,
    "securityLoss": "none: a distinguisher for the encoding is a distinguisher for G after applying the simulator",
    "rationale": {
-    "class": "The compiled generator is a fixed randomized encoding of G computed from G's circuit, and the reduction composes any distinguisher, used only as an oracle, with the encoding's simulator."
+    "class": "The compiler builds the randomized encoding from G's branching program, so the construction uses G's code; the security reduction only composes any distinguisher with the encoding's simulator."
    },
    "status": "draft",
    "page": "content/Reductions/prg-in-nc1-to-low-complexity-prg-nc0-aik06.md",
