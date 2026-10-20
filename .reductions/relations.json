@@ -2908,15 +2908,28 @@
    "unlisted": false
   },
   {
+   "id": "ppa-randomized",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#ppa-under-randomized-reductions",
+   "of": "tfnp",
+   "title": "PPA under randomized reductions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ppad-hardness",
    "kind": "variant",
    "type": "complexity-class",
    "page": "content/Complexity/total-function-np.md",
    "slug": "total-function-np",
    "graphSlug": "Complexity/total-function-np",
-   "anchor": "#subclasses",
+   "anchor": "#ppad",
    "of": "tfnp",
-   "title": "Subclasses",
+   "title": "PPAD",
    "aliases": [],
    "unlisted": false
   },
@@ -3096,6 +3109,19 @@
    "anchor": "#pwpp",
    "of": "tfnp",
    "title": "PWPP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pwpp-randomized",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/total-function-np.md",
+   "slug": "total-function-np",
+   "graphSlug": "Complexity/total-function-np",
+   "anchor": "#pwpp-under-randomized-reductions",
+   "of": "tfnp",
+   "title": "PWPP under randomized reductions",
    "aliases": [],
    "unlisted": false
   },
@@ -6881,7 +6907,7 @@
    "hypotheses": [
     "fac"
    ],
-   "conclusion": "ppa",
+   "conclusion": "ppa-randomized",
    "class": "free",
    "model": "standard",
    "source": [
@@ -6902,7 +6928,7 @@
    "hypotheses": [
     "fac"
    ],
-   "conclusion": "pwpp",
+   "conclusion": "pwpp-randomized",
    "class": "free",
    "model": "standard",
    "source": [
@@ -10611,6 +10637,27 @@
    "title": "PP ⊆ PSPACE"
   },
   {
+   "id": "red-ppa-to-ppa-randomized",
+   "kind": "inclusion",
+   "hypotheses": [
+    "ppa"
+   ],
+   "conclusion": "ppa-randomized",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/ppa-to-ppa-randomized.md",
+   "slug": "ppa-to-ppa-randomized",
+   "graphSlug": "Reductions/ppa-to-ppa-randomized",
+   "title": "PPA ⊆ PPA under randomized reductions"
+  },
+  {
    "id": "red-ppa-to-tfnp",
    "kind": "inclusion",
    "hypotheses": [
@@ -11027,6 +11074,27 @@
    "slug": "pwpp-to-ppp",
    "graphSlug": "Reductions/pwpp-to-ppp",
    "title": "PWPP ⊆ PPP"
+  },
+  {
+   "id": "red-pwpp-to-pwpp-randomized",
+   "kind": "inclusion",
+   "hypotheses": [
+    "pwpp"
+   ],
+   "conclusion": "pwpp-randomized",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/pwpp-to-pwpp-randomized.md",
+   "slug": "pwpp-to-pwpp-randomized",
+   "graphSlug": "Reductions/pwpp-to-pwpp-randomized",
+   "title": "PWPP ⊆ PWPP under randomized reductions"
   },
   {
    "id": "red-qcma-to-qma",

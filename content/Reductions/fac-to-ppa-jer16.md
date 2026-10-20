@@ -6,7 +6,7 @@ aliases: []
 id: red-fac-to-ppa-jer16
 kind: inclusion
 hypotheses: [fac]
-conclusion: ppa
+conclusion: ppa-randomized
 class: free
 model: standard
 source:
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-[[factoring|Factoring]] reduces in randomized polynomial time to a problem in [[total-function-np#ppa|PPA]], and in deterministic polynomial time under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]]. Hardness of factoring therefore makes PPA hard on average under the corresponding reductions.
+[[factoring|Factoring]] reduces in randomized polynomial time to a problem in [[total-function-np#ppa|PPA]], so lies in [[total-function-np#ppa-under-randomized-reductions|PPA under randomized reductions]], and in deterministic polynomial time under the generalized Riemann hypothesis — [[Jer16 - Integer factoring and modular square roots|Jer16]]. Hardness of factoring therefore makes PPA hard on average under the corresponding reductions — folklore.
 
 ## Notes
 
