@@ -6,7 +6,7 @@ aliases:
   - Naor–Yung double encryption
 id: red-pke-cpa-security-and-nizk-to-pke-cca1-security-ny90
 kind: implication
-hypotheses: [pke-cpa-security, nizk]
+hypotheses: [perfectly-correct-pke-cpa-security, nizk-for-np]
 conclusion: pke-cca1-security
 class: free
 model: standard
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-An [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound [[non-interactive-zero-knowledge|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca1-security|IND-CCA1-secure]] scheme — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]. The public key is two independent public keys $\pk_0, \pk_1$ and a common random string $\sigma$; a ciphertext is $(c_0, c_1, \pi)$ with $c_b \gets \Enc(\pk_b, m)$ and $\pi$ a NIZK proof under $\sigma$ that $c_0$ and $c_1$ encrypt the same message; decryption verifies $\pi$ and decrypts $c_0$.
+A [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and an adaptively sound [[non-interactive-zero-knowledge#nizk-for-np|NIZK]] proof system for $\classNP$ yield an [[public-key-encryption#cca1-security|IND-CCA1-secure]] scheme — [[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]. The public key is two independent public keys $\pk_0, \pk_1$ and a common random string $\sigma$; a ciphertext is $(c_0, c_1, \pi)$ with $c_b \gets \Enc(\pk_b, m)$ and $\pi$ a NIZK proof under $\sigma$ that $c_0$ and $c_1$ encrypt the same message; decryption verifies $\pi$ and decrypts $c_0$.
 
 ## Sketch
 
