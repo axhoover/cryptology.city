@@ -22,6 +22,10 @@ rationale:
 
 If a [[commitment-scheme|bit-commitment scheme]] that is both hiding and binding exists, possibly interactive and with either property computational, then a [[hash-function#preimage-resistance-one-wayness|one-way function]] exists — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
 
+## Sketch
+
+If no one-way function exists, the map from the committer's bit and coins (and the honest receiver's coins) to the commit-phase transcript is distributionally invertible. Given an honest commitment to $b$, a sampled preimage carries a bit that hiding makes nearly independent of $b$, so with probability about $1/2$ it opens the same commitment to $1 - b$, breaking binding — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+
 ## Notes
 
 - The proof distributionally inverts functions built from the committer's algorithm, as in [[ske-to-owf-il89|SKE ⇒ OWF]] — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].

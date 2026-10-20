@@ -20,6 +20,10 @@ security-loss: ""
 
 A perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $O(n^c)$ for a constant $c < 1$, that is, a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one, yields a [[hash-function#collision-resistance|collision-resistant hash function]] family — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
+## Sketch
+
+The key is a tuple of queries for uniform indices, and the hash of an input is the tuple of answers on an encoding of it as a database, shorter than the input. By perfect correctness, two colliding databases agree at every queried index, so a collision reveals positions that were not queried, and a collision finder becomes a query-privacy distinguisher — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
+
 ## Notes
 
 - The hash outputs $t = \omega(\log k)$ answers to independent queries on an encoding of its $k$-bit input, so it compresses only when $t \cdot \beta(n) < k$ for answer length $\beta(n)$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]. Interactive schemes, and schemes in which the server sends $n - o(n)$ bits such as [[tdp-to-cpir-ko00|the trapdoor-permutation construction]], do not meet the hypothesis — [[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]].

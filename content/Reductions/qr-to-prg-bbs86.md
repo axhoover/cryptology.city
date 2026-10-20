@@ -22,6 +22,10 @@ rationale:
 
 If [[quadratic-residuosity|QR]] is hard for Blum integers, the generator that squares a uniform quadratic residue $x_0$ modulo $N$ repeatedly, $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ is a [[pseudorandom-generator|PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
 
+## Sketch
+
+Squaring permutes $\mathrm{QR}_N$, and the quadratic-residue square root of $y^2$ is $y$ or $N - y$ according to whether $y \in \mathrm{QR}_N$; these have different least significant bits since $N$ is odd. A predictor of $\mathrm{lsb}(x_i)$ from $x_{i+1}$ therefore decides quadratic residuosity of elements with Jacobi symbol $+1$, and by the next-bit test, read from the end of the sequence, the output is pseudorandom — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
+
 ## Notes
 
 - Efficiency: one modular squaring per output bit — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].

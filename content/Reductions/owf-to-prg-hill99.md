@@ -22,6 +22,10 @@ rationale:
 
 Every unkeyed [[hash-function#preimage-resistance-one-wayness|one-way function]] $f$ yields a [[pseudorandom-generator|PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. The construction extracts, by universal hashing, the computational entropy that the [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]] hard-core predicate adds to the output of $f$.
 
+## Sketch
+
+Hashing $x$ down to about $\log |f^{-1}(f(x))|$ bits and appending the hard-core bit gives a false-entropy generator: its output has more computational than real entropy. Concatenating many independent copies turns that gap into a min-entropy gap, and universal hashing then extracts more pseudorandom bits than the seed holds, by the leftover hash lemma — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
+
 ## Notes
 
 - For a one-way permutation $f$, $G(x, r) = (f(x), r, \langle x, r \rangle)$ already stretches by one bit — [[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]].

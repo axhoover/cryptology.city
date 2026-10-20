@@ -20,6 +20,10 @@ security-loss: ""
 
 In the [[random-oracle-model|random oracle model]], [[merkle-puzzles|Merkle's puzzles]] is a [[key-exchange|key-agreement]] protocol in which the honest parties make $O(n)$ oracle queries, while any eavesdropper recovering the key with constant probability makes $\Omega(n^2)$ queries — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]].
 
+## Sketch
+
+Each party queries the oracle at about $n$ uniformly random points of a domain of size $n^2$ and sends the answers in the clear. By the birthday bound some answer appears in both lists with constant probability, and the parties take its preimage as the key. An eavesdropper sees only oracle outputs, and finding a given output's preimage in a domain of size $n^2$ takes $\Omega(n^2)$ queries — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]].
+
 ## Notes
 
 - The quadratic gap is optimal: every random-oracle key agreement whose honest parties make $n$ queries falls to an eavesdropper making $O(n^2)$ queries — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]] ([[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]).
