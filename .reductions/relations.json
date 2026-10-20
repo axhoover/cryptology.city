@@ -2933,6 +2933,19 @@
    "unlisted": false
   },
   {
+   "id": "polynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-polynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with polynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pp",
    "kind": "object",
    "type": "complexity-class",
@@ -4175,6 +4188,19 @@
     "Universal Composability Framework",
     "UC"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "uc-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#uc-secure-ot",
+   "of": "ot",
+   "title": "UC-secure OT",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -6029,7 +6055,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -9050,7 +9076,7 @@
    "id": "red-lwe-to-lossy-trapdoor-function-pw08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
@@ -9074,9 +9100,9 @@
    "id": "red-lwe-to-malicious-ot-security-pvw08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -10819,6 +10845,30 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polynomial-ratio-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-lwe.md",
+   "slug": "polynomial-ratio-lwe-to-lwe",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
+   "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
    "id": "red-pp-to-pspace",
    "kind": "inclusion",
    "hypotheses": [
@@ -11492,7 +11542,7 @@
    "hypotheses": [
     "qr"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -12991,7 +13041,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "nontrivial-cpir",
+   "conclusion": "total-nontrivial-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -13004,7 +13054,7 @@
    "page": "content/Reductions/tdp-to-cpir-ko00.md",
    "slug": "tdp-to-cpir-ko00",
    "graphSlug": "Reductions/tdp-to-cpir-ko00",
-   "title": "TDP ⇒ Non-trivial cPIR (Kushilevitz–Ostrovsky)"
+   "title": "TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)"
   },
   {
    "id": "red-tdp-to-hash-function",
@@ -13151,6 +13201,30 @@
    "slug": "two-party-computation-to-ot",
    "graphSlug": "Reductions/two-party-computation-to-ot",
    "title": "2PC ⇒ OT"
+  },
+  {
+   "id": "red-uc-ot-to-malicious-ot-security",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-ot"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the protocol, and a stand-alone adversary is a special case of a UC adversary with an environment that only supplies inputs and reads outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-ot-to-malicious-ot-security.md",
+   "slug": "uc-ot-to-malicious-ot-security",
+   "graphSlug": "Reductions/uc-ot-to-malicious-ot-security",
+   "title": "UC-secure OT ⇒ Malicious OT"
   },
   {
    "id": "red-unkeyed-depir-to-depir",
