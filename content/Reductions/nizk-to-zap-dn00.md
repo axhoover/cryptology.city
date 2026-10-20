@@ -29,4 +29,4 @@ The verifier sends many random strings $\rho_1, \ldots, \rho_\ell$. The prover p
 ## Notes
 
 - Non-interactive zaps, with no verifier message at all, exist under pairing-based assumptions — [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06]].
-- Through [[tdp-to-nizk-bfm88|TDP ⇒ NIZK]], suitably enhanced trapdoor permutations give zaps — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]], [[DN00 - Zaps and Their Applications|DN00]].
+- Through [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]], suitably enhanced trapdoor permutations give zaps — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]], [[DN00 - Zaps and Their Applications|DN00]].

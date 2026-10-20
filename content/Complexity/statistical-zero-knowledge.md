@@ -20,7 +20,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:S#s
 
 ## Known relationships
 
-- Graph non-isomorphism is in SZK — the verifier can check statistical distance between two distributions via the prover
+- Graph non-isomorphism has a perfect zero-knowledge proof, so it lies in SZK — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]
 - SZK is closed under complement ([[coszk-to-szk-oka96|SZK = coSZK]]) — [[Oka96 - On Relationships between Statistical Zero-Knowledge Proofs|Oka96]] for honest verifiers, [[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]; simpler proof in [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]
 - SZK ⊆ [[arthur-merlin|AM]] ∩ [[co-arthur-merlin|coAM]] — [[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]] (AM), [[For87 - The Complexity of Perfect Zero-Knowledge|For87]] (coAM); in particular SZK does not contain NP-complete problems unless PH collapses — [[BHZ87 - Does co-NP Have Short Interactive Proofs|BHZ87]]
 - Average-case-hard SZK implies [[hash-function|OWFs]]: if some language in SZK is hard on average over an efficiently samplable distribution, then one-way functions exist — [[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]
@@ -37,7 +37,7 @@ $\mathbf{coSZK}$ is the class of complements of problems in SZK — [[Oka96 - On
 
 ## Statistical Difference
 
-$\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of circuits $(C_0, C_1)$ sampling distributions $D_0, D_1$, with yes-instances $\|D_0 - D_1\|_{\mathrm{TV}} \ge \alpha$ and no-instances $\|D_0 - D_1\|_{\mathrm{TV}} \le \beta$; the standard choice is $(\alpha, \beta) = (2/3, 1/3)$ — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
+$\mathrm{SD}^{\alpha,\beta}$ is the promise problem whose instances are pairs of circuits $(C_0, C_1)$ sampling distributions $D_0, D_1$, with yes-instances $\|D_0 - D_1\|_{\mathrm{TV}} \ge \alpha$ and no-instances $\|D_0 - D_1\|_{\mathrm{TV}} \le \beta$. _Statistical Difference_ $\mathrm{SD}$ is $\mathrm{SD}^{2/3,1/3}$. For constants $\alpha^2 > \beta$, polarization reduces $\mathrm{SD}^{\alpha,\beta}$ to it — [[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]].
 
 <!-- BEGIN GENERATED participates-in 434a7e953be5 -->
 

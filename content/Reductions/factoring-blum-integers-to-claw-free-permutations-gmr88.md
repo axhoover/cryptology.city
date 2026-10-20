@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
-security-loss: "none: every claw factors N"
+security-loss: "a factor of about 2: such integers are about half of all Blum integers, and every claw factors N"
 rationale:
   class: "The pair uses only arithmetic modulo the sampled integer, and one fixed reduction factors it from any claw, running the claw finder once as an oracle."
 ---
@@ -26,7 +26,7 @@ $$
 f_0(x) := x^2 \bmod N, \qquad f_1(x) := 4x^2 \bmod N
 $$
 
-are permutations of $\mathrm{QR}_N$ with trapdoor $(p, q)$, and if [[factoring#factoring-with-known-factor-structure|factoring such integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]].
+are permutations of $\mathrm{QR}_N$ with trapdoor $(p, q)$, and if [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard they form a [[trapdoor-permutation#claw-free-permutations|claw-free pair]] — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Such $N$ are exactly the Blum integers with $N \equiv 5 \pmod 8$, about half of them, so a claw finder with advantage $\varepsilon$ factors a uniform Blum integer with probability about $\varepsilon / 2$ — standard.
 
 ## Sketch
 

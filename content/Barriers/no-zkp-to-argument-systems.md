@@ -8,8 +8,8 @@ hypotheses: [zkp]
 conclusion: constant-round-zk-argument
 class: unstated
 consequences:
-  - kind: contradiction
-    target: ""
+  - kind: complexity
+    target: np-subset-bpp
     class: unstated
 strength: unconditional
 circumvented-by: [red-crhf-to-constant-round-zk-argument-bar01]

@@ -26,7 +26,7 @@ $$
 \hash_{f_0, f_1, x_0}(m) := f_{b_1}(f_{b_2}(\cdots f_{b_t}(x_0) \cdots))
 $$
 
-is a [[hash-function#collision-resistance|collision-resistant]] family — [[Dam87 - Collision Free Hash Functions and Public Key Signature Schemes|Dam87]].
+is collision resistant — [[Dam87 - Collision Free Hash Functions and Public Key Signature Schemes|Dam87]]. Every fixed-length encoding is prefix-free, so on messages of a fixed length $n(\secpar)$ exceeding the bit length of elements of $\calD$, encoded as themselves, $\hash_{f_0, f_1, x_0} : \bits^{n} \to \calD$ is a compressing [[hash-function#collision-resistance|collision-resistant hash function]] family.
 
 ## Sketch
 
