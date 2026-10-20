@@ -281,6 +281,19 @@
    "unlisted": false
   },
   {
+   "id": "adversarial-pp-hiding-commitment",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/commitment-scheme.md",
+   "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
+   "anchor": "#hiding-for-adversarial-public-parameters",
+   "of": "com",
+   "title": "Hiding for adversarial public parameters",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "agm",
    "kind": "object",
    "type": "glossary",
@@ -4575,6 +4588,30 @@
    "title": "Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
   },
   {
+   "id": "red-adversarial-pp-hiding-commitment-to-com",
+   "kind": "implication",
+   "hypotheses": [
+    "adversarial-pp-hiding-commitment"
+   ],
+   "conclusion": "com",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reductions forward any hiding or binding adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/adversarial-pp-hiding-commitment-to-com.md",
+   "slug": "adversarial-pp-hiding-commitment-to-com",
+   "graphSlug": "Reductions/adversarial-pp-hiding-commitment-to-com",
+   "title": "Commitment hiding for adversarial parameters ⇒ COM"
+  },
+  {
    "id": "red-agm-to-kea",
    "kind": "implication",
    "hypotheses": [
@@ -5330,7 +5367,7 @@
    "id": "red-com-to-coin-flipping-blu81",
    "kind": "implication",
    "hypotheses": [
-    "com"
+    "adversarial-pp-hiding-commitment"
    ],
    "conclusion": "coin-flipping",
    "class": "fully-black-box",
@@ -11020,7 +11057,7 @@
    "hypotheses": [
     "prg"
    ],
-   "conclusion": "com",
+   "conclusion": "adversarial-pp-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
    "source": [

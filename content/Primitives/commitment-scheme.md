@@ -11,6 +11,7 @@ variants:
   statistically-binding-commitment: "#binding"
   statistically-hiding-commitment: "#hiding"
   vector-commitment: "#vector-commitments"
+  adversarial-pp-hiding-commitment: "#hiding-for-adversarial-public-parameters"
 ---
 
 # Commitment scheme
@@ -55,6 +56,10 @@ A commitment is **statistically binding** if this holds even against computation
 
 # Variations
 
+## Hiding for adversarial public parameters
+
+A commitment scheme is **hiding for adversarial public parameters** if the hiding game's advantage stays negligible when $\calA$ chooses $\pp$ itself; binding is still required only for $\pp \gets \Gen(1^\secpar)$. The receiver can then sample $\pp$ and send it as its first message. Naor's commitment from a PRG has this property, since $G(s)$ and $G(s) \oplus r$ are both pseudorandom for every $r$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+
 ## Trapdoor commitments
 
 A _trapdoor commitment_ (or equivocable commitment) is a commitment scheme with an additional trapdoor $\td$ (generated alongside $\pp$) that allows equivocation: given $\td$, for any commitment $c$ and any two messages $m_0, m_1$, one can produce decommitment strings $d_0, d_1$ with $\Open(\pp, c, d_0) = m_0$ and $\Open(\pp, c, d_1) = m_1$. Used in zero-knowledge proof constructions.
@@ -70,18 +75,20 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in ecedd5b17efb -->
+<!-- BEGIN GENERATED participates-in 2c6864d32b1f -->
 
 ## Participates in
 
 **Builds on Commitment scheme**
 
-- [[com-to-coin-flipping-blu81|COM ⇒ Coin flipping (Blum)]]
+- [[adversarial-pp-hiding-commitment-to-com|Commitment hiding for adversarial parameters ⇒ COM]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
+- [[com-to-coin-flipping-blu81|COM ⇒ Coin flipping (Blum)]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[com-to-owf-il89|COM ⇒ OWF]]
 - [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[commitment-scheme#hiding|Hiding]])
 
 **Produces Commitment scheme**
 
+- [[adversarial-pp-hiding-commitment-to-com|Commitment hiding for adversarial parameters ⇒ COM]]
 - [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#hiding|Hiding]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|Hiding]])
@@ -90,7 +97,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]] (via [[commitment-scheme#hiding|Hiding]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]] (via [[commitment-scheme#vector-commitments|Vector commitments]])
 - [[pke-to-com|PKE ⇒ COM]]
-- [[prg-to-com-naor91|PRG ⇒ COM]]
+- [[prg-to-com-naor91|PRG ⇒ COM]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[qr-to-com|QR ⇒ COM]]
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
 

@@ -6,7 +6,7 @@ aliases: []
 id: red-prg-to-com-naor91
 kind: implication
 hypotheses: [prg]
-conclusion: com
+conclusion: adversarial-pp-hiding-commitment
 class: fully-black-box
 model: standard
 source:
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding, computationally hiding bit [[commitment-scheme|commitment]]: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+A length-tripling [[pseudorandom-generator|PRG]] $G : \bits^\secpar \to \bits^{3\secpar}$ yields a statistically binding bit [[commitment-scheme|commitment]], computationally [[commitment-scheme#hiding-for-adversarial-public-parameters|hiding for every]] $\pp$: the receiver sends $\pp \getsr \bits^{3\secpar}$; the committer samples $s \getsr \bits^\secpar$ and sends $G(s)$ to commit to $0$ or $G(s) \oplus \pp$ to commit to $1$; opening reveals $(b, s)$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Sketch
 
