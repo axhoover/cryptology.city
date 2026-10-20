@@ -11,6 +11,8 @@ class: unstated
 model: standard
 source:
   - "[[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: ""
 ---
 

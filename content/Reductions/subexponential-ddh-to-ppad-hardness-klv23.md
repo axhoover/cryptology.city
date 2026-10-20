@@ -11,6 +11,8 @@ class: unstated
 model: standard
 source:
   - "[[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: ""
 ---
 

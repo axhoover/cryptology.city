@@ -11,6 +11,8 @@ class: unstated
 model: crs
 source:
   - "[[PS19 - Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors|PS19]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: ""
 ---
 

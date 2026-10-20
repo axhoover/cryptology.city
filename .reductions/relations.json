@@ -6405,7 +6405,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -9256,6 +9256,30 @@
    "title": "IND-ID-CPA Security ⇒ IND-sID-CPA Security (Selective)"
   },
   {
+   "id": "red-ind-id-cpa-to-ibe",
+   "kind": "implication",
+   "hypotheses": [
+    "ind-id-cpa"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the IBE algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ind-id-cpa-to-ibe.md",
+   "slug": "ind-id-cpa-to-ibe",
+   "graphSlug": "Reductions/ind-id-cpa-to-ibe",
+   "title": "IND-ID-CPA IBE ⇒ IBE"
+  },
+  {
    "id": "red-ind-sid-cpa-security-selective-to-hibe-gkr25",
    "kind": "implication",
    "hypotheses": [
@@ -9287,7 +9311,7 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+    "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -10287,7 +10311,9 @@
    "source": [
     "[[PS19 - Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors|PS19]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "status": "draft",
@@ -11994,6 +12020,30 @@
    "slug": "pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "graphSlug": "Reductions/pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91",
    "title": "CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)"
+  },
+  {
+   "id": "red-pke-cpa-security-to-pke",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the encryption algorithms, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke.md",
+   "slug": "pke-cpa-security-to-pke",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke",
+   "title": "IND-CPA PKE ⇒ PKE"
   },
   {
    "id": "red-pke-to-com",
@@ -14192,7 +14242,9 @@
    "source": [
     "[[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
@@ -14216,7 +14268,9 @@
    "source": [
     "[[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "status": "draft",
@@ -14408,6 +14462,30 @@
    "title": "Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio"
   },
   {
+   "id": "red-subexponential-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-lwe-to-lwe.md",
+   "slug": "subexponential-lwe-to-lwe",
+   "graphSlug": "Reductions/subexponential-lwe-to-lwe",
+   "title": "Sub-exponential LWE ⇒ LWE"
+  },
+  {
    "id": "red-subexponential-lwe-to-ppad-hardness-jkkz21",
    "kind": "implication",
    "hypotheses": [
@@ -14419,7 +14497,9 @@
    "source": [
     "[[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "status": "draft",

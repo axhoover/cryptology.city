@@ -358,7 +358,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in 572aa0865682 -->
+<!-- BEGIN GENERATED participates-in f9b206634d49 -->
 
 ## Participates in
 
@@ -394,6 +394,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
+- [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-lwe-to-ppad-hardness-jkkz21|Sub-exponential LWE ⇒ PPAD hardness]] (via [[learning-with-errors#sub-exponential-lwe|Sub-exponential LWE]])
 - [[subexponential-modulus-lwe-to-abe-selective-security-gvw13|LWE with sub-exponential ratio ⇒ Selectively secure ABE for circuits (GVW)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[circular-security-and-lwe-to-he|LWE with sub-exponential ratio ⇒ Bootstrappable SHE (BV11)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
@@ -418,6 +419,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
+- [[subexponential-lwe-to-lwe|Sub-exponential LWE ⇒ LWE]]
 - [[subexponential-modulus-lwe-to-lwe|LWE with sub-exponential ratio ⇒ LWE]]
 - [[subexponential-modulus-lwe-to-lwr-bpr12|LWE with sub-exponential ratio ⇒ LWR]] (via [[learning-with-errors#learning-with-rounding|Learning with rounding]])
 - [[succinct-lwe-to-lwe|Succinct LWE ⇒ LWE]]

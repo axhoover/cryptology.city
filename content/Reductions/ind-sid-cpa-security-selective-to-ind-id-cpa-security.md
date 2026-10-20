@@ -10,7 +10,7 @@ conclusion: ind-id-cpa
 class: fully-black-box
 model: standard
 source:
-  - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]"
+  - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
 security-loss: "multiplicative $|\\calI|$"
 rationale:
   class: "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-For an [[identity-based-encryption|IBE]] scheme with identity space $\calI$, every efficient adaptive ([[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]) adversary with advantage $\delta$ yields a selective ([[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]) adversary of similar size with advantage $\delta / |\calI|$ (complexity leveraging) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04]]. Hence a [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponentially IND-sID-CPA-secure]] IBE, with constant $\epsilon > 0$, is IND-ID-CPA-secure whenever $|\calI| \cdot 2^{-\secpar^{\epsilon}}$ is negligible. For polynomial $|\calI|$, IND-sID-CPA security suffices; for super-polynomial $|\calI|$, a merely negligible selective advantage does not bound $\delta$ by a negligible function.
+For an [[identity-based-encryption|IBE]] scheme with identity space $\calI$, every efficient adaptive ([[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA]]) adversary with advantage $\delta$ yields a selective ([[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA]]) adversary of similar size with advantage $\delta / |\calI|$ (complexity leveraging) — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]. Hence a [[identity-based-encryption#sub-exponential-ind-sid-cpa-security|sub-exponentially IND-sID-CPA-secure]] IBE, with constant $\epsilon > 0$, is IND-ID-CPA-secure whenever $|\calI| \cdot 2^{-\secpar^{\epsilon}}$ is negligible. For polynomial $|\calI|$, IND-sID-CPA security suffices; for super-polynomial $|\calI|$, a merely negligible selective advantage does not bound $\delta$ by a negligible function.
 
 ## Sketch
 

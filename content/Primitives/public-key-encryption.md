@@ -134,7 +134,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 17465c2794d0 -->
+<!-- BEGIN GENERATED participates-in a76641409029 -->
 
 ## Participates in
 
@@ -147,6 +147,7 @@ TODO
 - [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
@@ -180,6 +181,7 @@ TODO
 - [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]]
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
