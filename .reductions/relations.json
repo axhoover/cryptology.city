@@ -2749,6 +2749,19 @@
    "unlisted": false
   },
   {
+   "id": "polynomial-ratio-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#lwe-with-polynomial-modulus-to-noise-ratio",
+   "of": "lwe",
+   "title": "LWE with polynomial modulus-to-noise ratio",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pp",
    "kind": "object",
    "type": "complexity-class",
@@ -8182,7 +8195,7 @@
    "id": "red-lwe-to-lossy-trapdoor-function-pw08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
@@ -9763,6 +9776,30 @@
    "slug": "pke-to-kem",
    "graphSlug": "Reductions/pke-to-kem",
    "title": "PKE ⇒ KEM"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-lwe.md",
+   "slug": "polynomial-ratio-lwe-to-lwe",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
+   "title": "LWE with polynomial ratio ⇒ LWE"
   },
   {
    "id": "red-pp-to-pspace",
