@@ -448,6 +448,19 @@
    "unlisted": false
   },
   {
+   "id": "barg-for-np",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#batch-arguments-for-np",
+   "of": "snark",
+   "title": "Batch arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bdh",
    "kind": "object",
    "type": "assumption",
@@ -1366,6 +1379,19 @@
    "unlisted": false
   },
   {
+   "id": "gapsvp-poly-factor",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#polynomial-factors",
+   "of": "gapsvp",
+   "title": "Polynomial factors",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "gapsvp-sqrt-n",
    "kind": "variant",
    "type": "assumption",
@@ -2219,6 +2245,19 @@
     "MLWE",
     "Module-LWE"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "lwr",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#learning-with-rounding",
+   "of": "lwe",
+   "title": "Learning with rounding",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3372,6 +3411,19 @@
    "unlisted": true
   },
   {
+   "id": "quasi-polynomial-lwe",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#quasi-polynomially-hard-lwe",
+   "of": "lwe",
+   "title": "Quasi-polynomially hard LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "rabin-ot",
    "kind": "variant",
    "type": "primitive",
@@ -3742,6 +3794,19 @@
    "unlisted": false
   },
   {
+   "id": "snarg-for-p",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#snargs-for-p",
+   "of": "snark",
+   "title": "SNARGs for P",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "snark",
    "kind": "object",
    "type": "primitive",
@@ -3854,6 +3919,19 @@
    "anchor": "#statistical-difference",
    "of": "szk",
    "title": "Statistical Difference",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistical-zap-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#statistical-zap-arguments",
+   "of": "zkp",
+   "title": "Statistical zap arguments",
    "aliases": [],
    "unlisted": false
   },
@@ -7618,6 +7696,78 @@
    "title": "Fuzzy IBE ⇒ IBE"
   },
   {
+   "id": "red-gapsvp-poly-factor-to-gapsvp",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "gapsvp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on GapSVP instances, and the reduction forwards any algorithm unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-gapsvp.md",
+   "slug": "gapsvp-poly-factor-to-gapsvp",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-gapsvp",
+   "title": "GapSVP for polynomial factors ⇒ GapSVP"
+  },
+  {
+   "id": "red-gapsvp-poly-factor-to-lwe-blprs13",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-lwe-blprs13.md",
+   "slug": "gapsvp-poly-factor-to-lwe-blprs13",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-lwe-blprs13",
+   "title": "Polynomial-factor GapSVP ⇒ LWE (polynomial modulus)"
+  },
+  {
+   "id": "red-gapsvp-poly-factor-to-lwe-pei09",
+   "kind": "implication",
+   "hypotheses": [
+    "gapsvp-poly-factor"
+   ],
+   "conclusion": "lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The classical worst-case algorithm calls an arbitrary average-case LWE solver only as an oracle, for every solver with noticeable success probability."
+   },
+   "status": "draft",
+   "page": "content/Reductions/gapsvp-poly-factor-to-lwe-pei09.md",
+   "slug": "gapsvp-poly-factor-to-lwe-pei09",
+   "graphSlug": "Reductions/gapsvp-poly-factor-to-lwe-pei09",
+   "title": "Polynomial-factor GapSVP ⇒ LWE (exponential modulus)"
+  },
+  {
    "id": "red-gapsvp-to-coam-gg00",
    "kind": "inclusion",
    "hypotheses": [
@@ -9287,6 +9437,30 @@
    "title": "High-noise LPN ⇒ Constant-noise LPN"
   },
   {
+   "id": "red-lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "kind": "implication",
+   "hypotheses": [
+    "lpn-low-noise",
+    "ddh"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20.md",
+   "slug": "lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "graphSlug": "Reductions/lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20",
+   "title": "Low-noise LPN + DDH ⇒ NIZK argument for NP"
+  },
+  {
    "id": "red-lpn-mid-noise-to-lpn-high-noise",
    "kind": "implication",
    "hypotheses": [
@@ -9309,6 +9483,30 @@
    "slug": "lpn-mid-noise-to-lpn-high-noise",
    "graphSlug": "Reductions/lpn-mid-noise-to-lpn-high-noise",
    "title": "Mid-noise LPN ⇒ High-noise LPN"
+  },
+  {
+   "id": "red-lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "kind": "implication",
+   "hypotheses": [
+    "lpn-mid-noise"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[KMP14 - Simple Chosen-Ciphertext Security from Low-Noise LPN|KMP14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One fixed scheme uses LPN samples only as data, and the security reduction answers decryption queries with a trapdoor while running the CCA adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/lpn-mid-noise-to-pke-cca2-security-kmp14.md",
+   "slug": "lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "graphSlug": "Reductions/lpn-mid-noise-to-pke-cca2-security-kmp14",
+   "title": "Mid-noise LPN ⇒ IND-CCA PKE"
   },
   {
    "id": "red-lpn-to-secret-key-pir-sk-pir-cimr25",
@@ -11339,6 +11537,29 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-barg-for-np-cjj21.md",
+   "slug": "polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-barg-for-np-cjj21",
+   "title": "LWE with polynomial ratio ⇒ BARG for NP"
+  },
+  {
    "id": "red-polynomial-ratio-lwe-to-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -11361,6 +11582,53 @@
    "slug": "polynomial-ratio-lwe-to-lwe",
    "graphSlug": "Reductions/polynomial-ratio-lwe-to-lwe",
    "title": "LWE with polynomial ratio ⇒ LWE"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Constant factor: $\\Adv^{\\mathrm{lwe}} \\ge 0.4 \\cdot \\Adv^{\\mathrm{sis}}$ for prime $q \\ge 75$, with one call to the SIS solver.",
+   "rationale": {
+    "class": "The LWE distinguisher runs an arbitrary SIS solver once as an oracle on the transposed LWE matrix and tests one inner product, for every solver."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-sis.md",
+   "slug": "polynomial-ratio-lwe-to-sis",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-sis",
+   "title": "LWE with polynomial ratio ⇒ SIS"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "snarg-for-p",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-snarg-for-p-cjj21.md",
+   "slug": "polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-snarg-for-p-cjj21",
+   "title": "LWE with polynomial ratio ⇒ SNARG for P"
   },
   {
    "id": "red-pp-to-pspace",
@@ -12190,6 +12458,51 @@
    "title": "QM ⇒ OWSG"
   },
   {
+   "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "quasi-polynomial-lwe"
+   ],
+   "conclusion": "polynomial-ratio-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/quasi-polynomial-lwe-to-polynomial-ratio-lwe.md",
+   "slug": "quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "graphSlug": "Reductions/quasi-polynomial-lwe-to-polynomial-ratio-lwe",
+   "title": "Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio"
+  },
+  {
+   "id": "red-quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "kind": "implication",
+   "hypotheses": [
+    "quasi-polynomial-lwe"
+   ],
+   "conclusion": "statistical-zap-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/quasi-polynomial-lwe-to-statistical-zap-argument-blnww25.md",
+   "slug": "quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "graphSlug": "Reductions/quasi-polynomial-lwe-to-statistical-zap-argument-blnww25",
+   "title": "Quasi-polynomially hard LWE ⇒ Statistical zap arguments"
+  },
+  {
    "id": "red-rabin-ot-to-ot",
    "kind": "equivalence",
    "hypotheses": [
@@ -12302,6 +12615,30 @@
    "slug": "ring-lwe-to-ntru-ss11",
    "graphSlug": "Reductions/ring-lwe-to-ntru-ss11",
    "title": "Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)"
+  },
+  {
+   "id": "red-ring-sis-to-crhf-lm06",
+   "kind": "implication",
+   "hypotheses": [
+    "ring-sis"
+   ],
+   "conclusion": "crhf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Tight: one call to the collision finder, $\\Adv^{\\mathrm{cr}} \\le \\Adv^{\\mathrm{ring\\text{-}sis}}$.",
+   "rationale": {
+    "class": "One fixed construction, the generalized compact knapsack keyed by the uniform Ring-SIS instance, and one fixed reduction that runs any collision finder once as an oracle and outputs the difference of the colliding inputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ring-sis-to-crhf-lm06.md",
+   "slug": "ring-sis-to-crhf-lm06",
+   "graphSlug": "Reductions/ring-sis-to-crhf-lm06",
+   "title": "Ring-SIS ⇒ CRHF"
   },
   {
    "id": "red-rom-to-merkle-puzzles-mer78",
@@ -12670,6 +13007,27 @@
    "slug": "sis-to-hash-function-ajt96",
    "graphSlug": "Reductions/sis-to-hash-function-ajt96",
    "title": "SIS ⇒ CRHF"
+  },
+  {
+   "id": "red-sis-to-pwpp-szz18",
+   "kind": "inclusion",
+   "hypotheses": [
+    "sis"
+   ],
+   "conclusion": "pwpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: one Karp reduction to Weak Pigeon, and a collision maps to a solution by subtraction",
+   "status": "draft",
+   "page": "content/Reductions/sis-to-pwpp-szz18.md",
+   "slug": "sis-to-pwpp-szz18",
+   "graphSlug": "Reductions/sis-to-pwpp-szz18",
+   "title": "SIS ∈ PWPP"
   },
   {
    "id": "red-sivp-to-lwe-reg05",
@@ -13374,6 +13732,30 @@
    "slug": "subexponential-modulus-lwe-to-lwe",
    "graphSlug": "Reductions/subexponential-modulus-lwe-to-lwe",
    "title": "LWE with sub-exponential ratio ⇒ LWE"
+  },
+  {
+   "id": "red-subexponential-modulus-lwe-to-lwr-bpr12",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe"
+   ],
+   "conclusion": "lwr",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BPR12 - Pseudorandom Functions and Lattices|BPR12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "Additive: the LWR advantage exceeds the LWE advantage by at most $m \\cdot O(pB/q)$ plus the probability that some error exceeds $B$, negligible for $q \\ge pB \\cdot n^{\\omega(1)}$.",
+   "rationale": {
+    "class": "The LWE distinguisher rounds each sample with a fixed map and runs an arbitrary LWR distinguisher once as an oracle on the result."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-to-lwr-bpr12.md",
+   "slug": "subexponential-modulus-lwe-to-lwr-bpr12",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-to-lwr-bpr12",
+   "title": "LWE with sub-exponential ratio ⇒ LWR"
   },
   {
    "id": "red-subexponential-owf-to-owf",

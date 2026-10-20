@@ -15,6 +15,8 @@ variants:
   incremental-verifiable-computation: "#recursive-snarks"
   transparent-succinct-argument: "#stark"
   interactive-succinct-argument: "#interactive-succinct-arguments"
+  snarg-for-p: "#snargs-for-p"
+  barg-for-np: "#batch-arguments-for-np"
 ---
 
 # Succinct argument
@@ -94,6 +96,14 @@ _Incrementally verifiable computation (IVC)_ for a step function $F$ and an init
 
 An interactive argument system for $\classNP$ whose total communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers and no common reference string — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
 
+## SNARGs for P
+
+A publicly verifiable non-interactive argument in the CRS model for deterministic computations, with no knowledge extractor. For a polynomial $T = T(\secpar)$, a statement is a pair $(M, x)$ of a deterministic Turing machine and an input, true when $M$ accepts $x$ within $T$ steps. $\Setup(1^\secpar, T)$ outputs $\crs$; $\crs$ and proofs have size $\poly(\secpar, \log T)$, and $\Vrfy$ runs in time $(|M| + |x|) \cdot \poly(\secpar, \log T)$. Soundness is adaptive: for all efficient $\calA$, the probability that $\calA(\crs)$ outputs $(M, x, \pi)$ with $\Vrfy(\crs, (M, x), \pi) = 1$ although $M$ does not accept $x$ within $T$ steps is negligible. [[CJJ21 - SNARGs for P from LWE|CJJ21]] construct one from LWE with a common random string ([[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]]). The bound on verification time is what makes the notion non-trivial: a verifier allowed $T$ steps runs $M$ itself and needs no proof — standard.
+
+## Batch arguments for NP
+
+A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the CRS model for statements $(C, x_1, \ldots, x_k)$, true when every $x_i$ has a witness $w_i$ with $C(x_i, w_i) = 1$, for a Boolean circuit $C$. A proof has size $\poly(\secpar, |C|, \log k)$ and $\Vrfy$ runs in polynomial time. Soundness is non-adaptive: for every false statement $(C, x_1, \ldots, x_k)$, some $x_i$ having no witness, fixed before $\crs$ is sampled, every efficient prover makes $\Vrfy$ accept with negligible probability — [[CJJ21 - SNARGs for P from LWE|CJJ21]]. Without the size bound the $k$ witnesses form a proof — standard. CJJ21 construct one from LWE ([[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]]).
+
 # Other results
 
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
@@ -102,7 +112,7 @@ An interactive argument system for $\classNP$ whose total communication is $\pol
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 62745988db43 -->
+<!-- BEGIN GENERATED participates-in dfa0abda563c -->
 
 ## Participates in
 
@@ -117,6 +127,8 @@ An interactive argument system for $\classNP$ whose total communication is $\pol
 - [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]] (via [[succinct-argument#batch-arguments-for-np|Batch arguments for NP]])
+- [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]] (via [[succinct-argument#snargs-for-p|SNARGs for P]])
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|Recursive SNARKs]])
 

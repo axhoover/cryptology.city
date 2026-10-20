@@ -98,6 +98,8 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 - [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
+- [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]]
+- [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
 - [[subexponential-lpn-to-crhf-yzw-19|Subexponential LPN ⇒ CRHF]]
 - [[subexponential-lpn-to-prc-cg24|Subexponential LPN ⇒ PRC]]
@@ -180,7 +182,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in 11b6e867b12d -->
+<!-- BEGIN GENERATED participates-in 9bc91ac6e88d -->
 
 ## Participates in
 
@@ -190,7 +192,9 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
 - [[lpn-constant-noise-to-prg-bfkl93|Constant-noise LPN ⇒ PRG]] (via [[learning-parity-with-noise#constant-noise-lpn|Constant-noise LPN]])
 - [[lpn-high-noise-to-lpn-constant-noise|High-noise LPN ⇒ Constant-noise LPN]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
+- [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[lpn-mid-noise-to-lpn-high-noise|Mid-noise LPN ⇒ High-noise LPN]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
+- [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
 - [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])

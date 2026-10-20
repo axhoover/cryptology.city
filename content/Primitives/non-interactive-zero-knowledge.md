@@ -91,7 +91,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in 4bfe56242501 -->
+<!-- BEGIN GENERATED participates-in 23a6aca57b0d -->
 
 ## Participates in
 
@@ -111,6 +111,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[hash-function-and-io-to-nizk-sw14|OWF + iO ⇒ Non-adaptively sound NIZK argument]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
+- [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np|NIZK argument for NP ⇒ Non-adaptively sound NIZK argument for NP]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
 - [[nizk-for-np-to-nizk|NIZK for NP ⇒ NIZK]]
