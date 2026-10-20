@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[commitment-scheme#hiding|statistically hiding]], computationally binding commitment scheme yields, for every language in $\classNP$, an interactive argument that is [[zero-knowledge-proof#statistical-zero-knowledge-arguments|statistically zero-knowledge]] and computationally sound — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]]. With a perfectly hiding commitment the argument is perfect zero-knowledge.
+A commitment scheme [[commitment-scheme#hiding|statistically hiding]] against every receiver, including one that samples $\pp$ or deviates in the commit phase, and computationally binding, yields, for every language in $\classNP$, an interactive argument that is [[zero-knowledge-proof#statistical-zero-knowledge-arguments|statistically zero-knowledge]] and computationally sound — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]]. With a perfectly hiding commitment the argument is perfect zero-knowledge.
 
 ## Sketch
 

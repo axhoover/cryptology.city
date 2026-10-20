@@ -6,7 +6,7 @@ aliases: []
 id: red-hash-function-and-io-to-nizk-sw14
 kind: implication
 hypotheses: [owf, io]
-conclusion: nizk
+conclusion: nizk-for-np
 class: free
 model: crs
 source:

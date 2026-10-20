@@ -28,14 +28,14 @@ A scheme is **statistically rerandomizable** if for every $\pk$ output by $\KeyG
 
 A rerandomizable encryption scheme is **secure against slightly super-polynomial adversaries** if for some $T(\secpar) = \secpar^{\omega(1)}$ every adversary running in time $T(\secpar)$ has IND-CPA advantage at most $1/T(\secpar)$. It strengthens ordinary IND-CPA security; fully homomorphic encryption from iO without circular security requires security of this kind — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 
-<!-- BEGIN GENERATED participates-in e352e1f42a58 -->
+<!-- BEGIN GENERATED participates-in 4b9674de230c -->
 
 ## Participates in
 
 **Builds on Rerandomizable encryption**
 
 - [[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]]
-- [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ FHE (CLTV)]] (via [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|Security against slightly super-polynomial adversaries]])
+- [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[rerandomizable-encryption#security-against-slightly-super-polynomial-adversaries|Security against slightly super-polynomial adversaries]])
 
 **Produces Rerandomizable encryption**
 
