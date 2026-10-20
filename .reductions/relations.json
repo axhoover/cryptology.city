@@ -9425,7 +9425,7 @@
    "id": "red-lwe-to-hibe-selective-security-chkp10",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "hibe-selective-security",
    "class": "fully-black-box",
@@ -9450,7 +9450,7 @@
    "id": "red-lwe-to-ibe-gpv08",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
@@ -9499,7 +9499,7 @@
    "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bv14",
    "kind": "implication",
    "hypotheses": [
-    "lwe"
+    "polynomial-ratio-lwe"
    ],
    "conclusion": "leveled-fully-homomorphic-encryption",
    "class": "fully-black-box",
@@ -9517,7 +9517,7 @@
    "page": "content/Reductions/lwe-to-leveled-fully-homomorphic-encryption-bv14.md",
    "slug": "lwe-to-leveled-fully-homomorphic-encryption-bv14",
    "graphSlug": "Reductions/lwe-to-leveled-fully-homomorphic-encryption-bv14",
-   "title": "LWE ⇒ Leveled FHE at polynomial ratio (BV14)"
+   "title": "LWE with polynomial ratio ⇒ Leveled FHE (BV14)"
   },
   {
    "id": "red-lwe-to-lossy-trapdoor-function-pw08",

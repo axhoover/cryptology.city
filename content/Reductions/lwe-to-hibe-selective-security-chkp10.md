@@ -5,7 +5,7 @@ title: LWE ⇒ Selectively secure HIBE (bonsai trees)
 aliases: []
 id: red-lwe-to-hibe-selective-security-chkp10
 kind: implication
-hypotheses: [lwe]
+hypotheses: [polynomial-ratio-lwe]
 conclusion: hibe-selective-security
 class: fully-black-box
 model: standard
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors|LWE]] is hard with modulus and inverse error rate $n^{O(d)}$, there is a [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|selectively secure]] [[hierarchical-identity-based-encryption|HIBE]] scheme of depth $d$ in the standard model; for constant $d$ both are polynomial in $n$, since each level of delegation multiplies the Gaussian parameter by a $\poly(n)$ factor — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]], [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a [[hierarchical-identity-based-encryption#ind-shibe-cpa-security-selective|selectively secure]] [[hierarchical-identity-based-encryption|HIBE]] scheme of every constant depth $d$ in the standard model: depth $d$ uses modulus and inverse error rate $n^{O(d)}$, since each level of delegation multiplies the Gaussian parameter by a $\poly(n)$ factor — [[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]], [[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]].
 
 ## Sketch
 
