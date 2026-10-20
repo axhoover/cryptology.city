@@ -1260,6 +1260,32 @@
    "unlisted": false
   },
   {
+   "id": "gapsvp-sqrt-n",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#factor-square-root-of-n",
+   "of": "gapsvp",
+   "title": "Factor square root of n",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "gapsvp-sqrt-n-over-log-n",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-vector-problem.md",
+   "slug": "shortest-vector-problem",
+   "graphSlug": "Assumptions/shortest-vector-problem",
+   "anchor": "#factor-square-root-of-n-over-log-n",
+   "of": "gapsvp",
+   "title": "Factor square root of n over log n",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "garbled-circuits",
    "kind": "object",
    "type": "primitive",
@@ -6966,7 +6992,7 @@
    "id": "red-gapsvp-to-coam-gg00",
    "kind": "inclusion",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-sqrt-n-over-log-n"
    ],
    "conclusion": "coam",
    "class": "free",
@@ -6987,7 +7013,7 @@
    "id": "red-gapsvp-to-conp-ar04",
    "kind": "inclusion",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-sqrt-n"
    ],
    "conclusion": "conp",
    "class": "free",
@@ -7002,7 +7028,7 @@
    "page": "content/Reductions/gapsvp-to-conp-ar04.md",
    "slug": "gapsvp-to-conp-ar04",
    "graphSlug": "Reductions/gapsvp-to-conp-ar04",
-   "title": "GapSVP ∈ coNP for γ ≥ √n"
+   "title": "GapSVP ∈ coNP for γ ≥ c√n"
   },
   {
    "id": "red-gapsvp-to-lwe-reg05",
@@ -7078,7 +7104,7 @@
    "id": "red-gapsvp-to-szk-mv03",
    "kind": "inclusion",
    "hypotheses": [
-    "gapsvp"
+    "gapsvp-sqrt-n-over-log-n"
    ],
    "conclusion": "szk",
    "class": "free",
@@ -13382,7 +13408,7 @@
    "hypotheses": [
     "np"
    ],
-   "conclusion": "gapsvp",
+   "conclusion": "gapsvp-sqrt-n",
    "class": "unstated",
    "consequences": [
     {
@@ -13404,14 +13430,14 @@
    "page": "content/Barriers/no-np-to-gapsvp-ar04.md",
    "slug": "no-np-to-gapsvp-ar04",
    "graphSlug": "Barriers/no-np-to-gapsvp-ar04",
-   "title": "No Karp reduction from NP to GapSVP for γ ≥ √n unless NP = coNP"
+   "title": "No Karp reduction from NP to GapSVP for γ ≥ c√n unless NP = coNP"
   },
   {
    "id": "bar-np-to-gapsvp-gg00",
    "hypotheses": [
     "np"
    ],
-   "conclusion": "gapsvp",
+   "conclusion": "gapsvp-sqrt-n-over-log-n",
    "class": "unstated",
    "consequences": [
     {
