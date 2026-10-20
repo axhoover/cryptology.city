@@ -677,6 +677,19 @@
    "unlisted": false
   },
   {
+   "id": "common-random-string-nizk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#nizk-proofs-in-the-common-random-string-model",
+   "of": "nizk",
+   "title": "NIZK proofs in the common random string model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "compact-fhe",
    "kind": "variant",
    "type": "primitive",
@@ -726,6 +739,32 @@
    "anchor": "#argument-systems",
    "of": "zkp",
    "title": "Argument systems",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "constant-round-zk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#constant-round-zero-knowledge-proofs",
+   "of": "zkp",
+   "title": "Constant-round zero-knowledge proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "coszk",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/statistical-zero-knowledge.md",
+   "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
+   "anchor": "#coszk",
+   "of": "szk",
+   "title": "coSZK",
    "aliases": [],
    "unlisted": false
   },
@@ -1404,6 +1443,19 @@
    "unlisted": false
   },
   {
+   "id": "honest-verifier-szk",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/statistical-zero-knowledge.md",
+   "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
+   "anchor": "#honest-verifier-szk",
+   "of": "szk",
+   "title": "Honest-verifier SZK",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "honest-verifier-zero-knowledge",
    "kind": "variant",
    "type": "primitive",
@@ -1668,6 +1720,19 @@
     "view",
     "transcript"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "interactive-succinct-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#interactive-succinct-arguments",
+   "of": "snark",
+   "title": "Interactive succinct arguments",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2278,6 +2343,21 @@
    "of": "bdh",
    "title": "Decision $n$-BDHE",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "nexp",
+   "kind": "object",
+   "type": "complexity-class",
+   "page": "content/Complexity/nondeterministic-exponential-time.md",
+   "slug": "nondeterministic-exponential-time",
+   "graphSlug": "Complexity/nondeterministic-exponential-time",
+   "title": "Nondeterministic exponential time",
+   "aliases": [
+    "NEXP",
+    "NEXPTIME",
+    "Nondeterministic exponential time"
+   ],
    "unlisted": false
   },
   {
@@ -3464,6 +3544,32 @@
    "unlisted": false
   },
   {
+   "id": "statistical-difference",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/statistical-zero-knowledge.md",
+   "slug": "statistical-zero-knowledge",
+   "graphSlug": "Complexity/statistical-zero-knowledge",
+   "anchor": "#statistical-difference",
+   "of": "szk",
+   "title": "Statistical Difference",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistical-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#statistical-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Statistical zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "statistically-binding-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -3904,6 +4010,19 @@
    "unlisted": false
   },
   {
+   "id": "witness-indistinguishable-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#witness-indistinguishable-wi-proofs",
+   "of": "zkp",
+   "title": "Witness-indistinguishable (WI) proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "worst-case-module-lattice-problems",
    "kind": "object",
    "type": "assumption",
@@ -3917,6 +4036,19 @@
     "Module lattice problems"
    ],
    "unlisted": true
+  },
+  {
+   "id": "zap",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#zaps",
+   "of": "zkp",
+   "title": "Zaps",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "zero-bit-prc",
@@ -4800,6 +4932,27 @@
    "title": "Circular security + Bootstrappable SHE ⇒ Compact FHE"
   },
   {
+   "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-permutations"
+   ],
+   "conclusion": "constant-round-zk-proof",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "status": "draft",
+   "page": "content/Reductions/claw-free-permutations-to-constant-round-zk-proof-gk96b.md",
+   "slug": "claw-free-permutations-to-constant-round-zk-proof-gk96b",
+   "graphSlug": "Reductions/claw-free-permutations-to-constant-round-zk-proof-gk96b",
+   "title": "Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)"
+  },
+  {
    "id": "red-claw-free-permutations-to-crhf-dam87",
    "kind": "implication",
    "hypotheses": [
@@ -4873,6 +5026,31 @@
    "title": "COM ⇒ OWF"
   },
   {
+   "id": "red-common-random-string-nizk-proof-to-nizk",
+   "kind": "implication",
+   "hypotheses": [
+    "common-random-string-nizk-proof"
+   ],
+   "conclusion": "nizk",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the proof system, and every adversary against it is an adversary against the given proof system.",
+    "model": "The reference string is uniformly random, a special case of a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/common-random-string-nizk-proof-to-nizk.md",
+   "slug": "common-random-string-nizk-proof-to-nizk",
+   "graphSlug": "Reductions/common-random-string-nizk-proof-to-nizk",
+   "title": "NIZK proofs with a common random string ⇒ NIZK"
+  },
+  {
    "id": "red-compact-fhe-to-he",
    "kind": "implication",
    "hypotheses": [
@@ -4937,6 +5115,28 @@
    "slug": "conp-to-pspace",
    "graphSlug": "Reductions/conp-to-pspace",
    "title": "coNP ⊆ PSPACE"
+  },
+  {
+   "id": "red-coszk-to-szk-oka96",
+   "kind": "equivalence",
+   "hypotheses": [
+    "coszk"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Oka96 - On Relationships between Statistical Zero-Knowledge Proofs|Oka96]]",
+    "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/coszk-to-szk-oka96.md",
+   "slug": "coszk-to-szk-oka96",
+   "graphSlug": "Reductions/coszk-to-szk-oka96",
+   "title": "SZK = coSZK"
   },
   {
    "id": "red-cpa-security-to-cpa-security",
@@ -5049,6 +5249,27 @@
    "slug": "crhf-to-constant-round-zk-argument-bar01",
    "graphSlug": "Reductions/crhf-to-constant-round-zk-argument-bar01",
    "title": "CRHF ⇒ Constant-round ZK argument (Barak)"
+  },
+  {
+   "id": "red-crhf-to-interactive-succinct-argument-kil92",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "interactive-succinct-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-interactive-succinct-argument-kil92.md",
+   "slug": "crhf-to-interactive-succinct-argument-kil92",
+   "graphSlug": "Reductions/crhf-to-interactive-succinct-argument-kil92",
+   "title": "CRHF ⇒ Succinct arguments for NP (Kilian)"
   },
   {
    "id": "red-crhf-to-statistically-hiding-commitment-dpp97",
@@ -6212,6 +6433,27 @@
    "title": "Evasive LWE ⇒ BE"
   },
   {
+   "id": "red-exp-to-nexp",
+   "kind": "inclusion",
+   "hypotheses": [
+    "exp"
+   ],
+   "conclusion": "nexp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/exp-to-nexp.md",
+   "slug": "exp-to-nexp",
+   "graphSlug": "Reductions/exp-to-nexp",
+   "title": "EXP ⊆ NEXP"
+  },
+  {
    "id": "red-fac-to-ds-gmr88",
    "kind": "implication",
    "hypotheses": [
@@ -7177,6 +7419,27 @@
    "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
    "graphSlug": "Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
    "title": "Honest majority ($t < n/3$) ⇒ MPC"
+  },
+  {
+   "id": "red-honest-verifier-szk-to-szk-gsv98",
+   "kind": "equivalence",
+   "hypotheses": [
+    "honest-verifier-szk"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/honest-verifier-szk-to-szk-gsv98.md",
+   "slug": "honest-verifier-szk-to-szk-gsv98",
+   "graphSlug": "Reductions/honest-verifier-szk-to-szk-gsv98",
+   "title": "HVSZK = SZK"
   },
   {
    "id": "red-hve-to-subset-and-range-queries",
@@ -8302,6 +8565,28 @@
    "title": "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
   },
   {
+   "id": "red-mip-to-nexp-bfl90",
+   "kind": "equivalence",
+   "hypotheses": [
+    "mip"
+   ],
+   "conclusion": "nexp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]",
+    "[[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/mip-to-nexp-bfl90.md",
+   "slug": "mip-to-nexp-bfl90",
+   "graphSlug": "Reductions/mip-to-nexp-bfl90",
+   "title": "MIP = NEXP"
+  },
+  {
    "id": "red-mmap-to-io-gghrsw13",
    "kind": "implication",
    "hypotheses": [
@@ -8473,6 +8758,30 @@
    "slug": "module-svp-to-module-sis-ls15",
    "graphSlug": "Reductions/module-svp-to-module-sis-ls15",
    "title": "Module-SIVP ⇒ Module-SIS"
+  },
+  {
+   "id": "red-nizk-to-zap-dn00",
+   "kind": "implication",
+   "hypotheses": [
+    "common-random-string-nizk-proof"
+   ],
+   "conclusion": "zap",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[DN00 - Zaps and Their Applications|DN00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "rationale": {
+    "class": "The zap runs the NIZK prover and verifier only as oracles on reference strings derived from the verifier's message, and the witness-indistinguishability reduction uses the verifier only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/nizk-to-zap-dn00.md",
+   "slug": "nizk-to-zap-dn00",
+   "graphSlug": "Reductions/nizk-to-zap-dn00",
+   "title": "NIZK ⇒ Zaps (Dwork–Naor)"
   },
   {
    "id": "red-noise-level-to-depir-cimr25-2",
@@ -9054,6 +9363,27 @@
    "title": "OWF ⇒ PRG"
   },
   {
+   "id": "red-owf-to-statistical-zk-argument-nov06",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "statistical-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[NOV06 - Statistical Zero-Knowledge Arguments for NP from Any One-Way Function|NOV06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-statistical-zk-argument-nov06.md",
+   "slug": "owf-to-statistical-zk-argument-nov06",
+   "graphSlug": "Reductions/owf-to-statistical-zk-argument-nov06",
+   "title": "OWF ⇒ Statistical ZK arguments for NP"
+  },
+  {
    "id": "red-owf-to-statistically-hiding-commitment-hr07",
    "kind": "implication",
    "hypotheses": [
@@ -9100,6 +9430,30 @@
    "slug": "owf-to-uowhf-rom90",
    "graphSlug": "Reductions/owf-to-uowhf-rom90",
    "title": "OWF ⇒ UOWHF (Rompel)"
+  },
+  {
+   "id": "red-owf-to-witness-indistinguishable-proof-fs90",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "witness-indistinguishable-proof",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: the hybrid over the parallel repetitions loses a factor of their number, on top of the commitment's loss",
+   "rationale": {
+    "class": "The protocol uses the commitment built from the one-way function only as an oracle, and the reduction runs any distinguishing verifier only as an oracle against one repetition at a time."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-witness-indistinguishable-proof-fs90.md",
+   "slug": "owf-to-witness-indistinguishable-proof-fs90",
+   "graphSlug": "Reductions/owf-to-witness-indistinguishable-proof-fs90",
+   "title": "OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)"
   },
   {
    "id": "red-owp-to-hash-function",
@@ -10402,6 +10756,32 @@
    "title": "ROM ⇒ OIHF"
   },
   {
+   "id": "red-rom-to-snark-mic00",
+   "kind": "implication",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "snark",
+   "class": "free",
+   "model": "rom",
+   "source": [
+    "[[Mic00 - Computationally Sound Proofs|Mic00]]",
+    "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor polynomial in the number of random-oracle queries",
+   "rationale": {
+    "class": "The theorem holds for every prover in the random-oracle model, which is the free class scoped by the model.",
+    "model": "The random oracle serves both as the hash in the Merkle tree and as the Fiat–Shamir challenge generator."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rom-to-snark-mic00.md",
+   "slug": "rom-to-snark-mic00",
+   "graphSlug": "Reductions/rom-to-snark-mic00",
+   "title": "ROM ⇒ SNARK (Micali's CS proofs)"
+  },
+  {
    "id": "red-rp-to-bpp",
    "kind": "inclusion",
    "hypotheses": [
@@ -10912,6 +11292,52 @@
    "slug": "ss-to-it-pir-cgks98",
    "graphSlug": "Reductions/ss-to-it-pir-cgks98",
    "title": "Linear SS ⇒ IT-PIR"
+  },
+  {
+   "id": "red-statistical-difference-to-szk-sv03",
+   "kind": "inclusion",
+   "hypotheses": [
+    "statistical-difference"
+   ],
+   "conclusion": "szk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
+    "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/statistical-difference-to-szk-sv03.md",
+   "slug": "statistical-difference-to-szk-sv03",
+   "graphSlug": "Reductions/statistical-difference-to-szk-sv03",
+   "title": "Statistical Difference is SZK-complete"
+  },
+  {
+   "id": "red-statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
+   "kind": "implication",
+   "hypotheses": [
+    "statistically-hiding-commitment"
+   ],
+   "conclusion": "statistical-zk-argument",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a prover breaking soundness yields a committer breaking binding",
+   "rationale": {
+    "class": "The protocol uses the commitment scheme only as an oracle, the simulator runs the cheating verifier only as an oracle, and the soundness reduction turns any cheating prover, run as an oracle with rewinding, into a binding adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statistically-hiding-commitment-to-statistical-zk-argument-bcc88.md",
+   "slug": "statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
+   "graphSlug": "Reductions/statistically-hiding-commitment-to-statistical-zk-argument-bcc88",
+   "title": "Statistically hiding COM ⇒ Statistical ZK arguments for NP"
   },
   {
    "id": "red-strong-rsa-to-com",
@@ -11490,7 +11916,7 @@
    "hypotheses": [
     "tdp"
    ],
-   "conclusion": "nizk",
+   "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
    "model": "crs",
    "source": [
