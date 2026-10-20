@@ -11,6 +11,7 @@ variants:
   anonymous-public-key-encryption: "#key-hiding"
   pke-cca2-security: "#cca-security"
   pke-cpa-security: "#cpa-security"
+  perfectly-correct-pke-cpa-security: "#perfectly-correct-cpa-secure-pke"
   semantic-security: "#semantic-security"
 ---
 
@@ -112,6 +113,10 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ t
 
 # Variations
 
+## Perfectly correct CPA-secure PKE
+
+An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsilon = 0$. Constructions of non-malleable and chosen-ciphertext-secure encryption that check a proof of consistency between ciphertext components need it — [[DNR04 - Immunizing Encryption Schemes from Decryption Errors|DNR04]]. With negligible decryption error, a scheme may have rare encryption coins whose ciphertexts decrypt to bits of the secret key; a pair of such ciphertexts carries an honest consistency proof, and decryption queries on such pairs leak the key — standard.
+
 ## CCA1 Security
 
 **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA, assuming CCA2-secure schemes exist — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
@@ -129,7 +134,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in ed6ac320cff0 -->
+<!-- BEGIN GENERATED participates-in 99f02688ed50 -->
 
 ## Participates in
 
@@ -139,8 +144,9 @@ TODO
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[public-key-encryption#cpa-security|CPA Security]])
-- [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#cpa-security|CPA Security]])
-- [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
+- [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
@@ -166,6 +172,7 @@ TODO
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[ntru-to-pke-hps98|NTRU ⇒ PKE]]
 - [PC + Search noisy $k$-LIN ⇒ PKE](pc-and-search-noisy-k-lin-to-pke-ghjs25)
+- [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
