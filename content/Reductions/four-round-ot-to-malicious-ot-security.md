@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A four-message plain-model OT protocol with [[oblivious-transfer#malicious-security|malicious security]] and a black-box simulator ([[oblivious-transfer#four-round-ot|four-round OT]]) is an OT protocol with [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|malicious security with expected polynomial-time simulation]] — folklore.
+A four-message plain-model OT protocol with [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|malicious security with expected polynomial-time simulation]] and a black-box simulator ([[oblivious-transfer#four-round-ot|four-round OT]]) is an OT protocol with [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|malicious security with expected polynomial-time simulation]] — folklore.

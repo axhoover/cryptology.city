@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard for polynomial-time adversaries, every functionality has a four-round protocol in the plain model, with simultaneous messages over the broadcast channel, that is secure with abort against a malicious adversary corrupting any number of parties and has a black-box simulator ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]) — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]. The protocol is the compiler of [[ddh-to-four-round-mpc-bgj18|DDH ⇒ four-round MPC]], which turns a three-round semi-malicious protocol whose first round is public-coin into a four-round malicious one, with its components instantiated under QR — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]].
+If [[quadratic-residuosity|QR]] is hard for polynomial-time adversaries, every functionality has a four-round protocol in the plain model, with simultaneous messages over the broadcast channel, that is secure with abort against a malicious adversary corrupting any number of parties and has a black-box simulator running in expected polynomial time ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]) — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]. The protocol is the compiler of [[ddh-to-four-round-mpc-bgj18|DDH ⇒ four-round MPC]], which turns a three-round semi-malicious protocol whose first round is public-coin into a four-round malicious one, with its components instantiated under QR — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]].
 
 ## Notes
 

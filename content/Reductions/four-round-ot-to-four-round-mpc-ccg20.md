@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If a four-round OT protocol secure against malicious adversaries exists in the plain model ([[oblivious-transfer#four-round-ot|four-round OT]]), every functionality has a four-round plain-model protocol that is secure with abort against a malicious adversary corrupting any number of parties and has a black-box simulator ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
+If a four-round plain-model OT protocol exists that is secure against malicious adversaries with a black-box simulator running in expected polynomial time ([[oblivious-transfer#four-round-ot|four-round OT]]), every functionality has a four-round plain-model protocol that is secure with abort against a malicious adversary corrupting any number of parties and has a black-box simulator running in expected polynomial time ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
 
 ## Notes
 

@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If certified trapdoor permutations exist, every two-party functionality, possibly randomized and with a separate output for each party, has a five-round plain-model protocol, one party sending per round, that is secure with abort against a malicious adversary corrupting either party and has a black-box simulator ([[secure-multi-party-computation#five-round-2pc|five-round 2PC]]) — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. A [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|doubly enhanced certified trapdoor permutation]] is a certified one.
+If certified trapdoor permutations exist, every two-party functionality, possibly randomized and with a separate output for each party, has a five-round plain-model protocol, one party sending per round, that is secure with abort against a malicious adversary corrupting either party and has a black-box simulator running in expected polynomial time ([[secure-multi-party-computation#five-round-2pc|five-round 2PC]]) — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. A [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|doubly enhanced certified trapdoor permutation]] is a certified one.
 
 ## Notes
 

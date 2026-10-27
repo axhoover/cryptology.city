@@ -311,3 +311,46 @@ test("no edge turns expected-time simulation into a strict-time protocol notion"
   ])
     assert.ok(live([strict]).derived.has(relaxed), `${strict} => ${relaxed}`);
 });
+
+test("round-indexed variants are defined from the expected-time parents", () => {
+  // Defining a round variant as "malicious security" (or 2PC, or security
+  // with abort) asserts the strict-time parent, whatever the sentence later
+  // says about the simulator's running time.
+  const read = (f: string) =>
+    fs.readFileSync(path.join(ROOT, "content", "Primitives", f), "utf8");
+  const definition = (page: string, heading: string) => {
+    const at = page.indexOf(`\n${heading}\n`);
+    assert.ok(at >= 0, heading);
+    const body = page.slice(at + heading.length + 2).trimStart();
+    return body.split("\n\n")[0].split(". It ")[0];
+  };
+  const ot = read("oblivious-transfer.md");
+  const mpc = read("secure-multi-party-computation.md");
+  for (const [page, heading, relaxed, strict] of [
+    [
+      ot,
+      "## Four-round OT",
+      "[[#Malicious security with expected polynomial-time simulation|",
+      "[[#Malicious Security|",
+    ],
+    [
+      mpc,
+      "### Five-round 2PC",
+      "[[#2PC with expected polynomial-time simulation|",
+      "#two-party-computation-2pc|",
+    ],
+    [
+      mpc,
+      "## Four-round MPC",
+      "[[#Expected polynomial-time simulation|",
+      "[[#Security with abort|",
+    ],
+  ]) {
+    const d = definition(page, heading);
+    assert.ok(d.includes(relaxed), `${heading} names its expected-time parent`);
+    assert.ok(
+      !d.includes(strict),
+      `${heading} does not assert the strict parent`,
+    );
+  }
+});

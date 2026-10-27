@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A four-round plain-model protocol that securely computes $f$ with selective abort against $n - 1$ corruptions ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]), followed by one round in which every party broadcasts whether it aborted and every party outputs $\bot$ if any party reports an abort or broadcasts nothing, securely computes $f$ with unanimous abort against $n - 1$ corruptions, with a simulator running in expected polynomial time ([[secure-multi-party-computation#expected-polynomial-time-simulation|MPC with expected polynomial-time simulation]]) — folklore.
+A four-round plain-model protocol that securely computes $f$ with selective abort against $n - 1$ corruptions, with a black-box simulator running in expected polynomial time ([[secure-multi-party-computation#four-round-mpc|four-round MPC]]), followed by one round in which every party broadcasts whether it aborted and every party outputs $\bot$ if any party reports an abort or broadcasts nothing, securely computes $f$ with unanimous abort against $n - 1$ corruptions, with a simulator running in expected polynomial time ([[secure-multi-party-computation#expected-polynomial-time-simulation|MPC with expected polynomial-time simulation]]) — folklore.
 
 ## Sketch
 
