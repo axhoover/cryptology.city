@@ -212,12 +212,15 @@ test("results from ideal resources keep their hybrid scope", () => {
     }
 });
 
-test("ideal OT gives protocols in the OT-hybrid model, not one-way functions", () => {
+test("ideal OT gives protocols and commitments in the OT-hybrid model, not one-way functions", () => {
   const r = live(["ideal-ot"]);
-  assert.deepEqual(scopesOf(r, "two-party-computation"), ["ideal-ot"]);
-  assert.deepEqual(scopesOf(r, "malicious-ot-security"), ["ideal-ot"]);
-  for (const x of ["com", "owf", "prf", "ds"])
+  for (const x of ["two-party-computation", "malicious-ot-security", "com"])
+    assert.deepEqual(scopesOf(r, x), ["ideal-ot"], `ideal OT => ${x}`);
+  for (const x of ["owf", "prf", "ds"])
     assert.ok(!r.derived.has(x), `ideal OT must not derive ${x}`);
+  for (const x of r.derived)
+    if (x !== "ideal-ot")
+      assert.ok(!scopesOf(r, x).includes(""), `ideal OT => ${x} unscoped`);
   const cr = live(["correlated-randomness"]);
   assert.ok(!cr.derived.has("owf"));
 });

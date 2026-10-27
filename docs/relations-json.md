@@ -294,8 +294,11 @@ node reached computationally over public channels. A hybrid resource is not an
 oracle, though — commitments exist information-theoretically in the OT-hybrid
 model, so commitments ⇒ OWF does not carry over — and a hybrid-scoped object
 therefore feeds only edges that conclude a protocol notion (a node of the MPC
-or OT page): `{ideal-ot}` derives `two-party-computation` and
-`malicious-ot-security`, both `[ideal-ot]`, and no one-way function. A consumer computing its
+or OT page). A non-protocol conclusion that holds in the hybrid model gets its
+own edge from the resource: Kil88's `{ideal-ot} => com` gives `com [ideal-ot]`,
+which COM ⇒ OWF does not consume. So `{ideal-ot}` derives
+`two-party-computation`, `malicious-ot-security` and `com`, all `[ideal-ot]`,
+and no one-way function. A consumer computing its
 own closure should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 

@@ -9684,6 +9684,30 @@
    "title": "Ideal OT + PRG ⇒ UC MPC (IPS)"
   },
   {
+   "id": "red-ideal-ot-to-com-kil88",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-ot"
+   ],
+   "conclusion": "com",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "statistical: hiding error at most $\\secpar \\cdot 2^{-n}$ and binding error $2^{-\\secpar}$",
+   "rationale": {
+    "class": "The theorem is unconditional: hiding and binding hold statistically given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-ot-to-com-kil88.md",
+   "slug": "ideal-ot-to-com-kil88",
+   "graphSlug": "Reductions/ideal-ot-to-com-kil88",
+   "title": "Ideal OT ⇒ COM (Kilian)"
+  },
+  {
    "id": "red-ideal-ot-to-two-party-computation-kil88",
    "kind": "implication",
    "hypotheses": [
@@ -12036,7 +12060,8 @@
    "class": "fully-black-box",
    "model": "standard",
    "source": [
-    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
+    "[[Can00 - Security and Composition of Multiparty Cryptographic Protocols|Can00]]"
    ],
    "via": [],
    "heuristic": false,
