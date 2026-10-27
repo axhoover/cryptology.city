@@ -173,3 +173,33 @@ test("PLONK's conclusions keep both the AGM and the random oracle", () => {
   for (const x of ["universal-snark", "snark"])
     assert.deepEqual(scopesOf(r, x), ["rom+algebraic-group"], x);
 });
+
+test("a version-1 reader cannot read a multi-model edge as a single-model one", () => {
+  // The version-1 contract: model is one of these values; an unknown value
+  // fails closed.
+  const V1_MODELS = [
+    "standard",
+    "rom",
+    "crs",
+    "generic-group",
+    "algebraic-group",
+    "quantum",
+    "other",
+  ];
+  const readV1 = (m: any) => {
+    if (m.version !== 1)
+      throw new Error(`unsupported relations.json version ${m.version}`);
+    return m.reductions;
+  };
+  assert.strictEqual(manifest.version, 2);
+  assert.throws(() => readV1(manifest), /unsupported/);
+  const multi = manifest.reductions.filter((r: any) => r.models.length > 1);
+  assert.ok(multi.length >= 3, "PLONK, FKL18 BLS and BSW07 are multi-model");
+  for (const r of manifest.reductions)
+    if (r.models.length > 1)
+      assert.ok(
+        !V1_MODELS.includes(r.model),
+        `${r.id}: deprecated model "${r.model}" reads as one v1 model`,
+      );
+    else assert.strictEqual(r.model, r.models[0], r.id);
+});

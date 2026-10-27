@@ -31,14 +31,22 @@ and `npm run check`.
   presentation and may move.
 - **`version` is bumped on any breaking change** to field names, types, or
   semantics. Additive fields do not bump it, so consumers must ignore unknown
-  keys.
+  keys. A consumer must reject a `version` it does not know.
+- **Version history.** Version 2 lets one proof combine idealised models: a
+  reduction's `models` lists every model it is proved in, and `model` is
+  deprecated. For a single-model edge `model` is that model, as in version 1;
+  for an edge proved in several it is the list joined with `+`
+  (`"algebraic-group+rom"`), a value outside the version-1 vocabulary, so a
+  version-1 reader that ignores `version` meets an unknown model, which fails
+  closed (§ Closure), rather than reading PLONK as an AGM-only theorem.
+  Version-2 readers use `models`.
 - Arrays are sorted by `id`, so diffs stay readable.
 
 ## Top level
 
 ```jsonc
 {
-  "version": 1,
+  "version": 2,
   "schema": "https://cryptology.city/docs/relations-json",
   "classes": { ... },          // the reduction-class partial order
   "classSentinels": ["unstated"],
@@ -96,8 +104,8 @@ A hyperedge: a **set** of hypotheses implying **one** conclusion.
   "hypotheses": ["prg"], // >= 1 object id; assumed objects only
   "conclusion": "prf", // exactly one object id
   "class": "fully-black-box", // a key of `classes`, or "unstated"
-  "model": "standard", // standard | rom | crs | generic-group | algebraic-group | quantum | other; the first of `models`
-  "models": ["standard"], // every model the proof uses, e.g. ["algebraic-group", "rom"] for PLONK
+  "models": ["standard"], // every model the proof uses: standard | rom | crs | generic-group | algebraic-group | quantum | other; ["algebraic-group", "rom"] for PLONK
+  "model": "standard", // deprecated (version 1): the single model, or the models joined with "+" ("algebraic-group+rom")
   "source": ["[[GGM86 - How to construct random functions|GGM86]]"],
   "via": [], // transform, lemma or technique used, e.g. Fiat–Shamir, the switching lemma
   "heuristic": false, // true: a candidate construction with no security reduction
@@ -278,7 +286,8 @@ consumed only by an edge whose class relativizes (`fully-black-box` or
 every oracle), and the conclusion's scope is the union of the hypotheses'
 scopes and the edge's own models — all of them for an edge proved in several
 at once (`models: ["algebraic-group", "rom"]`), so PLONK's conclusion is scoped
-to both. A consumer reading only `model` sees the first and loses the rest. A `free`, `unstated` or other edge, which may
+to both. The deprecated `model` of such an edge (`"algebraic-group+rom"`) is an
+unknown model to a version-1 reader, which therefore fails closed on it. A `free`, `unstated` or other edge, which may
 use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
 circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.

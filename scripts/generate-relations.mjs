@@ -163,9 +163,12 @@ for (const p of pages) {
       hypotheses: p.fm.hypotheses ?? [],
       conclusion: p.fm.conclusion,
       class: p.fm.class ?? "unstated",
-      // `model` is the first model; `models` lists every model the proof
-      // uses, for an edge proved in several at once.
-      model: [].concat(p.fm.model ?? "standard")[0],
+      // `models` lists every model the proof uses (version 2). `model` is
+      // deprecated: the single model, or for an edge proved in several the
+      // models joined with "+", a value outside the version-1 vocabulary, so a
+      // v1 reader that ignores `version` fails closed on it instead of reading
+      // the weaker single-model theorem.
+      model: [].concat(p.fm.model ?? "standard").join("+"),
       models: [].concat(p.fm.model ?? "standard"),
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
@@ -283,7 +286,7 @@ for (const p of pages) {
 
 // --------------------------------------------------------- relations.json ----
 const manifest = {
-  version: 1,
+  version: 2,
   schema: "https://cryptology.city/docs/relations-json",
   classes: Object.fromEntries(
     Object.entries(classSchema.classes ?? {}).map(([k, v]) => [
