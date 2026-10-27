@@ -18,7 +18,7 @@ type Red = {
   hypotheses: string[];
   conclusion: string;
   class?: string;
-  model?: string;
+  model?: string | string[];
   kind?: string;
   heuristic?: boolean;
 };
@@ -93,6 +93,18 @@ test("scopes of several hypotheses are joined", () => {
   assert.ok(!r.derived.has("w"));
 });
 
+test("an edge proved in several models scopes its conclusion to all of them", () => {
+  const reds = [
+    red("plonk", ["bilinear-pairing", "q-dlog"], "usnark", {
+      model: ["algebraic-group", "rom"] as any,
+    }),
+    red("u-to-s", ["usnark"], "snark"),
+  ];
+  const r = run(reds, ["bilinear-pairing", "q-dlog"]);
+  assert.deepEqual(scopesOf(r, "usnark"), ["rom+algebraic-group"]);
+  assert.deepEqual(scopesOf(r, "snark"), ["rom+algebraic-group"]);
+});
+
 test("equivalences run both ways and heuristic edges never fire", () => {
   const reds = [
     red("e", ["a"], "b", { kind: "equivalence" }),
@@ -154,4 +166,10 @@ test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-r
     scopesOf(live(["rsa"]), "fac").includes(""),
     "RSA => FAC stays unscoped",
   );
+});
+
+test("PLONK's conclusions keep both the AGM and the random oracle", () => {
+  const r = live(["bilinear-pairing", "q-dlog"]);
+  for (const x of ["universal-snark", "snark"])
+    assert.deepEqual(scopesOf(r, x), ["rom+algebraic-group"], x);
 });

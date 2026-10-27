@@ -19,6 +19,9 @@
 // conclusion's scope is the union of the hypotheses' scopes and the edge's own
 // model.
 //
+// An edge proved in several models at once (`model: [algebraic-group, rom]`,
+// PLONK's AGM + ROM proof) adds all of them to its conclusion's scope.
+//
 // An object can be derived with several scopes; only the minimal ones are
 // kept, since a smaller scope licenses everything a larger one does.
 //
@@ -42,6 +45,13 @@ export const modelBit = (model) => {
   return 1 << i;
 };
 
+/** Every model an edge is proved in: its `models` list, else its `model`. */
+export const modelsOf = (r) => [].concat(r.models ?? r.model ?? "standard");
+
+/** The scope bits an edge adds to its conclusion: one per model it uses. */
+export const modelMask = (r) =>
+  modelsOf(r).reduce((a, m) => a | modelBit(m), 0);
+
 /** The scope bitmask as model names, in SCOPED_MODELS order. */
 export const scopeNames = (mask) =>
   SCOPED_MODELS.filter((_, i) => mask & (1 << i));
@@ -50,7 +60,7 @@ export function buildRules(reductions) {
   const rules = [];
   for (const r of reductions) {
     if (!r.conclusion || !r.hypotheses?.length || r.heuristic) continue;
-    const base = { model: modelBit(r.model), cls: r.class ?? "unstated" };
+    const base = { model: modelMask(r), cls: r.class ?? "unstated" };
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion, ...base });
     if (r.kind === "equivalence")
       rules.push({

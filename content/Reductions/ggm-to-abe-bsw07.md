@@ -8,13 +8,13 @@ kind: implication
 hypotheses: [bilinear-pairing]
 conclusion: cp-abe-adaptive-security
 class: free
-model: generic-group
+model: [generic-group, rom]
 source:
   - "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
 security-loss: ""
 rationale:
   class: "BSW07 bound the advantage of every generic adversary, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption."
-  model: "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle."
+  model: "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle, so it uses both idealised models."
 ---
 
 # Bilinear pairing ⇒ CP-ABE

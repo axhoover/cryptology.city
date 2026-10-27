@@ -9,12 +9,12 @@ kind: implication
 hypotheses: [bilinear-pairing, q-dlog]
 conclusion: universal-snark
 class: unstated
-model: algebraic-group
+model: [algebraic-group, rom]
 source:
   - "[[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]"
 security-loss: ""
 rationale:
-  model: "GWC19 prove knowledge soundness for algebraic provers with Fiat–Shamir challenges from a random oracle; the group model is recorded and the random oracle named in the Statement."
+  model: "GWC19 prove knowledge soundness for algebraic provers with Fiat–Shamir challenges from a random oracle, so the proof uses both idealised models."
 ---
 
 # Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)

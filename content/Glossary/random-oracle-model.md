@@ -34,7 +34,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 2f6fc51d52ae -->
+<!-- BEGIN GENERATED participates-in 016449ec7426 -->
 
 ## Participates in
 
@@ -52,9 +52,12 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 **Proved in the Random Oracle Model**
 
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
+- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
+- [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
 - [[co-cdh-to-ds|co-CDH ⇒ DS]]
 - [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]

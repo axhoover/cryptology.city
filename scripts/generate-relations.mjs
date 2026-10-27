@@ -37,7 +37,7 @@ import {
   closure as closureOf,
   derivation,
   scopeNames,
-  modelBit,
+  modelMask,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -163,7 +163,10 @@ for (const p of pages) {
       hypotheses: p.fm.hypotheses ?? [],
       conclusion: p.fm.conclusion,
       class: p.fm.class ?? "unstated",
-      model: p.fm.model ?? "standard",
+      // `model` is the first model; `models` lists every model the proof
+      // uses, for an edge proved in several at once.
+      model: [].concat(p.fm.model ?? "standard")[0],
+      models: [].concat(p.fm.model ?? "standard"),
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
       heuristic: p.fm.heuristic === true,
@@ -224,7 +227,7 @@ function redundant() {
     const result = closure(r.hypotheses, { exclude: r.id });
     // Another chain counts only if it needs no idealised model beyond this
     // edge's own.
-    const own = modelBit(r.model);
+    const own = modelMask(r);
     const m = (result.scopes.get(r.conclusion) ?? []).find(
       (x) => (x & own) === x,
     );

@@ -301,12 +301,20 @@ export function relationMetaParts(
     if (kind && kind !== "implication") parts.push(kind);
     if (cls && cls !== "unstated" && !containment)
       parts.push(classLink("reduction"));
-    const model = scalar(fm.model);
-    if (model && !(containment && model === "standard")) {
-      const name = own(opts.modelNames, model) ?? `${model} model`;
-      const page = own(opts.modelPages, model);
-      parts.push(page ? wikilink(page, name) : name);
-    }
+    // A proof in several models at once lists them all: "AGM + ROM".
+    const models = asList(fm.model).filter(
+      (m) => !(containment && m === "standard"),
+    );
+    if (models.length)
+      parts.push(
+        models
+          .map((model) => {
+            const name = own(opts.modelNames, model) ?? `${model} model`;
+            const page = own(opts.modelPages, model);
+            return page ? wikilink(page, name) : name;
+          })
+          .join(" + "),
+      );
     if (fm.heuristic === true) parts.push("heuristic candidate");
     const via = asList(fm.via);
     if (via.length) parts.push(`via ${via.join(", ")}`);

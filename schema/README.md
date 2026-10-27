@@ -322,13 +322,15 @@ models have no page.
   generic-group bound is `{ggm} ⇒ dlog` with `model: generic-group`
   (`ggm-to-dlog-sho97`), while a barrier on that hyperedge would say DLOG is
   not hard for generic algorithms.
-- **One model per edge.** `model` is single-valued. A proof using both a
-  random oracle and a trusted structured reference string takes `model: rom`,
-  with the SRS named in the Statement. A group model combined with a random
-  oracle records the group model and names the random oracle in the Statement:
-  `dlog-to-bls-signatures-fkl18` is `model: algebraic-group`. A list-valued
-  `model` would change the `relations.json` interface, so it waits until
-  multi-model edges are common.
+- **Every idealised model the proof uses.** A proof in one model records it as
+  a plain value. A proof that combines idealised models lists them all, so the
+  closure keeps every one of them in the conclusion's scope: a group model with
+  a random oracle is `model: [algebraic-group, rom]` (FKL18's BLS signatures,
+  GWC19's PLONK) or `[generic-group, rom]` (BSW07). A list names two or more
+  distinct models, none of them `standard`. A proof using a random oracle and a
+  trusted structured reference string takes `model: rom`, with the SRS named in
+  the Statement, since `crs` adds no scope. `relations.json` carries the list as
+  `models` and its first entry as `model` (`docs/relations-json.md`).
 - **`quantum`** applies when the reduction, the construction or the adversary
   is quantum, or when either endpoint is a quantum complexity class. The
   classically proved containments BPP ⊆ BQP and BQP ⊆ PP are therefore
