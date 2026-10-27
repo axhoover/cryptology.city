@@ -1413,6 +1413,19 @@
    "unlisted": false
   },
   {
+   "id": "five-round-two-party-computation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#five-round-2pc",
+   "of": "mpc",
+   "title": "Five-round 2PC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "five-worlds",
    "kind": "object",
    "type": "note",
@@ -1424,6 +1437,32 @@
     "Five worlds",
     "Impagliazzo's Five Worlds"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "four-round-mpc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#four-round-mpc",
+   "of": "mpc",
+   "title": "Four-round MPC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "four-round-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#four-round-ot",
+   "of": "ot",
+   "title": "Four-round OT",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -6930,6 +6969,30 @@
    "title": "DCR ⇒ FAC"
   },
   {
+   "id": "red-dcr-to-four-round-mpc-bgj18",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "four-round-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The compiler has every party prove that its messages follow the semi-malicious protocol, statements about that protocol's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-four-round-mpc-bgj18.md",
+   "slug": "dcr-to-four-round-mpc-bgj18",
+   "graphSlug": "Reductions/dcr-to-four-round-mpc-bgj18",
+   "title": "DCR ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)"
+  },
+  {
    "id": "red-dcr-to-highly-lossy-trapdoor-function-fgkrs10",
    "kind": "implication",
    "hypotheses": [
@@ -7119,6 +7182,30 @@
    "slug": "ddh-to-cdh",
    "graphSlug": "Reductions/ddh-to-cdh",
    "title": "DDH ⇒ CDH"
+  },
+  {
+   "id": "red-ddh-to-four-round-mpc-bgj18",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "four-round-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The compiler has every party prove that its messages follow the semi-malicious protocol, statements about that protocol's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-four-round-mpc-bgj18.md",
+   "slug": "ddh-to-four-round-mpc-bgj18",
+   "graphSlug": "Reductions/ddh-to-four-round-mpc-bgj18",
+   "title": "DDH ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)"
   },
   {
    "id": "red-ddh-to-lossy-trapdoor-function-pw08",
@@ -7859,6 +7946,30 @@
    "title": "Doubly enhanced certified TDP ⇒ Enhanced TDP"
   },
   {
+   "id": "red-doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04",
+   "kind": "implication",
+   "hypotheses": [
+    "doubly-enhanced-certified-tdp"
+   ],
+   "conclusion": "five-round-two-party-computation",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "KO04's protocol uses proofs whose statement is fixed only in the last round and that need the trapdoor permutation's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04.md",
+   "slug": "doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04",
+   "graphSlug": "Reductions/doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04",
+   "title": "Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)"
+  },
+  {
    "id": "red-dpf-to-computational-multi-server-pir-gi14",
    "kind": "implication",
    "hypotheses": [
@@ -8559,6 +8670,99 @@
    "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
    "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
    "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
+  },
+  {
+   "id": "red-five-round-two-party-computation-to-two-party-computation",
+   "kind": "implication",
+   "hypotheses": [
+    "five-round-two-party-computation"
+   ],
+   "conclusion": "two-party-computation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the five-round protocol is a two-party protocol secure with abort, and its simulator is unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/five-round-two-party-computation-to-two-party-computation.md",
+   "slug": "five-round-two-party-computation-to-two-party-computation",
+   "graphSlug": "Reductions/five-round-two-party-computation-to-two-party-computation",
+   "title": "Five-round 2PC ⇒ 2PC"
+  },
+  {
+   "id": "red-four-round-mpc-to-mpc",
+   "kind": "implication",
+   "hypotheses": [
+    "four-round-mpc"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the four-round protocol unchanged and appends one broadcast round, and its simulator runs the four-round protocol's simulator, using the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/four-round-mpc-to-mpc.md",
+   "slug": "four-round-mpc-to-mpc",
+   "graphSlug": "Reductions/four-round-mpc-to-mpc",
+   "title": "Four-round MPC ⇒ MPC"
+  },
+  {
+   "id": "red-four-round-ot-to-four-round-mpc-ccg20",
+   "kind": "implication",
+   "hypotheses": [
+    "four-round-ot"
+   ],
+   "conclusion": "four-round-mpc",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/four-round-ot-to-four-round-mpc-ccg20.md",
+   "slug": "four-round-ot-to-four-round-mpc-ccg20",
+   "graphSlug": "Reductions/four-round-ot-to-four-round-mpc-ccg20",
+   "title": "Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)"
+  },
+  {
+   "id": "red-four-round-ot-to-malicious-ot-security",
+   "kind": "implication",
+   "hypotheses": [
+    "four-round-ot"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the four-message protocol is an OT protocol with malicious security, and its simulator is unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/four-round-ot-to-malicious-ot-security.md",
+   "slug": "four-round-ot-to-malicious-ot-security",
+   "graphSlug": "Reductions/four-round-ot-to-malicious-ot-security",
+   "title": "Four-round OT ⇒ Malicious OT"
   },
   {
    "id": "red-function-secret-sharing-fss-to-dpf-bgi15",
@@ -13753,6 +13957,30 @@
    "title": "QR ⇒ FAC"
   },
   {
+   "id": "red-qr-to-four-round-mpc-bgj18",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "four-round-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The compiler has every party prove that its messages follow the semi-malicious protocol, statements about that protocol's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-four-round-mpc-bgj18.md",
+   "slug": "qr-to-four-round-mpc-bgj18",
+   "graphSlug": "Reductions/qr-to-four-round-mpc-bgj18",
+   "title": "QR ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)"
+  },
+  {
    "id": "red-qr-to-he-gm84",
    "kind": "implication",
    "hypotheses": [
@@ -18350,6 +18578,9 @@
  ],
  "protocolObjects": [
   "fair-mpc",
+  "five-round-two-party-computation",
+  "four-round-mpc",
+  "four-round-ot",
   "honest-majority-t-lt-n-over-2",
   "honest-majority-t-lt-n-over-3",
   "honest-majority-with-abort-t-lt-n-over-2",
