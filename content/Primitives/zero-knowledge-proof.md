@@ -18,6 +18,11 @@ variants:
   statistical-zk-argument: "#statistical-zero-knowledge-arguments"
   constant-round-zk-proof: "#constant-round-zero-knowledge-proofs"
   statistical-zap-argument: "#statistical-zap-arguments"
+  non-interactive-zap: "#non-interactive-zaps"
+  three-message-zk-argument: "#three-message-zero-knowledge-arguments"
+  four-message-zk-argument: "#four-message-zero-knowledge-arguments"
+  concurrent-zk-argument: "#concurrent-zero-knowledge-arguments"
+  concurrent-zk-proof: "#concurrent-zero-knowledge-proofs"
 ---
 
 # Zero-knowledge proof
@@ -73,11 +78,15 @@ Weaker than ZK: the verifier cannot distinguish which of multiple valid witnesse
 
 ## Zaps
 
-A _zap_ is a two-message, public-coin witness-indistinguishable proof whose first message, a random string sent by the verifier, can be fixed once and reused for any number of statements — [[DN00 - Zaps and Their Applications|DN00]].
+A _zap_ is a two-message public-coin witness-indistinguishable proof for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, whose first message is a uniformly random string $\rho$ sent by the verifier; the verifier's decision is a deterministic function of $x$, $\rho$ and the prover's answer. Soundness holds against unbounded provers for all statements simultaneously: except with negligible probability over $\rho$, no $x \notin L$ has an accepting answer, so $\rho$ can be fixed once and reused for any number of statements. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's answers on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are computationally indistinguishable — [[DN00 - Zaps and Their Applications|DN00]].
 
 ### Statistical zap arguments
 
 A two-message public-coin argument for an $\classNP$-complete language whose first message is a uniformly random string $\rho$ sent by the verifier; unlike a zap, its soundness is computational and its witness indistinguishability statistical. Witness indistinguishability holds for every first message: for every $\rho$, every $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(\rho, x, w_0)$ and $(\rho, x, w_1)$ are statistically close. Soundness is computational and non-adaptive: for every false statement $x$ fixed before $\rho$ is sampled, every efficient prover makes the verifier accept with negligible probability. Statistical zap arguments were introduced by [[BFJKS20 - Statistical ZAP Arguments|BFJKS20]] and [[GJJM20 - Statistical Zaps and New Oblivious Transfer Protocols|GJJM20]]; this soundness notion is the one of [[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]], who construct them from LWE ([[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]]).
+
+### Non-interactive zaps
+
+A one-message witness-indistinguishable proof for an $\classNP$-complete language with no setup or shared randomness. The verifier is deterministic and soundness is perfect: for every $x \notin L$ it rejects every message. For every statement $x$ and witnesses $w_0, w_1$ for $x$, the prover's messages on $(x, w_0)$ and $(x, w_1)$ are computationally indistinguishable — [[BOV03 - Derandomization in Cryptography|BOV03]], [[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]].
 
 ## Argument systems
 
@@ -87,6 +96,18 @@ Proof systems with only computational (not information-theoretic) soundness. Ena
 
 A zero-knowledge argument for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages, public coins and negligible soundness error — [[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]]. Without the restriction every language in $\classBPP$ has one, in which the verifier decides alone — standard.
 
+### Three-message zero-knowledge arguments
+
+A zero-knowledge argument for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with three messages and negligible soundness error. With a black-box simulator only languages in $\classBPP$ have one, so constructions simulate non-black-box ([[bb-zk-three-message-to-bpp-gk96|Three-message black-box ZK ⊆ BPP]]) — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]].
+
+### Four-message zero-knowledge arguments
+
+A zero-knowledge argument for an $\classNP$-complete language, and hence for every language in $\classNP$, with four messages and negligible soundness error — [[BJY97 - Round-Optimal Zero-Knowledge Arguments Based on any One-Way Function|BJY97]].
+
+### Concurrent zero-knowledge arguments
+
+A zero-knowledge argument for an $\classNP$-complete language that is _concurrent zero-knowledge_: for every efficient verifier that runs polynomially many sessions with independent prover instances on common input $x$, interleaving and scheduling their messages adaptively, an efficient simulator reproduces its joint view of all sessions — [[DNS98 - Concurrent Zero-Knowledge|DNS98]].
+
 ## Statistical zero-knowledge arguments
 
 An argument system whose zero-knowledge property is statistical: the simulator's output is statistically close to the verifier's view, so the view leaks nothing about the witness even to an unbounded distinguisher, while soundness holds only against efficient provers — [[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]].
@@ -95,38 +116,55 @@ An argument system whose zero-knowledge property is statistical: the simulator's
 
 A zero-knowledge proof (with soundness against unbounded provers) for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages and negligible soundness error — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]].
 
+## Concurrent zero-knowledge proofs
+
+A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-complete language that is concurrent zero-knowledge in the sense of [[#Concurrent zero-knowledge arguments|concurrent zero-knowledge arguments]] — [[DNS98 - Concurrent Zero-Knowledge|DNS98]].
+
 # Other results
 
 - Zero-knowledge proofs were introduced together with a perfect zero-knowledge proof for the quadratic residuosity language $\{(N, a) : a \in \QR_N\}$, which needs no hardness assumption — [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+  - A zero-knowledge proof for an $\classNP$ relation can use a multi-party protocol for the relation only as a black box, which brings the communication down to $O(s) + \poly(k)$ for a circuit of size $s$ and security parameter $k$ ([[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]]) — [[IKOS07 - Zero-Knowledge from Secure Multiparty Computation|IKOS07]]
 - Assuming secure probabilistic encryption, all languages in IP (= [[polynomial-space|PSPACE]]) have computational ZK proofs — [[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]; one-way functions suffice, since they give statistically binding commitments — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
 - Zero knowledge for a language outside $\classBPP$ implies auxiliary-input one-way functions ([[zkp-to-hash-function|CZK ⊄ BPP ⇒ Auxiliary-input OWF]]) — [[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]
 - Auxiliary-input zero knowledge is preserved under sequential composition — [[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]; the original definition without auxiliary input is not, and zero knowledge is not closed under parallel composition — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]
+  - Assuming either almost-optimal hardness of search [[learning-with-errors|LWE]] or a circular-secure [[homomorphic-encryption|fully homomorphic encryption]] scheme with standard security, the quadratic residuosity protocol of [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]] is not zero-knowledge when repeated in parallel; under either assumption the same paper gives NIZK arguments for $\classNP$ in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 0382d739e335 -->
+<!-- BEGIN GENERATED participates-in 762f729a22c5 -->
 
 ## Participates in
 
 **Builds on Zero-knowledge proof**
 
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
+- [[non-interactive-zap-to-zap|Non-interactive zap ⇒ Zap]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
+- [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[zero-knowledge-proof#zaps|Zaps]])
 
 **Produces Zero-knowledge proof**
 
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
+- [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[zero-knowledge-proof#concurrent-zero-knowledge-proofs|Concurrent zero-knowledge proofs]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])
 - [[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]
+- [[injective-one-way-function-to-four-message-zk-argument-hv18|Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)]] (via [[zero-knowledge-proof#four-message-zero-knowledge-arguments|Four-message zero-knowledge arguments]])
 - [[io-to-statistical-zk-argument-kmnpry14|iO ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[nizk-to-zap-dn00|NIZK ⇒ Zaps (Dwork–Naor)]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[non-interactive-zap-to-zap|Non-interactive zap ⇒ Zap]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[owf-to-concurrent-zk-argument-prs02|OWF ⇒ Concurrent ZK arguments for NP in ω(log n) rounds]] (via [[zero-knowledge-proof#concurrent-zero-knowledge-arguments|Concurrent zero-knowledge arguments]])
+- [[owf-to-four-message-zk-argument-bjy97|OWF ⇒ Four-message ZK arguments for NP]] (via [[zero-knowledge-proof#four-message-zero-knowledge-arguments|Four-message zero-knowledge arguments]])
 - [[owf-to-statistical-zk-argument-nov06|OWF ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
 - [[owf-to-witness-indistinguishable-proof-fs90|OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)]] (via [[zero-knowledge-proof#witness-indistinguishable-wi-proofs|Witness-indistinguishable (WI) proofs]])
+- [[owf-to-zkp-ikos07|OWF ⇒ ZKP (MPC in the head)]]
+- [[prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04|DLOG + KEA3 ⇒ Three-message ZK arguments for NP]] (via [[zero-knowledge-proof#three-message-zero-knowledge-arguments|Three-message zero-knowledge arguments]])
 - [[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]] (via [[zero-knowledge-proof#statistical-zap-arguments|Statistical zap arguments]])
 - [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[zero-knowledge-proof#statistical-zero-knowledge-arguments|Statistical zero-knowledge arguments]])
+- [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 
 **Barriers**
 
+- [[no-owf-to-four-message-zk-argument-hpv20|No fully-black-box reduction from OWF to four-message ZK arguments]] (via [[zero-knowledge-proof#four-message-zero-knowledge-arguments|Four-message zero-knowledge arguments]]) — circumvented by [[owf-to-four-message-zk-argument-bjy97|OWF ⇒ Four-message ZK arguments for NP]]
 - [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]] — circumvented by [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]]
 
 <!-- END GENERATED participates-in -->

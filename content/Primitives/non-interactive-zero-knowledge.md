@@ -91,7 +91,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in 1480a2bb1f5b -->
+<!-- BEGIN GENERATED participates-in c39083155f4b -->
 
 ## Participates in
 
@@ -119,6 +119,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - [[qr-to-common-random-string-nizk-proof-bdmp91|QR ⇒ NIZK proofs with a common random string (Blum–De Santis–Micali–Persiano)]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 - [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
+- [[subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a|Subgroup decision ⇒ Perfect NIZK arguments for NP]] (via [[non-interactive-zero-knowledge#non-adaptively-sound-nizk-arguments-for-np|Non-adaptively sound NIZK arguments for NP]])
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]
 - [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
 

@@ -435,6 +435,19 @@
    "unlisted": false
   },
   {
+   "id": "aux-input-zk-two-message",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#two-message-auxiliary-input-zero-knowledge",
+   "of": "czk",
+   "title": "Two-message auxiliary-input zero knowledge",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "auxiliary-input-owf",
    "kind": "variant",
    "type": "primitive",
@@ -457,6 +470,84 @@
    "anchor": "#batch-arguments-for-np",
    "of": "snark",
    "title": "Batch arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-concurrent-zk-few-rounds",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#black-box-concurrent-zero-knowledge-in-few-rounds",
+   "of": "czk",
+   "title": "Black-box concurrent zero knowledge in few rounds",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-constant-round-public-coin",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#constant-round-public-coin-black-box-zero-knowledge",
+   "of": "czk",
+   "title": "Constant-round public-coin black-box zero knowledge",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-four-message-proof",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#four-message-black-box-zero-knowledge-proofs",
+   "of": "czk",
+   "title": "Four-message black-box zero-knowledge proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-public-coin-parallel-repetition",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#public-coin-black-box-zero-knowledge-under-parallel-repetition",
+   "of": "czk",
+   "title": "Public-coin black-box zero knowledge under parallel repetition",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-strict-polynomial-simulation",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#strict-polynomial-time-black-box-simulation",
+   "of": "czk",
+   "title": "Strict polynomial-time black-box simulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-three-message",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#three-message-black-box-zero-knowledge",
+   "of": "czk",
+   "title": "Three-message black-box zero knowledge",
    "aliases": [],
    "unlisted": false
   },
@@ -700,6 +791,19 @@
    "unlisted": true
   },
   {
+   "id": "co-nondeterministic-hsg",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-generator.md",
+   "slug": "pseudorandom-generator",
+   "graphSlug": "Primitives/pseudorandom-generator",
+   "anchor": "#hitting-set-generators-against-co-nondeterministic-circuits",
+   "of": "prg",
+   "title": "Hitting-set generators against co-nondeterministic circuits",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "coam",
    "kind": "object",
    "type": "complexity-class",
@@ -740,6 +844,20 @@
     "COM",
     "Commitment scheme",
     "Commitment"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "coma",
+   "kind": "object",
+   "type": "complexity-class",
+   "page": "content/Complexity/co-merlin-arthur.md",
+   "slug": "co-merlin-arthur",
+   "graphSlug": "Complexity/co-merlin-arthur",
+   "title": "Co-Merlin-Arthur",
+   "aliases": [
+    "coMA",
+    "Co-Merlin-Arthur"
    ],
    "unlisted": false
   },
@@ -792,6 +910,32 @@
    "anchor": "#computational-multi-server-pir",
    "of": "it-pir",
    "title": "Computational Multi-server PIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "concurrent-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#concurrent-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Concurrent zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "concurrent-zk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#concurrent-zero-knowledge-proofs",
+   "of": "zkp",
+   "title": "Concurrent zero-knowledge proofs",
    "aliases": [],
    "unlisted": false
   },
@@ -1106,6 +1250,19 @@
    "unlisted": false
   },
   {
+   "id": "designated-verifier-snarg",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#designated-verifier-snargs",
+   "of": "snark",
+   "title": "Designated-verifier SNARGs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "differing-inputs-obfuscation",
    "kind": "variant",
    "type": "primitive",
@@ -1218,6 +1375,19 @@
     "Digital signature",
     "Signature scheme"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "dv-delegation-for-p",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#designated-verifier-delegation-for-p",
+   "of": "snark",
+   "title": "Designated-verifier delegation for P",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1360,6 +1530,19 @@
    "unlisted": false
   },
   {
+   "id": "four-message-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#four-message-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Four-message zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "fp-code",
    "kind": "object",
    "type": "primitive",
@@ -1383,6 +1566,19 @@
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
    "title": "FRI (Fast Reed-Solomon IOP of Proximity)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fully-succinct-snark",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#fully-succinct-snarks",
+   "of": "snark",
+   "title": "Fully succinct SNARKs",
    "aliases": [],
    "unlisted": false
   },
@@ -1688,6 +1884,19 @@
    "anchor": "#honest-majority-t--n3",
    "of": "mpc",
    "title": "Honest majority ($t < n/3$)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "honest-verifier-czk",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#honest-verifier-czk",
+   "of": "czk",
+   "title": "Honest-verifier CZK",
    "aliases": [],
    "unlisted": false
   },
@@ -2012,6 +2221,21 @@
    "unlisted": false
   },
   {
+   "id": "iop",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-oracle-proof.md",
+   "slug": "interactive-oracle-proof",
+   "graphSlug": "Glossary/interactive-oracle-proof",
+   "title": "Interactive oracle proof",
+   "aliases": [
+    "IOP",
+    "Interactive oracle proof",
+    "Interactive oracle proofs"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "ip",
    "kind": "object",
    "type": "complexity-class",
@@ -2099,6 +2323,19 @@
     "q-PKE",
     "Power knowledge of exponent"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "kea3",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/knowledge-of-exponent.md",
+   "slug": "knowledge-of-exponent",
+   "graphSlug": "Assumptions/knowledge-of-exponent",
+   "anchor": "#kea3",
+   "of": "kea",
+   "title": "KEA3",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2195,6 +2432,32 @@
    "anchor": "#leveled-fully-homomorphic-encryption",
    "of": "he",
    "title": "Leveled fully homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "linear-only-encryption",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/linear-only-encryption.md",
+   "slug": "linear-only-encryption",
+   "graphSlug": "Assumptions/linear-only-encryption",
+   "title": "Linear-only encryption",
+   "aliases": [
+    "Linear-only encryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "linear-only-vector-encryption",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/linear-only-encryption.md",
+   "slug": "linear-only-encryption",
+   "graphSlug": "Assumptions/linear-only-encryption",
+   "anchor": "#linear-only-vector-encryption",
+   "of": "linear-only-encryption",
+   "title": "Linear-only vector encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -2733,6 +2996,19 @@
    "unlisted": false
   },
   {
+   "id": "non-interactive-zap",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#non-interactive-zaps",
+   "of": "zkp",
+   "title": "Non-interactive zaps",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nonadaptive-nizk-argument-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -3058,6 +3334,20 @@
    "unlisted": false
   },
   {
+   "id": "pcp",
+   "kind": "object",
+   "type": "complexity-class",
+   "page": "content/Complexity/probabilistically-checkable-proofs.md",
+   "slug": "probabilistically-checkable-proofs",
+   "graphSlug": "Complexity/probabilistically-checkable-proofs",
+   "title": "Probabilistically checkable proofs",
+   "aliases": [
+    "PCP",
+    "Probabilistically checkable proofs"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "pcs",
    "kind": "object",
    "type": "primitive",
@@ -3178,6 +3468,19 @@
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "CPA Security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polylog-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-polylogarithmic-communication",
+   "of": "cpir",
+   "title": "PIR with polylogarithmic communication",
    "aliases": [],
    "unlisted": false
   },
@@ -3440,6 +3743,19 @@
    "unlisted": false
   },
   {
+   "id": "q-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#q-dlog",
+   "of": "dlog",
+   "title": "$q$-DLOG",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "q-strong-diffie-hellman",
    "kind": "object",
    "type": "assumption",
@@ -3510,6 +3826,19 @@
     "Quadratic residuosity assumption",
     "QRA"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "qrom",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/random-oracle-model.md",
+   "slug": "random-oracle-model",
+   "graphSlug": "Glossary/random-oracle-model",
+   "anchor": "#quantum-random-oracle-model",
+   "of": "rom",
+   "title": "Quantum random oracle model",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -4339,6 +4668,19 @@
    "unlisted": false
   },
   {
+   "id": "subgroup-decision",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/bilinear-map-assumptions.md",
+   "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
+   "anchor": "#subgroup-decision",
+   "of": "bdh",
+   "title": "Subgroup decision",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -4348,6 +4690,19 @@
    "anchor": "#succinct-lwe",
    "of": "lwe",
    "title": "Succinct LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "succinct-state-restoration-iop",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-oracle-proof.md",
+   "slug": "interactive-oracle-proof",
+   "graphSlug": "Glossary/interactive-oracle-proof",
+   "anchor": "#succinct-iops-with-state-restoration-knowledge-soundness",
+   "of": "iop",
+   "title": "Succinct IOPs with state-restoration knowledge soundness",
    "aliases": [],
    "unlisted": false
   },
@@ -4501,6 +4856,19 @@
    "unlisted": false
   },
   {
+   "id": "three-message-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#three-message-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Three-message zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "three-party-nike",
    "kind": "variant",
    "type": "primitive",
@@ -4646,6 +5014,19 @@
     "Unclonable encryption"
    ],
    "unlisted": true
+  },
+  {
+   "id": "universal-snark",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#universalupdatable-snarks",
+   "of": "snark",
+   "title": "Universal/updatable SNARKs",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "unkeyed-depir",
@@ -5175,6 +5556,153 @@
    "title": "Authenticated key exchange (AKE) ⇒ KE"
   },
   {
+   "id": "red-aux-input-zk-two-message-to-bpp-go94",
+   "kind": "inclusion",
+   "hypotheses": [
+    "aux-input-zk-two-message"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/aux-input-zk-two-message-to-bpp-go94.md",
+   "slug": "aux-input-zk-two-message-to-bpp-go94",
+   "graphSlug": "Reductions/aux-input-zk-two-message-to-bpp-go94",
+   "title": "Two-message auxiliary-input ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-concurrent-zk-few-rounds"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CKPR01 - Black-Box Concurrent Zero-Knowledge Requires Omega(log n) Rounds|CKPR01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-concurrent-zk-few-rounds-to-bpp-ckpr01.md",
+   "slug": "bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "graphSlug": "Reductions/bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "title": "Few-round black-box concurrent ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-constant-round-public-coin"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-constant-round-public-coin-to-bpp-gk96.md",
+   "slug": "bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "graphSlug": "Reductions/bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "title": "Constant-round public-coin black-box ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-four-message-proof-to-coma-kat08",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-four-message-proof"
+   ],
+   "conclusion": "coma",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Kat08 - Which Languages Have 4-Round Zero-Knowledge Proofs|Kat08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-four-message-proof-to-coma-kat08.md",
+   "slug": "bb-zk-four-message-proof-to-coma-kat08",
+   "graphSlug": "Reductions/bb-zk-four-message-proof-to-coma-kat08",
+   "title": "Four-message black-box ZK proofs ⊆ coMA"
+  },
+  {
+   "id": "red-bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-public-coin-parallel-repetition"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[PTW09 - On the Composition of Public-Coin Zero-Knowledge Protocols|PTW09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-public-coin-parallel-repetition-to-bpp-ptw09.md",
+   "slug": "bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "graphSlug": "Reductions/bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "title": "Public-coin black-box ZK under parallel repetition ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-strict-polynomial-simulation"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-strict-polynomial-simulation-to-bpp-bl02.md",
+   "slug": "bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "graphSlug": "Reductions/bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "title": "Constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-three-message-to-bpp-gk96",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-three-message"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-three-message-to-bpp-gk96.md",
+   "slug": "bb-zk-three-message-to-bpp-gk96",
+   "graphSlug": "Reductions/bb-zk-three-message-to-bpp-gk96",
+   "title": "Three-message black-box ZK ⊆ BPP"
+  },
+  {
    "id": "red-bdh-to-abe-gpsw06",
    "kind": "implication",
    "hypotheses": [
@@ -5374,7 +5902,7 @@
     "bilinear-pairing",
     "decisional-linear"
    ],
-   "conclusion": "zap",
+   "conclusion": "non-interactive-zap",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -5388,6 +5916,79 @@
    "slug": "bilinear-pairing-and-dlin-to-zap-gos06",
    "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-zap-gos06",
    "title": "Bilinear pairing + DLIN ⇒ Zaps (non-interactive)"
+  },
+  {
+   "id": "red-bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "k-linear-assumption"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[WW22 - Batch Arguments for NP and More from Standard Bilinear Group Assumptions|WW22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22.md",
+   "slug": "bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "graphSlug": "Reductions/bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "title": "Bilinear pairing + k-Lin ⇒ BARG for NP"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-dlog"
+   ],
+   "conclusion": "universal-snark",
+   "class": "unstated",
+   "model": "algebraic-group",
+   "source": [
+    "[[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "GWC19 prove knowledge soundness for algebraic provers with Fiat–Shamir challenges from a random oracle; the group model is recorded and the random oracle named in the Statement."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-dlog-to-universal-snark-gwc19.md",
+   "slug": "bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "title": "Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-dlog"
+   ],
+   "conclusion": "zk-snark",
+   "class": "unstated",
+   "model": "algebraic-group",
+   "source": [
+    "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]",
+    "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight",
+   "rationale": {
+    "model": "FKL18 prove knowledge soundness against algebraic provers; zero knowledge is Gro16's unconditional property."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-dlog-to-zk-snark-fkl18.md",
+   "slug": "bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "title": "Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)"
   },
   {
    "id": "red-bilinear-pairing-and-q-sdh-to-ds-bb04a",
@@ -5840,6 +6441,27 @@
    "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
+   "id": "red-claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-permutations"
+   ],
+   "conclusion": "concurrent-zk-proof",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[PRS02 - Concurrent Zero Knowledge with Logarithmic Round-Complexity|PRS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/claw-free-permutations-to-concurrent-zk-proof-prs02.md",
+   "slug": "claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "graphSlug": "Reductions/claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "title": "Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds"
+  },
+  {
    "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
    "kind": "implication",
    "hypotheses": [
@@ -6288,7 +6910,9 @@
    "source": [
     "[[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]"
    ],
-   "via": [],
+   "via": [
+    "[[probabilistically-checkable-proofs|PCPs]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial",
    "status": "draft",
@@ -9171,6 +9795,27 @@
    "title": "Honest majority ($t < n/3$) ⇒ MPC"
   },
   {
+   "id": "red-honest-verifier-czk-to-czk-vad06",
+   "kind": "equivalence",
+   "hypotheses": [
+    "honest-verifier-czk"
+   ],
+   "conclusion": "czk",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/honest-verifier-czk-to-czk-vad06.md",
+   "slug": "honest-verifier-czk-to-czk-vad06",
+   "graphSlug": "Reductions/honest-verifier-czk-to-czk-vad06",
+   "title": "HVCZK = CZK"
+  },
+  {
    "id": "red-honest-verifier-szk-to-szk-gsv98",
    "kind": "equivalence",
    "hypotheses": [
@@ -9554,6 +10199,31 @@
    "slug": "ind-sid-cpa-to-pke-cca2-security-chk04",
    "graphSlug": "Reductions/ind-sid-cpa-to-pke-cca2-security-chk04",
    "title": "Selective-ID IBE ⇒ CCA-secure PKE (CHK)"
+  },
+  {
+   "id": "red-injective-one-way-function-to-four-message-zk-argument-hv18",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[HV18 - Round-Optimal Fully Black-Box Zero-Knowledge Arguments from One-Way Permutations|HV18]]",
+    "[[KOS18 - Round Optimal Black-Box Commit-and-Prove|KOS18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "HV18 and KOS18 build fully black-box arguments, which use the injective one-way function only as an oracle and prove zero knowledge and soundness with a simulator and a reduction that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-four-message-zk-argument-hv18.md",
+   "slug": "injective-one-way-function-to-four-message-zk-argument-hv18",
+   "graphSlug": "Reductions/injective-one-way-function-to-four-message-zk-argument-hv18",
+   "title": "Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)"
   },
   {
    "id": "red-invertible-prfs-to-prf",
@@ -10005,6 +10675,54 @@
    "slug": "kt-mild-average-case-hardness-to-owf-lp20",
    "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
+  },
+  {
+   "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-only-encryption"
+   ],
+   "conclusion": "designated-verifier-snarg",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[BCIOP13 - Succinct Non-interactive Arguments via Linear Interactive Proofs|BCIOP13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier generates the reference string, encrypted LIP queries, in a preprocessing phase and keeps the decryption key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-only-encryption-to-designated-verifier-snarg-bciop13.md",
+   "slug": "linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "graphSlug": "Reductions/linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "title": "Linear-only encryption ⇒ Designated-verifier SNARG"
+  },
+  {
+   "id": "red-linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-only-vector-encryption"
+   ],
+   "conclusion": "designated-verifier-snarg",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[BISW17 - Lattice-Based SNARGs and Their Application to More Efficient Obfuscation|BISW17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier generates the reference string, encrypted linear-PCP queries, in a preprocessing phase and keeps the decryption key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-only-vector-encryption-to-designated-verifier-snarg-bisw17.md",
+   "slug": "linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "graphSlug": "Reductions/linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "title": "Linear-only vector encryption ⇒ Designated-verifier SNARG (lattice-based)"
   },
   {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
@@ -11208,6 +11926,30 @@
    "title": "NIKE ⇒ KE"
   },
   {
+   "id": "red-non-interactive-zap-to-zap",
+   "kind": "implication",
+   "hypotheses": [
+    "non-interactive-zap"
+   ],
+   "conclusion": "zap",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The zap is the non-interactive zap with the verifier's message ignored, and the reductions forward any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-interactive-zap-to-zap.md",
+   "slug": "non-interactive-zap-to-zap",
+   "graphSlug": "Reductions/non-interactive-zap-to-zap",
+   "title": "Non-interactive zap ⇒ Zap"
+  },
+  {
    "id": "red-notable-problems-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -11678,6 +12420,27 @@
    "title": "OT ⇒ OT extension (IKNP)"
   },
   {
+   "id": "red-owf-to-concurrent-zk-argument-prs02",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "concurrent-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[PRS02 - Concurrent Zero Knowledge with Logarithmic Round-Complexity|PRS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-concurrent-zk-argument-prs02.md",
+   "slug": "owf-to-concurrent-zk-argument-prs02",
+   "graphSlug": "Reductions/owf-to-concurrent-zk-argument-prs02",
+   "title": "OWF ⇒ Concurrent ZK arguments for NP in ω(log n) rounds"
+  },
+  {
    "id": "red-owf-to-distributional-owf",
    "kind": "implication",
    "hypotheses": [
@@ -11700,6 +12463,27 @@
    "slug": "owf-to-distributional-owf",
    "graphSlug": "Reductions/owf-to-distributional-owf",
    "title": "OWF ⇒ Distributional OWF"
+  },
+  {
+   "id": "red-owf-to-four-message-zk-argument-bjy97",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BJY97 - Round-Optimal Zero-Knowledge Arguments Based on any One-Way Function|BJY97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-four-message-zk-argument-bjy97.md",
+   "slug": "owf-to-four-message-zk-argument-bjy97",
+   "graphSlug": "Reductions/owf-to-four-message-zk-argument-bjy97",
+   "title": "OWF ⇒ Four-message ZK arguments for NP"
   },
   {
    "id": "red-owf-to-np",
@@ -11839,6 +12623,30 @@
    "slug": "owf-to-witness-indistinguishable-proof-fs90",
    "graphSlug": "Reductions/owf-to-witness-indistinguishable-proof-fs90",
    "title": "OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)"
+  },
+  {
+   "id": "red-owf-to-zkp-ikos07",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "zkp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[IKOS07 - Zero-Knowledge from Secure Multiparty Computation|IKOS07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The protocol uses Naor's commitment on the HILL generator and the multi-party protocol only as oracles, soundness is statistical, and zero knowledge reduces to commitment hiding through a simulator and a reduction that use the cheating verifier and distinguisher only as oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-zkp-ikos07.md",
+   "slug": "owf-to-zkp-ikos07",
+   "graphSlug": "Reductions/owf-to-zkp-ikos07",
+   "title": "OWF ⇒ ZKP (MPC in the head)"
   },
   {
    "id": "red-owp-to-conp",
@@ -12151,6 +12959,27 @@
    "slug": "pc-and-search-noisy-k-lin-to-pke-ghjs25",
    "graphSlug": "Reductions/pc-and-search-noisy-k-lin-to-pke-ghjs25",
    "title": "PC + Search noisy $k$-LIN ⇒ PKE"
+  },
+  {
+   "id": "red-pcp-to-np-alm-92",
+   "kind": "equivalence",
+   "hypotheses": [
+    "pcp"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/pcp-to-np-alm-92.md",
+   "slug": "pcp-to-np-alm-92",
+   "graphSlug": "Reductions/pcp-to-np-alm-92",
+   "title": "PCP = NP"
   },
   {
    "id": "red-pcs-to-snark",
@@ -12469,6 +13298,30 @@
    "slug": "pke-to-kem",
    "graphSlug": "Reductions/pke-to-kem",
    "title": "PKE ⇒ KEM"
+  },
+  {
+   "id": "red-polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "polylog-cpir"
+   ],
+   "conclusion": "dv-delegation-for-p",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[BHK17 - Non-interactive delegation and batch NP verification from standard computational assumptions|BHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier samples a reusable public key in a setup phase and keeps the secret verification key on which soundness rests."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17.md",
+   "slug": "polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "graphSlug": "Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "title": "PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
@@ -12937,6 +13790,28 @@
    "title": "PRG ⇒ PRF (GGM)"
   },
   {
+   "id": "red-prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog",
+    "kea3"
+   ],
+   "conclusion": "three-message-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04.md",
+   "slug": "prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "graphSlug": "Reductions/prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "title": "DLOG + KEA3 ⇒ Three-message ZK arguments for NP"
+  },
+  {
    "id": "red-prime-order-dlog-to-dlog",
    "kind": "implication",
    "hypotheses": [
@@ -12959,6 +13834,31 @@
    "slug": "prime-order-dlog-to-dlog",
    "graphSlug": "Reductions/prime-order-dlog-to-dlog",
    "title": "Prime-order DLOG ⇒ DLOG"
+  },
+  {
+   "id": "red-prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "interactive-succinct-argument",
+   "class": "fully-black-box",
+   "model": "crs",
+   "source": [
+    "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction uses the group only through group operations on the public generators, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges and turning two distinct openings into a nontrivial discrete-log relation among the generators.",
+    "model": "The public parameters are uniformly random group elements with no trapdoor, a common random string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-interactive-succinct-argument-bccgp16.md",
+   "slug": "prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "graphSlug": "Reductions/prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "title": "DLOG ⇒ Succinct arguments for NP (Bootle et al.)"
   },
   {
    "id": "red-prp-to-invertible-prf",
@@ -13095,6 +13995,30 @@
    "slug": "pwpp-to-pwpp-randomized",
    "graphSlug": "Reductions/pwpp-to-pwpp-randomized",
    "title": "PWPP ⊆ PWPP under randomized reductions"
+  },
+  {
+   "id": "red-q-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "q-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the reduction forwards the adversary's answer",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the bilinear group generator, and the reduction runs any DLOG solver unchanged on part of a $(1, 1)$-DLOG instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/q-dlog-to-prime-order-dlog.md",
+   "slug": "q-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/q-dlog-to-prime-order-dlog",
+   "title": "q-DLOG ⇒ Prime-order DLOG"
   },
   {
    "id": "red-qcma-to-qma",
@@ -13466,6 +14390,31 @@
    "title": "QR ⇒ TDH"
   },
   {
+   "id": "red-qrom-to-zk-snark-cms19",
+   "kind": "implication",
+   "hypotheses": [
+    "qrom"
+   ],
+   "conclusion": "zk-snark",
+   "class": "free",
+   "model": "rom",
+   "source": [
+    "[[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem holds for every quantum prover making polynomially many oracle queries, which is the free class scoped by the model.",
+    "model": "The proof holds in the quantum random-oracle model, the idealised random oracle with superposition queries by quantum provers, so the edge records rom, which scopes its conclusion, and the Statement names the quantum access."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qrom-to-zk-snark-cms19.md",
+   "slug": "qrom-to-zk-snark-cms19",
+   "graphSlug": "Reductions/qrom-to-zk-snark-cms19",
+   "title": "QROM ⇒ zk-SNARK (Micali's construction in the QROM)"
+  },
+  {
    "id": "red-qszk-to-qip",
    "kind": "inclusion",
    "hypotheses": [
@@ -13754,7 +14703,9 @@
     "[[Mic00 - Computationally Sound Proofs|Mic00]]",
     "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
    ],
-   "via": [],
+   "via": [
+    "[[probabilistically-checkable-proofs|PCPs]]"
+   ],
    "heuristic": false,
    "securityLoss": "a factor polynomial in the number of random-oracle queries",
    "rationale": {
@@ -14182,6 +15133,31 @@
    "slug": "ske-to-owf-il89",
    "graphSlug": "Reductions/ske-to-owf-il89",
    "title": "SKE ⇒ OWF"
+  },
+  {
+   "id": "red-snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "kind": "implication",
+   "hypotheses": [
+    "snark",
+    "crhf"
+   ],
+   "conclusion": "fully-succinct-snark",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The bootstrapped prover proves, with the hypothesis SNARK, statements about that SNARK's own verifier, so the construction depends on the scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/snark-and-crhf-to-fully-succinct-snark-bcct13.md",
+   "slug": "snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "graphSlug": "Reductions/snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "title": "SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)"
   },
   {
    "id": "red-snark-and-owf-to-nizk-kmy20",
@@ -15085,6 +16061,27 @@
    "title": "Sub-exponential SXDH ⇒ SXDH"
   },
   {
+   "id": "red-subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "kind": "implication",
+   "hypotheses": [
+    "subgroup-decision"
+   ],
+   "conclusion": "nonadaptive-nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "source": [
+    "[[GOS06a - Perfect Non-Interactive Zero Knowledge for NP|GOS06a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a.md",
+   "slug": "subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "graphSlug": "Reductions/subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "title": "Subgroup decision ⇒ Perfect NIZK arguments for NP"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -15128,6 +16125,34 @@
    "slug": "succinct-lwe-to-lwe",
    "graphSlug": "Reductions/succinct-lwe-to-lwe",
    "title": "Succinct LWE ⇒ LWE"
+  },
+  {
+   "id": "red-succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "kind": "implication",
+   "hypotheses": [
+    "succinct-state-restoration-iop"
+   ],
+   "conclusion": "transparent-succinct-argument",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[BCS16 - Interactive Oracle Proofs|BCS16]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "additive: $\\kappa_{\\mathrm{sr}}(t)$ plus $O(t^2 2^{-\\secpar})$ for a $t$-query prover and $\\secpar$-bit oracle outputs, the probability of a collision among the oracle's answers",
+   "rationale": {
+    "class": "One fixed compiler runs the IOP prover and verifier only as oracles, and the straight-line reduction turns any cheating prover into a state-restoration prover for the IOP by running it as an oracle and reading its random-oracle queries.",
+    "model": "The Merkle commitments and the verifier's challenges both use the random oracle, which the reduction simulates and whose queries it reads.",
+    "securityLoss": "BCS16 bound the compiled argument's knowledge error by the IOP's state-restoration knowledge error plus the probability of a collision among the random oracle's answers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16.md",
+   "slug": "succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "graphSlug": "Reductions/succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
   },
   {
    "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",
@@ -15597,6 +16622,30 @@
    "title": "UC-secure OT ⇒ Malicious OT"
   },
   {
+   "id": "red-universal-snark-to-snark",
+   "kind": "implication",
+   "hypotheses": [
+    "universal-snark"
+   ],
+   "conclusion": "snark",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction runs the universal setup and the key derivation only as oracles, and the fixed reduction forwards any adversary against the per-circuit scheme unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/universal-snark-to-snark.md",
+   "slug": "universal-snark-to-snark",
+   "graphSlug": "Reductions/universal-snark-to-snark",
+   "title": "Universal SNARK ⇒ SNARK"
+  },
+  {
    "id": "red-unkeyed-depir-to-depir",
    "kind": "implication",
    "hypotheses": [
@@ -15717,6 +16766,28 @@
    "slug": "witness-encryption-and-prg-to-pke-ggsw13",
    "graphSlug": "Reductions/witness-encryption-and-prg-to-pke-ggsw13",
    "title": "WE + PRG ⇒ PKE (GGSW)"
+  },
+  {
+   "id": "red-zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "kind": "implication",
+   "hypotheses": [
+    "zap",
+    "co-nondeterministic-hsg"
+   ],
+   "conclusion": "non-interactive-zap",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[BOV03 - Derandomization in Cryptography|BOV03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03.md",
+   "slug": "zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "graphSlug": "Reductions/zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "title": "Zap + HSG ⇒ Non-interactive zaps (BOV)"
   },
   {
    "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
@@ -16872,6 +17943,42 @@
    "slug": "no-ot-to-tdp-gkm-00",
    "graphSlug": "Barriers/no-ot-to-tdp-gkm-00",
    "title": "No fully-black-box reduction from OT to TDP"
+  },
+  {
+   "id": "bar-owf-to-four-message-zk-argument-hpv20",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "fully-black-box"
+    },
+    {
+     "kind": "complexity",
+     "target": "ph-collapse-second-level",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-owf-to-four-message-zk-argument-bjy97"
+   ],
+   "source": [
+    "[[HPV20 - Which Languages Have 4-Round Fully Black-Box Zero-Knowledge Arguments from One-Way Functions|HPV20]]"
+   ],
+   "rationale": {
+    "class": "HPV20 rule out fully black-box constructions, which use the one-way function only as an oracle and prove zero knowledge and soundness with a simulator and a reduction that use the cheating verifier and prover only as oracles."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-owf-to-four-message-zk-argument-hpv20.md",
+   "slug": "no-owf-to-four-message-zk-argument-hpv20",
+   "graphSlug": "Barriers/no-owf-to-four-message-zk-argument-hpv20",
+   "title": "No fully-black-box reduction from OWF to four-message ZK arguments"
   },
   {
    "id": "bar-owf-to-ot-ir89",

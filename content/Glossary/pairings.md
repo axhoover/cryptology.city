@@ -43,13 +43,16 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in 1c7d403d3645 -->
+<!-- BEGIN GENERATED participates-in c14231c3d290 -->
 
 ## Participates in
 
 **Builds on Pairings**
 
 - [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]]
+- [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]]
+- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
+- [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]
 - [[bilinear-pairing-and-q-sdh-to-ds-bb04a|Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)]]
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]

@@ -27,3 +27,5 @@ If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with po
 ## Notes
 
 - Earlier SNARGs from standard assumptions covered only bounded-depth computations and needed sub-exponential hardness of LWE — [[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]].
+- A publicly verifiable, completely non-interactive delegation scheme for all polynomial-time computations in the CRS model follows from an efficiently falsifiable decisional assumption on groups with bilinear maps, by first building a scheme with a CRS polynomial in the running time, following Paneth and Rothblum, and then bootstrapping it to a short CRS — [[KPY19 - How to delegate computations publicly|KPY19]].
+- From $k$-Lin or subgroup decision in pairing groups, publicly verifiable non-interactive delegation for RAM programs has a CRS sublinear in the running time — [[WW22 - Batch Arguments for NP and More from Standard Bilinear Group Assumptions|WW22]].

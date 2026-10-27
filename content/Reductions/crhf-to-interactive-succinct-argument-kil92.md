@@ -13,6 +13,8 @@ model: standard
 source:
   - "[[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]"
 security-loss: "polynomial"
+via:
+  - "[[probabilistically-checkable-proofs|PCPs]]"
 ---
 
 # CRHF ⇒ Succinct arguments for NP (Kilian)
@@ -23,7 +25,7 @@ If [[hash-function#collision-resistance|collision-resistant hash functions]] exi
 
 ## Sketch
 
-The verifier sends a hash key; the prover commits to a probabilistically checkable proof of the statement by the root of a Merkle tree; the verifier sends the PCP verifier's random queries; the prover opens the queried positions with authentication paths. A prover that answers inconsistently on rewinding yields a collision, so its answers are those of a fixed proof string, which PCP soundness rejects — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
+The verifier sends a hash key; the prover commits to a [[probabilistically-checkable-proofs|probabilistically checkable proof]] of the statement by the root of a Merkle tree; the verifier sends the PCP verifier's random queries; the prover opens the queried positions with authentication paths. A prover that answers inconsistently on rewinding yields a collision, so its answers are those of a fixed proof string, which PCP soundness rejects — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]].
 
 ## Notes
 

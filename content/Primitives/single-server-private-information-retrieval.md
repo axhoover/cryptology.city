@@ -13,6 +13,7 @@ variants:
   nontrivial-cpir: "#non-trivial-pir"
   total-nontrivial-cpir: "#pir-with-total-communication-below-n"
   one-round-sublinear-cpir: "#one-round-sublinear-pir"
+  polylog-cpir: "#pir-with-polylogarithmic-communication"
 ---
 
 # Private Information Retrieval
@@ -101,6 +102,10 @@ A PIR scheme has **total communication below $n$** if it is perfectly correct an
 
 A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
+## PIR with polylogarithmic communication
+
+A PIR scheme has **polylogarithmic communication** if it has query privacy, is $(1 - \varepsilon)$-correct for a negligible $\varepsilon$, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and, for a polynomial $p$ and every $n$, has communication $|q| + |a| \le p(\secpar, \log n)$ on every $n$-bit database — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]. Such PIR suffices for non-interactive delegation of all polynomial-time computations with a designated verifier ([[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]]) — [[BHK17 - Non-interactive delegation and batch NP verification from standard computational assumptions|BHK17]].
+
 ## Symmetric private information retrieval (Single-server)
 
 Symmetric private information retrieval is a stronger version of PIR that in addition to protecting the querier's privacy, also protects the data privacy. The multi-server, information-theoretic version ([[IT-SPIR]]) was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], but follow-up works showed how to construct computationally secure versions based on assumptions.
@@ -183,7 +188,7 @@ is negligible.
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 711da33e5f4b -->
+<!-- BEGIN GENERATED participates-in dcc9ecbcdac5 -->
 
 ## Participates in
 
@@ -193,6 +198,7 @@ is negligible.
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[cpir-to-owf-bikm99|Non-trivial cPIR ⇒ OWF]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
+- [[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))

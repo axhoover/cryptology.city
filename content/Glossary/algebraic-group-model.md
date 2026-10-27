@@ -48,7 +48,7 @@ The relationship between the AGM and the [[generic-group-model|GGM]] has been th
 
 In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. Unlike the GGM, the AGM allows algorithms that exploit the representation of group elements; it rules out only adversaries that output group elements whose representation over their inputs they do not know, such as elements sampled obliviously or by hashing into the group — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
-<!-- BEGIN GENERATED participates-in 06ae49b460a8 -->
+<!-- BEGIN GENERATED participates-in 55589ec81de8 -->
 
 ## Participates in
 
@@ -62,6 +62,8 @@ In the standard model, an adversary receives group elements and may compute arbi
 
 **Proved in the Algebraic Group Model**
 
+- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
+- [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 

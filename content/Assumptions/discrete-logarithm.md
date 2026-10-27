@@ -12,6 +12,7 @@ id: dlog
 variants:
   prime-order-dlog: "#dlog-in-prime-order-groups"
   compact-prime-order-dlog: "#dlog-in-compactly-encoded-prime-order-groups"
+  q-dlog: "#q-dlog"
 ---
 
 # Discrete logarithm
@@ -81,6 +82,31 @@ elliptic-curve groups with compressed points (an $x$-coordinate and one bit)
 meet the bound; uncompressed affine points, and the order-$p$ subgroup of
 $\ZZ_P^*$ with $\log P \ge 2 \log p$, do not — standard.
 
+## $q$-DLOG
+
+The assumption concerns a bilinear group generator $\GrGen$, which on input $1^\secpar$ outputs $(\GG_1, \GG_2, \GG_T, p, g_1, g_2, e)$: cyclic groups of prime order $p$ with $\GG_1 \ne \GG_2$ (an asymmetric pairing), generators $g_1$ of $\GG_1$ and $g_2$ of $\GG_2$, and a non-degenerate [[pairings|bilinear pairing]] $e : \GG_1 \times \GG_2 \to \GG_T$. Let $q_1 = q_1(\secpar)$ and $q_2 = q_2(\secpar)$ be polynomials.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{(q_1,q_2)\text{-dl}}_{\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\GG_1, \GG_2, \GG_T, p, g_1, g_2, e) \gets \GrGen(1^\secpar)$
+\State $x \getsr \ZZ_p$
+\State $\hat{x} \gets \calA(1^\secpar, \GG_1, \GG_2, \GG_T, p, g_1, g_2, e, (g_1^{x^i})_{i=1}^{q_1}, (g_2^{x^i})_{i=1}^{q_2})$
+\Return $[\hat{x} = x]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**$(q_1, q_2)$-DLOG is hard** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\Adv^{(q_1,q_2)\text{-dl}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{(q_1,q_2)\text{-dl}}_{\GrGen,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]. **$q$-DLOG is hard** for $\GrGen$ if $(q_1, q_2)$-DLOG is hard for every pair of polynomials $q_1, q_2$. Dropping powers turns an instance for $(q_1, q_2)$ into one for any smaller pair, so larger degrees give the stronger assumption, and $q$-DLOG implies DLOG in the prime-order group $\GG_1$ ([[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]]) — folklore. In the [[algebraic-group-model|algebraic group model]], knowledge soundness of Groth's SNARK reduces to it — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+
 ## One-more Discrete Logarithm
 
 In some works, it is important to consider adversaries
@@ -127,12 +153,14 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in f0fabdec5627 -->
+<!-- BEGIN GENERATED participates-in 5e39c4d8739d -->
 
 ## Participates in
 
 **Builds on Discrete logarithm**
 
+- [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]] (via [$q$-DLOG](discrete-logarithm#q-dlog))
+- [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]] (via [$q$-DLOG](discrete-logarithm#q-dlog))
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-compactly-encoded-prime-order-groups|DLOG in compactly encoded prime-order groups]])
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
@@ -149,7 +177,10 @@ is negligible.
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
+- [[prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04|DLOG + KEA3 ⇒ Three-message ZK arguments for NP]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP (Bootle et al.)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]] (via [$q$-DLOG](discrete-logarithm#q-dlog))
 
 **Produces Discrete logarithm**
 
@@ -157,6 +188,7 @@ is negligible.
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
+- [[q-dlog-to-prime-order-dlog|q-DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
 
 <!-- END GENERATED participates-in -->
