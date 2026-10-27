@@ -92,7 +92,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in e7da95987b4a -->
+<!-- BEGIN GENERATED participates-in ca3dd56e2be7 -->
 
 ## Participates in
 
@@ -112,6 +112,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13) (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [[subgroup-decision-to-barg-for-np-ww22|Subgroup decision ⇒ BARG for NP]] (via [[bilinear-map-assumptions#subgroup-decision|Subgroup decision]])
 - [[subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a|Subgroup decision ⇒ Perfect NIZK arguments for NP]] (via [[bilinear-map-assumptions#subgroup-decision|Subgroup decision]])
 
 **Produces Bilinear map assumptions**

@@ -5,7 +5,7 @@ title: "DLOG + KEA3 ⇒ Three-message ZK arguments for NP"
 aliases: []
 id: red-prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04
 kind: implication
-hypotheses: [prime-order-dlog, kea3]
+hypotheses: [kea3]
 conclusion: three-message-zk-argument
 class: unstated
 model: standard
@@ -22,5 +22,5 @@ Let $\GrGen$ output a prime-order group in which the [[discrete-logarithm#dlog-i
 
 ## Notes
 
-- The extraction condition of KEA3 alone holds trivially in a group with easy discrete logarithms, so the two assumptions must hold for the same group generator — standard.
+- The extraction condition of KEA3 alone holds trivially in a group with easy discrete logarithms, so the definition of [[knowledge-of-exponent#kea3|KEA3]] includes hardness of the discrete logarithm for the same group generator — standard.
 - Under assumptions on program obfuscation, three-message private-coin zero-knowledge proofs, sound against unbounded provers, for $\classNP$ do not exist even with non-black-box simulation — [[FGJ18 - On the Existence of Three Round Zero-Knowledge Proofs|FGJ18]].

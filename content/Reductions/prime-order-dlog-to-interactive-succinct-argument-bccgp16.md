@@ -14,7 +14,7 @@ source:
 security-loss: ""
 rationale:
   class: "One fixed construction uses the group only through group operations on the public generators, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges and turning two distinct openings into a nontrivial discrete-log relation among the generators."
-  model: "The public parameters are uniformly random group elements with no trapdoor, a common random string."
+  model: "The public parameters are uniformly random group elements sampled by the setup, and soundness needs that no party knows discrete-logarithm relations among them."
 ---
 
 # DLOG ⇒ Succinct arguments for NP (Bootle et al.)

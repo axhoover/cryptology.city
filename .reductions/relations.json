@@ -14885,7 +14885,6 @@
    "id": "red-prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog",
     "kea3"
    ],
    "conclusion": "three-message-zk-argument",
@@ -14953,7 +14952,7 @@
    "securityLoss": "",
    "rationale": {
     "class": "One fixed construction uses the group only through group operations on the public generators, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges and turning two distinct openings into a nontrivial discrete-log relation among the generators.",
-    "model": "The public parameters are uniformly random group elements with no trapdoor, a common random string."
+    "model": "The public parameters are uniformly random group elements sampled by the setup, and soundness needs that no party knows discrete-logarithm relations among them."
    },
    "status": "draft",
    "page": "content/Reductions/prime-order-dlog-to-interactive-succinct-argument-bccgp16.md",
@@ -17442,6 +17441,30 @@
    "slug": "subexponential-sxdh-to-sxdh",
    "graphSlug": "Reductions/subexponential-sxdh-to-sxdh",
    "title": "Sub-exponential SXDH ⇒ SXDH"
+  },
+  {
+   "id": "red-subgroup-decision-to-barg-for-np-ww22",
+   "kind": "implication",
+   "hypotheses": [
+    "subgroup-decision"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[WW22 - Batch Arguments for NP and More from Standard Bilinear Group Assumptions|WW22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subgroup-decision-to-barg-for-np-ww22.md",
+   "slug": "subgroup-decision-to-barg-for-np-ww22",
+   "graphSlug": "Reductions/subgroup-decision-to-barg-for-np-ww22",
+   "title": "Subgroup decision ⇒ BARG for NP"
   },
   {
    "id": "red-subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",

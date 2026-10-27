@@ -112,7 +112,7 @@ A **fully succinct SNARK** is a publicly verifiable SNARK for the universal rela
 
 ## Interactive succinct arguments
 
-An interactive argument system for $\classNP$ whose prover–verifier communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers, and either no setup or public parameters of length $\poly(\secpar, T)$ sampled with public coins and no trapdoor (a common random string, or uniformly random group elements), not counted in the communication. Kilian's protocol needs no setup — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]; the argument of Bootle et al. uses uniformly random group elements as public parameters ([[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP]]) — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]].
+An interactive argument system for $\classNP$ whose prover–verifier communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers, and either no setup or public parameters of length $\poly(\secpar, T)$ sampled by an honest setup (a common random string, or uniformly random group elements whose discrete-logarithm relations no party knows), not counted in the communication. Kilian's protocol needs no setup — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]; the argument of Bootle et al. uses uniformly random group elements as public parameters ([[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP]]) — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]].
 
 ## SNARGs for P
 
@@ -138,7 +138,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces tightly to the $q$-DLOG assumption ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in 91b424dff76b -->
+<!-- BEGIN GENERATED participates-in e73533d34909 -->
 
 ## Participates in
 
@@ -168,6 +168,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[rom-to-snark-mic00|ROM ⇒ SNARK (Micali's CS proofs)]]
 - [[snark-and-crhf-to-fully-succinct-snark-bcct13|SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)]] (via [[succinct-argument#fully-succinct-snarks|Fully succinct SNARKs]])
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]] (via [[succinct-argument#recursive-snarks|Recursive SNARKs]])
+- [[subgroup-decision-to-barg-for-np-ww22|Subgroup decision ⇒ BARG for NP]] (via [[succinct-argument#batch-arguments-for-np|Batch arguments for NP]])
 - [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)]] (via [[succinct-argument#stark|STARK]])
 - [[universal-snark-to-snark|Universal SNARK ⇒ SNARK]]
 
