@@ -13,6 +13,7 @@ variants:
   schnorr-signature: "#schnorr-signatures"
   hash-and-sign-signature: "#lattice-based-signatures"
   boneh-lynn-shacham-signature: "#bls-signatures"
+  waters-signature: "#waters-signatures"
   eddsa: "#eddsa"
   edl-signature: "#edl-signatures"
   katz-wang-signature: "#katz-wang-signatures"
@@ -214,6 +215,10 @@ $$
 
 is negligible.
 
+## Waters signatures
+
+In a [[pairings#type-1|symmetric bilinear group]] $(\GG, \GG_T, p, g, e)$, the Waters scheme for $n$-bit messages has $\vk = (g, g_1 = g^{\alpha}, g_2, u', u_1, \ldots, u_n)$ with $\alpha \getsr \ZZ_p$ and $g_2, u', u_i \getsr \GG$, and $\sk = g_2^{\alpha}$. With $U(m) = u' \prod_{i : m_i = 1} u_i$, $\Sign(\sk, m)$ samples $r \getsr \ZZ_p$ and outputs $(\sigma_1, \sigma_2) = (g_2^{\alpha} U(m)^r, g^r)$, and $\Vrfy(\vk, m, \sigma)$ accepts iff $e(\sigma_1, g) = e(g_1, g_2) \cdot e(U(m), \sigma_2)$ — [[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]. Signatures re-randomize publicly: for $t \getsr \ZZ_p$, $(\sigma_1 U(m)^t, \sigma_2 g^t)$ is a uniformly random valid signature on $m$ — standard.
+
 ## Tight Diffie-Hellman signatures
 
 Signatures whose security reduces tightly, without forking, to a Diffie–Hellman problem in a group of prime order $p$, with a hash modeled as a random oracle.
@@ -272,10 +277,10 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
-- For a scheme whose signatures are efficiently re-randomizable, every black-box proof of EUF-CMA security from a non-interactive hardness assumption loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Re-randomizable signatures generalize unique signatures, for which Coron proved the corresponding bound — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
+- For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another, loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by reductions from a very general class of non-interactive assumptions — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in 85b83e5248ee -->
+<!-- BEGIN GENERATED participates-in 7aa9f88bb2c3 -->
 
 ## Participates in
 
@@ -291,6 +296,7 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[short-structure-preserving-signature-to-structure-preserving-signature|Optimally short structure-preserving signatures ⇒ Structure-preserving signatures]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
 - [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
+- [[waters-signature-to-ds|Waters signatures ⇒ DS]] (via [[digital-signature#waters-signatures|Waters signatures]])
 
 **Produces Digital signature**
 
@@ -326,17 +332,20 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]]
 - [[sxdh-to-structure-preserving-signature-kpw15|SXDH ⇒ Structure-preserving signatures (Kiltz–Pan–Wee)]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
-- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ DS (Waters)]]
+- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]] (via [[digital-signature#waters-signatures|Waters signatures]])
 - [[type-1-pairing-and-dlin-to-structure-preserving-signature-hj12|Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[type-1-pairing-and-lrsw-to-ds-cl04|Type 1 pairing + LRSW ⇒ DS (Camenisch–Lysyanskaya)]]
 - [[type-3-pairing-to-ds-ps16|Type 3 pairing ⇒ DS (Pointcheval–Sanders)]]
 - [[type-3-pairing-to-short-structure-preserving-signature-agho11|Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]]
+- [[waters-signature-to-ds|Waters signatures ⇒ DS]]
 
 **Barriers**
 
 - [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|No tight simple reduction from non-interactive assumptions to BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]]) — circumvented by [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[no-non-interactive-assumption-to-short-structure-preserving-signature-ago11|No algebraic reduction from non-interactive assumptions to optimally short structure-preserving signatures]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
+- [[no-tight-non-interactive-assumption-to-waters-signature-hjk12|No tight simple reduction from non-interactive assumptions to Waters signatures]] (via [[digital-signature#waters-signatures|Waters signatures]])
 - [[no-prime-order-dlog-to-schnorr-signature-ff13|No single-instance reduction from DLOG to Schnorr signatures in the non-programmable ROM]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[no-tight-prime-order-dlog-to-schnorr-signature-fjs19|No tight generic reduction from DLOG to Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[no-prime-order-dlog-to-schnorr-signature-pv05|No algebraic reduction from DLOG to Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]

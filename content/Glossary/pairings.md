@@ -50,7 +50,7 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in 88fd345c7de5 -->
+<!-- BEGIN GENERATED participates-in 5015979f96ff -->
 
 ## Participates in
 
@@ -61,7 +61,7 @@ _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
-- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ DS (Waters)]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-dlin-to-structure-preserving-signature-hj12|Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)]] (via [[pairings#type-1|Type 1]])

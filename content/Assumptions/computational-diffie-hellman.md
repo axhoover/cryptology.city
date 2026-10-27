@@ -64,7 +64,7 @@ deterministically.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 36f9b1b5ca30 -->
+<!-- BEGIN GENERATED participates-in 611a76b4438e -->
 
 ## Participates in
 
@@ -76,7 +76,7 @@ deterministically.
 - [[cdh-to-uc-ot-dghmw20|CDH ⇒ UC-secure OT (DGHMW)]]
 - [[prime-order-cdh-to-cdh|Prime-order CDH ⇒ CDH]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
-- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ DS (Waters)]]
+- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]]
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
 

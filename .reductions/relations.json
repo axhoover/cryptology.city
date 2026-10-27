@@ -5123,6 +5123,19 @@
    "unlisted": false
   },
   {
+   "id": "waters-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#waters-signatures",
+   "of": "ds",
+   "title": "Waters signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "weak-owf",
    "kind": "variant",
    "type": "primitive",
@@ -16788,7 +16801,7 @@
     "type-1-pairing",
     "cdh"
    ],
-   "conclusion": "ds",
+   "conclusion": "waters-signature",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -16804,7 +16817,7 @@
    "page": "content/Reductions/type-1-pairing-and-cdh-to-ds-wat05.md",
    "slug": "type-1-pairing-and-cdh-to-ds-wat05",
    "graphSlug": "Reductions/type-1-pairing-and-cdh-to-ds-wat05",
-   "title": "Type 1 pairing + CDH ⇒ DS (Waters)"
+   "title": "Type 1 pairing + CDH ⇒ Waters signatures"
   },
   {
    "id": "red-type-1-pairing-and-cdh-to-multi-signature-kosk-bol03",
@@ -17019,6 +17032,30 @@
    "slug": "uowhf-and-ots-to-ds-ny89",
    "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-waters-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "waters-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/waters-signature-to-ds.md",
+   "slug": "waters-signature-to-ds",
+   "graphSlug": "Reductions/waters-signature-to-ds",
+   "title": "Waters signatures ⇒ DS"
   },
   {
    "id": "red-weak-owf-to-distributional-owf",
@@ -18016,6 +18053,41 @@
    "title": "No free reduction from MIP* to MIP"
   },
   {
+   "id": "bar-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "hypotheses": [
+    "non-interactive-assumption"
+   ],
+   "conclusion": "boneh-lynn-shacham-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "non-interactive-assumption"
+   ],
+   "circumventedBy": [
+    "red-dlog-to-bls-signatures-fkl18"
+   ],
+   "source": [
+    "[[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]]",
+    "[[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]]"
+   ],
+   "rationale": {
+    "class": "Cor02 rules out simple reductions, which invoke the forger only as straight-line instances run one after another, losing less than about q_S, and the vocabulary has neither a tightness class nor a class of simple reductions.",
+    "strength": "The meta-reduction turns any such reduction into an efficient algorithm breaking the assumption, so the barrier rules a reduction out exactly when the assumption holds; no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02.md",
+   "slug": "no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "graphSlug": "Barriers/no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "title": "No tight simple reduction from non-interactive assumptions to BLS signatures"
+  },
+  {
    "id": "bar-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
    "hypotheses": [
     "non-interactive-assumption"
@@ -18044,6 +18116,38 @@
    "slug": "no-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
    "graphSlug": "Barriers/no-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
    "title": "No algebraic reduction from non-interactive assumptions to optimally short structure-preserving signatures"
+  },
+  {
+   "id": "bar-non-interactive-assumption-to-waters-signature-hjk12",
+   "hypotheses": [
+    "non-interactive-assumption"
+   ],
+   "conclusion": "waters-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "non-interactive-assumption"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]"
+   ],
+   "rationale": {
+    "class": "HJK12's meta-reduction rules out simple reductions, which invoke the forger only as straight-line instances run one after another, losing less than a factor of order q_S, and the vocabulary has neither a tightness class nor a class of simple reductions.",
+    "strength": "The meta-reduction turns any such reduction into an efficient algorithm breaking the assumption, so the barrier rules a reduction out exactly when the assumption holds; no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-non-interactive-assumption-to-waters-signature-hjk12.md",
+   "slug": "no-tight-non-interactive-assumption-to-waters-signature-hjk12",
+   "graphSlug": "Barriers/no-tight-non-interactive-assumption-to-waters-signature-hjk12",
+   "title": "No tight simple reduction from non-interactive assumptions to Waters signatures"
   },
   {
    "id": "bar-np-to-cpir-lv15",
