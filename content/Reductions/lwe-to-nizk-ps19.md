@@ -28,4 +28,4 @@ Apply Fiat–Shamir to a parallel-repeated commit-and-open $\Sigma$-protocol for
 
 ## Notes
 
-- The earlier instantiation of the same approach needed circular-secure FHE ([[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]) or almost-optimal hardness of search LWE, and gave NIZK arguments in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]].
+- The earlier instantiation of the same approach needed circular-secure FHE ([[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]) or almost-optimal hardness of search LWE — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]].
