@@ -6,6 +6,8 @@ aliases:
   - Computational Diffie-Hellman
 title: Computational Diffie-Hellman
 id: cdh
+variants:
+  prime-order-cdh: "#cdh-in-prime-order-groups"
 ---
 
 # Computational Diffie-Hellman
@@ -54,11 +56,15 @@ In the above definition, we implicitly allow $\GrGen$ to choose a _random_
 generator $g$ for the group $\GG$. However, [[BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions|BMZ19]] has explored technical differences between this model and one where $g$ is selected
 deterministically.
 
+## CDH in prime-order groups
+
+**CDH is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$ outputs has prime order $p$ and CDH is hard for $\GrGen$. Exponents then form the field $\ZZ_p$, so a reduction may divide by any nonzero exponent.
+
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 273b20d18519 -->
+<!-- BEGIN GENERATED participates-in 36f9b1b5ca30 -->
 
 ## Participates in
 
@@ -68,6 +74,11 @@ deterministically.
 - [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]]
 - [[cdh-to-non-interactive-key-exchange-dh76|CDH ⇒ NIKE (Diffie–Hellman with a hard-core bit)]]
 - [[cdh-to-uc-ot-dghmw20|CDH ⇒ UC-secure OT (DGHMW)]]
+- [[prime-order-cdh-to-cdh|Prime-order CDH ⇒ CDH]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
+- [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[computational-diffie-hellman#cdh-in-prime-order-groups|CDH in prime-order groups]])
+- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ DS (Waters)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
 
 **Produces Computational Diffie-Hellman**
 
@@ -75,6 +86,7 @@ deterministically.
 - [[ddh-to-cdh|DDH ⇒ CDH]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
 - [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
+- [[prime-order-cdh-to-cdh|Prime-order CDH ⇒ CDH]]
 
 **Barriers**
 

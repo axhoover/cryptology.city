@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "co-CDH ⇒ DS"
+title: "co-CDH ⇒ BLS signatures"
 aliases: []
 id: red-co-cdh-to-ds
 kind: implication
 hypotheses: [co-cdh]
-conclusion: ds
+conclusion: boneh-lynn-shacham-signature
 class: fully-black-box
 model: rom
 source:
@@ -17,7 +17,7 @@ rationale:
   model: "The reduction programs the hash-to-group function as a random oracle to embed the challenge and to answer signing queries."
 ---
 
-# co-CDH ⇒ DS
+# co-CDH ⇒ BLS signatures
 
 ## Statement
 
@@ -30,3 +30,5 @@ The reduction receives a co-CDH challenge $(g_2^a, h)$ with $h \in \GG_1$, sets 
 ## Notes
 
 - A forger with advantage $\varepsilon$ making $q_H$ hash and $q_S$ signing queries yields a co-CDH solver with advantage $\varepsilon/(e(q_S+1))$, $e$ here Euler's number, using $O(q_H + q_S)$ extra group operations — [[BLS04 - Short Signatures from the Weil Pairing (Journal of Cryptology)|BLS04]].
+- BLS signatures are unique: for each $\pk \in \GG_2$ and $m$, exactly one $\sigma \in \GG_1$ verifies, namely $H(m)^x$, so EUF-CMA security implies SUF-CMA security — standard.
+- Meta-reductions show that reductions of restricted kinds from non-interactive assumptions lose a factor of about $q_S$: Coron proved this for unique signatures — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], and it was extended to efficiently re-randomizable signatures — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]], [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. The loss $e(q_S + 1)$ above is of that order. These bounds rule out only restricted reductions: for a chain-based unique signature scheme, whose signature is $n$ BLS signatures computed in sequence, a reduction from CDH in the random oracle model loses at most $n \cdot q_H^{1/n}$ for $q_H$ hash queries, with $n$ any integer independent of the security parameter — [[GCS+17 - Optimal Security Reductions for Unique Signatures Bypassing Impossibilities with a Counterexample|GCS+17]].

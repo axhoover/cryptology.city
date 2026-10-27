@@ -7,11 +7,13 @@ aliases:
   - DL
   - DLP
   - Discrete log
+  - OMDL
 title: Discrete logarithm
 id: dlog
 variants:
   prime-order-dlog: "#dlog-in-prime-order-groups"
   compact-prime-order-dlog: "#dlog-in-compactly-encoded-prime-order-groups"
+  omdl: "#one-more-discrete-logarithm"
 ---
 
 # Discrete logarithm
@@ -83,7 +85,7 @@ $\ZZ_P^*$ with $\log P \ge 2 \log p$, do not — standard.
 
 ## One-more Discrete Logarithm
 
-In some works, it is important to consider adversaries
+In the _one-more discrete logarithm (OMDL)_ problem, the adversary gets $\ell + 1$ challenges $X_i = g^{x_i}$ and an oracle returning $\log_g Z$ for any $Z \in \GG$ it submits; it must output every $x_i$ after at most $\ell$ oracle queries. One-more problems go back to the one-more RSA-inversion problems of [[BNPS03 - The One-More-RSA-Inversion Problems and the Security of Chaum's Blind Signature Scheme|BNPS03]]; [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]] use OMDL to prove the [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification protocol]] secure under concurrent attack.
 
 ```pseudocode
 \begin{algorithm}
@@ -114,20 +116,23 @@ In some works, it is important to consider adversaries
 \end{algorithm}
 ```
 
-We say that **OM-DL is hard** for a group generation algorithm $\GrGen$
-if for all efficient $\calA$,
+**OMDL is hard** for a group generation algorithm $\GrGen$ if every group $(\GG, g, p)$ that $\GrGen$ outputs has prime order $p$ and, for every polynomial $\ell = \ell(\secpar)$ and all efficient $\calA$,
 
 $$
-\Adv^{\text{om-dl}}_{\GrGen,\calA}(\secpar) := \Pr\!\left[\Game^{\text{om-dl}}_{\GrGen,\calA}(\secpar) = 1\right]
+\Adv^{\text{om-dl}}_{\GrGen,\calA,\ell}(\secpar) := \Pr\!\left[\Game^{\text{om-dl}}_{\GrGen,\calA,\ell}(\secpar) = 1\right]
 $$
 
 is negligible.
+
+- With $\ell = 0$ the game is the DLOG game, so OMDL implies DLOG in prime-order groups ([[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]]) — folklore.
+- Since $\ell$ ranges over all polynomials, no polynomial bounds the number of rounds of the game in advance. No Turing reduction bases OMDL on an assumption with an a priori bounded number of rounds unless that assumption is false ([[no-bounded-round-assumption-to-omdl-pas11|barrier]]) — [[Pas11 - Limits of Provable Security from Standard Assumptions|Pas11]].
+- OMDL holds in the [[generic-group-model|generic group model]] ([[ggm-to-omdl-bfp21|GGM ⇒ OMDL]]) — [[BFP21 - The One-More Discrete Logarithm Assumption in the Generic Group Model|BFP21]].
 
 [^1]:
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in f0fabdec5627 -->
+<!-- BEGIN GENERATED participates-in 1100b381b264 -->
 
 ## Participates in
 
@@ -145,18 +150,39 @@ is negligible.
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - [[dlog-to-pwpp-hv21|DLOG ∈ PWPP]]
-- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]]
+- [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
 - [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
+- [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-okamoto-identification-protocol-oka92|DLOG ⇒ Okamoto identification protocol]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 
 **Produces Discrete logarithm**
 
 - [[cdh-to-dlog|CDH ⇒ DLOG]]
 - [[compact-prime-order-dlog-to-prime-order-dlog|Compactly encoded prime-order DLOG ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
+- [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]
+- [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]]
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]]
+
+**Barriers**
+
+- [[no-bounded-round-assumption-to-omdl-pas11|No fully-black-box reduction from bounded-round assumptions to OMDL]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[no-omdl-to-two-round-musig-def19|No algebraic reduction from OMDL to two-round MuSig]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[no-prime-order-dlog-to-schnorr-signature-ff13|No single-instance reduction from DLOG to Schnorr signatures in the non-programmable ROM]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
+- [[no-tight-prime-order-dlog-to-schnorr-signature-fjs19|No tight generic reduction from DLOG to Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
+- [[no-prime-order-dlog-to-schnorr-signature-pv05|No algebraic reduction from DLOG to Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
+- [[no-tight-prime-order-dlog-to-schnorr-signature-seu12|No tight algebraic reduction from DLOG to Schnorr signatures in the ROM]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 
 <!-- END GENERATED participates-in -->

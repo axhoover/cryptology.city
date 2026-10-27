@@ -14,12 +14,16 @@ A verifiable random function is a keyed function whose secret-key holder outputs
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 49723eaf1461 -->
+<!-- BEGIN GENERATED participates-in 747d3c20cc5e -->
 
 ## Participates in
 
 **Produces Verifiable random function**
 
 - [[bdh-to-vrf|k-Lin ⇒ VRF]]
+
+**Barriers**
+
+- [[no-tdp-to-verifiable-random-function-fs12|No fully-black-box reduction from TDP to VRF]]
 
 <!-- END GENERATED participates-in -->
