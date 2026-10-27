@@ -3,7 +3,7 @@ import assert from "node:assert";
 import fs from "node:fs";
 import path from "node:path";
 // @ts-ignore — plain ESM helpers shared with scripts/generate-relations.mjs
-import { closure, scopeNames } from "../scripts/closure.mjs";
+import { closure, scopeNames, protocolNodes } from "../scripts/closure.mjs";
 // @ts-ignore
 import * as rc from "../scripts/reduction-classes.mjs";
 
@@ -93,17 +93,22 @@ test("scopes of several hypotheses are joined", () => {
   assert.ok(!r.derived.has("w"));
 });
 
-test("a hybrid-model scope is kept through relativizing edges", () => {
+test("a hybrid-model scope is kept through protocol notions only", () => {
   const reds = [
     red("kil88", ["ideal-ot"], "2pc", { class: "free" }),
     red("2pc-to-mot", ["2pc"], "mot"),
+    red("mot-to-com", ["mot"], "com"),
     red("mot-use", ["mot"], "x", { class: "unstated" }),
     red("dealer", ["correlated-randomness"], "uc"),
     red("uc-to-mpc", ["uc"], "mpc"),
   ];
-  const r = run(reds, ["ideal-ot", "correlated-randomness"]);
+  const r = closure(reds, ["ideal-ot", "correlated-randomness"], {
+    relativizes,
+    protocol: new Set(["2pc", "mot", "uc", "mpc"]),
+  });
   assert.deepEqual(scopesOf(r, "2pc"), ["ideal-ot"]);
   assert.deepEqual(scopesOf(r, "mot"), ["ideal-ot"]);
+  assert.ok(!r.derived.has("com"), "a non-protocol conclusion must not fire");
   assert.ok(
     !r.derived.has("x"),
     "an unstated edge must not consume [ideal-ot]",
@@ -111,7 +116,7 @@ test("a hybrid-model scope is kept through relativizing edges", () => {
   assert.deepEqual(scopesOf(r, "uc"), ["correlated-randomness"]);
   assert.deepEqual(scopesOf(r, "mpc"), ["correlated-randomness"]);
   const plain = run(reds, ["2pc"]);
-  assert.deepEqual(scopesOf(plain, "mot"), [""]);
+  assert.deepEqual(scopesOf(plain, "com"), [""]);
 });
 
 test("equivalences run both ways and heuristic edges never fire", () => {
@@ -129,7 +134,10 @@ const manifest = JSON.parse(
   fs.readFileSync(path.join(ROOT, ".reductions", "relations.json"), "utf8"),
 );
 const live = (seed: string[]) =>
-  closure(manifest.reductions, seed, { relativizes });
+  closure(manifest.reductions, seed, {
+    relativizes,
+    protocol: protocolNodes(manifest.objects),
+  });
 
 test("generic-group CDH does not give IBE through DG17a", () => {
   const r = live(["ggm"]);
@@ -202,4 +210,14 @@ test("results from ideal resources keep their hybrid scope", () => {
         `${seed.join(",")} => ${x} unscoped`,
       );
     }
+});
+
+test("ideal OT gives protocols in the OT-hybrid model, not one-way functions", () => {
+  const r = live(["ideal-ot"]);
+  assert.deepEqual(scopesOf(r, "two-party-computation"), ["ideal-ot"]);
+  assert.deepEqual(scopesOf(r, "malicious-ot-security"), ["ideal-ot"]);
+  for (const x of ["com", "owf", "prf", "ds"])
+    assert.ok(!r.derived.has(x), `ideal OT must not derive ${x}`);
+  const cr = live(["correlated-randomness"]);
+  assert.ok(!cr.derived.has("owf"));
 });

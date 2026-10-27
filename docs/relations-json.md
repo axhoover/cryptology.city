@@ -290,7 +290,12 @@ step: Kil88's `{ideal-ot} => two-party-computation` gives
 unscoped OT protocol. Likewise BGW88's
 `{secure-channels} => honest-majority-t-lt-n-over-3` gives
 `honest-majority-t-lt-n-over-3 [secure-channels]`, kept apart from the same
-node reached computationally over public channels. A consumer computing its
+node reached computationally over public channels. A hybrid resource is not an
+oracle, though — commitments exist information-theoretically in the OT-hybrid
+model, so commitments ⇒ OWF does not carry over — and a hybrid-scoped object
+therefore feeds only edges that conclude a protocol notion (a node of the MPC
+or OT page): `{ideal-ot}` derives `two-party-computation` and
+`malicious-ot-security`, both `[ideal-ot]`, and no one-way function. A consumer computing its
 own closure should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 

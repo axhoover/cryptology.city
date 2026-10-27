@@ -38,6 +38,7 @@ import {
   derivation,
   scopeNames,
   edgeScope,
+  protocolNodes,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -212,8 +213,9 @@ const relativizes = (cls) =>
   cls === "relativizing" ||
   (CLASS_DEFS[cls] !== undefined &&
     classClosure(CLASS_DEFS, cls).has("relativizing"));
+const PROTOCOL = protocolNodes([...objects.values()]);
 const closure = (seed, opts = {}) =>
-  closureOf(reductions, seed, { ...opts, relativizes });
+  closureOf(reductions, seed, { ...opts, relativizes, protocol: PROTOCOL });
 
 // A reduction is redundant when its conclusion already follows from its own
 // hypotheses without it — i.e. some other chain gets there. Reported, never
