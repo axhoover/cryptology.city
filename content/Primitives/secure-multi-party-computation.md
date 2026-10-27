@@ -24,6 +24,8 @@ variants:
   two-round-mpc: "#two-round-mpc"
   two-round-semi-honest-mpc: "#two-round-semi-honest-mpc"
   four-round-mpc: "#four-round-mpc"
+  mpc-with-expected-time-simulation: "#expected-polynomial-time-simulation"
+  two-party-computation-with-expected-time-simulation: "#2pc-with-expected-polynomial-time-simulation"
 ---
 
 # Secure multi-party computation
@@ -112,7 +114,7 @@ Security with abort for $n = 2$: the adversary corrupts one party, receives that
 
 ### Five-round 2PC
 
-Two-party computation in the plain model ($\pp = 1^\secpar$) by a protocol of five rounds, in each of which only one party sends a message, with a **black-box simulator**: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It implies 2PC by the identity map — folklore. Every two-party functionality, each party receiving its own output, has such a protocol from certified trapdoor permutations ([[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|certified TDP ⇒ five-round 2PC]]) — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. Five rounds are necessary for a black-box proof of security: unconditionally, no four-round protocol of this kind securely computes the coin-tossing functionality for a super-logarithmic number of coins with a black-box proof — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. When only one party receives output, four rounds suffice — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]] — also from enhanced trapdoor permutations used as a black box ([[enhanced-trapdoor-permutation-to-two-party-computation-ors15|enhanced TDP ⇒ 2PC]]) — [[ORS15 - Round-Optimal Black-Box Two-Party Computation|ORS15]].
+Two-party computation in the plain model ($\pp = 1^\secpar$) by a protocol of five rounds, in each of which only one party sends a message, with a **black-box simulator**: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It implies [[#2PC with expected polynomial-time simulation|2PC with expected polynomial-time simulation]] by the identity map ([[five-round-two-party-computation-to-two-party-computation|five-round 2PC ⇒ 2PC with expected-time simulation]]) — folklore. Every two-party functionality, each party receiving its own output, has such a protocol from certified trapdoor permutations ([[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|certified TDP ⇒ five-round 2PC]]) — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. Five rounds are necessary for a black-box proof of security: unconditionally, no four-round protocol of this kind securely computes the coin-tossing functionality for a super-logarithmic number of coins with a black-box proof — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]. When only one party receives output, four rounds suffice — [[KO04 - Round-Optimal Secure Two-Party Computation|KO04]] — also from enhanced trapdoor permutations used as a black box ([[enhanced-trapdoor-permutation-to-two-party-computation-ors15|enhanced TDP ⇒ 2PC with expected-time simulation]]) — [[ORS15 - Round-Optimal Black-Box Two-Party Computation|ORS15]].
 
 ## Semi-honest two-party computation
 
@@ -164,9 +166,17 @@ Security with abort against $t = n - 1$ corruptions by a protocol with two round
 
 Semi-honest security against $t = n - 1$ corruptions by a protocol with two rounds of communication. It implies semi-honest security — folklore. Two-round semi-honest OT is necessary and sufficient for it ([[two-round-ot-to-two-round-semi-honest-mpc-gs18|two-round OT ⇒ two-round semi-honest MPC]]) — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]], [[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]] — but not with black-box use of the OT ([[no-two-round-ot-to-two-round-semi-honest-mpc-abg-20|no fully-black-box reduction]]) — [[ABG+20 - Separating Two-Round Secure Computation From Oblivious Transfer|ABG+20]].
 
+## Expected polynomial-time simulation
+
+[[#Security with abort|Security with abort]] in which, for every efficient $\calA$, the simulator $\Sim$ need only run in expected polynomial time, with $\calA$ and $\calD$ efficient as before. **MPC with expected polynomial-time simulation** is achieved when every functionality has a protocol secure in this sense against $t = n - 1$ corruptions. MPC implies it by the identity map ([[mpc-to-mpc-with-expected-time-simulation|MPC ⇒ MPC with expected-time simulation]]) — folklore. The converse is not an identity: truncating an expected polynomial-time simulator at a fixed polynomial can change its output distribution by an inverse-polynomial amount — standard. Constant-round protocols with black-box simulators need the relaxation: a constant-round protocol that securely computes the zero-knowledge functionality with a strict polynomial-time black-box simulator is a constant-round zero-knowledge argument with one — standard — and such arguments exist only for languages in $\classBPP$ — [[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]].
+
+### 2PC with expected polynomial-time simulation
+
+[[secure-multi-party-computation#two-party-computation-2pc|2PC]] with a simulator that need only run in expected polynomial time, the case $n = 2$ of [[#Expected polynomial-time simulation|expected polynomial-time simulation]]. 2PC implies it by the identity map ([[two-party-computation-to-two-party-computation-with-expected-time-simulation|2PC ⇒ 2PC with expected-time simulation]]) — folklore.
+
 ## Four-round MPC
 
-Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1^\secpar$), by a protocol of four rounds over the network of the syntax, in each of which every party may send, with a black-box simulator as in [[#Five-round 2PC|five-round 2PC]]; the abort may be selective, as in [honest majority with abort](secure-multi-party-computation#honest-majority-with-abort-t--n2), $\Sim$ choosing for each honest party separately whether it receives its output or $\bot$. It implies MPC: one more round, in which every party broadcasts whether it aborted, makes the abort unanimous — folklore. With a black-box proof of security, MPC in the plain model needs at least four rounds — [[GMPP16 - The Exact Round Complexity of Secure Computation|GMPP16]]. Four rounds suffice under polynomially hard DDH ([[ddh-to-four-round-mpc-bgj18|DDH ⇒ four-round MPC]]), QR ([[qr-to-four-round-mpc-bgj18|QR ⇒ four-round MPC]]) or $N$-th residuosity ([[dcr-to-four-round-mpc-bgj18|DCR ⇒ four-round MPC]]) — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]] — and from four-round OT ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]]. Earlier four-round protocols rested on super-polynomial hardness: one-way permutations with sub-exponentially hard DDH — [[ACJ17 - A New Approach to Round-Optimal Secure Multiparty Computation|ACJ17]] — and sub-exponentially hard LWE with a slightly super-polynomial modulus-to-noise ratio together with adaptively secure commitments — [[BHP17 - Four Round Secure Computation Without Setup|BHP17]].
+Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1^\secpar$), by a protocol of four rounds over the network of the syntax, in each of which every party may send, with a black-box simulator as in [[#Five-round 2PC|five-round 2PC]]; the abort may be selective, as in [honest majority with abort](secure-multi-party-computation#honest-majority-with-abort-t--n2), $\Sim$ choosing for each honest party separately whether it receives its output or $\bot$. It implies [[#Expected polynomial-time simulation|MPC with expected polynomial-time simulation]]: one more round, in which every party broadcasts whether it aborted, makes the abort unanimous ([[four-round-mpc-to-mpc|four-round MPC ⇒ MPC with expected-time simulation]]) — folklore. With a black-box proof of security, MPC in the plain model needs at least four rounds — [[GMPP16 - The Exact Round Complexity of Secure Computation|GMPP16]]. Four rounds suffice under polynomially hard DDH ([[ddh-to-four-round-mpc-bgj18|DDH ⇒ four-round MPC]]), QR ([[qr-to-four-round-mpc-bgj18|QR ⇒ four-round MPC]]) or $N$-th residuosity ([[dcr-to-four-round-mpc-bgj18|DCR ⇒ four-round MPC]]) — [[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]] — and from four-round OT ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]]. Earlier four-round protocols rested on super-polynomial hardness: one-way permutations with sub-exponentially hard DDH — [[ACJ17 - A New Approach to Round-Optimal Secure Multiparty Computation|ACJ17]] — and sub-exponentially hard LWE with a slightly super-polynomial modulus-to-noise ratio together with adaptively secure commitments — [[BHP17 - Four Round Secure Computation Without Setup|BHP17]].
 
 # Other results
 
@@ -176,18 +186,19 @@ Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1
 - Two-round MPC in the common reference string model: from indistinguishability obfuscation, UC-secure with abort against static malicious adversaries, with communication proportional to the input and output size and independent of the circuit size — [[GGHR14 - Two-Round Secure MPC from Indistinguishability Obfuscation|GGHR14]]; from LWE and NIZK arguments — [[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]]; and from two-round malicious OT — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]] ([[#Two-round MPC]]).
 - 2PC from malicious OT by cut-and-choose over garbled circuits, with $O(1)$ OTs per input bit as its only public-key operations ([[malicious-ot-security-to-two-party-computation-lp07|malicious OT ⇒ 2PC]]) — [[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]].
 
-<!-- BEGIN GENERATED participates-in 73bd0d2e60b8 -->
+<!-- BEGIN GENERATED participates-in 95cd4c50aa18 -->
 
 ## Participates in
 
 **Builds on Secure multi-party computation**
 
 - [[fair-mpc-to-mpc|Fair MPC ⇒ MPC]] (via [[secure-multi-party-computation#fairness|Fairness]])
-- [[five-round-two-party-computation-to-two-party-computation|Five-round 2PC ⇒ 2PC]] (via [[secure-multi-party-computation#five-round-2pc|Five-round 2PC]])
-- [[four-round-mpc-to-mpc|Four-round MPC ⇒ MPC]] (via [[secure-multi-party-computation#four-round-mpc|Four-round MPC]])
+- [[five-round-two-party-computation-to-two-party-computation|Five-round 2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#five-round-2pc|Five-round 2PC]])
+- [[four-round-mpc-to-mpc|Four-round MPC ⇒ MPC with expected-time simulation]] (via [[secure-multi-party-computation#four-round-mpc|Four-round MPC]])
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with honest majority ($t < n/3$)](honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with abort and honest majority ($t < n/2$)](honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
 - [MPC ⇒ MPC with abort and honest majority ($t < n/2$)](mpc-to-honest-majority-with-abort-t-lt-n-over-2)
+- [[mpc-to-mpc-with-expected-time-simulation|MPC ⇒ MPC with expected-time simulation]]
 - [[mpc-to-two-party-computation|MPC ⇒ 2PC]]
 - [[mpc-with-preprocessing-to-mpc|MPC with preprocessing ⇒ MPC]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])
@@ -195,6 +206,7 @@ Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1
 - [[semi-honest-security-to-semi-honest-two-party-computation|Semi-honest MPC ⇒ Semi-honest 2PC]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])
 - [[two-party-computation-to-malicious-ot-security|2PC ⇒ Malicious OT]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[two-party-computation-to-ot|Semi-honest 2PC ⇒ OT]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
+- [[two-party-computation-to-two-party-computation-with-expected-time-simulation|2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[two-round-mpc-to-mpc|Two-round MPC ⇒ MPC]] (via [[secure-multi-party-computation#two-round-mpc|Two-round MPC]])
 - [[two-round-semi-honest-mpc-to-semi-honest-security|Two-round semi-honest MPC ⇒ Semi-honest MPC]] (via [[secure-multi-party-computation#two-round-semi-honest-mpc|Two-round semi-honest MPC]])
 - [[two-round-semi-honest-mpc-to-two-round-ot|Two-round semi-honest MPC ⇒ Two-round OT]] (via [[secure-multi-party-computation#two-round-semi-honest-mpc|Two-round semi-honest MPC]])
@@ -208,11 +220,11 @@ Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1
 - [[ddh-to-four-round-mpc-bgj18|DDH ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)]] (via [[secure-multi-party-computation#four-round-mpc|Four-round MPC]])
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[secure-multi-party-computation#five-round-2pc|Five-round 2PC]])
 - [Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)](enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
-- [[enhanced-trapdoor-permutation-to-two-party-computation-ors15|Enhanced TDP ⇒ 2PC (Ostrovsky–Richelson–Scafuro)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
+- [[enhanced-trapdoor-permutation-to-two-party-computation-ors15|Enhanced TDP ⇒ 2PC with expected-time simulation (Ostrovsky–Richelson–Scafuro)]] (via [[secure-multi-party-computation#2pc-with-expected-polynomial-time-simulation|2PC with expected polynomial-time simulation]])
 - [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]] (via [[secure-multi-party-computation#universal-composability-uc|Universal composability (UC)]])
 - [[fair-mpc-to-mpc|Fair MPC ⇒ MPC]]
-- [[five-round-two-party-computation-to-two-party-computation|Five-round 2PC ⇒ 2PC]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
-- [[four-round-mpc-to-mpc|Four-round MPC ⇒ MPC]]
+- [[five-round-two-party-computation-to-two-party-computation|Five-round 2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#2pc-with-expected-polynomial-time-simulation|2PC with expected polynomial-time simulation]])
+- [[four-round-mpc-to-mpc|Four-round MPC ⇒ MPC with expected-time simulation]] (via [[secure-multi-party-computation#expected-polynomial-time-simulation|Expected polynomial-time simulation]])
 - [[four-round-ot-to-four-round-mpc-ccg20|Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)]] (via [[secure-multi-party-computation#four-round-mpc|Four-round MPC]])
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
 - [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
@@ -222,6 +234,7 @@ Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[malicious-ot-security-to-two-party-computation-lp07|Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [MPC ⇒ MPC with abort and honest majority ($t < n/2$)](mpc-to-honest-majority-with-abort-t-lt-n-over-2) (via [Honest majority with abort ($t < n/2$)](secure-multi-party-computation#honest-majority-with-abort-t--n2))
+- [[mpc-to-mpc-with-expected-time-simulation|MPC ⇒ MPC with expected-time simulation]] (via [[secure-multi-party-computation#expected-polynomial-time-simulation|Expected polynomial-time simulation]])
 - [[mpc-to-two-party-computation|MPC ⇒ 2PC]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[mpc-with-preprocessing-to-mpc|MPC with preprocessing ⇒ MPC]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
@@ -239,6 +252,7 @@ Security with abort against $t = n - 1$ corruptions in the plain model ($\pp = 1
 - [[semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2|Semi-honest MPC ⇒ Semi-honest MPC with honest majority]] (via [Semi-honest, honest majority ($t < n/2$)](secure-multi-party-computation#semi-honest-honest-majority-t--n2))
 - [[semi-honest-security-to-semi-honest-two-party-computation|Semi-honest MPC ⇒ Semi-honest 2PC]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
 - [[subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16|LWE + NIZK ⇒ Two-round MPC in the CRS model (Mukherjee–Wichs)]] (via [[secure-multi-party-computation#two-round-mpc|Two-round MPC]])
+- [[two-party-computation-to-two-party-computation-with-expected-time-simulation|2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#2pc-with-expected-polynomial-time-simulation|2PC with expected polynomial-time simulation]])
 - [[two-round-mpc-to-mpc|Two-round MPC ⇒ MPC]]
 - [[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]] (via [[secure-multi-party-computation#two-round-semi-honest-mpc|Two-round semi-honest MPC]])
 - [[two-round-semi-honest-mpc-to-semi-honest-security|Two-round semi-honest MPC ⇒ Semi-honest MPC]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])

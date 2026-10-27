@@ -268,3 +268,46 @@ test("a reader of reductions alone sees no edge from an ideal resource", () => {
       assert.ok(hybrid.has(id), `${b.id}: ${id}`);
   }
 });
+
+test("no edge turns expected-time simulation into a strict-time protocol notion", () => {
+  // Truncating an expected polynomial-time simulator at a fixed polynomial can
+  // change its output by an inverse-polynomial amount, so strict-time notions
+  // imply the expected-time ones by the identity map, never the reverse.
+  const expected = new Set([
+    "mpc-with-expected-time-simulation",
+    "two-party-computation-with-expected-time-simulation",
+    "malicious-ot-with-expected-time-simulation",
+    "four-round-mpc",
+    "five-round-two-party-computation",
+    "four-round-ot",
+  ]);
+  const ids = new Set(manifest.objects.map((o: any) => o.id));
+  for (const x of expected) assert.ok(ids.has(x), `${x} is a node`);
+  const protocol = new Set(manifest.protocolObjects);
+  for (const r of [...manifest.reductions, ...manifest.hybridReductions])
+    if (
+      protocol.has(r.conclusion) &&
+      r.hypotheses.some((h: string) => expected.has(h))
+    )
+      assert.ok(
+        expected.has(r.conclusion),
+        `${r.id}: ${r.hypotheses.join(", ")} => ${r.conclusion}`,
+      );
+  for (const seed of [
+    "four-round-ot",
+    "four-round-mpc",
+    "five-round-two-party-computation",
+  ])
+    for (const x of live([seed]).derived)
+      if (protocol.has(x))
+        assert.ok(expected.has(x), `${seed} reaches strict-time ${x}`);
+  for (const [strict, relaxed] of [
+    ["mpc", "mpc-with-expected-time-simulation"],
+    [
+      "two-party-computation",
+      "two-party-computation-with-expected-time-simulation",
+    ],
+    ["malicious-ot-security", "malicious-ot-with-expected-time-simulation"],
+  ])
+    assert.ok(live([strict]).derived.has(relaxed), `${strict} => ${relaxed}`);
+});

@@ -2538,6 +2538,19 @@
    "unlisted": false
   },
   {
+   "id": "malicious-ot-with-expected-time-simulation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#malicious-security-with-expected-polynomial-time-simulation",
+   "of": "ot",
+   "title": "Malicious security with expected polynomial-time simulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "malicious-security",
    "kind": "variant",
    "type": "glossary",
@@ -2684,6 +2697,19 @@
     "2PC",
     "Secure multi-party computation"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "mpc-with-expected-time-simulation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#expected-polynomial-time-simulation",
+   "of": "mpc",
+   "title": "Expected polynomial-time simulation",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -4747,6 +4773,19 @@
    "anchor": "#two-party-computation-2pc",
    "of": "mpc",
    "title": "Two-party computation (2PC)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "two-party-computation-with-expected-time-simulation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#2pc-with-expected-polynomial-time-simulation",
+   "of": "mpc",
+   "title": "2PC with expected polynomial-time simulation",
    "aliases": [],
    "unlisted": false
   },
@@ -8092,12 +8131,12 @@
    "title": "Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)"
   },
   {
-   "id": "red-enhanced-trapdoor-permutation-to-two-party-computation-ors15",
+   "id": "red-enhanced-trapdoor-permutation-to-two-party-computation-with-expected-time-simulation-ors15",
    "kind": "implication",
    "hypotheses": [
     "enhanced-trapdoor-permutation"
    ],
-   "conclusion": "two-party-computation",
+   "conclusion": "two-party-computation-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8113,7 +8152,7 @@
    "page": "content/Reductions/enhanced-trapdoor-permutation-to-two-party-computation-ors15.md",
    "slug": "enhanced-trapdoor-permutation-to-two-party-computation-ors15",
    "graphSlug": "Reductions/enhanced-trapdoor-permutation-to-two-party-computation-ors15",
-   "title": "Enhanced TDP ⇒ 2PC (Ostrovsky–Richelson–Scafuro)"
+   "title": "Enhanced TDP ⇒ 2PC with expected-time simulation (Ostrovsky–Richelson–Scafuro)"
   },
   {
    "id": "red-enhanced-trapdoor-permutation-to-uc-mpc-clos02",
@@ -8672,12 +8711,12 @@
    "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
   },
   {
-   "id": "red-five-round-two-party-computation-to-two-party-computation",
+   "id": "red-five-round-two-party-computation-to-two-party-computation-with-expected-time-simulation",
    "kind": "implication",
    "hypotheses": [
     "five-round-two-party-computation"
    ],
-   "conclusion": "two-party-computation",
+   "conclusion": "two-party-computation-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8687,21 +8726,21 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "Identity map: the five-round protocol is a two-party protocol secure with abort, and its simulator is unchanged."
+    "class": "Identity map: the five-round protocol is a two-party protocol secure with abort, and its simulator, which runs in expected polynomial time, is unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/five-round-two-party-computation-to-two-party-computation.md",
    "slug": "five-round-two-party-computation-to-two-party-computation",
    "graphSlug": "Reductions/five-round-two-party-computation-to-two-party-computation",
-   "title": "Five-round 2PC ⇒ 2PC"
+   "title": "Five-round 2PC ⇒ 2PC with expected-time simulation"
   },
   {
-   "id": "red-four-round-mpc-to-mpc",
+   "id": "red-four-round-mpc-to-mpc-with-expected-time-simulation",
    "kind": "implication",
    "hypotheses": [
     "four-round-mpc"
    ],
-   "conclusion": "mpc",
+   "conclusion": "mpc-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8717,7 +8756,7 @@
    "page": "content/Reductions/four-round-mpc-to-mpc.md",
    "slug": "four-round-mpc-to-mpc",
    "graphSlug": "Reductions/four-round-mpc-to-mpc",
-   "title": "Four-round MPC ⇒ MPC"
+   "title": "Four-round MPC ⇒ MPC with expected-time simulation"
   },
   {
    "id": "red-four-round-ot-to-four-round-mpc-ccg20",
@@ -8741,12 +8780,12 @@
    "title": "Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)"
   },
   {
-   "id": "red-four-round-ot-to-malicious-ot-security",
+   "id": "red-four-round-ot-to-malicious-ot-with-expected-time-simulation",
    "kind": "implication",
    "hypotheses": [
     "four-round-ot"
    ],
-   "conclusion": "malicious-ot-security",
+   "conclusion": "malicious-ot-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8756,13 +8795,13 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "Identity map: the four-message protocol is an OT protocol with malicious security, and its simulator is unchanged."
+    "class": "Identity map: the four-message protocol is an OT protocol with malicious security, and its simulator, which runs in expected polynomial time, is unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/four-round-ot-to-malicious-ot-security.md",
    "slug": "four-round-ot-to-malicious-ot-security",
    "graphSlug": "Reductions/four-round-ot-to-malicious-ot-security",
-   "title": "Four-round OT ⇒ Malicious OT"
+   "title": "Four-round OT ⇒ Malicious OT with expected-time simulation"
   },
   {
    "id": "red-function-secret-sharing-fss-to-dpf-bgi15",
@@ -11265,6 +11304,30 @@
    "title": "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
   },
   {
+   "id": "red-malicious-ot-security-to-malicious-ot-with-expected-time-simulation",
+   "kind": "implication",
+   "hypotheses": [
+    "malicious-ot-security"
+   ],
+   "conclusion": "malicious-ot-with-expected-time-simulation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: a simulator running in strict polynomial time runs in expected polynomial time, so the protocol and its simulator are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/malicious-ot-security-to-malicious-ot-with-expected-time-simulation.md",
+   "slug": "malicious-ot-security-to-malicious-ot-with-expected-time-simulation",
+   "graphSlug": "Reductions/malicious-ot-security-to-malicious-ot-with-expected-time-simulation",
+   "title": "Malicious OT ⇒ Malicious OT with expected-time simulation"
+  },
+  {
    "id": "red-malicious-ot-security-to-two-party-computation-lp07",
    "kind": "implication",
    "hypotheses": [
@@ -11530,6 +11593,30 @@
    "slug": "mpc-to-honest-majority-with-abort-t-lt-n-over-2",
    "graphSlug": "Reductions/mpc-to-honest-majority-with-abort-t-lt-n-over-2",
    "title": "MPC ⇒ MPC with abort and honest majority ($t < n/2$)"
+  },
+  {
+   "id": "red-mpc-to-mpc-with-expected-time-simulation",
+   "kind": "implication",
+   "hypotheses": [
+    "mpc"
+   ],
+   "conclusion": "mpc-with-expected-time-simulation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: a simulator running in strict polynomial time runs in expected polynomial time, so the protocol and its simulator are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mpc-to-mpc-with-expected-time-simulation.md",
+   "slug": "mpc-to-mpc-with-expected-time-simulation",
+   "graphSlug": "Reductions/mpc-to-mpc-with-expected-time-simulation",
+   "title": "MPC ⇒ MPC with expected-time simulation"
   },
   {
    "id": "red-mpc-to-two-party-computation",
@@ -16366,6 +16453,30 @@
    "title": "Semi-honest 2PC ⇒ OT"
   },
   {
+   "id": "red-two-party-computation-to-two-party-computation-with-expected-time-simulation",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation"
+   ],
+   "conclusion": "two-party-computation-with-expected-time-simulation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: a simulator running in strict polynomial time runs in expected polynomial time, so the protocol and its simulator are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-two-party-computation-with-expected-time-simulation.md",
+   "slug": "two-party-computation-to-two-party-computation-with-expected-time-simulation",
+   "graphSlug": "Reductions/two-party-computation-to-two-party-computation-with-expected-time-simulation",
+   "title": "2PC ⇒ 2PC with expected-time simulation"
+  },
+  {
    "id": "red-two-round-mpc-to-mpc",
    "kind": "implication",
    "hypotheses": [
@@ -18586,7 +18697,9 @@
   "honest-majority-with-abort-t-lt-n-over-2",
   "ideal-ot",
   "malicious-ot-security",
+  "malicious-ot-with-expected-time-simulation",
   "mpc",
+  "mpc-with-expected-time-simulation",
   "mpc-with-preprocessing",
   "one-out-of-n-ot",
   "ot",
@@ -18597,6 +18710,7 @@
   "semi-honest-security",
   "semi-honest-two-party-computation",
   "two-party-computation",
+  "two-party-computation-with-expected-time-simulation",
   "two-round-mpc",
   "two-round-ot",
   "two-round-semi-honest-mpc",

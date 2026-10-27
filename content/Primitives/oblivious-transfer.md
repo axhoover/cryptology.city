@@ -17,6 +17,7 @@ variants:
   two-round-uc-ot: "#two-round-uc-secure-ot"
   uc-ot: "#uc-secure-ot"
   four-round-ot: "#four-round-ot"
+  malicious-ot-with-expected-time-simulation: "#malicious-security-with-expected-polynomial-time-simulation"
 ---
 
 # Oblivious transfer
@@ -147,9 +148,13 @@ An OT protocol is **UC-secure** if it UC-realizes $\calF_{\mathrm{OT}}$ in the c
 
 A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose interaction is one message from the receiver followed by one message from the sender, as in [[#Two-round OT|two-round OT]]. The dual-mode protocols of [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]], from DDH, QR or LWE, and the protocol of [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]], from CDH, are two-round UC-secure OT protocols. Two-round malicious OT in the common reference string model gives two-round MPC secure with abort against a malicious adversary corrupting any number of parties — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
 
+## Malicious security with expected polynomial-time simulation
+
+[[#Malicious Security|Malicious security]] with a simulator $\Sim$ that need only run in expected polynomial time, with $\calA$ and the distinguisher efficient as before. Malicious security implies it by the identity map ([[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|malicious OT ⇒ malicious OT with expected-time simulation]]) — folklore; the converse is not an identity, as for [[secure-multi-party-computation#expected-polynomial-time-simulation|MPC with expected polynomial-time simulation]].
+
 ## Four-round OT
 
-A **four-round OT** is an OT protocol with [[#Malicious Security|malicious security]] in the plain model, $\Setup$ outputting $\pp = 1^\secpar$, whose interaction is four messages sent alternately by the receiver and the sender, the receiver first, and whose simulator is black-box: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ corrupting either party the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It is an OT with malicious security, by the identity map — folklore. Four-round OT gives four-round MPC against a malicious adversary corrupting any number of parties ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
+A **four-round OT** is an OT protocol with [[#Malicious Security|malicious security]] in the plain model, $\Setup$ outputting $\pp = 1^\secpar$, whose interaction is four messages sent alternately by the receiver and the sender, the receiver first, and whose simulator is black-box: an oracle algorithm $\Sim$, running in expected polynomial time, such that for every efficient $\calA$ corrupting either party the simulator $\Sim^{\calA}$, which runs $\calA$ only as an oracle and may rewind it, meets the definition. It has [[#Malicious security with expected polynomial-time simulation|malicious security with expected polynomial-time simulation]], by the identity map ([[four-round-ot-to-malicious-ot-security|four-round OT ⇒ malicious OT with expected-time simulation]]) — folklore. Four-round OT gives four-round MPC against a malicious adversary corrupting any number of parties ([[four-round-ot-to-four-round-mpc-ccg20|four-round OT ⇒ four-round MPC]]) — [[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]].
 
 # Other results
 
@@ -157,18 +162,19 @@ A **four-round OT** is an OT protocol with [[#Malicious Security|malicious secur
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 62d44ccad6dd -->
+<!-- BEGIN GENERATED participates-in 883a632490ef -->
 
 ## Participates in
 
 **Builds on Oblivious transfer**
 
 - [[four-round-ot-to-four-round-mpc-ccg20|Four-round OT ⇒ Four-round MPC (Choudhuri–Ciampi–Goyal–Jain–Ostrovsky)]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
-- [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
+- [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#four-round-ot|Four-round OT]])
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]]
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
+- [[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|Malicious OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[malicious-ot-security-to-two-party-computation-lp07|Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
@@ -196,9 +202,10 @@ A **four-round OT** is an OT protocol with [[#Malicious Security|malicious secur
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
 - [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
-- [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
+- [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
+- [[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|Malicious OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
