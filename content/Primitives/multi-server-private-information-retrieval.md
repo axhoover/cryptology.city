@@ -47,7 +47,7 @@ For every constant $\varepsilon > 0$ there is a one-round two-server computation
 
 ## Doubly-efficient Multi-server PIR
 
-In $k$-server PIR with preprocessing, each server stores, besides $D$, polynomially many bits precomputed from it. When the servers hold only the database, they together read at least $n$ database bits per query in expectation, for every $k$ and whatever the communication; with preprocessing there are, for every constant $k \ge 2$, information-theoretic $k$-server schemes with $O(n^{1/(2k-1)})$ communication and $O(n/\log^{2k-2} n)$ server work, and, for every constant $\varepsilon > 0$, schemes with $O(n^{1/k+\varepsilon})$ communication and server work — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]].
+In $k$-server PIR with preprocessing, each server stores, besides $D$, polynomially many bits precomputed from it. When the servers hold only the database and the client keeps no state between queries, the servers of a perfectly private, perfectly correct scheme together read at least $n$ database bits per query in expectation, for every $k$ and whatever the communication; with preprocessing there are, for every constant $k \ge 2$, information-theoretic $k$-server schemes with $O(n^{1/(2k-1)})$ communication and $O(n/\log^{2k-2} n)$ server work, and, for every constant $\varepsilon > 0$, schemes with $O(n^{1/k+\varepsilon})$ communication and server work — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]].
 
 # Other results
 
