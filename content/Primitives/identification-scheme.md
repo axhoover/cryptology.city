@@ -125,16 +125,16 @@ The Schnorr identification protocol, required to be secure against impersonation
 
 The public parameters are independent generators $g_1, g_2$ of a group of prime order $p$. The secret key is $(x_1, x_2) \getsr \ZZ_p^2$ and the public key is $X = g_1^{x_1} g_2^{x_2}$. The prover sends $A = g_1^{r_1} g_2^{r_2}$ for $r_1, r_2 \getsr \ZZ_p$, receives $e \getsr C$ from a challenge space $C \subseteq \ZZ_p$ with $1/|C|$ negligible, and replies $z_j = r_j + e x_j \bmod p$ for $j = 1, 2$; the verifier accepts iff $g_1^{z_1} g_2^{z_2} = A X^e$ — [[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]. Each public key has $p$ secret keys, and the transcripts of every phase-1 session are distributed independently of which one the prover holds: the protocol is perfectly witness-indistinguishable — standard. As an object, the Okamoto identification protocol denotes this protocol with security against impersonation under active attack.
 
-<!-- BEGIN GENERATED participates-in 233d96518802 -->
+<!-- BEGIN GENERATED participates-in 006794e7dd48 -->
 
 ## Participates in
 
 **Builds on Identification scheme**
 
 - [[concurrent-schnorr-identification-to-schnorr-identification-protocol|Schnorr identification under concurrent attack ⇒ Schnorr identification protocol]] (via [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification under concurrent attack]])
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[identification-scheme-to-owf-il89|ID ⇒ OWF]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 
 **Produces Identification scheme**
 

@@ -275,32 +275,41 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - For a scheme whose signatures are efficiently re-randomizable, every black-box proof of EUF-CMA security from a non-interactive hardness assumption loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Re-randomizable signatures generalize unique signatures, for which Coron proved the corresponding bound — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by reductions from a very general class of non-interactive assumptions — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in fdf341b4bb1b -->
+<!-- BEGIN GENERATED participates-in 85b83e5248ee -->
 
 ## Participates in
 
 **Builds on Digital signature**
 
+- [[boneh-lynn-shacham-signature-to-ds|BLS signatures ⇒ DS]] (via [[digital-signature#bls-signatures|BLS signatures]])
 - [[ds-to-hash-function|DS ⇒ OWF]]
+- [[eddsa-to-ds|EdDSA ⇒ DS]] (via [[digital-signature#eddsa|EdDSA]])
+- [[edl-signature-to-ds|EDL signatures ⇒ DS]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#one-time-signatures|One-time signatures]])
+- [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
+- [[schnorr-signature-to-ds|Schnorr signatures ⇒ DS]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[short-structure-preserving-signature-to-structure-preserving-signature|Optimally short structure-preserving signatures ⇒ Structure-preserving signatures]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
+- [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[uowhf-and-ots-to-ds-ny89|UOWHF + One-time signature ⇒ DS (Naor–Yung)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 
 **Produces Digital signature**
 
 - [[bilinear-pairing-and-q-sdh-to-ds-bb04a|Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)]]
+- [[boneh-lynn-shacham-signature-to-ds|BLS signatures ⇒ DS]]
 - [[co-cdh-to-aggregate-signature-bgls03|co-CDH ⇒ Aggregate signatures (BGLS)]] (via [[digital-signature#aggregate-signatures|Aggregate signatures]])
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]] (via [[digital-signature#bls-signatures|BLS signatures]])
+- [[eddsa-to-ds|EdDSA ⇒ DS]]
+- [[edl-signature-to-ds|EDL signatures ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[hash-function-and-io-to-ds-sw14|OWF + iO ⇒ DS]]
 - [[hash-function-to-ds|OWF ⇒ DS]]
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
+- [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
@@ -309,9 +318,12 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[digital-signature#eddsa|EdDSA]])
 - [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[rsa-to-ds-hw09|RSA ⇒ DS (Hohenberger–Waters, short and stateless)]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
+- [[schnorr-signature-to-ds|Schnorr signatures ⇒ DS]]
 - [[short-structure-preserving-signature-to-structure-preserving-signature|Optimally short structure-preserving signatures ⇒ Structure-preserving signatures]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]]
+- [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]]
 - [[sxdh-to-structure-preserving-signature-kpw15|SXDH ⇒ Structure-preserving signatures (Kiltz–Pan–Wee)]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
 - [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ DS (Waters)]]

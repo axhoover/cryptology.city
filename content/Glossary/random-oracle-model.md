@@ -28,7 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 2148cdce3d79 -->
+<!-- BEGIN GENERATED participates-in b7c46dac3664 -->
 
 ## Participates in
 
@@ -52,7 +52,6 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
 - [[id-and-rom-to-ds|ID ⇒ DS]]
@@ -73,6 +72,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]

@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
 aliases: []
-id: red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91
+id: red-schnorr-identification-protocol-to-schnorr-signature-aabn02
 kind: implication
 hypotheses: [schnorr-identification-protocol]
 conclusion: schnorr-signature

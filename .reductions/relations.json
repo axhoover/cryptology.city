@@ -4924,6 +4924,19 @@
    "unlisted": false
   },
   {
+   "id": "twisted-edwards-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-prime-order-subgroups-of-twisted-edwards-curves",
+   "of": "dlog",
+   "title": "DLOG in prime-order subgroups of twisted Edwards curves",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "two-party-computation",
    "kind": "variant",
    "type": "primitive",
@@ -5873,6 +5886,30 @@
    "slug": "bilinear-pairing-to-snark-gro16",
    "graphSlug": "Reductions/bilinear-pairing-to-snark-gro16",
    "title": "Bilinear pairing ⇒ zk-SNARK"
+  },
+  {
+   "id": "red-boneh-lynn-shacham-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "boneh-lynn-shacham-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/boneh-lynn-shacham-signature-to-ds.md",
+   "slug": "boneh-lynn-shacham-signature-to-ds",
+   "graphSlug": "Reductions/boneh-lynn-shacham-signature-to-ds",
+   "title": "BLS signatures ⇒ DS"
   },
   {
    "id": "red-bpp-to-am-gs86",
@@ -8160,6 +8197,54 @@
    "title": "DS ⇒ OWF"
   },
   {
+   "id": "red-eddsa-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "eddsa"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/eddsa-to-ds.md",
+   "slug": "eddsa-to-ds",
+   "graphSlug": "Reductions/eddsa-to-ds",
+   "title": "EdDSA ⇒ DS"
+  },
+  {
+   "id": "red-edl-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "edl-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/edl-signature-to-ds.md",
+   "slug": "edl-signature-to-ds",
+   "graphSlug": "Reductions/edl-signature-to-ds",
+   "title": "EDL signatures ⇒ DS"
+  },
+  {
    "id": "red-enhanced-trapdoor-permutations-to-ot-gkm-00",
    "kind": "implication",
    "hypotheses": [
@@ -8638,32 +8723,6 @@
    "slug": "fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "graphSlug": "Reductions/fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
    "title": "HVZK ⇒ NIZK (Fiat–Shamir)"
-  },
-  {
-   "id": "red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "kind": "implication",
-   "hypotheses": [
-    "schnorr-identification-protocol"
-   ],
-   "conclusion": "schnorr-signature",
-   "class": "unstated",
-   "model": "rom",
-   "source": [
-    "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
-   ],
-   "via": [
-    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
-   ],
-   "heuristic": false,
-   "securityLoss": "advantage loss factor about $q_H$ for $q_H$ random-oracle queries",
-   "rationale": {
-    "model": "The challenge is a hash modeled as a random oracle, which the security proof programs to embed the verifier's challenge and to simulate signatures."
-   },
-   "status": "draft",
-   "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
-   "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
   },
   {
    "id": "red-function-secret-sharing-fss-to-dpf-bgi15",
@@ -10461,6 +10520,30 @@
    "slug": "k-linear-assumption-to-abe-rw13",
    "graphSlug": "Reductions/k-linear-assumption-to-abe-rw13",
    "title": "$k$-Linear assumption ⇒ ABE"
+  },
+  {
+   "id": "red-katz-wang-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "katz-wang-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/katz-wang-signature-to-ds.md",
+   "slug": "katz-wang-signature-to-ds",
+   "graphSlug": "Reductions/katz-wang-signature-to-ds",
+   "title": "Katz–Wang signatures ⇒ DS"
   },
   {
    "id": "red-ke-to-multi-party-key-exchange",
@@ -13828,7 +13911,7 @@
    "id": "red-prime-order-dlog-to-eddsa-bcjz21",
    "kind": "implication",
    "hypotheses": [
-    "prime-order-dlog"
+    "twisted-edwards-dlog"
    ],
    "conclusion": "eddsa",
    "class": "fully-black-box",
@@ -14933,6 +15016,56 @@
    "title": "RSA ⇒ TDP"
   },
   {
+   "id": "red-schnorr-identification-protocol-to-schnorr-signature-aabn02",
+   "kind": "implication",
+   "hypotheses": [
+    "schnorr-identification-protocol"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "advantage loss factor about $q_H$ for $q_H$ random-oracle queries",
+   "rationale": {
+    "model": "The challenge is a hash modeled as a random oracle, which the security proof programs to embed the verifier's challenge and to simulate signatures."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+   "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
+  },
+  {
+   "id": "red-schnorr-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "schnorr-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/schnorr-signature-to-ds.md",
+   "slug": "schnorr-signature-to-ds",
+   "graphSlug": "Reductions/schnorr-signature-to-ds",
+   "title": "Schnorr signatures ⇒ DS"
+  },
+  {
    "id": "red-search-lwe-to-decision-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -15499,6 +15632,30 @@
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
    "title": "sPRP ⇒ PRP"
+  },
+  {
+   "id": "red-structure-preserving-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "structure-preserving-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/structure-preserving-signature-to-ds.md",
+   "slug": "structure-preserving-signature-to-ds",
+   "graphSlug": "Reductions/structure-preserving-signature-to-ds",
+   "title": "Structure-preserving signatures ⇒ DS"
   },
   {
    "id": "red-structured-generic-group-model-to-dlog-chw26",
@@ -16575,6 +16732,30 @@
    "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
    "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
    "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
+  },
+  {
+   "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "twisted-edwards-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/twisted-edwards-dlog-to-prime-order-dlog.md",
+   "slug": "twisted-edwards-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/twisted-edwards-dlog-to-prime-order-dlog",
+   "title": "Twisted Edwards DLOG ⇒ Prime-order DLOG"
   },
   {
    "id": "red-two-party-computation-to-ot",
