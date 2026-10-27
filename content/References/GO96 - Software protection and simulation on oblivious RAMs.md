@@ -2,7 +2,7 @@
 type: reference
 status: draft
 title: "GO96"
-source: https://dl.acm.org/doi/abs/10.1145/233551.233553
+source: https://doi.org/10.1145/233551.233553
 authors: Oded Goldreich, Rafail Ostrovsky
 venue: Journal of the ACM 1996
 published: 1996
@@ -13,7 +13,7 @@ cryptobib_key: GolOst96
 
 # [GO96] Software protection and simulation on oblivious RAMs
 
-**Authors:** Oded Goldreich, Rafail Ostrovsky | **Venue:** Journal of the ACM 1996
+**Authors:** Oded Goldreich, Rafail Ostrovsky | **Venue:** Journal of the ACM 1996 | [Source](https://doi.org/10.1145/233551.233553)
 
 ## Abstract
 

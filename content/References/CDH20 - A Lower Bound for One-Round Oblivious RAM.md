@@ -13,7 +13,7 @@ cryptobib_key: TCC:CasDruHoo20
 
 # [CDH20] A Lower Bound for One-Round Oblivious RAM
 
-**Authors:** David Cash, Andrew Drucker, Alexander Hoover | **Venue:** TCC 2020 | [Source](https://eprint.iacr.org/2024/318)
+**Authors:** David Cash, Andrew Drucker, Alexander Hoover | **Venue:** TCC 2020 | [Source](https://eprint.iacr.org/2020/1195)
 
 ## Abstract
 
