@@ -25,7 +25,7 @@ An $r(\cdot)$-round intractability assumption is a pair $(C, t)$ of a challenger
 
 A **non-interactive assumption** is a pair $(\calI, \calV)$ of efficient algorithms. The instance generator $\calI(1^\secpar)$ outputs an instance $X$ together with private verification information $\omega$, and the verifier $\calV(X, \omega, y)$ accepts or rejects an answer $y$. The assumption holds if for all efficient $\calA$, given the instance and no oracle, $\Pr[\calV(X, \omega, \calA(1^\secpar, X)) = 1]$ is negligible — standard. [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]] and [[q-strong-diffie-hellman|q-SDH]] are non-interactive; [[lrsw-assumption|LRSW]] and [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] are not, since their adversaries query an oracle — standard. The challenger of a non-interactive assumption runs $\calI$ and $\calV$, so every non-interactive assumption is falsifiable — standard.
 
-<!-- BEGIN GENERATED participates-in bd1f40115fb5 -->
+<!-- BEGIN GENERATED participates-in 8540edafdc28 -->
 
 ## Participates in
 
@@ -34,8 +34,8 @@ A **non-interactive assumption** is a pair $(\calI, \calV)$ of efficient algorit
 - [[no-bounded-round-assumption-to-concurrent-schnorr-identification-pas11|No fully-black-box reduction from bounded-round assumptions to Schnorr identification under concurrent attack]] (via [[falsifiable-assumptions#bounded-round-assumptions|Bounded-round assumptions]])
 - [[no-bounded-round-assumption-to-omdl-pas11|No fully-black-box reduction from bounded-round assumptions to OMDL]] (via [[falsifiable-assumptions#bounded-round-assumptions|Bounded-round assumptions]])
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
-- [[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|No tight simple reduction from non-interactive assumptions to BLS signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]]) — circumvented by [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
+- [[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|No tight simple reduction from non-interactive assumptions to BLS signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]]) — circumvented by [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]], [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[no-non-interactive-assumption-to-short-structure-preserving-signature-ago11|No algebraic reduction from non-interactive assumptions to optimally short structure-preserving signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]])
-- [[no-tight-non-interactive-assumption-to-waters-signature-hjk12|No tight simple reduction from non-interactive assumptions to Waters signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]])
+- [[no-tight-non-interactive-assumption-to-waters-signature-hjk12|No tight simple reduction from non-interactive assumptions to Waters signatures]] (via [[falsifiable-assumptions#non-interactive-assumptions|Non-interactive assumptions]]) — circumvented by [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]]
 
 <!-- END GENERATED participates-in -->
