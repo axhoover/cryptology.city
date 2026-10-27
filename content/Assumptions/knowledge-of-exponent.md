@@ -91,7 +91,7 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 # Attacks
 
 - No attack on KEA1 without auxiliary input is known
-- Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], KEA with respect to arbitrary auxiliary input of unbounded polynomial length is false — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]
+- Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], no extractable one-way function exists with respect to auxiliary input of unbounded polynomial length — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]. For a group generator whose discrete logarithm is hard, KEA with such auxiliary input would make $r \mapsto (g^r, g^{\alpha r})$, keyed by $(g, g^\alpha)$, an extractable one-way function, so under iO it fails for every such generator; for a generator whose discrete logarithm is easy it holds trivially — standard
 - The KEA2 assumption of Hada–Tanaka is false — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]
 
 <!-- BEGIN GENERATED participates-in 9b7fabe767e8 -->

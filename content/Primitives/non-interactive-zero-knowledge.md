@@ -91,7 +91,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in c39083155f4b -->
+<!-- BEGIN GENERATED participates-in ff5efd3cbd45 -->
 
 ## Participates in
 
@@ -107,6 +107,7 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[zero-knowledge-pr
 
 **Produces Non-interactive zero-knowledge**
 
+- [[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[common-random-string-nizk-proof-to-nizk|NIZK proofs with a common random string ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]

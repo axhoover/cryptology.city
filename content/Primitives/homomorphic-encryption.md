@@ -17,6 +17,7 @@ variants:
   multiplicatively-homomorphic-encryption: "#multiplicatively-homomorphic-encryption"
   strongly-homomorphic-encryption: "#strongly-homomorphic-encryption"
   compact-fhe: "#compact-fhe"
+  circular-secure-fhe: "#circular-secure-fhe"
 ---
 
 # Homomorphic encryption
@@ -81,6 +82,10 @@ Supports arbitrary polynomial-time computation via **bootstrapping**: a special 
 
 An FHE scheme, IND-CPA-secure and supporting every polynomial-size circuit, is **compact** if there is a polynomial $p$ such that every ciphertext output by $\Eval$ has length at most $p(\secpar)$, independent of the evaluated function $f$ — [[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]. Gentry's original FHE is compact. Without compactness the notion is trivial: from any IND-CPA-secure PKE, let $\Eval$ return $f$ together with its input ciphertexts and let decryption decrypt the inputs and evaluate $f$ — standard.
 
+### Circular-secure FHE
+
+A **circular-secure FHE** scheme is a [[#Compact FHE|compact FHE]] scheme that remains IND-CPA-secure when its public key is published together with polynomially many independent encryptions, under that key, of the bits of its own secret key, and that is **perfectly correct**: for every key pair output by $\KeyGen$, $\Dec(\sk, \Enc(\pk, m)) = m$ for every message $m$, and $\Dec(\sk, \Eval(\pk, f, c_1, \ldots, c_k)) = f(\Dec(\sk, c_1), \ldots, \Dec(\sk, c_k))$ for every polynomial-size circuit $f$ and all ciphertexts $c_1, \ldots, c_k$ obtained from encryptions under $\pk$ by repeated application of $\Eval$, with probability 1 over the coins of $\Enc$ and $\Eval$. Under this assumption $\classNP$ has adaptively sound NIZK arguments in the common reference string model ([[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]) — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]].
+
 ## Strongly homomorphic encryption
 
 An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** for a boolean function $f : \bits^k \to \bits$ that is not constant, not a projection or its negation, and not an AND or OR of literals (so not NAND or NOR either), if its evaluator for $f$ is distribution-preserving: for all $m_1, \ldots, m_k \in \bits$, the output of $\Eval(\pk, f, c_1, \ldots, c_k)$ on fresh encryptions $c_i \gets \Enc(\pk, m_i)$ is statistically close to a fresh encryption $\Enc(\pk, f(m_1, \ldots, m_k))$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
@@ -97,7 +102,7 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in 0e3c74c188fd -->
+<!-- BEGIN GENERATED participates-in 892472e413d7 -->
 
 ## Participates in
 
@@ -107,6 +112,8 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 - [[additively-homomorphic-encryption-to-crhf-iko05|Additively homomorphic encryption ⇒ CRHF]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption|Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE]] (via [[homomorphic-encryption#circular-secure-bootstrappable-she|Circular-secure bootstrappable SHE]])
+- [[circular-secure-fhe-to-compact-fhe|Circular-secure FHE ⇒ Compact FHE]] (via [[homomorphic-encryption#circular-secure-fhe|Circular-secure FHE]])
+- [[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]] (via [[homomorphic-encryption#circular-secure-fhe|Circular-secure FHE]])
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]] (via [[homomorphic-encryption#circular-secure-bootstrappable-she|Circular-secure bootstrappable SHE]])
 - [[compact-fhe-to-he|Compact FHE ⇒ HE]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[he-to-cpir|FHE ⇒ cPIR]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
@@ -119,6 +126,7 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 **Produces Homomorphic encryption**
 
 - [[circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption|Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
+- [[circular-secure-fhe-to-compact-fhe|Circular-secure FHE ⇒ Compact FHE]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[compact-fhe-to-he|Compact FHE ⇒ HE]]
 - [$d$-th Composite Residuosity ⇒ Additively homomorphic encryption](d-th-composite-residuosity-to-he) (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
