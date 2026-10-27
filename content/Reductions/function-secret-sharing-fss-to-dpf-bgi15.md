@@ -20,8 +20,8 @@ rationale:
 
 ## Statement
 
-A [[distributed-point-function|DPF]] is two-party [[distributed-point-function#function-secret-sharing-fss|function secret sharing]] for the class of point functions: a two-party FSS scheme for a class $\calF$ containing every point function $f_{\alpha,\beta}$ ($f_{\alpha,\beta}(\alpha) = \beta$ and $f_{\alpha,\beta}(x) = 0$ for $x \ne \alpha$) is, restricted to those functions, a DPF — [[BGI15 - Function Secret Sharing|BGI15]].
+A [[distributed-point-function|DPF]] is two-party [[distributed-point-function#function-secret-sharing-fss|function secret sharing]] for the class of point functions: a two-party FSS scheme for a class $\calF$ containing every point function $f_{\alpha,\beta}$ ($f_{\alpha,\beta}(\alpha) = \beta$ and $f_{\alpha,\beta}(x) = 0$ for $x \ne \alpha$), described by $(\alpha, \beta)$, is, restricted to those functions, a DPF — [[BGI15 - Function Secret Sharing|BGI15]].
 
 ## Sketch
 
-Run the FSS key generation on $f_{\alpha,\beta}$. Correctness (the shares sum to $f_{\alpha,\beta}(x)$) and hiding are the FSS properties restricted to point functions, and since a point function has a description of $O(\log N + \log |\GG|)$ bits, FSS keys of length $p(\secpar, |\hat f|)$ are DPF keys of length polynomial in $\secpar$, $\log N$ and $\log |\GG|$.
+Run the FSS key generation on $f_{\alpha,\beta}$. Correctness (the shares sum to $f_{\alpha,\beta}(x)$) and hiding are the FSS properties restricted to point functions, and since $\calF$ describes $f_{\alpha,\beta}$ by $(\alpha, \beta)$, FSS keys of length $p(\secpar, |\hat f|)$ are DPF keys of length polynomial in $\secpar$, $\log N$ and $\log |\GG|$.

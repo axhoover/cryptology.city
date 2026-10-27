@@ -20,9 +20,10 @@ rationale:
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a [[garbled-ram|garbled RAM]] scheme with polylogarithmic overhead that uses the one-way function only as a black box — [[GLO15 - Black-Box Garbled RAM|GLO15]]. [[GLOS15 - Garbled RAM From One-Way Functions|GLOS15]] earlier gave a garbled RAM from one-way functions alone with strictly polylogarithmic overhead in space and time and a persistent garbled database, using the one-way function in a non-black-box way — [[GLOS15 - Garbled RAM From One-Way Functions|GLOS15]], [[GLO15 - Black-Box Garbled RAM|GLO15]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, there is a [[garbled-ram|garbled RAM]] scheme with polylogarithmic overhead that uses the one-way function only as a black box — [[GLO15 - Black-Box Garbled RAM|GLO15]].
 
 ## Notes
 
+- A garbled RAM from one-way functions came first, with strictly polylogarithmic overhead in space and time and a persistent garbled database, but it uses the one-way function in a non-black-box way — [[GLOS15 - Garbled RAM From One-Way Functions|GLOS15]], [[GLO15 - Black-Box Garbled RAM|GLO15]].
 - The earlier construction of [[LO13 - How to Garble RAM Programs|LO13]] from one-way functions has a security proof that relies on a circular use of Yao garbled circuits and PRFs; IBE removes the circularity ([[ibe-to-garbled-ram-ghl-14|IBE ⇒ garbled RAM]]) — [[GHL+14 - Garbled RAM Revisited|GHL+14]].
 - GLO15 also give the first constant-round secure RAM computation protocol that uses one-way functions only as a black box, in the OT-hybrid model — [[GLO15 - Black-Box Garbled RAM|GLO15]].
