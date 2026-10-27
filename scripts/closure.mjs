@@ -23,11 +23,12 @@
 // kept, since a smaller scope licenses everything a larger one does.
 //
 // An ideal resource given as a hypothesis — the OT functionality, a trusted
-// dealer of correlated randomness — puts the conclusion in that hybrid model:
-// Kil88's `{ideal-ot} => two-party-computation` gives 2PC in the OT-hybrid
-// model, not a protocol over plain channels. The conclusion carries the
-// resource as a scope, which, like a model's, every later step keeps: a
-// relativizing edge may consume the object (UC => stand-alone holds in every
+// dealer of correlated randomness, private point-to-point channels — puts the
+// conclusion in that hybrid model: Kil88's
+// `{ideal-ot} => two-party-computation` gives 2PC in the OT-hybrid model, not
+// a protocol over plain channels. The conclusion carries the resource as a
+// scope, which, like a model's, every later step keeps: a relativizing edge
+// may consume the object (UC => stand-alone holds in every
 // surrounding hybrid model), and what it derives stays scoped, so a
 // hybrid-model result never becomes a plain-model one (2PC => malicious OT
 // gives OT in the OT-hybrid model, not an OT protocol).
@@ -48,10 +49,15 @@ export const SCOPED_MODELS = [
   "algebraic-group",
   "ideal-ot",
   "correlated-randomness",
+  "secure-channels",
 ];
 
 // Ideal resources that scope a conclusion to their hybrid model.
-export const HYBRID_RESOURCES = ["ideal-ot", "correlated-randomness"];
+export const HYBRID_RESOURCES = [
+  "ideal-ot",
+  "correlated-randomness",
+  "secure-channels",
+];
 /** The hybrid-resource scope bits of a hypothesis list. */
 const hybridBits = (hypotheses) =>
   hypotheses.reduce(

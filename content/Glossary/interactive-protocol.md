@@ -70,7 +70,7 @@ Every pair of parties is joined by an authenticated point-to-point channel: the 
 
 ### Secure channels
 
-Authenticated channels that are also private: of a message between two honest parties the adversary learns only that it was sent, and its length.
+Point-to-point channels between every pair that are authenticated, as above, and also private: of a message between two honest parties the adversary learns only that it was sent, and its length. Unlike authenticated channels, secure channels do not exclude a [[#broadcast-channel|broadcast channel]]: a result over secure channels states whether it also uses one.
 
 ### Broadcast channel
 
@@ -80,7 +80,7 @@ A channel on which a party's message reaches every party, every party knowing th
 
 Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from a distribution that the protocol specifies, which may depend on $n$, $\secpar$ and the functionality but not on the inputs, and hands $r_i$ to $P_i$ privately; this is the preprocessing model. Random OT correlations — [[Bea95 - Precomputing Oblivious Transfer|Bea95]] — and multiplication triples, sharings of $a$, $b$ and $ab$ for uniform $a, b$, as consumed by the online phases of [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]] and [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]], are examples. Triples descend from Beaver's circuit randomization, in which the random gate values are prepared within a secret-sharing-based protocol rather than by a dealer — [[Bea91 - Efficient Multiparty Protocols Using Circuit Randomization|Bea91]].
 
-<!-- BEGIN GENERATED participates-in 99de2f6d3cb7 -->
+<!-- BEGIN GENERATED participates-in 2feb61d52920 -->
 
 ## Participates in
 
@@ -88,6 +88,7 @@ Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from
 
 - [Authenticated channels ⇒ Broadcast against $t < n/3$ (Lamport–Shostak–Pease)](authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82) (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
 - [[correlated-randomness-to-uc-mpc-bdoz11|Correlated randomness ⇒ UC MPC (BDOZ online phase)]] (via [[interactive-protocol#correlated-randomness|Correlated randomness]])
+- [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[interactive-protocol#correlated-randomness|Correlated randomness]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)](honest-majority-t-lt-n-over-2-to-mpc-rb89) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)](secure-channels-to-honest-majority-t-lt-n-over-3-bh08) (via [[interactive-protocol#secure-channels|Secure channels]])

@@ -182,12 +182,17 @@ test("results from ideal resources keep their hybrid scope", () => {
   assert.deepEqual(scopesOf(cr, "mpc"), ["correlated-randomness"]);
   const ips = live(["ideal-ot", "prg"]);
   assert.deepEqual(scopesOf(ips, "mpc"), ["ideal-ot"]);
+  const sc = live(["secure-channels"]);
+  assert.deepEqual(scopesOf(sc, "honest-majority-t-lt-n-over-3"), [
+    "secure-channels",
+  ]);
   // No chain through an ideal resource yields an unscoped object.
   const prgOnly = live(["prg"]).derived;
   for (const [seed, res] of [
     [["correlated-randomness"], cr],
     [["ideal-ot"], live(["ideal-ot"])],
     [["ideal-ot", "prg"], ips],
+    [["secure-channels"], sc],
   ] as [string[], any][])
     for (const x of res.derived) {
       if (seed.includes(x) || (seed.includes("prg") && prgOnly.has(x)))

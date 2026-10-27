@@ -25,4 +25,4 @@ If each pair of parties can communicate secretly ([[interactive-protocol#secure-
 ## Notes
 
 - The result was obtained concurrently with a perfectly secure protocol for the same threshold ([Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88)) — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
-- For $t < n/3$ the broadcast channel can be emulated over the point-to-point channels, so none is needed — [[LSP82 - The Byzantine Generals Problem|LSP82]].
+- For $t < n/3$ the broadcast channel can be emulated over the point-to-point channels in time polynomial in $n$, so none is needed — [[GM93 - Fully Polynomial Byzantine Agreement in t+1 Rounds|GM93]].

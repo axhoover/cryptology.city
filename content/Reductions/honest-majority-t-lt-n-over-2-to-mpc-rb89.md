@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)"
 aliases: []
-id: red-honest-majority-t-lt-n-over-2-to-mpc-rb89
+id: red-secure-channels-to-honest-majority-t-lt-n-over-2-rb89
 kind: implication
 hypotheses: [secure-channels]
 conclusion: honest-majority-t-lt-n-over-2

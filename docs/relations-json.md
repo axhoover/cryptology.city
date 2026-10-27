@@ -281,13 +281,17 @@ circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.
 `cdh  [generic-group]`; `--redundant` counts another chain only when it needs
 no idealised model beyond the edge's own. An ideal resource in the hypotheses —
-`ideal-ot` (the OT-hybrid model) or `correlated-randomness` (a trusted dealer)
-— scopes the conclusion to that hybrid model, and the scope, like a model's,
-is kept by every later step: Kil88's `{ideal-ot} => two-party-computation`
-gives `two-party-computation [ideal-ot]`, and 2PC ⇒ malicious OT then gives
+`ideal-ot` (the OT-hybrid model), `correlated-randomness` (a trusted dealer)
+or `secure-channels` (private point-to-point channels) — scopes the conclusion
+to that hybrid model, and the scope, like a model's, is kept by every later
+step: Kil88's `{ideal-ot} => two-party-computation` gives
+`two-party-computation [ideal-ot]`, and 2PC ⇒ malicious OT then gives
 `malicious-ot-security [ideal-ot]`, OT in the OT-hybrid model, never an
-unscoped OT protocol. A consumer computing its own closure
-should apply the same rule: without it, `{rom}` reaches key exchange through
+unscoped OT protocol. Likewise BGW88's
+`{secure-channels} => honest-majority-t-lt-n-over-3` gives
+`honest-majority-t-lt-n-over-3 [secure-channels]`, kept apart from the same
+node reached computationally over public channels. A consumer computing its
+own closure should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 
 `--redundant` lists reductions whose conclusion already follows from their own

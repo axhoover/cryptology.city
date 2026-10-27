@@ -28,6 +28,6 @@ In the OT protocol the sender's view is a sub-view of its view in the MPC protoc
 
 ## Notes
 
-- With a common reference string, the simulation argument gives privacy for inputs fixed before the reference string is sampled, as in the MPC security definition, while the OT privacy games let the adversary choose its inputs after seeing it — folklore.
+- With a common reference string the argument is unchanged: in the MPC security definition the distinguisher chooses the inputs after seeing the reference string, as the adversary does in the OT privacy games — folklore.
 - GS18 call two-round OT the minimal assumption for two-round MPC, and the converse holds by their construction ([[two-round-ot-to-two-round-semi-honest-mpc-gs18|two-round OT ⇒ two-round semi-honest MPC]]) — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
 - The same construction with any number of rounds gives semi-honest OT from semi-honest 2PC ([[two-party-computation-to-ot|semi-honest 2PC ⇒ OT]]) — folklore.

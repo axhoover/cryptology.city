@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "Ideal OT ⇒ 2PC (Kilian)"
 aliases: []
-id: red-ot-to-mpc-kil88
+id: red-ideal-ot-to-two-party-computation-kil88
 kind: implication
 hypotheses: [ideal-ot]
 conclusion: two-party-computation

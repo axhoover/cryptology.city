@@ -120,7 +120,7 @@ Complete fairness is ruled out for XOR, not for every function. Under standard c
 
 ## Guaranteed output delivery
 
-Full security, or guaranteed output delivery, removes the abort: in the ideal execution $\Sim$ may replace the corrupted parties' inputs, a corrupted party that submits none is assigned a default input, and every honest party receives its output. It implies fairness against the same corruptions, being the fair ideal execution in which $\Sim$ never aborts — folklore. With $t \ge n/2$ it would give a fair coin flip, which does not exist — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]. The broadcast channel can be emulated over the point-to-point channels when $t < n/3$ ([Lamport–Shostak–Pease](authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82)), and cannot be without a setup when $t \ge n/3$ ([[no-authenticated-channels-to-byzantine-broadcast-flm85|no broadcast from authenticated channels]]) — [[LSP82 - The Byzantine Generals Problem|LSP82]].
+Full security, or guaranteed output delivery, removes the abort: in the ideal execution $\Sim$ may replace the corrupted parties' inputs, a corrupted party that submits none is assigned a default input, and every honest party receives its output. It implies fairness against the same corruptions, being the fair ideal execution in which $\Sim$ never aborts — folklore. With $t \ge n/2$ it would give a fair coin flip, which does not exist — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]. The broadcast channel can be emulated over the point-to-point channels when $t < n/3$ ([Lamport–Shostak–Pease](authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82)), and cannot be without a setup when $t \ge n/3$ ([[no-authenticated-channels-to-byzantine-broadcast-flm85|no broadcast from authenticated channels]]) — [[LSP82 - The Byzantine Generals Problem|LSP82]]; the emulation runs in time polynomial in $n$ — [[GM93 - Fully Polynomial Byzantine Agreement in t+1 Rounds|GM93]].
 
 ### Honest majority ($t < n/3$)
 
@@ -167,7 +167,7 @@ Semi-honest security against $t = n - 1$ corruptions by a protocol with two roun
 - Two-round MPC in the common reference string model: from indistinguishability obfuscation, UC-secure with abort against static malicious adversaries, with communication proportional to the input and output size and independent of the circuit size — [[GGHR14 - Two-Round Secure MPC from Indistinguishability Obfuscation|GGHR14]]; from LWE and NIZK arguments — [[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]]; and from two-round malicious OT — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]] ([[#Two-round MPC]]).
 - 2PC from malicious OT by cut-and-choose over garbled circuits, with $O(1)$ OTs per input bit as its only public-key operations ([[malicious-ot-security-to-two-party-computation-lp07|malicious OT ⇒ 2PC]]) — [[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]].
 
-<!-- BEGIN GENERATED participates-in c8feafbe0323 -->
+<!-- BEGIN GENERATED participates-in c03d3812776e -->
 
 ## Participates in
 
@@ -198,20 +198,20 @@ Semi-honest security against $t = n - 1$ corruptions by a protocol with two roun
 - [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]] (via [[secure-multi-party-computation#universal-composability-uc|Universal composability (UC)]])
 - [[fair-mpc-to-mpc|Fair MPC ⇒ MPC]]
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
-- [[he-to-mpc-with-preprocessing-spdz-etc|SHE ⇒ MPC with preprocessing (SPDZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
+- [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with honest majority ($t < n/3$)](honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [MPC with honest majority ($t < n/2$) ⇒ MPC with abort and honest majority ($t < n/2$)](honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2) (via [Honest majority with abort ($t < n/2$)](secure-multi-party-computation#honest-majority-with-abort-t--n2))
-- [Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)](honest-majority-t-lt-n-over-2-to-mpc-rb89) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
-- [Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]] (via [[secure-multi-party-computation#universal-composability-uc|Universal composability (UC)]])
+- [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[malicious-ot-security-to-two-party-computation-lp07|Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [MPC ⇒ MPC with abort and honest majority ($t < n/2$)](mpc-to-honest-majority-with-abort-t-lt-n-over-2) (via [Honest majority with abort ($t < n/2$)](secure-multi-party-computation#honest-majority-with-abort-t--n2))
 - [[mpc-to-two-party-computation|MPC ⇒ 2PC]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[mpc-with-preprocessing-to-mpc|MPC with preprocessing ⇒ MPC]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
-- [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[ot-to-semi-honest-security-gmw87|Semi-honest OT ⇒ Semi-honest MPC (GMW)]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])
+- [Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)](honest-majority-t-lt-n-over-2-to-mpc-rb89) (via [Honest majority ($t < n/2$)](secure-multi-party-computation#honest-majority-t--n2))
+- [Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)](secure-channels-to-honest-majority-t-lt-n-over-3-bh08) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) (Chaum–Crépeau–Damgård)](secure-channels-to-honest-majority-t-lt-n-over-3-ccd88) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)](secure-channels-to-honest-majority-t-lt-n-over-3-cdm00) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))

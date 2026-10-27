@@ -149,10 +149,10 @@ A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose 
 # Other results
 
 - [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
-- [[ot-to-com|OT ⇒ COM]]
+- [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 448f0d435bb4 -->
+<!-- BEGIN GENERATED participates-in db9c8e1e9abd -->
 
 ## Participates in
 
@@ -160,14 +160,14 @@ A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose 
 
 - [[gc-and-ot-to-two-party-computation-2pc|GC + OT ⇒ Semi-honest 2PC (Yao)]]
 - [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
+- [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[malicious-ot-security-to-two-party-computation-lp07|Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]
 - [[ot-extension-to-mpc-with-preprocessing-spdz-etc|OT Extension ⇒ MPC with preprocessing (SPDZ, etc.)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
-- [[ot-to-com|OT ⇒ COM]]
+- [[ot-to-com|Malicious OT ⇒ COM (Kilian)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-to-ke|OT ⇒ KE]]
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]]
 - [[ot-to-mpc-hiklp10|Semi-honest OT ⇒ MPC (HIKLP)]]
-- [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]] (via [[oblivious-transfer#ideal-ot-functionality|Ideal OT functionality]])
 - [[ot-to-oihf-bh26|OT ⇒ OIHF]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]

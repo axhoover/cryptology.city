@@ -27,4 +27,4 @@ The online phase follows Beaver's circuit randomization, consuming one multiplic
 ## Notes
 
 - The pairwise MACs make the total computation and communication of the online phase quadratic in $n$; the SPDZ protocol replaces them by one global MAC key and makes both linear in $n$ — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
-- The instantiation from somewhat homomorphic encryption is [[he-to-mpc-with-preprocessing-spdz-etc|SHE ⇒ MPC with preprocessing (SPDZ)]] — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
+- The instantiation from somewhat homomorphic encryption is [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
