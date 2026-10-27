@@ -205,8 +205,8 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // the tests share. An edge whose class relativizes (fully-black-box or
 // relativizing) may consume an object scoped to an idealised model; any other
 // edge may use its hypothesis' code and fires only on unscoped objects. A result
-// proved from an ideal resource (ideal OT, correlated randomness) stays in that
-// hybrid model.
+// proved from an ideal resource (ideal OT, correlated randomness) is scoped to
+// that hybrid model.
 const { classes: CLASS_DEFS } = loadClasses(ROOT);
 const relativizes = (cls) =>
   cls === "relativizing" ||

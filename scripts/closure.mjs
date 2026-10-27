@@ -26,10 +26,11 @@
 // dealer of correlated randomness — puts the conclusion in that hybrid model:
 // Kil88's `{ideal-ot} => two-party-computation` gives 2PC in the OT-hybrid
 // model, not a protocol over plain channels. The conclusion carries the
-// resource as a scope, and an object so scoped is consumed only by an edge
-// that itself assumes the same resource, so a hybrid-model result is never
-// composed into a plain-model one (2PC => malicious OT would otherwise turn the
-// ideal OT functionality into an OT protocol).
+// resource as a scope, which, like a model's, every later step keeps: a
+// relativizing edge may consume the object (UC => stand-alone holds in every
+// surrounding hybrid model), and what it derives stays scoped, so a
+// hybrid-model result never becomes a plain-model one (2PC => malicious OT
+// gives OT in the OT-hybrid model, not an OT protocol).
 //
 // `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
 // both directions. A `heuristic` edge is a candidate construction with no
@@ -51,10 +52,6 @@ export const SCOPED_MODELS = [
 
 // Ideal resources that scope a conclusion to their hybrid model.
 export const HYBRID_RESOURCES = ["ideal-ot", "correlated-randomness"];
-const HYBRID = HYBRID_RESOURCES.reduce(
-  (a, h) => a | (1 << SCOPED_MODELS.indexOf(h)),
-  0,
-);
 /** The hybrid-resource scope bits of a hypothesis list. */
 const hybridBits = (hypotheses) =>
   hypotheses.reduce(
@@ -86,11 +83,7 @@ export function buildRules(reductions) {
   const rules = [];
   for (const r of reductions) {
     if (!r.conclusion || !r.hypotheses?.length || r.heuristic) continue;
-    const base = {
-      model: edgeScope(r),
-      cls: r.class ?? "unstated",
-      hybrid: hybridBits(r.hypotheses),
-    };
+    const base = { model: edgeScope(r), cls: r.class ?? "unstated" };
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion, ...base });
     if (r.kind === "equivalence")
       rules.push({
@@ -153,8 +146,6 @@ export function closure(reductions, seed, { exclude, relativizes } = {}) {
       for (const masks of combos) {
         const hyp = masks.reduce((a, m) => a | m, 0);
         if (hyp && !(relativizes ?? (() => false))(rule.cls)) continue;
-        // A hybrid-model object stays in its hybrid model.
-        if (hyp & HYBRID & ~rule.hybrid) continue;
         used.add(rule.id.replace(/~$/, ""));
         const bodyMasks = Object.fromEntries(body.map((b, k) => [b, masks[k]]));
         add(rule.head, hyp | rule.model, { rule, bodyMasks });

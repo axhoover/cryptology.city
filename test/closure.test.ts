@@ -93,20 +93,23 @@ test("scopes of several hypotheses are joined", () => {
   assert.ok(!r.derived.has("w"));
 });
 
-test("a hybrid-model result stays in its hybrid model", () => {
+test("a hybrid-model scope is kept through relativizing edges", () => {
   const reds = [
     red("kil88", ["ideal-ot"], "2pc", { class: "free" }),
     red("2pc-to-mot", ["2pc"], "mot"),
-    red("in-hybrid", ["ideal-ot", "2pc"], "z"),
+    red("mot-use", ["mot"], "x", { class: "unstated" }),
     red("dealer", ["correlated-randomness"], "uc"),
     red("uc-to-mpc", ["uc"], "mpc"),
   ];
   const r = run(reds, ["ideal-ot", "correlated-randomness"]);
   assert.deepEqual(scopesOf(r, "2pc"), ["ideal-ot"]);
-  assert.ok(!r.derived.has("mot"), "ideal OT must not give an OT protocol");
-  assert.deepEqual(scopesOf(r, "z"), ["ideal-ot"]);
+  assert.deepEqual(scopesOf(r, "mot"), ["ideal-ot"]);
+  assert.ok(
+    !r.derived.has("x"),
+    "an unstated edge must not consume [ideal-ot]",
+  );
   assert.deepEqual(scopesOf(r, "uc"), ["correlated-randomness"]);
-  assert.ok(!r.derived.has("mpc"));
+  assert.deepEqual(scopesOf(r, "mpc"), ["correlated-randomness"]);
   const plain = run(reds, ["2pc"]);
   assert.deepEqual(scopesOf(plain, "mot"), [""]);
 });
@@ -174,11 +177,24 @@ test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-r
   );
 });
 
-test("Kil88 and the preprocessing online phase stay in their hybrid models", () => {
-  const ot = live(["ideal-ot"]);
-  assert.deepEqual(scopesOf(ot, "two-party-computation"), ["ideal-ot"]);
-  assert.ok(!ot.derived.has("malicious-ot-security"));
+test("results from ideal resources keep their hybrid scope", () => {
   const cr = live(["correlated-randomness"]);
-  for (const x of ["malicious-ot-security", "ot", "owf"])
-    assert.ok(!cr.derived.has(x), `correlated randomness must not give ${x}`);
+  assert.deepEqual(scopesOf(cr, "mpc"), ["correlated-randomness"]);
+  const ips = live(["ideal-ot", "prg"]);
+  assert.deepEqual(scopesOf(ips, "mpc"), ["ideal-ot"]);
+  // No chain through an ideal resource yields an unscoped object.
+  const prgOnly = live(["prg"]).derived;
+  for (const [seed, res] of [
+    [["correlated-randomness"], cr],
+    [["ideal-ot"], live(["ideal-ot"])],
+    [["ideal-ot", "prg"], ips],
+  ] as [string[], any][])
+    for (const x of res.derived) {
+      if (seed.includes(x) || (seed.includes("prg") && prgOnly.has(x)))
+        continue;
+      assert.ok(
+        !scopesOf(res, x).includes(""),
+        `${seed.join(",")} => ${x} unscoped`,
+      );
+    }
 });

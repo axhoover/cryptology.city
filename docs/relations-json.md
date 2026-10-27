@@ -282,11 +282,11 @@ only through idealised models with those models, e.g.
 `cdh  [generic-group]`; `--redundant` counts another chain only when it needs
 no idealised model beyond the edge's own. An ideal resource in the hypotheses —
 `ideal-ot` (the OT-hybrid model) or `correlated-randomness` (a trusted dealer)
-— scopes the conclusion to that hybrid model, and a hybrid-scoped object feeds
-only edges that assume the same resource: Kil88's
-`{ideal-ot} => two-party-computation` gives `two-party-computation [ideal-ot]`,
-which does not feed 2PC ⇒ malicious OT, since that would turn the ideal OT
-functionality into an OT protocol. A consumer computing its own closure
+— scopes the conclusion to that hybrid model, and the scope, like a model's,
+is kept by every later step: Kil88's `{ideal-ot} => two-party-computation`
+gives `two-party-computation [ideal-ot]`, and 2PC ⇒ malicious OT then gives
+`malicious-ot-security [ideal-ot]`, OT in the OT-hybrid model, never an
+unscoped OT protocol. A consumer computing its own closure
 should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 
