@@ -329,8 +329,7 @@ models have no page.
   GWC19's PLONK) or `[generic-group, rom]` (BSW07). A list names two or more
   distinct models, none of them `standard`. A proof using a random oracle and a
   trusted structured reference string takes `model: rom`, with the SRS named in
-  the Statement, since `crs` adds no scope. `relations.json` carries the list as
-  `models` and its first entry as `model` (`docs/relations-json.md`).
+  the Statement, since `crs` adds no scope. `relations.json` carries the list as `models`, and its single-valued `model` is `other` for such an edge (`docs/relations-json.md`).
 - **`quantum`** applies when the reduction, the construction or the adversary
   is quantum, or when either endpoint is a quantum complexity class. The
   classically proved containments BPP ⊆ BQP and BQP ⊆ PP are therefore
