@@ -6365,30 +6365,6 @@
    "title": "Constant-bias coin flipping ⇒ OWF"
   },
   {
-   "id": "red-correlated-randomness-to-uc-mpc-bdoz11",
-   "kind": "implication",
-   "hypotheses": [
-    "correlated-randomness"
-   ],
-   "conclusion": "uc-mpc",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The online phase is statistically secure given the dealer's authenticated shares and triples, with no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/correlated-randomness-to-uc-mpc-bdoz11.md",
-   "slug": "correlated-randomness-to-uc-mpc-bdoz11",
-   "graphSlug": "Reductions/correlated-randomness-to-uc-mpc-bdoz11",
-   "title": "Correlated randomness ⇒ UC MPC (BDOZ online phase)"
-  },
-  {
    "id": "red-coszk-to-szk-oka96",
    "kind": "equivalence",
    "hypotheses": [
@@ -9357,28 +9333,6 @@
    "title": "FHE ⇒ cPIR"
   },
   {
-   "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
-   "kind": "implication",
-   "hypotheses": [
-    "somewhat-homomorphic-encryption",
-    "correlated-randomness"
-   ],
-   "conclusion": "mpc-with-preprocessing",
-   "class": "unstated",
-   "model": "standard",
-   "source": [
-    "[[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
-   "slug": "he-to-mpc-with-preprocessing-spdz-etc",
-   "graphSlug": "Reductions/he-to-mpc-with-preprocessing-spdz-etc",
-   "title": "SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)"
-  },
-  {
    "id": "red-he-to-re-bl13",
    "kind": "implication",
    "hypotheses": [
@@ -9657,79 +9611,6 @@
    "slug": "id-and-rom-to-ds",
    "graphSlug": "Reductions/id-and-rom-to-ds",
    "title": "ID ⇒ DS"
-  },
-  {
-   "id": "red-ideal-ot-and-prg-to-uc-mpc-ips08",
-   "kind": "implication",
-   "hypotheses": [
-    "ideal-ot",
-    "prg"
-   ],
-   "conclusion": "uc-mpc",
-   "class": "unstated",
-   "model": "standard",
-   "source": [
-    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "IPS08 prove UC security in the OT-hybrid model, a composition statement the RTV04 classes do not capture, although the protocol calls the PRG only as a black box."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ideal-ot-and-prg-to-uc-mpc-ips08.md",
-   "slug": "ideal-ot-and-prg-to-uc-mpc-ips08",
-   "graphSlug": "Reductions/ideal-ot-and-prg-to-uc-mpc-ips08",
-   "title": "Ideal OT + PRG ⇒ UC MPC (IPS)"
-  },
-  {
-   "id": "red-ideal-ot-to-com-kil88",
-   "kind": "implication",
-   "hypotheses": [
-    "ideal-ot"
-   ],
-   "conclusion": "com",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "statistical: hiding error at most $\\secpar \\cdot 2^{-n}$ and binding error $2^{-\\secpar}$",
-   "rationale": {
-    "class": "The theorem is unconditional: hiding and binding hold statistically given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ideal-ot-to-com-kil88.md",
-   "slug": "ideal-ot-to-com-kil88",
-   "graphSlug": "Reductions/ideal-ot-to-com-kil88",
-   "title": "Ideal OT ⇒ COM (Kilian)"
-  },
-  {
-   "id": "red-ideal-ot-to-two-party-computation-kil88",
-   "kind": "implication",
-   "hypotheses": [
-    "ideal-ot"
-   ],
-   "conclusion": "two-party-computation",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The theorem is unconditional: the protocol is statistically secure given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ot-to-mpc-kil88.md",
-   "slug": "ot-to-mpc-kil88",
-   "graphSlug": "Reductions/ot-to-mpc-kil88",
-   "title": "Ideal OT ⇒ 2PC (Kilian)"
   },
   {
    "id": "red-ideal-svp-to-ring-lwe-lpr10",
@@ -14557,174 +14438,6 @@
    "title": "Search LWE ⇒ Decision LWE"
   },
   {
-   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-2-rb89",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-t-lt-n-over-2",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model with broadcast, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89.md",
-   "slug": "honest-majority-t-lt-n-over-2-to-mpc-rb89",
-   "graphSlug": "Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89",
-   "title": "Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)"
-  },
-  {
-   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-bgw88",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-t-lt-n-over-3",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none (perfect security)",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
-   "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
-   "graphSlug": "Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
-   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)"
-  },
-  {
-   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-t-lt-n-over-3",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[BH08 - Perfectly-Secure MPC with Linear Communication Complexity|BH08]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none (perfect security)",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08.md",
-   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
-   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
-   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)"
-  },
-  {
-   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-t-lt-n-over-3",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88.md",
-   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
-   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
-   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (Chaum–Crépeau–Damgård)"
-  },
-  {
-   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-t-lt-n-over-3",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[CDM00 - General Secure Multi-party Computation from any Linear Secret-Sharing Scheme|CDM00]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00.md",
-   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
-   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
-   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)"
-  },
-  {
-   "id": "red-secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[CGH+18 - Fast Large-Scale Honest-Majority MPC for Malicious Adversaries|CGH+18]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18.md",
-   "slug": "secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
-   "graphSlug": "Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
-   "title": "Secure channels ⇒ MPC with abort and honest majority ($t < n/2$) (CGH+18)"
-  },
-  {
-   "id": "red-secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
-   "kind": "implication",
-   "hypotheses": [
-    "secure-channels"
-   ],
-   "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
-   "class": "free",
-   "model": "standard",
-   "source": [
-    "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none (perfect security)",
-   "rationale": {
-    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
-   },
-   "status": "draft",
-   "page": "content/Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88.md",
-   "slug": "secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
-   "graphSlug": "Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
-   "title": "Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)"
-  },
-  {
    "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",
    "kind": "implication",
    "hypotheses": [
@@ -17070,7 +16783,9 @@
    "strength": "unconditional",
    "conditionalOn": [],
    "circumventedBy": [
-    "red-enhanced-trapdoor-permutation-to-uc-mpc-clos02",
+    "red-enhanced-trapdoor-permutation-to-uc-mpc-clos02"
+   ],
+   "circumventedByHybrid": [
     "red-ideal-ot-and-prg-to-uc-mpc-ips08",
     "red-correlated-randomness-to-uc-mpc-bdoz11"
    ],
@@ -18626,6 +18341,361 @@
    "slug": "no-zkp-to-argument-systems",
    "graphSlug": "Barriers/no-zkp-to-argument-systems",
    "title": "No reduction from ZKP to Argument systems"
+  }
+ ],
+ "hybridResources": [
+  "correlated-randomness",
+  "ideal-ot",
+  "secure-channels"
+ ],
+ "protocolObjects": [
+  "fair-mpc",
+  "honest-majority-t-lt-n-over-2",
+  "honest-majority-t-lt-n-over-3",
+  "honest-majority-with-abort-t-lt-n-over-2",
+  "ideal-ot",
+  "malicious-ot-security",
+  "mpc",
+  "mpc-with-preprocessing",
+  "one-out-of-n-ot",
+  "ot",
+  "ot-extension",
+  "rabin-ot",
+  "random-ot",
+  "semi-honest-honest-majority-t-lt-n-over-2",
+  "semi-honest-security",
+  "semi-honest-two-party-computation",
+  "two-party-computation",
+  "two-round-mpc",
+  "two-round-ot",
+  "two-round-semi-honest-mpc",
+  "two-round-uc-ot",
+  "uc-mpc",
+  "uc-ot"
+ ],
+ "hybridReductions": [
+  {
+   "id": "red-correlated-randomness-to-uc-mpc-bdoz11",
+   "kind": "implication",
+   "hypotheses": [
+    "correlated-randomness"
+   ],
+   "resources": [
+    "correlated-randomness"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The online phase is statistically secure given the dealer's authenticated shares and triples, with no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/correlated-randomness-to-uc-mpc-bdoz11.md",
+   "slug": "correlated-randomness-to-uc-mpc-bdoz11",
+   "graphSlug": "Reductions/correlated-randomness-to-uc-mpc-bdoz11",
+   "title": "Correlated randomness ⇒ UC MPC (BDOZ online phase)"
+  },
+  {
+   "id": "red-he-to-mpc-with-preprocessing-spdz-etc",
+   "kind": "implication",
+   "hypotheses": [
+    "somewhat-homomorphic-encryption",
+    "correlated-randomness"
+   ],
+   "resources": [
+    "correlated-randomness"
+   ],
+   "conclusion": "mpc-with-preprocessing",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/he-to-mpc-with-preprocessing-spdz-etc.md",
+   "slug": "he-to-mpc-with-preprocessing-spdz-etc",
+   "graphSlug": "Reductions/he-to-mpc-with-preprocessing-spdz-etc",
+   "title": "SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)"
+  },
+  {
+   "id": "red-ideal-ot-and-prg-to-uc-mpc-ips08",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-ot",
+    "prg"
+   ],
+   "resources": [
+    "ideal-ot"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "IPS08 prove UC security in the OT-hybrid model, a composition statement the RTV04 classes do not capture, although the protocol calls the PRG only as a black box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-ot-and-prg-to-uc-mpc-ips08.md",
+   "slug": "ideal-ot-and-prg-to-uc-mpc-ips08",
+   "graphSlug": "Reductions/ideal-ot-and-prg-to-uc-mpc-ips08",
+   "title": "Ideal OT + PRG ⇒ UC MPC (IPS)"
+  },
+  {
+   "id": "red-ideal-ot-to-com-kil88",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-ot"
+   ],
+   "resources": [
+    "ideal-ot"
+   ],
+   "conclusion": "com",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "statistical: hiding error at most $\\secpar \\cdot 2^{-n}$ and binding error $2^{-\\secpar}$",
+   "rationale": {
+    "class": "The theorem is unconditional: hiding and binding hold statistically given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-ot-to-com-kil88.md",
+   "slug": "ideal-ot-to-com-kil88",
+   "graphSlug": "Reductions/ideal-ot-to-com-kil88",
+   "title": "Ideal OT ⇒ COM (Kilian)"
+  },
+  {
+   "id": "red-ideal-ot-to-two-party-computation-kil88",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-ot"
+   ],
+   "resources": [
+    "ideal-ot"
+   ],
+   "conclusion": "two-party-computation",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional: the protocol is statistically secure given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-mpc-kil88.md",
+   "slug": "ot-to-mpc-kil88",
+   "graphSlug": "Reductions/ot-to-mpc-kil88",
+   "title": "Ideal OT ⇒ 2PC (Kilian)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-2-rb89",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model with broadcast, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89.md",
+   "slug": "honest-majority-t-lt-n-over-2-to-mpc-rb89",
+   "graphSlug": "Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-bgw88",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
+   "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+   "graphSlug": "Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BH08 - Perfectly-Secure MPC with Linear Communication Complexity|BH08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (Chaum–Crépeau–Damgård)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CDM00 - General Secure Multi-party Computation from any Linear Secret-Sharing Scheme|CDM00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CGH+18 - Fast Large-Scale Honest-Majority MPC for Malicious Adversaries|CGH+18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18.md",
+   "slug": "secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "title": "Secure channels ⇒ MPC with abort and honest majority ($t < n/2$) (CGH+18)"
+  },
+  {
+   "id": "red-secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88.md",
+   "slug": "secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "graphSlug": "Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "title": "Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)"
   }
  ]
 }

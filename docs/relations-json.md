@@ -44,8 +44,11 @@ and `npm run check`.
   "classSentinels": ["unstated"],
   "propositions": { ... },     // complexity claims that are not wiki objects
   "objects": [ ... ],          // nodes
-  "reductions": [ ... ],       // hyperedges
-  "barriers": [ ... ]          // statements about which hyperedges can exist
+  "reductions": [ ... ],       // hyperedges, except those from an ideal resource
+  "barriers": [ ... ],         // statements about which hyperedges can exist
+  "hybridResources": ["correlated-randomness", "ideal-ot", "secure-channels"],
+  "protocolObjects": [ ... ],  // object ids a hybrid-scoped object may feed
+  "hybridReductions": [ ... ]  // hyperedges from an ideal resource
 }
 ```
 
@@ -182,6 +185,7 @@ the general case, `Q = P ≠ NP`. One type covers both.
   "strength": "unconditional", // unconditional | conditional
   "conditionalOn": [], // unproven assumption(s) the barrier theorem rests on: an objects[].id, or free text when no node exists
   "circumventedBy": [], // reductions[].id that reach the conclusion outside the barrier's class or scope
+  // "circumventedByHybrid": [], // hybridReductions[].id likewise; omitted when empty
   "source": ["[[IR89 - ...|IR89]]"],
   "rationale": {
     // optional, as on reductions
@@ -207,7 +211,56 @@ the general case, `Q = P ≠ NP`. One type covers both.
 non-black-box OIHF ⇒ OT is `circumventedBy` on the fully-black-box barrier
 `bar-oihf-to-ot-bh26`. A circumventing reduction need not share the barrier's
 hyperedge. A consumer must not read a barrier as the last word on its
-conclusion without checking this list.
+conclusion without checking this list. A circumventing reduction from an ideal
+resource is listed in `circumventedByHybrid` instead, so `circumventedBy`
+always resolves within `reductions`: IPS08's `{ideal-ot, prg} => uc-mpc` gets
+around CKL03's barrier against UC MPC over authenticated channels only in the
+OT-hybrid model.
+
+## `hybridReductions`
+
+A reduction with an ideal resource among its hypotheses — `ideal-ot` (the
+OT-hybrid model), `correlated-randomness` (a trusted dealer) or
+`secure-channels` (private point-to-point channels), the top-level
+`hybridResources` — is proved in that hybrid model and holds only there. It is
+listed here, never in `reductions`, as a reduction record with one more field,
+`resources`:
+
+```jsonc
+{
+  "id": "red-ideal-ot-to-com-kil88",
+  "kind": "implication",
+  "hypotheses": ["ideal-ot"],
+  "resources": ["ideal-ot"], // the hypotheses that are ideal resources
+  "conclusion": "com",
+  "class": "free",
+  "model": "standard",
+  // ... the remaining fields of a reduction record
+}
+```
+
+A consumer that reads this list applies the rule `scripts/closure.mjs` applies
+(§ Closure):
+
+- The conclusion is scoped to its `resources`, and every later step keeps the
+  scope, as it keeps a model's.
+- A scoped object feeds only an edge, from either list, whose class relativizes
+  and whose conclusion is in `protocolObjects`, the objects and variants of the
+  MPC and OT pages. An ideal resource is not an oracle: Kilian's commitment is
+  statistically hiding and binding in the OT-hybrid model, so COM ⇒ OWF does
+  not carry over to it.
+- No chain from a resource yields an unscoped object.
+
+So `{ideal-ot}` derives `two-party-computation`, `malicious-ot-security` and
+`com`, all `[ideal-ot]`, and no one-way function, PRG or signature scheme;
+`{correlated-randomness}` and `{secure-channels}` derive protocol notions
+scoped to themselves and nothing else.
+
+A consumer that does not implement the rule ignores this list, as a reader
+written before it existed does. Read as standard-model reductions, these records
+would chain `{ideal-ot} => com` into COM ⇒ OWF and assert a one-way function
+from nothing. Listing them apart changes no field's meaning: such a reader sees
+fewer edges, none of them read wrongly, so `version` stays 1.
 
 ## `classes` — the partial order
 
@@ -298,8 +351,9 @@ or OT page). A non-protocol conclusion that holds in the hybrid model gets its
 own edge from the resource: Kil88's `{ideal-ot} => com` gives `com [ideal-ot]`,
 which COM ⇒ OWF does not consume. So `{ideal-ot}` derives
 `two-party-computation`, `malicious-ot-security` and `com`, all `[ideal-ot]`,
-and no one-way function. A consumer computing its
-own closure should apply the same rule: without it, `{rom}` reaches key exchange through
+and no one-way function. These edges are listed in `hybridReductions`, which
+states the rule for consumers (§ `hybridReductions`). A consumer computing its
+own closure should apply the same rules: without them, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 
 `--redundant` lists reductions whose conclusion already follows from their own
@@ -321,6 +375,9 @@ worse loss.
   idealised models never appear in `hypotheses` except as a sole hypothesis.
 - An object with `unlisted: true` is a real node; it is only hidden from
   navigation.
+- `reductions` omits every edge from an ideal resource; those are in
+  `hybridReductions`, whose conclusions hold only in the hybrid model
+  (§ `hybridReductions`).
 - Not every relation on the wiki is in here. Class inclusions between complexity
   classes, attacks, and definitional statements were deferred rather than
   forced into a shape that would misrepresent them. A refutation of an

@@ -39,6 +39,7 @@ import {
   scopeNames,
   edgeScope,
   protocolNodes,
+  HYBRID_RESOURCES,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -283,6 +284,33 @@ for (const p of pages) {
 }
 
 // --------------------------------------------------------- relations.json ----
+// An edge from an ideal resource holds only in that hybrid model, and what it
+// concludes may feed only protocol notions (scripts/closure.mjs). A reader that
+// knows nothing of hybrid scopes would take `{ideal-ot} => com` for a
+// standard-model theorem and chain it into COM => OWF, so these edges are
+// listed apart, in `hybridReductions`, each with the resources that scope it;
+// `reductions` holds every other edge (docs/relations-json.md § Hybrid
+// reductions).
+const resourcesOf = (r) =>
+  r.hypotheses.filter((h) => HYBRID_RESOURCES.includes(h));
+const hybridIds = new Set(
+  reductions.filter((r) => resourcesOf(r).length).map((r) => r.id),
+);
+// A barrier names a hybrid reduction that circumvents it in
+// `circumventedByHybrid`, so `circumventedBy` resolves within `reductions`.
+const manifestBarrier = (b) =>
+  b.circumventedBy.some((id) => hybridIds.has(id))
+    ? Object.fromEntries(
+        Object.entries(b).flatMap(([k, v]) =>
+          k === "circumventedBy"
+            ? [
+                [k, v.filter((id) => !hybridIds.has(id))],
+                ["circumventedByHybrid", v.filter((id) => hybridIds.has(id))],
+              ]
+            : [[k, v]],
+        ),
+      )
+    : b;
 const manifest = {
   version: 1,
   schema: "https://cryptology.city/docs/relations-json",
@@ -300,8 +328,19 @@ const manifest = {
     ]),
   ),
   objects: [...objects.values()].sort((a, b) => a.id.localeCompare(b.id)),
-  reductions,
-  barriers,
+  reductions: reductions.filter((r) => !hybridIds.has(r.id)),
+  barriers: barriers.map(manifestBarrier),
+  hybridResources: [...HYBRID_RESOURCES].sort(),
+  protocolObjects: [...PROTOCOL].sort(),
+  hybridReductions: reductions
+    .filter((r) => hybridIds.has(r.id))
+    .map(({ id, kind, hypotheses, ...rest }) => ({
+      id,
+      kind,
+      hypotheses,
+      resources: resourcesOf({ hypotheses }),
+      ...rest,
+    })),
 };
 const manifestPath = path.join(ROOT, ".reductions", "relations.json");
 const manifestText = JSON.stringify(manifest, null, 1) + "\n";

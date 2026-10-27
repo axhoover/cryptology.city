@@ -13,9 +13,11 @@ test("every suspected error's affectsEdges names a current reduction or barrier"
   // the error pointing at nothing.
   const relations = read("relations.json");
   const ids = new Set(
-    [...relations.reductions, ...relations.barriers].map(
-      (e: { id: string }) => e.id,
-    ),
+    [
+      ...relations.reductions,
+      ...relations.hybridReductions,
+      ...relations.barriers,
+    ].map((e: { id: string }) => e.id),
   );
   const { entries } = read("suspected-errors.json");
   const dangling = entries.flatMap(

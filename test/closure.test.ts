@@ -5,6 +5,8 @@ import path from "node:path";
 // @ts-ignore — plain ESM helpers shared with scripts/generate-relations.mjs
 import { closure, scopeNames, protocolNodes } from "../scripts/closure.mjs";
 // @ts-ignore
+import { HYBRID_RESOURCES } from "../scripts/closure.mjs";
+// @ts-ignore
 import * as rc from "../scripts/reduction-classes.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
@@ -133,10 +135,12 @@ test("equivalences run both ways and heuristic edges never fire", () => {
 const manifest = JSON.parse(
   fs.readFileSync(path.join(ROOT, ".reductions", "relations.json"), "utf8"),
 );
+// Both edge lists, with the hybrid rule as the manifest states it: the
+// resources scope a conclusion, which feeds only the protocol objects.
 const live = (seed: string[]) =>
-  closure(manifest.reductions, seed, {
+  closure([...manifest.reductions, ...manifest.hybridReductions], seed, {
     relativizes,
-    protocol: protocolNodes(manifest.objects),
+    protocol: new Set(manifest.protocolObjects),
   });
 
 test("generic-group CDH does not give IBE through DG17a", () => {
@@ -221,6 +225,46 @@ test("ideal OT gives protocols and commitments in the OT-hybrid model, not one-w
   for (const x of r.derived)
     if (x !== "ideal-ot")
       assert.ok(!scopesOf(r, x).includes(""), `ideal OT => ${x} unscoped`);
-  const cr = live(["correlated-randomness"]);
-  assert.ok(!cr.derived.has("owf"));
+  for (const seed of ["correlated-randomness", "secure-channels"])
+    for (const x of ["owf", "prg", "prf", "ds"])
+      assert.ok(!live([seed]).derived.has(x), `${seed} must not derive ${x}`);
+});
+
+test("a reader of reductions alone sees no edge from an ideal resource", () => {
+  // CCwiki reads only `reductions`, where standard, quantum and crs are
+  // unscoped: an edge from an ideal resource there would read as a
+  // standard-model theorem, and {ideal-ot} => com would feed COM => OWF.
+  assert.deepEqual(manifest.hybridResources, [...HYBRID_RESOURCES].sort());
+  assert.deepEqual(
+    manifest.protocolObjects,
+    [...protocolNodes(manifest.objects)].sort(),
+  );
+  const resources = new Set(manifest.hybridResources);
+  for (const r of manifest.reductions)
+    assert.ok(
+      !r.hypotheses.some((h: string) => resources.has(h)),
+      `${r.id} belongs in hybridReductions`,
+    );
+  for (const r of manifest.hybridReductions)
+    assert.deepEqual(
+      r.resources,
+      r.hypotheses.filter((h: string) => resources.has(h)),
+      r.id,
+    );
+  // Without any hybrid rule, nothing follows from a resource.
+  for (const seed of manifest.hybridResources) {
+    const r = closure(manifest.reductions, [seed], { relativizes });
+    assert.deepEqual(
+      [...r.derived].filter((x) => x !== seed),
+      [],
+      seed,
+    );
+  }
+  const ids = new Set(manifest.reductions.map((r: any) => r.id));
+  const hybrid = new Set(manifest.hybridReductions.map((r: any) => r.id));
+  for (const b of manifest.barriers) {
+    for (const id of b.circumventedBy) assert.ok(ids.has(id), `${b.id}: ${id}`);
+    for (const id of b.circumventedByHybrid ?? [])
+      assert.ok(hybrid.has(id), `${b.id}: ${id}`);
+  }
 });
