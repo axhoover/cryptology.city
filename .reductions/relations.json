@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 1,
  "schema": "https://cryptology.city/docs/relations-json",
  "classes": {
   "fully-black-box": {
@@ -6038,7 +6038,7 @@
    ],
    "conclusion": "universal-snark",
    "class": "unstated",
-   "model": "algebraic-group+rom",
+   "model": "other",
    "models": [
     "algebraic-group",
     "rom"
@@ -6153,7 +6153,7 @@
    ],
    "conclusion": "cp-abe-adaptive-security",
    "class": "free",
-   "model": "generic-group+rom",
+   "model": "other",
    "models": [
     "generic-group",
     "rom"
@@ -8235,7 +8235,7 @@
    ],
    "conclusion": "boneh-lynn-shacham-signature",
    "class": "unstated",
-   "model": "algebraic-group+rom",
+   "model": "other",
    "models": [
     "algebraic-group",
     "rom"

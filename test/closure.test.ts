@@ -174,32 +174,23 @@ test("PLONK's conclusions keep both the AGM and the random oracle", () => {
     assert.deepEqual(scopesOf(r, x), ["rom+algebraic-group"], x);
 });
 
-test("a version-1 reader cannot read a multi-model edge as a single-model one", () => {
-  // The version-1 contract: model is one of these values; an unknown value
-  // fails closed.
-  const V1_MODELS = [
-    "standard",
-    "rom",
-    "crs",
-    "generic-group",
-    "algebraic-group",
-    "quantum",
-    "other",
-  ];
-  const readV1 = (m: any) => {
-    if (m.version !== 1)
-      throw new Error(`unsupported relations.json version ${m.version}`);
-    return m.reductions;
-  };
-  assert.strictEqual(manifest.version, 2);
-  assert.throws(() => readV1(manifest), /unsupported/);
+test("a reader of model alone cannot take a multi-model edge for a single-model one", () => {
+  // CCwiki's reader: version 1 only; standard, quantum and crs are its default
+  // models, and rom, generic-group, algebraic-group and other are idealised
+  // (scoped).
+  const DEFAULT = ["standard", "quantum", "crs"];
+  const IDEALISED = ["rom", "generic-group", "algebraic-group", "other"];
+  assert.strictEqual(manifest.version, 1, "version-1 readers must still load");
   const multi = manifest.reductions.filter((r: any) => r.models.length > 1);
   assert.ok(multi.length >= 3, "PLONK, FKL18 BLS and BSW07 are multi-model");
   for (const r of manifest.reductions)
-    if (r.models.length > 1)
-      assert.ok(
-        !V1_MODELS.includes(r.model),
-        `${r.id}: deprecated model "${r.model}" reads as one v1 model`,
-      );
-    else assert.strictEqual(r.model, r.models[0], r.id);
+    if (r.models.length > 1) {
+      assert.strictEqual(r.model, "other", r.id);
+      assert.ok(!DEFAULT.includes(r.model) && IDEALISED.includes(r.model));
+    } else assert.strictEqual(r.model, r.models[0], r.id);
+  const plonk = manifest.reductions.find(
+    (r: any) =>
+      r.id === "red-bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+  );
+  assert.deepEqual(plonk.models, ["algebraic-group", "rom"]);
 });

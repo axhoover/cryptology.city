@@ -163,12 +163,14 @@ for (const p of pages) {
       hypotheses: p.fm.hypotheses ?? [],
       conclusion: p.fm.conclusion,
       class: p.fm.class ?? "unstated",
-      // `models` lists every model the proof uses (version 2). `model` is
-      // deprecated: the single model, or for an edge proved in several the
-      // models joined with "+", a value outside the version-1 vocabulary, so a
-      // v1 reader that ignores `version` fails closed on it instead of reading
-      // the weaker single-model theorem.
-      model: [].concat(p.fm.model ?? "standard").join("+"),
+      // `models` lists every model the proof uses. `model` is the single
+      // model, or `other` for an edge proved in several at once: a version-1
+      // value that every consumer treats as an idealised model outside the
+      // vocabulary, which fails closed, so a reader of `model` alone never
+      // takes PLONK's AGM + ROM theorem for an AGM-only one.
+      model: ((ms) => (ms.length > 1 ? "other" : ms[0]))(
+        [].concat(p.fm.model ?? "standard"),
+      ),
       models: [].concat(p.fm.model ?? "standard"),
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
@@ -286,7 +288,7 @@ for (const p of pages) {
 
 // --------------------------------------------------------- relations.json ----
 const manifest = {
-  version: 2,
+  version: 1,
   schema: "https://cryptology.city/docs/relations-json",
   classes: Object.fromEntries(
     Object.entries(classSchema.classes ?? {}).map(([k, v]) => [
