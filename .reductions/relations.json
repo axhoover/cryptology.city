@@ -408,6 +408,19 @@
    "unlisted": false
   },
   {
+   "id": "authenticated-channels",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-protocol.md",
+   "slug": "interactive-protocol",
+   "graphSlug": "Glossary/interactive-protocol",
+   "anchor": "#authenticated-channels",
+   "of": "interactive-protocol",
+   "title": "Authenticated channels",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "authenticated-encryption",
    "kind": "object",
    "type": "primitive",
@@ -591,6 +604,34 @@
     "BQP",
     "Bounded-Error Quantum Polynomial-Time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "byzantine-broadcast",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/byzantine-broadcast.md",
+   "slug": "byzantine-broadcast",
+   "graphSlug": "Primitives/byzantine-broadcast",
+   "title": "Byzantine broadcast",
+   "aliases": [
+    "Byzantine broadcast",
+    "Broadcast protocol",
+    "Byzantine generals problem"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "byzantine-broadcast-t-lt-n-over-3",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/byzantine-broadcast.md",
+   "slug": "byzantine-broadcast",
+   "graphSlug": "Primitives/byzantine-broadcast",
+   "anchor": "#broadcast-against-t--n3",
+   "of": "byzantine-broadcast",
+   "title": "Broadcast against $t < n/3$",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -845,6 +886,19 @@
    "anchor": "#constant-round-zero-knowledge-proofs",
    "of": "zkp",
    "title": "Constant-round zero-knowledge proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "correlated-randomness",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-protocol.md",
+   "slug": "interactive-protocol",
+   "graphSlug": "Glossary/interactive-protocol",
+   "anchor": "#correlated-randomness",
+   "of": "interactive-protocol",
+   "title": "Correlated randomness",
    "aliases": [],
    "unlisted": false
   },
@@ -1318,6 +1372,19 @@
    "unlisted": false
   },
   {
+   "id": "fair-mpc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#fairness",
+   "of": "mpc",
+   "title": "Fairness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "falsifiable-assumption",
    "kind": "object",
    "type": "glossary",
@@ -1692,6 +1759,19 @@
    "unlisted": false
   },
   {
+   "id": "honest-majority-with-abort-t-lt-n-over-2",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#honest-majority-with-abort-t--n2",
+   "of": "mpc",
+   "title": "Honest majority with abort ($t < n/2$)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "honest-verifier-szk",
    "kind": "variant",
    "type": "complexity-class",
@@ -1782,6 +1862,19 @@
     "IBE",
     "Identity-based encryption"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "ideal-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#ideal-ot-functionality",
+   "of": "ot",
+   "title": "Ideal OT functionality",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2561,9 +2654,9 @@
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
    "graphSlug": "Primitives/secure-multi-party-computation",
-   "anchor": "#mpc-with-preprocessing-spdz-etc",
+   "anchor": "#mpc-with-preprocessing",
    "of": "mpc",
-   "title": "MPC with preprocessing (SPDZ, etc.)",
+   "title": "MPC with preprocessing",
    "aliases": [],
    "unlisted": false
   },
@@ -3769,6 +3862,19 @@
    "unlisted": false
   },
   {
+   "id": "secure-channels",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-protocol.md",
+   "slug": "interactive-protocol",
+   "graphSlug": "Glossary/interactive-protocol",
+   "anchor": "#secure-channels",
+   "of": "interactive-protocol",
+   "title": "Secure channels",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "semantic-security",
    "kind": "variant",
    "type": "primitive",
@@ -3782,15 +3888,41 @@
    "unlisted": false
   },
   {
+   "id": "semi-honest-honest-majority-t-lt-n-over-2",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#semi-honest-honest-majority-t--n2",
+   "of": "mpc",
+   "title": "Semi-honest, honest majority ($t < n/2$)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "semi-honest-security",
    "kind": "variant",
    "type": "primitive",
    "page": "content/Primitives/secure-multi-party-computation.md",
    "slug": "secure-multi-party-computation",
    "graphSlug": "Primitives/secure-multi-party-computation",
-   "anchor": "#privacy-semi-honest",
+   "anchor": "#semi-honest-security",
    "of": "mpc",
-   "title": "Privacy (semi-honest)",
+   "title": "Semi-honest security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "semi-honest-two-party-computation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#semi-honest-two-party-computation",
+   "of": "mpc",
+   "title": "Semi-honest two-party computation",
    "aliases": [],
    "unlisted": false
   },
@@ -4594,6 +4726,58 @@
    "unlisted": true
   },
   {
+   "id": "two-round-mpc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#two-round-mpc",
+   "of": "mpc",
+   "title": "Two-round MPC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "two-round-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#two-round-ot",
+   "of": "ot",
+   "title": "Two-round OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "two-round-semi-honest-mpc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#two-round-semi-honest-mpc",
+   "of": "mpc",
+   "title": "Two-round semi-honest MPC",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "two-round-uc-ot",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-transfer.md",
+   "slug": "oblivious-transfer",
+   "graphSlug": "Primitives/oblivious-transfer",
+   "anchor": "#two-round-uc-secure-ot",
+   "of": "ot",
+   "title": "Two-round UC-secure OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "type-3-pairing",
    "kind": "variant",
    "type": "glossary",
@@ -4619,6 +4803,19 @@
     "Universal Composability Framework",
     "UC"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "uc-mpc",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/secure-multi-party-computation.md",
+   "slug": "secure-multi-party-computation",
+   "graphSlug": "Primitives/secure-multi-party-computation",
+   "anchor": "#universal-composability-uc",
+   "of": "mpc",
+   "title": "Universal composability (UC)",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5151,6 +5348,31 @@
    "title": "Attribute-Hiding Security ⇒ Payload-Hiding Security"
   },
   {
+   "id": "red-authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82",
+   "kind": "implication",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "byzantine-broadcast-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[LSP82 - The Byzantine Generals Problem|LSP82]]",
+    "[[PSL80 - Reaching Agreement in the Presence of Faults|PSL80]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The protocol is perfectly secure over authenticated channels with no hardness assumption, so there is nothing for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82.md",
+   "slug": "authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82",
+   "graphSlug": "Reductions/authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82",
+   "title": "Authenticated channels ⇒ Broadcast against $t < n/3$ (Lamport–Shostak–Pease)"
+  },
+  {
    "id": "red-authenticated-key-exchange-ake-to-ke",
    "kind": "implication",
    "hypotheses": [
@@ -5646,6 +5868,30 @@
    "title": "BQP ⊆ PP"
   },
   {
+   "id": "red-byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3",
+   "kind": "implication",
+   "hypotheses": [
+    "byzantine-broadcast"
+   ],
+   "conclusion": "byzantine-broadcast-t-lt-n-over-3",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: an adversary corrupting fewer than n/3 parties also corrupts at most n - 1, so the same protocol wins with the same probability bound."
+   },
+   "status": "draft",
+   "page": "content/Reductions/byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3.md",
+   "slug": "byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3",
+   "graphSlug": "Reductions/byzantine-broadcast-to-byzantine-broadcast-t-lt-n-over-3",
+   "title": "Byzantine broadcast ⇒ Broadcast against $t < n/3$"
+  },
+  {
    "id": "red-cca-security-to-cca1-security",
    "kind": "implication",
    "hypotheses": [
@@ -5773,7 +6019,7 @@
    "hypotheses": [
     "cdh"
    ],
-   "conclusion": "uc-ot",
+   "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -5789,7 +6035,7 @@
    "page": "content/Reductions/cdh-to-uc-ot-dghmw20.md",
    "slug": "cdh-to-uc-ot-dghmw20",
    "graphSlug": "Reductions/cdh-to-uc-ot-dghmw20",
-   "title": "CDH ⇒ UC-secure OT (DGHMW)"
+   "title": "CDH ⇒ Two-round UC-secure OT (DGHMW)"
   },
   {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
@@ -6117,6 +6363,30 @@
    "slug": "constant-bias-coin-flipping-to-owf-ho11",
    "graphSlug": "Reductions/constant-bias-coin-flipping-to-owf-ho11",
    "title": "Constant-bias coin flipping ⇒ OWF"
+  },
+  {
+   "id": "red-correlated-randomness-to-uc-mpc-bdoz11",
+   "kind": "implication",
+   "hypotheses": [
+    "correlated-randomness"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The online phase is statistically secure given the dealer's authenticated shares and triples, with no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/correlated-randomness-to-uc-mpc-bdoz11.md",
+   "slug": "correlated-randomness-to-uc-mpc-bdoz11",
+   "graphSlug": "Reductions/correlated-randomness-to-uc-mpc-bdoz11",
+   "title": "Correlated randomness ⇒ UC MPC (BDOZ online phase)"
   },
   {
    "id": "red-coszk-to-szk-oka96",
@@ -6904,7 +7174,7 @@
    "hypotheses": [
     "ddh"
    ],
-   "conclusion": "uc-ot",
+   "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -6921,7 +7191,7 @@
    "page": "content/Reductions/ddh-to-malicious-ot-security-pvw08.md",
    "slug": "ddh-to-malicious-ot-security-pvw08",
    "graphSlug": "Reductions/ddh-to-malicious-ot-security-pvw08",
-   "title": "DDH ⇒ UC-secure OT (PVW)"
+   "title": "DDH ⇒ Two-round UC-secure OT (PVW)"
   },
   {
    "id": "red-ddh-to-non-interactive-key-exchange-nike",
@@ -7661,6 +7931,31 @@
    "title": "DPF ⇒ Multi-point functions"
   },
   {
+   "id": "red-ds-to-byzantine-broadcast-ds83",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "byzantine-broadcast",
+   "class": "fully-black-box",
+   "model": "other",
+   "source": [
+    "[[DS83 - Authenticated Algorithms for Byzantine Agreement|DS83]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of at most n: the reduction plants the challenge verification key at a uniformly chosen honest party",
+   "rationale": {
+    "class": "The protocol calls the signature scheme only through KeyGen, Sign and Vrfy, and an adversary breaking agreement or validity yields a forgery under an honest party's key, which the reduction obtains by running the adversary as an oracle.",
+    "model": "The protocol needs a public-key infrastructure, a trusted setup that registers every party's verification key before the execution, which is none of the named models."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-byzantine-broadcast-ds83.md",
+   "slug": "ds-to-byzantine-broadcast-ds83",
+   "graphSlug": "Reductions/ds-to-byzantine-broadcast-ds83",
+   "title": "Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)"
+  },
+  {
    "id": "red-ds-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -7683,6 +7978,80 @@
    "slug": "ds-to-hash-function",
    "graphSlug": "Reductions/ds-to-hash-function",
    "title": "DS ⇒ OWF"
+  },
+  {
+   "id": "red-enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87",
+   "kind": "implication",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GMW87 - How to play ANY mental game|GMW87]]",
+    "[[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The compiler proves in zero knowledge that each message follows the semi-honest protocol, an NP statement about that protocol's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87.md",
+   "slug": "enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87",
+   "graphSlug": "Reductions/enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87",
+   "title": "Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)"
+  },
+  {
+   "id": "red-enhanced-trapdoor-permutation-to-two-party-computation-ors15",
+   "kind": "implication",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "two-party-computation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[ORS15 - Round-Optimal Black-Box Two-Party Computation|ORS15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "ORS15 use the trapdoor permutation only through its interface and prove security by black-box simulation and reductions that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/enhanced-trapdoor-permutation-to-two-party-computation-ors15.md",
+   "slug": "enhanced-trapdoor-permutation-to-two-party-computation-ors15",
+   "graphSlug": "Reductions/enhanced-trapdoor-permutation-to-two-party-computation-ors15",
+   "title": "Enhanced TDP ⇒ 2PC (Ostrovsky–Richelson–Scafuro)"
+  },
+  {
+   "id": "red-enhanced-trapdoor-permutation-to-uc-mpc-clos02",
+   "kind": "implication",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "free",
+   "model": "crs",
+   "source": [
+    "[[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "Each party proves through a UC commit-and-prove functionality that its messages follow the semi-honest trapdoor-permutation-based protocol, an NP statement about that protocol's code.",
+    "model": "The protocols are UC-secure in the common reference string model, which CKL03 show cannot be dropped."
+   },
+   "status": "draft",
+   "page": "content/Reductions/enhanced-trapdoor-permutation-to-uc-mpc-clos02.md",
+   "slug": "enhanced-trapdoor-permutation-to-uc-mpc-clos02",
+   "graphSlug": "Reductions/enhanced-trapdoor-permutation-to-uc-mpc-clos02",
+   "title": "Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)"
   },
   {
    "id": "red-enhanced-trapdoor-permutations-to-ot-gkm-00",
@@ -8112,6 +8481,30 @@
    "title": "Factoring with known factor structure ⇒ PRG"
   },
   {
+   "id": "red-fair-mpc-to-mpc",
+   "kind": "implication",
+   "hypotheses": [
+    "fair-mpc"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: a simulator for the fair ideal execution becomes one for the ideal execution with abort by emulating an early abort, using the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fair-mpc-to-mpc.md",
+   "slug": "fair-mpc-to-mpc",
+   "graphSlug": "Reductions/fair-mpc-to-mpc",
+   "title": "Fair MPC ⇒ MPC"
+  },
+  {
    "id": "red-fe-to-io",
    "kind": "implication",
    "hypotheses": [
@@ -8475,7 +8868,7 @@
     "garbled-circuits",
     "ot"
    ],
-   "conclusion": "two-party-computation",
+   "conclusion": "semi-honest-two-party-computation",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -8492,7 +8885,7 @@
    "page": "content/Reductions/gc-and-ot-to-two-party-computation-2pc.md",
    "slug": "gc-and-ot-to-two-party-computation-2pc",
    "graphSlug": "Reductions/gc-and-ot-to-two-party-computation-2pc",
-   "title": "GC + OT ⇒ Two-party computation (2PC)"
+   "title": "GC + OT ⇒ Semi-honest 2PC (Yao)"
   },
   {
    "id": "red-ggm-to-cdh-sho97",
@@ -9123,12 +9516,60 @@
    "title": "Highly lossy TDF ⇒ Lossy TDF"
   },
   {
-   "id": "red-honest-majority-t-lt-n-over-2-to-mpc-rb89",
+   "id": "red-honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3",
    "kind": "implication",
    "hypotheses": [
     "honest-majority-t-lt-n-over-2"
    ],
-   "conclusion": "mpc",
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: an adversary corrupting fewer than n/3 parties also corrupts fewer than n/2, so the same simulator applies."
+   },
+   "status": "draft",
+   "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3.md",
+   "slug": "honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3",
+   "graphSlug": "Reductions/honest-majority-t-lt-n-over-2-to-honest-majority-t-lt-n-over-3",
+   "title": "MPC with honest majority ($t < n/2$) ⇒ MPC with honest majority ($t < n/3$)"
+  },
+  {
+   "id": "red-honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2",
+   "kind": "implication",
+   "hypotheses": [
+    "honest-majority-t-lt-n-over-2"
+   ],
+   "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the simulator for guaranteed output delivery is a simulator for the ideal execution with abort that never aborts, and it uses the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2.md",
+   "slug": "honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2",
+   "graphSlug": "Reductions/honest-majority-t-lt-n-over-2-to-honest-majority-with-abort-t-lt-n-over-2",
+   "title": "MPC with honest majority ($t < n/2$) ⇒ MPC with abort and honest majority ($t < n/2$)"
+  },
+  {
+   "id": "red-honest-majority-t-lt-n-over-2-to-mpc-rb89",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-2",
    "class": "free",
    "model": "standard",
    "source": [
@@ -9138,21 +9579,21 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The theorem is unconditional, and the corruption threshold is a setting rather than a primitive a construction could call as an oracle, so no black-box class applies."
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model with broadcast, so there is no hardness assumption for a black-box reduction to break."
    },
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89.md",
    "slug": "honest-majority-t-lt-n-over-2-to-mpc-rb89",
    "graphSlug": "Reductions/honest-majority-t-lt-n-over-2-to-mpc-rb89",
-   "title": "Honest majority ($t < n/2$) ⇒ MPC"
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)"
   },
   {
    "id": "red-honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
    "kind": "implication",
    "hypotheses": [
-    "honest-majority-t-lt-n-over-3"
+    "secure-channels"
    ],
-   "conclusion": "mpc",
+   "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
    "source": [
@@ -9162,13 +9603,13 @@
    "heuristic": false,
    "securityLoss": "none (perfect security)",
    "rationale": {
-    "class": "The theorem is unconditional and its hypothesis is a corruption threshold, not a primitive a construction could use as an oracle, so no black-box class applies."
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
    },
    "status": "draft",
    "page": "content/Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88.md",
    "slug": "honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
    "graphSlug": "Reductions/honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88",
-   "title": "Honest majority ($t < n/3$) ⇒ MPC"
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)"
   },
   {
    "id": "red-honest-verifier-szk-to-szk-gsv98",
@@ -9263,6 +9704,31 @@
    "slug": "id-and-rom-to-ds",
    "graphSlug": "Reductions/id-and-rom-to-ds",
    "title": "ID ⇒ DS"
+  },
+  {
+   "id": "red-ideal-ot-and-prg-to-uc-mpc-ips08",
+   "kind": "implication",
+   "hypotheses": [
+    "ideal-ot",
+    "prg"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "IPS08 prove UC security in the OT-hybrid model, a composition statement the RTV04 classes do not capture, although the protocol calls the PRG only as a black box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ideal-ot-and-prg-to-uc-mpc-ips08.md",
+   "slug": "ideal-ot-and-prg-to-uc-mpc-ips08",
+   "graphSlug": "Reductions/ideal-ot-and-prg-to-uc-mpc-ips08",
+   "title": "Ideal OT + PRG ⇒ UC MPC (IPS)"
   },
   {
    "id": "red-ideal-svp-to-ring-lwe-lpr10",
@@ -10512,7 +10978,7 @@
    "hypotheses": [
     "polynomial-ratio-lwe"
    ],
-   "conclusion": "uc-ot",
+   "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -10529,7 +10995,7 @@
    "page": "content/Reductions/lwe-to-malicious-ot-security-pvw08.md",
    "slug": "lwe-to-malicious-ot-security-pvw08",
    "graphSlug": "Reductions/lwe-to-malicious-ot-security-pvw08",
-   "title": "LWE ⇒ UC-secure OT (PVW)"
+   "title": "LWE ⇒ Two-round UC-secure OT (PVW)"
   },
   {
    "id": "red-lwe-to-nizk-ps19",
@@ -10711,6 +11177,30 @@
    "slug": "mac-and-ske-to-cca-security",
    "graphSlug": "Reductions/mac-and-ske-to-cca-security",
    "title": "SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE"
+  },
+  {
+   "id": "red-malicious-ot-security-to-two-party-computation-lp07",
+   "kind": "implication",
+   "hypotheses": [
+    "malicious-ot-security"
+   ],
+   "conclusion": "two-party-computation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "statistical error at most $2^{-s/17}$ for $s$ garbled circuits, plus the advantages against the OT and against the garbling's encryption",
+   "rationale": {
+    "class": "LP07 describe the protocol as a black-box reduction to OT: it uses the OT and the garbling's encryption only through their interfaces, with a simulator and reductions that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/malicious-ot-security-to-two-party-computation-lp07.md",
+   "slug": "malicious-ot-security-to-two-party-computation-lp07",
+   "graphSlug": "Reductions/malicious-ot-security-to-two-party-computation-lp07",
+   "title": "Malicious OT ⇒ 2PC by cut-and-choose (Lindell–Pinkas)"
   },
   {
    "id": "red-mip-to-nexp-bfl90",
@@ -10930,6 +11420,78 @@
    "slug": "module-svp-to-module-sis-ls15",
    "graphSlug": "Reductions/module-svp-to-module-sis-ls15",
    "title": "Module-SIVP ⇒ Module-SIS"
+  },
+  {
+   "id": "red-mpc-to-honest-majority-with-abort-t-lt-n-over-2",
+   "kind": "implication",
+   "hypotheses": [
+    "mpc"
+   ],
+   "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the simulator for n - 1 corruptions with unanimous abort serves every corrupted set of size below n/2, using the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mpc-to-honest-majority-with-abort-t-lt-n-over-2.md",
+   "slug": "mpc-to-honest-majority-with-abort-t-lt-n-over-2",
+   "graphSlug": "Reductions/mpc-to-honest-majority-with-abort-t-lt-n-over-2",
+   "title": "MPC ⇒ MPC with abort and honest majority ($t < n/2$)"
+  },
+  {
+   "id": "red-mpc-to-two-party-computation",
+   "kind": "implication",
+   "hypotheses": [
+    "mpc"
+   ],
+   "conclusion": "two-party-computation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the two-party protocols are the members of the family with n = 2, and their simulators are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mpc-to-two-party-computation.md",
+   "slug": "mpc-to-two-party-computation",
+   "graphSlug": "Reductions/mpc-to-two-party-computation",
+   "title": "MPC ⇒ 2PC"
+  },
+  {
+   "id": "red-mpc-with-preprocessing-to-mpc",
+   "kind": "implication",
+   "hypotheses": [
+    "mpc-with-preprocessing"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the two-phase protocol is a protocol secure with abort, and its simulator is unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/mpc-with-preprocessing-to-mpc.md",
+   "slug": "mpc-with-preprocessing-to-mpc",
+   "graphSlug": "Reductions/mpc-with-preprocessing-to-mpc",
+   "title": "MPC with preprocessing ⇒ MPC"
   },
   {
    "id": "red-multilinear-maps-to-witness-encryption-ggsw13",
@@ -11587,28 +12149,25 @@
    "id": "red-ot-to-mpc-kil88",
    "kind": "implication",
    "hypotheses": [
-    "uc-ot"
+    "ideal-ot"
    ],
-   "conclusion": "mpc",
-   "class": "fully-black-box",
-   "model": "crs",
+   "conclusion": "two-party-computation",
+   "class": "free",
+   "model": "standard",
    "source": [
-    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
-    "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]",
-    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
+    "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
    "via": [],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "Kil88 and IPS08 use OT only as an ideal functionality, and by the UC composition theorem a UC-secure OT protocol replaces it, with the reduction using the adversary only as an oracle.",
-    "model": "UC-secure OT needs a common reference string, so the instantiated protocol runs in that model."
+    "class": "The theorem is unconditional: the protocol is statistically secure given ideal OT calls, so there is no hardness assumption for a black-box reduction to break."
    },
    "status": "draft",
    "page": "content/Reductions/ot-to-mpc-kil88.md",
    "slug": "ot-to-mpc-kil88",
    "graphSlug": "Reductions/ot-to-mpc-kil88",
-   "title": "UC-secure OT ⇒ MPC"
+   "title": "Ideal OT ⇒ 2PC (Kilian)"
   },
   {
    "id": "red-ot-to-oihf-bh26",
@@ -11676,6 +12235,31 @@
    "slug": "ot-to-ot-extension-iknp03",
    "graphSlug": "Reductions/ot-to-ot-extension-iknp03",
    "title": "OT ⇒ OT extension (IKNP)"
+  },
+  {
+   "id": "red-ot-to-semi-honest-security-gmw87",
+   "kind": "implication",
+   "hypotheses": [
+    "ot"
+   ],
+   "conclusion": "semi-honest-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GMW87 - How to play ANY mental game|GMW87]]",
+    "[[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a hybrid over the OT invocations, $n(n-1)$ per AND gate; in the OT-hybrid model the protocol is perfectly secure",
+   "rationale": {
+    "class": "The protocol calls the OT protocol only through its next-message functions, and the hybrid reduction turns any view distinguisher, used as an oracle, into a distinguisher for an OT privacy game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ot-to-semi-honest-security-gmw87.md",
+   "slug": "ot-to-semi-honest-security-gmw87",
+   "graphSlug": "Reductions/ot-to-semi-honest-security-gmw87",
+   "title": "Semi-honest OT ⇒ Semi-honest MPC (GMW)"
   },
   {
    "id": "red-owf-to-distributional-owf",
@@ -12676,6 +13260,30 @@
    "title": "PRC ⇒ SKE"
   },
   {
+   "id": "red-prf-to-garbled-circuits-bhr12",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "garbled-circuits",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BHR12 - Foundations of Garbled Circuits|BHR12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme calls the PRF only as an oracle, through a dual-key cipher, and the privacy reduction runs any adversary as an oracle to distinguish the PRF from a random function."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-garbled-circuits-bhr12.md",
+   "slug": "prf-to-garbled-circuits-bhr12",
+   "graphSlug": "Reductions/prf-to-garbled-circuits-bhr12",
+   "title": "PRF ⇒ Garbled circuits (BHR)"
+  },
+  {
    "id": "red-prf-to-invertible-prf-hppy25",
    "kind": "implication",
    "hypotheses": [
@@ -13336,7 +13944,7 @@
    "hypotheses": [
     "qr"
    ],
-   "conclusion": "uc-ot",
+   "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
    "source": [
@@ -13352,7 +13960,7 @@
    "page": "content/Reductions/qr-to-malicious-ot-security-pvw08.md",
    "slug": "qr-to-malicious-ot-security-pvw08",
    "graphSlug": "Reductions/qr-to-malicious-ot-security-pvw08",
-   "title": "QR ⇒ UC-secure OT (PVW)"
+   "title": "QR ⇒ Two-round UC-secure OT (PVW)"
   },
   {
    "id": "red-qr-to-np",
@@ -13971,6 +14579,126 @@
    "title": "Search LWE ⇒ Decision LWE"
   },
   {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BH08 - Perfectly-Secure MPC with Linear Communication Complexity|BH08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-bh08",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-ccd88",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) (Chaum–Crépeau–Damgård)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-t-lt-n-over-3",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CDM00 - General Secure Multi-party Computation from any Linear Secret-Sharing Scheme|CDM00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00.md",
+   "slug": "secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-t-lt-n-over-3-cdm00",
+   "title": "Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)"
+  },
+  {
+   "id": "red-secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[CGH+18 - Fast Large-Scale Honest-Majority MPC for Malicious Adversaries|CGH+18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18.md",
+   "slug": "secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "graphSlug": "Reductions/secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18",
+   "title": "Secure channels ⇒ MPC with abort and honest majority ($t < n/2$) (CGH+18)"
+  },
+  {
+   "id": "red-secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-channels"
+   ],
+   "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none (perfect security)",
+   "rationale": {
+    "class": "The theorem is unconditional and information-theoretic in the secure-channels model, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88.md",
+   "slug": "secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "graphSlug": "Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
+   "title": "Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)"
+  },
+  {
    "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",
    "kind": "implication",
    "hypotheses": [
@@ -13994,6 +14722,54 @@
    "slug": "semi-honest-security-and-owf-to-mpc-gmw87",
    "graphSlug": "Reductions/semi-honest-security-and-owf-to-mpc-gmw87",
    "title": "Semi-honest MPC + OWF ⇒ MPC (GMW compiler)"
+  },
+  {
+   "id": "red-semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-security"
+   ],
+   "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: an adversary corrupting fewer than n/2 parties also corrupts at most n - 1, so the same simulator applies."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2.md",
+   "slug": "semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2",
+   "graphSlug": "Reductions/semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2",
+   "title": "Semi-honest MPC ⇒ Semi-honest MPC with honest majority"
+  },
+  {
+   "id": "red-semi-honest-security-to-semi-honest-two-party-computation",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-security"
+   ],
+   "conclusion": "semi-honest-two-party-computation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the two-party protocols are the members of the family with n = 2, and their simulators are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-security-to-semi-honest-two-party-computation.md",
+   "slug": "semi-honest-security-to-semi-honest-two-party-computation",
+   "graphSlug": "Reductions/semi-honest-security-to-semi-honest-two-party-computation",
+   "title": "Semi-honest MPC ⇒ Semi-honest 2PC"
   },
   {
    "id": "red-sidh-to-ke-jdf11",
@@ -14871,6 +15647,32 @@
    "title": "Sub-exponential LWE ⇒ PPAD hardness"
   },
   {
+   "id": "red-subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16",
+   "kind": "implication",
+   "hypotheses": [
+    "subexponential-modulus-lwe",
+    "nizk-argument-for-np"
+   ],
+   "conclusion": "two-round-mpc",
+   "class": "free",
+   "model": "crs",
+   "source": [
+    "[[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The malicious protocol attaches NIZK proofs that each message is computed by the semi-honest protocol's algorithms, NP statements about their code.",
+    "model": "The multi-key FHE scheme's public matrix is a common random string shared by all parties."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16.md",
+   "slug": "subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16",
+   "graphSlug": "Reductions/subexponential-modulus-lwe-and-nizk-argument-for-np-to-two-round-mpc-mw16",
+   "title": "LWE + NIZK ⇒ Two-round MPC in the CRS model (Mukherjee–Wichs)"
+  },
+  {
    "id": "red-subexponential-modulus-lwe-and-polynomial-ratio-lwe-to-bootstrappable-somewhat-homomorphic-encryption-bv11",
    "kind": "implication",
    "hypotheses": [
@@ -15549,10 +16351,34 @@
    "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
   },
   {
-   "id": "red-two-party-computation-to-ot",
+   "id": "red-two-party-computation-to-malicious-ot-security",
    "kind": "implication",
    "hypotheses": [
     "two-party-computation"
+   ],
+   "conclusion": "malicious-ot-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OT protocol is the general protocol run on the OT functionality with a default sender input after an abort, and its simulators are those of the general protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-malicious-ot-security.md",
+   "slug": "two-party-computation-to-malicious-ot-security",
+   "graphSlug": "Reductions/two-party-computation-to-malicious-ot-security",
+   "title": "2PC ⇒ Malicious OT"
+  },
+  {
+   "id": "red-two-party-computation-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-two-party-computation"
    ],
    "conclusion": "ot",
    "class": "fully-black-box",
@@ -15570,7 +16396,225 @@
    "page": "content/Reductions/two-party-computation-to-ot.md",
    "slug": "two-party-computation-to-ot",
    "graphSlug": "Reductions/two-party-computation-to-ot",
-   "title": "2PC ⇒ OT"
+   "title": "Semi-honest 2PC ⇒ OT"
+  },
+  {
+   "id": "red-two-round-mpc-to-mpc",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-mpc"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the two-round protocol is a protocol secure with abort, and its simulator is unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-mpc-to-mpc.md",
+   "slug": "two-round-mpc-to-mpc",
+   "graphSlug": "Reductions/two-round-mpc-to-mpc",
+   "title": "Two-round MPC ⇒ MPC"
+  },
+  {
+   "id": "red-two-round-ot-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-ot"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the protocol and its privacy games are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-ot-to-ot.md",
+   "slug": "two-round-ot-to-ot",
+   "graphSlug": "Reductions/two-round-ot-to-ot",
+   "title": "Two-round OT ⇒ OT"
+  },
+  {
+   "id": "red-two-round-ot-to-two-round-semi-honest-mpc-gs18",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-ot"
+   ],
+   "conclusion": "two-round-semi-honest-mpc",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]]",
+    "[[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The protocol garbles circuits that compute the OT protocol's next-message functions, so it uses the OT protocol's code, and ABG+20 show that black-box use of two-round OT cannot suffice."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-ot-to-two-round-semi-honest-mpc-gs18.md",
+   "slug": "two-round-ot-to-two-round-semi-honest-mpc-gs18",
+   "graphSlug": "Reductions/two-round-ot-to-two-round-semi-honest-mpc-gs18",
+   "title": "Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)"
+  },
+  {
+   "id": "red-two-round-semi-honest-mpc-to-semi-honest-security",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-semi-honest-mpc"
+   ],
+   "conclusion": "semi-honest-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the two-round protocol is a semi-honest secure protocol, and its simulator is unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-semi-honest-mpc-to-semi-honest-security.md",
+   "slug": "two-round-semi-honest-mpc-to-semi-honest-security",
+   "graphSlug": "Reductions/two-round-semi-honest-mpc-to-semi-honest-security",
+   "title": "Two-round semi-honest MPC ⇒ Semi-honest MPC"
+  },
+  {
+   "id": "red-two-round-semi-honest-mpc-to-two-round-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-semi-honest-mpc"
+   ],
+   "conclusion": "two-round-ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OT protocol is the general protocol run on the OT functionality with its messages regrouped, and each party's view is a function of its view in that protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-semi-honest-mpc-to-two-round-ot.md",
+   "slug": "two-round-semi-honest-mpc-to-two-round-ot",
+   "graphSlug": "Reductions/two-round-semi-honest-mpc-to-two-round-ot",
+   "title": "Two-round semi-honest MPC ⇒ Two-round OT"
+  },
+  {
+   "id": "red-two-round-uc-ot-to-two-round-mpc-gs18",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-uc-ot"
+   ],
+   "conclusion": "two-round-mpc",
+   "class": "free",
+   "model": "crs",
+   "source": [
+    "[[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The protocol garbles circuits that compute the OT protocol's next-message functions, so it uses the OT protocol's code.",
+    "model": "Both the OT protocol and the MPC protocol use a common reference string."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-uc-ot-to-two-round-mpc-gs18.md",
+   "slug": "two-round-uc-ot-to-two-round-mpc-gs18",
+   "graphSlug": "Reductions/two-round-uc-ot-to-two-round-mpc-gs18",
+   "title": "Two-round UC OT ⇒ Two-round MPC in the CRS model (Garg–Srinivasan)"
+  },
+  {
+   "id": "red-two-round-uc-ot-to-two-round-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-uc-ot"
+   ],
+   "conclusion": "two-round-ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map, and each privacy distinguisher becomes an environment distinguishing the real from the ideal execution, used as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-uc-ot-to-two-round-ot.md",
+   "slug": "two-round-uc-ot-to-two-round-ot",
+   "graphSlug": "Reductions/two-round-uc-ot-to-two-round-ot",
+   "title": "Two-round UC-secure OT ⇒ Two-round OT"
+  },
+  {
+   "id": "red-two-round-uc-ot-to-uc-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "two-round-uc-ot"
+   ],
+   "conclusion": "uc-ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map: the protocol and its UC simulator are unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-round-uc-ot-to-uc-ot.md",
+   "slug": "two-round-uc-ot-to-uc-ot",
+   "graphSlug": "Reductions/two-round-uc-ot-to-uc-ot",
+   "title": "Two-round UC-secure OT ⇒ UC-secure OT"
+  },
+  {
+   "id": "red-uc-mpc-to-mpc",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-mpc"
+   ],
+   "conclusion": "mpc",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the UC protocol unchanged and adds one broadcast round, and a stand-alone adversary is a UC adversary whose environment only supplies inputs and reads outputs, so the UC simulator is used as a black box."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-mpc-to-mpc.md",
+   "slug": "uc-mpc-to-mpc",
+   "graphSlug": "Reductions/uc-mpc-to-mpc",
+   "title": "UC MPC ⇒ MPC"
   },
   {
    "id": "red-uc-ot-to-malicious-ot-security",
@@ -15595,6 +16639,30 @@
    "slug": "uc-ot-to-malicious-ot-security",
    "graphSlug": "Reductions/uc-ot-to-malicious-ot-security",
    "title": "UC-secure OT ⇒ Malicious OT"
+  },
+  {
+   "id": "red-uc-ot-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "uc-ot"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "Identity map, and each privacy distinguisher becomes an environment distinguishing the real from the ideal execution, used as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/uc-ot-to-ot.md",
+   "slug": "uc-ot-to-ot",
+   "graphSlug": "Reductions/uc-ot-to-ot",
+   "title": "UC-secure OT ⇒ OT"
   },
   {
    "id": "red-unkeyed-depir-to-depir",
@@ -15867,6 +16935,130 @@
    "slug": "no-am-to-pp-ver92",
    "graphSlug": "Barriers/no-am-to-pp-ver92",
    "title": "No relativizing reduction from AM to PP"
+  },
+  {
+   "id": "bar-authenticated-channels-to-byzantine-broadcast-flm85",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "byzantine-broadcast",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-ds-to-byzantine-broadcast-ds83"
+   ],
+   "source": [
+    "[[PSL80 - Reaching Agreement in the Presence of Faults|PSL80]]",
+    "[[LSP82 - The Byzantine Generals Problem|LSP82]]",
+    "[[FLM85 - Easy Impossibility Proofs for Distributed Consensus Problems|FLM85]]"
+   ],
+   "rationale": {
+    "class": "The scenario adversary defeats every broadcast protocol over authenticated channels without setup for t ≥ n/3, whatever its proof or assumptions, so every reduction is ruled out."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-authenticated-channels-to-byzantine-broadcast-flm85.md",
+   "slug": "no-authenticated-channels-to-byzantine-broadcast-flm85",
+   "graphSlug": "Barriers/no-authenticated-channels-to-byzantine-broadcast-flm85",
+   "title": "No reduction from authenticated channels to Byzantine broadcast"
+  },
+  {
+   "id": "bar-authenticated-channels-to-fair-coin-flipping-cle86",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "fair-coin-flipping",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]"
+   ],
+   "rationale": {
+    "class": "Cleve's fail-stop adversary breaks every coin-flipping protocol over authenticated channels whatever its assumptions or proof, so every reduction is ruled out."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-authenticated-channels-to-fair-coin-flipping-cle86.md",
+   "slug": "no-authenticated-channels-to-fair-coin-flipping-cle86",
+   "graphSlug": "Barriers/no-authenticated-channels-to-fair-coin-flipping-cle86",
+   "title": "No reduction from authenticated channels to fair coin flipping"
+  },
+  {
+   "id": "bar-authenticated-channels-to-fair-mpc-cle86",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "fair-mpc",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]"
+   ],
+   "rationale": {
+    "class": "Cleve's fail-stop attack on the coin flip that a fair XOR protocol induces works whatever the protocol's assumptions or proof, so every reduction is ruled out."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-authenticated-channels-to-fair-mpc-cle86.md",
+   "slug": "no-authenticated-channels-to-fair-mpc-cle86",
+   "graphSlug": "Barriers/no-authenticated-channels-to-fair-mpc-cle86",
+   "title": "No reduction from authenticated channels to fair MPC"
+  },
+  {
+   "id": "bar-authenticated-channels-to-uc-mpc-ckl03",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "uc-mpc",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-enhanced-trapdoor-permutation-to-uc-mpc-clos02",
+    "red-ideal-ot-and-prg-to-uc-mpc-ips08",
+    "red-correlated-randomness-to-uc-mpc-bdoz11"
+   ],
+   "source": [
+    "[[CKL03 - On the Limitations of Universally Composable Two-Party Computation without Set-up Assumptions|CKL03]]"
+   ],
+   "rationale": {
+    "class": "CKL03's impossibility holds for every plain-model protocol whatever its assumptions, so it rules out the implication itself: the free class, scoped to the plain model."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-authenticated-channels-to-uc-mpc-ckl03.md",
+   "slug": "no-authenticated-channels-to-uc-mpc-ckl03",
+   "graphSlug": "Barriers/no-authenticated-channels-to-uc-mpc-ckl03",
+   "title": "No reduction from authenticated channels to UC MPC"
   },
   {
    "id": "bar-bqp-to-np",
@@ -17346,6 +18538,37 @@
    "slug": "no-tdp-to-ot",
    "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No fully-black-box reduction from TDP to enhanced TDP"
+  },
+  {
+   "id": "bar-two-round-ot-to-two-round-semi-honest-mpc-abg-20",
+   "hypotheses": [
+    "two-round-ot"
+   ],
+   "conclusion": "two-round-semi-honest-mpc",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-two-round-ot-to-two-round-semi-honest-mpc-gs18"
+   ],
+   "source": [
+    "[[ABG+20 - Separating Two-Round Secure Computation From Oblivious Transfer|ABG+20]]"
+   ],
+   "rationale": {
+    "class": "ABG+20 construct oracles relative to which two-round OT exists but no two-round semi-honest protocol securely computes their target functionality, which rules out constructions that use the OT only as a black box with proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-two-round-ot-to-two-round-semi-honest-mpc-abg-20.md",
+   "slug": "no-two-round-ot-to-two-round-semi-honest-mpc-abg-20",
+   "graphSlug": "Barriers/no-two-round-ot-to-two-round-semi-honest-mpc-abg-20",
+   "title": "No fully-black-box reduction from two-round OT to two-round semi-honest MPC"
   },
   {
    "id": "bar-zkp-to-argument-systems",

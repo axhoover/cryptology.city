@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-The preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be instantiated from [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]]: SPDZ generates authenticated Beaver multiplication triples by depth-1 homomorphic evaluation under a shared SHE key with distributed decryption, giving a protocol secure against an active adversary corrupting up to $n-1$ of the $n$ parties, whose online phase is unconditionally secure — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
+The preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]] can be instantiated from [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]]: SPDZ generates authenticated Beaver multiplication triples by depth-1 homomorphic evaluation under a shared SHE key with distributed decryption, giving a protocol secure against an active adversary corrupting up to $n-1$ of the $n$ parties, whose online phase is unconditionally secure — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
 
 ## Sketch
 

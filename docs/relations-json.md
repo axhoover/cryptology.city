@@ -280,7 +280,13 @@ use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
 circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.
 `cdh  [generic-group]`; `--redundant` counts another chain only when it needs
-no idealised model beyond the edge's own. A consumer computing its own closure
+no idealised model beyond the edge's own. An ideal resource in the hypotheses —
+`ideal-ot` (the OT-hybrid model) or `correlated-randomness` (a trusted dealer)
+— scopes the conclusion to that hybrid model, and a hybrid-scoped object feeds
+only edges that assume the same resource: Kil88's
+`{ideal-ot} => two-party-computation` gives `two-party-computation [ideal-ot]`,
+which does not feed 2PC ⇒ malicious OT, since that would turn the ideal OT
+functionality into an OT protocol. A consumer computing its own closure
 should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 

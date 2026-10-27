@@ -93,6 +93,24 @@ test("scopes of several hypotheses are joined", () => {
   assert.ok(!r.derived.has("w"));
 });
 
+test("a hybrid-model result stays in its hybrid model", () => {
+  const reds = [
+    red("kil88", ["ideal-ot"], "2pc", { class: "free" }),
+    red("2pc-to-mot", ["2pc"], "mot"),
+    red("in-hybrid", ["ideal-ot", "2pc"], "z"),
+    red("dealer", ["correlated-randomness"], "uc"),
+    red("uc-to-mpc", ["uc"], "mpc"),
+  ];
+  const r = run(reds, ["ideal-ot", "correlated-randomness"]);
+  assert.deepEqual(scopesOf(r, "2pc"), ["ideal-ot"]);
+  assert.ok(!r.derived.has("mot"), "ideal OT must not give an OT protocol");
+  assert.deepEqual(scopesOf(r, "z"), ["ideal-ot"]);
+  assert.deepEqual(scopesOf(r, "uc"), ["correlated-randomness"]);
+  assert.ok(!r.derived.has("mpc"));
+  const plain = run(reds, ["2pc"]);
+  assert.deepEqual(scopesOf(plain, "mot"), [""]);
+});
+
 test("equivalences run both ways and heuristic edges never fire", () => {
   const reds = [
     red("e", ["a"], "b", { kind: "equivalence" }),
@@ -154,4 +172,13 @@ test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-r
     scopesOf(live(["rsa"]), "fac").includes(""),
     "RSA => FAC stays unscoped",
   );
+});
+
+test("Kil88 and the preprocessing online phase stay in their hybrid models", () => {
+  const ot = live(["ideal-ot"]);
+  assert.deepEqual(scopesOf(ot, "two-party-computation"), ["ideal-ot"]);
+  assert.ok(!ot.derived.has("malicious-ot-security"));
+  const cr = live(["correlated-randomness"]);
+  for (const x of ["malicious-ot-security", "ot", "owf"])
+    assert.ok(!cr.derived.has(x), `correlated randomness must not give ${x}`);
 });

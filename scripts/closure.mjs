@@ -22,6 +22,15 @@
 // An object can be derived with several scopes; only the minimal ones are
 // kept, since a smaller scope licenses everything a larger one does.
 //
+// An ideal resource given as a hypothesis — the OT functionality, a trusted
+// dealer of correlated randomness — puts the conclusion in that hybrid model:
+// Kil88's `{ideal-ot} => two-party-computation` gives 2PC in the OT-hybrid
+// model, not a protocol over plain channels. The conclusion carries the
+// resource as a scope, and an object so scoped is consumed only by an edge
+// that itself assumes the same resource, so a hybrid-model result is never
+// composed into a plain-model one (2PC => malicious OT would otherwise turn the
+// ideal OT functionality into an OT protocol).
+//
 // `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
 // both directions. A `heuristic` edge is a candidate construction with no
 // security reduction, not a theorem, so it never fires.
@@ -32,7 +41,34 @@
 // DLO24's generic ring model with preprocessing) as itself, so an unknown model
 // fails closed rather than passing as standard.
 export const UNSCOPED_MODELS = ["standard", "crs", "quantum"];
-export const SCOPED_MODELS = ["generic-group", "rom", "algebraic-group"];
+export const SCOPED_MODELS = [
+  "generic-group",
+  "rom",
+  "algebraic-group",
+  "ideal-ot",
+  "correlated-randomness",
+];
+
+// Ideal resources that scope a conclusion to their hybrid model.
+export const HYBRID_RESOURCES = ["ideal-ot", "correlated-randomness"];
+const HYBRID = HYBRID_RESOURCES.reduce(
+  (a, h) => a | (1 << SCOPED_MODELS.indexOf(h)),
+  0,
+);
+/** The hybrid-resource scope bits of a hypothesis list. */
+const hybridBits = (hypotheses) =>
+  hypotheses.reduce(
+    (a, h) =>
+      HYBRID_RESOURCES.includes(h) ? a | (1 << SCOPED_MODELS.indexOf(h)) : a,
+    0,
+  );
+
+/**
+ * The scope bits an edge adds to its conclusion: its model's bit, plus the
+ * bit of each ideal resource among its hypotheses.
+ */
+export const edgeScope = (r) =>
+  modelBit(r.model) | hybridBits(r.hypotheses ?? []);
 
 /** The scope bit of a model; a model first met here is appended. */
 export const modelBit = (model) => {
@@ -50,7 +86,11 @@ export function buildRules(reductions) {
   const rules = [];
   for (const r of reductions) {
     if (!r.conclusion || !r.hypotheses?.length || r.heuristic) continue;
-    const base = { model: modelBit(r.model), cls: r.class ?? "unstated" };
+    const base = {
+      model: edgeScope(r),
+      cls: r.class ?? "unstated",
+      hybrid: hybridBits(r.hypotheses),
+    };
     rules.push({ id: r.id, body: r.hypotheses, head: r.conclusion, ...base });
     if (r.kind === "equivalence")
       rules.push({
@@ -113,6 +153,8 @@ export function closure(reductions, seed, { exclude, relativizes } = {}) {
       for (const masks of combos) {
         const hyp = masks.reduce((a, m) => a | m, 0);
         if (hyp && !(relativizes ?? (() => false))(rule.cls)) continue;
+        // A hybrid-model object stays in its hybrid model.
+        if (hyp & HYBRID & ~rule.hybrid) continue;
         used.add(rule.id.replace(/~$/, ""));
         const bodyMasks = Object.fromEntries(body.map((b, k) => [b, masks[k]]));
         add(rule.head, hyp | rule.model, { rule, bodyMasks });

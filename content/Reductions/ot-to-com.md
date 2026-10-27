@@ -28,4 +28,4 @@ To commit to $b$, the committer sends uniform bits $r_1, \dots, r_n$ by [[oblivi
 
 ## Notes
 
-- The commitment is the first step of Kilian's proof that OT is complete for secure computation ([[ot-to-mpc-kil88|OT ⇒ MPC]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]].
+- The commitment is the first step of Kilian's proof that OT is complete for secure computation ([[ot-to-mpc-kil88|ideal OT ⇒ 2PC]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]].

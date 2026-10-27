@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: LWE ⇒ UC-secure OT (PVW)
+title: LWE ⇒ Two-round UC-secure OT (PVW)
 aliases: []
 id: red-lwe-to-malicious-ot-security-pvw08
 kind: implication
 hypotheses: [polynomial-ratio-lwe]
-conclusion: uc-ot
+conclusion: two-round-uc-ot
 class: unstated
 model: crs
 source:
@@ -17,11 +17,11 @@ rationale:
   security-loss: "PVW08 simulate the party a mode protects with that mode's trapdoor and the other party by generating the reference string in the opposite mode, a single switch for the one string all transfers share."
 ---
 
-# LWE ⇒ UC-secure OT (PVW)
+# LWE ⇒ Two-round UC-secure OT (PVW)
 
 ## Statement
 
-If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
+If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard with polynomial modulus-to-noise ratio]], there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#two-round-uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
 
 ## Sketch
 

@@ -37,7 +37,7 @@ import {
   closure as closureOf,
   derivation,
   scopeNames,
-  modelBit,
+  edgeScope,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -204,7 +204,9 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // Forward chaining with model provenance lives in scripts/closure.mjs, which
 // the tests share. An edge whose class relativizes (fully-black-box or
 // relativizing) may consume an object scoped to an idealised model; any other
-// edge may use its hypothesis' code and fires only on unscoped objects.
+// edge may use its hypothesis' code and fires only on unscoped objects. A result
+// proved from an ideal resource (ideal OT, correlated randomness) stays in that
+// hybrid model.
 const { classes: CLASS_DEFS } = loadClasses(ROOT);
 const relativizes = (cls) =>
   cls === "relativizing" ||
@@ -224,7 +226,7 @@ function redundant() {
     const result = closure(r.hypotheses, { exclude: r.id });
     // Another chain counts only if it needs no idealised model beyond this
     // edge's own.
-    const own = modelBit(r.model);
+    const own = edgeScope(r);
     const m = (result.scopes.get(r.conclusion) ?? []).find(
       (x) => (x & own) === x,
     );

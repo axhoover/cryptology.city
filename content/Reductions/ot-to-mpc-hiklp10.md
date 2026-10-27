@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If a semi-honest secure [[oblivious-transfer|OT]] protocol exists, every functionality has a stand-alone [[secure-multi-party-computation|MPC]] protocol secure with abort against a malicious adversary corrupting any number of parties, which uses the OT protocol only as a black box — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]]. The protocol combines a fully black-box compiler from semi-honest to [[oblivious-transfer#malicious-security|malicious]] OT with protocols in the OT-hybrid model — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]].
+If a semi-honest secure [[oblivious-transfer|OT]] protocol exists, every functionality has a stand-alone [[secure-multi-party-computation#security-with-abort|MPC]] protocol secure with abort against a malicious adversary corrupting any number of parties, which uses the OT protocol only as a black box — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]]. The protocol combines a fully black-box compiler from semi-honest to [[oblivious-transfer#malicious-security|malicious]] OT with protocols in the OT-hybrid model — [[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]].
 
 ## Notes
 
