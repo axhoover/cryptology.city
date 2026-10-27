@@ -135,6 +135,12 @@ const UPSTREAM_ERRORS: {
     cryptobib: "One-Way Fuctions are Essential for Non-Trivial Zero-Knowledge",
     why: "cryptobib misspells Functions",
   },
+  {
+    key: "STOC:Ajtai10",
+    field: "title",
+    cryptobib: "Oblivious {RAMs} without cryptogrpahic assumptions",
+    why: "cryptobib misspells cryptographic",
+  },
 ];
 
 function isUpstreamError(key: string, d: Drift): boolean {

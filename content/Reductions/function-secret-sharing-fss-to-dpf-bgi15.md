@@ -24,4 +24,4 @@ A [[distributed-point-function|DPF]] is two-party [[distributed-point-function#f
 
 ## Sketch
 
-Run the FSS key generation on $f_{\alpha,\beta}$. Correctness (the shares sum to $f_{\alpha,\beta}(x)$) and hiding are the FSS properties restricted to point functions.
+Run the FSS key generation on $f_{\alpha,\beta}$. Correctness (the shares sum to $f_{\alpha,\beta}(x)$) and hiding are the FSS properties restricted to point functions, and since a point function has a description of $O(\log N + \log |\GG|)$ bits, FSS keys of length $p(\secpar, |\hat f|)$ are DPF keys of length polynomial in $\secpar$, $\log N$ and $\log |\GG|$.

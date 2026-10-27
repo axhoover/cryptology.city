@@ -12,6 +12,7 @@ variants:
   unkeyed-depir: "#unkeyed-depir"
   sk-depir: "#secret-key-depir"
   pk-depir: "#public-key-depir"
+  passive-sk-depir: "#passive-server-sk-depir"
 ---
 
 # Doubly-efficient PIR
@@ -82,25 +83,31 @@ $$
 
 is negligible.
 
+#### Passive-server SK-DEPIR
+
+An SK-DEPIR scheme in the syntax above, one query and one response (two rounds in the count of LMW25), has a **passive server** if every query $q$ is a list of positions in $EDB$ and $\mathsf{Rsp}(q, EDB)$ returns the entries of $EDB$ at those positions — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]].
+
 # Variations
 
 ## Multi-server DEPIR
 
-TODO
+In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, besides $D$, polynomially many bits precomputed from it. When the servers hold only the database, linear server computation cannot be avoided; with preprocessing there are, for every constant $k \ge 2$, information-theoretic $k$-server schemes with $O(n^{1/(2k-1)})$ communication and $O(n/\log^{2k-2} n)$ server work, and, for every constant $\varepsilon > 0$, schemes with $O(n^{1/k+\varepsilon})$ communication and server work — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]]. See [[multi-server-private-information-retrieval#doubly-efficient-multi-server-pir|doubly-efficient multi-server PIR]].
 
 # Other results
 
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]
-- Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct SK-DEPIR in a black-box way — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
+- Many cryptographic primitives cannot be used to construct SK-DEPIR in a black-box way, unless [[hash-function|OWF]] can be used to construct SK-DEPIR in a black-box way, and black-box one-way functions give no [[doubly-efficient-pir#passive-server-sk-depir|passive-server SK-DEPIR]] ([[no-owf-to-passive-sk-depir-lmw25|No fully-black-box reduction from OWF to passive-server SK-DEPIR]]) — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]
+- For single-server computationally private PIR with public preprocessing, whose $r$-bit hint is available to everyone including the adversary, and expected query time $t$, $t \cdot r = \Omega(n \log n)$ when $r = \Omega(\log n)$ and $t = \Omega(n)$ when $r = O(\log n)$, even with error $1/n^2$ and distinguishing advantage $1/n$ — [[PY22 - Limits of Preprocessing for Single-Server PIR|PY22]]. Doubly efficient PIR with sublinear query computation cannot be built from cryptography used only as a black box, random oracles and VBB obfuscation included — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]]
 
-<!-- BEGIN GENERATED participates-in 34993869c3b2 -->
+<!-- BEGIN GENERATED participates-in 0777b4615aef -->
 
 ## Participates in
 
 **Builds on Doubly-efficient PIR**
 
 - [[depir-to-cpir|Unkeyed DEPIR ⇒ cPIR]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
+- [[passive-sk-depir-to-sk-depir|Passive-server SK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#passive-server-sk-depir|Passive-server SK-DEPIR]])
 - [[pk-depir-to-sk-depir|PK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
 - [[unkeyed-depir-to-depir|Unkeyed DEPIR ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
 
@@ -108,8 +115,13 @@ TODO
 
 - [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
 - [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#secret-key-depir|Secret-key DEPIR]])
+- [[passive-sk-depir-to-sk-depir|Passive-server SK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#secret-key-depir|Secret-key DEPIR]])
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#secret-key-depir|Secret-key DEPIR]])
 - [[pk-depir-to-sk-depir|PK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#secret-key-depir|Secret-key DEPIR]])
 - [[unkeyed-depir-to-depir|Unkeyed DEPIR ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
+
+**Barriers**
+
+- [[no-owf-to-passive-sk-depir-lmw25|No fully-black-box reduction from OWF to passive-server SK-DEPIR]] (via [[doubly-efficient-pir#passive-server-sk-depir|Passive-server SK-DEPIR]])
 
 <!-- END GENERATED participates-in -->

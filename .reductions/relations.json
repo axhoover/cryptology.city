@@ -448,6 +448,19 @@
    "unlisted": false
   },
   {
+   "id": "balls-and-bins-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#balls-and-bins-oram",
+   "of": "oram",
+   "title": "Balls-and-bins ORAM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "barg-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -673,6 +686,19 @@
    "unlisted": false
   },
   {
+   "id": "client-preprocessing-pir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-client-preprocessing",
+   "of": "cpir",
+   "title": "PIR with client preprocessing",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "cls-hardness",
    "kind": "variant",
    "type": "complexity-class",
@@ -807,6 +833,19 @@
     "coNP",
     "Co-nondeterministic polynomial-time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "constant-bandwidth-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#constant-bandwidth-oram",
+   "of": "oram",
+   "title": "Constant-bandwidth ORAM",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1510,6 +1549,20 @@
    "unlisted": false
   },
   {
+   "id": "garbled-ram",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/garbled-ram.md",
+   "slug": "garbled-ram",
+   "graphSlug": "Primitives/garbled-ram",
+   "title": "Garbled RAM",
+   "aliases": [
+    "GRAM",
+    "Garbled RAM"
+   ],
+   "unlisted": true
+  },
+  {
    "id": "ggm",
    "kind": "object",
    "type": "glossary",
@@ -2119,6 +2172,19 @@
    "unlisted": false
   },
   {
+   "id": "keyword-pir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#keyword-pir",
+   "of": "cpir",
+   "title": "Keyword PIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "kt-mild-average-case-hardness",
    "kind": "object",
    "type": "assumption",
@@ -2186,6 +2252,19 @@
    "unlisted": true
   },
   {
+   "id": "length-flexible-additively-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#length-flexible-additively-homomorphic-encryption",
+   "of": "he",
+   "title": "Length-flexible additively homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "leveled-fully-homomorphic-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -2221,6 +2300,19 @@
    "anchor": "#notable-problems",
    "of": "qma",
    "title": "Notable problems",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "logarithmic-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#logarithmic-overhead-oram",
+   "of": "oram",
+   "title": "Logarithmic-overhead ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -2879,6 +2971,19 @@
    "unlisted": true
   },
   {
+   "id": "offline-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#offline-oram",
+   "of": "oram",
+   "title": "Offline ORAM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "one-out-of-n-ot",
    "kind": "variant",
    "type": "primitive",
@@ -2888,6 +2993,19 @@
    "anchor": "#k-out-of-n-ot",
    "of": "ot",
    "title": "$k$-out-of-$n$ OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-round-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#one-round-oram",
+   "of": "oram",
+   "title": "One-round ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -2960,6 +3078,19 @@
    "unlisted": false
   },
   {
+   "id": "oram-with-server-computation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#oram-with-server-computation",
+   "of": "oram",
+   "title": "ORAM with server computation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ot",
    "kind": "object",
    "type": "primitive",
@@ -3026,6 +3157,19 @@
     "P",
     "Polynomial-Time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "passive-sk-depir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/doubly-efficient-pir.md",
+   "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
+   "anchor": "#passive-server-sk-depir",
+   "of": "depir",
+   "title": "Passive-server SK-DEPIR",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3178,6 +3322,32 @@
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "CPA Security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polylog-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-polylogarithmic-communication",
+   "of": "cpir",
+   "title": "PIR with polylogarithmic communication",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polylog-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#polylogarithmic-overhead-oram",
+   "of": "oram",
+   "title": "Polylogarithmic-overhead ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -3937,6 +4107,19 @@
    "unlisted": false
   },
   {
+   "id": "small-sorting-circuits",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/sorting-circuits.md",
+   "slug": "sorting-circuits",
+   "graphSlug": "Glossary/sorting-circuits",
+   "anchor": "#small-sorting-circuits",
+   "of": "sorting-circuits",
+   "title": "Small sorting circuits",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "snarg-for-p",
    "kind": "variant",
    "type": "primitive",
@@ -3979,6 +4162,20 @@
    "title": "Somewhat homomorphic encryption (SHE)",
    "aliases": [],
    "unlisted": false
+  },
+  {
+   "id": "sorting-circuits",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/sorting-circuits.md",
+   "slug": "sorting-circuits",
+   "graphSlug": "Glossary/sorting-circuits",
+   "title": "Sorting circuits",
+   "aliases": [
+    "Sorting circuit",
+    "Sorting circuits"
+   ],
+   "unlisted": true
   },
   {
    "id": "sparse-lpn",
@@ -4075,6 +4272,19 @@
    "anchor": "#statistical-io",
    "of": "io",
    "title": "Statistical iO",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistical-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#statistically-secure-oram",
+   "of": "oram",
+   "title": "Statistically secure ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -4192,6 +4402,19 @@
    "anchor": "#the-structured-ggm",
    "of": "ggm",
    "title": "The Structured GGM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sub-square-root-one-round-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#sub-square-root-one-round-balls-and-bins-oram",
+   "of": "oram",
+   "title": "Sub-square-root one-round balls-and-bins ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -4335,6 +4558,45 @@
    "anchor": "#sub-exponential-sxdh",
    "of": "ddh",
    "title": "Sub-exponential SXDH",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sublogarithmic-balls-and-bins-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#sublogarithmic-overhead-balls-and-bins-oram",
+   "of": "oram",
+   "title": "Sublogarithmic-overhead balls-and-bins ORAM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sublogarithmic-offline-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#sublogarithmic-overhead-offline-oram",
+   "of": "oram",
+   "title": "Sublogarithmic-overhead offline ORAM",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sublogarithmic-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#sublogarithmic-overhead-oram",
+   "of": "oram",
+   "title": "Sublogarithmic-overhead ORAM",
    "aliases": [],
    "unlisted": false
   },
@@ -6612,6 +6874,27 @@
    "title": "DCR ⇒ COM"
   },
   {
+   "id": "red-dcr-to-constant-bandwidth-oram-ddf-16",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "constant-bandwidth-oram",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[DDF+16 - Onion ORAM A Constant Bandwidth Blowup Oblivious RAM|DDF+16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-constant-bandwidth-oram-ddf-16.md",
+   "slug": "dcr-to-constant-bandwidth-oram-ddf-16",
+   "graphSlug": "Reductions/dcr-to-constant-bandwidth-oram-ddf-16",
+   "title": "DCR ⇒ constant-bandwidth ORAM (Onion ORAM)"
+  },
+  {
    "id": "red-dcr-to-cpir-cha04",
    "kind": "implication",
    "hypotheses": [
@@ -6873,6 +7156,30 @@
    "slug": "ddh-to-cdh",
    "graphSlug": "Reductions/ddh-to-cdh",
    "title": "DDH ⇒ CDH"
+  },
+  {
+   "id": "red-ddh-to-client-preprocessing-pir-chk22",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "client-preprocessing-pir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The conclusion carries an efficiency requirement, sublinear amortized server time after client preprocessing, that lies outside the RTV04 axes."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-client-preprocessing-pir-chk22.md",
+   "slug": "ddh-to-client-preprocessing-pir-chk22",
+   "graphSlug": "Reductions/ddh-to-client-preprocessing-pir-chk22",
+   "title": "DDH ⇒ PIR with client preprocessing (CHK22)"
   },
   {
    "id": "red-ddh-to-lossy-trapdoor-function-pw08",
@@ -8945,7 +9252,7 @@
    "hypotheses": [
     "compact-fhe"
    ],
-   "conclusion": "cpir",
+   "conclusion": "polylog-cpir",
    "class": "fully-black-box",
    "model": "standard",
    "source": [
@@ -9059,7 +9366,7 @@
    "hypotheses": [
     "phi-hiding"
    ],
-   "conclusion": "cpir",
+   "conclusion": "polylog-cpir",
    "class": "unstated",
    "model": "standard",
    "source": [
@@ -9214,6 +9521,30 @@
    "slug": "hve-to-subset-and-range-queries",
    "graphSlug": "Reductions/hve-to-subset-and-range-queries",
    "title": "HVE ⇒ Subset and range queries"
+  },
+  {
+   "id": "red-ibe-to-garbled-ram-ghl-14",
+   "kind": "implication",
+   "hypotheses": [
+    "ibe"
+   ],
+   "conclusion": "garbled-ram",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[GHL+14 - Garbled RAM Revisited|GHL+14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction garbles circuits that run the IBE's algorithms, a non-black-box use of the IBE."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ibe-to-garbled-ram-ghl-14.md",
+   "slug": "ibe-to-garbled-ram-ghl-14",
+   "graphSlug": "Reductions/ibe-to-garbled-ram-ghl-14",
+   "title": "IBE ⇒ garbled RAM"
   },
   {
    "id": "red-ibe-to-pke",
@@ -10005,6 +10336,51 @@
    "slug": "kt-mild-average-case-hardness-to-owf-lp20",
    "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
+  },
+  {
+   "id": "red-length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "length-flexible-additively-homomorphic-encryption"
+   ],
+   "conclusion": "additively-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the scheme's algorithms at length one, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption.md",
+   "slug": "length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption",
+   "graphSlug": "Reductions/length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption",
+   "title": "Length-flexible additively homomorphic encryption ⇒ Additively homomorphic encryption"
+  },
+  {
+   "id": "red-length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
+   "kind": "implication",
+   "hypotheses": [
+    "length-flexible-additively-homomorphic-encryption"
+   ],
+   "conclusion": "polylog-cpir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[Lip05 - An Oblivious Transfer Protocol with Log-Squared Communication|Lip05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05.md",
+   "slug": "length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
+   "graphSlug": "Reductions/length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
+   "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
   },
   {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
@@ -11414,6 +11790,30 @@
    "title": "OIHF ⇒ OT"
   },
   {
+   "id": "red-one-round-sublinear-cpir-to-keyword-pir-cgn98",
+   "kind": "implication",
+   "hypotheses": [
+    "one-round-sublinear-cpir"
+   ],
+   "conclusion": "keyword-pir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CGN98 - Private Information Retrieval by Keywords|CGN98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor $d$ for a search structure of depth $d$, from a hybrid over its $d$ levels with one PIR query per level",
+   "rationale": {
+    "class": "The transformation runs the PIR scheme only through its algorithms, once per level of the search structure, and the hybrid reduction runs any keyword-privacy distinguisher only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/one-round-sublinear-cpir-to-keyword-pir-cgn98.md",
+   "slug": "one-round-sublinear-cpir-to-keyword-pir-cgn98",
+   "graphSlug": "Reductions/one-round-sublinear-cpir-to-keyword-pir-cgn98",
+   "title": "One-round sublinear cPIR ⇒ Keyword PIR"
+  },
+  {
    "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -11678,6 +12078,30 @@
    "title": "OT ⇒ OT extension (IKNP)"
   },
   {
+   "id": "red-owf-to-client-preprocessing-pir-zpzs24",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "client-preprocessing-pir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[ZPZS24 - Piano Extremely Simple, Single-Server PIR with Sublinear Server Computation|ZPZS24]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The conclusion carries an efficiency requirement, sublinear amortized server time after client preprocessing, that lies outside the RTV04 axes."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-client-preprocessing-pir-zpzs24.md",
+   "slug": "owf-to-client-preprocessing-pir-zpzs24",
+   "graphSlug": "Reductions/owf-to-client-preprocessing-pir-zpzs24",
+   "title": "OWF ⇒ PIR with client preprocessing (Piano)"
+  },
+  {
    "id": "red-owf-to-distributional-owf",
    "kind": "implication",
    "hypotheses": [
@@ -11700,6 +12124,30 @@
    "slug": "owf-to-distributional-owf",
    "graphSlug": "Reductions/owf-to-distributional-owf",
    "title": "OWF ⇒ Distributional OWF"
+  },
+  {
+   "id": "red-owf-to-garbled-ram-glo15",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "garbled-ram",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GLO15 - Black-Box Garbled RAM|GLO15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "GLO15's construction calls the one-way function only as an oracle, and its hybrid security proof runs any distinguisher only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-garbled-ram-glo15.md",
+   "slug": "owf-to-garbled-ram-glo15",
+   "graphSlug": "Reductions/owf-to-garbled-ram-glo15",
+   "title": "OWF ⇒ garbled RAM (black-box)"
   },
   {
    "id": "red-owf-to-np",
@@ -12131,6 +12579,30 @@
    "title": "Additively homomorphic encryption + Sparse LPN ⇒ SHE"
   },
   {
+   "id": "red-passive-sk-depir-to-sk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "passive-sk-depir"
+   ],
+   "conclusion": "sk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any secret-key privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/passive-sk-depir-to-sk-depir.md",
+   "slug": "passive-sk-depir-to-sk-depir",
+   "graphSlug": "Reductions/passive-sk-depir-to-sk-depir",
+   "title": "Passive-server SK-DEPIR ⇒ SK-DEPIR"
+  },
+  {
    "id": "red-pc-and-search-noisy-k-lin-to-pke-ghjs25",
    "kind": "implication",
    "hypotheses": [
@@ -12471,6 +12943,30 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polylog-cpir-to-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "polylog-cpir"
+   ],
+   "conclusion": "cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polylog-cpir-to-cpir.md",
+   "slug": "polylog-cpir-to-cpir",
+   "graphSlug": "Reductions/polylog-cpir-to-cpir",
+   "title": "PIR with polylogarithmic communication ⇒ cPIR"
+  },
+  {
    "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
    "kind": "implication",
    "hypotheses": [
@@ -12697,6 +13193,30 @@
    "title": "PRF ⇒ iPRF"
   },
   {
+   "id": "red-prf-to-logarithmic-oram-akl-20",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "logarithmic-oram",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[AKL+20 - OptORAMa Optimal Oblivious RAM|AKL+20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction evaluates the PRF only as an oracle and its bandwidth does not depend on the PRF's implementation, and the proof replaces the PRF by a random function, so the reduction runs any access-pattern distinguisher only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-logarithmic-oram-akl-20.md",
+   "slug": "prf-to-logarithmic-oram-akl-20",
+   "graphSlug": "Reductions/prf-to-logarithmic-oram-akl-20",
+   "title": "PRF ⇒ logarithmic-overhead ORAM (OptORAMa)"
+  },
+  {
    "id": "red-prf-to-mac",
    "kind": "implication",
    "hypotheses": [
@@ -12719,6 +13239,30 @@
    "slug": "prf-to-mac",
    "graphSlug": "Reductions/prf-to-mac",
    "title": "PRF ⇒ MAC"
+  },
+  {
+   "id": "red-prf-to-polylog-oram-go96",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "polylog-oram",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[GO96 - Software protection and simulation on oblivious RAMs|GO96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the private random function only as an oracle, so instantiating it with a PRF gives a reduction that runs any access-pattern distinguisher only as an oracle to distinguish the PRF from a random function."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-polylog-oram-go96.md",
+   "slug": "prf-to-polylog-oram-go96",
+   "graphSlug": "Reductions/prf-to-polylog-oram-go96",
+   "title": "PRF ⇒ polylogarithmic-overhead ORAM (hierarchical ORAM)"
   },
   {
    "id": "red-prf-to-prp-lr88",
@@ -13168,6 +13712,30 @@
    "slug": "qma-to-pp",
    "graphSlug": "Reductions/qma-to-pp",
    "title": "QMA ⊆ PP"
+  },
+  {
+   "id": "red-qr-to-client-preprocessing-pir-chk22",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "client-preprocessing-pir",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The conclusion carries an efficiency requirement, sublinear amortized server time after client preprocessing, that lies outside the RTV04 axes."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-client-preprocessing-pir-chk22.md",
+   "slug": "qr-to-client-preprocessing-pir-chk22",
+   "graphSlug": "Reductions/qr-to-client-preprocessing-pir-chk22",
+   "title": "QR ⇒ PIR with client preprocessing (CHK22)"
   },
   {
    "id": "red-qr-to-com",
@@ -14182,6 +14750,30 @@
    "slug": "ske-to-owf-il89",
    "graphSlug": "Reductions/ske-to-owf-il89",
    "title": "SKE ⇒ OWF"
+  },
+  {
+   "id": "red-small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
+   "kind": "implication",
+   "hypotheses": [
+    "small-sorting-circuits"
+   ],
+   "conclusion": "sublogarithmic-offline-oram",
+   "class": "free",
+   "model": "standard",
+   "source": [
+    "[[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The offline ORAM evaluates the sorting circuit gate by gate on bit-sliced memory, so it uses the circuit's description rather than oracle access."
+   },
+   "status": "draft",
+   "page": "content/Reductions/small-sorting-circuits-to-sublogarithmic-offline-oram-bn16.md",
+   "slug": "small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
+   "graphSlug": "Reductions/small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
+   "title": "Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM"
   },
   {
    "id": "red-snark-and-owf-to-nizk-kmy20",
@@ -16816,6 +17408,96 @@
    "title": "No fully-black-box reduction from OIHF to OT"
   },
   {
+   "id": "bar-oram-to-sub-square-root-one-round-oram-cdh20",
+   "hypotheses": [
+    "oram"
+   ],
+   "conclusion": "sub-square-root-one-round-oram",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[CDH20 - A Lower Bound for One-Round Oblivious RAM|CDH20]]"
+   ],
+   "rationale": {
+    "class": "CDH20's bound holds for every one-round non-duplicating balls-in-bins ORAM whatever its construction, so every reduction is ruled out.",
+    "strength": "The hypothesis holds unconditionally via the linear-scan ORAM."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-oram-to-sub-square-root-one-round-oram-cdh20.md",
+   "slug": "no-oram-to-sub-square-root-one-round-oram-cdh20",
+   "graphSlug": "Barriers/no-oram-to-sub-square-root-one-round-oram-cdh20",
+   "title": "No reduction from ORAM to sub-square-root one-round balls-and-bins ORAM"
+  },
+  {
+   "id": "bar-oram-to-sublogarithmic-balls-and-bins-oram-go96",
+   "hypotheses": [
+    "oram"
+   ],
+   "conclusion": "sublogarithmic-balls-and-bins-oram",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[GO96 - Software protection and simulation on oblivious RAMs|GO96]]"
+   ],
+   "rationale": {
+    "class": "GO96's counting bound holds for every statistically secure balls-and-bins ORAM whatever its construction, so every reduction is ruled out.",
+    "strength": "The hypothesis holds unconditionally via the linear-scan ORAM."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-oram-to-sublogarithmic-balls-and-bins-oram-go96.md",
+   "slug": "no-oram-to-sublogarithmic-balls-and-bins-oram-go96",
+   "graphSlug": "Barriers/no-oram-to-sublogarithmic-balls-and-bins-oram-go96",
+   "title": "No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM"
+  },
+  {
+   "id": "bar-oram-to-sublogarithmic-oram-ln18",
+   "hypotheses": [
+    "oram"
+   ],
+   "conclusion": "sublogarithmic-oram",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[LN18 - Yes, There is an Oblivious RAM Lower Bound!|LN18]]"
+   ],
+   "rationale": {
+    "class": "LN18's bound holds for every online ORAM whatever its construction or security proof, so every reduction is ruled out.",
+    "strength": "The hypothesis holds unconditionally, since the linear-scan ORAM is perfectly secure, so the barrier rests on no hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-oram-to-sublogarithmic-oram-ln18.md",
+   "slug": "no-oram-to-sublogarithmic-oram-ln18",
+   "graphSlug": "Barriers/no-oram-to-sublogarithmic-oram-ln18",
+   "title": "No reduction from ORAM to sublogarithmic-overhead ORAM"
+  },
+  {
    "id": "bar-ot-to-pke-gkm-00",
    "hypotheses": [
     "ot"
@@ -16931,6 +17613,35 @@
    "slug": "no-owf-to-owp-rud88",
    "graphSlug": "Barriers/no-owf-to-owp-rud88",
    "title": "No fully-black-box reduction from OWF to OWP"
+  },
+  {
+   "id": "bar-owf-to-passive-sk-depir-lmw25",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "passive-sk-depir",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]"
+   ],
+   "rationale": {
+    "class": "LMW25 rule out black-box constructions from one-way functions without fixing the RTV04 notion, and fully-black-box, the narrowest class, is the weakest claim that covers them."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-owf-to-passive-sk-depir-lmw25.md",
+   "slug": "no-owf-to-passive-sk-depir-lmw25",
+   "graphSlug": "Barriers/no-owf-to-passive-sk-depir-lmw25",
+   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR"
   },
   {
    "id": "bar-owp-to-crhf-sim98",
@@ -17346,6 +18057,35 @@
    "slug": "no-tdp-to-ot",
    "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No fully-black-box reduction from TDP to enhanced TDP"
+  },
+  {
+   "id": "bar-tdp-to-one-round-sublinear-cpir-hhs08",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
+   ],
+   "rationale": {
+    "class": "HHS08 rule out only polynomially-preserving black-box constructions, a restriction the vocabulary has no class for, so fully-black-box would overstate the theorem."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08.md",
+   "slug": "no-tdp-to-one-round-sublinear-cpir-hhs08",
+   "graphSlug": "Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08",
+   "title": "No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR"
   },
   {
    "id": "bar-zkp-to-argument-systems",

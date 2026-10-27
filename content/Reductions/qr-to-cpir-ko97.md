@@ -28,5 +28,5 @@ View the database as a $\sqrt{n} \times \sqrt{n}$ matrix and let the client want
 
 ## Notes
 
-- Efficiency: the server performs $\Theta(n)$ modular multiplications; every single-server PIR scheme without preprocessing must touch every database bit, since an untouched bit reveals that it was not queried — standard.
+- Efficiency: the server performs $\Theta(n)$ modular multiplications; every single-server PIR scheme without preprocessing must touch every database bit, since an untouched bit reveals that it was not queried — standard. Linear server computation cannot be avoided whenever the servers hold only the database — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]].
 - Polylogarithmic communication is achieved under [[hiding-to-cpir|Φ-hiding]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]] — and, through trapdoor hash functions, under QR and DDH ([[tdh-to-cpir-amr25|TDH ⇒ cPIR]]) — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]. With Paillier encryption the server's reply alone can be made logarithmic ([[dcr-to-cpir-cha04|DCR ⇒ One-round sublinear cPIR]]) — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].

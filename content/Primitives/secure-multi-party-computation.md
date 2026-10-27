@@ -78,6 +78,7 @@ The [[universal-composability-framework|UC framework]] by Canetti provides a str
 - OT extension: $O(\secpar)$ base OTs suffice to generate polynomially many OTs efficiently — [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]]
 - Communication lower bounds for two-party differential privacy — [[HMST22 - On the Complexity of Two-Party Differential Privacy|HMST22]]
+- Functions that a RAM computes in sublinear time have secure two-party computation in amortized sublinear time, by generic secure two-party computation run on top of an [[oblivious-ram|ORAM]] — [[GKK+12 - Secure Two-Party Computation in Sublinear (Amortized) Time|GKK+12]]
 
 <!-- BEGIN GENERATED participates-in 49c9acf583e0 -->
 

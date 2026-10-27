@@ -79,6 +79,12 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\Decode`   | $\Decode$   |
 | `\Extract`  | $\Extract$  |
 | `\Delegate` | $\Delegate$ |
+| `\Acc`      | $\Acc$      |
+| `\Out`      | $\Out$      |
+| `\GData`    | $\GData$    |
+| `\GProg`    | $\GProg$    |
+| `\GInput`   | $\GInput$   |
+| `\GEval`    | $\GEval$    |
 
 ### Key names
 
@@ -104,10 +110,15 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 
 ### Named sets
 
-| Macro | Renders as | Notes                                      |
-| ----- | ---------- | ------------------------------------------ |
-| `\QR` | $\QR$      | Set of quadratic residues (QR assumption)  |
-| `\J`  | $\J$       | Jacobi set (elements with Jacobi symbol 1) |
+| Macro    | Renders as | Notes                                        |
+| -------- | ---------- | -------------------------------------------- |
+| `\QR`    | $\QR$      | Set of quadratic residues (QR assumption)    |
+| `\J`     | $\J$       | Jacobi set (elements with Jacobi symbol 1)   |
+| `\KSp`   | $\KSp$     | Key space of an oblivious RAM                |
+| `\StSp`  | $\StSp$    | State space of an oblivious RAM              |
+| `\RdOps` | $\RdOps$   | Read operations on an array (oblivious RAM)  |
+| `\WrOps` | $\WrOps$   | Write operations on an array (oblivious RAM) |
+| `\Ops`   | $\Ops$     | Read and write operations (oblivious RAM)    |
 
 ### Simulators and state
 
