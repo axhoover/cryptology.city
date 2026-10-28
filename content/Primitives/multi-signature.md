@@ -37,7 +37,7 @@ The scheme is **perfectly correct** if whenever every signer runs $\Sign$ honest
 
 ### Unforgeability in the plain public-key model
 
-There is one honest signer. The adversary chooses every other public key, with no proof that it knows the matching secret key, plays all other signers in signing sessions with the honest signer that it may interleave arbitrarily, and wins by outputting a valid signature, for a multiset of keys containing the honest key, on a message on which it never opened a signing session with the honest signer — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
+There is one honest signer. The adversary chooses every other public key, with no proof that it knows the matching secret key, plays all other signers in signing sessions with the honest signer that it may interleave arbitrarily, and wins by outputting a valid signature, for a multiset of keys containing the honest key, on a message on which it never opened a signing session with the honest signer — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]. Excluding only the pair of multiset and message would give a stronger notion, which BLS-based multi-signatures do not meet: in Boldyreva's scheme the honest share $H(m)^{\sk^*}$ does not depend on the multiset, so a share obtained for one multiset completes a signature on $m$ for another — standard.
 
 ```pseudocode
 \begin{algorithm}
