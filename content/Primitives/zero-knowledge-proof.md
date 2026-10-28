@@ -102,7 +102,7 @@ A zero-knowledge argument for an $\classNP$-complete language, and hence, by Lev
 
 ### Four-message zero-knowledge arguments
 
-A zero-knowledge argument for an $\classNP$-complete language, and hence for every language in $\classNP$, with four messages and negligible soundness error — [[BJY97 - Round-Optimal Zero-Knowledge Arguments Based on any One-Way Function|BJY97]].
+A zero-knowledge argument for an $\classNP$-complete language, and hence for every language in $\classNP$, with four messages and negligible soundness error, whose simulator may run in expected polynomial time — [[BJY97 - Round-Optimal Zero-Knowledge Arguments Based on any One-Way Function|BJY97]]. A black-box simulator of a constant-round argument for a language outside $\classBPP$ cannot run in strict polynomial time ([[bb-zk-strict-polynomial-simulation-to-bpp-bl02|constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP]]) — [[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]].
 
 ### Concurrent zero-knowledge arguments
 
@@ -114,7 +114,7 @@ An argument system whose zero-knowledge property is statistical: the simulator's
 
 ## Constant-round zero-knowledge proofs
 
-A zero-knowledge proof (with soundness against unbounded provers) for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages and negligible soundness error — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]].
+A zero-knowledge proof (with soundness against unbounded provers) for an $\classNP$-complete language, and hence, by Levin reductions, for every language in $\classNP$, with a constant number of messages and negligible soundness error, whose simulator may run in expected polynomial time, as the black-box simulator of GK96b does — [[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]], [[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]].
 
 ## Concurrent zero-knowledge proofs
 
