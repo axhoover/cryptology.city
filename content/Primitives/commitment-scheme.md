@@ -54,7 +54,7 @@ is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(c,
 
 A commitment is **statistically binding** if this holds even against computationally unbounded adversaries.
 
-**Note:** No commitment scheme is simultaneously statistically hiding and statistically binding — folklore. The achievable regimes are: (1) statistically binding / computationally hiding, (2) computationally binding / statistically hiding, and (3) computationally binding / computationally hiding.
+**Note:** Without an ideal functionality or a trusted dealer, no commitment scheme is simultaneously statistically hiding and statistically binding — folklore; in the OT-hybrid model Kilian's commitment is both ([[ideal-ot-to-com-kil88|ideal OT ⇒ COM]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]. Without one, the achievable regimes are: (1) statistically binding / computationally hiding, (2) computationally binding / statistically hiding, and (3) computationally binding / computationally hiding.
 
 # Variations
 

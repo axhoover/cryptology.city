@@ -244,7 +244,7 @@ A consumer that reads this list applies the rule `scripts/closure.mjs` applies
 
 - The conclusion is scoped to its `resources`, and every later step keeps the
   scope, as it keeps a model's.
-- A scoped object feeds only an edge, from either list, whose class relativizes
+- An object scoped to a resource feeds only an edge, from either list, whose class relativizes
   and whose conclusion is in `protocolObjects`, the objects and variants of the
   MPC and OT pages. An ideal resource is not an oracle: Kilian's commitment is
   statistically hiding and binding in the OT-hybrid model, so COM ⇒ OWF does
@@ -371,8 +371,11 @@ worse loss.
 - `heuristic: true` marks a candidate construction whose source gives no
   security reduction (GGHRSW13's iO from multilinear maps). It is an edge of
   the graph, not a theorem: skip it when deriving consequences.
-- A derivation that must stay in the standard model filters on `model`;
-  idealised models never appear in `hypotheses` except as a sole hypothesis.
+- A derivation that must stay in the standard model filters on `model` and
+  leaves out `hybridReductions`, whose records say `model: "standard"` but
+  hold only in the hybrid model of their `resources`; idealised models never
+  appear in `hypotheses` except as a sole hypothesis, and ideal resources appear
+  only in `hybridReductions`.
 - An object with `unlisted: true` is a real node; it is only hidden from
   navigation.
 - `reductions` omits every edge from an ideal resource; those are in
