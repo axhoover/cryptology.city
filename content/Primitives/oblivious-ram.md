@@ -111,7 +111,7 @@ An ORAM $\Pi$ is **statistically secure** if it is $(1-\negl(\secpar))$-correct 
 
 ## Offline ORAM
 
-An **offline** ORAM receives the whole operation sequence $\mathbf{o} = (o_1, \ldots, o_q)$ before processing starts: $\Acc_j$ and $\Out$ take $\mathbf{o}$ and the index $t$ of the current operation in place of $o$. In the security game the adversary submits one pair of sequences of equal length and receives the access pattern of the whole execution on one of them — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. The ORAMs defined above, which process each operation before receiving the next, are **online**.
+An **offline** ORAM learns the indices and types of the whole operation sequence $\mathbf{o} = (o_1, \ldots, o_q)$ before processing starts, but each written block only with its operation: $\Acc_j$ and $\Out$ take the current operation $o_t$ together with $(\rho(o_1), \ldots, \rho(o_q))$ in place of $o$, with $\rho$ as in the definition of the access pattern. Knowing the written blocks in advance would let the client answer every read from them without touching the server. In the security game the adversary submits one pair of sequences of equal length and receives the access pattern of the whole execution on one of them — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. The ORAMs defined above, which process each operation before receiving the next, are **online**.
 
 ```pseudocode
 \begin{algorithm}

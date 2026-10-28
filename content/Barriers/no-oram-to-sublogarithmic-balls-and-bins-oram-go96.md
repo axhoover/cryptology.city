@@ -23,7 +23,7 @@ rationale:
 
 ## Statement
 
-Every [[oblivious-ram#statistically-secure-oram|statistically secure]] [[oblivious-ram#balls-and-bins-oram|balls-and-bins ORAM]] with client storage of $O(1)$ blocks has amortized bandwidth blowup $\Omega(\log N_1)$ over $N_1$ blocks. The bound holds even for an [[oblivious-ram#offline-oram|offline ORAM]], which receives the whole operation sequence before it starts — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. Hence no [[oblivious-ram#sublogarithmic-overhead-balls-and-bins-oram|sublogarithmic-overhead balls-and-bins ORAM]] exists. [[oblivious-ram|ORAM]] exists unconditionally: the linear scan, which reads and rewrites every cell on each operation, is perfectly secure — folklore. Hence no reduction of any class from ORAM to such a scheme exists.
+Every [[oblivious-ram#statistically-secure-oram|statistically secure]] [[oblivious-ram#balls-and-bins-oram|balls-and-bins ORAM]] with client storage of $O(1)$ blocks has amortized bandwidth blowup $\Omega(\log N_1)$ over $N_1$ blocks. The bound holds even for an [[oblivious-ram#offline-oram|offline ORAM]], which knows the indices and types of the whole operation sequence before it starts — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. Hence no [[oblivious-ram#sublogarithmic-overhead-balls-and-bins-oram|sublogarithmic-overhead balls-and-bins ORAM]] exists. [[oblivious-ram|ORAM]] exists unconditionally: the linear scan, which reads and rewrites every cell on each operation, is perfectly secure — folklore. Hence no reduction of any class from ORAM to such a scheme exists.
 
 ## Notes
 
