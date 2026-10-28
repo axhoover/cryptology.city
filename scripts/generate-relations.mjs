@@ -37,7 +37,8 @@ import {
   closure as closureOf,
   derivation,
   scopeNames,
-  modelBit,
+  edgeScope,
+  bilinearNodes,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
 import { rationaleRecord } from "./lint-edges.mjs";
@@ -204,14 +205,17 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // Forward chaining with model provenance lives in scripts/closure.mjs, which
 // the tests share. An edge whose class relativizes (fully-black-box or
 // relativizing) may consume an object scoped to an idealised model; any other
-// edge may use its hypothesis' code and fires only on unscoped objects.
+// edge may use its hypothesis' code and fires only on unscoped objects. An edge
+// with a pairing hypothesis never consumes an object scoped to the pairing-free
+// generic group model.
 const { classes: CLASS_DEFS } = loadClasses(ROOT);
 const relativizes = (cls) =>
   cls === "relativizing" ||
   (CLASS_DEFS[cls] !== undefined &&
     classClosure(CLASS_DEFS, cls).has("relativizing"));
+const BILINEAR = bilinearNodes([...objects.values()]);
 const closure = (seed, opts = {}) =>
-  closureOf(reductions, seed, { ...opts, relativizes });
+  closureOf(reductions, seed, { ...opts, relativizes, bilinear: BILINEAR });
 
 // A reduction is redundant when its conclusion already follows from its own
 // hypotheses without it — i.e. some other chain gets there. Reported, never
@@ -224,7 +228,7 @@ function redundant() {
     const result = closure(r.hypotheses, { exclude: r.id });
     // Another chain counts only if it needs no idealised model beyond this
     // edge's own.
-    const own = modelBit(r.model);
+    const own = edgeScope(r, BILINEAR);
     const m = (result.scopes.get(r.conclusion) ?? []).find(
       (x) => (x & own) === x,
     );

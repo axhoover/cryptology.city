@@ -17,4 +17,4 @@ TODO: syntax and security definition.
 
 # Other results
 
-- Anonymous credentials from bilinear maps, via signatures secure under the interactive LRSW assumption — [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]
+- Anonymous credentials from bilinear maps, via signatures secure under the interactive [[lrsw-assumption|LRSW assumption]] — [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]

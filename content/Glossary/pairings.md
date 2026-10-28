@@ -9,7 +9,8 @@ aliases:
 title: Pairings
 id: bilinear-pairing
 variants:
-  type-3-pairing: "#types"
+  type-1-pairing: "#type-1"
+  type-3-pairing: "#type-3"
 ---
 
 # Pairings
@@ -27,11 +28,17 @@ Galbraith, Paterson, and Smart [[GPS06 - Pairings for Cryptographers|GPS06]] cla
 | Efficiently computable $\phi: \GG_2 \to \GG_1$ |   ✓    |   ✓    |   ✗    |
 | Poly-time parameter generation                 |   ✗    |   ✓    |   ✓    |
 
-**Type 1** ($\GG_1 = \GG_2$, symmetric). Implemented on supersingular curves. Hashing to $\GG_2 = \GG_1$ is trivial, and the identity serves as a computable homomorphism. The embedding degree $k$ is small and fixed for known supersingular constructions, so the security level is bounded and polynomial-time parameter generation for arbitrary $\secpar$ is infeasible. Elements of $\GG_1$ cannot be made shorter than elements of $\GG_2$.
+### Type 1
 
-**Type 2** ($\GG_1 \ne \GG_2$, with $\phi: \GG_2 \to \GG_1$ efficiently computable). Implemented on ordinary curves; the trace map serves as $\phi$. Supports short $\GG_1$ representations and polynomial-time parameter generation. No efficient hash to $\GG_2$ is known, because $\GG_2$ is an eigenspace of the Frobenius endomorphism.
+A **symmetric** pairing: $\GG_1 = \GG_2 = \GG$, so $e : \GG \times \GG \to \GG_T$ is a non-degenerate bilinear map on one group $\GG$ of prime order — [[GPS06 - Pairings for Cryptographers|GPS06]]. Implemented on supersingular curves. Hashing to $\GG_2 = \GG_1$ is trivial, and the identity serves as a computable homomorphism. The embedding degree $k$ is small and fixed for known supersingular constructions, so the security level is bounded and polynomial-time parameter generation for arbitrary $\secpar$ is infeasible. Elements of $\GG_1$ cannot be made shorter than elements of $\GG_2$.
 
-**Type 3** ($\GG_1 \ne \GG_2$, no efficiently computable homomorphism in either direction). Implemented on ordinary curves with $\GG_2$ the trace-zero subgroup. Supports efficient hash to $\GG_2$, short $\GG_1$ representations, and polynomial-time parameter generation. No efficiently computable $\phi: \GG_2 \to \GG_1$ (or $\GG_1 \to \GG_2$) exists, as far as is known.
+### Type 2
+
+$\GG_1 \ne \GG_2$, with $\phi: \GG_2 \to \GG_1$ efficiently computable. Implemented on ordinary curves; the trace map serves as $\phi$. Supports short $\GG_1$ representations and polynomial-time parameter generation. No efficient hash to $\GG_2$ is known, because $\GG_2$ is an eigenspace of the Frobenius endomorphism.
+
+### Type 3
+
+$\GG_1 \ne \GG_2$, with no efficiently computable homomorphism in either direction. Implemented on ordinary curves with $\GG_2$ the trace-zero subgroup. Supports efficient hash to $\GG_2$, short $\GG_1$ representations, and polynomial-time parameter generation. No efficiently computable $\phi: \GG_2 \to \GG_1$ (or $\GG_1 \to \GG_2$) exists, as far as is known.
 
 ## Efficiency
 
@@ -43,7 +50,7 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in 1c7d403d3645 -->
+<!-- BEGIN GENERATED participates-in 5015979f96ff -->
 
 ## Participates in
 
@@ -54,5 +61,12 @@ _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
+- [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-and-dlin-to-structure-preserving-signature-hj12|Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)]] (via [[pairings#type-1|Type 1]])
+- [[type-1-pairing-and-lrsw-to-ds-cl04|Type 1 pairing + LRSW ⇒ DS (Camenisch–Lysyanskaya)]] (via [[pairings#type-1|Type 1]])
+- [[type-3-pairing-to-ds-ps16|Type 3 pairing ⇒ DS (Pointcheval–Sanders)]] (via [[pairings#type-3|Type 3]])
+- [[type-3-pairing-to-short-structure-preserving-signature-agho11|Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)]] (via [[pairings#type-3|Type 3]])
 
 <!-- END GENERATED participates-in -->

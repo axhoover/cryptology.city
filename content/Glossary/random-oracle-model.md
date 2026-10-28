@@ -28,7 +28,7 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 902b59a7191d -->
+<!-- BEGIN GENERATED participates-in b7c46dac3664 -->
 
 ## Participates in
 
@@ -45,12 +45,13 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 **Proved in the Random Oracle Model**
 
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
-- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[co-cdh-star-to-multi-signature-bdn18|co-CDH ⇒ BLS multi-signatures with public-key aggregation]]
+- [[co-cdh-to-aggregate-signature-bgls03|co-CDH ⇒ Aggregate signatures (BGLS)]]
+- [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
 - [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
 - [[id-and-rom-to-ds|ID ⇒ DS]]
@@ -60,12 +61,22 @@ The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and 
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
+- [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
+- [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]]
+- [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]]
+- [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]]
+- [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]]
+- [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
 
 <!-- END GENERATED participates-in -->
