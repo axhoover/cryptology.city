@@ -12140,7 +12140,7 @@
    ],
    "conclusion": "blind-schnorr-signature",
    "class": "unstated",
-   "model": "algebraic-group",
+   "model": "other",
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
    ],
@@ -12148,7 +12148,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic adversaries, with the hash modeled as a programmable random oracle."
+    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
    },
    "status": "draft",
    "page": "content/Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20.md",
@@ -14002,7 +14002,7 @@
    ],
    "conclusion": "schnorr-signature",
    "class": "unstated",
-   "model": "algebraic-group",
+   "model": "other",
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
    ],
@@ -14010,7 +14010,7 @@
    "heuristic": false,
    "securityLoss": "tight: the DLOG solver has essentially the forger's running time and advantage",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic forgers, with the hash modeled as a programmable random oracle."
+    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
    },
    "status": "draft",
    "page": "content/Reductions/prime-order-dlog-to-schnorr-signature-fps20.md",
@@ -18936,7 +18936,7 @@
    "page": "content/Barriers/no-prime-order-dlog-to-schnorr-signature-pv05.md",
    "slug": "no-prime-order-dlog-to-schnorr-signature-pv05",
    "graphSlug": "Barriers/no-prime-order-dlog-to-schnorr-signature-pv05",
-   "title": "No algebraic reduction from DLOG to Schnorr signatures"
+   "title": "No algebraic reduction from DLOG to Schnorr signatures in the standard model"
   },
   {
    "id": "bar-prime-order-dlog-to-schnorr-signature-seu12",

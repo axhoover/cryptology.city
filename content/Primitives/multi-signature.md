@@ -37,7 +37,7 @@ The scheme is **perfectly correct** if whenever every signer runs $\Sign$ honest
 
 ### Unforgeability in the plain public-key model
 
-There is one honest signer. The adversary chooses every other public key, with no proof that it knows the matching secret key, plays all other signers in signing sessions with the honest signer that it may interleave arbitrarily, and wins by outputting a valid signature, for a multiset of keys containing the honest key, on a message never signed for that multiset — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
+There is one honest signer. The adversary chooses every other public key, with no proof that it knows the matching secret key, plays all other signers in signing sessions with the honest signer that it may interleave arbitrarily, and wins by outputting a valid signature, for a multiset of keys containing the honest key, on a message on which it never opened a signing session with the honest signer — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]].
 
 ```pseudocode
 \begin{algorithm}
@@ -46,7 +46,7 @@ There is one honest signer. The adversary chooses every other public key, with n
 \begin{algorithmic}
 \State $\pp \gets \Setup(1^\secpar)$ ; $(\sk^*, \pk^*) \gets \KeyGen(\pp)$ ; $\calQ \gets \{\}$
 \State $(L^*, m^*, \sigma^*) \gets \calA^{\calO_{\Sign}}(1^\secpar, \pp, \pk^*)$
-\If{$\pk^* \notin L^*$ or $(L^*, m^*) \in \calQ$}
+\If{$\pk^* \notin L^*$ or $m^* \in \calQ$}
 \Return $0$
 \EndIf
 \Return $[\Vrfy(\KeyAgg(L^*), m^*, \sigma^*)]$
@@ -60,7 +60,7 @@ There is one honest signer. The adversary chooses every other public key, with n
 \caption{$\calO_{\Sign}(j, L, m, M)$}
 \begin{algorithmic}
 \If{session $j$ is new and $\pk^* \in L$}
-\State $\calQ \gets \calQ \cup \{(L, m)\}$
+\State $\calQ \gets \calQ \cup \{m\}$
 \State start the honest signer on $(\sk^*, L, m)$ as session $j$
 \EndIf
 \State feed $M$ to session $j$; let $M'$ be its next message
@@ -89,7 +89,7 @@ Unforgeability as in the plain public-key model, except that the adversary may u
 \State $\pp \gets \Setup(1^\secpar)$ ; $(\sk^*, \pk^*) \gets \KeyGen(\pp)$ ; $\calQ \gets \{\}$ ; $\calR \gets \{\pk^*\}$
 \State $(L^*, m^*, \sigma^*) \gets \calA^{\calO_{\Sign}, \calO_{\mathrm{Reg}}}(1^\secpar, \pp, \pk^*)$
 \Comment{$\calO_{\Sign}$ as in the plain game, on key multisets $L \subseteq \calR$ only}
-\If{$\pk^* \notin L^*$ or $L^* \not\subseteq \calR$ or $(L^*, m^*) \in \calQ$}
+\If{$\pk^* \notin L^*$ or $L^* \not\subseteq \calR$ or $m^* \in \calQ$}
 \Return $0$
 \EndIf
 \Return $[\Vrfy(\KeyAgg(L^*), m^*, \sigma^*)]$

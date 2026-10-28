@@ -141,7 +141,7 @@ is negligible.
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in f992e01157aa -->
+<!-- BEGIN GENERATED participates-in eca093b690bc -->
 
 ## Participates in
 
@@ -193,7 +193,7 @@ is negligible.
 - [[no-omdl-to-two-round-musig-def19|No algebraic reduction from OMDL to two-round MuSig]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[no-prime-order-dlog-to-schnorr-signature-ff13|No single-instance reduction from DLOG to Schnorr signatures in the non-programmable ROM]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[no-tight-prime-order-dlog-to-schnorr-signature-fjs19|No tight generic reduction from DLOG to Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
-- [[no-prime-order-dlog-to-schnorr-signature-pv05|No algebraic reduction from DLOG to Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
+- [[no-prime-order-dlog-to-schnorr-signature-pv05|No algebraic reduction from DLOG to Schnorr signatures in the standard model]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[no-tight-prime-order-dlog-to-schnorr-signature-seu12|No tight algebraic reduction from DLOG to Schnorr signatures in the ROM]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]]) — circumvented by [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]], [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 
 <!-- END GENERATED participates-in -->

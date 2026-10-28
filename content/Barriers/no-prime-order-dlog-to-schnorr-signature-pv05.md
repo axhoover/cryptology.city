@@ -1,7 +1,7 @@
 ---
 type: barrier
 status: draft
-title: "No algebraic reduction from DLOG to Schnorr signatures"
+title: "No algebraic reduction from DLOG to Schnorr signatures in the standard model"
 aliases: []
 id: bar-prime-order-dlog-to-schnorr-signature-pv05
 hypotheses: [prime-order-dlog]
@@ -23,7 +23,7 @@ rationale:
   strength: "The meta-reduction turns any such reduction into an OMDL solver, so the barrier holds if OMDL is hard."
 ---
 
-# No algebraic reduction from DLOG to Schnorr signatures
+# No algebraic reduction from DLOG to Schnorr signatures in the standard model
 
 ## Statement
 

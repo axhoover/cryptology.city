@@ -8,12 +8,12 @@ kind: implication
 hypotheses: [prime-order-dlog]
 conclusion: schnorr-signature
 class: unstated
-model: algebraic-group
+model: other
 source:
   - "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
 security-loss: "tight: the DLOG solver has essentially the forger's running time and advantage"
 rationale:
-  model: "FPS20 prove the theorem for algebraic forgers, with the hash modeled as a programmable random oracle."
+  model: "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
 ---
 
 # DLOG ⇒ Schnorr signatures (tight, AGM)

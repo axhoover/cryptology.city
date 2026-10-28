@@ -48,7 +48,7 @@ The relationship between the AGM and the [[generic-group-model|GGM]] has been th
 
 In the standard model, an adversary receives group elements and may compute arbitrary group operations, with no restriction on how it uses or derives elements. The AGM adds a single constraint — the algebraic accountability condition — that enables tight reductions which are not known in the standard model. Unlike the GGM, the AGM allows algorithms that exploit the representation of group elements; it rules out only adversaries that output group elements whose representation over their inputs they do not know, such as elements sampled obliviously or by hashing into the group — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
 
-<!-- BEGIN GENERATED participates-in 93676b0a1433 -->
+<!-- BEGIN GENERATED participates-in 06ae49b460a8 -->
 
 ## Participates in
 
@@ -64,7 +64,5 @@ In the standard model, an adversary receives group elements and may compute arbi
 
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-cdh-fkl18|DLOG ⇒ CDH]]
-- [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
-- [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 
 <!-- END GENERATED participates-in -->
