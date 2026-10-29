@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-The MASCOT protocol generates SPDZ authenticated multiplication triples over a finite field $\FF$ from correlated [[oblivious-transfer#ot-extension|OT extension]]; with the SPDZ online phase of [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]] this gives [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] for arithmetic circuits over $\FF$, secure with abort against a malicious adversary corrupting up to $n-1$ of the $n$ parties — [[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]].
+The MASCOT protocol generates SPDZ authenticated multiplication triples over a finite field $\FF$ from correlated [[oblivious-transfer#ot-extension|OT extension]]; with the SPDZ online phase of [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]] this gives [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]] for arithmetic circuits over $\FF$, secure with abort against a malicious adversary corrupting up to $n-1$ of the $n$ parties — [[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]].
 
 ## Sketch
 

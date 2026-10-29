@@ -136,6 +136,20 @@ const UPSTREAM_ERRORS: {
     why: "cryptobib misspells Functions",
   },
   {
+    key: "STOC:KilPet01",
+    field: "title",
+    cryptobib:
+      "Concurrent and resettable zero-knowledge in poly-loalgorithm rounds",
+    why: "cryptobib misspells Poly-logarithmic",
+  },
+  {
+    key: "STOC:CKPR01",
+    field: "title",
+    cryptobib:
+      "Black-box concurrent zero-knowledge requires Omega~(log n) rounds",
+    why: "cryptobib spells the tilde-Omega of the title as Omega~",
+  },
+  {
     key: "STOC:Ajtai10",
     field: "title",
     cryptobib: "Oblivious {RAMs} without cryptogrpahic assumptions",

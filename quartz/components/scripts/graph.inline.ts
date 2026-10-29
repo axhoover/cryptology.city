@@ -163,11 +163,16 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
       const manifest = res.ok ? await res.json() : null;
       if (manifest) {
         const asSlug = (g: string) => simplifySlug(g as FullSlug);
+        // Edges from an ideal resource are listed apart; the graph draws both.
+        const reductions = [
+          ...(manifest.reductions ?? []),
+          ...(manifest.hybridReductions ?? []),
+        ];
         for (const o of manifest.objects ?? []) {
           if (o.kind === "variant") continue; // variants live on their host page
           nodeKind.set(asSlug(o.graphSlug), "object");
         }
-        for (const r of manifest.reductions ?? [])
+        for (const r of reductions)
           nodeKind.set(asSlug(r.graphSlug), "reduction");
         for (const b of manifest.barriers ?? [])
           nodeKind.set(asSlug(b.graphSlug), "barrier");
@@ -178,7 +183,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           hostOf.set(o.id, asSlug(o.graphSlug));
 
         const typed: SimpleLinkData[] = [];
-        for (const r of manifest.reductions ?? []) {
+        for (const r of reductions) {
           const self = asSlug(r.graphSlug);
           for (const h of r.hypotheses ?? []) {
             const from = hostOf.get(h);
@@ -200,7 +205,7 @@ async function renderGraph(graph: HTMLElement, fullSlug: FullSlug) {
           // which would read as the implication the barrier denies.
           const key =
             [...(b.hypotheses ?? [])].sort().join("+") + "=>" + b.conclusion;
-          const target = (manifest.reductions ?? []).find(
+          const target = reductions.find(
             (r: any) =>
               [...(r.hypotheses ?? [])].sort().join("+") +
                 "=>" +

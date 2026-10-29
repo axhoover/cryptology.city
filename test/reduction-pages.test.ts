@@ -619,7 +619,11 @@ test("relations.json carries each page's rationale, and only that", () => {
     fs.readFileSync(path.join(ROOT, ".reductions", "relations.json"), "utf8"),
   );
   const byPage = new Map<string, Record<string, unknown>>();
-  for (const e of [...relations.reductions, ...relations.barriers])
+  for (const e of [
+    ...relations.reductions,
+    ...relations.hybridReductions,
+    ...relations.barriers,
+  ])
     byPage.set(e.page, e);
   for (const dir of ["Reductions", "Barriers"])
     for (const f of fs.readdirSync(path.join(ROOT, "content", dir))) {

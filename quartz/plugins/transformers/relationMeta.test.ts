@@ -107,6 +107,10 @@ describe("relationMetaParts: reductions", () => {
       "[[algebraic-group-model|Algebraic group model]]",
     );
     assert.strictEqual(line({ ...fm, model: "crs" }), "CRS model");
+    assert.strictEqual(
+      line({ ...fm, model: ["algebraic-group", "rom"] }),
+      "[[algebraic-group-model|Algebraic group model]] + [[random-oracle-model|random oracle model]]",
+    );
   });
 
   test("the class phrase is written attributively, as in page titles", () => {

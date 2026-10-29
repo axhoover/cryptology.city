@@ -15,9 +15,13 @@ An injective one-way function is a one-way function that is injective but need n
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in dd5e96a7e65e -->
+<!-- BEGIN GENERATED participates-in 13afcb6e152e -->
 
 ## Participates in
+
+**Builds on Injective one-way function**
+
+- [[injective-one-way-function-to-four-message-zk-argument-hv18|Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)]]
 
 **Barriers**
 

@@ -108,7 +108,7 @@ A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of 
 
 ## PIR with polylogarithmic communication
 
-A PIR scheme has **polylogarithmic communication** if it is $(1 - \negl(\secpar))$-correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar, \log n)$ for a polynomial $p$. The first such scheme rests on the [[rsa-assumption#φ-hiding|Φ-hiding assumption]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]. On databases of large polynomial size the error is below $1/(8n)$ and the server sends fewer than $n$ bits, so such a scheme implies [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]].
+A PIR scheme has **polylogarithmic communication** if it has query privacy, is $(1 - \varepsilon)$-correct for a negligible $\varepsilon$, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and, for a polynomial $p$ and every $n$, has communication $|q| + |a| \le p(\secpar, \log n)$ on every $n$-bit database. The first such scheme rests on the [[rsa-assumption#φ-hiding|Φ-hiding assumption]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]. On databases of large polynomial size the error is below $1/(8n)$ and the server sends fewer than $n$ bits, so such a scheme implies [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. Such PIR suffices for non-interactive delegation of all polynomial-time computations with a designated verifier ([[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]]) — [[BHK17 - Non-interactive delegation and batch NP verification from standard computational assumptions|BHK17]].
 
 ## Symmetric private information retrieval (Single-server)
 
@@ -273,7 +273,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 2db101a9abea -->
+<!-- BEGIN GENERATED participates-in e68988bca5f9 -->
 
 ## Participates in
 
@@ -285,6 +285,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[one-round-sublinear-cpir-to-keyword-pir-cgn98|One-round sublinear cPIR ⇒ Keyword PIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[polylog-cpir-to-cpir|PIR with polylogarithmic communication ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
+- [[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))

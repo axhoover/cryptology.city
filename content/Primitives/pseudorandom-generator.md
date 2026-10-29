@@ -8,6 +8,7 @@ title: Pseudorandom generator
 id: prg
 variants:
   trapdoor-pseudorandom-generator: "#trapdoor-pseudorandom-generators"
+  co-nondeterministic-hsg: "#hitting-set-generators-against-co-nondeterministic-circuits"
 ---
 
 # Pseudorandom generator
@@ -83,6 +84,10 @@ $R$ returns a fresh uniform $r \getsr \calR$. Beyond that, a trapdoor PRG should
 
 A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor PRG whose completeness is robust to noise — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] for the PRC definition.
 
+## Hitting-set generators against co-nondeterministic circuits
+
+A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ accepts $y$ iff $C'(y, z) = 1$ for every $z$. A **hitting-set generator against co-nondeterministic circuits** is a family $G_m : \bits^{O(\log m)} \to \bits^m$, computable in time $\poly(m)$, such that for every $m$, every co-nondeterministic circuit $C$ of size $m$ on $m$ input bits that accepts at least half of $\bits^m$ accepts $G_m(s)$ for some seed $s$; equivalently, every nondeterministic circuit of size $m$ that rejects at least half of $\bits^m$ rejects some $G_m(s)$ — [[BOV03 - Derandomization in Cryptography|BOV03]]. With logarithmic seed length all seeds can be enumerated in polynomial time, so such a generator is a derandomization assumption rather than a cryptographic generator — standard. One exists if $\mathbf{E} = \mathbf{DTIME}(2^{O(n)})$ has a function of nondeterministic circuit complexity $2^{\Omega(n)}$ — [[MV99 - Derandomizing Arthur-Merlin Games using Hitting Sets|MV99]], [[BOV03 - Derandomization in Cryptography|BOV03]].
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
@@ -91,18 +96,20 @@ A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $G(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 99a0e94123b4 -->
+<!-- BEGIN GENERATED participates-in 7d56d3c76fa5 -->
 
 ## Participates in
 
 **Builds on Pseudorandom generator**
 
+- [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[prg-to-hash-function|PRG ⇒ OWF]]
 - [[prg-to-np-average-case-hardness|PRG ⇒ Average-case hardness of NP]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
+- [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[pseudorandom-generator#hitting-set-generators-against-co-nondeterministic-circuits|Hitting-set generators against co-nondeterministic circuits]])
 
 **Produces Pseudorandom generator**
 

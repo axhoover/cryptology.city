@@ -28,4 +28,5 @@ The prover commits to a program and gives a witness-indistinguishable universal 
 
 ## Notes
 
-- The protocol circumvents [[no-zkp-to-argument-systems|No reduction from ZKP to Argument systems]]: with black-box simulation, only languages in [[bounded-error-probabilistic-polynomial-time|BPP]] have such protocols — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]].
+- With black-box simulation, only languages in [[bounded-error-probabilistic-polynomial-time|BPP]] have such protocols ([[bb-zk-constant-round-public-coin-to-bpp-gk96|Constant-round public-coin black-box ZK ⊆ BPP]]) — [[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]].
+- The simulator runs in strict polynomial time, which no black-box simulator of a constant-round protocol for a language outside $\classBPP$ achieves ([[bb-zk-strict-polynomial-simulation-to-bpp-bl02|Constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP]]) — [[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]].

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: DDH ⇒ UC-secure OT (PVW)
+title: DDH ⇒ Two-round UC-secure OT (PVW)
 aliases: []
 id: red-ddh-to-malicious-ot-security-pvw08
 kind: implication
 hypotheses: [ddh]
-conclusion: uc-ot
+conclusion: two-round-uc-ot
 class: unstated
 model: crs
 source:
@@ -17,11 +17,11 @@ rationale:
   security-loss: "The reference string is the only computational component, and in the DDH instantiation it is a DDH tuple in decryption mode and a non-DDH tuple in messy mode."
 ---
 
-# DDH ⇒ UC-secure OT (PVW)
+# DDH ⇒ Two-round UC-secure OT (PVW)
 
 ## Statement
 
-If [[decisional-diffie-hellman|DDH]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
+If [[decisional-diffie-hellman|DDH]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#two-round-uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
 
 ## Sketch
 
