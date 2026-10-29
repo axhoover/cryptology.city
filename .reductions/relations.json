@@ -1794,6 +1794,19 @@
    "unlisted": false
   },
   {
+   "id": "fixed-instruction-offline-oram",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-ram.md",
+   "slug": "oblivious-ram",
+   "graphSlug": "Primitives/oblivious-ram",
+   "anchor": "#offline-oram-with-fixed-instructions",
+   "of": "oram",
+   "title": "Offline ORAM with fixed instructions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "four-message-zk-argument",
    "kind": "variant",
    "type": "primitive",
@@ -5471,15 +5484,15 @@
    "unlisted": false
   },
   {
-   "id": "sublogarithmic-offline-oram",
+   "id": "sublogarithmic-fixed-instruction-offline-oram",
    "kind": "variant",
    "type": "primitive",
    "page": "content/Primitives/oblivious-ram.md",
    "slug": "oblivious-ram",
    "graphSlug": "Primitives/oblivious-ram",
-   "anchor": "#sublogarithmic-overhead-offline-oram",
+   "anchor": "#sublogarithmic-overhead-offline-oram-with-fixed-instructions",
    "of": "oram",
-   "title": "Sublogarithmic-overhead offline ORAM",
+   "title": "Sublogarithmic-overhead offline ORAM with fixed instructions",
    "aliases": [],
    "unlisted": false
   },
@@ -19210,12 +19223,12 @@
    "title": "SKE ⇒ OWF"
   },
   {
-   "id": "red-small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
+   "id": "red-small-sorting-circuits-to-sublogarithmic-fixed-instruction-offline-oram-bn16",
    "kind": "implication",
    "hypotheses": [
     "small-sorting-circuits"
    ],
-   "conclusion": "sublogarithmic-offline-oram",
+   "conclusion": "sublogarithmic-fixed-instruction-offline-oram",
    "class": "free",
    "model": "standard",
    "models": [
@@ -19234,7 +19247,7 @@
    "page": "content/Reductions/small-sorting-circuits-to-sublogarithmic-offline-oram-bn16.md",
    "slug": "small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
    "graphSlug": "Reductions/small-sorting-circuits-to-sublogarithmic-offline-oram-bn16",
-   "title": "Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM"
+   "title": "Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM with fixed instructions"
   },
   {
    "id": "red-snark-and-crhf-to-fully-succinct-snark-bcct13",

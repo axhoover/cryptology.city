@@ -10,7 +10,8 @@ id: oram
 variants:
   statistical-oram: "#statistically-secure-oram"
   offline-oram: "#offline-oram"
-  sublogarithmic-offline-oram: "#sublogarithmic-overhead-offline-oram"
+  fixed-instruction-offline-oram: "#offline-oram-with-fixed-instructions"
+  sublogarithmic-fixed-instruction-offline-oram: "#sublogarithmic-overhead-offline-oram-with-fixed-instructions"
   balls-and-bins-oram: "#balls-and-bins-oram"
   sublogarithmic-balls-and-bins-oram: "#sublogarithmic-overhead-balls-and-bins-oram"
   one-round-oram: "#one-round-oram"
@@ -101,6 +102,7 @@ For a sequence $o_1, \ldots, o_q$, let $p_{t,j}$ be the physical operations issu
 
 - The **bandwidth blowup** on $o_1, \ldots, o_q$ is $\frac{\beta_2}{q \beta_1} \cdot \mathbb{E}\!\left[\sum_{t=1}^{q} \sum_{j=1}^{r} |p_{t,j}|\right]$, and the **amortized bandwidth blowup** is its maximum over all sequences of $q$ operations with $N_1 \le q \le \poly(\secpar)$. The **worst-case bandwidth blowup** is the maximum of $\frac{\beta_2}{\beta_1} \sum_{j=1}^{r} |p_{t,j}|$ over all sequences, all $t$ and all coins.
 - The **client storage** is $\max_t |\st_t|$, the largest state kept between operations, in bits or in blocks of $\beta_1$ bits; the key length $|K|$ is reported separately. Answers held within one operation are not counted, since the bandwidth bounds them.
+- A client has **$O(1)$ blocks of memory at every step**, within an operation as well as between operations, as a RAM with a constant number of registers does, if each round issues $O(1)$ physical operations, $\Acc_j$ uses $a_1, \ldots, a_{j-1}$ only through $a_{j-1}$ and $\st$, $\Out$ uses them only through $a_r$ and $\st$, and $\st$ has $O(1)$ blocks throughout; the number of rounds $r$ may then grow with $N_1$.
 - The **server storage** is $N_2 \beta_2$ bits, and the **round complexity** is $r$.
 
 # Variations
@@ -111,7 +113,7 @@ An ORAM $\Pi$ is **statistically secure** if it is $(1-\negl(\secpar))$-correct 
 
 ## Offline ORAM
 
-An **offline** ORAM learns the indices and types of the whole operation sequence $\mathbf{o} = (o_1, \ldots, o_q)$ before processing starts, but each written block only with its operation: $\Acc_j$ and $\Out$ take the current operation $o_t$ together with $(\rho(o_1), \ldots, \rho(o_q))$ in place of $o$, with $\rho$ as in the definition of the access pattern. Knowing the written blocks in advance would let the client answer every read from them without touching the server. In the security game the adversary submits one pair of sequences of equal length and receives the access pattern of the whole execution on one of them — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. The ORAMs defined above, which process each operation before receiving the next, are **online**.
+An **offline** ORAM learns the indices and types of the whole operation sequence $\mathbf{o} = (o_1, \ldots, o_q)$ before processing starts, but each written block only with its operation: $\Acc_j$ and $\Out$ take the current operation $o_t$ together with $(\rho(o_1), \ldots, \rho(o_q))$ in place of $o$, with $\rho$ as in the definition of the access pattern. Knowing the written blocks in advance would let the client answer every read from them without touching the server. In the security game the adversary submits one pair of sequences of equal length and receives the access pattern of the whole execution on one of them. BN16's offline ORAMs also know the written blocks in advance ([[#Offline ORAM with fixed instructions|offline ORAM with fixed instructions]]) — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. The ORAMs defined above, which process each operation before receiving the next, are **online** — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
 
 ```pseudocode
 \begin{algorithm}
@@ -137,9 +139,38 @@ $$
 
 is negligible; statistical and perfect security are defined as for online ORAMs. Every online ORAM yields an offline ORAM with the same overhead — folklore.
 
-### Sublogarithmic-overhead offline ORAM
+### Offline ORAM with fixed instructions
 
-A **sublogarithmic-overhead offline ORAM** is a secure offline ORAM, with any encoding of the data, whose physical cells have the size of its blocks ($\beta_2 = \beta_1 = w$), with client storage of $O(1)$ blocks, block length $w \in \Omega(\log N_1) \cap N_1^{o(1)}$, and amortized bandwidth blowup $o(\log N_1)$ over sequences of $q \ge N_1$ operations. Small sorting circuits give one ([[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM]]), and proving that none exists would need a superlinear lower bound on the size of sorting circuits — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
+An offline ORAM **with fixed instructions** learns the whole operation sequence $\mathbf{o} = (o_1, \ldots, o_q)$ before processing starts, written blocks included: $\Acc_j$ and $\Out$ take the current operation $o_t$ together with $\mathbf{o}$ in place of $o$. The virtual array starts with contents $D \in \calB_1^{N_1}$ that the client sees only through its physical reads: with $N_2 \ge N_1$ and $\calB_1 \subseteq \calB_2$, the physical array starts as $M_2 = (D[1], \ldots, D[N_1], b_0, \ldots, b_0)$, and the correct answer to a read $i$ with no earlier write to $i$ is $D[i]$ in place of $\bot$. Bandwidth blowup and client storage are maximized over $D$ as well as over the sequence. From an empty array, the client could answer every read from $\mathbf{o}$ alone. BN16's offline programs fix every fetch and store instruction in advance, the value of every store included — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{oram\text{-}fix}}_{\Pi,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $K \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $((D_0, \mathbf{o}_0), (D_1, \mathbf{o}_1), \stA) \gets \calA(1^\secpar)$
+\Comment{$D_0, D_1 \in \calB_1^{N_1}$; $\mathbf{o}_0, \mathbf{o}_1 \in \Ops_1^q$ for the same $q$}
+\State $M_2 \gets (D_b[1], \ldots, D_b[N_1], b_0, \ldots, b_0)$
+\State process $\mathbf{o}_b$ under $K$ from $\st = \bot$ and $M_2$, giving $\Acc_j$ and $\Out$ all of $\mathbf{o}_b$
+\State $\mathit{ap} \gets (\mathrm{ap}(o_1), \ldots, \mathrm{ap}(o_q))$ for the operations of $\mathbf{o}_b$
+\State $b' \gets \calA(\stA, \mathit{ap})$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+An offline ORAM $\Pi$ with fixed instructions is **secure** if it is $(1-\negl(\secpar))$-correct for every $D \in \calB_1^{N_1}$, with the answers $D[i]$ above, and for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{oram\text{-}fix}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{oram\text{-}fix}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible; statistical and perfect security are defined as for online ORAMs.
+
+#### Sublogarithmic-overhead offline ORAM with fixed instructions
+
+A **sublogarithmic-overhead offline ORAM with fixed instructions** is a secure offline ORAM with fixed instructions, with any encoding of the data, whose physical cells have the size of its blocks ($\beta_2 = \beta_1 = w$), with $O(1)$ blocks of client memory at every step ([[#Efficiency]]), block length $w \in \Omega(\log N_1) \cap N_1^{o(1)}$, and amortized bandwidth blowup $o(\log N_1)$ over every sequence of $q$ operations with $\secpar \le N_1 \le q \le \poly(\secpar)$. BN16's client likewise has a constant number of registers — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. Bounding only the [[#Efficiency|client storage]], the state kept between operations, would admit a client that, every $N_1$ operations, reads all of $D$ in one round and in the next writes the answers of the next $N_1$ operations to $N_1$ cells, one per operation, which each of those operations then reads: a fixed access pattern with $O(1)$ amortized bandwidth blowup. Small sorting circuits give a sublogarithmic-overhead offline ORAM with fixed instructions ([[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM with fixed instructions]]), and proving that none exists would need a superlinear lower bound on the size of sorting circuits — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]]. The construction relies on the store values being fixed in advance, and BN16 pose its extension to a more expressive offline class as an open question, so it is not known to give an [[#Offline ORAM|offline ORAM]] that learns each written block only with its operation — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
 
 ## Balls-and-bins ORAM
 
@@ -147,7 +178,7 @@ In a **balls-and-bins** ORAM, $\calB_2 = \calB_1 \cup \{b_0\}$, so each physical
 
 ### Sublogarithmic-overhead balls-and-bins ORAM
 
-A **sublogarithmic-overhead balls-and-bins ORAM** is a statistically secure offline balls-and-bins ORAM with client storage of $O(1)$ blocks and amortized bandwidth blowup $o(\log N_1)$ over sequences of $q \ge N_1$ operations. None exists ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]].
+A **sublogarithmic-overhead balls-and-bins ORAM** is a statistically secure offline balls-and-bins ORAM with $O(1)$ blocks of client memory at every step and amortized bandwidth blowup $o(\log N_1)$ over sequences of $q \ge N_1$ operations. None exists ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]].
 
 ## One-round ORAM
 
@@ -179,7 +210,7 @@ A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secu
 
 # Other results
 
-- Every statistically secure balls-and-bins ORAM with client storage of $O(1)$ blocks, even an offline one, has amortized bandwidth blowup $\Omega(\log N_1)$ ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. For offline ORAMs that may encode the data, such a bound would imply superlinear lower bounds on the size of sorting circuits ([[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM]]) — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
+- Every statistically secure balls-and-bins ORAM with $O(1)$ blocks of client memory at every step, even an [[#Offline ORAM|offline]] one, has amortized bandwidth blowup $\Omega(\log N_1)$ ([[no-oram-to-sublogarithmic-balls-and-bins-oram-go96|No reduction from ORAM to sublogarithmic-overhead balls-and-bins ORAM]]) — [[GO96 - Software protection and simulation on oblivious RAMs|GO96]]. For offline ORAMs with fixed instructions that may encode the data, such a bound would imply superlinear lower bounds on the size of sorting circuits ([[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM with fixed instructions]]) — [[BN16 - Is There an Oblivious RAM Lower Bound|BN16]].
 - Every online ORAM with client memory $m \le N_1^{1-\varepsilon}$ has amortized bandwidth blowup $\Omega(\log N_1)$, even with computational security and an arbitrary encoding of the data ([[no-oram-to-sublogarithmic-oram-ln18|No reduction from ORAM to sublogarithmic-overhead ORAM]]) — [[LN18 - Yes, There is an Oblivious RAM Lower Bound!|LN18]]. The bound holds even against a server that does not know which physical operations belong to which virtual operation — [[HKKS19 - Stronger Lower Bounds for Online ORAM|HKKS19]].
 - Every online ORAM makes $\Omega(\log(Nw/m)/\log(b/w))$ amortized memory probes per operation, where $N$ is the number of virtual cells, $w$ and $b$ the virtual and physical cell sizes and $m$ the client storage in bits; the bound is tight up to the $\log(b/w)$ factor and extends to non-colluding servers. For $w = \log N$ and $b, m \in \polylog N$, some offline ORAM makes $o(1)$ probes per operation on average while every online one makes $\Omega(\log N/\log\log N)$, the first separation of online and offline ORAM for any parameters — [[KL21 - A Logarithmic Lower Bound for Oblivious RAM (for all parameters)|KL21]].
 - An online ORAM whose server only stores data and whose reads, but not writes, have $o(\log N_1)$ overhead follows from small sorting circuits together with locally decodable codes with parameters not known to exist, so a lower bound for online read-only ORAM would need a new circuit lower bound or would rule out such codes. LN18's bound leaves online read-only ORAM open, while GO96's balls-and-bins bound extends to offline and read-only ORAM — [[WW18 - Is There an Oblivious RAM Lower Bound for Online Reads|WW18]].
@@ -202,7 +233,7 @@ A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secu
 - Private information storage gives private reads and writes to data held by several non-communicating databases, with information-theoretic privacy: any retrieval-only $k$-database scheme with communication $R(k, n)$ yields a $(k+1)$-database read/write scheme with communication $O(R(k, n) \cdot (\log n)^{O(1)})$, and no sublinear bounds for private information storage were known before — [[OS97 - Private Information Storage|OS97]].
 - Floram is a distributed ORAM for two-party secure computation built from the [[distributed-point-function#Function secret sharing (FSS)|function secret sharing]] of [[BGI15 - Function Secret Sharing|BGI15]]; it needs much less secure computation per access, at the cost of $O(n)$ local memory operations, and outperforms Circuit ORAM and square-root ORAM for datasets of 32 KiB or more — [[DS17 - Scaling ORAM for Secure Computation|DS17]].
 
-<!-- BEGIN GENERATED participates-in 6d418d692d68 -->
+<!-- BEGIN GENERATED participates-in acd367ff5570 -->
 
 ## Participates in
 
@@ -211,7 +242,7 @@ A **constant-bandwidth ORAM** is an efficient ORAM with server computation, secu
 - [[dcr-to-constant-bandwidth-oram-ddf-16|DCR ⇒ constant-bandwidth ORAM (Onion ORAM)]] (via [[oblivious-ram#constant-bandwidth-oram|Constant-bandwidth ORAM]])
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]] (via [[oblivious-ram#logarithmic-overhead-oram|Logarithmic-overhead ORAM]])
 - [[prf-to-polylog-oram-go96|PRF ⇒ polylogarithmic-overhead ORAM (hierarchical ORAM)]] (via [[oblivious-ram#polylogarithmic-overhead-oram|Polylogarithmic-overhead ORAM]])
-- [[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM]] (via [[oblivious-ram#sublogarithmic-overhead-offline-oram|Sublogarithmic-overhead offline ORAM]])
+- [[small-sorting-circuits-to-sublogarithmic-offline-oram-bn16|Small sorting circuits ⇒ sublogarithmic-overhead offline ORAM with fixed instructions]] (via [[oblivious-ram#sublogarithmic-overhead-offline-oram-with-fixed-instructions|Sublogarithmic-overhead offline ORAM with fixed instructions]])
 
 **Barriers**
 
