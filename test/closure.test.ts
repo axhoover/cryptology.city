@@ -7,6 +7,8 @@ import { closure, scopeNames, protocolNodes } from "../scripts/closure.mjs";
 // @ts-ignore
 import { HYBRID_RESOURCES } from "../scripts/closure.mjs";
 // @ts-ignore
+import { bilinearNodes } from "../scripts/closure.mjs";
+// @ts-ignore
 import * as rc from "../scripts/reduction-classes.mjs";
 
 const ROOT = path.resolve(import.meta.dirname, "..");
@@ -54,8 +56,8 @@ const fixture = [
 
 test("a generic-group object feeds black-box edges but not non-black-box ones", () => {
   const r = run(fixture, ["ggm"]);
-  assert.deepEqual(scopesOf(r, "cdh"), ["generic-group"]);
-  assert.deepEqual(scopesOf(r, "pke"), ["generic-group"]);
+  assert.deepEqual(scopesOf(r, "cdh"), ["generic-group+no-pairing"]);
+  assert.deepEqual(scopesOf(r, "pke"), ["generic-group+no-pairing"]);
   assert.ok(
     !r.derived.has("ibe"),
     "free CDH => IBE must not fire on generic-group CDH",
@@ -91,7 +93,7 @@ test("scopes of several hypotheses are joined", () => {
     red("d", ["x", "y"], "w", { class: "unstated" }),
   ];
   const r = run(reds, ["ggm", "s"]);
-  assert.deepEqual(scopesOf(r, "z"), ["generic-group+rom"]);
+  assert.deepEqual(scopesOf(r, "z"), ["generic-group+rom+no-pairing"]);
   assert.ok(!r.derived.has("w"));
 });
 
@@ -121,6 +123,38 @@ test("a hybrid-model scope is kept through protocol notions only", () => {
   assert.deepEqual(scopesOf(plain, "com"), [""]);
 });
 
+test("a pairing-free generic-group bound does not feed a pairing-based edge", () => {
+  const reds = [
+    red("ggm-to-lrsw", ["ggm"], "lrsw", {
+      class: "free",
+      model: "generic-group",
+    }),
+    red("cl04", ["type-1-pairing", "lrsw"], "ds"),
+    red("lrsw-to-owf", ["lrsw"], "owf"),
+    red("bb08", ["generic-bilinear-group-model"], "q-sdh", {
+      class: "free",
+      model: "generic-group",
+    }),
+    red("bb04", ["type-3-pairing", "q-sdh"], "ds2"),
+    red("gro16", ["bilinear-pairing"], "snark", {
+      class: "free",
+      model: "generic-group",
+    }),
+  ];
+  const r = run(reds, [
+    "ggm",
+    "type-1-pairing",
+    "type-3-pairing",
+    "generic-bilinear-group-model",
+    "bilinear-pairing",
+  ]);
+  assert.deepEqual(scopesOf(r, "lrsw"), ["generic-group+no-pairing"]);
+  assert.ok(!r.derived.has("ds"), "CL04 must not consume pairing-free LRSW");
+  assert.deepEqual(scopesOf(r, "owf"), ["generic-group+no-pairing"]);
+  assert.deepEqual(scopesOf(r, "ds2"), ["generic-group"]);
+  assert.deepEqual(scopesOf(r, "snark"), ["generic-group"]);
+});
+
 test("equivalences run both ways and heuristic edges never fire", () => {
   const reds = [
     red("e", ["a"], "b", { kind: "equivalence" }),
@@ -140,12 +174,13 @@ const manifest = JSON.parse(
 const live = (seed: string[]) =>
   closure([...manifest.reductions, ...manifest.hybridReductions], seed, {
     relativizes,
+    bilinear: bilinearNodes(manifest.objects),
     protocol: new Set(manifest.protocolObjects),
   });
 
 test("generic-group CDH does not give IBE through DG17a", () => {
   const r = live(["ggm"]);
-  assert.ok(scopesOf(r, "cdh").includes("generic-group"));
+  assert.ok(scopesOf(r, "cdh").includes("generic-group+no-pairing"));
   for (const x of ["ind-id-cpa", "ibe"])
     assert.ok(!r.derived.has(x), `ggm must not derive ${x}`);
 });
@@ -353,4 +388,19 @@ test("round-indexed variants are defined from the expected-time parents", () => 
       `${heading} does not assert the strict parent`,
     );
   }
+});
+
+test("LRSW99's pairing-free GGM bound does not feed CL04 signatures", () => {
+  const r = live(["ggm", "type-1-pairing"]);
+  assert.deepEqual(scopesOf(r, "lrsw"), ["generic-group+no-pairing"]);
+  assert.ok(
+    !r.used.includes("red-type-1-pairing-and-lrsw-to-ds-cl04"),
+    "LRSW99 => CL04 must not fire",
+  );
+  assert.ok(
+    live(["lrsw", "type-1-pairing"]).used.includes(
+      "red-type-1-pairing-and-lrsw-to-ds-cl04",
+    ),
+    "standard-model LRSW still gives CL04",
+  );
 });

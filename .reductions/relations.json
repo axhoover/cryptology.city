@@ -294,6 +294,19 @@
    "unlisted": false
   },
   {
+   "id": "aggregate-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#aggregate-signatures",
+   "of": "ds",
+   "title": "Aggregate signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "agm",
    "kind": "object",
    "type": "glossary",
@@ -406,6 +419,19 @@
     "AIR"
    ],
    "unlisted": false
+  },
+  {
+   "id": "asymmetric-q-sdh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/q-strong-diffie-hellman.md",
+   "slug": "q-strong-diffie-hellman",
+   "graphSlug": "Assumptions/q-strong-diffie-hellman",
+   "anchor": "#asymmetric-q-sdh",
+   "of": "q-strong-diffie-hellman",
+   "title": "Asymmetric q-SDH",
+   "aliases": [],
+   "unlisted": true
   },
   {
    "id": "authenticated-channels",
@@ -553,6 +579,46 @@
    "unlisted": false
   },
   {
+   "id": "blind-okamoto-schnorr-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/blind-signature.md",
+   "slug": "blind-signature",
+   "graphSlug": "Primitives/blind-signature",
+   "anchor": "#blind-okamoto-schnorr-signatures",
+   "of": "blind-signature",
+   "title": "Blind Okamoto-Schnorr signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "blind-schnorr-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/blind-signature.md",
+   "slug": "blind-signature",
+   "graphSlug": "Primitives/blind-signature",
+   "anchor": "#blind-schnorr-signatures",
+   "of": "blind-signature",
+   "title": "Blind Schnorr signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "blind-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/blind-signature.md",
+   "slug": "blind-signature",
+   "graphSlug": "Primitives/blind-signature",
+   "title": "Blind signature",
+   "aliases": [
+    "Blind signature",
+    "Blind signatures"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "boneh-lynn-shacham-signature",
    "kind": "variant",
    "type": "primitive",
@@ -575,6 +641,19 @@
    "anchor": "#bootstrappable-she",
    "of": "he",
    "title": "Bootstrappable SHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bounded-round-assumption",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/falsifiable-assumptions.md",
+   "slug": "falsifiable-assumptions",
+   "graphSlug": "Glossary/falsifiable-assumptions",
+   "anchor": "#bounded-round-assumptions",
+   "of": "falsifiable-assumption",
+   "title": "Bounded-round assumptions",
    "aliases": [],
    "unlisted": false
   },
@@ -741,6 +820,19 @@
    "unlisted": true
   },
   {
+   "id": "co-cdh-star",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/co-computational-diffie-hellman.md",
+   "slug": "co-computational-diffie-hellman",
+   "graphSlug": "Assumptions/co-computational-diffie-hellman",
+   "anchor": "#without-an-isomorphism",
+   "of": "co-cdh",
+   "title": "Without an isomorphism",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
    "id": "coam",
    "kind": "object",
    "type": "complexity-class",
@@ -835,6 +927,19 @@
    "title": "Computational Multi-server PIR",
    "aliases": [],
    "unlisted": false
+  },
+  {
+   "id": "concurrent-schnorr-identification",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/identification-scheme.md",
+   "slug": "identification-scheme",
+   "graphSlug": "Primitives/identification-scheme",
+   "anchor": "#schnorr-identification-under-concurrent-attack",
+   "of": "identification-scheme",
+   "title": "Schnorr identification under concurrent attack",
+   "aliases": [],
+   "unlisted": true
   },
   {
    "id": "conp",
@@ -1212,7 +1317,8 @@
     "Discrete logarithm",
     "DL",
     "DLP",
-    "Discrete log"
+    "Discrete log",
+    "OMDL"
    ],
    "unlisted": false
   },
@@ -1272,6 +1378,32 @@
     "Digital signature",
     "Signature scheme"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "eddsa",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#eddsa",
+   "of": "ds",
+   "title": "EdDSA",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "edl-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#edl-signatures",
+   "of": "ds",
+   "title": "EDL signatures",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1616,6 +1748,19 @@
    "unlisted": false
   },
   {
+   "id": "generic-bilinear-group-model",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/generic-group-model.md",
+   "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
+   "anchor": "#generic-bilinear-groups",
+   "of": "ggm",
+   "title": "Generic bilinear groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ggm",
    "kind": "object",
    "type": "glossary",
@@ -1626,6 +1771,19 @@
    "aliases": [
     "Generic Group Model"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "ggm-with-preprocessing",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/generic-group-model.md",
+   "slug": "generic-group-model",
+   "graphSlug": "Glossary/generic-group-model",
+   "anchor": "#preprocessing",
+   "of": "ggm",
+   "title": "Preprocessing",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -2200,6 +2358,19 @@
    "unlisted": false
   },
   {
+   "id": "katz-wang-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#katz-wang-signatures",
+   "of": "ds",
+   "title": "Katz-Wang signatures",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ke",
    "kind": "object",
    "type": "primitive",
@@ -2463,6 +2634,20 @@
    "title": "Mid-noise LPN",
    "aliases": [],
    "unlisted": false
+  },
+  {
+   "id": "lrsw",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/lrsw-assumption.md",
+   "slug": "lrsw-assumption",
+   "graphSlug": "Assumptions/lrsw-assumption",
+   "title": "LRSW assumption",
+   "aliases": [
+    "LRSW",
+    "LRSW assumption"
+   ],
+   "unlisted": true
   },
   {
    "id": "lwe",
@@ -2765,6 +2950,47 @@
    "unlisted": false
   },
   {
+   "id": "multi-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "title": "Multi-signature",
+   "aliases": [
+    "Multi-signature",
+    "Multisignature",
+    "Multi-signatures"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "multi-signature-kosk",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "anchor": "#knowledge-of-secret-key-model",
+   "of": "multi-signature",
+   "title": "Knowledge-of-secret-key model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "multi-signature-pop",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "anchor": "#proof-of-possession-model",
+   "of": "multi-signature",
+   "title": "Proof-of-possession model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "multilinear-maps",
    "kind": "object",
    "type": "glossary",
@@ -2788,6 +3014,32 @@
    "anchor": "#multiplicatively-homomorphic-encryption",
    "of": "he",
    "title": "Multiplicatively homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "musig",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "anchor": "#musig",
+   "of": "multi-signature",
+   "title": "MuSig",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "musig2",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "anchor": "#musig2",
+   "of": "multi-signature",
+   "title": "MuSig2",
    "aliases": [],
    "unlisted": false
   },
@@ -2875,6 +3127,19 @@
     "noisy k-LIN over expanders",
     "Noisy k-LIN over expanders"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "non-interactive-assumption",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/falsifiable-assumptions.md",
+   "slug": "falsifiable-assumptions",
+   "graphSlug": "Glossary/falsifiable-assumptions",
+   "anchor": "#non-interactive-assumptions",
+   "of": "falsifiable-assumption",
+   "title": "Non-interactive assumptions",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3035,6 +3300,32 @@
     "Oblivious locally decodable code"
    ],
    "unlisted": true
+  },
+  {
+   "id": "okamoto-identification-protocol",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/identification-scheme.md",
+   "slug": "identification-scheme",
+   "graphSlug": "Primitives/identification-scheme",
+   "anchor": "#okamoto-identification-protocol",
+   "of": "identification-scheme",
+   "title": "Okamoto identification protocol",
+   "aliases": [],
+   "unlisted": true
+  },
+  {
+   "id": "omdl",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#one-more-discrete-logarithm",
+   "of": "dlog",
+   "title": "One-more Discrete Logarithm",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "one-out-of-n-ot",
@@ -3503,6 +3794,32 @@
    "unlisted": true
   },
   {
+   "id": "prime-order-cdh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/computational-diffie-hellman.md",
+   "slug": "computational-diffie-hellman",
+   "graphSlug": "Assumptions/computational-diffie-hellman",
+   "anchor": "#cdh-in-prime-order-groups",
+   "of": "cdh",
+   "title": "CDH in prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "prime-order-ddh",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/decisional-diffie-hellman.md",
+   "slug": "decisional-diffie-hellman",
+   "graphSlug": "Assumptions/decisional-diffie-hellman",
+   "anchor": "#ddh-in-prime-order-groups",
+   "of": "ddh",
+   "title": "DDH in prime-order groups",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "prime-order-dlog",
    "kind": "variant",
    "type": "assumption",
@@ -3834,6 +4151,20 @@
    "unlisted": false
   },
   {
+   "id": "ros",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/ros-problem.md",
+   "slug": "ros-problem",
+   "graphSlug": "Assumptions/ros-problem",
+   "title": "ROS problem",
+   "aliases": [
+    "ROS",
+    "ROS problem"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "rp",
    "kind": "object",
    "type": "complexity-class",
@@ -4004,6 +4335,19 @@
     "Sharp-P",
     "SharpP"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "short-structure-preserving-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#optimally-short-structure-preserving-signatures",
+   "of": "ds",
+   "title": "Optimally short structure-preserving signatures",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -4376,6 +4720,19 @@
    "anchor": "#strongly-homomorphic-encryption",
    "of": "he",
    "title": "Strongly homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "structure-preserving-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#structure-preserving-signatures",
+   "of": "ds",
+   "title": "Structure-preserving signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -4764,6 +5121,19 @@
    "unlisted": false
   },
   {
+   "id": "twisted-edwards-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#dlog-in-prime-order-subgroups-of-twisted-edwards-curves",
+   "of": "dlog",
+   "title": "DLOG in prime-order subgroups of twisted Edwards curves",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "two-party-computation",
    "kind": "variant",
    "type": "primitive",
@@ -4817,6 +5187,19 @@
    "unlisted": false
   },
   {
+   "id": "two-round-musig",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/multi-signature.md",
+   "slug": "multi-signature",
+   "graphSlug": "Primitives/multi-signature",
+   "anchor": "#two-round-musig",
+   "of": "multi-signature",
+   "title": "Two-round MuSig",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "two-round-ot",
    "kind": "variant",
    "type": "primitive",
@@ -4856,15 +5239,28 @@
    "unlisted": false
   },
   {
+   "id": "type-1-pairing",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/pairings.md",
+   "slug": "pairings",
+   "graphSlug": "Glossary/pairings",
+   "anchor": "#type-1",
+   "of": "bilinear-pairing",
+   "title": "Type 1",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "type-3-pairing",
    "kind": "variant",
    "type": "glossary",
    "page": "content/Glossary/pairings.md",
    "slug": "pairings",
    "graphSlug": "Glossary/pairings",
-   "anchor": "#types",
+   "anchor": "#type-3",
    "of": "bilinear-pairing",
-   "title": "Types",
+   "title": "Type 3",
    "aliases": [],
    "unlisted": false
   },
@@ -4998,6 +5394,19 @@
    "anchor": "#virtual-black-box-obfuscation-vbb",
    "of": "io",
    "title": "Virtual black-box obfuscation (VBB)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "waters-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#waters-signatures",
+   "of": "ds",
+   "title": "Waters signatures",
    "aliases": [],
    "unlisted": false
   },
@@ -5792,6 +6201,30 @@
    "title": "Bilinear pairing ⇒ zk-SNARK"
   },
   {
+   "id": "red-boneh-lynn-shacham-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "boneh-lynn-shacham-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/boneh-lynn-shacham-signature-to-ds.md",
+   "slug": "boneh-lynn-shacham-signature-to-ds",
+   "graphSlug": "Reductions/boneh-lynn-shacham-signature-to-ds",
+   "title": "BLS signatures ⇒ DS"
+  },
+  {
    "id": "red-bpp-to-am-gs86",
    "kind": "inclusion",
    "hypotheses": [
@@ -6233,12 +6666,82 @@
    "title": "CLS hardness ⇒ PPAD hardness"
   },
   {
+   "id": "red-co-cdh-star-to-multi-signature-bdn18",
+   "kind": "implication",
+   "hypotheses": [
+    "co-cdh-star"
+   ],
+   "conclusion": "multi-signature",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[BDN18 - Compact Multi-Signatures for Smaller Blockchains|BDN18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/co-cdh-star-to-multi-signature-bdn18.md",
+   "slug": "co-cdh-star-to-multi-signature-bdn18",
+   "graphSlug": "Reductions/co-cdh-star-to-multi-signature-bdn18",
+   "title": "co-CDH ⇒ BLS multi-signatures with public-key aggregation"
+  },
+  {
+   "id": "red-co-cdh-to-aggregate-signature-bgls03",
+   "kind": "implication",
+   "hypotheses": [
+    "co-cdh"
+   ],
+   "conclusion": "aggregate-signature",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[BGLS03 - Aggregate and Verifiably Encrypted Signatures from Bilinear Maps|BGLS03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction uses only group, hash and pairing operations, and the reduction runs the forger once as an oracle, programs the random oracle, and extracts a co-CDH solution from the forged aggregate.",
+    "model": "The reduction programs the hash-to-group function to embed the challenge and to answer signing queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/co-cdh-to-aggregate-signature-bgls03.md",
+   "slug": "co-cdh-to-aggregate-signature-bgls03",
+   "graphSlug": "Reductions/co-cdh-to-aggregate-signature-bgls03",
+   "title": "co-CDH ⇒ Aggregate signatures (BGLS)"
+  },
+  {
+   "id": "red-co-cdh-to-co-cdh-star",
+   "kind": "implication",
+   "hypotheses": [
+    "co-cdh"
+   ],
+   "conclusion": "co-cdh-star",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction outputs the group pair with $g_1 = \\psi(g_2)$, and the reduction maps each co-CDH instance to an instance of the other form with the same answer, calling any solver once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/co-cdh-to-co-cdh-star.md",
+   "slug": "co-cdh-to-co-cdh-star",
+   "graphSlug": "Reductions/co-cdh-to-co-cdh-star",
+   "title": "co-CDH ⇒ co-CDH without an isomorphism"
+  },
+  {
    "id": "red-co-cdh-to-ds",
    "kind": "implication",
    "hypotheses": [
     "co-cdh"
    ],
-   "conclusion": "ds",
+   "conclusion": "boneh-lynn-shacham-signature",
    "class": "fully-black-box",
    "model": "rom",
    "source": [
@@ -6255,7 +6758,7 @@
    "page": "content/Reductions/co-cdh-to-ds.md",
    "slug": "co-cdh-to-ds",
    "graphSlug": "Reductions/co-cdh-to-ds",
-   "title": "co-CDH ⇒ DS"
+   "title": "co-CDH ⇒ BLS signatures"
   },
   {
    "id": "red-com-to-coin-flipping-blu81",
@@ -6377,6 +6880,30 @@
    "slug": "compact-prime-order-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/compact-prime-order-dlog-to-prime-order-dlog",
    "title": "Compactly encoded prime-order DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-concurrent-schnorr-identification-to-schnorr-identification-protocol",
+   "kind": "implication",
+   "hypotheses": [
+    "concurrent-schnorr-identification"
+   ],
+   "conclusion": "schnorr-identification-protocol",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the protocol, and the reduction runs any passive impersonator as an oracle, producing its transcripts by playing the honest verifier in prover sessions."
+   },
+   "status": "draft",
+   "page": "content/Reductions/concurrent-schnorr-identification-to-schnorr-identification-protocol.md",
+   "slug": "concurrent-schnorr-identification-to-schnorr-identification-protocol",
+   "graphSlug": "Reductions/concurrent-schnorr-identification-to-schnorr-identification-protocol",
+   "title": "Schnorr identification under concurrent attack ⇒ Schnorr identification protocol"
   },
   {
    "id": "red-conp-to-coam",
@@ -7618,8 +8145,6 @@
    "class": "fully-black-box",
    "model": "rom",
    "source": [
-    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
-    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]",
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [
@@ -7874,7 +8399,7 @@
    "id": "red-dlog-to-schnorr-signatures-sch91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "schnorr-identification-protocol",
    "class": "fully-black-box",
@@ -8104,6 +8629,54 @@
    "slug": "ds-to-hash-function",
    "graphSlug": "Reductions/ds-to-hash-function",
    "title": "DS ⇒ OWF"
+  },
+  {
+   "id": "red-eddsa-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "eddsa"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/eddsa-to-ds.md",
+   "slug": "eddsa-to-ds",
+   "graphSlug": "Reductions/eddsa-to-ds",
+   "title": "EdDSA ⇒ DS"
+  },
+  {
+   "id": "red-edl-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "edl-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/edl-signature-to-ds.md",
+   "slug": "edl-signature-to-ds",
+   "graphSlug": "Reductions/edl-signature-to-ds",
+   "title": "EDL signatures ⇒ DS"
   },
   {
    "id": "red-enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87",
@@ -8684,33 +9257,6 @@
    "title": "HVZK ⇒ NIZK (Fiat–Shamir)"
   },
   {
-   "id": "red-fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "kind": "implication",
-   "hypotheses": [
-    "schnorr-identification-protocol"
-   ],
-   "conclusion": "schnorr-signature",
-   "class": "unstated",
-   "model": "rom",
-   "source": [
-    "[[Sch91 - Efficient signature generation by smart cards|Sch91]]",
-    "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
-   ],
-   "via": [
-    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
-   ],
-   "heuristic": false,
-   "securityLoss": "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries",
-   "rationale": {
-    "model": "The challenge is a hash modeled as a programmable random oracle, which the security proof reprograms when it rewinds the forger."
-   },
-   "status": "draft",
-   "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
-   "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
-   "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
-  },
-  {
    "id": "red-five-round-two-party-computation-to-two-party-computation-with-expected-time-simulation",
    "kind": "implication",
    "hypotheses": [
@@ -9107,6 +9653,31 @@
    "title": "GC + OT ⇒ Semi-honest 2PC (Yao)"
   },
   {
+   "id": "red-generic-bilinear-group-model-to-asymmetric-q-sdh-bb08",
+   "kind": "implication",
+   "hypotheses": [
+    "generic-bilinear-group-model"
+   ],
+   "conclusion": "asymmetric-q-sdh",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a generic algorithm that succeeds with constant probability makes $\\Omega(\\sqrt{p/q})$ group-operation and pairing queries, for $q = O(p^{1/3})$",
+   "rationale": {
+    "class": "The hypothesis is a model of computation, and BB08 bound every generic algorithm in it, which is the free class scoped by the model.",
+    "model": "The bound holds only for algorithms that access the three groups and the pairing through generic oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/generic-bilinear-group-model-to-asymmetric-q-sdh-bb08.md",
+   "slug": "generic-bilinear-group-model-to-asymmetric-q-sdh-bb08",
+   "graphSlug": "Reductions/generic-bilinear-group-model-to-asymmetric-q-sdh-bb08",
+   "title": "Generic bilinear group model ⇒ asymmetric q-SDH"
+  },
+  {
    "id": "red-ggm-to-cdh-sho97",
    "kind": "implication",
    "hypotheses": [
@@ -9205,6 +9776,81 @@
    "slug": "ggm-to-kea-den06",
    "graphSlug": "Reductions/ggm-to-kea-den06",
    "title": "GGM ⇒ KEA"
+  },
+  {
+   "id": "red-ggm-to-lrsw-lrsw99",
+   "kind": "implication",
+   "hypotheses": [
+    "ggm"
+   ],
+   "conclusion": "lrsw",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[LRSW99 - Pseudonym Systems|LRSW99]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is a model of computation, and LRSW99 bound every generic algorithm in it, which is the free class scoped by the model.",
+    "model": "The bound holds only for generic algorithms; nothing is claimed in the standard model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ggm-to-lrsw-lrsw99.md",
+   "slug": "ggm-to-lrsw-lrsw99",
+   "graphSlug": "Reductions/ggm-to-lrsw-lrsw99",
+   "title": "GGM ⇒ LRSW"
+  },
+  {
+   "id": "red-ggm-to-omdl-bfp21",
+   "kind": "implication",
+   "hypotheses": [
+    "ggm"
+   ],
+   "conclusion": "omdl",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[BFP21 - The One-More Discrete Logarithm Assumption in the Generic Group Model|BFP21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; BFP21 bound every generic algorithm, which is the free class scoped by the model.",
+    "model": "BFP21's bound holds only for generic algorithms; nothing is claimed in the standard model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ggm-to-omdl-bfp21.md",
+   "slug": "ggm-to-omdl-bfp21",
+   "graphSlug": "Reductions/ggm-to-omdl-bfp21",
+   "title": "GGM ⇒ OMDL"
+  },
+  {
+   "id": "red-ggm-with-preprocessing-to-dlog-ck18",
+   "kind": "implication",
+   "hypotheses": [
+    "ggm-with-preprocessing"
+   ],
+   "conclusion": "dlog",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "success probability $\\varepsilon = \\tilde O(ST^2/N)$ for $S$ bits of advice and $T$ online queries",
+   "rationale": {
+    "class": "The hypothesis is a model of computation rather than a primitive, so no black-box class applies; CK18 bound every generic algorithm with preprocessing, which is the free class scoped by the model.",
+    "model": "The bound holds only for generic algorithms with advice; nothing is claimed in the standard model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ggm-with-preprocessing-to-dlog-ck18.md",
+   "slug": "ggm-with-preprocessing-to-dlog-ck18",
+   "graphSlug": "Reductions/ggm-with-preprocessing-to-dlog-ck18",
+   "title": "GGM with preprocessing ⇒ DLOG"
   },
   {
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
@@ -10480,6 +11126,30 @@
    "title": "$k$-Linear assumption ⇒ ABE"
   },
   {
+   "id": "red-katz-wang-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "katz-wang-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/katz-wang-signature-to-ds.md",
+   "slug": "katz-wang-signature-to-ds",
+   "graphSlug": "Reductions/katz-wang-signature-to-ds",
+   "title": "Katz–Wang signatures ⇒ DS"
+  },
+  {
    "id": "red-ke-to-multi-party-key-exchange",
    "kind": "implication",
    "hypotheses": [
@@ -11667,6 +12337,54 @@
    "title": "MPC with preprocessing ⇒ MPC"
   },
   {
+   "id": "red-multi-signature-pop-to-multi-signature-kosk",
+   "kind": "implication",
+   "hypotheses": [
+    "multi-signature-pop"
+   ],
+   "conclusion": "multi-signature-kosk",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction drops the proof-of-possession algorithms, and the reduction runs any KOSK forger as an oracle, registering each of its keys with a proof it computes from the key's coins."
+   },
+   "status": "draft",
+   "page": "content/Reductions/multi-signature-pop-to-multi-signature-kosk.md",
+   "slug": "multi-signature-pop-to-multi-signature-kosk",
+   "graphSlug": "Reductions/multi-signature-pop-to-multi-signature-kosk",
+   "title": "Multi-signatures with proofs of possession ⇒ Multi-signatures in the KOSK model"
+  },
+  {
+   "id": "red-multi-signature-to-multi-signature-kosk",
+   "kind": "implication",
+   "hypotheses": [
+    "multi-signature"
+   ],
+   "conclusion": "multi-signature-kosk",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any KOSK forger as an oracle, answering its registrations itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/multi-signature-to-multi-signature-kosk.md",
+   "slug": "multi-signature-to-multi-signature-kosk",
+   "graphSlug": "Reductions/multi-signature-to-multi-signature-kosk",
+   "title": "Multi-signatures in the plain public-key model ⇒ Multi-signatures in the KOSK model"
+  },
+  {
    "id": "red-multilinear-maps-to-witness-encryption-ggsw13",
    "kind": "implication",
    "hypotheses": [
@@ -12147,6 +12865,104 @@
    "slug": "oihf-to-ot-bh26",
    "graphSlug": "Reductions/oihf-to-ot-bh26",
    "title": "OIHF ⇒ OT"
+  },
+  {
+   "id": "red-omdl-and-ros-to-blind-schnorr-signature-fps20",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl",
+    "ros"
+   ],
+   "conclusion": "blind-schnorr-signature",
+   "class": "unstated",
+   "model": "other",
+   "source": [
+    "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20.md",
+   "slug": "omdl-and-ros-to-blind-schnorr-signature-fps20",
+   "graphSlug": "Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20",
+   "title": "OMDL + ROS ⇒ Blind Schnorr signatures"
+  },
+  {
+   "id": "red-omdl-to-concurrent-schnorr-identification-bp02",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl"
+   ],
+   "conclusion": "concurrent-schnorr-identification",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "impersonation advantage $\\varepsilon$ yields OMDL advantage at least $(\\varepsilon - 1/|C|)^2$",
+   "rationale": {
+    "class": "The protocol is fixed and uses only the group operation, and the reduction answers prover sessions with its discrete-logarithm oracle and runs the impersonator only as an oracle, rewinding it to extract the secret key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-to-concurrent-schnorr-identification-bp02.md",
+   "slug": "omdl-to-concurrent-schnorr-identification-bp02",
+   "graphSlug": "Reductions/omdl-to-concurrent-schnorr-identification-bp02",
+   "title": "OMDL ⇒ Schnorr identification under concurrent attack"
+  },
+  {
+   "id": "red-omdl-to-musig2-nrs21",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl"
+   ],
+   "conclusion": "musig2",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is fixed, and the random-oracle proof answers signing sessions with its discrete-logarithm oracle and runs the forger only as an oracle, forking it.",
+    "model": "The reduction programs the random oracles and rewinds the forger."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-to-musig2-nrs21.md",
+   "slug": "omdl-to-musig2-nrs21",
+   "graphSlug": "Reductions/omdl-to-musig2-nrs21",
+   "title": "OMDL ⇒ MuSig2"
+  },
+  {
+   "id": "red-omdl-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "omdl"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The reduction calls any DLOG solver once as an oracle, after answering all but one OMDL challenge with its discrete-logarithm oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/omdl-to-prime-order-dlog.md",
+   "slug": "omdl-to-prime-order-dlog",
+   "graphSlug": "Reductions/omdl-to-prime-order-dlog",
+   "title": "OMDL ⇒ Prime-order DLOG"
   },
   {
    "id": "red-one-round-sublinear-cpir-to-total-nontrivial-cpir",
@@ -12985,6 +13801,27 @@
    "title": "Permuted puzzles ⇒ SK-DEPIR"
   },
   {
+   "id": "red-phi-hiding-to-ds-kk12",
+   "kind": "implication",
+   "hypotheses": [
+    "phi-hiding"
+   ],
+   "conclusion": "ds",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: independent of $q_S$ and $q_H$",
+   "status": "draft",
+   "page": "content/Reductions/phi-hiding-to-ds-kk12.md",
+   "slug": "phi-hiding-to-ds-kk12",
+   "graphSlug": "Reductions/phi-hiding-to-ds-kk12",
+   "title": "Φ-Hiding ⇒ DS (RSA full-domain hash, tight)"
+  },
+  {
    "id": "red-phi-hiding-to-lossy-trapdoor-function-kos10",
    "kind": "implication",
    "hypotheses": [
@@ -13695,6 +14532,129 @@
    "title": "PRG ⇒ PRF (GGM)"
   },
   {
+   "id": "red-prime-order-cdh-to-cdh",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-cdh"
+   ],
+   "conclusion": "cdh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any CDH solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-cdh-to-cdh.md",
+   "slug": "prime-order-cdh-to-cdh",
+   "graphSlug": "Reductions/prime-order-cdh-to-cdh",
+   "title": "Prime-order CDH ⇒ CDH"
+  },
+  {
+   "id": "red-prime-order-cdh-to-edl-signature-gj03",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-cdh"
+   ],
+   "conclusion": "edl-signature",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[GJ03 - A Signature Scheme as Secure as the Diffie-Hellman Problem|GJ03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight",
+   "rationale": {
+    "class": "The scheme is fixed, and the reduction runs the forger once as an oracle and programs the random oracle.",
+    "model": "The reduction programs the random oracles to embed the CDH instance and to simulate signatures."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-cdh-to-edl-signature-gj03.md",
+   "slug": "prime-order-cdh-to-edl-signature-gj03",
+   "graphSlug": "Reductions/prime-order-cdh-to-edl-signature-gj03",
+   "title": "Prime-order CDH ⇒ EDL signatures"
+  },
+  {
+   "id": "red-prime-order-ddh-to-ddh",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "ddh",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DDH distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-ddh.md",
+   "slug": "prime-order-ddh-to-ddh",
+   "graphSlug": "Reductions/prime-order-ddh-to-ddh",
+   "title": "Prime-order DDH ⇒ DDH"
+  },
+  {
+   "id": "red-prime-order-ddh-to-katz-wang-signature-kw03",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "katz-wang-signature",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[KW03 - Efficiency Improvements for Signature Schemes with Tight Security Reductions|KW03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight",
+   "rationale": {
+    "class": "The scheme is fixed, and the distinguisher runs the forger once as an oracle and programs the random oracle.",
+    "model": "The distinguisher programs the random oracle to simulate signatures."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-katz-wang-signature-kw03.md",
+   "slug": "prime-order-ddh-to-katz-wang-signature-kw03",
+   "graphSlug": "Reductions/prime-order-ddh-to-katz-wang-signature-kw03",
+   "title": "Prime-order DDH ⇒ Katz–Wang signatures"
+  },
+  {
+   "id": "red-prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "blind-okamoto-schnorr-signature",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is fixed, and the reduction signs with a key it knows and runs the adversary only as an oracle, replaying it with a reprogrammed random oracle.",
+    "model": "The reduction replays the adversary with the random oracle reprogrammed from the query behind a forgery."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00.md",
+   "slug": "prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
+   "graphSlug": "Reductions/prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
+   "title": "DLOG ⇒ Blind Okamoto–Schnorr signatures"
+  },
+  {
    "id": "red-prime-order-dlog-to-dlog",
    "kind": "implication",
    "hypotheses": [
@@ -13717,6 +14677,104 @@
    "slug": "prime-order-dlog-to-dlog",
    "graphSlug": "Reductions/prime-order-dlog-to-dlog",
    "title": "Prime-order DLOG ⇒ DLOG"
+  },
+  {
+   "id": "red-prime-order-dlog-to-eddsa-bcjz21",
+   "kind": "implication",
+   "hypotheses": [
+    "twisted-edwards-dlog"
+   ],
+   "conclusion": "eddsa",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[BCJZ21 - The Provable Security of Ed25519 Theory and Practice|BCJZ21]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is fixed, and the reduction runs the forger only as an oracle, programming the random oracle.",
+    "model": "The hash is modeled as a random oracle, which the reduction programs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-eddsa-bcjz21.md",
+   "slug": "prime-order-dlog-to-eddsa-bcjz21",
+   "graphSlug": "Reductions/prime-order-dlog-to-eddsa-bcjz21",
+   "title": "DLOG ⇒ EdDSA"
+  },
+  {
+   "id": "red-prime-order-dlog-to-musig-mpsw19",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "musig",
+   "class": "fully-black-box",
+   "model": "rom",
+   "source": [
+    "[[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is fixed and uses only the group and the hashes, and the reduction runs the forger only as an oracle, forking it twice.",
+    "model": "The reduction programs the random oracles and rewinds the forger."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-musig-mpsw19.md",
+   "slug": "prime-order-dlog-to-musig-mpsw19",
+   "graphSlug": "Reductions/prime-order-dlog-to-musig-mpsw19",
+   "title": "DLOG ⇒ MuSig"
+  },
+  {
+   "id": "red-prime-order-dlog-to-okamoto-identification-protocol-oka92",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "okamoto-identification-protocol",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "impersonation advantage $\\varepsilon$ yields DLOG advantage at least $(1 - 1/p)(\\varepsilon - 1/|C|)^2$",
+   "rationale": {
+    "class": "The protocol is fixed and uses only the group operation, and the reduction plays the honest prover with a key it knows and runs the impersonator only as an oracle, rewinding it."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-okamoto-identification-protocol-oka92.md",
+   "slug": "prime-order-dlog-to-okamoto-identification-protocol-oka92",
+   "graphSlug": "Reductions/prime-order-dlog-to-okamoto-identification-protocol-oka92",
+   "title": "DLOG ⇒ Okamoto identification protocol"
+  },
+  {
+   "id": "red-prime-order-dlog-to-schnorr-signature-fps20",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "model": "other",
+   "source": [
+    "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the DLOG solver has essentially the forger's running time and advantage",
+   "rationale": {
+    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-schnorr-signature-fps20.md",
+   "slug": "prime-order-dlog-to-schnorr-signature-fps20",
+   "graphSlug": "Reductions/prime-order-dlog-to-schnorr-signature-fps20",
+   "title": "DLOG ⇒ Schnorr signatures (tight, AGM)"
   },
   {
    "id": "red-prp-to-invertible-prf",
@@ -14592,6 +15650,27 @@
    "title": "RP ⊆ NP"
   },
   {
+   "id": "red-rsa-to-ds-hw09",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "ds",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-ds-hw09.md",
+   "slug": "rsa-to-ds-hw09",
+   "graphSlug": "Reductions/rsa-to-ds-hw09",
+   "title": "RSA ⇒ DS (Hohenberger–Waters, short and stateless)"
+  },
+  {
    "id": "red-rsa-to-fac-dlo24",
    "kind": "equivalence",
    "hypotheses": [
@@ -14732,6 +15811,56 @@
    "title": "RSA ⇒ TDP"
   },
   {
+   "id": "red-schnorr-identification-protocol-to-schnorr-signature-aabn02",
+   "kind": "implication",
+   "hypotheses": [
+    "schnorr-identification-protocol"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "advantage loss factor about $q_H$ for $q_H$ random-oracle queries",
+   "rationale": {
+    "model": "The challenge is a hash modeled as a random oracle, which the security proof programs to embed the verifier's challenge and to simulate signatures."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91.md",
+   "slug": "fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "graphSlug": "Reductions/fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91",
+   "title": "Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)"
+  },
+  {
+   "id": "red-schnorr-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "schnorr-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/schnorr-signature-to-ds.md",
+   "slug": "schnorr-signature-to-ds",
+   "graphSlug": "Reductions/schnorr-signature-to-ds",
+   "title": "Schnorr signatures ⇒ DS"
+  },
+  {
    "id": "red-search-lwe-to-decision-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -14824,6 +15953,30 @@
    "slug": "semi-honest-security-to-semi-honest-two-party-computation",
    "graphSlug": "Reductions/semi-honest-security-to-semi-honest-two-party-computation",
    "title": "Semi-honest MPC ⇒ Semi-honest 2PC"
+  },
+  {
+   "id": "red-short-structure-preserving-signature-to-structure-preserving-signature",
+   "kind": "implication",
+   "hypotheses": [
+    "short-structure-preserving-signature"
+   ],
+   "conclusion": "structure-preserving-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/short-structure-preserving-signature-to-structure-preserving-signature.md",
+   "slug": "short-structure-preserving-signature-to-structure-preserving-signature",
+   "graphSlug": "Reductions/short-structure-preserving-signature-to-structure-preserving-signature",
+   "title": "Optimally short structure-preserving signatures ⇒ Structure-preserving signatures"
   },
   {
    "id": "red-sidh-to-ke-jdf11",
@@ -15322,6 +16475,30 @@
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
    "title": "sPRP ⇒ PRP"
+  },
+  {
+   "id": "red-structure-preserving-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "structure-preserving-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/structure-preserving-signature-to-ds.md",
+   "slug": "structure-preserving-signature-to-ds",
+   "graphSlug": "Reductions/structure-preserving-signature-to-ds",
+   "title": "Structure-preserving signatures ⇒ DS"
   },
   {
    "id": "red-structured-generic-group-model-to-dlog-chw26",
@@ -16035,6 +17212,27 @@
    "title": "SXDH ⇒ DDH"
   },
   {
+   "id": "red-sxdh-to-structure-preserving-signature-kpw15",
+   "kind": "implication",
+   "hypotheses": [
+    "sxdh"
+   ],
+   "conclusion": "structure-preserving-signature",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[KPW15 - Structure-Preserving Signatures from Standard Assumptions, Revisited|KPW15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/sxdh-to-structure-preserving-signature-kpw15.md",
+   "slug": "sxdh-to-structure-preserving-signature-kpw15",
+   "graphSlug": "Reductions/sxdh-to-structure-preserving-signature-kpw15",
+   "title": "SXDH ⇒ Structure-preserving signatures (Kiltz–Pan–Wee)"
+  },
+  {
    "id": "red-symmetric-private-information-retrieval-single-server-to-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -16405,6 +17603,30 @@
    "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
   },
   {
+   "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "twisted-edwards-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the group generator, and the reduction forwards any DLOG solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/twisted-edwards-dlog-to-prime-order-dlog.md",
+   "slug": "twisted-edwards-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/twisted-edwards-dlog-to-prime-order-dlog",
+   "title": "Twisted Edwards DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-two-party-computation-to-malicious-ot-security",
    "kind": "implication",
    "hypotheses": [
@@ -16671,6 +17893,172 @@
    "title": "Two-round UC-secure OT ⇒ UC-secure OT"
   },
   {
+   "id": "red-type-1-pairing-and-cdh-to-ds-wat05",
+   "kind": "implication",
+   "hypotheses": [
+    "type-1-pairing",
+    "cdh"
+   ],
+   "conclusion": "waters-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor $O(n q_S)$ for $n$-bit messages and $q_S$ signing queries",
+   "rationale": {
+    "class": "The scheme uses the group only through group operations and the pairing, and the partitioning reduction runs any forger as an oracle and turns a forgery outside the partition into g^{ab}."
+   },
+   "status": "draft",
+   "page": "content/Reductions/type-1-pairing-and-cdh-to-ds-wat05.md",
+   "slug": "type-1-pairing-and-cdh-to-ds-wat05",
+   "graphSlug": "Reductions/type-1-pairing-and-cdh-to-ds-wat05",
+   "title": "Type 1 pairing + CDH ⇒ Waters signatures"
+  },
+  {
+   "id": "red-type-1-pairing-and-cdh-to-multi-signature-kosk-bol03",
+   "kind": "implication",
+   "hypotheses": [
+    "type-1-pairing",
+    "cdh"
+   ],
+   "conclusion": "multi-signature-kosk",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[Bol03 - Threshold Signatures, Multisignatures and Blind Signatures Based on the Gap-Diffie-Hellman-Group Signature Scheme|Bol03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/type-1-pairing-and-cdh-to-multi-signature-kosk-bol03.md",
+   "slug": "type-1-pairing-and-cdh-to-multi-signature-kosk-bol03",
+   "graphSlug": "Reductions/type-1-pairing-and-cdh-to-multi-signature-kosk-bol03",
+   "title": "Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)"
+  },
+  {
+   "id": "red-type-1-pairing-and-cdh-to-multi-signature-pop-ry07",
+   "kind": "implication",
+   "hypotheses": [
+    "type-1-pairing",
+    "cdh"
+   ],
+   "conclusion": "multi-signature-pop",
+   "class": "unstated",
+   "model": "rom",
+   "source": [
+    "[[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/type-1-pairing-and-cdh-to-multi-signature-pop-ry07.md",
+   "slug": "type-1-pairing-and-cdh-to-multi-signature-pop-ry07",
+   "graphSlug": "Reductions/type-1-pairing-and-cdh-to-multi-signature-pop-ry07",
+   "title": "Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession"
+  },
+  {
+   "id": "red-type-1-pairing-and-decisional-linear-to-structure-preserving-signature-hj12",
+   "kind": "implication",
+   "hypotheses": [
+    "type-1-pairing",
+    "decisional-linear"
+   ],
+   "conclusion": "structure-preserving-signature",
+   "class": "unstated",
+   "model": "standard",
+   "source": [
+    "[[HJ12 - Tightly Secure Signatures and Public-Key Encryption|HJ12]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: independent of the number of signing queries",
+   "status": "draft",
+   "page": "content/Reductions/type-1-pairing-and-dlin-to-structure-preserving-signature-hj12.md",
+   "slug": "type-1-pairing-and-dlin-to-structure-preserving-signature-hj12",
+   "graphSlug": "Reductions/type-1-pairing-and-dlin-to-structure-preserving-signature-hj12",
+   "title": "Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)"
+  },
+  {
+   "id": "red-type-1-pairing-and-lrsw-to-ds-cl04",
+   "kind": "implication",
+   "hypotheses": [
+    "type-1-pairing",
+    "lrsw"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "[[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: a forger is an LRSW adversary with the same advantage",
+   "rationale": {
+    "class": "The reduction answers the forger's signing queries with the LRSW oracle and outputs its forgery unchanged, using the forger only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/type-1-pairing-and-lrsw-to-ds-cl04.md",
+   "slug": "type-1-pairing-and-lrsw-to-ds-cl04",
+   "graphSlug": "Reductions/type-1-pairing-and-lrsw-to-ds-cl04",
+   "title": "Type 1 pairing + LRSW ⇒ DS (Camenisch–Lysyanskaya)"
+  },
+  {
+   "id": "red-type-3-pairing-to-ds-ps16",
+   "kind": "implication",
+   "hypotheses": [
+    "type-3-pairing"
+   ],
+   "conclusion": "ds",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[PS16 - Short Randomizable Signatures|PS16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "PS16 bound the advantage of every generic forger, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption.",
+    "model": "The proof applies only to adversaries that are generic in the Type 3 bilinear group; no random oracle is used."
+   },
+   "status": "draft",
+   "page": "content/Reductions/type-3-pairing-to-ds-ps16.md",
+   "slug": "type-3-pairing-to-ds-ps16",
+   "graphSlug": "Reductions/type-3-pairing-to-ds-ps16",
+   "title": "Type 3 pairing ⇒ DS (Pointcheval–Sanders)"
+  },
+  {
+   "id": "red-type-3-pairing-to-short-structure-preserving-signature-agho11",
+   "kind": "implication",
+   "hypotheses": [
+    "type-3-pairing"
+   ],
+   "conclusion": "short-structure-preserving-signature",
+   "class": "free",
+   "model": "generic-group",
+   "source": [
+    "[[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "AGHO11 bound every generic forger, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption.",
+    "model": "The security proof applies only to adversaries that are generic in the Type 3 bilinear group."
+   },
+   "status": "draft",
+   "page": "content/Reductions/type-3-pairing-to-short-structure-preserving-signature-agho11.md",
+   "slug": "type-3-pairing-to-short-structure-preserving-signature-agho11",
+   "graphSlug": "Reductions/type-3-pairing-to-short-structure-preserving-signature-agho11",
+   "title": "Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)"
+  },
+  {
    "id": "red-uc-mpc-to-mpc",
    "kind": "implication",
    "hypotheses": [
@@ -16790,6 +18178,30 @@
    "slug": "uowhf-and-ots-to-ds-ny89",
    "graphSlug": "Reductions/uowhf-and-ots-to-ds-ny89",
    "title": "UOWHF + One-time signature ⇒ DS (Naor–Yung)"
+  },
+  {
+   "id": "red-waters-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "waters-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any forger unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/waters-signature-to-ds.md",
+   "slug": "waters-signature-to-ds",
+   "graphSlug": "Reductions/waters-signature-to-ds",
+   "title": "Waters signatures ⇒ DS"
   },
   {
    "id": "red-weak-owf-to-distributional-owf",
@@ -17139,6 +18551,66 @@
    "slug": "no-authenticated-channels-to-uc-mpc-ckl03",
    "graphSlug": "Barriers/no-authenticated-channels-to-uc-mpc-ckl03",
    "title": "No reduction from authenticated channels to UC MPC"
+  },
+  {
+   "id": "bar-bounded-round-assumption-to-concurrent-schnorr-identification-pas11",
+   "hypotheses": [
+    "bounded-round-assumption"
+   ],
+   "conclusion": "concurrent-schnorr-identification",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Pas11 - Limits of Provable Security from Standard Assumptions|Pas11]]"
+   ],
+   "rationale": {
+    "class": "Pas11 rule out every reduction that uses the impersonator only as an oracle, which contains the fully-black-box reductions.",
+    "strength": "The theorem concludes that the assumption is false, and no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-bounded-round-assumption-to-concurrent-schnorr-identification-pas11.md",
+   "slug": "no-bounded-round-assumption-to-concurrent-schnorr-identification-pas11",
+   "graphSlug": "Barriers/no-bounded-round-assumption-to-concurrent-schnorr-identification-pas11",
+   "title": "No fully-black-box reduction from bounded-round assumptions to Schnorr identification under concurrent attack"
+  },
+  {
+   "id": "bar-bounded-round-assumption-to-omdl-pas11",
+   "hypotheses": [
+    "bounded-round-assumption"
+   ],
+   "conclusion": "omdl",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Pas11 - Limits of Provable Security from Standard Assumptions|Pas11]]"
+   ],
+   "rationale": {
+    "class": "Pas11 rule out every reduction that uses the adversary only as an oracle, which contains the fully-black-box reductions.",
+    "strength": "The theorem concludes that the assumption is false, and no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-bounded-round-assumption-to-omdl-pas11.md",
+   "slug": "no-bounded-round-assumption-to-omdl-pas11",
+   "graphSlug": "Barriers/no-bounded-round-assumption-to-omdl-pas11",
+   "title": "No fully-black-box reduction from bounded-round assumptions to OMDL"
   },
   {
    "id": "bar-bqp-to-np",
@@ -17853,6 +19325,106 @@
    "title": "No free reduction from MIP* to MIP"
   },
   {
+   "id": "bar-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "hypotheses": [
+    "non-interactive-assumption"
+   ],
+   "conclusion": "boneh-lynn-shacham-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "non-interactive-assumption"
+   ],
+   "circumventedBy": [
+    "red-co-cdh-to-ds",
+    "red-dlog-to-bls-signatures-fkl18"
+   ],
+   "source": [
+    "[[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]]",
+    "[[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]]"
+   ],
+   "rationale": {
+    "class": "Cor02 rules out simple reductions, which invoke the forger only as straight-line instances run one after another, losing less than about q_S, and the vocabulary has neither a tightness class nor a class of simple reductions.",
+    "strength": "The meta-reduction turns any such reduction into an efficient algorithm breaking the assumption, so the barrier rules a reduction out exactly when the assumption holds; no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02.md",
+   "slug": "no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "graphSlug": "Barriers/no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02",
+   "title": "No tight simple reduction from non-interactive assumptions to BLS signatures"
+  },
+  {
+   "id": "bar-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
+   "hypotheses": [
+    "non-interactive-assumption"
+   ],
+   "conclusion": "short-structure-preserving-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[AGO11 - Separating Short Structure-Preserving Signatures from Non-Interactive Assumptions|AGO11]]"
+   ],
+   "rationale": {
+    "class": "AGO11 rule out algebraic reductions, which output group elements only together with their representations in the group elements they were given, and the vocabulary has no algebraic class.",
+    "strength": "The meta-reduction breaks the non-interactive assumption itself and uses no further hardness assumption."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-non-interactive-assumption-to-short-structure-preserving-signature-ago11.md",
+   "slug": "no-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
+   "graphSlug": "Barriers/no-non-interactive-assumption-to-short-structure-preserving-signature-ago11",
+   "title": "No algebraic reduction from non-interactive assumptions to optimally short structure-preserving signatures"
+  },
+  {
+   "id": "bar-non-interactive-assumption-to-waters-signature-hjk12",
+   "hypotheses": [
+    "non-interactive-assumption"
+   ],
+   "conclusion": "waters-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "non-interactive-assumption"
+   ],
+   "circumventedBy": [
+    "red-type-1-pairing-and-cdh-to-ds-wat05"
+   ],
+   "source": [
+    "[[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]"
+   ],
+   "rationale": {
+    "class": "HJK12's meta-reduction rules out simple reductions, which invoke the forger only as straight-line instances run one after another, losing less than a factor of order q_S, and the vocabulary has neither a tightness class nor a class of simple reductions.",
+    "strength": "The meta-reduction turns any such reduction into an efficient algorithm breaking the assumption, so the barrier rules a reduction out exactly when the assumption holds; no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-non-interactive-assumption-to-waters-signature-hjk12.md",
+   "slug": "no-tight-non-interactive-assumption-to-waters-signature-hjk12",
+   "graphSlug": "Barriers/no-tight-non-interactive-assumption-to-waters-signature-hjk12",
+   "title": "No tight simple reduction from non-interactive assumptions to Waters signatures"
+  },
+  {
    "id": "bar-np-to-cpir-lv15",
    "hypotheses": [
     "np"
@@ -18086,6 +19658,38 @@
    "slug": "no-oihf-to-ot-bh26",
    "graphSlug": "Barriers/no-oihf-to-ot-bh26",
    "title": "No fully-black-box reduction from OIHF to OT"
+  },
+  {
+   "id": "bar-omdl-to-two-round-musig-def19",
+   "hypotheses": [
+    "omdl"
+   ],
+   "conclusion": "two-round-musig",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "omdl"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[DEF+19 - On the Security of Two-Round Multi-Signatures|DEF+19]]"
+   ],
+   "rationale": {
+    "class": "DEF+19 rule out algebraic reductions, and the vocabulary has no algebraic class.",
+    "strength": "The meta-reduction solves OMDL from any such reduction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-omdl-to-two-round-musig-def19.md",
+   "slug": "no-omdl-to-two-round-musig-def19",
+   "graphSlug": "Barriers/no-omdl-to-two-round-musig-def19",
+   "title": "No algebraic reduction from OMDL to two-round MuSig"
   },
   {
    "id": "bar-ot-to-pke-gkm-00",
@@ -18502,6 +20106,146 @@
    "title": "No fully-black-box reduction from PPAD hardness to OWF"
   },
   {
+   "id": "bar-prime-order-dlog-to-schnorr-signature-ff13",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "omdl"
+   ],
+   "circumventedBy": [
+    "red-dlog-and-rom-to-schnorr-signatures-sch91",
+    "red-prime-order-dlog-to-schnorr-signature-fps20"
+   ],
+   "source": [
+    "[[FF13 - Limitations of the Meta-reduction Technique The Case of Schnorr Signatures|FF13]]"
+   ],
+   "rationale": {
+    "class": "FF13 rule out single-instance reductions, which may compute arbitrarily but reset a single forger instance, and the vocabulary has no such class.",
+    "strength": "FF13's meta-reduction yields an OMDL solver, so the barrier rests on OMDL being hard."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prime-order-dlog-to-schnorr-signature-ff13.md",
+   "slug": "no-prime-order-dlog-to-schnorr-signature-ff13",
+   "graphSlug": "Barriers/no-prime-order-dlog-to-schnorr-signature-ff13",
+   "title": "No single-instance reduction from DLOG to Schnorr signatures in the non-programmable ROM"
+  },
+  {
+   "id": "bar-prime-order-dlog-to-schnorr-signature-fjs19",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "prime-order-dlog"
+   ],
+   "circumventedBy": [
+    "red-dlog-and-rom-to-schnorr-signatures-sch91",
+    "red-prime-order-dlog-to-schnorr-signature-fps20"
+   ],
+   "source": [
+    "[[FJS19 - On Tight Security Proofs for Schnorr Signatures|FJS19]]"
+   ],
+   "rationale": {
+    "class": "FJS19 rule out tight generic reductions, those independent of the group's representation, and the vocabulary has neither a generic nor a tightness class.",
+    "strength": "The meta-reduction turns any such reduction into a DLOG solver, so the barrier rules a reduction out exactly when DLOG is hard; no further assumption is used."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-prime-order-dlog-to-schnorr-signature-fjs19.md",
+   "slug": "no-tight-prime-order-dlog-to-schnorr-signature-fjs19",
+   "graphSlug": "Barriers/no-tight-prime-order-dlog-to-schnorr-signature-fjs19",
+   "title": "No tight generic reduction from DLOG to Schnorr signatures"
+  },
+  {
+   "id": "bar-prime-order-dlog-to-schnorr-signature-pv05",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "omdl"
+   ],
+   "circumventedBy": [
+    "red-dlog-and-rom-to-schnorr-signatures-sch91",
+    "red-prime-order-dlog-to-schnorr-signature-fps20"
+   ],
+   "source": [
+    "[[PV05 - Discrete-Log-Based Signatures May Not Be Equivalent to Discrete Log|PV05]]"
+   ],
+   "rationale": {
+    "class": "PV05 rule out algebraic reductions, which must expose a representation of every group element they output, and the vocabulary has no algebraic class.",
+    "strength": "The meta-reduction turns any such reduction into an OMDL solver, so the barrier holds if OMDL is hard."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prime-order-dlog-to-schnorr-signature-pv05.md",
+   "slug": "no-prime-order-dlog-to-schnorr-signature-pv05",
+   "graphSlug": "Barriers/no-prime-order-dlog-to-schnorr-signature-pv05",
+   "title": "No algebraic reduction from DLOG to Schnorr signatures in the standard model"
+  },
+  {
+   "id": "bar-prime-order-dlog-to-schnorr-signature-seu12",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "schnorr-signature",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "omdl"
+   ],
+   "circumventedBy": [
+    "red-dlog-and-rom-to-schnorr-signatures-sch91",
+    "red-prime-order-dlog-to-schnorr-signature-fps20"
+   ],
+   "source": [
+    "[[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]"
+   ],
+   "rationale": {
+    "class": "Seu12 rule out algebraic reductions whose time-to-success loss is below f(ε_F)·q_h, and the vocabulary has neither an algebraic nor a tightness class.",
+    "strength": "The meta-reduction solves OMDL from any reduction that beats the bound."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tight-prime-order-dlog-to-schnorr-signature-seu12.md",
+   "slug": "no-tight-prime-order-dlog-to-schnorr-signature-seu12",
+   "graphSlug": "Barriers/no-tight-prime-order-dlog-to-schnorr-signature-seu12",
+   "title": "No tight algebraic reduction from DLOG to Schnorr signatures in the ROM"
+  },
+  {
    "id": "bar-qma-to-qcma-bhnz25",
    "hypotheses": [
     "qma"
@@ -18618,6 +20362,35 @@
    "slug": "no-tdp-to-ot",
    "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No fully-black-box reduction from TDP to enhanced TDP"
+  },
+  {
+   "id": "bar-tdp-to-verifiable-random-function-fs12",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "verifiable-random-function",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[FS12 - Uniqueness Is a Different Story Impossibility of Verifiable Random Functions from Trapdoor Permutations|FS12]]"
+   ],
+   "rationale": {
+    "class": "FS12 rule out constructions that use the permutation only as an oracle together with security proofs that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tdp-to-verifiable-random-function-fs12.md",
+   "slug": "no-tdp-to-verifiable-random-function-fs12",
+   "graphSlug": "Barriers/no-tdp-to-verifiable-random-function-fs12",
+   "title": "No fully-black-box reduction from TDP to VRF"
   },
   {
    "id": "bar-two-round-ot-to-two-round-semi-honest-mpc-abg-20",

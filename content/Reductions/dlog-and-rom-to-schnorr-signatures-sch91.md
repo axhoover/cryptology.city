@@ -10,8 +10,6 @@ conclusion: schnorr-signature
 class: fully-black-box
 model: rom
 source:
-  - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
-  - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
   - "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
 via:
   - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
@@ -34,5 +32,8 @@ The reduction, given $\pk = g^x$, answers signing queries with the HVZK simulato
 ## Notes
 
 - In its exact-security form, the forking lemma turns a forger with success probability $\varepsilon$, running time $T$ and $q_H$ random-oracle queries into a DLOG solver of expected running time $O(q_H T/\varepsilon)$, and it extends to blind signatures — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]].
-- The loss is essentially optimal: under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the random-oracle model loses a factor close to $q_H$ in the time-to-success ratio — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]].
+- The loss is essentially optimal: under [[discrete-logarithm#one-more-discrete-logarithm|OMDL]], every algebraic reduction from DLOG to Schnorr forgery in the random-oracle model loses a factor close to $q_H$ in the time-to-success ratio ([[no-tight-prime-order-dlog-to-schnorr-signature-seu12|barrier]]) — [[Seu12 - On the Exact Security of Schnorr-Type Signatures in the Random Oracle Model|Seu12]]; no tight generic reduction exists unless DLOG is easy ([[no-tight-prime-order-dlog-to-schnorr-signature-fjs19|barrier]]) — [[FJS19 - On Tight Security Proofs for Schnorr Signatures|FJS19]]. For algebraic forgers, the algebraic group model gives a tight reduction ([[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]) — [[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]].
+- If DLOG is 2-moment hard, meaning that every algorithm's success probability is bounded in terms of the second moment of its running time, as in the generic group model, then every $t$-time forger making $q_H$ hash queries succeeds with probability at most $(q_H t^2/p)^{2/3}$, against $(q_H t^2/p)^{1/2}$ from earlier proofs — [[RS21 - Tighter Security for Schnorr Identification and Signatures A High-Moment Forking Lemma for Sigma-Protocols|RS21]].
+- Under the circular discrete-logarithm assumption, a non-interactive, falsifiable variant of DLOG that holds in two idealized models, Schnorr signatures are EUF-CMA secure in the random-oracle model with a completely tight reduction — [[CFOS25 - Schnorr Signatures are Tightly Secure in the ROM Under a Non-interactive Assumption|CFOS25]].
+- The reduction programs the random oracle. Under OMDL, no algebraic reduction from DLOG exists in the standard model ([[no-prime-order-dlog-to-schnorr-signature-pv05|barrier]]) — [[PV05 - Discrete-Log-Based Signatures May Not Be Equivalent to Discrete Log|PV05]], and no single-instance reduction exists in the non-programmable random-oracle model ([[no-prime-order-dlog-to-schnorr-signature-ff13|barrier]]) — [[FF13 - Limitations of the Meta-reduction Technique The Case of Schnorr Signatures|FF13]].
 - Efficiency: signing costs one exponentiation and verification one two-base exponentiation, and a signature $(R, s)$ is a group element and a response in $\ZZ_p$, or a challenge and a response in $\ZZ_p$ in the equivalent $(c, s)$ form — standard.

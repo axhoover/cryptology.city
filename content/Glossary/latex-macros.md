@@ -79,6 +79,11 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\Decode`   | $\Decode$   |
 | `\Extract`  | $\Extract$  |
 | `\Delegate` | $\Delegate$ |
+| `\KeyAgg`   | $\KeyAgg$   |
+| `\Agg`      | $\Agg$      |
+| `\AggVrfy`  | $\AggVrfy$  |
+| `\PopProve` | $\PopProve$ |
+| `\PopVrfy`  | $\PopVrfy$  |
 
 ### Key names
 

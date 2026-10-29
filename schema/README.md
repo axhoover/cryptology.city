@@ -322,6 +322,13 @@ models have no page.
   generic-group bound is `{ggm} ⇒ dlog` with `model: generic-group`
   (`ggm-to-dlog-sho97`), while a barrier on that hyperedge would say DLOG is
   not hard for generic algorithms.
+- **Pairing-free or bilinear.** A `generic-group` edge is read as proved
+  without a pairing oracle unless one of its hypotheses is a bilinear node (the
+  pairing object or a variant, or `generic-bilinear-group-model`): Sho97's
+  bounds are `{ggm} ⇒ cdh`, BB08's bound in generic bilinear groups is
+  `{generic-bilinear-group-model} ⇒ asymmetric-q-sdh`. The closure never feeds a
+  pairing-free generic bound to an edge with a pairing hypothesis
+  (`docs/relations-json.md` § Closure).
 - **One model per edge.** `model` is single-valued. A proof using both a
   random oracle and a trusted structured reference string takes `model: rom`,
   with the SRS named in the Statement. A group model combined with a random

@@ -8,6 +8,7 @@ aliases:
 title: Decisional Diffie-Hellman
 id: ddh
 variants:
+  prime-order-ddh: "#ddh-in-prime-order-groups"
   subexponential-ddh: "#sub-exponential-ddh"
   decisional-linear: "#dlin"
   sxdh: "#sxdh-symmetric-external-diffie-hellman"
@@ -72,6 +73,10 @@ In the above definition, we implicitly allow $\GrGen$ to choose a _random_
 generator $g$ for the group $\GG$. However, [[BMZ19 - The Distinction Between Fixed and Random Generators in Group-Based Assumptions|BMZ19]] has explored technical differences between this model and one where $g$ is selected
 deterministically.
 
+## DDH in prime-order groups
+
+**DDH is hard in prime-order groups** for $\GrGen$ if every group $\GrGen$ outputs has prime order $p$ and DDH is hard for $\GrGen$. Exponents then form the field $\ZZ_p$, and the Chaum–Pedersen proof that a tuple is a Diffie–Hellman tuple is sound — standard.
+
 ## Sub-exponential DDH
 
 DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$ suffices for NIZK arguments for $\classNP$, and no pairing is needed — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
@@ -100,7 +105,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 9a49a3cd2738 -->
+<!-- BEGIN GENERATED participates-in 8c014cd8fb3e -->
 
 ## Participates in
 
@@ -125,6 +130,8 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
+- [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
+- [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-ddh-to-ppad-hardness-klv23|Sub-exponential DDH ⇒ PPAD hardness]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
@@ -132,10 +139,13 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
 - [[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
 - [[sxdh-to-ddh|SXDH ⇒ DDH]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
+- [[sxdh-to-structure-preserving-signature-kpw15|SXDH ⇒ Structure-preserving signatures (Kiltz–Pan–Wee)]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])
+- [[type-1-pairing-and-dlin-to-structure-preserving-signature-hj12|Type 1 pairing + DLIN ⇒ Structure-preserving signatures, tightly (Hofheinz–Jager)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 
 **Produces Decisional Diffie-Hellman**
 
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
+- [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]]
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]]
 - [[subexponential-sxdh-to-subexponential-ddh|Sub-exponential SXDH ⇒ Sub-exponential DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-sxdh-to-sxdh|Sub-exponential SXDH ⇒ SXDH]] (via [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH (Symmetric External Diffie-Hellman)]])

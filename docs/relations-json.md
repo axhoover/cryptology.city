@@ -332,8 +332,16 @@ scopes and the edge's own model. A `free`, `unstated` or other edge, which may
 use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
 circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.
-`cdh  [generic-group]`; `--redundant` counts another chain only when it needs
-no idealised model beyond the edge's own. An ideal resource in the hypotheses —
+`cdh  [generic-group + no-pairing]`; `--redundant` counts another chain only
+when it needs no idealised model beyond the edge's own. A generic group without
+a pairing oracle is a weaker adversary model than a generic bilinear group, so a
+`generic-group` edge none of whose hypotheses is a bilinear node — the object
+`bilinear-pairing`, one of its variants, or `generic-bilinear-group-model` — is
+read as pairing-free and adds the scope `no-pairing`, and an edge with a
+bilinear hypothesis never consumes a `no-pairing` object: LRSW99's
+`{ggm} => lrsw` does not feed CL04's `{type-1-pairing, lrsw} => ds`, while
+BB08's `{generic-bilinear-group-model} => asymmetric-q-sdh` may feed
+pairing-based constructions. An ideal resource in the hypotheses —
 `ideal-ot` (the OT-hybrid model), `correlated-randomness` (a trusted dealer)
 or `secure-channels` (private point-to-point channels) — scopes the conclusion
 to that hybrid model, and the scope, like a model's, is kept by every later
