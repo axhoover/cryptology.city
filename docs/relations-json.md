@@ -290,8 +290,16 @@ fails closed. A `free`, `unstated` or other edge, which may
 use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
 circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.
-`cdh  [generic-group]`; `--redundant` counts another chain only when it needs
-no idealised model beyond the edge's own. A consumer computing its own closure
+`cdh  [generic-group + no-pairing]`; `--redundant` counts another chain only
+when it needs no idealised model beyond the edge's own. A generic group without
+a pairing oracle is a weaker adversary model than a generic bilinear group, so a
+`generic-group` edge none of whose hypotheses is a bilinear node — the object
+`bilinear-pairing`, one of its variants, or `generic-bilinear-group-model` — is
+read as pairing-free and adds the scope `no-pairing`, and an edge with a
+bilinear hypothesis never consumes a `no-pairing` object: LRSW99's
+`{ggm} => lrsw` does not feed CL04's `{type-1-pairing, lrsw} => ds`, while
+BB08's `{generic-bilinear-group-model} => asymmetric-q-sdh` may feed
+pairing-based constructions. A consumer computing its own closure
 should apply the same rule: without it, `{rom}` reaches key exchange through
 the non-black-box OIHF ⇒ OT step, against the barrier `{rom} ⇏ ke`.
 

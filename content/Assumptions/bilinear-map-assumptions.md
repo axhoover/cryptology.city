@@ -39,7 +39,7 @@ is negligible for uniform $a, b, c \getsr \ZZ_q$.
 ## Known Results
 
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
-- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
 - [[bdh-to-vrf|k-Lin ⇒ VRF]]
 - [[cdh-to-bdh|BDH ⇒ CDH]]: a CDH solver gives $g^{ab}$, and $e(g^{ab}, g^c) = e(g,g)^{abc}$ — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - [[bdh-to-nizk-gro16|DLIN ⇒ NIZK]]

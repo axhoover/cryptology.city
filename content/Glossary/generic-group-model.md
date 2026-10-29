@@ -9,6 +9,8 @@ variants:
   structured-generic-group-model: "#the-structured-ggm"
   maurer-generic-group-model: "#maurers-formulation"
   shoup-generic-group-model: "#shoups-formulation"
+  ggm-with-preprocessing: "#preprocessing"
+  generic-bilinear-group-model: "#generic-bilinear-groups"
 ---
 
 # Generic Group Model
@@ -46,20 +48,32 @@ $$
 
 This yields tight subexponential lower bounds applicable to index-calculus algorithms, bridging the gap between fully generic lower bounds and structured algorithm analyses.
 
+## Preprocessing
+
+A **generic algorithm with preprocessing** is a pair $(\calA_0, \calA_1)$ in Shoup's model, for a fixed handle function $\sigma$. The preprocessing algorithm $\calA_0$ is computationally unbounded, may query the group oracle arbitrarily often, and outputs an advice string of $S$ bits; the online algorithm $\calA_1$ gets the advice and the challenge and makes $T$ group-oracle queries. Bounds in this model are stated in terms of $S$, $T$ and the group order — [[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]. Generic DLOG algorithms with preprocessing must satisfy $ST^2 = \tilde\Omega(\varepsilon N)$ in groups of prime order $N$ ([[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]]).
+
+## Generic bilinear groups
+
+Shoup's model extended to a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ of prime order $p$. Elements of each of the three groups are given by handles under independent random injections $\sigma_1, \sigma_2, \sigma_T$, and the algorithm has a group-operation oracle for each group and a pairing oracle that maps $(\sigma_1(P), \sigma_2(Q))$ to $\sigma_T(e(P, Q))$ — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
+
 ## Comparison with the AGM
 
 The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_ idealization: every generic algorithm (in Shoup's or Maurer's sense) satisfies the AGM's algebraic accountability condition, but not conversely. Security proven only in the AGM does not automatically imply security in the GGM.
 
-<!-- BEGIN GENERATED participates-in 8efbe2d98916 -->
+<!-- BEGIN GENERATED participates-in 8d84e710fe96 -->
 
 ## Participates in
 
 **Builds on Generic Group Model**
 
+- [[generic-bilinear-group-model-to-asymmetric-q-sdh-bb08|Generic bilinear group model ⇒ asymmetric q-SDH]] (via [[generic-group-model#generic-bilinear-groups|Generic bilinear groups]])
 - [[ggm-to-cdh-sho97|GGM ⇒ CDH]]
 - [[ggm-to-ddh-sho97|GGM ⇒ DDH]]
 - [[ggm-to-dlog-sho97|GGM ⇒ DLOG]]
 - [[ggm-to-kea-den06|GGM ⇒ KEA]]
+- [[ggm-to-lrsw-lrsw99|GGM ⇒ LRSW]]
+- [[ggm-to-omdl-bfp21|GGM ⇒ OMDL]]
+- [[ggm-with-preprocessing-to-dlog-ck18|GGM with preprocessing ⇒ DLOG]] (via [[generic-group-model#preprocessing|Preprocessing]])
 - [[structured-generic-group-model-to-dlog-chw26|Structured GGM ⇒ DLOG]] (via [[generic-group-model#the-structured-ggm|The Structured GGM]])
 
 **Barriers**
@@ -70,5 +84,7 @@ The [[algebraic-group-model|Algebraic Group Model (AGM)]] is a strictly _weaker_
 
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
+- [[type-3-pairing-to-ds-ps16|Type 3 pairing ⇒ DS (Pointcheval–Sanders)]]
+- [[type-3-pairing-to-short-structure-preserving-signature-agho11|Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)]]
 
 <!-- END GENERATED participates-in -->

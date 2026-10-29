@@ -34,7 +34,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 016449ec7426 -->
+<!-- BEGIN GENERATED participates-in c1ed15e09815 -->
 
 ## Participates in
 
@@ -54,13 +54,14 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
-- [[co-cdh-to-ds|co-CDH ⇒ DS]]
+- [[co-cdh-star-to-multi-signature-bdn18|co-CDH ⇒ BLS multi-signatures with public-key aggregation]]
+- [[co-cdh-to-aggregate-signature-bgls03|co-CDH ⇒ Aggregate signatures (BGLS)]]
+- [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
 - [[dkg-and-he-to-tpke|DCR ⇒ TPKE]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
-- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
 - [[id-and-rom-to-ds|ID ⇒ DS]]
@@ -70,13 +71,23 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
+- [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
+- [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
+- [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]]
+- [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]]
+- [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]]
+- [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]]
+- [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
+- [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[sis-to-ds|SIS ⇒ DS]]
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]]
 - [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]]
+- [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]]
 
 <!-- END GENERATED participates-in -->
