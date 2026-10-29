@@ -705,12 +705,27 @@ for (const p of pages) {
       }
     }
 
-    if (fm.model !== undefined && !MODELS.includes(String(fm.model))) {
+    const models =
+      fm.model === undefined ? [] : [].concat(fm.model).map(String);
+    const badModel = models.find((m) => !MODELS.includes(m));
+    if (badModel !== undefined) {
       err(
         f,
         1,
         "edge-model",
-        `model "${fm.model}" is not valid. Valid models: ${MODELS.join(" | ")}. Idealized models belong here, never in "class" — a generic-group lower bound is class: free, model: generic-group.`,
+        `model "${badModel}" is not valid. Valid models: ${MODELS.join(" | ")}. Idealized models belong here, never in "class" — a generic-group lower bound is class: free, model: generic-group.`,
+      );
+    } else if (
+      Array.isArray(fm.model) &&
+      (models.length < 2 ||
+        new Set(models).size !== models.length ||
+        models.includes("standard"))
+    ) {
+      err(
+        f,
+        1,
+        "edge-model",
+        `model [${models.join(", ")}] is not a valid list. A list names two or more distinct models that one proof uses at once, none of them "standard" (PLONK: model: [algebraic-group, rom]); a single model is a plain value.`,
       );
     }
 

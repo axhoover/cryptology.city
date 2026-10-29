@@ -474,6 +474,19 @@
    "unlisted": false
   },
   {
+   "id": "aux-input-zk-two-message",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#two-message-auxiliary-input-zero-knowledge",
+   "of": "czk",
+   "title": "Two-message auxiliary-input zero knowledge",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "auxiliary-input-owf",
    "kind": "variant",
    "type": "primitive",
@@ -496,6 +509,84 @@
    "anchor": "#batch-arguments-for-np",
    "of": "snark",
    "title": "Batch arguments for NP",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-concurrent-zk-few-rounds",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#black-box-concurrent-zero-knowledge-in-few-rounds",
+   "of": "czk",
+   "title": "Black-box concurrent zero knowledge in few rounds",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-constant-round-public-coin",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#constant-round-public-coin-black-box-zero-knowledge",
+   "of": "czk",
+   "title": "Constant-round public-coin black-box zero knowledge",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-four-message-proof",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#four-message-black-box-zero-knowledge-proofs",
+   "of": "czk",
+   "title": "Four-message black-box zero-knowledge proofs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-public-coin-parallel-repetition",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#public-coin-black-box-zero-knowledge-under-parallel-repetition",
+   "of": "czk",
+   "title": "Public-coin black-box zero knowledge under parallel repetition",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-strict-polynomial-simulation",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#strict-polynomial-time-black-box-simulation",
+   "of": "czk",
+   "title": "Strict polynomial-time black-box simulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "bb-zk-three-message",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#three-message-black-box-zero-knowledge",
+   "of": "czk",
+   "title": "Three-message black-box zero knowledge",
    "aliases": [],
    "unlisted": false
   },
@@ -767,6 +858,19 @@
    "unlisted": false
   },
   {
+   "id": "circular-secure-fhe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circular-secure-fhe",
+   "of": "he",
+   "title": "Circular-secure FHE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-security",
    "kind": "object",
    "type": "assumption",
@@ -833,6 +937,19 @@
    "unlisted": true
   },
   {
+   "id": "co-nondeterministic-hsg",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-generator.md",
+   "slug": "pseudorandom-generator",
+   "graphSlug": "Primitives/pseudorandom-generator",
+   "anchor": "#hitting-set-generators-against-co-nondeterministic-circuits",
+   "of": "prg",
+   "title": "Hitting-set generators against co-nondeterministic circuits",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "coam",
    "kind": "object",
    "type": "complexity-class",
@@ -873,6 +990,20 @@
     "COM",
     "Commitment scheme",
     "Commitment"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "coma",
+   "kind": "object",
+   "type": "complexity-class",
+   "page": "content/Complexity/co-merlin-arthur.md",
+   "slug": "co-merlin-arthur",
+   "graphSlug": "Complexity/co-merlin-arthur",
+   "title": "Co-Merlin-Arthur",
+   "aliases": [
+    "coMA",
+    "Co-Merlin-Arthur"
    ],
    "unlisted": false
   },
@@ -940,6 +1071,32 @@
    "title": "Schnorr identification under concurrent attack",
    "aliases": [],
    "unlisted": true
+  },
+  {
+   "id": "concurrent-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#concurrent-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Concurrent zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "concurrent-zk-proof",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#concurrent-zero-knowledge-proofs",
+   "of": "zkp",
+   "title": "Concurrent zero-knowledge proofs",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "conp",
@@ -1265,6 +1422,19 @@
    "unlisted": false
   },
   {
+   "id": "designated-verifier-snarg",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#designated-verifier-snargs",
+   "of": "snark",
+   "title": "Designated-verifier SNARGs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "differing-inputs-obfuscation",
    "kind": "variant",
    "type": "primitive",
@@ -1378,6 +1548,19 @@
     "Digital signature",
     "Signature scheme"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "dv-delegation-for-p",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#designated-verifier-delegation-for-p",
+   "of": "snark",
+   "title": "Designated-verifier delegation for P",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1572,6 +1755,19 @@
    "unlisted": false
   },
   {
+   "id": "four-message-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#four-message-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Four-message zero-knowledge arguments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "four-round-mpc",
    "kind": "variant",
    "type": "primitive",
@@ -1621,6 +1817,19 @@
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
    "title": "FRI (Fast Reed-Solomon IOP of Proximity)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fully-succinct-snark",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#fully-succinct-snarks",
+   "of": "snark",
+   "title": "Fully succinct SNARKs",
    "aliases": [],
    "unlisted": false
   },
@@ -1969,6 +2178,19 @@
    "unlisted": false
   },
   {
+   "id": "honest-verifier-czk",
+   "kind": "variant",
+   "type": "complexity-class",
+   "page": "content/Complexity/computational-zero-knowledge.md",
+   "slug": "computational-zero-knowledge",
+   "graphSlug": "Complexity/computational-zero-knowledge",
+   "anchor": "#honest-verifier-czk",
+   "of": "czk",
+   "title": "Honest-verifier CZK",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "honest-verifier-szk",
    "kind": "variant",
    "type": "complexity-class",
@@ -2302,6 +2524,21 @@
    "unlisted": false
   },
   {
+   "id": "iop",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-oracle-proof.md",
+   "slug": "interactive-oracle-proof",
+   "graphSlug": "Glossary/interactive-oracle-proof",
+   "title": "Interactive oracle proof",
+   "aliases": [
+    "IOP",
+    "Interactive oracle proof",
+    "Interactive oracle proofs"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "ip",
    "kind": "object",
    "type": "complexity-class",
@@ -2405,6 +2642,19 @@
    "unlisted": false
   },
   {
+   "id": "kea3",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/knowledge-of-exponent.md",
+   "slug": "knowledge-of-exponent",
+   "graphSlug": "Assumptions/knowledge-of-exponent",
+   "anchor": "#kea3",
+   "of": "kea",
+   "title": "KEA3",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "kem",
    "kind": "object",
    "type": "primitive",
@@ -2498,6 +2748,32 @@
    "anchor": "#leveled-fully-homomorphic-encryption",
    "of": "he",
    "title": "Leveled fully homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "linear-only-encryption",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/linear-only-encryption.md",
+   "slug": "linear-only-encryption",
+   "graphSlug": "Assumptions/linear-only-encryption",
+   "title": "Linear-only encryption",
+   "aliases": [
+    "Linear-only encryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "linear-only-vector-encryption",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/linear-only-encryption.md",
+   "slug": "linear-only-encryption",
+   "graphSlug": "Assumptions/linear-only-encryption",
+   "anchor": "#linear-only-vector-encryption",
+   "of": "linear-only-encryption",
+   "title": "Linear-only vector encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -3156,6 +3432,19 @@
    "unlisted": false
   },
   {
+   "id": "non-interactive-zap",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#non-interactive-zaps",
+   "of": "zkp",
+   "title": "Non-interactive zaps",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nonadaptive-nizk-argument-for-np",
    "kind": "variant",
    "type": "primitive",
@@ -3507,6 +3796,20 @@
    "unlisted": false
   },
   {
+   "id": "pcp",
+   "kind": "object",
+   "type": "complexity-class",
+   "page": "content/Complexity/probabilistically-checkable-proofs.md",
+   "slug": "probabilistically-checkable-proofs",
+   "graphSlug": "Complexity/probabilistically-checkable-proofs",
+   "title": "Probabilistically checkable proofs",
+   "aliases": [
+    "PCP",
+    "Probabilistically checkable proofs"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "pcs",
    "kind": "object",
    "type": "primitive",
@@ -3627,6 +3930,19 @@
    "anchor": "#cpa-security",
    "of": "pke",
    "title": "CPA Security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "polylog-cpir",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/single-server-private-information-retrieval.md",
+   "slug": "single-server-private-information-retrieval",
+   "graphSlug": "Primitives/single-server-private-information-retrieval",
+   "anchor": "#pir-with-polylogarithmic-communication",
+   "of": "cpir",
+   "title": "PIR with polylogarithmic communication",
    "aliases": [],
    "unlisted": false
   },
@@ -3915,6 +4231,19 @@
    "unlisted": false
   },
   {
+   "id": "q-dlog",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/discrete-logarithm.md",
+   "slug": "discrete-logarithm",
+   "graphSlug": "Assumptions/discrete-logarithm",
+   "anchor": "#q-dlog",
+   "of": "dlog",
+   "title": "$q$-DLOG",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "q-strong-diffie-hellman",
    "kind": "object",
    "type": "assumption",
@@ -3985,6 +4314,19 @@
     "Quadratic residuosity assumption",
     "QRA"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "qrom",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/random-oracle-model.md",
+   "slug": "random-oracle-model",
+   "graphSlug": "Glossary/random-oracle-model",
+   "anchor": "#quantum-random-oracle-model",
+   "of": "rom",
+   "title": "Quantum random oracle model",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -4893,6 +5235,19 @@
    "unlisted": false
   },
   {
+   "id": "subgroup-decision",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/bilinear-map-assumptions.md",
+   "slug": "bilinear-map-assumptions",
+   "graphSlug": "Assumptions/bilinear-map-assumptions",
+   "anchor": "#subgroup-decision",
+   "of": "bdh",
+   "title": "Subgroup decision",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -4902,6 +5257,19 @@
    "anchor": "#succinct-lwe",
    "of": "lwe",
    "title": "Succinct LWE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "succinct-state-restoration-iop",
+   "kind": "variant",
+   "type": "glossary",
+   "page": "content/Glossary/interactive-oracle-proof.md",
+   "slug": "interactive-oracle-proof",
+   "graphSlug": "Glossary/interactive-oracle-proof",
+   "anchor": "#succinct-iops-with-state-restoration-knowledge-soundness",
+   "of": "iop",
+   "title": "Succinct IOPs with state-restoration knowledge soundness",
    "aliases": [],
    "unlisted": false
   },
@@ -5052,6 +5420,19 @@
     "TFNP",
     "Total function NP"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "three-message-zk-argument",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/zero-knowledge-proof.md",
+   "slug": "zero-knowledge-proof",
+   "graphSlug": "Primitives/zero-knowledge-proof",
+   "anchor": "#three-message-zero-knowledge-arguments",
+   "of": "zkp",
+   "title": "Three-message zero-knowledge arguments",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5319,6 +5700,19 @@
    "unlisted": true
   },
   {
+   "id": "universal-snark",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/succinct-argument.md",
+   "slug": "succinct-argument",
+   "graphSlug": "Primitives/succinct-argument",
+   "anchor": "#universalupdatable-snarks",
+   "of": "snark",
+   "title": "Universal/updatable SNARKs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "unkeyed-depir",
    "kind": "variant",
    "type": "primitive",
@@ -5560,6 +5954,9 @@
    "conclusion": "be",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5584,6 +5981,9 @@
    "conclusion": "fuzzy-ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
@@ -5608,6 +6008,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5632,6 +6035,9 @@
    "conclusion": "prc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5656,6 +6062,9 @@
    "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ste98 - A New Efficient All-Or-Nothing Disclosure of Secrets Protocol|Ste98]]"
    ],
@@ -5680,6 +6089,9 @@
    "conclusion": "crhf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]"
    ],
@@ -5701,6 +6113,9 @@
    "conclusion": "mpc-with-preprocessing",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
    ],
@@ -5722,6 +6137,9 @@
    "conclusion": "com",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5746,6 +6164,9 @@
    "conclusion": "kea",
    "class": "free",
    "model": "algebraic-group",
+   "models": [
+    "algebraic-group"
+   ],
    "source": [
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
@@ -5771,6 +6192,9 @@
    "conclusion": "weak-prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BIP+18 - Exploring Crypto Dark Matter New Simple PRF Candidates and Their Applications|BIP+18]]"
    ],
@@ -5795,6 +6219,9 @@
    "conclusion": "hibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5819,6 +6246,9 @@
    "conclusion": "hve-payload-hiding",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5843,6 +6273,9 @@
    "conclusion": "byzantine-broadcast-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LSP82 - The Byzantine Generals Problem|LSP82]]",
     "[[PSL80 - Reaching Agreement in the Presence of Faults|PSL80]]"
@@ -5868,6 +6301,9 @@
    "conclusion": "ke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -5884,6 +6320,174 @@
    "title": "Authenticated key exchange (AKE) ⇒ KE"
   },
   {
+   "id": "red-aux-input-zk-two-message-to-bpp-go94",
+   "kind": "inclusion",
+   "hypotheses": [
+    "aux-input-zk-two-message"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[GO94 - Definitions and Properties of Zero-Knowledge Proof Systems|GO94]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/aux-input-zk-two-message-to-bpp-go94.md",
+   "slug": "aux-input-zk-two-message-to-bpp-go94",
+   "graphSlug": "Reductions/aux-input-zk-two-message-to-bpp-go94",
+   "title": "Two-message auxiliary-input ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-concurrent-zk-few-rounds"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CKPR01 - Black-Box Concurrent Zero-Knowledge Requires Omega(log n) Rounds|CKPR01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-concurrent-zk-few-rounds-to-bpp-ckpr01.md",
+   "slug": "bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "graphSlug": "Reductions/bb-concurrent-zk-few-rounds-to-bpp-ckpr01",
+   "title": "Few-round black-box concurrent ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-constant-round-public-coin"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-constant-round-public-coin-to-bpp-gk96.md",
+   "slug": "bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "graphSlug": "Reductions/bb-zk-constant-round-public-coin-to-bpp-gk96",
+   "title": "Constant-round public-coin black-box ZK ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-four-message-proof-to-coma-kat08",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-four-message-proof"
+   ],
+   "conclusion": "coma",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Kat08 - Which Languages Have 4-Round Zero-Knowledge Proofs|Kat08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-four-message-proof-to-coma-kat08.md",
+   "slug": "bb-zk-four-message-proof-to-coma-kat08",
+   "graphSlug": "Reductions/bb-zk-four-message-proof-to-coma-kat08",
+   "title": "Four-message black-box ZK proofs ⊆ coMA"
+  },
+  {
+   "id": "red-bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-public-coin-parallel-repetition"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[PTW09 - On the Composition of Public-Coin Zero-Knowledge Protocols|PTW09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-public-coin-parallel-repetition-to-bpp-ptw09.md",
+   "slug": "bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "graphSlug": "Reductions/bb-zk-public-coin-parallel-repetition-to-bpp-ptw09",
+   "title": "Public-coin black-box ZK under parallel repetition ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-strict-polynomial-simulation"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BL02 - Strict Polynomial-Time in Simulation and Extraction|BL02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-strict-polynomial-simulation-to-bpp-bl02.md",
+   "slug": "bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "graphSlug": "Reductions/bb-zk-strict-polynomial-simulation-to-bpp-bl02",
+   "title": "Constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP"
+  },
+  {
+   "id": "red-bb-zk-three-message-to-bpp-gk96",
+   "kind": "inclusion",
+   "hypotheses": [
+    "bb-zk-three-message"
+   ],
+   "conclusion": "bpp",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[GK96 - On the Composition of Zero-Knowledge Proof Systems|GK96a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bb-zk-three-message-to-bpp-gk96.md",
+   "slug": "bb-zk-three-message-to-bpp-gk96",
+   "graphSlug": "Reductions/bb-zk-three-message-to-bpp-gk96",
+   "title": "Three-message black-box ZK ⊆ BPP"
+  },
+  {
    "id": "red-bdh-to-abe-gpsw06",
    "kind": "implication",
    "hypotheses": [
@@ -5892,6 +6496,9 @@
    "conclusion": "abe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]"
    ],
@@ -5916,6 +6523,9 @@
    "conclusion": "be",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]]"
    ],
@@ -5940,6 +6550,9 @@
    "conclusion": "cdh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
    ],
@@ -5965,6 +6578,9 @@
    "conclusion": "hibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
    ],
@@ -5989,6 +6605,9 @@
    "conclusion": "hve",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
    ],
@@ -6010,6 +6629,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]"
    ],
@@ -6037,6 +6659,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]"
    ],
@@ -6061,6 +6686,9 @@
    "conclusion": "verifiable-random-function",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HJ16 - Verifiable Random Functions from Standard Assumptions|HJ16]]"
    ],
@@ -6083,9 +6711,12 @@
     "bilinear-pairing",
     "decisional-linear"
    ],
-   "conclusion": "zap",
+   "conclusion": "non-interactive-zap",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
    ],
@@ -6099,6 +6730,89 @@
    "title": "Bilinear pairing + DLIN ⇒ Zaps (non-interactive)"
   },
   {
+   "id": "red-bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "k-linear-assumption"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[WW22 - Batch Arguments for NP and More from Standard Bilinear Group Assumptions|WW22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22.md",
+   "slug": "bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "graphSlug": "Reductions/bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
+   "title": "Bilinear pairing + k-Lin ⇒ BARG for NP"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-dlog"
+   ],
+   "conclusion": "universal-snark",
+   "class": "unstated",
+   "model": "other",
+   "models": [
+    "algebraic-group",
+    "rom"
+   ],
+   "source": [
+    "[[GWC19 - PLONK Permutations over Lagrange-bases for Oecumenical Noninteractive arguments of Knowledge|GWC19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "GWC19 prove knowledge soundness for algebraic provers with Fiat–Shamir challenges from a random oracle, so the proof uses both idealised models."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-dlog-to-universal-snark-gwc19.md",
+   "slug": "bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+   "title": "Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)"
+  },
+  {
+   "id": "red-bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-dlog"
+   ],
+   "conclusion": "zk-snark",
+   "class": "unstated",
+   "model": "algebraic-group",
+   "models": [
+    "algebraic-group"
+   ],
+   "source": [
+    "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]",
+    "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight",
+   "rationale": {
+    "model": "FKL18 prove knowledge soundness against algebraic provers; zero knowledge is Gro16's unconditional property."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-q-dlog-to-zk-snark-fkl18.md",
+   "slug": "bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "graphSlug": "Reductions/bilinear-pairing-and-q-dlog-to-zk-snark-fkl18",
+   "title": "Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)"
+  },
+  {
    "id": "red-bilinear-pairing-and-q-sdh-to-ds-bb04a",
    "kind": "implication",
    "hypotheses": [
@@ -6108,6 +6822,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BB04a - Short Signatures Without Random Oracles|BB04a]]"
    ],
@@ -6134,6 +6851,9 @@
    "conclusion": "pcs",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[KZG10 - Constant-size commitments to polynomials and their applications|KZG10]]"
    ],
@@ -6158,7 +6878,11 @@
    ],
    "conclusion": "cp-abe-adaptive-security",
    "class": "free",
-   "model": "generic-group",
+   "model": "other",
+   "models": [
+    "generic-group",
+    "rom"
+   ],
    "source": [
     "[[BSW07 - Ciphertext-Policy Attribute-Based Encryption|BSW07]]"
    ],
@@ -6167,7 +6891,7 @@
    "securityLoss": "",
    "rationale": {
     "class": "BSW07 bound the advantage of every generic adversary, so the result holds for all algorithms in the model rather than through a reduction to a hardness assumption.",
-    "model": "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle."
+    "model": "The proof bounds adversaries that are generic in the bilinear group, with the hash from attribute strings to the group also modeled as a random oracle, so it uses both idealised models."
    },
    "status": "draft",
    "page": "content/Reductions/ggm-to-abe-bsw07.md",
@@ -6184,6 +6908,9 @@
    "conclusion": "zk-snark",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]"
    ],
@@ -6209,6 +6936,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6233,6 +6963,9 @@
    "conclusion": "am",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6254,6 +6987,9 @@
    "conclusion": "bqp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[BV97 - Quantum Complexity Theory|BV97]]"
    ],
@@ -6278,6 +7014,9 @@
    "conclusion": "coam",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6299,6 +7038,9 @@
    "conclusion": "ppoly",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Adl78 - Two theorems on random polynomial time|Adl78]]",
     "[[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]]"
@@ -6321,6 +7063,9 @@
    "conclusion": "pp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6342,6 +7087,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6363,6 +7111,9 @@
    "conclusion": "pp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[ADH97 - Quantum Computability|ADH97]]"
    ],
@@ -6387,6 +7138,9 @@
    "conclusion": "byzantine-broadcast-t-lt-n-over-3",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6411,6 +7165,9 @@
    "conclusion": "pke-cca1-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6435,6 +7192,9 @@
    "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6459,6 +7219,9 @@
    "conclusion": "dlog",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6483,6 +7246,9 @@
    "conclusion": "ind-id-cpa",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DG17a - Identity-Based Encryption from the Diffie-Hellman Assumption|DG17a]]"
    ],
@@ -6508,6 +7274,9 @@
    "conclusion": "non-interactive-key-exchange",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DH76 - New Directions in Cryptography|DH76]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
@@ -6533,6 +7302,9 @@
    "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]]"
    ],
@@ -6557,6 +7329,9 @@
    "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6573,6 +7348,62 @@
    "title": "Circular-secure bootstrappable SHE ⇒ Bootstrappable SHE"
   },
   {
+   "id": "red-circular-secure-fhe-to-compact-fhe",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-fhe"
+   ],
+   "conclusion": "compact-fhe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction runs any IND-CPA adversary on the public key it receives, discarding the encryptions of the secret-key bits."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-fhe-to-compact-fhe.md",
+   "slug": "circular-secure-fhe-to-compact-fhe",
+   "graphSlug": "Reductions/circular-secure-fhe-to-compact-fhe",
+   "title": "Circular-secure FHE ⇒ Compact FHE"
+  },
+  {
+   "id": "red-circular-secure-fhe-to-nizk-argument-for-np-cch19",
+   "kind": "implication",
+   "hypotheses": [
+    "circular-secure-fhe"
+   ],
+   "conclusion": "nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Soundness and zero knowledge hold with respect to a reference string generated by a trusted setup."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circular-secure-fhe-to-nizk-argument-for-np-cch19.md",
+   "slug": "circular-secure-fhe-to-nizk-argument-for-np-cch19",
+   "graphSlug": "Reductions/circular-secure-fhe-to-nizk-argument-for-np-cch19",
+   "title": "Circular-secure FHE ⇒ NIZK argument for NP"
+  },
+  {
    "id": "red-circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "kind": "implication",
    "hypotheses": [
@@ -6581,6 +7412,9 @@
    "conclusion": "compact-fhe",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
    ],
@@ -6597,6 +7431,30 @@
    "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
   },
   {
+   "id": "red-claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-permutations"
+   ],
+   "conclusion": "concurrent-zk-proof",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[PRS02 - Concurrent Zero Knowledge with Logarithmic Round-Complexity|PRS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/claw-free-permutations-to-concurrent-zk-proof-prs02.md",
+   "slug": "claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "graphSlug": "Reductions/claw-free-permutations-to-concurrent-zk-proof-prs02",
+   "title": "Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds"
+  },
+  {
    "id": "red-claw-free-permutations-to-constant-round-zk-proof-gk96b",
    "kind": "implication",
    "hypotheses": [
@@ -6605,6 +7463,9 @@
    "conclusion": "constant-round-zk-proof",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GK96b - How to Construct Constant-Round Zero-Knowledge Proof Systems for NP|GK96b]]"
    ],
@@ -6626,6 +7487,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Dam87 - Collision Free Hash Functions and Public Key Signature Schemes|Dam87]]"
    ],
@@ -6650,6 +7514,9 @@
    "conclusion": "ppad-hardness",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DP11 - Continuous Local Search|DP11]]"
    ],
@@ -6674,6 +7541,9 @@
    "conclusion": "multi-signature",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BDN18 - Compact Multi-Signatures for Smaller Blockchains|BDN18]]"
    ],
@@ -6695,6 +7565,9 @@
    "conclusion": "aggregate-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BGLS03 - Aggregate and Verifiably Encrypted Signatures from Bilinear Maps|BGLS03]]"
    ],
@@ -6720,6 +7593,9 @@
    "conclusion": "co-cdh-star",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6744,6 +7620,9 @@
    "conclusion": "boneh-lynn-shacham-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BLS01 - Short Signatures from the Weil Pairing|BLS01]]"
    ],
@@ -6769,6 +7648,9 @@
    "conclusion": "coin-flipping",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Blu81 - Coin Flipping by Telephone|Blu81]]"
    ],
@@ -6793,6 +7675,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
@@ -6817,6 +7702,9 @@
    "conclusion": "nizk-for-np",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "folklore"
    ],
@@ -6842,6 +7730,9 @@
    "conclusion": "he",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6866,6 +7757,9 @@
    "conclusion": "prime-order-dlog",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6890,6 +7784,9 @@
    "conclusion": "schnorr-identification-protocol",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6914,6 +7811,9 @@
    "conclusion": "coam",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6935,6 +7835,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -6956,6 +7859,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]]",
     "[[BHT14 - Coin Flipping of Any Constant Bias Implies One-Way Functions|BHT14]]"
@@ -6978,6 +7884,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Oka96 - On Relationships between Statistical Zero-Knowledge Proofs|Oka96]]",
     "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
@@ -7000,6 +7909,9 @@
    "conclusion": "semantic-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]",
     "[[MRS88 - The Notion of Security for Probabilistic Cryptosystems|MRS88]]"
@@ -7025,6 +7937,9 @@
    "conclusion": "ske",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7049,6 +7964,9 @@
    "conclusion": "crhf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]"
    ],
@@ -7070,6 +7988,9 @@
    "conclusion": "ot",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]"
    ],
@@ -7091,6 +8012,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]"
    ],
@@ -7112,6 +8036,9 @@
    "conclusion": "constant-round-zk-argument",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Bar01 - How to Go Beyond the Black-Box Simulation Barrier|Bar01]]"
    ],
@@ -7136,10 +8063,15 @@
    "conclusion": "interactive-succinct-argument",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]"
    ],
-   "via": [],
+   "via": [
+    "[[probabilistically-checkable-proofs|PCPs]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial",
    "status": "draft",
@@ -7157,6 +8089,9 @@
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]]",
     "[[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]]"
@@ -7182,6 +8117,9 @@
    "conclusion": "weak-owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7206,6 +8144,9 @@
    "conclusion": "czk-worst-case-hardness",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7230,6 +8171,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
    ],
@@ -7254,6 +8198,9 @@
    "conclusion": "ip",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7276,6 +8223,9 @@
    "conclusion": "czk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGG+90 - Everything Provable is Provable in Zero-Knowledge|BGG+90]]",
     "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]",
@@ -7302,6 +8252,9 @@
    "conclusion": "additively-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
    ],
@@ -7326,6 +8279,9 @@
    "conclusion": "bdh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7350,6 +8306,9 @@
    "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]"
    ],
@@ -7374,6 +8333,9 @@
    "conclusion": "ind-sid-cpa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
@@ -7398,6 +8360,9 @@
    "conclusion": "three-party-nike",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Jou04 - A One Round Protocol for Tripartite Diffie–Hellman|Jou04]]"
    ],
@@ -7422,6 +8387,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
    ],
@@ -7447,6 +8415,9 @@
    "conclusion": "com",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7471,6 +8442,9 @@
    "conclusion": "one-round-sublinear-cpir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]]"
    ],
@@ -7495,6 +8469,9 @@
    "conclusion": "d-th-composite-residuosity",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
    ],
@@ -7519,6 +8496,9 @@
    "conclusion": "fac",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7543,6 +8523,9 @@
    "conclusion": "four-round-mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
    ],
@@ -7567,6 +8550,9 @@
    "conclusion": "highly-lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
    ],
@@ -7591,6 +8577,9 @@
    "conclusion": "additively-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
@@ -7615,6 +8604,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Pai99 - Public-key cryptosystems based on composite degree residuosity classes|Pai99]]"
    ],
@@ -7639,6 +8631,9 @@
    "conclusion": "tdh",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
@@ -7663,6 +8658,9 @@
    "conclusion": "io",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]]"
    ],
@@ -7688,6 +8686,9 @@
    "conclusion": "somewhat-homomorphic-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
    ],
@@ -7710,6 +8711,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CS98 - A Practical Public Key Cryptosystem Provably Secure Against Adaptive Chosen Ciphertext Attack|CS98]]"
    ],
@@ -7734,6 +8738,9 @@
    "conclusion": "cdh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7758,6 +8765,9 @@
    "conclusion": "four-round-mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
    ],
@@ -7782,6 +8792,9 @@
    "conclusion": "highly-lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
@@ -7806,6 +8819,9 @@
    "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
    ],
@@ -7831,6 +8847,9 @@
    "conclusion": "non-interactive-key-exchange",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DH76 - New Directions in Cryptography|DH76]]"
    ],
@@ -7855,6 +8874,9 @@
    "conclusion": "multiplicatively-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]",
     "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
@@ -7880,6 +8902,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]]",
     "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
@@ -7905,6 +8930,9 @@
    "conclusion": "prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]"
    ],
@@ -7929,6 +8957,9 @@
    "conclusion": "tdh",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
@@ -7950,6 +8981,9 @@
    "conclusion": "search-lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -7974,6 +9008,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BBS04 - Short Group Signatures|BBS04]]"
    ],
@@ -7998,6 +9035,9 @@
    "conclusion": "cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8022,6 +9062,9 @@
    "conclusion": "io",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8046,6 +9089,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
@@ -8070,6 +9116,9 @@
    "conclusion": "threshold-encryption",
    "class": "free",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[FPS00 - Sharing Decryption in the Context of Voting or Lotteries|FPS00]]",
     "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
@@ -8095,6 +9144,9 @@
    "conclusion": "ippe",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[OT12 - Adaptively Attribute-Hiding (Hierarchical) Inner Product Encryption|OT12]]"
    ],
@@ -8120,6 +9172,9 @@
    "conclusion": "nizk-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[GOS06 - Non-interactive Zaps and New Techniques for NIZK|GOS06b]]"
    ],
@@ -8144,6 +9199,9 @@
    "conclusion": "schnorr-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
@@ -8170,7 +9228,11 @@
    ],
    "conclusion": "boneh-lynn-shacham-signature",
    "class": "unstated",
-   "model": "algebraic-group",
+   "model": "other",
+   "models": [
+    "algebraic-group",
+    "rom"
+   ],
    "source": [
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
@@ -8178,7 +9240,7 @@
    "heuristic": false,
    "securityLoss": "tight",
    "rationale": {
-    "model": "FKL18 prove the theorem for algebraic forgers, with the hash-to-group function modeled as a programmable random oracle."
+    "model": "FKL18 prove the theorem for algebraic forgers, with the hash-to-group function modeled as a programmable random oracle, so the proof uses both idealised models."
    },
    "status": "draft",
    "page": "content/Reductions/dlog-to-bls-signatures-fkl18.md",
@@ -8195,6 +9257,9 @@
    "conclusion": "bqp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]",
     "[[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]"
@@ -8220,6 +9285,9 @@
    "conclusion": "cdh",
    "class": "unstated",
    "model": "algebraic-group",
+   "models": [
+    "algebraic-group"
+   ],
    "source": [
     "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
    ],
@@ -8244,6 +9312,9 @@
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
    ],
@@ -8268,6 +9339,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8289,6 +9363,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CvHP91 - Cryptographically Strong Undeniable Signatures, Unconditionally Secure for the Signer|CvHP91]]"
    ],
@@ -8313,6 +9390,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8334,6 +9414,9 @@
    "conclusion": "pcs",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
    ],
@@ -8359,6 +9442,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]]"
    ],
@@ -8383,6 +9469,9 @@
    "conclusion": "pwpp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HV21 - On Search Complexity of Discrete Logarithm|HV21]]"
    ],
@@ -8404,6 +9493,9 @@
    "conclusion": "schnorr-identification-protocol",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
    ],
@@ -8428,6 +9520,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GK93 - A Perfect Zero-Knowledge Proof System for a Problem Equivalent to the Discrete Logarithm|GK93]]"
    ],
@@ -8449,6 +9544,9 @@
    "conclusion": "tfnp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8470,6 +9568,9 @@
    "conclusion": "verifiable-secret-sharing",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
    ],
@@ -8494,6 +9595,9 @@
    "conclusion": "enhanced-trapdoor-permutation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8518,6 +9622,9 @@
    "conclusion": "five-round-two-party-computation",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KO04 - Round-Optimal Secure Two-Party Computation|KO04]]"
    ],
@@ -8542,6 +9649,9 @@
    "conclusion": "computational-multi-server-pir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
@@ -8566,6 +9676,9 @@
    "conclusion": "multi-point-function-secret-sharing",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8590,6 +9703,9 @@
    "conclusion": "byzantine-broadcast",
    "class": "fully-black-box",
    "model": "other",
+   "models": [
+    "other"
+   ],
    "source": [
     "[[DS83 - Authenticated Algorithms for Byzantine Agreement|DS83]]"
    ],
@@ -8615,6 +9731,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
@@ -8639,6 +9758,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8663,6 +9785,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8687,6 +9812,9 @@
    "conclusion": "honest-majority-t-lt-n-over-2",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMW87 - How to play ANY mental game|GMW87]]",
     "[[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]"
@@ -8712,6 +9840,9 @@
    "conclusion": "two-party-computation-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[ORS15 - Round-Optimal Black-Box Two-Party Computation|ORS15]]"
    ],
@@ -8736,6 +9867,9 @@
    "conclusion": "uc-mpc",
    "class": "free",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[CLOS02 - Universally Composable Two-Party and Multi-Party Secure Computation|CLOS02]]"
    ],
@@ -8761,6 +9895,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
    ],
@@ -8786,6 +9923,9 @@
    "conclusion": "succinct-lwe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wee24 - Circuit ABE with poly(depth, lambda)-Sized Ciphertexts and Keys from Lattices|Wee24]]"
    ],
@@ -8807,6 +9947,9 @@
    "conclusion": "abe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HLL23 - Attribute-Based Encryption for Circuits of Unbounded Depth from Lattices Garbled Circuits of Optimal Size, Laconic Functional Evaluation, and More|HLL23]]"
    ],
@@ -8832,6 +9975,9 @@
    "conclusion": "abe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
    ],
@@ -8853,6 +9999,9 @@
    "conclusion": "be",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]]"
    ],
@@ -8874,6 +10023,9 @@
    "conclusion": "nexp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8895,6 +10047,9 @@
    "conclusion": "bqp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
    ],
@@ -8916,6 +10071,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Pra75 - Every Prime Has a Succinct Certificate|Pra75]]"
    ],
@@ -8937,6 +10095,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
    ],
@@ -8961,6 +10122,9 @@
    "conclusion": "factoring-blum-integers",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -8985,6 +10149,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9006,6 +10173,9 @@
    "conclusion": "ppa-randomized",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Jer16 - Integer factoring and modular square roots|Jer16]]"
    ],
@@ -9027,6 +10197,9 @@
    "conclusion": "pwpp-randomized",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Jer16 - Integer factoring and modular square roots|Jer16]]"
    ],
@@ -9048,6 +10221,9 @@
    "conclusion": "tfnp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9070,6 +10246,9 @@
    "conclusion": "pke-cca2-security",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]"
    ],
@@ -9094,6 +10273,9 @@
    "conclusion": "bqp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]"
    ],
@@ -9115,6 +10297,9 @@
    "conclusion": "claw-free-permutations",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]"
    ],
@@ -9139,6 +10324,9 @@
    "conclusion": "tdp",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Rab79 - Digitalized Signatures and Public-Key Functions as Intractable as Factorization|Rab79]]"
    ],
@@ -9163,6 +10351,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]"
    ],
@@ -9188,6 +10379,9 @@
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9212,6 +10406,9 @@
    "conclusion": "io",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]]",
     "[[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]"
@@ -9237,6 +10434,9 @@
    "conclusion": "nizk",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
@@ -9265,6 +10465,9 @@
    "conclusion": "two-party-computation-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9289,6 +10492,9 @@
    "conclusion": "mpc-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9313,6 +10519,9 @@
    "conclusion": "four-round-mpc",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CCG+20 - Round Optimal Secure Multiparty Computation from Minimal Assumptions|CCG+20]]"
    ],
@@ -9334,6 +10543,9 @@
    "conclusion": "malicious-ot-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9358,6 +10570,9 @@
    "conclusion": "dpf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGI15 - Function Secret Sharing|BGI15]]"
    ],
@@ -9382,6 +10597,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9406,6 +10624,9 @@
    "conclusion": "gapsvp-poly-factor",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9430,6 +10651,9 @@
    "conclusion": "gapsvp",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9454,6 +10678,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BLPRS13 - Classical Hardness of Learning with Errors|BLPRS13]]"
    ],
@@ -9478,6 +10705,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Pei09 - Public-Key Cryptosystems from the Worst-Case Shortest Vector Problem|Pei09]]"
    ],
@@ -9502,6 +10732,9 @@
    "conclusion": "coam",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GG00 - On the limits of non-approximability of lattice problems|GG00]]"
    ],
@@ -9523,6 +10756,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[AR04 - Lattice Problems in NP intersect coNP|AR04]]"
    ],
@@ -9544,6 +10780,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
@@ -9569,6 +10808,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -9590,6 +10832,9 @@
    "conclusion": "sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
@@ -9614,6 +10859,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[MV03 - Statistical Zero-Knowledge Proofs with Efficient Provers Lattice Problems and More|MV03]]"
    ],
@@ -9636,6 +10884,9 @@
    "conclusion": "semi-honest-two-party-computation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Yao86 - How to Generate and Exchange Secrets|Yao86]]",
     "[[LP09 - A Proof of Security of Yao's Protocol for Two-Party Computation|LP09]]"
@@ -9661,6 +10912,9 @@
    "conclusion": "asymmetric-q-sdh",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]]"
    ],
@@ -9686,6 +10940,9 @@
    "conclusion": "cdh",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
    ],
@@ -9711,6 +10968,9 @@
    "conclusion": "ddh",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
    ],
@@ -9736,6 +10996,9 @@
    "conclusion": "dlog",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[Sho97 - Lower Bounds for Discrete Logarithms and Related Problems|Sho97]]"
    ],
@@ -9761,6 +11024,9 @@
    "conclusion": "kea",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[Den06 - The Hardness of the DHK Problem in the Generic Group Model|Den06]]"
    ],
@@ -9786,6 +11052,9 @@
    "conclusion": "lrsw",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[LRSW99 - Pseudonym Systems|LRSW99]]"
    ],
@@ -9811,6 +11080,9 @@
    "conclusion": "omdl",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[BFP21 - The One-More Discrete Logarithm Assumption in the Generic Group Model|BFP21]]"
    ],
@@ -9836,6 +11108,9 @@
    "conclusion": "dlog",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[CK18 - The Discrete-Logarithm Problem with Preprocessing|CK18]]"
    ],
@@ -9862,6 +11137,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Mer89 - A Certified Digital Signature|Mer89]]"
    ],
@@ -9887,6 +11165,9 @@
    "conclusion": "deniable-encryption",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
@@ -9912,6 +11193,9 @@
    "conclusion": "ds",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
@@ -9937,6 +11221,9 @@
    "conclusion": "functional-encryption",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]",
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
@@ -9964,6 +11251,9 @@
    "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "free",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
@@ -9991,6 +11281,9 @@
    "conclusion": "pke",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
    ],
@@ -10015,6 +11308,9 @@
    "conclusion": "czk",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
    ],
@@ -10039,6 +11335,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
@@ -10064,6 +11363,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BDH11 - XMSS A Practical Forward Secure Signature Scheme Based on Minimal Security Assumptions|BDH11]]"
    ],
@@ -10088,6 +11390,9 @@
    "conclusion": "one-time-signature",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Lam79 - Constructing digital signatures from a one way function|Lam79]]"
    ],
@@ -10112,6 +11417,9 @@
    "conclusion": "pcs",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
    ],
@@ -10136,6 +11444,9 @@
    "conclusion": "secret-key-pir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BM26 - Secret-Key PIR from One-Way Functions|BM26]]"
    ],
@@ -10157,6 +11468,9 @@
    "conclusion": "transparent-succinct-argument",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]"
    ],
@@ -10182,6 +11496,9 @@
    "conclusion": "zkp",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]]"
    ],
@@ -10206,6 +11523,9 @@
    "conclusion": "cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10230,6 +11550,9 @@
    "conclusion": "statistically-rerandomizable-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]"
    ],
@@ -10251,6 +11574,9 @@
    "conclusion": "ind-sid-cpa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10275,6 +11601,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10299,6 +11628,9 @@
    "conclusion": "cpir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]]"
    ],
@@ -10320,6 +11652,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CF85 - A Robust and Verifiable Cryptographically Secure Election Scheme|CF85]]"
    ],
@@ -10344,6 +11679,9 @@
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10368,6 +11706,9 @@
    "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10392,6 +11733,9 @@
    "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10408,6 +11752,30 @@
    "title": "MPC with honest majority ($t < n/2$) ⇒ MPC with abort and honest majority ($t < n/2$)"
   },
   {
+   "id": "red-honest-verifier-czk-to-czk-vad06",
+   "kind": "equivalence",
+   "hypotheses": [
+    "honest-verifier-czk"
+   ],
+   "conclusion": "czk",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Vad06 - An Unconditional Study of Computational Zero Knowledge|Vad06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/honest-verifier-czk-to-czk-vad06.md",
+   "slug": "honest-verifier-czk-to-czk-vad06",
+   "graphSlug": "Reductions/honest-verifier-czk-to-czk-vad06",
+   "title": "HVCZK = CZK"
+  },
+  {
    "id": "red-honest-verifier-szk-to-szk-gsv98",
    "kind": "equivalence",
    "hypotheses": [
@@ -10416,6 +11784,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
    ],
@@ -10437,6 +11808,9 @@
    "conclusion": "range-query-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]"
    ],
@@ -10461,6 +11835,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10485,6 +11862,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
@@ -10510,6 +11890,9 @@
    "conclusion": "ring-lwe",
    "class": "fully-black-box",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[LPR10 - On ideal lattices and learning with errors over rings|LPR10]]"
    ],
@@ -10535,6 +11918,9 @@
    "conclusion": "ring-sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
    ],
@@ -10559,6 +11945,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
@@ -10583,6 +11972,9 @@
    "conclusion": "ind-cpa-kem",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10608,6 +12000,9 @@
    "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10632,6 +12027,9 @@
    "conclusion": "ind-cca-kem",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[FO99 - Secure Integration of Asymmetric and Symmetric Encryption Schemes|FO99]]",
     "[[HHK17 - A Modular Analysis of the Fujisaki-Okamoto Transformation|HHK17]]"
@@ -10659,6 +12057,9 @@
    "conclusion": "cpa-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10683,6 +12084,9 @@
    "conclusion": "ind-sid-cpa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10707,6 +12111,9 @@
    "conclusion": "ibe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10731,6 +12138,9 @@
    "conclusion": "hibe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GKR25 - A Note on Adaptive Security in Hierarchical Identity-Based Encryption|GKR25]]",
     "[[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]]"
@@ -10753,6 +12163,9 @@
    "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
@@ -10777,6 +12190,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]]"
    ],
@@ -10793,6 +12209,34 @@
    "title": "Selective-ID IBE ⇒ CCA-secure PKE (CHK)"
   },
   {
+   "id": "red-injective-one-way-function-to-four-message-zk-argument-hv18",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[HV18 - Round-Optimal Fully Black-Box Zero-Knowledge Arguments from One-Way Permutations|HV18]]",
+    "[[KOS18 - Round Optimal Black-Box Commit-and-Prove|KOS18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "HV18 and KOS18 build fully black-box arguments, which use the injective one-way function only as an oracle and prove zero knowledge and soundness with a simulator and a reduction that use the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-four-message-zk-argument-hv18.md",
+   "slug": "injective-one-way-function-to-four-message-zk-argument-hv18",
+   "graphSlug": "Reductions/injective-one-way-function-to-four-message-zk-argument-hv18",
+   "title": "Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)"
+  },
+  {
    "id": "red-invertible-prfs-to-prf",
    "kind": "implication",
    "hypotheses": [
@@ -10801,6 +12245,9 @@
    "conclusion": "prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10826,6 +12273,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
    ],
@@ -10851,6 +12301,9 @@
    "conclusion": "multi-party-nike",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]]"
    ],
@@ -10876,6 +12329,9 @@
    "conclusion": "cls-hardness",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HY17 - Hardness of Continuous Local Search Query Complexity and Cryptographic Lower Bounds|HY17]]"
    ],
@@ -10901,6 +12357,9 @@
    "conclusion": "ppad-hardness",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GPS16 - Revisiting the Cryptographic Hardness of Finding a Nash Equilibrium|GPS16]]"
    ],
@@ -10926,6 +12385,9 @@
    "conclusion": "statistical-zk-argument",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KMNPRY14 - One-Way Functions and (Im)perfect Obfuscation|KMNPRY14]]"
    ],
@@ -10947,6 +12409,9 @@
    "conclusion": "witness-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
    ],
@@ -10971,6 +12436,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -10992,6 +12460,9 @@
    "conclusion": "qip",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "folklore"
    ],
@@ -11016,6 +12487,9 @@
    "conclusion": "hve",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]"
    ],
@@ -11041,6 +12515,9 @@
    "conclusion": "payload-hiding-ippe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11065,6 +12542,9 @@
    "conclusion": "sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11089,6 +12569,9 @@
    "conclusion": "computational-multi-server-pir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11113,6 +12596,9 @@
    "conclusion": "abe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KW19 - Compact Adaptively Secure ABE for NC1 from k-Lin|KW19]]"
    ],
@@ -11134,6 +12620,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11158,6 +12647,9 @@
    "conclusion": "multi-party-key-exchange",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11182,6 +12674,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11207,6 +12702,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CS03 - Design and Analysis of Practical Public-Key Encryption Schemes Secure against Adaptive Chosen Ciphertext Attack|CS03]]"
    ],
@@ -11231,6 +12729,9 @@
    "conclusion": "ke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11255,6 +12756,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LP20 - On One-way Functions and Kolmogorov Complexity|LP20]]"
    ],
@@ -11268,6 +12772,60 @@
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
   },
   {
+   "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-only-encryption"
+   ],
+   "conclusion": "designated-verifier-snarg",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[BCIOP13 - Succinct Non-interactive Arguments via Linear Interactive Proofs|BCIOP13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier generates the reference string, encrypted LIP queries, in a preprocessing phase and keeps the decryption key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-only-encryption-to-designated-verifier-snarg-bciop13.md",
+   "slug": "linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "graphSlug": "Reductions/linear-only-encryption-to-designated-verifier-snarg-bciop13",
+   "title": "Linear-only encryption ⇒ Designated-verifier SNARG"
+  },
+  {
+   "id": "red-linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-only-vector-encryption"
+   ],
+   "conclusion": "designated-verifier-snarg",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[BISW17 - Lattice-Based SNARGs and Their Application to More Efficient Obfuscation|BISW17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier generates the reference string, encrypted linear-PCP queries, in a preprocessing phase and keeps the decryption key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-only-vector-encryption-to-designated-verifier-snarg-bisw17.md",
+   "slug": "linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "graphSlug": "Reductions/linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
+   "title": "Linear-only vector encryption ⇒ Designated-verifier SNARG (lattice-based)"
+  },
+  {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
    "kind": "equivalence",
    "hypotheses": [
@@ -11276,6 +12834,9 @@
    "conclusion": "monotone-span-program",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KW93 - On Span Programs|KW93]]"
    ],
@@ -11300,6 +12861,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
@@ -11324,6 +12888,9 @@
    "conclusion": "injective-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
@@ -11348,6 +12915,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
@@ -11372,6 +12942,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
     "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
@@ -11397,6 +12970,9 @@
    "conclusion": "rsa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11421,6 +12997,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BFKL93 - Cryptographic Primitives Based on Hard Learning Problems|BFKL93]]"
    ],
@@ -11445,6 +13024,9 @@
    "conclusion": "lpn-constant-noise",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11470,6 +13052,9 @@
    "conclusion": "nizk-argument-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[BKM20 - NIZK from LPN and Trapdoor Hash via Correlation Intractability for Approximable Relations|BKM20]]"
    ],
@@ -11493,6 +13078,9 @@
    "conclusion": "lpn-high-noise",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -11517,6 +13105,9 @@
    "conclusion": "pke-cca2-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KMP14 - Simple Chosen-Ciphertext Security from Low-Noise LPN|KMP14]]"
    ],
@@ -11541,6 +13132,9 @@
    "conclusion": "secret-key-pir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
@@ -11562,6 +13156,9 @@
    "conclusion": "lpn",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
@@ -11583,6 +13180,9 @@
    "conclusion": "secret-key-pir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
@@ -11604,6 +13204,9 @@
    "conclusion": "doubly-efficient-ram-mpc",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LMW24 - Doubly Efficient Cryptography Commitments, Arguments and RAM MPC|LMW24]]"
    ],
@@ -11628,6 +13231,9 @@
    "conclusion": "unkeyed-depir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]]"
    ],
@@ -11652,6 +13258,9 @@
    "conclusion": "hibe-selective-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]]",
     "[[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]]"
@@ -11677,6 +13286,9 @@
    "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
@@ -11702,6 +13314,9 @@
    "conclusion": "leveled-fully-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
    ],
@@ -11727,6 +13342,9 @@
    "conclusion": "leveled-fully-homomorphic-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BV14 - Lattice-based FHE as secure as PKE|BV14]]"
    ],
@@ -11751,6 +13369,9 @@
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
@@ -11776,6 +13397,9 @@
    "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
    ],
@@ -11801,6 +13425,9 @@
    "conclusion": "nizk-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[PS19 - Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors|PS19]]"
    ],
@@ -11824,6 +13451,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
@@ -11848,6 +13478,9 @@
    "conclusion": "tdh",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
@@ -11869,6 +13502,9 @@
    "conclusion": "zero-bit-prc",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
@@ -11890,6 +13526,9 @@
    "conclusion": "am",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BM88 - Arthur-merlin games A randomized proof system and a hierarchy of complexity classes|BM88]]"
    ],
@@ -11911,6 +13550,9 @@
    "conclusion": "pp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ver92 - On the Power of PP|Ver92]]"
    ],
@@ -11932,6 +13574,9 @@
    "conclusion": "qcma",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "folklore"
    ],
@@ -11957,6 +13602,9 @@
    "conclusion": "cca-secure-symmetric-key-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
    ],
@@ -11982,6 +13630,9 @@
    "conclusion": "malicious-ot-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12006,6 +13657,9 @@
    "conclusion": "two-party-computation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]]"
    ],
@@ -12030,6 +13684,9 @@
    "conclusion": "nexp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]]",
     "[[FRS88 - On the Power of Multi-Prover Interactive Protocols|FRS88]]"
@@ -12053,6 +13710,9 @@
    "conclusion": "io",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
    ],
@@ -12078,6 +13738,9 @@
    "conclusion": "ds",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
    ],
@@ -12103,6 +13766,9 @@
    "conclusion": "ind-cca-kem",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BDK+18 - CRYSTALS-Kyber A CCA-Secure Module-Lattice-Based KEM|BDK+18]]"
    ],
@@ -12128,6 +13794,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
@@ -12152,6 +13821,9 @@
    "conclusion": "ring-lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
@@ -12176,6 +13848,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12200,6 +13875,9 @@
    "conclusion": "module-lwe",
    "class": "fully-black-box",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
@@ -12225,6 +13903,9 @@
    "conclusion": "module-sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LS15 - Worst-case to average-case reductions for module lattices|LS15]]"
    ],
@@ -12249,6 +13930,9 @@
    "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12273,6 +13957,9 @@
    "conclusion": "mpc-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12297,6 +13984,9 @@
    "conclusion": "two-party-computation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12321,6 +14011,9 @@
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12345,6 +14038,9 @@
    "conclusion": "multi-signature-kosk",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12369,6 +14065,9 @@
    "conclusion": "multi-signature-kosk",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12393,6 +14092,9 @@
    "conclusion": "witness-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
    ],
@@ -12414,6 +14116,9 @@
    "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "folklore"
    ],
@@ -12439,6 +14144,9 @@
    "conclusion": "nizk",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12463,6 +14171,9 @@
    "conclusion": "nizk-argument-for-np",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "folklore"
    ],
@@ -12488,6 +14199,9 @@
    "conclusion": "zap",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DN00 - Zaps and Their Applications|DN00]]"
    ],
@@ -12512,6 +14226,9 @@
    "conclusion": "sk-depir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
    ],
@@ -12533,6 +14250,9 @@
    "conclusion": "crhf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BLVW19 - Worst-Case Hardness for LPN and Cryptographic Hashing via Code Smoothing|BLVW19]]"
    ],
@@ -12554,6 +14274,9 @@
    "conclusion": "lpn-mid-noise",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12578,6 +14301,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ale03 - More on average case vs approximation complexity|Ale03]]"
    ],
@@ -12602,6 +14328,9 @@
    "conclusion": "tdh",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]]"
    ],
@@ -12624,6 +14353,9 @@
    "conclusion": "pke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
    ],
@@ -12645,6 +14377,9 @@
    "conclusion": "ke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12661,6 +14396,33 @@
    "title": "NIKE ⇒ KE"
   },
   {
+   "id": "red-non-interactive-zap-to-zap",
+   "kind": "implication",
+   "hypotheses": [
+    "non-interactive-zap"
+   ],
+   "conclusion": "zap",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The zap is the non-interactive zap with the verifier's message ignored, and the reductions forward any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/non-interactive-zap-to-zap.md",
+   "slug": "non-interactive-zap-to-zap",
+   "graphSlug": "Reductions/non-interactive-zap-to-zap",
+   "title": "Non-interactive zap ⇒ Zap"
+  },
+  {
    "id": "red-notable-problems-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -12669,6 +14431,9 @@
    "conclusion": "qma",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[KSV02 - Classical and Quantum Computation|KSV02]]"
    ],
@@ -12693,6 +14458,9 @@
    "conclusion": "am",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12714,6 +14482,9 @@
    "conclusion": "ma",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12735,6 +14506,9 @@
    "conclusion": "pp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Gil77 - Computational complexity of probabilistic Turing machines|Gil77]]"
    ],
@@ -12756,6 +14530,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12778,6 +14555,9 @@
    "conclusion": "ds",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[DLP14 - Efficient Identity-Based Encryption over NTRU Lattices|DLP14]]"
    ],
@@ -12803,6 +14583,9 @@
    "conclusion": "ind-cca-kem",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[HRSS17 - High-Speed Key Encapsulation from NTRU|HRSS17]]"
    ],
@@ -12827,6 +14610,9 @@
    "conclusion": "pke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HPS98 - NTRU a ring-based public key cryptosystem|HPS98]]"
    ],
@@ -12851,6 +14637,9 @@
    "conclusion": "ot",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
@@ -12876,6 +14665,10 @@
    "conclusion": "blind-schnorr-signature",
    "class": "unstated",
    "model": "other",
+   "models": [
+    "algebraic-group",
+    "rom"
+   ],
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
    ],
@@ -12883,7 +14676,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20.md",
@@ -12900,6 +14693,9 @@
    "conclusion": "concurrent-schnorr-identification",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]]"
    ],
@@ -12924,6 +14720,9 @@
    "conclusion": "musig2",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]"
    ],
@@ -12949,6 +14748,9 @@
    "conclusion": "prime-order-dlog",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12973,6 +14775,9 @@
    "conclusion": "total-nontrivial-cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -12998,6 +14803,9 @@
    "conclusion": "ot-extension",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]"
    ],
@@ -13022,6 +14830,9 @@
    "conclusion": "mpc-with-preprocessing",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KOS16 - MASCOT Faster Malicious Arithmetic Secure Computation with Oblivious Transfer|KOS16]]"
    ],
@@ -13047,6 +14858,9 @@
    "conclusion": "com",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]",
     "[[Can00 - Security and Composition of Multiparty Cryptographic Protocols|Can00]]"
@@ -13072,6 +14886,9 @@
    "conclusion": "ke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13096,6 +14913,9 @@
    "conclusion": "malicious-ot-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Hai08 - Semi-honest to Malicious Oblivious Transfer - The Black-Box Way|Hai08]]"
    ],
@@ -13120,6 +14940,9 @@
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HIKLP10 - Black-Box Constructions of Protocols for Secure Computation|HIKLP10]]"
    ],
@@ -13144,6 +14967,9 @@
    "conclusion": "oblivious-interactive-hash-function",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
@@ -13165,6 +14991,9 @@
    "conclusion": "optimally-fair-coin-flipping",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[MNS09 - An Optimally Fair Coin Toss|MNS09]]"
    ],
@@ -13186,6 +15015,9 @@
    "conclusion": "ot-extension",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]]"
    ],
@@ -13211,6 +15043,9 @@
    "conclusion": "semi-honest-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMW87 - How to play ANY mental game|GMW87]]",
     "[[Gol04 - Foundations of Cryptography Basic Applications|Gol04]]"
@@ -13228,6 +15063,30 @@
    "title": "Semi-honest OT ⇒ Semi-honest MPC (GMW)"
   },
   {
+   "id": "red-owf-to-concurrent-zk-argument-prs02",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "concurrent-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[PRS02 - Concurrent Zero Knowledge with Logarithmic Round-Complexity|PRS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-concurrent-zk-argument-prs02.md",
+   "slug": "owf-to-concurrent-zk-argument-prs02",
+   "graphSlug": "Reductions/owf-to-concurrent-zk-argument-prs02",
+   "title": "OWF ⇒ Concurrent ZK arguments for NP in ω(log n) rounds"
+  },
+  {
    "id": "red-owf-to-distributional-owf",
    "kind": "implication",
    "hypotheses": [
@@ -13236,6 +15095,9 @@
    "conclusion": "distributional-owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13252,6 +15114,30 @@
    "title": "OWF ⇒ Distributional OWF"
   },
   {
+   "id": "red-owf-to-four-message-zk-argument-bjy97",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BJY97 - Round-Optimal Zero-Knowledge Arguments Based on any One-Way Function|BJY97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-four-message-zk-argument-bjy97.md",
+   "slug": "owf-to-four-message-zk-argument-bjy97",
+   "graphSlug": "Reductions/owf-to-four-message-zk-argument-bjy97",
+   "title": "OWF ⇒ Four-message ZK arguments for NP"
+  },
+  {
    "id": "red-owf-to-np",
    "kind": "inclusion",
    "hypotheses": [
@@ -13260,6 +15146,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13281,6 +15170,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
    ],
@@ -13306,6 +15198,9 @@
    "conclusion": "statistical-zk-argument",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NOV06 - Statistical Zero-Knowledge Arguments for NP from Any One-Way Function|NOV06]]"
    ],
@@ -13327,6 +15222,9 @@
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HR07 - Statistically-hiding commitment from any one-way function|HR07]]"
    ],
@@ -13351,6 +15249,9 @@
    "conclusion": "uowhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]]"
    ],
@@ -13375,6 +15276,9 @@
    "conclusion": "witness-indistinguishable-proof",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[FS90 - Witness Indistinguishable and Witness Hiding Protocols|FS90]]"
    ],
@@ -13391,6 +15295,33 @@
    "title": "OWF ⇒ Constant-round WI proofs for NP (Feige–Shamir)"
   },
   {
+   "id": "red-owf-to-zkp-ikos07",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "zkp",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IKOS07 - Zero-Knowledge from Secure Multiparty Computation|IKOS07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The protocol uses Naor's commitment on the HILL generator and the multi-party protocol only as oracles, soundness is statistical, and zero knowledge reduces to commitment hiding through a simulator and a reduction that use the cheating verifier and distinguisher only as oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-zkp-ikos07.md",
+   "slug": "owf-to-zkp-ikos07",
+   "graphSlug": "Reductions/owf-to-zkp-ikos07",
+   "title": "OWF ⇒ ZKP (MPC in the head)"
+  },
+  {
    "id": "red-owp-to-conp",
    "kind": "inclusion",
    "hypotheses": [
@@ -13399,6 +15330,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13420,6 +15354,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13444,6 +15381,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
@@ -13469,6 +15409,9 @@
    "conclusion": "size-verifiable-owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13493,6 +15436,9 @@
    "conclusion": "statistically-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NOVY98 - Perfect Zero-Knowledge Arguments for NP Using Any One-Way Permutation|NOVY98]]"
    ],
@@ -13517,6 +15463,9 @@
    "conclusion": "uowhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]"
    ],
@@ -13541,6 +15490,9 @@
    "conclusion": "bpp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13562,6 +15514,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13583,6 +15538,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13604,6 +15562,9 @@
    "conclusion": "ppoly",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13625,6 +15586,9 @@
    "conclusion": "rp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13646,6 +15610,9 @@
    "conclusion": "zpp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13668,6 +15635,9 @@
    "conclusion": "somewhat-homomorphic-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]]"
    ],
@@ -13690,6 +15660,9 @@
    "conclusion": "pke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GHJS25 - Public-Key Encryption from Planted Clique and Noisy k-LIN Over Expanders|GHJS25]]"
    ],
@@ -13703,6 +15676,30 @@
    "title": "PC + Search noisy $k$-LIN ⇒ PKE"
   },
   {
+   "id": "red-pcp-to-np-alm-92",
+   "kind": "equivalence",
+   "hypotheses": [
+    "pcp"
+   ],
+   "conclusion": "np",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[ALM+92 - Proof Verification and Hardness of Approximation Problems|ALM+92]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/pcp-to-np-alm-92.md",
+   "slug": "pcp-to-np-alm-92",
+   "graphSlug": "Reductions/pcp-to-np-alm-92",
+   "title": "PCP = NP"
+  },
+  {
    "id": "red-pcs-to-snark",
    "kind": "implication",
    "hypotheses": [
@@ -13711,6 +15708,9 @@
    "conclusion": "snark",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]",
     "[[BFS20 - Transparent SNARKs from DARK Compilers|BFS20]]"
@@ -13737,6 +15737,9 @@
    "conclusion": "vector-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13761,6 +15764,9 @@
    "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13785,6 +15791,9 @@
    "conclusion": "sk-depir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
    ],
@@ -13809,6 +15818,9 @@
    "conclusion": "ds",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]]"
    ],
@@ -13830,6 +15842,9 @@
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KOS10 - Instantiability of RSA-OAEP under Chosen-Plaintext Attack|KOS10]]"
    ],
@@ -13854,6 +15869,9 @@
    "conclusion": "sk-depir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13879,6 +15897,9 @@
    "conclusion": "pke-cca1-security",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NY90 - Public-key Cryptosystems Provably Secure against Chosen Ciphertext Attacks|NY90]]"
    ],
@@ -13904,6 +15925,9 @@
    "conclusion": "pke-cca2-security",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]",
     "[[Sah99 - Non-Malleable Non-Interactive Zero Knowledge and Adaptive Chosen-Ciphertext Security|Sah99]]"
@@ -13929,6 +15953,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13953,6 +15980,9 @@
    "conclusion": "com",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -13977,6 +16007,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
@@ -14002,6 +16035,9 @@
    "conclusion": "ke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14026,6 +16062,9 @@
    "conclusion": "kem",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14042,6 +16081,33 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "kind": "implication",
+   "hypotheses": [
+    "polylog-cpir"
+   ],
+   "conclusion": "dv-delegation-for-p",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[BHK17 - Non-interactive delegation and batch NP verification from standard computational assumptions|BHK17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The verifier samples a reusable public key in a setup phase and keeps the secret verification key on which soundness rests."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17.md",
+   "slug": "polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "graphSlug": "Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17",
+   "title": "PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P"
+  },
+  {
    "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
    "kind": "implication",
    "hypotheses": [
@@ -14050,6 +16116,9 @@
    "conclusion": "barg-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
    ],
@@ -14073,6 +16142,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14097,6 +16169,9 @@
    "conclusion": "sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14121,6 +16196,9 @@
    "conclusion": "snarg-for-p",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[CJJ21 - SNARGs for P from LWE|CJJ21]]"
    ],
@@ -14147,6 +16225,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14168,6 +16249,9 @@
    "conclusion": "ppa-randomized",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14189,6 +16273,9 @@
    "conclusion": "tfnp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14210,6 +16297,9 @@
    "conclusion": "tfnp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14231,6 +16321,9 @@
    "conclusion": "ske",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
@@ -14255,6 +16348,9 @@
    "conclusion": "garbled-circuits",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BHR12 - Foundations of Garbled Circuits|BHR12]]"
    ],
@@ -14279,6 +16375,9 @@
    "conclusion": "invertible-prf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]"
    ],
@@ -14300,6 +16399,9 @@
    "conclusion": "mac",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGM84 - On the Cryptographic Applications of Random Functions|GGM84]]"
    ],
@@ -14324,6 +16426,9 @@
    "conclusion": "prp",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
@@ -14348,6 +16453,9 @@
    "conclusion": "cpa-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BDJR97 - A Concrete Security Treatment of Symmetric Encryption|BDJR97]]"
    ],
@@ -14372,6 +16480,9 @@
    "conclusion": "strong-pseudorandom-permutation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]"
    ],
@@ -14396,6 +16507,9 @@
    "conclusion": "low-complexity-prg-nc0",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[AIK06 - Cryptography in NC0|AIK06]]"
    ],
@@ -14420,6 +16534,9 @@
    "conclusion": "adversarial-pp-hiding-commitment",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Naor91 - Bit commitment using pseudorandomness|Naor91]]"
    ],
@@ -14444,6 +16561,9 @@
    "conclusion": "dpf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GI14 - Distributed Point Functions and Their Applications|GI14]]"
    ],
@@ -14468,6 +16588,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14492,6 +16615,9 @@
    "conclusion": "np-average-case-hardness",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14516,6 +16642,9 @@
    "conclusion": "prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGM86 - How to construct random functions|GGM86]]"
    ],
@@ -14540,6 +16669,9 @@
    "conclusion": "cdh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14564,6 +16696,9 @@
    "conclusion": "edl-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[GJ03 - A Signature Scheme as Secure as the Diffie-Hellman Problem|GJ03]]"
    ],
@@ -14589,6 +16724,9 @@
    "conclusion": "ddh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14613,6 +16751,9 @@
    "conclusion": "katz-wang-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[KW03 - Efficiency Improvements for Signature Schemes with Tight Security Reductions|KW03]]"
    ],
@@ -14630,6 +16771,30 @@
    "title": "Prime-order DDH ⇒ Katz–Wang signatures"
   },
   {
+   "id": "red-prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "kind": "implication",
+   "hypotheses": [
+    "kea3"
+   ],
+   "conclusion": "three-message-zk-argument",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04.md",
+   "slug": "prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "graphSlug": "Reductions/prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
+   "title": "DLOG + KEA3 ⇒ Three-message ZK arguments for NP"
+  },
+  {
    "id": "red-prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
    "kind": "implication",
    "hypotheses": [
@@ -14638,6 +16803,9 @@
    "conclusion": "blind-okamoto-schnorr-signature",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]"
    ],
@@ -14663,6 +16831,9 @@
    "conclusion": "dlog",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14687,6 +16858,9 @@
    "conclusion": "eddsa",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BCJZ21 - The Provable Security of Ed25519 Theory and Practice|BCJZ21]]"
    ],
@@ -14704,6 +16878,34 @@
    "title": "DLOG ⇒ EdDSA"
   },
   {
+   "id": "red-prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "interactive-succinct-argument",
+   "class": "fully-black-box",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "One fixed construction uses the group only through group operations on the public generators, and the extractor runs the prover only as an oracle, rewinding it over a tree of challenges and turning two distinct openings into a nontrivial discrete-log relation among the generators.",
+    "model": "The public parameters are uniformly random group elements sampled by the setup, and soundness needs that no party knows discrete-logarithm relations among them."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-interactive-succinct-argument-bccgp16.md",
+   "slug": "prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "graphSlug": "Reductions/prime-order-dlog-to-interactive-succinct-argument-bccgp16",
+   "title": "DLOG ⇒ Succinct arguments for NP (Bootle et al.)"
+  },
+  {
    "id": "red-prime-order-dlog-to-musig-mpsw19",
    "kind": "implication",
    "hypotheses": [
@@ -14712,6 +16914,9 @@
    "conclusion": "musig",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]"
    ],
@@ -14737,6 +16942,9 @@
    "conclusion": "okamoto-identification-protocol",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]"
    ],
@@ -14761,6 +16969,10 @@
    "conclusion": "schnorr-signature",
    "class": "unstated",
    "model": "other",
+   "models": [
+    "algebraic-group",
+    "rom"
+   ],
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
    ],
@@ -14768,7 +16980,7 @@
    "heuristic": false,
    "securityLoss": "tight: the DLOG solver has essentially the forger's running time and advantage",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/prime-order-dlog-to-schnorr-signature-fps20.md",
@@ -14785,6 +16997,9 @@
    "conclusion": "invertible-prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14811,6 +17026,9 @@
    "conclusion": "prf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IR89 - Limits on the provable consequences of one-way permutations|IR89]]"
    ],
@@ -14837,6 +17055,9 @@
    "conclusion": "exp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14858,6 +17079,9 @@
    "conclusion": "ip",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Sha90 - IP = PSPACE|Sha90]]"
    ],
@@ -14879,6 +17103,9 @@
    "conclusion": "ppp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14900,6 +17127,9 @@
    "conclusion": "pwpp-randomized",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -14913,6 +17143,33 @@
    "title": "PWPP ⊆ PWPP under randomized reductions"
   },
   {
+   "id": "red-q-dlog-to-prime-order-dlog",
+   "kind": "implication",
+   "hypotheses": [
+    "q-dlog"
+   ],
+   "conclusion": "prime-order-dlog",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the reduction forwards the adversary's answer",
+   "rationale": {
+    "class": "The construction keeps only the first source group of the bilinear group generator, and the reduction runs any DLOG solver unchanged on part of a $(1, 1)$-DLOG instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/q-dlog-to-prime-order-dlog.md",
+   "slug": "q-dlog-to-prime-order-dlog",
+   "graphSlug": "Reductions/q-dlog-to-prime-order-dlog",
+   "title": "q-DLOG ⇒ Prime-order DLOG"
+  },
+  {
    "id": "red-qcma-to-qma",
    "kind": "inclusion",
    "hypotheses": [
@@ -14921,6 +17178,9 @@
    "conclusion": "qma",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "folklore"
    ],
@@ -14945,6 +17205,9 @@
    "conclusion": "pspace",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[JJUW10 - QIP = PSPACE|JJUW10]]",
     "[[Sha90 - IP = PSPACE|Sha90]]"
@@ -14970,6 +17233,9 @@
    "conclusion": "pp",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[MW05 - Quantum Arthur-Merlin games|MW05]]"
    ],
@@ -14994,6 +17260,9 @@
    "conclusion": "com",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15015,6 +17284,9 @@
    "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]",
     "[[BDMP91 - Noninteractive Zero-Knowledge|BDMP91]]"
@@ -15041,6 +17313,9 @@
    "conclusion": "conp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15062,6 +17337,9 @@
    "conclusion": "one-round-sublinear-cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KO97 - Replication is not needed single database, computationally-private information retrieval|KO97]]"
    ],
@@ -15086,6 +17364,9 @@
    "conclusion": "factoring-blum-integers",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15110,6 +17391,9 @@
    "conclusion": "four-round-mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGJ+18 - Promise Zero Knowledge and its Applications to Round Optimal MPC|BGJ+18]]"
    ],
@@ -15134,6 +17418,9 @@
    "conclusion": "additively-homomorphic-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
@@ -15155,6 +17442,9 @@
    "conclusion": "lossy-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[FGKRS10 - More Constructions of Lossy and Correlation-Secure Trapdoor Functions|FGKRS10]]"
    ],
@@ -15179,6 +17469,9 @@
    "conclusion": "two-round-uc-ot",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]]"
    ],
@@ -15203,6 +17496,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15224,6 +17520,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
@@ -15248,6 +17547,9 @@
    "conclusion": "prg",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]]"
    ],
@@ -15272,6 +17574,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]]"
    ],
@@ -15293,6 +17598,9 @@
    "conclusion": "tdh",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
@@ -15306,6 +17614,34 @@
    "title": "QR ⇒ TDH"
   },
   {
+   "id": "red-qrom-to-zk-snark-cms19",
+   "kind": "implication",
+   "hypotheses": [
+    "qrom"
+   ],
+   "conclusion": "zk-snark",
+   "class": "free",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem holds for every quantum prover making polynomially many oracle queries, which is the free class scoped by the model.",
+    "model": "The proof holds in the quantum random-oracle model, the idealised random oracle with superposition queries by quantum provers, so the edge records rom, which scopes its conclusion, and the Statement names the quantum access."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qrom-to-zk-snark-cms19.md",
+   "slug": "qrom-to-zk-snark-cms19",
+   "graphSlug": "Reductions/qrom-to-zk-snark-cms19",
+   "title": "QROM ⇒ zk-SNARK (Micali's construction in the QROM)"
+  },
+  {
    "id": "red-qszk-to-qip",
    "kind": "inclusion",
    "hypotheses": [
@@ -15314,6 +17650,9 @@
    "conclusion": "qip",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "folklore"
    ],
@@ -15338,6 +17677,9 @@
    "conclusion": "one-way-state-generator",
    "class": "unstated",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
    ],
@@ -15359,6 +17701,9 @@
    "conclusion": "polynomial-ratio-lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15383,6 +17728,9 @@
    "conclusion": "statistical-zap-argument",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BLNWW25 - A Hidden-Bits Approach to Statistical ZAPs from LWE|BLNWW25]]"
    ],
@@ -15404,6 +17752,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Cre87 - Equivalence Between Two Flavours of Oblivious Transfers|Cre87]]"
    ],
@@ -15428,6 +17779,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Bea95 - Precomputing Oblivious Transfer|Bea95]]"
    ],
@@ -15452,6 +17806,9 @@
    "conclusion": "statistically-rerandomizable-encryption",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15476,6 +17833,9 @@
    "conclusion": "pseudorandom-correlation-generator",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BCG+20 - Efficient Pseudorandom Correlation Generators from Ring-LPN|BCG+20]]"
    ],
@@ -15497,6 +17857,9 @@
    "conclusion": "pke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SS11 - Making NTRU as secure as worst-case problems over ideal lattices|SS11]]"
    ],
@@ -15518,6 +17881,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[LM06 - Generalized compact knapsacks, cyclic lattices, and efficient one-way functions|LM06]]"
    ],
@@ -15542,6 +17908,9 @@
    "conclusion": "merkle-puzzles",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[Mer78 - Secure Communications Over Insecure Channels|Mer78]]"
    ],
@@ -15566,6 +17935,9 @@
    "conclusion": "oblivious-interactive-hash-function",
    "class": "free",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BH26 - How to Steal Oblivious Transfer from Minicrypt|BH26]]"
    ],
@@ -15590,11 +17962,16 @@
    "conclusion": "snark",
    "class": "free",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[Mic00 - Computationally Sound Proofs|Mic00]]",
     "[[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]"
    ],
-   "via": [],
+   "via": [
+    "[[probabilistically-checkable-proofs|PCPs]]"
+   ],
    "heuristic": false,
    "securityLoss": "a factor polynomial in the number of random-oracle queries",
    "rationale": {
@@ -15616,6 +17993,9 @@
    "conclusion": "bpp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15637,6 +18017,9 @@
    "conclusion": "np",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15658,6 +18041,9 @@
    "conclusion": "ds",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HW09 - Short and Stateless Signatures from the RSA Assumption|HW09]]"
    ],
@@ -15679,6 +18065,9 @@
    "conclusion": "fac",
    "class": "free",
    "model": "other",
+   "models": [
+    "other"
+   ],
    "source": [
     "[[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]"
    ],
@@ -15704,6 +18093,9 @@
    "conclusion": "fac",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
@@ -15728,6 +18120,9 @@
    "conclusion": "pke-cca2-security",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[FOPS01 - RSA-OAEP Is Secure under the RSA Assumption|FOPS01]]"
    ],
@@ -15753,6 +18148,9 @@
    "conclusion": "ind-cca-kem",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[Sho01b - A Proposal for an ISO Standard for Public Key Encryption|Sho01b]]"
    ],
@@ -15777,6 +18175,9 @@
    "conclusion": "pke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]]"
    ],
@@ -15798,6 +18199,9 @@
    "conclusion": "tdp",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]"
    ],
@@ -15819,6 +18223,9 @@
    "conclusion": "schnorr-signature",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[AABN02 - From Identification to Signatures via the Fiat-Shamir Transform Minimizing Assumptions for Security and Forward-Security|AABN02]]"
    ],
@@ -15845,6 +18252,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15869,6 +18279,9 @@
    "conclusion": "decision-lwe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
@@ -15891,6 +18304,9 @@
    "conclusion": "mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GMW87 - How to play ANY mental game|GMW87]]"
    ],
@@ -15915,6 +18331,9 @@
    "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15939,6 +18358,9 @@
    "conclusion": "semi-honest-two-party-computation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15963,6 +18385,9 @@
    "conclusion": "structure-preserving-signature",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -15987,6 +18412,9 @@
    "conclusion": "ke",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[JDF11 - Towards quantum-resistant cryptosystems from supersingular elliptic curve isogenies|JDF11]]"
    ],
@@ -16008,6 +18436,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]]"
    ],
@@ -16033,6 +18464,9 @@
    "conclusion": "crhf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGH96 - Collision-Free Hashing from Lattice Problems|GGH96]]"
    ],
@@ -16057,6 +18491,9 @@
    "conclusion": "pwpp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SZZ18 - PPP-Completeness with Connections to Cryptography|SZZ18]]"
    ],
@@ -16078,6 +18515,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
@@ -16103,6 +18543,9 @@
    "conclusion": "sis",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ajt96 - Generating hard instances of lattice problems|Ajt96]]"
    ],
@@ -16127,6 +18570,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16151,6 +18597,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]]"
    ],
@@ -16167,6 +18616,34 @@
    "title": "SKE ⇒ OWF"
   },
   {
+   "id": "red-snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "kind": "implication",
+   "hypotheses": [
+    "snark",
+    "crhf"
+   ],
+   "conclusion": "fully-succinct-snark",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The bootstrapped prover proves, with the hypothesis SNARK, statements about that SNARK's own verifier, so the construction depends on the scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/snark-and-crhf-to-fully-succinct-snark-bcct13.md",
+   "slug": "snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "graphSlug": "Reductions/snark-and-crhf-to-fully-succinct-snark-bcct13",
+   "title": "SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)"
+  },
+  {
    "id": "red-snark-and-owf-to-nizk-kmy20",
    "kind": "implication",
    "hypotheses": [
@@ -16176,6 +18653,9 @@
    "conclusion": "nonadaptive-nizk-argument-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[KMY20 - NIZK from SNARG|KMY20]]"
    ],
@@ -16200,6 +18680,9 @@
    "conclusion": "incremental-verifiable-computation",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]]"
    ],
@@ -16225,6 +18708,9 @@
    "conclusion": "leveled-fully-homomorphic-encryption",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]"
    ],
@@ -16249,6 +18735,9 @@
    "conclusion": "pseudorandom-correlation-generator",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BCM+25 - Fast Pseudorandom Correlation Functions from Sparse LPN|BCM+25]]"
    ],
@@ -16273,6 +18762,9 @@
    "conclusion": "it-pir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16297,6 +18789,9 @@
    "conclusion": "it-pir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CGKS98 - Private information retrieval|CGKS98]]"
    ],
@@ -16318,6 +18813,9 @@
    "conclusion": "szk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[SV03 - A Complete Problem for Statistical Zero Knowledge|SV03]]",
     "[[GSV98 - Honest-Verifier Statistical Zero-Knowledge Equals General Statistical Zero-Knowledge|GSV98]]"
@@ -16340,6 +18838,9 @@
    "conclusion": "io",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16364,6 +18865,9 @@
    "conclusion": "statistical-zk-argument",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BCC88 - Minimum Disclosure Proofs of Knowledge|BCC88]]"
    ],
@@ -16388,6 +18892,9 @@
    "conclusion": "com",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]"
    ],
@@ -16413,6 +18920,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]"
    ],
@@ -16437,6 +18947,9 @@
    "conclusion": "rsa",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16461,6 +18974,9 @@
    "conclusion": "prp",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16485,6 +19001,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16509,6 +19028,9 @@
    "conclusion": "dlog",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[CHW26 - The Structured Generic-Group Model|CHW26]]"
    ],
@@ -16535,6 +19057,9 @@
    "conclusion": "ppad-hardness",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
    ],
@@ -16560,6 +19085,9 @@
    "conclusion": "hibe-adaptive-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16584,6 +19112,9 @@
    "conclusion": "ddh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16608,6 +19139,9 @@
    "conclusion": "nizk-argument-for-np",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]]"
    ],
@@ -16634,6 +19168,9 @@
    "conclusion": "ppad-hardness",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KLV23 - SNARGs and PPAD Hardness from the Decisional Diffie-Hellman Assumption|KLV23]]"
    ],
@@ -16658,6 +19195,9 @@
    "conclusion": "tdp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BPW16 - Perfect Structure on the Edge of Chaos Trapdoor Permutations from Indistinguishability Obfuscation|BPW16]]"
    ],
@@ -16683,6 +19223,9 @@
    "conclusion": "compact-fhe",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]]"
    ],
@@ -16707,6 +19250,9 @@
    "conclusion": "io",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16731,6 +19277,9 @@
    "conclusion": "crhf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[YZW+19 - Collision Resistant Hashing from Sub-exponential Learning Parity with Noise|YZW+19]]"
    ],
@@ -16752,6 +19301,9 @@
    "conclusion": "ot",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
    ],
@@ -16773,6 +19325,9 @@
    "conclusion": "pke-cca2-security",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[YZ16 - Cryptography with Auxiliary Input and Trapdoor from Constant-Noise LPN|YZ16]]"
    ],
@@ -16794,6 +19349,9 @@
    "conclusion": "prc",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
@@ -16815,6 +19373,9 @@
    "conclusion": "subexponential-modulus-lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16839,6 +19400,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16863,6 +19427,9 @@
    "conclusion": "ppad-hardness",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[JKKZ21 - SNARGs for bounded depth computations and PPAD hardness from sub-exponential LWE|JKKZ21]]"
    ],
@@ -16887,6 +19454,9 @@
    "conclusion": "two-round-mpc",
    "class": "free",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[MW16 - Two Round Multiparty Computation via Multi-key FHE|MW16]]"
    ],
@@ -16913,6 +19483,9 @@
    "conclusion": "bootstrappable-somewhat-homomorphic-encryption",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
    ],
@@ -16934,6 +19507,9 @@
    "conclusion": "abe-selective-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GVW13 - Attribute-based encryption for circuits|GVW13]]"
    ],
@@ -16958,6 +19534,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -16982,6 +19561,9 @@
    "conclusion": "lwr",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BPR12 - Pseudorandom Functions and Lattices|BPR12]]"
    ],
@@ -17006,6 +19588,9 @@
    "conclusion": "superpolynomial-ratio-lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17030,6 +19615,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17054,6 +19642,9 @@
    "conclusion": "prg-in-nc0",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17078,6 +19669,9 @@
    "conclusion": "subexponential-ddh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17102,6 +19696,9 @@
    "conclusion": "sxdh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17118,6 +19715,54 @@
    "title": "Sub-exponential SXDH ⇒ SXDH"
   },
   {
+   "id": "red-subgroup-decision-to-barg-for-np-ww22",
+   "kind": "implication",
+   "hypotheses": [
+    "subgroup-decision"
+   ],
+   "conclusion": "barg-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[WW22 - Batch Arguments for NP and More from Standard Bilinear Group Assumptions|WW22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subgroup-decision-to-barg-for-np-ww22.md",
+   "slug": "subgroup-decision-to-barg-for-np-ww22",
+   "graphSlug": "Reductions/subgroup-decision-to-barg-for-np-ww22",
+   "title": "Subgroup decision ⇒ BARG for NP"
+  },
+  {
+   "id": "red-subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "kind": "implication",
+   "hypotheses": [
+    "subgroup-decision"
+   ],
+   "conclusion": "nonadaptive-nizk-argument-for-np",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[GOS06a - Perfect Non-Interactive Zero Knowledge for NP|GOS06a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a.md",
+   "slug": "subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "graphSlug": "Reductions/subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
+   "title": "Subgroup decision ⇒ Perfect NIZK arguments for NP"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -17126,6 +19771,9 @@
    "conclusion": "abe",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]]"
    ],
@@ -17147,6 +19795,9 @@
    "conclusion": "lwe",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17163,6 +19814,37 @@
    "title": "Succinct LWE ⇒ LWE"
   },
   {
+   "id": "red-succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "kind": "implication",
+   "hypotheses": [
+    "succinct-state-restoration-iop"
+   ],
+   "conclusion": "transparent-succinct-argument",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BCS16 - Interactive Oracle Proofs|BCS16]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "additive: $\\kappa_{\\mathrm{sr}}(t)$ plus $O(t^2 2^{-\\secpar})$ for a $t$-query prover and $\\secpar$-bit oracle outputs, the probability of a collision among the oracle's answers",
+   "rationale": {
+    "class": "One fixed compiler runs the IOP prover and verifier only as oracles, and the straight-line reduction turns any cheating prover into a state-restoration prover for the IOP by running it as an oracle and reading its random-oracle queries.",
+    "model": "The Merkle commitments and the verifier's challenges both use the random oracle, which the reduction simulates and whose queries it reads.",
+    "securityLoss": "BCS16 bound the compiled argument's knowledge error by the IOP's state-restoration knowledge error plus the probability of a collision among the random oracle's answers."
+   },
+   "status": "draft",
+   "page": "content/Reductions/succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16.md",
+   "slug": "succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "graphSlug": "Reductions/succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16",
+   "title": "Succinct state-restoration-sound IOP ⇒ STARK (BCS transform)"
+  },
+  {
    "id": "red-sxdh-symmetric-external-diffie-hellman-to-nizk",
    "kind": "implication",
    "hypotheses": [
@@ -17171,6 +19853,9 @@
    "conclusion": "nizk",
    "class": "unstated",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]]"
    ],
@@ -17196,6 +19881,9 @@
    "conclusion": "ddh",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17220,6 +19908,9 @@
    "conclusion": "structure-preserving-signature",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KPW15 - Structure-Preserving Signatures from Standard Assumptions, Revisited|KPW15]]"
    ],
@@ -17241,6 +19932,9 @@
    "conclusion": "cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17265,6 +19959,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17289,6 +19986,9 @@
    "conclusion": "owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Ost91 - One-way functions, hard on average problems, and statistical zero-knowledge proofs|Ost91]]"
    ],
@@ -17313,6 +20013,9 @@
    "conclusion": "am",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[AH91 - Statistical zero-knowledge languages can be recognized in two rounds|AH91]]"
    ],
@@ -17334,6 +20037,9 @@
    "conclusion": "coam",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[For87 - The Complexity of Perfect Zero-Knowledge|For87]]"
    ],
@@ -17355,6 +20061,9 @@
    "conclusion": "czk",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17376,6 +20085,9 @@
    "conclusion": "ip",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17397,6 +20109,9 @@
    "conclusion": "qszk",
    "class": "free",
    "model": "quantum",
+   "models": [
+    "quantum"
+   ],
    "source": [
     "[[Wat02 - Limits on the Power of Quantum Statistical Zero-Knowledge|Wat02]]",
     "[[Wat06 - Zero-knowledge against quantum attacks|Wat06]]"
@@ -17422,6 +20137,9 @@
    "conclusion": "cpir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]]"
    ],
@@ -17443,6 +20161,9 @@
    "conclusion": "total-nontrivial-cpir",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]]"
    ],
@@ -17464,6 +20185,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]"
    ],
@@ -17489,6 +20213,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17513,6 +20240,9 @@
    "conclusion": "injective-trapdoor-function",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17537,6 +20267,9 @@
    "conclusion": "common-random-string-nizk-proof",
    "class": "fully-black-box",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]]",
     "[[GR13 - Enhancements of Trapdoor Permutations|GR13]]"
@@ -17563,6 +20296,9 @@
    "conclusion": "pke",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
@@ -17587,6 +20323,9 @@
    "conclusion": "nontrivial-cpir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17611,6 +20350,9 @@
    "conclusion": "prime-order-dlog",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17635,6 +20377,9 @@
    "conclusion": "malicious-ot-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17659,6 +20404,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17683,6 +20431,9 @@
    "conclusion": "two-party-computation-with-expected-time-simulation",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17707,6 +20458,9 @@
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17731,6 +20485,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17755,6 +20512,9 @@
    "conclusion": "two-round-semi-honest-mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]]",
     "[[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]]"
@@ -17780,6 +20540,9 @@
    "conclusion": "semi-honest-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17804,6 +20567,9 @@
    "conclusion": "two-round-ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]]"
    ],
@@ -17828,6 +20594,9 @@
    "conclusion": "two-round-mpc",
    "class": "free",
    "model": "crs",
+   "models": [
+    "crs"
+   ],
    "source": [
     "[[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]]"
    ],
@@ -17853,6 +20622,9 @@
    "conclusion": "two-round-ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17877,6 +20649,9 @@
    "conclusion": "uc-ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -17902,6 +20677,9 @@
    "conclusion": "waters-signature",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Wat05 - Efficient Identity-Based Encryption Without Random Oracles|Wat05]]"
    ],
@@ -17927,6 +20705,9 @@
    "conclusion": "multi-signature-kosk",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[Bol03 - Threshold Signatures, Multisignatures and Blind Signatures Based on the Gap-Diffie-Hellman-Group Signature Scheme|Bol03]]"
    ],
@@ -17949,6 +20730,9 @@
    "conclusion": "multi-signature-pop",
    "class": "unstated",
    "model": "rom",
+   "models": [
+    "rom"
+   ],
    "source": [
     "[[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]]"
    ],
@@ -17971,6 +20755,9 @@
    "conclusion": "structure-preserving-signature",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[HJ12 - Tightly Secure Signatures and Public-Key Encryption|HJ12]]"
    ],
@@ -17993,6 +20780,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]"
    ],
@@ -18017,6 +20807,9 @@
    "conclusion": "ds",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[PS16 - Short Randomizable Signatures|PS16]]"
    ],
@@ -18042,6 +20835,9 @@
    "conclusion": "short-structure-preserving-signature",
    "class": "free",
    "model": "generic-group",
+   "models": [
+    "generic-group"
+   ],
    "source": [
     "[[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]]"
    ],
@@ -18067,6 +20863,9 @@
    "conclusion": "mpc",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
    ],
@@ -18091,6 +20890,9 @@
    "conclusion": "malicious-ot-security",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]"
    ],
@@ -18115,6 +20917,9 @@
    "conclusion": "ot",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -18131,6 +20936,33 @@
    "title": "UC-secure OT ⇒ OT"
   },
   {
+   "id": "red-universal-snark-to-snark",
+   "kind": "implication",
+   "hypotheses": [
+    "universal-snark"
+   ],
+   "conclusion": "snark",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction runs the universal setup and the key derivation only as oracles, and the fixed reduction forwards any adversary against the per-circuit scheme unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/universal-snark-to-snark.md",
+   "slug": "universal-snark-to-snark",
+   "graphSlug": "Reductions/universal-snark-to-snark",
+   "title": "Universal SNARK ⇒ SNARK"
+  },
+  {
    "id": "red-unkeyed-depir-to-depir",
    "kind": "implication",
    "hypotheses": [
@@ -18139,6 +20971,9 @@
    "conclusion": "pk-depir",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -18164,6 +20999,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]]"
    ],
@@ -18188,6 +21026,9 @@
    "conclusion": "ds",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -18212,6 +21053,9 @@
    "conclusion": "distributional-owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -18236,6 +21080,9 @@
    "conclusion": "owf",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]"
    ],
@@ -18261,6 +21108,9 @@
    "conclusion": "pke",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[GGSW13 - Witness encryption and its applications|GGSW13]]"
    ],
@@ -18277,6 +21127,31 @@
    "title": "WE + PRG ⇒ PKE (GGSW)"
   },
   {
+   "id": "red-zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "kind": "implication",
+   "hypotheses": [
+    "zap",
+    "co-nondeterministic-hsg"
+   ],
+   "conclusion": "non-interactive-zap",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BOV03 - Derandomization in Cryptography|BOV03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03.md",
+   "slug": "zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "graphSlug": "Reductions/zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03",
+   "title": "Zap + HSG ⇒ Non-interactive zaps (BOV)"
+  },
+  {
    "id": "red-zero-bit-prc-to-trapdoor-pseudorandom-generators",
    "kind": "implication",
    "hypotheses": [
@@ -18285,6 +21160,9 @@
    "conclusion": "trapdoor-pseudorandom-generator",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -18306,6 +21184,9 @@
    "conclusion": "language-model-watermarking",
    "class": "fully-black-box",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CG24 - Pseudorandom Error-Correcting Codes|CG24]]"
    ],
@@ -18330,6 +21211,9 @@
    "conclusion": "auxiliary-input-owf",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[OW93 - One-way functions are essential for non-trivial zero-knowledge|OW93]]"
    ],
@@ -18354,6 +21238,9 @@
    "conclusion": "rp",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "folklore"
    ],
@@ -19750,6 +22637,42 @@
    "title": "No fully-black-box reduction from OT to TDP"
   },
   {
+   "id": "bar-owf-to-four-message-zk-argument-hpv20",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "four-message-zk-argument",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "complexity",
+     "target": "conp-subset-am",
+     "class": "fully-black-box"
+    },
+    {
+     "kind": "complexity",
+     "target": "ph-collapse-second-level",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-owf-to-four-message-zk-argument-bjy97"
+   ],
+   "source": [
+    "[[HPV20 - Which Languages Have 4-Round Fully Black-Box Zero-Knowledge Arguments from One-Way Functions|HPV20]]"
+   ],
+   "rationale": {
+    "class": "HPV20 rule out fully black-box constructions, which use the one-way function only as an oracle and prove zero knowledge and soundness with a simulator and a reduction that use the cheating verifier and prover only as oracles."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-owf-to-four-message-zk-argument-hpv20.md",
+   "slug": "no-owf-to-four-message-zk-argument-hpv20",
+   "graphSlug": "Barriers/no-owf-to-four-message-zk-argument-hpv20",
+   "title": "No fully-black-box reduction from OWF to four-message ZK arguments"
+  },
+  {
    "id": "bar-owf-to-ot-ir89",
    "hypotheses": [
     "owf"
@@ -20504,6 +23427,9 @@
    "conclusion": "uc-mpc",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
    ],
@@ -20532,6 +23458,9 @@
    "conclusion": "mpc-with-preprocessing",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]]"
    ],
@@ -20557,6 +23486,9 @@
    "conclusion": "uc-mpc",
    "class": "unstated",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[IPS08 - Founding Cryptography on Oblivious Transfer Efficiently|IPS08]]"
    ],
@@ -20584,6 +23516,9 @@
    "conclusion": "com",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
@@ -20611,6 +23546,9 @@
    "conclusion": "two-party-computation",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[Kil88 - Founding cryptography on oblivious transfer|Kil88]]"
    ],
@@ -20638,6 +23576,9 @@
    "conclusion": "honest-majority-t-lt-n-over-2",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[RB89 - Verifiable Secret Sharing and Multiparty Protocols with Honest Majority|RB89]]"
    ],
@@ -20665,6 +23606,9 @@
    "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
    ],
@@ -20692,6 +23636,9 @@
    "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BH08 - Perfectly-Secure MPC with Linear Communication Complexity|BH08]]"
    ],
@@ -20719,6 +23666,9 @@
    "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CCD88 - Multiparty Unconditionally Secure Protocols|CCD88]]"
    ],
@@ -20746,6 +23696,9 @@
    "conclusion": "honest-majority-t-lt-n-over-3",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CDM00 - General Secure Multi-party Computation from any Linear Secret-Sharing Scheme|CDM00]]"
    ],
@@ -20773,6 +23726,9 @@
    "conclusion": "honest-majority-with-abort-t-lt-n-over-2",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[CGH+18 - Fast Large-Scale Honest-Majority MPC for Malicious Adversaries|CGH+18]]"
    ],
@@ -20800,6 +23756,9 @@
    "conclusion": "semi-honest-honest-majority-t-lt-n-over-2",
    "class": "free",
    "model": "standard",
+   "models": [
+    "standard"
+   ],
    "source": [
     "[[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]]"
    ],

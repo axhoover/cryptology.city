@@ -33,7 +33,7 @@ In cryptography, efficient adversaries are modeled as probabilistic polynomial-t
 
 Against non-uniform adversaries randomness never helps: fixing the best random tape yields a deterministic circuit with at least the same advantage — folklore. A [[pseudorandom-generator|PRG]] secure against all $\classPpoly$ adversaries implies $\classBPP \subseteq \bigcap_{\varepsilon > 0} \mathbf{DTIME}(2^{n^\varepsilon})$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]; $\classBPP = \classP$ follows from a generator with seed length $O(\log n)$, computable in time polynomial in its output length, that fools linear-size circuits (Nisan–Wigderson, JCSS 1994).
 
-<!-- BEGIN GENERATED participates-in e25b9fe6b4a8 -->
+<!-- BEGIN GENERATED participates-in 04cfdcbff836 -->
 
 ## Participates in
 
@@ -48,6 +48,12 @@ Against non-uniform adversaries randomness never helps: fixing the best random t
 
 **Produces Bounded-Error Probabilistic Polynomial-Time**
 
+- [[aux-input-zk-two-message-to-bpp-go94|Two-message auxiliary-input ZK ⊆ BPP]]
+- [[bb-concurrent-zk-few-rounds-to-bpp-ckpr01|Few-round black-box concurrent ZK ⊆ BPP]]
+- [[bb-zk-constant-round-public-coin-to-bpp-gk96|Constant-round public-coin black-box ZK ⊆ BPP]]
+- [[bb-zk-public-coin-parallel-repetition-to-bpp-ptw09|Public-coin black-box ZK under parallel repetition ⊆ BPP]]
+- [[bb-zk-strict-polynomial-simulation-to-bpp-bl02|Constant-round black-box ZK with strict polynomial-time simulation ⊆ BPP]]
+- [[bb-zk-three-message-to-bpp-gk96|Three-message black-box ZK ⊆ BPP]]
 - [[p-to-bpp|P ⊆ BPP]]
 - [[rp-to-bpp|RP ⊆ BPP]]
 

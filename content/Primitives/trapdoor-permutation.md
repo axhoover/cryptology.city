@@ -80,12 +80,13 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 22ed9f285031 -->
+<!-- BEGIN GENERATED participates-in bc30ca250e58 -->
 
 ## Participates in
 
 **Builds on Trapdoor permutation**
 
+- [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])

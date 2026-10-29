@@ -29,5 +29,6 @@ The circuit is arithmetized as a [[arithmetization#qap-quadratic-arithmetic-prog
 
 ## Notes
 
-- In the algebraic group model, knowledge soundness of Groth's construction reduces to a $q$-type discrete-logarithm assumption — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+- In the algebraic group model, knowledge soundness of Groth's construction reduces tightly to the $q$-DLOG assumption: [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]] — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]].
+- Two-move linear interactive proofs cannot have a linear decision procedure, so SNARGs whose prover and verifier use only generic asymmetric bilinear-group operations cannot consist of a single group element; whether two elements suffice, which would make the three-element construction optimal, is open — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. The impossibility of a linear decision procedure answers an open question of [[BCIOP13 - Succinct Non-interactive Arguments via Linear Interactive Proofs|BCIOP13]] — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 - For a circuit with $m$ wires and $n$ multiplication gates, the CRS has about $m + 2n$ elements of $\GG_1$ and $n$ of $\GG_2$, the prover computes about $m + 3n$ exponentiations in $\GG_1$ and $n$ in $\GG_2$, and the verifier computes one exponentiation in $\GG_1$ per public input and three pairings — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].

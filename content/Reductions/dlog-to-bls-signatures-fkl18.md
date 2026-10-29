@@ -8,12 +8,12 @@ kind: implication
 hypotheses: [dlog]
 conclusion: boneh-lynn-shacham-signature
 class: unstated
-model: algebraic-group
+model: [algebraic-group, rom]
 source:
   - "[[FKL18 - The Algebraic Group Model and its Applications|FKL18]]"
 security-loss: "tight"
 rationale:
-  model: "FKL18 prove the theorem for algebraic forgers, with the hash-to-group function modeled as a programmable random oracle."
+  model: "FKL18 prove the theorem for algebraic forgers, with the hash-to-group function modeled as a programmable random oracle, so the proof uses both idealised models."
 ---
 
 # DLOG ⇒ BLS signatures

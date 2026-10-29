@@ -9,6 +9,8 @@ aliases:
   - Power knowledge of exponent
 title: Knowledge of exponent assumption
 id: kea
+variants:
+  kea3: "#kea3"
 ---
 
 # Knowledge of exponent assumption
@@ -55,6 +57,33 @@ Let $(\GG, \GG_T, e, g)$ be a [[pairings|bilinear group]] of prime order $p$, le
 
 $q$-PKE is used in the pairing-based SNARKs of [[Gro10 - Short Pairing-Based Non-interactive Zero-Knowledge Arguments|Gro10]] and [[GGPR13 - Quadratic Span Programs and Succinct NIZKs without PCPs|GGPR13]]; Groth16 instead proves knowledge soundness in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
+## KEA3
+
+Let $\GrGen$ be as in the KEA1 game above. KEA3 gives the adversary a Diffie–Hellman triple and asks it for a pair $(C, Y)$ with $Y = C^a$; the extractor must express $C$ in the base elements $g$ and $g^b$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{kea3}}_{\GrGen,\calA,\calE_\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\GG, q, g) \gets \GrGen(1^\secpar)$
+\State $a, b \getsr \ZZ_q$; $\rho \getsr \bits^{*}$
+\State $(C, Y) \gets \calA(g, g^a, g^b, g^{ab}; \rho)$
+\State $(c_1, c_2) \gets \calE_\calA(g, g^a, g^b, g^{ab}, \rho)$
+\Comment{$\calE_\calA$ gets $\calA$'s input and coins}
+\Return $[Y = C^a \wedge C \ne g^{c_1} (g^b)^{c_2}]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+**KEA3 holds** for $\GrGen$ if the [[discrete-logarithm#dlog-in-prime-order-groups|discrete logarithm is hard]] for $\GrGen$ and for all efficient $\calA$ there exists an efficient $\calE_\calA$ such that
+
+$$
+\Adv^{\mathrm{kea3}}_{\GrGen,\calA,\calE_\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{kea3}}_{\GrGen,\calA,\calE_\calA}(\secpar) = 1\right]
+$$
+
+is negligible — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]. BP04 state the extraction condition alone and assume hardness of the discrete logarithm separately, for the same $\GrGen$. The extraction condition alone holds trivially for a generator whose discrete logarithms are easy, since $\calE_\calA$ can output $c_1 = \log_g C$ and $c_2 = 0$ — standard. Under KEA3 and that hardness, the three-message protocol of [[HT98 - On the Existence of 3-Round Zero-Knowledge Protocols|HT98]], with a fix to its soundness, is a zero-knowledge argument for $\classNP$ ([[prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04|DLOG + KEA3 ⇒ Three-message ZK arguments for NP]]) — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]].
+
 ## Algebraic Group Model (AGM)
 
 In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the representation of any group element it computes. This is a heuristic model that makes KEA-like extraction implicit: any output group element is accompanied by its algebraic derivation from the inputs.
@@ -62,12 +91,16 @@ In the [[algebraic-group-model|AGM]], every algorithm must explicitly output the
 # Attacks
 
 - No attack on KEA1 without auxiliary input is known
-- Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], KEA with respect to arbitrary auxiliary input of unbounded polynomial length is false — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]
+- Assuming [[indistinguishability-obfuscation|indistinguishability obfuscation]], no extractable one-way function exists with respect to auxiliary input of unbounded polynomial length — [[BCPR14 - On the Existence of Extractable One-Way Functions|BCPR14]]. For a group generator whose discrete logarithm is hard, KEA with such auxiliary input would make $r \mapsto (g^r, g^{\alpha r})$, keyed by $(g, g^\alpha)$, an extractable one-way function, so under iO it fails for every such generator — [[BCPR13 - Indistinguishability Obfuscation vs. Auxiliary-Input Extractable Functions One Must Fall|BCPR13]]; for a generator whose discrete logarithm is easy it holds trivially — standard
 - The KEA2 assumption of Hada–Tanaka is false — [[BP04 - The Knowledge-of-Exponent Assumptions and 3-Round Zero-Knowledge Protocols|BP04]]
 
-<!-- BEGIN GENERATED participates-in 47735000455d -->
+<!-- BEGIN GENERATED participates-in 9b7fabe767e8 -->
 
 ## Participates in
+
+**Builds on Knowledge of exponent assumption**
+
+- [[prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04|DLOG + KEA3 ⇒ Three-message ZK arguments for NP]] (via [[knowledge-of-exponent#kea3|KEA3]])
 
 **Produces Knowledge of exponent assumption**
 

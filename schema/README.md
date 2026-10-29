@@ -329,13 +329,14 @@ models have no page.
   `{generic-bilinear-group-model} ⇒ asymmetric-q-sdh`. The closure never feeds a
   pairing-free generic bound to an edge with a pairing hypothesis
   (`docs/relations-json.md` § Closure).
-- **One model per edge.** `model` is single-valued. A proof using both a
-  random oracle and a trusted structured reference string takes `model: rom`,
-  with the SRS named in the Statement. A group model combined with a random
-  oracle records the group model and names the random oracle in the Statement:
-  `dlog-to-bls-signatures-fkl18` is `model: algebraic-group`. A list-valued
-  `model` would change the `relations.json` interface, so it waits until
-  multi-model edges are common.
+- **Every idealised model the proof uses.** A proof in one model records it as
+  a plain value. A proof that combines idealised models lists them all, so the
+  closure keeps every one of them in the conclusion's scope: a group model with
+  a random oracle is `model: [algebraic-group, rom]` (FKL18's BLS signatures,
+  GWC19's PLONK) or `[generic-group, rom]` (BSW07). A list names two or more
+  distinct models, none of them `standard`. A proof using a random oracle and a
+  trusted structured reference string takes `model: rom`, with the SRS named in
+  the Statement, since `crs` adds no scope. `relations.json` carries the list as `models`, and its single-valued `model` is `other` for such an edge (`docs/relations-json.md`).
 - **`quantum`** applies when the reduction, the construction or the adversary
   is quantum, or when either endpoint is a quantum complexity class. The
   classically proved containments BPP ⊆ BQP and BQP ⊆ PP are therefore

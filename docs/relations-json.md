@@ -31,7 +31,14 @@ and `npm run check`.
   presentation and may move.
 - **`version` is bumped on any breaking change** to field names, types, or
   semantics. Additive fields do not bump it, so consumers must ignore unknown
-  keys.
+  keys. A consumer must reject a `version` it does not know.
+- **Multi-model edges within version 1.** A reduction proved in several
+  idealised models at once lists them all in the additive field `models`; its
+  `model` is then `other`, the version-1 value for a model outside the
+  vocabulary, which every consumer treats as idealised and which fails closed
+  (§ Closure). A reader of `model` alone therefore sees a scoped, non-standard
+  edge, never the weaker single-model theorem (PLONK as AGM-only); a reader
+  of `models` sees every model.
 - Arrays are sorted by `id`, so diffs stay readable.
 
 ## Top level
@@ -99,7 +106,8 @@ A hyperedge: a **set** of hypotheses implying **one** conclusion.
   "hypotheses": ["prg"], // >= 1 object id; assumed objects only
   "conclusion": "prf", // exactly one object id
   "class": "fully-black-box", // a key of `classes`, or "unstated"
-  "model": "standard", // standard | rom | crs | generic-group | algebraic-group | quantum | other
+  "model": "standard", // standard | rom | crs | generic-group | algebraic-group | quantum | other; "other" for a multi-model edge
+  "models": ["standard"], // every model the proof uses, e.g. ["algebraic-group", "rom"] for PLONK
   "source": ["[[GGM86 - How to construct random functions|GGM86]]"],
   "via": [], // transform, lemma or technique used, e.g. Fiat–Shamir, the switching lemma
   "heuristic": false, // true: a candidate construction with no security reduction
@@ -328,7 +336,10 @@ generic algorithms only, and a generic group has no code. So a scoped object is
 consumed only by an edge whose class relativizes (`fully-black-box` or
 `relativizing`, which use their hypotheses as oracles and hold relative to
 every oracle), and the conclusion's scope is the union of the hypotheses'
-scopes and the edge's own model. A `free`, `unstated` or other edge, which may
+scopes and the edge's own models — all of them for an edge proved in several
+at once (`models: ["algebraic-group", "rom"]`), so PLONK's conclusion is scoped
+to both. A consumer reading only `model` sees `other` for such an edge, which
+fails closed. A `free`, `unstated` or other edge, which may
 use its hypothesis' code (DG17a's CDH ⇒ IBE runs the group inside garbled
 circuits), fires only on unscoped objects. `--derive` lists an object reached
 only through idealised models with those models, e.g.

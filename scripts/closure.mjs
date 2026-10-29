@@ -19,6 +19,9 @@
 // conclusion's scope is the union of the hypotheses' scopes and the edge's own
 // model.
 //
+// An edge proved in several models at once (`model: [algebraic-group, rom]`,
+// PLONK's AGM + ROM proof) adds all of them to its conclusion's scope.
+//
 // An object can be derived with several scopes; only the minimal ones are
 // kept, since a smaller scope licenses everything a larger one does.
 //
@@ -131,15 +134,22 @@ export const modelBit = (model) => {
   return 1 << i;
 };
 
+/** Every model an edge is proved in: its `models` list, else its `model`. */
+export const modelsOf = (r) => [].concat(r.models ?? r.model ?? "standard");
+
+/** The scope bits an edge adds to its conclusion: one per model it uses. */
+export const modelMask = (r) =>
+  modelsOf(r).reduce((a, m) => a | modelBit(m), 0);
+
 /**
- * The scope bits an edge adds to its conclusion: its model's bit, the bit of
- * each ideal resource among its hypotheses, and `no-pairing` for a
+ * The scope bits an edge adds to its conclusion: one per model it uses, the
+ * bit of each ideal resource among its hypotheses, and `no-pairing` for a
  * generic-group edge with no bilinear hypothesis.
  */
 export const edgeScope = (r, bilinear = new Set(DEFAULT_BILINEAR)) =>
-  modelBit(r.model) |
+  modelMask(r) |
   hybridBits(r.hypotheses ?? []) |
-  (r.model === "generic-group" &&
+  (modelsOf(r).includes("generic-group") &&
   !(r.hypotheses ?? []).some((h) => bilinear.has(h))
     ? NO_PAIRING
     : 0);

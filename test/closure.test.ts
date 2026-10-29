@@ -22,7 +22,7 @@ type Red = {
   hypotheses: string[];
   conclusion: string;
   class?: string;
-  model?: string;
+  model?: string | string[];
   kind?: string;
   heuristic?: boolean;
 };
@@ -95,6 +95,18 @@ test("scopes of several hypotheses are joined", () => {
   const r = run(reds, ["ggm", "s"]);
   assert.deepEqual(scopesOf(r, "z"), ["generic-group+rom+no-pairing"]);
   assert.ok(!r.derived.has("w"));
+});
+
+test("an edge proved in several models scopes its conclusion to all of them", () => {
+  const reds = [
+    red("plonk", ["bilinear-pairing", "q-dlog"], "usnark", {
+      model: ["algebraic-group", "rom"] as any,
+    }),
+    red("u-to-s", ["usnark"], "snark"),
+  ];
+  const r = run(reds, ["bilinear-pairing", "q-dlog"]);
+  assert.deepEqual(scopesOf(r, "usnark"), ["rom+algebraic-group"]);
+  assert.deepEqual(scopesOf(r, "snark"), ["rom+algebraic-group"]);
 });
 
 test("a hybrid-model scope is kept through protocol notions only", () => {
@@ -222,6 +234,36 @@ test("factoring hardness does not give unscoped RSA hardness (DLO24 is generic-r
     scopesOf(live(["rsa"]), "fac").includes(""),
     "RSA => FAC stays unscoped",
   );
+});
+
+test("PLONK's conclusions keep both the AGM and the random oracle", () => {
+  const r = live(["bilinear-pairing", "q-dlog"]);
+  for (const x of ["universal-snark", "snark"])
+    assert.deepEqual(scopesOf(r, x), ["rom+algebraic-group"], x);
+});
+
+test("a reader of model alone cannot take a multi-model edge for a single-model one", () => {
+  // CCwiki's reader: version 1 only; standard, quantum and crs are its default
+  // models, and rom, generic-group, algebraic-group and other are idealised
+  // (scoped).
+  const DEFAULT = ["standard", "quantum", "crs"];
+  const IDEALISED = ["rom", "generic-group", "algebraic-group", "other"];
+  assert.strictEqual(manifest.version, 1, "version-1 readers must still load");
+  const multi = manifest.reductions.filter((r: any) => r.models.length > 1);
+  assert.ok(
+    multi.length >= 5,
+    "PLONK, FKL18 BLS, BSW07 and the two FPS20 edges are multi-model",
+  );
+  for (const r of manifest.reductions)
+    if (r.models.length > 1) {
+      assert.strictEqual(r.model, "other", r.id);
+      assert.ok(!DEFAULT.includes(r.model) && IDEALISED.includes(r.model));
+    } else assert.strictEqual(r.model, r.models[0], r.id);
+  const plonk = manifest.reductions.find(
+    (r: any) =>
+      r.id === "red-bilinear-pairing-and-q-dlog-to-universal-snark-gwc19",
+  );
+  assert.deepEqual(plonk.models, ["algebraic-group", "rom"]);
 });
 
 test("results from ideal resources keep their hybrid scope", () => {

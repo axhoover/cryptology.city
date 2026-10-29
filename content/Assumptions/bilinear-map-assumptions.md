@@ -15,6 +15,7 @@ variants:
   k-linear-assumption: "#k-linear-assumption"
   n-bdhe: "#decision-n-bdhe"
   dbdh: "#decisional-bdh"
+  subgroup-decision: "#subgroup-decision"
 ---
 
 # Bilinear map assumptions
@@ -58,13 +59,40 @@ Generalizes DLIN: given $k$ random group elements and their DH combinations, dec
 
 Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\alpha^{2n}})$ for a symmetric pairing $e : \GG \times \GG \to \GG_T$ with generator $g$, $h \getsr \GG$, and $\alpha \getsr \ZZ_q$, distinguish $e(g,h)^{\alpha^{n+1}}$ from uniform in $\GG_T$ — [[BGW05 - Collusion Resistant Broadcast Encryption with Short Ciphertexts and Private Keys|BGW05]].
 
+## Subgroup decision
+
+Let $\GrGen(1^\secpar)$ output $(q_1, q_2, \GG, \GG_T, e, g)$: distinct primes $q_1, q_2$, cyclic groups $\GG$ and $\GG_T$ of order $N = q_1 q_2$, a generator $g$ of $\GG$, and a non-degenerate bilinear map $e : \GG \times \GG \to \GG_T$. The adversary receives $N$ but not its factors. For $x \getsr \GG$, the element $x^{q_2}$ is uniform in the order-$q_1$ subgroup of $\GG$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sd}}_{\GrGen,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(q_1, q_2, \GG, \GG_T, e, g) \gets \GrGen(1^\secpar)$; $N \gets q_1 q_2$
+\State $x \getsr \GG$; $b \getsr \bits$
+\State $x_0 \gets x$; $x_1 \gets x^{q_2}$
+\Comment{$x_1$ is uniform in the order-$q_1$ subgroup}
+\State $b' \gets \calA(N, \GG, \GG_T, e, g, x_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+The **subgroup decision assumption holds** for $\GrGen$ if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{sd}}_{\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sd}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
+
 # Attacks
 
 - The MOV/Frey-Rück attack reduces the discrete log in $\GG$ to discrete log in $\GG_T$ via the pairing; for small embedding degree this is devastating
 - Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 89e13eb9fc9c -->
+<!-- BEGIN GENERATED participates-in ca3dd56e2be7 -->
 
 ## Participates in
 
@@ -78,11 +106,14 @@ Given $(g, h, g^{\alpha}, \ldots, g^{\alpha^n}, g^{\alpha^{n+2}}, \ldots, g^{\al
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[dbdh-to-bdh|DBDH ⇒ BDH]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13) (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
+- [[subgroup-decision-to-barg-for-np-ww22|Subgroup decision ⇒ BARG for NP]] (via [[bilinear-map-assumptions#subgroup-decision|Subgroup decision]])
+- [[subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a|Subgroup decision ⇒ Perfect NIZK arguments for NP]] (via [[bilinear-map-assumptions#subgroup-decision|Subgroup decision]])
 
 **Produces Bilinear map assumptions**
 

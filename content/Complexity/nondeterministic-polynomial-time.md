@@ -45,7 +45,7 @@ $$
 
 the probability also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in 1729d2322b2a -->
+<!-- BEGIN GENERATED participates-in 19243b194386 -->
 
 ## Participates in
 
@@ -64,6 +64,7 @@ the probability also over the coins of $\calA$ — standard.
 - [[gapsvp-to-np|GapSVP ∈ NP]]
 - [[owf-to-np|OWF inversion ∈ NP]]
 - [[p-to-np|P ⊆ NP]]
+- [[pcp-to-np-alm-92|PCP = NP]]
 - [[prg-to-np-average-case-hardness|PRG ⇒ Average-case hardness of NP]] (via [[nondeterministic-polynomial-time#average-case-hardness|Average-case hardness]])
 - [[qr-to-np|QR ∈ NP]]
 - [[rp-to-np|RP ⊆ NP]]

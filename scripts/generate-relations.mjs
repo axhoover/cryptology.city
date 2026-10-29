@@ -166,7 +166,15 @@ for (const p of pages) {
       hypotheses: p.fm.hypotheses ?? [],
       conclusion: p.fm.conclusion,
       class: p.fm.class ?? "unstated",
-      model: p.fm.model ?? "standard",
+      // `models` lists every model the proof uses. `model` is the single
+      // model, or `other` for an edge proved in several at once: a version-1
+      // value that every consumer treats as an idealised model outside the
+      // vocabulary, which fails closed, so a reader of `model` alone never
+      // takes PLONK's AGM + ROM theorem for an AGM-only one.
+      model: ((ms) => (ms.length > 1 ? "other" : ms[0]))(
+        [].concat(p.fm.model ?? "standard"),
+      ),
+      models: [].concat(p.fm.model ?? "standard"),
       source: [].concat(p.fm.source ?? []),
       via: [].concat(p.fm.via ?? []),
       heuristic: p.fm.heuristic === true,

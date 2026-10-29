@@ -25,3 +25,7 @@ If [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE is hard
 ## Sketch
 
 Apply Fiat–Shamir to a parallel-repeated commit-and-open $\Sigma$-protocol for an $\classNP$-complete language. With a trapdoor for the commitments, the unique challenge on which a cheating prover could answer is an efficiently computable function of the first message, so a hash family that is correlation intractable for such functions makes the transform sound. PS19 build such families from LWE, from a correlation-intractable hash for log-depth functions and a bootstrapping step that uses leveled FHE — [[PS19 - Noninteractive Zero Knowledge for NP from (Plain) Learning With Errors|PS19]].
+
+## Notes
+
+- The earlier instantiation of the same approach needed circular-secure FHE ([[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]) or almost-optimal hardness of search LWE — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]].

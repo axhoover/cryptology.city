@@ -113,7 +113,11 @@ export function makeParticipatesIn({ objects, reductions, barriers }) {
     const listed = new Set([...asHyp, ...asConcl].map((m) => m.e.id));
     const unlisted = (r) => !listed.has(r.id);
     const inModel = byId(
-      reductions.filter((r) => MODEL_PAGES[r.model] === id && unlisted(r)),
+      reductions.filter(
+        (r) =>
+          [].concat(r.models ?? r.model).some((m) => MODEL_PAGES[m] === id) &&
+          unlisted(r),
+      ),
     );
     for (const r of inModel) listed.add(r.id);
     const usedVia = byId(
