@@ -38,6 +38,8 @@ import {
   derivation,
   scopeNames,
   edgeScope,
+  protocolNodes,
+  HYBRID_RESOURCES,
   bilinearNodes,
 } from "./closure.mjs";
 import { loadClasses, closure as classClosure } from "./reduction-classes.mjs";
@@ -215,15 +217,22 @@ barriers.sort((a, b) => a.id.localeCompare(b.id));
 // relativizing) may consume an object scoped to an idealised model; any other
 // edge may use its hypothesis' code and fires only on unscoped objects. An edge
 // with a pairing hypothesis never consumes an object scoped to the pairing-free
-// generic group model.
+// generic group model. A result proved from an ideal resource (ideal OT,
+// correlated randomness, secure channels) is scoped to that hybrid model.
 const { classes: CLASS_DEFS } = loadClasses(ROOT);
 const relativizes = (cls) =>
   cls === "relativizing" ||
   (CLASS_DEFS[cls] !== undefined &&
     classClosure(CLASS_DEFS, cls).has("relativizing"));
 const BILINEAR = bilinearNodes([...objects.values()]);
+const PROTOCOL = protocolNodes([...objects.values()]);
 const closure = (seed, opts = {}) =>
-  closureOf(reductions, seed, { ...opts, relativizes, bilinear: BILINEAR });
+  closureOf(reductions, seed, {
+    ...opts,
+    relativizes,
+    bilinear: BILINEAR,
+    protocol: PROTOCOL,
+  });
 
 // A reduction is redundant when its conclusion already follows from its own
 // hypotheses without it — i.e. some other chain gets there. Reported, never
@@ -291,6 +300,33 @@ for (const p of pages) {
 }
 
 // --------------------------------------------------------- relations.json ----
+// An edge from an ideal resource holds only in that hybrid model, and what it
+// concludes may feed only protocol notions (scripts/closure.mjs). A reader that
+// knows nothing of hybrid scopes would take `{ideal-ot} => com` for a
+// standard-model theorem and chain it into COM => OWF, so these edges are
+// listed apart, in `hybridReductions`, each with the resources that scope it;
+// `reductions` holds every other edge (docs/relations-json.md § Hybrid
+// reductions).
+const resourcesOf = (r) =>
+  r.hypotheses.filter((h) => HYBRID_RESOURCES.includes(h));
+const hybridIds = new Set(
+  reductions.filter((r) => resourcesOf(r).length).map((r) => r.id),
+);
+// A barrier names a hybrid reduction that circumvents it in
+// `circumventedByHybrid`, so `circumventedBy` resolves within `reductions`.
+const manifestBarrier = (b) =>
+  b.circumventedBy.some((id) => hybridIds.has(id))
+    ? Object.fromEntries(
+        Object.entries(b).flatMap(([k, v]) =>
+          k === "circumventedBy"
+            ? [
+                [k, v.filter((id) => !hybridIds.has(id))],
+                ["circumventedByHybrid", v.filter((id) => hybridIds.has(id))],
+              ]
+            : [[k, v]],
+        ),
+      )
+    : b;
 const manifest = {
   version: 1,
   schema: "https://cryptology.city/docs/relations-json",
@@ -308,8 +344,19 @@ const manifest = {
     ]),
   ),
   objects: [...objects.values()].sort((a, b) => a.id.localeCompare(b.id)),
-  reductions,
-  barriers,
+  reductions: reductions.filter((r) => !hybridIds.has(r.id)),
+  barriers: barriers.map(manifestBarrier),
+  hybridResources: [...HYBRID_RESOURCES].sort(),
+  protocolObjects: [...PROTOCOL].sort(),
+  hybridReductions: reductions
+    .filter((r) => hybridIds.has(r.id))
+    .map(({ id, kind, hypotheses, ...rest }) => ({
+      id,
+      kind,
+      hypotheses,
+      resources: resourcesOf({ hypotheses }),
+      ...rest,
+    })),
 };
 const manifestPath = path.join(ROOT, ".reductions", "relations.json");
 const manifestText = JSON.stringify(manifest, null, 1) + "\n";

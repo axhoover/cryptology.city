@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: QR ⇒ UC-secure OT (PVW)
+title: QR ⇒ Two-round UC-secure OT (PVW)
 aliases: []
 id: red-qr-to-malicious-ot-security-pvw08
 kind: implication
 hypotheses: [qr]
-conclusion: uc-ot
+conclusion: two-round-uc-ot
 class: unstated
 model: crs
 source:
@@ -16,11 +16,11 @@ rationale:
   model: "The protocol is universally composable in the common reference string model, and the string is generated in either a messy or a decryption mode."
 ---
 
-# QR ⇒ UC-secure OT (PVW)
+# QR ⇒ Two-round UC-secure OT (PVW)
 
 ## Statement
 
-If [[quadratic-residuosity|QR]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
+If [[quadratic-residuosity|QR]] is hard, there is a two-message 1-out-of-2 [[oblivious-transfer|oblivious transfer]] protocol in the common reference string model that is [[oblivious-transfer#two-round-uc-secure-ot|universally composable]] against malicious static adversaries — [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]].
 
 ## Sketch
 

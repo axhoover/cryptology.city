@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-The preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing-spdz-etc|MPC with preprocessing]] can be instantiated from semi-homomorphic encryption, a relaxation of [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] that BDOZ11 introduce. The resulting protocol for arithmetic circuits is UC-secure against an active adversary corrupting up to $n-1$ of the $n$ parties, and its online phase uses only additive secret sharing and information-theoretic MACs — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
+The preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]] can be instantiated from semi-homomorphic encryption, a relaxation of [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] that BDOZ11 introduce. The resulting protocol for arithmetic circuits is UC-secure against an active adversary corrupting up to $n-1$ of the $n$ parties, and its online phase uses only additive secret sharing and information-theoretic MACs — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
 
 ## Sketch
 
@@ -27,4 +27,4 @@ The online phase follows Beaver's circuit randomization, consuming one multiplic
 ## Notes
 
 - The pairwise MACs make the total computation and communication of the online phase quadratic in $n$; the SPDZ protocol replaces them by one global MAC key and makes both linear in $n$ — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
-- The instantiation from somewhat homomorphic encryption is [[he-to-mpc-with-preprocessing-spdz-etc|SHE ⇒ MPC with preprocessing (SPDZ)]] — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].
+- The instantiation from somewhat homomorphic encryption is [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] — [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]].

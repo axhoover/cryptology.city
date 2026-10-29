@@ -35,6 +35,22 @@
 // cannot feed CL04's Type 1 pairing + LRSW => DS, while BB08's bound in generic
 // bilinear groups can feed pairing-based constructions.
 //
+// An ideal resource given as a hypothesis — the OT functionality, a trusted
+// dealer of correlated randomness, private point-to-point channels — puts the
+// conclusion in that hybrid model: Kil88's
+// `{ideal-ot} => two-party-computation` gives 2PC in the OT-hybrid model, not
+// a protocol over plain channels. The conclusion carries the resource as a
+// scope, which, like a model's, every later step keeps, so a hybrid-model
+// result never becomes a plain-model one. A hybrid resource is not an oracle,
+// though: commitments exist information-theoretically in the OT-hybrid model,
+// so a relativizing proof such as commitments => OWF does not carry over, and
+// a non-interactive conclusion (a one-way function) reads the same in the
+// hybrid model as in the plain model. A hybrid-scoped object is therefore
+// consumed only by a relativizing edge whose conclusion is itself a protocol
+// notion, a node of the MPC or OT page (`protocolNodes`): UC => stand-alone
+// and 2PC => malicious OT fire inside the hybrid model, commitments => OWF
+// does not.
+//
 // `kind: inclusion` and `kind: equivalence` also propagate — an equivalence in
 // both directions. A `heuristic` edge is a candidate construction with no
 // security reduction, not a theorem, so it never fires.
@@ -50,6 +66,9 @@ export const SCOPED_MODELS = [
   "rom",
   "algebraic-group",
   "no-pairing",
+  "ideal-ot",
+  "correlated-randomness",
+  "secure-channels",
 ];
 
 // Bilinear nodes: the pairing object and its variants, and the generic
@@ -75,6 +94,38 @@ export const bilinearNodes = (objects) =>
   );
 const NO_PAIRING = 1 << SCOPED_MODELS.indexOf("no-pairing");
 
+// Ideal resources that scope a conclusion to their hybrid model.
+export const HYBRID_RESOURCES = [
+  "ideal-ot",
+  "correlated-randomness",
+  "secure-channels",
+];
+/** The hybrid-resource scope bits of a hypothesis list. */
+const hybridBits = (hypotheses) =>
+  hypotheses.reduce(
+    (a, h) =>
+      HYBRID_RESOURCES.includes(h) ? a | (1 << SCOPED_MODELS.indexOf(h)) : a,
+    0,
+  );
+
+const HYBRID = HYBRID_RESOURCES.reduce(
+  (a, h) => a | (1 << SCOPED_MODELS.indexOf(h)),
+  0,
+);
+
+/**
+ * Protocol nodes, which a hybrid-scoped object may feed: the MPC and OT pages'
+ * objects and variants, read off the manifest's objects.
+ */
+export const protocolNodes = (objects) =>
+  new Set(
+    objects
+      .filter(
+        (o) => ["mpc", "ot"].includes(o.id) || ["mpc", "ot"].includes(o.of),
+      )
+      .map((o) => o.id),
+  );
+
 /** The scope bit of a model; a model first met here is appended. */
 export const modelBit = (model) => {
   if (model === undefined || UNSCOPED_MODELS.includes(model)) return 0;
@@ -91,11 +142,13 @@ export const modelMask = (r) =>
   modelsOf(r).reduce((a, m) => a | modelBit(m), 0);
 
 /**
- * The scope bits an edge adds to its conclusion: one per model it uses, plus
- * `no-pairing` for a generic-group edge with no bilinear hypothesis.
+ * The scope bits an edge adds to its conclusion: one per model it uses, the
+ * bit of each ideal resource among its hypotheses, and `no-pairing` for a
+ * generic-group edge with no bilinear hypothesis.
  */
 export const edgeScope = (r, bilinear = new Set(DEFAULT_BILINEAR)) =>
   modelMask(r) |
+  hybridBits(r.hypotheses ?? []) |
   (modelsOf(r).includes("generic-group") &&
   !(r.hypotheses ?? []).some((h) => bilinear.has(h))
     ? NO_PAIRING
@@ -129,7 +182,8 @@ export function buildRules(reductions, bilinear = new Set(DEFAULT_BILINEAR)) {
 /**
  * closure(seed) over `reductions`. `relativizes(cls)` says whether an edge of
  * class `cls` may consume scoped hypotheses; `bilinear` is the set of bilinear
- * node ids (default DEFAULT_BILINEAR).
+ * node ids (default DEFAULT_BILINEAR); `protocol` is the set of protocol nodes
+ * a hybrid-scoped object may feed (none when omitted).
  *
  * Returns { derived, scopes, used, provenance }:
  *   derived     Set of every object reached, seed included
@@ -140,7 +194,7 @@ export function buildRules(reductions, bilinear = new Set(DEFAULT_BILINEAR)) {
 export function closure(
   reductions,
   seed,
-  { exclude, relativizes, bilinear } = {},
+  { exclude, relativizes, bilinear, protocol } = {},
 ) {
   const rules = buildRules(reductions, bilinear).filter(
     (r) => r.id !== exclude && r.id !== exclude + "~",
@@ -183,6 +237,8 @@ export function closure(
         if (hyp && !(relativizes ?? (() => false))(rule.cls)) continue;
         // A pairing-based edge cannot run in a generic group with no pairing.
         if (rule.pairing && hyp & NO_PAIRING) continue;
+        // A hybrid-model object feeds only protocol notions.
+        if (hyp & HYBRID && !protocol?.has(rule.head)) continue;
         used.add(rule.id.replace(/~$/, ""));
         const bodyMasks = Object.fromEntries(body.map((b, k) => [b, masks[k]]));
         add(rule.head, hyp | rule.model, { rule, bodyMasks });
