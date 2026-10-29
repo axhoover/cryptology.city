@@ -23,6 +23,8 @@ A _distributed point function_ for domain $[N]$ and range $\GG$ is a tuple of ef
 - $\Gen(1^\secpar, \alpha, \beta) \to (k_0, k_1),$ is a randomized key generation algorithm that takes a special point $\alpha \in [N]$ and output value $\beta \in \GG$, and outputs two evaluation keys $k_0, k_1$,
 - $\Eval(b, k_b, x) \to y_b \in \GG,$ is a deterministic algorithm for $b \in \bits$ that evaluates the $b$-th share of the point function at input $x \in [N]$.
 
+The keys are succinct: there is a polynomial $p$ such that $|k_0|, |k_1| \le p(\secpar, \log N, \log |\GG|)$ — [[GI14 - Distributed Point Functions and Their Applications|GI14]], [[BGI15 - Function Secret Sharing|BGI15]]. Without this bound, sharing the truth table is a DPF for every polynomial-size domain: $k_0 \getsr \GG^N$, $k_1 := (f_{\alpha,\beta}(x))_{x \in [N]} - k_0$ and $\Eval(b, k_b, x) := k_b[x]$ are correct, perfectly hiding and efficient — standard.
+
 ## Properties
 
 ### Correctness
@@ -60,7 +62,7 @@ is negligible — [[GI14 - Distributed Point Functions and Their Applications|GI
 
 ## Function secret sharing (FSS)
 
-DPFs are a special case of _function secret sharing (FSS)_, introduced by Boyle, Gilboa, and Ishai — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]. FSS generalizes DPFs to arbitrary function classes $\calF$: one generates shares $(k_0, k_1)$ of any $f \in \calF$, such that each key evaluates the function's additive share, and each key hides $f$ individually.
+DPFs are a special case of _function secret sharing (FSS)_, introduced by Boyle, Gilboa, and Ishai — [[BGI15 - Function Secret Sharing|BGI15]], [[BGI16 - Function Secret Sharing Improvements and Extensions|BGI16]]. FSS generalizes DPFs to a function class $\calF$ whose members $f$ are given by descriptions $\hat f$: $\Gen(1^\secpar, \hat f)$ runs in time $\poly(\secpar, |\hat f|)$ and outputs shares $(k_0, k_1)$ of $f$, such that each key evaluates the function's additive share, and each key hides $f$ individually. As for DPFs, the keys are succinct: for a polynomial $p$, the keys for $f \in \calF$ have length at most $p(\secpar, |\hat f|)$ — [[BGI15 - Function Secret Sharing|BGI15]]. Here $\calF$ contains every point function $f_{\alpha,\beta} : [N] \to \GG$, described by $(\alpha, \beta)$, so $|\hat f_{\alpha,\beta}| = O(\log N + \log |\GG|)$. Without this requirement FSS holds with no assumption and need not give a DPF: FSS for $\calF = \{0\}$ is trivial, and for all functions $[N] \to \GG$ described by their truth tables, additive shares of the table are correct, perfectly hiding and of length $|\hat f|$ — standard.
 
 ## Multi-point functions
 

@@ -2,26 +2,19 @@
 type: reference
 status: draft
 title: "CG97"
-source: https://dl.acm.org/doi/abs/10.1145/258533.258609
+source: https://doi.org/10.1145/258533.258609
 authors: Benny Chor, Niv Gilboa
 venue: STOC 1997
 published: 1997-05-04
 created: 2025-02-13
 aliases:
   - CG97
-bibtex: |
-  @inproceedings{CG97,
-    author    = {Benny Chor and Niv Gilboa},
-    title     = {Computationally Private Information Retrieval},
-    booktitle = {Proceedings of the 29th Annual ACM Symposium on Theory of Computing (STOC 1997)},
-    pages     = {304--313},
-    year      = {1997}
-  }
+cryptobib_key: STOC:ChoGil97
 ---
 
 # [CG97] Computationally private information retrieval
 
-**Authors:** Benny Chor, Niv Gilboa | **Venue:** STOC 1997 | [Source](https://dl.acm.org/doi/abs/10.1145/258533.258609)
+**Authors:** Benny Chor, Niv Gilboa | **Venue:** STOC 1997 | [Source](https://doi.org/10.1145/258533.258609)
 
 ## Abstract
 

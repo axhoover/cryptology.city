@@ -149,6 +149,12 @@ const UPSTREAM_ERRORS: {
       "Black-box concurrent zero-knowledge requires Omega~(log n) rounds",
     why: "cryptobib spells the tilde-Omega of the title as Omega~",
   },
+  {
+    key: "STOC:Ajtai10",
+    field: "title",
+    cryptobib: "Oblivious {RAMs} without cryptogrpahic assumptions",
+    why: "cryptobib misspells cryptographic",
+  },
 ];
 
 function isUpstreamError(key: string, d: Drift): boolean {

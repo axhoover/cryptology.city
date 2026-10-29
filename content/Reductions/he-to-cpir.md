@@ -6,7 +6,7 @@ aliases: []
 id: red-he-to-cpir
 kind: implication
 hypotheses: [compact-fhe]
-conclusion: cpir
+conclusion: polylog-cpir
 class: fully-black-box
 model: standard
 source: folklore
@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A [[homomorphic-encryption#compact-fhe|compact]] [[homomorphic-encryption|fully homomorphic encryption]] scheme yields a one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with communication $\poly(\secpar, \log n)$: the client sends encryptions of the $\log n$ bits of its index $i$, and the server homomorphically evaluates the selection function $i \mapsto D[i]$ and returns one ciphertext — folklore.
+A [[homomorphic-encryption#compact-fhe|compact]] [[homomorphic-encryption|fully homomorphic encryption]] scheme yields a one-round [[single-server-private-information-retrieval|single-server PIR]] scheme with [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|polylogarithmic communication]] $\poly(\secpar, \log n)$: the client sends encryptions of the $\log n$ bits of its index $i$, and the server homomorphically evaluates the selection function $i \mapsto D[i]$ and returns one ciphertext — folklore.
 
 ## Sketch
 

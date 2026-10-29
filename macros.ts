@@ -82,6 +82,12 @@ export const customMacros: Record<string, string> = {
   "\\AggVrfy": "\\mathsf{AggVrfy}",
   "\\PopProve": "\\mathsf{PopProve}",
   "\\PopVrfy": "\\mathsf{PopVrfy}",
+  "\\Acc": "\\mathsf{Acc}",
+  "\\Out": "\\mathsf{Out}",
+  "\\GData": "\\mathsf{GData}",
+  "\\GProg": "\\mathsf{GProg}",
+  "\\GInput": "\\mathsf{GInput}",
+  "\\GEval": "\\mathsf{GEval}",
   // Number sets
   "\\NN": "\\mathbb{N}",
   "\\ZZ": "\\mathbb{Z}",
@@ -90,6 +96,11 @@ export const customMacros: Record<string, string> = {
   // Named sets (used in specific assumptions)
   "\\QR": "\\mathrm{QR}",
   "\\J": "\\mathrm{J}",
+  "\\KSp": "\\mathsf{KSp}",
+  "\\StSp": "\\mathsf{StSp}",
+  "\\RdOps": "\\mathsf{RdOps}",
+  "\\WrOps": "\\mathsf{WrOps}",
+  "\\Ops": "\\mathsf{Ops}",
   // Simulators and state
   "\\Sim": "\\mathcal{S}",
   "\\st": "\\mathsf{st}",

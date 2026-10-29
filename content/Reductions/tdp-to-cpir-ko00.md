@@ -22,6 +22,6 @@ If [[trapdoor-permutation|trapdoor permutations]] exist, there is a perfectly co
 
 ## Notes
 
-- The saving cannot be improved much by black-box means: in every fully-black-box, polynomially security-preserving construction of single-server PIR from trapdoor permutations, the server sends $\Omega(n)$ bits — [[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]].
+- The saving cannot be improved much by black-box means: in every polynomially-preserving construction of single-server PIR that uses trapdoor permutations only as a black box, the server sends $\Omega(n)$ bits ([[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR]]) — [[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]].
 - The scheme yields 1-out-of-$n$ OT with communication below $n$ from trapdoor permutations — [[KO00 - One-Way Trapdoor Permutations Are Sufficient for Non-trivial Single-Server Private Information Retrieval|KO00]].
 - Polylogarithmic communication is known only from specific assumptions, such as [[hiding-to-cpir|Φ-hiding]] — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]].

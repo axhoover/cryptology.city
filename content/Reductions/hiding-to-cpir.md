@@ -6,7 +6,7 @@ aliases: []
 id: red-hiding-to-cpir
 kind: implication
 hypotheses: [phi-hiding]
-conclusion: cpir
+conclusion: polylog-cpir
 class: unstated
 model: standard
 source:
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], there is a single-server [[single-server-private-information-retrieval|PIR]] scheme with total communication polylogarithmic in the database size $n$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]], which introduces the assumption.
+Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], there is a one-round single-server [[single-server-private-information-retrieval|PIR]] scheme with [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|total communication polylogarithmic]] in the database size $n$ — [[CMS99 - Computationally Private Information Retrieval with Polylogarithmic Communication|CMS99]], which introduces the assumption.
 
 ## Sketch
 
@@ -26,4 +26,4 @@ The client maps each index $j$ to a prime $p_j$ by a shared prime-sequence gener
 
 ## Notes
 
-- A variant of Φ-hiding yields single-database PIR with constant communication rate — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].
+- A simple variant of the Φ-hiding assumption gives single-database PIR with communication $O(k + d)$ for a $d$-bit block and security parameter $k \ge \log n$, hence constant rate on large blocks; the scheme is stated for general groups with hidden smooth subgroups — [[GR05 - Single-Database Private Information Retrieval with Constant Communication Rate|GR05]].
