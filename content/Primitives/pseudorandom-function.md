@@ -149,7 +149,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 559b0b8370f7 -->
+<!-- BEGIN GENERATED participates-in 3a8d2a80b6c1 -->
 
 ## Participates in
 
@@ -157,6 +157,7 @@ is negligible.
 
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
+- [[prf-to-garbled-circuits-bhr12|PRF ⇒ Garbled circuits (BHR)]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]

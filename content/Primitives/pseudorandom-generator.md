@@ -91,12 +91,13 @@ A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $G(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 99a0e94123b4 -->
+<!-- BEGIN GENERATED participates-in 65ed6f524b8c -->
 
 ## Participates in
 
 **Builds on Pseudorandom generator**
 
+- [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]]
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[prg-to-hash-function|PRG ⇒ OWF]]

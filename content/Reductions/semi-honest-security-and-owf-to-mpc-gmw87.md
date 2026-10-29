@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If every functionality has a protocol secure against [[secure-multi-party-computation#privacy-semi-honest|semi-honest]] adversaries corrupting any number of parties and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then every functionality has a protocol secure with abort against [[secure-multi-party-computation#security-malicious|malicious]] adversaries corrupting any number of parties — [[GMW87 - How to play ANY mental game|GMW87]].
+If every functionality has a protocol secure against [[secure-multi-party-computation#semi-honest-security|semi-honest]] adversaries corrupting any number of parties and [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, then every functionality has a protocol secure with abort against [[secure-multi-party-computation#security-with-abort|malicious]] adversaries corrupting any number of parties — [[GMW87 - How to play ANY mental game|GMW87]].
 
 ## Sketch
 
@@ -29,5 +29,5 @@ Each party commits to its input with a zero-knowledge proof of knowledge of it, 
 
 ## Notes
 
-- Semi-honest protocols for every functionality follow from semi-honest [[oblivious-transfer|OT]] ([[ot-to-mpc-kil88|OT ⇒ MPC]]) — [[GMW87 - How to play ANY mental game|GMW87]] — and from enhanced trapdoor permutations, through [[enhanced-trapdoor-permutations-to-ot-gkm-00|enhanced TDP ⇒ OT]] — [[EGL85 - A randomized protocol for signing contracts|EGL85]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
-- With a dishonest majority, complete fairness cannot be guaranteed for every functionality: two-party coin flipping cannot be made fair — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]. With an honest majority, the compiled protocol can be made to guarantee output delivery — [[GMW87 - How to play ANY mental game|GMW87]].
+- Semi-honest protocols for every functionality follow from semi-honest [[oblivious-transfer|OT]] ([[ot-to-semi-honest-security-gmw87|semi-honest OT ⇒ semi-honest MPC]]) — [[GMW87 - How to play ANY mental game|GMW87]] — and from enhanced trapdoor permutations, through [[enhanced-trapdoor-permutations-to-ot-gkm-00|enhanced TDP ⇒ OT]] — [[EGL85 - A randomized protocol for signing contracts|EGL85]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
+- With a dishonest majority, complete fairness cannot be guaranteed for every functionality: two-party coin flipping cannot be made fair — [[Cle86 - Limits on the security of coin flips when half the processors are faulty|Cle86]]. With an honest majority, the compiled protocol can be made to guarantee output delivery ([GMW with honest majority](enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87)) — [[GMW87 - How to play ANY mental game|GMW87]].

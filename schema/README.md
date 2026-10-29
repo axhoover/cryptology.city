@@ -340,10 +340,19 @@ models have no page.
   is quantum, or when either endpoint is a quantum complexity class. The
   classically proved containments BPP ⊆ BQP and BQP ⊆ PP are therefore
   `model: quantum`.
-- **Hybrid models.** An ideal-functionality hybrid (a UC proof with an OT or
-  commitment functionality) counts as `standard`, even when the source
-  instantiates a functionality in the random-oracle model; `rationale.model`
-  records the instantiation, as on
+- **Ideal resources.** A theorem proved with an ideal resource it does not
+  instantiate (the OT functionality `ideal-ot`, a trusted dealer of correlated
+  randomness `correlated-randomness`, or private point-to-point channels
+  `secure-channels`) lists the resource in `hypotheses`, with `model` as the
+  rest of the proof requires; a resource is not a `model` value.
+  `relations.json` lists such an edge in `hybridReductions`, and the closure
+  scopes its conclusion to the resource (`docs/relations-json.md`
+  § `hybridReductions`): IPS08 is `hypotheses: [ideal-ot, prg], model: standard`
+  (`ideal-ot-and-prg-to-uc-mpc-ips08`).
+- **Instantiated hybrids.** A UC proof through an ideal functionality that the
+  theorem itself instantiates from its hypotheses counts as `standard`, even
+  when the source instantiates the functionality in the random-oracle model;
+  `rationale.model` records the instantiation, as on
   `ot-extension-to-mpc-with-preprocessing-spdz-etc`.
 
 ### Which class to record

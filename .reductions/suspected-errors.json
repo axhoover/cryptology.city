@@ -256,7 +256,7 @@
    "affectsEdges": [
     "red-tdp-to-pke",
     "red-hash-function-to-ds",
-    "red-ot-to-mpc-kil88",
+    "red-ideal-ot-to-two-party-computation-kil88",
     "bar-hash-function-to-pke-gkm-00"
    ]
   },

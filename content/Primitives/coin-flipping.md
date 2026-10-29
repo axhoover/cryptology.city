@@ -70,7 +70,7 @@ No fully-black-box construction from a [[hash-function#preimage-resistance-one-w
 
 A protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $1/2$ is trivial, since one party can choose the outcome — [[HO11 - Coin Flipping with Constant Bias Implies One-Way Functions|HO11]].
 
-<!-- BEGIN GENERATED participates-in 5103f5d8e834 -->
+<!-- BEGIN GENERATED participates-in c6fab308f169 -->
 
 ## Participates in
 
@@ -82,5 +82,9 @@ A protocol has constant bias if its bias is at most a constant $c < 1/2$; bias $
 
 - [[com-to-coin-flipping-blu81|COM ⇒ Coin flipping (Blum)]]
 - [[ot-to-optimally-fair-coin-flipping-mns09|OT ⇒ Optimally fair coin flipping (Moran–Naor–Segev)]] (via [[coin-flipping#optimally-fair-coin-flipping|Optimally fair coin flipping]])
+
+**Barriers**
+
+- [[no-authenticated-channels-to-fair-coin-flipping-cle86|No reduction from authenticated channels to fair coin flipping]] (via [[coin-flipping#fair-coin-flipping|Fair coin flipping]])
 
 <!-- END GENERATED participates-in -->
