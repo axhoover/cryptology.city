@@ -13874,7 +13874,8 @@
    "class": "unstated",
    "model": "other",
    "models": [
-    "other"
+    "algebraic-group",
+    "rom"
    ],
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
@@ -13883,7 +13884,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+    "model": "FPS20 prove the theorem for algebraic adversaries with the hash modeled as a programmable random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/omdl-and-ros-to-blind-schnorr-signature-fps20.md",
@@ -16151,7 +16152,8 @@
    "class": "unstated",
    "model": "other",
    "models": [
-    "other"
+    "algebraic-group",
+    "rom"
    ],
    "source": [
     "[[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]]"
@@ -16160,7 +16162,7 @@
    "heuristic": false,
    "securityLoss": "tight: the DLOG solver has essentially the forger's running time and advantage",
    "rationale": {
-    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle, a combination of idealised models that no single model value names."
+    "model": "FPS20 prove the theorem for algebraic forgers with the hash modeled as a programmable random oracle."
    },
    "status": "draft",
    "page": "content/Reductions/prime-order-dlog-to-schnorr-signature-fps20.md",

@@ -34,7 +34,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in c1ed15e09815 -->
+<!-- BEGIN GENERATED participates-in 77e5f3ac1d58 -->
 
 ## Participates in
 
@@ -71,6 +71,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[module-lwe-to-kem|Module LWE ⇒ IND-CCA KEM]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[ntru-to-kem|NTRU ⇒ IND-CCA KEM]]
+- [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]]
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]]
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
@@ -80,6 +81,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]]
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]]
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
+- [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]

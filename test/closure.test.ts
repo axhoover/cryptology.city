@@ -217,7 +217,10 @@ test("a reader of model alone cannot take a multi-model edge for a single-model 
   const IDEALISED = ["rom", "generic-group", "algebraic-group", "other"];
   assert.strictEqual(manifest.version, 1, "version-1 readers must still load");
   const multi = manifest.reductions.filter((r: any) => r.models.length > 1);
-  assert.ok(multi.length >= 3, "PLONK, FKL18 BLS and BSW07 are multi-model");
+  assert.ok(
+    multi.length >= 5,
+    "PLONK, FKL18 BLS, BSW07 and the two FPS20 edges are multi-model",
+  );
   for (const r of manifest.reductions)
     if (r.models.length > 1) {
       assert.strictEqual(r.model, "other", r.id);
