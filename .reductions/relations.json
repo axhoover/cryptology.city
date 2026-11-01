@@ -404,6 +404,32 @@
    "unlisted": false
   },
   {
+   "id": "approximate-he-ind-cpa-d",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#ind-cpa-d-security",
+   "of": "he",
+   "title": "IND-CPA-D security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "approximate-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#approximate-homomorphic-encryption",
+   "of": "he",
+   "title": "Approximate homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arithmetization",
    "kind": "object",
    "type": "glossary",
@@ -6500,6 +6526,30 @@
    "title": "Anonymous HIBE ⇒ HIBE"
   },
   {
+   "id": "red-approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "kind": "implication",
+   "hypotheses": [
+    "approximate-homomorphic-encryption"
+   ],
+   "conclusion": "approximate-he-ind-cpa-d",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22.md",
+   "slug": "approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "graphSlug": "Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "title": "IND-CPA approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)"
+  },
+  {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
    "kind": "implication",
    "hypotheses": [
@@ -7215,6 +7265,33 @@
    "slug": "boneh-lynn-shacham-signature-to-ds",
    "graphSlug": "Reductions/boneh-lynn-shacham-signature-to-ds",
    "title": "BLS signatures ⇒ DS"
+  },
+  {
+   "id": "red-bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "bootstrappable-somewhat-homomorphic-encryption"
+   ],
+   "conclusion": "somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption.md",
+   "slug": "bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "title": "Bootstrappable SHE ⇒ SHE"
   },
   {
    "id": "red-bpp-to-am-gs86",
@@ -11855,6 +11932,33 @@
    "title": "FHE ⇒ cPIR"
   },
   {
+   "id": "red-he-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "he"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/he-to-pke-cpa-security.md",
+   "slug": "he-to-pke-cpa-security",
+   "graphSlug": "Reductions/he-to-pke-cpa-security",
+   "title": "HE ⇒ IND-CPA PKE"
+  },
+  {
    "id": "red-he-to-re-bl13",
    "kind": "implication",
    "hypotheses": [
@@ -13161,6 +13265,33 @@
    "slug": "length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
    "graphSlug": "Reductions/length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
+  },
+  {
+   "id": "red-leveled-fully-homomorphic-encryption-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "leveled-fully-homomorphic-encryption"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the leveled scheme with its depth bound fixed to the security parameter, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/leveled-fully-homomorphic-encryption-to-he.md",
+   "slug": "leveled-fully-homomorphic-encryption-to-he",
+   "graphSlug": "Reductions/leveled-fully-homomorphic-encryption-to-he",
+   "title": "Leveled FHE ⇒ HE"
   },
   {
    "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
@@ -19359,6 +19490,33 @@
    "slug": "somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/somewhat-homomorphic-encryption-she-to-he-gen09",
    "title": "Bootstrappable SHE ⇒ Leveled FHE"
+  },
+  {
+   "id": "red-somewhat-homomorphic-encryption-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "somewhat-homomorphic-encryption"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/somewhat-homomorphic-encryption-to-he.md",
+   "slug": "somewhat-homomorphic-encryption-to-he",
+   "graphSlug": "Reductions/somewhat-homomorphic-encryption-to-he",
+   "title": "SHE ⇒ HE"
   },
   {
    "id": "red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",

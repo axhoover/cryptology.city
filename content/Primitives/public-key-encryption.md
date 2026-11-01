@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in a76641409029 -->
+<!-- BEGIN GENERATED participates-in e2b5d728d103 -->
 
 ## Participates in
 
@@ -169,6 +169,7 @@ TODO
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
+- [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
