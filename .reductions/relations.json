@@ -13163,6 +13163,33 @@
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
   },
   {
+   "id": "red-leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "leveled-fully-homomorphic-encryption"
+   ],
+   "conclusion": "polylog-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor log n, from a hybrid over the encrypted index bits",
+   "rationale": {
+    "class": "The server evaluates the selection circuit through the scheme's evaluation algorithm, used only as an oracle, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/leveled-fully-homomorphic-encryption-to-polylog-cpir.md",
+   "slug": "leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "graphSlug": "Reductions/leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "title": "Leveled FHE ⇒ PIR with polylogarithmic communication"
+  },
+  {
    "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
    "kind": "implication",
    "hypotheses": [
@@ -16632,6 +16659,33 @@
    "slug": "polylog-cpir-to-dv-delegation-for-p-bhk17",
    "graphSlug": "Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17",
    "title": "PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P"
+  },
+  {
+   "id": "red-polylog-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "polylog-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the scheme unchanged on databases of a fixed large polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polylog-cpir-to-nontrivial-cpir.md",
+   "slug": "polylog-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/polylog-cpir-to-nontrivial-cpir",
+   "title": "PIR with polylogarithmic communication ⇒ Non-trivial cPIR"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
@@ -22286,6 +22340,35 @@
    "slug": "no-ddh-to-ibe-prv12",
    "graphSlug": "Barriers/no-ddh-to-ibe-prv12",
    "title": "No fully-black-box reduction from DDH to IBE"
+  },
+  {
+   "id": "bar-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
+   ],
+   "rationale": {
+    "class": "HHS08 rule out only polynomially-preserving black-box constructions, a restriction the vocabulary has no class for, so fully-black-box would overstate the theorem."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08.md",
+   "slug": "no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "graphSlug": "Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "title": "No polynomially-preserving black-box reduction from enhanced TDP to one-round sublinear cPIR"
   },
   {
    "id": "bar-fac-to-low-exponent-rsa-bv98",

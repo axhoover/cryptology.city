@@ -30,7 +30,7 @@ A PIR scheme is a tuple of efficient algorithms $\PIR = (\Setup, \Query, \Answer
 
 - $\Setup(1^\secpar, 1^n) \to \pp,$ is a randomized algorithm that generates public parameters encoding the database size $n,$
 - $\Query(\pp, i) \to (q, \st),$ is a randomized algorithm that takes an index $i \in [n]$, outputting a query $q$ to send to the server and a client state $\st,$
-- $\Answer(D, q) \to a,$ is a deterministic algorithm that takes a database
+- $\Answer(D, q) \to a,$ is a possibly randomized algorithm that takes a database
   $D \in \bits^n$ and query $q$, outputting an answer $a,$
 - $\Decode(\st, a) \to x,$ is a deterministic algorithm that takes client state $\st$ and answer $a$, outputting a value $x \in \bits.$
 
@@ -56,7 +56,7 @@ $$
 \Pr\!\left[\Decode(\st, \Answer(D, q)) = D[i]\right] \ge 1 - \varepsilon,
 $$
 
-where $\pp \gets \Setup(1^\secpar, 1^n)$ and $(q, \st) \gets \Query(\pp, i)$.
+where $\pp \gets \Setup(1^\secpar, 1^n)$, $(q, \st) \gets \Query(\pp, i)$ and the probability is also over the coins of $\Answer$.
 
 ### Query Privacy
 
@@ -96,7 +96,7 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 
 ## Non-trivial PIR
 
-A PIR scheme is **non-trivial** if it is perfectly correct ($\varepsilon = 0$) and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the server sends fewer than $n$ bits in total. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. With one server, information-theoretic (perfect) privacy requires $n$ bits of communication on $n$-bit databases, so the trivial scheme is optimal — [[CGKS98 - Private information retrieval|CGKS98]].
+A PIR scheme is **non-trivial** if, for some polynomial $n = n(\secpar)$, it is $(1 - 1/(8n))$-correct and on every $n$-bit database the server sends fewer than $n$ bits in total. The error bound $1/(8n)$ is the one at which the implication to one-way functions is proved for this communication bound — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. With one server, information-theoretic (perfect) privacy requires $n$ bits of communication on $n$-bit databases, so the trivial scheme is optimal — [[CGKS98 - Private information retrieval|CGKS98]].
 
 ### PIR with total communication below $n$
 
@@ -104,7 +104,7 @@ A PIR scheme has **total communication below $n$** if it is perfectly correct an
 
 ## One-round sublinear PIR
 
-A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
+A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, with $\Answer$ deterministic, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
 
 ## PIR with polylogarithmic communication
 
@@ -273,7 +273,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in e68988bca5f9 -->
+<!-- BEGIN GENERATED participates-in 2e8b6deeb084 -->
 
 ## Participates in
 
@@ -286,6 +286,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[polylog-cpir-to-cpir|PIR with polylogarithmic communication ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
+- [[polylog-cpir-to-nontrivial-cpir|PIR with polylogarithmic communication ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
@@ -300,12 +301,14 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[he-to-cpir|FHE ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05|Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
+- [[leveled-fully-homomorphic-encryption-to-polylog-cpir|Leveled FHE ⇒ PIR with polylogarithmic communication]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[one-round-sublinear-cpir-to-keyword-pir-cgn98|One-round sublinear cPIR ⇒ Keyword PIR]] (via [[single-server-private-information-retrieval#keyword-pir|Keyword PIR]])
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[owf-to-client-preprocessing-pir-zpzs24|OWF ⇒ PIR with client preprocessing (Piano)]] (via [[single-server-private-information-retrieval#pir-with-client-preprocessing|PIR with client preprocessing]])
 - [[polylog-cpir-to-cpir|PIR with polylogarithmic communication ⇒ cPIR]]
+- [[polylog-cpir-to-nontrivial-cpir|PIR with polylogarithmic communication ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[qr-to-client-preprocessing-pir-chk22|QR ⇒ PIR with client preprocessing (CHK22)]] (via [[single-server-private-information-retrieval#pir-with-client-preprocessing|PIR with client preprocessing]])
 - [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
@@ -315,6 +318,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 
 **Barriers**
 
+- [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 

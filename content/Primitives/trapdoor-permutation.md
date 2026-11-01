@@ -80,7 +80,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 112cc01495d6 -->
+<!-- BEGIN GENERATED participates-in 5392a063955b -->
 
 ## Participates in
 
@@ -125,6 +125,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 
 **Barriers**
 
+- [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]
 - [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
