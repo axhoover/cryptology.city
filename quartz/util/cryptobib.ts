@@ -603,6 +603,10 @@ export function normalizeAuthors(bibtexAuthor: string): string {
       if (parts.length === 2) {
         return `${parts[1].trim()} ${parts[0].trim()}`;
       }
+      // "Last, Jr, First" -> "First Last Jr"
+      if (parts.length === 3) {
+        return `${parts[2].trim()} ${parts[0].trim()} ${parts[1].trim()}`;
+      }
       return a;
     })
     .join(", ");

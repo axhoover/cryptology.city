@@ -96,6 +96,13 @@ describe("cryptobib parser", () => {
     assert.strictEqual(got, "Dan Boneh, Matthew K. Franklin");
   });
 
+  test("normalizeAuthors handles 'Last, Jr, First' form", () => {
+    const got = normalizeAuthors(
+      "Rafail Ostrovsky and Skeith, III, William E.",
+    );
+    assert.strictEqual(got, "Rafail Ostrovsky, William E. Skeith III");
+  });
+
   test("stripBibBraces removes brace protection", () => {
     assert.strictEqual(
       stripBibBraces("Identity-Based Encryption from the {Weil} Pairing"),
