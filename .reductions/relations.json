@@ -8932,6 +8932,30 @@
    "title": "DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
   },
   {
+   "id": "red-dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "length-flexible-additively-homomorphic-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-length-flexible-additively-homomorphic-encryption-dj01.md",
+   "slug": "dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "graphSlug": "Reductions/dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "title": "DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)"
+  },
+  {
    "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
    "kind": "implication",
    "hypotheses": [

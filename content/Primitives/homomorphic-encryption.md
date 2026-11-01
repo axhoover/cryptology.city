@@ -211,7 +211,7 @@ For approximate schemes IND-CPA does not capture security against passive advers
 - Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
 - Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
 
-<!-- BEGIN GENERATED participates-in c6159fc5ca02 -->
+<!-- BEGIN GENERATED participates-in aa98f153bdaa -->
 
 ## Participates in
 
@@ -248,6 +248,7 @@ For approximate schemes IND-CPA does not capture security against passive advers
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[compact-fhe-to-he|Compact FHE ⇒ HE]]
 - [$d$-th Composite Residuosity ⇒ Additively homomorphic encryption](d-th-composite-residuosity-to-he) (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
+- [[dcr-to-length-flexible-additively-homomorphic-encryption-dj01|DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)]] (via [[homomorphic-encryption#length-flexible-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption]])
 - [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[ddh-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|DDH + Sparse Learning Parity with Noise ⇒ Somewhat homomorphic encryption (SHE)]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]] (via [[homomorphic-encryption#multiplicatively-homomorphic-encryption|Multiplicatively homomorphic encryption]])
