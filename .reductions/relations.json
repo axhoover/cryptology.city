@@ -24065,6 +24065,35 @@
    "title": "No reduction from ROM to KE"
   },
   {
+   "id": "bar-rom-to-pk-depir-hpy26",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "pk-depir",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]]"
+   ],
+   "rationale": {
+    "class": "HPY26 rule out constructions whose key generation and database encoding make no oracle queries, a restriction on the construction that the vocabulary has no class for."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rom-to-pk-depir-hpy26.md",
+   "slug": "no-rom-to-pk-depir-hpy26",
+   "graphSlug": "Barriers/no-rom-to-pk-depir-hpy26",
+   "title": "No oracle-free-encoding reduction from ROM to public-key DEPIR"
+  },
+  {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
    "hypotheses": [
     "abe-selective-security"

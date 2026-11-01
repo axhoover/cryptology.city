@@ -100,7 +100,7 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 - For single-server computationally private PIR with public preprocessing, whose $r$-bit hint is available to everyone including the adversary, and expected query time $t$, $t \cdot r = \Omega(n \log n)$ when $r = \Omega(\log n)$ and $t = \Omega(n)$ when $r = O(\log n)$, even with error $1/n^2$ and distinguishing advantage $1/n$ — [[PY22 - Limits of Preprocessing for Single-Server PIR|PY22]]. [Public-key DEPIR](doubly-efficient-pir#public-key-depir), and hence [unkeyed DEPIR](doubly-efficient-pir#unkeyed-depir), with sublinear query computation cannot be built from cryptography used only as a black box, random oracles and VBB obfuscation included, when key generation and the database encoding make no queries to the cryptographic oracle; the bound does not cover [secret-key DEPIR](doubly-efficient-pir#secret-key-depir), whose encoding may depend on client-private state, and it is incomparable with the passive-server SK-DEPIR bound ([[no-owf-to-passive-sk-depir-lmw25|no fully-black-box SK-DEPIR from OWF]]) — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]]
 
-<!-- BEGIN GENERATED participates-in 0777b4615aef -->
+<!-- BEGIN GENERATED participates-in 1c5832c52dc5 -->
 
 ## Participates in
 
@@ -123,5 +123,6 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 **Barriers**
 
 - [[no-owf-to-passive-sk-depir-lmw25|No fully-black-box reduction from OWF to passive-server SK-DEPIR]] (via [[doubly-efficient-pir#passive-server-sk-depir|Passive-server SK-DEPIR]])
+- [[no-rom-to-pk-depir-hpy26|No oracle-free-encoding reduction from ROM to public-key DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
 
 <!-- END GENERATED participates-in -->
