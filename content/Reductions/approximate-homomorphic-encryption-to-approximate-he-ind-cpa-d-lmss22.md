@@ -23,4 +23,5 @@ Every IND-CPA-secure [[homomorphic-encryption#approximate-homomorphic-encryption
 ## Notes
 
 - The added noise increases the decryption error, so reaching a target precision requires running the original scheme at a higher one — folklore.
+- Whether the guarantee covers an unbounded number of decryption queries, as the conclusion's game allows, or a number fixed in advance with the noise growing in it, is not settled here; the conclusion is the unbounded game — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]].
 - Without such noise IND-CPA does not suffice: a passive attack recovers the key of CKKS from decryption results — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]].

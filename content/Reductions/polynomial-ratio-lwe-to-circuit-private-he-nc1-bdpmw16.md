@@ -22,4 +22,4 @@ A variant of the GSW scheme that homomorphically evaluates branching programs is
 
 ## Notes
 
-- Noise flooding instead, adding to the evaluated ciphertext noise that statistically hides the evaluation's own, needs a super-polynomial modulus-to-noise ratio; sanitization by repeated bootstrapping and rerandomization reaches general circuits — [[DS16 - Sanitization of FHE Ciphertexts|DS16]].
+- Noise flooding instead, adding to the evaluated ciphertext noise that statistically hides the evaluation's own, needs a super-polynomial modulus-to-noise ratio — standard. Sanitization by repeated bootstrapping and rerandomization reaches general circuits and, unlike flooding, does not degrade the security–efficiency trade-off much — [[DS16 - Sanitization of FHE Ciphertexts|DS16]].

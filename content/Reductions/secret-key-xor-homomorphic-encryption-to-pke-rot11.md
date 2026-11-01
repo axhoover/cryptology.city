@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Every [[homomorphic-encryption#private-key-homomorphic-encryption|compact private-key encryption scheme homomorphic for addition modulo 2]], one whose homomorphically generated encryptions have length independent of the number of ciphertexts they were computed from, can be transformed into a [[public-key-encryption|public-key encryption]] scheme; nothing is required of the distribution of homomorphically generated encryptions — [[Rot11 - Homomorphic Encryption From Private-Key to Public-Key|Rot11]].
+Every [[homomorphic-encryption#compact-private-key-homomorphic-encryption|compact private-key encryption scheme homomorphic for addition modulo 2]], one whose homomorphically generated encryptions have length independent of the number of ciphertexts they were computed from, can be transformed into a [[public-key-encryption|public-key encryption]] scheme; nothing is required of the distribution of homomorphically generated encryptions — [[Rot11 - Homomorphic Encryption From Private-Key to Public-Key|Rot11]].
 
 ## Notes
 
