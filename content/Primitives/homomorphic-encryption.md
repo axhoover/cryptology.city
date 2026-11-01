@@ -226,8 +226,11 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]]
 - [[no-he-to-szk-bl13|No reduction from NP to compact FHE]]
-- Circular security: bootstrapped FHE publishes an encryption of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]; security in this setting is _[[circular-security|circular security]]_. IND-CPA security does not imply it in general — [[KW16 - Circular Security Separations for Arbitrary Length Cycles from LWE|KW16]], [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]] — and whether [[learning-with-errors|LWE]] implies it for the LWE-based FHE schemes is open.
-- Single-hop FHE with IV-CCA security (strictly stronger than CCA1) in the standard model from circular-secure [[learning-with-errors|LWE]] — [[YYS25 - Fully Homomorphic Encryption with Chosen-Ciphertext Security from LWE|YYS25]]
+- Bootstrapping publishes encryptions of the scheme's own secret-key bits — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]] — and every known FHE scheme from LWE requires the encryption scheme to be [[circular-security|circular secure]] — [[MV24 - SoK Learning with Errors, Circular Security, and Fully Homomorphic Encryption|MV24]]. IND-CPA security does not give circular security by the identity map, for bit encryption ([[no-pke-cpa-security-to-bit-circular-security-rot13|Rot13]]) or for key cycles ([[no-pke-cpa-security-to-k-circular-security-ap16|AP16]], [[no-pke-cpa-security-to-k-circular-security-krw15|KRW15]]).
+- [[dcr-to-length-flexible-additively-homomorphic-encryption-dj01|DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)]]
+- [[polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16|LWE with polynomial ratio ⇒ Circuit-private HE for NC1]]
+- [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
+- [[approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22|IND-CPA approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)]]
 
 <!-- BEGIN GENERATED participates-in a6f5164fb78f -->
 

@@ -136,7 +136,7 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]
 
-<!-- BEGIN GENERATED participates-in 5cd0dd2dea2b -->
+<!-- BEGIN GENERATED participates-in f83b96cc3aff -->
 
 ## Participates in
 
@@ -160,5 +160,6 @@ is negligible. The admissibility restriction is necessary: without it, $\calA$ c
 **Barriers**
 
 - [No fixed-construction reduction from CPA Security to IND\$-CPA Security](no-cpa-security-to-ind-cpa-security) (via [[symmetric-key-encryption#cpa-security|CPA Security]], [IND\$-CPA Security](symmetric-key-encryption#ind-cpa-security))
+- [[no-cpa-security-to-secret-key-bit-circular-security-gkw17a|No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption]] (via [[symmetric-key-encryption#cpa-security|CPA Security]])
 
 <!-- END GENERATED participates-in -->

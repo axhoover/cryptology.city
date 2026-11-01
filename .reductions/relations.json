@@ -693,6 +693,19 @@
    "unlisted": true
   },
   {
+   "id": "bit-circular-security",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#circular-security-of-bit-encryption",
+   "of": "circular-security",
+   "title": "Circular security of bit encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "black-box-separation",
    "kind": "object",
    "type": "glossary",
@@ -931,9 +944,23 @@
    "graphSlug": "Assumptions/circular-security",
    "title": "Circular security",
    "aliases": [
-    "Circular security"
+    "Circular security",
+    "Key-cycle security"
    ],
-   "unlisted": true
+   "unlisted": false
+  },
+  {
+   "id": "circular-security-key-cycles",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#key-cycles-of-every-length",
+   "of": "circular-security",
+   "title": "Key cycles of every length",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "claw-free-permutations",
@@ -4792,6 +4819,19 @@
    "anchor": "#search-noisy-k-lin",
    "of": "noisy-k-lin",
    "title": "Search noisy $k$-LIN",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "secret-key-bit-circular-security",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#symmetric-key-bit-encryption",
+   "of": "circular-security",
+   "title": "Symmetric-key bit encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -22511,6 +22551,37 @@
    "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
   },
   {
+   "id": "bar-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "secret-key-bit-circular-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "lwe"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[GKW17a - Separating Semantic and Circular Security for Symmetric-Key Bit Encryption from the Learning with Errors Assumption|GKW17a]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (semantic security of a symmetric-key bit-encryption scheme implying its own circular security) and does not rule out another construction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cpa-security-to-secret-key-bit-circular-security-gkw17a.md",
+   "slug": "no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "graphSlug": "Barriers/no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "title": "No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption"
+  },
+  {
    "id": "bar-ddh-to-ibe-prv12",
    "hypotheses": [
     "ddh"
@@ -23829,6 +23900,102 @@
    "slug": "no-pke-cca1-security-to-pke-cca2-security-bdpr98",
    "graphSlug": "Barriers/no-pke-cca1-security-to-pke-cca2-security-bdpr98",
    "title": "No fixed-construction reduction from CCA1 security to CCA2 security"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-bit-circular-security-rot13",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "bit-circular-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "SXDH extended from bilinear to multilinear groups"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[Rot13 - On the Circular Security of Bit-Encryption|Rot13]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (IND-CPA security of a bit-encryption scheme implying circular security of the same scheme) and does not rule out building a circular-secure scheme from an IND-CPA-secure one by another construction.",
+    "strength": "The counterexample scheme is IND-CPA-secure only under the multilinear extension of SXDH, an assumption with no known candidate groups."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-bit-circular-security-rot13.md",
+   "slug": "no-pke-cpa-security-to-bit-circular-security-rot13",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-bit-circular-security-rot13",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security of bit encryption"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-circular-security-key-cycles-ap16",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "circular-security-key-cycles",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "lwe"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]]"
+   ],
+   "rationale": {
+    "class": "The counterexamples refute the identity map (IND-CPA security of a scheme implying its own circular security) and do not rule out another construction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-k-circular-security-ap16.md",
+   "slug": "no-pke-cpa-security-to-k-circular-security-ap16",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-k-circular-security-ap16",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-circular-security-key-cycles-krw15",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "circular-security-key-cycles",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "io",
+    "owf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[KRW15 - Separations in Circular Security for Arbitrary Length Key Cycles|KRW15]]"
+   ],
+   "rationale": {
+    "class": "The counterexamples refute the identity map (IND-CPA security of a scheme implying its own circular security) and do not rule out another construction.",
+    "strength": "The counterexample schemes are built from indistinguishability obfuscation, and iO yields cryptography only together with one-way functions."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-k-circular-security-krw15.md",
+   "slug": "no-pke-cpa-security-to-k-circular-security-krw15",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-k-circular-security-krw15",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)"
   },
   {
    "id": "bar-pke-cpa-security-to-pke-cca1-security-bdpr98",

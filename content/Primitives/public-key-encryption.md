@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 067de5d914fe -->
+<!-- BEGIN GENERATED participates-in 8547790cefba -->
 
 ## Participates in
 
@@ -203,6 +203,9 @@ TODO
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
+- [[no-pke-cpa-security-to-bit-circular-security-rot13|No fixed-construction reduction from IND-CPA security to circular security of bit encryption]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-k-circular-security-ap16|No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-k-circular-security-krw15|No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]
