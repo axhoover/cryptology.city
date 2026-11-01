@@ -871,6 +871,19 @@
    "unlisted": false
   },
   {
+   "id": "circuit-private-he-nc1",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circuit-private-he-for-nc1",
+   "of": "he",
+   "title": "Circuit-private HE for NC1",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-evasive-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -4792,6 +4805,19 @@
    "anchor": "#secret-key-pir-sk-pir",
    "of": "cpir",
    "title": "Secret-Key PIR (SK-PIR)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "secret-key-xor-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#private-key-homomorphic-encryption",
+   "of": "he",
+   "title": "Private-key homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -16815,6 +16841,30 @@
    "title": "LWE with polynomial ratio ⇒ BARG for NP"
   },
   {
+   "id": "red-polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "circuit-private-he-nc1",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BdPMW16 - FHE Circuit Privacy Almost for Free|BdPMW16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16.md",
+   "slug": "polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "title": "LWE with polynomial ratio ⇒ Circuit-private HE for NC1"
+  },
+  {
    "id": "red-polynomial-ratio-lwe-to-lwe",
    "kind": "implication",
    "hypotheses": [
@@ -19055,6 +19105,30 @@
    "slug": "search-lwe-to-decision-lwe",
    "graphSlug": "Reductions/search-lwe-to-decision-lwe",
    "title": "Search LWE ⇒ Decision LWE"
+  },
+  {
+   "id": "red-secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "kind": "implication",
+   "hypotheses": [
+    "secret-key-xor-homomorphic-encryption"
+   ],
+   "conclusion": "pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rot11 - Homomorphic Encryption From Private-Key to Public-Key|Rot11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/secret-key-xor-homomorphic-encryption-to-pke-rot11.md",
+   "slug": "secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "graphSlug": "Reductions/secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "title": "Compact private-key XOR-homomorphic encryption ⇒ PKE"
   },
   {
    "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",

@@ -29,5 +29,6 @@ Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$, and on challenge 
 
 ## Notes
 
-- IND-CCA1-secure fully homomorphic encryption is constructed from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].
+- The impossibility is stated as well known by [[LMSV11 - On CCA-Secure Somewhat Homomorphic Encryption|LMSV11]], for any scheme supporting any form of homomorphic operation.
+- IND-CCA1-secure fully homomorphic encryption follows generically from multi-key identity-based FHE, instantiated as a leveled scheme from sub-exponential LWE in the random oracle model, and from sub-exponentially secure [[indistinguishability-obfuscation|iO]] with sub-exponentially secure lossy encryption — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].
 - Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]].
