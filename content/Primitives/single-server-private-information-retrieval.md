@@ -112,9 +112,7 @@ A PIR scheme has **polylogarithmic communication** if it has query privacy, is $
 
 ## Symmetric private information retrieval (Single-server)
 
-Symmetric private information retrieval is a stronger version of PIR that in addition to protecting the querier's privacy, also protects the data privacy. The multi-server, information-theoretic version ([[IT-SPIR]]) was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], but follow-up works showed how to construct computationally secure versions based on assumptions.
-
-Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional efficiency requirement.
+In **symmetrically private information retrieval (SPIR)** the privacy of the data is guaranteed as well as the privacy of the user: in every invocation the user learns a single physical bit of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], who introduce the model for several servers ([[IT-SPIR]]). For a single database the definition is identical to that of $1$-out-of-$n$ [[OT]] — [[OS07 - A Survey of Single-Database Private Information Retrieval Techniques and Applications (Invited Talk)|OS07]]; what single-server SPIR adds is an efficiency requirement. Every PIR protocol reduces, with little extra communication, to $1$-out-of-$n$ OT — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]; $1$-out-of-$N$ OT takes only $\log N$ executions of $1$-out-of-$2$ OT, which gives an efficient transformation of any PIR protocol into a SPIR protocol — [[NP05 - Computationally Secure Oblivious Transfer|NP05]].
 
 ## Secret-Key PIR (SK-PIR)
 
@@ -256,7 +254,7 @@ is negligible.
 
 ## Batch PIR
 
-A batch code encodes a string into $m$ buckets so that any $k$ of its bits can be decoded by reading at most one bit, or more generally $t$ bits, from each bucket; batch codes amortize the computational cost of retrieving $k$ entries by PIR — [[IKOS04 - Batch codes and their applications|IKOS04]]. With an $r$-bit client hint, batch retrieval of $k$ entries accessing $t$ entries needs $t \cdot r = \Omega(nk)$ when $r \ge k$, and $t = \Omega(n)$ when $r < k$ — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]].
+A batch code encodes a string into $m$ buckets so that any $k$ of its bits can be decoded by reading at most one bit, or more generally $t$ bits, from each bucket; batch codes amortize the computational cost of retrieving $k$ entries by PIR — [[IKOS04 - Batch codes and their applications|IKOS04]]. Probabilistic batch codes trade a small probability that some queries of a batch fail, about one in a trillion multi-queries, for far fewer buckets, which cuts the network cost of batch-code-based multi-query PIR — [[ACLS18 - PIR with Compressed Queries and Amortized Query Processing|ACLS18]]; with vectorized homomorphic encryption, batch PIR can be efficient in both computation and communication, with $7.5$ to $98.5$ times less communication than earlier schemes — [[MR23 - Vectorized Batch Private Information Retrieval|MR23]]. With an $r$-bit client hint, batch retrieval of $k$ entries accessing $t$ entries needs $t \cdot r = \Omega(nk)$ when $r \ge k$, and $t = \Omega(n)$ when $r < k$ — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]].
 
 # Other results
 
@@ -264,6 +262,14 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[no-np-to-cpir-lv15|No reduction from NP to one-round sublinear cPIR]]
 - Every single-server PIR without preprocessing in which the server sends fewer than $n$ bits, built from public-key primitives in DH24's black-box model, performs $\Omega(n)$ public-key operations, however many symmetric-key operations it uses — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 - In every perfectly private, perfectly correct PIR whose servers store only the database and whose client keeps no state between queries, for any number $k$ of servers and whatever its communication, the servers together read at least $n$ database bits per query in expectation — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]]. The $\Omega(n)$ bound on server time holds with computational privacy too, but for a client that keeps state it bounds only the first query — [[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]]. [[doubly-efficient-pir|Doubly-efficient PIR]] stores an encoding of the database instead, and [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) moves the linear server work into an offline phase run before the client chooses its index — [[CK20 - Private Information Retrieval with Sublinear Online Time|CK20]].
+
+## Practical lattice-based schemes
+
+- SealPIR compresses the client's query vector into a single ciphertext, reducing network costs by over $120$ times — [[ACLS18 - PIR with Compressed Queries and Amortized Query Processing|ACLS18]].
+- OnionPIR composes two lattice-based somewhat homomorphic schemes, for a response overhead of $4.2$ times the insecure baseline against $100$ times for earlier schemes — [[MCR21 - OnionPIR Response Efficient Single-Server PIR|MCR21]].
+- Spiral composes the Regev and Gentry–Sahai–Waters schemes; on databases with over a million records it reaches a server throughput of $1.9$ GB/s at rate $0.81$, against $200$ MB/s and $0.24$ for earlier protocols — [[MW22 - SPIRAL Fast, High-Rate Single-Server PIR via FHE Composition|MW22]].
+- YPIR combines LWE with ring-LWE response compression and needs no offline communication: for a 1-bit or 1-byte record of a 32 GB database it achieves $12.1$ GB/s/core with $2.5$ MB of total communication, where SimplePIR achieves $12.5$ GB/s/core with $1.5$ MB but first downloads a $724$ MB hint — [[MW24 - YPIR High-Throughput Single-Server PIR with Silent Preprocessing|MW24]].
+- FrodoPIR reports a cost of about \$1 for answering $100{,}000$ client queries — [[DPC23 - FrodoPIR Simple, Scalable, Single-Server Private Information Retrieval|DPC23]].
 
 ## Constructions
 
