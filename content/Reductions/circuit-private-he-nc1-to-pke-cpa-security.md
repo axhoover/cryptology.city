@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Fixing the bound $L$ at key generation to any polynomial and forgetting $\Eval$, a [circuit-private homomorphic encryption scheme for $\mathsf{NC}^1$](homomorphic-encryption#circuit-private-he-for-nc1) is an IND-CPA-secure [[public-key-encryption#cpa-security|public-key encryption]] scheme, with the same correctness and the same CPA advantage — folklore.
+Fixing the bound $L$ at key generation to any polynomial and forgetting $\Eval$, a [circuit-private homomorphic encryption scheme for $\mathrm{NC}^1$](homomorphic-encryption#circuit-private-he-for-nc1) is an IND-CPA-secure [[public-key-encryption#cpa-security|public-key encryption]] scheme, with the same correctness and the same CPA advantage — folklore.

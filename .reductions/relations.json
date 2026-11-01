@@ -4888,6 +4888,19 @@
    "unlisted": false
   },
   {
+   "id": "semi-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#semi-homomorphic-encryption",
+   "of": "he",
+   "title": "Semi-homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "semi-honest-honest-majority-t-lt-n-over-2",
    "kind": "variant",
    "type": "primitive",
@@ -6484,30 +6497,6 @@
    "slug": "additively-homomorphic-encryption-to-he",
    "graphSlug": "Reductions/additively-homomorphic-encryption-to-he",
    "title": "Additively homomorphic encryption ⇒ HE"
-  },
-  {
-   "id": "red-additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
-   "kind": "implication",
-   "hypotheses": [
-    "additively-homomorphic-encryption"
-   ],
-   "conclusion": "mpc-with-preprocessing",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11.md",
-   "slug": "additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
-   "graphSlug": "Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
-   "title": "Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
   },
   {
    "id": "red-adversarial-pp-hiding-commitment-to-com",
@@ -25115,6 +25104,34 @@
    "slug": "secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
    "graphSlug": "Reductions/secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88",
    "title": "Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)"
+  },
+  {
+   "id": "red-semi-homomorphic-encryption-and-correlated-randomness-to-mpc-with-preprocessing-bdoz11",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-homomorphic-encryption",
+    "correlated-randomness"
+   ],
+   "resources": [
+    "correlated-randomness"
+   ],
+   "conclusion": "mpc-with-preprocessing",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11.md",
+   "slug": "additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "graphSlug": "Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "title": "Semi-homomorphic encryption + correlated randomness ⇒ MPC with preprocessing (BDOZ)"
   }
  ]
 }

@@ -26,4 +26,4 @@ The parties encrypt random shares under a joint SHE public key, multiply ciphert
 
 ## Notes
 
-- The instantiation from additively homomorphic encryption is [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)]] — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
+- The instantiation from semi-homomorphic encryption is [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Semi-homomorphic encryption + correlated randomness ⇒ MPC with preprocessing (BDOZ)]] — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].

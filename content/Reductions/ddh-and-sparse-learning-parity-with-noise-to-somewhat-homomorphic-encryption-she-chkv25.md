@@ -22,4 +22,4 @@ If [[decisional-diffie-hellman|DDH]] and [[learning-parity-with-noise#sparse-lea
 
 ## Notes
 
-- The DDH instance of [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]]: DDH supplies the [[homomorphic-encryption#additively-homomorphic-encryption|linearly homomorphic PKE]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].
+- DDH supplies a linearly homomorphic PKE, exponential ElGamal, that decrypts only small messages and so does not meet the [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic]] node; the construction needs only linear homomorphism, so the result is recorded directly and not as an instance of [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] — [[CHKV25 - Somewhat Homomorphic Encryption from Linear Homomorphism and Sparse LPN|CHKV25]].

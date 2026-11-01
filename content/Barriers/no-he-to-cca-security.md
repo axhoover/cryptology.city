@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: no HE scheme whose function class $\calF$ contains an $f$ that is neither constant nor the identity on $\calM$ (after fixing any further arguments of $f$ by fresh encryptions) is IND-CCA2-secure, since $\Eval$ turns the challenge ciphertext into an admissible decryption query that reveals the challenge bit — folklore.
+The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: no HE scheme is IND-CCA2-secure, since its class $\calF$ contains a binary $f$ that depends on both arguments, and $\Eval$ applied to the challenge ciphertext and a fresh encryption gives an admissible decryption query that reveals the challenge bit — folklore.
 
 ## Sketch
 
-Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$, and on challenge $c^*$ compute $c' \gets \Eval(\pk, f, c^*)$. If $c' \ne c^*$, the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b)$, which determines $b$; if $c' = c^*$, correctness forces $f(m_b) = m_b$, so $b = 1$.
+Since $f$ depends on its second argument, there are $x$ and $w$ with $f(x, w) \ne x$; since it depends on its first, there are $z$ and $m_0$ with $f(m_0, z) \ne f(x, z)$. Set $m_1 := x$. On challenge $c^*$, $\calA$ computes $c' \gets \Eval(\pk, f, c^*, \Enc(\pk, z))$ and outputs $0$ if $c' = c^*$; otherwise the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b, z)$, which determines $b$. When $b = 1$, $c' = c^*$ has negligible probability: with $w$ in place of $z$ it would contradict correctness, as $f(m_1, w) \ne m_1$, and a CPA adversary that encrypts $m_1$ itself and tests $\Eval(\pk, f, c^*, c) = c^*$ on its challenge $c$, an encryption of $z$ or of $w$, bounds the difference.
 
 ## Notes
 

@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] give the first candidate [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits: an $\mathrm{NC}^1$ obfuscator from candidate [[multilinear-maps|multilinear maps]] (graded encodings), bootstrapped to all circuits with [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]]. They give no reduction from a standard-model multilinear-map assumption.
+[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] give the first candidate [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits: an $\mathrm{NC}^1$ obfuscator from candidate [[multilinear-maps|multilinear maps]] (graded encodings), bootstrapped to all circuits with [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled fully homomorphic encryption]] whose decryption circuit is in $\mathrm{NC}^1$. They give no reduction from a standard-model multilinear-map assumption.
 
 ## Sketch
 
