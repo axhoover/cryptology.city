@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[homomorphic-encryption#bootstrappable-she|bootstrappable SHE]] scheme is a [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme for its class $\calF$ — folklore.
+A [[homomorphic-encryption#bootstrappable-she|bootstrappable SHE]] scheme is a [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme — folklore.

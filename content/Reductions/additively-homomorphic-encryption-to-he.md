@@ -12,11 +12,11 @@ model: standard
 source: folklore
 security-loss: "none"
 rationale:
-  class: "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+  class: "The construction iterates the scheme's binary Eval, and the reduction forwards any IND-CPA adversary unchanged."
 ---
 
 # Additively homomorphic encryption ⇒ HE
 
 ## Statement
 
-An [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme is a [[homomorphic-encryption|homomorphic encryption]] scheme for the class of sums of its messages, with the same IND-CPA advantage — folklore.
+An [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] scheme is a [[homomorphic-encryption|homomorphic encryption]] scheme for the class of sums of $k$ of its messages, for every $k$, with the same IND-CPA advantage: $\Eval$ on a sum of $k$ messages applies the binary $\Eval$ $k - 1$ times, and since $\calC_\pk$ contains every encryption and is closed under the binary $\Eval$, each intermediate ciphertext lies in $\calC_\pk$, decrypts to the partial sum by perfect correctness, and has the fixed length $\ell(\secpar)$ — folklore.

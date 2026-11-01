@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-A variant of the GSW scheme that homomorphically evaluates branching programs is [[homomorphic-encryption#circuit-privacy|circuit private]] without modification, which yields [circuit-private homomorphic encryption for $\mathsf{NC}^1$ circuits](homomorphic-encryption#circuit-private-he-for-nc1) under [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] — [[BdPMW16 - FHE Circuit Privacy Almost for Free|BdPMW16]].
+A variant of the GSW scheme that homomorphically evaluates branching programs is [[homomorphic-encryption#circuit-privacy|circuit private]] without modification, which yields [circuit-private homomorphic encryption for $\mathsf{NC}^1$ circuits](homomorphic-encryption#circuit-private-he-for-nc1), leveled with $\KeyGen(1^\secpar, 1^L)$ for circuits of depth at most $\log L$, under [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] — [[BdPMW16 - FHE Circuit Privacy Almost for Free|BdPMW16]].
 
 ## Notes
 

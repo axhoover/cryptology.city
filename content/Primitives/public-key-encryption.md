@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in 8547790cefba -->
+<!-- BEGIN GENERATED participates-in 7dcf194ef433 -->
 
 ## Participates in
 
@@ -161,6 +161,7 @@ TODO
 
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[circuit-private-he-nc1-to-pke-cpa-security|Circuit-private HE for NC1 ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#semantic-security|Semantic security]])
 - [[dcr-safe-primes-to-pke-cca2-security-cs02|DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
@@ -192,6 +193,8 @@ TODO
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
+- [[somewhat-homomorphic-encryption-to-pke-cpa-security|SHE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]

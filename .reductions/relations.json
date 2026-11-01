@@ -6477,7 +6477,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+    "class": "The construction iterates the scheme's binary Eval, and the reduction forwards any IND-CPA adversary unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/additively-homomorphic-encryption-to-he.md",
@@ -7753,12 +7753,12 @@
    "title": "CDH ⇒ Two-round UC-secure OT (DGHMW)"
   },
   {
-   "id": "red-circuit-private-he-nc1-to-he",
+   "id": "red-circuit-private-he-nc1-to-pke-cpa-security",
    "kind": "implication",
    "hypotheses": [
     "circuit-private-he-nc1"
    ],
-   "conclusion": "he",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -7771,13 +7771,13 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
    },
    "status": "draft",
-   "page": "content/Reductions/circuit-private-he-nc1-to-he.md",
-   "slug": "circuit-private-he-nc1-to-he",
-   "graphSlug": "Reductions/circuit-private-he-nc1-to-he",
-   "title": "Circuit-private HE for NC1 ⇒ HE"
+   "page": "content/Reductions/circuit-private-he-nc1-to-pke-cpa-security.md",
+   "slug": "circuit-private-he-nc1-to-pke-cpa-security",
+   "graphSlug": "Reductions/circuit-private-he-nc1-to-pke-cpa-security",
+   "title": "Circuit-private HE for NC1 ⇒ IND-CPA PKE"
   },
   {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
@@ -14792,7 +14792,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+    "class": "The construction iterates the scheme's binary Eval, and the reduction forwards any IND-CPA adversary unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/multiplicatively-homomorphic-encryption-to-he.md",
@@ -19711,12 +19711,12 @@
    "title": "Bootstrappable SHE ⇒ Leveled FHE"
   },
   {
-   "id": "red-somewhat-homomorphic-encryption-to-he",
+   "id": "red-somewhat-homomorphic-encryption-to-pke-cpa-security",
    "kind": "implication",
    "hypotheses": [
     "somewhat-homomorphic-encryption"
    ],
-   "conclusion": "he",
+   "conclusion": "pke-cpa-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -19729,13 +19729,13 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
    },
    "status": "draft",
-   "page": "content/Reductions/somewhat-homomorphic-encryption-to-he.md",
-   "slug": "somewhat-homomorphic-encryption-to-he",
-   "graphSlug": "Reductions/somewhat-homomorphic-encryption-to-he",
-   "title": "SHE ⇒ HE"
+   "page": "content/Reductions/somewhat-homomorphic-encryption-to-pke-cpa-security.md",
+   "slug": "somewhat-homomorphic-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/somewhat-homomorphic-encryption-to-pke-cpa-security",
+   "title": "SHE ⇒ IND-CPA PKE"
   },
   {
    "id": "red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
@@ -20002,6 +20002,33 @@
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
    "title": "sPRP ⇒ PRP"
+  },
+  {
+   "id": "red-strongly-homomorphic-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "strongly-homomorphic-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strongly-homomorphic-encryption-to-pke-cpa-security.md",
+   "slug": "strongly-homomorphic-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/strongly-homomorphic-encryption-to-pke-cpa-security",
+   "title": "Strongly homomorphic encryption ⇒ IND-CPA PKE"
   },
   {
    "id": "red-structure-preserving-signature-to-ds",
