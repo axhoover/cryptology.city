@@ -29,4 +29,4 @@ With $\pp \gets \Setup(1^\secpar, 1^n)$, the sender runs the server on database 
 
 - The converse is not known: SPIR is $1$-out-of-$n$ OT with communication sublinear in $n$, and no construction of sublinear-communication PIR from OT alone is known — folklore.
 - Any single-server [[single-server-private-information-retrieval|PIR]] becomes SPIR with $\log n$ additional invocations of $1$-out-of-$2$ OT — [[NP99 - Oblivious transfer and polynomial evaluation|NP99]].
-- Non-trivial single-server PIR, without data privacy, implies OT ([[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]) and converts communication-efficiently into $1$-out-of-$n$ OT (SPIR) — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].
+- Single-server PIR with total communication below $n$, without data privacy, implies OT ([[cpir-to-ot-dmo00|cPIR with total communication below n ⇒ OT]]) and converts communication-efficiently into $1$-out-of-$n$ OT (SPIR) — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].

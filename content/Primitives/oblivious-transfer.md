@@ -158,11 +158,11 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 
 # Other results
 
-- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|cPIR with total communication below n ⇒ OT]]
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 883a632490ef -->
+<!-- BEGIN GENERATED participates-in accac0551d62 -->
 
 ## Participates in
 
@@ -199,7 +199,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 **Produces Oblivious transfer**
 
 - [[cdh-to-uc-ot-dghmw20|CDH ⇒ Two-round UC-secure OT (DGHMW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
-- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|cPIR with total communication below n ⇒ OT]]
 - [[ddh-to-malicious-ot-security-pvw08|DDH ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[four-round-ot-to-malicious-ot-security|Four-round OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])

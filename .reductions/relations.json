@@ -8263,7 +8263,7 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "Non-trivial cPIR ⇒ OT"
+   "title": "cPIR with total communication below n ⇒ OT"
   },
   {
    "id": "red-cpir-to-owf-bikm99",

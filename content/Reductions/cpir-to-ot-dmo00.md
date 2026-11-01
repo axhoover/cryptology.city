@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "Non-trivial cPIR ⇒ OT"
+title: "cPIR with total communication below n ⇒ OT"
 aliases: []
 id: red-cpir-to-ot-dmo00
 kind: implication
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Non-trivial cPIR ⇒ OT
+# cPIR with total communication below n ⇒ OT
 
 ## Statement
 
-Any [[single-server-private-information-retrieval#pir-with-total-communication-below-n|non-trivial]] single-server [[single-server-private-information-retrieval|PIR]], with total communication $c(n) < n$ on an $n$-bit database, implies [[oblivious-transfer|OT]] with communication $c(n) \cdot \poly(\secpar)$ — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Non-trivial single-server PIR is therefore complete for secure two-party and multi-party computation — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].
+Any single-server [[single-server-private-information-retrieval|PIR]] [[single-server-private-information-retrieval#pir-with-total-communication-below-n|with total communication]] $c(n) < n$ on an $n$-bit database, non-trivial in DMO00's sense, implies [[oblivious-transfer|OT]] with communication $c(n) \cdot \poly(\secpar)$ — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such PIR is therefore complete for secure two-party and multi-party computation — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]].
 
 ## Notes
 
