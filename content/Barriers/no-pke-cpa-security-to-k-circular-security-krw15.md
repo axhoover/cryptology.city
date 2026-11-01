@@ -29,4 +29,4 @@ Under [[indistinguishability-obfuscation|iO]], for every $n$ there is an encrypt
 ## Notes
 
 - Each counterexample depends on $n$. One scheme that fails $l$-circular security for every cycle length $l$ follows from iO and leveled homomorphic encryption — [[GKW17b - Separating IND-CPA and Circular Security for Unbounded Length Key Cycles|GKW17b]] — and lockable obfuscation, from LWE, turns circular-security separations previously based on iO into constructions from LWE almost immediately — [[GKW17c - Lockable Obfuscation|GKW17c]].
-- Cycles of every constant length are separated from plain LWE ([[no-pke-cpa-security-to-k-circular-security-ap16|AP16's barrier]]) — [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]].
+- Cycles of every constant length are separated from [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]] ([[no-pke-cpa-security-to-k-circular-security-ap16|AP16's barrier]]) — [[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]].

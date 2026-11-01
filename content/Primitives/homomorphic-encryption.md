@@ -73,7 +73,7 @@ $$
 \Adv^{\mathrm{cpa}}_{\HE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa}}_{\HE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. This is the [[public-key-encryption#cpa-security|CPA game]] of the underlying PKE scheme: $\Eval$ takes only public inputs, so $\calA$ can run it itself. A homomorphic encryption scheme is required to be correct and IND-CPA-secure, and every variant below inherits both requirements unless it states otherwise.
+is negligible. This is the [[public-key-encryption#cpa-security|CPA game]] of the underlying PKE scheme: $\Eval$ takes only public inputs, so $\calA$ can run it itself. A homomorphic encryption scheme is required to be correct and IND-CPA-secure, and $\Eval$ to be compact for a class $\calF$ that contains circuits of every polynomial size: there is a polynomial $p$ with $|\Eval(\pk, f, c_1, \ldots, c_k)| \le p(\secpar)$ for every $f \in \calF$. Without this, every IND-CPA-secure PKE is HE for $\calF = \{\mathrm{id}\}$ — standard. Somewhat homomorphic, leveled and compact fully homomorphic encryption, additively and multiplicatively homomorphic encryption and circuit-private HE below inherit these requirements; approximate, strongly homomorphic and private-key homomorphic encryption are defined separately.
 
 No scheme whose class $\calF$ contains a function that is neither constant nor the identity on $\calM$, after fixing its further arguments by fresh encryptions, is IND-CCA2-secure: $\calA$ applies $\Eval$ to the challenge ciphertext and queries the decryption oracle on the result ([[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]]) — folklore. Chosen-ciphertext notions for HE therefore stop short of IND-CCA2; see [[#IND-CCA1-secure FHE]].
 
@@ -93,11 +93,11 @@ An additively homomorphic encryption scheme is **length-flexible** if one key pa
 
 ### Multiplicatively homomorphic encryption
 
-Supports only multiplications, e.g. ElGamal — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]], IND-CPA under [[decisional-diffie-hellman|DDH]] — [[TY98 - On the Security of ElGamal Based Encryption|TY98]]. Unpadded RSA is multiplicatively homomorphic but deterministic, hence not IND-CPA secure — standard.
+An IND-CPA-secure scheme is **multiplicatively homomorphic** if its message space is a group $(\GG, \cdot)$ determined by $\pk$, its ciphertexts lie in a set $\calC_\pk$ of strings of a fixed length $\ell(\secpar)$ that contains every encryption, decryption is perfectly correct, and a deterministic $\Eval(\pk, \times, c_1, c_2) \in \calC_\pk$ decrypts to $\Dec(\sk, c_1) \cdot \Dec(\sk, c_2)$ for all $c_1, c_2 \in \calC_\pk$; without the fixed ciphertext length the notion is met by any IND-CPA-secure PKE whose $\Eval$ returns its input ciphertexts — folklore. ElGamal is an example — [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]], IND-CPA under [[decisional-diffie-hellman|DDH]] — [[TY98 - On the Security of ElGamal Based Encryption|TY98]]. Unpadded RSA is multiplicatively homomorphic but deterministic, hence not IND-CPA secure — standard.
 
 ## Somewhat homomorphic encryption (SHE)
 
-Supports both additions and multiplications, but only up to a bounded number (bounded by the _multiplicative depth_ of the circuit), and is compact: there is a polynomial $p$ such that every ciphertext output by $\Eval$ on $f \in \calF$ has length at most $p(\secpar)$, independent of $f$ — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Without compactness the notion is trivial (see [[#Compact FHE]]).
+Supports both additions and multiplications up to a bounded multiplicative depth: for some $d = d(\secpar) \ge 2$, $\calF$ contains every sum of polynomially many products of at most $d$ messages, so circuits of every polynomial size; and it is compact: there is a polynomial $p$ such that every ciphertext output by $\Eval$ on $f \in \calF$ has length at most $p(\secpar)$, independent of $f$ — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Without compactness, or for a class of bounded size, the evaluator that returns $f$ with its input ciphertexts meets the definition (see [[#Compact FHE]]).
 
 ### Bootstrappable SHE
 
@@ -105,7 +105,7 @@ An SHE scheme is **bootstrappable** if it compactly evaluates its own decryption
 
 #### Circular-secure bootstrappable SHE
 
-A bootstrappable SHE scheme is **circular secure** if it remains IND-CPA-secure when its public key is published together with encryptions, under that key, of the bits of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. This is [[circular-security|circular security]] of the scheme itself; circular security of some other scheme does not give it.
+A bootstrappable SHE scheme is **circular secure** if it remains IND-CPA-secure when its public key is published together with encryptions, under that key, of the bits of its own secret key — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. Its correctness must also hold for every key pair output by $\KeyGen$: for all ciphertexts $c_1, c_2$ output by $\Enc$ or $\Eval$ under $\pk$ and every encryption under $\pk$ of the bits of $\sk$, $\Eval$ on the augmented decryption circuit outputs a ciphertext that decrypts under $\sk$ to $\lnot(\Dec(\sk, c_1) \land \Dec(\sk, c_2))$, as bootstrapping with one key evaluates on key-dependent inputs — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]]. The security property is one of the scheme itself, implied by its [[circular-security#circular-security-of-bit-encryption|circular security for bit encryption]] — standard; circular security of some other scheme does not give it.
 
 ## Leveled fully homomorphic encryption
 
@@ -115,7 +115,7 @@ Brakerski's tensoring technique makes the ciphertext noise grow linearly rather 
 
 ## Fully homomorphic encryption (FHE)
 
-Supports arbitrary polynomial-time computation via **bootstrapping**: a special homomorphic evaluation of the decryption circuit that refreshes the noise in a ciphertext. First construction based on ideal lattices — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+An FHE scheme evaluates every polynomial-size circuit compactly ([[#Compact FHE]]). The lattice-based schemes do so by **bootstrapping**: a homomorphic evaluation of the decryption circuit that refreshes the noise in a ciphertext. First construction based on ideal lattices — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
 Bootstrapping is the main bottleneck of known schemes; FHEW computes a bit operation and bootstraps its output in about half a second on a personal computer, under worst-case lattice assumptions together with a circular-security assumption — [[DM15 - FHEW Bootstrapping Homomorphic Encryption in Less Than a Second|DM15]]. Replacing the internal product of GSW ciphertexts by an external product between a GSW and an LWE ciphertext brings the same bootstrapping below $0.1$ seconds and its key from 1 GB to 24 MB — [[CGGI16 - Faster Fully Homomorphic Encryption Bootstrapping in Less Than 0.1 Seconds|CGGI16]]; the journal version, TFHE, reports 13 ms on one core with a 16 MB key — [[CGGI20 - TFHE Fast Fully Homomorphic Encryption Over the Torus|CGGI20]]. Asymptotically, for $2^\secpar$ security under conventional lattice assumptions, bootstrapping takes $\tilde O(\secpar)$ homomorphic operations on GSW ciphertexts, optimal up to polylogarithmic factors for schemes that encrypt one bit per ciphertext, with runtime and approximation factor both small polynomials — [[AP14 - Faster Bootstrapping with Polynomial Error|AP14]].
 
@@ -133,20 +133,20 @@ An IND-CPA-secure public-key bit-encryption scheme is **strongly homomorphic** f
 
 ## Approximate homomorphic encryption
 
-An **approximate homomorphic encryption** scheme has the syntax of [[#Syntax|HE]] for the class of arithmetic circuits, built from additions and multiplications, of depth at most $L$, with messages vectors of complex numbers of norm at most $1$, except that $\KeyGen(1^\secpar, 1^L, 1^p)$ also takes a precision $p$ and $\Dec$ may be randomized. It is **correct** if for all such circuits $f$ and messages $m_1, \ldots, m_k$ such that every gate of $f$ evaluated on $(m_1, \ldots, m_k)$ has value of $\ell_\infty$-norm at most $1$, the decryption of $\Eval(\pk, f, c_1, \ldots, c_k)$ is within $2^{-p}$ of $f(m_1, \ldots, m_k)$ in $\ell_\infty$-norm except with negligible probability, for fresh encryptions $c_i$; and it is **compact**: evaluated ciphertexts have length at most a polynomial in $\secpar$, $L$ and $p$, independent of the size of $f$. It is **IND-CPA-secure** as in [[#Security]], with $\KeyGen(1^\secpar, 1^L, 1^p)$, for all polynomials $L$ and $p$.
+An **approximate homomorphic encryption** scheme has the syntax of [[#Syntax|HE]] for the class of arithmetic circuits, built from additions and multiplications, of depth at most $L$, with messages vectors of complex numbers of norm at most $1$, except that $\KeyGen(1^\secpar, 1^L, 1^p)$ also takes a precision $p$ and $\Dec$ may be randomized. It is **correct** if every ciphertext obtained from fresh encryptions $c_i \gets \Enc(\pk, m_i)$ by repeated application of $\Eval$ decrypts to within $2^{-p}$ of $f(m_1, \ldots, m_k)$ in $\ell_\infty$-norm except with negligible probability, whenever the composed computation $f$ has depth at most $L$ and every gate of $f$ evaluated on $(m_1, \ldots, m_k)$ has value of $\ell_\infty$-norm at most $1$; and it is **compact**: evaluated ciphertexts have length at most a polynomial in $\secpar$, $L$ and $p$, independent of the size of $f$. It is **IND-CPA-secure** as in [[#Security]], with $\KeyGen(1^\secpar, 1^L, 1^p)$, for all polynomials $L$ and $p$.
 
 The scheme of CKKS17 supports approximate addition and multiplication of encrypted messages together with a rescaling procedure, which truncates a ciphertext to a smaller modulus and rounds the plaintext; the bit length of the ciphertext modulus grows linearly with the depth of the evaluated circuit, and the precision lost is bounded by the depth, at most one bit more than in unencrypted floating-point arithmetic — [[CKKS17 - Homomorphic Encryption for Arithmetic of Approximate Numbers|CKKS17]]. Bootstrapping extends it from a leveled to a fully homomorphic scheme — [[CHKKS18 - Bootstrapping for Approximate Homomorphic Encryption|CHKKS18]].
 
 ### IND-CPA-D security
 
-The adversary also sees decryptions of ciphertexts whose plaintexts it already knows: those it had encrypted, and evaluations on them of circuits it chose. Below, the oracles keep a list of triples $(m^0_j, m^1_j, c_j)$; $\calE$ encrypts $m^b$ for a pair $(m^0, m^1)$, $\calH$ evaluates a circuit $f$ on listed ciphertexts and records $f$ applied to both message tracks, answering only when the composed computation from $\calE$'s outputs to the new entry has depth at most $L$ and every value on both tracks has $\ell_\infty$-norm at most $1$, and $\calD$ decrypts an entry only when its two tracks agree — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]].
+The adversary also sees decryptions of ciphertexts whose plaintexts it already knows: those it had encrypted, and evaluations on them of circuits it chose. Below, the oracles keep a list of triples $(m^0_j, m^1_j, c_j)$; $\calE$ encrypts $m^b$ for a pair $(m^0, m^1)$, $\calH$ evaluates a circuit $f$ on listed ciphertexts and records $f$ applied to both message tracks, answering only when the composed computation from $\calE$'s outputs to the new entry has depth at most $L$ and every value on both tracks has $\ell_\infty$-norm at most $1$, and $\calD$ decrypts an entry only when its two tracks agree, for at most $q$ queries, a bound fixed in advance and given to $\KeyGen$; the notion without a bound implies this one — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]].
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{cpa\text{-}d}}_{\HE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\pk, \sk) \gets \KeyGen(1^\secpar, 1^L, 1^p)$; $b \getsr \bits$; $j \gets 0$
+\State $(\pk, \sk) \gets \KeyGen(1^\secpar, 1^L, 1^p, 1^q)$; $b \getsr \bits$; $j \gets 0$
 \State $b' \gets \calA^{\calE, \calH, \calD}(1^\secpar, \pk)$
 \Return $[b' = b]$
 \end{algorithmic}
@@ -183,7 +183,7 @@ The adversary also sees decryptions of ciphertexts whose plaintexts it already k
 \algname{Oracle}
 \caption{$\calD(i)$}
 \begin{algorithmic}
-\If{$m^0_i \ne m^1_i$}
+\If{$m^0_i \ne m^1_i$ or $q$ queries were answered}
 \Return $\bot$
 \Comment{Only ciphertexts whose plaintext $\calA$ knows}
 \EndIf
@@ -192,7 +192,7 @@ The adversary also sees decryptions of ciphertexts whose plaintexts it already k
 \end{algorithm}
 ```
 
-An approximate HE scheme $\HE$ is **IND-CPA$^{\mathrm{D}}$-secure** if for all efficient $\calA$,
+An approximate HE scheme $\HE$ is **IND-CPA$^{\mathrm{D}}$-secure** if for all polynomials $L, p, q$ and all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{cpa\text{-}d}}_{\HE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{cpa\text{-}d}}_{\HE,\calA}(\secpar) = 1\right] - 1\right|
@@ -200,7 +200,7 @@ $$
 
 is negligible. The restriction on $\calD$ is necessary: decrypting an entry whose tracks differ reveals $b$.
 
-For approximate schemes IND-CPA does not capture security against passive adversaries: a passive attack on CKKS, running in expected polynomial time, recovers the secret key with high probability, and was carried out against the HEAAN, SEAL, HElib and PALISADE implementations — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]]. Adding to the output of decryption noise tailored to the worst-case error growth of the evaluated circuit turns any IND-CPA-secure approximate scheme into an IND-CPA$^{\mathrm{D}}$-secure one ([IND-CPA approximate HE ⇒ IND-CPA$^{\mathrm{D}}$ approximate HE](approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22)) — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]. For exact schemes the two notions coincide when decryption fails with negligible probability — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]], as [[CCPSS24 - Attacks Against the IND-CPA-D Security of Exact FHE Schemes|CCPSS24]] point out; implementations of exact schemes that allow a noticeable probability of decryption failure fall to efficient IND-CPA$^{\mathrm{D}}$ distinguishing and key-recovery attacks, among them the default BFV implementation of OpenFHE — [[CCPSS24 - Attacks Against the IND-CPA-D Security of Exact FHE Schemes|CCPSS24]]; concurrent work reports practical key recovery against BFV, BGV and TFHE in their basic form — [[CSBB24 - On the Practical CPA-D Security of exact and Threshold FHE Schemes and Libraries|CSBB24]].
+For approximate schemes IND-CPA does not capture security against passive adversaries: a passive attack on CKKS, running in expected polynomial time, recovers the secret key with high probability, and was carried out against the HEAAN, SEAL, HElib and PALISADE implementations — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]]. Adding to the output of decryption noise tailored to the worst-case error growth of the evaluated circuit turns any IND-CPA-secure approximate scheme into an IND-CPA$^{\mathrm{D}}$-secure one, for a number of decryption queries fixed in advance with the noise growing in it ([IND-CPA approximate HE ⇒ IND-CPA$^{\mathrm{D}}$ approximate HE](approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22)) — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]. For exact schemes the two notions coincide when decryption fails with negligible probability — [[LM21 - On the Security of Homomorphic Encryption on Approximate Numbers|LM21]], as [[CCPSS24 - Attacks Against the IND-CPA-D Security of Exact FHE Schemes|CCPSS24]] point out; implementations of exact schemes that allow a noticeable probability of decryption failure fall to efficient IND-CPA$^{\mathrm{D}}$ distinguishing and key-recovery attacks, among them the default BFV implementation of OpenFHE — [[CCPSS24 - Attacks Against the IND-CPA-D Security of Exact FHE Schemes|CCPSS24]]; concurrent work reports practical key recovery against BFV, BGV and TFHE in their basic form — [[CSBB24 - On the Practical CPA-D Security of exact and Threshold FHE Schemes and Libraries|CSBB24]].
 
 ## Rate-1 and compressible FHE
 
@@ -216,7 +216,7 @@ In **threshold FHE** the secret key is shared among $N$ parties: each holder of 
 
 ## Circuit privacy
 
-An HE scheme for $\calF$ is **circuit private** if an evaluated ciphertext reveals nothing about the evaluated function beyond its output and its size: there is an efficient $\Sim$ such that for all $f \in \calF$ and messages $m_1, \ldots, m_k$, the tuples $(\pk, \sk, c_1, \ldots, c_k, \Eval(\pk, f, c_1, \ldots, c_k))$ and $(\pk, \sk, c_1, \ldots, c_k, \Sim(1^\secpar, \pk, |f|, f(m_1, \ldots, m_k)))$ are computationally indistinguishable, for $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $c_i \gets \Enc(\pk, m_i)$. The distinguisher holds the secret key, as the party who decrypts does. The definition assumes honestly generated keys and ciphertexts; maliciously circuit-private FHE is meant to keep the evaluated function hidden even for malformed keys and ciphertexts, and is built from a scheme without circuit privacy by techniques akin to bootstrapping and conditional disclosure of secrets — [[OPP14 - Maliciously Circuit-Private FHE|OPP14]].
+An HE scheme for $\calF$ is **circuit private** if an evaluated ciphertext reveals nothing about the evaluated function beyond its output and its size: there is an efficient $\Sim$ such that for all $f \in \calF$ and messages $m_1, \ldots, m_k$, the tuples $(\pk, \sk, c_1, \ldots, c_k, \Eval(\pk, f, c_1, \ldots, c_k))$ and $(\pk, \sk, c_1, \ldots, c_k, \Sim(1^\secpar, \pk, c_1, \ldots, c_k, |f|, f(m_1, \ldots, m_k)))$ are computationally indistinguishable, for $(\pk, \sk) \gets \KeyGen(1^\secpar)$ and $c_i \gets \Enc(\pk, m_i)$. The distinguisher holds the secret key, as the party who decrypts does. The definition assumes honestly generated keys and ciphertexts; maliciously circuit-private FHE is meant to keep the evaluated function hidden even for malformed keys and ciphertexts, and is built from a scheme without circuit privacy by techniques akin to bootstrapping and conditional disclosure of secrets — [[OPP14 - Maliciously Circuit-Private FHE|OPP14]].
 
 ### Circuit-private HE for NC1
 
@@ -239,13 +239,13 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[ddh-to-partially-homomorphic-encryption-phe-elgamal85|DDH ⇒ Multiplicatively homomorphic encryption]]
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]]
 - [[no-he-to-szk-bl13|No reduction from NP to compact FHE]]
-- Bootstrapping publishes encryptions of the scheme's own secret-key bits — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]] — and every known FHE scheme from LWE requires the encryption scheme to be [[circular-security|circular secure]] — [[MV24 - SoK Learning with Errors, Circular Security, and Fully Homomorphic Encryption|MV24]]. Unless the counterexamples' assumptions fail, IND-CPA security does not give circular security by the identity map: for bit encryption under an extension of SXDH to multilinear groups ([[no-pke-cpa-security-to-bit-circular-security-rot13|Rot13]]), and for key cycles under LWE ([[no-pke-cpa-security-to-k-circular-security-ap16|AP16]]) or iO ([[no-pke-cpa-security-to-k-circular-security-krw15|KRW15]]).
+- Bootstrapping publishes encryptions of the scheme's own secret-key bits — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]] — and every known FHE scheme from LWE requires the encryption scheme to be [[circular-security|circular secure]] — [[MV24 - SoK Learning with Errors, Circular Security, and Fully Homomorphic Encryption|MV24]]. Unless the counterexamples' assumptions fail, IND-CPA security does not give circular security by the identity map: for bit encryption under an extension of SXDH to multilinear groups ([[no-pke-cpa-security-to-bit-circular-security-rot13|Rot13]]), and for key cycles under LWE with polynomial modulus-to-noise ratio ([[no-pke-cpa-security-to-k-circular-security-ap16|AP16]]) or iO ([[no-pke-cpa-security-to-k-circular-security-krw15|KRW15]]).
 - [[dcr-to-length-flexible-additively-homomorphic-encryption-dj01|DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)]]
 - [[polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16|LWE with polynomial ratio ⇒ Circuit-private HE for NC1]]
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
 - [[approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22|IND-CPA approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)]]
 
-<!-- BEGIN GENERATED participates-in b2e08ad6f108 -->
+<!-- BEGIN GENERATED participates-in 147fe84bedcc -->
 
 ## Participates in
 
@@ -276,7 +276,6 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]] (via [[homomorphic-encryption#compact-private-key-homomorphic-encryption|Compact private-key homomorphic encryption]])
 - [[somewhat-homomorphic-encryption-she-to-he-gen09|Bootstrappable SHE ⇒ Leveled FHE]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
 - [[somewhat-homomorphic-encryption-to-he|SHE ⇒ HE]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
-- [[strongly-homomorphic-encryption-to-he|Strongly homomorphic encryption ⇒ HE]] (via [[homomorphic-encryption#strongly-homomorphic-encryption|Strongly homomorphic encryption]])
 
 **Produces Homomorphic encryption**
 
@@ -303,7 +302,6 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
 - [[somewhat-homomorphic-encryption-she-to-he-gen09|Bootstrappable SHE ⇒ Leveled FHE]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[somewhat-homomorphic-encryption-to-he|SHE ⇒ HE]]
-- [[strongly-homomorphic-encryption-to-he|Strongly homomorphic encryption ⇒ HE]]
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[circular-security-and-lwe-to-he|LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
 
