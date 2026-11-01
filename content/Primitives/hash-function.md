@@ -202,7 +202,7 @@ Collision resistance implies target collision resistance — standard.
 
 - Whether one-way functions imply collision-resistant hash functions is open. No relativizing construction exists, even from one-way permutations ([[no-owp-to-crhf-sim98|No relativizing reduction from OWP to CRHF]]) — [[Sim98 - Finding Collisions on a One-Way Street Can Secure Hash Functions Be Based on General Assumptions|Sim98]].
 
-<!-- BEGIN GENERATED participates-in e14b247f589c -->
+<!-- BEGIN GENERATED participates-in 25765b703f7a -->
 
 ## Participates in
 
@@ -296,6 +296,7 @@ Collision resistance implies target collision resistance — standard.
 
 **Barriers**
 
+- [[no-crhf-to-szk-hardness-bd19|No fully-black-box reduction from CRHF to average-case-hard SZK]] (via [[hash-function#collision-resistance|Collision resistance]])
 - [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
 - [[no-hash-function-to-pke-gkm-00|No relativizing reduction from OWF to PKE]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
 - [[no-io-and-owf-to-owp-as16|No fully-black-box reduction from iO + OWF to domain-invariant OWP]] (via [[hash-function#preimage-resistance-one-wayness|Preimage resistance (one-wayness)]])
