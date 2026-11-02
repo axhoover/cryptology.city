@@ -80,7 +80,7 @@ A channel on which a party's message reaches every party, every party knowing th
 
 Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from a distribution that the protocol specifies, which may depend on $n$, $\secpar$ and the functionality but not on the inputs, and hands $r_i$ to $P_i$ privately; this is the preprocessing model. Random OT correlations — [[Bea95 - Precomputing Oblivious Transfer|Bea95]] — and multiplication triples, sharings of $a$, $b$ and $ab$ for uniform $a, b$, as consumed by the online phases of [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]] and [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]], are examples. Triples descend from Beaver's circuit randomization, in which the random gate values are prepared within a secret-sharing-based protocol rather than by a dealer — [[Bea91 - Efficient Multiparty Protocols Using Circuit Randomization|Bea91]].
 
-<!-- BEGIN GENERATED participates-in 4e7556673a54 -->
+<!-- BEGIN GENERATED participates-in 2feb61d52920 -->
 
 ## Participates in
 
@@ -96,7 +96,6 @@ Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)](secure-channels-to-honest-majority-t-lt-n-over-3-cdm00) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with abort and honest majority ($t < n/2$) (CGH+18)](secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)](secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88) (via [[interactive-protocol#secure-channels|Secure channels]])
-- [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Semi-homomorphic encryption + correlated randomness ⇒ MPC with preprocessing (BDOZ)]] (via [[interactive-protocol#correlated-randomness|Correlated randomness]])
 
 **Barriers**
 

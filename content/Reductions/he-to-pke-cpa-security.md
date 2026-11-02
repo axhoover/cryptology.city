@@ -23,4 +23,4 @@ Forgetting $\Eval$, a [[homomorphic-encryption|homomorphic encryption]] scheme $
 
 ## Notes
 
-- The identity map does not give IND-CCA2 security: no scheme with a non-trivial homomorphism is IND-CCA2-secure ([[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]]) — folklore; nor IND-CCA1 security in general, since a lunchtime attack recovers the key of Gentry's basic scheme — [[LMSV11 - On CCA-Secure Somewhat Homomorphic Encryption|LMSV11]].
+- The identity map does not give IND-CCA2 security: an HE scheme is not IND-CCA2-secure when inputs witnessing that a binary function in $\calF$ depends on both arguments can be computed from $\pk$, as for sums of messages ([[no-he-to-cca-security|No fixed-construction reduction from HE to IND-CCA2 Security]]) — folklore; nor IND-CCA1 security in general, since a lunchtime attack recovers the key of Gentry's basic scheme — [[LMSV11 - On CCA-Secure Somewhat Homomorphic Encryption|LMSV11]].

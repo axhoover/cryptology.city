@@ -187,7 +187,7 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 - 2PC from malicious OT by cut-and-choose over garbled circuits, with $O(1)$ OTs per input bit as its only public-key operations ([[malicious-ot-security-to-two-party-computation-lp07|malicious OT ⇒ 2PC]]) — [[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]].
 - Functions that a RAM computes in sublinear time have secure two-party computation in amortized sublinear time, by generic secure two-party computation run on top of an [[oblivious-ram|ORAM]] — [[GKK+12 - Secure Two-Party Computation in Sublinear (Amortized) Time|GKK+12]]
 
-<!-- BEGIN GENERATED participates-in bd67b992448e -->
+<!-- BEGIN GENERATED participates-in fc6c01975701 -->
 
 ## Participates in
 
@@ -248,7 +248,7 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) from linear secret sharing (Cramer–Damgård–Maurer)](secure-channels-to-honest-majority-t-lt-n-over-3-cdm00) (via [Honest majority ($t < n/3$)](secure-multi-party-computation#honest-majority-t--n3))
 - [Secure channels ⇒ MPC with abort and honest majority ($t < n/2$) (CGH+18)](secure-channels-to-honest-majority-with-abort-t-lt-n-over-2-cgh18) (via [Honest majority with abort ($t < n/2$)](secure-multi-party-computation#honest-majority-with-abort-t--n2))
 - [Secure channels ⇒ Semi-honest MPC with honest majority ($t < n/2$) (BGW)](secure-channels-to-semi-honest-honest-majority-t-lt-n-over-2-bgw88) (via [Semi-honest, honest majority ($t < n/2$)](secure-multi-party-computation#semi-honest-honest-majority-t--n2))
-- [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Semi-homomorphic encryption + correlated randomness ⇒ MPC with preprocessing (BDOZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
+- [[additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11|Semi-homomorphic encryption ⇒ MPC with preprocessing (BDOZ)]] (via [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]])
 - [[semi-honest-security-and-owf-to-mpc-gmw87|Semi-honest MPC + OWF ⇒ MPC (GMW compiler)]]
 - [[semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2|Semi-honest MPC ⇒ Semi-honest MPC with honest majority]] (via [Semi-honest, honest majority ($t < n/2$)](secure-multi-party-computation#semi-honest-honest-majority-t--n2))
 - [[semi-honest-security-to-semi-honest-two-party-computation|Semi-honest MPC ⇒ Semi-honest 2PC]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])

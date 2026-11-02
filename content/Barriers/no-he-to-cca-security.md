@@ -21,11 +21,11 @@ rationale:
 
 ## Statement
 
-The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: no HE scheme is IND-CCA2-secure, since its class $\calF$ contains a binary $f$ that depends on both arguments, and $\Eval$ applied to the challenge ciphertext and a fresh encryption gives an admissible decryption query that reveals the challenge bit — folklore.
+The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: an HE scheme is not IND-CCA2-secure when inputs witnessing that a binary $f \in \calF$ depends on both arguments can be computed from $\pk$, as for sums of messages, since $\Eval$ for $f$ applied to the challenge ciphertext and a fresh encryption gives an admissible decryption query that reveals the challenge bit — folklore.
 
 ## Sketch
 
-Since $f$ depends on its second argument, there are $x$ and $w$ with $f(x, w) \ne x$; since it depends on its first, there are $z$ and $m_0$ with $f(m_0, z) \ne f(x, z)$. Set $m_1 := x$. On challenge $c^*$, $\calA$ computes $c' \gets \Eval(\pk, f, c^*, \Enc(\pk, z))$ and outputs $0$ if $c' = c^*$; otherwise the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b, z)$, which determines $b$. When $b = 1$, $c' = c^*$ has negligible probability: with $w$ in place of $z$ it would contradict correctness, as $f(m_1, w) \ne m_1$, and a CPA adversary that encrypts $m_1$ itself and tests $\Eval(\pk, f, c^*, c) = c^*$ on its challenge $c$, an encryption of $z$ or of $w$, bounds the difference.
+The inputs are $x, w, z, m_0$ with $f(x, w) \ne x$ and $f(m_0, z) \ne f(x, z)$; they exist since $f$ depends on its second and on its first argument, and for the sum in $\ZZ_M$ one may take $x = z = 0$ and $w = m_0 = 1$. Set $m_1 := x$. On challenge $c^*$, $\calA$ computes $c' \gets \Eval(\pk, f, c^*, \Enc(\pk, z))$ and outputs $0$ if $c' = c^*$; otherwise the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b, z)$, which determines $b$. When $b = 1$, $c' = c^*$ has negligible probability: with $w$ in place of $z$ it would contradict correctness, as $f(m_1, w) \ne m_1$, and a CPA adversary that computes the same inputs, encrypts $m_1$ itself and tests $\Eval(\pk, f, c^*, c) = c^*$ on its challenge $c$, an encryption of $z$ or of $w$, bounds the difference.
 
 ## Notes
 
