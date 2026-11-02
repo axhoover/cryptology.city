@@ -329,3 +329,29 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     "Estimate runs in polynomial time",
   );
 });
+
+test("leveled-FHE edges run KeyGen at a depth bound polynomial in the security parameter", () => {
+  // The leveled node guarantees correctness and IND-CPA security only for
+  // depth bounds polynomial in the security parameter; L = O(log n) is not.
+  const leveled = manifest.reductions.filter((r: any) =>
+    r.hypotheses.includes("leveled-fully-homomorphic-encryption"),
+  );
+  const page = (id: string) => {
+    const r = leveled.find((x: any) => x.id === id);
+    assert.ok(r, `${id} is in the manifest`);
+    return fs
+      .readFileSync(path.join(ROOT, r.page), "utf8")
+      .split("<!-- BEGIN GENERATED")[0];
+  };
+  const pir = page("red-leveled-fully-homomorphic-encryption-to-polylog-cpir");
+  assert.match(
+    pir,
+    /\\KeyGen\(1\^\{\\secpar'\}, 1\^L\)\$ at security parameter \$\\secpar' = \\max\(\\secpar, \\lceil \\log n \\rceil\)\$ and depth bound \$L = c \\secpar'\$/,
+    "the PIR edge runs KeyGen at λ' = max(λ, ⌈log n⌉) with L = cλ'",
+  );
+  assert.doesNotMatch(
+    pir,
+    /L = O\(\\log n\)|L = c \\log n/,
+    "the PIR edge's depth bound is not O(log n)",
+  );
+});
