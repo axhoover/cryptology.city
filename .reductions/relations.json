@@ -22977,7 +22977,7 @@
    ],
    "rationale": {
     "class": "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme.",
-    "strength": "The appended-bit counterexample modifies an existing HE scheme with two distinct messages of equal length; without one, the identity-map implication holds vacuously, as for BDPR98's CCA1 to CCA2 barrier."
+    "strength": "The appended-bit counterexample modifies an existing HE scheme with two distinct messages of equal length, so it assumes one exists; without one, every admissible IND-CCA2 challenge has m_0 = m_1, so every HE scheme is IND-CCA2-secure and the identity-map implication holds."
    },
    "status": "draft",
    "page": "content/Barriers/no-he-to-cca-security.md",
