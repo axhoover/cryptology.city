@@ -145,6 +145,7 @@ export const customMacros: Record<string, string> = {
   "\\OT": "\\mathsf{OT}",
   "\\SKE": "\\mathsf{SKE}",
   "\\PKE": "\\mathsf{PKE}",
+  "\\HE": "\\mathsf{HE}",
   "\\DS": "\\mathsf{DS}",
   "\\MAC": "\\mathsf{MAC}",
   "\\PIR": "\\mathsf{PIR}",

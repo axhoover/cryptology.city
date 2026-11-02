@@ -50,7 +50,7 @@ $$
 
 where $\Pi(x) = 1$ if $x \in \Pi_Y$ and $\Pi(x) = 0$ if $x \in \Pi_N$, and the probability is also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in 841af55c5268 -->
+<!-- BEGIN GENERATED participates-in b6773ec53262 -->
 
 ## Participates in
 
@@ -77,6 +77,7 @@ where $\Pi(x) = 1$ if $x \in \Pi_Y$ and $\Pi(x) = 0$ if $x \in \Pi_N$, and the p
 
 **Barriers**
 
+- [[no-crhf-to-szk-hardness-bd19|No fully-black-box reduction from CRHF to average-case-hard SZK]] (via [[statistical-zero-knowledge#average-case-hardness|Average-case hardness]])
 - [[no-io-and-owp-to-szk-hardness-bdv17|No fully-black-box reduction from iO + OWP to average-case-hard SZK]] (via [[statistical-zero-knowledge#average-case-hardness|Average-case hardness]])
 
 <!-- END GENERATED participates-in -->

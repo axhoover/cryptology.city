@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in a76641409029 -->
+<!-- BEGIN GENERATED participates-in 7dcf194ef433 -->
 
 ## Participates in
 
@@ -161,6 +161,7 @@ TODO
 
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[circuit-private-he-nc1-to-pke-cpa-security|Circuit-private HE for NC1 ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#semantic-security|Semantic security]])
 - [[dcr-safe-primes-to-pke-cca2-security-cs02|DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
@@ -169,6 +170,7 @@ TODO
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
+- [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
 - [[ind-cpa-kem-and-ske-to-pke-cpa-security|IND-CPA KEM + SKE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
@@ -190,6 +192,9 @@ TODO
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
+- [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
+- [[somewhat-homomorphic-encryption-to-pke-cpa-security|SHE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
@@ -201,6 +206,9 @@ TODO
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
+- [[no-pke-cpa-security-to-bit-circular-security-rot13|No fixed-construction reduction from IND-CPA security to circular security of bit encryption]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-k-circular-security-ap16|No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-cpa-security-to-k-circular-security-krw15|No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]

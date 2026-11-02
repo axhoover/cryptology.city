@@ -404,6 +404,32 @@
    "unlisted": false
   },
   {
+   "id": "approximate-he-ind-cpa-d",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#ind-cpa-d-security",
+   "of": "he",
+   "title": "IND-CPA-D security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "approximate-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#approximate-homomorphic-encryption",
+   "of": "he",
+   "title": "Approximate homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "arithmetization",
    "kind": "object",
    "type": "glossary",
@@ -667,6 +693,19 @@
    "unlisted": true
   },
   {
+   "id": "bit-circular-security",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#circular-security-of-bit-encryption",
+   "of": "circular-security",
+   "title": "Circular security of bit encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "black-box-separation",
    "kind": "object",
    "type": "glossary",
@@ -845,6 +884,19 @@
    "unlisted": false
   },
   {
+   "id": "circuit-private-he-nc1",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#circuit-private-he-for-nc1",
+   "of": "he",
+   "title": "Circuit-private HE for NC1",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "circular-evasive-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -892,9 +944,23 @@
    "graphSlug": "Assumptions/circular-security",
    "title": "Circular security",
    "aliases": [
-    "Circular security"
+    "Circular security",
+    "Key-cycle security"
    ],
-   "unlisted": true
+   "unlisted": false
+  },
+  {
+   "id": "circular-security-key-cycles",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#key-cycles-of-every-length",
+   "of": "circular-security",
+   "title": "Key cycles of every length",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "claw-free-permutations",
@@ -4757,6 +4823,19 @@
    "unlisted": false
   },
   {
+   "id": "secret-key-bit-circular-security",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/circular-security.md",
+   "slug": "circular-security",
+   "graphSlug": "Assumptions/circular-security",
+   "anchor": "#symmetric-key-bit-encryption",
+   "of": "circular-security",
+   "title": "Symmetric-key bit encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "secret-key-pir",
    "kind": "variant",
    "type": "primitive",
@@ -4766,6 +4845,19 @@
    "anchor": "#secret-key-pir-sk-pir",
    "of": "cpir",
    "title": "Secret-Key PIR (SK-PIR)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "secret-key-xor-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#compact-private-key-homomorphic-encryption",
+   "of": "he",
+   "title": "Compact private-key homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -4792,6 +4884,19 @@
    "anchor": "#semantic-security",
    "of": "pke",
    "title": "Semantic security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "semi-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#semi-homomorphic-encryption",
+   "of": "he",
+   "title": "Semi-homomorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -5129,6 +5234,19 @@
    "anchor": "#decisional-variant-ssddh",
    "of": "sidh",
    "title": "Decisional variant (SSDDH)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statically-approximate-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#statically-approximate-he",
+   "of": "he",
+   "title": "Statically approximate HE",
    "aliases": [],
    "unlisted": false
   },
@@ -6367,28 +6485,31 @@
    "title": "Additively homomorphic encryption ⇒ CRHF"
   },
   {
-   "id": "red-additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "id": "red-additively-homomorphic-encryption-to-he",
    "kind": "implication",
    "hypotheses": [
     "additively-homomorphic-encryption"
    ],
-   "conclusion": "mpc-with-preprocessing",
-   "class": "unstated",
+   "conclusion": "he",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
    ],
    "source": [
-    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
+    "folklore"
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "",
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction iterates the scheme's binary Eval, and the reduction forwards any IND-CPA adversary unchanged."
+   },
    "status": "draft",
-   "page": "content/Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11.md",
-   "slug": "additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
-   "graphSlug": "Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
-   "title": "Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
+   "page": "content/Reductions/additively-homomorphic-encryption-to-he.md",
+   "slug": "additively-homomorphic-encryption-to-he",
+   "graphSlug": "Reductions/additively-homomorphic-encryption-to-he",
+   "title": "Additively homomorphic encryption ⇒ HE"
   },
   {
    "id": "red-adversarial-pp-hiding-commitment-to-com",
@@ -7217,6 +7338,33 @@
    "title": "BLS signatures ⇒ DS"
   },
   {
+   "id": "red-bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "bootstrappable-somewhat-homomorphic-encryption"
+   ],
+   "conclusion": "somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption.md",
+   "slug": "bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "graphSlug": "Reductions/bootstrappable-somewhat-homomorphic-encryption-to-somewhat-homomorphic-encryption",
+   "title": "Bootstrappable SHE ⇒ SHE"
+  },
+  {
    "id": "red-bpp-to-am-gs86",
    "kind": "inclusion",
    "hypotheses": [
@@ -7581,6 +7729,33 @@
    "slug": "cdh-to-uc-ot-dghmw20",
    "graphSlug": "Reductions/cdh-to-uc-ot-dghmw20",
    "title": "CDH ⇒ Two-round UC-secure OT (DGHMW)"
+  },
+  {
+   "id": "red-circuit-private-he-nc1-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "circuit-private-he-nc1"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/circuit-private-he-nc1-to-pke-cpa-security.md",
+   "slug": "circuit-private-he-nc1-to-pke-cpa-security",
+   "graphSlug": "Reductions/circuit-private-he-nc1-to-pke-cpa-security",
+   "title": "Circuit-private HE for NC1 ⇒ IND-CPA PKE"
   },
   {
    "id": "red-circular-secure-bootstrappable-she-to-bootstrappable-somewhat-homomorphic-encryption",
@@ -8853,6 +9028,30 @@
    "slug": "dcr-to-highly-lossy-trapdoor-function-fgkrs10",
    "graphSlug": "Reductions/dcr-to-highly-lossy-trapdoor-function-fgkrs10",
    "title": "DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)"
+  },
+  {
+   "id": "red-dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr"
+   ],
+   "conclusion": "length-flexible-additively-homomorphic-encryption",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[DJ01 - A Generalisation, a Simplification and Some Applications of Paillier's Probabilistic Public-Key System|DJ01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dcr-to-length-flexible-additively-homomorphic-encryption-dj01.md",
+   "slug": "dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "graphSlug": "Reductions/dcr-to-length-flexible-additively-homomorphic-encryption-dj01",
+   "title": "DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)"
   },
   {
    "id": "red-dcr-to-partially-homomorphic-encryption-phe-pai99",
@@ -11855,6 +12054,33 @@
    "title": "FHE ⇒ cPIR"
   },
   {
+   "id": "red-he-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "he"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/he-to-pke-cpa-security.md",
+   "slug": "he-to-pke-cpa-security",
+   "graphSlug": "Reductions/he-to-pke-cpa-security",
+   "title": "HE ⇒ IND-CPA PKE"
+  },
+  {
    "id": "red-he-to-re-bl13",
    "kind": "implication",
    "hypotheses": [
@@ -13161,6 +13387,33 @@
    "slug": "length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
    "graphSlug": "Reductions/length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05",
    "title": "Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)"
+  },
+  {
+   "id": "red-leveled-fully-homomorphic-encryption-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "leveled-fully-homomorphic-encryption"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the leveled scheme with its depth bound fixed to the security parameter, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/leveled-fully-homomorphic-encryption-to-he.md",
+   "slug": "leveled-fully-homomorphic-encryption-to-he",
+   "graphSlug": "Reductions/leveled-fully-homomorphic-encryption-to-he",
+   "title": "Leveled FHE ⇒ HE"
   },
   {
    "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
@@ -14497,6 +14750,33 @@
    "slug": "multilinear-maps-to-witness-encryption-ggsw13",
    "graphSlug": "Reductions/multilinear-maps-to-witness-encryption-ggsw13",
    "title": "Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)"
+  },
+  {
+   "id": "red-multiplicatively-homomorphic-encryption-to-he",
+   "kind": "implication",
+   "hypotheses": [
+    "multiplicatively-homomorphic-encryption"
+   ],
+   "conclusion": "he",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction iterates the scheme's binary Eval, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/multiplicatively-homomorphic-encryption-to-he.md",
+   "slug": "multiplicatively-homomorphic-encryption-to-he",
+   "graphSlug": "Reductions/multiplicatively-homomorphic-encryption-to-he",
+   "title": "Multiplicatively homomorphic encryption ⇒ HE"
   },
   {
    "id": "red-nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np",
@@ -16658,6 +16938,30 @@
    "slug": "polynomial-ratio-lwe-to-barg-for-np-cjj21",
    "graphSlug": "Reductions/polynomial-ratio-lwe-to-barg-for-np-cjj21",
    "title": "LWE with polynomial ratio ⇒ BARG for NP"
+  },
+  {
+   "id": "red-polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "kind": "implication",
+   "hypotheses": [
+    "polynomial-ratio-lwe"
+   ],
+   "conclusion": "circuit-private-he-nc1",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BdPMW16 - FHE Circuit Privacy Almost for Free|BdPMW16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16.md",
+   "slug": "polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "graphSlug": "Reductions/polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16",
+   "title": "LWE with polynomial ratio ⇒ Circuit-private HE for NC1"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-lwe",
@@ -18902,6 +19206,57 @@
    "title": "Search LWE ⇒ Decision LWE"
   },
   {
+   "id": "red-secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "kind": "implication",
+   "hypotheses": [
+    "secret-key-xor-homomorphic-encryption"
+   ],
+   "conclusion": "pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Rot11 - Homomorphic Encryption From Private-Key to Public-Key|Rot11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/secret-key-xor-homomorphic-encryption-to-pke-rot11.md",
+   "slug": "secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "graphSlug": "Reductions/secret-key-xor-homomorphic-encryption-to-pke-rot11",
+   "title": "Compact private-key XOR-homomorphic encryption ⇒ PKE"
+  },
+  {
+   "id": "red-semi-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-homomorphic-encryption"
+   ],
+   "conclusion": "mpc-with-preprocessing",
+   "class": "unstated",
+   "model": "other",
+   "models": [
+    "other"
+   ],
+   "source": [
+    "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol is proved in the registered public-key model, a trusted setup in which all public keys are known and corrupted parties know their own secret keys, which is none of the named models."
+   },
+   "status": "draft",
+   "page": "content/Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11.md",
+   "slug": "additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "graphSlug": "Reductions/additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
+   "title": "Semi-homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
+  },
+  {
    "id": "red-semi-honest-security-and-owf-to-mpc-gmw87",
    "kind": "implication",
    "hypotheses": [
@@ -19361,6 +19716,33 @@
    "title": "Bootstrappable SHE ⇒ Leveled FHE"
   },
   {
+   "id": "red-somewhat-homomorphic-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "somewhat-homomorphic-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/somewhat-homomorphic-encryption-to-pke-cpa-security.md",
+   "slug": "somewhat-homomorphic-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/somewhat-homomorphic-encryption-to-pke-cpa-security",
+   "title": "SHE ⇒ IND-CPA PKE"
+  },
+  {
    "id": "red-sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg",
    "kind": "implication",
    "hypotheses": [
@@ -19437,6 +19819,57 @@
    "slug": "ss-to-it-pir-cgks98",
    "graphSlug": "Reductions/ss-to-it-pir-cgks98",
    "title": "Linear SS ⇒ IT-PIR"
+  },
+  {
+   "id": "red-statically-approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "kind": "implication",
+   "hypotheses": [
+    "statically-approximate-homomorphic-encryption"
+   ],
+   "conclusion": "approximate-he-ind-cpa-d",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22.md",
+   "slug": "approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "graphSlug": "Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "title": "IND-CPA statically approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)"
+  },
+  {
+   "id": "red-statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "statically-approximate-homomorphic-encryption"
+   ],
+   "conclusion": "approximate-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption.md",
+   "slug": "statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "graphSlug": "Reductions/statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "title": "Statically approximate HE ⇒ Approximate HE"
   },
   {
    "id": "red-statistical-difference-to-szk-sv03",
@@ -19625,6 +20058,33 @@
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
    "title": "sPRP ⇒ PRP"
+  },
+  {
+   "id": "red-strongly-homomorphic-encryption-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "strongly-homomorphic-encryption"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the scheme's own key generation, encryption and decryption, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strongly-homomorphic-encryption-to-pke-cpa-security.md",
+   "slug": "strongly-homomorphic-encryption-to-pke-cpa-security",
+   "graphSlug": "Reductions/strongly-homomorphic-encryption-to-pke-cpa-security",
+   "title": "Strongly homomorphic encryption ⇒ IND-CPA PKE"
   },
   {
    "id": "red-structure-preserving-signature-to-ds",
@@ -22255,6 +22715,66 @@
    "title": "No fixed-construction reduction from CPA Security to IND$-CPA Security"
   },
   {
+   "id": "bar-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "hypotheses": [
+    "cpa-security"
+   ],
+   "conclusion": "secret-key-bit-circular-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "lwe"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[GKW17a - Separating Semantic and Circular Security for Symmetric-Key Bit Encryption from the Learning with Errors Assumption|GKW17a]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (semantic security of a symmetric-key bit-encryption scheme implying its own circular security) and does not rule out another construction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-cpa-security-to-secret-key-bit-circular-security-gkw17a.md",
+   "slug": "no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "graphSlug": "Barriers/no-cpa-security-to-secret-key-bit-circular-security-gkw17a",
+   "title": "No fixed-construction reduction from CPA security to circular security of symmetric-key bit encryption"
+  },
+  {
+   "id": "bar-crhf-to-szk-hardness-bd19",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "szk-hardness",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BD19 - On the Complexity of Collision Resistant Hash Functions New and Old Black-Box Separations|BD19]]"
+   ],
+   "rationale": {
+    "class": "BD19 rule out black-box constructions of hard problems in SZK from collision-resistant hashing, and fully-black-box, the narrowest class, is the weakest claim that covers them."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-crhf-to-szk-hardness-bd19.md",
+   "slug": "no-crhf-to-szk-hardness-bd19",
+   "graphSlug": "Barriers/no-crhf-to-szk-hardness-bd19",
+   "title": "No fully-black-box reduction from CRHF to average-case-hard SZK"
+  },
+  {
    "id": "bar-ddh-to-ibe-prv12",
    "hypotheses": [
     "ddh"
@@ -22487,14 +23007,17 @@
      "class": "fixed-construction"
     }
    ],
-   "strength": "unconditional",
-   "conditionalOn": [],
+   "strength": "conditional",
+   "conditionalOn": [
+    "he"
+   ],
    "circumventedBy": [],
    "source": [
     "folklore"
    ],
    "rationale": {
-    "class": "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
+    "class": "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme.",
+    "strength": "The appended-bit counterexample modifies an existing HE scheme with two distinct messages of equal length, so it assumes one exists; without one, every admissible IND-CCA2 challenge has m_0 = m_1, so every HE scheme is IND-CCA2-secure and the identity-map implication holds."
    },
    "status": "draft",
    "page": "content/Barriers/no-he-to-cca-security.md",
@@ -23573,6 +24096,102 @@
    "slug": "no-pke-cca1-security-to-pke-cca2-security-bdpr98",
    "graphSlug": "Barriers/no-pke-cca1-security-to-pke-cca2-security-bdpr98",
    "title": "No fixed-construction reduction from CCA1 security to CCA2 security"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-bit-circular-security-rot13",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "bit-circular-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "SXDH extended from bilinear to multilinear groups"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[Rot13 - On the Circular Security of Bit-Encryption|Rot13]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (IND-CPA security of a bit-encryption scheme implying circular security of the same scheme) and does not rule out building a circular-secure scheme from an IND-CPA-secure one by another construction.",
+    "strength": "The counterexample scheme is IND-CPA-secure only under the multilinear extension of SXDH, an assumption with no known candidate groups."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-bit-circular-security-rot13.md",
+   "slug": "no-pke-cpa-security-to-bit-circular-security-rot13",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-bit-circular-security-rot13",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security of bit encryption"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-circular-security-key-cycles-ap16",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "circular-security-key-cycles",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "polynomial-ratio-lwe"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[AP16 - Three's Compromised Too Circular Insecurity for Any Cycle Length from (Ring-)LWE|AP16]]"
+   ],
+   "rationale": {
+    "class": "The counterexamples refute the identity map (IND-CPA security of a scheme implying its own circular security) and do not rule out another construction."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-k-circular-security-ap16.md",
+   "slug": "no-pke-cpa-security-to-k-circular-security-ap16",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-k-circular-security-ap16",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)"
+  },
+  {
+   "id": "bar-pke-cpa-security-to-circular-security-key-cycles-krw15",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "circular-security-key-cycles",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "io",
+    "owf"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[KRW15 - Separations in Circular Security for Arbitrary Length Key Cycles|KRW15]]"
+   ],
+   "rationale": {
+    "class": "The counterexamples refute the identity map (IND-CPA security of a scheme implying its own circular security) and do not rule out another construction.",
+    "strength": "The counterexample schemes are built from indistinguishability obfuscation, and iO yields cryptography only together with one-way functions."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cpa-security-to-k-circular-security-krw15.md",
+   "slug": "no-pke-cpa-security-to-k-circular-security-krw15",
+   "graphSlug": "Barriers/no-pke-cpa-security-to-k-circular-security-krw15",
+   "title": "No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)"
   },
   {
    "id": "bar-pke-cpa-security-to-pke-cca1-security-bdpr98",
