@@ -66,4 +66,19 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     /Definition 11/,
     "the node cites LMSS22's Definition 11",
   );
+  assert.match(
+    section,
+    /deterministic \$\\Dec\$/,
+    "the node requires deterministic Dec",
+  );
+  assert.match(
+    section,
+    /r = r\(\\secpar, L, p\)/,
+    "the node names a public fresh radius",
+  );
+  assert.match(
+    section,
+    /are at most \$2\^\{-p\}\$/,
+    "Estimate's bounds along supported computations are at most 2^{-p}",
+  );
 });

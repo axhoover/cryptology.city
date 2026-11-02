@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Every IND-CPA-secure [[homomorphic-encryption#statically-approximate-he|statically approximate HE]] scheme, one with a public algorithm $\mathsf{Estimate}$ bounding the worst-case output error of each computation, can be transformed into one that is [IND-CPA$^{\mathrm{D}}$-secure](homomorphic-encryption#ind-cpa-d-security) for a number of decryption queries fixed in advance, by post-processing the output of decryption with a differential-privacy mechanism that adds noise scaled to $\mathsf{Estimate}$'s bound on the error of the homomorphic computation — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]] (Definition 11, Theorem 2). LMSS22 instantiate the mechanism for CKKS, adding Gaussian noise to the output of decryption — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]].
+Every IND-CPA-secure [[homomorphic-encryption#statically-approximate-he|statically approximate HE]] scheme can be transformed into one that is [IND-CPA$^{\mathrm{D}}$-secure](homomorphic-encryption#ind-cpa-d-security) for a number of decryption queries fixed in advance, by post-processing the output of decryption with a differential-privacy mechanism that adds noise scaled to $\mathsf{Estimate}$'s bound on the error of the homomorphic computation — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]] (Definition 11, Theorem 2). LMSS22 instantiate the mechanism for CKKS, adding Gaussian noise to the output of decryption — [[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]].
 
 ## Notes
 
