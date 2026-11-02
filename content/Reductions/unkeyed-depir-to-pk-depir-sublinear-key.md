@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is, unchanged, a [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|public-key DEPIR scheme with a sublinear key]]: its $\Setup$ outputs $k = \bot$, of length $0 = o(n)$, and with $k = \bot$ the public-key privacy game is the unkeyed one — folklore.
+Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is, unchanged, a [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|public-key DEPIR scheme with a sublinear key]]: its $\Setup$ outputs $k = \bot$, of length $0$, and with $k = \bot$ the public-key privacy game is the unkeyed one — folklore.

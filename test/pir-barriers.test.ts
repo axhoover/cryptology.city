@@ -146,7 +146,7 @@ test("HPY26's barrier concludes only PK-DEPIR with a public key of length o(n)",
   const section = page.slice(start, page.indexOf("\n### ", start));
   assert.match(
     section,
-    /length \$o\(n\)\$/,
-    "the variant bounds the key by o(n)",
+    /at most \$p\(\\secpar\) \\cdot n\^c\$/,
+    "the variant bounds the key by p(λ)·n^c, c < 1",
   );
 });

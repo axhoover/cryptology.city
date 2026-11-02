@@ -49,7 +49,7 @@ The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and i
 
 #### PK-DEPIR with a sublinear key
 
-A PK-DEPIR scheme has a **sublinear key** if, on $n$-bit databases, the key $k$ that $\Setup$ outputs has length $o(n)$. An unkeyed DEPIR scheme has one, since its key is $\bot$. HPY26's lower bound for public-key DEPIR is for this case and does not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
+A PK-DEPIR scheme has a **sublinear key** if, on $n$-bit databases, the key $k$ that $\Setup$ outputs has length at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, so fewer than $n$ bits once $n > p(\secpar)^{1/(1-c)}$. An unkeyed DEPIR scheme has one, since its key is $\bot$. HPY26's lower bound for public-key DEPIR is for public keys of length $o(n)$, which covers this case, and does not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 
 ### Secret-key DEPIR
 
