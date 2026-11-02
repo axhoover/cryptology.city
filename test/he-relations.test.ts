@@ -81,4 +81,20 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     /are at most \$2\^\{-p\}\$/,
     "Estimate's bounds along supported computations are at most 2^{-p}",
   );
+  assert.match(
+    section,
+    /one gate at a time/,
+    "the 2^{-p} clause is gate by gate",
+  );
+  assert.match(
+    section,
+    /m_k \\in \\calM/,
+    "Definition 11's messages lie in the message space",
+  );
+  const def11 = section.slice(0, section.indexOf("The variant recorded here"));
+  assert.doesNotMatch(
+    def11,
+    /on which every gate|depth at most \$L\$/,
+    "Definition 11's guarantee is not restricted to in-range computations",
+  );
 });
