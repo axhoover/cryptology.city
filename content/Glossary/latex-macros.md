@@ -174,6 +174,7 @@ All pseudocode and math on this site uses custom LaTeX macros for common cryptog
 | `\OT`   | $\OT$      |
 | `\SKE`  | $\SKE$     |
 | `\PKE`  | $\PKE$     |
+| `\HE`   | $\HE$      |
 | `\DS`   | $\DS$      |
 | `\MAC`  | $\MAC$     |
 | `\PIR`  | $\PIR$     |

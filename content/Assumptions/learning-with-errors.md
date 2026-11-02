@@ -363,7 +363,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in f46706f5fc7d -->
+<!-- BEGIN GENERATED participates-in e42bd368cf6d -->
 
 ## Participates in
 
@@ -391,6 +391,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-lwe-to-lwe-ls15|Module LWE (degree 1) ⇔ LWE]] (via [[learning-with-errors#degree-1-module-lwe|Degree-1 Module LWE]])
 - [[module-lwe-to-ring-lwe-ls15|Module LWE (rank 1) ⇔ Ring LWE]] (via [[learning-with-errors#rank-1-module-lwe|Rank-1 Module LWE]])
 - [[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[polynomial-ratio-lwe-to-circuit-private-he-nc1-bdpmw16|LWE with polynomial ratio ⇒ Circuit-private HE for NC1]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])

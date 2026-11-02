@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Any [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme — one able to compactly evaluate its own decryption circuit augmented by a NAND gate — that is [[homomorphic-encryption#circular-secure-bootstrappable-she|circular secure]], IND-CPA-secure given encryptions of its own secret-key bits, yields [[homomorphic-encryption#compact-fhe|compact FHE]] for circuits of arbitrary depth; without circular security, a chain of independent key pairs gives only [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
+Any [[homomorphic-encryption#bootstrappable-she|bootstrappable]] [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption (SHE)]] scheme — one able to compactly evaluate its own decryption circuit augmented by a NAND gate — that is [[homomorphic-encryption#circular-secure-bootstrappable-she|circular secure]], IND-CPA-secure given encryptions of its own secret-key bits and correct, for every key pair, on those key-dependent inputs, yields [[homomorphic-encryption#compact-fhe|compact FHE]] for circuits of arbitrary depth; without circular security, a chain of independent key pairs gives only [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] — [[Gen09 - Fully homomorphic encryption using ideal lattices|Gen09]].
 
 ## Sketch
 

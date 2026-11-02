@@ -52,7 +52,7 @@ DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where 
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
 
-<!-- BEGIN GENERATED participates-in 938370c8cfa4 -->
+<!-- BEGIN GENERATED participates-in f00ed18de8ed -->
 
 ## Participates in
 
@@ -67,6 +67,7 @@ DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where 
 - [[fac-to-dcr-pai99|DCR ⇒ FAC]]
 - [[dcr-to-four-round-mpc-bgj18|DCR ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)]]
 - [[dcr-to-highly-lossy-trapdoor-function-fgkrs10|DCR ⇒ Highly lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)]]
+- [[dcr-to-length-flexible-additively-homomorphic-encryption-dj01|DCR ⇒ Length-flexible additively homomorphic encryption (Damgård–Jurik)]]
 - [[dcr-to-partially-homomorphic-encryption-phe-pai99|DCR ⇒ Additively homomorphic encryption]]
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]

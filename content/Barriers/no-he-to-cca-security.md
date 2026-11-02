@@ -11,9 +11,11 @@ consequences:
   - kind: contradiction
     target: ""
     class: fixed-construction
-strength: unconditional
+strength: conditional
+conditional-on: [he]
 source: folklore
 rationale:
+  strength: "The appended-bit counterexample modifies an existing HE scheme with two distinct messages of equal length, so it assumes one exists; without one, every admissible IND-CCA2 challenge has m_0 = m_1, so every HE scheme is IND-CCA2-secure and the identity-map implication holds."
   class: "The attack refutes the identity map (IND-CCA2 security of the homomorphic scheme itself) and does not rule out building a separate IND-CCA2-secure scheme from an HE scheme."
 ---
 
@@ -21,13 +23,14 @@ rationale:
 
 ## Statement
 
-The identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: no HE scheme whose function class $\calF$ contains an $f$ that is neither constant nor the identity on $\calM$ (after fixing any further arguments of $f$ by fresh encryptions) is IND-CCA2-secure, since $\Eval$ turns the challenge ciphertext into an admissible decryption query that reveals the challenge bit — folklore.
+If an HE scheme with two distinct messages of equal length exists, the identity map does not turn [[homomorphic-encryption|HE]] into [[public-key-encryption#cca-security|IND-CCA2]]-secure PKE: appending the constant bit $0$ to every ciphertext that its $\Enc$ outputs, a bit that $\Dec$ ignores and that $\Eval$ strips from its inputs and sets to $0$ on its output, keeps it HE for the same class, with the same correctness and CPA advantage, while flipping that bit of the challenge ciphertext gives an admissible decryption query that returns the challenge plaintext — standard. Without any modification, an HE scheme is not IND-CCA2-secure when a binary $f \in \calF$ and inputs $x, w, z, m_0$ with $f(x, w) \ne x$, $f(m_0, z) \ne f(x, z)$, $|m_0| = |x|$ and $|z| = |w|$ can be computed from $\pk$ in polynomial time and the scheme decrypts correctly, except with negligible probability, on fresh and evaluated encryptions of inputs so computed (as under perfect correctness, or when $f$ and the inputs depend on $1^\secpar$ only), as for sums of messages, since $\Eval$ for $f$ applied to the challenge ciphertext and a fresh encryption gives, unless it returns the challenge ciphertext, an admissible decryption query that reveals the challenge bit — folklore.
 
 ## Sketch
 
-Pick $m_0, m_1$ with $f(m_0) \ne m_0$ and $f(m_1) \ne f(m_0)$, and on challenge $c^*$ compute $c' \gets \Eval(\pk, f, c^*)$. If $c' \ne c^*$, the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b)$, which determines $b$; if $c' = c^*$, correctness forces $f(m_b) = m_b$, so $b = 1$.
+The length conditions make both challenges below admissible, and such inputs exist, though they need not be computable from $\pk$, when $f$ depends on both arguments and all messages have one length; for the sum in $\ZZ_M$ one may take $x = z = 0$ and $w = m_0 = 1$. With $m_1 := x$ and challenge $c^*$, $\calA$ computes $c' \gets \Eval(\pk, f, c^*, \Enc(\pk, z))$ and outputs $0$ if $c' = c^*$; otherwise the Phase-2 query $\Dec(\sk, c')$ returns $f(m_b, z)$, which determines $b$. When $b = 1$, $c' = c^*$ has negligible probability: with $w$ in place of $z$ it would contradict correctness, as $f(m_1, w) \ne m_1$, and a CPA adversary that computes the same inputs, encrypts $m_1$ itself and tests $\Eval(\pk, f, c^*, c) = c^*$ on its challenge $c$, an encryption of $z$ or of $w$, bounds the difference.
 
 ## Notes
 
-- IND-CCA1-secure fully homomorphic encryption is constructed from multi-key identity-based FHE, from sub-exponentially secure [[indistinguishability-obfuscation|iO]], and from SNARKs — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].
+- The impossibility is stated as well known by [[LMSV11 - On CCA-Secure Somewhat Homomorphic Encryption|LMSV11]], for any scheme supporting any form of homomorphic operation.
+- IND-CCA1-secure fully homomorphic encryption follows generically from multi-key identity-based FHE, instantiated as a leveled scheme from sub-exponential LWE in the random oracle model, and from sub-exponentially secure [[indistinguishability-obfuscation|iO]] with sub-exponentially secure lossy encryption — [[CRRV17 - Chosen-Ciphertext Secure Fully Homomorphic Encryption|CRRV17]].
 - Targeted malleability confines a scheme's malleability to a declared set of allowable functions, giving a non-malleability guarantee alongside homomorphic evaluation — [[BSW12 - Targeted Malleability Homomorphic Encryption for Restricted Computations|BSW12]].

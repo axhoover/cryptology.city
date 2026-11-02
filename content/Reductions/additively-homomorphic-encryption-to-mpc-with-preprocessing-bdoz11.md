@@ -1,24 +1,26 @@
 ---
 type: reduction
 status: draft
-title: "Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
+title: "Semi-homomorphic encryption ⇒ MPC with preprocessing (BDOZ)"
 aliases: []
-id: red-additively-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11
+id: red-semi-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11
 kind: implication
-hypotheses: [additively-homomorphic-encryption]
+hypotheses: [semi-homomorphic-encryption]
 conclusion: mpc-with-preprocessing
 class: unstated
-model: standard
+model: other
 source:
   - "[[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]]"
 security-loss: ""
+rationale:
+  model: "The protocol is proved in the registered public-key model, a trusted setup in which all public keys are known and corrupted parties know their own secret keys, which is none of the named models."
 ---
 
-# Additively homomorphic encryption ⇒ MPC with preprocessing (BDOZ)
+# Semi-homomorphic encryption ⇒ MPC with preprocessing (BDOZ)
 
 ## Statement
 
-The preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]] can be instantiated from semi-homomorphic encryption, a relaxation of [[homomorphic-encryption#additively-homomorphic-encryption|additively homomorphic encryption]] that BDOZ11 introduce. The resulting protocol for arithmetic circuits is UC-secure against an active adversary corrupting up to $n-1$ of the $n$ parties, and its online phase uses only additive secret sharing and information-theoretic MACs — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
+In the registered public-key model, in which all parties' public keys are known and corrupted parties know their own secret keys, the preprocessing phase of [[secure-multi-party-computation#mpc-with-preprocessing|MPC with preprocessing]] can be instantiated from [[homomorphic-encryption#semi-homomorphic-encryption|semi-homomorphic encryption]], a relaxed notion BDOZ11 introduce. The resulting protocol for arithmetic circuits is UC-secure against an active adversary corrupting up to $n-1$ of the $n$ parties, and its online phase uses only additive secret sharing and information-theoretic MACs — [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]].
 
 ## Sketch
 
