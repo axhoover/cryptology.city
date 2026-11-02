@@ -80,13 +80,44 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   // overflows, so the edge runs Algorithm 2 one gate at a time.
   assert.match(
     edgePage,
-    /Applied with \$\\Eval\$ called on one addition or multiplication at a time, every tag is one of the bounds the hypothesis caps at \$2\^\{-p\}\$/,
+    /Applied with \$\\Eval\$ called on one addition or multiplication at a time, with the original scheme run at a precision \$p' > p\$, every tag of a computation of depth at most \$L\$ is \$t_e\$ or one of the bounds the hypothesis caps, all at most \$2\^\{-p'\}\$/,
     "the edge's tags are the node's gate-by-gate bounds",
   );
   assert.match(
     edgePage,
     /tags each fresh ciphertext with the bound \$t_e\$/,
     "the edge tags fresh ciphertexts with t_e",
+  );
+  // LMSS22 give the advantage bound; correctness and the gate-by-gate step
+  // are folklore, flagged as such.
+  assert.match(
+    edgePage,
+    /polynomial length — folklore\./,
+    "the gate-by-gate correctness step is flagged as folklore",
+  );
+  assert.match(
+    edgePage,
+    /tag plus the added noise to stay below \$2\^\{-p\}\$/,
+    "correctness bounds the tag plus the noise",
+  );
+  assert.match(
+    edgePage,
+    /\$\\mathsf\{Estimate\}\$'s bound computed from its circuit and the tags of its inputs/,
+    "the edge's Estimate sees only the circuit and the input tags",
+  );
+  // The HE page's restatement credits LMSS22 with the advantage bound only.
+  const restatement = page
+    .split(/(?<=\.)\s+/)
+    .find((x) =>
+      x.includes(
+        "(approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22)",
+      ),
+    );
+  assert.ok(restatement, "the HE page restates the LMSS22 edge");
+  assert.match(
+    restatement!,
+    /one gate at a time[^.]*— folklore\./,
+    "the HE page flags the gate-by-gate step as folklore",
   );
   assert.match(section, /\\mathsf\{Estimate\}/, "the node names Estimate");
   assert.match(
@@ -126,12 +157,27 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   assert.match(section, /Definition 15/, "the node cites Definition 15");
   assert.match(
     section,
+    /given only a circuit and error bounds for its inputs/,
+    "Estimate is given only the circuit and the input radii",
+  );
+  assert.match(
+    section,
+    /\$\\mathsf\{Estimate\}\$ sees neither \$\\pk\$ nor the ciphertexts/,
+    "Estimate sees neither pk nor the ciphertexts",
+  );
+  assert.match(
+    section,
+    /requires that \$t_e\$ and, for every circuit of depth at most \$L\$/,
+    "t_e is also capped at 2^{-p}",
+  );
+  assert.match(
+    section,
     /bounds the worst-case output error compositionally: for every \$\(\\pk, \\sk\)\$ output by \$\\KeyGen\(1\^\\secpar, 1\^L, 1\^p\)\$, every circuit/,
     "Definition 11's guarantee holds for every key pair",
   );
   const fresh = section.slice(
     section.indexOf("A public bound $t_e"),
-    section.indexOf("(Definition 15)"),
+    section.indexOf("The variant recorded here"),
   );
   assert.match(
     fresh,
@@ -140,7 +186,7 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   );
   assert.doesNotMatch(
     fresh,
-    /probability|\\negl|overwhelming|almost all/,
+    /probability|\\negl|negligible|overwhelming|almost all|all but/,
     "the fresh bound is universal",
   );
   // The tags Algorithm 2 attaches must keep ciphertexts compact and the
