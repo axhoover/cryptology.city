@@ -3924,6 +3924,19 @@
    "unlisted": false
   },
   {
+   "id": "passive-sk-depir-independent-key",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/doubly-efficient-pir.md",
+   "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
+   "anchor": "#passive-server-sk-depir-with-a-database-independent-key",
+   "of": "depir",
+   "title": "Passive-server SK-DEPIR with a database-independent key",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "payload-hiding-ippe",
    "kind": "variant",
    "type": "primitive",
@@ -16163,6 +16176,33 @@
    "title": "Additively homomorphic encryption + Sparse LPN ⇒ SHE"
   },
   {
+   "id": "red-passive-sk-depir-independent-key-to-passive-sk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "passive-sk-depir-independent-key"
+   ],
+   "conclusion": "passive-sk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, with Setup run as KeyGen followed by Prep, and the reduction forwards any secret-key privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/passive-sk-depir-independent-key-to-passive-sk-depir.md",
+   "slug": "passive-sk-depir-independent-key-to-passive-sk-depir",
+   "graphSlug": "Reductions/passive-sk-depir-independent-key-to-passive-sk-depir",
+   "title": "Passive-server SK-DEPIR with a database-independent key ⇒ Passive-server SK-DEPIR"
+  },
+  {
    "id": "red-passive-sk-depir-to-sk-depir",
    "kind": "implication",
    "hypotheses": [
@@ -23583,7 +23623,7 @@
    "hypotheses": [
     "owf"
    ],
-   "conclusion": "passive-sk-depir",
+   "conclusion": "passive-sk-depir-independent-key",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -23605,7 +23645,7 @@
    "page": "content/Barriers/no-owf-to-passive-sk-depir-lmw25.md",
    "slug": "no-owf-to-passive-sk-depir-lmw25",
    "graphSlug": "Barriers/no-owf-to-passive-sk-depir-lmw25",
-   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR"
+   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR with a database-independent key"
   },
   {
    "id": "bar-owp-to-crhf-sim98",

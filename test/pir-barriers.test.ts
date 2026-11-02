@@ -198,3 +198,90 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
   }
   assert.ok(restatements >= 3, "the three HPY26 restatements are found");
 });
+
+test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-independent key", () => {
+  // LMW25 (Definition 2.1) sample the client key by KeyGen(1^λ) before
+  // Prep(1^λ, k, DB) encodes the database. Without that, Setup can output
+  // k = DB and an empty EDB, Qry(k, i) the empty list of positions and the
+  // hint k[i], and Fin the hint: a perfectly correct, perfectly private
+  // passive-server scheme from no assumption, which no barrier may rule out.
+  const lmw25 = manifest.barriers.filter((b: any) =>
+    b.source.some((s: string) => s.includes("|LMW25]]")),
+  );
+  assert.ok(lmw25.length >= 1, "the LMW25 barrier is in the manifest");
+  for (const b of lmw25) {
+    assert.strictEqual(b.conclusion, "passive-sk-depir-independent-key", b.id);
+    const { title, statement } = titleAndStatement(b.page);
+    assert.match(title, /database-independent key/, `${b.id} title`);
+    assert.match(statement, /Definition 2\.1/, `${b.id} Statement`);
+    assert.match(
+      statement,
+      /\$\\KeyGen\(1\^\\secpar\)\$ before the database is encoded/,
+      `${b.id} Statement names the database-independent KeyGen`,
+    );
+  }
+
+  // The k = DB scheme is a plain passive-server SK-DEPIR; nothing derives the
+  // variant from that node or from SK-DEPIR.
+  const reductions = manifest.reductions.concat(
+    manifest.hybridReductions ?? [],
+  );
+  for (const seed of ["passive-sk-depir", "sk-depir"])
+    assert.ok(
+      !closure(reductions, [seed], { relativizes }).scopes.has(
+        "passive-sk-depir-independent-key",
+      ),
+      `${seed} must not derive the database-independent-key variant`,
+    );
+
+  const page = fs.readFileSync(
+    path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
+    "utf8",
+  );
+  const start = page.indexOf(
+    "##### Passive-server SK-DEPIR with a database-independent key",
+  );
+  assert.ok(start >= 0, "the DEPIR page defines the variant");
+  const section = page.slice(start, page.indexOf("\n#", start + 1));
+  const keyGen =
+    /\$k \\gets \\KeyGen\(([^)]*)\)\$, without access to \$DB\$/.exec(section);
+  assert.ok(keyGen, "the variant samples k by KeyGen without access to DB");
+  assert.match(
+    section,
+    /\$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$/,
+    "the variant encodes the database by Prep(1^λ, k, DB)",
+  );
+  assert.match(
+    section,
+    /by \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
+    "the variant bounds query-time cost by p(λ)·n^c",
+  );
+
+  // Encode the k = DB, empty-query construction and run it under the
+  // variant's syntax, giving KeyGen exactly the inputs the page names.
+  const keyGenSeesDB = /DB/.test(keyGen![1]);
+  assert.ok(!keyGenSeesDB, "the variant's KeyGen takes no database");
+  const kdb = {
+    keyGen: (inputs: { DB?: number[] }) => inputs.DB ?? [],
+    qry: (k: number[], i: number) => ({ positions: [] as number[], h: k[i] }),
+    rsp: (positions: number[], edb: number[]) => positions.map((p) => edb[p]),
+    fin: (h: number | undefined, _r: number[]) => h,
+  };
+  const run = (DB: number[], i: number, keyGenGetsDB: boolean) => {
+    const k = kdb.keyGen(keyGenGetsDB ? { DB } : {});
+    const edb: number[] = [];
+    const { positions, h } = kdb.qry(k, i);
+    return kdb.fin(h, kdb.rsp(positions, edb));
+  };
+  // With a joint Setup that hands DB to key generation, the scheme is correct.
+  for (const DB of [[0], [1], [0, 1], [1, 0]])
+    DB.forEach((bit, i) => assert.strictEqual(run(DB, i, true), bit));
+  // Under the variant's syntax its answer cannot depend on DB, so it is wrong
+  // on one of two databases that differ at the queried index.
+  const correctOnBoth =
+    run([0], 0, keyGenSeesDB) === 0 && run([1], 0, keyGenSeesDB) === 1;
+  assert.ok(
+    !correctOnBoth,
+    "the k = DB, empty-query scheme is rejected by the barrier's conclusion",
+  );
+});
