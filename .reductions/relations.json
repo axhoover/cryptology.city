@@ -21718,33 +21718,6 @@
    "title": "Unkeyed DEPIR ⇒ PK-DEPIR"
   },
   {
-   "id": "red-unkeyed-depir-to-pk-depir-sublinear-key",
-   "kind": "implication",
-   "hypotheses": [
-    "unkeyed-depir"
-   ],
-   "conclusion": "pk-depir-sublinear-key",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none",
-   "rationale": {
-    "class": "The construction is the identity, and any public-key privacy adversary runs unchanged, as an oracle, as an unkeyed privacy adversary."
-   },
-   "status": "draft",
-   "page": "content/Reductions/unkeyed-depir-to-pk-depir-sublinear-key.md",
-   "slug": "unkeyed-depir-to-pk-depir-sublinear-key",
-   "graphSlug": "Reductions/unkeyed-depir-to-pk-depir-sublinear-key",
-   "title": "Unkeyed DEPIR ⇒ PK-DEPIR with a sublinear key"
-  },
-  {
    "id": "red-uowhf-and-ots-to-ds-ny89",
    "kind": "implication",
    "hypotheses": [

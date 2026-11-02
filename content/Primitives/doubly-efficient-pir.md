@@ -18,7 +18,7 @@ variants:
 
 # Doubly-efficient PIR
 
-Doubly efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and the computation at **query time** are at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, where $n$ is the size of the database; a bare $o(n)$ bound for each fixed $\secpar$ is met with no assumption by sending all of $DB$ whenever $n \le 2^\secpar$. The three main variants of DEPIR are: secret-key, public-key, and unkeyed. Any unkeyed DEPIR is trivially a PK-DEPIR, which is trivially an SK-DEPIR. Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
+Doubly efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and the computation at **query time** are $o(n)$, where $n$ is the size of the database. The three main variants of DEPIR are: secret-key, public-key, and unkeyed. Any unkeyed DEPIR is trivially a PK-DEPIR, which is trivially an SK-DEPIR. Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
 
 ## Syntax
 
@@ -49,7 +49,7 @@ The _privacy advantage_ of an adversary $\calA$ that outputs database $DB$ and i
 
 #### PK-DEPIR with a sublinear key
 
-A PK-DEPIR scheme has a **sublinear key** if, on $n$-bit databases, the key $k$ that $\Setup$ outputs has length at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, so fewer than $n$ bits once $n > p(\secpar)^{1/(1-c)}$. An unkeyed DEPIR scheme has one, since its key is $\bot$. HPY26's lower bound for public-key DEPIR is for public keys of length $o(n)$ and does not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]]. For each fixed $\secpar$, a key of at most $p(\secpar) \cdot n^c$ bits has length $o(n)$ in $n$.
+A PK-DEPIR scheme has a **sublinear key** if, on $n$-bit databases, the key $k$ that $\Setup$ outputs and the query-time communication and computation are each at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$, so below $n$ once $n > p(\secpar)^{1/(1-c)}$. HPY26's lower bound for public-key DEPIR is for public keys of length $o(n)$ and does not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 
 ### Secret-key DEPIR
 
@@ -106,7 +106,7 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 - [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]]
 - Secret-key DEPIR in which the server and the client each do polylogarithmic work per query after preprocessing follows from one-way functions for a bounded number of queries, with server storage linear in the number of queries plus the database size, and for an unbounded number from new assumptions related to the hardness of solving a system of noisy linear equations; a natural and general approach towards public preprocessing is doomed to fail — [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]]. HPY26 list CHR17 among the secret-key DEPIR schemes — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 
-<!-- BEGIN GENERATED participates-in ab3506034d6a -->
+<!-- BEGIN GENERATED participates-in e36181f0025e -->
 
 ## Participates in
 
@@ -117,7 +117,6 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 - [[pk-depir-sublinear-key-to-pk-depir|PK-DEPIR with a sublinear key ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|PK-DEPIR with a sublinear key]])
 - [[pk-depir-to-sk-depir|PK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
 - [[unkeyed-depir-to-depir|Unkeyed DEPIR ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
-- [[unkeyed-depir-to-pk-depir-sublinear-key|Unkeyed DEPIR ⇒ PK-DEPIR with a sublinear key]] (via [[doubly-efficient-pir#unkeyed-depir|Unkeyed DEPIR]])
 
 **Produces Doubly-efficient PIR**
 
@@ -128,7 +127,6 @@ In $k$-server PIR with preprocessing, each of $k$ non-colluding servers stores, 
 - [[pk-depir-sublinear-key-to-pk-depir|PK-DEPIR with a sublinear key ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
 - [[pk-depir-to-sk-depir|PK-DEPIR ⇒ SK-DEPIR]] (via [[doubly-efficient-pir#secret-key-depir|Secret-key DEPIR]])
 - [[unkeyed-depir-to-depir|Unkeyed DEPIR ⇒ PK-DEPIR]] (via [[doubly-efficient-pir#public-key-depir|Public-key DEPIR]])
-- [[unkeyed-depir-to-pk-depir-sublinear-key|Unkeyed DEPIR ⇒ PK-DEPIR with a sublinear key]] (via [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|PK-DEPIR with a sublinear key]])
 
 **Barriers**
 
