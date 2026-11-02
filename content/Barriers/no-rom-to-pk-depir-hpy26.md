@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-Cryptography used only as a black box, [[random-oracle-model|random oracles]] and virtual black-box obfuscation included, gives no [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] [with a public key of length $o(n)$](doubly-efficient-pir#pk-depir-with-a-sublinear-key) and sublinear query computation in which key generation and the encoding of the database make no queries to the cryptographic oracle; it does not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]]. An [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] is a public-key one with an empty key, so black-box cryptography gives no unkeyed DEPIR with oracle-free encoding either.
+Cryptography used only as a black box, [[random-oracle-model|random oracles]] and virtual black-box obfuscation included, gives no [public-key DEPIR with a public key of length $o(n)$](doubly-efficient-pir#pk-depir-with-a-sublinear-key) and sublinear query computation in which key generation and the encoding of the database make no queries to the cryptographic oracle; HPY26 do not rule out public keys of length $\Omega(n)$ — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]]. An [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] is a public-key one with an empty key, so black-box cryptography gives no unkeyed DEPIR with oracle-free encoding either.
 
 ## Notes
 

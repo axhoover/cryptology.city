@@ -64,6 +64,38 @@ test("HHS08's barriers stay polynomially-preserving fully-black-box, never gener
       bareBlackBox,
       `${b.id} Statement says black-box without fully`,
     );
+    // The Notes may contrast fully-black-box with "black-box constructions
+    // in general"; any other bare "black-box" claims more than HHS08 prove.
+    const text = fs.readFileSync(path.join(ROOT, b.page), "utf8");
+    const notesStart = text.indexOf("## Notes");
+    const notes = (notesStart >= 0 ? text.slice(notesStart) : "")
+      .split("<!-- BEGIN GENERATED")[0]
+      .replace(/black-box constructions in general/g, "");
+    assert.doesNotMatch(
+      notes,
+      bareBlackBox,
+      `${b.id} Notes say black-box without fully`,
+    );
+  }
+
+  // Every hand-written link to an HHS08 barrier names its class.
+  const slugs = hhs08.map((b: any) => path.basename(b.page, ".md"));
+  const walk = (dir: string): string[] =>
+    fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+      const p = path.join(dir, e.name);
+      return e.isDirectory() ? walk(p) : p.endsWith(".md") ? [p] : [];
+    });
+  for (const file of walk(path.join(ROOT, "content"))) {
+    const text = fs.readFileSync(file, "utf8");
+    for (const slug of slugs) {
+      const link = new RegExp(`\\[\\[${slug}\\|([^\\]]*)\\]\\]`, "g");
+      for (const m of text.matchAll(link))
+        assert.match(
+          m[1],
+          /fully-black-box/,
+          `${path.relative(ROOT, file)} links ${slug} as "${m[1]}"`,
+        );
+    }
   }
 });
 
