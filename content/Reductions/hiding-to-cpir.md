@@ -22,7 +22,7 @@ Under the [[rsa-assumption#φ-hiding|Φ-hiding assumption]], there is a one-roun
 
 ## Sketch
 
-The client maps each index $j$ to a prime $p_j$ by a shared prime-sequence generator and sends a modulus $m$ with $p_i \mid \phi(m)$, which by Φ-hiding hides $p_i$, together with an $x \in \ZZ_m^*$ that is not a $p_i$-th residue. The server returns $x^Q \bmod m$ for $Q = \prod_j p_j^{b_j}$, where $b_j$ is the $j$-th database bit; knowing the factorization of $m$, the client tests whether the reply is a $p_i$-th residue, which holds iff $b_i = 1$.
+The client maps each index $j$ to a prime $p_j$ by a shared prime-sequence generator and sends a modulus $m$ with $p_i \mid \phi(m)$, of bit length $\Theta(\max(\secpar, \log \max_j p_j))$ so that every $p_j \le m^{1/4-\varepsilon}$ as Φ-hiding requires, which keeps $|m| = \poly(\secpar, \log n)$ for primes of $\poly(\log n)$ bits; by Φ-hiding $m$ then hides $p_i$, together with an $x \in \ZZ_m^*$ that is not a $p_i$-th residue. The server returns $x^Q \bmod m$ for $Q = \prod_j p_j^{b_j}$, where $b_j$ is the $j$-th database bit; knowing the factorization of $m$, the client tests whether the reply is a $p_i$-th residue, which holds iff $b_i = 1$.
 
 ## Notes
 
