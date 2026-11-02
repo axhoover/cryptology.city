@@ -76,6 +76,18 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     /Definitions 11 and 15/,
     "the LMSS22 edge cites Definitions 11 and 15",
   );
+  // A whole-circuit tag must also cover inputs on which the circuit
+  // overflows, so the edge runs Algorithm 2 one gate at a time.
+  assert.match(
+    edgePage,
+    /Applied with \$\\Eval\$ called on one addition or multiplication at a time, every tag is one of the bounds the hypothesis caps at \$2\^\{-p\}\$/,
+    "the edge's tags are the node's gate-by-gate bounds",
+  );
+  assert.match(
+    edgePage,
+    /tags each fresh ciphertext with the bound \$t_e\$/,
+    "the edge tags fresh ciphertexts with t_e",
+  );
   assert.match(section, /\\mathsf\{Estimate\}/, "the node names Estimate");
   assert.match(
     section,
@@ -112,6 +124,37 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     "t_e bounds every fresh encryption of every message",
   );
   assert.match(section, /Definition 15/, "the node cites Definition 15");
+  assert.match(
+    section,
+    /bounds the worst-case output error compositionally: for every \$\(\\pk, \\sk\)\$ output by \$\\KeyGen\(1\^\\secpar, 1\^L, 1\^p\)\$, every circuit/,
+    "Definition 11's guarantee holds for every key pair",
+  );
+  const fresh = section.slice(
+    section.indexOf("A public bound $t_e"),
+    section.indexOf("(Definition 15)"),
+  );
+  assert.match(
+    fresh,
+    /: for every \$\(\\pk, \\sk\)\$ output by \$\\KeyGen\(1\^\\secpar, 1\^L, 1\^p\)\$ and every \$m \\in \\calM\$, every output of \$\\Dec\(\\sk, \\Enc\(\\pk, m\)\)\$, over all coins of \$\\Enc\$ and \$\\Dec\$, is within \$t_e\$ of \$m\$/,
+    "t_e bounds every fresh encryption under every key pair",
+  );
+  assert.doesNotMatch(
+    fresh,
+    /probability|\\negl|overwhelming|almost all/,
+    "the fresh bound is universal",
+  );
+  // The tags Algorithm 2 attaches must keep ciphertexts compact and the
+  // transformed scheme efficient.
+  assert.match(
+    section,
+    /outputs of at most \$s\(\\secpar, L, p\)\$ bits for a polynomial \$s\$/,
+    "Estimate's outputs have polynomial length",
+  );
+  assert.match(
+    section,
+    /\$t_e\(\\secpar, L, p\)\$ to be computable in time polynomial/,
+    "t_e is efficiently computable",
+  );
   assert.doesNotMatch(
     section,
     /except with negligible probability/,
