@@ -99,7 +99,13 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   const def11 = section.slice(0, section.indexOf("The variant recorded here"));
   assert.doesNotMatch(
     def11,
-    /on which every gate|depth at most \$L\$/,
+    /on which every gate|gate values?|norm at most \$1\$|depth at most \$L\$/,
     "Definition 11's guarantee has no gate-value or depth restriction",
+  );
+  const variant = section.slice(section.indexOf("The variant recorded here"));
+  assert.match(
+    variant,
+    /for every \$\(\\pk, \\sk\)\$ output by \$\\KeyGen\(1\^\\secpar, 1\^L, 1\^p\)\$ and all coins of \$\\Enc\$ and \$\\Eval\$/,
+    "the 2^{-p} clause quantifies every key pair and all coins of Enc and Eval",
   );
 });
