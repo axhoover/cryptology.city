@@ -85,7 +85,9 @@ $$
 
 is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing the challenge indices, then guessing the bit after seeing the query.
 
-For a scheme with several rounds, $\calA$ also chooses $D$ with $(i_0, i_1)$ and receives, in place of $q$, the server's view $\View_S$ of an honest execution between the client on input $(\pp, i_b)$ and the server on input $D$; the scheme has query privacy if this advantage is negligible for all efficient $\calA$. It is $(1-\varepsilon)$-correct if the client outputs $D[i]$ with probability at least $1 - \varepsilon$ over all coins of the execution, and its server is deterministic if each server message is a function of $D$ and the client's messages so far. The non-trivial and total-communication notions below use this form.
+### Several rounds
+
+For a scheme with several rounds, $\calA$ also chooses $D$ with $(i_0, i_1)$ and receives, in place of $q$, the server's view $\View_S$ of an honest execution between the client on input $(\pp, i_b)$ and the server on input $D$; the scheme has query privacy if this advantage is negligible for all efficient $\calA$. It is $(1-\varepsilon)$-correct if for all $D \in \bits^n$ and $i \in [n]$ the client on input $(\pp, i)$, run with the server on input $D$, outputs $D[i]$ with probability at least $1 - \varepsilon$ over $\pp \gets \Setup(1^\secpar, 1^n)$ and all coins of the execution, and its server is deterministic if each server message is a function of $D$ and the client's messages so far. The non-trivial, total-communication and symmetric (SPIR) notions below use this form.
 
 # Variations
 
@@ -102,7 +104,7 @@ A PIR scheme, of one round or several, is **non-trivial** if it has query privac
 
 ### PIR with total communication below $n$
 
-A PIR scheme has **total communication below $n$** if it has query privacy, is perfectly correct, has a deterministic server and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the client and the server together send fewer than $n$ bits, the notion of non-triviality of [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such a scheme is non-trivial in the sense above.
+A PIR scheme has **total communication below $n$** if it has query privacy, is perfectly correct, has a deterministic server and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the client and the server together send fewer than $n$ bits; the communication bound is the notion of non-triviality of [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such a scheme is non-trivial in the sense above.
 
 ## One-round sublinear PIR
 
@@ -114,7 +116,7 @@ A PIR scheme has **polylogarithmic communication** if it has query privacy, is $
 
 ## Symmetric private information retrieval (Single-server)
 
-In **symmetrically private information retrieval (SPIR)** the privacy of the data is guaranteed as well as the privacy of the user: in every invocation the user learns a single physical bit of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], who introduce the model for several servers ([[IT-SPIR]]). For a single database the definition is identical to that of $1$-out-of-$n$ [[OT]] — [[OS07 - A Survey of Single-Database Private Information Retrieval Techniques and Applications (Invited Talk)|OS07]]; the node also asks for the communication efficiency of PIR, a bound it does not yet fix. Every PIR protocol with [total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n) yields, by a communication-efficient reduction, a $1$-out-of-$n$ OT (SPIR) protocol — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. NP05's computationally secure $1$-out-of-$N$ OT uses only $\log N$ executions of $1$-out-of-$2$ OT; as a corollary, any PIR protocol, combined with that $1$-out-of-$N$ OT, transforms efficiently into a SPIR protocol — [[NP05 - Computationally Secure Oblivious Transfer|NP05]].
+In **symmetrically private information retrieval (SPIR)** the privacy of the data is guaranteed as well as the privacy of the user: in every invocation the user learns a single physical bit of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], who introduce the model for several servers ([[IT-SPIR]]). For a single database the definition is identical to that of $1$-out-of-$n$ [[OT]] — [[OS07 - A Survey of Single-Database Private Information Retrieval Techniques and Applications (Invited Talk)|OS07]]; as a PIR scheme, single-server SPIR also has communication sublinear in $n$ — folklore. Every PIR protocol with [total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n) yields $1$-out-of-$n$ OT, which DMO00 call SPIR, by a communication-efficient reduction — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. NP05's computationally secure $1$-out-of-$N$ OT uses only $\log N$ executions of $1$-out-of-$2$ OT; as a corollary, any PIR protocol, combined with that $1$-out-of-$N$ OT, transforms efficiently into one that also has data privacy — [[NP05 - Computationally Secure Oblivious Transfer|NP05]]. Neither result is stated to keep the communication sublinear: NP05's transformation applies to the trivial PIR as well, and DMO00's abstract gives no bound.
 
 ## Secret-Key PIR (SK-PIR)
 

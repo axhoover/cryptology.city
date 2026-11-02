@@ -17,7 +17,7 @@ variants:
 
 # Doubly-efficient PIR
 
-Double efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and computation at **query time** is $o(n)$, where $n$ is the size of the database. The three main variants of DEPIR are: secret-key, public-key, and unkeyed. Note that any unkeyed DEPIR is trivially a PK-DEPIR which is trivially an SK-DEPIR. Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
+Doubly efficient PIR is a type of [[single-server-private-information-retrieval|single-server PIR]] that allows the database to be _preprocessed_ before the client queries the data. A PIR is considered a DEPIR if both the communication and the computation at **query time** are $o(n)$, where $n$ is the size of the database. The three main variants of DEPIR are: secret-key, public-key, and unkeyed. Any unkeyed DEPIR is trivially a PK-DEPIR, which is trivially an SK-DEPIR. Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
 
 ## Syntax
 
