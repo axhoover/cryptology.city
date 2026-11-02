@@ -219,6 +219,11 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
       /\$\\KeyGen\(1\^\\secpar\)\$ before the database is encoded/,
       `${b.id} Statement names the database-independent KeyGen`,
     );
+    assert.match(
+      statement,
+      /at most \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
+      `${b.id} Statement bounds query-time cost by p(λ)·n^c`,
+    );
   }
 
   // The k = DB scheme is a plain passive-server SK-DEPIR; nothing derives the
@@ -243,13 +248,23 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
   );
   assert.ok(start >= 0, "the DEPIR page defines the variant");
   const section = page.slice(start, page.indexOf("\n#", start + 1));
-  const keyGen =
-    /\$k \\gets \\KeyGen\(([^)]*)\)\$, without access to \$DB\$/.exec(section);
-  assert.ok(keyGen, "the variant samples k by KeyGen without access to DB");
-  assert.match(
-    section,
-    /\$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$/,
-    "the variant encodes the database by Prep(1^λ, k, DB)",
+  // The defining sentence: KeyGen without DB, Prep encodes, and what the
+  // client holds at query time.
+  const def =
+    /has a \*\*database-independent key\*\* if \$\\Setup\(1\^\\secpar, DB\)\$ first samples \$k \\gets \\KeyGen\(([^)]*)\)\$, without access to \$DB\$, and then computes \$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$, for efficient algorithms \$\\KeyGen\$ and \$\\mathsf\{Prep\}\$, so that the client holds only \$\(([^)]*)\)\$/.exec(
+      section,
+    );
+  assert.ok(def, "the variant's defining sentence is intact");
+  assert.strictEqual(
+    def![1],
+    "1^\\secpar",
+    "the variant's KeyGen takes only 1^λ",
+  );
+  const clientState = def![2].split(",").map((s) => s.trim());
+  assert.deepStrictEqual(
+    clientState,
+    ["n", "k", "i"],
+    "the client holds only (n, k, i)",
   );
   assert.match(
     section,
@@ -258,28 +273,41 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
   );
 
   // Encode the k = DB, empty-query construction and run it under the
-  // variant's syntax, giving KeyGen exactly the inputs the page names.
-  const keyGenSeesDB = /DB/.test(keyGen![1]);
-  assert.ok(!keyGenSeesDB, "the variant's KeyGen takes no database");
+  // variant's syntax: key generation sees only the inputs the page gives
+  // KeyGen, and the client's query uses only the state the page lets it hold.
+  const keyGenInputs = def![1].split(",").map((s) => s.trim());
+  const sees = (names: string[], DB: number[]) =>
+    names.some((x) => /DB/.test(x)) ? { DB } : {};
   const kdb = {
     keyGen: (inputs: { DB?: number[] }) => inputs.DB ?? [],
-    qry: (k: number[], i: number) => ({ positions: [] as number[], h: k[i] }),
+    qry: (k: number[], i: number, state: { DB?: number[] }) => ({
+      positions: [] as number[],
+      h: (state.DB ?? k)[i],
+    }),
     rsp: (positions: number[], edb: number[]) => positions.map((p) => edb[p]),
     fin: (h: number | undefined, _r: number[]) => h,
   };
-  const run = (DB: number[], i: number, keyGenGetsDB: boolean) => {
-    const k = kdb.keyGen(keyGenGetsDB ? { DB } : {});
+  const run = (
+    DB: number[],
+    i: number,
+    keyGenSees: string[],
+    held: string[],
+  ) => {
+    const k = kdb.keyGen(sees(keyGenSees, DB));
     const edb: number[] = [];
-    const { positions, h } = kdb.qry(k, i);
+    const { positions, h } = kdb.qry(k, i, sees(held, DB));
     return kdb.fin(h, kdb.rsp(positions, edb));
   };
   // With a joint Setup that hands DB to key generation, the scheme is correct.
   for (const DB of [[0], [1], [0, 1], [1, 0]])
-    DB.forEach((bit, i) => assert.strictEqual(run(DB, i, true), bit));
+    DB.forEach((bit, i) =>
+      assert.strictEqual(run(DB, i, ["1^\\secpar", "DB"], ["k", "i"]), bit),
+    );
   // Under the variant's syntax its answer cannot depend on DB, so it is wrong
   // on one of two databases that differ at the queried index.
   const correctOnBoth =
-    run([0], 0, keyGenSeesDB) === 0 && run([1], 0, keyGenSeesDB) === 1;
+    run([0], 0, keyGenInputs, clientState) === 0 &&
+    run([1], 0, keyGenInputs, clientState) === 1;
   assert.ok(
     !correctOnBoth,
     "the k = DB, empty-query scheme is rejected by the barrier's conclusion",
