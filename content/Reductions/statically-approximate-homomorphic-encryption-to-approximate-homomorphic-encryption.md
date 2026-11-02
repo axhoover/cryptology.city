@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Forgetting $\mathsf{Estimate}$, a [[homomorphic-encryption#statically-approximate-he|statically approximate]] HE scheme is an [[homomorphic-encryption#approximate-homomorphic-encryption|approximate homomorphic encryption]] scheme, with the same IND-CPA advantage — folklore.
+Forgetting $\mathsf{Estimate}$ and $t_e$, a [[homomorphic-encryption#statically-approximate-he|statically approximate]] HE scheme is an [[homomorphic-encryption#approximate-homomorphic-encryption|approximate homomorphic encryption]] scheme, with the same IND-CPA advantage — folklore.

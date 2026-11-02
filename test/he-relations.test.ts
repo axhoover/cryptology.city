@@ -60,6 +60,22 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   const start = page.indexOf("### Statically approximate HE");
   assert.ok(start >= 0, "the HE page defines statically approximate HE");
   const section = page.slice(start, page.indexOf("\n### ", start + 1));
+  const edgePage = fs
+    .readFileSync(
+      path.join(
+        ROOT,
+        "content",
+        "Reductions",
+        "approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22.md",
+      ),
+      "utf8",
+    )
+    .split("<!-- BEGIN GENERATED")[0];
+  assert.match(
+    edgePage,
+    /Definitions 11 and 15/,
+    "the LMSS22 edge cites Definitions 11 and 15",
+  );
   assert.match(section, /\\mathsf\{Estimate\}/, "the node names Estimate");
   assert.match(
     section,
@@ -71,10 +87,35 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     /deterministic \$\\Dec\$/,
     "the node requires deterministic Dec",
   );
+  // Definition 11's Estimate sees only the circuit and the input radii;
+  // giving it pk or the ciphertexts would widen LMSS22's hypothesis.
   assert.match(
     section,
-    /r = r\(\\secpar, L, p\)/,
-    "the node names a public fresh radius",
+    /\$B = \\mathsf\{Estimate\}\(f, e_1, \\ldots, e_k\)\$/,
+    "Estimate takes only the circuit and the input radii",
+  );
+  for (const text of [section, edgePage])
+    assert.doesNotMatch(
+      text,
+      /\\mathsf\{Estimate\}\([^)]*(\\pk|c_1|c_k|\\sk)/,
+      "Estimate is never given the key or the ciphertexts",
+    );
+  // Definition 15's fresh bound covers every fresh encryption.
+  assert.match(
+    section,
+    /t_e = t_e\(\\secpar, L, p\)/,
+    "the node names the public fresh bound t_e",
+  );
+  assert.match(
+    section,
+    /every \$m \\in \\calM\$, every output of \$\\Dec\(\\sk, \\Enc\(\\pk, m\)\)\$, over all coins of \$\\Enc\$ and \$\\Dec\$, is within \$t_e\$/,
+    "t_e bounds every fresh encryption of every message",
+  );
+  assert.match(section, /Definition 15/, "the node cites Definition 15");
+  assert.doesNotMatch(
+    section,
+    /except with negligible probability/,
+    "the fresh bound is universal, not a high-probability bound",
   );
   assert.match(
     section,
@@ -88,8 +129,8 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   );
   assert.match(
     section,
-    /applies \$\\Eval\$ one gate at a time, each time to a single addition or multiplication/,
-    "the 2^{-p} clause covers only computations that apply Eval to one gate at a time",
+    /running \$\\mathsf\{Estimate\}\$ one gate at a time, on each addition or multiplication, with radius \$t_e\$ for each input of the circuit/,
+    "the 2^{-p} clause runs Estimate gate by gate from t_e",
   );
   assert.match(
     section,
@@ -101,11 +142,5 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     def11,
     /on which every gate|gate values?|norm at most \$1\$|depth at most \$L\$/,
     "Definition 11's guarantee has no gate-value or depth restriction",
-  );
-  const variant = section.slice(section.indexOf("The variant recorded here"));
-  assert.match(
-    variant,
-    /for every \$\(\\pk, \\sk\)\$ output by \$\\KeyGen\(1\^\\secpar, 1\^L, 1\^p\)\$ and all coins of \$\\Enc\$ and \$\\Eval\$/,
-    "the 2^{-p} clause quantifies every key pair and all coins of Enc and Eval",
   );
 });
