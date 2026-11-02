@@ -348,33 +348,32 @@ test("FHE-to-PIR edges match the size quantifiers of their nodes", () => {
     ),
     "utf8",
   );
-  const leveledPolySize =
-    /## Leveled fully homomorphic encryption\n\nSupports all polynomial-size circuits of depth at most \$L\$/.test(
-      he,
-    );
+  const polySize: Record<string, RegExp> = {
+    "leveled-fully-homomorphic-encryption":
+      /## Leveled fully homomorphic encryption\n\nSupports all polynomial-size circuits of depth at most \$L\$/,
+    "compact-fhe":
+      /A \*\*compact FHE\*\* scheme is an HE scheme for the class of all polynomial-size circuits/,
+  };
   const pirEveryN =
     /has \*\*polylogarithmic communication\*\*[^\n]*for a polynomial \$p\$ and every \$n\$/.test(
       pir,
     );
-  assert.ok(leveledPolySize, "the leveled node's size quantifier is found");
   assert.ok(pirEveryN, "polylog-cPIR's every-n quantifier is found");
   const reductions = manifest.reductions.concat(
     manifest.hybridReductions ?? [],
   );
-  if (leveledPolySize && pirEveryN) {
+  for (const [node, re] of Object.entries(polySize)) {
+    assert.match(he, re, `${node}'s polynomial-size quantifier is found`);
     assert.ok(
-      !reductions.some(
-        (r: any) =>
-          r.hypotheses.includes("leveled-fully-homomorphic-encryption") &&
-          r.conclusion === "polylog-cpir",
-      ),
-      "no leveled FHE => polylog-cPIR edge while the size quantifiers differ",
-    );
-    assert.ok(
-      !closure(reductions, ["leveled-fully-homomorphic-encryption"], {
-        relativizes,
-      }).scopes.has("polylog-cpir"),
-      "leveled FHE must not derive polylog-cPIR while the size quantifiers differ",
+      !closure(reductions, [node], { relativizes }).scopes.has("polylog-cpir"),
+      `${node} must not derive polylog-cPIR while the size quantifiers differ`,
     );
   }
+  // circular-secure FHE is a compact FHE scheme, so it is covered too.
+  assert.ok(
+    !closure(reductions, ["circular-secure-fhe"], { relativizes }).scopes.has(
+      "polylog-cpir",
+    ),
+    "circular-secure FHE must not derive polylog-cPIR while the size quantifiers differ",
+  );
 });

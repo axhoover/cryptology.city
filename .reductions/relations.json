@@ -12053,33 +12053,6 @@
    "title": "OWF ⇒ ZKP"
   },
   {
-   "id": "red-he-to-cpir",
-   "kind": "implication",
-   "hypotheses": [
-    "compact-fhe"
-   ],
-   "conclusion": "polylog-cpir",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "a factor log n, from a hybrid over the encrypted index bits",
-   "rationale": {
-    "class": "The server evaluates the selection circuit through the scheme's evaluation algorithm, used only as an oracle, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
-   },
-   "status": "draft",
-   "page": "content/Reductions/he-to-cpir.md",
-   "slug": "he-to-cpir",
-   "graphSlug": "Reductions/he-to-cpir",
-   "title": "FHE ⇒ cPIR"
-  },
-  {
    "id": "red-he-to-pke-cpa-security",
    "kind": "implication",
    "hypotheses": [
