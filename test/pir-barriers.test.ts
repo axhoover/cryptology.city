@@ -130,6 +130,13 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
     !fromPk.scopes.has("pk-depir-sublinear-key"),
     "pk-depir must not derive the sublinear-key variant",
   );
+  // The unkeyed node bounds query time only by o(n), met for n <= 2^λ by
+  // sending all of DB, so it must not reach the variant either.
+  const fromUnkeyed = closure(reductions, ["unkeyed-depir"], { relativizes });
+  assert.ok(
+    !fromUnkeyed.scopes.has("pk-depir-sublinear-key"),
+    "unkeyed DEPIR, whose query cost is only o(n), must not derive the sublinear-key variant",
+  );
   const page = fs.readFileSync(
     path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
     "utf8",
@@ -147,4 +154,27 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
     /the key \$k\$ that \$\\Setup\$ outputs and the query-time communication and computation are each at most/,
     "the variant bounds both the key and the query-time cost",
   );
+
+  // Every hand-written restatement that carries HPY26 over to unkeyed DEPIR
+  // names the p(λ)·n^c query-time bound, not the unkeyed node's bare o(n).
+  const walk = (dir: string): string[] =>
+    fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+      const p = path.join(dir, e.name);
+      return e.isDirectory() ? walk(p) : p.endsWith(".md") ? [p] : [];
+    });
+  let restatements = 0;
+  for (const file of walk(path.join(ROOT, "content"))) {
+    const text = fs.readFileSync(file, "utf8").split("<!-- BEGIN GENERATED")[0];
+    for (const line of text.split("\n")) {
+      if (!/\|HPY26\]\]/.test(line)) continue;
+      if (!/hence \[?unkeyed DEPIR|no (such )?unkeyed DEPIR/i.test(line))
+        continue;
+      restatements++;
+      assert.ok(
+        line.includes("p(\\secpar) \\cdot n^c"),
+        `${path.relative(ROOT, file)}: HPY26 restatement for unkeyed DEPIR lacks the p(λ)·n^c bound`,
+      );
+    }
+  }
+  assert.ok(restatements >= 3, "the three HPY26 restatements are found");
 });
