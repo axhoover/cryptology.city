@@ -99,7 +99,7 @@ test("HHS08's barriers stay polynomially-preserving fully-black-box, never gener
   }
 });
 
-test("HPY26's barrier concludes only PK-DEPIR with a public key of length o(n)", () => {
+test("HPY26's barrier concludes only PK-DEPIR with a key of length at most p(λ)·n^c", () => {
   // HPY26 turn a public-key DEPIR with an o(n) public key into an unkeyed one
   // and do not rule out public keys of length Ω(n), so the barrier must not
   // attach to the plain pk-depir node, whose key length is unbounded.
@@ -130,7 +130,7 @@ test("HPY26's barrier concludes only PK-DEPIR with a public key of length o(n)",
     !fromPk.scopes.has("pk-depir-sublinear-key"),
     "pk-depir must not derive the sublinear-key variant",
   );
-  // The unkeyed case stays covered: an empty key has length o(n).
+  // The unkeyed case stays covered: an empty key meets the p(λ)·n^c bound.
   const fromUnkeyed = closure(reductions, ["unkeyed-depir"], { relativizes });
   assert.ok(
     fromUnkeyed.scopes.has("pk-depir-sublinear-key"),
@@ -141,12 +141,21 @@ test("HPY26's barrier concludes only PK-DEPIR with a public key of length o(n)",
     path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
     "utf8",
   );
+  const intro = page.slice(
+    page.indexOf("# Doubly-efficient PIR"),
+    page.indexOf("## Syntax"),
+  );
+  assert.match(
+    intro,
+    /query time\*\* are at most \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
+    "DEPIR bounds query-time cost by p(λ)·n^c, c < 1",
+  );
   const start = page.indexOf("#### PK-DEPIR with a sublinear key");
   assert.ok(start >= 0, "the DEPIR page defines the sublinear-key variant");
   const section = page.slice(start, page.indexOf("\n### ", start));
   assert.match(
     section,
-    /at most \$p\(\\secpar\) \\cdot n\^c\$/,
+    /at most \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
     "the variant bounds the key by p(λ)·n^c, c < 1",
   );
 });
