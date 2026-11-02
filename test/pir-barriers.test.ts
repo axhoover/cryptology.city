@@ -163,17 +163,37 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
       return e.isDirectory() ? walk(p) : p.endsWith(".md") ? [p] : [];
     });
   let restatements = 0;
+  const unkeyedClaim = /hence \[?unkeyed DEPIR|no (such )?unkeyed DEPIR/i;
   for (const file of walk(path.join(ROOT, "content"))) {
     const text = fs.readFileSync(file, "utf8").split("<!-- BEGIN GENERATED")[0];
     for (const line of text.split("\n")) {
       if (!/\|HPY26\]\]/.test(line)) continue;
-      if (!/hence \[?unkeyed DEPIR|no (such )?unkeyed DEPIR/i.test(line))
-        continue;
-      restatements++;
-      assert.ok(
-        line.includes("p(\\secpar) \\cdot n^c"),
-        `${path.relative(ROOT, file)}: HPY26 restatement for unkeyed DEPIR lacks the p(λ)·n^c bound`,
-      );
+      // One sentence or semicolon-separated clause at a time, so that the
+      // bound in a public-key clause cannot vouch for an unkeyed one elsewhere.
+      for (const sentence of line.split(/(?<=[.;])\s+/)) {
+        const m = unkeyedClaim.exec(sentence);
+        if (!m) continue;
+        restatements++;
+        const where = `${path.relative(ROOT, file)}: "${sentence.slice(0, 80)}…"`;
+        // The unkeyed DEPIR is qualified ("such", or the bound itself) before
+        // the next comma, the sentence names the p(λ)·n^c bound, and nothing
+        // in it falls back on a bare sublinear query cost.
+        const clause = sentence.slice(m.index).split(",")[0];
+        assert.match(
+          clause,
+          /such|p\(\\secpar\) \\cdot n\^c/,
+          `${where}: the unkeyed DEPIR is unqualified`,
+        );
+        assert.ok(
+          sentence.includes("p(\\secpar) \\cdot n^c"),
+          `${where}: HPY26 restatement for unkeyed DEPIR lacks the p(λ)·n^c bound`,
+        );
+        assert.doesNotMatch(
+          sentence,
+          /sublinear query/,
+          `${where}: HPY26 restatement for unkeyed DEPIR uses a bare sublinear query cost`,
+        );
+      }
     }
   }
   assert.ok(restatements >= 3, "the three HPY26 restatements are found");
