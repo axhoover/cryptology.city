@@ -4038,6 +4038,19 @@
    "unlisted": false
   },
   {
+   "id": "pk-depir-sublinear-key",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/doubly-efficient-pir.md",
+   "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
+   "anchor": "#pk-depir-with-a-sublinear-key",
+   "of": "depir",
+   "title": "PK-DEPIR with a sublinear key",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pke",
    "kind": "object",
    "type": "primitive",
@@ -16387,6 +16400,33 @@
    "title": "Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)"
   },
   {
+   "id": "red-pk-depir-sublinear-key-to-pk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "pk-depir-sublinear-key"
+   ],
+   "conclusion": "pk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pk-depir-sublinear-key-to-pk-depir.md",
+   "slug": "pk-depir-sublinear-key-to-pk-depir",
+   "graphSlug": "Reductions/pk-depir-sublinear-key-to-pk-depir",
+   "title": "PK-DEPIR with a sublinear key ⇒ PK-DEPIR"
+  },
+  {
    "id": "red-pk-depir-to-sk-depir",
    "kind": "implication",
    "hypotheses": [
@@ -21678,6 +21718,33 @@
    "title": "Unkeyed DEPIR ⇒ PK-DEPIR"
   },
   {
+   "id": "red-unkeyed-depir-to-pk-depir-sublinear-key",
+   "kind": "implication",
+   "hypotheses": [
+    "unkeyed-depir"
+   ],
+   "conclusion": "pk-depir-sublinear-key",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity, and any public-key privacy adversary runs unchanged, as an oracle, as an unkeyed privacy adversary."
+   },
+   "status": "draft",
+   "page": "content/Reductions/unkeyed-depir-to-pk-depir-sublinear-key.md",
+   "slug": "unkeyed-depir-to-pk-depir-sublinear-key",
+   "graphSlug": "Reductions/unkeyed-depir-to-pk-depir-sublinear-key",
+   "title": "Unkeyed DEPIR ⇒ PK-DEPIR with a sublinear key"
+  },
+  {
    "id": "red-uowhf-and-ots-to-ds-ny89",
    "kind": "implication",
    "hypotheses": [
@@ -22347,12 +22414,12 @@
     "enhanced-trapdoor-permutation"
    ],
    "conclusion": "one-round-sublinear-cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -22362,13 +22429,13 @@
     "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
    ],
    "rationale": {
-    "class": "HHS08 rule out only polynomially-preserving black-box constructions, a restriction the vocabulary has no class for, so fully-black-box would overstate the theorem."
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
    },
    "status": "draft",
    "page": "content/Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08.md",
    "slug": "no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
    "graphSlug": "Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
-   "title": "No polynomially-preserving black-box reduction from enhanced TDP to one-round sublinear cPIR"
+   "title": "No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR"
   },
   {
    "id": "bar-fac-to-low-exponent-rsa-bv98",
@@ -24069,7 +24136,7 @@
    "hypotheses": [
     "rom"
    ],
-   "conclusion": "pk-depir",
+   "conclusion": "pk-depir-sublinear-key",
    "class": "unstated",
    "consequences": [
     {
@@ -24091,7 +24158,7 @@
    "page": "content/Barriers/no-rom-to-pk-depir-hpy26.md",
    "slug": "no-rom-to-pk-depir-hpy26",
    "graphSlug": "Barriers/no-rom-to-pk-depir-hpy26",
-   "title": "No oracle-free-encoding reduction from ROM to public-key DEPIR"
+   "title": "No oracle-free-encoding reduction from ROM to public-key DEPIR with a sublinear key"
   },
   {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
@@ -24157,12 +24224,12 @@
     "tdp"
    ],
    "conclusion": "one-round-sublinear-cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -24172,13 +24239,13 @@
     "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
    ],
    "rationale": {
-    "class": "HHS08 rule out only polynomially-preserving black-box constructions, a restriction the vocabulary has no class for, so fully-black-box would overstate the theorem."
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
    },
    "status": "draft",
    "page": "content/Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08.md",
    "slug": "no-tdp-to-one-round-sublinear-cpir-hhs08",
    "graphSlug": "Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08",
-   "title": "No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR"
+   "title": "No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR"
   },
   {
    "id": "bar-tdp-to-verifiable-random-function-fs12",

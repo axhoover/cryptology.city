@@ -1,0 +1,120 @@
+import test from "node:test";
+import assert from "node:assert";
+import fs from "node:fs";
+import path from "node:path";
+// @ts-ignore — plain ESM helpers shared with scripts/generate-relations.mjs
+import { closure } from "../scripts/closure.mjs";
+// @ts-ignore
+import * as rc from "../scripts/reduction-classes.mjs";
+
+const ROOT = path.resolve(import.meta.dirname, "..");
+const manifest = JSON.parse(
+  fs.readFileSync(path.join(ROOT, ".reductions", "relations.json"), "utf8"),
+);
+const { classes } = rc.loadClasses(ROOT);
+const relativizes = (cls: string) =>
+  cls === "relativizing" ||
+  (classes[cls] !== undefined && rc.closure(classes, cls).has("relativizing"));
+
+// The page's title and Statement, the text a reader takes as the theorem.
+const titleAndStatement = (page: string) => {
+  const text = fs.readFileSync(path.join(ROOT, page), "utf8");
+  const title = /^title: "(.*)"$/m.exec(text)?.[1] ?? "";
+  const start = text.indexOf("## Statement");
+  assert.ok(start >= 0, `${page} has a Statement`);
+  const rest = text.slice(start + "## Statement".length);
+  const end = rest.search(/^## /m);
+  return { title, statement: end >= 0 ? rest.slice(0, end) : rest };
+};
+
+test("HHS08's barriers stay polynomially-preserving fully-black-box, never generic black-box", () => {
+  // HHS08's main theorem is for polynomially-preserving fully-black-box
+  // constructions, a more restricted class than black-box constructions in
+  // general; a page that drops "fully" claims more than HHS08 prove.
+  const hhs08 = manifest.barriers.filter((b: any) =>
+    b.source.some((s: string) => s.includes("|HHS08]]")),
+  );
+  assert.ok(
+    hhs08.length >= 2,
+    "the TDP and enhanced-TDP barriers are in the manifest",
+  );
+  const bareBlackBox = /(?<!fully[- ])black[- ]box/i;
+  for (const b of hhs08) {
+    assert.strictEqual(b.class, "fully-black-box", b.id);
+    for (const c of b.consequences)
+      assert.strictEqual(c.class, "fully-black-box", `${b.id} consequence`);
+    const { title, statement } = titleAndStatement(b.page);
+    assert.match(
+      title,
+      /polynomially-preserving fully-black-box/,
+      `${b.id} title`,
+    );
+    assert.match(
+      statement,
+      /polynomially-preserving fully-black-box/,
+      `${b.id} Statement`,
+    );
+    assert.doesNotMatch(
+      title,
+      bareBlackBox,
+      `${b.id} title says black-box without fully`,
+    );
+    assert.doesNotMatch(
+      statement,
+      bareBlackBox,
+      `${b.id} Statement says black-box without fully`,
+    );
+  }
+});
+
+test("HPY26's barrier concludes only PK-DEPIR with a public key of length o(n)", () => {
+  // HPY26 turn a public-key DEPIR with an o(n) public key into an unkeyed one
+  // and do not rule out public keys of length Ω(n), so the barrier must not
+  // attach to the plain pk-depir node, whose key length is unbounded.
+  const hpy26 = manifest.barriers.filter((b: any) =>
+    b.source.some((s: string) => s.includes("|HPY26]]")),
+  );
+  const depir = hpy26.filter((b: any) => b.conclusion.includes("depir"));
+  assert.ok(depir.length >= 1, "the HPY26 DEPIR barrier is in the manifest");
+  for (const b of depir) {
+    assert.strictEqual(b.conclusion, "pk-depir-sublinear-key", b.id);
+    const { title, statement } = titleAndStatement(b.page);
+    assert.match(title, /sublinear key/, `${b.id} title`);
+    assert.match(statement, /o\(n\)/, `${b.id} Statement names the o(n) key`);
+    assert.match(
+      statement,
+      /\\Omega\(n\)/,
+      `${b.id} Statement excludes Ω(n) keys`,
+    );
+  }
+
+  // A PK-DEPIR whose setup key has length Ω(n) is a plain pk-depir: nothing
+  // derives the sublinear-key variant from it, so the barrier cannot reach it.
+  const reductions = manifest.reductions.concat(
+    manifest.hybridReductions ?? [],
+  );
+  const fromPk = closure(reductions, ["pk-depir"], { relativizes });
+  assert.ok(
+    !fromPk.scopes.has("pk-depir-sublinear-key"),
+    "pk-depir must not derive the sublinear-key variant",
+  );
+  // The unkeyed case stays covered: an empty key has length o(n).
+  const fromUnkeyed = closure(reductions, ["unkeyed-depir"], { relativizes });
+  assert.ok(
+    fromUnkeyed.scopes.has("pk-depir-sublinear-key"),
+    "unkeyed DEPIR reaches the sublinear-key variant",
+  );
+
+  const page = fs.readFileSync(
+    path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
+    "utf8",
+  );
+  const start = page.indexOf("#### PK-DEPIR with a sublinear key");
+  assert.ok(start >= 0, "the DEPIR page defines the sublinear-key variant");
+  const section = page.slice(start, page.indexOf("\n### ", start));
+  assert.match(
+    section,
+    /length \$o\(n\)\$/,
+    "the variant bounds the key by o(n)",
+  );
+});

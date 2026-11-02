@@ -284,7 +284,7 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in 839553472739 -->
+<!-- BEGIN GENERATED participates-in ef06da6e4b9f -->
 
 ## Participates in
 
@@ -329,8 +329,8 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 
 **Barriers**
 
-- [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
+- [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
-- [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
+- [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 
 <!-- END GENERATED participates-in -->
