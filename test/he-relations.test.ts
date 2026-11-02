@@ -330,28 +330,51 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   );
 });
 
-test("leveled-FHE edges run KeyGen at a depth bound polynomial in the security parameter", () => {
-  // The leveled node guarantees correctness and IND-CPA security only for
-  // depth bounds polynomial in the security parameter; L = O(log n) is not.
-  const leveled = manifest.reductions.filter((r: any) =>
-    r.hypotheses.includes("leveled-fully-homomorphic-encryption"),
+test("FHE-to-PIR edges match the size quantifiers of their nodes", () => {
+  // The selection circuit D[x] on an n-bit database has size Θ(n), for every
+  // n. An FHE node correct only on polynomial-size circuits admits a scheme
+  // whose Eval fails above 2^{√λ} gates, so it cannot yield polylog-cPIR,
+  // which is required for every n, until one side's quantifier changes.
+  const he = fs.readFileSync(
+    path.join(ROOT, "content", "Primitives", "homomorphic-encryption.md"),
+    "utf8",
   );
-  const page = (id: string) => {
-    const r = leveled.find((x: any) => x.id === id);
-    assert.ok(r, `${id} is in the manifest`);
-    return fs
-      .readFileSync(path.join(ROOT, r.page), "utf8")
-      .split("<!-- BEGIN GENERATED")[0];
-  };
-  const pir = page("red-leveled-fully-homomorphic-encryption-to-polylog-cpir");
-  assert.match(
-    pir,
-    /\\KeyGen\(1\^\{\\secpar'\}, 1\^L\)\$ at security parameter \$\\secpar' = \\max\(\\secpar, \\lceil \\log n \\rceil\)\$ and depth bound \$L = c \\secpar'\$/,
-    "the PIR edge runs KeyGen at λ' = max(λ, ⌈log n⌉) with L = cλ'",
+  const pir = fs.readFileSync(
+    path.join(
+      ROOT,
+      "content",
+      "Primitives",
+      "single-server-private-information-retrieval.md",
+    ),
+    "utf8",
   );
-  assert.doesNotMatch(
-    pir,
-    /L = O\(\\log n\)|L = c \\log n/,
-    "the PIR edge's depth bound is not O(log n)",
+  const leveledPolySize =
+    /## Leveled fully homomorphic encryption\n\nSupports all polynomial-size circuits of depth at most \$L\$/.test(
+      he,
+    );
+  const pirEveryN =
+    /has \*\*polylogarithmic communication\*\*[^\n]*for a polynomial \$p\$ and every \$n\$/.test(
+      pir,
+    );
+  assert.ok(leveledPolySize, "the leveled node's size quantifier is found");
+  assert.ok(pirEveryN, "polylog-cPIR's every-n quantifier is found");
+  const reductions = manifest.reductions.concat(
+    manifest.hybridReductions ?? [],
   );
+  if (leveledPolySize && pirEveryN) {
+    assert.ok(
+      !reductions.some(
+        (r: any) =>
+          r.hypotheses.includes("leveled-fully-homomorphic-encryption") &&
+          r.conclusion === "polylog-cpir",
+      ),
+      "no leveled FHE => polylog-cPIR edge while the size quantifiers differ",
+    );
+    assert.ok(
+      !closure(reductions, ["leveled-fully-homomorphic-encryption"], {
+        relativizes,
+      }).scopes.has("polylog-cpir"),
+      "leveled FHE must not derive polylog-cPIR while the size quantifiers differ",
+    );
+  }
 });

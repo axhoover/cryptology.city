@@ -255,7 +255,7 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
 - [[approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22|IND-CPA statically approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)]]
 
-<!-- BEGIN GENERATED participates-in 58eb50f01b14 -->
+<!-- BEGIN GENERATED participates-in cea89b8ebacc -->
 
 ## Participates in
 
@@ -278,7 +278,6 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#length-flexible-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption]])
 - [[length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05|Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)]] (via [[homomorphic-encryption#length-flexible-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption]])
 - [[leveled-fully-homomorphic-encryption-to-he|Leveled FHE ⇒ HE]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
-- [[leveled-fully-homomorphic-encryption-to-polylog-cpir|Leveled FHE ⇒ PIR with polylogarithmic communication]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[multiplicatively-homomorphic-encryption-to-he|Multiplicatively homomorphic encryption ⇒ HE]] (via [[homomorphic-encryption#multiplicatively-homomorphic-encryption|Multiplicatively homomorphic encryption]])
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
