@@ -119,6 +119,53 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     /one gate at a time[^.]*— folklore\./,
     "the HE page flags the gate-by-gate step as folklore",
   );
+  assert.match(
+    restatement!,
+    /original scheme run at a large enough precision \$p' > p\$/,
+    "the restatement runs the original scheme at p' > p",
+  );
+  assert.match(
+    restatement!,
+    /\$t_e\$ on a fresh ciphertext/,
+    "the restatement scales fresh-ciphertext noise to t_e",
+  );
+  assert.match(
+    restatement!,
+    /sequence of admissible single-gate queries/,
+    "the restatement states the security transfer",
+  );
+  // What each page credits to LMSS22: the advantage bound, not security or
+  // correctness in the wiki's sense.
+  const lmss22Clause = restatement!.slice(0, restatement!.indexOf("[[LMSS22"));
+  assert.match(
+    lmss22Clause,
+    /negligible advantage in the IND-CPA\$\^\{\\mathrm\{D\}\}\$ game/,
+    "the HE page credits LMSS22 with the advantage bound",
+  );
+  assert.doesNotMatch(
+    lmss22Clause,
+    /IND-CPA\$\^\{\\mathrm\{D\}\}\$-secure|correct at precision/,
+    "the HE page does not credit LMSS22 with security or correctness",
+  );
+  const edgeLmss = edgePage.slice(
+    edgePage.indexOf("LMSS22's transformation"),
+    edgePage.indexOf("(Definitions 11 and 15"),
+  );
+  assert.match(
+    edgeLmss,
+    /advantage against the result in the IND-CPA\$\^\{\\mathrm\{D\}\}\$ game is negligible — \[\[LMSS22/,
+    "the edge credits LMSS22 with the advantage bound",
+  );
+  assert.doesNotMatch(
+    edgeLmss,
+    /IND-CPA\$\^\{\\mathrm\{D\}\}\$-secure|correct at precision/,
+    "the edge does not credit LMSS22 with security or correctness",
+  );
+  assert.match(
+    edgePage,
+    /with the correctness above, it is IND-CPA\$\^\{\\mathrm\{D\}\}\$-secure — folklore\./,
+    "the security conclusion is flagged folklore",
+  );
   assert.match(section, /\\mathsf\{Estimate\}/, "the node names Estimate");
   assert.match(
     section,
@@ -231,5 +278,54 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     def11,
     /on which every gate|gate values?|norm at most \$1\$|depth at most \$L\$/,
     "Definition 11's guarantee has no gate-value or depth restriction",
+  );
+  // The approximate-HE and IND-CPA-D sections the gate-by-gate step relies on.
+  const approx = page.slice(
+    page.indexOf("## Approximate homomorphic encryption"),
+    page.indexOf("### Statically approximate HE"),
+  );
+  assert.match(
+    approx,
+    /messages vectors of complex numbers of \$\\ell_\\infty\$-norm at most \$1\$/,
+    "messages lie in the l_inf unit ball",
+  );
+  assert.match(
+    approx,
+    /by repeated application of \$\\Eval\$/,
+    "correctness is multi-hop",
+  );
+  assert.match(
+    approx,
+    /every gate of \$f\$ evaluated on \$\(m_1, \\ldots, m_k\)\$ has value of \$\\ell_\\infty\$-norm at most \$1\$/,
+    "correctness is gate-wise",
+  );
+  const cpad = page.slice(
+    page.indexOf("### IND-CPA-D security"),
+    page.indexOf("## Rate-1"),
+  );
+  assert.match(
+    cpad,
+    /every gate of that computation has value of \$\\ell_\\infty\$-norm at most \$1\$ on both tracks/,
+    "admissibility is gate-wise on both tracks",
+  );
+  assert.match(
+    cpad,
+    /\\KeyGen\(1\^\\secpar, 1\^L, 1\^p, 1\^q\)\$; \$b \\getsr \\bits\$/,
+    "q is given to KeyGen",
+  );
+  assert.match(
+    cpad,
+    /\\If\{\$m\^0_i \\ne m\^1_i\$ or \$q\$ queries were answered\}/,
+    "D answers at most q queries",
+  );
+  assert.match(
+    edgePage,
+    /for a number of decryption queries fixed in advance/,
+    "the edge concludes the bounded game",
+  );
+  assert.match(
+    section,
+    /\$\\mathsf\{Estimate\}\$ to run in time polynomial in \$\\secpar\$, \$L\$, \$p\$ and the length of its input/,
+    "Estimate runs in polynomial time",
   );
 });
