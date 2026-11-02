@@ -88,6 +88,11 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   );
   assert.match(
     section,
+    /applies \$\\Eval\$ one gate at a time, each time to a single addition or multiplication/,
+    "the 2^{-p} clause covers only computations that apply Eval to one gate at a time",
+  );
+  assert.match(
+    section,
     /m_k \\in \\calM/,
     "Definition 11's messages lie in the message space",
   );
@@ -95,6 +100,6 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
   assert.doesNotMatch(
     def11,
     /on which every gate|depth at most \$L\$/,
-    "Definition 11's guarantee is not restricted to in-range computations",
+    "Definition 11's guarantee has no gate-value or depth restriction",
   );
 });
