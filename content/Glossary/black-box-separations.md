@@ -79,7 +79,7 @@ A black-box security reduction would convert this eavesdropper (which is efficie
 
 - [[no-pke-to-ot-gkm-00|No reduction from PKE to OT]]
 
-- **Black-box crypto and doubly-efficient PIR** — black-box use of essentially every generic or idealized primitive gives SK-DEPIR only if black-box one-way functions do, and black-box one-way functions give no two-round passive-server SK-DEPIR with a database-independent key ([[no-owf-to-passive-sk-depir-lmw25|No fully-black-box reduction from OWF to passive-server SK-DEPIR with a database-independent key]]) — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]].
+- **Black-box crypto and doubly-efficient PIR** — black-box use of essentially every generic or idealized primitive gives SK-DEPIR only if black-box one-way functions do, and black-box one-way functions give no two-round [[doubly-efficient-pir#passive-server-sk-depir-with-a-database-independent-key|passive-server SK-DEPIR with a database-independent key]] whose query-time communication and computation are at most $p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ ([[no-owf-to-passive-sk-depir-lmw25|No fully-black-box reduction from OWF to passive-server SK-DEPIR with a database-independent key]]) — [[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]].
 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 

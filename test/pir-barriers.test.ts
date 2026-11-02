@@ -312,4 +312,35 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
     !correctOnBoth,
     "the k = DB, empty-query scheme is rejected by the barrier's conclusion",
   );
+  // Every hand-written restatement of LMW25's barrier names the variant,
+  // by its link or by its p(λ)·n^c bound, not the bare passive-server node.
+  const walk = (dir: string): string[] =>
+    fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
+      const p = path.join(dir, e.name);
+      return e.isDirectory() ? walk(p) : p.endsWith(".md") ? [p] : [];
+    });
+  let lmwRestatements = 0;
+  for (const file of walk(path.join(ROOT, "content"))) {
+    const text = fs.readFileSync(file, "utf8").split("<!-- BEGIN GENERATED")[0];
+    for (const line of text.split("\n")) {
+      if (!/\|LMW25\]\]/.test(line)) continue;
+      // Only sentences that assert impossibility restate the barrier.
+      for (const sentence of line.split(/(?<=\.)\s+/)) {
+        if (
+          !/gives? no [^.]*passive-server SK-DEPIR|no black-box construction [^.]*passive-server/i.test(
+            sentence,
+          )
+        )
+          continue;
+        lmwRestatements++;
+        assert.ok(
+          sentence.includes(
+            "#passive-server-sk-depir-with-a-database-independent-key",
+          ) || sentence.includes("p(\\secpar) \\cdot n^c"),
+          `${path.relative(ROOT, file)}: LMW25 restatement names neither the variant nor its bound`,
+        );
+      }
+    }
+  }
+  assert.ok(lmwRestatements >= 3, "the LMW25 restatements are found");
 });
