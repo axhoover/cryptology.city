@@ -5238,6 +5238,19 @@
    "unlisted": false
   },
   {
+   "id": "statically-approximate-homomorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/homomorphic-encryption.md",
+   "slug": "homomorphic-encryption",
+   "graphSlug": "Primitives/homomorphic-encryption",
+   "anchor": "#statically-approximate-he",
+   "of": "he",
+   "title": "Statically approximate HE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "statistical-difference",
    "kind": "variant",
    "type": "complexity-class",
@@ -6606,30 +6619,6 @@
    "slug": "anonymous-hibe-to-hibe",
    "graphSlug": "Reductions/anonymous-hibe-to-hibe",
    "title": "Anonymous HIBE ⇒ HIBE"
-  },
-  {
-   "id": "red-approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
-   "kind": "implication",
-   "hypotheses": [
-    "approximate-homomorphic-encryption"
-   ],
-   "conclusion": "approximate-he-ind-cpa-d",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "draft",
-   "page": "content/Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22.md",
-   "slug": "approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
-   "graphSlug": "Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
-   "title": "IND-CPA approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)"
   },
   {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
@@ -19830,6 +19819,57 @@
    "slug": "ss-to-it-pir-cgks98",
    "graphSlug": "Reductions/ss-to-it-pir-cgks98",
    "title": "Linear SS ⇒ IT-PIR"
+  },
+  {
+   "id": "red-statically-approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "kind": "implication",
+   "hypotheses": [
+    "statically-approximate-homomorphic-encryption"
+   ],
+   "conclusion": "approximate-he-ind-cpa-d",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LMSS22 - Securing Approximate Homomorphic Encryption Using Differential Privacy|LMSS22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22.md",
+   "slug": "approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "graphSlug": "Reductions/approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22",
+   "title": "IND-CPA statically approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)"
+  },
+  {
+   "id": "red-statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "kind": "implication",
+   "hypotheses": [
+    "statically-approximate-homomorphic-encryption"
+   ],
+   "conclusion": "approximate-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any IND-CPA adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption.md",
+   "slug": "statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "graphSlug": "Reductions/statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption",
+   "title": "Statically approximate HE ⇒ Approximate HE"
   },
   {
    "id": "red-statistical-difference-to-szk-sv03",
