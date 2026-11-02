@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [PIR scheme with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n) is [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]]: the server alone sends fewer than $n$ bits — folklore.
+A [PIR scheme with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n) is [[single-server-private-information-retrieval#non-trivial-pir|non-trivial]]: for the same $n$, the server alone sends fewer than $n$ bits, and perfect correctness meets the error bound $1/(8n)$ — folklore.

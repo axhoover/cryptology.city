@@ -30,7 +30,7 @@ A PIR scheme is a tuple of efficient algorithms $\PIR = (\Setup, \Query, \Answer
 
 - $\Setup(1^\secpar, 1^n) \to \pp,$ is a randomized algorithm that generates public parameters encoding the database size $n,$
 - $\Query(\pp, i) \to (q, \st),$ is a randomized algorithm that takes an index $i \in [n]$, outputting a query $q$ to send to the server and a client state $\st,$
-- $\Answer(D, q) \to a,$ is a deterministic algorithm that takes a database
+- $\Answer(D, q) \to a,$ is a possibly randomized algorithm that takes a database
   $D \in \bits^n$ and query $q$, outputting an answer $a,$
 - $\Decode(\st, a) \to x,$ is a deterministic algorithm that takes client state $\st$ and answer $a$, outputting a value $x \in \bits.$
 
@@ -56,7 +56,7 @@ $$
 \Pr\!\left[\Decode(\st, \Answer(D, q)) = D[i]\right] \ge 1 - \varepsilon,
 $$
 
-where $\pp \gets \Setup(1^\secpar, 1^n)$ and $(q, \st) \gets \Query(\pp, i)$.
+where $\pp \gets \Setup(1^\secpar, 1^n)$, $(q, \st) \gets \Query(\pp, i)$ and the probability is also over the coins of $\Answer$.
 
 ### Query Privacy
 
@@ -85,6 +85,10 @@ $$
 
 is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing the challenge indices, then guessing the bit after seeing the query.
 
+### Several rounds
+
+For a scheme with several rounds, $\calA$ also chooses $D$ with $(i_0, i_1)$ and receives, in place of $q$, the server's view $\View_S$ of an honest execution between the client on input $(\pp, i_b)$ and the server on input $D$; the scheme has query privacy if this advantage is negligible for all efficient $\calA$. It is $(1-\varepsilon)$-correct if for all $D \in \bits^n$ and $i \in [n]$ the client on input $(\pp, i)$, run with the server on input $D$, outputs $D[i]$ with probability at least $1 - \varepsilon$ over $\pp \gets \Setup(1^\secpar, 1^n)$ and all coins of the execution, and its server is deterministic if each server message is a function of $D$ and the client's messages so far. The non-trivial, total-communication and symmetric (SPIR) notions below use this form.
+
 # Variations
 
 - [[multi-server-private-information-retrieval|Multi-server PIR]] is an information-theoretic variant, which requires multiple servers
@@ -96,15 +100,15 @@ is negligible. Here $\calA$ is stateful: it runs in two phases, first choosing t
 
 ## Non-trivial PIR
 
-A PIR scheme is **non-trivial** if it is perfectly correct ($\varepsilon = 0$) and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the server sends fewer than $n$ bits in total. The bound is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. With one server, information-theoretic (perfect) privacy requires $n$ bits of communication on $n$-bit databases, so the trivial scheme is optimal — [[CGKS98 - Private information retrieval|CGKS98]].
+A PIR scheme, of one round or several, is **non-trivial** if it has query privacy and, for some polynomial $n = n(\secpar)$, it is $(1 - 1/(8n))$-correct and on every $n$-bit database the server sends fewer than $n$ bits in total. The error bound $1/(8n)$ is the one at which the implication to one-way functions is proved for this communication bound — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. The communication bound $n$ is where assumptions start: the trivial PIR, which downloads the database, is perfectly correct and perfectly private with no assumption — [[BIKM99 - One-Way Functions Are Essential for Single-Server Private Information Retrieval|BIKM99]]. With one server, a perfectly correct scheme with information-theoretic (perfect) privacy requires $n$ bits of communication on $n$-bit databases, so the trivial scheme is optimal — [[CGKS98 - Private information retrieval|CGKS98]].
 
 ### PIR with total communication below $n$
 
-A PIR scheme has **total communication below $n$** if it is perfectly correct and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the client and the server together send fewer than $n$ bits, the notion of non-triviality of [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such a scheme is non-trivial in the sense above.
+A PIR scheme has **total communication below $n$** if it has query privacy, is perfectly correct, has a deterministic server and, for some polynomial $n = n(\secpar)$, on every $n$-bit database the client and the server together send fewer than $n$ bits; the communication bound is the notion of non-triviality of [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. Such a scheme is non-trivial in the sense above.
 
 ## One-round sublinear PIR
 
-A PIR scheme is **one-round sublinear** if it is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]].
+A PIR scheme is **one-round sublinear** if it has query privacy, is perfectly correct, consists of the query $q$ and the answer $a$ alone, as in the syntax above, and has communication $|q| + |a| \le p(\secpar) \cdot n^c$ for a polynomial $p$ and a constant $c < 1$ — [[IKO05 - Sufficient Conditions for Collision-Resistant Hashing|IKO05]]; its $\Answer$ is also deterministic, so that a fixed query defines a function of the database. Perfect correctness makes this free: $\Answer$ with its coins fixed to any value is still perfectly correct and leaves the query and the communication unchanged — folklore.
 
 ## PIR with polylogarithmic communication
 
@@ -112,9 +116,7 @@ A PIR scheme has **polylogarithmic communication** if it has query privacy, is $
 
 ## Symmetric private information retrieval (Single-server)
 
-Symmetric private information retrieval is a stronger version of PIR that in addition to protecting the querier's privacy, also protects the data privacy. The multi-server, information-theoretic version ([[IT-SPIR]]) was introduced by [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], but follow-up works showed how to construct computationally secure versions based on assumptions.
-
-Single-server SPIR is equivalent to $1$-out-of-$n$ [[OT]] with an additional efficiency requirement.
+In **symmetrically private information retrieval (SPIR)** the privacy of the data is guaranteed as well as the privacy of the user: in every invocation the user learns a single physical bit of the database and no other information about it — [[GIKM00 - Protecting Data Privacy in Private Information Retrieval Scheme|GIKM00]], who introduce the model for several servers ([[IT-SPIR]]). OS07 call the single-database definition identical to that of $1$-out-of-$n$ [[OT]] — [[OS07 - A Survey of Single-Database Private Information Retrieval Techniques and Applications (Invited Talk)|OS07]]. Single-server SPIR is in addition a PIR scheme, in the form for [[single-server-private-information-retrieval#several-rounds|several rounds]], in which on every $n$-bit database the client and the server together send at most $p(\secpar) \cdot n^c$ bits, for a polynomial $p$ and a constant $c < 1$, so fewer than $n$ bits once $n > p(\secpar)^{1/(1-c)}$. Every PIR protocol with [total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n) yields $1$-out-of-$n$ OT, which DMO00 call SPIR, by a communication-efficient reduction — [[DMO00 - Single Database Private Information Retrieval Implies Oblivious Transfer|DMO00]]. NP05's computationally secure $1$-out-of-$N$ OT uses only $\log N$ executions of $1$-out-of-$2$ OT; as a corollary, any PIR protocol, combined with that $1$-out-of-$N$ OT, transforms efficiently into one that also has data privacy — [[NP05 - Computationally Secure Oblivious Transfer|NP05]]. DMO00's abstract calls the reduction only communication-efficient and does not bound the communication of the resulting protocol.
 
 ## Secret-Key PIR (SK-PIR)
 
@@ -249,20 +251,29 @@ is negligible.
 - Constructions exist from one-way functions ([[owf-to-client-preprocessing-pir-zpzs24|OWF ⇒ PIR with client preprocessing (Piano)]]) — [[ZPZS24 - Piano Extremely Simple, Single-Server PIR with Sublinear Server Computation|ZPZS24]] — and, through linearly homomorphic encryption, from [[decisional-diffie-hellman|DDH]] ([[ddh-to-client-preprocessing-pir-chk22|DDH ⇒ PIR with client preprocessing]]) and [[quadratic-residuosity|QR]] ([[qr-to-client-preprocessing-pir-chk22|QR ⇒ PIR with client preprocessing]]), among other assumptions — [[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]].
 - Under [[learning-with-errors#decision-lwe|decision LWE]], a hint computed by the server gives single-server PIR whose server performs fewer than one 32-bit multiplication and one 32-bit addition per database byte, about 10 GB/s per core: for a 1 GB database the client downloads a 121 MB hint once and then makes any number of queries of 242 KB each; DoublePIR shrinks the hint to 16 MB at 345 KB per query and 7.4 GB/s per core — [[HHCMV23 - One Server for the Price of Two Simple and Fast Single-Server Private Information Retrieval|HHCMV23]]. In SimplePIR the hint is the database, arranged as a matrix, times the public LWE matrix, so it depends on no client secret; for $N$ entries and LWE secret dimension $\ell$ it has about $\ell\sqrt N$ elements of $\ZZ_q$ and each query and answer about $\sqrt N$, while DoublePIR's hint is independent of $N$. The concrete parameters take $q = 2^{32}$ and a discrete Gaussian error — [[HHCMV23 - One Server for the Price of Two Simple and Fast Single-Server Private Information Retrieval|HHCMV23]]. Online server time stays linear in the database size, so these schemes are not sublinear in the sense above.
 - For databases stored unencoded, the offline/online protocols of CK20 are optimal for the trade-off between communication and online running time — [[CK20 - Private Information Retrieval with Sublinear Online Time|CK20]].
+- Under [[learning-with-errors|LWE]], a single-server scheme with client preprocessing has amortized bandwidth $\tilde O_\secpar(1)$ per query, server and client computation $\tilde O_\secpar(\sqrt n)$ per query and client storage $\tilde O_\secpar(\sqrt n)$, optimal up to polylogarithmic factors in server computation and bandwidth — [[ZLTS23 - Optimal Single-Server Private Information Retrieval|ZLTS23]].
 - An $r$-bit hint and $t$ entries accessed per retrieval require $t \cdot r = \Omega(n)$, which is tight and closes a logarithmic gap; the bound holds for error at most $1/15$, against efficient adversaries corrupting one of $\ell = O(1)$ servers, when entries are stored unmodified though possibly replicated — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]]. Proving such lower bounds for two-server PIR in general computational models would imply the online matrix-vector conjecture — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]].
-- Information-theoretic single-server schemes exist, with non-trivial trade-offs between server computation, client space and bandwidth; they obey a nearly tight lower bound on the trade-off between client space and bandwidth, and a computational scheme beating it that meets a natural syntactic requirement implies a hard problem in $\classSZK$ — [[ISW24 - PIR with Client-Side Preprocessing Information-Theoretic Constructions and Lower Bounds|ISW24]].
+- Information-theoretic single-server schemes exist, with non-trivial trade-offs between server computation, client space and bandwidth; they obey a nearly tight lower bound on the trade-off between client space and bandwidth, and a computational scheme beating it that meets a natural syntactic requirement implies a hard problem in $\classSZK$ — [[ISW24 - PIR with Client-Side Preprocessing Information-Theoretic Constructions and Lower Bounds|ISW24]]. Among them is a single-server scheme with sublinear server computation (their Theorem 1.4) — [[ISW24 - PIR with Client-Side Preprocessing Information-Theoretic Constructions and Lower Bounds|ISW24]].
 - With cryptography used only as a black box, random oracles and VBB obfuscation included, a client storing $s$ bits needs $\Omega(n/s)$ amortized online computation over $k = \Omega(s)$ queries: either $\Omega(n/s)$ amortized online communication or $\Omega(n/s)$ cryptographic operations by the server, and each alternative is tight — [[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]].
 
 ## Batch PIR
 
-A batch code encodes a string into $m$ buckets so that any $k$ of its bits can be decoded by reading at most one bit, or more generally $t$ bits, from each bucket; batch codes amortize the computational cost of retrieving $k$ entries by PIR — [[IKOS04 - Batch codes and their applications|IKOS04]]. With an $r$-bit client hint, batch retrieval of $k$ entries accessing $t$ entries needs $t \cdot r = \Omega(nk)$ when $r \ge k$, and $t = \Omega(n)$ when $r < k$ — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]].
+A batch code encodes a string into $m$ buckets so that any $k$ of its bits can be decoded by reading at most one bit, or more generally $t$ bits, from each bucket; batch codes amortize the computational cost of retrieving $k$ entries by PIR — [[IKOS04 - Batch codes and their applications|IKOS04]]. Probabilistic batch codes trade a small probability that some queries of a batch fail, about one in a trillion multi-queries, for far fewer buckets, which cuts the network cost of batch-code-based multi-query PIR — [[ACLS18 - PIR with Compressed Queries and Amortized Query Processing|ACLS18]]; with vectorized homomorphic encryption, batch PIR can be efficient in both computation and communication, with $7.5$ to $98.5$ times less communication than earlier schemes in the paper's benchmark configuration — [[MR23 - Vectorized Batch Private Information Retrieval|MR23]]. With an $r$-bit client hint, batch retrieval of $k$ entries accessing $t$ entries needs $t \cdot r = \Omega(nk)$ when $r \ge k$, and $t = \Omega(n)$ when $r < k$ — [[Yeo23 - Lower Bounds for (Batch) PIR with Private Preprocessing|Yeo23]].
 
 # Other results
 
-- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]]
+- [[cpir-to-ot-dmo00|cPIR with total communication below n ⇒ OT]]
 - [[no-np-to-cpir-lv15|No reduction from NP to one-round sublinear cPIR]]
 - Every single-server PIR without preprocessing in which the server sends fewer than $n$ bits, built from public-key primitives in DH24's black-box model, performs $\Omega(n)$ public-key operations, however many symmetric-key operations it uses — [[DH24 - Lower-Bounds on Public-Key Operations in PIR|DH24]]
 - In every perfectly private, perfectly correct PIR whose servers store only the database and whose client keeps no state between queries, for any number $k$ of servers and whatever its communication, the servers together read at least $n$ database bits per query in expectation — [[BIM00 - Reducing the Servers Computation in Private Information Retrieval PIR with Preprocessing|BIM00]]. The $\Omega(n)$ bound on server time holds with computational privacy too, but for a client that keeps state it bounds only the first query — [[CHK22 - Single-Server Private Information Retrieval with Sublinear Amortized Time|CHK22]]. [[doubly-efficient-pir|Doubly-efficient PIR]] stores an encoding of the database instead, and [PIR with client preprocessing](single-server-private-information-retrieval#pir-with-client-preprocessing) moves the linear server work into an offline phase run before the client chooses its index — [[CK20 - Private Information Retrieval with Sublinear Online Time|CK20]].
+
+## Practical single-server schemes
+
+- SealPIR compresses the client's query vector into a single ciphertext — [[ACLS18 - PIR with Compressed Queries and Amortized Query Processing|ACLS18]].
+- OnionPIR composes two lattice-based somewhat homomorphic schemes, for a response overhead of $4.2$ times the insecure baseline against $100$ times for earlier schemes — [[MCR21 - OnionPIR Response Efficient Single-Server PIR|MCR21]].
+- Spiral composes the Regev and Gentry–Sahai–Waters schemes; its streaming variant SpiralStreamPack, on databases with over a million records, reaches a server throughput of $1.9$ GB/s at rate $0.81$, against $200$ MB/s and $0.24$ for earlier protocols — [[MW22 - SPIRAL Fast, High-Rate Single-Server PIR via FHE Composition|MW22]].
+- YPIR combines LWE with ring-LWE response compression and needs no offline communication: for a 1-bit or 1-byte record of a 32 GB database it achieves $12.1$ GB/s/core with $2.5$ MB of total communication, where SimplePIR achieves $12.5$ GB/s/core with $1.5$ MB but first downloads a $724$ MB hint — [[MW24 - YPIR High-Throughput Single-Server PIR with Silent Preprocessing|MW24]].
+- FrodoPIR reports a server cost of about \$1 for answering $100{,}000$ client queries in its benchmark — [[DPC23 - FrodoPIR Simple, Scalable, Single-Server Private Information Retrieval|DPC23]].
 
 ## Constructions
 
@@ -273,19 +284,20 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[hash-function-to-secret-key-pir-sk-pir-bm26|OWF ⇒ Secret-Key PIR (SK-PIR)]]
 
-<!-- BEGIN GENERATED participates-in e68988bca5f9 -->
+<!-- BEGIN GENERATED participates-in ef06da6e4b9f -->
 
 ## Participates in
 
 **Builds on Private Information Retrieval**
 
 - [[cpir-to-crhf-iko05|One-round sublinear cPIR ⇒ CRHF]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
-- [[cpir-to-ot-dmo00|Non-trivial cPIR ⇒ OT]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
+- [[cpir-to-ot-dmo00|cPIR with total communication below n ⇒ OT]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[cpir-to-owf-bikm99|Non-trivial cPIR ⇒ OWF]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[one-round-sublinear-cpir-to-keyword-pir-cgn98|One-round sublinear cPIR ⇒ Keyword PIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[polylog-cpir-to-cpir|PIR with polylogarithmic communication ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
+- [[polylog-cpir-to-nontrivial-cpir|PIR with polylogarithmic communication ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]] (via [[single-server-private-information-retrieval#symmetric-private-information-retrieval-single-server|Symmetric private information retrieval (Single-server)]])
 - [[total-nontrivial-cpir-to-nontrivial-cpir|cPIR with total communication below n ⇒ Non-trivial cPIR]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
@@ -300,12 +312,14 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 - [[he-to-cpir|FHE ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[hiding-to-cpir|Φ-Hiding ⇒ cPIR]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05|Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
+- [[leveled-fully-homomorphic-encryption-to-polylog-cpir|Leveled FHE ⇒ PIR with polylogarithmic communication]] (via [[single-server-private-information-retrieval#pir-with-polylogarithmic-communication|PIR with polylogarithmic communication]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[lsn-to-secret-key-pir-sk-pir-cimr25|LSN ⇒ Secret-Key PIR (SK-PIR)]] (via [[single-server-private-information-retrieval#secret-key-pir-sk-pir|Secret-Key PIR (SK-PIR)]])
 - [[one-round-sublinear-cpir-to-keyword-pir-cgn98|One-round sublinear cPIR ⇒ Keyword PIR]] (via [[single-server-private-information-retrieval#keyword-pir|Keyword PIR]])
 - [[one-round-sublinear-cpir-to-total-nontrivial-cpir|One-round sublinear cPIR ⇒ cPIR with total communication below n]] (via [PIR with total communication below $n$](single-server-private-information-retrieval#pir-with-total-communication-below-n))
 - [[owf-to-client-preprocessing-pir-zpzs24|OWF ⇒ PIR with client preprocessing (Piano)]] (via [[single-server-private-information-retrieval#pir-with-client-preprocessing|PIR with client preprocessing]])
 - [[polylog-cpir-to-cpir|PIR with polylogarithmic communication ⇒ cPIR]]
+- [[polylog-cpir-to-nontrivial-cpir|PIR with polylogarithmic communication ⇒ Non-trivial cPIR]] (via [[single-server-private-information-retrieval#non-trivial-pir|Non-trivial PIR]])
 - [[qr-to-client-preprocessing-pir-chk22|QR ⇒ PIR with client preprocessing (CHK22)]] (via [[single-server-private-information-retrieval#pir-with-client-preprocessing|PIR with client preprocessing]])
 - [[qr-to-cpir-ko97|QR ⇒ cPIR (Kushilevitz–Ostrovsky)]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[symmetric-private-information-retrieval-single-server-to-cpir|Symmetric private information retrieval (Single-server) ⇒ cPIR]]
@@ -315,7 +329,8 @@ A batch code encodes a string into $m$ buckets so that any $k$ of its bits can b
 
 **Barriers**
 
+- [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 - [[no-np-to-cpir-lv15|No fully-black-box reduction from NP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
-- [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
+- [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR]] (via [[single-server-private-information-retrieval#one-round-sublinear-pir|One-round sublinear PIR]])
 
 <!-- END GENERATED participates-in -->

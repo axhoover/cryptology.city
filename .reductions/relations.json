@@ -3990,6 +3990,19 @@
    "unlisted": false
   },
   {
+   "id": "passive-sk-depir-independent-key",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/doubly-efficient-pir.md",
+   "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
+   "anchor": "#passive-server-sk-depir-with-a-database-independent-key",
+   "of": "depir",
+   "title": "Passive-server SK-DEPIR with a database-independent key",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "payload-hiding-ippe",
    "kind": "variant",
    "type": "primitive",
@@ -4100,6 +4113,19 @@
    "anchor": "#public-key-depir",
    "of": "depir",
    "title": "Public-key DEPIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pk-depir-sublinear-key",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/doubly-efficient-pir.md",
+   "slug": "doubly-efficient-pir",
+   "graphSlug": "Primitives/doubly-efficient-pir",
+   "anchor": "#pk-depir-with-a-sublinear-key",
+   "of": "depir",
+   "title": "PK-DEPIR with a sublinear key",
    "aliases": [],
    "unlisted": false
   },
@@ -8438,7 +8464,7 @@
    "page": "content/Reductions/cpir-to-ot-dmo00.md",
    "slug": "cpir-to-ot-dmo00",
    "graphSlug": "Reductions/cpir-to-ot-dmo00",
-   "title": "Non-trivial cPIR ⇒ OT"
+   "title": "cPIR with total communication below n ⇒ OT"
   },
   {
    "id": "red-cpir-to-owf-bikm99",
@@ -13416,6 +13442,33 @@
    "title": "Leveled FHE ⇒ HE"
   },
   {
+   "id": "red-leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "leveled-fully-homomorphic-encryption"
+   ],
+   "conclusion": "polylog-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor log n, from a hybrid over the encrypted index bits",
+   "rationale": {
+    "class": "The server evaluates the selection circuit through the scheme's evaluation algorithm, used only as an oracle, and the privacy reduction runs any server distinguisher only as an oracle on queries built from its encryption challenges."
+   },
+   "status": "draft",
+   "page": "content/Reductions/leveled-fully-homomorphic-encryption-to-polylog-cpir.md",
+   "slug": "leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "graphSlug": "Reductions/leveled-fully-homomorphic-encryption-to-polylog-cpir",
+   "title": "Leveled FHE ⇒ PIR with polylogarithmic communication"
+  },
+  {
    "id": "red-linear-only-encryption-to-designated-verifier-snarg-bciop13",
    "kind": "implication",
    "hypotheses": [
@@ -16403,6 +16456,33 @@
    "title": "Additively homomorphic encryption + Sparse LPN ⇒ SHE"
   },
   {
+   "id": "red-passive-sk-depir-independent-key-to-passive-sk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "passive-sk-depir-independent-key"
+   ],
+   "conclusion": "passive-sk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, with Setup run as KeyGen followed by Prep, and the reduction forwards any secret-key privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/passive-sk-depir-independent-key-to-passive-sk-depir.md",
+   "slug": "passive-sk-depir-independent-key-to-passive-sk-depir",
+   "graphSlug": "Reductions/passive-sk-depir-independent-key-to-passive-sk-depir",
+   "title": "Passive-server SK-DEPIR with a database-independent key ⇒ Passive-server SK-DEPIR"
+  },
+  {
    "id": "red-passive-sk-depir-to-sk-depir",
    "kind": "implication",
    "hypotheses": [
@@ -16638,6 +16718,33 @@
    "slug": "phi-hiding-to-lossy-trapdoor-function-kos10",
    "graphSlug": "Reductions/phi-hiding-to-lossy-trapdoor-function-kos10",
    "title": "Φ-Hiding ⇒ Lossy TDF (Kiltz–O'Neill–Smith)"
+  },
+  {
+   "id": "red-pk-depir-sublinear-key-to-pk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "pk-depir-sublinear-key"
+   ],
+   "conclusion": "pk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pk-depir-sublinear-key-to-pk-depir.md",
+   "slug": "pk-depir-sublinear-key-to-pk-depir",
+   "graphSlug": "Reductions/pk-depir-sublinear-key-to-pk-depir",
+   "title": "PK-DEPIR with a sublinear key ⇒ PK-DEPIR"
   },
   {
    "id": "red-pk-depir-to-sk-depir",
@@ -16912,6 +17019,33 @@
    "slug": "polylog-cpir-to-dv-delegation-for-p-bhk17",
    "graphSlug": "Reductions/polylog-cpir-to-dv-delegation-for-p-bhk17",
    "title": "PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P"
+  },
+  {
+   "id": "red-polylog-cpir-to-nontrivial-cpir",
+   "kind": "implication",
+   "hypotheses": [
+    "polylog-cpir"
+   ],
+   "conclusion": "nontrivial-cpir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the scheme unchanged on databases of a fixed large polynomial size, and the reduction forwards any privacy adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/polylog-cpir-to-nontrivial-cpir.md",
+   "slug": "polylog-cpir-to-nontrivial-cpir",
+   "graphSlug": "Reductions/polylog-cpir-to-nontrivial-cpir",
+   "title": "PIR with polylogarithmic communication ⇒ Non-trivial cPIR"
   },
   {
    "id": "red-polynomial-ratio-lwe-to-barg-for-np-cjj21",
@@ -22808,6 +22942,35 @@
    "title": "No fully-black-box reduction from DDH to IBE"
   },
   {
+   "id": "bar-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "one-round-sublinear-cpir",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
+   ],
+   "rationale": {
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08.md",
+   "slug": "no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "graphSlug": "Barriers/no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08",
+   "title": "No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR"
+  },
+  {
    "id": "bar-fac-to-low-exponent-rsa-bv98",
    "hypotheses": [
     "fac"
@@ -23983,7 +24146,7 @@
    "hypotheses": [
     "owf"
    ],
-   "conclusion": "passive-sk-depir",
+   "conclusion": "passive-sk-depir-independent-key",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -24005,7 +24168,7 @@
    "page": "content/Barriers/no-owf-to-passive-sk-depir-lmw25.md",
    "slug": "no-owf-to-passive-sk-depir-lmw25",
    "graphSlug": "Barriers/no-owf-to-passive-sk-depir-lmw25",
-   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR"
+   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR with a database-independent key"
   },
   {
    "id": "bar-owp-to-crhf-sim98",
@@ -24601,6 +24764,35 @@
    "title": "No reduction from ROM to KE"
   },
   {
+   "id": "bar-rom-to-pk-depir-hpy26",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "pk-depir-sublinear-key",
+   "class": "unstated",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "unstated"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HPY26 - Lower Bounds for PIR with Preprocessing from Blackbox Cryptography|HPY26]]"
+   ],
+   "rationale": {
+    "class": "HPY26 rule out constructions whose key generation and database encoding make no oracle queries, a restriction on the construction that the vocabulary has no class for."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rom-to-pk-depir-hpy26.md",
+   "slug": "no-rom-to-pk-depir-hpy26",
+   "graphSlug": "Barriers/no-rom-to-pk-depir-hpy26",
+   "title": "No oracle-free-encoding reduction from ROM to public-key DEPIR with a sublinear key"
+  },
+  {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
    "hypotheses": [
     "abe-selective-security"
@@ -24664,12 +24856,12 @@
     "tdp"
    ],
    "conclusion": "one-round-sublinear-cpir",
-   "class": "unstated",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "unstated"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -24679,13 +24871,13 @@
     "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
    ],
    "rationale": {
-    "class": "HHS08 rule out only polynomially-preserving black-box constructions, a restriction the vocabulary has no class for, so fully-black-box would overstate the theorem."
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
    },
    "status": "draft",
    "page": "content/Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08.md",
    "slug": "no-tdp-to-one-round-sublinear-cpir-hhs08",
    "graphSlug": "Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08",
-   "title": "No polynomially-preserving black-box reduction from TDP to one-round sublinear cPIR"
+   "title": "No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR"
   },
   {
    "id": "bar-tdp-to-verifiable-random-function-fs12",

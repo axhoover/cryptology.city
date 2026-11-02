@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[decisional-composite-residuosity|DCR]] is hard, there is a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme, built from Paillier's cryptosystem, whose server-side communication is logarithmic in the database size $n$ and whose client-side communication is $O(n^{\varepsilon} \log n)$ for a constant $\varepsilon < 1$, the factors polynomial in $\secpar$, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].
+If [[decisional-composite-residuosity|DCR]] is hard, there is a perfectly correct, one-round [[single-server-private-information-retrieval|single-server PIR]] scheme, built from Paillier's cryptosystem, whose server-side communication is logarithmic in the database size $n$ and whose client-side communication is $O(n^{\varepsilon} \log n)$ for a constant $\varepsilon < 1$, the factors polynomial in $\secpar$, with a deterministic server answer, so a [[single-server-private-information-retrieval#one-round-sublinear-pir|one-round sublinear]] one — [[Cha04 - Single Database Private Information Retrieval with Logarithmic Communication|Cha04]].
 
 ## Sketch
 
