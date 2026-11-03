@@ -7300,6 +7300,22 @@
    "unlisted": true
   },
   {
+   "id": "yao-xor-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/yao-xor-lemma.md",
+   "slug": "yao-xor-lemma",
+   "graphSlug": "Folklore/yao-xor-lemma",
+   "title": "Yao's XOR lemma",
+   "aliases": [
+    "XOR lemma",
+    "Yao's XOR lemma",
+    "Hard-core lemma",
+    "Impagliazzo's hard-core lemma"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "zap",
    "kind": "variant",
    "type": "primitive",
