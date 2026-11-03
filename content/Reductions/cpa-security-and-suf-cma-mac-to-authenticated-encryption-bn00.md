@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\SKE = (\KeyGen, \Enc, \Dec)$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC = (\KeyGen, \Tag, \Vrfy)$ a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] [[message-authentication-code|MAC]]. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$, which encrypts $m$ to $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$ and decrypts $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise, is an [[authenticated-encryption|authenticated encryption]] scheme: it is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]] — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+Let $\SKE = (\KeyGen, \Enc, \Dec)$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC = (\KeyGen, \Tag, \Vrfy)$ a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] [[message-authentication-code|MAC]] whose message space contains the ciphertext space of $\SKE$. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$, which encrypts $m$ to $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$ and decrypts $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise, is an [[authenticated-encryption|authenticated encryption]] scheme: it is [[authenticated-encryption#privacy|CPA-secure]] and [[authenticated-encryption#integrity-of-ciphertexts|INT-CTXT-secure]] — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
 ## Sketch
 
@@ -29,5 +29,5 @@ A CPA adversary against $\SKE$ samples $k_m$ and tags the ciphertexts it receive
 
 ## Notes
 
-- With strong unforgeability defined through a verification oracle, as in [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]], the forger forwards every verification query and the factor $q_V$ disappears.
+- With strong unforgeability defined through a verification oracle, the forger forwards every verification query, and the INT-CTXT advantage is at most the SUF-CMA advantage at $q_V$ verification queries — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]; passing from that notion to the single-forgery one costs the factor $q_V$ — [[BGM04 - The Power of Verification Queries in Message Authentication and Authenticated Encryption|BGM04]].
 - With a MAC that is only [[message-authentication-code#unforgeability|UF-CMA-secure]], Encrypt-then-MAC can fail INT-CTXT security and CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].

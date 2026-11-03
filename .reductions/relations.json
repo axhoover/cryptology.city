@@ -6453,6 +6453,19 @@
    "unlisted": false
   },
   {
+   "id": "tpke-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-encryption.md",
+   "slug": "threshold-encryption",
+   "graphSlug": "Primitives/threshold-encryption",
+   "anchor": "#cpa-security",
+   "of": "threshold-encryption",
+   "title": "CPA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "transparent-succinct-argument",
    "kind": "variant",
    "type": "primitive",
@@ -7364,7 +7377,8 @@
     "standard"
    ],
    "source": [
-    "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
+    "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]",
+    "[[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]]"
    ],
    "via": [],
    "heuristic": false,
@@ -23107,6 +23121,33 @@
    "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
    "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
    "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
+  },
+  {
+   "id": "red-tpke-cca-security-to-tpke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "tpke-cca-security"
+   ],
+   "conclusion": "tpke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the CPA adversary once as an oracle, answering each of its encryption queries by encrypting and querying the decryption-share oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tpke-cca-security-to-tpke-cpa-security.md",
+   "slug": "tpke-cca-security-to-tpke-cpa-security",
+   "graphSlug": "Reductions/tpke-cca-security-to-tpke-cpa-security",
+   "title": "TPKE CCA Security ⇒ TPKE CPA Security"
   },
   {
    "id": "red-twisted-edwards-dlog-to-prime-order-dlog",

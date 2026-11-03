@@ -15,7 +15,7 @@ variants:
 
 # Rerandomizable encryption
 
-An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ such that for every $\pk$ output by $\KeyGen$, every message $m$ and every ciphertext $c$ in the support of $\Enc(\pk, m)$, $\mathsf{ReRand}(\pk, c)$ is distributed exactly as $\Enc(\pk, m)$. ElGamal, rerandomized by multiplying both components by a fresh encryption of the identity, is an example — standard.
+An IND-CPA-secure [[public-key-encryption|public-key encryption]] scheme with an efficient public algorithm $\mathsf{ReRand}$ such that for every $\pk$ output by $\KeyGen$, every message $m$ and every ciphertext $c$ in the support of $\Enc(\pk, m)$, $\mathsf{ReRand}(\pk, c)$ is distributed exactly as $\Enc(\pk, m)$.
 
 ## Syntax
 
@@ -69,11 +69,11 @@ A perfectly rerandomizable CPA-secure scheme with negligible decryption error is
 
 ## Statistical rerandomization of honest ciphertexts
 
-An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ is **statistically rerandomizable** if for every $\pk$ output by $\KeyGen$ and every message $m$, the pair $(c, \mathsf{ReRand}(\pk, c))$ for $c \gets \Enc(\pk, m)$ is statistically close to $(c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]]. Exact rerandomization of every ciphertext in the support implies it.
+An IND-CPA-secure public-key encryption scheme with an efficient public algorithm $\mathsf{ReRand}$ is **statistically rerandomizable** if for every $\pk$ output by $\KeyGen$ and every message $m$, the pair $(c, \mathsf{ReRand}(\pk, c))$ for $c \gets \Enc(\pk, m)$ is statistically close to $(c, c')$ for an independent $c' \gets \Enc(\pk, m)$ — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 
 ## Security against slightly super-polynomial adversaries
 
-A rerandomizable encryption scheme is **secure against slightly super-polynomial adversaries** if for some $T(\secpar) = \secpar^{\omega(1)}$ every adversary running in time $T(\secpar)$ has IND-CPA advantage at most $1/T(\secpar)$. It strengthens ordinary IND-CPA security; fully homomorphic encryption from iO without circular security requires security of this kind — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
+A rerandomizable encryption scheme is **secure against slightly super-polynomial adversaries** if for some $T(\secpar) = \secpar^{\omega(1)}$ every adversary running in time $T(\secpar)$ has IND-CPA advantage at most $1/T(\secpar)$. It strengthens ordinary IND-CPA security; [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]] assume it, together with [[indistinguishability-obfuscation#sub-exponentially-secure-io|sub-exponentially secure iO]], to build [[homomorphic-encryption#compact-fhe|compact FHE]] without circular security.
 
 ## Rerandomizable RCCA encryption
 
@@ -116,14 +116,15 @@ $$
 \Adv^{\mathrm{rcca}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{rcca}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[CKN03 - Relaxing Chosen-Ciphertext Security|CKN03]]. Without the $\mathsf{test}$ answers, $\calA$ would win by submitting $c^*$ itself. [[public-key-encryption#cca-security|CCA security]] implies RCCA security, which implies [[public-key-encryption#cpa-security|CPA security]]; appending to every ciphertext of a CCA-secure scheme a bit that decryption ignores gives a scheme that is RCCA-secure but not CCA-secure — standard.
+is negligible — [[CKN03 - Relaxing Chosen-Ciphertext Security|CKN03]]. Without the $\mathsf{test}$ answers, $\calA$ would win by submitting $c^*$ itself. For perfectly correct schemes, [[public-key-encryption#cca-security|CCA security]] implies RCCA security, which implies [[public-key-encryption#cpa-security|CPA security]]; appending to every ciphertext of a perfectly correct CCA-secure scheme a bit that decryption ignores gives a scheme that is RCCA-secure but not CCA-secure — standard.
 
-A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[Gro04 - Rerandomizable and Replayable Adaptive Chosen Ciphertext Attack Secure Cryptosystems|Gro04]] constructs perfectly rerandomizable schemes whose RCCA security is proved only in an idealized group model. [[PR07 - Rerandomizable RCCA Encryption|PR07]] construct a perfectly rerandomizable RCCA-secure scheme under [[decisional-diffie-hellman|DDH]], an extension of Cramer–Shoup encryption.
+A **rerandomizable RCCA** scheme is perfectly rerandomizable and RCCA-secure. [[Gro04 - Rerandomizable and Replayable Adaptive Chosen Ciphertext Attack Secure Cryptosystems|Gro04]] constructs perfectly rerandomizable schemes whose RCCA security is proved only in an idealized group model. [[PR07 - Rerandomizable RCCA Encryption|PR07]] construct a perfectly rerandomizable RCCA-secure extension of Cramer–Shoup encryption under [[decisional-diffie-hellman|DDH]].
 
 # Other results
 
+- ElGamal encryption [[ElGamal85 - A Public Key Cryptosystem and a Signature Scheme Based on Discrete Logarithms|ElGamal85]] is perfectly rerandomizable: multiply a ciphertext componentwise by a fresh encryption of the group identity — standard.
 - Perfect rerandomization implies statistical rerandomization of honest ciphertexts ([[rerandomizable-encryption-to-statistically-rerandomizable-encryption|RE ⇒ Statistically rerandomizable encryption]]) — folklore.
-- A public-key bit-encryption scheme with a strong homomorphic evaluator for a boolean function $f$ is statistically rerandomizable, for essentially every $f$ other than the trivial functions, NOT, AND and OR ([[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]]) — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
+- An IND-CPA-secure public-key bit-encryption scheme with a strong homomorphic evaluator for a boolean function $f$ is statistically rerandomizable, for essentially every $f$ other than the trivial functions, NOT, AND and OR ([[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]]) — [[BL13 - Limits of Provable Security for Homomorphic Encryption|BL13]].
 - Sub-exponentially secure iO and rerandomizable encryption secure against slightly super-polynomial adversaries give compact FHE without circular security ([[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE]]) — [[CLTV15 - Obfuscation of Probabilistic Circuits and Applications|CLTV15]].
 
 <!-- BEGIN GENERATED participates-in 4b9674de230c -->

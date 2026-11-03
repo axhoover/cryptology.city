@@ -14,7 +14,7 @@ variants:
 
 # Authenticated encryption
 
-An **authenticated encryption (AE)** scheme is a [[symmetric-key-encryption|symmetric-key encryption]] scheme that is CPA-secure and has integrity of ciphertexts: no efficient adversary with an encryption oracle produces a ciphertext that the oracle did not output and that decrypts to a message rather than to $\bot$ — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+An **authenticated encryption (AE)** scheme is a [[symmetric-key-encryption|symmetric-key encryption]] scheme that is CPA-secure and has integrity of ciphertexts: no efficient adversary with an encryption oracle produces, except with negligible probability, a ciphertext that the oracle did not output and that decrypts to a message rather than to $\bot$ — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
 ## Syntax
 
@@ -146,7 +146,7 @@ A **nonce-based authenticated encryption scheme with associated data (AEAD)** en
 - $\Enc(k, N, a, m) \to c$, a deterministic algorithm taking a nonce $N \in \calN$, associated data $a$ and a message $m \in \calM$, outputting a ciphertext $c$,
 - $\Dec(k, N, a, c) \to m$, a deterministic algorithm outputting a message $m \in \calM$ or $\bot$.
 
-Correctness requires $\Dec(k, N, a, \Enc(k, N, a, m)) = m$ for every $k$ output by $\KeyGen$ and all $N$, $a$ and $m$. Assume $|\Enc(k, N, a, m)| = \ell(|m|)$ for a fixed function $\ell$.
+Correctness requires $\Dec(k, N, a, \Enc(k, N, a, m)) = m$ for every $k$ output by $\KeyGen$ and all $N$, $a$ and $m$. Assume $|\Enc(k, N, a, m)| = \ell(\secpar, |m|)$ for a fixed function $\ell$.
 
 An adversary is **nonce-respecting** if it never repeats a nonce across its queries to the encryption oracle. Without this restriction, $\calA$ wins the privacy game by repeating a query, since $\Enc$ is deterministic and the world-1 oracle is not.
 
@@ -157,7 +157,7 @@ An adversary is **nonce-respecting** if it never repeats a nonce across its quer
 \begin{algorithmic}
 \State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
 \State $\calO_0(N, a, m) := \Enc(k, N, a, m)$
-\State $\calO_1(N, a, m) \getsr \bits^{\ell(|m|)}$
+\State $\calO_1(N, a, m) \getsr \bits^{\ell(\secpar, |m|)}$
 \Comment{$\calA$ is nonce-respecting; $\calO_1$ uses fresh coins on each query}
 \State $b' \gets \calA^{\calO_b}(1^\secpar)$
 \Return $[b' = b]$
@@ -206,13 +206,9 @@ are negligible — [[Rog02 - Authenticated-Encryption with Associated-Data|Rog02
 
 ## Generic composition
 
-For a SKE scheme $\SKE$ and a [[message-authentication-code|MAC]] $\MAC$ under independent keys $k_e$ and $k_m$, the three generic compositions encrypt $m$ as follows, and decryption outputs $\bot$ whenever the tag does not verify — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]:
+For a SKE scheme $\SKE$ and a [[message-authentication-code|MAC]] $\MAC$ under independent keys $k_e$ and $k_m$, the three generic compositions encrypt $m$ as follows, and decryption outputs $\bot$ whenever the tag does not verify — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]: _Encrypt-then-MAC_ (EtM) outputs $(c, \Tag(k_m, c))$ for $c \gets \Enc(k_e, m)$; _MAC-then-Encrypt_ (MtE) outputs $\Enc(k_e, m \| \Tag(k_m, m))$; _Encrypt-and-MAC_ (E&M) outputs $(\Enc(k_e, m), \Tag(k_m, m))$.
 
-- _Encrypt-then-MAC_ (EtM): $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$;
-- _MAC-then-Encrypt_ (MtE): output $\Enc(k_e, m \| \Tag(k_m, m))$;
-- _Encrypt-and-MAC_ (E&M): output $(\Enc(k_e, m), \Tag(k_m, m))$.
-
-For a [[symmetric-key-encryption#cpa-security|CPA-secure]] $\SKE$ and a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] $\MAC$, EtM is an authenticated encryption scheme ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE]]), hence CCA-secure ([[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]) — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. For a perfectly correct CPA-secure $\SKE$ and a [[message-authentication-code#unforgeability|UF-CMA-secure]] $\MAC$, all three compositions are INT-PTXT-secure, and EtM is CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. MtE and E&M are not generically secure: assuming CPA-secure SKE schemes and SUF-CMA-secure MACs exist, some such pair makes MtE neither INT-CTXT-secure nor CCA-secure, and some such pair makes E&M not CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+For a [[symmetric-key-encryption#cpa-security|CPA-secure]] $\SKE$ and a [[message-authentication-code#strong-unforgeability|SUF-CMA-secure]] $\MAC$, EtM is an authenticated encryption scheme ([[cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00|CPA-secure SKE + SUF-CMA MAC ⇒ AE]]), hence CCA-secure ([[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]]) — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. For a perfectly correct CPA-secure $\SKE$ and a $\MAC$ that is [[message-authentication-code#unforgeability|UF-CMA-secure]] against forgers that also have a verification oracle, all three compositions are INT-PTXT-secure, and EtM and MtE are CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]. MtE and E&M are not generically secure: assuming CPA-secure SKE schemes and SUF-CMA-secure MACs exist, some such pair makes MtE neither INT-CTXT-secure nor CCA-secure, and some such pair makes E&M not CPA-secure — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
 <!-- BEGIN GENERATED participates-in 0b8fd1b89846 -->
 
