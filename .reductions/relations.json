@@ -1419,6 +1419,19 @@
    "unlisted": true
   },
   {
+   "id": "decision-subset-sum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "anchor": "#decision-subset-sum",
+   "of": "subset-sum",
+   "title": "Decision subset sum",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "decisional-linear",
    "kind": "variant",
    "type": "assumption",
@@ -5507,6 +5520,21 @@
    "of": "oram",
    "title": "Sublogarithmic-overhead ORAM",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "subset-sum",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "title": "Subset sum",
+   "aliases": [
+    "Subset sum",
+    "Subset-sum problem",
+    "Random modular subset sum"
+   ],
    "unlisted": false
   },
   {
@@ -20395,6 +20423,126 @@
    "slug": "subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
    "graphSlug": "Reductions/subgroup-decision-to-nonadaptive-nizk-argument-for-np-gos06a",
    "title": "Subgroup decision ⇒ Perfect NIZK arguments for NP"
+  },
+  {
+   "id": "red-subset-sum-to-decision-subset-sum-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "decision-subset-sum",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-decision-subset-sum-in96.md",
+   "slug": "subset-sum-to-decision-subset-sum-in96",
+   "graphSlug": "Reductions/subset-sum-to-decision-subset-sum-in96",
+   "title": "Subset sum ⇒ Decision subset sum"
+  },
+  {
+   "id": "red-subset-sum-to-ot-lps10",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "ot",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-ot-lps10.md",
+   "slug": "subset-sum-to-ot-lps10",
+   "graphSlug": "Reductions/subset-sum-to-ot-lps10",
+   "title": "Subset sum ⇒ OT"
+  },
+  {
+   "id": "red-subset-sum-to-pke-lps10",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-pke-lps10.md",
+   "slug": "subset-sum-to-pke-lps10",
+   "graphSlug": "Reductions/subset-sum-to-pke-lps10",
+   "title": "Subset sum ⇒ PKE"
+  },
+  {
+   "id": "red-subset-sum-to-prg-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "prg",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-prg-in96.md",
+   "slug": "subset-sum-to-prg-in96",
+   "graphSlug": "Reductions/subset-sum-to-prg-in96",
+   "title": "Subset sum ⇒ PRG"
+  },
+  {
+   "id": "red-subset-sum-to-uowhf-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "uowhf",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
+   "slug": "subset-sum-to-uowhf-in96",
+   "graphSlug": "Reductions/subset-sum-to-uowhf-in96",
+   "title": "Subset sum ⇒ UOWHF"
   },
   {
    "id": "red-succinct-lwe-to-abe-wee25",

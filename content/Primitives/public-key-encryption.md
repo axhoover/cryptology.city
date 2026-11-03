@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in a76641409029 -->
+<!-- BEGIN GENERATED participates-in d5990fdb88a7 -->
 
 ## Participates in
 
@@ -191,6 +191,7 @@ TODO
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[subset-sum-to-pke-lps10|Subset sum ⇒ PKE]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
 

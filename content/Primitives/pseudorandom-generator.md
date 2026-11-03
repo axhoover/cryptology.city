@@ -96,7 +96,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
 - CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $G(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 7d56d3c76fa5 -->
+<!-- BEGIN GENERATED participates-in e4d8d6efbf93 -->
 
 ## Participates in
 
@@ -119,6 +119,7 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
 - [[qr-to-prg-bbs86|QR ⇒ PRG (Blum–Blum–Shub)]]
+- [[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]
 - [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-generator#trapdoor-pseudorandom-generators|Trapdoor pseudorandom generators]])
 
 <!-- END GENERATED participates-in -->
