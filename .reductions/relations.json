@@ -4510,6 +4510,19 @@
    "unlisted": false
   },
   {
+   "id": "pseudorandom-injective-function",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#pseudorandom-injective-functions",
+   "of": "prf",
+   "title": "Pseudorandom Injective Functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pspace",
    "kind": "object",
    "type": "complexity-class",
@@ -4533,6 +4546,19 @@
    "anchor": "#public-key-anamorphic-encryption",
    "of": "anamorphic-encryption",
    "title": "Public-key anamorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "puncturable-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-function.md",
+   "slug": "pseudorandom-function",
+   "graphSlug": "Primitives/pseudorandom-function",
+   "anchor": "#puncturable-prfs",
+   "of": "prf",
+   "title": "Puncturable PRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -17786,6 +17812,35 @@
    "slug": "prg-to-prf-ggm86",
    "graphSlug": "Reductions/prg-to-prf-ggm86",
    "title": "PRG ⇒ PRF (GGM)"
+  },
+  {
+   "id": "red-prg-to-puncturable-prf-bw13",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "puncturable-prf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BW13 - Constrained Pseudorandom Functions and Their Applications|BW13]]",
+    "[[KPTZ13 - Delegatable Pseudorandom Functions and Applications|KPTZ13]]",
+    "[[BGI14 - Functional Signatures and Pseudorandom Functions|BGI14]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor n, the input length: one PRG hybrid per level of the tree",
+   "rationale": {
+    "class": "The GGM construction calls the length-doubling PRG only as an oracle, and the reduction embeds its PRG challenge at one level of the path to the punctured point, running the adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prg-to-puncturable-prf-bw13.md",
+   "slug": "prg-to-puncturable-prf-bw13",
+   "graphSlug": "Reductions/prg-to-puncturable-prf-bw13",
+   "title": "PRG ⇒ puncturable PRF"
   },
   {
    "id": "red-prime-order-cdh-to-cdh",

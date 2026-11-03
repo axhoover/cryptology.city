@@ -8,6 +8,8 @@ title: Pseudorandom function
 id: prf
 variants:
   invertible-prf: "#invertible-prfs"
+  pseudorandom-injective-function: "#pseudorandom-injective-functions"
+  puncturable-prf: "#puncturable-prfs"
   weak-prf: "#weak-prfs"
 ---
 
@@ -109,9 +111,13 @@ is negligible.
 
 ## Pseudorandom Injective Functions
 
-TODO: define these and say how they relate to PRPs
+A **pseudorandom injective function** is a PRF with $|\calR| \ge |\calD|$ such that $\Eval(k, \cdot) : \calD \to \calR$ is injective for every key $k$, secure when $\calA$ cannot distinguish $\Eval(k, \cdot)$ from a uniformly random injective function $\calD \to \calR$: the PRF game with $R \getsr \Funcs(\calD,\calR)$ replaced by a uniform injection. With $\calD = \calR$ it is a [[pseudorandom-permutation|PRP]]. A $q$-query distinguisher separates a uniform injection $\calD \to \calR$ from a uniform function $\calD \to \calR$ with advantage at most $q(q-1)/(2|\calR|)$, by the coupling of the [[switching-lemma|switching lemma]], so for $|\calR|$ superpolynomial in $\secpar$ a pseudorandom injective function is a PRF; a PRP on $\calR$ restricted to an injectively encoded $\calD \subseteq \calR$ is a pseudorandom injective function — standard.
+
+Adding an inversion algorithm gives the _invertible pseudorandom functions_ of [[BKW17 - Constrained Keys for Invertible Pseudorandom Functions|BKW17]]: injective PRFs that can be inverted with the key, which for $\calD = \calR$ are exactly strong PRPs. Unlike the iPRFs above, they have at most one preimage per output. [[BKW17 - Constrained Keys for Invertible Pseudorandom Functions|BKW17]] give puncturable and single-key circuit-constrained invertible pseudorandom functions, and show that constrained PRPs are impossible for many classes of constraints under their definition, which is why the range is allowed to exceed the domain.
 
 ## Puncturable PRFs
+
+A **puncturable PRF** adds an algorithm $\mathsf{Puncture}(k, x^*) \to k_{x^*}$ outputting a key punctured at $x^* \in \calD$, with $\Eval(k_{x^*}, x) = \Eval(k, x)$ for all $x \ne x^*$. It is secure if for all efficient $\calA$ that output $x^* \in \calD$ before seeing the key, given $k_{x^*}$ the value $\Eval(k, x^*)$ is indistinguishable from uniform in $\calR$ — [[BW13 - Constrained Pseudorandom Functions and Their Applications|BW13]], [[KPTZ13 - Delegatable Pseudorandom Functions and Applications|KPTZ13]], [[BGI14 - Functional Signatures and Pseudorandom Functions|BGI14]]. The [[prg-to-prf-ggm86|GGM]] tree is puncturable: $k_{x^*}$ consists of the seeds of the siblings of the nodes on the path to $x^*$ ([[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]]). Puncturable PRFs are the PRFs of the punctured-programming proofs of [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
 
 ## Weak PRFs
 
@@ -149,7 +155,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 01a702546dfe -->
+<!-- BEGIN GENERATED participates-in 18414526c1b3 -->
 
 ## Participates in
 
@@ -173,6 +179,7 @@ is negligible.
 - [[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]
 - [[prf-to-invertible-prf-hppy25|PRF ⇒ iPRF]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]] (via [[pseudorandom-function#puncturable-prfs|Puncturable PRFs]])
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]] (via [[pseudorandom-function#invertible-prfs|Invertible PRFs]])
 - [[prp-to-prf|PRP ⇒ PRF]]
 
