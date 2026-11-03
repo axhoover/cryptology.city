@@ -1194,6 +1194,19 @@
    "unlisted": false
   },
   {
+   "id": "computational-fuzzy-extractor",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/fuzzy-extractor.md",
+   "slug": "fuzzy-extractor",
+   "graphSlug": "Primitives/fuzzy-extractor",
+   "anchor": "#computational-fuzzy-extractors",
+   "of": "fuzzy-extractor",
+   "title": "Computational fuzzy extractors",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "computational-multi-server-pir",
    "kind": "variant",
    "type": "primitive",
@@ -2136,6 +2149,20 @@
    "aliases": [
     "FE",
     "Functional encryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "fuzzy-extractor",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/fuzzy-extractor.md",
+   "slug": "fuzzy-extractor",
+   "graphSlug": "Primitives/fuzzy-extractor",
+   "title": "Fuzzy extractor",
+   "aliases": [
+    "Fuzzy extractor",
+    "Secure sketch"
    ],
    "unlisted": false
   },
@@ -5269,6 +5296,19 @@
    "anchor": "#secure-channels",
    "of": "interactive-protocol",
    "title": "Secure channels",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "secure-sketch",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/fuzzy-extractor.md",
+   "slug": "fuzzy-extractor",
+   "graphSlug": "Primitives/fuzzy-extractor",
+   "anchor": "#secure-sketches",
+   "of": "fuzzy-extractor",
+   "title": "Secure sketches",
    "aliases": [],
    "unlisted": false
   },
