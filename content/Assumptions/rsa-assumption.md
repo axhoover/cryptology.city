@@ -52,7 +52,7 @@ is negligible.
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
-- Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
+- [[hardcore-predicate|Hard-core bit]]: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
 # Variations
 
