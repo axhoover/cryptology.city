@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "receiver privacy: at most twice the mode-indistinguishability advantage, by two hybrids through a pair of injective indices; sender privacy is statistical, up to a leftover-hash term"
 rationale:
   class: "The protocol calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, receiver privacy forwards any sender distinguisher to the mode distinguisher, and sender privacy is statistical."

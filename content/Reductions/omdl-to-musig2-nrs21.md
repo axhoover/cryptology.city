@@ -11,6 +11,8 @@ class: fully-black-box
 model: rom
 source:
   - "[[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]"
+via:
+  - "[[forking-lemma|forking lemma]]"
 security-loss: ""
 rationale:
   class: "The scheme is fixed, and the random-oracle proof answers signing sessions with its discrete-logarithm oracle and runs the forger only as an oracle, forking it."

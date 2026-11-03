@@ -11,6 +11,8 @@ class: fully-black-box
 model: rom
 source:
   - "[[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]"
+via:
+  - "[[forking-lemma|forking lemma]]"
 security-loss: ""
 rationale:
   class: "The scheme is fixed and uses only the group and the hashes, and the reduction runs the forger only as an oracle, forking it twice."
