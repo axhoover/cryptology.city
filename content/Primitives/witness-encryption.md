@@ -55,7 +55,7 @@ is negligible — [[GGSW13 - Witness encryption and its applications|GGSW13]]. T
 
 ## Extractable witness encryption
 
-A stronger notion requires, for every statement $x$, that any efficient adversary distinguishing encryptions of $0$ and $1$ under $x$ with non-negligible advantage yields an efficient extractor that outputs a witness for $x$ with non-negligible probability — [[GKPVZ13 - How to Run Turing Machines on Encrypted Data|GKPVZ13]]. With auxiliary input, extractable witness encryption conflicts with plausible special-purpose obfuscation — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
+A stronger notion requires, for every statement $x$, that any efficient adversary distinguishing encryptions of $0$ and $1$ under $x$ with non-negligible advantage yields an efficient extractor that outputs a witness for $x$ with non-negligible probability — [[GKPVZ13 - How to Run Turing Machines on Encrypted Data|GKPVZ13b]]. With auxiliary input, extractable witness encryption conflicts with plausible special-purpose obfuscation — [[GGHW14 - On the Implausibility of Differing-Inputs Obfuscation and Extractable Witness Encryption with Auxiliary Input|GGHW14]].
 
 # Other results
 
