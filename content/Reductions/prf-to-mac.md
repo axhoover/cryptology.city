@@ -28,4 +28,4 @@ Verification recomputes the tag, so correctness is perfect. The distinguisher $\
 
 ## Notes
 
-- Domain extension, such as CBC-MAC, enlarges the message space beyond $\calD$ — standard.
+- Domain extension enlarges the message space beyond $\calD$: for $\calD = \bits^n$, [[prf-to-mac-bkr94|CBC-MAC]] is a PRF, hence a MAC, on messages of $\ell$ blocks for any fixed $\ell$ — [[BKR94 - The Security of Cipher Block Chaining|BKR94]].

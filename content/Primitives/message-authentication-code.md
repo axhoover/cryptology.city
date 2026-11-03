@@ -124,12 +124,32 @@ When $\Tag$ is deterministic, security still holds under the same UF-CMA game. I
 
 A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[pseudorandom-function|PRF]] $(\KeyGen, \Eval)$. The UF-CMA security of the resulting MAC follows directly from the PRF's pseudorandomness.
 
+## One-time MACs
+
+A MAC is an **$\varepsilon$-secure one-time MAC** if every adversary, of unbounded running time, that makes at most one query to $\calO$ in the UF-CMA game wins with probability at most $\varepsilon$.
+
+For a [[universal-hash-function#strongly-universal|strongly universal]] family $\calH$ of functions $\calM \to \calT$, the key $h \getsr \calH$ and $\Tag(h, m) := h(m)$ give a $1/|\calT|$-secure one-time MAC, since $h(\hat m)$ is uniform given $h(m)$ for $\hat m \ne m$ — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]]. With $\calT = \bits^\tau$, a one-time pad $r \getsr \bits^\tau$ and $h$ from an $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family, $\Tag((h, r), m) := h(m) \oplus r$ is $\varepsilon$-secure one-time: the tag $t$ is independent of $h$, and a forgery $(\hat m, \hat t)$ needs $h(\hat m) \oplus h(m) = \hat t \oplus t$ — standard. One hash function $h$ serves many messages when each gets a fresh pad, the $i$th message $m_i$ being tagged $h(m_i) \oplus r_i$, so the key grows by $\tau$ bits per message rather than by a fresh hash function — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]].
+
+## Nonce-based MACs
+
+A **nonce-based MAC** has $\Tag(k, n, m)$ and $\Vrfy(k, n, m, t)$ take a nonce $n \in \calN$ as well. In its UF-CMA game, $\calA$ supplies $(n, m)$ to $\calO$, never repeats a nonce across queries, and wins with any $(\hat n, \hat m, \hat t)$ such that $\Vrfy(k, \hat n, \hat m, \hat t) = 1$ and $\hat m \notin \calQ$.
+
+The **Wegman–Carter MAC** replaces the pads above by PRF outputs. For a [[pseudorandom-function|PRF]] $\PRF$ with domain $\calN$ and range $\bits^\tau$, $F_k := \Eval(k, \cdot)$, and an $\varepsilon$-almost XOR-universal family $\calH$ of functions $\calM \to \bits^\tau$, the key is $(k, h)$ with $h \getsr \calH$ and
+
+$$
+\Tag((k, h), n, m) := F_k(n) \oplus h(m).
+$$
+
+For every $\calA$ making $q$ queries there is an efficient $\calB$ making $q + 1$ queries with $\Adv^{\ufcma}_{\MAC,\calA}(\secpar) \le \Adv^{\mathrm{prf}}_{\PRF,\calB}(\secpar) + \varepsilon$: once $F_k$ is a uniformly random function, the tags under distinct nonces are independent uniform values that carry no information about $h$, a forgery under an unused nonce succeeds with probability $2^{-\tau} \le \varepsilon$, and one under a used nonce $n_i$ needs $h(\hat m) \oplus h(m_i) = \hat t \oplus t_i$ for $\hat m \ne m_i$, which has probability at most $\varepsilon$ — standard.
+
 # Other results
 
-- MACs can be constructed from [[pseudorandom-function|PRF]]s
-- CPA-secure [[symmetric-key-encryption|SKE]] can be boosted to CCA-secure SKE using a MAC (encrypt-then-MAC construction)
+- [[prf-to-mac|PRF ⇒ MAC]], and [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]] on messages of a fixed number of blocks.
+- [[mac-and-ske-to-cca-security|SUF-CMA MAC + CPA-secure SKE ⇒ CCA-secure SKE]] (encrypt-then-MAC).
+- **NMAC and HMAC.** For a compression function $f : \bits^c \times \bits^b \to \bits^c$, let $F_k(m_1 \cdots m_\ell) := y_\ell$ with $y_0 := k$ and $y_i := f(y_{i-1}, m_i)$ be its iteration keyed by the initial chaining value. Then $\mathrm{NMAC}_{k_1,k_2}(m) := F_{k_1}(F_{k_2}(m))$, with the inner output padded to one block, is a UF-CMA-secure MAC if $f$, keyed by its chaining input, is a secure MAC on one-block messages and $F_k$ is weakly collision resistant, that is, collision resistant against an adversary that sees $F_k$ only through an oracle — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]]. $\mathrm{HMAC}$ is NMAC with $k_1 = f(\mathrm{IV}, \bar k \oplus \mathrm{opad})$ and $k_2 = f(\mathrm{IV}, \bar k \oplus \mathrm{ipad})$ derived from a single key $\bar k$ — [[BCK96 - Keying Hash Functions for Message Authentication|BCK96]].
+- NMAC is a PRF if $f$, keyed by its chaining input, is a PRF, with no collision-resistance assumption; HMAC is a PRF if in addition $f$, keyed through its data input, is a PRF under the two related keys $\bar k \oplus \mathrm{opad}$ and $\bar k \oplus \mathrm{ipad}$ — [[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]].
 
-<!-- BEGIN GENERATED participates-in 5c5dd0db4d63 -->
+<!-- BEGIN GENERATED participates-in 8865c3c7f2cb -->
 
 ## Participates in
 
@@ -141,5 +161,6 @@ A simple and common construction: set $\Tag(k, m) := \Eval(k, m)$ for a [[pseudo
 **Produces Message authentication code**
 
 - [[prf-to-mac|PRF ⇒ MAC]]
+- [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
 
 <!-- END GENERATED participates-in -->

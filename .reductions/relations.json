@@ -7032,6 +7032,26 @@
    "unlisted": true
   },
   {
+   "id": "universal-hash-function",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/universal-hash-function.md",
+   "slug": "universal-hash-function",
+   "graphSlug": "Glossary/universal-hash-function",
+   "title": "Universal hash function",
+   "aliases": [
+    "UHF",
+    "Universal hash function",
+    "Universal hash functions",
+    "Universal hashing",
+    "Strongly universal hash function",
+    "Pairwise-independent hash function",
+    "AXU",
+    "Almost XOR-universal hash function"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "universal-snark",
    "kind": "variant",
    "type": "primitive",
@@ -18869,6 +18889,33 @@
    "slug": "prf-to-mac",
    "graphSlug": "Reductions/prf-to-mac",
    "title": "PRF ⇒ MAC"
+  },
+  {
+   "id": "red-prf-to-mac-bkr94",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BKR94 - The Security of Cipher Block Chaining|BKR94]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the PRF distinguisher makes $q\\ell$ queries, plus additive $O(q^2\\ell^2/2^n)$ for $q$ queries of $\\ell$ blocks",
+   "rationale": {
+    "class": "CBC-MAC calls the PRF only as an oracle, the reduction runs the distinguisher once as an oracle, and the random-function core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-mac-bkr94.md",
+   "slug": "prf-to-mac-bkr94",
+   "graphSlug": "Reductions/prf-to-mac-bkr94",
+   "title": "PRF ⇒ MAC (CBC-MAC)"
   },
   {
    "id": "red-prf-to-polylog-oram-go96",
