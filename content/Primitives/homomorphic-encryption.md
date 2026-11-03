@@ -255,7 +255,7 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
 - [[approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22|IND-CPA statically approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)]]
 
-<!-- BEGIN GENERATED participates-in 58eb50f01b14 -->
+<!-- BEGIN GENERATED participates-in 669730df3c1b -->
 
 ## Participates in
 
@@ -271,14 +271,12 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]] (via [[homomorphic-encryption#circular-secure-fhe|Circular-secure FHE]])
 - [[circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09|Circular-secure bootstrappable SHE ⇒ Compact FHE]] (via [[homomorphic-encryption#circular-secure-bootstrappable-she|Circular-secure bootstrappable SHE]])
 - [[compact-fhe-to-he|Compact FHE ⇒ HE]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
-- [[he-to-cpir|FHE ⇒ cPIR]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 - [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]]
 - [[he-to-re-bl13|Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption]] (via [[homomorphic-encryption#strongly-homomorphic-encryption|Strongly homomorphic encryption]])
 - [[length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption ⇒ Additively homomorphic encryption]] (via [[homomorphic-encryption#length-flexible-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption]])
 - [[length-flexible-additively-homomorphic-encryption-to-polylog-cpir-lip05|Length-flexible additively homomorphic encryption ⇒ PIR with polylogarithmic communication (Lipmaa)]] (via [[homomorphic-encryption#length-flexible-additively-homomorphic-encryption|Length-flexible additively homomorphic encryption]])
 - [[leveled-fully-homomorphic-encryption-to-he|Leveled FHE ⇒ HE]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
-- [[leveled-fully-homomorphic-encryption-to-polylog-cpir|Leveled FHE ⇒ PIR with polylogarithmic communication]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]] (via [[homomorphic-encryption#leveled-fully-homomorphic-encryption|Leveled fully homomorphic encryption]])
 - [[multiplicatively-homomorphic-encryption-to-he|Multiplicatively homomorphic encryption ⇒ HE]] (via [[homomorphic-encryption#multiplicatively-homomorphic-encryption|Multiplicatively homomorphic encryption]])
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[homomorphic-encryption#additively-homomorphic-encryption|Additively homomorphic encryption]])
