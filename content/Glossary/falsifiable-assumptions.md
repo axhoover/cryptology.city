@@ -1,6 +1,6 @@
 ---
 type: glossary
-status: stub
+status: draft
 aliases:
   - Falsifiable assumption
   - Falsifiable assumptions
@@ -13,9 +13,31 @@ variants:
 
 # Falsifiable assumptions
 
-An assumption is falsifiable if a violation of it can be witnessed by a polynomial-time game between a challenger and an adversary, so that a counterexample can be efficiently recognized; KEA-style knowledge assumptions are not.
+An assumption is falsifiable if it is a game between an efficient challenger and an adversary at whose end the challenger decides whether the adversary won, so that an adversary breaking the assumption can be recognized efficiently — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]], after [[Nao03 - On Cryptographic Assumptions and Challenges|Nao03]]. Knowledge assumptions such as [[knowledge-of-exponent|KEA]] are not falsifiable.
 
-TODO: syntax and security definition.
+## Definition
+
+[[Nao03 - On Cryptographic Assumptions and Challenges|Nao03]] classifies assumptions by the complexity of falsifying them, should they be false: an assumption is falsifiable when a party able to break it can demonstrate the break by solving efficiently generated challenges whose solutions can be checked efficiently. [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]] formalize falsifiability as an interactive game, a notion they describe as similar in spirit to Naor's.
+
+A **falsifiable assumption** is a pair $(\calC, c)$ of an interactive challenger $\calC$ that runs in time polynomial in $\secpar$ and a constant $c \in [0, 1)$, the threshold. The challenger interacts with the adversary and outputs a bit, $1$ meaning that the adversary won — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\calC}_{\calA}(\secpar)$}
+\begin{algorithmic}
+\State $d \gets \langle \calA(1^\secpar), \calC(1^\secpar) \rangle$
+\Comment{$\calC$ runs in time $\poly(\secpar)$ and outputs $d \in \bits$}
+\Return $d$
+\end{algorithmic}
+\end{algorithm}
+```
+
+The assumption $(\calC, c)$ **holds** if for all efficient $\calA$ there is a negligible function $\varepsilon$ such that $\Pr\!\left[\Game^{\calC}_{\calA}(\secpar) = 1\right] \le c + \varepsilon(\secpar)$ — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
+
+Search assumptions such as [[hash-function#preimage-resistance-one-wayness|one-wayness]], [[discrete-logarithm|DLOG]] and [[computational-diffie-hellman|CDH]] are falsifiable with threshold $0$: the challenger samples an instance together with what it needs to check an answer ($x$ for $f(x)$, the exponents of a CDH instance) and checks the adversary's answer. Decision assumptions such as [[decisional-diffie-hellman|DDH]] and [[learning-with-errors|LWE]] with a fixed polynomial number of samples are falsifiable with threshold $1/2$: the challenger samples a hidden bit, sends a real or a random instance accordingly, and checks the adversary's guess — standard.
+
+[[knowledge-of-exponent|KEA]] is not falsifiable: it states that for every adversary there exists an extractor, and no efficient challenger can certify that a given adversary has none — [[Nao03 - On Cryptographic Assumptions and Challenges|Nao03]]. Adaptive soundness of a [[succinct-argument|SNARG]] for an $\classNP$ language is not, as stated, a falsifiable assumption: the challenger would have to check that the adversary's statement is false, which for an $\classNP$-complete language is as hard as deciding the language — standard.
 
 ## Bounded-round assumptions
 
@@ -24,6 +46,10 @@ An $r(\cdot)$-round intractability assumption is a pair $(C, t)$ of a challenger
 ## Non-interactive assumptions
 
 A **non-interactive assumption** is a pair $(\calI, \calV)$ of efficient algorithms. The instance generator $\calI(1^\secpar)$ outputs an instance $X$ together with private verification information $\omega$, and the verifier $\calV(X, \omega, y)$ accepts or rejects an answer $y$. The assumption holds if for all efficient $\calA$, given the instance and no oracle, $\Pr[\calV(X, \omega, \calA(1^\secpar, X)) = 1]$ is negligible — standard. [[discrete-logarithm|DLOG]], [[computational-diffie-hellman|CDH]] and [[q-strong-diffie-hellman|q-SDH]] are non-interactive; [[lrsw-assumption|LRSW]] and [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] are not, since their adversaries query an oracle — standard. The challenger of a non-interactive assumption runs $\calI$ and $\calV$, so every non-interactive assumption is falsifiable — standard.
+
+# Other results
+
+- Let $L$ be an $\classNP$ language with a sub-exponentially hard subset-membership problem. If a reduction that uses the cheating prover only as an oracle proves the adaptive soundness of a [[succinct-argument|SNARG]] for $L$ from a falsifiable assumption, then the assumption is false; the separation covers designated-verifier SNARGs and SNARGs whose proofs are only sublinear in the statement and witness length ([[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]). The proof uses that the challenger is efficient: an efficient prover whose outputs are indistinguishable from those of an inefficient cheating prover makes the reduction win the assumption's game with nearly the same probability — [[GW11 - Separating Succinct Non-Interactive Arguments From All Falsifiable Assumptions|GW11]].
 
 <!-- BEGIN GENERATED participates-in 8540edafdc28 -->
 
