@@ -138,7 +138,7 @@ TODO
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 
-<!-- BEGIN GENERATED participates-in a76641409029 -->
+<!-- BEGIN GENERATED participates-in b8e09aa455f9 -->
 
 ## Participates in
 
@@ -146,6 +146,7 @@ TODO
 
 - [[cca-security-to-cca1-security|CCA Security ⇒ CCA1 Security]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[cca1-security-to-cpa-security|CCA1 Security ⇒ CPA Security]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
+- [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[cpa-security-to-cpa-security|IND-CPA ⇔ Semantic security]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[perfectly-correct-pke-cpa-security-to-pke-cpa-security|Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])

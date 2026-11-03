@@ -12,6 +12,8 @@ variants:
   statistically-hiding-commitment: "#hiding"
   vector-commitment: "#vector-commitments"
   adversarial-pp-hiding-commitment: "#hiding-for-adversarial-public-parameters"
+  uc-commitment: "#uc-commitment"
+  uc-multi-commitment: "#uc-multi-commitment"
 ---
 
 # Commitment scheme
@@ -70,6 +72,16 @@ A _trapdoor commitment_ (or equivocable commitment) is a commitment scheme with 
 
 A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)$ such that one can later open any single position $m_i$ with a short proof. Used in verifiable data structures and SNARKs.
 
+## UC commitment
+
+The bit-commitment functionality $\calF_{\mathrm{COM}}$ serves one commitment from a committer $P_i$ to a receiver $P_j$. On input $(\mathsf{Commit}, \mathit{sid}, P_i, P_j, b)$ from $P_i$, with $b \in \bits$, it records $b$, sends $(\mathsf{Receipt}, \mathit{sid}, P_i, P_j)$ to $P_j$ and to the adversary, and ignores later Commit inputs. On input $(\mathsf{Open}, \mathit{sid}, P_i, P_j)$ from $P_i$, if it has recorded a bit $b$, it sends $(\mathsf{Open}, \mathit{sid}, P_i, P_j, b)$ to $P_j$ and to the adversary and halts — [[CF01 - Universally Composable Commitments|CF01]]. A **UC commitment** is a two-party protocol in which, with non-negligible probability, the receiver accepts a commitment of the honest committer and outputs a receipt, and which [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{COM}}$ against a malicious adversary that statically corrupts either party, possibly in a hybrid model such as the common reference string model; a result against adaptive corruptions says so. In the common reference string model each session of $\calF_{\mathrm{COM}}$ has its own reference string, so such a protocol uses a fresh string for every commitment — [[CF01 - Universally Composable Commitments|CF01]].
+
+Over [[interactive-protocol#authenticated-channels|authenticated channels]] without setup, no protocol in which only the committer and the receiver take part is a UC commitment ([[no-authenticated-channels-to-uc-commitment-cf01|no UC commitment from authenticated channels]]) — [[CF01 - Universally Composable Commitments|CF01]]. In the common reference string model trapdoor permutations suffice ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+
+### UC multi-commitment
+
+The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol that UC-realizes $\calF_{\mathrm{MCOM}}$, possibly in a hybrid model; in the common reference string model all commitments of a session then share one reference string. A claw-free pair of trapdoor permutations together with a CCA2-secure PKE gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
@@ -77,7 +89,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in 4dd2fa02734b -->
+<!-- BEGIN GENERATED participates-in c1e22989c05f -->
 
 ## Participates in
 
@@ -91,6 +103,7 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 **Produces Commitment scheme**
 
 - [[adversarial-pp-hiding-commitment-to-com|Commitment hiding for adversarial parameters ⇒ COM]]
+- [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-multi-commitment|UC multi-commitment]])
 - [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#hiding|Hiding]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|Hiding]])
@@ -103,5 +116,10 @@ A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)
 - [[prg-to-com-naor91|PRG ⇒ COM]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[qr-to-com|QR ⇒ COM]]
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
+- [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-commitment|UC commitment]])
+
+**Barriers**
+
+- [[no-authenticated-channels-to-uc-commitment-cf01|No reduction from authenticated channels to UC commitment]] (via [[commitment-scheme#uc-commitment|UC commitment]]) — circumvented by [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
 
 <!-- END GENERATED participates-in -->
