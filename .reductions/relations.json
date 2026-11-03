@@ -2354,7 +2354,7 @@
     "GKR",
     "GKR protocol"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "goppa-code-indistinguishability",
@@ -3672,7 +3672,7 @@
     "MSP",
     "Monotone span program"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "mpc",
