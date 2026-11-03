@@ -5085,6 +5085,20 @@
    "unlisted": false
   },
   {
+   "id": "random-self-reducibility",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/random-self-reducibility.md",
+   "slug": "random-self-reducibility",
+   "graphSlug": "Folklore/random-self-reducibility",
+   "title": "Random self-reducibility",
+   "aliases": [
+    "Random self-reducibility",
+    "Random self-reduction"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "randomized-encoding",
    "kind": "object",
    "type": "primitive",

@@ -48,6 +48,16 @@ $$
 
 is negligible.
 
+### Next-bit unpredictability
+
+Let $G$ output $m = m(\secpar)$ bits. $G$ is **next-bit unpredictable** if for all efficient $\calP$,
+
+$$
+\Pr\!\left[\calP(1^\secpar, G(s)_1 \cdots G(s)_{i-1}) = G(s)_i\right] - \frac12
+$$
+
+is negligible, over $s \getsr \calS$, a uniform index $i \in [m]$ and the coins of $\calP$. Next-bit unpredictability is equivalent to pseudorandomness: a distinguisher with advantage $\varepsilon$ gives a predictor with advantage $\varepsilon/m$ by a [[hybrid-argument|hybrid argument]] over the prefixes of $G(s)$ followed by uniform bits, and a predictor with advantage $\delta$ gives a distinguisher with advantage $\delta$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]], [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. The constructions of [[dlog-to-prg-bm84|Blum–Micali]] and [[owp-to-prg-yao82a-gl89|Yao]] are proved through this characterization, with the bits output in the order that makes each one unpredictable from those before it — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
+
 # Variations
 
 ## Keyed PRG
