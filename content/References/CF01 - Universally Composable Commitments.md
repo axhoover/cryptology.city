@@ -2,7 +2,7 @@
 type: reference
 status: stub
 title: "CF01"
-source: https://doi.org/10.1007/3-540-44647-8_2
+source: https://eprint.iacr.org/2001/055
 authors: Ran Canetti, Marc Fischlin
 venue: CRYPTO 2001
 published: 2001
@@ -13,7 +13,7 @@ cryptobib_key: C:CanFis01
 
 # [CF01] Universally Composable Commitments
 
-**Authors:** Ran Canetti, Marc Fischlin | **Venue:** CRYPTO 2001 | [Source](https://doi.org/10.1007/3-540-44647-8_2)
+**Authors:** Ran Canetti, Marc Fischlin | **Venue:** CRYPTO 2001 | [Source](https://eprint.iacr.org/2001/055)
 
 ## Abstract
 
