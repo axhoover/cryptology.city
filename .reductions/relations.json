@@ -1820,6 +1820,19 @@
    "unlisted": false
   },
   {
+   "id": "fixed-ring-ring-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/ring-signature.md",
+   "slug": "ring-signature",
+   "graphSlug": "Primitives/ring-signature",
+   "anchor": "#fixed-ring-unforgeability",
+   "of": "ring-signature",
+   "title": "Fixed-ring unforgeability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "four-message-zk-argument",
    "kind": "variant",
    "type": "primitive",
@@ -4659,6 +4672,21 @@
    "of": "lwe",
    "title": "Ring LWE",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "ring-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/ring-signature.md",
+   "slug": "ring-signature",
+   "graphSlug": "Primitives/ring-signature",
+   "title": "Ring signature",
+   "aliases": [
+    "Ring signature",
+    "Ring signatures",
+    "Ring signature scheme"
+   ],
    "unlisted": false
   },
   {
@@ -18619,6 +18647,33 @@
    "title": "Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)"
   },
   {
+   "id": "red-ring-signature-to-fixed-ring-ring-signature",
+   "kind": "implication",
+   "hypotheses": [
+    "ring-signature"
+   ],
+   "conclusion": "fixed-ring-ring-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any fixed-ring forger as an insider-corruption forger that corrupts no one and uses only the ring of all honest keys."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ring-signature-to-fixed-ring-ring-signature.md",
+   "slug": "ring-signature-to-fixed-ring-ring-signature",
+   "graphSlug": "Reductions/ring-signature-to-fixed-ring-ring-signature",
+   "title": "Ring signatures ⇒ Ring signatures with fixed-ring unforgeability"
+  },
+  {
    "id": "red-ring-sis-to-crhf-lm06",
    "kind": "implication",
    "hypotheses": [
@@ -20976,6 +21031,33 @@
    "slug": "tdp-to-ds-br93",
    "graphSlug": "Reductions/tdp-to-ds-br93",
    "title": "TDP ⇒ DS (full-domain hash, random oracle model)"
+  },
+  {
+   "id": "red-tdp-to-fixed-ring-ring-signature-rst01",
+   "kind": "implication",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "fixed-ring-ring-signature",
+   "class": "unstated",
+   "model": "other",
+   "models": [
+    "other"
+   ],
+   "source": [
+    "[[RST01 - How to Leak a Secret|RST01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The proof models the symmetric cipher as an ideal cipher, a family of independent random permutations that every party can query in both directions, which is none of the named models."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tdp-to-fixed-ring-ring-signature-rst01.md",
+   "slug": "tdp-to-fixed-ring-ring-signature-rst01",
+   "graphSlug": "Reductions/tdp-to-fixed-ring-ring-signature-rst01",
+   "title": "TDP ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)"
   },
   {
    "id": "red-tdp-to-hash-function",

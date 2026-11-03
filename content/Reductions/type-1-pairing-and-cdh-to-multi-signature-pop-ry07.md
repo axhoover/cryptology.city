@@ -22,5 +22,5 @@ security-loss: ""
 
 ## Notes
 
-- Simple POPs also give security for the multisignature of Lu, Ostrovsky, Sahai, Shacham and Waters and for a two-user ring signature of Bender, Katz and Morselli — [[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]].
+- Simple POPs also give security for the multisignature of Lu, Ostrovsky, Sahai, Shacham and Waters and for a two-user [[ring-signature|ring signature]] of Bender, Katz and Morselli — [[RY07 - The Power of Proofs-of-Possession Securing Multiparty Signatures against Rogue-Key Attacks|RY07]].
 - Boldyreva's scheme was first proved secure under the stronger requirement that each key be registered with its secret key ([[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model]]) — [[Bol03 - Threshold Signatures, Multisignatures and Blind Signatures Based on the Gap-Diffie-Hellman-Group Signature Scheme|Bol03]].
