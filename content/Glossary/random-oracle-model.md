@@ -34,7 +34,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 77e5f3ac1d58 -->
+<!-- BEGIN GENERATED participates-in 5bb3bc44d469 -->
 
 ## Participates in
 
@@ -48,6 +48,8 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 **Barriers**
 
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
+- [[no-rom-to-time-lock-puzzle-mmv11|No reduction from ROM to TLP]]
+- [[no-rom-to-vdf-gry25|No reduction from ROM to VDF]]
 
 **Proved in the Random Oracle Model**
 

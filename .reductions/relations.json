@@ -1432,6 +1432,19 @@
    "unlisted": false
   },
   {
+   "id": "decisional-sequential-squaring",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/sequential-squaring.md",
+   "slug": "sequential-squaring",
+   "graphSlug": "Assumptions/sequential-squaring",
+   "anchor": "#decisional-sequential-squaring",
+   "of": "sequential-squaring",
+   "title": "Decisional sequential squaring",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "deniable-encryption",
    "kind": "object",
    "type": "primitive",
@@ -2201,6 +2214,19 @@
    "anchor": "#highly-lossy-trapdoor-functions",
    "of": "tdp",
    "title": "Highly lossy trapdoor functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "homomorphic-time-lock-puzzle",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/time-lock-puzzle.md",
+   "slug": "time-lock-puzzle",
+   "graphSlug": "Primitives/time-lock-puzzle",
+   "anchor": "#homomorphic-time-lock-puzzles",
+   "of": "time-lock-puzzle",
+   "title": "Homomorphic time-lock puzzles",
    "aliases": [],
    "unlisted": false
   },
@@ -4835,6 +4861,36 @@
    "unlisted": false
   },
   {
+   "id": "sequential-squaring",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/sequential-squaring.md",
+   "slug": "sequential-squaring",
+   "graphSlug": "Assumptions/sequential-squaring",
+   "title": "Sequential Squaring Assumption",
+   "aliases": [
+    "Sequential squaring",
+    "Sequential squaring assumption",
+    "Repeated squaring assumption",
+    "Iterated squaring assumption",
+    "RSW assumption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "sequential-squaring-unknown-order-groups",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/sequential-squaring.md",
+   "slug": "sequential-squaring",
+   "graphSlug": "Assumptions/sequential-squaring",
+   "anchor": "#groups-of-unknown-order",
+   "of": "sequential-squaring",
+   "title": "Groups of unknown order",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sharp-p",
    "kind": "object",
    "type": "complexity-class",
@@ -5259,6 +5315,19 @@
    "anchor": "#strong-rsa",
    "of": "rsa",
    "title": "Strong RSA",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "strong-sequential-squaring",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/sequential-squaring.md",
+   "slug": "sequential-squaring",
+   "graphSlug": "Assumptions/sequential-squaring",
+   "anchor": "#strong-sequential-squaring",
+   "of": "sequential-squaring",
+   "title": "Strong sequential squaring",
    "aliases": [],
    "unlisted": false
   },
@@ -5725,6 +5794,21 @@
    "unlisted": true
   },
   {
+   "id": "time-lock-puzzle",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/time-lock-puzzle.md",
+   "slug": "time-lock-puzzle",
+   "graphSlug": "Primitives/time-lock-puzzle",
+   "title": "Time-lock puzzle",
+   "aliases": [
+    "TLP",
+    "Time-lock puzzle",
+    "Time-lock puzzles"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "total-nontrivial-cpir",
    "kind": "variant",
    "type": "primitive",
@@ -6001,6 +6085,21 @@
    "unlisted": false
   },
   {
+   "id": "vdf",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-delay-function.md",
+   "slug": "verifiable-delay-function",
+   "graphSlug": "Primitives/verifiable-delay-function",
+   "title": "Verifiable delay function",
+   "aliases": [
+    "VDF",
+    "Verifiable delay function",
+    "Verifiable delay functions"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "vector-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -6089,6 +6188,32 @@
    "anchor": "#weak-prfs",
    "of": "prf",
    "title": "Weak PRFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "weak-time-lock-puzzle",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/time-lock-puzzle.md",
+   "slug": "time-lock-puzzle",
+   "graphSlug": "Primitives/time-lock-puzzle",
+   "anchor": "#weak-time-lock-puzzles",
+   "of": "time-lock-puzzle",
+   "title": "Weak time-lock puzzles",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "weak-vdf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-delay-function.md",
+   "slug": "verifiable-delay-function",
+   "graphSlug": "Primitives/verifiable-delay-function",
+   "anchor": "#weak-vdfs",
+   "of": "vdf",
+   "title": "Weak VDFs",
    "aliases": [],
    "unlisted": false
   },
@@ -10524,6 +10649,34 @@
    "slug": "fac-to-pwpp-jer16",
    "graphSlug": "Reductions/fac-to-pwpp-jer16",
    "title": "FAC ∈ PWPP (under randomized reductions)"
+  },
+  {
+   "id": "red-fac-to-sequential-squaring-rs20",
+   "kind": "implication",
+   "hypotheses": [
+    "fac"
+   ],
+   "conclusion": "sequential-squaring",
+   "class": "free",
+   "model": "other",
+   "models": [
+    "other"
+   ],
+   "source": [
+    "[[RS20b - Generically Speeding-Up Repeated Squaring Is Equivalent to Factoring Sharp Thresholds for All Generic-Ring Delay Functions|RS20b]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "RS20b's theorem covers every generic-ring algorithm with preprocessing and polynomially many parallel processors, restricting only its access to the ring and not its technique, which is the free class scoped by the model.",
+    "model": "The theorem is proved for generic-ring algorithms, which is none of the named models and differs from the generic group model."
+   },
+   "status": "draft",
+   "page": "content/Reductions/fac-to-sequential-squaring-rs20.md",
+   "slug": "fac-to-sequential-squaring-rs20",
+   "graphSlug": "Reductions/fac-to-sequential-squaring-rs20",
+   "title": "FAC ⇒ Sequential squaring (generic ring model)"
   },
   {
    "id": "red-fac-to-tfnp",
@@ -18984,6 +19137,60 @@
    "title": "Semi-honest MPC ⇒ Semi-honest 2PC"
   },
   {
+   "id": "red-sequential-squaring-to-fac-rsw96",
+   "kind": "implication",
+   "hypotheses": [
+    "sequential-squaring"
+   ],
+   "conclusion": "fac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: one factoring call; the squaring adversary succeeds whenever the factoring algorithm does",
+   "rationale": {
+    "class": "The fixed reduction calls the factoring algorithm once as an oracle and never uses its code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sequential-squaring-to-fac-rsw96.md",
+   "slug": "sequential-squaring-to-fac-rsw96",
+   "graphSlug": "Reductions/sequential-squaring-to-fac-rsw96",
+   "title": "Sequential squaring ⇒ FAC"
+  },
+  {
+   "id": "red-sequential-squaring-to-time-lock-puzzle-rsw96",
+   "kind": "implication",
+   "hypotheses": [
+    "sequential-squaring"
+   ],
+   "conclusion": "time-lock-puzzle",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]]"
+   ],
+   "via": [],
+   "heuristic": true,
+   "securityLoss": "",
+   "rationale": {
+    "heuristic": "RSW96 conjecture that solving the puzzle requires t sequential squarings and give neither a security definition against parallel adversaries nor a reduction."
+   },
+   "status": "draft",
+   "page": "content/Reductions/sequential-squaring-to-time-lock-puzzle-rsw96.md",
+   "slug": "sequential-squaring-to-time-lock-puzzle-rsw96",
+   "graphSlug": "Reductions/sequential-squaring-to-time-lock-puzzle-rsw96",
+   "title": "Sequential squaring ⇒ TLP (RSW puzzle)"
+  },
+  {
    "id": "red-short-structure-preserving-signature-to-structure-preserving-signature",
    "kind": "implication",
    "hypotheses": [
@@ -20947,6 +21154,30 @@
    "slug": "tdp-to-pke",
    "graphSlug": "Reductions/tdp-to-pke",
    "title": "TDP ⇒ PKE"
+  },
+  {
+   "id": "red-time-lock-puzzle-to-owf-bgj16",
+   "kind": "implication",
+   "hypotheses": [
+    "time-lock-puzzle"
+   ],
+   "conclusion": "owf",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/time-lock-puzzle-to-owf-bgj16.md",
+   "slug": "time-lock-puzzle-to-owf-bgj16",
+   "graphSlug": "Reductions/time-lock-puzzle-to-owf-bgj16",
+   "title": "TLP ⇒ OWF"
   },
   {
    "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
@@ -23980,6 +24211,65 @@
    "slug": "no-rom-to-ke-hmo-19",
    "graphSlug": "Barriers/no-rom-to-ke-hmo-19",
    "title": "No reduction from ROM to KE"
+  },
+  {
+   "id": "bar-rom-to-time-lock-puzzle-mmv11",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "time-lock-puzzle",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]]"
+   ],
+   "rationale": {
+    "class": "MMV11's attack solves every random-oracle puzzle whatever its security proof, so every reduction is ruled out: the free class, scoped to the random-oracle model."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rom-to-time-lock-puzzle-mmv11.md",
+   "slug": "no-rom-to-time-lock-puzzle-mmv11",
+   "graphSlug": "Barriers/no-rom-to-time-lock-puzzle-mmv11",
+   "title": "No reduction from ROM to TLP"
+  },
+  {
+   "id": "bar-rom-to-vdf-gry25",
+   "hypotheses": [
+    "rom"
+   ],
+   "conclusion": "vdf",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]]",
+    "[[AAK+25 - Impossibility of VDFs in the ROM The Complete Picture|AAK+25]]"
+   ],
+   "rationale": {
+    "class": "GRY25 and AAK+25 break every random-oracle VDF whatever its security proof, so every reduction is ruled out: the free class, scoped to the random-oracle model."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-rom-to-vdf-gry25.md",
+   "slug": "no-rom-to-vdf-gry25",
+   "graphSlug": "Barriers/no-rom-to-vdf-gry25",
+   "title": "No reduction from ROM to VDF"
   },
   {
    "id": "bar-selective-security-to-cp-abe-ind-cpa-security",
