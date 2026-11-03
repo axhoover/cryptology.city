@@ -187,7 +187,7 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 - 2PC from malicious OT by cut-and-choose over garbled circuits, with $O(1)$ OTs per input bit as its only public-key operations ([[malicious-ot-security-to-two-party-computation-lp07|malicious OT ⇒ 2PC]]) — [[LP07 - An Efficient Protocol for Secure Two-Party Computation in the Presence of Malicious Adversaries|LP07]].
 - Functions that a RAM computes in sublinear time have secure two-party computation in amortized sublinear time, by generic secure two-party computation run on top of an [[oblivious-ram|ORAM]] — [[GKK+12 - Secure Two-Party Computation in Sublinear (Amortized) Time|GKK+12]]
 
-<!-- BEGIN GENERATED participates-in 4fa9b7668cc3 -->
+<!-- BEGIN GENERATED participates-in 9db4b34d859f -->
 
 ## Participates in
 
@@ -206,8 +206,10 @@ Security with selective abort against $t = n - 1$ corruptions, the ideal executi
 - [[semi-honest-security-to-semi-honest-honest-majority-t-lt-n-over-2|Semi-honest MPC ⇒ Semi-honest MPC with honest majority]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])
 - [[semi-honest-security-to-semi-honest-two-party-computation|Semi-honest MPC ⇒ Semi-honest 2PC]] (via [[secure-multi-party-computation#semi-honest-security|Semi-honest security]])
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
+- [[semi-honest-two-party-computation-to-psi|Semi-honest 2PC ⇒ PSI]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[two-party-computation-to-malicious-ot-security|2PC ⇒ Malicious OT]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
+- [[two-party-computation-to-malicious-psi|2PC ⇒ Malicious PSI]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[two-party-computation-to-ot|Semi-honest 2PC ⇒ OT]] (via [[secure-multi-party-computation#semi-honest-two-party-computation|Semi-honest two-party computation]])
 - [[two-party-computation-to-two-party-computation-with-expected-time-simulation|2PC ⇒ 2PC with expected-time simulation]] (via [[secure-multi-party-computation#two-party-computation-2pc|Two-party computation (2PC)]])
 - [[two-round-mpc-to-mpc|Two-round MPC ⇒ MPC]] (via [[secure-multi-party-computation#two-round-mpc|Two-round MPC]])
