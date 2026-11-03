@@ -968,6 +968,21 @@
    "unlisted": false
   },
   {
+   "id": "chameleon-hash-function",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/chameleon-hash-function.md",
+   "slug": "chameleon-hash-function",
+   "graphSlug": "Primitives/chameleon-hash-function",
+   "title": "Chameleon hash function",
+   "aliases": [
+    "Chameleon hash",
+    "Chameleon hash function",
+    "Chameleon hashing"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "circuit-private-he-nc1",
    "kind": "variant",
    "type": "primitive",
@@ -9108,6 +9123,33 @@
    "slug": "claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01",
    "graphSlug": "Reductions/claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01",
    "title": "Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)"
+  },
+  {
+   "id": "red-claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-trapdoor-permutations"
+   ],
+   "conclusion": "chameleon-hash-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[KR00 - Chameleon Signatures|KR00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction evaluates and inverts the two permutations only as oracles, and the reduction calls the collision finder once, as an oracle, and reads a claw off its output."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00.md",
+   "slug": "claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "graphSlug": "Reductions/claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "title": "Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)"
   },
   {
    "id": "red-cls-hardness-to-ppad-hardness-dp11",
@@ -19600,6 +19642,33 @@
    "slug": "prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
    "graphSlug": "Reductions/prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
    "title": "DLOG ⇒ Blind Okamoto–Schnorr signatures"
+  },
+  {
+   "id": "red-prime-order-dlog-to-chameleon-hash-function-kr00",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "chameleon-hash-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[KR00 - Chameleon Signatures|KR00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "an additive 1/p, from the event that the DLOG challenge is the identity",
+   "rationale": {
+    "class": "The construction uses only the group sampler and group operations, and the reduction calls the collision finder once, as an oracle, on its DLOG challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-chameleon-hash-function-kr00.md",
+   "slug": "prime-order-dlog-to-chameleon-hash-function-kr00",
+   "graphSlug": "Reductions/prime-order-dlog-to-chameleon-hash-function-kr00",
+   "title": "DLOG ⇒ Chameleon hash (Krawczyk–Rabin)"
   },
   {
    "id": "red-prime-order-dlog-to-dlog",
