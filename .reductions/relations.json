@@ -4169,6 +4169,21 @@
    "unlisted": false
   },
   {
+   "id": "non-malleable-code",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/non-malleable-code.md",
+   "slug": "non-malleable-code",
+   "graphSlug": "Primitives/non-malleable-code",
+   "title": "Non-malleable code",
+   "aliases": [
+    "NMC",
+    "Non-malleable code",
+    "Non-malleable codes"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "non-malleable-commitment",
    "kind": "variant",
    "type": "primitive",
@@ -6126,6 +6141,19 @@
     "Symmetric private information retrieval (Multi-server)",
     "Symmetric private information retrieval"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "split-state-non-malleable-code",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-malleable-code.md",
+   "slug": "non-malleable-code",
+   "graphSlug": "Primitives/non-malleable-code",
+   "anchor": "#split-state-tampering",
+   "of": "non-malleable-code",
+   "title": "Split-state tampering",
+   "aliases": [],
    "unlisted": false
   },
   {
