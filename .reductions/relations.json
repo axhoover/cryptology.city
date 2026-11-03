@@ -255,6 +255,20 @@
    "unlisted": false
   },
   {
+   "id": "accumulator",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/accumulator.md",
+   "slug": "accumulator",
+   "graphSlug": "Primitives/accumulator",
+   "title": "Cryptographic accumulator",
+   "aliases": [
+    "Cryptographic accumulator",
+    "Accumulator"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "adaptively-robust-prc",
    "kind": "variant",
    "type": "primitive",
@@ -1693,6 +1707,19 @@
    "anchor": "#designated-verifier-delegation-for-p",
    "of": "snark",
    "title": "Designated-verifier delegation for P",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "dynamic-accumulator",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/accumulator.md",
+   "slug": "accumulator",
+   "graphSlug": "Primitives/accumulator",
+   "anchor": "#dynamic-accumulators",
+   "of": "accumulator",
+   "title": "Dynamic accumulators",
    "aliases": [],
    "unlisted": false
   },
@@ -8639,6 +8666,33 @@
    "slug": "cpir-to-owf-bikm99",
    "graphSlug": "Reductions/cpir-to-owf-bikm99",
    "title": "Non-trivial cPIR ⇒ OWF"
+  },
+  {
+   "id": "red-crhf-to-accumulator",
+   "kind": "implication",
+   "hypotheses": [
+    "crhf"
+   ],
+   "conclusion": "accumulator",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: a forged witness exhibits a collision in one of the at most log |X| hash evaluations on the authentication path",
+   "rationale": {
+    "class": "The tree calls the hash function only as an oracle, and one fixed reduction runs the forger once and extracts a collision from the two paths."
+   },
+   "status": "draft",
+   "page": "content/Reductions/crhf-to-accumulator.md",
+   "slug": "crhf-to-accumulator",
+   "graphSlug": "Reductions/crhf-to-accumulator",
+   "title": "CRHF ⇒ accumulator"
   },
   {
    "id": "red-crhf-to-constant-round-zk-argument-bar01",
@@ -20291,6 +20345,33 @@
    "title": "Statistically hiding COM ⇒ Statistical ZK arguments for NP"
   },
   {
+   "id": "red-strong-rsa-to-accumulator-bp97",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-rsa"
+   ],
+   "conclusion": "accumulator",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: a forged witness gives a strong-RSA solution by one extended-gcd computation",
+   "rationale": {
+    "class": "The accumulator uses only the modulus generator and modular exponentiation, and one fixed reduction embeds its strong-RSA challenge as the base g and runs the forger once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-rsa-to-accumulator-bp97.md",
+   "slug": "strong-rsa-to-accumulator-bp97",
+   "graphSlug": "Reductions/strong-rsa-to-accumulator-bp97",
+   "title": "Strong RSA ⇒ accumulator"
+  },
+  {
    "id": "red-strong-rsa-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -20344,6 +20425,30 @@
    "slug": "strong-rsa-to-ds",
    "graphSlug": "Reductions/strong-rsa-to-ds",
    "title": "Strong RSA + CRHF ⇒ DS"
+  },
+  {
+   "id": "red-strong-rsa-to-dynamic-accumulator-cl02",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-rsa"
+   ],
+   "conclusion": "dynamic-accumulator",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/strong-rsa-to-dynamic-accumulator-cl02.md",
+   "slug": "strong-rsa-to-dynamic-accumulator-cl02",
+   "graphSlug": "Reductions/strong-rsa-to-dynamic-accumulator-cl02",
+   "title": "Strong RSA ⇒ dynamic accumulator"
   },
   {
    "id": "red-strong-rsa-to-rsa",
