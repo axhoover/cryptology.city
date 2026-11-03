@@ -23575,6 +23575,35 @@
    "title": "No fixed-construction reduction from CCA1 security to CCA2 security"
   },
   {
+   "id": "bar-pke-cca2-security-to-ibe-bprvw08",
+   "hypotheses": [
+    "pke-cca2-security"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]]"
+   ],
+   "rationale": {
+    "class": "BPRVW08 rule out black-box constructions, which covers at least every construction that uses the encryption scheme only as an oracle with a security proof that uses the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cca2-security-to-ibe-bprvw08.md",
+   "slug": "no-pke-cca2-security-to-ibe-bprvw08",
+   "graphSlug": "Barriers/no-pke-cca2-security-to-ibe-bprvw08",
+   "title": "No fully-black-box reduction from CCA-secure PKE to IBE"
+  },
+  {
    "id": "bar-pke-cpa-security-to-pke-cca1-security-bdpr98",
    "hypotheses": [
     "pke-cpa-security"
@@ -24038,6 +24067,35 @@
    "slug": "no-tdp-to-ot",
    "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No fully-black-box reduction from TDP to enhanced TDP"
+  },
+  {
+   "id": "bar-tdp-to-ibe-bprvw08",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]]"
+   ],
+   "rationale": {
+    "class": "BPRVW08 rule out black-box constructions, which covers at least every construction that uses the trapdoor permutation only as an oracle with a security proof that uses the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tdp-to-ibe-bprvw08.md",
+   "slug": "no-tdp-to-ibe-bprvw08",
+   "graphSlug": "Barriers/no-tdp-to-ibe-bprvw08",
+   "title": "No fully-black-box reduction from TDP to IBE"
   },
   {
    "id": "bar-tdp-to-one-round-sublinear-cpir-hhs08",
