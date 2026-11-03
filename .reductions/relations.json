@@ -6792,6 +6792,32 @@
    "unlisted": false
   },
   {
+   "id": "vrf-selective-pseudorandomness",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#selective-pseudorandomness",
+   "of": "verifiable-random-function",
+   "title": "Selective pseudorandomness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "vuf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#verifiable-unpredictable-functions",
+   "of": "verifiable-random-function",
+   "title": "Verifiable unpredictable functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "waters-signature",
    "kind": "variant",
    "type": "primitive",
@@ -6853,6 +6879,19 @@
    "anchor": "#weak-vdfs",
    "of": "vdf",
    "title": "Weak VDFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "weak-vrf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#weak-vrfs",
+   "of": "verifiable-random-function",
+   "title": "Weak VRFs",
    "aliases": [],
    "unlisted": false
   },
