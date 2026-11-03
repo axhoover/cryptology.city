@@ -7045,6 +7045,21 @@
    "unlisted": true
   },
   {
+   "id": "uniform-and-non-uniform-adversaries",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/uniform-and-non-uniform-adversaries.md",
+   "slug": "uniform-and-non-uniform-adversaries",
+   "graphSlug": "Glossary/uniform-and-non-uniform-adversaries",
+   "title": "Uniform and non-uniform adversaries",
+   "aliases": [
+    "Non-uniform adversary",
+    "Uniform adversary",
+    "Non-uniform security"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "universal-snark",
    "kind": "variant",
    "type": "primitive",
