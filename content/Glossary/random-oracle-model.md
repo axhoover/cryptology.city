@@ -34,12 +34,13 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in ed4b23830301 -->
+<!-- BEGIN GENERATED participates-in c942abdeece3 -->
 
 ## Participates in
 
 **Builds on Random Oracle Model**
 
+- [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[qrom-to-zk-snark-cms19|QROM ⇒ zk-SNARK (Micali's construction in the QROM)]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
 - [[rom-to-oihf-bh26|ROM ⇒ OIHF]]

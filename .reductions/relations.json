@@ -6703,9 +6703,23 @@
    "graphSlug": "Primitives/unclonable-encryption",
    "title": "Unclonable encryption",
    "aliases": [
-    "Unclonable encryption"
+    "Unclonable encryption",
+    "Uncloneable encryption"
    ],
-   "unlisted": true
+   "unlisted": false
+  },
+  {
+   "id": "unclonable-indistinguishable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/unclonable-encryption.md",
+   "slug": "unclonable-encryption",
+   "graphSlug": "Primitives/unclonable-encryption",
+   "anchor": "#unclonable-indistinguishability",
+   "of": "unclonable-encryption",
+   "title": "Unclonable indistinguishability",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "universal-snark",
@@ -19891,6 +19905,34 @@
    "slug": "qr-to-tdh-dgi-19",
    "graphSlug": "Reductions/qr-to-tdh-dgi-19",
    "title": "QR ⇒ TDH"
+  },
+  {
+   "id": "red-qrom-to-unclonable-indistinguishable-encryption-akl22",
+   "kind": "implication",
+   "hypotheses": [
+    "qrom"
+   ],
+   "conclusion": "unclonable-indistinguishable-encryption",
+   "class": "free",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model.",
+    "model": "The proof holds in the quantum random-oracle model, in which every party queries the random oracle in superposition, and the Statement names the quantum access."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qrom-to-unclonable-encryption-akl22.md",
+   "slug": "qrom-to-unclonable-encryption-akl22",
+   "graphSlug": "Reductions/qrom-to-unclonable-encryption-akl22",
+   "title": "QROM ⇒ unclonable-indistinguishable UE"
   },
   {
    "id": "red-qrom-to-zk-snark-cms19",
