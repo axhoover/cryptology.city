@@ -270,7 +270,7 @@
     "red-hash-function-and-io-to-pke-sw14",
     "red-hash-function-and-io-to-ds-sw14",
     "red-hash-function-and-io-to-nizk-sw14",
-    "red-hash-function-and-io-to-fe-sw14",
+    "red-owf-and-io-to-fe-wat15",
     "red-hash-function-and-io-to-deniable-encryption-sw14"
    ]
   },
