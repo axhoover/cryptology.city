@@ -10,7 +10,7 @@ id: merkle-puzzles
 
 # Merkle puzzles
 
-Merkle's Puzzles is a [[key-exchange|key-agreement]] protocol in the [[random-oracle-model|random oracle model]] in which the honest parties make $O(n)$ oracle queries and any eavesdropper needs $\Omega(n^2)$ queries to recover the key — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. The quadratic gap is optimal — [[BM09 - Merkle Puzzles Are Optimal An O(n2)-Query Attack on Any Key Exchange from a Random Oracle|BM09]].
+Merkle's Puzzles is a [[key-exchange|key-agreement]] protocol in the [[random-oracle-model|random oracle model]] in which the honest parties make $O(n)$ oracle queries and any eavesdropper recovering the key with constant probability makes $\Omega(n^2)$ queries — [[Mer78 - Secure Communications Over Insecure Channels|Mer78]].
 
 ## Syntax
 
@@ -73,7 +73,7 @@ $$
 \Adv^{\mathrm{ka}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{ka}}_{\Pi,\calA}(\secpar) = 1\right] \le \varepsilon.
 $$
 
-Merkle's puzzles is $(q, (q+1)/n^2 + n^4/2^{\secpar+1})$-secure for every $q$, so an eavesdropper that recovers the key with constant probability makes $\Omega(n^2)$ queries, while the honest parties make $n$ each — standard; the protocol and its quadratic gap are from [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. Replacing $H$ by a random injection costs $n^4/2^{\secpar+1}$. For injective $H$, the joint distribution of the parties' points and $H$ is unchanged by relabelling the points of $[n^2]$ with a permutation $\pi$, mapping each point $x$ to $\pi(x)$ and $H$ to $H \circ \pi^{-1}$; such a relabelling leaves the transcript unchanged, and if $\pi$ fixes the points queried so far, also the eavesdropper's answers. Conditioned on the transcript, on those answers and on the key not having been queried yet, the key is therefore uniform over the points not yet queried. The eavesdropper finds it among its $q$ queries with probability at most $q/n^2$, and otherwise guesses it with probability at most $1/(n^2 - q)$, for a total of at most $(q+1)/n^2$ — standard.
+Merkle's puzzles is $(q, (q+1)/n^2)$-secure for every $q$, so an eavesdropper that recovers the key with constant probability makes $\Omega(n^2)$ queries, while the honest parties make $n$ each — standard; the protocol and its quadratic gap are from [[Mer78 - Secure Communications Over Insecure Channels|Mer78]]. The joint distribution of the parties' points and $H$ is unchanged by relabelling the points of $[n^2]$ with a permutation $\pi$, mapping each point $x$ to $\pi(x)$ and $H$ to $H \circ \pi^{-1}$; such a relabelling leaves the transcript unchanged, and if $\pi$ fixes the points queried so far, also the eavesdropper's answers. Conditioned on the transcript, on those answers and on the key not having been queried yet, the key is therefore uniform over the points not yet queried. The eavesdropper finds it among its $q$ queries with probability at most $q/n^2$, and otherwise guesses it with probability at most $1/(n^2 - q)$, for a total of at most $(q+1)/n^2$ — standard.
 
 # Variations
 

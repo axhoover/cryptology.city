@@ -17,9 +17,9 @@ A credential system in which a user obtains from an issuer a credential on a set
 
 The syntax and games below follow the game-based model of [[FHS19 - Structure-Preserving Signatures on Equivalence Classes and Constant-Size Anonymous Credentials|FHS19]], in which a showing discloses a subset of the certified attribute set, simplified to one issuer and one credential per honest user. An anonymous credential system over an attribute universe $\calU$ is a tuple $\Pi = (\KeyGen, \mathsf{UKeyGen}, \mathsf{Obtain}, \mathsf{Issue}, \mathsf{Show}, \Vrfy)$, following the [[interactive-protocol|two-party protocol]] syntax:
 
-- $\KeyGen(1^\secpar) \to (\sk_I, \pk_I)$, a randomized algorithm sampling the issuer's key pair,
+- $\KeyGen(1^\secpar, 1^t) \to (\sk_I, \pk_I)$, a randomized algorithm sampling the issuer's key pair for attribute sets of size at most $t$; a scheme without a size bound ignores $t$,
 - $\mathsf{UKeyGen}(1^\secpar) \to (\sk_U, \pk_U)$, a randomized algorithm sampling a user's key pair,
-- $\mathsf{Obtain}$ (the user) and $\mathsf{Issue}$ (the issuer) are interactive algorithms with $\langle \mathsf{Obtain}(\pk_I, \sk_U, X), \mathsf{Issue}(\sk_I, \pk_U, X) \rangle \to (\mathit{cred}, \bot)$, where $X \subseteq \calU$ is a finite attribute set and $\mathit{cred}$ is a credential on $X$ or $\bot$,
+- $\mathsf{Obtain}$ (the user) and $\mathsf{Issue}$ (the issuer) are interactive algorithms with $\langle \mathsf{Obtain}(\pk_I, \sk_U, X), \mathsf{Issue}(\sk_I, \pk_U, X) \rangle \to (\mathit{cred}, \bot)$, where $X \subseteq \calU$ is an attribute set with $|X| \le t$ and $\mathit{cred}$ is a credential on $X$ or $\bot$,
 - $\mathsf{Show}$ (the user) and $\Vrfy$ (the verifier) are interactive algorithms with $\langle \mathsf{Show}(\pk_I, \sk_U, \mathit{cred}, X, D), \Vrfy(\pk_I, D) \rangle \to (\bot, b)$, where $D \subseteq X$ is the disclosed set and $b \in \bits$.
 
 Unforgeability below rules out pooling the credentials of several users; schemes achieve this by binding each credential to its holder's secret key, which $\mathsf{Show}$ uses — standard.
@@ -28,7 +28,7 @@ Unforgeability below rules out pooling the credentials of several users; schemes
 
 ### Correctness
 
-An anonymous credential system $\Pi$ is **perfectly correct** if for all $\secpar \in \NN$, all finite $X \subseteq \calU$ and all $D \subseteq X$, with $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar)$, $(\sk_U, \pk_U) \gets \mathsf{UKeyGen}(1^\secpar)$ and $(\mathit{cred}, \bot) \gets \langle \mathsf{Obtain}(\pk_I, \sk_U, X), \mathsf{Issue}(\sk_I, \pk_U, X) \rangle$, we have $\mathit{cred} \ne \bot$ and $\langle \mathsf{Show}(\pk_I, \sk_U, \mathit{cred}, X, D), \Vrfy(\pk_I, D) \rangle$ outputs $b = 1$ with probability $1$.
+An anonymous credential system $\Pi$ is **perfectly correct** if for all $\secpar, t \in \NN$, all $X \subseteq \calU$ with $|X| \le t$ and all $D \subseteq X$, with $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar, 1^t)$, $(\sk_U, \pk_U) \gets \mathsf{UKeyGen}(1^\secpar)$ and $(\mathit{cred}, \bot) \gets \langle \mathsf{Obtain}(\pk_I, \sk_U, X), \mathsf{Issue}(\sk_I, \pk_U, X) \rangle$, we have $\mathit{cred} \ne \bot$ and $\langle \mathsf{Show}(\pk_I, \sk_U, \mathit{cred}, X, D), \Vrfy(\pk_I, D) \rangle$ outputs $b = 1$ with probability $1$.
 
 ### Unforgeability
 
@@ -39,7 +39,7 @@ The adversary obtains credentials on attribute sets of its choice for user keys 
 \algname{Game}
 \caption{$\Game^{\mathrm{uf}}_{\Pi,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar)$; $\calQ \gets \{\}$; $u \gets 0$
+\State $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar, 1^{t})$; $\calQ \gets \{\}$; $u \gets 0$
 \State $(D^*, \stA) \gets \calA^{\calO_{\mathrm{Iss}}, \calO_{\mathrm{HU}}, \calO_{\mathrm{Show}}}(1^\secpar, \pk_I)$
 \State $(\bot, b) \gets \langle \calA(\stA), \Vrfy(\pk_I, D^*) \rangle$
 \Comment{no oracle access during this showing}
@@ -53,6 +53,9 @@ The adversary obtains credentials on attribute sets of its choice for user keys 
 \algname{Oracle}
 \caption{$\calO_{\mathrm{Iss}}(\pk_U, X)$}
 \begin{algorithmic}
+\If{$|X| > t$}
+\Return $\bot$
+\EndIf
 \State $\calQ \gets \calQ \cup \{X\}$
 \State run $\mathsf{Issue}(\sk_I, \pk_U, X)$ with $\calA$ as the user
 \end{algorithmic}
@@ -64,6 +67,9 @@ The adversary obtains credentials on attribute sets of its choice for user keys 
 \algname{Oracle}
 \caption{$\calO_{\mathrm{HU}}(X)$}
 \begin{algorithmic}
+\If{$|X| > t$}
+\Return $\bot$
+\EndIf
 \State $u \gets u + 1$; $X_u \gets X$
 \State $(\sk_u, \pk_u) \gets \mathsf{UKeyGen}(1^\secpar)$
 \State $(\mathit{cred}_u, \bot) \gets \langle \mathsf{Obtain}(\pk_I, \sk_u, X), \mathsf{Issue}(\sk_I, \pk_u, X) \rangle$
@@ -85,7 +91,7 @@ The adversary obtains credentials on attribute sets of its choice for user keys 
 \end{algorithm}
 ```
 
-An anonymous credential system $\Pi$ is **unforgeable** if for all efficient $\calA$,
+An anonymous credential system $\Pi$ is **unforgeable** if for all polynomials $t = t(\secpar)$ and all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{uf}}_{\Pi,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{uf}}_{\Pi,\calA}(\secpar) = 1\right]
@@ -102,15 +108,15 @@ The adversary receives the issuer's key pair and plays the issuer whenever an ho
 \algname{Game}
 \caption{$\Game^{\mathrm{anon}}_{\Pi,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$; $\calC \gets \{\}$; $u \gets 0$
+\State $(\sk_I, \pk_I) \gets \KeyGen(1^\secpar, 1^{t})$; $b \getsr \bits$; $\calC \gets \{\}$; $u \gets 0$
 \State $(j_0, j_1, D, \stA) \gets \calA^{\calO_{\mathrm{Obt}}, \calO_{\mathrm{Show}}, \calO_{\mathrm{Corr}}}(1^\secpar, \sk_I, \pk_I)$
 \If{$\{j_0, j_1\} \not\subseteq [u] \lor \mathit{cred}_{j_0} = \bot \lor \mathit{cred}_{j_1} = \bot \lor D \not\subseteq X_{j_0} \cap X_{j_1}$}
 \State $b' \getsr \bits$
 \Comment{an invalid challenge earns no advantage}
 \Return $[b' = b]$
 \EndIf
-\State run $\mathsf{Show}(\pk_I, \sk_{j_b}, \mathit{cred}_{j_b}, X_{j_b}, D)$ with $\calA(\stA)$ as the verifier
-\State $b' \gets \calA^{\calO_{\mathrm{Obt}}, \calO_{\mathrm{Show}}, \calO_{\mathrm{Corr}}}(\stA)$
+\State $(\bot, \stA') \gets \langle \mathsf{Show}(\pk_I, \sk_{j_b}, \mathit{cred}_{j_b}, X_{j_b}, D), \calA(\stA) \rangle$
+\State $b' \gets \calA^{\calO_{\mathrm{Obt}}, \calO_{\mathrm{Show}}, \calO_{\mathrm{Corr}}}(\stA')$
 \If{$j_0 \in \calC \lor j_1 \in \calC$}
 \State $b' \getsr \bits$
 \Comment{the challenge users may not be corrupted}
@@ -125,6 +131,9 @@ The adversary receives the issuer's key pair and plays the issuer whenever an ho
 \algname{Oracle}
 \caption{$\calO_{\mathrm{Obt}}(X)$}
 \begin{algorithmic}
+\If{$|X| > t$}
+\Return $\bot$
+\EndIf
 \State $u \gets u + 1$; $X_u \gets X$
 \State $(\sk_u, \pk_u) \gets \mathsf{UKeyGen}(1^\secpar)$; send $\pk_u$ to $\calA$
 \State $\mathit{cred}_u \gets$ output of $\mathsf{Obtain}(\pk_I, \sk_u, X)$ run with $\calA$ as the issuer
@@ -143,7 +152,7 @@ The adversary receives the issuer's key pair and plays the issuer whenever an ho
 \end{algorithm}
 ```
 
-$\calO_{\mathrm{Show}}$ is as in the unforgeability game. An anonymous credential system $\Pi$ is **anonymous** if for all efficient $\calA$,
+$\calO_{\mathrm{Show}}$ is as in the unforgeability game. An anonymous credential system $\Pi$ is **anonymous** if for all polynomials $t = t(\secpar)$ and all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{anon}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{anon}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
@@ -155,16 +164,16 @@ is negligible. As an object, anonymous credentials denote perfectly correct syst
 
 ## Keyed-verification anonymous credentials
 
-The issuer is also the verifier: $\Vrfy$ takes the issuer's secret key, and credentials can be MACs rather than signatures. Algebraic MACs in prime-order groups give such credentials — [[CMZ14 - Algebraic MACs and Keyed-Verification Anonymous Credentials|CMZ14]].
+The issuer is also the verifier: $\Vrfy$ takes the issuer's secret key, and credentials can be [[message-authentication-code|MACs]] rather than [[digital-signature|signatures]]. Algebraic MACs in prime-order groups give such credentials — [[CMZ14 - Algebraic MACs and Keyed-Verification Anonymous Credentials|CMZ14]].
 
 ## Delegatable anonymous credentials
 
-A credential holder can delegate the credential to another user, who can delegate it further, and a showing proves possession of a credential at some level of a delegation chain rooted at the issuer without revealing the identities along the chain. Randomizable non-interactive zero-knowledge proofs give delegatable anonymous credentials — [[BCC+09 - Randomizable Proofs and Delegatable Anonymous Credentials|BCC+09]].
+A credential holder can delegate the credential to another user, who can delegate it further, and a showing proves possession of a credential $L$ levels away from the issuer, for a public $L$, without revealing the identities along the delegation chain. Randomizable [[non-interactive-zero-knowledge|non-interactive zero-knowledge proofs of knowledge]], combined with an authentication scheme for users' secret keys, give delegatable anonymous credentials — [[BCC+09 - Randomizable Proofs and Delegatable Anonymous Credentials|BCC+09]].
 
 # Other results
 
 - Credential systems in which a user deals with each organization under a different pseudonym, unlinkable to the others, and transfers credentials between pseudonyms were introduced by [[Cha85 - Security Without Identification Transaction Systems to Make Big Brother Obsolete|Cha85]]. [[LRSW99 - Pseudonym Systems|LRSW99]] formalize such pseudonym systems.
 - The first practical system in which a user can show a credential unlinkably any number of times without involving the issuer, with optional anonymity revocation, is secure under the [[rsa-assumption#strong-rsa|strong RSA assumption]] and [[decisional-diffie-hellman|DDH]] modulo a safe-prime product — [[CL01 - An Efficient System for Non-transferable Anonymous Credentials with Optional Anonymity Revocation|CL01]].
-- With a zero-knowledge proof that a committed value is accumulated, a [[accumulator#dynamic-accumulators|dynamic accumulator]] revokes anonymous credentials at a cost independent of the number of credentials issued or revoked ([[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA ⇒ dynamic accumulator]]) — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
-- Anonymous credentials from bilinear maps, via signatures secure under the interactive [[lrsw-assumption|LRSW assumption]] — [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]]
+- With a [[zero-knowledge-proof|zero-knowledge proof]] that a committed value is accumulated, a [[accumulator#dynamic-accumulators|dynamic accumulator]] revokes anonymous credentials, with proving and verifying non-revocation at a cost independent of the number of credentials issued or revoked, while each holder updates its witness after every change; the RSA accumulator is a collision-free dynamic accumulator under the [[rsa-assumption#strong-rsa|strong RSA assumption]] ([[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA ⇒ dynamic accumulator]]) — [[CL02 - Dynamic Accumulators and Application to Efficient Revocation of Anonymous Credentials|CL02]].
+- In [[pairings#type-1|symmetric bilinear groups]], Camenisch–Lysyanskaya signatures, secure under the interactive [[lrsw-assumption|LRSW assumption]] ([[type-1-pairing-and-lrsw-to-ds-cl04|Type 1 pairing + LRSW ⇒ DS]]), come with efficient protocols for obtaining a signature on a committed message and proving knowledge of a signature, and so give anonymous credentials — [[CL04 - Signature Schemes and Anonymous Credentials from Bilinear Maps|CL04]].
 - Structure-preserving signatures on equivalence classes together with set commitments give multi-show credentials with selective disclosure of attribute subsets whose showings have size independent of the numbers of certified and disclosed attributes — [[FHS19 - Structure-Preserving Signatures on Equivalence Classes and Constant-Size Anonymous Credentials|FHS19]].

@@ -14,20 +14,20 @@ variants:
 
 # Multilinear maps
 
-A cryptographic $k$-multilinear map is an efficiently computable map $e : \GG^k \to \GG_T$ between groups of prime order $p$ that is linear in each argument and non-degenerate, and on which discrete-logarithm and Diffie–Hellman problems are conjectured hard — [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]]. The case $k = 2$ is a [[pairings|bilinear pairing]]. The candidates for $k \ge 3$ are graded encodings, which only approximate this syntax: encodings are noisy and not unique, and equality is tested by a zero test at the top level — [[GGH13 - Candidate Multilinear Maps from Ideal Lattices|GGH13]].
+A cryptographic $k$-multilinear map is an efficiently computable map $e : \GG^k \to \GG_T$ between groups of prime order $p$ that is linear in each argument and non-degenerate, and on which [[discrete-logarithm|discrete-logarithm]] and [[computational-diffie-hellman|Diffie–Hellman]] problems are conjectured hard — [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]]. The case $k = 2$ is a [[pairings|bilinear pairing]]. The candidates for $k \ge 3$ are graded encodings, which only approximate this syntax: encodings are noisy and not unique, and equality is tested by a zero test at the top level — [[GGH13 - Candidate Multilinear Maps from Ideal Lattices|GGH13]].
 
 ## Syntax
 
-A $k$-multilinear map generator $\mathsf{MMGen}(1^\secpar, 1^k)$ outputs $(\GG, \GG_T, p, g, e)$, where $\GG$ and $\GG_T$ are cyclic groups of prime order $p$, $g$ generates $\GG$, and $e : \GG^k \to \GG_T$ is an efficiently computable map that is **multilinear**, $e(g_1^{a_1}, \ldots, g_k^{a_k}) = e(g_1, \ldots, g_k)^{a_1 \cdots a_k}$ for all $g_1, \ldots, g_k \in \GG$ and $a_1, \ldots, a_k \in \ZZ_p$, and **non-degenerate**, $e(g, \ldots, g)$ generates $\GG_T$ — [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]]. An **asymmetric** map $e : \GG_1 \times \cdots \times \GG_k \to \GG_T$ has $k$ source groups, each with its own generator — standard.
+A $k$-multilinear group generator $\GrGen(1^\secpar, 1^k)$ outputs $(\GG, \GG_T, p, g, e)$, where $\GG$ and $\GG_T$ are cyclic groups of prime order $p$, $g$ generates $\GG$, and $e : \GG^k \to \GG_T$ is an efficiently computable map that is **multilinear**, $e(g_1^{a_1}, \ldots, g_k^{a_k}) = e(g_1, \ldots, g_k)^{a_1 \cdots a_k}$ for all $g_1, \ldots, g_k \in \GG$ and $a_1, \ldots, a_k \in \ZZ_p$, and **non-degenerate**, $e(g, \ldots, g)$ generates $\GG_T$ — [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]]. An **asymmetric** map $e : \GG_1 \times \cdots \times \GG_k \to \GG_T$ has $k$ source groups, each with its own generator — standard.
 
 ## Multilinear Diffie–Hellman
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{k\text{-}\mathrm{mddh}}_{\mathsf{MMGen},\calA}(\secpar)$}
+\caption{$\Game^{k\text{-}\mathrm{mddh}}_{\GrGen,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $(\GG, \GG_T, p, g, e) \gets \mathsf{MMGen}(1^\secpar, 1^k)$; $b \getsr \bits$
+\State $(\GG, \GG_T, p, g, e) \gets \GrGen(1^\secpar, 1^k)$; $b \getsr \bits$
 \State $a_1, \ldots, a_{k+1}, r \getsr \ZZ_p$
 \State $T_0 \gets e(g, \ldots, g)^{a_1 \cdots a_{k+1}}$; $T_1 \gets e(g, \ldots, g)^{r}$
 \State $b' \gets \calA(1^\secpar, \GG, \GG_T, p, g, e, g^{a_1}, \ldots, g^{a_{k+1}}, T_b)$
@@ -36,10 +36,10 @@ A $k$-multilinear map generator $\mathsf{MMGen}(1^\secpar, 1^k)$ outputs $(\GG, 
 \end{algorithm}
 ```
 
-The **$k$-multilinear decisional Diffie–Hellman ($k$-MDDH) assumption** holds for $\mathsf{MMGen}$ if for all efficient $\calA$,
+The **$k$-multilinear decisional Diffie–Hellman ($k$-MDDH) assumption** holds for $\GrGen$ if for all efficient $\calA$,
 
 $$
-\Adv^{k\text{-}\mathrm{mddh}}_{\mathsf{MMGen},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{k\text{-}\mathrm{mddh}}_{\mathsf{MMGen},\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{k\text{-}\mathrm{mddh}}_{\GrGen,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{k\text{-}\mathrm{mddh}}_{\GrGen,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
 is negligible — standard. The target carries $k + 1$ exponents because $e(g^{a_1}, \ldots, g^{a_k})$ is computable from the input. The computational version, outputting $e(g, \ldots, g)^{a_1 \cdots a_{k+1}}$ from $g^{a_1}, \ldots, g^{a_{k+1}}$, is the multilinear Diffie–Hellman problem of [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]].
@@ -66,26 +66,26 @@ Let $R = \ZZ[X]/(X^N + 1)$ for a power of two $N$ and $R_q = R / qR$, let $g \in
 
 ### CLT13
 
-CLT13 is a graded encoding over the integers in the style of the DGHV fully homomorphic encryption scheme. With secret primes $p_1, \ldots, p_\ell$, $x_0 = \prod_j p_j$, small secret integers $g_1, \ldots, g_\ell$ and a secret $z \in \ZZ_{x_0}$, a level-$i$ encoding of $(m_1, \ldots, m_\ell) \in \prod_j \ZZ_{g_j}$ is an integer $c$ with $c \equiv (r_j g_j + m_j) / z^i \pmod{p_j}$ for small $r_j$, and the zero test multiplies a level-$\kappa$ encoding by a public $p_{zt}$ and checks that the result is small modulo $x_0$ — [[CLT13 - Practical Multilinear Maps over the Integers|CLT13]].
+CLT13 is a graded encoding over the integers in the style of the DGHV [[homomorphic-encryption#fully-homomorphic-encryption-fhe|fully homomorphic encryption]] scheme. With secret primes $p_1, \ldots, p_\ell$, $x_0 = \prod_j p_j$, small secret integers $g_1, \ldots, g_\ell$ and a secret $z \in \ZZ_{x_0}$, a level-$i$ encoding of $(m_1, \ldots, m_\ell) \in \prod_j \ZZ_{g_j}$ is an integer $c$ with $c \equiv (r_j g_j + m_j) / z^i \pmod{p_j}$ for small $r_j$, and the zero test multiplies a level-$\kappa$ encoding by a public $p_{zt}$ and checks that the result is small modulo $x_0$ — [[CLT13 - Practical Multilinear Maps over the Integers|CLT13]].
 
 # Variations
 
 ## Decision Multilinear No-Exact-Cover assumption
 
-For a multilinear map whose levels are the subsets of $[n]$, sample $a_1, \ldots, a_n \getsr \ZZ_p$. The **Decision Multilinear No-Exact-Cover assumption** holds if for every instance $(n, T_1, \ldots, T_\ell)$ of Exact Cover with no exact cover, no efficient adversary given the level-$T_j$ encodings of $\prod_{i \in T_j} a_i$ for all $j$ distinguishes the level-$[n]$ encoding of $\prod_{i=1}^{n} a_i$ from an encoding of a uniform element, except with negligible advantage — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+For a symmetric $n$-level multilinear map (graded encoding with integer levels $1, \ldots, n$), sample $a_1, \ldots, a_n \getsr \ZZ_p$. The **Decision Multilinear No-Exact-Cover assumption** holds if for every instance $(n, T_1, \ldots, T_\ell)$ of Exact Cover with no exact cover, no efficient adversary given the level-$|T_j|$ encodings of $\prod_{i \in T_j} a_i$ for all $j$ distinguishes the level-$n$ encoding of $\prod_{i=1}^{n} a_i$ from a level-$n$ encoding of a uniform element, except with negligible advantage — [[GGSW13 - Witness encryption and its applications|GGSW13]].
 
 # Attacks
 
-- **Zeroizing.** Given encodings of zero below level $\kappa$, an attacker multiplies them with other encodings up to level $\kappa$ and applies the zero test, whose output is an element of $R_q$ or of $\ZZ_{x_0}$ that depends on the secret parameters. For GGH13 this breaks generalizations of the decision-linear and subgroup-membership problems of pairing-based cryptography; for CLT13 it is a total break, recovering in polynomial time every quantity meant to stay secret, whenever low-level encodings of zero are public, as in the multipartite key agreement — [[CHLRS15 - Cryptanalysis of the Multilinear Map over the Integers|CHLRS15]].
+- **Zeroizing.** Given encodings of zero below level $\kappa$, an attacker multiplies them with other encodings up to level $\kappa$ and applies the zero test, whose output is an element of $R_q$ or of $\ZZ_{x_0}$ that depends on the secret parameters. For GGH13 this breaks generalizations of the [[decisional-diffie-hellman#dlin|decision-linear]] and [[bilinear-map-assumptions#subgroup-decision|subgroup-membership]] problems of pairing-based cryptography; for CLT13 it is a total break, recovering in polynomial time every quantity meant to stay secret, whenever low-level encodings of zero are public, as in the multipartite key agreement — [[CHLRS15 - Cryptanalysis of the Multilinear Map over the Integers|CHLRS15]].
 - **GGH13 with public encoding.** When the tools for encoding are public, as in the GGH13 multipartite key agreement, efficient attacks break the key agreement and the graded DDH assumption it rests on. An instance of [[witness-encryption|witness encryption]] over GGH13 based on exact-3-cover, whose encoding tools are not public, is broken as well — [[HJ16b - Cryptanalysis of GGH Map|HJ16b]].
-- **Annihilation.** Annihilation attacks apply non-linear polynomials to the zero-test outputs of GGH13 and need no low-level encodings of zero. They give the first polynomial-time cryptanalysis of candidate [[indistinguishability-obfuscation|iO]] schemes over GGH13: for two functionally equivalent programs, the obfuscations are efficiently distinguished — [[MSZ16 - Annihilation Attacks for Multilinear Maps Cryptanalysis of Indistinguishability Obfuscation over GGH13|MSZ16]].
+- **Annihilation.** Annihilation attacks apply non-linear polynomials to the zero-test outputs of GGH13 and need no low-level encodings of zero. They give the first polynomial-time cryptanalysis of candidate [[indistinguishability-obfuscation|iO]] schemes over GGH13: there are two simple functionally equivalent programs whose obfuscations are efficiently distinguished — [[MSZ16 - Annihilation Attacks for Multilinear Maps Cryptanalysis of Indistinguishability Obfuscation over GGH13|MSZ16]].
 
 # Other results
 
 - [[BS03 - Applications of Multilinear Forms to Cryptography|BS03]] give applications of multilinear maps with hard discrete logarithms, explore directions for constructing them, and give reasons to believe that maps with $k > 2$ may be difficult to find.
 - GGH13 is the first candidate graded encoding, with one-round multipartite key agreement under graded DDH as its application — [[GGH13 - Candidate Multilinear Maps from Ideal Lattices|GGH13]].
-- Graded encodings give the first candidate [[indistinguishability-obfuscation|iO]] for all circuits, bootstrapped with leveled FHE ([[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]) — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] — and the first [[witness-encryption|witness encryption]] for $\classNP$ ([[multilinear-maps-to-witness-encryption-ggsw13|Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)]]) — [[GGSW13 - Witness encryption and its applications|GGSW13]].
-- In a generic multilinear-map model, a simplified branching-program obfuscator for $\mathrm{NC}^1$ is virtual-black-box secure — [[BGKPS14 - Protecting Obfuscation against Algebraic Attacks|BGKPS14]].
+- Graded encodings give the first candidate [[indistinguishability-obfuscation|iO]] for all circuits, bootstrapped with [[homomorphic-encryption#leveled-fully-homomorphic-encryption|leveled FHE]] ([[mmap-to-io-gghrsw13|MMap + Leveled FHE ⇒ iO]]) — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] — and the first [[witness-encryption|witness encryption]] for $\classNP$ ([[multilinear-maps-to-witness-encryption-ggsw13|Multilinear No-Exact-Cover ⇒ Witness encryption (GGSW)]]) — [[GGSW13 - Witness encryption and its applications|GGSW13]].
+- In a generic multilinear-map model, a simplified branching-program obfuscator for $\mathrm{NC}^1$ is [[indistinguishability-obfuscation#virtual-black-box-obfuscation-vbb|virtual-black-box]] secure — [[BGKPS14 - Protecting Obfuscation against Algebraic Attacks|BGKPS14]].
 
 <!-- BEGIN GENERATED participates-in 8b38eef43340 -->
 
