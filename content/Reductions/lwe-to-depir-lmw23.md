@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Ring-LWE ⇒ Unkeyed DEPIR"
+title: "Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR"
 aliases: []
 id: red-lwe-to-depir-lmw23
 kind: implication
-hypotheses: [ring-lwe]
+hypotheses: [ring-lwe-quasi-polynomial-approximation]
 conclusion: unkeyed-depir
 class: unstated
 model: standard
@@ -16,11 +16,11 @@ rationale:
   class: "The conclusion carries an efficiency requirement, sublinear server time after preprocessing, that lies outside the RTV04 axes."
 ---
 
-# Ring-LWE ⇒ Unkeyed DEPIR
+# Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR
 
 ## Statement
 
-If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard with quasi-polynomial approximation factors, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon}) \cdot \poly(\secpar, \log N)$, after which each query has query time and communication $\poly(\secpar, \log N)$, and is perfectly correct (Definition 4.1, Theorem 4.4) — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
+If [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring-LWE with quasi-polynomial approximation factors]] is hard, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon}) \cdot \poly(\secpar, \log N)$, after which each query has query time and communication $\poly(\secpar, \log N)$, and is perfectly correct (Definition 4.1, Theorem 4.4) — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Notes
 

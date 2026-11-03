@@ -4726,6 +4726,19 @@
    "unlisted": false
   },
   {
+   "id": "ring-lwe-quasi-polynomial-approximation",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/learning-with-errors.md",
+   "slug": "learning-with-errors",
+   "graphSlug": "Assumptions/learning-with-errors",
+   "anchor": "#ring-lwe-with-quasi-polynomial-approximation-factors",
+   "of": "lwe",
+   "title": "Ring LWE with quasi-polynomial approximation factors",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "ring-sis",
    "kind": "variant",
    "type": "assumption",
@@ -13920,7 +13933,7 @@
    "id": "red-lwe-to-depir-lmw23",
    "kind": "implication",
    "hypotheses": [
-    "ring-lwe"
+    "ring-lwe-quasi-polynomial-approximation"
    ],
    "conclusion": "unkeyed-depir",
    "class": "unstated",
@@ -13941,7 +13954,7 @@
    "page": "content/Reductions/lwe-to-depir-lmw23.md",
    "slug": "lwe-to-depir-lmw23",
    "graphSlug": "Reductions/lwe-to-depir-lmw23",
-   "title": "Ring-LWE ⇒ Unkeyed DEPIR"
+   "title": "Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR"
   },
   {
    "id": "red-lwe-to-hibe-selective-security-chkp10",
@@ -18865,6 +18878,33 @@
    "slug": "ring-lpn-to-pseudorandom-correlation-generators-pcg",
    "graphSlug": "Reductions/ring-lpn-to-pseudorandom-correlation-generators-pcg",
    "title": "Sparse Ring-LPN ⇒ PCG"
+  },
+  {
+   "id": "red-ring-lwe-quasi-polynomial-approximation-to-ring-lwe",
+   "kind": "implication",
+   "hypotheses": [
+    "ring-lwe-quasi-polynomial-approximation"
+   ],
+   "conclusion": "ring-lwe",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the Ring LWE distribution, and the reduction forwards any distinguisher unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ring-lwe-quasi-polynomial-approximation-to-ring-lwe.md",
+   "slug": "ring-lwe-quasi-polynomial-approximation-to-ring-lwe",
+   "graphSlug": "Reductions/ring-lwe-quasi-polynomial-approximation-to-ring-lwe",
+   "title": "Ring-LWE with quasi-polynomial factors ⇒ Ring LWE"
   },
   {
    "id": "red-ring-lwe-to-ntru-ss11",

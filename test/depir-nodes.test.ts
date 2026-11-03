@@ -274,3 +274,118 @@ test("no producer derives a base DEPIR node from assumptions that do not give it
     if (Object.keys(BASE).includes(r.conclusion))
       assert.ok(r.hypotheses.length > 0, `${r.id} has no hypothesis`);
 });
+
+// The Statement of a reduction page, the theorem a reader takes it to state.
+const statementOf = (page: string) => {
+  const text = fs.readFileSync(path.join(ROOT, page), "utf8");
+  const start = text.indexOf("## Statement");
+  assert.ok(start >= 0, `${page} has a Statement`);
+  const rest = text.slice(start + "## Statement".length);
+  const end = rest.search(/^## /m);
+  return end >= 0 ? rest.slice(0, end) : rest;
+};
+
+test("CIMR25's SK-DEPIR edge instantiates ℓ = o(log^t N) and a polynomial λ̃", () => {
+  const page = "content/Reductions/noise-level-to-depir-cimr25-2.md";
+  const statement = statementOf(page);
+  // Theorem 7.1(2) holds for every ℓ = ω(1), but ℓ = log^t N gives probe
+  // complexity N + poly(λ): the edge must name one sublinear instance.
+  const inst =
+    /instantiated with \$\\ell = ([^$]*)\$ and \$\\tilde\\secpar = ([^$]*)\$/.exec(
+      statement,
+    );
+  assert.ok(inst, "the Statement names its choice of ℓ and λ̃");
+  const ELL: Record<string, (logn: number, t: number) => number> = {
+    "\\log \\log N": (logn) => Math.log2(Math.max(logn, 2)),
+    "\\log^t N": (logn, t) => t * Math.log2(Math.max(logn, 2)),
+  };
+  const LAMBDA: Record<string, (lam: number) => number> = {
+    "\\log^2 \\secpar": (lam) => 2 * Math.log2(Math.log2(lam)),
+    "\\log \\secpar": (lam) => Math.log2(Math.log2(lam)),
+  };
+  const logEll = ELL[inst![1]];
+  const logLamTilde = LAMBDA[inst![2]];
+  assert.ok(logEll, `ℓ = ${inst![1]} is a choice the test can evaluate`);
+  assert.ok(logLamTilde, `λ̃ = ${inst![2]} is a choice the test can evaluate`);
+  // λ̃ = ω(log λ), as Theorem 7.1 requires, and polynomial in λ.
+  for (const lam of [2 ** 8, 2 ** 16, 2 ** 32])
+    assert.ok(logLamTilde(lam) > Math.log2(Math.log2(lam)) + 0.5);
+  assert.match(
+    statement,
+    /server probe complexity \$N \\cdot \\log \\log N \/ \\log\^t N \+ \\poly\(\\secpar\)\$/,
+    "the probe bound is stated for the chosen ℓ",
+  );
+  const eff = section("### Efficiency");
+  const form = /are each at most \$([^$]*)\$\. Every/.exec(eff)![1];
+  for (const t of [2, 3]) {
+    // ℓ / log^t N → 0.
+    const ratio = (logn: number) =>
+      logEll(logn, t) - t * Math.log2(Math.max(logn, 2));
+    assert.ok(ratio(2 ** 20) < ratio(2 ** 10) && ratio(2 ** 10) < -5);
+    const probes =
+      (ell: (logn: number, t: number) => number) =>
+      (lam: number, logn: number) =>
+        log2sum(
+          logn + ell(logn, t) - t * Math.log2(Math.max(logn, 2)),
+          3 * Math.log2(lam),
+        );
+    assert.ok(meets(form, probes(logEll)), `t = ${t}: probes meet the bound`);
+    // Negative control: ℓ = log^t N gives N + poly(λ).
+    assert.ok(
+      !meets(form, probes(ELL["\\log^t N"])),
+      `t = ${t}: ℓ = log^t N must fail the bound`,
+    );
+    const communication = (lam: number, logn: number) =>
+      log2sum(logLamTilde(lam) + logn / (t + 1), 3 * Math.log2(lam));
+    const client = (lam: number, logn: number) =>
+      log2sum(
+        (t / (t + 1)) * logn + Math.log2(Math.max(logn, 2)),
+        3 * Math.log2(lam),
+      );
+    assert.ok(meets(form, communication), `t = ${t}: communication`);
+    assert.ok(meets(form, client), `t = ${t}: client time`);
+  }
+});
+
+test("no edge whose Statement needs a Ring-LWE regime points to the unparameterized node", () => {
+  const manifest = JSON.parse(
+    fs.readFileSync(path.join(ROOT, ".reductions", "relations.json"), "utf8"),
+  );
+  const regime =
+    /Ring-LWE[^.]*?(quasi-polynomial|sub-sub-exponential|sub-exponential) approximation factors/i;
+  let regimeEdges = 0;
+  for (const r of manifest.reductions) {
+    if (
+      !r.hypotheses.includes("ring-lwe") &&
+      !r.hypotheses.some((h: string) => h.startsWith("ring-lwe-"))
+    )
+      continue;
+    const m = regime.exec(statementOf(r.page));
+    if (!m) continue;
+    regimeEdges++;
+    assert.ok(
+      !r.hypotheses.includes("ring-lwe"),
+      `${r.id} needs Ring-LWE with ${m[1]} approximation factors but takes plain ring-lwe`,
+    );
+  }
+  assert.ok(regimeEdges >= 1, "the LMW23 edge is found");
+  const lmw23 = manifest.reductions.find(
+    (r: any) => r.id === "red-lwe-to-depir-lmw23",
+  );
+  assert.deepStrictEqual(lmw23.hypotheses, [
+    "ring-lwe-quasi-polynomial-approximation",
+  ]);
+  const lwe = fs.readFileSync(
+    path.join(ROOT, "content", "Assumptions", "learning-with-errors.md"),
+    "utf8",
+  );
+  assert.match(
+    lwe,
+    /^  ring-lwe-quasi-polynomial-approximation: "#ring-lwe-with-quasi-polynomial-approximation-factors"$/m,
+  );
+  assert.match(
+    lwe,
+    /such that \$\\mathrm\{RingLWE\}_\{n,q,\\chi\}\$ holds for every \$t\(\\secpar\) = \\polylog\(\\secpar\)\$/,
+    "the variant fixes LMW23's quasi-polynomial gap",
+  );
+});
