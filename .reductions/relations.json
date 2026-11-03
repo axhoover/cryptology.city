@@ -1711,7 +1711,7 @@
     "DKG",
     "Distributed key generation"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "distributional-owf",
