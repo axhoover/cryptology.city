@@ -1233,6 +1233,19 @@
    "unlisted": false
   },
   {
+   "id": "computational-two-party-differential-privacy",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/two-party-differential-privacy.md",
+   "slug": "two-party-differential-privacy",
+   "graphSlug": "Primitives/two-party-differential-privacy",
+   "anchor": "#computational-differential-privacy",
+   "of": "two-party-differential-privacy",
+   "title": "Computational differential privacy",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "concurrent-schnorr-identification",
    "kind": "variant",
    "type": "primitive",
@@ -6582,7 +6595,7 @@
     "2PDP",
     "Two-party differential privacy"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "two-round-mpc",
