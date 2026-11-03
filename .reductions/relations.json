@@ -2616,6 +2616,21 @@
    "unlisted": false
   },
   {
+   "id": "indistinguishability",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/indistinguishability.md",
+   "slug": "indistinguishability",
+   "graphSlug": "Glossary/indistinguishability",
+   "title": "Negligible functions and indistinguishability",
+   "aliases": [
+    "Computational indistinguishability",
+    "Statistical distance",
+    "Negligible function"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "inhomogeneous-sis",
    "kind": "variant",
    "type": "assumption",
