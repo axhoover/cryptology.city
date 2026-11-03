@@ -4415,9 +4415,10 @@
    "title": "One-way state generator",
    "aliases": [
     "OWSG",
-    "One-way state generator"
+    "One-way state generator",
+    "One-way states generator"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "oprf",
@@ -5048,6 +5049,25 @@
    "unlisted": false
   },
   {
+   "id": "prs",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-quantum-state.md",
+   "slug": "pseudorandom-quantum-state",
+   "graphSlug": "Primitives/pseudorandom-quantum-state",
+   "title": "Pseudorandom quantum state",
+   "aliases": [
+    "PRS",
+    "PRSs",
+    "PRSG",
+    "Pseudorandom quantum state",
+    "Pseudorandom quantum states",
+    "Pseudorandom state",
+    "Pseudorandom states"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "pseudorandom-correlation-generator",
    "kind": "object",
    "type": "primitive",
@@ -5102,6 +5122,19 @@
    "unlisted": false
   },
   {
+   "id": "public-key-quantum-money",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#public-key-quantum-money",
+   "of": "quantum-money",
+   "title": "Public-key quantum money",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "publicly-deniable-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -5124,6 +5157,32 @@
    "anchor": "#puncturable-prfs",
    "of": "prf",
    "title": "Puncturable PRFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pure-one-way-state-generator",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/one-way-state-generator.md",
+   "slug": "one-way-state-generator",
+   "graphSlug": "Primitives/one-way-state-generator",
+   "anchor": "#pure-owsgs",
+   "of": "one-way-state-generator",
+   "title": "Pure OWSGs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pure-state-quantum-money",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#pure-money-states",
+   "of": "quantum-money",
+   "title": "Pure money states",
    "aliases": [],
    "unlisted": false
   },
@@ -5267,6 +5326,19 @@
    "unlisted": false
   },
   {
+   "id": "quantum-lightning",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#quantum-lightning",
+   "of": "quantum-money",
+   "title": "Quantum lightning",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "quantum-money",
    "kind": "object",
    "type": "primitive",
@@ -5276,9 +5348,12 @@
    "title": "Quantum money",
    "aliases": [
     "QM",
-    "Quantum money"
+    "Quantum money",
+    "Private-key quantum money",
+    "Public-key quantum money",
+    "Quantum lightning"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "quasi-polynomial-lwe",
@@ -5872,6 +5947,19 @@
    "anchor": "#simulation-sound-nizk-ss-nizk",
    "of": "nizk",
    "title": "Simulation-sound NIZK (SS-NIZK)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "single-copy-prs",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-quantum-state.md",
+   "slug": "pseudorandom-quantum-state",
+   "graphSlug": "Primitives/pseudorandom-quantum-state",
+   "anchor": "#single-copy-security",
+   "of": "prs",
+   "title": "Single-copy security",
    "aliases": [],
    "unlisted": false
   },
@@ -7135,9 +7223,24 @@
    "graphSlug": "Primitives/unclonable-encryption",
    "title": "Unclonable encryption",
    "aliases": [
-    "Unclonable encryption"
+    "UE",
+    "Unclonable encryption",
+    "Uncloneable encryption"
    ],
-   "unlisted": true
+   "unlisted": false
+  },
+  {
+   "id": "unclonable-indistinguishable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/unclonable-encryption.md",
+   "slug": "unclonable-encryption",
+   "graphSlug": "Primitives/unclonable-encryption",
+   "anchor": "#unclonable-indistinguishability",
+   "of": "unclonable-encryption",
+   "title": "Unclonable indistinguishability",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "universal-snark",
@@ -17684,6 +17787,61 @@
    "title": "OWF ⇒ PRG"
   },
   {
+   "id": "red-owf-to-prs-jls18",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "prs",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[JLS18 - Pseudorandom Quantum States|JLS18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The adversary is quantum, so the one-way function must be one-way against efficient quantum adversaries, and the construction evaluates a pseudorandom function in superposition."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-prs-jls18.md",
+   "slug": "owf-to-prs-jls18",
+   "graphSlug": "Reductions/owf-to-prs-jls18",
+   "title": "OWF ⇒ PRS"
+  },
+  {
+   "id": "red-owf-to-pure-one-way-state-generator",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "pure-one-way-state-generator",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the inverter's success probability equals the one-way state generator adversary's",
+   "rationale": {
+    "class": "The generator evaluates f only as an oracle, and the reduction hands t copies of its challenge to an arbitrary adversary used only as an oracle.",
+    "model": "The adversary is quantum, so the function must be one-way against efficient quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-owsg.md",
+   "slug": "owf-to-owsg",
+   "graphSlug": "Reductions/owf-to-owsg",
+   "title": "OWF ⇒ OWSG"
+  },
+  {
    "id": "red-owf-to-statistical-zk-argument-nov06",
    "kind": "implication",
    "hypotheses": [
@@ -19841,6 +19999,54 @@
    "title": "PRP ⇒ PRF"
   },
   {
+   "id": "red-prs-to-pure-one-way-state-generator-my22a",
+   "kind": "implication",
+   "hypotheses": [
+    "prs"
+   ],
+   "conclusion": "pure-one-way-state-generator",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prs-to-owsg-my22a.md",
+   "slug": "prs-to-owsg-my22a",
+   "graphSlug": "Reductions/prs-to-owsg-my22a",
+   "title": "PRS ⇒ OWSG"
+  },
+  {
+   "id": "red-prs-to-quantum-money-jls18",
+   "kind": "implication",
+   "hypotheses": [
+    "prs"
+   ],
+   "conclusion": "pure-state-quantum-money",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[JLS18 - Pseudorandom Quantum States|JLS18]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prs-to-quantum-money-jls18.md",
+   "slug": "prs-to-quantum-money-jls18",
+   "graphSlug": "Reductions/prs-to-quantum-money-jls18",
+   "title": "PRS ⇒ QM"
+  },
+  {
    "id": "red-pspace-to-exp",
    "kind": "inclusion",
    "hypotheses": [
@@ -19887,6 +20093,62 @@
    "slug": "pspace-to-ip-sha90",
    "graphSlug": "Reductions/pspace-to-ip-sha90",
    "title": "PSPACE ⊆ IP"
+  },
+  {
+   "id": "red-pure-one-way-state-generator-to-one-way-state-generator",
+   "kind": "implication",
+   "hypotheses": [
+    "pure-one-way-state-generator"
+   ],
+   "conclusion": "one-way-state-generator",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the generator is unchanged",
+   "rationale": {
+    "class": "The construction is the identity on generators, and the reduction forwards any adversary unchanged.",
+    "model": "The adversaries in both notions are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pure-owsg-to-owsg.md",
+   "slug": "pure-owsg-to-owsg",
+   "graphSlug": "Reductions/pure-owsg-to-owsg",
+   "title": "Pure OWSG ⇒ OWSG"
+  },
+  {
+   "id": "red-pure-state-quantum-money-to-quantum-money",
+   "kind": "implication",
+   "hypotheses": [
+    "pure-state-quantum-money"
+   ],
+   "conclusion": "quantum-money",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the scheme is unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction forwards any counterfeiter unchanged.",
+    "model": "The counterfeiters in both notions are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pure-state-quantum-money-to-quantum-money.md",
+   "slug": "pure-state-quantum-money-to-quantum-money",
+   "graphSlug": "Reductions/pure-state-quantum-money-to-quantum-money",
+   "title": "Pure-state QM ⇒ QM"
   },
   {
    "id": "red-pwpp-to-ppp",
@@ -20462,6 +20724,34 @@
    "title": "QR ⇒ TDH"
   },
   {
+   "id": "red-qrom-to-unclonable-indistinguishable-encryption-akl22",
+   "kind": "implication",
+   "hypotheses": [
+    "qrom"
+   ],
+   "conclusion": "unclonable-indistinguishable-encryption",
+   "class": "free",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model.",
+    "model": "The proof holds in the quantum random-oracle model, against quantum cloning adversaries that query the random oracle in superposition, and the Statement names the quantum access."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qrom-to-unclonable-encryption-akl22.md",
+   "slug": "qrom-to-unclonable-encryption-akl22",
+   "graphSlug": "Reductions/qrom-to-unclonable-encryption-akl22",
+   "title": "QROM ⇒ unclonable-indistinguishable UE"
+  },
+  {
    "id": "red-qrom-to-zk-snark-cms19",
    "kind": "implication",
    "hypotheses": [
@@ -20520,7 +20810,7 @@
    "id": "red-quantum-money-to-one-way-state-generator-my22",
    "kind": "implication",
    "hypotheses": [
-    "quantum-money"
+    "pure-state-quantum-money"
    ],
    "conclusion": "one-way-state-generator",
    "class": "unstated",
@@ -20538,7 +20828,7 @@
    "page": "content/Reductions/owsg-to-qm.md",
    "slug": "owsg-to-qm",
    "graphSlug": "Reductions/owsg-to-qm",
-   "title": "QM ⇒ OWSG"
+   "title": "Pure-state QM ⇒ OWSG"
   },
   {
    "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",
@@ -27146,6 +27436,35 @@
    "title": "No tight algebraic reduction from DLOG to Schnorr signatures in the ROM"
   },
   {
+   "id": "bar-prs-to-owf-kre21",
+   "hypotheses": [
+    "prs"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]]"
+   ],
+   "rationale": {
+    "class": "Kre21's oracle is a quantum oracle relative to which PRS generators exist and no quantum-secure one-way function does, which rules out every construction that uses the PRS generator only as an oracle with a proof that uses the adversary only as an oracle, and says nothing about proofs that relativize only with respect to classical oracles."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-prs-to-owf-kre21.md",
+   "slug": "no-prs-to-owf-kre21",
+   "graphSlug": "Barriers/no-prs-to-owf-kre21",
+   "title": "No fully-black-box reduction from PRS to OWF"
+  },
+  {
    "id": "bar-qma-to-qcma-bhnz25",
    "hypotheses": [
     "qma"
@@ -27321,6 +27640,35 @@
    "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
    "graphSlug": "Barriers/no-selective-security-to-cp-abe-ind-cpa-security",
    "title": "No fixed-construction reduction from selective to adaptive CP-ABE security"
+  },
+  {
+   "id": "bar-single-copy-prs-to-owf-kqst23",
+   "hypotheses": [
+    "single-copy-prs"
+   ],
+   "conclusion": "owf",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[KQST23 - Quantum Cryptography in Algorithmica|KQST23]]"
+   ],
+   "rationale": {
+    "class": "KQST23's oracle is a classical oracle relative to which single-copy-secure PRS generators exist and P = NP, so no one-way function exists relative to it, which rules out constructions and proofs that relativize, every fully-black-box one among them."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-single-copy-prs-to-owf-kqst23.md",
+   "slug": "no-single-copy-prs-to-owf-kqst23",
+   "graphSlug": "Barriers/no-single-copy-prs-to-owf-kqst23",
+   "title": "No relativizing reduction from single-copy PRS to OWF"
   },
   {
    "id": "bar-tdp-to-enhanced-trapdoor-permutation-haj18",

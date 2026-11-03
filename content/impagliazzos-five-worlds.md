@@ -79,8 +79,8 @@ A surprising recent development is the discovery that cryptographic tasks may be
 
 The key insight is that quantum **unclonability** (the no-cloning theorem) can serve as a cryptographic resource even without one-way functions. For example:
 
-- Private-key **[[quantum-money|quantum money]]** is constructed from pseudorandom quantum states — [[JLS18 - Pseudorandom Quantum States|JLS18]]; in turn, private-key quantum money with pure banknotes implies [[one-way-state-generator|OWSGs]] ([[owsg-to-qm|QM ⇒ OWSG]]).
-- **Pseudorandom quantum states** (PRS) exist relative to a quantum oracle under which $\classBQP = \classQMA$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]] — and single-copy-secure PRS exist relative to a classical oracle under which $\classP = \classNP$ — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
+- Private-key **[[quantum-money|quantum money]]** is constructed from [[pseudorandom-quantum-state|pseudorandom quantum states]] — [[JLS18 - Pseudorandom Quantum States|JLS18]] ([[prs-to-quantum-money-jls18|PRS ⇒ QM]]); in turn, private-key quantum money with pure banknotes implies [[one-way-state-generator|OWSGs]] ([[owsg-to-qm|Pure-state QM ⇒ OWSG]]).
+- **Pseudorandom quantum states** (PRS) exist relative to a quantum oracle under which $\classBQP = \classQMA$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]] ([[no-prs-to-owf-kre21|No fully-black-box reduction from PRS to OWF]]) — and single-copy-secure PRS exist relative to a classical oracle under which $\classP = \classNP$ — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
 
 PRS do not exist if $\classBQP = \classPP$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
