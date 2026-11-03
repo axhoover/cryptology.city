@@ -76,7 +76,7 @@ For $0 \le \alpha \le 1$ and $c > 0$, write $L_N[\alpha, c] := \exp\!\big((c + o
 - **Multiple number field sieve**: Coppersmith's variant of the general NFS with several number fields runs in heuristic time $L_N[1/3, c]$ with $c = \big((92 + 26\sqrt{13})/27\big)^{1/3} \approx 1.902$ — [[Cop93 - Modifications to the Number Field Sieve|Cop93]].
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]. See [[fac-to-bqp-shor97|FAC ∈ BQP (Shor)]].
 
-<!-- BEGIN GENERATED participates-in 81d5d93f48a9 -->
+<!-- BEGIN GENERATED participates-in e2c412789f48 -->
 
 ## Participates in
 
@@ -94,6 +94,7 @@ For $0 \le \alpha \le 1$ and $c > 0$, write $L_N[\alpha, c] := \exp\!\big((c + o
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
 - [[factoring-blum-integers-to-bqp-shor97|Factoring Blum integers ∈ BQP (Shor)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
 - [[factoring-blum-integers-to-claw-free-permutations-gmr88|Factoring ⇒ Claw-free permutations (GMR)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
+- [[factoring-blum-integers-to-forward-secure-signature-bm99|Factoring ⇒ Forward-secure signature (Bellare–Miner)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
 - [[factoring-blum-integers-to-identification-scheme-ffs88|Factoring ⇒ ID (Feige–Fiat–Shamir)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
 - [[factoring-blum-integers-to-pke-cpa-security-bg84|Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
 - [[factoring-blum-integers-to-tdp-rab79|Factoring ⇒ TDP (Rabin)]] (via [[factoring#factoring-blum-integers|Factoring Blum integers]])
