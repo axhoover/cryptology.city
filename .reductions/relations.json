@@ -3508,9 +3508,10 @@
    "graphSlug": "Primitives/merkle-puzzles",
    "title": "Merkle puzzles",
    "aliases": [
-    "Merkle puzzles"
+    "Merkle puzzles",
+    "Merkle's puzzles"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "mip",
