@@ -15,7 +15,7 @@ variants:
 
 # Functional encryption
 
-A public-key encryption scheme in which a master secret key issues functional keys $\sk_f$, and a holder of $\sk_f$ learns $f(m)$ from an encryption of $m$ and nothing more. The definitions below are those of [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]] and [[ONe10 - Definitional Issues in Functional Encryption|ONe10]].
+A public-key encryption scheme in which a master secret key issues functional keys $\sk_f$, and a holder of $\sk_f$ learns $f(m)$ from an encryption of $m$ and nothing more.
 
 ## Syntax
 
@@ -96,15 +96,15 @@ $\mathsf{FE}$ is **selectively IND-secure** if for all efficient admissible $\ca
 
 ## Bounded-collusion FE
 
-For a bound $q$ given to $\Setup$, the adversary in the IND game makes at most $q$ key queries; $q = 1$ is **single-key** FE — standard.
+For a bound $q$ given to $\Setup$, the adversary in the IND game makes at most $q$ key queries; $q = 1$ is **single-key** FE — [[GVW12 - Functional Encryption with Bounded Collusions via Multi-Party Computation|GVW12]].
 
 ## Compactness
 
-Let $\calF$ consist of circuits of size at most $s$ on $n$-bit inputs. $\mathsf{FE}$ is **compact** if $\Enc$ runs in time $\poly(\secpar, n, \log s)$ — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and **weakly compact** if it runs in time $s^{1-\varepsilon} \cdot \poly(\secpar, n)$ for a constant $\varepsilon > 0$ — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]. $\mathsf{FE}$ is **sub-exponentially secure** if there is a constant $\delta > 0$ such that every admissible adversary of size at most $2^{\secpar^{\delta}}$ has advantage at most $2^{-\secpar^{\delta}}$. Single-key, sub-exponentially secure, weakly compact FE gives [[indistinguishability-obfuscation|iO]] ([[fe-to-io|FE ⇒ iO]]) — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]], [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
+Let $\calF$ consist of circuits of size at most $s$ on $n$-bit inputs. $\mathsf{FE}$ is **compact** if $\Enc$ runs in time $\poly(\secpar, n, \log s)$ — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and **weakly compact** if it runs in time $s^{1-\varepsilon} \cdot \poly(\secpar, n)$ for a constant $\varepsilon > 0$ — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]]. $\mathsf{FE}$ is **sub-exponentially secure** if there is a constant $\delta > 0$ such that every admissible adversary of size at most $2^{\secpar^{\delta}}$ has advantage at most $2^{-\secpar^{\delta}}$.
 
 ## Simulation-based security
 
-$\mathsf{FE}$ is **simulation-secure** if for every efficient adversary there is an efficient simulator that, given only the values $f(m)$ for the keys $f$ requested and the empty key's value on $m$, produces the challenge ciphertext and the requested keys so that the adversary's view is computationally indistinguishable from its view in the real game; in the non-adaptive form every key query precedes the challenge — [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]], [[ONe10 - Definitional Issues in Functional Encryption|ONe10]]. Adaptive simulation security is impossible in the standard model already for [[identity-based-encryption|IBE]], against an adversary that receives encryptions of many messages before requesting a key: the simulator fixes the ciphertexts before learning the messages, and a key shorter than the messages cannot then decrypt them to arbitrary values — [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]]. Non-adaptive simulation security cannot hold against an unbounded number of key queries: for some function classes the ciphertext length must grow linearly with the number of key queries — [[AGVW13 - Functional Encryption New Perspectives and Lower Bounds|AGVW13]].
+$\mathsf{FE}$ is **simulation-secure** if for every efficient adversary there is an efficient simulator that, given only the values $f(m)$ for the keys $f$ requested and the empty key's value on $m$, produces the challenge ciphertext and the requested keys so that the adversary's view is computationally indistinguishable from its view in the real game; in the non-adaptive form every key query precedes the challenge — [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]], [[ONe10 - Definitional Issues in Functional Encryption|ONe10]]. Adaptive simulation security is impossible in the standard model already for [[identity-based-encryption|IBE]], against an adversary that receives encryptions of many messages before requesting a key: the simulator fixes the ciphertexts before learning the messages, and a key shorter than the messages cannot then decrypt them to arbitrary values — [[BSW11 - Functional Encryption Definitions and Challenges|BSW11]]. For some function classes, non-adaptive simulation security cannot hold against an unbounded number of key queries: the ciphertext length must grow linearly with the number of key queries — [[AGVW13 - Functional Encryption New Perspectives and Lower Bounds|AGVW13]].
 
 ## Special cases
 
@@ -112,21 +112,23 @@ In _predicate encryption with public index_, a message is a pair $(x, \mu)$, the
 
 # Other results
 
-- [[fe-to-io|FE ⇒ iO]]: single-key, sub-exponentially secure, weakly compact FE for $\classPpoly$ gives iO for all polynomial-size circuits — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]], [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
-- [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]]: selectively IND-secure FE for all polynomial-size circuits from iO and one-way functions — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]], [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]].
-- Single-key FE for all circuits of depth $d$ from [[learning-with-errors|LWE]], whose ciphertexts grow with $d$ but not with the circuit size; security extends to an a priori bounded number of keys. A ciphertext holds an [[homomorphic-encryption|FHE]] encryption $\psi$ of $m$, a [[garbled-circuit|garbled circuit]] for FHE decryption, and [[attribute-based-encryption|ABE]] encryptions of its input labels with attribute $\psi$; the key for $f$ releases, for each bit of the homomorphic evaluation of $f$ on $\psi$, the label matching that bit — [[GKPVZ13a - Reusable Garbled Circuits and Succinct Functional Encryption|GKPVZ13a]].
+- [[fe-to-io|Compact FE ⇒ iO]]: single-key, sub-exponentially secure FE for $\classPpoly$ gives [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits when it is compact — [[AJ15 - Indistinguishability Obfuscation from Compact Functional Encryption|AJ15]] — and already when it is weakly compact — [[BV15 - Indistinguishability Obfuscation from Functional Encryption|BV15]].
+- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]]: selectively IND-secure FE for all polynomial-size circuits from iO, a perfectly correct IND-CPA-secure PKE and a statistically simulation-sound NIZK proof system for $\classNP$ — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
+- [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]]: IND-secure FE for all polynomial-size circuits from iO and one-way functions, with a polynomial security loss — [[Wat15 - A Punctured Programming Approach to Adaptively Secure Functional Encryption|Wat15]].
+- Single-key FE for all circuits of depth $d$ from [[learning-with-errors|LWE]], whose ciphertexts grow with $d$ and the output length but not with the circuit size; security extends to an a priori bounded number of keys. A ciphertext holds an [[homomorphic-encryption|FHE]] encryption $\psi$ of $m$, a [[garbled-circuit|garbled circuit]] for FHE decryption, and [[attribute-based-encryption|ABE]] encryptions of its input labels with attribute $\psi$; the key for $f$ releases, for each bit of the homomorphic evaluation of $f$ on $\psi$, the label matching that bit — [[GKPVZ13a - Reusable Garbled Circuits and Succinct Functional Encryption|GKPVZ13a]].
 - For every bound $q$ fixed at setup, $q$-bounded-collusion FE for all polynomial-size circuits from semantically secure [[public-key-encryption|PKE]] and [[pseudorandom-generator|PRGs]] computable by low-depth circuits — [[GVW12 - Functional Encryption with Bounded Collusions via Multi-Party Computation|GVW12]].
 
-<!-- BEGIN GENERATED participates-in d13fa0837fff -->
+<!-- BEGIN GENERATED participates-in 0d3b790286e7 -->
 
 ## Participates in
 
 **Builds on Functional encryption**
 
-- [[fe-to-io|FE ⇒ iO]] (via [[functional-encryption#compactness|Compactness]])
+- [[fe-to-io|Compact FE ⇒ iO]] (via [[functional-encryption#compactness|Compactness]])
 
 **Produces Functional encryption**
 
-- [[hash-function-and-io-to-fe-sw14|OWF + iO ⇒ FE]] (via [[functional-encryption#selective-security|Selective security]])
+- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[functional-encryption#selective-security|Selective security]])
+- [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]]
 
 <!-- END GENERATED participates-in -->
