@@ -20,6 +20,10 @@ security-loss: ""
 
 An IND-CPA-secure [length-flexible additively homomorphic encryption](homomorphic-encryption#length-flexible-additively-homomorphic-encryption) scheme yields a one-round single-server [[single-server-private-information-retrieval|PIR]] for $n$ entries of $\ell$ bits with communication $\Theta(k \log^2 n + \ell \log n)$ for the security parameter $k$, low-degree polylogarithmic receiver computation and linear sender computation, so one with [polylogarithmic communication](single-server-private-information-retrieval#pir-with-polylogarithmic-communication) — [[Lip05 - An Oblivious Transfer Protocol with Log-Squared Communication|Lip05]].
 
+## Sketch
+
+$\Setup(1^\secpar, 1^n)$ runs the scheme's key generation at security parameter $\secpar' = \max(\secpar, \lceil \log n \rceil)$, so that the ciphertext lengths the protocol uses, which grow with $\log n$, stay polynomial in the security parameter, where length-flexible additively homomorphic encryption guarantees the homomorphism and IND-CPA security. With $k = \poly(\secpar')$ the communication $\Theta(k \log^2 n + \ell \log n)$ is $\poly(\secpar, \log n)$, and security at $\secpar' \ge \secpar$ gives query privacy against adversaries running in time polynomial in $\secpar$, a function negligible in $\secpar'$ staying below its supremum over $\secpar' \ge \secpar$ — folklore.
+
 ## Notes
 
 - The protocol can be transformed into a one-round $1$-out-of-$n$ [[oblivious-transfer|OT]] for $\ell$-bit strings, computationally receiver-private and information-theoretically sender-private, with the same asymptotic communication — [[Lip05 - An Oblivious Transfer Protocol with Log-Squared Communication|Lip05]].

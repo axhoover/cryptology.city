@@ -329,3 +329,51 @@ test("LMSS22's IND-CPA-D transformation needs a statically approximate scheme", 
     "Estimate runs in polynomial time",
   );
 });
+
+test("FHE-to-PIR edges match the size quantifiers of their nodes", () => {
+  // The selection circuit D[x] on an n-bit database has size Θ(n), for every
+  // n. An FHE node correct only on polynomial-size circuits admits a scheme
+  // whose Eval fails above 2^{√λ} gates, so it cannot yield polylog-cPIR,
+  // which is required for every n, until one side's quantifier changes.
+  const he = fs.readFileSync(
+    path.join(ROOT, "content", "Primitives", "homomorphic-encryption.md"),
+    "utf8",
+  );
+  const pir = fs.readFileSync(
+    path.join(
+      ROOT,
+      "content",
+      "Primitives",
+      "single-server-private-information-retrieval.md",
+    ),
+    "utf8",
+  );
+  const polySize: Record<string, RegExp> = {
+    "leveled-fully-homomorphic-encryption":
+      /## Leveled fully homomorphic encryption\n\nSupports all polynomial-size circuits of depth at most \$L\$/,
+    "compact-fhe":
+      /A \*\*compact FHE\*\* scheme is an HE scheme for the class of all polynomial-size circuits/,
+  };
+  const pirEveryN =
+    /has \*\*polylogarithmic communication\*\*[^\n]*for a polynomial \$p\$ and every \$n\$/.test(
+      pir,
+    );
+  assert.ok(pirEveryN, "polylog-cPIR's every-n quantifier is found");
+  const reductions = manifest.reductions.concat(
+    manifest.hybridReductions ?? [],
+  );
+  for (const [node, re] of Object.entries(polySize)) {
+    assert.match(he, re, `${node}'s polynomial-size quantifier is found`);
+    assert.ok(
+      !closure(reductions, [node], { relativizes }).scopes.has("polylog-cpir"),
+      `${node} must not derive polylog-cPIR while the size quantifiers differ`,
+    );
+  }
+  // circular-secure FHE is a compact FHE scheme, so it is covered too.
+  assert.ok(
+    !closure(reductions, ["circular-secure-fhe"], { relativizes }).scopes.has(
+      "polylog-cpir",
+    ),
+    "circular-secure FHE must not derive polylog-cPIR while the size quantifiers differ",
+  );
+});
