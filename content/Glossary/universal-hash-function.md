@@ -76,4 +76,14 @@ is $(\ell/|\FF|)$-almost $\Delta$-universal: for $m \ne m'$ and $c \in \FF$, $h_
 
 ## Uses
 
-Wegman–Carter [[message-authentication-code#one-time-macs|one-time]] and [[message-authentication-code#nonce-based-macs|nonce-based]] MACs are built from these families, and the [[leftover-hash-lemma|leftover hash lemma]] extracts nearly uniform bits with them.
+Wegman–Carter [[message-authentication-code#one-time-macs|one-time]] and [[message-authentication-code#nonce-based-macs|nonce-based]] MACs and the [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] tweakable block cipher are built from these families, and the [[leftover-hash-lemma|leftover hash lemma]] extracts nearly uniform bits with them.
+
+<!-- BEGIN GENERATED participates-in 0ef046f072e5 -->
+
+## Participates in
+
+**Used via Universal hash function**
+
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]]
+
+<!-- END GENERATED participates-in -->

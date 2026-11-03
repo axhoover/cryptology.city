@@ -6154,6 +6154,19 @@
    "unlisted": false
   },
   {
+   "id": "strong-tweakable-block-cipher",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/tweakable-block-cipher.md",
+   "slug": "tweakable-block-cipher",
+   "graphSlug": "Primitives/tweakable-block-cipher",
+   "anchor": "#strong-security",
+   "of": "tweakable-block-cipher",
+   "title": "Strong security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "strongly-homomorphic-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -6779,6 +6792,22 @@
    "of": "prg",
    "title": "Trapdoor pseudorandom generators",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "tweakable-block-cipher",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/tweakable-block-cipher.md",
+   "slug": "tweakable-block-cipher",
+   "graphSlug": "Primitives/tweakable-block-cipher",
+   "title": "Tweakable block cipher",
+   "aliases": [
+    "TBC",
+    "Tweakable block cipher",
+    "Tweakable blockcipher",
+    "Tweakable PRP"
+   ],
    "unlisted": false
   },
   {
@@ -19632,6 +19661,33 @@
    "title": "PRP ⇒ PRF"
   },
   {
+   "id": "red-prp-to-tweakable-block-cipher-lrw02",
+   "kind": "implication",
+   "hypotheses": [
+    "prp"
+   ],
+   "conclusion": "tweakable-block-cipher",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LRW02 - Tweakable Block Ciphers|LRW02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the PRP distinguisher makes $2q$ queries, plus additive $O(q^2/2^n)$ for $q$ queries",
+   "rationale": {
+    "class": "The construction calls the block cipher only as an oracle, the reduction runs the tweakable-PRP distinguisher once as an oracle, and the random-permutation core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prp-to-tweakable-block-cipher-lrw02.md",
+   "slug": "prp-to-tweakable-block-cipher-lrw02",
+   "graphSlug": "Reductions/prp-to-tweakable-block-cipher-lrw02",
+   "title": "PRP ⇒ TBC (LRW1)"
+  },
+  {
    "id": "red-pspace-to-exp",
    "kind": "inclusion",
    "hypotheses": [
@@ -21817,6 +21873,35 @@
    "title": "Statistically hiding COM ⇒ Statistical ZK arguments for NP"
   },
   {
+   "id": "red-strong-pseudorandom-permutation-to-strong-tweakable-block-cipher-lrw02",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-pseudorandom-permutation"
+   ],
+   "conclusion": "strong-tweakable-block-cipher",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LRW02 - Tweakable Block Ciphers|LRW02]]"
+   ],
+   "via": [
+    "[[universal-hash-function|Almost XOR-universal hashing]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "additive $O(\\varepsilon q^2)$ for $q$ queries and an $\\varepsilon$-AXU hash family",
+   "rationale": {
+    "class": "The construction calls the block cipher and its inverse only as oracles, the reduction runs the distinguisher once as an oracle and samples the hash function itself, and the random-permutation core is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02.md",
+   "slug": "strong-prp-to-strong-tweakable-block-cipher-lrw02",
+   "graphSlug": "Reductions/strong-prp-to-strong-tweakable-block-cipher-lrw02",
+   "title": "Strong PRP ⇒ Strong TBC (LRW2)"
+  },
+  {
    "id": "red-strong-rsa-to-accumulator-bp97",
    "kind": "implication",
    "hypotheses": [
@@ -21975,6 +22060,33 @@
    "slug": "strong-security-to-prp",
    "graphSlug": "Reductions/strong-security-to-prp",
    "title": "sPRP ⇒ PRP"
+  },
+  {
+   "id": "red-strong-tweakable-block-cipher-to-tweakable-block-cipher",
+   "kind": "implication",
+   "hypotheses": [
+    "strong-tweakable-block-cipher"
+   ],
+   "conclusion": "tweakable-block-cipher",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the same adversary has the same advantage in both games",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the tweakable-PRP distinguisher unchanged, using it only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/strong-tweakable-block-cipher-to-tweakable-block-cipher.md",
+   "slug": "strong-tweakable-block-cipher-to-tweakable-block-cipher",
+   "graphSlug": "Reductions/strong-tweakable-block-cipher-to-tweakable-block-cipher",
+   "title": "Strong TBC ⇒ TBC"
   },
   {
    "id": "red-strongly-homomorphic-encryption-to-pke-cpa-security",

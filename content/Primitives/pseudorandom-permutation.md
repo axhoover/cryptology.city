@@ -95,12 +95,16 @@ is negligible.
 
 Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that a brute-force enumeration of $\calD$ is infeasible. When $|\calD|$ is instead polynomial in $\secpar$, the primitive is called a **small-domain PRP** and requires additional care, as some standard constructions and security reductions no longer apply.
 
+## Tweakable PRPs
+
+A [[tweakable-block-cipher|tweakable block cipher]] takes a public tweak $t$ as an extra input to $\Eval$ and $\Invert$, and is indistinguishable from an independent uniformly random permutation for each tweak — [[LRW02 - Tweakable Block Ciphers|LRW02]].
+
 # Other results
 
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prp-to-prf|PRP ⇒ PRF]]
 
-<!-- BEGIN GENERATED participates-in 2edb8d78b934 -->
+<!-- BEGIN GENERATED participates-in 4531b43344e3 -->
 
 ## Participates in
 
@@ -108,6 +112,8 @@ Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that
 
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]
 - [[prp-to-prf|PRP ⇒ PRF]]
+- [[prp-to-tweakable-block-cipher-lrw02|PRP ⇒ TBC (LRW1)]]
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]] (via [[pseudorandom-permutation#strong-security|Strong Security]])
 - [[strong-security-to-prp|sPRP ⇒ PRP]] (via [[pseudorandom-permutation#strong-security|Strong Security]])
 
 **Produces Pseudorandom permutation**
