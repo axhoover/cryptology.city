@@ -4,7 +4,7 @@ status: draft
 title: "No fully-black-box reduction from length-increasing injective OWF to OWP"
 aliases: []
 id: bar-injective-owf-to-owp-mm11
-hypotheses: [injective-one-way-function]
+hypotheses: [length-increasing-injective-owf]
 conclusion: owp
 class: fully-black-box
 consequences:

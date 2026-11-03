@@ -269,6 +269,19 @@
    "unlisted": false
   },
   {
+   "id": "adaptive-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#adaptive-one-wayness",
+   "of": "injective-one-way-function",
+   "title": "Adaptive one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "adaptively-robust-prc",
    "kind": "variant",
    "type": "primitive",
@@ -2886,7 +2899,7 @@
     "Injective OWF",
     "Injective one-way function"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "injective-trapdoor-function",
@@ -3210,6 +3223,19 @@
    "anchor": "#length-flexible-additively-homomorphic-encryption",
    "of": "he",
    "title": "Length-flexible additively homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "length-increasing-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#length-increasing-injective-owfs",
+   "of": "injective-one-way-function",
+   "title": "Length-increasing injective OWFs",
    "aliases": [],
    "unlisted": false
   },
@@ -24831,7 +24857,7 @@
   {
    "id": "bar-injective-owf-to-owp-mm11",
    "hypotheses": [
-    "injective-one-way-function"
+    "length-increasing-injective-owf"
    ],
    "conclusion": "owp",
    "class": "fully-black-box",
