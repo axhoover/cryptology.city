@@ -1550,7 +1550,7 @@
    "of": "multilinear-maps",
    "title": "Decision Multilinear No-Exact-Cover assumption",
    "aliases": [],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "decision-subset-sum",
@@ -3738,9 +3738,11 @@
    "title": "Multilinear maps",
    "aliases": [
     "MMap",
-    "Multilinear maps"
+    "Multilinear maps",
+    "Multilinear map",
+    "Graded encoding"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "multiplicatively-homomorphic-encryption",
