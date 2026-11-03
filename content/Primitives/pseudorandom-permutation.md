@@ -103,6 +103,8 @@ A [[tweakable-block-cipher|tweakable block cipher]] takes a public tweak $t$ as 
 
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prp-to-prf|PRP ⇒ PRF]]
+- **Even–Mansour.** Let $P$ be a uniformly random permutation of $\bits^n$ that every party, the adversary included, can query in both directions. The cipher $E_{k_1,k_2}(x) := k_2 \oplus P(x \oplus k_1)$ with $k_1, k_2 \getsr \bits^n$ is broken by every attack making $q$ queries to $E_{k_1,k_2}^{\pm 1}$ and $p$ queries to $P^{\pm 1}$ with probability at most $O(pq/2^n)$ — [[EM91 - A Construction of a Cipher From a Single Pseudorandom Permutation|EM91]]. The single-key variant $E_k(x) := k \oplus P(x \oplus k)$ has the same bound — [[DKS12 - Minimalism in Cryptography The Even-Mansour Scheme Revisited|DKS12]].
+- The Even–Mansour bound is tight: with $D$ queries to the cipher and $T$ evaluations of $P$, the key is recovered once $DT \approx 2^n$, from chosen plaintexts ([[Dae91 - Limitations of the Even-Mansour Construction (Rump Session)|Dae91]]) and, by the slidex attack, from known plaintexts ([[DKS12 - Minimalism in Cryptography The Even-Mansour Scheme Revisited|DKS12]]).
 
 <!-- BEGIN GENERATED participates-in 4531b43344e3 -->
 
