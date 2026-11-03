@@ -4863,6 +4863,34 @@
    "unlisted": false
   },
   {
+   "id": "pre",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/proxy-re-encryption.md",
+   "slug": "proxy-re-encryption",
+   "graphSlug": "Primitives/proxy-re-encryption",
+   "title": "Proxy re-encryption",
+   "aliases": [
+    "PRE",
+    "Proxy re-encryption",
+    "Proxy reencryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "pre-cca",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/proxy-re-encryption.md",
+   "slug": "proxy-re-encryption",
+   "graphSlug": "Primitives/proxy-re-encryption",
+   "anchor": "#chosen-ciphertext-security",
+   "of": "pre",
+   "title": "Chosen-ciphertext security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "prf",
    "kind": "object",
    "type": "primitive",
@@ -10008,6 +10036,30 @@
    "slug": "dbdh-to-ind-sid-cpa-bb04",
    "graphSlug": "Reductions/dbdh-to-ind-sid-cpa-bb04",
    "title": "DBDH ⇒ Selectively secure IBE (Boneh–Boyen)"
+  },
+  {
+   "id": "red-dbdh-to-pre-cca-ch07",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "pre-cca",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-pre-cca-ch07.md",
+   "slug": "dbdh-to-pre-cca-ch07",
+   "graphSlug": "Reductions/dbdh-to-pre-cca-ch07",
+   "title": "DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)"
   },
   {
    "id": "red-dbdh-to-three-party-nike-jou04",
@@ -19442,6 +19494,33 @@
    "slug": "prime-order-ddh-to-katz-wang-signature-kw03",
    "graphSlug": "Reductions/prime-order-ddh-to-katz-wang-signature-kw03",
    "title": "Prime-order DDH ⇒ Katz–Wang signatures"
+  },
+  {
+   "id": "red-prime-order-ddh-to-pre",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "pre",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "an additive 1/q, from the event that the DDH generator power Q^u is the identity",
+   "rationale": {
+    "class": "The scheme uses only the group sampler and group operations, and the reduction runs the PRE adversary once as an oracle on keys and a challenge built from its DDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-pre.md",
+   "slug": "prime-order-ddh-to-pre",
+   "graphSlug": "Reductions/prime-order-ddh-to-pre",
+   "title": "DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)"
   },
   {
    "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",

@@ -130,7 +130,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm computes discrete logarithms modulo a prime in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, so it breaks discrete log in $\GG_1$, $\GG_2$ and $\GG_T$ — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
-<!-- BEGIN GENERATED participates-in 68786fda8489 -->
+<!-- BEGIN GENERATED participates-in 963c50da8a16 -->
 
 ## Participates in
 
@@ -149,6 +149,7 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - [[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
+- [[dbdh-to-pre-cca-ch07|DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[dbdh-to-three-party-nike-jou04|DBDH ⇒ Three-party NIKE (Joux)]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13) (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[subgroup-decision-to-barg-for-np-ww22|Subgroup decision ⇒ BARG for NP]] (via [[bilinear-map-assumptions#subgroup-decision|Subgroup decision]])
