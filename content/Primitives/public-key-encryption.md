@@ -137,6 +137,7 @@ TODO
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
 
 <!-- BEGIN GENERATED participates-in 7dcf194ef433 -->
 
