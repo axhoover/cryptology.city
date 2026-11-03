@@ -551,7 +551,9 @@
    "title": "Authenticated encryption",
    "aliases": [
     "AE",
-    "Authenticated encryption"
+    "Authenticated encryption",
+    "AEAD",
+    "Authenticated encryption with associated data"
    ],
    "unlisted": false
   },
@@ -729,6 +731,19 @@
     "BE",
     "Broadcast encryption"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "bi-deniable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/deniable-encryption.md",
+   "slug": "deniable-encryption",
+   "graphSlug": "Primitives/deniable-encryption",
+   "anchor": "#bi-deniability",
+   "of": "deniable-encryption",
+   "title": "Bi-deniability",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1666,9 +1681,10 @@
    "graphSlug": "Primitives/deniable-encryption",
    "title": "Deniable encryption",
    "aliases": [
-    "Deniable encryption"
+    "Deniable encryption",
+    "Sender-deniable encryption"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "depir",
@@ -4058,6 +4074,19 @@
    "unlisted": false
   },
   {
+   "id": "nonce-based-aead",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/authenticated-encryption.md",
+   "slug": "authenticated-encryption",
+   "graphSlug": "Primitives/authenticated-encryption",
+   "anchor": "#nonce-based-aead",
+   "of": "authenticated-encryption",
+   "title": "Nonce-based AEAD",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nontrivial-cpir",
    "kind": "variant",
    "type": "primitive",
@@ -4978,6 +5007,19 @@
    "unlisted": false
   },
   {
+   "id": "publicly-deniable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/deniable-encryption.md",
+   "slug": "deniable-encryption",
+   "graphSlug": "Primitives/deniable-encryption",
+   "anchor": "#public-deniability",
+   "of": "deniable-encryption",
+   "title": "Public deniability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "puncturable-prf",
    "kind": "variant",
    "type": "primitive",
@@ -5238,6 +5280,19 @@
    "unlisted": false
   },
   {
+   "id": "receiver-deniable-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/deniable-encryption.md",
+   "slug": "deniable-encryption",
+   "graphSlug": "Primitives/deniable-encryption",
+   "anchor": "#receiver-deniability",
+   "of": "deniable-encryption",
+   "title": "Receiver deniability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "rerandomizable-encryption",
    "kind": "object",
    "type": "primitive",
@@ -5247,9 +5302,23 @@
    "title": "Rerandomizable encryption",
    "aliases": [
     "RE",
-    "Rerandomizable encryption"
+    "Rerandomizable encryption",
+    "Re-randomizable encryption"
    ],
-   "unlisted": true
+   "unlisted": false
+  },
+  {
+   "id": "rerandomizable-rcca-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/rerandomizable-encryption.md",
+   "slug": "rerandomizable-encryption",
+   "graphSlug": "Primitives/rerandomizable-encryption",
+   "anchor": "#rerandomizable-rcca-encryption",
+   "of": "rerandomizable-encryption",
+   "title": "Rerandomizable RCCA encryption",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "ring-lpn",
@@ -6043,7 +6112,7 @@
    "of": "rerandomizable-encryption",
    "title": "Statistical rerandomization of honest ciphertexts",
    "aliases": [],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "strong-pseudorandom-permutation",
@@ -6422,7 +6491,7 @@
    "of": "rerandomizable-encryption",
    "title": "Security against slightly super-polynomial adversaries",
    "aliases": [],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "switching-lemma",
@@ -6598,9 +6667,10 @@
    "title": "Threshold encryption",
    "aliases": [
     "TPKE",
-    "Threshold encryption"
+    "Threshold encryption",
+    "Threshold public-key encryption"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "threshold-rsa",
@@ -6656,6 +6726,32 @@
    "anchor": "#pir-with-total-communication-below-n",
    "of": "cpir",
    "title": "PIR with total communication below $n$",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "tpke-cca-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-encryption.md",
+   "slug": "threshold-encryption",
+   "graphSlug": "Primitives/threshold-encryption",
+   "anchor": "#cca-security",
+   "of": "threshold-encryption",
+   "title": "CCA security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "tpke-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-encryption.md",
+   "slug": "threshold-encryption",
+   "graphSlug": "Primitives/threshold-encryption",
+   "anchor": "#cpa-security",
+   "of": "threshold-encryption",
+   "title": "CPA security",
    "aliases": [],
    "unlisted": false
   },
@@ -7596,6 +7692,34 @@
    "slug": "authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82",
    "graphSlug": "Reductions/authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82",
    "title": "Authenticated channels ⇒ Broadcast against $t < n/3$ (Lamport–Shostak–Pease)"
+  },
+  {
+   "id": "red-authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00",
+   "kind": "implication",
+   "hypotheses": [
+    "authenticated-encryption"
+   ],
+   "conclusion": "cca-secure-symmetric-key-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]",
+    "[[KY00 - Unforgeable Encryption and Chosen Ciphertext Secure Modes of Operation|KY00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "factor 2 in the integrity term: the CCA advantage is at most the CPA advantage plus twice the INT-CTXT advantage, at the same numbers of encryption and decryption queries",
+   "rationale": {
+    "class": "The construction is the scheme itself, and both reductions run any CCA adversary as an oracle and answer its decryption queries with ⊥, the INT-CTXT adversary also forwarding each of them to its verification oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00.md",
+   "slug": "authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00",
+   "graphSlug": "Reductions/authenticated-encryption-to-cca-secure-symmetric-key-encryption-bn00",
+   "title": "AE ⇒ CCA-secure SKE"
   },
   {
    "id": "red-authenticated-key-exchange-ake-to-ke",
@@ -9319,6 +9443,35 @@
    "slug": "coszk-to-szk-oka96",
    "graphSlug": "Reductions/coszk-to-szk-oka96",
    "title": "SZK = coSZK"
+  },
+  {
+   "id": "red-cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
+   "kind": "implication",
+   "hypotheses": [
+    "cpa-security",
+    "suf-cma-mac"
+   ],
+   "conclusion": "authenticated-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none in the privacy term; factor $q_V$ in the integrity term: an INT-CTXT adversary making $q_E$ encryption and $q_V$ verification queries has advantage at most $q_V$ times the SUF-CMA advantage of a forger making $q_E$ tag queries",
+   "rationale": {
+    "class": "Encrypt-then-MAC calls the SKE and MAC algorithms only as oracles; the CPA reduction runs any adversary as an oracle and tags ciphertexts under a key it samples, and the forger runs it as an oracle and outputs a uniformly chosen one of its verification queries.",
+    "securityLoss": "The SUF-CMA game takes one final forgery and has no verification oracle, so the forger answers verification queries on outputs of the encryption oracle by decrypting under the SKE key it samples and all others with 0, and guesses which query is the first valid one the encryption oracle did not output."
+   },
+   "status": "draft",
+   "page": "content/Reductions/cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00.md",
+   "slug": "cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
+   "graphSlug": "Reductions/cpa-security-and-suf-cma-mac-to-authenticated-encryption-bn00",
+   "title": "CPA-secure SKE + SUF-CMA MAC ⇒ AE (Encrypt-then-MAC)"
   },
   {
    "id": "red-cpa-security-to-cpa-security",
@@ -23432,6 +23585,33 @@
    "slug": "total-nontrivial-cpir-to-nontrivial-cpir",
    "graphSlug": "Reductions/total-nontrivial-cpir-to-nontrivial-cpir",
    "title": "cPIR with total communication below n ⇒ Non-trivial cPIR"
+  },
+  {
+   "id": "red-tpke-cca-security-to-tpke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "tpke-cca-security"
+   ],
+   "conclusion": "tpke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the CPA adversary once as an oracle, answering each of its encryption queries by encrypting and querying the decryption-share oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tpke-cca-security-to-tpke-cpa-security.md",
+   "slug": "tpke-cca-security-to-tpke-cpa-security",
+   "graphSlug": "Reductions/tpke-cca-security-to-tpke-cpa-security",
+   "title": "TPKE CCA Security ⇒ TPKE CPA Security"
   },
   {
    "id": "red-twisted-edwards-dlog-to-prime-order-dlog",
