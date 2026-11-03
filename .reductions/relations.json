@@ -1230,6 +1230,19 @@
    "unlisted": false
   },
   {
+   "id": "cpa-anonymous-group-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/group-signature.md",
+   "slug": "group-signature",
+   "graphSlug": "Primitives/group-signature",
+   "anchor": "#cpa-full-anonymity",
+   "of": "group-signature",
+   "title": "CPA-full anonymity",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "cpa-security",
    "kind": "variant",
    "type": "primitive",
@@ -2074,6 +2087,21 @@
     "GKR protocol"
    ],
    "unlisted": true
+  },
+  {
+   "id": "group-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/group-signature.md",
+   "slug": "group-signature",
+   "graphSlug": "Primitives/group-signature",
+   "title": "Group signature",
+   "aliases": [
+    "Group signature",
+    "Group signatures",
+    "Group signature scheme"
+   ],
+   "unlisted": false
   },
   {
    "id": "hash-and-sign-signature",
@@ -7133,6 +7161,37 @@
    "title": "Bilinear pairing + q-SDH ⇒ PCS"
   },
   {
+   "id": "red-bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "q-strong-diffie-hellman",
+    "decisional-linear"
+   ],
+   "conclusion": "cpa-anonymous-group-signature",
+   "class": "unstated",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BBS04 - Short Group Signatures|BBS04]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "A signature carries a Fiat–Shamir proof of knowledge, and both security proofs model its hash as a random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04.md",
+   "slug": "bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04",
+   "graphSlug": "Reductions/bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04",
+   "title": "Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)"
+  },
+  {
    "id": "red-bilinear-pairing-to-cp-abe-adaptive-security-bsw07",
    "kind": "implication",
    "hypotheses": [
@@ -9954,6 +10013,35 @@
    "title": "Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)"
   },
   {
+   "id": "red-doubly-enhanced-certified-tdp-to-group-signature-bmw03",
+   "kind": "implication",
+   "hypotheses": [
+    "doubly-enhanced-certified-tdp"
+   ],
+   "conclusion": "group-signature",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]]",
+    "[[GR13 - Enhancements of Trapdoor Permutations|GR13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "Each group signature carries a NIZK proof of an NP statement about the encryption and signature algorithms built from the trapdoor permutation, so the construction uses their code.",
+    "model": "The NIZK reference string is part of the group public key, which the trusted key generation of the group signature syntax outputs."
+   },
+   "status": "draft",
+   "page": "content/Reductions/doubly-enhanced-certified-tdp-to-group-signature-bmw03.md",
+   "slug": "doubly-enhanced-certified-tdp-to-group-signature-bmw03",
+   "graphSlug": "Reductions/doubly-enhanced-certified-tdp-to-group-signature-bmw03",
+   "title": "Doubly enhanced certified TDP ⇒ Group signatures (BMW)"
+  },
+  {
    "id": "red-dpf-to-computational-multi-server-pir-gi14",
    "kind": "implication",
    "hypotheses": [
@@ -11439,6 +11527,57 @@
    "slug": "ggm-with-preprocessing-to-dlog-ck18",
    "graphSlug": "Reductions/ggm-with-preprocessing-to-dlog-ck18",
    "title": "GGM with preprocessing ⇒ DLOG"
+  },
+  {
+   "id": "red-group-signature-to-cpa-anonymous-group-signature",
+   "kind": "implication",
+   "hypotheses": [
+    "group-signature"
+   ],
+   "conclusion": "cpa-anonymous-group-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the reduction runs any CPA-full-anonymity adversary as a full-anonymity adversary that never queries its opening oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/group-signature-to-cpa-anonymous-group-signature.md",
+   "slug": "group-signature-to-cpa-anonymous-group-signature",
+   "graphSlug": "Reductions/group-signature-to-cpa-anonymous-group-signature",
+   "title": "Group signatures ⇒ CPA-anonymous group signatures"
+  },
+  {
+   "id": "red-group-signature-to-pke-aw04",
+   "kind": "implication",
+   "hypotheses": [
+    "group-signature"
+   ],
+   "conclusion": "pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[AW04 - On the Minimal Assumptions of Group Signature Schemes|AW04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/group-signature-to-pke-aw04.md",
+   "slug": "group-signature-to-pke-aw04",
+   "graphSlug": "Reductions/group-signature-to-pke-aw04",
+   "title": "Group signatures ⇒ PKE"
   },
   {
    "id": "red-hash-function-and-hash-based-signatures-to-ds-mer89",
