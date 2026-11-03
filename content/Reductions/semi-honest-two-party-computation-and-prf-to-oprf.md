@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] and $\Pi$ a protocol that securely computes every polynomial-time two-party functionality against semi-honest adversaries ([[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]]), run on the functionality $f_\PRF(k, x) = (\bot, \Eval(k, x))$. Then $(\PRF, \Pi)$ is a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf|OPRF]] — folklore.
+Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] and $\Pi$ a protocol that securely computes the functionality $f_\PRF(k, x) = (\bot, \Eval(k, x))$ against semi-honest adversaries, which exists when [[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]] is achieved. Then $(\PRF, \Pi)$ is a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf|OPRF]] — folklore.
 
 ## Sketch
 
@@ -27,5 +27,5 @@ $\Eval$ is efficient, so $f_\PRF$ is computed by a polynomial-size circuit and h
 
 ## Notes
 
-- Against malicious adversaries the same construction gives an [[oblivious-prf#malicious-security|OPRF with malicious security]] ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
-- Conversely, a semi-honest secure OPRF gives semi-honest [[oblivious-transfer|OT]] ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore — and semi-honest OT gives semi-honest secure computation of every functionality ([[ot-to-semi-honest-security-gmw87|semi-honest OT ⇒ semi-honest MPC]]) — [[GMW87 - How to play ANY mental game|GMW87]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].
+- With $\Pi$ secure with abort against a malicious adversary corrupting one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]), the same construction gives an [[oblivious-prf#malicious-security|OPRF with malicious security]] ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
+- Conversely, a semi-honest secure OPRF whose domain contains two distinct points and whose range is a finite group with at least two elements gives semi-honest [[oblivious-transfer|OT]] ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore — and semi-honest OT gives semi-honest secure computation of every functionality ([[ot-to-semi-honest-security-gmw87|semi-honest OT ⇒ semi-honest MPC]]) — [[GMW87 - How to play ANY mental game|GMW87]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].

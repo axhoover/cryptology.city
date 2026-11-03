@@ -7,21 +7,23 @@ id: red-oprf-to-ot
 kind: implication
 hypotheses: [oprf]
 conclusion: ot
-class: unstated
+class: fully-black-box
 model: standard
 source: folklore
 security-loss: ""
+rationale:
+  class: "The OT runs the OPRF protocol and evaluates the PRF only as oracles, and each privacy reduction runs the OT adversary only as an oracle, against the OPRF's semi-honest game or, together with the OPRF's client simulator, against the PRF game."
 ---
 
 # OPRF ⇒ OT
 
 ## Statement
 
-Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains two distinct points $z_0, z_1$ and whose range $\calR$ is a finite group, written additively. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\calR$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1)$ and $c$, the sender samples $k \gets \KeyGen(1^\secpar)$, the parties run $\Pi$ with server input $k$ and client input $z_c$, the sender sends $(x_0 + \Eval(k, z_0), x_1 + \Eval(k, z_1))$, and the receiver subtracts its OPRF output from the $c$-th entry — folklore.
+Let $(\PRF, \Pi)$ be a [[oblivious-prf#semi-honest-security|semi-honest secure]] [[oblivious-prf|OPRF]], $\PRF = (\KeyGen, \Eval)$, whose domain contains two distinct points $z_0, z_1$ and whose range $\calR$ is a finite group with $|\calR| \ge 2$ and efficiently computable operation and inverse, written additively. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\calR$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1)$ and $c$, the sender samples $k \gets \KeyGen(1^\secpar)$, the parties run $\Pi$ with server input $k$ and client input $z_c$, the sender sends $(x_0 + \Eval(k, z_0), x_1 + \Eval(k, z_1))$, and the receiver subtracts its OPRF output from the $c$-th entry — folklore.
 
 ## Sketch
 
-A $(1-\varepsilon)$-correct OPRF gives a $(1-\varepsilon)$-correct OT. The sender's view consists of its OPRF view, which the OPRF simulator produces from $k$ alone, and its own message, so it is independent of $c$ up to the OPRF advantage. The receiver's OPRF view and the reference string can be replaced by the simulator's output on $(z_c, \Eval(k, z_c))$; then $\Eval(k, z_{1-c})$ is pseudorandom given $\Eval(k, z_c)$ by PRF security for $k \gets \KeyGen(1^\secpar)$, and masks $x_{1-c}$ as a one-time pad — standard.
+A $(1-\varepsilon)$-correct OPRF gives a $(1-\varepsilon)$-correct OT. The sender's view consists of $(x_0, x_1)$, the coins it used to sample $k$, and its OPRF view; the OPRF view and the reference string can be replaced by the simulator's output on $k$, which is independent of $c$, so the view is independent of $c$ up to the OPRF advantage. The receiver's OPRF view and the reference string can be replaced by the simulator's output on $(z_c, \Eval(k, z_c))$; then $\Eval(k, z_{1-c})$ is pseudorandom given $\Eval(k, z_c)$ by PRF security for $k \gets \KeyGen(1^\secpar)$, and masks $x_{1-c}$ as a one-time pad — standard.
 
 ## Notes
 

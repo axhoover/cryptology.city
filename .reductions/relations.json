@@ -16583,7 +16583,7 @@
     "oprf"
    ],
    "conclusion": "ot",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -16594,6 +16594,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The OT runs the OPRF protocol and evaluates the PRF only as oracles, and each privacy reduction runs the OT adversary only as an oracle, against the OPRF's semi-honest game or, together with the OPRF's client simulator, against the PRF game."
+   },
    "status": "draft",
    "page": "content/Reductions/oprf-to-ot.md",
    "slug": "oprf-to-ot",

@@ -24,5 +24,5 @@ If [[decisional-diffie-hellman|DDH]] is hard, there is a three-round [[password-
 
 ## Notes
 
-- [[GL03 - A Framework for Password-Based Authenticated Key Exchange|GL03]] generalize the protocol to a framework built from non-malleable commitments, one-time signatures and [[hash-proof-system|smooth projective hash functions]] in the common reference string model, and instantiate it under DDH, quadratic residuosity and $N$-th residuosity.
-- Without any setup, trapdoor permutations give session-key generation from passwords alone, under a weaker guarantee in which an attack on an execution is comparable to a constant number of online password guesses — [[GL01 - Session-Key Generation Using Human Passwords Only|GL01]].
+- [[GL03 - A Framework for Password-Based Authenticated Key Exchange|GL03]] generalize the protocol to a framework built from non-malleable [[commitment-scheme|commitments]], [[digital-signature#one-time-signatures|one-time signatures]] and [[hash-proof-system|smooth projective hash functions]] in the common reference string model, and instantiate it under DDH, [[quadratic-residuosity|quadratic residuosity]] and [$N$-th residuosity](decisional-composite-residuosity).
+- Without any setup, [[trapdoor-permutation|trapdoor permutations]] give session-key generation from passwords alone, under a weaker guarantee in which an attack on an execution is comparable to a constant number of online password guesses — [[GL01 - Session-Key Generation Using Human Passwords Only|GL01]].

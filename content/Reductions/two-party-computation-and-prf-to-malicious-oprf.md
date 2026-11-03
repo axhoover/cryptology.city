@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] and $\Pi$ a protocol that securely computes every polynomial-time two-party functionality with abort against a malicious adversary corrupting one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]), run on the functionality $f_\PRF(k, x) = (\bot, \Eval(k, x))$. Then $(\PRF, \Pi)$ is an [[oblivious-prf|OPRF]] with [[oblivious-prf#malicious-security|malicious security]] — folklore.
+Let $\PRF = (\KeyGen, \Eval)$ be a [[pseudorandom-function|PRF]] and $\Pi$ a protocol that securely computes the functionality $f_\PRF(k, x) = (\bot, \Eval(k, x))$ with abort against a malicious adversary corrupting one party, which exists when [[secure-multi-party-computation#two-party-computation-2pc|2PC]] is achieved. Then $(\PRF, \Pi)$ is an [[oblivious-prf|OPRF]] with [[oblivious-prf#malicious-security|malicious security]] — folklore.
 
 ## Sketch
 
@@ -27,4 +27,4 @@ $\Eval$ is efficient, so $f_\PRF$ is computed by a polynomial-size circuit and h
 
 ## Notes
 
-- Against semi-honest adversaries the same construction gives a [[oblivious-prf#semi-honest-security|semi-honest secure OPRF]] ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) — folklore.
+- A [[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]] protocol run on $f_\PRF$ in place of $\Pi$ gives a [[oblivious-prf#semi-honest-security|semi-honest secure OPRF]] ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) — folklore.
