@@ -20,8 +20,10 @@ rationale:
 
 ## Statement
 
-If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon})$, after which each query costs $\polylog(N)$ server time and communication, and updates to the preprocessed database cost $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
+If [[learning-with-errors#ring-lwe|Ring-LWE]] is hard with quasi-polynomial approximation factors, then for every constant $\varepsilon > 0$ there is an [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] in which the server deterministically preprocesses a database of size $N$ in time and space $O(N^{1+\varepsilon}) \cdot \poly(\secpar, \log N)$, after which each query has query time and communication $\poly(\secpar, \log N)$, and is perfectly correct (Definition 4.1, Theorem 4.4) — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Notes
+
+- Under Ring-LWE with sub-sub-exponential approximation factors, preprocessing time and storage drop to $N^{1+o(1)} \cdot \poly(\secpar)$ at query cost $N^{o(1)} \cdot \poly(\secpar)$ (Theorem 4.4), and an updatable variant updates the preprocessed database in time $O(N^{\varepsilon})$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 - On top of this DEPIR, LMW23 construct fully homomorphic encryption for RAM programs under Ring-LWE with circular security, with homomorphic evaluation time $T^{1+\varepsilon} \cdot \polylog(|x| + |y|)$ for a RAM program of worst-case run-time $T$ on client input $x$ and preprocessed server input $y$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].

@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "Permuted puzzles ⇒ SK-DEPIR"
+title: "Permuted puzzles ⇒ OLDC"
 aliases: []
-id: red-permuted-puzzles-to-depir-bipw17
+id: red-bipw17-permuted-puzzles-assumption-to-oblivious-locally-decodable-code-bipw17
 kind: implication
 hypotheses: [bipw17-permuted-puzzles-assumption]
-conclusion: sk-depir
+conclusion: oblivious-locally-decodable-code
 class: unstated
 model: standard
 source:
@@ -16,17 +16,15 @@ rationale:
   class: "BIPW17 argue security directly from a conjecture about the scheme's own query distribution, so there is no reduction separate from the construction to classify."
 ---
 
-# Permuted puzzles ⇒ SK-DEPIR
+# Permuted puzzles ⇒ OLDC
 
 ## Statement
 
-Under the [[permuted-puzzles|permuted-puzzles assumption]] of BIPW17 — a secretly permuted set of Reed–Muller local-decoding queries is indistinguishable from a uniformly random set of points — there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]]: the database is encoded once at polynomial cost, after which the key holder retrieves any bit by reading a sublinear number of encoding positions, and the access pattern hides the index from an observer who sees the encoding but not the key — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
-
-## Sketch
-
-The database is encoded as a Reed–Muller codeword, the evaluation table of a low-degree multivariate polynomial, with positions permuted by a secret permutation. To fetch a bit, the client reads the positions of a random low-degree curve through the target point and interpolates, so each query is a permuted Reed–Muller decoding set, which the assumption makes indistinguishable from random positions.
+Suppose the Permuted Low-Degree Polynomials Conjecture of BIPW17, an instance of the [[permuted-puzzles|permuted-puzzles assumption]], holds for a constant dimension $m \ge 3$: for a uniformly random permutation $\pi$ of $\FF^m$, $\pi$-images of $d\secpar + 1$ random points on random degree-$\secpar$ curves through chosen points are indistinguishable from $d\secpar + 1$ uniformly random points of $\FF^m$, over polynomially many samples (Conjecture 4.2). Then the $(m, d)$ Reed–Muller code, with $d = O(n^{1/m})$, $|\FF| = O(d\secpar)$ and its codeword positions permuted by a secret uniformly random $\pi$, is a perfectly correct [[oblivious-locally-decodable-code|oblivious locally decodable code]] with communication complexity $\secpar^m \cdot \tilde O(n^{1/m})$: to decode $x_i$, the decoder reads the $\pi$-images of $d\secpar + 1$ random points on a random degree-$\secpar$ curve through the $i$-th of $n$ fixed points and interpolates — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] (Construction 4.1, Proposition 4.3). Its query sampler evaluates a degree-$\secpar$ curve at $d\secpar + 1$ points and its decoder interpolates at those points, in time $\poly(\secpar) \cdot \tilde O(n^{2/m})$, sublinear in $n$ for $m \ge 3$ — folklore.
 
 ## Notes
 
-- The assumption family is formalized and studied as _permuted puzzles_ — [[BHW19 - Permuted Puzzles and Cryptographic Hardness|BHW19]].
+- BIPW17's Construction 4.1 samples $\pi$ from a pseudorandom permutation, so that the key is short, and Proposition 4.3 derives its security from Conjecture 4.2, which is stated for a uniformly random $\pi$ — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]. BIPW17 state Proposition 4.3 for every $m \ge 2$.
+- The observer of an OLDC sees the positions read but neither the key nor the contents of the encoding — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]. Masking the encoding with a pad in the key gives a [[doubly-efficient-pir#passive-server-sk-depir|passive-server SK-DEPIR]] ([[oblivious-locally-decodable-code-to-passive-sk-depir|OLDC ⇒ Passive-server SK-DEPIR]]) — folklore.
+- The conjecture is an instance of BIPW17's Permuted Puzzle Conjecture (Conjecture 4.5) — [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]; the assumption family is formalized and studied as _permuted puzzles_ — [[BHW19 - Permuted Puzzles and Cryptographic Hardness|BHW19]].
 - An attack breaks the BIPW17 _toy conjecture_, a simplified variant posed for cryptanalysis, but not the assumption underlying the construction — [[BHMW21 - On the Security of Doubly Efficient PIR|BHMW21]].

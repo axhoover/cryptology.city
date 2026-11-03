@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is a [[single-server-private-information-retrieval|single-server PIR]] whose database is preprocessed by the server itself: the server runs $\Setup(1^\secpar, DB)$, and the query phase is a two-message PIR with query-time communication and computation $o(n)$; correctness and query privacy carry over unchanged — folklore.
+Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is a [[single-server-private-information-retrieval|single-server PIR]] whose database is preprocessed by the server itself: $\Setup(1^\secpar, DB)$ is deterministic, so the server runs it and knows everything the unkeyed privacy adversary is given, and the query phase is a two-message PIR with query-time communication and computation at most $p(\secpar) + s(n)$ for a polynomial $p$ and a function $s(n) = o(n)$; correctness and query privacy carry over unchanged — folklore.
 
 ## Notes
 

@@ -15,12 +15,12 @@ The assumption that a secretly permuted Reed-Muller code is indistinguishable fr
 
 TODO: syntax and security definition.
 
-<!-- BEGIN GENERATED participates-in 14d8b5a1d577 -->
+<!-- BEGIN GENERATED participates-in 66ecc5cce58f -->
 
 ## Participates in
 
 **Builds on Permuted puzzles assumption**
 
-- [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ SK-DEPIR]]
+- [[permuted-puzzles-to-depir-bipw17|Permuted puzzles ⇒ OLDC]]
 
 <!-- END GENERATED participates-in -->

@@ -1,11 +1,11 @@
 ---
 type: reduction
-status: stub
-title: "High-noise LPN ⇒ SK-DEPIR"
+status: draft
+title: "LSN ⇒ SK-DEPIR"
 aliases: []
-id: red-noise-level-to-depir-cimr25-2
+id: red-learning-subspace-with-noise-to-sk-depir-cimr25
 kind: implication
-hypotheses: [lpn-high-noise]
+hypotheses: [learning-subspace-with-noise]
 conclusion: sk-depir
 class: unstated
 model: standard
@@ -14,8 +14,14 @@ source:
 security-loss: ""
 ---
 
-# High-noise LPN ⇒ SK-DEPIR
+# LSN ⇒ SK-DEPIR
 
 ## Statement
 
-If [[learning-parity-with-noise#high-noise-lpn|high-noise LPN]] is hard, at noise rate $k^{-\gamma}$ for a constant $0 < \gamma < 1/2$ (a regime not known to imply public-key encryption), then for every constant $\varepsilon > 0$ there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] in a weak sense: communication is $O(N^{\varepsilon})$ and the server reads $N/\polylog(N)$ bits of the encoded database per query — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+Under the LSN conjecture of CIMR25 — the $(k, n, \mu)$-[[learning-subspace-with-noise|LSN]] assumption holds whenever $k \ge \rho n$ and $\mu \ge 1 - o(1)$, for every constant $0 < \rho < 1$ (Conjecture 1.1) — for every constant $t \ge 2$, every constant $\varepsilon > 0$, every $\ell = \omega(1)$ and every $\tilde\secpar = \omega(\log \secpar)$ there is a [[doubly-efficient-pir#secret-key-depir|secret-key DEPIR]] for $N$-bit databases with server storage $O(N^{1+\varepsilon}) + \poly(\secpar)$, communication $O(\tilde\secpar \cdot N^{1/(t+1)} + \poly(\secpar))$, server probe complexity $N \cdot \ell / \log^t N + \poly(\secpar)$ (Theorem 7.1, item 2) and client time $\tilde O(N^{t/(t+1)})$ up to additive $\poly(\secpar)$ terms (§8); its key is sampled by $G(1^\secpar, 1^N)$ before the database is encoded, and it is perfectly correct and secure against polynomially many adaptive queries (Definition 4.3) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]. The server answers by one table lookup per probe into precomputed parities of blocks of the encoding, indexed by the query, so its running time is of the order of its probe complexity plus the query length — folklore.
+
+## Notes
+
+- CIMR25 call such a scheme doubly efficient only in a weak sense, and say that some of their constructions achieve slightly sublinear runtime in the RAM or cell-probe model — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+- From [[learning-parity-with-noise#high-noise-lpn|LPN]] with noise rate $k^{-\gamma}$, CIMR25 obtain secret-key PIR with communication $O(N^{\varepsilon})$ ([[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]), for which they claim no sublinear probe complexity (Tables 1 and 2) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].
+- Under quasi-polynomial hardness of their split-LSN conjecture, CIMR25 obtain secret-key PIR with communication $N^{o(1)} + \poly(\secpar)$ and probe complexity $o(N)$ (Remark 7.1) — [[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]].

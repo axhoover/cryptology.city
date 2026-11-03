@@ -7337,6 +7337,33 @@
    "title": "Bilinear pairing ⇒ zk-SNARK"
   },
   {
+   "id": "red-bipw17-permuted-puzzles-assumption-to-oblivious-locally-decodable-code-bipw17",
+   "kind": "implication",
+   "hypotheses": [
+    "bipw17-permuted-puzzles-assumption"
+   ],
+   "conclusion": "oblivious-locally-decodable-code",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "BIPW17 argue security directly from a conjecture about the scheme's own query distribution, so there is no reduction separate from the construction to classify."
+   },
+   "status": "draft",
+   "page": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
+   "slug": "permuted-puzzles-to-depir-bipw17",
+   "graphSlug": "Reductions/permuted-puzzles-to-depir-bipw17",
+   "title": "Permuted puzzles ⇒ OLDC"
+  },
+  {
    "id": "red-boneh-lynn-shacham-signature-to-ds",
    "kind": "implication",
    "hypotheses": [
@@ -13364,6 +13391,30 @@
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
   },
   {
+   "id": "red-learning-subspace-with-noise-to-sk-depir-cimr25",
+   "kind": "implication",
+   "hypotheses": [
+    "learning-subspace-with-noise"
+   ],
+   "conclusion": "sk-depir",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/noise-level-to-depir-cimr25-2.md",
+   "slug": "noise-level-to-depir-cimr25-2",
+   "graphSlug": "Reductions/noise-level-to-depir-cimr25-2",
+   "title": "LSN ⇒ SK-DEPIR"
+  },
+  {
    "id": "red-length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption",
    "kind": "implication",
    "hypotheses": [
@@ -14942,30 +14993,6 @@
    "title": "NIZK ⇒ Zaps (Dwork–Naor)"
   },
   {
-   "id": "red-noise-level-to-depir-cimr25-2",
-   "kind": "implication",
-   "hypotheses": [
-    "lpn-high-noise"
-   ],
-   "conclusion": "sk-depir",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[CIMR25 - Secret-Key PIR from Random Linear Codes|CIMR25]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "status": "stub",
-   "page": "content/Reductions/noise-level-to-depir-cimr25-2.md",
-   "slug": "noise-level-to-depir-cimr25-2",
-   "graphSlug": "Reductions/noise-level-to-depir-cimr25-2",
-   "title": "High-noise LPN ⇒ SK-DEPIR"
-  },
-  {
    "id": "red-noise-level-to-hash-function-blvw19",
    "kind": "implication",
    "hypotheses": [
@@ -15351,6 +15378,33 @@
    "slug": "ntru-to-pke-hps98",
    "graphSlug": "Reductions/ntru-to-pke-hps98",
    "title": "NTRU ⇒ PKE"
+  },
+  {
+   "id": "red-oblivious-locally-decodable-code-to-passive-sk-depir",
+   "kind": "implication",
+   "hypotheses": [
+    "oblivious-locally-decodable-code"
+   ],
+   "conclusion": "passive-sk-depir",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction runs the OLDC's algorithms as oracles, and the reduction runs any secret-key privacy adversary as an oracle, answering it with a uniformly random encoding and the OLDC's positions."
+   },
+   "status": "draft",
+   "page": "content/Reductions/oblivious-locally-decodable-code-to-passive-sk-depir.md",
+   "slug": "oblivious-locally-decodable-code-to-passive-sk-depir",
+   "graphSlug": "Reductions/oblivious-locally-decodable-code-to-passive-sk-depir",
+   "title": "OLDC ⇒ Passive-server SK-DEPIR"
   },
   {
    "id": "red-oihf-to-ot-bh26",
@@ -16474,7 +16528,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The construction is the identity on the scheme, with Setup run as KeyGen followed by Prep, and the reduction forwards any secret-key privacy adversary unchanged."
+    "class": "The construction is the identity on the scheme, and the reduction forwards any secret-key privacy adversary unchanged."
    },
    "status": "draft",
    "page": "content/Reductions/passive-sk-depir-independent-key-to-passive-sk-depir.md",
@@ -16640,33 +16694,6 @@
    "slug": "perfectly-correct-pke-cpa-security-to-pke-cpa-security",
    "graphSlug": "Reductions/perfectly-correct-pke-cpa-security-to-pke-cpa-security",
    "title": "Perfectly correct CPA-secure PKE ⇒ CPA-secure PKE"
-  },
-  {
-   "id": "red-permuted-puzzles-to-depir-bipw17",
-   "kind": "implication",
-   "hypotheses": [
-    "bipw17-permuted-puzzles-assumption"
-   ],
-   "conclusion": "sk-depir",
-   "class": "unstated",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "",
-   "rationale": {
-    "class": "BIPW17 argue security directly from a conjecture about the scheme's own query distribution, so there is no reduction separate from the construction to classify."
-   },
-   "status": "draft",
-   "page": "content/Reductions/permuted-puzzles-to-depir-bipw17.md",
-   "slug": "permuted-puzzles-to-depir-bipw17",
-   "graphSlug": "Reductions/permuted-puzzles-to-depir-bipw17",
-   "title": "Permuted puzzles ⇒ SK-DEPIR"
   },
   {
    "id": "red-phi-hiding-to-ds-kk12",
@@ -24146,7 +24173,7 @@
    "hypotheses": [
     "owf"
    ],
-   "conclusion": "passive-sk-depir-independent-key",
+   "conclusion": "passive-sk-depir",
    "class": "fully-black-box",
    "consequences": [
     {
@@ -24162,13 +24189,13 @@
     "[[LMW25 - Black Box Crypto is Useless for Doubly Efficient PIR|LMW25]]"
    ],
    "rationale": {
-    "class": "LMW25 rule out black-box constructions from one-way functions without fixing the RTV04 notion, and fully-black-box, the narrowest class, is the weakest claim that covers them."
+    "class": "LMW25's black-box constructions (Definition 2.3) are what RTV04 call fully black-box, as LMW25 note (Remark 4.10)."
    },
    "status": "draft",
    "page": "content/Barriers/no-owf-to-passive-sk-depir-lmw25.md",
    "slug": "no-owf-to-passive-sk-depir-lmw25",
    "graphSlug": "Barriers/no-owf-to-passive-sk-depir-lmw25",
-   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR with a database-independent key"
+   "title": "No fully-black-box reduction from OWF to passive-server SK-DEPIR"
   },
   {
    "id": "bar-owp-to-crhf-sim98",
