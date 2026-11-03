@@ -11,6 +11,8 @@ class: unstated
 model: standard
 source:
   - "[[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]"
+via:
+  - "[[hardcore-predicate|Goldreich–Levin]]"
 security-loss: "polynomial: the hard-core-bit step to factoring loses a polynomial factor, and the chosen-ciphertext simulation adds the target-collision advantage"
 rationale:
   security-loss: "The reduction decrypts every ciphertext whose tag differs from the challenge tag, so apart from a target collision the loss is that of distinguishing the encapsulated hard-core bits from uniform, which reduces to factoring with a polynomial loss."

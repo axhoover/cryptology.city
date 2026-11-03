@@ -1474,6 +1474,20 @@
    "unlisted": false
   },
   {
+   "id": "difference-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/difference-lemma.md",
+   "slug": "difference-lemma",
+   "graphSlug": "Folklore/difference-lemma",
+   "title": "Difference lemma",
+   "aliases": [
+    "Difference lemma",
+    "Fundamental lemma of game playing"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "differing-inputs-obfuscation",
    "kind": "variant",
    "type": "primitive",
@@ -1807,6 +1821,20 @@
    "unlisted": false
   },
   {
+   "id": "forking-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/forking-lemma.md",
+   "slug": "forking-lemma",
+   "graphSlug": "Folklore/forking-lemma",
+   "title": "Forking lemma",
+   "aliases": [
+    "Forking lemma",
+    "General forking lemma"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "four-message-zk-argument",
    "kind": "variant",
    "type": "primitive",
@@ -2074,6 +2102,22 @@
     "GKR protocol"
    ],
    "unlisted": true
+  },
+  {
+   "id": "hardcore-predicate",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/hardcore-predicate.md",
+   "slug": "hardcore-predicate",
+   "graphSlug": "Glossary/hardcore-predicate",
+   "title": "Hardcore predicate",
+   "aliases": [
+    "Hardcore predicate",
+    "Hard-core predicate",
+    "Hard-core bit",
+    "Goldreich-Levin theorem"
+   ],
+   "unlisted": false
   },
   {
    "id": "hash-and-sign-signature",
@@ -2816,6 +2860,20 @@
     "Learning subspace with noise"
    ],
    "unlisted": true
+  },
+  {
+   "id": "leftover-hash-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/leftover-hash-lemma.md",
+   "slug": "leftover-hash-lemma",
+   "graphSlug": "Folklore/leftover-hash-lemma",
+   "title": "Leftover hash lemma",
+   "aliases": [
+    "Leftover hash lemma",
+    "LHL"
+   ],
+   "unlisted": false
   },
   {
    "id": "length-flexible-additively-homomorphic-encryption",
@@ -4731,6 +4789,20 @@
    "unlisted": false
   },
   {
+   "id": "schwartz-zippel-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/schwartz-zippel-lemma.md",
+   "slug": "schwartz-zippel-lemma",
+   "graphSlug": "Folklore/schwartz-zippel-lemma",
+   "title": "Schwartz–Zippel lemma",
+   "aliases": [
+    "Schwartz-Zippel lemma",
+    "Schwartz-Zippel"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "search-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -4886,6 +4958,21 @@
    "aliases": [
     "SIDH",
     "Supersingular Isogeny Diffie-Hellman"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "sigma-protocol",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/sigma-protocol.md",
+   "slug": "sigma-protocol",
+   "graphSlug": "Glossary/sigma-protocol",
+   "title": "Sigma protocol",
+   "aliases": [
+    "Sigma protocol",
+    "Σ-protocol",
+    "Special soundness"
    ],
    "unlisted": false
   },
@@ -6186,8 +6273,7 @@
     "ZK proof",
     "Zero-knowledge proof",
     "ZK",
-    "ZK proofs",
-    "Sigma protocol"
+    "ZK proofs"
    ],
    "unlisted": false
   },
@@ -7543,7 +7629,9 @@
     "[[DH76 - New Directions in Cryptography|DH76]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε into a CDH solver with success probability Ω(ε²) and running time poly(L, 1/ε)",
    "rationale": {
@@ -8358,7 +8446,9 @@
     "[[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]]",
     "[[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "none: two valid openings to different messages are a collision",
    "rationale": {
@@ -9519,7 +9609,8 @@
     "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
    ],
    "via": [
-    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]",
+    "[[forking-lemma|forking lemma]]"
    ],
    "heuristic": false,
    "securityLoss": "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries",
@@ -10214,7 +10305,9 @@
    "source": [
     "[[EGL85 - A randomized protocol for signing contracts|EGL85]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial: receiver privacy is statistical, and a sender-privacy distinguisher with advantage $\\varepsilon$ predicts the hard-core bit of an obliviously sampled image, from which the Goldreich–Levin decoder inverts the permutation with probability $\\Omega(\\varepsilon)$ in time $\\poly(\\secpar, 1/\\varepsilon)$",
    "rationale": {
@@ -10565,7 +10658,9 @@
    "source": [
     "[[HK09 - Practical Chosen Ciphertext Secure Encryption from Factoring|HK09]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial: the hard-core-bit step to factoring loses a polynomial factor, and the chosen-ciphertext simulation adds the target-collision advantage",
    "rationale": {
@@ -12208,7 +12303,9 @@
    "source": [
     "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
    ],
-   "via": [],
+   "via": [
+    "[[forking-lemma|forking lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "$\\approx \\varepsilon^2/q$ for advantage $\\varepsilon$ and $q$ random-oracle queries (PS96)",
    "rationale": {
@@ -13312,7 +13409,9 @@
    "source": [
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "receiver privacy: at most twice the mode-indistinguishability advantage, by two hybrids through a pair of injective indices; sender privacy is statistical, up to a leftover-hash term",
    "rationale": {
@@ -13340,7 +13439,9 @@
     "[[PW08 - Lossy trapdoor functions and their applications|PW08]]",
     "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term",
    "rationale": {
@@ -13656,7 +13757,9 @@
     "[[CHKP10 - Bonsai Trees, or How to Delegate a Lattice Basis|CHKP10]]",
     "[[ABB10 - Efficient Lattice (H)IBE in the Standard Model|ABB10]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "tight up to a factor 2: one run of the adversary, its challenge ciphertext built from the LWE samples, whose advantage is at most twice the LWE advantage plus statistical terms from the leftover hash lemma and trapdoor sampling",
    "rationale": {
@@ -13711,7 +13814,9 @@
    "source": [
     "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "additive: one LWE advantage per level, $L + 1$ in all, from the hybrid along the chain of keys, plus a leftover-hash term for the challenge ciphertext",
    "rationale": {
@@ -13739,7 +13844,9 @@
    "source": [
     "[[BV14 - Lattice-based FHE as secure as PKE|BV14]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "additive: at most twice the sum of one LWE advantage per key of the chain, from the hybrid along it, the last step being IND-CPA under the first key, plus a statistical leftover-hash term in that last step",
    "rationale": {
@@ -13848,7 +13955,9 @@
    "source": [
     "[[Reg05 - On Lattices, Learning with Errors, Random Linear Codes, and Cryptography|Reg05]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "tight up to a factor 2: one run of the CPA adversary on the LWE samples as public key, whose advantage is at most twice the LWE advantage plus a statistical leftover-hash term",
    "rationale": {
@@ -14135,7 +14244,9 @@
    "source": [
     "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
    ],
-   "via": [],
+   "via": [
+    "[[forking-lemma|forking lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "non-tight in the ROM: forking lemma on the Module-SIS step",
    "rationale": {
@@ -15117,7 +15228,9 @@
    "source": [
     "[[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]]"
    ],
-   "via": [],
+   "via": [
+    "[[forking-lemma|forking lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
@@ -15648,7 +15761,10 @@
    "source": [
     "[[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]",
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "polynomial: a distinguisher of time $T$ and advantage $\\varepsilon$ yields an inverter of time-success ratio $\\poly(n, T/\\varepsilon)$, but the seed is polynomially longer than the input length $n$ of $f$, so the generator's security at seed length $m$ rests on that of $f$ at input length $m^{\\Omega(1)}$",
    "rationale": {
@@ -15860,7 +15976,9 @@
     "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]",
     "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "a factor ℓ (the output length) from the hybrid argument, plus the polynomial loss of Goldreich–Levin decoding",
    "rationale": {
@@ -17500,7 +17618,9 @@
    "source": [
     "[[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]]"
    ],
-   "via": [],
+   "via": [
+    "[[forking-lemma|forking lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
@@ -20123,7 +20243,9 @@
    "source": [
     "[[BV11 - Efficient Fully Homomorphic Encryption from (Standard) LWE|BV11]]"
    ],
-   "via": [],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
    "heuristic": false,
    "securityLoss": "additive: at most twice the sum of one LWE advantage per secret key, $L + 1$ in dimension $n$ modulo $q$ for $L$ levels and one in dimension $k$ modulo $p$, plus a leftover-hash term for the challenge",
    "status": "draft",
@@ -20936,7 +21058,9 @@
    "source": [
     "[[GM84 - Probabilistic encryption|GM84]]"
    ],
-   "via": [],
+   "via": [
+    "[[hardcore-predicate|Goldreich–Levin]]"
+   ],
    "heuristic": false,
    "securityLoss": "factor $\\ell$ over the hard-core-bit advantage for $\\ell$-bit messages, from the hybrid over bit positions, tight for one bit; with the Goldreich–Levin predicate, a predictor of advantage $\\varepsilon$ gives an inverter succeeding with probability $\\Omega(\\varepsilon)$ in time $\\poly(n, 1/\\varepsilon)$ for $n$-bit inputs",
    "rationale": {

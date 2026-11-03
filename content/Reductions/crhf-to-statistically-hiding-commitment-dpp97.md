@@ -12,6 +12,8 @@ model: standard
 source:
   - "[[DPP97 - On the Existence of Statistically Hiding Bit Commitment Schemes and Fail-Stop Signatures|DPP97]]"
   - "[[HM96 - Practical and Provably-Secure Commitment Schemes from Collision-Free Hashing|HM96]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "none: two valid openings to different messages are a collision"
 rationale:
   class: "The committer evaluates the hash only as an oracle, and the reduction outputs the two preimages from any committer that opens one commitment two ways, running it once as an oracle."

@@ -12,6 +12,8 @@ model: standard
 source:
   - "[[DH76 - New Directions in Cryptography|DH76]]"
   - "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+via:
+  - "[[hardcore-predicate|Goldreich–Levin]]"
 security-loss: "polynomial: the Goldreich–Levin decoder turns a key distinguisher with advantage ε into a CDH solver with success probability Ω(ε²) and running time poly(L, 1/ε)"
 rationale:
   class: "The protocol uses only the group operations, and the reduction runs any key distinguisher as an oracle inside the Goldreich–Levin decoder to compute the Diffie–Hellman value."

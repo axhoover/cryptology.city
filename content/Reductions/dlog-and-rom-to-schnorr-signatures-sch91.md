@@ -13,6 +13,7 @@ source:
   - "[[PS96 - Security Proofs for Signature Schemes|PS96]]"
 via:
   - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+  - "[[forking-lemma|forking lemma]]"
 security-loss: "factor $\\Theta(q_H)$ in the time-to-success ratio for $q_H$ random-oracle queries"
 rationale:
   class: "The construction is fixed and uses only the group operation and the hash; the Pointcheval-Stern reduction runs the forger only as an oracle, simulating signatures and forking it by rerunning it with a reprogrammed random oracle."
