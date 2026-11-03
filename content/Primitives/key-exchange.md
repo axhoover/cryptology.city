@@ -45,7 +45,7 @@ A NIKE allows any two parties to derive the same shared key from each other's pu
 
 ## Authenticated key exchange (AKE)
 
-An AKE additionally guarantees that the parties authenticate each other's identities during the protocol, preventing man-in-the-middle attacks.
+An AKE additionally guarantees that the parties authenticate each other's identities during the protocol, preventing man-in-the-middle attacks. In a [[password-authenticated-key-exchange|PAKE]] the parties authenticate each other with a shared password drawn from a possibly small dictionary.
 
 ## Multi-party key exchange
 

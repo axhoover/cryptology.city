@@ -489,6 +489,19 @@
    "unlisted": false
   },
   {
+   "id": "asymmetric-pake",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "anchor": "#asymmetric-pake",
+   "of": "pake",
+   "title": "Asymmetric PAKE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "asymmetric-q-sdh",
    "kind": "variant",
    "type": "assumption",
@@ -4296,6 +4309,21 @@
    "unlisted": false
   },
   {
+   "id": "pake",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "title": "Password-authenticated key exchange",
+   "aliases": [
+    "PAKE",
+    "Password-authenticated key exchange",
+    "Password-based authenticated key exchange"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "partially-oblivious-prf",
    "kind": "variant",
    "type": "primitive",
@@ -6657,6 +6685,19 @@
    "anchor": "#uc-secure-ot",
    "of": "ot",
    "title": "UC-secure OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "uc-pake",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "anchor": "#uc-secure-pake",
+   "of": "pake",
+   "title": "UC-secure PAKE",
    "aliases": [],
    "unlisted": false
   },
@@ -10181,6 +10222,33 @@
    "slug": "ddh-to-non-interactive-key-exchange-nike",
    "graphSlug": "Reductions/ddh-to-non-interactive-key-exchange-nike",
    "title": "DDH ⇒ Non-interactive key exchange (NIKE)"
+  },
+  {
+   "id": "red-ddh-to-pake-koy01",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "pake",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[KOY01 - Efficient Password-Authenticated Key Exchange Using Human-Memorable Passwords|KOY01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol uses public parameters known to all parties and generated before any execution, and its proof uses no random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-pake-koy01.md",
+   "slug": "ddh-to-pake-koy01",
+   "graphSlug": "Reductions/ddh-to-pake-koy01",
+   "title": "DDH ⇒ PAKE in the CRS model (Katz–Ostrovsky–Yung)"
   },
   {
    "id": "red-ddh-to-partially-homomorphic-encryption-phe-elgamal85",

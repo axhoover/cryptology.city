@@ -111,6 +111,7 @@ In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the serve
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword while the server learns nothing about the keyword, on OPRFs.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] evaluate the Naor–Reingold PRF ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) obliviously with one 1-out-of-2 [[oblivious-transfer|OT]] per input bit. For the key $(a_0, a_1, \ldots, a_n)$ and input $x \in \bits^n$, the server samples $r_1, \ldots, r_n \getsr \ZZ_p^*$, the client obtains $v_i = a_i^{x_i} r_i$ from the $i$-th OT with choice bit $x_i$, the server sends $g^{a_0 / \prod_i r_i}$, and the client raises it to $\prod_i v_i$, obtaining $g^{a_0 \prod_{i : x_i = 1} a_i}$.
 - [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] give an OPRF for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ and apply it to adaptive oblivious transfer and to secure computation of set intersection.
+- [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]] build strong [[password-authenticated-key-exchange#asymmetric-pake|asymmetric PAKE]], OPAQUE among them, from an OPRF.
 
 <!-- BEGIN GENERATED participates-in dd5520031c94 -->
 

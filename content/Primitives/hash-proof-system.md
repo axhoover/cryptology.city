@@ -78,7 +78,7 @@ whenever the conditioning event has nonzero probability: $H_k$ at one point outs
 
 ## Smooth projective hashing for languages of ciphertexts
 
-Smooth projective hash functions for languages such as "ciphertexts of a given message under a given public key" give password-based authenticated key exchange in the common reference string model: [[GL03 - A Framework for Password-Based Authenticated Key Exchange|GL03]] build it from non-malleable commitments, one-time signatures and smooth projective hash functions, abstracting the DDH-based protocol of Katz, Ostrovsky and Yung, and instantiate it under DDH, quadratic residuosity and $N$-residuosity.
+Smooth projective hash functions for languages such as "ciphertexts of a given message under a given public key" give [[password-authenticated-key-exchange|password-based authenticated key exchange]] in the common reference string model: [[GL03 - A Framework for Password-Based Authenticated Key Exchange|GL03]] build it from non-malleable commitments, one-time signatures and smooth projective hash functions, abstracting the DDH-based protocol of Katz, Ostrovsky and Yung, and instantiate it under DDH, quadratic residuosity and $N$-residuosity.
 
 # Other results
 
