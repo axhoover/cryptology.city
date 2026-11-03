@@ -85,7 +85,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in ab0f84a23e3f -->
+<!-- BEGIN GENERATED participates-in 259a79b878bf -->
 
 ## Participates in
 
@@ -97,6 +97,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
+- [[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures (BMW)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)](enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87) (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-two-party-computation-ors15|Enhanced TDP ⇒ 2PC with expected-time simulation (Ostrovsky–Richelson–Scafuro)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
@@ -108,6 +109,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[tdp-to-cpir-ko00|TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
+- [[tdp-to-fixed-ring-ring-signature-rst01|TDP ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)]]
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]
 - [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
