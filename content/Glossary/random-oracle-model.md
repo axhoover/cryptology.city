@@ -34,7 +34,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 77e5f3ac1d58 -->
+<!-- BEGIN GENERATED participates-in 02579bd2d965 -->
 
 ## Participates in
 
@@ -82,6 +82,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]]
 - [[prime-order-dlog-to-musig-mpsw19|DLOG ⇒ MuSig]]
 - [[prime-order-dlog-to-schnorr-signature-fps20|DLOG ⇒ Schnorr signatures (tight, AGM)]]
+- [[qr-to-ind-id-cpa-coc01|QR ⇒ IBE (Cocks, random oracle model)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]]
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]

@@ -18041,6 +18041,33 @@
    "title": "QR ⇒ Additively homomorphic encryption"
   },
   {
+   "id": "red-qr-to-ind-id-cpa-coc01",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "unstated",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[Coc01 - An Identity Based Encryption Scheme Based on Quadratic Residues|Coc01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Coc01's security argument models the hash from identities to $\\J_N$ as a random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-ind-id-cpa-coc01.md",
+   "slug": "qr-to-ind-id-cpa-coc01",
+   "graphSlug": "Reductions/qr-to-ind-id-cpa-coc01",
+   "title": "QR ⇒ IBE (Cocks, random oracle model)"
+  },
+  {
    "id": "red-qr-to-lossy-trapdoor-function-fgkrs10",
    "kind": "implication",
    "hypotheses": [
