@@ -26,6 +26,10 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - [[random-oracle-hypothesis#refutation|The refutation of the ROH]]
 
+- **The ROM is uninstantiable in general** — there are signature and encryption schemes that are secure in the ROM but insecure under every instantiation of the random oracle by an efficiently computable function family [[CGH98 - The Random Oracle Methodology Revisited|CGH98]].
+
+- **Equivalence with the ideal-cipher model** — a random oracle and an [[ideal-cipher-model|ideal cipher]] can each be built from the other in the sense of [[indifferentiability]], so the two models are equivalent for single-stage security games [[HKT11 - The Equivalence of the Random Oracle Model and the Ideal Cipher Model Revisited|HKT11]]; the composition theorem behind the equivalence covers only single-stage games [[RSS11 - Careful with Composition Limitations of the Indifferentiability Framework|RSS11]].
+
 - **[[fiat-shamir-heuristic|Fiat-Shamir]] is uninstantiable in the standard model** — Goldwasser and Kalai constructed a 3-round public-coin protocol whose Fiat-Shamir transform is existentially forgeable under every concrete hash function, even though it is secure in the ROM [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. This shows the random oracle cannot always be replaced by a concrete function.
 
 - [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]

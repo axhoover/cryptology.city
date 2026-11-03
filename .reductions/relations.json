@@ -2773,6 +2773,22 @@
    "unlisted": false
   },
   {
+   "id": "ideal-cipher-model",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/ideal-cipher-model.md",
+   "slug": "ideal-cipher-model",
+   "graphSlug": "Glossary/ideal-cipher-model",
+   "title": "Ideal cipher model",
+   "aliases": [
+    "ICM",
+    "Ideal cipher",
+    "Ideal cipher model",
+    "Random permutation model"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "ideal-ot",
    "kind": "variant",
    "type": "primitive",
@@ -2928,6 +2944,20 @@
    "graphSlug": "index",
    "title": "Cryptology City",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "indifferentiability",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/indifferentiability.md",
+   "slug": "indifferentiability",
+   "graphSlug": "Glossary/indifferentiability",
+   "title": "Indifferentiability",
+   "aliases": [
+    "Indifferentiability",
+    "Indifferentiable"
+   ],
    "unlisted": false
   },
   {
