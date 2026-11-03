@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $N = pq$ be a Blum integer, $\pk = N$ and $\sk = (p, q)$. To encrypt $m \in \bits^\ell$, the Blum–Goldwasser scheme samples a uniform $x_0 \in \QR_N$, sets $x_i := x_{i-1}^2 \bmod N$ for $1 \le i \le \ell + 1$, and outputs $(m \oplus (\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_\ell)),\ x_{\ell+1})$; decryption recovers $x_1$ from $x_{\ell+1}$ with $(p, q)$, since squaring permutes $\QR_N$, and recomputes the pad. If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, the scheme is a [[public-key-encryption#semantic-security|semantically secure]], equivalently [[public-key-encryption#cpa-security|CPA-secure]], [[public-key-encryption|PKE]] — [[BG84 - An Efficient Probabilistic Public-Key Encryption Scheme Which Hides All Partial Information|BG84]].
+Let $N = pq$ be a Blum integer, $\pk = N$ and $\sk = (p, q)$. To encrypt $m \in \bits^\ell$, the Blum–Goldwasser scheme samples a uniform $x_0 \in \QR_N$, sets $x_i := x_{i-1}^2 \bmod N$ for $1 \le i \le \ell + 1$, and outputs $(m \oplus (\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_\ell)),\ x_{\ell+1})$; decryption recovers $x_1$ from $x_{\ell+1}$ with $(p, q)$, since squaring permutes $\QR_N$, and recomputes the pad. If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, the scheme is a [[public-key-encryption#semantic-security|semantically secure]], equivalently [[public-key-encryption#cpa-security|CPA-secure]], [[public-key-encryption|PKE]] — [[BG84 - An Efficient Probabilistic Public-Key Encryption Scheme Which Hides All Partial Information|BG84]].
 
 ## Sketch
 

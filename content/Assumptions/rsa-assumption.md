@@ -14,11 +14,11 @@ variants:
 
 # RSA Assumption
 
-The _RSA assumption_ states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a value $y$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$. It was introduced alongside the RSA cryptosystem — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
+The _RSA assumption_ states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a uniformly random $y \in \ZZ_n^*$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$ except with negligible probability.
 
 ## Assumption
 
-The assumption is parameterized by a group generator $\GrGen$ that, on input $1^\secpar$, outputs an RSA modulus $n = pq$ (the product of two large primes) together with a public exponent $e$ coprime to $\phi(n) = (p-1)(q-1)$ and the corresponding private exponent $d \equiv e^{-1} \pmod{\phi(n)}$.
+The assumption is parameterized by a group generator $\GrGen$ that, on input $1^\secpar$, outputs an RSA modulus $n = pq$ (the product of two distinct large primes) together with a public exponent $e$ coprime to $\phi(n) = (p-1)(q-1)$ and the corresponding private exponent $d \equiv e^{-1} \pmod{\phi(n)}$.
 
 ### RSA Problem
 
@@ -48,9 +48,9 @@ is negligible.
 
 ## Known Results
 
-- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[tdp-to-pke|TDP ⇒ PKE]]
-- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
+- [[tdp-to-pke|TDP ⇒ PKE]] — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to [[factoring|factoring]] $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
 - [[hardcore-predicate|Hard-core bit]]: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
@@ -58,7 +58,7 @@ is negligible.
 
 ## Strong RSA
 
-The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a collision-resistant hash it yields EUF-CMA [[digital-signature|signatures]] in the standard model — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
+The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary receives $(1^\secpar, n, y)$ for $(n, e, d) \gets \GrGen(1^\secpar)$ and $y \getsr \ZZ_n^*$, and outputs a pair $(\hat{x}, \hat{e})$. **Strong RSA is hard** for $\GrGen$ if for all efficient $\calA$, $\Pr\!\left[\hat{e} > 1 \wedge \hat{x}^{\hat{e}} \equiv y \pmod{n} : (n, e, d) \gets \GrGen(1^\secpar);\ y \getsr \ZZ_n^*;\ (\hat{x}, \hat{e}) \gets \calA(1^\secpar, n, y)\right]$ is negligible. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a [[hash-function#collision-resistance|collision-resistant hash]] it yields EUF-CMA [[digital-signature|signatures]] in the standard model — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
 
 ## Φ-Hiding
 
