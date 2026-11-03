@@ -830,6 +830,19 @@
    "unlisted": false
   },
   {
+   "id": "bounded-collusion-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#bounded-collusion-fe",
+   "of": "functional-encryption",
+   "title": "Bounded-collusion FE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bounded-round-assumption",
    "kind": "variant",
    "type": "glossary",
@@ -1164,6 +1177,19 @@
    "anchor": "#nizk-proofs-in-the-common-random-string-model",
    "of": "nizk",
    "title": "NIZK proofs in the common random string model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "compact-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#compactness",
+   "of": "functional-encryption",
+   "title": "Compactness",
    "aliases": [],
    "unlisted": false
   },
@@ -1937,6 +1963,19 @@
     "Falsifiable assumption",
     "Falsifiable assumptions"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "fe-selective-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#selective-security",
+   "of": "functional-encryption",
+   "title": "Selective security",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -5448,6 +5487,19 @@
     "Σ-protocol",
     "Special soundness"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "sim-secure-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#simulation-based-security",
+   "of": "functional-encryption",
+   "title": "Simulation-based security",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -11794,7 +11846,7 @@
    "id": "red-fe-to-io",
    "kind": "implication",
    "hypotheses": [
-    "functional-encryption"
+    "compact-fe"
    ],
    "conclusion": "io",
    "class": "free",
@@ -12662,7 +12714,7 @@
     "owf",
     "io"
    ],
-   "conclusion": "functional-encryption",
+   "conclusion": "fe-selective-security",
    "class": "free",
    "model": "standard",
    "models": [

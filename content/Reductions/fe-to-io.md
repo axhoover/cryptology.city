@@ -5,7 +5,7 @@ title: "FE ⇒ iO"
 aliases: []
 id: red-fe-to-io
 kind: implication
-hypotheses: [functional-encryption]
+hypotheses: [compact-fe]
 conclusion: io
 class: free
 model: standard

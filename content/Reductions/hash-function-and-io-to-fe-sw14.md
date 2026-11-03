@@ -6,7 +6,7 @@ aliases: []
 id: red-hash-function-and-io-to-fe-sw14
 kind: implication
 hypotheses: [owf, io]
-conclusion: functional-encryption
+conclusion: fe-selective-security
 class: free
 model: standard
 source:
