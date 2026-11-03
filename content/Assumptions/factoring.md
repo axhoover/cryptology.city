@@ -52,11 +52,15 @@ is negligible. Squaring modulo a Blum integer permutes $\mathrm{QR}_N$ — [[BBS
 
 # Attacks
 
-- **Trial division**: $O(\sqrt{N})$ — practical only for very small factors
-- **Pollard's $\rho$** algorithm: $O(N^{1/4})$ expected time
-- **Elliptic curve method (ECM)**: efficient when $p$ is small; runs in $L_p[1/2, \sqrt{2}]$
-- **Quadratic sieve**: $L_N[1/2, 1]$ — best algorithm for $N < 10^{100}$
-- **General Number Field Sieve (GNFS)**: sub-exponential $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — best known classical algorithm for large $N$
+For $0 \le \alpha \le 1$ and $c > 0$, write $L_N[\alpha, c] := \exp\!\big((c + o(1))(\ln N)^{\alpha}(\ln\ln N)^{1-\alpha}\big)$, so $L_N[0, c] = (\ln N)^{c + o(1)}$ and $L_N[1, c] = N^{c + o(1)}$. A _heuristic_ running time rests on an unproven assumption that some quantity (an iterated map, the smoothness of auxiliary integers) behaves as it would for random inputs.
+
+- **Trial division** finds the smallest prime factor $p$ of $N$ with at most $p$ divisions, so $O(\sqrt{N})$ divisions for $N = pq$ — standard.
+- **Pollard's $p - 1$ method**: for $M = \operatorname{lcm}(1, \ldots, B)$ and $a \in \ZZ_N^*$, $\gcd(a^M - 1, N)$ is divisible by every prime factor $p$ of $N$ such that every prime power dividing $p - 1$ is at most $B$, and computing it takes $O(B)$ multiplications modulo $N$ — [[Pol74 - Theorems on Factorization and Primality Testing|Pol74]].
+- **Pollard's $\rho$ method** finds a prime factor $p$ of $N$ with a heuristic expected $O(\sqrt{p})$ multiplications modulo $N$, so $O(N^{1/4})$ for $N = pq$ with $p \le q$ — [[Pol75 - A Monte Carlo Method for Factorization|Pol75]].
+- **Elliptic curve method (ECM)** finds a prime factor $p$ of $N$ in conjectured expected time $L_p[1/2, \sqrt{2}] \cdot \poly(\log N)$ — [[Len87 - Factoring Integers with Elliptic Curves|Len87]]; for $N = pq$ with $p$ and $q$ of equal bit length this is $L_N[1/2, 1]$.
+- **Quadratic sieve** factors $N$ in heuristic time $L_N[1/2, 1]$, whatever the sizes of its prime factors — [[Pom84 - The Quadratic Sieve Factoring Algorithm|Pom84]].
+- **Number field sieve (NFS)**: the special NFS factors $N = r^e - s$ with small $r$ and $|s|$ in heuristic time $L_N[1/3, (32/9)^{1/3}]$ — [[LLMP90 - The Number Field Sieve|LLMP90]]; the general NFS factors every $N$ in heuristic time $L_N[1/3, (64/9)^{1/3}] \approx L_N[1/3, 1.923]$ — [[BLP93 - Factoring Integers with the Number Field Sieve|BLP93]].
+- **Multiple number field sieve**: Coppersmith's variant of the general NFS with several number fields runs in heuristic time $L_N[1/3, c]$ with $c = \big((92 + 26\sqrt{13})/27\big)^{1/3} \approx 1.902$ — [[Cop93 - Modifications to the Number Field Sieve|Cop93]].
 - **Quantum**: Shor's algorithm — polynomial time $O((\log N)^3)$ — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 <!-- BEGIN GENERATED participates-in 77f257728be4 -->
