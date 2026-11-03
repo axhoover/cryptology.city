@@ -197,6 +197,7 @@ Collision resistance implies target collision resistance — standard.
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
 - [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
+- An explicit function, the direct product of [[universal-one-way-function|Levin's universal one-way function]], is one-way if and only if a one-way function exists — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]]
 
 ## Unknown results
 

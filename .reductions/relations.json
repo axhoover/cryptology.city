@@ -7060,6 +7060,20 @@
    "unlisted": false
   },
   {
+   "id": "universal-one-way-function",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/universal-one-way-function.md",
+   "slug": "universal-one-way-function",
+   "graphSlug": "Folklore/universal-one-way-function",
+   "title": "Universal one-way function",
+   "aliases": [
+    "Universal one-way function",
+    "Levin's universal one-way function"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "universal-snark",
    "kind": "variant",
    "type": "primitive",
