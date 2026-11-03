@@ -5,7 +5,7 @@ title: "ABH+26"
 source: https://github.com/bochum-crypto/subexponential-ecdl/blob/main/subexponential-ecdl.pdf
 authors: Akshima, Renas Bacho, Yu-Hsuan Huang, Eike Kiltz, Aysan Nishaburi, Samin Nooripoor, Noah Tittelbach, Emiel Wiedijk
 venue: preprint
-published: 2026-10-28
+published: 2026-10-29
 aliases:
   - ABH+26
 bibtex: |
@@ -28,4 +28,4 @@ Elliptic-curve groups are usually modeled as generic groups, in which computing 
 
 # Notes
 
-The main theorem is conditional on Theorem D.1 of [[Ope26 - The Exponential Time Hypothesis is False|Ope26]], which the authors did not independently verify. Version 0.1 is dated 28 October 2026; the source link serves the current version.
+The main theorem is conditional on Theorem D.1 of [[Ope26 - The Exponential Time Hypothesis is False|Ope26]], which the authors did not independently verify. Cited as version 0.2 (29 October 2026), which supersedes version 0.1 (28 October 2026); theorem and lemma numbers refer to version 0.2.
