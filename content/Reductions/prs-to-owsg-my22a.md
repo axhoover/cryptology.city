@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "PRS ⇒ OWSG"
 aliases: []
-id: red-prs-to-one-way-state-generator-my22a
+id: red-prs-to-pure-one-way-state-generator-my22a
 kind: implication
 hypotheses: [prs]
 conclusion: pure-one-way-state-generator

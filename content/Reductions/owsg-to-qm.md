@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "QM ⇒ OWSG"
+title: "Pure-state QM ⇒ OWSG"
 aliases: []
 id: red-quantum-money-to-one-way-state-generator-my22
 kind: implication
@@ -14,7 +14,7 @@ source:
 security-loss: ""
 ---
 
-# QM ⇒ OWSG
+# Pure-state QM ⇒ OWSG
 
 ## Statement
 

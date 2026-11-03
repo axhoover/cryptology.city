@@ -20,4 +20,8 @@ rationale:
 
 ## Statement
 
-Every [[one-way-state-generator#pure-owsgs|pure one-way state generator]] is a [[one-way-state-generator|one-way state generator]]: when $\mathsf{StateGen}(k)$ outputs a pure state $|\phi_k\rangle$, its $t+1$ independent runs give $|\phi_k\rangle^{\otimes (t+1)}$, so the one-wayness game for mixed states is the game for pure states — folklore.
+Every [[one-way-state-generator#pure-owsgs|pure one-way state generator]] $(\KeyGen, \mathsf{StateGen}, \Vrfy)$ is a [[one-way-state-generator|one-way state generator]], with the same correctness error and, for all efficient quantum $\calA$ and all polynomials $t$, the same one-wayness advantage — folklore.
+
+## Sketch
+
+When $\mathsf{StateGen}(k)$ outputs the pure state $|\phi_k\rangle$, its $t+1$ independent runs give $|\phi_k\rangle^{\otimes (t+1)}$, so the one-wayness game of the general definition, run on this generator, is the game of the pure definition; correctness runs the same $\Vrfy$ on one copy and is unchanged.

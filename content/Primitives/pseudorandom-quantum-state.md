@@ -53,24 +53,25 @@ $$
 \Adv^{\mathrm{prs}}_{\mathsf{PRS},\calA,t}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prs}}_{\mathsf{PRS},\calA,t}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The ideal state $\rho_1$, averaged over $|\psi\rangle$, is the maximally mixed state on the symmetric subspace of $(\mathbb{C}^{2^n})^{\otimes t}$ — standard. The applications below take $n = \omega(\log \secpar)$, so that a Haar-random state has negligible expected overlap $2^{-n}$ with every fixed state.
+is negligible — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The ideal state $\rho_1$, averaged over $|\psi\rangle$, is the maximally mixed state on the symmetric subspace of $(\mathbb{C}^{2^n})^{\otimes t}$ — standard. The [[quantum-money|quantum money]] and [[one-way-state-generator|one-way state generator]] results below hold for $n = \omega(\log \secpar)$: given $t$ copies of a Haar-random $n$-qubit state $|\psi\rangle$, every algorithm succeeds with probability at most $(t+1)/(2^n+t)$ both at outputting $t+1$ registers that all pass the projection onto $|\psi\rangle$ and at outputting a classical description of a state $|\phi\rangle$ such that a fresh copy of $|\psi\rangle$ passes the projection onto $|\phi\rangle$ — standard.
 
 # Variations
 
 ## Single-copy security
 
-A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ only. The ideal state is then the maximally mixed state $I/2^n$, so the notion is non-trivial only when $n > \secpar$: for $n \le \secpar$, the state $|\phi_k\rangle := |k_1 \cdots k_n\rangle$ is single-copy secure with advantage $0$ — folklore. Relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
+A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ only. The ideal state is then the maximally mixed state $I/2^n$, so the notion is non-trivial only when $n > \secpar$: for $n \le \secpar$, the state $|\phi_k\rangle := |k_1 \cdots k_n\rangle$ is single-copy secure with advantage $0$ — folklore.
 
 # Other results
 
-- [[owf-to-prs-jls18|OWF ⇒ PRS]]: one-way functions secure against quantum adversaries yield PRS generators, by random phase states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
-- [[prs-to-quantum-money-jls18|PRS ⇒ QM]]: with $\mathsf{Mint}(k) := |\phi_k\rangle$ and verification by projection onto $|\phi_k\rangle$, a PRS generator is a private-key quantum money scheme with pure money states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
-- [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a PRS generator, with verification by projection onto $|\phi_{k'}\rangle$, is a one-way state generator — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
+- [[owf-to-prs-jls18|OWF ⇒ PRS]]: [[hash-function#preimage-resistance-one-wayness|one-way functions]] secure against quantum adversaries yield PRS generators, by random phase states — [[JLS18 - Pseudorandom Quantum States|JLS18]].
+- [[prs-to-quantum-money-jls18|PRS ⇒ QM]]: with $\mathsf{Mint}(k) := |\phi_k\rangle$ and verification by projection onto $|\phi_k\rangle$, a PRS generator is a private-key [[quantum-money#pure-money-states|quantum money scheme with pure money states]] — [[JLS18 - Pseudorandom Quantum States|JLS18]].
+- [[prs-to-owsg-my22a|PRS ⇒ OWSG]]: a PRS generator, with verification by projection onto $|\phi_{k'}\rangle$, is a [[one-way-state-generator#pure-owsgs|pure one-way state generator]] — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
 - If PRS generators exist, non-interactive quantum bit commitments for classical messages with computational hiding and statistical binding exist, and so do one-time-secure digital signatures with quantum public keys — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]].
-- [[no-prs-to-owf-kre21|No relativizing reduction from PRS to OWF]]: relative to a quantum oracle, PRS generators exist and $\classBQP = \classQMA$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
-- If $\classBQP = \classPP$, no PRS generator exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
+- [[no-prs-to-owf-kre21|No fully-black-box reduction from PRS to OWF]]: relative to a quantum oracle, PRS generators with $n = \omega(\log \secpar)$ exist and $\classBQP = \classQMA$ — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
+- [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]]: relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators with $n > \secpar$ exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
+- If $\classBQP = \classPP$, no PRS generator with $n = \omega(\log \secpar)$ exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
-<!-- BEGIN GENERATED participates-in c05c72ae91a8 -->
+<!-- BEGIN GENERATED participates-in 98ed598e04f2 -->
 
 ## Participates in
 
@@ -85,6 +86,7 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 
 **Barriers**
 
-- [[no-prs-to-owf-kre21|No relativizing reduction from PRS to OWF]]
+- [[no-prs-to-owf-kre21|No fully-black-box reduction from PRS to OWF]]
+- [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]] (via [[pseudorandom-quantum-state#single-copy-security|Single-copy security]])
 
 <!-- END GENERATED participates-in -->

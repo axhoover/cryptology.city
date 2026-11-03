@@ -20,4 +20,4 @@ rationale:
 
 ## Statement
 
-Every private-key [[quantum-money#pure-money-states|quantum money scheme with pure money states]] is a private-key [[quantum-money|quantum money scheme]]: the pure-state condition restricts only what $\mathsf{Mint}$ outputs, and the unforgeability game is the same — folklore.
+Every correct and [[quantum-money#unforgeability|unforgeable]] private-key [[quantum-money#pure-money-states|quantum money scheme with pure money states]] is a correct and unforgeable private-key [[quantum-money|quantum money scheme]]: the pure-state condition restricts only what $\mathsf{Mint}$ outputs, so the correctness condition and $\Game^{\mathrm{qm}}_{\mathsf{QM},\calA,t}$ are unchanged, and for all efficient quantum $\calA$ and all polynomials $t$, $\Adv^{\mathrm{qm}}_{\mathsf{QM},\calA,t}(\secpar)$ is the same under both notions — folklore.

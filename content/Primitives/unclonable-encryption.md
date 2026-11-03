@@ -2,6 +2,7 @@
 type: primitive
 status: draft
 aliases:
+  - UE
   - Unclonable encryption
   - Uncloneable encryption
 title: Unclonable encryption
@@ -38,7 +39,7 @@ over the randomness of $\KeyGen$ and the measurements of $\Enc$ and $\Dec$. $\ma
 
 ### Unclonable security
 
-A cloning adversary is a triple $(\calA, \calB, \calC)$: $\calA$ maps the ciphertext to a joint state on two registers $R_B, R_C$; then $\calB$ receives $R_B$ and $\calC$ receives $R_C$, each together with the key, and they do not communicate.
+A cloning adversary is a triple $(\calA, \calB, \calC)$: $\calA$ maps the ciphertext to a joint state on two registers $R_B, R_C$; then $\calB$ receives $R_B$ and $\calC$ receives $R_C$, each together with the key, and they do not communicate, since otherwise $\calA$ could pass $\rho$ to $\calB$, who decrypts it and sends $m$ to $\calC$.
 
 ```pseudocode
 \begin{algorithm}
@@ -93,7 +94,7 @@ $$
 
 # Other results
 
-- Encoding the message in conjugate-coding (Wiesner) states under a uniformly random choice of bases gives a scheme in the plain model that is $\delta$-unclonable for $n$-bit messages with $\delta = (1/2 + 1/(2\sqrt{2}))^n$, against unbounded cloning adversaries — [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]]. For $n = 1$ this is about $0.854$, far from the $1/2$ that unclonable indistinguishability requires.
+- Encoding the message in conjugate-coding states of [[Wie83 - Conjugate Coding|Wie83]] under a uniformly random choice of bases gives a scheme in the plain model that is $\delta$-unclonable for $n$-bit messages with $\delta = (1/2 + 1/(2\sqrt{2}))^n$, against unbounded cloning adversaries — [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]]. For $n = 1$ this is about $0.854$, far from the $1/2$ that unclonable indistinguishability requires.
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]]: in the quantum random-oracle model, unclonable-indistinguishable encryption exists with no computational assumption — [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]].
 - A large class of encryption schemes is not unclonable-indistinguishable — [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]].
 

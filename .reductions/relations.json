@@ -6703,6 +6703,7 @@
    "graphSlug": "Primitives/unclonable-encryption",
    "title": "Unclonable encryption",
    "aliases": [
+    "UE",
     "Unclonable encryption",
     "Uncloneable encryption"
    ],
@@ -16966,34 +16967,6 @@
    "title": "OWF inversion ∈ NP"
   },
   {
-   "id": "red-owf-to-one-way-state-generator",
-   "kind": "implication",
-   "hypotheses": [
-    "owf"
-   ],
-   "conclusion": "pure-one-way-state-generator",
-   "class": "fully-black-box",
-   "model": "quantum",
-   "models": [
-    "quantum"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "none: the inverter's success probability equals the one-way state generator adversary's",
-   "rationale": {
-    "class": "The generator evaluates f only as an oracle, and the reduction hands t copies of its challenge to an arbitrary adversary used only as an oracle.",
-    "model": "The adversary is quantum, so the function must be one-way against efficient quantum adversaries."
-   },
-   "status": "draft",
-   "page": "content/Reductions/owf-to-owsg.md",
-   "slug": "owf-to-owsg",
-   "graphSlug": "Reductions/owf-to-owsg",
-   "title": "OWF ⇒ OWSG"
-  },
-  {
    "id": "red-owf-to-prg-hill99",
    "kind": "implication",
    "hypotheses": [
@@ -17050,6 +17023,34 @@
    "slug": "owf-to-prs-jls18",
    "graphSlug": "Reductions/owf-to-prs-jls18",
    "title": "OWF ⇒ PRS"
+  },
+  {
+   "id": "red-owf-to-pure-one-way-state-generator",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "pure-one-way-state-generator",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none: the inverter's success probability equals the one-way state generator adversary's",
+   "rationale": {
+    "class": "The generator evaluates f only as an oracle, and the reduction hands t copies of its challenge to an arbitrary adversary used only as an oracle.",
+    "model": "The adversary is quantum, so the function must be one-way against efficient quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-to-owsg.md",
+   "slug": "owf-to-owsg",
+   "graphSlug": "Reductions/owf-to-owsg",
+   "title": "OWF ⇒ OWSG"
   },
   {
    "id": "red-owf-to-statistical-zk-argument-nov06",
@@ -19182,7 +19183,7 @@
    "title": "PRP ⇒ PRF"
   },
   {
-   "id": "red-prs-to-one-way-state-generator-my22a",
+   "id": "red-prs-to-pure-one-way-state-generator-my22a",
    "kind": "implication",
    "hypotheses": [
     "prs"
@@ -19926,7 +19927,7 @@
    "securityLoss": "",
    "rationale": {
     "class": "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model.",
-    "model": "The proof holds in the quantum random-oracle model, in which every party queries the random oracle in superposition, and the Statement names the quantum access."
+    "model": "The proof holds in the quantum random-oracle model, against quantum cloning adversaries that query the random oracle in superposition, and the Statement names the quantum access."
    },
    "status": "draft",
    "page": "content/Reductions/qrom-to-unclonable-encryption-akl22.md",
@@ -20011,7 +20012,7 @@
    "page": "content/Reductions/owsg-to-qm.md",
    "slug": "owsg-to-qm",
    "graphSlug": "Reductions/owsg-to-qm",
-   "title": "QM ⇒ OWSG"
+   "title": "Pure-state QM ⇒ OWSG"
   },
   {
    "id": "red-quasi-polynomial-lwe-to-polynomial-ratio-lwe",
@@ -26512,12 +26513,12 @@
     "prs"
    ],
    "conclusion": "owf",
-   "class": "relativizing",
+   "class": "fully-black-box",
    "consequences": [
     {
      "kind": "contradiction",
      "target": "",
-     "class": "relativizing"
+     "class": "fully-black-box"
     }
    ],
    "strength": "unconditional",
@@ -26527,13 +26528,13 @@
     "[[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]]"
    ],
    "rationale": {
-    "class": "Kre21's oracle is a quantum oracle relative to which PRS generators exist and no quantum-secure one-way function does, which rules out constructions and proofs that relativize with respect to quantum oracles, every fully-black-box one among them."
+    "class": "Kre21's oracle is a quantum oracle relative to which PRS generators exist and no quantum-secure one-way function does, which rules out every construction that uses the PRS generator only as an oracle with a proof that uses the adversary only as an oracle, and says nothing about proofs that relativize only with respect to classical oracles."
    },
    "status": "draft",
    "page": "content/Barriers/no-prs-to-owf-kre21.md",
    "slug": "no-prs-to-owf-kre21",
    "graphSlug": "Barriers/no-prs-to-owf-kre21",
-   "title": "No relativizing reduction from PRS to OWF"
+   "title": "No fully-black-box reduction from PRS to OWF"
   },
   {
    "id": "bar-qma-to-qcma-bhnz25",
@@ -26711,6 +26712,35 @@
    "slug": "no-selective-security-to-cp-abe-ind-cpa-security",
    "graphSlug": "Barriers/no-selective-security-to-cp-abe-ind-cpa-security",
    "title": "No fixed-construction reduction from selective to adaptive CP-ABE security"
+  },
+  {
+   "id": "bar-single-copy-prs-to-owf-kqst23",
+   "hypotheses": [
+    "single-copy-prs"
+   ],
+   "conclusion": "owf",
+   "class": "relativizing",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "relativizing"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[KQST23 - Quantum Cryptography in Algorithmica|KQST23]]"
+   ],
+   "rationale": {
+    "class": "KQST23's oracle is a classical oracle relative to which single-copy-secure PRS generators exist and P = NP, so no one-way function exists relative to it, which rules out constructions and proofs that relativize, every fully-black-box one among them."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-single-copy-prs-to-owf-kqst23.md",
+   "slug": "no-single-copy-prs-to-owf-kqst23",
+   "graphSlug": "Barriers/no-single-copy-prs-to-owf-kqst23",
+   "title": "No relativizing reduction from single-copy PRS to OWF"
   },
   {
    "id": "bar-tdp-to-enhanced-trapdoor-permutation-haj18",

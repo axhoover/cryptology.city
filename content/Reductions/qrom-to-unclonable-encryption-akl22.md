@@ -14,7 +14,7 @@ source:
 security-loss: ""
 rationale:
   class: "The theorem holds for every cloning adversary making polynomially many quantum queries to the oracle, which is the free class scoped by the model."
-  model: "The proof holds in the quantum random-oracle model, in which every party queries the random oracle in superposition, and the Statement names the quantum access."
+  model: "The proof holds in the quantum random-oracle model, against quantum cloning adversaries that query the random oracle in superposition, and the Statement names the quantum access."
 ---
 
 # QROM ⇒ unclonable-indistinguishable UE

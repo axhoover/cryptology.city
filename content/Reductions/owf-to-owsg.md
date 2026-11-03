@@ -3,7 +3,7 @@ type: reduction
 status: draft
 title: "OWF ⇒ OWSG"
 aliases: []
-id: red-owf-to-one-way-state-generator
+id: red-owf-to-pure-one-way-state-generator
 kind: implication
 hypotheses: [owf]
 conclusion: pure-one-way-state-generator
