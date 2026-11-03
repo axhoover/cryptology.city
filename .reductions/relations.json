@@ -16989,6 +16989,30 @@
    "title": "OWF ⇒ garbled RAM (black-box)"
   },
   {
+   "id": "red-owf-to-language-model-watermarking-cgz24",
+   "kind": "implication",
+   "hypotheses": [
+    "owf"
+   ],
+   "conclusion": "language-model-watermarking",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/owf-to-language-model-watermarking-cgz24.md",
+   "slug": "owf-to-language-model-watermarking-cgz24",
+   "graphSlug": "Reductions/owf-to-language-model-watermarking-cgz24",
+   "title": "OWF ⇒ Watermarking"
+  },
+  {
    "id": "red-owf-to-np",
    "kind": "inclusion",
    "hypotheses": [
