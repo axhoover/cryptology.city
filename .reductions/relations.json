@@ -1018,6 +1018,19 @@
    "unlisted": false
   },
   {
+   "id": "claw-free-trapdoor-permutations",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-permutation.md",
+   "slug": "trapdoor-permutation",
+   "graphSlug": "Primitives/trapdoor-permutation",
+   "anchor": "#claw-free-trapdoor-permutations",
+   "of": "tdp",
+   "title": "Claw-free trapdoor permutations",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "client-preprocessing-pir",
    "kind": "variant",
    "type": "primitive",
@@ -6216,6 +6229,19 @@
    "unlisted": false
   },
   {
+   "id": "uc-commitment",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/commitment-scheme.md",
+   "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
+   "anchor": "#uc-commitment",
+   "of": "com",
+   "title": "UC commitment",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "uc-framework",
    "kind": "object",
    "type": "glossary",
@@ -6240,6 +6266,19 @@
    "anchor": "#universal-composability-uc",
    "of": "mpc",
    "title": "Universal composability (UC)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "uc-multi-commitment",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/commitment-scheme.md",
+   "slug": "commitment-scheme",
+   "graphSlug": "Primitives/commitment-scheme",
+   "anchor": "#uc-multi-commitment",
+   "of": "com",
+   "title": "UC multi-commitment",
    "aliases": [],
    "unlisted": false
   },
@@ -8144,6 +8183,34 @@
    "slug": "claw-free-permutations-to-crhf-dam87",
    "graphSlug": "Reductions/claw-free-permutations-to-crhf-dam87",
    "title": "Claw-free permutations ⇒ CRHF (Damgård)"
+  },
+  {
+   "id": "red-claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-trapdoor-permutations",
+    "pke-cca2-security"
+   ],
+   "conclusion": "uc-multi-commitment",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[CF01 - Universally Composable Commitments|CF01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "All commitments share one common reference string, which holds the description of the claw-free pair and the public key of the encryption scheme."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01.md",
+   "slug": "claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01",
+   "graphSlug": "Reductions/claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01",
+   "title": "Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)"
   },
   {
    "id": "red-cls-hardness-to-ppad-hardness-dp11",
@@ -21990,6 +22057,33 @@
    "title": "TDP ⇒ PKE"
   },
   {
+   "id": "red-tdp-to-uc-commitment-cf01",
+   "kind": "implication",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "uc-commitment",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[CF01 - Universally Composable Commitments|CF01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol UC-realizes the commitment functionality given a common reference string for each commitment, which CF01 show cannot be dropped for a protocol between the committer and the receiver alone."
+   },
+   "status": "draft",
+   "page": "content/Reductions/tdp-to-uc-commitment-cf01.md",
+   "slug": "tdp-to-uc-commitment-cf01",
+   "graphSlug": "Reductions/tdp-to-uc-commitment-cf01",
+   "title": "TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)"
+  },
+  {
    "id": "red-total-nontrivial-cpir-to-nontrivial-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -23132,6 +23226,37 @@
    "slug": "no-authenticated-channels-to-fair-mpc-cle86",
    "graphSlug": "Barriers/no-authenticated-channels-to-fair-mpc-cle86",
    "title": "No reduction from authenticated channels to fair MPC"
+  },
+  {
+   "id": "bar-authenticated-channels-to-uc-commitment-cf01",
+   "hypotheses": [
+    "authenticated-channels"
+   ],
+   "conclusion": "uc-commitment",
+   "class": "free",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "free"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [
+    "red-tdp-to-uc-commitment-cf01"
+   ],
+   "source": [
+    "[[CF01 - Universally Composable Commitments|CF01]]"
+   ],
+   "rationale": {
+    "class": "CF01's impossibility holds for every bilateral plain-model protocol whatever its assumptions, so it rules out the implication itself: the free class, scoped to the plain model."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-authenticated-channels-to-uc-commitment-cf01.md",
+   "slug": "no-authenticated-channels-to-uc-commitment-cf01",
+   "graphSlug": "Barriers/no-authenticated-channels-to-uc-commitment-cf01",
+   "title": "No reduction from authenticated channels to UC commitment"
   },
   {
    "id": "bar-authenticated-channels-to-uc-mpc-ckl03",

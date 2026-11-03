@@ -80,7 +80,7 @@ A channel on which a party's message reaches every party, every party knowing th
 
 Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from a distribution that the protocol specifies, which may depend on $n$, $\secpar$ and the functionality but not on the inputs, and hands $r_i$ to $P_i$ privately; this is the preprocessing model. Random OT correlations — [[Bea95 - Precomputing Oblivious Transfer|Bea95]] — and multiplication triples, sharings of $a$, $b$ and $ab$ for uniform $a, b$, as consumed by the online phases of [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]] and [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]], are examples. Triples descend from Beaver's circuit randomization, in which the random gate values are prepared within a secret-sharing-based protocol rather than by a dealer — [[Bea91 - Efficient Multiparty Protocols Using Circuit Randomization|Bea91]].
 
-<!-- BEGIN GENERATED participates-in 2feb61d52920 -->
+<!-- BEGIN GENERATED participates-in 7218bda12f4a -->
 
 ## Participates in
 
@@ -102,6 +102,7 @@ Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from
 - [[no-authenticated-channels-to-byzantine-broadcast-flm85|No reduction from authenticated channels to Byzantine broadcast]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[ds-to-byzantine-broadcast-ds83|Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)]]
 - [[no-authenticated-channels-to-fair-coin-flipping-cle86|No reduction from authenticated channels to fair coin flipping]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
 - [[no-authenticated-channels-to-fair-mpc-cle86|No reduction from authenticated channels to fair MPC]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
+- [[no-authenticated-channels-to-uc-commitment-cf01|No reduction from authenticated channels to UC commitment]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
 - [[no-authenticated-channels-to-uc-mpc-ckl03|No reduction from authenticated channels to UC MPC]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]], [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]], [[correlated-randomness-to-uc-mpc-bdoz11|Correlated randomness ⇒ UC MPC (BDOZ online phase)]]
 
 <!-- END GENERATED participates-in -->
