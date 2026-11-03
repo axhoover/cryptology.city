@@ -22,7 +22,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:M#m
 ## Known relationships
 
 - $\classNP \subseteq \classMA \subseteq \classAM$: any NP proof works as Merlin's message (Arthur just checks it deterministically), and any MA protocol can be converted to an AM protocol by having Arthur send random coins first (Merlin's optimal strategy is independent of those coins for a constant-round protocol).
-- $\classMA \subseteq \classPP$ — TODO citation.
+- $\classMA \subseteq \classPP$ ([[ma-to-pp|MA ⊆ PP]]) — [[Ver92 - On the Power of PP|Ver92]].
 - $\classMA \subseteq \mathbf{\Sigma_2^P} \cap \mathbf{\Pi_2^P}$, placing MA in the second level of the polynomial-time hierarchy.
 - It is not known whether MA = NP or whether MA = AM. Showing MA ≠ NP would require circuit lower bounds beyond what is currently known.
 

@@ -189,6 +189,7 @@ _Last updated: 2026-11-03_
 - [ ] [Content] Ngu05's pairing accumulator is prose only; add `{bilinear-pairing, q-strong-diffie-hellman} ⇒ accumulator` after checking its collision-freeness theorem, which later work reports subtleties in — _source: content/Primitives/accumulator.md_
 - [ ] [External] cryptobib's EC:BendMa93 title reads "Digital Sinatures"; record it in `UPSTREAM_ERRORS` so `sync-cryptobib` does not report the BdM93 H1 as drift — _source: content/References/BdM93 - One-Way Accumulators A Decentralized Alternative to Digital Signatures.md, scripts/sync-cryptobib.ts_
 - [ ] [External] Verbatim abstracts are `TODO` on the reference stubs added 2026-11-03 (anamorphic encryption, hash proof systems, puncturable and invertible PRFs, accumulators, proof tools, classical IBE/PKE/ID, UC, subset sum and coding, signatures, time-lock): paper hosts were unreachable from the session — _source: content/References/_
+- [ ] [Math] Removed from `exponential-time.md` the uncited bullet "If PSPACE = EXP, then PSPACE ⊄ P/poly": no such theorem is known to the editor (PSPACE ⊆ P/poly gives PSPACE = MA, and with PSPACE = EXP this collapses nothing known to be contradictory); restore it with a citation if a source states it — _source: content/Complexity/exponential-time.md_
 
 ## Low Priority / Inferred
 

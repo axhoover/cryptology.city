@@ -25,7 +25,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 
 ## Notable problems
 
-- SAT is complete for NP — TODO citation
+- SAT is $\classNP$-complete — [[Coo71 - The Complexity of Theorem-Proving Procedures|Coo71]]. Twenty-one combinatorial problems, among them clique, vertex cover, Hamiltonian cycle and subset sum, are $\classNP$-complete under polynomial-time many-one reductions — [[Kar72 - Reducibility among Combinatorial Problems|Kar72]].
 
 ## Known relationships
 
