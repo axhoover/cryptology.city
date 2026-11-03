@@ -2445,6 +2445,21 @@
    "unlisted": true
   },
   {
+   "id": "identity-based-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/identity-based-signature.md",
+   "slug": "identity-based-signature",
+   "graphSlug": "Primitives/identity-based-signature",
+   "title": "Identity-based signature",
+   "aliases": [
+    "IBS",
+    "Identity-based signature",
+    "Identity-based signatures"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "incremental-verifiable-computation",
    "kind": "variant",
    "type": "primitive",
@@ -10177,6 +10192,33 @@
    "slug": "ds-to-hash-function",
    "graphSlug": "Reductions/ds-to-hash-function",
    "title": "DS ⇒ OWF"
+  },
+  {
+   "id": "red-ds-to-identity-based-signature-bnn04",
+   "kind": "implication",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "identity-based-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BNN04 - Security Proofs for Identity-Based Identification and Signature Schemes|BNN04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the signature scheme only through its key generation, signing and verification, and the reduction runs any forger once as an oracle, planting the challenge verification key as the master key or as one guessed identity's key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-identity-based-signature-bnn04.md",
+   "slug": "ds-to-identity-based-signature-bnn04",
+   "graphSlug": "Reductions/ds-to-identity-based-signature-bnn04",
+   "title": "DS ⇒ IBS (certificates)"
   },
   {
    "id": "red-eddsa-to-ds",
