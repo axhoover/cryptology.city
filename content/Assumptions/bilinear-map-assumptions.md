@@ -88,8 +88,8 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 
 # Attacks
 
-- The MOV/Frey-Rück attack reduces the discrete log in $\GG$ to discrete log in $\GG_T$ via the pairing; for small embedding degree this is devastating
-- Index calculus algorithms are effective in $\GG_T$ and motivate the need for large embedding degree
+- The MOV and Frey–Rück reductions use the pairing to map [[discrete-logarithm|DLOG]] in $\GG_1$ to DLOG in $\GG_T$: for $h \in \GG_2$ with $e(g_1, h) \ne 1$, $\log_{g_1} X = \log_{e(g_1, h)} e(X, h)$, and for a curve over $\FF_q$ with embedding degree $k$, $\GG_T$ is a subgroup of $\FF_{q^k}^*$ — [[MVO91 - Reducing Elliptic Curve Logarithms to Logarithms in a Finite Field|MVO91]], [[FR94 - A Remark Concerning m-Divisibility and the Discrete Logarithm in the Divisor Class Group of Curves|FR94]].
+- Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm breaks discrete log in all pairing groups — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
 <!-- BEGIN GENERATED participates-in 9bfafa430141 -->
