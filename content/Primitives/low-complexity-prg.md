@@ -1,6 +1,6 @@
 ---
 type: primitive
-status: stub
+status: draft
 aliases:
   - PRG in NC0
   - NC0-PRG
@@ -18,7 +18,17 @@ unlisted: true
 
 A low-complexity PRG is a [[pseudorandom-generator|pseudorandom generator]] in $\mathrm{NC}^0$: each output bit depends on a constant number of input bits. For PRGs computable in $\mathrm{NC}^1$, see [PRG in $\mathrm{NC}^1$](pseudorandom-generator-in-nc1). The existence of a Boolean PRG in $\mathrm{NC}^0$ (not $\mathrm{NC}^1$) with stretch $n^{1+\tau}$ for a constant $\tau > 0$ is one of the four sub-exponentially hard assumptions from which [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]] builds indistinguishability obfuscation.
 
-TODO: syntax and security definition.
+## Syntax
+
+A PRG in $\mathrm{NC}^0$ with locality $d$ is a family $G = \{G_n : \bits^n \to \bits^{m(n)}\}$ of functions, $m(n) > n$, computable in time $\poly(n)$, such that every output bit of $G_n$ depends on at most $d$ input bits for a constant $d$ independent of $n$. Its **stretch** is $m(n)$.
+
+A standard form is Goldreich's: a hypergraph with $m$ hyperedges $S_1, \ldots, S_m \subseteq [n]$ of size $d$ and a predicate $P : \bits^d \to \bits$ define $G(x)_i = P(x_{S_i})$, with $x_{S_i}$ the restriction of $x$ to $S_i$ — [[Gol00 - Candidate One-Way Functions Based on Expander Graphs|Gol00]], who proposed this form, with expanding hypergraphs, as a candidate one-way function.
+
+## Properties
+
+### Pseudorandomness
+
+$G$ is **pseudorandom** if for all efficient $\calA$, $\Adv^{\mathrm{prg}}_{G_n,\calA}$, the advantage in the [[pseudorandom-generator#pseudorandomness|PRG game]] with seed $x \getsr \bits^n$, is negligible in $n$; the sub-exponential version is below.
 
 # Variations
 
