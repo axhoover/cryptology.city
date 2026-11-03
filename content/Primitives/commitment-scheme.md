@@ -14,6 +14,9 @@ variants:
   adversarial-pp-hiding-commitment: "#hiding-for-adversarial-public-parameters"
   uc-commitment: "#uc-commitment"
   uc-multi-commitment: "#uc-multi-commitment"
+  non-malleable-commitment: "#non-malleable-commitments"
+  constant-round-non-malleable-commitment: "#constant-round-non-malleable-commitments"
+  three-round-non-malleable-commitment: "#three-round-non-malleable-commitments"
 ---
 
 # Commitment scheme
@@ -82,6 +85,52 @@ Over [[interactive-protocol#authenticated-channels|authenticated channels]] with
 
 The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol that UC-realizes $\calF_{\mathrm{MCOM}}$, possibly in a hybrid model; in the common reference string model all commitments of a session then share one reference string. A claw-free pair of trapdoor permutations together with a CCA2-secure PKE gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 
+## Non-malleable commitments
+
+A commitment scheme is **non-malleable** if a man-in-the-middle adversary that receives a commitment from an honest committer while committing to an honest receiver cannot commit to a value related to the honest committer's. DDN91 introduced the notion, with a definition by comparison to a simulator that takes part in no session with the honest committer, and constructed such commitments from any one-way function ([[owf-to-non-malleable-commitment-ddn91|OWF ⇒ NM commitment]]) — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]].
+
+The formulation below is tag-based and compares the adversary's committed value for two honest values, as in [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]]. A _tag-based_ commitment scheme $\mathsf{COM} = \langle C, R \rangle$ is a statistically binding commitment scheme with an interactive commit phase, in which the committer $C(t, v)$ and the receiver $R(t)$ share a tag $t \in \bits^\secpar$ that plays the role of the committer's identity. For a transcript $\tau$ of the commit phase, $\mathsf{val}(\tau)$ is the value to which $\tau$ can be opened, and $\bot$ if the receiver does not accept, if $\tau$ has no valid opening, or if it has valid openings to two values. The adversary plays the receiver in a _left_ session with $C(t, v_b)$ and the committer in a _right_ session with $R(\tilde t)$, for a tag $\tilde t$ of its choice, and schedules the messages of both sessions.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{nm}}_{\mathsf{COM},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $b \getsr \bits$
+\State $(v_0, v_1, t, \stA) \gets \calA(1^\secpar)$
+\Comment{$v_0, v_1 \in \calM$, $|v_0| = |v_1|$, $t \in \bits^\secpar$}
+\State Run $\langle C(t, v_b), \calA(\stA) \rangle$ and $\langle \calA(\stA), R(\tilde t) \rangle$, scheduled by $\calA$
+\Comment{$\calA$ chooses $\tilde t \in \bits^\secpar$; $\tilde\tau$ is the right transcript}
+\State $\tilde v \gets \mathsf{val}(\tilde\tau)$
+\If{$\tilde t = t$}
+\State $\tilde v \gets \bot$
+\EndIf
+\State $b' \gets \calA(\stA, \tilde v)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A tag-based commitment scheme $\mathsf{COM}$ is **non-malleable** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{nm}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{nm}}_{\mathsf{COM},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. The game discards $\tilde v$ when $\tilde t = t$, since otherwise $\calA$ wins by relaying each message between the two sessions, which commits it to $v_b$. An adversary that leaves the right session unfinished receives $\tilde v = \bot$, so a non-malleable scheme is also hiding against a malicious receiver ([[non-malleable-commitment-to-com|NM commitment ⇒ COM]]) — standard.
+
+### Concurrent non-malleability
+
+In the concurrent version $\calA$ takes part in polynomially many left and right sessions, which it schedules, and the values it commits to in the right sessions must not depend on the values committed in the left sessions — [[PR05a - Concurrent Non-Malleable Commitments|PR05a]].
+
+### Constant-round non-malleable commitments
+
+A non-malleable commitment scheme whose commit phase has a constant number of messages. Bar02 gave the first such scheme without setup, with a non-black-box security proof — [[Bar02 - Constant-Round Coin-Tossing with a Man in the Middle or Realizing the Shared Random String Model|Bar02]]. Collision-resistant hash functions suffice ([[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ constant-round NM commitment]]) — [[PR05 - New and improved constructions of non-malleable cryptographic protocols|PR05]], and so do one-way functions ([[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]]) — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].
+
+### Three-round non-malleable commitments
+
+A non-malleable commitment scheme whose commit phase has three messages. Injective one-way functions suffice ([[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ three-round NM commitment]]) — [[GR19 - Non-Malleable Commitments using Goldreich-Levin List Decoding|GR19]].
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
@@ -89,7 +138,7 @@ The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of 
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in 763f76829d6c -->
+<!-- BEGIN GENERATED participates-in 964bc85ba46a -->
 
 ## Participates in
 
@@ -98,18 +147,27 @@ The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of 
 - [[adversarial-pp-hiding-commitment-to-com|Commitment hiding for adversarial parameters ⇒ COM]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[com-to-coin-flipping-blu81|COM ⇒ Coin flipping (Blum)]] (via [[commitment-scheme#hiding-for-adversarial-public-parameters|Hiding for adversarial public parameters]])
 - [[com-to-owf-il89|COM ⇒ OWF]]
+- [[constant-round-non-malleable-commitment-to-non-malleable-commitment|Constant-round NM commitment ⇒ NM commitment]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
+- [[non-malleable-commitment-to-com|NM commitment ⇒ COM]] (via [[commitment-scheme#non-malleable-commitments|Non-malleable commitments]])
 - [[statistically-hiding-commitment-to-statistical-zk-argument-bcc88|Statistically hiding COM ⇒ Statistical ZK arguments for NP]] (via [[commitment-scheme#hiding|Hiding]])
+- [[three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment|Three-round NM commitment ⇒ Constant-round NM commitment]] (via [[commitment-scheme#three-round-non-malleable-commitments|Three-round non-malleable commitments]])
 
 **Produces Commitment scheme**
 
 - [[adversarial-pp-hiding-commitment-to-com|Commitment hiding for adversarial parameters ⇒ COM]]
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-multi-commitment|UC multi-commitment]])
+- [[constant-round-non-malleable-commitment-to-non-malleable-commitment|Constant-round NM commitment ⇒ NM commitment]] (via [[commitment-scheme#non-malleable-commitments|Non-malleable commitments]])
+- [[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ Constant-round NM commitment (Pass–Rosen)]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
 - [[crhf-to-statistically-hiding-commitment-dpp97|CRHF ⇒ Statistically hiding COM]] (via [[commitment-scheme#hiding|Hiding]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|Hiding]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]]
 - [[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]] (via [[commitment-scheme#binding|Binding]])
+- [[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ Three-round NM commitment (Goyal–Richelson)]] (via [[commitment-scheme#three-round-non-malleable-commitments|Three-round non-malleable commitments]])
+- [[non-malleable-commitment-to-com|NM commitment ⇒ COM]]
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
+- [[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ Constant-round NM commitment (Lin–Pass, Goyal)]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
+- [[owf-to-non-malleable-commitment-ddn91|OWF ⇒ NM commitment (Dolev–Dwork–Naor)]] (via [[commitment-scheme#non-malleable-commitments|Non-malleable commitments]])
 - [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ Statistically hiding COM (Haitner–Reingold)]] (via [[commitment-scheme#hiding|Hiding]])
 - [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]] (via [[commitment-scheme#hiding|Hiding]])
 - [[pcs-to-vector-commitments|PCS ⇒ Vector commitments]] (via [[commitment-scheme#vector-commitments|Vector commitments]])
@@ -118,6 +176,7 @@ The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of 
 - [[qr-to-com|QR ⇒ COM]]
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]]
 - [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]] (via [[commitment-scheme#uc-commitment|UC commitment]])
+- [[three-round-non-malleable-commitment-to-constant-round-non-malleable-commitment|Three-round NM commitment ⇒ Constant-round NM commitment]] (via [[commitment-scheme#constant-round-non-malleable-commitments|Constant-round non-malleable commitments]])
 
 **Barriers**
 
