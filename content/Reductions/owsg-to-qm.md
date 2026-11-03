@@ -5,7 +5,7 @@ title: "QM ⇒ OWSG"
 aliases: []
 id: red-quantum-money-to-one-way-state-generator-my22
 kind: implication
-hypotheses: [quantum-money]
+hypotheses: [pure-state-quantum-money]
 conclusion: one-way-state-generator
 class: unstated
 model: quantum
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-Private-key [[quantum-money|quantum money]] whose banknotes are pure states implies [[one-way-state-generator|one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+Private-key [[quantum-money#pure-money-states|quantum money with pure money states]] implies [[one-way-state-generator|one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
 
 ## Notes
 
