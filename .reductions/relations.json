@@ -2217,6 +2217,22 @@
    "unlisted": false
   },
   {
+   "id": "hash-proof-system",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/hash-proof-system.md",
+   "slug": "hash-proof-system",
+   "graphSlug": "Primitives/hash-proof-system",
+   "title": "Hash proof system",
+   "aliases": [
+    "HPS",
+    "Hash proof system",
+    "Smooth projective hash function",
+    "SPHF"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "he",
    "kind": "object",
    "type": "primitive",
@@ -6199,6 +6215,19 @@
    "unlisted": false
   },
   {
+   "id": "universal2-hash-proof-system",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-proof-system.md",
+   "slug": "hash-proof-system",
+   "graphSlug": "Primitives/hash-proof-system",
+   "anchor": "#universal-2-hash-proof-systems",
+   "of": "hash-proof-system",
+   "title": "Universal-2 hash proof systems",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "unkeyed-depir",
    "kind": "variant",
    "type": "primitive",
@@ -8948,6 +8977,33 @@
    "slug": "dcr-safe-primes-to-pke-cca2-security-cs02",
    "graphSlug": "Reductions/dcr-safe-primes-to-pke-cca2-security-cs02",
    "title": "DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)"
+  },
+  {
+   "id": "red-dcr-safe-primes-to-universal2-hash-proof-system-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "dcr-safe-primes"
+   ],
+   "conclusion": "universal2-hash-proof-system",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The hash proof system uses only the modulus sampler and arithmetic modulo the square of the modulus, and the reduction maps a DCR instance to a subset-membership instance and runs any distinguisher once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dcr-safe-primes-to-universal2-hash-proof-system-cs02.md",
+   "slug": "dcr-safe-primes-to-universal2-hash-proof-system-cs02",
+   "graphSlug": "Reductions/dcr-safe-primes-to-universal2-hash-proof-system-cs02",
+   "title": "DCR ⇒ Universal-2 HPS"
   },
   {
    "id": "red-dcr-to-com",
@@ -12131,6 +12187,33 @@
    "slug": "hash-function-to-zkp-gmw91",
    "graphSlug": "Reductions/hash-function-to-zkp-gmw91",
    "title": "OWF ⇒ ZKP"
+  },
+  {
+   "id": "red-hash-proof-system-to-pke-cpa-security-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "hash-proof-system"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the IND-CPA advantage is at most twice the sum of the subset-membership advantage and the smoothness error",
+   "rationale": {
+    "class": "The scheme calls the hash proof system's algorithms only as oracles, and the reduction runs any IND-CPA adversary once as an oracle on a challenge built from its subset-membership instance and a hash key it samples itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hash-proof-system-to-pke-cpa-security-cs02.md",
+   "slug": "hash-proof-system-to-pke-cpa-security-cs02",
+   "graphSlug": "Reductions/hash-proof-system-to-pke-cpa-security-cs02",
+   "title": "HPS ⇒ CPA-secure PKE"
   },
   {
    "id": "red-he-to-pke-cpa-security",
@@ -17815,6 +17898,33 @@
    "title": "Prime-order DDH ⇒ Katz–Wang signatures"
   },
   {
+   "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "universal2-hash-proof-system",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "the subset-membership advantage is at most the DDH advantage plus 1/q; the smooth component is perfectly smooth",
+   "rationale": {
+    "class": "The hash proof system uses only the group operations, and the reduction maps a DDH instance to a subset-membership instance and runs any distinguisher once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-universal2-hash-proof-system-cs02.md",
+   "slug": "prime-order-ddh-to-universal2-hash-proof-system-cs02",
+   "graphSlug": "Reductions/prime-order-ddh-to-universal2-hash-proof-system-cs02",
+   "title": "DDH ⇒ Universal-2 HPS"
+  },
+  {
    "id": "red-prime-order-dlog-and-kea3-to-three-message-zk-argument-bp04",
    "kind": "implication",
    "hypotheses": [
@@ -22215,6 +22325,60 @@
    "slug": "universal-snark-to-snark",
    "graphSlug": "Reductions/universal-snark-to-snark",
    "title": "Universal SNARK ⇒ SNARK"
+  },
+  {
+   "id": "red-universal2-hash-proof-system-to-hash-proof-system",
+   "kind": "implication",
+   "hypotheses": [
+    "universal2-hash-proof-system"
+   ],
+   "conclusion": "hash-proof-system",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight — the smooth component is unchanged",
+   "rationale": {
+    "class": "The construction keeps the smooth component of the pair, and the identity reduction runs any subset-membership adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/universal2-hash-proof-system-to-hash-proof-system.md",
+   "slug": "universal2-hash-proof-system-to-hash-proof-system",
+   "graphSlug": "Reductions/universal2-hash-proof-system-to-hash-proof-system",
+   "title": "Universal-2 HPS ⇒ HPS"
+  },
+  {
+   "id": "red-universal2-hash-proof-system-to-pke-cca2-security-cs02",
+   "kind": "implication",
+   "hypotheses": [
+    "universal2-hash-proof-system"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: twice the subset-membership advantage, plus statistical terms in the smoothness and universal-2 errors, one of them linear in the number of decryption queries",
+   "rationale": {
+    "class": "The scheme calls the two hash proof systems only as oracles, and the reduction answers decryption queries with hash keys it samples itself, running any CCA adversary once as an oracle on a challenge built from its subset-membership instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/universal2-hash-proof-system-to-pke-cca2-security-cs02.md",
+   "slug": "universal2-hash-proof-system-to-pke-cca2-security-cs02",
+   "graphSlug": "Reductions/universal2-hash-proof-system-to-pke-cca2-security-cs02",
+   "title": "Universal-2 HPS ⇒ CCA-secure PKE"
   },
   {
    "id": "red-unkeyed-depir-to-depir",

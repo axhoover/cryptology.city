@@ -139,7 +139,7 @@ TODO
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
 
-<!-- BEGIN GENERATED participates-in 7dcf194ef433 -->
+<!-- BEGIN GENERATED participates-in 299012f565ab -->
 
 ## Participates in
 
@@ -171,6 +171,7 @@ TODO
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
+- [[hash-proof-system-to-pke-cpa-security-cs02|HPS ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]
 - [[ibe-to-pke|IBE ⇒ PKE]]
@@ -198,6 +199,7 @@ TODO
 - [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
+- [[universal2-hash-proof-system-to-pke-cca2-security-cs02|Universal-2 HPS ⇒ CCA-secure PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
 
 **Barriers**
