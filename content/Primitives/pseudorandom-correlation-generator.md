@@ -1,6 +1,6 @@
 ---
 type: primitive
-status: stub
+status: draft
 aliases:
   - PCG
   - Pseudorandom correlation generator
@@ -27,13 +27,55 @@ $\Eval$ is called Expand in [[BCG+19 - Efficient Pseudorandom Correlation Genera
 
 The pair $(\Eval(0, k_0), \Eval(1, k_1))$ for $(k_0, k_1) \gets \Gen(1^\secpar)$ is computationally indistinguishable from $\calC(1^\secpar)$ — [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]].
 
-TODO: game.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{pcg\text{-}corr}}_{\mathsf{PCG},\calC,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $b \getsr \bits$; $(k_0, k_1) \gets \Gen(1^\secpar)$
+\State $(R_0^0, R_1^0) := (\Eval(0, k_0), \Eval(1, k_1))$
+\State $(R_0^1, R_1^1) \gets \calC(1^\secpar)$
+\State $b' \gets \calA(1^\secpar, R_0^b, R_1^b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PCG is **correct** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{pcg\text{-}corr}}_{\mathsf{PCG},\calC,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pcg\text{-}corr}}_{\mathsf{PCG},\calC,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 ### Security
 
 $\calC$ is required to be reverse-sampleable: an efficient algorithm, given $\sigma$ and an output $R_{1-\sigma}$ of one party, samples an $R_\sigma$ such that the resulting pair is computationally indistinguishable from $\calC(1^\secpar)$. A PCG is **secure** if for each $\sigma \in \bits$, $(k_{1-\sigma}, \Eval(\sigma, k_\sigma))$ is computationally indistinguishable from $(k_{1-\sigma}, R_\sigma)$, where $R_\sigma$ is reverse-sampled from $R_{1-\sigma} = \Eval(1-\sigma, k_{1-\sigma})$ — [[BCG+19 - Efficient Pseudorandom Correlation Generators Silent OT Extension and More|BCG+19]].
 
-TODO: game.
+Let $\mathsf{RSample}(1^\secpar, \sigma, R_{1-\sigma})$ be the reverse sampler of $\calC$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{pcg\text{-}sec}}_{\mathsf{PCG},\sigma,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $b \getsr \bits$; $(k_0, k_1) \gets \Gen(1^\secpar)$
+\State $R^0 := \Eval(\sigma, k_\sigma)$
+\State $R^1 \gets \mathsf{RSample}(1^\secpar, \sigma, \Eval(1-\sigma, k_{1-\sigma}))$
+\State $b' \gets \calA(1^\secpar, k_{1-\sigma}, R^b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PCG is **secure** if for each $\sigma \in \bits$ and all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{pcg\text{-}sec}}_{\mathsf{PCG},\sigma,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{pcg\text{-}sec}}_{\mathsf{PCG},\sigma,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible: the seed of party $1-\sigma$ reveals nothing about party $\sigma$'s output beyond what the correlation itself reveals given party $1-\sigma$'s output.
 
 <!-- BEGIN GENERATED participates-in b5da9f32c273 -->
 
