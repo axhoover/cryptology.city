@@ -1708,6 +1708,22 @@
    "unlisted": false
   },
   {
+   "id": "eth",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/exponential-time-hypothesis.md",
+   "slug": "exponential-time-hypothesis",
+   "graphSlug": "Assumptions/exponential-time-hypothesis",
+   "title": "Exponential time hypothesis",
+   "aliases": [
+    "ETH",
+    "Exponential time hypothesis",
+    "SETH",
+    "Strong exponential time hypothesis"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "evasive-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -4962,6 +4978,19 @@
    "anchor": "#semi-honest-two-party-computation",
    "of": "mpc",
    "title": "Semi-honest two-party computation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "seth",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/exponential-time-hypothesis.md",
+   "slug": "exponential-time-hypothesis",
+   "graphSlug": "Assumptions/exponential-time-hypothesis",
+   "anchor": "#strong-exponential-time-hypothesis",
+   "of": "eth",
+   "title": "Strong exponential time hypothesis",
    "aliases": [],
    "unlisted": false
   },

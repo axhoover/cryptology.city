@@ -30,6 +30,10 @@ A _polynomial-stretch_ PRG in $\mathrm{NC}^0$ is a PRG $G : \bits^n \to \bits^{m
 
 A polynomial-stretch PRG in $\mathrm{NC}^0$ is **sub-exponentially secure** if there is a constant $\varepsilon > 0$ such that for all sufficiently large $n$ every distinguisher of size at most $2^{n^{\varepsilon}}$ has advantage at most $2^{-n^{\varepsilon}}$.
 
+# Other results
+
+- Conditional on the claimed algorithm of [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (see [[exponential-time-hypothesis#attacks|ETH]]): for every fixed $d$, every $G : \bits^n \to \bits^m$ whose output bits each depend on at most $d$ input bits can be inverted on every point of its image, and $|G^{-1}(y)|$ computed exactly, in deterministic time $(n + m)^{O_d(1)} 2^{O_d(n (\log\log n)^2 / \sqrt{\log n})}$ and space $(n + m)^{O_d(1)}$ — [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (Corollary C.2). For $m > n$, testing $|G^{-1}(y)| > 0$ distinguishes $G(x)$ from uniform $y$ with advantage at least $1 - 2^{n-m} \ge 1/2$, so no PRG in $\mathrm{NC}^0$ is secure against distinguishers running in time $2^{\varepsilon n}$ for a constant $\varepsilon > 0$. The running time is $2^{n^{1-o(1)}}$, so sub-exponential security as defined above is unaffected.
+
 <!-- BEGIN GENERATED participates-in fba1f53a0ecd -->
 
 ## Participates in
