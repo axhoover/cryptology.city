@@ -415,9 +415,10 @@
    "title": "Anonymous credentials",
    "aliases": [
     "AC",
-    "Anonymous credentials"
+    "Anonymous credentials",
+    "Anonymous credential"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "anonymous-hibe",
