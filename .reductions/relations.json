@@ -9016,6 +9016,34 @@
    "title": "DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)"
   },
   {
+   "id": "red-ddh-to-anonymous-public-key-encryption-bbdp01",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "anonymous-public-key-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]",
+    "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "ElGamal uses only the operations of the common group, and the reduction embeds its DDH challenge in one public key and the challenge ciphertext and runs any IK-CPA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-anonymous-public-key-encryption-bbdp01.md",
+   "slug": "ddh-to-anonymous-public-key-encryption-bbdp01",
+   "graphSlug": "Reductions/ddh-to-anonymous-public-key-encryption-bbdp01",
+   "title": "DDH ⇒ Key-hiding PKE (ElGamal)"
+  },
+  {
    "id": "red-ddh-to-cdh",
    "kind": "implication",
    "hypotheses": [
