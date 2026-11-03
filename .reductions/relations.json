@@ -1687,6 +1687,20 @@
    "unlisted": false
   },
   {
+   "id": "discrete-gaussian",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/discrete-gaussian.md",
+   "slug": "discrete-gaussian",
+   "graphSlug": "Glossary/discrete-gaussian",
+   "title": "Discrete Gaussians and the smoothing parameter",
+   "aliases": [
+    "Discrete Gaussian",
+    "Smoothing parameter"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "distributed-key-generation",
    "kind": "object",
    "type": "primitive",
@@ -3170,6 +3184,21 @@
    "title": "LaTeX macros",
    "aliases": [
     "LaTeX macros"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "lattice-trapdoor",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/lattice-trapdoor.md",
+   "slug": "lattice-trapdoor",
+   "graphSlug": "Glossary/lattice-trapdoor",
+   "title": "Lattice trapdoors",
+   "aliases": [
+    "Lattice trapdoor",
+    "Lattice trapdoors",
+    "Gadget trapdoor"
    ],
    "unlisted": false
   },
