@@ -11,6 +11,8 @@ class: free
 model: standard
 source:
   - "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard"
 rationale:
   class: "The obfuscated circuits contain the code of a puncturable PRF built from the one-way function, making the construction non-black-box in the one-way function; BPR15 state no reduction notion, so the broadest class is recorded."

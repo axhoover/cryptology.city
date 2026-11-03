@@ -1236,6 +1236,19 @@
    "unlisted": false
   },
   {
+   "id": "complexity-leveraging",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/complexity-leveraging.md",
+   "slug": "complexity-leveraging",
+   "graphSlug": "Glossary/complexity-leveraging",
+   "title": "Complexity leveraging",
+   "aliases": [
+    "Complexity leveraging"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "computational-fuzzy-extractor",
    "kind": "variant",
    "type": "primitive",
@@ -14178,7 +14191,9 @@
    "source": [
     "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "multiplicative $|\\calI|$",
    "rationale": {
@@ -22027,7 +22042,9 @@
    "source": [
     "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard",
    "rationale": {
@@ -22055,7 +22072,9 @@
    "source": [
     "folklore"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "multiplicative $|\\Sigma^{\\le d}|$",
    "rationale": {
