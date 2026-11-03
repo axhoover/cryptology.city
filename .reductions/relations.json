@@ -364,6 +364,34 @@
    "unlisted": false
   },
   {
+   "id": "anamorphic-encryption",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "title": "Anamorphic encryption",
+   "aliases": [
+    "AME",
+    "Anamorphic encryption",
+    "Receiver-anamorphic encryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "anamorphic-resistant-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "anchor": "#anamorphic-resistant-encryption",
+   "of": "anamorphic-encryption",
+   "title": "Anamorphic-resistant encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "anonymous-credentials",
    "kind": "object",
    "type": "primitive",
@@ -1935,6 +1963,19 @@
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
    "title": "FRI (Fast Reed-Solomon IOP of Proximity)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "fully-asymmetric-anamorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "anchor": "#fully-asymmetric-anamorphic-encryption",
+   "of": "anamorphic-encryption",
+   "title": "Fully asymmetric anamorphic encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -4467,6 +4508,19 @@
    "unlisted": false
   },
   {
+   "id": "public-key-anamorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "anchor": "#public-key-anamorphic-encryption",
+   "of": "anamorphic-encryption",
+   "title": "Public-key anamorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "pwpp",
    "kind": "variant",
    "type": "complexity-class",
@@ -4739,6 +4793,19 @@
    "unlisted": false
   },
   {
+   "id": "robust-anamorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "anchor": "#robustness",
+   "of": "anamorphic-encryption",
+   "title": "Robustness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "rom",
    "kind": "object",
    "type": "glossary",
@@ -4962,6 +5029,19 @@
    "anchor": "#semi-honest-two-party-computation",
    "of": "mpc",
    "title": "Semi-honest two-party computation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sender-anamorphic-encryption",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/anamorphic-encryption.md",
+   "slug": "anamorphic-encryption",
+   "graphSlug": "Primitives/anamorphic-encryption",
+   "anchor": "#sender-anamorphic-encryption",
+   "of": "anamorphic-encryption",
+   "title": "Sender-anamorphic encryption",
    "aliases": [],
    "unlisted": false
   },
