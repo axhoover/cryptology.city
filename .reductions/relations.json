@@ -428,9 +428,10 @@
    "title": "Anonymous credentials",
    "aliases": [
     "AC",
-    "Anonymous credentials"
+    "Anonymous credentials",
+    "Anonymous credential"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "anonymous-hibe",
@@ -1615,7 +1616,7 @@
    "of": "multilinear-maps",
    "title": "Decision Multilinear No-Exact-Cover assumption",
    "aliases": [],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "decision-subset-sum",
@@ -3642,9 +3643,10 @@
    "graphSlug": "Primitives/merkle-puzzles",
    "title": "Merkle puzzles",
    "aliases": [
-    "Merkle puzzles"
+    "Merkle puzzles",
+    "Merkle's puzzles"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "mip",
@@ -3872,9 +3874,11 @@
    "title": "Multilinear maps",
    "aliases": [
     "MMap",
-    "Multilinear maps"
+    "Multilinear maps",
+    "Multilinear map",
+    "Graded encoding"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "multiplicatively-homomorphic-encryption",
