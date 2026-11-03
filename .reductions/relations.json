@@ -3593,7 +3593,7 @@
     "MIP",
     "Multi-prover interactive proofs"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "mip-star",
