@@ -107,7 +107,11 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 
 ## Attacks
 
-TODO
+- **Gaussian elimination.** Solving $\mathbf{A}'\mathbf{s}' = \mathbf{v}'$ on $k$ fresh samples with invertible $\mathbf{A}'$ returns $\mathbf{s}$ whenever their $k$ noise bits are all $0$, which happens with probability $(1-\varepsilon)^k$; repeating and testing each candidate on further samples recovers $\mathbf{s}$ in time and samples $\poly(k) \cdot (1-\varepsilon)^{-k}$. This is polynomial for $\varepsilon = O(\log(k)/k)$, quasi-polynomial in the [[#Low-noise LPN|low-noise regime]], and $e^{O(\sqrt{k})}$ at $\varepsilon = 1/\sqrt{k}$ — standard.
+- **BKW.** For every constant noise rate $\varepsilon < 1/2$, the Blum–Kalai–Wasserman algorithm recovers $\mathbf{s}$ in time $2^{O(k/\log k)}$ from $2^{O(k/\log k)}$ samples — [[BKW03 - Noise-Tolerant Learning, the Parity Problem, and the Statistical Query Model|BKW03]]. It adds pairs of samples that agree on a block of coordinates, zeroing the block at the cost of squaring the noise bias, until only the last block is nonzero; the samples that are then a unit vector reveal the corresponding bit of $\mathbf{s}$ by majority vote — [[BKW03 - Noise-Tolerant Learning, the Parity Problem, and the Statistical Query Model|BKW03]].
+- **Fewer samples.** At constant noise rate, with $k^{1+\delta}$ samples for a constant $\delta > 0$, time $2^{O(k/\log\log k)}$ suffices — [[Lyu05 - The Parity Problem in the Presence of Noise, Decoding Random Linear Codes, and the Subset Sum Problem|Lyu05]].
+- **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
+- **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
 # Variations
 

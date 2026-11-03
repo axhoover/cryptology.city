@@ -162,7 +162,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in accac0551d62 -->
+<!-- BEGIN GENERATED participates-in 32d065b39260 -->
 
 ## Participates in
 
@@ -214,6 +214,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
+- [[subset-sum-to-ot-lps10|Subset sum ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
 - [[two-party-computation-to-malicious-ot-security|2PC ⇒ Malicious OT]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[two-party-computation-to-ot|Semi-honest 2PC ⇒ OT]]

@@ -1540,6 +1540,19 @@
    "unlisted": true
   },
   {
+   "id": "decision-subset-sum",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "anchor": "#decision-subset-sum",
+   "of": "subset-sum",
+   "title": "Decision subset sum",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "decisional-linear",
    "kind": "variant",
    "type": "assumption",
@@ -2249,6 +2262,19 @@
     "GKR protocol"
    ],
    "unlisted": true
+  },
+  {
+   "id": "goppa-code-indistinguishability",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/syndrome-decoding.md",
+   "slug": "syndrome-decoding",
+   "graphSlug": "Assumptions/syndrome-decoding",
+   "anchor": "#goppa-code-indistinguishability",
+   "of": "syndrome-decoding",
+   "title": "Goppa code indistinguishability",
+   "aliases": [],
+   "unlisted": false
   },
   {
    "id": "hardcore-predicate",
@@ -3375,6 +3401,19 @@
    "anchor": "#maurers-formulation",
    "of": "ggm",
    "title": "Maurer's Formulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "mceliece-ow-cpa",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/syndrome-decoding.md",
+   "slug": "syndrome-decoding",
+   "graphSlug": "Assumptions/syndrome-decoding",
+   "anchor": "#one-wayness-of-mceliece-encryption",
+   "of": "syndrome-decoding",
+   "title": "One-wayness of McEliece encryption",
    "aliases": [],
    "unlisted": false
   },
@@ -5918,6 +5957,21 @@
    "unlisted": false
   },
   {
+   "id": "subset-sum",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/subset-sum.md",
+   "slug": "subset-sum",
+   "graphSlug": "Assumptions/subset-sum",
+   "title": "Subset sum",
+   "aliases": [
+    "Subset sum",
+    "Subset-sum problem",
+    "Random modular subset sum"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "succinct-lwe",
    "kind": "variant",
    "type": "assumption",
@@ -6006,6 +6060,21 @@
    "of": "ddh",
    "title": "SXDH (Symmetric External Diffie-Hellman)",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "syndrome-decoding",
+   "kind": "object",
+   "type": "assumption",
+   "page": "content/Assumptions/syndrome-decoding.md",
+   "slug": "syndrome-decoding",
+   "graphSlug": "Assumptions/syndrome-decoding",
+   "title": "Syndrome decoding",
+   "aliases": [
+    "SD",
+    "Syndrome decoding",
+    "Decoding random linear codes"
+   ],
    "unlisted": false
   },
   {
@@ -21627,6 +21696,126 @@
    "title": "Subgroup decision ⇒ SHE (degree 2)"
   },
   {
+   "id": "red-subset-sum-to-decision-subset-sum-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "decision-subset-sum",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-decision-subset-sum-in96.md",
+   "slug": "subset-sum-to-decision-subset-sum-in96",
+   "graphSlug": "Reductions/subset-sum-to-decision-subset-sum-in96",
+   "title": "Subset sum ⇒ Decision subset sum"
+  },
+  {
+   "id": "red-subset-sum-to-ot-lps10",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "ot",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-ot-lps10.md",
+   "slug": "subset-sum-to-ot-lps10",
+   "graphSlug": "Reductions/subset-sum-to-ot-lps10",
+   "title": "Subset sum ⇒ OT"
+  },
+  {
+   "id": "red-subset-sum-to-pke-lps10",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-pke-lps10.md",
+   "slug": "subset-sum-to-pke-lps10",
+   "graphSlug": "Reductions/subset-sum-to-pke-lps10",
+   "title": "Subset sum ⇒ PKE"
+  },
+  {
+   "id": "red-subset-sum-to-prg-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "prg",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-prg-in96.md",
+   "slug": "subset-sum-to-prg-in96",
+   "graphSlug": "Reductions/subset-sum-to-prg-in96",
+   "title": "Subset sum ⇒ PRG"
+  },
+  {
+   "id": "red-subset-sum-to-uowhf-in96",
+   "kind": "implication",
+   "hypotheses": [
+    "subset-sum"
+   ],
+   "conclusion": "uowhf",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/subset-sum-to-uowhf-in96.md",
+   "slug": "subset-sum-to-uowhf-in96",
+   "graphSlug": "Reductions/subset-sum-to-uowhf-in96",
+   "title": "Subset sum ⇒ UOWHF"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
@@ -21840,6 +22029,58 @@
    "slug": "symmetric-private-information-retrieval-single-server-to-ot",
    "graphSlug": "Reductions/symmetric-private-information-retrieval-single-server-to-ot",
    "title": "Symmetric private information retrieval (Single-server) ⇒ OT"
+  },
+  {
+   "id": "red-syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "syndrome-decoding",
+    "goppa-code-indistinguishability"
+   ],
+   "conclusion": "mceliece-ow-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "additive: the Goppa-distinguishing advantage plus the decoding advantage plus at most $2^{-k} + 2^{k-n}$ for rank-deficient matrices",
+   "rationale": {
+    "class": "The distinguisher runs the inverter once as an oracle on a public key that is either a scrambled Goppa generator matrix or uniform, and the decoder runs it once on a generator matrix and ciphertext computed from the syndrome instance."
+   },
+   "status": "draft",
+   "page": "content/Reductions/syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa.md",
+   "slug": "syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa",
+   "graphSlug": "Reductions/syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa",
+   "title": "SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption"
+  },
+  {
+   "id": "red-syndrome-decoding-to-prg-fs96",
+   "kind": "implication",
+   "hypotheses": [
+    "syndrome-decoding"
+   ],
+   "conclusion": "prg",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/syndrome-decoding-to-prg-fs96.md",
+   "slug": "syndrome-decoding-to-prg-fs96",
+   "graphSlug": "Reductions/syndrome-decoding-to-prg-fs96",
+   "title": "SD ⇒ PRG"
   },
   {
    "id": "red-szk-hardness-to-owf-ost91",

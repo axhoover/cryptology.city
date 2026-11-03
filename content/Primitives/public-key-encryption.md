@@ -189,7 +189,7 @@ is negligible.
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
 
-<!-- BEGIN GENERATED participates-in 2df18cf73287 -->
+<!-- BEGIN GENERATED participates-in f3d63ad1a02e -->
 
 ## Participates in
 
@@ -251,6 +251,7 @@ is negligible.
 - [[somewhat-homomorphic-encryption-to-pke-cpa-security|SHE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[strongly-homomorphic-encryption-to-pke-cpa-security|Strongly homomorphic encryption ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[subset-sum-to-pke-lps10|Subset sum ⇒ PKE]]
 - [[tdp-to-pke|TDP ⇒ PKE]]
 - [[universal2-hash-proof-system-to-pke-cca2-security-cs02|Universal-2 HPS ⇒ CCA-secure PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
