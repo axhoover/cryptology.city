@@ -127,7 +127,57 @@ An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsil
 
 ## Key-hiding
 
-TODO
+A ciphertext hides the public key it was created under: given two public keys, no efficient adversary can tell under which one a ciphertext of a message of its choice was created. **IK-CPA** is the chosen-plaintext version of this _key privacy_ and **IK-CCA** the chosen-ciphertext version — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]. When keys are generated relative to common parameters, such as a group shared by all users, both key pairs use the same parameters, which $\calA$ also receives — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ik\text{-}cpa}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk_0, \pk_0) \gets \KeyGen(1^\secpar)$; $(\sk_1, \pk_1) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(m, \stA) \gets \calA(1^\secpar, \pk_0, \pk_1)$
+\Comment{$m \in \calM$}
+\State $c^* \gets \Enc(\pk_b, m)$
+\State $b' \gets \calA(c^*, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ is **IK-CPA-secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ik\text{-}cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ik\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. Key privacy and CPA security are independent: appending $\pk$ to every ciphertext preserves CPA security and breaks IK-CPA security, and the scheme that outputs $m$ unencrypted is IK-CPA-secure — standard. As an object, key-hiding PKE denotes a scheme that is both CPA-secure and IK-CPA-secure.
+
+In the IK-CCA game $\calA$ also has decryption oracles under both secret keys in both phases. An **admissible** adversary submits $m \in \calM$ and, after receiving $c^*$, queries neither oracle on $c^*$; without this restriction $\calA$ wins against every scheme whose decryption under the wrong key does not return $m$, by comparing $\calD_0(c^*)$ and $\calD_1(c^*)$ with $m$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ik\text{-}cca}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk_0, \pk_0) \gets \KeyGen(1^\secpar)$; $(\sk_1, \pk_1) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $\calD_0(c) := \Dec(\sk_0, c)$; $\calD_1(c) := \Dec(\sk_1, c)$
+\State $(m, \stA) \gets \calA^{\calD_0, \calD_1}(1^\secpar, \pk_0, \pk_1)$
+\Comment{Phase 1: $\calD_0, \calD_1$ unrestricted; $m \in \calM$}
+\State $c^* \gets \Enc(\pk_b, m)$
+\State $b' \gets \calA^{\calD_0, \calD_1}(c^*, \stA)$
+\Comment{Phase 2: $\calA$ may not query $\calD_0$ or $\calD_1$ on $c^*$}
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ is **IK-CCA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ik\text{-}cca}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ik\text{-}cca}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Other results
 
@@ -139,7 +189,7 @@ TODO
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
 
-<!-- BEGIN GENERATED participates-in 299012f565ab -->
+<!-- BEGIN GENERATED participates-in 73fa470422d0 -->
 
 ## Participates in
 
@@ -167,9 +217,11 @@ TODO
 - [[dcr-safe-primes-to-pke-cca2-security-cs02|DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[dcr-to-pke-pai99|DCR ⇒ PKE]]
 - [[ddh-and-uowhf-to-pke-cca2-security-cs98|DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[ddh-to-anonymous-public-key-encryption-bbdp01|DDH ⇒ Key-hiding PKE (ElGamal)]] (via [[public-key-encryption#key-hiding|Key-hiding]])
 - [[ddh-to-pke-elgamal85|DDH ⇒ PKE]]
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[factoring-blum-integers-to-pke-cpa-security-bg84|Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[hash-proof-system-to-pke-cpa-security-cs02|HPS ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
@@ -209,6 +261,7 @@ TODO
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
+- [[no-pke-cca2-security-to-ibe-bprvw08|No fully-black-box reduction from CCA-secure PKE to IBE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[no-pke-cpa-security-to-bit-circular-security-rot13|No fixed-construction reduction from IND-CPA security to circular security of bit encryption]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-k-circular-security-ap16|No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-k-circular-security-krw15|No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)]] (via [[public-key-encryption#cpa-security|CPA Security]])

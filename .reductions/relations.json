@@ -9472,6 +9472,34 @@
    "title": "DDH + UOWHF ⇒ CCA-secure PKE (Cramer–Shoup)"
   },
   {
+   "id": "red-ddh-to-anonymous-public-key-encryption-bbdp01",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "anonymous-public-key-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]",
+    "[[TY98 - On the Security of ElGamal Based Encryption|TY98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "ElGamal uses only the operations of the common group, and the reduction embeds its DDH challenge in one public key and the challenge ciphertext and runs any IK-CPA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-anonymous-public-key-encryption-bbdp01.md",
+   "slug": "ddh-to-anonymous-public-key-encryption-bbdp01",
+   "graphSlug": "Reductions/ddh-to-anonymous-public-key-encryption-bbdp01",
+   "title": "DDH ⇒ Key-hiding PKE (ElGamal)"
+  },
+  {
    "id": "red-ddh-to-cdh",
    "kind": "implication",
    "hypotheses": [
@@ -11083,6 +11111,60 @@
    "slug": "factoring-blum-integers-to-claw-free-permutations-gmr88",
    "graphSlug": "Reductions/factoring-blum-integers-to-claw-free-permutations-gmr88",
    "title": "Factoring ⇒ Claw-free permutations (GMR)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-identification-scheme-ffs88",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "identification-scheme",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[FFS88 - Zero-Knowledge Proofs of Identity|FFS88]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme uses only arithmetic modulo the sampled Blum integer, and the reduction samples the secret key itself, plays the honest prover, and runs the impersonator only as an oracle, rewinding it to two accepting answers to one commitment."
+   },
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-identification-scheme-ffs88.md",
+   "slug": "factoring-blum-integers-to-identification-scheme-ffs88",
+   "graphSlug": "Reductions/factoring-blum-integers-to-identification-scheme-ffs88",
+   "title": "Factoring ⇒ ID (Feige–Fiat–Shamir)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-pke-cpa-security-bg84",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BG84 - An Efficient Probabilistic Public-Key Encryption Scheme Which Hides All Partial Information|BG84]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme only squares modulo the sampled Blum integer, and the reduction runs any CPA adversary only as an oracle to predict the low-order bit of a square root, which it in turn uses only as an oracle to factor."
+   },
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-pke-cpa-security-bg84.md",
+   "slug": "factoring-blum-integers-to-pke-cpa-security-bg84",
+   "graphSlug": "Reductions/factoring-blum-integers-to-pke-cpa-security-bg84",
+   "title": "Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)"
   },
   {
    "id": "red-factoring-blum-integers-to-tdp-rab79",
@@ -18739,6 +18821,33 @@
    "title": "QR ⇒ Additively homomorphic encryption"
   },
   {
+   "id": "red-qr-to-ind-id-cpa-coc01",
+   "kind": "implication",
+   "hypotheses": [
+    "qr"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "unstated",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[Coc01 - An Identity Based Encryption Scheme Based on Quadratic Residues|Coc01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Coc01's security argument models the hash from identities to $\\J_N$ as a random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/qr-to-ind-id-cpa-coc01.md",
+   "slug": "qr-to-ind-id-cpa-coc01",
+   "graphSlug": "Reductions/qr-to-ind-id-cpa-coc01",
+   "title": "QR ⇒ IBE (Cocks, random oracle model)"
+  },
+  {
    "id": "red-qr-to-lossy-trapdoor-function-fgkrs10",
    "kind": "implication",
    "hypotheses": [
@@ -24653,6 +24762,35 @@
    "title": "No fixed-construction reduction from CCA1 security to CCA2 security"
   },
   {
+   "id": "bar-pke-cca2-security-to-ibe-bprvw08",
+   "hypotheses": [
+    "pke-cca2-security"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]]"
+   ],
+   "rationale": {
+    "class": "BPRVW08 rule out black-box constructions, which covers at least every construction that uses the encryption scheme only as an oracle with a security proof that uses the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cca2-security-to-ibe-bprvw08.md",
+   "slug": "no-pke-cca2-security-to-ibe-bprvw08",
+   "graphSlug": "Barriers/no-pke-cca2-security-to-ibe-bprvw08",
+   "title": "No fully-black-box reduction from CCA-secure PKE to IBE"
+  },
+  {
    "id": "bar-pke-cpa-security-to-bit-circular-security-rot13",
    "hypotheses": [
     "pke-cpa-security"
@@ -25241,6 +25379,35 @@
    "slug": "no-tdp-to-ot",
    "graphSlug": "Barriers/no-tdp-to-ot",
    "title": "No fully-black-box reduction from TDP to enhanced TDP"
+  },
+  {
+   "id": "bar-tdp-to-ibe-bprvw08",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "ibe",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[BPRVW08 - On the Impossibility of Basing Identity Based Encryption on Trapdoor Permutations|BPRVW08]]"
+   ],
+   "rationale": {
+    "class": "BPRVW08 rule out black-box constructions, which covers at least every construction that uses the trapdoor permutation only as an oracle with a security proof that uses the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tdp-to-ibe-bprvw08.md",
+   "slug": "no-tdp-to-ibe-bprvw08",
+   "graphSlug": "Barriers/no-tdp-to-ibe-bprvw08",
+   "title": "No fully-black-box reduction from TDP to IBE"
   },
   {
    "id": "bar-tdp-to-one-round-sublinear-cpir-hhs08",
