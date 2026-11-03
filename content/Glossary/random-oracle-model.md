@@ -14,13 +14,13 @@ variants:
 
 # Random Oracle Model
 
-The _Random Oracle Model (ROM)_ is a heuristic commonly used in cryptography to prove security of systems, which are either difficult or impossible to prove secure otherwise. In this model, all parties are given access to an oracle, which is instantiated as a random and independent function. Then, proofs argue with high probability over the choice of a random oracle, schemes remain secure.
+In the _Random Oracle Model (ROM)_, every party, the adversary included, has oracle access to one function $H : \bits^* \to \bits^{\ell(\secpar)}$ sampled uniformly at random, and a scheme is secure in the ROM if for all efficient $\calA$ the advantage of $\calA$, with probability taken over the choice of $H$ and the coins of the game, is negligible — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]. Replacing $H$ by a concrete hash function and taking the ROM proof as evidence of security for the resulting scheme is the design paradigm of [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]; [[CGH98 - The Random Oracle Methodology Revisited|CGH98]] call it the _random-oracle methodology_ and show that it can fail.
 
-The ROM is related to the _Random Oracle Hypothesis_ (attributed to Bennett and Gill), which conjectured that complexity-class relationships holding for almost all relativized worlds also hold unrelativized. The hypothesis was disproved by [[CCG+94 - The random oracle hypothesis is false|CCG+94]].
+The ROM is related to the [[random-oracle-hypothesis|Random Oracle Hypothesis]] of [[BG81 - Relative to a random oracle A, P^A != NP^A != co-NP^A with probability 1|BG81]], which conjectured that complexity-class relationships holding for almost all relativized worlds also hold unrelativized. The hypothesis is false; one counterexample, not the first, is $\classIP^A \neq \classPSPACE^A$ for almost all oracles $A$ — [[CCG+94 - The random oracle hypothesis is false|CCG+94]].
 
 ## Quantum random oracle model
 
-In the _quantum random oracle model (QROM)_, every party gets a uniformly random function $H : \bits^* \to \bits^\secpar$; quantum algorithms, the adversary included, may query it in superposition through the unitary $\lvert x, y \rangle \mapsto \lvert x, y \oplus H(x) \rangle$, while honest parties query it classically — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]]. A proof in the classical ROM need not carry over: some scheme is secure against adversaries with classical oracle access and insecure against superposition queries — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]].
+In the _quantum random oracle model (QROM)_, every party gets a uniformly random function $H : \bits^* \to \bits^\secpar$; quantum algorithms, the adversary included, may query it in superposition through the unitary $\lvert x, y \rangle \mapsto \lvert x, y \oplus H(x) \rangle$, while honest parties query it classically — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]]. A proof in the classical ROM need not carry over: some scheme is secure against quantum adversaries with classical oracle access and insecure against quantum adversaries making superposition queries — [[BDF+11 - Random Oracles in a Quantum World|BDF+11]].
 
 # Known Results
 
@@ -28,9 +28,10 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 
 - **The ROM is uninstantiable in general** — there are signature and encryption schemes that are secure in the ROM but insecure under every instantiation of the random oracle by an efficiently computable function family [[CGH98 - The Random Oracle Methodology Revisited|CGH98]].
 
-- **Equivalence with the ideal-cipher model** — a random oracle and an [[ideal-cipher-model|ideal cipher]] can each be built from the other in the sense of [[indifferentiability]], so the two models are equivalent for single-stage security games [[HKT11 - The Equivalence of the Random Oracle Model and the Ideal Cipher Model Revisited|HKT11]]; the composition theorem behind the equivalence covers only single-stage games [[RSS11 - Careful with Composition Limitations of the Indifferentiability Framework|RSS11]].
+- **Equivalence with the ideal-cipher model** — a random oracle is [[indifferentiability|indifferentiably]] constructible from an [[ideal-cipher-model|ideal cipher]] [[CDMP05 - Merkle-Damgard Revisited How to Construct a Hash Function|CDMP05]], and an ideal cipher from a random oracle by a 14-round Feistel network [[HKT11 - The Equivalence of the Random Oracle Model and the Ideal Cipher Model Revisited|HKT11]]; by the composition theorem of [[MRH04 - Indifferentiability Impossibility Results on Reductions and Applications to the Random Oracle Methodology|MRH04]] the two models are equivalent for single-stage security games, and that theorem covers only single-stage games [[RSS11 - Careful with Composition Limitations of the Indifferentiability Framework|RSS11]].
 
-- **[[fiat-shamir-heuristic|Fiat-Shamir]] is uninstantiable in the standard model** — Goldwasser and Kalai constructed a 3-round public-coin protocol whose Fiat-Shamir transform is existentially forgeable under every concrete hash function, even though it is secure in the ROM [[GK03 - On the (In)security of the Fiat-Shamir Paradigm|GK03]]. This shows the random oracle cannot always be replaced by a concrete function.
+- [[no-fiat-shamir-and-hash-function-to-ds-gk03|No fixed-construction reduction from Fiat-Shamir + Hash function to DS]]
+- [[no-fiat-shamir-to-nizk-gk03|No fixed-construction reduction from Fiat-Shamir to NIZK]]
 
 - [[no-fiat-shamir-and-gkr-to-snark-krs25|No fixed-construction reduction from Fiat-Shamir + GKR to SNARK]]
 
