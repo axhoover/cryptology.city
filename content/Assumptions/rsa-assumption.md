@@ -75,7 +75,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - **Small-exponent attacks**: encrypting the same short message under many independent RSA public keys with a small exponent $e$ (e.g., $e = 3$) allows recovery via the Chinese Remainder Theorem (Håstad's broadcast attack).
 - **Chosen-ciphertext attacks**: textbook RSA (without padding) is not CCA-secure; OAEP padding is required in practice.
 
-<!-- BEGIN GENERATED participates-in 66cda41bc161 -->
+<!-- BEGIN GENERATED participates-in 80b0b4315b0f -->
 
 ## Participates in
 
@@ -92,6 +92,7 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
 - [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[rsa-assumption#strong-rsa|Strong RSA]])

@@ -282,6 +282,19 @@
    "unlisted": false
   },
   {
+   "id": "adaptively-secure-threshold-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-signature.md",
+   "slug": "threshold-signature",
+   "graphSlug": "Primitives/threshold-signature",
+   "anchor": "#adaptive-corruption",
+   "of": "threshold-signature",
+   "title": "Adaptive corruption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "additively-homomorphic-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -2136,6 +2149,19 @@
    "anchor": "#fri-fast-reed-solomon-iop-of-proximity",
    "of": "pcs",
    "title": "FRI (Fast Reed-Solomon IOP of Proximity)",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "frost",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-signature.md",
+   "slug": "threshold-signature",
+   "graphSlug": "Primitives/threshold-signature",
+   "anchor": "#frost",
+   "of": "threshold-signature",
+   "title": "FROST",
    "aliases": [],
    "unlisted": false
   },
@@ -6477,6 +6503,19 @@
    "unlisted": false
   },
   {
+   "id": "threshold-bls",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-signature.md",
+   "slug": "threshold-signature",
+   "graphSlug": "Primitives/threshold-signature",
+   "anchor": "#threshold-bls",
+   "of": "threshold-signature",
+   "title": "Threshold BLS",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "threshold-encryption",
    "kind": "object",
    "type": "primitive",
@@ -6489,6 +6528,35 @@
     "Threshold encryption"
    ],
    "unlisted": true
+  },
+  {
+   "id": "threshold-rsa",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-signature.md",
+   "slug": "threshold-signature",
+   "graphSlug": "Primitives/threshold-signature",
+   "anchor": "#threshold-rsa",
+   "of": "threshold-signature",
+   "title": "Threshold RSA",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "threshold-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/threshold-signature.md",
+   "slug": "threshold-signature",
+   "graphSlug": "Primitives/threshold-signature",
+   "title": "Threshold signature",
+   "aliases": [
+    "TS",
+    "Threshold signature",
+    "Threshold signatures",
+    "Threshold signature scheme"
+   ],
+   "unlisted": false
   },
   {
    "id": "time-lock-puzzle",
@@ -20445,6 +20513,35 @@
    "slug": "rsa-to-tdp-rsa78",
    "graphSlug": "Reductions/rsa-to-tdp-rsa78",
    "title": "RSA ⇒ TDP"
+  },
+  {
+   "id": "red-rsa-to-threshold-rsa-sho00",
+   "kind": "implication",
+   "hypotheses": [
+    "rsa"
+   ],
+   "conclusion": "threshold-rsa",
+   "class": "unstated",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[Sho00 - Practical Threshold Signatures|Sho00]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Both the full-domain hash and the hash of the non-interactive share-correctness proofs are modeled as random oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/rsa-to-threshold-rsa-sho00.md",
+   "slug": "rsa-to-threshold-rsa-sho00",
+   "graphSlug": "Reductions/rsa-to-threshold-rsa-sho00",
+   "title": "RSA ⇒ Threshold RSA signatures (Shoup)"
   },
   {
    "id": "red-schnorr-identification-protocol-to-schnorr-signature-aabn02",
