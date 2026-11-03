@@ -162,7 +162,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in 32d065b39260 -->
+<!-- BEGIN GENERATED participates-in bc4523a7a49c -->
 
 ## Participates in
 
@@ -207,6 +207,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|Malicious OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[oprf-to-ot|OPRF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
