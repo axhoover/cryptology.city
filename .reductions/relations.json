@@ -3382,6 +3382,19 @@
    "unlisted": false
   },
   {
+   "id": "leakage-resilient-stream-cipher",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/leakage-resilient-stream-cipher.md",
+   "slug": "leakage-resilient-stream-cipher",
+   "graphSlug": "Primitives/leakage-resilient-stream-cipher",
+   "title": "Leakage-resilient stream cipher",
+   "aliases": [
+    "Leakage-resilient stream cipher"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "learning-subspace-with-noise",
    "kind": "object",
    "type": "assumption",
@@ -19511,6 +19524,30 @@
    "title": "PRG ⇒ OWF"
   },
   {
+   "id": "red-prg-to-leakage-resilient-stream-cipher-dp08",
+   "kind": "implication",
+   "hypotheses": [
+    "prg"
+   ],
+   "conclusion": "leakage-resilient-stream-cipher",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[DP08 - Leakage-Resilient Cryptography|DP08]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prg-to-leakage-resilient-stream-cipher-dp08.md",
+   "slug": "prg-to-leakage-resilient-stream-cipher-dp08",
+   "graphSlug": "Reductions/prg-to-leakage-resilient-stream-cipher-dp08",
+   "title": "PRG ⇒ Leakage-resilient stream cipher"
+  },
+  {
    "id": "red-prg-to-np-average-case-hardness",
    "kind": "implication",
    "hypotheses": [
@@ -24926,6 +24963,30 @@
    "slug": "weak-owf-to-owf-yao82a",
    "graphSlug": "Reductions/weak-owf-to-owf-yao82a",
    "title": "Weak OWF ⇒ OWF (Yao)"
+  },
+  {
+   "id": "red-weak-prf-to-leakage-resilient-stream-cipher-pie09",
+   "kind": "implication",
+   "hypotheses": [
+    "weak-prf"
+   ],
+   "conclusion": "leakage-resilient-stream-cipher",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/weak-prf-to-leakage-resilient-stream-cipher-pie09.md",
+   "slug": "weak-prf-to-leakage-resilient-stream-cipher-pie09",
+   "graphSlug": "Reductions/weak-prf-to-leakage-resilient-stream-cipher-pie09",
+   "title": "Weak PRF ⇒ Leakage-resilient stream cipher"
   },
   {
    "id": "red-witness-encryption-and-prg-to-pke-ggsw13",
