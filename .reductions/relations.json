@@ -3573,6 +3573,19 @@
    "unlisted": false
   },
   {
+   "id": "malicious-ope",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
+   "slug": "oblivious-polynomial-evaluation",
+   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
+   "anchor": "#malicious-security",
+   "of": "ope",
+   "title": "Malicious security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "malicious-oprf",
    "kind": "variant",
    "type": "primitive",
@@ -4336,6 +4349,19 @@
     "One-way state generator"
    ],
    "unlisted": true
+  },
+  {
+   "id": "ope",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
+   "slug": "oblivious-polynomial-evaluation",
+   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
+   "title": "Oblivious polynomial evaluation",
+   "aliases": [
+    "Oblivious polynomial evaluation"
+   ],
+   "unlisted": false
   },
   {
    "id": "oprf",
@@ -16978,6 +17004,33 @@
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
   },
   {
+   "id": "red-ope-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "ope"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of 2",
+   "rationale": {
+    "class": "The OT runs the OPE protocol once, on inputs computed from the OT inputs, and each privacy reduction runs the OT adversary only as an oracle against the OPE semi-honest game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ope-to-ot.md",
+   "slug": "ope-to-ot",
+   "graphSlug": "Reductions/ope-to-ot",
+   "title": "OPE ⇒ OT"
+  },
+  {
    "id": "red-oprf-to-ot",
    "kind": "implication",
    "hypotheses": [
@@ -21185,6 +21238,33 @@
    "title": "Semi-honest 2PC + PRF ⇒ OPRF"
   },
   {
+   "id": "red-semi-honest-two-party-computation-to-ope",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-two-party-computation"
+   ],
+   "conclusion": "ope",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OPE protocol is the general protocol run on the OPE functionality, and every attack on it is an attack on that protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-two-party-computation-to-ope.md",
+   "slug": "semi-honest-two-party-computation-to-ope",
+   "graphSlug": "Reductions/semi-honest-two-party-computation-to-ope",
+   "title": "Semi-honest 2PC ⇒ OPE"
+  },
+  {
    "id": "red-semi-honest-two-party-computation-to-psi",
    "kind": "implication",
    "hypotheses": [
@@ -23775,6 +23855,33 @@
    "slug": "two-party-computation-and-prf-to-malicious-oprf",
    "graphSlug": "Reductions/two-party-computation-and-prf-to-malicious-oprf",
    "title": "2PC + PRF ⇒ Malicious OPRF"
+  },
+  {
+   "id": "red-two-party-computation-to-malicious-ope",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation"
+   ],
+   "conclusion": "malicious-ope",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OPE protocol is the general protocol run on the OPE functionality, and its simulators are those of the general protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-malicious-ope.md",
+   "slug": "two-party-computation-to-malicious-ope",
+   "graphSlug": "Reductions/two-party-computation-to-malicious-ope",
+   "title": "2PC ⇒ Malicious OPE"
   },
   {
    "id": "red-two-party-computation-to-malicious-ot-security",
