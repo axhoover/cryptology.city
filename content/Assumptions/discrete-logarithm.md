@@ -173,7 +173,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 49808ea5b3eb -->
+<!-- BEGIN GENERATED participates-in bb08f8e6d5af -->
 
 ## Participates in
 
@@ -201,6 +201,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
+- [[prime-order-dlog-and-secure-channels-to-dkg-gjkr99|DLOG + secure channels ⇒ DKG (GJKR)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[discrete-logarithm#dlog-in-prime-order-subgroups-of-twisted-edwards-curves|DLOG in prime-order subgroups of twisted Edwards curves]])

@@ -269,6 +269,19 @@
    "unlisted": false
   },
   {
+   "id": "adaptive-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#adaptive-one-wayness",
+   "of": "injective-one-way-function",
+   "title": "Adaptive one-wayness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "adaptively-robust-prc",
    "kind": "variant",
    "type": "primitive",
@@ -872,6 +885,19 @@
    "unlisted": false
   },
   {
+   "id": "bounded-collusion-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#bounded-collusion-fe",
+   "of": "functional-encryption",
+   "title": "Bounded-collusion FE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bounded-round-assumption",
    "kind": "variant",
    "type": "glossary",
@@ -1206,6 +1232,19 @@
    "anchor": "#nizk-proofs-in-the-common-random-string-model",
    "of": "nizk",
    "title": "NIZK proofs in the common random string model",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "compact-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#compactness",
+   "of": "functional-encryption",
+   "title": "Compactness",
    "aliases": [],
    "unlisted": false
   },
@@ -1768,7 +1807,7 @@
     "DKG",
     "Distributed key generation"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "distributional-owf",
@@ -2033,6 +2072,19 @@
     "Falsifiable assumption",
     "Falsifiable assumptions"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "fe-selective-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#selective-security",
+   "of": "functional-encryption",
+   "title": "Selective security",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -3000,7 +3052,7 @@
     "Injective OWF",
     "Injective one-way function"
    ],
-   "unlisted": true
+   "unlisted": false
   },
   {
    "id": "injective-trapdoor-function",
@@ -3339,6 +3391,19 @@
    "anchor": "#length-flexible-additively-homomorphic-encryption",
    "of": "he",
    "title": "Length-flexible additively homomorphic encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "length-increasing-injective-owf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/injective-one-way-function.md",
+   "slug": "injective-one-way-function",
+   "graphSlug": "Primitives/injective-one-way-function",
+   "anchor": "#length-increasing-injective-owfs",
+   "of": "injective-one-way-function",
+   "title": "Length-increasing injective OWFs",
    "aliases": [],
    "unlisted": false
   },
@@ -5785,6 +5850,19 @@
    "unlisted": false
   },
   {
+   "id": "sim-secure-fe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/functional-encryption.md",
+   "slug": "functional-encryption",
+   "graphSlug": "Primitives/functional-encryption",
+   "anchor": "#simulation-based-security",
+   "of": "functional-encryption",
+   "title": "Simulation-based security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "simulation-sound-nizk",
    "kind": "variant",
    "type": "primitive",
@@ -7195,6 +7273,32 @@
    "unlisted": false
   },
   {
+   "id": "vrf-selective-pseudorandomness",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#selective-pseudorandomness",
+   "of": "verifiable-random-function",
+   "title": "Selective pseudorandomness",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "vuf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#verifiable-unpredictable-functions",
+   "of": "verifiable-random-function",
+   "title": "Verifiable unpredictable functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "waters-signature",
    "kind": "variant",
    "type": "primitive",
@@ -7256,6 +7360,19 @@
    "anchor": "#weak-vdfs",
    "of": "vdf",
    "title": "Weak VDFs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "weak-vrf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/verifiable-random-function.md",
+   "slug": "verifiable-random-function",
+   "graphSlug": "Primitives/verifiable-random-function",
+   "anchor": "#weak-vrfs",
+   "of": "verifiable-random-function",
+   "title": "Weak VRFs",
    "aliases": [],
    "unlisted": false
   },
@@ -11106,7 +11223,7 @@
     "standard"
    ],
    "source": [
-    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
+    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -11362,7 +11479,7 @@
     "standard"
    ],
    "source": [
-    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
+    "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]"
    ],
    "via": [],
    "heuristic": false,
@@ -12333,7 +12450,7 @@
    "id": "red-fe-to-io",
    "kind": "implication",
    "hypotheses": [
-    "functional-encryption"
+    "compact-fe"
    ],
    "conclusion": "io",
    "class": "free",
@@ -12355,7 +12472,7 @@
    "page": "content/Reductions/fe-to-io.md",
    "slug": "fe-to-io",
    "graphSlug": "Reductions/fe-to-io",
-   "title": "FE ⇒ iO"
+   "title": "Compact FE ⇒ iO"
   },
   {
    "id": "red-fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk",
@@ -13193,36 +13310,6 @@
    "slug": "hash-function-and-io-to-ds-sw14",
    "graphSlug": "Reductions/hash-function-and-io-to-ds-sw14",
    "title": "OWF + iO ⇒ DS"
-  },
-  {
-   "id": "red-hash-function-and-io-to-fe-sw14",
-   "kind": "implication",
-   "hypotheses": [
-    "owf",
-    "io"
-   ],
-   "conclusion": "functional-encryption",
-   "class": "free",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]",
-    "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "polynomial: a constant number of PKE and NIZK hybrids, and one iO hybrid per functional key each time the keys switch the component they decrypt",
-   "rationale": {
-    "class": "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function.",
-    "securityLoss": "Each functional key is a separate obfuscated program, so switching the decryption component across all keys takes one iO step per key."
-   },
-   "status": "draft",
-   "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
-   "slug": "hash-function-and-io-to-fe-sw14",
-   "graphSlug": "Reductions/hash-function-and-io-to-fe-sw14",
-   "title": "OWF + iO ⇒ FE"
   },
   {
    "id": "red-hash-function-and-io-to-nizk-sw14",
@@ -14276,6 +14363,60 @@
    "title": "Injective OWF ⇒ Four-message ZK arguments for NP (fully black-box)"
   },
   {
+   "id": "red-injective-one-way-function-to-owf",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "owf",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-owf.md",
+   "slug": "injective-one-way-function-to-owf",
+   "graphSlug": "Reductions/injective-one-way-function-to-owf",
+   "title": "Injective OWF ⇒ OWF"
+  },
+  {
+   "id": "red-injective-one-way-function-to-statistically-binding-commitment",
+   "kind": "implication",
+   "hypotheses": [
+    "injective-one-way-function"
+   ],
+   "conclusion": "statistically-binding-commitment",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a hiding distinguisher with advantage $\\varepsilon$ gives an inverter with success probability polynomial in $\\varepsilon$ and $1/\\secpar$, through the Goldreich–Levin inverter",
+   "rationale": {
+    "class": "The committer calls f only as an oracle, binding holds for every injective f, and the hiding reduction runs any distinguisher as an oracle inside the Goldreich–Levin inverter."
+   },
+   "status": "draft",
+   "page": "content/Reductions/injective-one-way-function-to-statistically-binding-commitment.md",
+   "slug": "injective-one-way-function-to-statistically-binding-commitment",
+   "graphSlug": "Reductions/injective-one-way-function-to-statistically-binding-commitment",
+   "title": "Injective OWF ⇒ Statistically binding COM"
+  },
+  {
    "id": "red-invertible-prfs-to-prf",
    "kind": "implication",
    "hypotheses": [
@@ -14414,6 +14555,36 @@
    "slug": "io-and-owp-to-ppad-hardness-gps16",
    "graphSlug": "Reductions/io-and-owp-to-ppad-hardness-gps16",
    "title": "iO + OWP ⇒ PPAD hardness"
+  },
+  {
+   "id": "red-io-and-perfectly-correct-pke-cpa-security-and-simulation-sound-nizk-to-fe-selective-security-gghrsw13",
+   "kind": "implication",
+   "hypotheses": [
+    "io",
+    "perfectly-correct-pke-cpa-security",
+    "simulation-sound-nizk"
+   ],
+   "conclusion": "fe-selective-security",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial: a constant number of PKE and NIZK hybrids, and one iO hybrid per functional key each time the keys switch the component they decrypt",
+   "rationale": {
+    "class": "iO is applied to circuits containing the code of the PKE decryption and NIZK verification algorithms, so the construction is not black-box.",
+    "securityLoss": "Each functional key is a separate obfuscated program, so switching the decryption component across all keys takes one iO step per key."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hash-function-and-io-to-fe-sw14.md",
+   "slug": "hash-function-and-io-to-fe-sw14",
+   "graphSlug": "Reductions/hash-function-and-io-to-fe-sw14",
+   "title": "iO + PKE + SS-NIZK ⇒ FE"
   },
   {
    "id": "red-io-to-statistical-zk-argument-kmnpry14",
@@ -17277,6 +17448,34 @@
    "title": "Semi-honest OT ⇒ Semi-honest MPC (GMW)"
   },
   {
+   "id": "red-owf-and-io-to-fe-wat15",
+   "kind": "implication",
+   "hypotheses": [
+    "owf",
+    "io"
+   ],
+   "conclusion": "functional-encryption",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Wat15 - A Punctured Programming Approach to Adaptively Secure Functional Encryption|Wat15]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "polynomial, without complexity leveraging",
+   "rationale": {
+    "class": "iO is applied to circuits containing the code of puncturable PRFs and other components built from the one-way function, so the construction is not black-box in it."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owf-and-io-to-fe-wat15.md",
+   "slug": "owf-and-io-to-fe-wat15",
+   "graphSlug": "Reductions/owf-and-io-to-fe-wat15",
+   "title": "OWF + iO ⇒ FE"
+  },
+  {
    "id": "red-owf-to-client-preprocessing-pir-zpzs24",
    "kind": "implication",
    "hypotheses": [
@@ -17666,6 +17865,33 @@
    "slug": "owp-to-hash-function",
    "graphSlug": "Reductions/owp-to-hash-function",
    "title": "OWP ⇒ OWF"
+  },
+  {
+   "id": "red-owp-to-injective-one-way-function",
+   "kind": "implication",
+   "hypotheses": [
+    "owp"
+   ],
+   "conclusion": "injective-one-way-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on functions, and the reduction forwards any inverter unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owp-to-injective-one-way-function.md",
+   "slug": "owp-to-injective-one-way-function",
+   "graphSlug": "Reductions/owp-to-injective-one-way-function",
+   "title": "OWP ⇒ Injective OWF"
   },
   {
    "id": "red-owp-to-prg-yao82a-gl89",
@@ -25442,7 +25668,7 @@
   {
    "id": "bar-injective-owf-to-owp-mm11",
    "hypotheses": [
-    "injective-one-way-function"
+    "length-increasing-injective-owf"
    ],
    "conclusion": "owp",
    "class": "fully-black-box",
@@ -25460,7 +25686,7 @@
     "[[MM11 - On Black-Box Separations among Injective One-Way Functions|MM11a]]"
    ],
    "rationale": {
-    "class": "MM11a rule out the RTV04 fully-black-box class, a construction using the injective OWF only as an oracle paired with a reduction using any OWP inverter only as an oracle, and claim nothing broader such as relativizing reductions."
+    "class": "MM11a state the separation for the RTV04 fully-black-box class: a construction using the injective OWF only as an oracle, paired with a reduction using any inverter of the constructed permutation only as an oracle."
    },
    "status": "draft",
    "page": "content/Barriers/no-injective-owf-to-owp-mm11.md",
@@ -27460,6 +27686,38 @@
    "slug": "ot-to-mpc-kil88",
    "graphSlug": "Reductions/ot-to-mpc-kil88",
    "title": "Ideal OT ⇒ 2PC (Kilian)"
+  },
+  {
+   "id": "red-prime-order-dlog-and-secure-channels-to-distributed-key-generation-gjkr99",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog",
+    "secure-channels"
+   ],
+   "resources": [
+    "secure-channels"
+   ],
+   "conclusion": "distributed-key-generation",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[GJKR99 - Secure Distributed Key Generation for Discrete-Log Based Cryptosystems|GJKR99]]",
+    "[[GJKR07 - Secure Distributed Key Generation for Discrete-Log Based Cryptosystems|GJKR07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "Every party acts as a dealer, so the public $h$ with $\\log_g h$ unknown to all parties must come from a trusted setup rather than from any participant."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-and-secure-channels-to-dkg-gjkr99.md",
+   "slug": "prime-order-dlog-and-secure-channels-to-dkg-gjkr99",
+   "graphSlug": "Reductions/prime-order-dlog-and-secure-channels-to-dkg-gjkr99",
+   "title": "DLOG + secure channels ⇒ DKG (GJKR)"
   },
   {
    "id": "red-secure-channels-to-honest-majority-t-lt-n-over-2-rb89",

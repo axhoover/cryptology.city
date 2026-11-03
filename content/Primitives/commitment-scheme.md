@@ -89,7 +89,7 @@ The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of 
 - [[pke-to-com|PKE ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ COM]]
 
-<!-- BEGIN GENERATED participates-in c1e22989c05f -->
+<!-- BEGIN GENERATED participates-in 763f76829d6c -->
 
 ## Participates in
 
@@ -108,6 +108,7 @@ The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of 
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dlog-to-com-ped91|DLOG ⇒ Statistically hiding commitment]] (via [[commitment-scheme#hiding|Hiding]])
 - [[ideal-ot-to-com-kil88|Ideal OT ⇒ COM (Kilian)]]
+- [[injective-one-way-function-to-statistically-binding-commitment|Injective OWF ⇒ Statistically binding COM]] (via [[commitment-scheme#binding|Binding]])
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[owf-to-statistically-hiding-commitment-hr07|OWF ⇒ Statistically hiding COM (Haitner–Reingold)]] (via [[commitment-scheme#hiding|Hiding]])
 - [[owp-to-statistically-hiding-commitment-novy98|OWP ⇒ Statistically hiding COM (NOVY)]] (via [[commitment-scheme#hiding|Hiding]])
