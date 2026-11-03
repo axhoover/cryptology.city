@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-with-known-factor-structure|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. Its security under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers is [[qr-to-prg-bbs86|QR ⇒ PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
+If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, the Blum–Blum–Shub generator is a [[pseudorandom-generator|PRG]]: for a Blum integer $N = pq$ with $p \equiv q \equiv 3 \pmod{4}$ and a seed $x \getsr \ZZ_N^*$, it sets $x_0 = x^2 \bmod N$ and $x_{i+1} = x_i^2 \bmod N$, and outputs $\mathrm{lsb}(x_1), \ldots, \mathrm{lsb}(x_m)$ — [[VV84 - Efficient and Secure Pseudo-Random Number Generation|VV84]]. Its security under the stronger [[quadratic-residuosity|quadratic residuosity assumption]] for Blum integers is [[qr-to-prg-bbs86|QR ⇒ PRG]] — [[BBS86 - A Simple Unpredictable Pseudo-Random Number Generator|BBS86]].
 
 ## Sketch
 
