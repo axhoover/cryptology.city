@@ -502,6 +502,19 @@
    "unlisted": false
   },
   {
+   "id": "asymmetric-pake",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "anchor": "#asymmetric-pake",
+   "of": "pake",
+   "title": "Asymmetric PAKE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "asymmetric-q-sdh",
    "kind": "variant",
    "type": "assumption",
@@ -3543,6 +3556,19 @@
    "unlisted": false
   },
   {
+   "id": "malicious-oprf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#malicious-security",
+   "of": "oprf",
+   "title": "Malicious security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "malicious-ot-security",
    "kind": "variant",
    "type": "primitive",
@@ -4266,6 +4292,21 @@
    "unlisted": true
   },
   {
+   "id": "oprf",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "title": "Oblivious pseudorandom function",
+   "aliases": [
+    "OPRF",
+    "Oblivious PRF",
+    "Oblivious pseudorandom function"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "optimally-fair-coin-flipping",
    "kind": "variant",
    "type": "primitive",
@@ -4373,6 +4414,34 @@
     "P",
     "Polynomial-Time"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "pake",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "title": "Password-authenticated key exchange",
+   "aliases": [
+    "PAKE",
+    "Password-authenticated key exchange",
+    "Password-based authenticated key exchange"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "partially-oblivious-prf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#partially-oblivious-prf",
+   "of": "oprf",
+   "title": "Partially oblivious PRF",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -6811,6 +6880,19 @@
    "unlisted": false
   },
   {
+   "id": "uc-oprf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#uc-secure-oprf",
+   "of": "oprf",
+   "title": "UC-secure OPRF",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "uc-ot",
    "kind": "variant",
    "type": "primitive",
@@ -6820,6 +6902,19 @@
    "anchor": "#uc-secure-ot",
    "of": "ot",
    "title": "UC-secure OT",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "uc-pake",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/password-authenticated-key-exchange.md",
+   "slug": "password-authenticated-key-exchange",
+   "graphSlug": "Primitives/password-authenticated-key-exchange",
+   "anchor": "#uc-secure-pake",
+   "of": "pake",
+   "title": "UC-secure PAKE",
    "aliases": [],
    "unlisted": false
   },
@@ -6913,6 +7008,19 @@
    "anchor": "#vector-commitments",
    "of": "com",
    "title": "Vector commitments",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "verifiable-oprf",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-prf.md",
+   "slug": "oblivious-prf",
+   "graphSlug": "Primitives/oblivious-prf",
+   "anchor": "#verifiable-oprf",
+   "of": "oprf",
+   "title": "Verifiable OPRF",
    "aliases": [],
    "unlisted": false
   },
@@ -10331,6 +10439,33 @@
    "slug": "ddh-to-non-interactive-key-exchange-nike",
    "graphSlug": "Reductions/ddh-to-non-interactive-key-exchange-nike",
    "title": "DDH ⇒ Non-interactive key exchange (NIKE)"
+  },
+  {
+   "id": "red-ddh-to-pake-koy01",
+   "kind": "implication",
+   "hypotheses": [
+    "ddh"
+   ],
+   "conclusion": "pake",
+   "class": "unstated",
+   "model": "crs",
+   "models": [
+    "crs"
+   ],
+   "source": [
+    "[[KOY01 - Efficient Password-Authenticated Key Exchange Using Human-Memorable Passwords|KOY01]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The protocol uses public parameters known to all parties and generated before any execution, and its proof uses no random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ddh-to-pake-koy01.md",
+   "slug": "ddh-to-pake-koy01",
+   "graphSlug": "Reductions/ddh-to-pake-koy01",
+   "title": "DDH ⇒ PAKE in the CRS model (Katz–Ostrovsky–Yung)"
   },
   {
    "id": "red-ddh-to-partially-homomorphic-encryption-phe-elgamal85",
@@ -16659,6 +16794,33 @@
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
   },
   {
+   "id": "red-oprf-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "oprf"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The OT runs the OPRF protocol and evaluates the PRF only as oracles, and each privacy reduction runs the OT adversary only as an oracle, against the OPRF's semi-honest game or, together with the OPRF's client simulator, against the PRF game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/oprf-to-ot.md",
+   "slug": "oprf-to-ot",
+   "graphSlug": "Reductions/oprf-to-ot",
+   "title": "OPRF ⇒ OT"
+  },
+  {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
    "kind": "implication",
    "hypotheses": [
@@ -20757,6 +20919,34 @@
    "title": "Semi-honest MPC ⇒ Semi-honest 2PC"
   },
   {
+   "id": "red-semi-honest-two-party-computation-and-prf-to-oprf",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-two-party-computation",
+    "prf"
+   ],
+   "conclusion": "oprf",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The protocol is the general protocol run on a circuit computing the PRF, so it uses the PRF's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-two-party-computation-and-prf-to-oprf.md",
+   "slug": "semi-honest-two-party-computation-and-prf-to-oprf",
+   "graphSlug": "Reductions/semi-honest-two-party-computation-and-prf-to-oprf",
+   "title": "Semi-honest 2PC + PRF ⇒ OPRF"
+  },
+  {
    "id": "red-sequential-squaring-to-fac-rsw96",
    "kind": "implication",
    "hypotheses": [
@@ -23265,6 +23455,34 @@
    "slug": "twisted-edwards-dlog-to-prime-order-dlog",
    "graphSlug": "Reductions/twisted-edwards-dlog-to-prime-order-dlog",
    "title": "Twisted Edwards DLOG ⇒ Prime-order DLOG"
+  },
+  {
+   "id": "red-two-party-computation-and-prf-to-malicious-oprf",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation",
+    "prf"
+   ],
+   "conclusion": "malicious-oprf",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The protocol is the general protocol run on a circuit computing the PRF, so it uses the PRF's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-and-prf-to-malicious-oprf.md",
+   "slug": "two-party-computation-and-prf-to-malicious-oprf",
+   "graphSlug": "Reductions/two-party-computation-and-prf-to-malicious-oprf",
+   "title": "2PC + PRF ⇒ Malicious OPRF"
   },
   {
    "id": "red-two-party-computation-to-malicious-ot-security",

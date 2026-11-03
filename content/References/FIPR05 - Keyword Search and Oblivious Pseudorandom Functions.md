@@ -3,7 +3,7 @@ type: reference
 status: draft
 title: "FIPR05"
 source: https://iacr.org/archive/tcc2005/3378_304/3378_304.pdf
-authors: Michael J. Freedman, Yuval Ishai, Benny Pinkas, and Omer Reingold
+authors: Michael J. Freedman, Yuval Ishai, Benny Pinkas, Omer Reingold
 venue: TCC 2005
 published: 2005-04-01
 created: 2025-01-07
@@ -14,7 +14,7 @@ cryptobib_key: TCC:FIPR05
 
 # [FIPR05] Keyword Search and Oblivious Pseudorandom Functions
 
-**Authors:** Michael J. Freedman, Yuval Ishai, Benny Pinkas, and Omer Reingold | **Venue:** TCC 2005 | [Source](https://iacr.org/archive/tcc2005/3378_304/3378_304.pdf)
+**Authors:** Michael J. Freedman, Yuval Ishai, Benny Pinkas, Omer Reingold | **Venue:** TCC 2005 | [Source](https://iacr.org/archive/tcc2005/3378_304/3378_304.pdf)
 
 ## Abstract
 
