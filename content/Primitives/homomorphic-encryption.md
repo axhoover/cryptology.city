@@ -255,7 +255,7 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[secret-key-xor-homomorphic-encryption-to-pke-rot11|Compact private-key XOR-homomorphic encryption ⇒ PKE]]
 - [[approximate-homomorphic-encryption-to-approximate-he-ind-cpa-d-lmss22|IND-CPA statically approximate HE ⇒ IND-CPA-D approximate HE (LMSS22)]]
 
-<!-- BEGIN GENERATED participates-in 669730df3c1b -->
+<!-- BEGIN GENERATED participates-in 4b8019bb4aa8 -->
 
 ## Participates in
 
@@ -314,6 +314,7 @@ An HE scheme is **IND-CCA1-secure** if its underlying PKE scheme is [[public-key
 - [[statically-approximate-homomorphic-encryption-to-approximate-homomorphic-encryption|Statically approximate HE ⇒ Approximate HE]] (via [[homomorphic-encryption#approximate-homomorphic-encryption|Approximate homomorphic encryption]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[homomorphic-encryption#compact-fhe|Compact FHE]])
 - [[circular-security-and-lwe-to-he|LWE at sub-exponential and polynomial ratios ⇒ Bootstrappable SHE (BV11)]] (via [[homomorphic-encryption#bootstrappable-she|Bootstrappable SHE]])
+- [[subgroup-decision-to-somewhat-homomorphic-encryption-bgn05|Subgroup decision ⇒ SHE (degree 2)]] (via [[homomorphic-encryption#somewhat-homomorphic-encryption-she|Somewhat homomorphic encryption (SHE)]])
 
 **Barriers**
 

@@ -21182,6 +21182,33 @@
    "title": "Subgroup decision ⇒ Perfect NIZK arguments for NP"
   },
   {
+   "id": "red-subgroup-decision-to-somewhat-homomorphic-encryption-bgn05",
+   "kind": "implication",
+   "hypotheses": [
+    "subgroup-decision"
+   ],
+   "conclusion": "somewhat-homomorphic-encryption",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary with the subgroup-decision challenge as the public element h",
+   "rationale": {
+    "class": "The scheme uses only the bilinear group generator and group operations, and one fixed reduction sets h to its subgroup-decision challenge and runs the IND-CPA adversary once as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/subgroup-decision-to-somewhat-homomorphic-encryption-bgn05.md",
+   "slug": "subgroup-decision-to-somewhat-homomorphic-encryption-bgn05",
+   "graphSlug": "Reductions/subgroup-decision-to-somewhat-homomorphic-encryption-bgn05",
+   "title": "Subgroup decision ⇒ SHE (degree 2)"
+  },
+  {
    "id": "red-succinct-lwe-to-abe-wee25",
    "kind": "implication",
    "hypotheses": [
