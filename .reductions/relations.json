@@ -4818,6 +4818,32 @@
    "unlisted": false
   },
   {
+   "id": "pke-nm-cca2-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#nm-cca2",
+   "of": "pke",
+   "title": "NM-CCA2",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pke-nm-cpa-security",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption.md",
+   "slug": "public-key-encryption",
+   "graphSlug": "Primitives/public-key-encryption",
+   "anchor": "#non-malleability",
+   "of": "pke",
+   "title": "Non-malleability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "polylog-cpir",
    "kind": "variant",
    "type": "primitive",
@@ -18766,6 +18792,87 @@
    "title": "IND-CPA PKE ⇒ PKE"
   },
   {
+   "id": "red-pke-cpa-security-to-pke-nm-cpa-security-psv06",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "pke-nm-cpa-security",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction proves NP statements about the given scheme's encryption algorithm, so it uses the scheme's code."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-pke-nm-cpa-security-psv06.md",
+   "slug": "pke-cpa-security-to-pke-nm-cpa-security-psv06",
+   "graphSlug": "Reductions/pke-cpa-security-to-pke-nm-cpa-security-psv06",
+   "title": "IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)"
+  },
+  {
+   "id": "red-pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
+   "kind": "equivalence",
+   "hypotheses": [
+    "pke-nm-cca2-security"
+   ],
+   "conclusion": "pke-cca2-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "Both directions keep the scheme unchanged, and each fixed reduction runs the given adversary once as an oracle, forwarding its decryption queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-nm-cca2-security-to-pke-cca2-security-bdpr98.md",
+   "slug": "pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
+   "graphSlug": "Reductions/pke-nm-cca2-security-to-pke-cca2-security-bdpr98",
+   "title": "NM-CCA2 ⇔ IND-CCA2"
+  },
+  {
+   "id": "red-pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-nm-cpa-security"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs the IND-CPA adversary once, unchanged, as an NM-CPA adversary with an empty decryption query."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-nm-cpa-security-to-pke-cpa-security-bdpr98.md",
+   "slug": "pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
+   "graphSlug": "Reductions/pke-nm-cpa-security-to-pke-cpa-security-bdpr98",
+   "title": "NM-CPA ⇒ IND-CPA"
+  },
+  {
    "id": "red-pke-to-com",
    "kind": "implication",
    "hypotheses": [
@@ -26891,6 +26998,40 @@
    "title": "No fixed-construction reduction from CCA1 security to CCA2 security"
   },
   {
+   "id": "bar-pke-cca1-security-to-pke-nm-cpa-security-bdpr98",
+   "hypotheses": [
+    "pke-cca1-security"
+   ],
+   "conclusion": "pke-nm-cpa-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "pke-cca1-security"
+   ],
+   "circumventedBy": [
+    "red-pke-cpa-security-to-pke-nm-cpa-security-psv06"
+   ],
+   "source": [
+    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (IND-CCA1 security of a scheme implying NM-CPA security of the same scheme) and does not rule out building an NM-CPA-secure scheme from an IND-CCA1-secure one by another construction.",
+    "strength": "BDPR98 prove the separation assuming an IND-CCA1-secure scheme exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98.md",
+   "slug": "no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98",
+   "graphSlug": "Barriers/no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98",
+   "title": "No fixed-construction reduction from CCA1 security to NM-CPA security"
+  },
+  {
    "id": "bar-pke-cca2-security-to-ibe-bprvw08",
    "hypotheses": [
     "pke-cca2-security"
@@ -27075,6 +27216,38 @@
    "slug": "no-pke-cpa-security-to-pke-cca1-security-gmm07",
    "graphSlug": "Barriers/no-pke-cpa-security-to-pke-cca1-security-gmm07",
    "title": "No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE"
+  },
+  {
+   "id": "bar-pke-nm-cpa-security-to-pke-cca1-security-bdpr98",
+   "hypotheses": [
+    "pke-nm-cpa-security"
+   ],
+   "conclusion": "pke-cca1-security",
+   "class": "fixed-construction",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fixed-construction"
+    }
+   ],
+   "strength": "conditional",
+   "conditionalOn": [
+    "pke-nm-cpa-security"
+   ],
+   "circumventedBy": [],
+   "source": [
+    "[[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]"
+   ],
+   "rationale": {
+    "class": "The counterexample refutes the identity map (NM-CPA security of a scheme implying IND-CCA1 security of the same scheme) and does not rule out building an IND-CCA1-secure scheme from an NM-CPA-secure one by another construction.",
+    "strength": "BDPR98 prove the separation assuming an NM-CPA-secure scheme exists; without one, the identity-map implication holds vacuously."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98.md",
+   "slug": "no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98",
+   "graphSlug": "Barriers/no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98",
+   "title": "No fixed-construction reduction from NM-CPA security to CCA1 security"
   },
   {
    "id": "bar-pke-to-injective-trapdoor-function-gmr01",

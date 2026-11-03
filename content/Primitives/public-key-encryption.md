@@ -13,6 +13,8 @@ variants:
   pke-cpa-security: "#cpa-security"
   perfectly-correct-pke-cpa-security: "#perfectly-correct-cpa-secure-pke"
   semantic-security: "#semantic-security"
+  pke-nm-cpa-security: "#non-malleability"
+  pke-nm-cca2-security: "#nm-cca2"
 ---
 
 # Public key encryption
@@ -125,6 +127,40 @@ An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsil
 
 **CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA, assuming CCA2-secure schemes exist — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
 
+## Non-malleability
+
+A scheme is **non-malleable** if no efficient adversary, given a challenge ciphertext, can produce ciphertexts whose plaintexts are related to the challenge plaintext. DDN91 define the notion with a simulator — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]. BDPR98 compare the probability that the plaintexts of the adversary's ciphertexts stand in a relation of its choice to the challenge plaintext with the probability that they stand in it to an independent plaintext from the same distribution — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. The formulation below is indistinguishability under a _parallel_ chosen-ciphertext attack, in which $\calA$ submits one vector of ciphertexts after receiving $c^*$, all at once, and receives their decryptions — [[BS99 - Non-malleable Encryption Equivalence between Two Notions, and an Indistinguishability-Based Characterization|BS99]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{nm\text{-}cpa}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
+\State $(m_0, m_1, \stA) \gets \calA(1^\secpar, \pk)$
+\Comment{$m_0,m_1 \in \calM$ and $|m_0|=|m_1|$}
+\State $c^* \gets \Enc(\pk, m_b)$
+\State $((c_1, \ldots, c_\ell), \stA) \gets \calA(c^*, \stA)$
+\Comment{$c_i \ne c^*$ for all $i \in [\ell]$}
+\State $\tilde m_i \gets \Dec(\sk, c_i)$ for all $i \in [\ell]$
+\State $b' \gets \calA(\tilde m_1, \ldots, \tilde m_\ell, \stA)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A PKE scheme $\PKE$ is **NM-CPA-secure** if for all admissible efficient $\calA$,
+
+$$
+\Adv^{\mathrm{nm\text{-}cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{nm\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible. An **admissible** adversary submits equal-length messages in $\calM$ and leaves $c^*$ out of its decryption query, whose answer would otherwise contain $m_b$. With $\ell = 0$ the game is the CPA game, and NM-CPA security implies IND-CPA security ([[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. NM-CPA and IND-CCA1 security are incomparable: if schemes meeting one of them exist, some scheme meets it and not the other ([[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|IND-CCA1 ⇏ NM-CPA]], [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|NM-CPA ⇏ IND-CCA1]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. Every IND-CPA-secure scheme can be transformed into an NM-CPA-secure one ([[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA ⇒ NM-CPA]]) — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
+
+### NM-CCA2
+
+In **NM-CCA1** $\calA$ also has the decryption oracle $\calD(c) := \Dec(\sk, c)$ before receiving $c^*$, and in **NM-CCA2** both before and after, with no query on $c^*$ after receiving it; admissibility and the advantage are as for NM-CPA. NM-CCA2 security is equivalent to IND-CCA2 security ([[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+
 ## Key-hiding
 
 A ciphertext hides the public key it was created under: given two public keys, no efficient adversary can tell under which one a ciphertext of a message of its choice was created. **IK-CPA** is the chosen-plaintext version of this _key privacy_ and **IK-CCA** the chosen-ciphertext version — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]]. When keys are generated relative to common parameters, such as a group shared by all users, both key pairs use the same parameters, which $\calA$ also receives — [[BBDP01 - Key-Privacy in Public-Key Encryption|BBDP01]].
@@ -189,7 +225,7 @@ is negligible.
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
 
-<!-- BEGIN GENERATED participates-in c66654a60dd3 -->
+<!-- BEGIN GENERATED participates-in f31b91944a16 -->
 
 ## Participates in
 
@@ -205,6 +241,9 @@ is negligible.
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
+- [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-to-com|PKE ⇒ COM]]
 - [[pke-to-hash-function|PKE ⇒ OWF]]
 - [[pke-to-ke|PKE ⇒ KE]]
@@ -245,6 +284,9 @@ is negligible.
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#cca1-security|CCA1 Security]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]]
+- [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#non-malleability|Non-malleability]])
+- [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[qr-to-pke-gm84|QR ⇒ PKE]]
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]]
 - [[rsa-to-ind-cca-pke-oaep-fops01|RSA ⇒ IND-CCA PKE (RSA-OAEP)]] (via [[public-key-encryption#cca-security|CCA Security]])
@@ -265,12 +307,14 @@ is negligible.
 - [[no-ke-to-pke-rud91|No relativizing reduction from KE to PKE]]
 - [[no-ot-to-pke-gkm-00|No fully-black-box reduction from OT to PKE]]
 - [[no-pke-cca1-security-to-pke-cca2-security-bdpr98|No fixed-construction reduction from CCA1 security to CCA2 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cca-security|CCA Security]])
+- [[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|No fixed-construction reduction from CCA1 security to NM-CPA security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#non-malleability|Non-malleability]]) — circumvented by [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]]
 - [[no-pke-cca2-security-to-ibe-bprvw08|No fully-black-box reduction from CCA-secure PKE to IBE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[no-pke-cpa-security-to-bit-circular-security-rot13|No fixed-construction reduction from IND-CPA security to circular security of bit encryption]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-k-circular-security-ap16|No fixed-construction reduction from IND-CPA security to circular security for key cycles (LWE)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-k-circular-security-krw15|No fixed-construction reduction from IND-CPA security to circular security for key cycles (iO)]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
 - [[no-pke-cpa-security-to-pke-cca1-security-gmm07|No shielding black-box reduction from CPA-secure PKE to CCA1-secure PKE]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#cpa-security|CPA Security]])
+- [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|No fixed-construction reduction from NM-CPA security to CCA1 security]] (via [[public-key-encryption#cca1-security|CCA1 Security]], [[public-key-encryption#non-malleability|Non-malleability]])
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]]
 - [[no-pke-to-ot-gkm-00|No fully-black-box reduction from PKE to OT]]
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
