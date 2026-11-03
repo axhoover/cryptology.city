@@ -50,12 +50,13 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in b2245ea0b7af -->
+<!-- BEGIN GENERATED participates-in cf07de0b77ba -->
 
 ## Participates in
 
 **Builds on Pairings**
 
+- [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]]
 - [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]]
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]]
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]

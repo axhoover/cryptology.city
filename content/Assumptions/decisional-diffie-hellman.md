@@ -105,7 +105,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 8ca52310e8ac -->
+<!-- BEGIN GENERATED participates-in a0ab57bdba57 -->
 
 ## Participates in
 
@@ -113,6 +113,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
+- [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]] (via [[decisional-diffie-hellman#dlin|DLIN]])
 - [[ddh-and-lpn-and-lwe-and-nc1-prg-to-io-jls21|Sub-exponential SXDH + LWE + LPN + NC0-PRG ⇒ iO]] (via [[decisional-diffie-hellman#sub-exponential-sxdh|Sub-exponential SXDH]])
@@ -136,6 +137,7 @@ SXDH is **sub-exponentially hard** if there is a constant $\varepsilon > 0$ such
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[prime-order-ddh-to-ddh|Prime-order DDH ⇒ DDH]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
+- [[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]] (via [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]])
 - [[subexponential-ddh-to-ddh|Sub-exponential DDH ⇒ DDH]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]] (via [[decisional-diffie-hellman#sub-exponential-ddh|Sub-exponential DDH]])

@@ -1432,6 +1432,19 @@
    "unlisted": false
   },
   {
+   "id": "continual-leakage-resilient-pke",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/leakage-resilient-public-key-encryption.md",
+   "slug": "leakage-resilient-public-key-encryption",
+   "graphSlug": "Primitives/leakage-resilient-public-key-encryption",
+   "anchor": "#continual-memory-leakage",
+   "of": "leakage-resilient-pke",
+   "title": "Continual memory leakage",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "correlated-randomness",
    "kind": "variant",
    "type": "glossary",
@@ -3350,6 +3363,21 @@
     "Lattice trapdoor",
     "Lattice trapdoors",
     "Gadget trapdoor"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "leakage-resilient-pke",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/leakage-resilient-public-key-encryption.md",
+   "slug": "leakage-resilient-public-key-encryption",
+   "graphSlug": "Primitives/leakage-resilient-public-key-encryption",
+   "title": "Leakage-resilient public-key encryption",
+   "aliases": [
+    "LR-PKE",
+    "Leakage-resilient PKE",
+    "Leakage-resilient public-key encryption"
    ],
    "unlisted": false
   },
@@ -7140,6 +7168,19 @@
    "unlisted": true
   },
   {
+   "id": "universal-hash-proof-system",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hash-proof-system.md",
+   "slug": "hash-proof-system",
+   "graphSlug": "Primitives/hash-proof-system",
+   "anchor": "#universality",
+   "of": "hash-proof-system",
+   "title": "Universality",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "universal-snark",
    "kind": "variant",
    "type": "primitive",
@@ -8279,6 +8320,31 @@
    "slug": "bdh-to-vrf",
    "graphSlug": "Reductions/bdh-to-vrf",
    "title": "k-Lin ⇒ VRF"
+  },
+  {
+   "id": "red-bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10",
+   "kind": "implication",
+   "hypotheses": [
+    "bilinear-pairing",
+    "decisional-linear"
+   ],
+   "conclusion": "continual-leakage-resilient-pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BKKV10 - Overcoming the Hole in the Bucket Public-Key Cryptography Resilient to Continual Memory Leakage|BKKV10]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10.md",
+   "slug": "bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10",
+   "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10",
+   "title": "Bilinear pairing + DLIN ⇒ CLR-PKE"
   },
   {
    "id": "red-bilinear-pairing-and-dlin-to-zap-gos06",
@@ -9565,6 +9631,33 @@
    "slug": "constant-bias-coin-flipping-to-owf-ho11",
    "graphSlug": "Reductions/constant-bias-coin-flipping-to-owf-ho11",
    "title": "Constant-bias coin flipping ⇒ OWF"
+  },
+  {
+   "id": "red-continual-leakage-resilient-pke-to-leakage-resilient-pke",
+   "kind": "implication",
+   "hypotheses": [
+    "continual-leakage-resilient-pke"
+   ],
+   "conclusion": "leakage-resilient-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction drops the update algorithm and keeps the other algorithms, and the fixed reduction runs any bounded-leakage adversary unchanged as a continual-leakage adversary that triggers no update."
+   },
+   "status": "draft",
+   "page": "content/Reductions/continual-leakage-resilient-pke-to-leakage-resilient-pke.md",
+   "slug": "continual-leakage-resilient-pke-to-leakage-resilient-pke",
+   "graphSlug": "Reductions/continual-leakage-resilient-pke-to-leakage-resilient-pke",
+   "title": "CLR-PKE ⇒ LR-PKE"
   },
   {
    "id": "red-coszk-to-szk-oka96",
@@ -14822,6 +14915,30 @@
    "title": "$k$-Linear assumption ⇒ ABE"
   },
   {
+   "id": "red-k-linear-assumption-to-leakage-resilient-pke-ns09",
+   "kind": "implication",
+   "hypotheses": [
+    "k-linear-assumption"
+   ],
+   "conclusion": "leakage-resilient-pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/k-linear-assumption-to-leakage-resilient-pke-ns09.md",
+   "slug": "k-linear-assumption-to-leakage-resilient-pke-ns09",
+   "graphSlug": "Reductions/k-linear-assumption-to-leakage-resilient-pke-ns09",
+   "title": "d-Linear ⇒ LR-PKE"
+  },
+  {
    "id": "red-katz-wang-signature-to-ds",
    "kind": "implication",
    "hypotheses": [
@@ -14980,6 +15097,33 @@
    "slug": "kt-mild-average-case-hardness-to-owf-lp20",
    "graphSlug": "Reductions/kt-mild-average-case-hardness-to-owf-lp20",
    "title": "Mild average-case hardness of Kᵗ ⇔ OWF"
+  },
+  {
+   "id": "red-leakage-resilient-pke-to-pke-cpa-security",
+   "kind": "implication",
+   "hypotheses": [
+    "leakage-resilient-pke"
+   ],
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the adversary and its advantage are unchanged",
+   "rationale": {
+    "class": "The construction is the identity on schemes, and the fixed reduction runs any CPA adversary unchanged as a leakage-resilient CPA adversary that makes no leakage queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/leakage-resilient-pke-to-pke-cpa-security.md",
+   "slug": "leakage-resilient-pke-to-pke-cpa-security",
+   "graphSlug": "Reductions/leakage-resilient-pke-to-pke-cpa-security",
+   "title": "LR-PKE ⇒ CPA-secure PKE"
   },
   {
    "id": "red-length-flexible-additively-homomorphic-encryption-to-additively-homomorphic-encryption",
@@ -15598,6 +15742,30 @@
    "slug": "lwe-to-ibe-gpv08",
    "graphSlug": "Reductions/lwe-to-ibe-gpv08",
    "title": "LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)"
+  },
+  {
+   "id": "red-lwe-to-leakage-resilient-pke-agv09",
+   "kind": "implication",
+   "hypotheses": [
+    "lwe"
+   ],
+   "conclusion": "leakage-resilient-pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/lwe-to-leakage-resilient-pke-agv09.md",
+   "slug": "lwe-to-leakage-resilient-pke-agv09",
+   "graphSlug": "Reductions/lwe-to-leakage-resilient-pke-agv09",
+   "title": "LWE ⇒ LR-PKE (Regev)"
   },
   {
    "id": "red-lwe-to-leveled-fully-homomorphic-encryption-bgv12",
@@ -19534,6 +19702,30 @@
    "slug": "prime-order-ddh-to-katz-wang-signature-kw03",
    "graphSlug": "Reductions/prime-order-ddh-to-katz-wang-signature-kw03",
    "title": "Prime-order DDH ⇒ Katz–Wang signatures"
+  },
+  {
+   "id": "red-prime-order-ddh-to-leakage-resilient-pke-ns09",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "leakage-resilient-pke",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-leakage-resilient-pke-ns09.md",
+   "slug": "prime-order-ddh-to-leakage-resilient-pke-ns09",
+   "graphSlug": "Reductions/prime-order-ddh-to-leakage-resilient-pke-ns09",
+   "title": "DDH ⇒ LR-PKE"
   },
   {
    "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",
@@ -24490,6 +24682,33 @@
    "slug": "uc-ot-to-ot",
    "graphSlug": "Reductions/uc-ot-to-ot",
    "title": "UC-secure OT ⇒ OT"
+  },
+  {
+   "id": "red-universal-hash-proof-system-to-leakage-resilient-pke-ns09",
+   "kind": "implication",
+   "hypotheses": [
+    "universal-hash-proof-system"
+   ],
+   "conclusion": "leakage-resilient-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme calls the hash proof system's algorithms and a fixed extractor only as oracles, and the reduction runs any adversary once as an oracle, answering its leakage queries with the hash key it samples itself."
+   },
+   "status": "draft",
+   "page": "content/Reductions/universal-hash-proof-system-to-leakage-resilient-pke-ns09.md",
+   "slug": "universal-hash-proof-system-to-leakage-resilient-pke-ns09",
+   "graphSlug": "Reductions/universal-hash-proof-system-to-leakage-resilient-pke-ns09",
+   "title": "Universal HPS ⇒ LR-PKE"
   },
   {
    "id": "red-universal-snark-to-snark",

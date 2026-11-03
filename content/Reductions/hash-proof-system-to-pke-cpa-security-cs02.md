@@ -43,4 +43,4 @@ Projectivity lets the reduction, which holds $k$, compute the challenge mask as 
 ## Notes
 
 - Adding to the ciphertext the value of an extended universal-2 hash proof system on $(x, e)$, checked at decryption, gives IND-CCA2 security: [[universal2-hash-proof-system-to-pke-cca2-security-cs02|Universal-2 HPS ⇒ CCA-secure PKE]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
-- A variant that passes the mask through a randomness extractor tolerates leakage of a bounded number of bits of $\sk$, with no further assumption — [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
+- For a universal hash proof system, a variant that passes the mask through a randomness extractor tolerates leakage of a bounded number of bits of $\sk$, with no further assumption: [[universal-hash-proof-system-to-leakage-resilient-pke-ns09|Universal HPS ⇒ LR-PKE]] — [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
