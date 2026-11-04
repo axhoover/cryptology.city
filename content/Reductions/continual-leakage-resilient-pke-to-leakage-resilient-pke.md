@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-If $(\KeyGen, \Enc, \Dec, \mathsf{Update})$ is resilient to [continual memory leakage](leakage-resilient-public-key-encryption#continual-memory-leakage) of $\ell$ bits per period, then $(\KeyGen, \Enc, \Dec)$ is [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security): an adversary in the bounded-leakage game is an adversary in the continual-leakage game that triggers no update, so all of its leakage falls in the first period — folklore.
+If $(\KeyGen, \Enc, \Dec, \mathsf{Update})$ is resilient to [[leakage-resilient-public-key-encryption#continual-memory-leakage|continual memory leakage]] of $\ell$ bits per period, then $(\KeyGen, \Enc, \Dec)$ is [$\ell$-leakage-resilient](leakage-resilient-public-key-encryption#leakage-resilient-cpa-security): an adversary in the bounded-leakage game is an adversary in the continual-leakage game that triggers no update, so all of its leakage falls in the first period — folklore.

@@ -73,12 +73,12 @@ is negligible. As an object, a leakage-resilient stream cipher is $\ell$-leakage
 
 ## Stream ciphers without leakage
 
-For $\ell = 0$ the game asks that each block be pseudorandom given the previous ones. The iterated [[pseudorandom-generator|PRG]] $(S_i, X_i) := G(S_{i-1})$ meets it, and is not $1$-leakage-resilient: round $i$ reads all of $S_{i-1}$, from which $f_i$ computes $S_i$ and then $X_{i+1}$ — standard. The constructions below therefore split the state into parts read in alternate rounds.
+For $\ell = 0$ the game asks that each block be pseudorandom given the previous ones. The iterated [[pseudorandom-generator|PRG]] $(S_i, X_i) := G(S_{i-1})$ meets it, and is not $1$-leakage-resilient: round $i$ reads all of $S_{i-1}$, from which $f_i$ computes $S_i$ and then $X_{i+1}$ — standard. The constructions of [[DP08 - Leakage-Resilient Cryptography|DP08]] and [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]] therefore split the state into parts read in alternate rounds.
 
 # Other results
 
 - The output of any PRG has high HILL pseudoentropy even when bounded information about its seed is leaked; [[DP08 - Leakage-Resilient Cryptography|DP08]] prove this lemma and combine it with alternating extraction to build a leakage-resilient stream cipher from any PRG ([[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]]).
-- [[pseudorandom-function#weak-prfs|Weak PRFs]] are seed-incompressible: the output of a weak PRF on random inputs stays pseudorandom when a bounded amount of information about the key is leaked — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. PRF security does not survive one bit of leakage: $f(k) :=$ the first bit of $\Eval(k, x_0)$, with a query at $x_0$, distinguishes — standard. A simple mode of operation of any weak PRF is a leakage-resilient stream cipher ([[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]]).
+- [[pseudorandom-function#weak-prfs|Weak PRFs]] are seed-incompressible: the output of a weak PRF on random inputs stays pseudorandom when a bounded amount of information about the key is leaked — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]]. PRF security does not survive one bit of leakage: $f(k) :=$ the first bit of $\Eval(k, x_0)$, with a query at $x_0$, distinguishes — standard. A simple mode of operation of any weak PRF is a leakage-resilient stream cipher ([[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]]) — [[Pie09 - A Leakage-Resilient Mode of Operation|Pie09]].
 
 <!-- BEGIN GENERATED participates-in 305210964954 -->
 

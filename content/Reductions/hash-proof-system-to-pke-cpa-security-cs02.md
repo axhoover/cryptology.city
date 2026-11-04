@@ -20,14 +20,14 @@ rationale:
 
 ## Statement
 
-Let $\mathsf{HPS}$ be an $\varepsilon$-smooth [[hash-proof-system|hash proof system]] for a hard subset membership problem $\calM$. The scheme below, with message space $\Pi$, is [[public-key-encryption#cpa-security|IND-CPA-secure]]: for every efficient $\calA$ there is an efficient $\calB$ with $\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) \le 2\left(\Adv^{\mathrm{smp}}_{\calM,\calB}(\secpar) + \varepsilon\right)$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+Let $\mathsf{HPS}$ be an $\varepsilon$-smooth [[hash-proof-system|hash proof system]] for a hard subset membership problem $\calM$. The scheme below, with message space $\Pi$, is [[public-key-encryption#cpa-security|IND-CPA-secure]] when $\varepsilon$ is negligible: for every efficient $\calA$ there is an efficient $\calB$ with $\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) \le 2\left(\Adv^{\mathrm{smp}}_{\calM,\calB}(\secpar) + \varepsilon\right)$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 ```pseudocode
 \begin{algorithm}
 \algname{Algorithm}
 \caption{Encryption from a hash proof system}
 \begin{algorithmic}
-\State $\KeyGen(1^\secpar)$: $\Lambda \gets \mathsf{I}(1^\secpar)$; $k \gets \mathsf{HPS}.\KeyGen(\Lambda)$; $\pk := (\Lambda, \mathsf{Proj}(k))$; $\sk := k$
+\State $\KeyGen(1^\secpar)$: $\Lambda \gets \mathsf{I}(1^\secpar)$; $k \gets \mathsf{HPS}.\KeyGen(\Lambda)$; $s := \mathsf{Proj}(k)$; $\pk := (\Lambda, s)$; $\sk := k$
 \State $\Enc(\pk, m)$: sample $(x, w) \in R_\Lambda$ with $x$ uniform in $L$; $\pi := \mathsf{Pub}(s, x, w)$
 \Return $(x, m \cdot \pi)$
 \State $\Dec(\sk, (x, e))$:
@@ -38,7 +38,7 @@ Let $\mathsf{HPS}$ be an $\varepsilon$-smooth [[hash-proof-system|hash proof sys
 
 ## Sketch
 
-Projectivity lets the reduction, which holds $k$, compute the challenge mask as $\mathsf{Priv}(k, x)$. Replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage; smoothness then makes the mask $\varepsilon$-close to uniform in $\Pi$ given $\pk$, and a uniform mask hides $m$ perfectly.
+Projectivity lets the reduction, which holds $k$, compute the challenge mask as $\mathsf{Priv}(k, x)$. Replacing $x \getsr L$ by $x \getsr X \setminus L$ costs the subset-membership advantage; smoothness then makes the mask $\varepsilon$-close to uniform in $\Pi$ given $\pk$ and $x$, and a uniform mask hides $m$ perfectly.
 
 ## Notes
 
