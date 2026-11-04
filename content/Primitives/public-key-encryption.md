@@ -251,6 +251,11 @@ is negligible.
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
+- [[forward-secure-public-key-encryption|Forward-secure PKE]]: the decryption key evolves over $T$ periods, and exposing the key of one period leaves ciphertexts of earlier periods secure — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
+- [[proxy-re-encryption|Proxy re-encryption]]: a proxy holding a re-encryption key converts ciphertexts for one user into ciphertexts for another without learning the plaintext — [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]], [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]].
+- [[deterministic-public-key-encryption|Deterministic PKE]]: deterministic encryption that is secure for plaintexts of high min-entropy chosen independently of the public key — [[BBO07 - Deterministic and Efficiently Searchable Encryption|BBO07]].
+- [[public-key-encryption-with-keyword-search|PEKS]]: a ciphertext tags a keyword so that a holder of the trapdoor for a keyword can test for it, while without a trapdoor the tag reveals nothing about the keyword — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].
+- [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
 <!-- BEGIN GENERATED participates-in 633476280014 -->

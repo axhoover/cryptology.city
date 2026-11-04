@@ -183,6 +183,7 @@ TODO: definition and game.
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
+- [[chameleon-hash-function|Chameleon hash functions]] are randomized collision-resistant hash functions whose trapdoor lets its holder find collisions — [[KR00 - Chameleon Signatures|KR00]].
 - [[no-np-to-hash-function-aggm06|No non-adaptive reduction from NP to inverting a one-way function unless coNP ⊆ AM]] — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]
 - An explicit function, the direct product of [[universal-one-way-function|Levin's universal one-way function]], is one-way if and only if a one-way function exists — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]]
 
