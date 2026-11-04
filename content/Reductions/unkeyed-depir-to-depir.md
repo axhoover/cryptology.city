@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is, unchanged, a [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] scheme: its $\Setup$ outputs $k = \bot$, and with $k = \bot$ the public-key privacy game is the unkeyed one — folklore.
+Every [[doubly-efficient-pir#unkeyed-depir|unkeyed DEPIR]] scheme is, unchanged, a [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] scheme: its deterministic $\Setup$ is key generation outputting $(k, k') = (\bot, \bot)$ followed by $\mathsf{Prep}(1^\secpar, \bot, DB) := \Setup(1^\secpar, DB)$, and with $k = \bot$ the public-key privacy game is the unkeyed one — folklore.

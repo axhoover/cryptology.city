@@ -130,12 +130,13 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
     !fromPk.scopes.has("pk-depir-sublinear-key"),
     "pk-depir must not derive the sublinear-key variant",
   );
-  // The unkeyed node bounds query time only by o(n), met for n <= 2^λ by
-  // sending all of DB, so it must not reach the variant either.
+  // The unkeyed node bounds query time by p(λ) + s(n) with s(n) = o(n),
+  // which admits n/polylog(n) and so does not give p(λ)·n^c: it must not
+  // reach the variant either.
   const fromUnkeyed = closure(reductions, ["unkeyed-depir"], { relativizes });
   assert.ok(
     !fromUnkeyed.scopes.has("pk-depir-sublinear-key"),
-    "unkeyed DEPIR, whose query cost is only o(n), must not derive the sublinear-key variant",
+    "unkeyed DEPIR, whose query cost is only p(λ) + o(n), must not derive the sublinear-key variant",
   );
   const page = fs.readFileSync(
     path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
@@ -199,46 +200,53 @@ test("HPY26's barrier concludes only PK-DEPIR with key and query cost at most p(
   assert.ok(restatements >= 3, "the three HPY26 restatements are found");
 });
 
-test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-independent key", () => {
+test("LMW25's barrier concludes passive-server SK-DEPIR in LMW25's syntax and locality class", () => {
   // LMW25 (Definition 2.1) sample the client key by KeyGen(1^λ) before
-  // Prep(1^λ, k, DB) encodes the database. Without that, Setup can output
-  // k = DB and an empty EDB, Qry(k, i) the empty list of positions and the
-  // hint k[i], and Fin the hint: a perfectly correct, perfectly private
-  // passive-server scheme from no assumption, which no barrier may rule out.
+  // Prep(1^λ, k, DB) encodes the database, and Theorem 5.1 rules out
+  // locality o(N) + poly(λ). The passive-server node samples its key without
+  // access to DB and is doubly efficient (test/depir-nodes.test.ts runs the
+  // k = DB scheme against that syntax), so it lies in LMW25's class; active
+  // servers are only conjectured to be ruled out.
   const lmw25 = manifest.barriers.filter((b: any) =>
     b.source.some((s: string) => s.includes("|LMW25]]")),
   );
   assert.ok(lmw25.length >= 1, "the LMW25 barrier is in the manifest");
   for (const b of lmw25) {
-    assert.strictEqual(b.conclusion, "passive-sk-depir-independent-key", b.id);
+    assert.strictEqual(b.conclusion, "passive-sk-depir", b.id);
+    assert.strictEqual(b.class, "fully-black-box", b.id);
     const { title, statement } = titleAndStatement(b.page);
-    assert.match(title, /database-independent key/, `${b.id} title`);
+    assert.match(title, /passive-server SK-DEPIR/, `${b.id} title`);
     assert.match(statement, /Definition 2\.1/, `${b.id} Statement`);
     assert.match(
       statement,
-      /\$\\KeyGen\(1\^\\secpar\)\$ before the database is encoded/,
+      /\$k \\gets \\KeyGen\(1\^\\secpar\)\$ is sampled before \$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$/,
       `${b.id} Statement names the database-independent KeyGen`,
     );
     assert.match(
       statement,
-      /at most \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
-      `${b.id} Statement bounds query-time cost by p(λ)·n^c`,
+      /locality \$o\(N\) \+ \\poly\(\\secpar\)\$/,
+      `${b.id} Statement gives LMW25's locality bound`,
+    );
+    assert.match(
+      statement,
+      /Theorem 5\.1, Corollary 5\.2/,
+      `${b.id} cites the theorem`,
     );
   }
 
-  // The k = DB scheme is a plain passive-server SK-DEPIR; nothing derives the
-  // variant from that node or from SK-DEPIR.
+  // LMW25 do not rule out active-server SK-DEPIR, so nothing derives the
+  // passive-server node from plain SK-DEPIR.
   const reductions = manifest.reductions.concat(
     manifest.hybridReductions ?? [],
   );
-  for (const seed of ["passive-sk-depir", "sk-depir"])
-    assert.ok(
-      !closure(reductions, [seed], { relativizes }).scopes.has(
-        "passive-sk-depir-independent-key",
-      ),
-      `${seed} must not derive the database-independent-key variant`,
-    );
+  assert.ok(
+    !closure(reductions, ["sk-depir"], { relativizes }).scopes.has(
+      "passive-sk-depir",
+    ),
+    "sk-depir must not derive passive-sk-depir",
+  );
 
+  // The narrower variant keeps KeyGen(1^λ) and the p(λ)·n^c bound.
   const page = fs.readFileSync(
     path.join(ROOT, "content", "Primitives", "doubly-efficient-pir.md"),
     "utf8",
@@ -248,10 +256,8 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
   );
   assert.ok(start >= 0, "the DEPIR page defines the variant");
   const section = page.slice(start, page.indexOf("\n#", start + 1));
-  // The defining sentence: KeyGen without DB, Prep encodes, and what the
-  // client holds at query time.
   const def =
-    /has a \*\*database-independent key\*\* if \$\\Setup\(1\^\\secpar, DB\)\$ first samples \$k \\gets \\KeyGen\(([^)]*)\)\$, without access to \$DB\$, and then computes \$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$, for efficient algorithms \$\\KeyGen\$ and \$\\mathsf\{Prep\}\$, so that the client holds only \$\(([^)]*)\)\$/.exec(
+    /has a \*\*database-independent key\*\* in the narrower sense recorded here if \$\\Setup\(1\^\\secpar, DB\)\$ first samples \$k \\gets \\KeyGen\(([^)]*)\)\$, without access to \$DB\$ or \$n\$, and then computes \$EDB \\gets \\mathsf\{Prep\}\(1\^\\secpar, k, DB\)\$, for efficient algorithms \$\\KeyGen\$ and \$\\mathsf\{Prep\}\$, so that the client holds only \$\(([^)]*)\)\$/.exec(
       section,
     );
   assert.ok(def, "the variant's defining sentence is intact");
@@ -260,60 +266,19 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
     "1^\\secpar",
     "the variant's KeyGen takes only 1^λ",
   );
-  const clientState = def![2].split(",").map((s) => s.trim());
   assert.deepStrictEqual(
-    clientState,
+    def![2].split(",").map((s) => s.trim()),
     ["n", "k", "i"],
     "the client holds only (n, k, i)",
   );
   assert.match(
     section,
-    /by \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
+    /at most \$p\(\\secpar\) \\cdot n\^c\$ for a polynomial \$p\$ and a constant \$c < 1\$/,
     "the variant bounds query-time cost by p(λ)·n^c",
   );
 
-  // Encode the k = DB, empty-query construction and run it under the
-  // variant's syntax: key generation sees only the inputs the page gives
-  // KeyGen, and the client's query uses only the state the page lets it hold.
-  const keyGenInputs = def![1].split(",").map((s) => s.trim());
-  const sees = (names: string[], DB: number[]) =>
-    names.some((x) => /DB/.test(x)) ? { DB } : {};
-  const kdb = {
-    keyGen: (inputs: { DB?: number[] }) => inputs.DB ?? [],
-    qry: (k: number[], i: number, state: { DB?: number[] }) => ({
-      positions: [] as number[],
-      h: (state.DB ?? k)[i],
-    }),
-    rsp: (positions: number[], edb: number[]) => positions.map((p) => edb[p]),
-    fin: (h: number | undefined, _r: number[]) => h,
-  };
-  const run = (
-    DB: number[],
-    i: number,
-    keyGenSees: string[],
-    held: string[],
-  ) => {
-    const k = kdb.keyGen(sees(keyGenSees, DB));
-    const edb: number[] = [];
-    const { positions, h } = kdb.qry(k, i, sees(held, DB));
-    return kdb.fin(h, kdb.rsp(positions, edb));
-  };
-  // With a joint Setup that hands DB to key generation, the scheme is correct.
-  for (const DB of [[0], [1], [0, 1], [1, 0]])
-    DB.forEach((bit, i) =>
-      assert.strictEqual(run(DB, i, ["1^\\secpar", "DB"], ["k", "i"]), bit),
-    );
-  // Under the variant's syntax its answer cannot depend on DB, so it is wrong
-  // on one of two databases that differ at the queried index.
-  const correctOnBoth =
-    run([0], 0, keyGenInputs, clientState) === 0 &&
-    run([1], 0, keyGenInputs, clientState) === 1;
-  assert.ok(
-    !correctOnBoth,
-    "the k = DB, empty-query scheme is rejected by the barrier's conclusion",
-  );
-  // Every hand-written restatement of LMW25's barrier names the variant,
-  // by its link or by its p(λ)·n^c bound, not the bare passive-server node.
+  // Every hand-written restatement of LMW25's barrier names the
+  // passive-server node (or its variant), never SK-DEPIR in general.
   const walk = (dir: string): string[] =>
     fs.readdirSync(dir, { withFileTypes: true }).flatMap((e) => {
       const p = path.join(dir, e.name);
@@ -327,17 +292,16 @@ test("LMW25's barrier concludes only passive-server SK-DEPIR with a database-ind
       // Only sentences that assert impossibility restate the barrier.
       for (const sentence of line.split(/(?<=\.)\s+/)) {
         if (
-          !/gives? no [^.]*passive-server SK-DEPIR|no black-box construction [^.]*passive-server/i.test(
+          !/gives? no [^.]*SK-DEPIR|no (?:fully-)?black-box construction.*?SK-DEPIR/i.test(
             sentence,
           )
         )
           continue;
+        if (/conjecture/i.test(sentence)) continue;
         lmwRestatements++;
         assert.ok(
-          sentence.includes(
-            "#passive-server-sk-depir-with-a-database-independent-key",
-          ) || sentence.includes("p(\\secpar) \\cdot n^c"),
-          `${path.relative(ROOT, file)}: LMW25 restatement names neither the variant nor its bound`,
+          sentence.includes("#passive-server-sk-depir"),
+          `${path.relative(ROOT, file)}: LMW25 restatement does not name the passive-server node: "${sentence.slice(0, 100)}…"`,
         );
       }
     }
