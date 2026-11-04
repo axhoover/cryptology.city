@@ -253,7 +253,7 @@ is negligible.
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 08d319ddf8d9 -->
+<!-- BEGIN GENERATED participates-in 633476280014 -->
 
 ## Participates in
 
@@ -269,6 +269,7 @@ is negligible.
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-to-dpke-bbo07|CPA-secure PKE ⇒ D-PKE (Encrypt-with-Hash, random oracle model)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])

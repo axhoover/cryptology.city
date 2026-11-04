@@ -173,7 +173,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in bb08f8e6d5af -->
+<!-- BEGIN GENERATED participates-in 785e51cd7c95 -->
 
 ## Participates in
 
@@ -203,6 +203,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[omdl-to-prime-order-dlog|OMDL ⇒ Prime-order DLOG]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[prime-order-dlog-and-secure-channels-to-dkg-gjkr99|DLOG + secure channels ⇒ DKG (GJKR)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00|DLOG ⇒ Blind Okamoto–Schnorr signatures]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
+- [[prime-order-dlog-to-chameleon-hash-function-kr00|DLOG ⇒ Chameleon hash (Krawczyk–Rabin)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-dlog|Prime-order DLOG ⇒ DLOG]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[discrete-logarithm#dlog-in-prime-order-subgroups-of-twisted-edwards-curves|DLOG in prime-order subgroups of twisted Edwards curves]])
 - [[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP (Bootle et al.)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])

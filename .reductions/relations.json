@@ -1033,6 +1033,21 @@
    "unlisted": false
   },
   {
+   "id": "chameleon-hash-function",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/chameleon-hash-function.md",
+   "slug": "chameleon-hash-function",
+   "graphSlug": "Primitives/chameleon-hash-function",
+   "title": "Chameleon hash function",
+   "aliases": [
+    "Chameleon hash",
+    "Chameleon hash function",
+    "Chameleon hashing"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "circuit-private-he-nc1",
    "kind": "variant",
    "type": "primitive",
@@ -2284,6 +2299,37 @@
    "aliases": [
     "Forking lemma",
     "General forking lemma"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "forward-secure-pke",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/forward-secure-public-key-encryption.md",
+   "slug": "forward-secure-public-key-encryption",
+   "graphSlug": "Primitives/forward-secure-public-key-encryption",
+   "title": "Forward-secure public-key encryption",
+   "aliases": [
+    "FS-PKE",
+    "Forward-secure PKE",
+    "Forward-secure public-key encryption",
+    "Forward-secure encryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "forward-secure-signature",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/forward-secure-signature.md",
+   "slug": "forward-secure-signature",
+   "graphSlug": "Primitives/forward-secure-signature",
+   "title": "Forward-secure signature",
+   "aliases": [
+    "Forward-secure signature",
+    "Forward-secure signature scheme",
+    "Key-evolving signature"
    ],
    "unlisted": false
   },
@@ -5219,6 +5265,34 @@
     "Pseudorandom Codes",
     "Pseudorandom error-correcting code"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "pre",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/proxy-re-encryption.md",
+   "slug": "proxy-re-encryption",
+   "graphSlug": "Primitives/proxy-re-encryption",
+   "title": "Proxy re-encryption",
+   "aliases": [
+    "PRE",
+    "Proxy re-encryption",
+    "Proxy reencryption"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "pre-cca",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/proxy-re-encryption.md",
+   "slug": "proxy-re-encryption",
+   "graphSlug": "Primitives/proxy-re-encryption",
+   "anchor": "#chosen-ciphertext-security",
+   "of": "pre",
+   "title": "Chosen-ciphertext security",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -9864,6 +9938,33 @@
    "title": "Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)"
   },
   {
+   "id": "red-claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "kind": "implication",
+   "hypotheses": [
+    "claw-free-trapdoor-permutations"
+   ],
+   "conclusion": "chameleon-hash-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[KR00 - Chameleon Signatures|KR00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction evaluates and inverts the two permutations only as oracles, and the reduction calls the collision finder once, as an oracle, and reads a claw off its output."
+   },
+   "status": "draft",
+   "page": "content/Reductions/claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00.md",
+   "slug": "claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "graphSlug": "Reductions/claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00",
+   "title": "Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)"
+  },
+  {
    "id": "red-cls-hardness-to-ppad-hardness-dp11",
    "kind": "implication",
    "hypotheses": [
@@ -10849,6 +10950,33 @@
    "title": "DBDH ⇒ BDH"
   },
   {
+   "id": "red-dbdh-to-forward-secure-pke-chk03",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "forward-secure-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is one fixed construction over the pairing group, and the reduction runs the forward-security adversary only as an oracle, after guessing its challenge period, on parameters built from its DBDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-forward-secure-pke-chk03.md",
+   "slug": "dbdh-to-forward-secure-pke-chk03",
+   "graphSlug": "Reductions/dbdh-to-forward-secure-pke-chk03",
+   "title": "DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)"
+  },
+  {
    "id": "red-dbdh-to-ibe-wat05",
    "kind": "implication",
    "hypotheses": [
@@ -10901,6 +11029,30 @@
    "slug": "dbdh-to-ind-sid-cpa-bb04",
    "graphSlug": "Reductions/dbdh-to-ind-sid-cpa-bb04",
    "title": "DBDH ⇒ Selectively secure IBE (Boneh–Boyen)"
+  },
+  {
+   "id": "red-dbdh-to-pre-cca-ch07",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "pre-cca",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-pre-cca-ch07.md",
+   "slug": "dbdh-to-pre-cca-ch07",
+   "graphSlug": "Reductions/dbdh-to-pre-cca-ch07",
+   "title": "DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)"
   },
   {
    "id": "red-dbdh-to-three-party-nike-jou04",
@@ -12461,6 +12613,33 @@
    "title": "Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)"
   },
   {
+   "id": "red-ds-to-forward-secure-signature",
+   "kind": "equivalence",
+   "hypotheses": [
+    "ds"
+   ],
+   "conclusion": "forward-secure-signature",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor T from guessing the forgery period, from DS to forward-secure signature; none in the other direction",
+   "rationale": {
+    "class": "Both constructions call the given scheme's algorithms only as oracles, and both reductions run the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ds-to-forward-secure-signature.md",
+   "slug": "ds-to-forward-secure-signature",
+   "graphSlug": "Reductions/ds-to-forward-secure-signature",
+   "title": "DS ⇔ Forward-secure signature"
+  },
+  {
    "id": "red-ds-to-hash-function",
    "kind": "implication",
    "hypotheses": [
@@ -13111,6 +13290,35 @@
    "slug": "factoring-blum-integers-to-claw-free-permutations-gmr88",
    "graphSlug": "Reductions/factoring-blum-integers-to-claw-free-permutations-gmr88",
    "title": "Factoring ⇒ Claw-free permutations (GMR)"
+  },
+  {
+   "id": "red-factoring-blum-integers-to-forward-secure-signature-bm99",
+   "kind": "implication",
+   "hypotheses": [
+    "factoring-blum-integers"
+   ],
+   "conclusion": "forward-secure-signature",
+   "class": "unstated",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]"
+   ],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "model": "The hash function that derives the Fiat-Shamir challenge from the commitment, the period and the message is modelled as a random oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/factoring-blum-integers-to-forward-secure-signature-bm99.md",
+   "slug": "factoring-blum-integers-to-forward-secure-signature-bm99",
+   "graphSlug": "Reductions/factoring-blum-integers-to-forward-secure-signature-bm99",
+   "title": "Factoring ⇒ Forward-secure signature (Bellare–Miner)"
   },
   {
    "id": "red-factoring-blum-integers-to-identification-scheme-ffs88",
@@ -14463,6 +14671,33 @@
    "slug": "he-to-re-bl13",
    "graphSlug": "Reductions/he-to-re-bl13",
    "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
+  },
+  {
+   "id": "red-hibe-selective-security-to-forward-secure-pke-chk03",
+   "kind": "implication",
+   "hypotheses": [
+    "hibe-selective-security"
+   ],
+   "conclusion": "forward-secure-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor T, from guessing the challenge period",
+   "rationale": {
+    "class": "The construction calls the tree scheme's key derivation, encryption and decryption only as oracles, and the reduction runs the forward-security adversary only as an oracle after guessing its challenge period."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-selective-security-to-forward-secure-pke-chk03.md",
+   "slug": "hibe-selective-security-to-forward-secure-pke-chk03",
+   "graphSlug": "Reductions/hibe-selective-security-to-forward-secure-pke-chk03",
+   "title": "Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)"
   },
   {
    "id": "red-hibe-selective-security-to-ind-sid-cpa",
@@ -19674,6 +19909,33 @@
    "title": "CPA-secure PKE ⇒ D-PKE (Encrypt-with-Hash, random oracle model)"
   },
   {
+   "id": "red-pke-cpa-security-to-forward-secure-pke",
+   "kind": "equivalence",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "forward-secure-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor T from guessing the challenge period, from PKE to forward-secure PKE; none in the other direction",
+   "rationale": {
+    "class": "Both constructions call the given scheme's algorithms only as oracles, and both reductions run the adversary only as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-forward-secure-pke.md",
+   "slug": "pke-cpa-security-to-forward-secure-pke",
+   "graphSlug": "Reductions/pke-cpa-security-to-forward-secure-pke",
+   "title": "CPA-secure PKE ⇔ Forward-secure PKE"
+  },
+  {
    "id": "red-pke-cpa-security-to-pke",
    "kind": "implication",
    "hypotheses": [
@@ -20874,6 +21136,33 @@
    "title": "DDH ⇒ LR-PKE"
   },
   {
+   "id": "red-prime-order-ddh-to-pre",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-ddh"
+   ],
+   "conclusion": "pre",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary gives $\\Adv^{\\mathrm{pre\\text{-}cpa}} \\le \\frac{2q}{q-1}\\Adv^{\\text{ddh}} + \\frac{1}{q-1}$, the additive term from the event that $Q^u$ is the identity",
+   "rationale": {
+    "class": "The scheme uses only the group sampler and group operations, and the reduction runs the PRE adversary once as an oracle on keys and a challenge built from its DDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-ddh-to-pre.md",
+   "slug": "prime-order-ddh-to-pre",
+   "graphSlug": "Reductions/prime-order-ddh-to-pre",
+   "title": "DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)"
+  },
+  {
    "id": "red-prime-order-ddh-to-universal2-hash-proof-system-cs02",
    "kind": "implication",
    "hypotheses": [
@@ -20951,6 +21240,33 @@
    "slug": "prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
    "graphSlug": "Reductions/prime-order-dlog-to-blind-okamoto-schnorr-signature-ps00",
    "title": "DLOG ⇒ Blind Okamoto–Schnorr signatures"
+  },
+  {
+   "id": "red-prime-order-dlog-to-chameleon-hash-function-kr00",
+   "kind": "implication",
+   "hypotheses": [
+    "prime-order-dlog"
+   ],
+   "conclusion": "chameleon-hash-function",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[KR00 - Chameleon Signatures|KR00]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: on DLOG challenge $X = 1$ the reduction outputs $0$, and otherwise it sets $h = X$, distributed as in $\\KeyGen$, and turns one collision into $\\log_g X$",
+   "rationale": {
+    "class": "The construction uses only the group sampler and group operations, and the reduction calls the collision finder once, as an oracle, on its DLOG challenge."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prime-order-dlog-to-chameleon-hash-function-kr00.md",
+   "slug": "prime-order-dlog-to-chameleon-hash-function-kr00",
+   "graphSlug": "Reductions/prime-order-dlog-to-chameleon-hash-function-kr00",
+   "title": "DLOG ⇒ Chameleon hash (Krawczyk–Rabin)"
   },
   {
    "id": "red-prime-order-dlog-to-dlog",

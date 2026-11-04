@@ -39,7 +39,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 4f92df0fa56e -->
+<!-- BEGIN GENERATED participates-in 21b058c92bca -->
 
 ## Participates in
 
@@ -72,6 +72,7 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
 - [[dlog-to-bls-signatures-fkl18|DLOG ⇒ BLS signatures]]
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
+- [[factoring-blum-integers-to-forward-secure-signature-bm99|Factoring ⇒ Forward-secure signature (Bellare–Miner)]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
 - [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]

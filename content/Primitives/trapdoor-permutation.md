@@ -85,7 +85,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 259a79b878bf -->
+<!-- BEGIN GENERATED participates-in 2b91588be783 -->
 
 ## Participates in
 
@@ -95,6 +95,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
+- [[claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00|Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures (BMW)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])

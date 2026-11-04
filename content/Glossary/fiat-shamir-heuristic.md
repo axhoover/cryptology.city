@@ -44,7 +44,7 @@ where $\Pi_{\mathrm{FS}}^H$ is the transform of $\Pi$ with $H$ in place of the o
 
 Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits.
 
-<!-- BEGIN GENERATED participates-in 4f68544f9d61 -->
+<!-- BEGIN GENERATED participates-in e918bf4ad72e -->
 
 ## Participates in
 
@@ -59,6 +59,7 @@ Prior counterexamples to Fiat-Shamir were contrived — protocols specifically e
 - [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]]
 - [[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[factoring-blum-integers-to-forward-secure-signature-bm99|Factoring ⇒ Forward-secure signature (Bellare–Miner)]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
