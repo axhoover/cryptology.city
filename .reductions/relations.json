@@ -1275,6 +1275,19 @@
    "unlisted": false
   },
   {
+   "id": "complexity-leveraging",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/complexity-leveraging.md",
+   "slug": "complexity-leveraging",
+   "graphSlug": "Glossary/complexity-leveraging",
+   "title": "Complexity leveraging",
+   "aliases": [
+    "Complexity leveraging"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "computational-fuzzy-extractor",
    "kind": "variant",
    "type": "primitive",
@@ -7243,6 +7256,35 @@
    "unlisted": false
   },
   {
+   "id": "uniform-and-non-uniform-adversaries",
+   "kind": "object",
+   "type": "glossary",
+   "page": "content/Glossary/uniform-and-non-uniform-adversaries.md",
+   "slug": "uniform-and-non-uniform-adversaries",
+   "graphSlug": "Glossary/uniform-and-non-uniform-adversaries",
+   "title": "Uniform and non-uniform adversaries",
+   "aliases": [
+    "Non-uniform adversary",
+    "Uniform adversary",
+    "Non-uniform security"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "universal-one-way-function",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/universal-one-way-function.md",
+   "slug": "universal-one-way-function",
+   "graphSlug": "Folklore/universal-one-way-function",
+   "title": "Universal one-way function",
+   "aliases": [
+    "Universal one-way function",
+    "Levin's universal one-way function"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "universal-snark",
    "kind": "variant",
    "type": "primitive",
@@ -7520,6 +7562,22 @@
     "Module lattice problems"
    ],
    "unlisted": true
+  },
+  {
+   "id": "yao-xor-lemma",
+   "kind": "object",
+   "type": "folklore",
+   "page": "content/Folklore/yao-xor-lemma.md",
+   "slug": "yao-xor-lemma",
+   "graphSlug": "Folklore/yao-xor-lemma",
+   "title": "Yao's XOR lemma",
+   "aliases": [
+    "XOR lemma",
+    "Yao's XOR lemma",
+    "Hard-core lemma",
+    "Impagliazzo's hard-core lemma"
+   ],
+   "unlisted": false
   },
   {
    "id": "zap",
@@ -14398,7 +14456,9 @@
    "source": [
     "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "multiplicative $|\\calI|$",
    "rationale": {
@@ -22573,7 +22633,9 @@
    "source": [
     "[[BPR15 - On the Cryptographic Hardness of Finding a Nash Equilibrium|BPR15]]"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "super-polynomial, which is why both hypotheses are assumed sub-exponentially hard",
    "rationale": {
@@ -22601,7 +22663,9 @@
    "source": [
     "folklore"
    ],
-   "via": [],
+   "via": [
+    "[[complexity-leveraging|complexity leveraging]]"
+   ],
    "heuristic": false,
    "securityLoss": "multiplicative $|\\Sigma^{\\le d}|$",
    "rationale": {

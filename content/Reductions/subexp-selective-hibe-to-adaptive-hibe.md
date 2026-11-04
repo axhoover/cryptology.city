@@ -10,6 +10,8 @@ conclusion: hibe-adaptive-security
 class: fully-black-box
 model: standard
 source: folklore
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\Sigma^{\\le d}|$"
 rationale:
   class: "The construction is the identity map on HIBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity vector, aborting on a wrong guess."

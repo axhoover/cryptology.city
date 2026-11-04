@@ -29,6 +29,6 @@ $\ABE'$ runs $\Setup$ and appends $f_r \getsr \calF'$ to $\pp$; $\Enc(\pp, f, m)
 
 ## Notes
 
-- Complexity leveraging recovers adaptive security only by guessing $f^*$, at a loss of the number of admissible challenge policies, and so needs selective security against correspondingly small advantage — folklore.
+- [[complexity-leveraging|Complexity leveraging]] recovers adaptive security only by guessing $f^*$, at a loss of the number of admissible challenge policies, and so needs selective security against correspondingly small advantage — folklore.
 - The KP-ABE analogue puts a uniformly random attribute set $x_r \subseteq \calU$ in $\pp$ and needs $2^{|\calU|}$ superpolynomial; leveraging there loses $2^{|\calU|}$ — folklore.
 - For HIBE and ABE systems with a checkability property on keys and ciphertexts (any two private keys that are both supposed to decrypt a ciphertext decrypt it to the same message), any simple black-box reduction to a non-interactive assumption suffers an exponential degradation of security — [[LW14 - Why Proving HIBE Systems Secure Is Difficult|LW14]].
