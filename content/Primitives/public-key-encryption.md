@@ -40,7 +40,7 @@ $$
 \Pr\!\left[\Dec(\sk, \Enc(\pk, m)) = m\right] \ge 1 - \varepsilon,
 $$
 
-over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is perfectly correct.
+over the choice of $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and randomness of $\Enc.$ When $\varepsilon = 0$, we say $\PKE$ is **perfectly correct**.
 
 ### CPA Security
 
@@ -80,13 +80,41 @@ Semantic security compares predicting a function of the plaintext with and witho
 
 For an efficient adversary $\calA = (\calA_1, \calA_2)$, sample $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$. Here $M$ describes an efficient sampler supported on equal-length messages in $\calM$, $f$ describes an efficiently computable function, and $\st$ is auxiliary state. Sample $m \gets M$ using fresh coins, and write $z := (1^\secpar, \pk, M, f, \st, |m|)$ for the information available in both experiments.
 
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ss\text{-}real}}_{\PKE,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$
+\State $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$
+\State $m \gets M$; $z := (1^\secpar, \pk, M, f, \st, |m|)$
+\State $y \gets \calA_2(z, \Enc(\pk, m))$
+\Return $[y = f(m)]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ss\text{-}ideal}}_{\PKE,\calA,\Sim}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \pk) \gets \KeyGen(1^\secpar)$
+\State $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$
+\State $m \gets M$; $z := (1^\secpar, \pk, M, f, \st, |m|)$
+\State $y \gets \Sim(z)$
+\Return $[y = f(m)]$
+\end{algorithmic}
+\end{algorithm}
+```
+
 A PKE scheme $\PKE$ is **semantically secure** in this formulation if for every such $\calA$ there is an efficient $\Sim$ such that
 
 $$
-\left|\Pr\!\left[\calA_2(z, \Enc(\pk, m)) = f(m)\right] - \Pr\!\left[\Sim(z) = f(m)\right]\right|
+\left|\Pr\!\left[\Game^{\mathrm{ss\text{-}real}}_{\PKE,\calA}(\secpar) = 1\right] - \Pr\!\left[\Game^{\mathrm{ss\text{-}ideal}}_{\PKE,\calA,\Sim}(\secpar) = 1\right]\right|
 $$
 
-is negligible, over key generation, $\calA_1$, the fresh draw from $M$, encryption, and the coins of $\calA_2$ or $\Sim$. The simulator receives the sampler's description, not the coins used to draw $m$. This formulation is [[cpa-security-to-cpa-security|equivalent to IND-CPA security]] — standard.
+is negligible, over key generation, $\calA_1$, the fresh draw from $M$, encryption, and the coins of $\calA_2$ or $\Sim$. The simulator receives the sampler's description, not the coins used to draw $m$. This formulation is [[cpa-security-to-cpa-security|equivalent to IND-CPA security]] — standard; the equivalence of indistinguishability and semantic security originates in [[GM84 - Probabilistic encryption|GM84]] and [[MRS88 - The Notion of Security for Probabilistic Cryptosystems|MRS88]].
 
 ### CCA Security
 
@@ -125,11 +153,11 @@ An [[#CPA Security|IND-CPA-secure]] scheme that is perfectly correct, $\varepsil
 
 ## CCA1 Security
 
-**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly weaker than CCA2 and strictly stronger than CPA, assuming CCA2-secure schemes exist — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
+**CCA1** (also called the _lunchtime attack_) is an intermediate notion between CPA and CCA2. The adversary has access to the decryption oracle only in Phase 1, before seeing the challenge ciphertext; no decryption queries are permitted after $c^*$ is revealed. CCA1 is strictly stronger than CPA if CPA-secure schemes exist ([[no-pke-cpa-security-to-pke-cca1-security-bdpr98|CPA ⇏ CCA1]]) and strictly weaker than CCA2 if CCA1-secure schemes exist ([[no-pke-cca1-security-to-pke-cca2-security-bdpr98|CCA1 ⇏ CCA2]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].
 
 ## Non-malleability
 
-A scheme is **non-malleable** if no efficient adversary, given a challenge ciphertext, can produce ciphertexts whose plaintexts are related to the challenge plaintext. DDN91 define the notion with a simulator — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]. BDPR98 compare the probability that the plaintexts of the adversary's ciphertexts stand in a relation of its choice to the challenge plaintext with the probability that they stand in it to an independent plaintext from the same distribution — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. The formulation below is indistinguishability under a _parallel_ chosen-ciphertext attack, in which $\calA$ submits one vector of ciphertexts after receiving $c^*$, all at once, and receives their decryptions — [[BS99 - Non-malleable Encryption Equivalence between Two Notions, and an Indistinguishability-Based Characterization|BS99]].
+A scheme is **non-malleable** if no efficient adversary, given a challenge ciphertext $c^*$, can produce ciphertexts other than $c^*$ whose plaintexts are related to the challenge plaintext. DDN91 define the notion with a simulator — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]. BDPR98 compare the probability that the plaintexts of the adversary's ciphertexts stand in a relation of its choice to the challenge plaintext with the probability that they stand in it to an independent plaintext from the same distribution — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. The formulation below is indistinguishability under a _parallel_ chosen-ciphertext attack, in which $\calA$ submits one vector of ciphertexts after receiving $c^*$, all at once, and receives their decryptions — [[BS99 - Non-malleable Encryption Equivalence between Two Notions, and an Indistinguishability-Based Characterization|BS99]].
 
 ```pseudocode
 \begin{algorithm}
@@ -223,9 +251,9 @@ is negligible.
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
-- [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect.
+- [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in f31b91944a16 -->
+<!-- BEGIN GENERATED participates-in 31f6fdbaf26b -->
 
 ## Participates in
 
@@ -241,7 +269,7 @@ is negligible.
 - [[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE (Naor–Yung)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-and-nizk-to-pke-cca2-security-ddn91|CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-cpa-security-to-pke|IND-CPA PKE ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
-- [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#cpa-security|CPA Security]])
+- [[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)]] (via [[public-key-encryption#perfectly-correct-cpa-secure-pke|Perfectly correct CPA-secure PKE]])
 - [[pke-nm-cca2-security-to-pke-cca2-security-bdpr98|NM-CCA2 ⇔ IND-CCA2]] (via [[public-key-encryption#nm-cca2|NM-CCA2]])
 - [[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]] (via [[public-key-encryption#non-malleability|Non-malleability]])
 - [[pke-to-com|PKE ⇒ COM]]

@@ -22,4 +22,4 @@ Every [[injective-one-way-function|injective one-way function]] yields a [[commi
 
 ## Notes
 
-- With a constant number of rounds, any one-way function suffices: [[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]] — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].
+- With a constant number of rounds, any [[hash-function#preimage-resistance-one-wayness|one-way function]] suffices: [[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]] — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].

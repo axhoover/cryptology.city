@@ -28,7 +28,7 @@ A tampering family $\calF$ is a set of functions $f : \bits^n \to \bits^n$. The 
 
 ### Correctness
 
-For all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$.
+A coding scheme $\Pi = (\Enc, \Dec)$ is **perfectly correct** if for all $m \in \calM$, $\Pr\!\left[\Dec(\Enc(m)) = m\right] = 1$ over the coins of $\Enc$.
 
 ### Non-malleability
 
@@ -59,13 +59,13 @@ $$
 
 — [[DPW10 - Non-Malleable Codes|DPW10]]. The adversary $\calA$ is unbounded, so the largest advantage over all $\calA$ is the statistical distance between the distributions of $\tilde m_0$ and $\tilde m_1$.
 
-No coding scheme is non-malleable with respect to the family of all efficiently computable functions $\bits^n \to \bits^n$, which contains a function that decodes, replaces the message by a different one, and re-encodes — [[DPW10 - Non-Malleable Codes|DPW10]].
+No coding scheme is non-malleable with respect to the family of all functions $\bits^n \to \bits^n$, and no coding scheme with efficient $\Enc$ and $\Dec$ is non-malleable with respect to the family of all efficiently computable functions: each family contains a function that decodes, replaces the message by a different one, and re-encodes — [[DPW10 - Non-Malleable Codes|DPW10]].
 
 # Variations
 
 ## Split-state tampering
 
-The codeword is a pair $c = (c_L, c_R)$, and the **split-state** family contains every function $f(c_L, c_R) = (f_L(c_L), f_R(c_R))$ for arbitrary functions $f_L$ and $f_R$, which need not be efficient. A **split-state non-malleable code** is a code that is $\varepsilon$-non-malleable with respect to this family, for negligible $\varepsilon$.
+The codeword is a pair $c = (c_L, c_R)$, and the **split-state** family contains every function $f(c_L, c_R) = (f_L(c_L), f_R(c_R))$ for arbitrary functions $f_L$ and $f_R$, which need not be efficient. A **split-state non-malleable code** is a sequence $\{\Pi_n\}_n$ of codes, $\Pi_n$ having codeword length $n$, such that $\Pi_n$ is $\varepsilon(n)$-non-malleable with respect to the split-state family on $\bits^n$ for a negligible function $\varepsilon$.
 
 DKO13 construct one for one-bit messages from two-source extractors — [[DKO13 - Non-malleable Codes from Two-Source Extractors|DKO13]]; ADL14 construct one for multi-bit messages — [[ADL14 - Non-malleable codes from additive combinatorics|ADL14]]; AO20 achieve constant rate — [[AO20 - A constant rate non-malleable code in the split-state model|AO20]]. When the two halves have equal length, the best achievable rate, by codes that need not be efficient, is $1/2$ — [[CG14 - Capacity of non-malleable codes|CG14]].
 

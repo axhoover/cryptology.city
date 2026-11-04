@@ -21,7 +21,7 @@ variants:
 
 # Commitment scheme
 
-A _commitment scheme_ is a two-phase protocol between a committer and a verifier in which the committer binds to a value during the **commit phase** (without revealing it), and then reveals the value in the **open phase**. The binding property ensures the committer cannot change the value after committing; the hiding property ensures the verifier learns nothing about the value before opening.
+A _commitment scheme_ is a two-phase protocol between a committer and a receiver in which the committer binds to a value during the **commit phase** without revealing it, and then reveals the value in the **open phase**. The binding property ensures that no efficient committer can open one commitment to two different values; the hiding property ensures that no efficient receiver can distinguish commitments to two values of its choice before opening.
 
 ## Syntax
 
@@ -37,57 +37,95 @@ More generally, the commit phase is an interactive protocol between the committe
 
 ### Correctness
 
-For all $\secpar \in \NN$ and $m \in \calM$, $\Open(\pp, c, d) = m$ with probability 1 over $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
+A commitment scheme $\mathsf{COM} = (\Gen, \Com, \Open)$ is **perfectly correct** if for all $\secpar \in \NN$ and $m \in \calM$,
+
+$$
+\Pr\!\left[\Open(\pp, c, d) = m\right] = 1,
+$$
+
+over $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
 
 ### Hiding
 
-The commitment $c$ reveals no information about $m$ before opening. Computationally:
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Gen(1^\secpar)$; $b \getsr \bits$
+\State $(m_0, m_1, \stA) \gets \calA(\pp)$
+\Comment{$m_0, m_1 \in \calM$}
+\State $(c, d) \gets \Com(\pp, m_b)$
+\State $b' \gets \calA(\stA, c)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-$$\Adv^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) = 1\right] - 1\right|$$
+A commitment scheme $\mathsf{COM}$ is **computationally hiding** if for all efficient $\calA$,
 
-is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(m_0, m_1)$ from $\calA$, picks $b \getsr \bits$, computes $(c, d) \gets \Com(\pp, m_b)$, sends $c$ to $\calA$, receives $b'$ from $\calA$, and outputs $[b' = b]$.
+$$
+\Adv^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 A commitment is **statistically hiding** if this holds even against computationally unbounded adversaries that also choose $\pp$, or, for an interactive commit phase, play the receiver.
 
 ### Binding
 
-No efficient committer can open a commitment to two different messages:
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{bind}}_{\mathsf{COM},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $\pp \gets \Gen(1^\secpar)$
+\State $(c, d_0, d_1) \gets \calA(\pp)$
+\State $m_0 \gets \Open(\pp, c, d_0)$; $m_1 \gets \Open(\pp, c, d_1)$
+\Return $[m_0 \ne \bot \land m_1 \ne \bot \land m_0 \ne m_1]$
+\end{algorithmic}
+\end{algorithm}
+```
 
-$$\Adv^{\mathrm{bind}}_{\mathsf{COM},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{bind}}_{\mathsf{COM},\calA}(\secpar) = 1\right]$$
+A commitment scheme $\mathsf{COM}$ is **computationally binding** if for all efficient $\calA$,
 
-is negligible, where the game samples $\pp \gets \Gen(1^\secpar)$, receives $(c, d_0, d_1)$ from $\calA$, and outputs 1 iff $\Open(\pp,c,d_0) \ne \bot$, $\Open(\pp,c,d_1) \ne \bot$, and $\Open(\pp,c,d_0) \ne \Open(\pp,c,d_1)$.
+$$
+\Adv^{\mathrm{bind}}_{\mathsf{COM},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{bind}}_{\mathsf{COM},\calA}(\secpar) = 1\right]
+$$
+
+is negligible.
 
 A commitment is **statistically binding** if this holds even against computationally unbounded adversaries.
 
-**Note:** Without an ideal functionality or a trusted dealer, no commitment scheme is simultaneously statistically hiding and statistically binding — folklore; in the OT-hybrid model Kilian's commitment is both ([[ideal-ot-to-com-kil88|ideal OT ⇒ COM]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]]. Without one, the achievable regimes are: (1) statistically binding / computationally hiding, (2) computationally binding / statistically hiding, and (3) computationally binding / computationally hiding.
+Without an ideal functionality or a trusted dealer, no commitment scheme is simultaneously statistically hiding and statistically binding — folklore; in the [[oblivious-transfer#ideal-ot-functionality|OT-hybrid model]] Kilian's commitment is both ([[ideal-ot-to-com-kil88|ideal OT ⇒ COM]]) — [[Kil88 - Founding cryptography on oblivious transfer|Kil88]].
 
 # Variations
 
 ## Hiding for adversarial public parameters
 
-A commitment scheme is **hiding for adversarial public parameters** if the hiding game's advantage stays negligible when $\calA$ chooses $\pp$ itself; binding is still required only for $\pp \gets \Gen(1^\secpar)$. The receiver can then sample $\pp$ and send it as its first message. Naor's commitment from a PRG has this property, since $G(s)$ and $G(s) \oplus r$ are both pseudorandom for every $r$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+A commitment scheme is **hiding for adversarial public parameters** if the hiding game's advantage stays negligible when $\calA$ chooses $\pp$ itself; binding is still required only for $\pp \gets \Gen(1^\secpar)$. The receiver can then sample $\pp$ and send it as its first message. Naor's commitment from a [[pseudorandom-generator|PRG]] has this property, since $G(s)$ and $G(s) \oplus r$ are both pseudorandom for every $r$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Trapdoor commitments
 
-A _trapdoor commitment_ (or equivocable commitment) is a commitment scheme with an additional trapdoor $\td$ (generated alongside $\pp$) that allows equivocation: given $\td$, for any commitment $c$ and any two messages $m_0, m_1$, one can produce decommitment strings $d_0, d_1$ with $\Open(\pp, c, d_0) = m_0$ and $\Open(\pp, c, d_1) = m_1$. Used in zero-knowledge proof constructions.
+A _trapdoor commitment_ (or equivocable commitment) is a commitment scheme with an additional trapdoor $\td$ (generated alongside $\pp$) that allows equivocation: given $\td$, one can produce a commitment $c$ and a state from which, for every $m \in \calM$, one can compute a decommitment $d$ with $\Open(\pp, c, d) = m$, such that for every $m \in \calM$ the resulting $(\pp, c, d)$ is indistinguishable from $(\pp, c, d)$ with $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
 
 ## Vector commitments
 
-A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)$ such that one can later open any single position $m_i$ with a short proof. Used in verifiable data structures and SNARKs.
+A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)$ such that one can later open any single position $m_i$ with a short proof.
 
 ## UC commitment
 
 The bit-commitment functionality $\calF_{\mathrm{COM}}$ serves one commitment from a committer $P_i$ to a receiver $P_j$. On input $(\mathsf{Commit}, \mathit{sid}, P_i, P_j, b)$ from $P_i$, with $b \in \bits$, it records $b$, sends $(\mathsf{Receipt}, \mathit{sid}, P_i, P_j)$ to $P_j$ and to the adversary, and ignores later Commit inputs. On input $(\mathsf{Open}, \mathit{sid}, P_i, P_j)$ from $P_i$, if it has recorded a bit $b$, it sends $(\mathsf{Open}, \mathit{sid}, P_i, P_j, b)$ to $P_j$ and to the adversary and halts — [[CF01 - Universally Composable Commitments|CF01]]. A **UC commitment** is a two-party protocol in which, with non-negligible probability, the receiver accepts a commitment of the honest committer and outputs a receipt, and which [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{COM}}$ against a malicious adversary that statically corrupts either party, possibly in a hybrid model such as the common reference string model; a result against adaptive corruptions says so. In the common reference string model each session of $\calF_{\mathrm{COM}}$ has its own reference string, so such a protocol uses a fresh string for every commitment — [[CF01 - Universally Composable Commitments|CF01]].
 
-Over [[interactive-protocol#authenticated-channels|authenticated channels]] without setup, no protocol in which only the committer and the receiver take part is a UC commitment ([[no-authenticated-channels-to-uc-commitment-cf01|no UC commitment from authenticated channels]]) — [[CF01 - Universally Composable Commitments|CF01]]. In the common reference string model trapdoor permutations suffice ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+Over [[interactive-protocol#authenticated-channels|authenticated channels]] without setup, no protocol in which only the committer and the receiver take part is a UC commitment ([[no-authenticated-channels-to-uc-commitment-cf01|no UC commitment from authenticated channels]]) — [[CF01 - Universally Composable Commitments|CF01]]. In the common reference string model [[trapdoor-permutation|trapdoor permutations]] suffice ([[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 
 ### UC multi-commitment
 
-The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol that UC-realizes $\calF_{\mathrm{MCOM}}$, possibly in a hybrid model; in the common reference string model all commitments of a session then share one reference string. A claw-free pair of trapdoor permutations together with a CCA2-secure PKE gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
+The multi-commitment functionality $\calF_{\mathrm{MCOM}}$ serves any number of commitments, between any pairs of parties, in one session: every input carries a commitment identifier $\mathit{cid}$, and $\calF_{\mathrm{MCOM}}$ treats the inputs with each $\mathit{cid}$ as $\calF_{\mathrm{COM}}$ does, except that it does not halt after an opening — [[CF01 - Universally Composable Commitments|CF01]]. A **UC multi-commitment** is a protocol that UC-realizes $\calF_{\mathrm{MCOM}}$, possibly in a hybrid model; in the common reference string model all commitments of a session then share one reference string. A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] together with a [[public-key-encryption#cca-security|CCA2-secure PKE]] gives one ([[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|claw-free TDP + CCA2 PKE ⇒ UC multi-commitment]]) — [[CF01 - Universally Composable Commitments|CF01]].
 
 ## Non-malleable commitments
 
-A commitment scheme is **non-malleable** if a man-in-the-middle adversary that receives a commitment from an honest committer while committing to an honest receiver cannot commit to a value related to the honest committer's. DDN91 introduced the notion, with a definition by comparison to a simulator that takes part in no session with the honest committer, and constructed such commitments from any one-way function ([[owf-to-non-malleable-commitment-ddn91|OWF ⇒ NM commitment]]) — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]].
+A commitment scheme is **non-malleable** if a man-in-the-middle adversary that receives a commitment from an honest committer while committing to an honest receiver cannot commit to a value related to the honest committer's. DDN91 introduced the notion, with a definition by comparison to a simulator that takes part in no session with the honest committer, and constructed such commitments from any [[hash-function#preimage-resistance-one-wayness|one-way function]] ([[owf-to-non-malleable-commitment-ddn91|OWF ⇒ NM commitment]]) — [[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]].
 
 The formulation below is tag-based and compares the adversary's committed value for two honest values, as in [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]]. A _tag-based_ commitment scheme $\mathsf{COM} = \langle C, R \rangle$ is a statistically binding commitment scheme with an interactive commit phase, in which the committer $C(t, v)$ and the receiver $R(t)$ share a tag $t \in \bits^\secpar$ that plays the role of the committer's identity. For a transcript $\tau$ of the commit phase, $\mathsf{val}(\tau)$ is the value to which $\tau$ can be opened, and $\bot$ if the receiver does not accept, if $\tau$ has no valid opening, or if it has valid openings to two values. The adversary plays the receiver in a _left_ session with $C(t, v_b)$ and the committer in a _right_ session with $R(\tilde t)$, for a tag $\tilde t$ of its choice, and schedules the messages of both sessions.
 
@@ -99,7 +137,7 @@ The formulation below is tag-based and compares the adversary's committed value 
 \State $b \getsr \bits$
 \State $(v_0, v_1, t, \stA) \gets \calA(1^\secpar)$
 \Comment{$v_0, v_1 \in \calM$, $|v_0| = |v_1|$, $t \in \bits^\secpar$}
-\State Run $\langle C(t, v_b), \calA(\stA) \rangle$ and $\langle \calA(\stA), R(\tilde t) \rangle$, scheduled by $\calA$
+\State Run $\langle C(t, v_b), \calA(\stA) \rangle$ and $\langle \calA(\stA), R(\tilde t) \rangle$, scheduled by $\calA$, which outputs its updated state $\stA$
 \Comment{$\calA$ chooses $\tilde t \in \bits^\secpar$; $\tilde\tau$ is the right transcript}
 \State $\tilde v \gets \mathsf{val}(\tilde\tau)$
 \If{$\tilde t = t$}
@@ -125,18 +163,17 @@ In the concurrent version $\calA$ takes part in polynomially many left and right
 
 ### Constant-round non-malleable commitments
 
-A non-malleable commitment scheme whose commit phase has a constant number of messages. Bar02 gave the first such scheme without setup, with a non-black-box security proof — [[Bar02 - Constant-Round Coin-Tossing with a Man in the Middle or Realizing the Shared Random String Model|Bar02]]. Collision-resistant hash functions suffice ([[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ constant-round NM commitment]]) — [[PR05 - New and improved constructions of non-malleable cryptographic protocols|PR05]], and so do one-way functions ([[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]]) — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].
+A non-malleable commitment scheme whose commit phase has a constant number of messages. Bar02 gave the first such scheme without setup, with a non-black-box security proof — [[Bar02 - Constant-Round Coin-Tossing with a Man in the Middle or Realizing the Shared Random String Model|Bar02]]. [[hash-function#collision-resistance|Collision-resistant hash functions]] suffice ([[crhf-to-constant-round-non-malleable-commitment-pr05|CRHF ⇒ constant-round NM commitment]]) — [[PR05 - New and improved constructions of non-malleable cryptographic protocols|PR05]], and so do one-way functions ([[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]]) — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].
 
 ### Three-round non-malleable commitments
 
-A non-malleable commitment scheme whose commit phase has three messages. Injective one-way functions suffice ([[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ three-round NM commitment]]) — [[GR19 - Non-Malleable Commitments using Goldreich-Levin List Decoding|GR19]].
+A non-malleable commitment scheme whose commit phase has three messages. [[injective-one-way-function|Injective one-way functions]] suffice ([[injective-one-way-function-to-three-round-non-malleable-commitment-gr19|Injective OWF ⇒ three-round NM commitment]]) — [[GR19 - Non-Malleable Commitments using Goldreich-Levin List Decoding|GR19]].
 
 # Other results
 
-- [[owf-to-prg-hill99|OWF ⇒ PRG]]
-- [[prg-to-com-naor91|PRG ⇒ COM]]
-- [[pke-to-com|PKE ⇒ COM]]
-- [[dlog-to-com-ped91|DLOG ⇒ COM]]
+- [[owf-to-prg-hill99|OWF ⇒ PRG]] — [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]], then [[prg-to-com-naor91|PRG ⇒ COM]] — [[Naor91 - Bit commitment using pseudorandomness|Naor91]]
+- [[pke-to-com|PKE ⇒ COM]] — folklore
+- [[dlog-to-com-ped91|DLOG ⇒ statistically hiding COM]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]
 
 <!-- BEGIN GENERATED participates-in 964bc85ba46a -->
 

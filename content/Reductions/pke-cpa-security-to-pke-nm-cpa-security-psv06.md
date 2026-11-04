@@ -5,7 +5,7 @@ title: "IND-CPA PKE ⇒ NM-CPA PKE (Pass–shelat–Vaikuntanathan)"
 aliases: []
 id: red-pke-cpa-security-to-pke-nm-cpa-security-psv06
 kind: implication
-hypotheses: [pke-cpa-security]
+hypotheses: [perfectly-correct-pke-cpa-security]
 conclusion: pke-nm-cpa-security
 class: free
 model: standard
@@ -20,9 +20,9 @@ rationale:
 
 ## Statement
 
-Every [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme can be transformed into an [[public-key-encryption#non-malleability|NM-CPA-secure]] one — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
+Every [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme can be transformed into an [[public-key-encryption#non-malleability|NM-CPA-secure]] one — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
 
 ## Notes
 
-- A transformation that uses the IND-CPA-secure scheme only as a black box gives non-malleable encryption as well — [[CDMW08 - Black-Box Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|CDMW08]].
+- A transformation that uses the IND-CPA-secure scheme only as a black box also yields an NM-CPA-secure one — [[CDMW08 - Black-Box Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|CDMW08]].
 - The identity map does not suffice: an IND-CPA-secure scheme need not be NM-CPA-secure ([[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|IND-CCA1 ⇏ NM-CPA]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]].

@@ -9901,7 +9901,7 @@
     "crhf"
    ],
    "conclusion": "constant-round-non-malleable-commitment",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "models": [
     "standard"
@@ -9912,6 +9912,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The non-malleable zero-knowledge argument follows Barak's protocol, whose universal argument proves a relation containing the hash function's own computation, so the construction uses the hash function's code."
+   },
    "status": "draft",
    "page": "content/Reductions/crhf-to-constant-round-non-malleable-commitment-pr05.md",
    "slug": "crhf-to-constant-round-non-malleable-commitment-pr05",
@@ -17728,7 +17731,7 @@
     "owf"
    ],
    "conclusion": "constant-round-non-malleable-commitment",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "models": [
     "standard"
@@ -17740,6 +17743,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "Both constructions use the one-way function's code rather than only oracle access to it; Goy11 obtains black-box use only for a weaker notion, non-malleability with respect to replacement."
+   },
    "status": "draft",
    "page": "content/Reductions/owf-to-constant-round-non-malleable-commitment-lp11-goy11.md",
    "slug": "owf-to-constant-round-non-malleable-commitment-lp11-goy11",
@@ -17855,7 +17861,7 @@
     "owf"
    ],
    "conclusion": "non-malleable-commitment",
-   "class": "unstated",
+   "class": "free",
    "model": "standard",
    "models": [
     "standard"
@@ -17866,6 +17872,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The commit phase runs zero-knowledge proofs of knowledge of the committed value, NP statements about a commitment built from the one-way function, so the construction uses the function's code."
+   },
    "status": "draft",
    "page": "content/Reductions/owf-to-non-malleable-commitment-ddn91.md",
    "slug": "owf-to-non-malleable-commitment-ddn91",
@@ -18823,7 +18832,7 @@
    "id": "red-pke-cpa-security-to-pke-nm-cpa-security-psv06",
    "kind": "implication",
    "hypotheses": [
-    "pke-cpa-security"
+    "perfectly-correct-pke-cpa-security"
    ],
    "conclusion": "pke-nm-cpa-security",
    "class": "free",
@@ -18863,7 +18872,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight — the adversary and its advantage are unchanged",
+   "securityLoss": "tight — the advantage is unchanged in both directions; from IND-CCA2 security the reduction adds one decryption query per ciphertext of the parallel query",
    "rationale": {
     "class": "Both directions keep the scheme unchanged, and each fixed reduction runs the given adversary once as an oracle, forwarding its decryption queries."
    },

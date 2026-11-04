@@ -7,11 +7,13 @@ id: red-owf-to-non-malleable-commitment-ddn91
 kind: implication
 hypotheses: [owf]
 conclusion: non-malleable-commitment
-class: unstated
+class: free
 model: standard
 source:
   - "[[DDN91 - Non-Malleable Cryptography (Extended Abstract)|DDN91]]"
 security-loss: ""
+rationale:
+  class: "The commit phase runs zero-knowledge proofs of knowledge of the committed value, NP statements about a commitment built from the one-way function, so the construction uses the function's code."
 ---
 
 # OWF ⇒ NM commitment (Dolev–Dwork–Naor)
@@ -23,4 +25,4 @@ Every [[hash-function#preimage-resistance-one-wayness|one-way function]] yields 
 ## Notes
 
 - A constant number of rounds suffices: [[owf-to-constant-round-non-malleable-commitment-lp11-goy11|OWF ⇒ constant-round NM commitment]] — [[LP11a - Constant-round non-malleable commitments from any one-way function|LP11a]], [[Goy11 - Constant round non-malleable protocols using one way functions|Goy11]].
-- Every commitment scheme gives a one-way function ([[com-to-owf-il89|COM ⇒ OWF]]), so one-way functions are necessary as well — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
+- One-way functions are also necessary: a non-malleable commitment scheme is a commitment scheme ([[non-malleable-commitment-to-com|NM commitment ⇒ COM]]) — folklore — and every commitment scheme gives a one-way function ([[com-to-owf-il89|COM ⇒ OWF]]) — [[IL89 - One-way Functions are Essential for Complexity Based Cryptography|IL89]].
