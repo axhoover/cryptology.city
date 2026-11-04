@@ -3,10 +3,10 @@ type: reduction
 status: draft
 title: "Semi-honest 2PC ⇒ OPE"
 aliases: []
-id: red-semi-honest-two-party-computation-to-ope
+id: red-semi-honest-two-party-computation-to-oblivious-polynomial-evaluation
 kind: implication
 hypotheses: [semi-honest-two-party-computation]
-conclusion: ope
+conclusion: oblivious-polynomial-evaluation
 class: fully-black-box
 model: standard
 source: folklore

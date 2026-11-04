@@ -3,10 +3,10 @@ type: reduction
 status: draft
 title: "2PC ⇒ Malicious OPE"
 aliases: []
-id: red-two-party-computation-to-malicious-ope
+id: red-two-party-computation-to-malicious-oblivious-polynomial-evaluation
 kind: implication
 hypotheses: [two-party-computation]
-conclusion: malicious-ope
+conclusion: malicious-oblivious-polynomial-evaluation
 class: fully-black-box
 model: standard
 source: folklore

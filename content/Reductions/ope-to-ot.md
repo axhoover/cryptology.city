@@ -3,9 +3,9 @@ type: reduction
 status: draft
 title: "OPE ⇒ OT"
 aliases: []
-id: red-ope-to-ot
+id: red-oblivious-polynomial-evaluation-to-ot
 kind: implication
-hypotheses: [ope]
+hypotheses: [oblivious-polynomial-evaluation]
 conclusion: ot
 class: fully-black-box
 model: standard

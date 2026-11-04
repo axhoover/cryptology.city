@@ -3573,14 +3573,14 @@
    "unlisted": false
   },
   {
-   "id": "malicious-ope",
+   "id": "malicious-oblivious-polynomial-evaluation",
    "kind": "variant",
    "type": "primitive",
    "page": "content/Primitives/oblivious-polynomial-evaluation.md",
    "slug": "oblivious-polynomial-evaluation",
    "graphSlug": "Primitives/oblivious-polynomial-evaluation",
    "anchor": "#malicious-security",
-   "of": "ope",
+   "of": "oblivious-polynomial-evaluation",
    "title": "Malicious security",
    "aliases": [],
    "unlisted": false
@@ -4246,6 +4246,19 @@
    "unlisted": true
   },
   {
+   "id": "oblivious-polynomial-evaluation",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
+   "slug": "oblivious-polynomial-evaluation",
+   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
+   "title": "Oblivious polynomial evaluation",
+   "aliases": [
+    "Oblivious polynomial evaluation"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "offline-oram",
    "kind": "variant",
    "type": "primitive",
@@ -4349,19 +4362,6 @@
     "One-way state generator"
    ],
    "unlisted": true
-  },
-  {
-   "id": "ope",
-   "kind": "object",
-   "type": "primitive",
-   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
-   "slug": "oblivious-polynomial-evaluation",
-   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
-   "title": "Oblivious polynomial evaluation",
-   "aliases": [
-    "Oblivious polynomial evaluation"
-   ],
-   "unlisted": false
   },
   {
    "id": "oprf",
@@ -16810,6 +16810,33 @@
    "title": "NTRU ⇒ PKE"
   },
   {
+   "id": "red-oblivious-polynomial-evaluation-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "oblivious-polynomial-evaluation"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of 2",
+   "rationale": {
+    "class": "The OT runs the OPE protocol once, on inputs computed from the OT inputs, and each privacy reduction runs the OT adversary only as an oracle against the OPE semi-honest game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ope-to-ot.md",
+   "slug": "ope-to-ot",
+   "graphSlug": "Reductions/ope-to-ot",
+   "title": "OPE ⇒ OT"
+  },
+  {
    "id": "red-oihf-to-ot-bh26",
    "kind": "implication",
    "hypotheses": [
@@ -17002,33 +17029,6 @@
    "slug": "one-round-sublinear-cpir-to-total-nontrivial-cpir",
    "graphSlug": "Reductions/one-round-sublinear-cpir-to-total-nontrivial-cpir",
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
-  },
-  {
-   "id": "red-ope-to-ot",
-   "kind": "implication",
-   "hypotheses": [
-    "ope"
-   ],
-   "conclusion": "ot",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "folklore"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "a factor of 2",
-   "rationale": {
-    "class": "The OT runs the OPE protocol once, on inputs computed from the OT inputs, and each privacy reduction runs the OT adversary only as an oracle against the OPE semi-honest game."
-   },
-   "status": "draft",
-   "page": "content/Reductions/ope-to-ot.md",
-   "slug": "ope-to-ot",
-   "graphSlug": "Reductions/ope-to-ot",
-   "title": "OPE ⇒ OT"
   },
   {
    "id": "red-oprf-to-ot",
@@ -21238,12 +21238,12 @@
    "title": "Semi-honest 2PC + PRF ⇒ OPRF"
   },
   {
-   "id": "red-semi-honest-two-party-computation-to-ope",
+   "id": "red-semi-honest-two-party-computation-to-oblivious-polynomial-evaluation",
    "kind": "implication",
    "hypotheses": [
     "semi-honest-two-party-computation"
    ],
-   "conclusion": "ope",
+   "conclusion": "oblivious-polynomial-evaluation",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -23857,12 +23857,12 @@
    "title": "2PC + PRF ⇒ Malicious OPRF"
   },
   {
-   "id": "red-two-party-computation-to-malicious-ope",
+   "id": "red-two-party-computation-to-malicious-oblivious-polynomial-evaluation",
    "kind": "implication",
    "hypotheses": [
     "two-party-computation"
    ],
-   "conclusion": "malicious-ope",
+   "conclusion": "malicious-oblivious-polynomial-evaluation",
    "class": "fully-black-box",
    "model": "standard",
    "models": [

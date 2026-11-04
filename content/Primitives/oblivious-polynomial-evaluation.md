@@ -4,9 +4,9 @@ status: draft
 aliases:
   - Oblivious polynomial evaluation
 title: Oblivious polynomial evaluation
-id: ope
+id: oblivious-polynomial-evaluation
 variants:
-  malicious-ope: "#malicious-security"
+  malicious-oblivious-polynomial-evaluation: "#malicious-security"
 ---
 
 # Oblivious polynomial evaluation
