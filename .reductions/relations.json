@@ -460,6 +460,19 @@
    "unlisted": false
   },
   {
+   "id": "anonymous-ibe",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/identity-based-encryption.md",
+   "slug": "identity-based-encryption",
+   "graphSlug": "Primitives/identity-based-encryption",
+   "anchor": "#anonymous-ibe",
+   "of": "ibe",
+   "title": "Anonymous IBE",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "anonymous-public-key-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -747,6 +760,19 @@
    "unlisted": false
   },
   {
+   "id": "best-possible-ore",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/order-preserving-encryption.md",
+   "slug": "order-preserving-encryption",
+   "graphSlug": "Primitives/order-preserving-encryption",
+   "anchor": "#best-possible-security",
+   "of": "ope",
+   "title": "Best-possible security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "bi-deniable-encryption",
    "kind": "variant",
    "type": "primitive",
@@ -856,6 +882,19 @@
     "Blind signature",
     "Blind signatures"
    ],
+   "unlisted": false
+  },
+  {
+   "id": "block-source-dpke",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/deterministic-public-key-encryption.md",
+   "slug": "deterministic-public-key-encryption",
+   "graphSlug": "Primitives/deterministic-public-key-encryption",
+   "anchor": "#security-for-block-sources",
+   "of": "dpke",
+   "title": "Security for block sources",
+   "aliases": [],
    "unlisted": false
   },
   {
@@ -1393,6 +1432,19 @@
    "unlisted": false
   },
   {
+   "id": "consistent-peks",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption-with-keyword-search.md",
+   "slug": "public-key-encryption-with-keyword-search",
+   "graphSlug": "Primitives/public-key-encryption-with-keyword-search",
+   "anchor": "#consistency",
+   "of": "peks",
+   "title": "Consistency",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "constant-bandwidth-oram",
    "kind": "variant",
    "type": "primitive",
@@ -1896,6 +1948,21 @@
    "unlisted": false
   },
   {
+   "id": "dpke",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/deterministic-public-key-encryption.md",
+   "slug": "deterministic-public-key-encryption",
+   "graphSlug": "Primitives/deterministic-public-key-encryption",
+   "title": "Deterministic public-key encryption",
+   "aliases": [
+    "D-PKE",
+    "DPKE",
+    "Deterministic public-key encryption"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "ds",
    "kind": "object",
    "type": "primitive",
@@ -1934,6 +2001,19 @@
    "anchor": "#dynamic-accumulators",
    "of": "accumulator",
    "title": "Dynamic accumulators",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "dynamic-sse",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/searchable-symmetric-encryption.md",
+   "slug": "searchable-symmetric-encryption",
+   "graphSlug": "Primitives/searchable-symmetric-encryption",
+   "anchor": "#dynamic-sse",
+   "of": "sse",
+   "title": "Dynamic SSE",
    "aliases": [],
    "unlisted": false
   },
@@ -4156,6 +4236,19 @@
    "unlisted": false
   },
   {
+   "id": "non-adaptive-sse",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/searchable-symmetric-encryption.md",
+   "slug": "searchable-symmetric-encryption",
+   "graphSlug": "Primitives/searchable-symmetric-encryption",
+   "anchor": "#non-adaptive-security",
+   "of": "sse",
+   "title": "Non-adaptive security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "non-interactive-assumption",
    "kind": "variant",
    "type": "glossary",
@@ -4473,6 +4566,22 @@
    "unlisted": false
   },
   {
+   "id": "ope",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/order-preserving-encryption.md",
+   "slug": "order-preserving-encryption",
+   "graphSlug": "Primitives/order-preserving-encryption",
+   "title": "Order-preserving encryption",
+   "aliases": [
+    "OPE",
+    "ORE",
+    "Order-preserving encryption",
+    "Order-revealing encryption"
+   ],
+   "unlisted": false
+  },
+  {
    "id": "oprf",
    "kind": "object",
    "type": "primitive",
@@ -4525,6 +4634,19 @@
    "anchor": "#oram-with-server-computation",
    "of": "oram",
    "title": "ORAM with server computation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "ore-first-differing-bit",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/order-preserving-encryption.md",
+   "slug": "order-preserving-encryption",
+   "graphSlug": "Primitives/order-preserving-encryption",
+   "anchor": "#leakage-of-the-first-differing-bit",
+   "of": "ope",
+   "title": "Leakage of the first differing bit",
    "aliases": [],
    "unlisted": false
   },
@@ -4708,6 +4830,20 @@
     "KZG",
     "KZG commitment",
     "Polynomial commitment scheme"
+   ],
+   "unlisted": false
+  },
+  {
+   "id": "peks",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption-with-keyword-search.md",
+   "slug": "public-key-encryption-with-keyword-search",
+   "graphSlug": "Primitives/public-key-encryption-with-keyword-search",
+   "title": "Public-key encryption with keyword search",
+   "aliases": [
+    "PEKS",
+    "Public key encryption with keyword search"
    ],
    "unlisted": false
   },
@@ -6257,6 +6393,20 @@
    "of": "sidh",
    "title": "Decisional variant (SSDDH)",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "sse",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/searchable-symmetric-encryption.md",
+   "slug": "searchable-symmetric-encryption",
+   "graphSlug": "Primitives/searchable-symmetric-encryption",
+   "title": "Searchable symmetric encryption",
+   "aliases": [
+    "SSE",
+    "Searchable symmetric encryption"
+   ],
    "unlisted": false
   },
   {
@@ -8049,6 +8199,60 @@
    "title": "Anonymous HIBE ⇒ HIBE"
   },
   {
+   "id": "red-anonymous-ibe-to-consistent-peks-abc05",
+   "kind": "implication",
+   "hypotheses": [
+    "anonymous-ibe"
+   ],
+   "conclusion": "consistent-peks",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The PEKS calls the IBE's algorithms only as oracles, and each reduction runs the PEKS adversary only as an oracle against the IBE."
+   },
+   "status": "draft",
+   "page": "content/Reductions/anonymous-ibe-to-consistent-peks-abc05.md",
+   "slug": "anonymous-ibe-to-consistent-peks-abc05",
+   "graphSlug": "Reductions/anonymous-ibe-to-consistent-peks-abc05",
+   "title": "Anonymous IBE ⇒ PEKS (ABC+05)"
+  },
+  {
+   "id": "red-anonymous-ibe-to-ind-id-cpa",
+   "kind": "implication",
+   "hypotheses": [
+    "anonymous-ibe"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on IBE schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/anonymous-ibe-to-ind-id-cpa.md",
+   "slug": "anonymous-ibe-to-ind-id-cpa",
+   "graphSlug": "Reductions/anonymous-ibe-to-ind-id-cpa",
+   "title": "Anonymous IBE ⇒ IND-ID-CPA IBE"
+  },
+  {
    "id": "red-attribute-hiding-security-to-payload-hiding-security",
    "kind": "implication",
    "hypotheses": [
@@ -8406,6 +8610,35 @@
    "slug": "cdh-to-bdh",
    "graphSlug": "Reductions/cdh-to-bdh",
    "title": "BDH ⇒ CDH"
+  },
+  {
+   "id": "red-bdh-to-consistent-peks-bdop04",
+   "kind": "implication",
+   "hypotheses": [
+    "bdh"
+   ],
+   "conclusion": "consistent-peks",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]]",
+    "[[ABC+05 - Searchable Encryption Revisited Consistency Properties, Relation to Anonymous IBE, and Extensions|ABC+05]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction is one fixed scheme over the pairing group, and the reduction runs the PEKS adversary only as an oracle to solve BDH.",
+    "model": "The reduction programs the scheme's two hash functions, modelled as random oracles."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bdh-to-consistent-peks-bdop04.md",
+   "slug": "bdh-to-consistent-peks-bdop04",
+   "graphSlug": "Reductions/bdh-to-consistent-peks-bdop04",
+   "title": "BDH ⇒ PEKS (random oracle model)"
   },
   {
    "id": "red-bdh-to-hibe-wat09",
@@ -9803,6 +10036,60 @@
    "slug": "conp-to-pspace",
    "graphSlug": "Reductions/conp-to-pspace",
    "title": "coNP ⊆ PSPACE"
+  },
+  {
+   "id": "red-consistent-peks-to-ind-id-cpa-bdop04",
+   "kind": "implication",
+   "hypotheses": [
+    "consistent-peks"
+   ],
+   "conclusion": "ind-id-cpa",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The IBE calls the PEKS algorithms only as oracles, and the reduction runs the IBE adversary only as an oracle, forwarding its extraction queries as trapdoor queries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/consistent-peks-to-ind-id-cpa-bdop04.md",
+   "slug": "consistent-peks-to-ind-id-cpa-bdop04",
+   "graphSlug": "Reductions/consistent-peks-to-ind-id-cpa-bdop04",
+   "title": "Consistent PEKS ⇒ IBE (BDOP04)"
+  },
+  {
+   "id": "red-consistent-peks-to-peks",
+   "kind": "implication",
+   "hypotheses": [
+    "consistent-peks"
+   ],
+   "conclusion": "peks",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on PEKS schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/consistent-peks-to-peks.md",
+   "slug": "consistent-peks-to-peks",
+   "graphSlug": "Reductions/consistent-peks-to-peks",
+   "title": "Consistent PEKS ⇒ PEKS"
   },
   {
    "id": "red-constant-bias-coin-flipping-to-owf-ho11",
@@ -18923,6 +19210,34 @@
    "title": "CPA-secure PKE + NIZK ⇒ CCA2-secure PKE (DDN, Sahai)"
   },
   {
+   "id": "red-pke-cpa-security-to-dpke-bbo07",
+   "kind": "implication",
+   "hypotheses": [
+    "pke-cpa-security"
+   ],
+   "conclusion": "dpke",
+   "class": "fully-black-box",
+   "model": "rom",
+   "models": [
+    "rom"
+   ],
+   "source": [
+    "[[BBO07 - Deterministic and Efficiently Searchable Encryption|BBO07]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the PKE's algorithms only as oracles, and the reduction runs the PRIV adversary only as an oracle against the PKE.",
+    "model": "The reduction answers the adversary's hash queries itself and uses that the encryption coins are uniform unless the hash is queried at the public key and an encrypted message."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pke-cpa-security-to-dpke-bbo07.md",
+   "slug": "pke-cpa-security-to-dpke-bbo07",
+   "graphSlug": "Reductions/pke-cpa-security-to-dpke-bbo07",
+   "title": "CPA-secure PKE ⇒ D-PKE (Encrypt-with-Hash, random oracle model)"
+  },
+  {
    "id": "red-pke-cpa-security-to-pke",
    "kind": "implication",
    "hypotheses": [
@@ -19526,6 +19841,60 @@
    "slug": "prf-to-mac-bkr94",
    "graphSlug": "Reductions/prf-to-mac-bkr94",
    "title": "PRF ⇒ MAC (CBC-MAC)"
+  },
+  {
+   "id": "red-prf-to-ope-bclo09",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "ope",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme calls the PRF and the hypergeometric sampler only as oracles, and the reduction runs any POPF-CCA adversary as an oracle, answering its queries with its own function oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-ope-bclo09.md",
+   "slug": "prf-to-ope-bclo09",
+   "graphSlug": "Reductions/prf-to-ope-bclo09",
+   "title": "PRF ⇒ OPE (BCLO09)"
+  },
+  {
+   "id": "red-prf-to-ore-first-differing-bit-clww16",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "ore-first-differing-bit",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme calls the PRF only as an oracle, and the reduction runs any adversary as an oracle, answering its queries with its own function oracle or with a fixed simulator."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-ore-first-differing-bit-clww16.md",
+   "slug": "prf-to-ore-first-differing-bit-clww16",
+   "graphSlug": "Reductions/prf-to-ore-first-differing-bit-clww16",
+   "title": "PRF ⇒ ORE leaking the first differing bit (CLWW16)"
   },
   {
    "id": "red-prf-to-polylog-oram-go96",

@@ -155,7 +155,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in 86c815e7e9e9 -->
+<!-- BEGIN GENERATED participates-in fa0b4b382780 -->
 
 ## Participates in
 
@@ -168,6 +168,8 @@ is negligible.
 - [[prf-to-logarithmic-oram-akl-20|PRF ⇒ logarithmic-overhead ORAM (OptORAMa)]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 - [[prf-to-mac-bkr94|PRF ⇒ MAC (CBC-MAC)]]
+- [[prf-to-ope-bclo09|PRF ⇒ OPE (BCLO09)]]
+- [[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE leaking the first differing bit (CLWW16)]]
 - [[prf-to-polylog-oram-go96|PRF ⇒ polylogarithmic-overhead ORAM (hierarchical ORAM)]]
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
