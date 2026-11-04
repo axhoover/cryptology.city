@@ -15,6 +15,7 @@ variants:
   evasive-lwe: "#evasive-lwe"
   module-lwe: "#module-lwe"
   ring-lwe: "#ring-lwe"
+  ring-lwe-quasi-polynomial-approximation: "#ring-lwe-with-quasi-polynomial-approximation-factors"
   succinct-lwe: "#succinct-lwe"
   decision-lwe: "#decision-lwe"
   private-coin-evasive-lwe: "#private-coin-evasive-lwe"
@@ -181,6 +182,10 @@ The key advantage is efficiency: $n$ rows of the random matrix $\mathbf{A}$ in p
 Ring LWE admits a quantum worst-case to average-case reduction from the **Ideal-SVP** problem (shortest vector in ideal lattices), giving a hardness foundation analogous to LWE's reduction from SVP — [[LPR10 - On ideal lattices and learning with errors over rings|LPR10]].
 
 Ring LWE is the basis for NewHope and is closely related to the NTRU cryptosystem.
+
+### Ring LWE with quasi-polynomial approximation factors
+
+For integers $n = n(\secpar)$ and $q = q(\secpar)$ and an error distribution $\chi$ over $R = \ZZ_q[Z]/(Z^n + 1)$, $\mathrm{RingLWE}_{n,q,\chi}$ holds if for every $\ell = \poly(\secpar)$ the samples $(a_i, a_i \cdot s + e_i)_{i \in [\ell]}$ are computationally indistinguishable from $(a_i, u_i)_{i \in [\ell]}$, for $s, a_i, u_i \getsr R$ and $e_i \gets \chi$; $\chi$ is $\beta$-bounded if $\|e\|_\infty \le \beta$ with probability 1. Ring LWE is hard **with quasi-polynomial approximation factors** if, given $\secpar$ and a gap parameter $t$, one can find in deterministic time $\poly(\secpar, t)$ parameters $n = \poly(\secpar, t)$, $\beta = \poly(\secpar, t)$, a $\beta$-bounded distribution $\chi$ samplable in time $\poly(\secpar, t)$ and $q = \secpar^{\poly(t)}$ with $q > (2\beta n)^t$, such that $\mathrm{RingLWE}_{n,q,\chi}$ holds for every $t(\secpar) = \polylog(\secpar)$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]] (Definition 2.3 and §2.2). It is implied by the $2^{\polylog(n)}$ quantum hardness of approximating the shortest vector problem in ideal lattices to within factors $2^{\polylog(n)}$ — [[LMW23 - Doubly Efficient Private Information Retrieval and Fully Homomorphic RAM Computation from Ring LWE|LMW23]].
 
 ## Module LWE
 
@@ -363,7 +368,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in b35dcbc3d520 -->
+<!-- BEGIN GENERATED participates-in 9ca5c77a5b81 -->
 
 ## Participates in
 
@@ -376,7 +381,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]] (via [[learning-with-errors#evasive-lwe|Evasive LWE]], [[learning-with-errors#tensor-lwe|Tensor LWE]])
 - [[evasive-lwe-to-be-wee22|Evasive LWE ⇒ BE]] (via [[learning-with-errors#evasive-lwe|Evasive LWE]])
 - [[lwe-to-de-ram-mpc-lmw24|Ring-LWE ⇒ DE-RAM-MPC]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
-- [[lwe-to-depir-lmw23|Ring-LWE ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
+- [[lwe-to-depir-lmw23|Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring LWE with quasi-polynomial approximation factors]])
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-leakage-resilient-pke-agv09|LWE ⇒ LR-PKE (Regev)]]
@@ -398,6 +403,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#quasi-polynomially-hard-lwe|Quasi-polynomially hard LWE]])
 - [[quasi-polynomial-lwe-to-statistical-zap-argument-blnww25|Quasi-polynomially hard LWE ⇒ Statistical zap arguments]] (via [[learning-with-errors#quasi-polynomially-hard-lwe|Quasi-polynomially hard LWE]])
+- [[ring-lwe-quasi-polynomial-approximation-to-ring-lwe|Ring-LWE with quasi-polynomial factors ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring LWE with quasi-polynomial approximation factors]])
 - [[ring-lwe-to-ntru-ss11|Ring LWE ⇒ PKE (NTRUEncrypt with Gaussian keys)]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#search-lwe|Search LWE]])
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#sub-exponential-hardness-at-sub-exponential-ratio|Sub-exponential hardness at sub-exponential ratio]])
@@ -425,6 +431,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[module-svp-to-module-lwe-ls15|Module-SIVP ⇒ Module LWE]] (via [[learning-with-errors#module-lwe|Module LWE]])
 - [[polynomial-ratio-lwe-to-lwe|LWE with polynomial ratio ⇒ LWE]]
 - [[quasi-polynomial-lwe-to-polynomial-ratio-lwe|Quasi-polynomially hard LWE ⇒ LWE with polynomial ratio]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[ring-lwe-quasi-polynomial-approximation-to-ring-lwe|Ring-LWE with quasi-polynomial factors ⇒ Ring LWE]] (via [[learning-with-errors#ring-lwe|Ring LWE]])
 - [[search-lwe-to-decision-lwe|Search LWE ⇒ Decision LWE]] (via [[learning-with-errors#decision-lwe|Decision LWE]])
 - [[sivp-to-lwe-reg05|SIVP ⇒ LWE]]
 - [[subexponential-lwe-subexponential-ratio-to-subexponential-modulus-lwe|Sub-exponentially hard LWE at sub-exponential ratio ⇒ LWE with sub-exponential ratio]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])

@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|public-key DEPIR scheme with a sublinear key]] is a [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] scheme, with the same privacy advantage — folklore.
+A [[doubly-efficient-pir#pk-depir-with-a-sublinear-key|public-key DEPIR scheme with a sublinear key]] is a [[doubly-efficient-pir#public-key-depir|public-key DEPIR]] scheme, with the same privacy advantage, since its query-time bound $p(\secpar) \cdot n^c$, $c < 1$, implies the doubly-efficient bound $p(\secpar)^{2/(1-c)} + n^{(1+c)/2}$ — folklore.

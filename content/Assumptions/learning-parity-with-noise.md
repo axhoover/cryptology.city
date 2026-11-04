@@ -95,7 +95,6 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]]
 - [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]]
 - [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
-- [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]]
@@ -186,7 +185,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]]
 
-<!-- BEGIN GENERATED participates-in 9bc91ac6e88d -->
+<!-- BEGIN GENERATED participates-in 9532e643d597 -->
 
 ## Participates in
 
@@ -201,7 +200,6 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[lwe-to-zero-bit-prc-cg24|Subexponential LPN ⇒ Zero-bit PRC]] (via [[learning-parity-with-noise#subexponential-lpn|Subexponential LPN]])
-- [[noise-level-to-depir-cimr25-2|High-noise LPN ⇒ SK-DEPIR]] (via [[learning-parity-with-noise#high-noise-lpn|High-noise LPN]])
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
