@@ -2,7 +2,6 @@
 type: primitive
 status: draft
 aliases:
-  - OPE
   - ORE
   - Order-preserving encryption
   - Order-revealing encryption
