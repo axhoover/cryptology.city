@@ -10,7 +10,7 @@ id: universal-one-way-function
 
 # Universal one-way function
 
-A **universal one-way function** is an explicit polynomial-time computable function that is [[hash-function#preimage-resistance-one-wayness|one-way]] if any one-way function exists — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]]. It is unrelated to [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash functions]].
+A **universal one-way function** is an explicit polynomial-time computable function that is [[hash-function#preimage-resistance-one-wayness|one-way]] if any one-way function exists — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]]; the direct product of polynomially many independent copies of $F_{\mathrm{univ}}$ below is one — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]], [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. It is unrelated to [[hash-function#target-collision-resistance-universal-one-wayness|universal one-way hash functions]].
 
 ## Construction
 
@@ -20,7 +20,7 @@ $$
 F_{\mathrm{univ}}(d, x) := (d, y),
 $$
 
-where $y$ is the output of the machine encoded by $d$ on input $x$ if $U$ completes its simulation within $n^2$ steps, and $y := 0$ otherwise. $F_{\mathrm{univ}}$ is computable in polynomial time.
+where $y$ is the output of the machine encoded by $d$ on input $x$ if $U$ completes its simulation within $n^2$ steps, and $y := 0$ otherwise. $F_{\mathrm{univ}}$ is computable in polynomial time — [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]].
 
 ## Universality
 
@@ -30,4 +30,4 @@ Padding turns a one-way function $f$ into a one-way function $f'(x, z) := (f(x),
 
 ## Notes
 
-- The hardness of $F_{\mathrm{univ}}$ lies on the $1/\poly$ fraction of inputs whose first component encodes a one-way function, so the amplified function is as secure as an unspecified one-way function at a polynomially related input length — standard.
+- The hardness of $F_{\mathrm{univ}}$ lies on the $1/\poly$ fraction of inputs whose first component encodes a one-way function, so the one-wayness of the amplified function reduces to that of an unspecified one-way function, with polynomial losses in input length, running time and success probability from padding, the weight $2^{-\lceil \log_2 n \rceil} \ge 1/(2n)$ of $d_{f'}$ and [[weak-owf-to-owf-yao82a|Yao's amplification]] — standard.

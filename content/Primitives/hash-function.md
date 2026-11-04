@@ -26,13 +26,7 @@ variants:
 
 # Hash functions
 
-A _hash function_ is function which can have a number of different properties
-in cryptography. Most often, it is required that the hash function is _one-way_
-or preimage resistant. If such a hash function exists, then many other
-primitives are known to exist. In other settings, it's important that the hash
-function is _collision resistant_, meaning that it is hard to find two
-colliding inputs; when $|\calR|/|\calD|$ is negligible, this implies one-wayness
-— [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]].
+A _hash function_ is a keyed family of functions $\hash(k, \cdot) : \calD \to \calR$; its main security notions ask that, for a random key $k$, no efficient adversary inverts $\hash(k, \cdot)$ on the image of a uniform input (one-wayness) or finds two distinct inputs with the same image (collision resistance).
 
 ## Syntax
 
@@ -41,16 +35,9 @@ $\calK$ is the key space, $\calD$ is the domain, and $\calR$ is the range.
 
 ## Properties
 
-There are a number of different properties that different cryptographic
-protocols require of hash functions. Sometimes, even the particular assumptions
-are insufficient to prove security of a protocol. In this case, there is
-sometimes still hope to prove security when modeling a hash function as a
-[[random-oracle-model|random oracle]].
+A hash function can also be modeled as a [[random-oracle-model|random oracle]] — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]].
 
 ### Preimage resistance (one-wayness)
-
-One of the most fundamental properties is preimage resistant or
-one-way. This is important in many computational complexity analyses.
 
 ```pseudocode
 \begin{algorithm}
@@ -70,7 +57,7 @@ if for every efficient $\calA,$
 
 $$
 \Adv^{\mathrm{pr}}_{\hash,\calA}(\secpar) :=
-\Pr\left[\Game^{\mathrm{pr}}_{\hash,\calA}(\secpar) = 1\right]
+\Pr\!\left[\Game^{\mathrm{pr}}_{\hash,\calA}(\secpar) = 1\right]
 $$
 
 is negligible. In this case, $\hash$ is called a **one-way function (OWF)**.
@@ -89,8 +76,8 @@ all efficient $\calA$ and all sufficiently large $\secpar$,
 $\Adv^{\mathrm{pr}}_{f,\calA}(\secpar) \le 1 - 1/p(\secpar)$: every efficient
 inverter fails with noticeable probability —
 [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]. Every
-one-way function is weakly one-way, and
-[[weak-owf-to-owf-yao82a|weak one-way functions yield one-way functions]].
+one-way function is weakly one-way — folklore; conversely,
+[[weak-owf-to-owf-yao82a|weak one-way functions yield one-way functions]] — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 
 ### Distributional one-wayness
 
@@ -124,7 +111,6 @@ A one-way function $f$ is **size-verifiable** if the preimage-size problem $\{(y
 
 ### Collision resistance
 
-Often times, protocols require stronger properties than one-wayness alone.
 When $|\calR|/|\calD|$ is negligible, collision resistance implies preimage
 resistance, but not conversely — [[RS04 - Cryptographic Hash-Function Basics Definitions, Implications, and Separations for Preimage Resistance, Second-Preimage Resistance, and Collision Resistance|RS04]].
 
@@ -147,7 +133,7 @@ efficient $\calA,$
 
 $$
 \Adv^{\mathrm{cr}}_{\hash,\calA}(\secpar) :=
-\Pr\left[\Game^{\mathrm{cr}}_{\hash,\calA}(\secpar) = 1\right]
+\Pr\!\left[\Game^{\mathrm{cr}}_{\hash,\calA}(\secpar) = 1\right]
 $$
 
 is negligible. Compression is part of the definition because without it the
@@ -181,7 +167,7 @@ $\calA = (\calA_1, \calA_2)$,
 
 $$
 \Adv^{\mathrm{tcr}}_{\hash,\calA}(\secpar) :=
-\Pr\left[\Game^{\mathrm{tcr}}_{\hash,\calA}(\secpar) = 1\right]
+\Pr\!\left[\Game^{\mathrm{tcr}}_{\hash,\calA}(\secpar) = 1\right]
 $$
 
 is negligible — [[NY89 - Universal One-Way Hash Functions and Their Cryptographic Applications|NY89]].
@@ -189,14 +175,15 @@ Collision resistance implies target collision resistance — standard.
 
 ### Distributional collision resistance
 
+TODO: definition and game.
+
 # Other results
 
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
-- [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[owp-to-hash-function|OWP ⇒ OWF]]
-- [[no-np-to-hash-function-aggm06|No reduction from NP to OWF]]
+- [[no-np-to-hash-function-aggm06|No non-adaptive reduction from NP to inverting a one-way function unless coNP ⊆ AM]] — [[AGGM06 - On basing one-way functions on NP-hardness|AGGM06]]
 - An explicit function, the direct product of [[universal-one-way-function|Levin's universal one-way function]], is one-way if and only if a one-way function exists — [[Lev85 - One-Way Functions and Pseudorandom Generators|Lev85]]
 
 ## Unknown results
