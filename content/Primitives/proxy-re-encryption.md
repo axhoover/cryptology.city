@@ -36,11 +36,11 @@ $$
 \Pr\!\left[\Dec(\sk_i, \Enc(\pk_i, m)) = m\right] \ge 1 - \varepsilon \quad\text{and}\quad \Pr\!\left[\Dec\!\left(\sk_j, \mathsf{ReEnc}(\mathit{rk}_{i \to j}, \Enc(\pk_i, m))\right) = m\right] \ge 1 - \varepsilon,
 $$
 
-over $\pp \gets \Setup(1^\secpar)$, independent $(\sk_i, \pk_i), (\sk_j, \pk_j) \gets \KeyGen(\pp)$, $\mathit{rk}_{i \to j} \gets \mathsf{ReKeyGen}(\sk_i, \pk_j)$, and the randomness of $\Enc$ and $\mathsf{ReEnc}$. When $\varepsilon = 0$, $\mathsf{PRE}$ is **perfectly correct**.
+over $\pp \gets \Setup(1^\secpar)$, independent $(\sk_i, \pk_i), (\sk_j, \pk_j) \gets \KeyGen(\pp)$, $\mathit{rk}_{i \to j} \gets \mathsf{ReKeyGen}(\sk_i, \pk_j)$ (also given $\sk_j$ in an interactive scheme), and the randomness of $\Enc$ and $\mathsf{ReEnc}$. When $\varepsilon = 0$, $\mathsf{PRE}$ is **perfectly correct**.
 
 ### CPA security
 
-The adversary creates users adaptively, each either uncorrupted, in which case it receives the public key, or corrupted, in which case it receives the key pair. It obtains re-encryption keys between any two users except between an uncorrupted and a corrupted one, and must distinguish encryptions of $m_0$ and $m_1$ under an uncorrupted key of its choice. The game is the PRE-CCA game of [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] without its re-encryption and decryption oracles.
+The adversary creates users adaptively, each either uncorrupted, in which case it receives the public key, or corrupted, in which case it receives the key pair. It obtains re-encryption keys between any two users except between an uncorrupted and a corrupted one, and must distinguish encryptions of $m_0$ and $m_1$ under an uncorrupted key of its choice. The game adapts the bidirectional PRE-CCA game of [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] to the syntax above, without its re-encryption and decryption oracles.
 
 ```pseudocode
 \begin{algorithm}
@@ -78,9 +78,9 @@ The adversary creates users adaptively, each either uncorrupted, in which case i
 \algname{Oracle}
 \caption{$\calO_{\mathrm{rk}}(i, j)$}
 \begin{algorithmic}
-\If{$|\{i, j\} \cap \mathit{Cor}| = 1$}
+\If{$\{i, j\} \not\subseteq \mathit{Hon} \wedge \{i, j\} \not\subseteq \mathit{Cor}$}
 \Return $\bot$
-\Comment{no keys between an uncorrupted and a corrupted user}
+\Comment{only keys between two existing users that are both uncorrupted or both corrupted}
 \EndIf
 \Return $\mathsf{ReKeyGen}(\sk_i, \pk_j)$
 \end{algorithmic}
@@ -109,16 +109,16 @@ A scheme is **multi-hop** if a re-encrypted ciphertext can be re-encrypted again
 
 ## Chosen-ciphertext security
 
-[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] define CCA security for bidirectional schemes by adding to the CPA game a re-encryption oracle, which re-encrypts a given ciphertext from one given user to another, and a decryption oracle. After the challenge, the decryption oracle refuses $c^*$ and the ciphertexts CH07 call its derivatives, which include its re-encryptions, and the re-encryption oracle refuses to re-encrypt a derivative from an uncorrupted to a corrupted user — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]. Without these restrictions $\calA$ would decrypt $c^*$ through the decryption oracle, directly or after re-encrypting it. CH07 also give simulation-based definitions that guarantee universally composable security — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
+[[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]] define CCA security for bidirectional schemes by adding to the CPA game a re-encryption oracle, which re-encrypts a given ciphertext from one given user to another, and a decryption oracle. After the challenge, the decryption oracle refuses $c^*$ and the ciphertexts CH07 call its derivatives, which include its re-encryptions, and the re-encryption oracle refuses to re-encrypt a derivative from an uncorrupted to a corrupted user — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]]. Without the first restriction $\calA$ would decrypt $c^*$ through the decryption oracle, directly or after re-encrypting it to an uncorrupted user; without the second it would re-encrypt $c^*$ to a corrupted user and decrypt it with that user's key. CH07 also give simulation-based definitions that guarantee universally composable security — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
 
 ## Collusion resistance
 
-A proxy colluding with a delegatee holds $\mathit{rk}_{i \to j}$ and $\sk_j$. [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]] require that such a coalition cannot compute $\sk_i$. The scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] does not meet this requirement: there $\sk_i = \sk_j / \mathit{rk}_{i \to j}$ in $\ZZ_q$.
+A proxy colluding with a delegatee holds $\mathit{rk}_{i \to j}$ and $\sk_j$. [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]] require that such a coalition cannot compute $\sk_i$. The scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] does not meet this requirement: there $\sk_i = \sk_j / \mathit{rk}_{i \to j}$ in $\ZZ_q$ — [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]].
 
 # Other results
 
-- If DDH is hard in prime-order groups, the bidirectional, multi-hop scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] is CPA-secure ([[prime-order-ddh-to-pre|DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)]]) — folklore.
-- If DBDH is hard, there is a bidirectional, multi-hop, CCA-secure PRE scheme in the standard model ([[dbdh-to-pre-cca-ch07|DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)]]) — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
+- If [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH is hard in prime-order groups]], the bidirectional, multi-hop scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] is CPA-secure ([[prime-order-ddh-to-pre|DDH ⇒ PRE (Blaze–Bleumer–Strauss scheme)]]) — folklore.
+- If [[bilinear-map-assumptions#decisional-bdh|DBDH]] is hard, there is a bidirectional, multi-hop, CCA-secure PRE scheme in the standard model ([[dbdh-to-pre-cca-ch07|DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)]]) — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
 - [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]] apply unidirectional PRE to secure distributed storage, in which a proxy re-encrypts stored ciphertexts for authorized users.
 
 <!-- BEGIN GENERATED participates-in 91f68a01641b -->

@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[KR00 - Chameleon Signatures|KR00]]"
-security-loss: "an additive 1/p, from the event that the DLOG challenge is the identity"
+security-loss: "tight: on DLOG challenge $X = 1$ the reduction outputs $0$, and otherwise it sets $h = X$, distributed as in $\\KeyGen$, and turns one collision into $\\log_g X$"
 rationale:
   class: "The construction uses only the group sampler and group operations, and the reduction calls the collision finder once, as an oracle, on its DLOG challenge."
 ---
@@ -24,9 +24,9 @@ If [[discrete-logarithm#dlog-in-prime-order-groups|DLOG is hard in prime-order g
 
 ## Sketch
 
-A collision $g^m h^r = g^{m'} h^{r'}$ with $m \ne m'$ gives $m + xr \equiv m' + xr' \pmod p$, so $r \ne r'$ and $x = (m - m')/(r' - r) \bmod p$: run on the DLOG challenge as $h$, a collision finder yields its discrete logarithm. Uniformity holds because $h^r$ is uniform in $\GG$ for uniform $r$ when $x \ne 0$.
+A collision $g^m h^r = g^{m'} h^{r'}$ with $m \ne m'$ gives $m + xr \equiv m' + xr' \pmod p$, so $r \ne r'$ and $x = (m - m')/(r' - r) \bmod p$: on DLOG challenge $X$ the reduction outputs $0$ if $X = 1$, and otherwise sets $h = X$, distributed as in $\KeyGen$, so a collision finder yields $\log_g X$. Uniformity holds because $h^r$ is uniform in $\GG$ for uniform $r$ when $x \ne 0$.
 
 ## Notes
 
-- The function $(m, r) \mapsto g^m h^r$ is Pedersen's commitment — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
+- The function $(m, r) \mapsto g^m h^r$ is the [[dlog-to-com-ped91|Pedersen commitment]] to $m$ with randomness $r$, a [[commitment-scheme|commitment scheme]] — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
 - Any published collision reveals $x$ by the same computation, so the trapdoor holder cannot exhibit a collision without exposing the trapdoor; chameleon hashes avoiding this are studied by [[AdM04 - On the Key Exposure Problem in Chameleon Hashes|AdM04]].

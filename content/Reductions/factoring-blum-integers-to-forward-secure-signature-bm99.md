@@ -11,6 +11,8 @@ class: unstated
 model: rom
 source:
   - "[[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]"
+via:
+  - "[[fiat-shamir-heuristic|Fiat–Shamir]]"
 security-loss: ""
 rationale:
   model: "The hash function that derives the Fiat-Shamir challenge from the commitment, the period and the message is modelled as a random oracle."
@@ -20,7 +22,7 @@ rationale:
 
 ## Statement
 
-If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, then for every polynomially bounded $T$ the Bellare–Miner scheme is a [[forward-secure-signature|forward-secure signature]] scheme with $T$ periods in the [[random-oracle-model|random-oracle model]] — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]. The scheme is a Fiat–Shamir-type scheme modulo a Blum integer $N$: the secret key is a vector of elements of $\ZZ_N^*$, and $\mathsf{Update}$ squares each component, so the key of period $i$ determines the keys of all later periods, while computing an earlier one requires square roots modulo $N$ — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]].
+If [[factoring#factoring-blum-integers|factoring Blum integers]] is hard, then for every polynomially bounded $T$ the Bellare–Miner scheme with $\ell = \omega(\log \secpar)$ key components (and $\ell$-bit challenges) is a [[forward-secure-signature|forward-secure signature]] scheme with $T$ periods in the [[random-oracle-model|random-oracle model]] — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]. The scheme is a Fiat–Shamir-type scheme modulo a Blum integer $N$: the secret key is a vector of $\ell$ elements of $\ZZ_N^*$, and $\mathsf{Update}$ squares each component, so the key of period $i$ determines the keys of all later periods, while computing an earlier one requires square roots modulo $N$ — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]].
 
 ## Notes
 

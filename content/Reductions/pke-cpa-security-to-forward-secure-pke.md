@@ -1,7 +1,7 @@
 ---
 type: reduction
 status: draft
-title: "PKE ⇔ Forward-secure PKE"
+title: "CPA-secure PKE ⇔ Forward-secure PKE"
 aliases: []
 id: red-pke-cpa-security-to-forward-secure-pke
 kind: equivalence
@@ -15,7 +15,7 @@ rationale:
   class: "Both constructions call the given scheme's algorithms only as oracles, and both reductions run the adversary only as an oracle."
 ---
 
-# PKE ⇔ Forward-secure PKE
+# CPA-secure PKE ⇔ Forward-secure PKE
 
 ## Statement
 
@@ -23,7 +23,7 @@ rationale:
 
 ## Sketch
 
-A forward-security adversary with challenge period $j$ gives a CPA adversary: guess $j \in [T]$, embed the challenge public key as $\pk^{(j)}$, forward the challenge query, and answer the break-in query for period $i > j$ with $\sk_i$, which contains no key of index $j$; the guess is right with probability $1/T$. Conversely, a CPA adversary's challenge is posed for period $1$ and the reduction breaks in during period $2$.
+A forward-security adversary with challenge period $j$ gives a CPA adversary: sample a guess $j^* \getsr [T]$, embed the challenge public key as $\pk^{(j^*)}$, forward the challenge query, and answer the break-in query for period $i > j^*$ with $\sk_i$, which contains no key of index $j^*$; on a break-in for a period $i \le j^*$ or a challenge for a period other than $j^*$, output a uniform bit. The guess is right ($j^* = j$, and then $i > j^*$ by admissibility) with probability $1/T$, independently of the adversary's view, so the CPA advantage is the forward-security advantage divided by $T$. Conversely, a CPA adversary's challenge is posed for period $1$ and the reduction breaks in during period $2$.
 
 ## Notes
 

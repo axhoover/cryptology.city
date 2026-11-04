@@ -2156,7 +2156,6 @@
    "graphSlug": "Primitives/forward-secure-signature",
    "title": "Forward-secure signature",
    "aliases": [
-    "FSS",
     "Forward-secure signature",
     "Forward-secure signature scheme",
     "Key-evolving signature"
@@ -10008,7 +10007,7 @@
     "dbdh"
    ],
    "conclusion": "forward-secure-pke",
-   "class": "unstated",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -10019,6 +10018,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is one fixed construction over the pairing group, and the reduction runs the forward-security adversary only as an oracle, after guessing its challenge period, on parameters built from its DBDH tuple."
+   },
    "status": "draft",
    "page": "content/Reductions/dbdh-to-forward-secure-pke-chk03.md",
    "slug": "dbdh-to-forward-secure-pke-chk03",
@@ -12355,7 +12357,9 @@
    "source": [
     "[[BM99 - A Forward-Secure Digital Signature Scheme|BM99]]"
    ],
-   "via": [],
+   "via": [
+    "[[fiat-shamir-heuristic|Fiat–Shamir]]"
+   ],
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
@@ -18548,7 +18552,7 @@
    "page": "content/Reductions/pke-cpa-security-to-forward-secure-pke.md",
    "slug": "pke-cpa-security-to-forward-secure-pke",
    "graphSlug": "Reductions/pke-cpa-security-to-forward-secure-pke",
-   "title": "PKE ⇔ Forward-secure PKE"
+   "title": "CPA-secure PKE ⇔ Forward-secure PKE"
   },
   {
    "id": "red-pke-cpa-security-to-pke",
@@ -19554,7 +19558,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "an additive 1/q, from the event that the DDH generator power Q^u is the identity",
+   "securityLoss": "tight up to a factor 2: one run of the CPA adversary gives $\\Adv^{\\mathrm{pre\\text{-}cpa}} \\le \\frac{2q}{q-1}\\Adv^{\\text{ddh}} + \\frac{1}{q-1}$, the additive term from the event that $Q^u$ is the identity",
    "rationale": {
     "class": "The scheme uses only the group sampler and group operations, and the reduction runs the PRE adversary once as an oracle on keys and a challenge built from its DDH tuple."
    },
@@ -19660,7 +19664,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "an additive 1/p, from the event that the DLOG challenge is the identity",
+   "securityLoss": "tight: on DLOG challenge $X = 1$ the reduction outputs $0$, and otherwise it sets $h = X$, distributed as in $\\KeyGen$, and turns one collision into $\\log_g X$",
    "rationale": {
     "class": "The construction uses only the group sampler and group operations, and the reduction calls the collision finder once, as an oracle, on its DLOG challenge."
    },

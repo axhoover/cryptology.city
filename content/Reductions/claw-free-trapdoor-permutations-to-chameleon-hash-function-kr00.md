@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] $(f_0, f_1)$ on a domain $\calD$ gives a collision-resistant, uniform [[chameleon-hash-function|chameleon hash function]] with a prefix-free message space $\calM \subseteq \bits^*$ and randomness space and range $\calD$ — [[KR00 - Chameleon Signatures|KR00]]. The hash key is $(f_0, f_1)$ and the trapdoor is $(\td_0, \td_1)$; for $m = m_1 \cdots m_\ell$,
+A [[trapdoor-permutation#claw-free-trapdoor-permutations|claw-free pair of trapdoor permutations]] $(f_0, f_1)$ on a domain $\calD$ gives a collision-resistant, uniform [[chameleon-hash-function|chameleon hash function]] with a prefix-free message space $\calM \subseteq \bits^*$ and randomness space and range $\calD$ — [[KR00 - Chameleon Signatures|KR00]]. The hash key is $\mathit{hk} = (f_0, f_1)$ and the trapdoor is $\td = (\td_0, \td_1)$; for $m = m_1 \cdots m_\ell \in \calM$,
 
 $$
 \mathsf{CH}(\mathit{hk}, m; r) = f_{m_1}\!\left(f_{m_2}\!\left(\cdots f_{m_\ell}(r) \cdots\right)\right),

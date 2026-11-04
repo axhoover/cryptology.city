@@ -44,7 +44,7 @@ The adversary receives $\pk$ and makes one break-in query, receiving the secret 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},\calA}(\secpar, T)$}
+\caption{$\Game^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},T,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $(\pk, \sk_1) \gets \KeyGen(1^\secpar, T)$; $b \getsr \bits$
 \State $b' \gets \calA^{\calO_{\mathrm{brk}}, \calO_{\mathrm{ch}}}(1^\secpar, \pk)$
@@ -78,20 +78,20 @@ The adversary receives $\pk$ and makes one break-in query, receiving the secret 
 A key-evolving public-key encryption scheme $\mathsf{FSPKE}$ is **forward-secure** if for all polynomially bounded $T = T(\secpar)$ and all admissible efficient $\calA$,
 
 $$
-\Adv^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},\calA}(\secpar, T) := \left|2\Pr\!\left[\Game^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},\calA}(\secpar, T) = 1\right] - 1\right|
+\Adv^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},T,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{fs\text{-}cpa}}_{\mathsf{FSPKE},T,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. For $T \ge 2$ the period-$1$ algorithms of a forward-secure scheme form a [[public-key-encryption#cpa-security|CPA-secure]] PKE scheme ([[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]) — folklore.
+is negligible.
 
 # Variations
 
 ## Chosen-ciphertext forward security
 
-In the chosen-ciphertext game the adversary also has a decryption oracle $\calD(t, c) := \Dec(\sk_t, t, c)$ for every period $t \in [T]$, and may not query it on $(j, c^*)$ for the challenge period $j$ and challenge ciphertext $c^*$ — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]. Securing binary tree encryption against chosen-ciphertext attacks gives such schemes in the standard model — [[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]].
+In the chosen-ciphertext game the adversary also has a decryption oracle $\calD(t, c) := \Dec(\sk_t, t, c)$ for every period $t \in [T]$, and may not query it on $(j, c^*)$ for the challenge period $j$ and challenge ciphertext $c^*$, since by correctness $\Dec(\sk_j, j, c^*) = m_b$ — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]. The CHK03 scheme extends to chosen-ciphertext security — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]. Securing binary tree encryption against chosen-ciphertext attacks gives more efficient such schemes in the standard model — [[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]].
 
 ## Key-insulated encryption
 
-In a $(t, N)$-key-insulated scheme with $N$ periods, the receiver's key update also takes a message from a helper device that stores a master key, and exposure of the receiver's secret keys for any $t$ periods leaves every other period secure, earlier or later — [[DKXY02 - Key-Insulated Public Key Cryptosystems|DKXY02]]. A forward-secure scheme needs no helper, and exposure of $\sk_i$ breaks every period $t \ge i$.
+In a $(t, N)$-key-insulated scheme with $N$ periods, the receiver's key update also takes a message from a helper device that stores a master key, and exposure of the receiver's secret keys for any $t$ periods leaves every other period secure, earlier or later — [[DKXY02 - Key-Insulated Public Key Cryptosystems|DKXY02]]. A forward-secure scheme needs no helper, and exposure of $\sk_i$ breaks every period from $i$ on.
 
 ## Forward-secure signatures
 
@@ -99,11 +99,11 @@ The analogous notion for signatures is [[forward-secure-signature|forward-secure
 
 # Other results
 
-- CPA-secure public-key encryption exists if and only if forward-secure public-key encryption does, for every polynomially bounded $T \ge 2$; the construction from PKE uses $T$ independent key pairs, so its public key grows linearly in $T$ ([[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]) — folklore.
+- CPA-secure public-key encryption exists if and only if forward-secure public-key encryption does, for every polynomially bounded $T \ge 2$; the construction from PKE uses $T$ independent key pairs, so its public key grows linearly in $T$, and conversely the period-$1$ algorithms of a forward-secure scheme form a [[public-key-encryption#cpa-security|CPA-secure]] PKE scheme ([[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]) — folklore.
 - A selective-node-secure binary tree encryption scheme of depth $\ell$, for instance one obtained from a selectively secure [[hierarchical-identity-based-encryption|HIBE]] of depth $\ell + 1$ whose delegated keys are distributed as directly extracted ones, gives a forward-secure scheme with $T = 2^{\ell + 1} - 1$ periods, keys and ciphertexts of size polynomial in $\ell$ and $\secpar$ ([[hibe-selective-security-to-forward-secure-pke-chk03|Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
-- If DBDH is hard, a forward-secure scheme exists in the standard model ([[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
+- If [[bilinear-map-assumptions#decisional-bdh|DBDH]] is hard, a forward-secure scheme exists in the standard model ([[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
 
-<!-- BEGIN GENERATED participates-in 504344769ca5 -->
+<!-- BEGIN GENERATED participates-in 862124dbe79c -->
 
 ## Participates in
 
@@ -111,6 +111,6 @@ The analogous notion for signatures is [[forward-secure-signature|forward-secure
 
 - [[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]
 - [[hibe-selective-security-to-forward-secure-pke-chk03|Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]
-- [[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]
+- [[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]]
 
 <!-- END GENERATED participates-in -->
