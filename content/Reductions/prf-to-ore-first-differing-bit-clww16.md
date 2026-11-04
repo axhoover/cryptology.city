@@ -34,4 +34,4 @@ Two encryptions agree up to the first differing bit $\ell$ of their plaintexts a
 
 ## Notes
 
-- A ciphertext has $n$ elements of $\ZZ_3$, about $1.58n$ bits, and encryption takes $n$ PRF evaluations — standard.
+- A ciphertext has $n$ elements of $\ZZ_3$, about $1.58n$ bits, and encryption takes $n$ PRF evaluations — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].

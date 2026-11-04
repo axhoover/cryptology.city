@@ -13,7 +13,7 @@ variants:
 
 # Searchable symmetric encryption
 
-A searchable symmetric encryption (SSE) scheme encrypts a document collection under a client's secret key into an encrypted index and encrypted documents, and lets the client hand a server a token for a keyword $w$ with which the server finds the identifiers of the documents containing $w$. The server learns nothing beyond a specified leakage of the collection and the queries: a simulator given only that leakage produces its view — [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]].
+A searchable symmetric encryption (SSE) scheme encrypts a document collection under a client's secret key into an encrypted index and encrypted documents, and lets the client hand a server a token for a keyword $w$ with which the server finds the identifiers of the documents containing $w$. The server learns nothing beyond a specified leakage of the collection and the queries: a simulator given only that leakage produces a view indistinguishable from the server's — [[CGKO06 - Searchable Symmetric Encryption Improved Definitions and Efficient Constructions|CGKO06]], [[CK10 - Structured Encryption and Controlled Disclosure|CK10]].
 
 ## Syntax
 
@@ -106,7 +106,7 @@ is negligible.
 
 ## Dynamic SSE
 
-A dynamic SSE scheme adds an update protocol with which the client adds documents to, and deletes documents from, the encrypted collection by sending update tokens; security adds a leakage function for updates, and the adversary interleaves searches and updates — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]]. KPR12 construct an adaptively secure dynamic scheme whose search time is linear in $|\mathbf{D}(w)|$ — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]].
+A dynamic SSE scheme adds an update protocol with which the client adds documents to, and deletes documents from, the encrypted collection by sending update tokens; security adds a leakage function for updates, and the adversary interleaves searches and updates — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]]. KPR12 construct a dynamic scheme, adaptively secure in the [[random-oracle-model|random-oracle model]], whose search time is linear in $|\mathbf{D}(w)|$ — [[KPR12 - Dynamic Searchable Symmetric Encryption|KPR12]].
 
 ## Structured encryption
 

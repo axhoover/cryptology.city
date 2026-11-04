@@ -31,4 +31,4 @@ is a [[deterministic-public-key-encryption#priv-security|PRIV-secure]] [[determi
 
 ## Sketch
 
-Unless the adversary queries $H$ at $\pk \| x[i]$ for an encrypted message $x[i]$, every ciphertext is a CPA encryption under fresh uniform coins, and the two worlds differ only in which independent vector is encrypted. The message finder does not see $\pk$, and the guesser, which sees only such ciphertexts, hits an encrypted message with probability at most its number of queries times $v \cdot 2^{-\mu}$ plus a CPA advantage.
+Unless the adversary queries $H$ at $\pk \| x[i]$ for an encrypted message $x[i]$, every ciphertext is a CPA encryption under fresh uniform coins, and the two worlds differ only in which independent vector is encrypted. The message finder does not see $\pk$, so it queries $H$ at $\pk \| \cdot$ with negligible probability, since a correct CPA-secure scheme gives each public key negligible probability; the guesser, which sees only such ciphertexts, hits an encrypted message with probability at most its number of queries times $v \cdot 2^{-\mu}$, for $v$ the number of messages in the vector, plus a CPA advantage.

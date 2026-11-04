@@ -37,4 +37,4 @@ Correctness holds since $e(H_1(W)^\alpha, g^r) = e(H_1(W), h^r)$. Given a BDH in
 
 ## Notes
 
-- The scheme is a variant of the Boneh–Franklin IBE ([[bdh-to-ibe-bf01|BDH ⇒ IBE]]), with the keyword as identity and $\mathsf{Trapdoor}$ as key extraction — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].
+- The scheme is a variant of the Boneh–Franklin [[identity-based-encryption|IBE]] ([[bdh-to-ibe-bf01|BDH ⇒ IBE]]), with the keyword as identity and $\mathsf{Trapdoor}$ as key extraction — [[BDOP04 - Public Key Encryption with Keyword Search|BDOP04]].

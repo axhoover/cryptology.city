@@ -15,7 +15,7 @@ variants:
 
 # Identity-based encryption
 
-An **identity-based encryption (IBE)** scheme allows a sender to encrypt to an arbitrary string identity (such as an email address) without requiring the recipient to distribute a public key in advance. A trusted key generation center (KGC) holds a master secret key and issues per-identity decryption keys on demand. IBE eliminates the need for a public-key infrastructure by replacing public keys with identities.
+An **identity-based encryption (IBE)** scheme is a form of [[public-key-encryption|public-key encryption]] in which any identity string $\mathit{id}$ serves as a public key: anyone encrypts to $\mathit{id}$ under public parameters $\pp$, and the holder of the master secret key $\msk$ extracts a decryption key $\sk_{\mathit{id}}$. No efficient adversary that obtains keys for identities of its choice can distinguish encryptions of two messages under an identity of its choice whose key it has not obtained.
 
 ## Syntax
 
@@ -42,7 +42,7 @@ over $(\pp, \msk) \gets \Setup(1^\secpar)$ and the randomness of $\Extract$ and 
 
 ### IND-ID-CPA Security
 
-In the **adaptive** IND-ID-CPA game, the adversary may query the key extraction oracle $\calO_{\mathrm{ext}}$ for any identity of its choice throughout both phases. The only constraint is admissibility: it may not extract a key for the challenge identity $\mathit{id}^*$.
+In the **adaptive** IND-ID-CPA game, the adversary may query the key extraction oracle $\calO_{\mathrm{ext}}$ for any identity of its choice throughout both phases. An **admissible** adversary outputs $m_0, m_1 \in \calM$ with $|m_0| = |m_1|$, since otherwise ciphertext length may reveal $b$, and never extracts a key for the challenge identity $\mathit{id}^*$; the selective game below has the same admissibility conditions.
 
 ```pseudocode
 \begin{algorithm}
@@ -52,7 +52,7 @@ In the **adaptive** IND-ID-CPA game, the adversary may query the key extraction 
 \State $(\pp, \msk) \gets \Setup(1^\secpar)$; $b \getsr \bits$
 \State $\calO_{\mathrm{ext}}(\mathit{id}) := \Extract(\msk, \mathit{id})$
 \State $(\mathit{id}^*, m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{ext}}}(1^\secpar, \pp)$
-\Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$}
+\Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$; $m_0, m_1 \in \calM$, $|m_0| = |m_1|$}
 \State $c^* \gets \Enc(\pp, \mathit{id}^*, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{ext}}}(c^*, \stA)$
 \Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$}
@@ -67,23 +67,23 @@ $$
 \Adv^{\mathrm{id\text{-}cpa}}_{\IBE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{id\text{-}cpa}}_{\IBE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The admissibility constraint is necessary: without it, $\calA$ trivially wins by extracting $\sk_{\mathit{id}^*}$ and decrypting.
+is negligible. The identity constraint is necessary: without it, $\calA$ trivially wins by extracting $\sk_{\mathit{id}^*}$ and decrypting.
 
 ### IND-sID-CPA Security (Selective)
 
-In the **selective** variant, the adversary must commit to the challenge identity $\mathit{id}^*$ before the public parameters are generated. This is a strictly weaker notion than adaptive IND-ID-CPA.
+In the **selective** variant, the adversary must commit to the challenge identity $\mathit{id}^*$ before the public parameters are generated. If an IND-sID-CPA-secure IBE exists, then some IND-sID-CPA-secure IBE is not IND-ID-CPA-secure — folklore.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar)$}
 \begin{algorithmic}
-\State $\mathit{id}^* \gets \calA(1^\secpar)$
+\State $(\mathit{id}^*, \stA) \gets \calA(1^\secpar)$
 \Comment{$\calA$ commits to challenge identity before seeing $\pp$}
 \State $(\pp, \msk) \gets \Setup(1^\secpar)$; $b \getsr \bits$
 \State $\calO_{\mathrm{ext}}(\mathit{id}) := \Extract(\msk, \mathit{id})$
-\State $(m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{ext}}}(\pp)$
-\Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$}
+\State $(m_0, m_1, \stA) \gets \calA^{\calO_{\mathrm{ext}}}(\pp, \stA)$
+\Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$; $m_0, m_1 \in \calM$, $|m_0| = |m_1|$}
 \State $c^* \gets \Enc(\pp, \mathit{id}^*, m_b)$
 \State $b' \gets \calA^{\calO_{\mathrm{ext}}}(c^*, \stA)$
 \Comment{$\calA$ may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$}
@@ -98,7 +98,7 @@ $$
 \Adv^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{sid\text{-}cpa}}_{\IBE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure; the converse requires a complexity-leveraging argument that incurs a polynomial security loss in $|\calI|$.
+is negligible. Any IND-ID-CPA-secure scheme is also IND-sID-CPA-secure — folklore. Conversely, guessing $\mathit{id}^*$ (complexity leveraging) turns an adaptive adversary into a selective one at a loss factor of $|\calI| \ge 2^{\secpar}$ in advantage — [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]; a merely negligible selective advantage therefore does not suffice, and the argument gives IND-ID-CPA security from [[#Sub-exponential IND-sID-CPA Security|sub-exponential]] IND-sID-CPA security after rescaling $\secpar$ — folklore. A different, generic construction turns any IND-sID-CPA-secure IBE into an IND-ID-CPA-secure one — [[DG17b - From Selective IBE to Full IBE and Selective HIBE|DG17b]].
 
 #### Sub-exponential IND-sID-CPA Security
 
@@ -108,7 +108,7 @@ An IBE scheme $\IBE$ is **sub-exponentially IND-sID-CPA-secure** if there is a c
 
 ## IND-ID-CCA Security
 
-Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provides the adversary with a decryption oracle $\calD(c) := \Dec(\sk_{\mathit{id}^*}, c)$ in both phases. The admissibility condition extends to: the adversary may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$, and may not query $\calD(c^*)$ after the challenge is issued.
+Analogously to [[public-key-encryption|PKE]], the CCA variant additionally provides the adversary with a decryption oracle $\calD(\mathit{id}, c) := \Dec(\Extract(\msk, \mathit{id}), c)$ for every identity in both phases. The admissibility condition extends to: the adversary may not query $\calO_{\mathrm{ext}}(\mathit{id}^*)$, and may not query $\calD(\mathit{id}^*, c^*)$ after the challenge is issued — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]].
 
 ## Anonymous IBE
 
@@ -145,10 +145,10 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 - [[hibe-to-ibe|HIBE ⇒ IBE]]
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]
 - [[abe-to-ibe|ABE ⇒ IBE]]
-- The first practical IBE construction uses Weil pairings and is CCA-secure in the random oracle model under CBDH — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
-- The first adaptive IBE in the standard model under simple assumptions uses the dual system encryption technique — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
+- The Boneh–Franklin scheme FullIdent, built from the Weil pairing, is [[#IND-ID-CCA Security|IND-ID-CCA]]-secure in the random oracle model under computational [[bilinear-map-assumptions|BDH]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
+- Dual system encryption gives an adaptively secure ([[#IND-ID-CPA Security|IND-ID-CPA]]) IBE in the standard model whose public parameters, keys and ciphertexts each consist of a constant number of group elements, under [[bilinear-map-assumptions#decisional-bdh|DBDH]] and [[decisional-diffie-hellman#dlin|DLIN]] — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in 05f63de2c423 -->
+<!-- BEGIN GENERATED participates-in b172174f02c1 -->
 
 ## Participates in
 
@@ -171,7 +171,7 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
-- [[consistent-peks-to-ind-id-cpa-bdop04|PEKS ⇒ IBE (BDOP04)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[consistent-peks-to-ind-id-cpa-bdop04|Consistent PEKS ⇒ IBE (BDOP04)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]

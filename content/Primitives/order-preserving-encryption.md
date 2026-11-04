@@ -15,7 +15,7 @@ variants:
 
 # Order-preserving encryption
 
-An order-preserving encryption (OPE) scheme is a deterministic symmetric encryption scheme on an ordered plaintext space whose encryption function, under every key, is strictly increasing, so that the order of two plaintexts can be read off their ciphertexts. Security asks that encryption be indistinguishable from a uniformly random order-preserving function — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]].
+An order-preserving encryption (OPE) scheme is a deterministic [[symmetric-key-encryption|symmetric encryption]] scheme on an ordered plaintext space whose encryption function, under every key, is strictly increasing, so that the order of two plaintexts can be read off their ciphertexts. Security asks that encryption be indistinguishable from a uniformly random order-preserving function — [[BCLO09 - Order-Preserving Symmetric Encryption|BCLO09]].
 
 ## Syntax
 
@@ -29,7 +29,7 @@ For integers $1 \le M \le N$, write $[M] = \{1, \ldots, M\}$. An OPE scheme is a
 
 ### Correctness and order preservation
 
-An OPE scheme $\Pi$ is **correct** if $\Dec(K, \Enc(K, m)) = m$ for every key $K$ output by $\KeyGen(1^\secpar)$ and every $m \in [M]$, and **order-preserving** if for every such $K$ and all $m, m' \in [M]$,
+An OPE scheme $\Pi$ is **correct** if $\Dec(K, \Enc(K, m)) = m$ for every $\secpar \in \NN$, every key $K$ output by $\KeyGen(1^\secpar)$ and every $m \in [M]$, and **order-preserving** if for every such $K$ and all $m, m' \in [M]$,
 
 $$
 m < m' \implies \Enc(K, m) < \Enc(K, m').
@@ -140,7 +140,7 @@ $$
 \calL_{\mathrm{f}}(m_1, \ldots, m_i) := \left([m_j < m_k],\ \mathrm{ind}_{\mathrm{diff}}(m_j, m_k)\right)_{j, k \in [i]}
 $$
 
-adds the position of the first differing bit to the order — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]. CLWW16 construct $\calL_{\mathrm{f}}$-secure ORE from any PRF ([[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE]]).
+adds the position of the first differing bit to the order — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]]. Any [[pseudorandom-function|PRF]] yields an $\calL_{\mathrm{f}}$-secure ORE scheme ([[prf-to-ore-first-differing-bit-clww16|PRF ⇒ ORE]]) — [[CLWW16 - Practical Order-Revealing Encryption with Limited Leakage|CLWW16]].
 
 ## Mutable order-preserving encoding
 
@@ -148,7 +148,7 @@ In mutable OPE (mOPE), the client and server run an interactive protocol in whic
 
 ## Modular OPE
 
-Modular OPE prepends a secret shift modulo $M$ to an OPE scheme, so that ciphertexts reveal no information about the location of a plaintext in $[M]$ — [[BCO11 - Order-Preserving Encryption Revisited Improved Security Analysis and Alternative Solutions|BCO11]].
+Modular OPE prepends a secret shift modulo $M$ to an OPE scheme, so that the joint distribution of the ciphertexts is unchanged when all plaintexts are shifted by a common offset modulo $M$; in particular a single ciphertext reveals no information about the location of its plaintext in $[M]$ — [[BCO11 - Order-Preserving Encryption Revisited Improved Security Analysis and Alternative Solutions|BCO11]].
 
 # Other results
 
