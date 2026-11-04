@@ -110,16 +110,17 @@ In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the serve
 - A semi-honest secure OPRF gives semi-honest [[oblivious-transfer|OT]]: the sender masks $x_0$ and $x_1$ with $\Eval(k, z_0)$ and $\Eval(k, z_1)$, and the receiver obtains the mask of $x_c$ from the OPRF on input $z_c$ ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword while the server learns nothing about the keyword, on OPRFs.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] evaluate the Naor–Reingold PRF ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) obliviously with one 1-out-of-2 [[oblivious-transfer|OT]] per input bit. For the key $(a_0, a_1, \ldots, a_n)$ and input $x \in \bits^n$, the server samples $r_1, \ldots, r_n \getsr \ZZ_p^*$, the client obtains $v_i = a_i^{x_i} r_i$ from the $i$-th OT with choice bit $x_i$, the server sends $g^{a_0 / \prod_i r_i}$, and the client raises it to $\prod_i v_i$, obtaining $g^{a_0 \prod_{i : x_i = 1} a_i}$.
-- [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] give an OPRF for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ ([[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]]) and apply it to adaptive oblivious transfer and to secure computation of set intersection.
+- [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] give an OPRF for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ ([[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]]) and apply it to adaptive oblivious transfer and to secure computation of [[private-set-intersection|set intersection]].
 - [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]] build strong [[password-authenticated-key-exchange#asymmetric-pake|asymmetric PAKE]] from a [[#UC-secure OPRF|UC-secure OPRF]] together with either any asymmetric PAKE or any authenticated key-exchange protocol secure against key-compromise impersonation; OPAQUE instantiates the second construction.
 
-<!-- BEGIN GENERATED participates-in dd5520031c94 -->
+<!-- BEGIN GENERATED participates-in fb740562e327 -->
 
 ## Participates in
 
 **Builds on Oblivious pseudorandom function**
 
 - [[oprf-to-ot|OPRF ⇒ OT]]
+- [[oprf-to-psi|OPRF ⇒ PSI]]
 
 **Produces Oblivious pseudorandom function**
 

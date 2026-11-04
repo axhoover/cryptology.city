@@ -3681,6 +3681,19 @@
    "unlisted": false
   },
   {
+   "id": "malicious-oblivious-polynomial-evaluation",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
+   "slug": "oblivious-polynomial-evaluation",
+   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
+   "anchor": "#malicious-security",
+   "of": "oblivious-polynomial-evaluation",
+   "title": "Malicious security",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "malicious-oprf",
    "kind": "variant",
    "type": "primitive",
@@ -3716,6 +3729,19 @@
    "anchor": "#malicious-security-with-expected-polynomial-time-simulation",
    "of": "ot",
    "title": "Malicious security with expected polynomial-time simulation",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "malicious-psi",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/private-set-intersection.md",
+   "slug": "private-set-intersection",
+   "graphSlug": "Primitives/private-set-intersection",
+   "anchor": "#malicious-security",
+   "of": "psi",
+   "title": "Malicious security",
    "aliases": [],
    "unlisted": false
   },
@@ -4326,6 +4352,19 @@
     "Oblivious locally decodable code"
    ],
    "unlisted": true
+  },
+  {
+   "id": "oblivious-polynomial-evaluation",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/oblivious-polynomial-evaluation.md",
+   "slug": "oblivious-polynomial-evaluation",
+   "graphSlug": "Primitives/oblivious-polynomial-evaluation",
+   "title": "Oblivious polynomial evaluation",
+   "aliases": [
+    "Oblivious polynomial evaluation"
+   ],
+   "unlisted": false
   },
   {
    "id": "offline-oram",
@@ -5105,6 +5144,20 @@
    "of": "prf",
    "title": "Pseudorandom Injective Functions",
    "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "psi",
+   "kind": "object",
+   "type": "primitive",
+   "page": "content/Primitives/private-set-intersection.md",
+   "slug": "private-set-intersection",
+   "graphSlug": "Primitives/private-set-intersection",
+   "title": "Private set intersection",
+   "aliases": [
+    "PSI",
+    "Private set intersection"
+   ],
    "unlisted": false
   },
   {
@@ -17170,6 +17223,33 @@
    "title": "NTRU ⇒ PKE"
   },
   {
+   "id": "red-oblivious-polynomial-evaluation-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "oblivious-polynomial-evaluation"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of 2",
+   "rationale": {
+    "class": "The OT runs the OPE protocol once, on inputs computed from the OT inputs, and each privacy reduction runs the OT adversary only as an oracle against the OPE semi-honest game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/ope-to-ot.md",
+   "slug": "ope-to-ot",
+   "graphSlug": "Reductions/ope-to-ot",
+   "title": "OPE ⇒ OT"
+  },
+  {
    "id": "red-oihf-to-ot-bh26",
    "kind": "implication",
    "hypotheses": [
@@ -17389,6 +17469,33 @@
    "slug": "oprf-to-ot",
    "graphSlug": "Reductions/oprf-to-ot",
    "title": "OPRF ⇒ OT"
+  },
+  {
+   "id": "red-oprf-to-psi",
+   "kind": "implication",
+   "hypotheses": [
+    "oprf"
+   ],
+   "conclusion": "psi",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "linear in the receiver's size bound: one hybrid per OPRF execution",
+   "rationale": {
+    "class": "The PSI protocol runs the OPRF protocol and evaluates the PRF only as oracles, its simulators run the OPRF simulators as subroutines, and each hybrid step runs the PSI adversary only as an oracle against the OPRF's semi-honest game or the PRF game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/oprf-to-psi.md",
+   "slug": "oprf-to-psi",
+   "graphSlug": "Reductions/oprf-to-psi",
+   "title": "OPRF ⇒ PSI"
   },
   {
    "id": "red-ot-and-owf-to-ot-extension-bea96",
@@ -20210,6 +20317,33 @@
    "title": "PRS ⇒ QM"
   },
   {
+   "id": "red-psi-to-ot",
+   "kind": "implication",
+   "hypotheses": [
+    "psi"
+   ],
+   "conclusion": "ot",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor of 2",
+   "rationale": {
+    "class": "The OT runs the PSI protocol once, on sets computed from the OT inputs, and each privacy reduction runs the OT adversary only as an oracle against the PSI semi-honest game."
+   },
+   "status": "draft",
+   "page": "content/Reductions/psi-to-ot.md",
+   "slug": "psi-to-ot",
+   "graphSlug": "Reductions/psi-to-ot",
+   "title": "PSI ⇒ OT"
+  },
+  {
    "id": "red-pspace-to-exp",
    "kind": "inclusion",
    "hypotheses": [
@@ -21811,6 +21945,60 @@
    "slug": "semi-honest-two-party-computation-and-prf-to-oprf",
    "graphSlug": "Reductions/semi-honest-two-party-computation-and-prf-to-oprf",
    "title": "Semi-honest 2PC + PRF ⇒ OPRF"
+  },
+  {
+   "id": "red-semi-honest-two-party-computation-to-oblivious-polynomial-evaluation",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-two-party-computation"
+   ],
+   "conclusion": "oblivious-polynomial-evaluation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OPE protocol is the semi-honest 2PC protocol for the OPE functionality, and every attack on it is an attack on that protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-two-party-computation-to-ope.md",
+   "slug": "semi-honest-two-party-computation-to-ope",
+   "graphSlug": "Reductions/semi-honest-two-party-computation-to-ope",
+   "title": "Semi-honest 2PC ⇒ OPE"
+  },
+  {
+   "id": "red-semi-honest-two-party-computation-to-psi",
+   "kind": "implication",
+   "hypotheses": [
+    "semi-honest-two-party-computation"
+   ],
+   "conclusion": "psi",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The PSI protocol is the general protocol run on the PSI functionality, and every attack on it is an attack on that protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/semi-honest-two-party-computation-to-psi.md",
+   "slug": "semi-honest-two-party-computation-to-psi",
+   "graphSlug": "Reductions/semi-honest-two-party-computation-to-psi",
+   "title": "Semi-honest 2PC ⇒ PSI"
   },
   {
    "id": "red-sequential-squaring-to-fac-rsw96",
@@ -24438,6 +24626,33 @@
    "title": "2PC + PRF ⇒ Malicious OPRF"
   },
   {
+   "id": "red-two-party-computation-to-malicious-oblivious-polynomial-evaluation",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation"
+   ],
+   "conclusion": "malicious-oblivious-polynomial-evaluation",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The OPE protocol is the general protocol run on the OPE functionality, and its simulators are those of the general protocol."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-malicious-ope.md",
+   "slug": "two-party-computation-to-malicious-ope",
+   "graphSlug": "Reductions/two-party-computation-to-malicious-ope",
+   "title": "2PC ⇒ Malicious OPE"
+  },
+  {
    "id": "red-two-party-computation-to-malicious-ot-security",
    "kind": "implication",
    "hypotheses": [
@@ -24463,6 +24678,33 @@
    "slug": "two-party-computation-to-malicious-ot-security",
    "graphSlug": "Reductions/two-party-computation-to-malicious-ot-security",
    "title": "2PC ⇒ Malicious OT"
+  },
+  {
+   "id": "red-two-party-computation-to-malicious-psi",
+   "kind": "implication",
+   "hypotheses": [
+    "two-party-computation"
+   ],
+   "conclusion": "malicious-psi",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The PSI protocol is a 2PC protocol for the PSI functionality, used unchanged, and every adversary against it is an adversary against that protocol with the same simulator."
+   },
+   "status": "draft",
+   "page": "content/Reductions/two-party-computation-to-malicious-psi.md",
+   "slug": "two-party-computation-to-malicious-psi",
+   "graphSlug": "Reductions/two-party-computation-to-malicious-psi",
+   "title": "2PC ⇒ Malicious PSI"
   },
   {
    "id": "red-two-party-computation-to-ot",
