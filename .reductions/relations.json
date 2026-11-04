@@ -7887,7 +7887,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The construction is the identity, and the reduction runs the KE eavesdropper unchanged inside an AKE adversary that relays messages faithfully, using it only as an oracle."
+    "class": "The protocol has each party run KeyGen and send its public key, then runs one initiator and one responder instance of the AKE protocol, all only as oracles, and the fixed reduction relays one session between two uncorrupted parties and runs the eavesdropper once as an oracle on their public keys, the session's messages and the Test answer."
    },
    "status": "draft",
    "page": "content/Reductions/authenticated-key-exchange-ake-to-ke.md",

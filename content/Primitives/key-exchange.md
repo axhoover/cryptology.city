@@ -19,27 +19,54 @@ variants:
 
 # Key exchange
 
-A _key exchange_ (or _key agreement_) protocol allows two parties communicating over a public, authenticated channel to establish a shared secret key that is computationally indistinguishable from uniformly random to any eavesdropper. Unlike [[public-key-encryption|PKE]], key exchange does not require a pre-established public key infrastructure.
+A _key exchange_ (or _key agreement_) protocol allows two parties communicating over a public, authenticated channel to establish a shared secret key that is computationally indistinguishable from uniformly random to any eavesdropper.
 
 ## Syntax
 
-A two-party key exchange protocol is a pair of interactive algorithms $(\mathsf{KE}_A, \mathsf{KE}_B)$ run between parties $A$ and $B$ over a shared transcript. Following execution, both parties output a key $k \in \calK$. A [[#Non-interactive key exchange (NIKE)|non-interactive key exchange]] is instead a tuple of algorithms $(\Setup, \Gen, \Combine)$: each party publishes a public key $\pk$ and computes the shared key as $\Combine(\sk, \pk')$ from its own secret key and the other party's public key.
+A two-party key exchange protocol is a pair of interactive algorithms $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$ with key space $\calK$, run by parties $A$ and $B$ on input $1^\secpar$ over a public channel. An execution $\langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle \to (k_A, k_B)$ outputs keys $k_A, k_B \in \calK$ to $A$ and $B$; its [[interactive-protocol#Transcript|transcript]] $\tau$ is the sequence of all messages sent.
 
 ## Properties
 
 ### Correctness
 
-Both parties output the same key $k$ with probability 1 (over their randomness).
+A key exchange protocol $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$ is $(1-\varepsilon)$-**correct** if for all $\secpar \in \NN$,
+
+$$
+\Pr\!\left[k_A = k_B\right] \ge 1 - \varepsilon,
+$$
+
+over the randomness of both parties in $(k_A, k_B) \gets \langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle$. When $\varepsilon = 0$, $\Pi$ is **perfectly correct**.
 
 ### Security (indistinguishability from random)
 
-A key exchange protocol is **secure** if for all efficient adversaries $\calA$ that observe the full transcript, the session key $k$ is computationally indistinguishable from a uniformly random key $k' \getsr \calK$.
+The adversary sees the transcript $\tau$ of an honest execution, in which $A$ and $B$ output keys $k_A$ and $k_B$, and must distinguish $k_A$ from a uniform key.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ke}}_{\Pi,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\tau, k_A, k_B) \gets \langle \mathsf{KE}_A(1^\secpar), \mathsf{KE}_B(1^\secpar) \rangle$; $b \getsr \bits$
+\State $k_0 := k_A$; $k_1 \getsr \calK$
+\State $b' \gets \calA(1^\secpar, \tau, k_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A key exchange protocol $\Pi = (\mathsf{KE}_A, \mathsf{KE}_B)$ is **secure** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{ke}}_{\Pi,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ke}}_{\Pi,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Variations
 
 ## Non-interactive key exchange (NIKE)
 
-A NIKE allows any two parties to derive the same shared key from each other's public keys alone, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$.
+A NIKE allows any two parties to derive the same shared key, each from its own secret key and the other's public key, with no interaction at all. Diffie-Hellman over a cyclic group is the canonical example: $k = g^{ab}$ given public keys $g^a$ and $g^b$ — [[DH76 - New Directions in Cryptography|DH76]].
 
 A NIKE is a tuple $\Pi = (\Setup, \Gen, \Combine)$ of efficient algorithms with key space $\calK$:
 
@@ -98,7 +125,7 @@ The model below is that of [[BR93a - Entity Authentication and Key Distribution|
 
 Two instances are **partners** if both accepted with the same $\mathit{sid}$, each one's $\mathit{pid}$ naming the other's party. This partnering by session identities is that of [[BPR00 - Authenticated Key Exchange Secure against Dictionary Attacks|BPR00]]; [[BR93a - Entity Authentication and Key Distribution|BR93a]] partner instances by [[#Mutual authentication|matching conversations]].
 
-[[BR93a - Entity Authentication and Key Distribution|BR93a]] formulate the model for parties that share long-lived symmetric keys, and in that setting give an AKE protocol from any [[pseudorandom-function|PRF]]. With long-term key pairs, as here, an AKE protocol gives a [[key-exchange|key exchange]] secure against eavesdroppers ([[authenticated-key-exchange-ake-to-ke|AKE ⇒ KE]]).
+[[BR93a - Entity Authentication and Key Distribution|BR93a]] formulate the model for parties that share long-lived symmetric keys, and in that setting give an AKE protocol from any [[pseudorandom-function|PRF]]. With long-term key pairs, as here, an AKE protocol gives a [[key-exchange|key exchange]] secure against eavesdroppers ([[authenticated-key-exchange-ake-to-ke|AKE ⇒ KE]]) — folklore.
 
 **Correctness.** If the messages between an initiator instance of $U$ with intended peer $V$ and a responder instance of $V$ are delivered unchanged, both instances accept, are partners, and output the same session key, except with negligible probability.
 
@@ -159,7 +186,7 @@ The **conversation** of an instance is the sequence of messages it has received 
 \begin{algorithmic}
 \State $(\pk_U, \sk_U) \gets \KeyGen(1^\secpar)$ for every $U \in \calU$
 \State run $\calA^{\mathsf{Send}, \mathsf{Reveal}, \mathsf{Corrupt}}(1^\secpar, (\pk_U)_{U \in \calU})$
-\Return $1$ if some $\Pi^i_U$ accepted with $\mathit{pid} = V$, neither $U$ nor $V$ is corrupted, and no instance of $V$ has a conversation matching that of $\Pi^i_U$; else $0$
+\Return $1$ if some $\Pi^i_U$ accepted with $\mathit{pid} = V$, neither $U$ nor $V$ is corrupted, and no instance of $V$ that was started with intended peer $U$, or as a responder that has not accepted or has accepted with $\mathit{pid} = U$, has a conversation matching that of $\Pi^i_U$; else $0$
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -192,11 +219,11 @@ NAXOS, whose ephemeral exponent is a hash of the session's ephemeral secret key 
 
 ## Multi-party key exchange
 
-Generalizes two-party KE to $n$ parties. Requires additional rounds or structure (e.g., Burmester-Desmedt, pairing-based constructions).
+An $n$-party key exchange protocol lets $n$ parties communicating over a public, authenticated broadcast channel establish a shared key that is computationally indistinguishable from uniformly random to every efficient eavesdropper. The protocol of Burmester and Desmedt takes two broadcast rounds for every $n$ — [[BD94 - A Secure and Efficient Conference Key Distribution System|BD94]].
 
 ## Multiparty non-interactive key exchange
 
-An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret, the $N - 1$ other published values and any public parameters, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; iO and one-way functions give it for any polynomial $N$ fixed in advance, without trusted setup — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
+An $N$-party NIKE lets each of $N$ parties publish one message, after which each party derives, from its own secret, the $N - 1$ other published values and any public parameters, a key that all $N$ parties share and that is pseudorandom to an eavesdropper. Two-party NIKE is the case $N = 2$; [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] give it for any polynomial $N$ fixed in advance, without trusted setup — [[BZ14 - Multiparty Key Exchange, Efficient Traitor Tracing, and More from Indistinguishability Obfuscation|BZ14]].
 
 ### Three-party NIKE
 
@@ -210,7 +237,7 @@ The case $N = 3$ of multiparty NIKE, with each of three parties publishing one m
 - [[no-rom-to-ke-hmo-19|No reduction from ROM to KE]]
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]
 - [[pke-to-ke|PKE ⇒ KE]]
-- [[BCK98 - A Modular Approach to the Design and Analysis of Authentication and Key Exchange Protocols|BCK98]] define the authenticated-links and unauthenticated-links models and **authenticators**, compilers that turn a protocol secure in the first into one secure in the second; they build authenticators from signatures, from public-key encryption and from pre-shared MAC keys, and apply them to Diffie–Hellman key exchange.
+- [[BCK98 - A Modular Approach to the Design and Analysis of Authentication and Key Exchange Protocols|BCK98]] define the authenticated-links and unauthenticated-links models and **authenticators**, compilers that turn a protocol secure in the first into one secure in the second; they build authenticators from [[digital-signature|signatures]], from [[public-key-encryption|public-key encryption]] and from pre-shared MAC keys, and apply them to Diffie–Hellman key exchange.
 - In the SIGMA ("SIGn-and-MAc") protocols of [[Kra03 - SIGMA The SIGn-and-MAc Approach to Authenticated Diffie-Hellman and Its Use in the IKE Protocols|Kra03]], the parties exchange Diffie–Hellman values $g^x$ and $g^y$; each signs both values and MACs its own identity under a key derived from $g^{xy}$, from which the session key is also derived. SIGMA underlies the signature-based key exchange of IKE — [[Kra03 - SIGMA The SIGn-and-MAc Approach to Authenticated Diffie-Hellman and Its Use in the IKE Protocols|Kra03]]. [[CK02 - Security Analysis of IKE's Signature-based Key-Exchange Protocol|CK02]] prove SIGMA and IKE's signature-based protocols SK-secure in the [[#Canetti–Krawczyk model|CK model]], adapted to sessions whose peer is learned during the run, under [[decisional-diffie-hellman|DDH]] and the security of the signature scheme, the MAC and the key derivation.
 - HMQV, a hashed variant of the MQV protocol of [[LMQSV03 - An Efficient Protocol for Authenticated Key Agreement|LMQSV03]], is a two-message protocol: $A$, with static key pair $(a, g^a)$, sends $X = g^x$, and $B$, with $(b, g^b)$, sends $Y = g^y$; with $d = \bar H(X, B)$ and $e = \bar H(Y, A)$, both compute $\sigma = (Y g^{be})^{x + da} = (X g^{ad})^{y + eb}$ and the session key $H(\sigma)$ — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. With $H$ and $\bar H$ modeled as random oracles, HMQV is secure in the CK model under [[computational-diffie-hellman|CDH]], and some further properties are proved under the gap Diffie–Hellman assumption and [[knowledge-of-exponent|KEA1]] — [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]]. [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]] also gives attacks on MQV in the CK model.
 - [[Men05 - Another look at HMQV|Men05]] describes attacks on HMQV that exploit omitted public-key validation, and identifies flaws in the security arguments of [[Kra05 - HMQV A High-Performance Secure Diffie-Hellman Protocol|Kra05]].
