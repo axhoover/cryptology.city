@@ -18936,7 +18936,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "the PRF distinguisher makes $q\\ell$ queries, plus additive $O(q^2\\ell^2/2^n)$ for $q$ queries of $\\ell$ blocks",
+   "securityLoss": "for a forger making $q$ tag queries, the PRF distinguisher makes $(q+1)\\ell$ queries, plus additive $O((q+1)^2\\ell^2/2^n)$",
    "rationale": {
     "class": "CBC-MAC calls the PRF only as an oracle, the reduction runs the distinguisher once as an oracle, and the random-function core is bounded information-theoretically."
    },

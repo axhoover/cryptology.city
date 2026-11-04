@@ -38,7 +38,7 @@ $$
 
 — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]]. More generally, $\calH$ is strongly universal$_k$ ($k$-wise independent) if $(h(x_1), \ldots, h(x_k))$ is uniform on $\calY^k$ for all distinct $x_1, \ldots, x_k$ — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]].
 
-Summing over $y = y'$ shows that a strongly universal family is universal; $h(x)$ is uniform on $\calY$ for each $x$ — standard.
+Summing over $y = y'$ shows that a strongly universal family is universal; when $|\calX| \ge 2$, summing over $y'$ shows that $h(x)$ is uniform on $\calY$ for each $x$ — standard.
 
 ## Almost universal
 
@@ -58,7 +58,7 @@ $$
 \Pr\!\left[h(x) \oplus h(x') = c\right] \le \varepsilon
 $$
 
-— standard. Over an abelian group $\calY$ with $h(x) - h(x')$ in place of $h(x) \oplus h(x')$, the notion is **$\varepsilon$-almost $\Delta$-universal** — standard. The case $c = 0$ shows that an $\varepsilon$-AXU family is $\varepsilon$-AU; summing over $c$ shows $\varepsilon \ge 2^{-n}$; a strongly universal family into $\bits^n$ is $2^{-n}$-AXU, since $h(x) \oplus h(x')$ is uniform — standard.
+— [[Kra94 - LFSR-based Hashing and Authentication|Kra94]], [[Rog95 - Bucket Hashing and its Application to Fast Message Authentication|Rog95]]. Over an abelian group $\calY$ with $h(x) - h(x')$ in place of $h(x) \oplus h(x')$, the notion is **$\varepsilon$-almost $\Delta$-universal** — standard. The case $c = 0$ shows that an $\varepsilon$-AXU family is $\varepsilon$-AU; summing over $c$ shows $\varepsilon \ge 2^{-n}$ when $|\calX| \ge 2$; a strongly universal family into $\bits^n$ is $2^{-n}$-AXU, since $h(x) \oplus h(x')$ is uniform — standard.
 
 ## Examples
 
@@ -76,7 +76,7 @@ is $(\ell/|\FF|)$-almost $\Delta$-universal: for $m \ne m'$ and $c \in \FF$, $h_
 
 ## Uses
 
-Wegman–Carter [[message-authentication-code#one-time-macs|one-time]] and [[message-authentication-code#nonce-based-macs|nonce-based]] MACs and the [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] tweakable block cipher are built from these families, and the [[leftover-hash-lemma|leftover hash lemma]] extracts nearly uniform bits with them.
+Wegman–Carter [[message-authentication-code#one-time-macs|one-time MACs]] are built from these families — [[WC81 - New Hash Functions and Their Use in Authentication and Set Equality|WC81]]; so are [[message-authentication-code#nonce-based-macs|nonce-based]] Wegman–Carter MACs — standard. The [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] [[tweakable-block-cipher|tweakable block cipher]] uses an almost XOR-universal family — [[LRW02 - Tweakable Block Ciphers|LRW02]]. The [[leftover-hash-lemma|leftover hash lemma]] extracts nearly uniform bits with a universal family — [[ILL89 - Pseudo-random Generation from One-way Functions|ILL89]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]].
 
 <!-- BEGIN GENERATED participates-in 0ef046f072e5 -->
 

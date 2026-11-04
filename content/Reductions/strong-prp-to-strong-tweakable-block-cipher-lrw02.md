@@ -22,13 +22,13 @@ rationale:
 
 ## Statement
 
-Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^n$, write $E_k := \Eval(k, \cdot)$, and let $\calH$ be an $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calT \to \bits^n$ with $\varepsilon$ negligible in $\secpar$. With key $(k, h)$ for $h \getsr \calH$, the construction
+Let $\PRP = (\KeyGen, \Eval, \Invert)$ be a [[pseudorandom-permutation#strong-security|strong PRP]] on $\bits^n$, write $E_k := \Eval(k, \cdot)$, and let $\calH$ be an efficiently samplable and evaluable $\varepsilon$-[[universal-hash-function#almost-xor-universal|almost XOR-universal]] family of functions $\calT \to \bits^n$ with $\varepsilon$ negligible in $\secpar$. With key $(k, h)$ for $h \getsr \calH$, the construction
 
 $$
 \tilde E_{k,h}(t, x) := E_k\big(x \oplus h(t)\big) \oplus h(t), \qquad \tilde E_{k,h}^{-1}(t, y) := E_k^{-1}\big(y \oplus h(t)\big) \oplus h(t),
 $$
 
-is a [[tweakable-block-cipher#strong-security|strong tweakable PRP]]: for every $\calA$ making $q$ queries there is an efficient $\calB$ making $q$ queries with
+is a [[tweakable-block-cipher#strong-security|strong tweakable PRP]]: for every efficient $\calA$ making $q$ queries there is an efficient $\calB$ making $q$ queries with
 
 $$
 \Adv^{\mathrm{tsprp}}_{\tilde E,\calA}(\secpar) \le \Adv^{\mathrm{sprp}}_{\PRP,\calB}(\secpar) + O\!\left(\varepsilon q^2\right)

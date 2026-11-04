@@ -26,7 +26,7 @@ $$
 \tilde E_k(t, x) := E_k\big(t \oplus E_k(x)\big), \qquad \tilde E_k^{-1}(t, y) := E_k^{-1}\big(t \oplus E_k^{-1}(y)\big),
 $$
 
-is a [[tweakable-block-cipher|tweakable PRP]]: for every $\calA$ making $q$ queries there is an efficient $\calB$ making $2q$ queries with
+is a [[tweakable-block-cipher|tweakable PRP]]: for all efficient $\calA$ making $q$ queries there is an efficient $\calB$ making $2q$ queries with
 
 $$
 \Adv^{\mathrm{tprp}}_{\tilde E,\calA}(\secpar) \le \Adv^{\mathrm{prp}}_{\PRP,\calB}(\secpar) + O\!\left(q^2/2^n\right)
@@ -41,4 +41,4 @@ $\calB$ answers each query with two calls to its own oracle. With $E_k$ replaced
 ## Notes
 
 - The construction is not a [[tweakable-block-cipher#strong-security|strong tweakable PRP]]: for $t \ne t'$, the inverse queries $x \gets \tilde E_k^{-1}(t, y)$ and $x' \gets \tilde E_k^{-1}(t', y)$ give $E_k(x) \oplus E_k(x') = t \oplus t'$, hence $\tilde E_k(t', x) = \tilde E_k(t, x')$, which an ideal family satisfies with probability $O(2^{-n})$ — standard.
-- Each evaluation costs two block-cipher calls; [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] replaces one by a hash evaluation and is strong — [[LRW02 - Tweakable Block Ciphers|LRW02]].
+- Each evaluation costs two block-cipher calls; [[strong-prp-to-strong-tweakable-block-cipher-lrw02|LRW2]] replaces one by a hash evaluation and is a strong tweakable PRP when its block cipher is a [[pseudorandom-permutation#strong-security|strong PRP]] — [[LRW02 - Tweakable Block Ciphers|LRW02]].

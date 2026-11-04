@@ -90,7 +90,7 @@ $$
 \Adv^{\mathrm{tsprp}}_{\mathsf{TBC},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{tsprp}}_{\mathsf{TBC},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[LRW02 - Tweakable Block Ciphers|LRW02]]. A strong tweakable PRP is a tweakable PRP ([[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]); the [[prp-to-tweakable-block-cipher-lrw02|LRW1]] construction is a tweakable PRP whenever its block cipher is a PRP, and four queries distinguish it from an ideal family once inverse queries are allowed.
+is negligible — [[LRW02 - Tweakable Block Ciphers|LRW02]]. A strong tweakable PRP is a tweakable PRP ([[strong-tweakable-block-cipher-to-tweakable-block-cipher|Strong TBC ⇒ TBC]]); the [[prp-to-tweakable-block-cipher-lrw02|LRW1]] construction is a tweakable PRP whenever its block cipher is a PRP on $\bits^n$ with $n = \omega(\log \secpar)$, and four queries distinguish it from an ideal family once inverse queries are allowed — standard.
 
 # Variations
 

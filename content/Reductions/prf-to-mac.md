@@ -24,8 +24,8 @@ For a [[pseudorandom-function|PRF]] $\PRF = (\KeyGen, \Eval)$ with domain $\calD
 
 ## Sketch
 
-Verification recomputes the tag, so correctness is perfect. The distinguisher $\calB$ runs the forger $\calA$, answers each $\Tag$ query with one query to its own oracle, and outputs $1$ iff one further query confirms the forgery. With a truly random function the tag of an unqueried message is uniform in $\calR$, so $\calB$ outputs $1$ with probability at most $1/|\calR|$, and the bound follows.
+Verification recomputes the tag, so correctness is perfect. The distinguisher $\calB$ runs the forger $\calA$, answers each $\Tag$ query with one query to its own oracle, and, given $\calA$'s output $(\hat{m}, \hat{t})$, outputs $1$ iff $\hat{m}$ is unqueried and one further query, on $\hat{m}$, returns $\hat{t}$. With a truly random function the tag of an unqueried message is uniform in $\calR$, so $\calB$ outputs $1$ with probability at most $1/|\calR|$, and the bound follows.
 
 ## Notes
 
-- Domain extension enlarges the message space beyond $\calD$: for $\calD = \bits^n$, [[prf-to-mac-bkr94|CBC-MAC]] is a PRF, hence a MAC, on messages of $\ell$ blocks for any fixed $\ell$ — [[BKR94 - The Security of Cipher Block Chaining|BKR94]].
+- Domain extension enlarges the message space beyond $\calD$: for $\calD = \calR = \bits^n$, [[prf-to-mac-bkr94|CBC-MAC]] is a PRF, hence a MAC, on messages of $\ell$ blocks for any fixed $\ell = \poly(\secpar)$ — [[BKR94 - The Security of Cipher Block Chaining|BKR94]].
