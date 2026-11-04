@@ -13,7 +13,7 @@ variants:
 
 # Pseudorandom permutation
 
-A **Pseudorandom Permutation (PRP)** allows someone to succinctly represent a permutation that is indistinguishable from a uniformly random permutation. A user generates a key and uses it to evaluate the permutation forward and backward at many points; any efficient adversary who sees only these input-output pairs cannot distinguish them from a truly random permutation. PRPs are the formal model behind block ciphers such as [AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).
+A **pseudorandom permutation (PRP)** is a keyed family of efficiently invertible permutations $\{\Eval(k, \cdot)\}_{k \in \calK}$ of a domain $\calD$ that no efficient adversary can distinguish from a uniformly random permutation of $\calD$ given oracle access to $\Eval(k, \cdot)$; a strong PRP remains indistinguishable when the adversary also has oracle access to the inverse.
 
 ## Syntax
 
@@ -63,7 +63,7 @@ is negligible.
 
 ### Strong Security
 
-In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. This is a strictly stronger notion than standard PRP security.
+In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. Assuming PRPs exist, this is a strictly stronger notion than standard PRP security: the three-round Feistel network with independently keyed PRF round functions is a PRP ([[prf-to-prp-lr88|PRF ⇒ PRP]]) but not a strong PRP — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
 
 ```pseudocode
 \begin{algorithm}
@@ -93,14 +93,20 @@ is negligible.
 
 ## Small-domain PRPs
 
-Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that a brute-force enumeration of $\calD$ is infeasible. When $|\calD|$ is instead polynomial in $\secpar$, the primitive is called a **small-domain PRP** and requires additional care, as some standard constructions and security reductions no longer apply.
+Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that a brute-force enumeration of $\calD$ is infeasible. When $|\calD|$ is instead polynomial in $\secpar$, the primitive is called a **small-domain PRP**. An efficient adversary may then make $q = |\calD|$ queries, so neither the $O(q^2/|\calD|)$ switching-lemma term of [[prp-to-prf|PRP ⇒ PRF]] ([[IR89 - Limits on the provable consequences of one-way permutations|IR89]]) nor the $O(q^2/\sqrt{|\calD|})$ birthday term of the Feistel construction of [[prf-to-prp-lr88|PRF ⇒ PRP]] ([[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]]) is negligible.
+
+## Tweakable PRPs
+
+A [[tweakable-block-cipher|tweakable block cipher]] takes a public tweak $t$ as an extra input to $\Eval$ and $\Invert$, and is indistinguishable from an independent uniformly random permutation for each tweak — [[LRW02 - Tweakable Block Ciphers|LRW02]].
 
 # Other results
 
 - [[prf-to-prp-lr88|PRF ⇒ PRP]]
 - [[prp-to-prf|PRP ⇒ PRF]]
+- **Even–Mansour.** Let $P$ be a uniformly random permutation of $\bits^n$ that every party, the adversary included, can query in both directions. The cipher $E_{k_1,k_2}(x) := k_2 \oplus P(x \oplus k_1)$ with $k_1, k_2 \getsr \bits^n$ is broken by every attack making $q$ queries to $E_{k_1,k_2}^{\pm 1}$ and $p$ queries to $P^{\pm 1}$ with probability at most $O(pq/2^n)$ — [[EM91 - A Construction of a Cipher From a Single Pseudorandom Permutation|EM91]]. The single-key variant $E_k(x) := k \oplus P(x \oplus k)$ has the same bound — [[DKS12 - Minimalism in Cryptography The Even-Mansour Scheme Revisited|DKS12]].
+- The Even–Mansour bound is tight: with $D$ queries to the cipher and $T$ evaluations of $P$, the key is recovered once $DT \approx 2^n$, from chosen plaintexts ([[Dae91 - Limitations of the Even-Mansour Construction (Rump Session)|Dae91]]) and, by the slidex attack, from known plaintexts ([[DKS12 - Minimalism in Cryptography The Even-Mansour Scheme Revisited|DKS12]]).
 
-<!-- BEGIN GENERATED participates-in 2edb8d78b934 -->
+<!-- BEGIN GENERATED participates-in 4531b43344e3 -->
 
 ## Participates in
 
@@ -108,6 +114,8 @@ Typically, $|\calD|$ is assumed to grow super-polynomially in $\secpar$, so that
 
 - [[prp-to-invertible-prf|PRP ⇒ iPRF (large domains)]]
 - [[prp-to-prf|PRP ⇒ PRF]]
+- [[prp-to-tweakable-block-cipher-lrw02|PRP ⇒ TBC (LRW1)]]
+- [[strong-prp-to-strong-tweakable-block-cipher-lrw02|Strong PRP ⇒ Strong TBC (LRW2)]] (via [[pseudorandom-permutation#strong-security|Strong Security]])
 - [[strong-security-to-prp|sPRP ⇒ PRP]] (via [[pseudorandom-permutation#strong-security|Strong Security]])
 
 **Produces Pseudorandom permutation**

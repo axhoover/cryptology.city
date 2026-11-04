@@ -10,7 +10,7 @@ id: leftover-hash-lemma
 
 # Leftover hash lemma
 
-A family $\calH$ of functions $\bits^n \to \bits^m$ is **2-universal** if for all distinct $x, x' \in \bits^n$, $\Pr_{h \getsr \calH}\!\left[h(x) = h(x')\right] \le 2^{-m}$ — [[CW79 - Universal Classes of Hash Functions|CW79]]. A random variable $X$ on $\bits^n$ has **min-entropy** $H_\infty(X) := -\log \max_x \Pr[X = x]$, and $\Delta$ denotes statistical distance.
+A family $\calH$ of functions $\bits^n \to \bits^m$ is **2-universal** ([[universal-hash-function#universal|universal]]) if for all distinct $x, x' \in \bits^n$, $\Pr_{h \getsr \calH}\!\left[h(x) = h(x')\right] \le 2^{-m}$ — [[CW79 - Universal Classes of Hash Functions|CW79]]. A random variable $X$ on $\bits^n$ has **min-entropy** $H_\infty(X) := -\log \max_x \Pr[X = x]$, and $\Delta$ denotes statistical distance.
 
 Let $\calH$ be a 2-universal family of functions $\bits^n \to \bits^m$ and $X$ a random variable on $\bits^n$ with $H_\infty(X) \ge k$. For $h \getsr \calH$ independent of $X$ and $U_m$ uniform on $\bits^m$ independent of $h$,
 
