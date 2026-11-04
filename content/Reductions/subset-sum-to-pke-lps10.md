@@ -22,6 +22,6 @@ If [[subset-sum|subset sum]] is hard for random instances at the parameters of L
 
 ## Notes
 
-- A variant of the scheme is secure against key-leakage attacks — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]].
+- A variant of the scheme is secure against [[leakage-resilient-public-key-encryption|key-leakage attacks]] — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]].
 - Random subset sum of density $o(1)$ is solvable in subexponential time, and the LPS10 parameters in time $2^{(\ln 2/2 + o(1))\, n / \log\log n}$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 - A PKE whose IND-CCA security is polynomial-time equivalent to subset sum improves on the IND-CPA security of this scheme — [[FMV16 - Chosen-Ciphertext Security from Subset Sum|FMV16]].

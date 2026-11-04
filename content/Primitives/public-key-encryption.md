@@ -253,7 +253,7 @@ is negligible.
 - [[noisy-k-lin-and-pc-to-pke-ghjs25|Noisy k-LIN + PC ⇒ PKE]]
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 247f4e636e86 -->
+<!-- BEGIN GENERATED participates-in 08d319ddf8d9 -->
 
 ## Participates in
 
@@ -302,6 +302,7 @@ is negligible.
 - [[ind-sid-cpa-to-pke-cca2-security-chk04|Selective-ID IBE ⇒ CCA-secure PKE (CHK)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[ke-to-pke-dh76|NIKE ⇒ PKE]]
 - [[kem-and-ske-to-pke|IND-CCA KEM + CCA-secure SKE ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
+- [[leakage-resilient-pke-to-pke-cpa-security|LR-PKE ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[lwe-to-pke-reg05|LWE ⇒ PKE]]

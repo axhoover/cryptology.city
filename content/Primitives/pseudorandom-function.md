@@ -155,7 +155,7 @@ is negligible.
 - [[prf-to-ske|PRF ⇒ CPA-secure SKE]]
 - [[prf-to-mac|PRF ⇒ MAC]]
 
-<!-- BEGIN GENERATED participates-in fa0b4b382780 -->
+<!-- BEGIN GENERATED participates-in babfd2a7586f -->
 
 ## Participates in
 
@@ -176,6 +176,7 @@ is negligible.
 - [[prf-to-strong-pseudorandom-permutation-lr88|PRF ⇒ Strong PRP]]
 - [[semi-honest-two-party-computation-and-prf-to-oprf|Semi-honest 2PC + PRF ⇒ OPRF]]
 - [[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ Malicious OPRF]]
+- [[weak-prf-to-leakage-resilient-stream-cipher-pie09|Weak PRF ⇒ Leakage-resilient stream cipher]] (via [[pseudorandom-function#weak-prfs|Weak PRFs]])
 
 **Produces Pseudorandom function**
 
