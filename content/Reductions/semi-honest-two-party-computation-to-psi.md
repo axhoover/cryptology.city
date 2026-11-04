@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-A protocol that securely computes every polynomial-time two-party functionality against semi-honest adversaries ([[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]]) is, run on $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ with each set encoded as a string of a fixed length, a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for every universe $\bits^{\ell}$ and size bounds $n_S$ and $n_R$, where $\ell$, $n_S$ and $n_R$ are polynomials in $\secpar$ — folklore.
+A protocol that securely computes $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ against semi-honest adversaries, with each set encoded as a string of a fixed length, which exists when [[secure-multi-party-computation#semi-honest-two-party-computation|semi-honest 2PC]] is achieved, is a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for every universe $\bits^{\ell}$ and size bounds $n_S$ and $n_R$, where $\ell$, $n_S$ and $n_R$ are polynomials in $\secpar$ — folklore.
 
 ## Sketch
 
@@ -27,5 +27,5 @@ $f_{\mathrm{PSI}}$ is computed by a circuit of size polynomial in $\ell$, $n_S$ 
 
 ## Notes
 
-- Run on a protocol secure with abort against a malicious adversary corrupting one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]), the same construction gives [[private-set-intersection#malicious-security|PSI with malicious security]] ([[two-party-computation-to-malicious-psi|2PC ⇒ malicious PSI]]) — folklore.
+- Run on a protocol secure with abort against a malicious adversary corrupting one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]), and with an input that encodes no admissible set replaced by $\emptyset$, the same construction gives [[private-set-intersection#malicious-security|PSI with malicious security]] ([[two-party-computation-to-malicious-psi|2PC ⇒ malicious PSI]]) — folklore.
 - Semi-honest [[oblivious-transfer|OT]] gives semi-honest secure computation of every functionality ([[ot-to-semi-honest-security-gmw87|semi-honest OT ⇒ semi-honest MPC]]) — [[GMW87 - How to play ANY mental game|GMW87]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]] — and conversely semi-honest PSI gives semi-honest OT ([[psi-to-ot|PSI ⇒ OT]]) — folklore.

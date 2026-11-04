@@ -19,7 +19,7 @@ rationale:
 
 ## Statement
 
-Let $\Pi$ be a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for a universe $U = \bits^{\ell}$ with $\ell \ge 2$, a pair of bits read as an element of $U$ by padding, and size bounds $n_S \ge 2$ and $n_R \ge 1$. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\bits$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \bits^2$ and $c \in \bits$, the parties run $\Pi$ with sender set $X = \{(0, x_0), (1, x_1)\}$ and receiver set $Y = \{(c, 0)\}$, and the receiver outputs $0$ if its output set contains $(c, 0)$ and $1$ otherwise — folklore.
+Let $\Pi$ be a [[private-set-intersection#semi-honest-security|semi-honest secure]] [[private-set-intersection|PSI]] protocol for a universe $U = \bits^{\ell}$ with $\ell \ge 2$ and size bounds $n_S \ge 2$ and $n_R \ge 1$, where a pair of bits is read as an element of $U$ by padding. The following is a 1-out-of-2 [[oblivious-transfer|OT]] with message space $\bits$, with the reference string of $\Pi$, that has [[oblivious-transfer#sender-privacy|sender privacy]] and [[oblivious-transfer#receiver-privacy|receiver privacy]]: on inputs $(x_0, x_1) \in \bits^2$ and $c \in \bits$, the parties run $\Pi$ with sender set $X = \{(0, x_0), (1, x_1)\}$ and receiver set $Y = \{(c, 0)\}$, and the receiver outputs $0$ if its output set contains $(c, 0)$ and $1$ otherwise — folklore.
 
 ## Sketch
 
@@ -27,5 +27,5 @@ $X \cap Y$ is $\{(c, 0)\}$ if $x_c = 0$ and $\emptyset$ otherwise, so a $(1-\var
 
 ## Notes
 
-- The construction needs the intersection to go to the receiver alone: in [[private-set-intersection#two-sided-psi|two-sided PSI]] the sender also learns $X \cap Y$, which reveals $c$ whenever $x_c = 0$ — folklore.
+- The construction needs the intersection to go to the receiver alone: in [[private-set-intersection#two-sided-psi|two-sided PSI]] the sender also learns $X \cap Y$, which reveals $c$ unless $x_0 = x_1 = 1$ — folklore.
 - Conversely, semi-honest OT gives semi-honest PSI, through semi-honest secure computation of every functionality ([[ot-to-semi-honest-security-gmw87|semi-honest OT ⇒ semi-honest MPC]], [[semi-honest-two-party-computation-to-psi|semi-honest 2PC ⇒ PSI]]) — [[GMW87 - How to play ANY mental game|GMW87]], [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]].

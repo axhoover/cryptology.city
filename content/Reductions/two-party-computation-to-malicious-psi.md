@@ -12,14 +12,14 @@ model: standard
 source: folklore
 security-loss: "none"
 rationale:
-  class: "The PSI protocol is the general protocol run on the PSI functionality, and its simulators are those of the general protocol."
+  class: "The PSI protocol is a 2PC protocol for the PSI functionality, used unchanged, and every adversary against it is an adversary against that protocol with the same simulator."
 ---
 
 # 2PC ⇒ Malicious PSI
 
 ## Statement
 
-A protocol that securely computes every polynomial-time two-party functionality with abort against a malicious adversary corrupting one party ([[secure-multi-party-computation#two-party-computation-2pc|2PC]]) is, run on $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ with each set encoded as a string of a fixed length and an input that encodes no admissible set replaced by $\emptyset$, a [[private-set-intersection|PSI]] protocol with [[private-set-intersection#malicious-security|malicious security]] for every universe $\bits^{\ell}$ and size bounds $n_S$ and $n_R$, where $\ell$, $n_S$ and $n_R$ are polynomials in $\secpar$ — folklore.
+Let $\ell$, $n_S$ and $n_R$ be polynomials in $\secpar$, and let $f_{\mathrm{PSI}}(X, Y) = (|Y|, (X \cap Y, |X|))$ over the universe $\bits^{\ell}$ with size bounds $n_S$ and $n_R$, each set encoded as a string of a fixed length and an input that encodes no admissible set replaced by $\emptyset$. A protocol that securely computes $f_{\mathrm{PSI}}$ with abort against a malicious adversary corrupting at most one party, which exists when [[secure-multi-party-computation#two-party-computation-2pc|2PC]] is achieved, is a [[private-set-intersection|PSI]] protocol with [[private-set-intersection#malicious-security|malicious security]] — folklore.
 
 ## Sketch
 

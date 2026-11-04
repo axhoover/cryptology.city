@@ -21256,7 +21256,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The OPE protocol is the general protocol run on the OPE functionality, and every attack on it is an attack on that protocol."
+    "class": "The OPE protocol is the semi-honest 2PC protocol for the OPE functionality, and every attack on it is an attack on that protocol."
    },
    "status": "draft",
    "page": "content/Reductions/semi-honest-two-party-computation-to-ope.md",
@@ -23929,7 +23929,7 @@
    "heuristic": false,
    "securityLoss": "none",
    "rationale": {
-    "class": "The PSI protocol is the general protocol run on the PSI functionality, and its simulators are those of the general protocol."
+    "class": "The PSI protocol is a 2PC protocol for the PSI functionality, used unchanged, and every adversary against it is an adversary against that protocol with the same simulator."
    },
    "status": "draft",
    "page": "content/Reductions/two-party-computation-to-malicious-psi.md",

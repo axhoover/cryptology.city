@@ -27,4 +27,4 @@ $P(c) = x_c$, so a $(1-\varepsilon)$-correct OPE gives a $(1-\varepsilon)$-corre
 
 ## Notes
 
-- The construction does not give [[oblivious-transfer#malicious-security|malicious security]] when $|\FF| > 2$: a corrupted receiver can input $\alpha \notin \{0, 1\}$ and learn $(1 - \alpha) x_0 + \alpha x_1$, which depends on both messages — folklore.
+- The construction does not give [[oblivious-transfer#malicious-security|malicious security]] when $|\FF| > 2$, even when $\Pi$ has [[oblivious-polynomial-evaluation#malicious-security|malicious security]]: a corrupted receiver can input $\alpha \notin \{0, 1\}$ and learn $(1 - \alpha) x_0 + \alpha x_1$, which depends on both messages — folklore.
