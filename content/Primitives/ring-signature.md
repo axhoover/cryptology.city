@@ -27,7 +27,7 @@ A ring signature scheme is a tuple of efficient algorithms $\Pi = (\KeyGen, \Sig
 
 ### Correctness
 
-A ring signature scheme $\Pi$ is $(1-\varepsilon)$-**correct** if for all $\ell$, all key pairs $(\pk_1, \sk_1), \ldots, (\pk_\ell, \sk_\ell)$ output by $\KeyGen(1^\secpar)$ with $R = (\pk_1, \ldots, \pk_\ell)$, all $s \in [\ell]$ and $m \in \calM$,
+A ring signature scheme $\Pi$ is $(1-\varepsilon)$-**correct** if for all $\secpar, \ell \in \NN$, all key pairs $(\pk_1, \sk_1), \ldots, (\pk_\ell, \sk_\ell)$ output by $\KeyGen(1^\secpar)$ with $R = (\pk_1, \ldots, \pk_\ell)$, all $s \in [\ell]$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\Vrfy(R, m, \Sign(\sk_s, m, R)) = 1\right] \ge 1 - \varepsilon,
@@ -93,6 +93,7 @@ The adversary has a signing oracle for every honest user on rings of its choice 
 \State $S \gets (\pk_1, \ldots, \pk_n)$; $C \gets \{\}$; $\calQ \gets \{\}$
 \State $(m^*, R^*, \sigma^*) \gets \calA^{\calO_{\Sign}, \calO_{\mathrm{Corr}}}(1^\secpar, S)$
 \If{$R^* \not\subseteq \{\pk_i : i \in [n] \setminus C\}$ or $(m^*, R^*) \in \calQ$}
+\Comment{$R^*$ holds only uncorrupted honest keys; $(m^*, R^*)$ never queried}
 \Return $0$
 \EndIf
 \Return $[\Vrfy(R^*, m^*, \sigma^*)]$
@@ -145,7 +146,7 @@ The unforgeability game without the corruption oracle, in which every ring, in a
 
 ### Fixed-ring unforgeability
 
-The unforgeability game without the corruption oracle, in which every ring, in a signing query or in the forgery, is the list $S$ of all honest keys, and the forgery must be on a message never submitted for signing — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]]. As an object, ring signatures with fixed-ring unforgeability denote correct schemes that are anonymous against full key exposure and unforgeable against fixed-ring attacks.
+The unforgeability game without the corruption oracle, in which every ring, in a signing query or in the forgery, is the list $S$ of all honest keys, and the forgery must be on a message never submitted for signing — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]]. As an object, ring signatures with fixed-ring unforgeability denote correct schemes, with negligible $\varepsilon$, that are anonymous against full key exposure and unforgeable against fixed-ring attacks.
 
 ## Linkable ring signatures
 
@@ -155,7 +156,7 @@ A linkable ring signature scheme has a further public algorithm that decides whe
 
 - [[trapdoor-permutation|Trapdoor permutations]] give ring signatures with fixed-ring unforgeability when a symmetric cipher is modeled as an ideal cipher; signer ambiguity is unconditional, and each ring member costs one evaluation of a permutation and one cipher call ([[tdp-to-fixed-ring-ring-signature-rst01|TDP ⇒ Ring signatures with fixed-ring unforgeability]]) — [[RST01 - How to Leak a Secret|RST01]]. The construction paradigm is secure in the random-oracle model, without an ideal cipher — [[BSS02 - Threshold Ring Signatures and Applications to Ad-hoc Groups|BSS02]].
 - Without random oracles and without setup, ring signatures that are anonymous against full key exposure and unforgeable with respect to insider corruption exist under generic assumptions, among them a semantically secure [[public-key-encryption|PKE]] scheme, a [[digital-signature|signature scheme]] and a [[zero-knowledge-proof#zaps|zap]] for $\classNP$ — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]].
-- For rings of two users, a more efficient scheme without random oracles, based on [[digital-signature#waters-signatures|Waters signatures]], is unconditionally anonymous against full key exposure and unforgeable against chosen-subring attacks — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]].
+- For rings of two users, a more efficient scheme without random oracles, based on [[digital-signature#waters-signatures|Waters signatures]], is unforgeable against chosen-subring attacks and unconditionally anonymous against full key exposure — [[BKM06 - Ring Signatures Stronger Definitions, and Constructions Without Random Oracles|BKM06]].
 
 <!-- BEGIN GENERATED participates-in 650058e7ff53 -->
 

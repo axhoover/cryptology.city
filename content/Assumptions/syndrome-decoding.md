@@ -2,7 +2,6 @@
 type: assumption
 status: draft
 aliases:
-  - SD
   - Syndrome decoding
   - Decoding random linear codes
 title: Syndrome decoding
@@ -39,23 +38,23 @@ $$
 \Adv^{\mathrm{sd}}_{n,k,w,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{sd}}_{n,k,w,\calA}(\secpar) = 1\right]
 $$
 
-is negligible. The adversary wins with any weight-$w$ solution. When $\binom{n}{w} < 2^{n-k}$, below the Gilbert–Varshamov bound, the solution is typically unique; above it a typical syndrome has many weight-$w$ preimages — standard. Two regimes are in use: $w$ linear in $n$, and sublinear $w$, as in McEliece encryption below.
+is negligible. The adversary wins with any weight-$w$ solution. Over $\mathbf{H}$, each weight-$w$ vector other than $\mathbf{e}$ has syndrome $\mathbf{y}$ with probability $2^{-(n-k)}$, so $\mathbf{y}$ has $1 + (\binom{n}{w} - 1)2^{-(n-k)}$ weight-$w$ preimages in expectation: the solution is unique with high probability when $\binom{n}{w} \ll 2^{n-k}$, below the Gilbert–Varshamov bound, and $\mathbf{y}$ has many weight-$w$ preimages when $\binom{n}{w} \gg 2^{n-k}$ — standard. Two regimes are in use: $w$ linear in $n$, and sublinear $w$, as in McEliece encryption below — standard.
 
 ## Known Results
 
 ### Worst-case hardness
 
-The decision problem — given $\mathbf{H}$, $\mathbf{y}$ and $w$, is there $\mathbf{e}$ with $\mathrm{wt}(\mathbf{e}) \le w$ and $\mathbf{H}\mathbf{e} = \mathbf{y}$ — is NP-complete, as is the problem of computing the weights of a linear code — [[BMvT78 - On the Inherent Intractability of Certain Coding Problems|BMvT78]].
+The decision problem — given $\mathbf{H}$, $\mathbf{y}$ and $w$, is there $\mathbf{e}$ with $\mathrm{wt}(\mathbf{e}) \le w$ and $\mathbf{H}\mathbf{e} = \mathbf{y}$ — is NP-complete, as is deciding, given $\mathbf{H}$ and $w \ge 1$, whether some $\mathbf{e}$ has $\mathrm{wt}(\mathbf{e}) = w$ and $\mathbf{H}\mathbf{e} = \mathbf{0}$ — [[BMvT78 - On the Inherent Intractability of Certain Coding Problems|BMvT78]].
 
 ### Relation to LPN
 
-$m$ samples of [[learning-parity-with-noise|LPN]] in dimension $k$ with noise rate $\varepsilon$ are a noisy codeword $\mathbf{A}\mathbf{s} + \mathbf{e}$ of the random code spanned by the columns of $\mathbf{A} \in \FF_2^{m \times k}$. Multiplying by a parity-check matrix $\mathbf{H}$ of that code ($\mathbf{H}\mathbf{A} = \mathbf{0}$) maps it to the syndrome $\mathbf{H}\mathbf{e}$, so search LPN is syndrome decoding with length $m$, dimension $k$, and Bernoulli noise in place of fixed-weight noise. Conditioned on $\mathrm{wt}(\mathbf{e}) = w$, Bernoulli noise is uniform on $S_{m,w}$ — standard.
+$m$ samples of [[learning-parity-with-noise|LPN]] in dimension $k$ with noise rate $\varepsilon$ are a noisy codeword $\mathbf{A}\mathbf{s} + \mathbf{e}$ of the random code spanned by the columns of $\mathbf{A} \in \FF_2^{m \times k}$. Multiplying by a parity-check matrix $\mathbf{H}$ of that code ($\mathbf{H}\mathbf{A} = \mathbf{0}$) maps it to the syndrome $\mathbf{H}\mathbf{e}$, so search LPN is syndrome decoding with length $m$, dimension $k$, and Bernoulli noise in place of fixed-weight noise — standard. Conditioned on $\mathrm{wt}(\mathbf{e}) = w$, Bernoulli noise is uniform on $S_{m,w}$ — standard.
 
 ### Constructions
 
 - If SD is hard at suitable parameters, there is a [[pseudorandom-generator|PRG]] each application of which yields a linear number of output bits in quadratic time ([[syndrome-decoding-to-prg-fs96|SD ⇒ PRG]]) — [[FS96 - An Efficient Pseudo-Random Generator Provably as Secure as Syndrome Decoding|FS96]].
 - SD and [[#Goppa code indistinguishability|Goppa code indistinguishability]] together make McEliece encryption one-way ([[syndrome-decoding-and-goppa-code-indistinguishability-to-mceliece-ow-cpa|SD + Goppa code indistinguishability ⇒ One-wayness of McEliece encryption]]) — folklore.
-- Padding the plaintext with a random bit string makes McEliece and Niederreiter encryption IND-CPA without random oracles, assuming Goppa code indistinguishability and the pseudorandomness that LPN implies by a result of Katz and Shin — [[NIKM08 - Semantic Security for the McEliece Cryptosystem without Random Oracles|NIKM08]].
+- Padding the plaintext with a random bit string makes McEliece and Niederreiter encryption [[public-key-encryption#cpa-security|IND-CPA]] without random oracles, assuming Goppa code indistinguishability and the pseudorandomness that LPN implies ([[KS06 - Parallel and Concurrent Security of the HB and HB+ Protocols|KS06]]) — [[NIKM08 - Semantic Security for the McEliece Cryptosystem without Random Oracles|NIKM08]].
 
 # Variations
 
@@ -83,7 +82,7 @@ $$
 \Adv^{\mathrm{goppa}}_{n,m,t,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{goppa}}_{n,m,t,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. The CFS signature scheme uses binary Goppa codes of high rate — [[CFS01 - How to Achieve a McEliece-Based Digital Signature Scheme|CFS01]]. It is false at high rate ([[#Attacks|Attacks]]).
+is negligible. The CFS [[digital-signature|signature scheme]] uses binary Goppa codes of high rate — [[CFS01 - How to Achieve a McEliece-Based Digital Signature Scheme|CFS01]]. Goppa code indistinguishability is false at sufficiently high rate ([[#Attacks|Attacks]]) — [[FGO+13 - A Distinguisher for High-Rate McEliece Cryptosystems|FGO+13]].
 
 ## One-wayness of McEliece encryption
 

@@ -6,12 +6,14 @@ aliases: []
 id: red-group-signature-to-pke-aw04
 kind: implication
 hypotheses: [group-signature]
-conclusion: pke
-class: unstated
+conclusion: pke-cpa-security
+class: fully-black-box
 model: standard
 source:
   - "[[AW04 - On the Minimal Assumptions of Group Signature Schemes|AW04]]"
 security-loss: ""
+rationale:
+  class: "The construction calls the group signature's key generation (for two members), signing and opening algorithms only as oracles, and the fixed reduction runs any IND-CPA adversary as an oracle, as a CPA-full-anonymity adversary that receives every signing key."
 ---
 
 # Group signatures ⇒ PKE
@@ -26,5 +28,5 @@ For a group of two members, let the public key be $(\mathsf{gpk}, \mathsf{gsk}[1
 
 ## Notes
 
-- With the opening oracle of full anonymity as the decryption oracle, the same bit-encryption scheme is IND-CCA2-secure, since a decryption query on $\sigma \ne \sigma^*$ is an opening query on $(m_0, \sigma) \ne (m_0, \sigma^*)$ — standard.
+- With the opening oracle of full anonymity as the decryption oracle, the one-bit scheme is [[public-key-encryption#cca-security|IND-CCA2-secure]], since a decryption query on $\sigma \ne \sigma^*$ is an opening query on $(m_0, \sigma) \ne (m_0, \sigma^*)$ — standard.
 - [[digital-signature|Digital signatures]], by contrast, follow from one-way functions ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].

@@ -13,7 +13,7 @@ source:
   - "[[RS20b - Generically Speeding-Up Repeated Squaring Is Equivalent to Factoring Sharp Thresholds for All Generic-Ring Delay Functions|RS20b]]"
 security-loss: ""
 rationale:
-  class: "RS20b's theorem covers every generic-ring algorithm with preprocessing and polynomially many parallel processors, restricting only its access to the ring and not its technique, which is the free class scoped by the model."
+  class: "RS20b's theorem covers every efficient generic-ring algorithm, preprocessing stage included, with polynomially many parallel processors, restricting only its access to the ring and not its technique, which is the free class scoped by the model."
   model: "The theorem is proved for generic-ring algorithms, which is none of the named models and differs from the generic group model."
 ---
 
@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If [[factoring|factoring]] $N$ is hard, then no algorithm that treats $\ZZ_N$ as a generic ring computes $x^{2^T} \bmod N$ faster than $T$ sequential squarings, even after a preprocessing stage and with polynomially many parallel processors: generically speeding up repeated squaring is equivalent to factoring — [[RS20b - Generically Speeding-Up Repeated Squaring Is Equivalent to Factoring Sharp Thresholds for All Generic-Ring Delay Functions|RS20b]]. Against generic-ring algorithms this gives [[sequential-squaring|sequential squaring]] with every gap $\varepsilon \in (0, 1)$. Algorithms that use the representation of ring elements are not covered.
+If [[factoring|factoring]] the moduli $N$ output by $\mathsf{GenMod}$ is hard, then for every efficient algorithm that treats $\ZZ_N$ as a generic ring, even with a polynomial-time preprocessing stage and polynomially many parallel processors, the probability that it outputs $x^{2^T} \bmod N$ for a uniform $x \in \ZZ_N^*$ using fewer than $T$ sequential rounds of ring operations is negligible — [[RS20b - Generically Speeding-Up Repeated Squaring Is Equivalent to Factoring Sharp Thresholds for All Generic-Ring Delay Functions|RS20b]]. Against generic-ring algorithms this gives [[sequential-squaring|sequential squaring]] with every gap $\varepsilon \in (0, 1)$. Algorithms that use the representation of ring elements are not covered.
 
 ## Notes
 

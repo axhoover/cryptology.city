@@ -2,8 +2,8 @@
 type: folklore
 status: draft
 aliases:
-  - Leftover hash lemma
   - LHL
+  - Leftover hash lemma
 title: Leftover hash lemma
 id: leftover-hash-lemma
 ---
@@ -40,7 +40,7 @@ The proof uses $H_\infty(X) \ge k$ only through $\Pr[X = X'] \le 2^{-k}$, so the
 
 ## 2-universal families
 
-Every pairwise-independent family is 2-universal. The linear maps $x \mapsto \mathbf{A}x$ for $\mathbf{A} \getsr \FF_2^{m \times n}$ form a 2-universal family, since $\Pr[\mathbf{A}(x - x') = 0] = 2^{-m}$ for $x \ne x'$ — standard.
+Every [[universal-hash-function#strongly-universal|pairwise-independent]] family is 2-universal — standard. The linear maps $x \mapsto \mathbf{A}x$ for $\mathbf{A} \getsr \FF_2^{m \times n}$ form a 2-universal family, since $\Pr[\mathbf{A}(x - x') = 0] = 2^{-m}$ for $x \ne x'$ — [[CW79 - Universal Classes of Hash Functions|CW79]].
 
 ## Average min-entropy
 
@@ -50,7 +50,7 @@ $$
 \tilde H_\infty(X \mid Z) := -\log \mathbb{E}_{z \gets Z}\!\left[\max_x \Pr[X = x \mid Z = z]\right].
 $$
 
-If $Z$ takes at most $2^\ell$ values, then $\tilde H_\infty(X \mid Z) \ge H_\infty(X) - \ell$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
+If $Z$ takes at most $2^\ell$ values, then $\tilde H_\infty(X \mid Z) \ge H_\infty(X) - \ell$, since $\sum_z \max_x \Pr[X = x, Z = z] \le 2^\ell \max_x \Pr[X = x]$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
 For every 2-universal family $\calH$ of functions $\bits^n \to \bits^m$ and every pair $(X, Z)$ with $X$ on $\bits^n$ and $\tilde H_\infty(X \mid Z) \ge k$, with $h \getsr \calH$ independent of $(X, Z)$ and $U_m$ uniform and independent of $(h, Z)$,
 
@@ -58,7 +58,7 @@ $$
 \Delta\big((h, h(X), Z),\ (h, U_m, Z)\big) \le \tfrac12 \sqrt{2^{m-k}},
 $$
 
-so $m \le k - 2\log(1/\varepsilon) + 2$ gives distance at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. Conditioned on $Z = z$, the lemma bounds the distance by $\tfrac12 \sqrt{2^m \max_x \Pr[X = x \mid Z = z]}$; averaging over $z$ and applying Jensen's inequality to the concave $\sqrt{\cdot}$ gives the bound. The first claim holds because $\sum_z \max_x \Pr[X = x, Z = z] \le 2^\ell \max_x \Pr[X = x]$.
+so $m \le k - 2\log(1/\varepsilon) + 2$ gives distance at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. Conditioned on $Z = z$, the lemma bounds the distance by $\tfrac12 \sqrt{2^m \max_x \Pr[X = x \mid Z = z]}$; averaging over $z$ and applying Jensen's inequality to the concave $\sqrt{\cdot}$ gives the bound.
 
 <!-- BEGIN GENERATED participates-in e2484ef4ed95 -->
 

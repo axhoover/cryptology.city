@@ -27,6 +27,6 @@ No reduction of any kind from the [[random-oracle-model|random oracle model]] to
 
 ## Notes
 
-- The first result of this kind covers VDFs with perfect uniqueness: an attacker finds the output in roughly as many rounds of queries as verification takes, with $\poly(T)$ queries in total — [[MSW20 - Can Verifiable Delay Functions Be Based on Random Oracles|MSW20]].
-- The impossibility also rules out black-box constructions of VDFs from one-way functions, one-way permutations and collision-resistant hash functions — [[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]].
-- With a computational assumption added, the model admits VDFs: assuming the hardness of repeated squaring, there are VDFs with perfect completeness and computational uniqueness in the random oracle model — [[EFKP20 - Continuous Verifiable Delay Functions|EFKP20]].
+- An earlier result covers VDFs with perfect uniqueness: an attacker finds the output in roughly as many rounds of queries as verification takes, with $\poly(T)$ queries in total — [[MSW20 - Can Verifiable Delay Functions Be Based on Random Oracles|MSW20]].
+- For public-coin setup, the impossibility also rules out black-box constructions of VDFs from [[hash-function#preimage-resistance-one-wayness|one-way functions]], [[one-way-permutation|one-way permutations]] and [[hash-function#collision-resistance|collision-resistant hash functions]] — [[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]].
+- With a computational assumption added, the model admits VDFs: assuming the hardness of [[sequential-squaring|repeated squaring]], there are VDFs with perfect completeness and computational uniqueness in the random oracle model — [[EFKP20 - Continuous Verifiable Delay Functions|EFKP20]].

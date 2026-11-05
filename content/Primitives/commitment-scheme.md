@@ -1,6 +1,6 @@
 ---
 type: primitive
-status: stub
+status: draft
 aliases:
   - COM
   - Commitment scheme
@@ -54,7 +54,7 @@ over $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
 \begin{algorithmic}
 \State $\pp \gets \Gen(1^\secpar)$; $b \getsr \bits$
 \State $(m_0, m_1, \stA) \gets \calA(\pp)$
-\Comment{$m_0, m_1 \in \calM$}
+\Comment{$m_0, m_1 \in \calM$, $|m_0| = |m_1|$}
 \State $(c, d) \gets \Com(\pp, m_b)$
 \State $b' \gets \calA(\stA, c)$
 \Return $[b' = b]$
@@ -62,7 +62,7 @@ over $\pp \gets \Gen(1^\secpar)$ and $(c, d) \gets \Com(\pp, m)$.
 \end{algorithm}
 ```
 
-A commitment scheme $\mathsf{COM}$ is **computationally hiding** if for all efficient $\calA$,
+An admissible $\calA$ outputs $m_0, m_1 \in \calM$ with $|m_0| = |m_1|$; otherwise the length of $c$ may reveal $b$. A commitment scheme $\mathsf{COM}$ is **computationally hiding** if for all admissible efficient $\calA$,
 
 $$
 \Adv^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{hide}}_{\mathsf{COM},\calA}(\secpar) = 1\right] - 1\right|
@@ -111,7 +111,7 @@ A _trapdoor commitment_ (or equivocable commitment) is a commitment scheme with 
 
 ## Vector commitments
 
-A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)$ such that one can later open any single position $m_i$ with a short proof.
+A _vector commitment_ allows committing to an ordered vector $(m_1, \ldots, m_n)$ such that one can later open any single position $m_i$ with a short proof. It is **position binding** if for all efficient $\calA$, given $\pp \gets \Gen(1^\secpar)$, the probability that $\calA$ outputs a commitment $c$, a position $i \in \{1, \ldots, n\}$, values $m \ne m'$ and two openings of $c$ at position $i$, one to $m$ and one to $m'$, that both verify, is negligible.
 
 ## UC commitment
 
@@ -142,6 +142,7 @@ The formulation below is tag-based and compares the adversary's committed value 
 \State $\tilde v \gets \mathsf{val}(\tilde\tau)$
 \If{$\tilde t = t$}
 \State $\tilde v \gets \bot$
+\Comment{a right session under the left tag $t$ yields no value}
 \EndIf
 \State $b' \gets \calA(\stA, \tilde v)$
 \Return $[b' = b]$

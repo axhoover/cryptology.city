@@ -3572,8 +3572,8 @@
    "graphSlug": "Folklore/leftover-hash-lemma",
    "title": "Leftover hash lemma",
    "aliases": [
-    "Leftover hash lemma",
-    "LHL"
+    "LHL",
+    "Leftover hash lemma"
    ],
    "unlisted": false
   },
@@ -7176,7 +7176,6 @@
    "graphSlug": "Assumptions/syndrome-decoding",
    "title": "Syndrome decoding",
    "aliases": [
-    "SD",
     "Syndrome decoding",
     "Decoding random linear codes"
    ],
@@ -7624,9 +7623,9 @@
    "graphSlug": "Glossary/universal-composability-framework",
    "title": "UC Framework",
    "aliases": [
+    "UC",
     "UC framework",
-    "Universal Composability Framework",
-    "UC"
+    "Universal Composability Framework"
    ],
    "unlisted": false
   },
@@ -11583,7 +11582,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "ElGamal uses only the operations of the common group, and the reduction embeds its DDH challenge in one public key and the challenge ciphertext and runs any IK-CPA adversary once as an oracle."
+    "class": "ElGamal uses only the operations of the common group, and the CPA reduction (TY98) and the IK-CPA reduction (BBDP01) each embed a DDH challenge in a public key and the challenge ciphertext and run the adversary once as an oracle."
    },
    "status": "draft",
    "page": "content/Reductions/ddh-to-anonymous-public-key-encryption-bbdp01.md",
@@ -13233,7 +13232,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "RS20b's theorem covers every generic-ring algorithm with preprocessing and polynomially many parallel processors, restricting only its access to the ring and not its technique, which is the free class scoped by the model.",
+    "class": "RS20b's theorem covers every efficient generic-ring algorithm, preprocessing stage included, with polynomially many parallel processors, restricting only its access to the ring and not its technique, which is the free class scoped by the model.",
     "model": "The theorem is proved for generic-ring algorithms, which is none of the named models and differs from the generic group model."
    },
    "status": "draft",
@@ -13422,7 +13421,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "class": "The scheme only squares modulo the sampled Blum integer, and the reduction runs any CPA adversary only as an oracle to predict the low-order bit of a square root, which it in turn uses only as an oracle to factor."
+    "class": "The scheme uses only arithmetic modulo the sampled Blum integer and its factors, and the reduction runs any CPA adversary only as an oracle to predict the low-order bit of a square root, which it in turn uses only as an oracle to factor."
    },
    "status": "draft",
    "page": "content/Reductions/factoring-blum-integers-to-pke-cpa-security-bg84.md",
@@ -14275,8 +14274,8 @@
    "hypotheses": [
     "group-signature"
    ],
-   "conclusion": "pke",
-   "class": "unstated",
+   "conclusion": "pke-cpa-security",
+   "class": "fully-black-box",
    "model": "standard",
    "models": [
     "standard"
@@ -14287,6 +14286,9 @@
    "via": [],
    "heuristic": false,
    "securityLoss": "",
+   "rationale": {
+    "class": "The construction calls the group signature's key generation (for two members), signing and opening algorithms only as oracles, and the fixed reduction runs any IND-CPA adversary as an oracle, as a CPA-full-anonymity adversary that receives every signing key."
+   },
    "status": "draft",
    "page": "content/Reductions/group-signature-to-pke-aw04.md",
    "slug": "group-signature-to-pke-aw04",
@@ -15181,6 +15183,33 @@
    "slug": "identification-scheme-to-owf-il89",
    "graphSlug": "Reductions/identification-scheme-to-owf-il89",
    "title": "ID ⇒ OWF"
+  },
+  {
+   "id": "red-identity-based-signature-to-ds",
+   "kind": "implication",
+   "hypotheses": [
+    "identity-based-signature"
+   ],
+   "conclusion": "ds",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "tight: the reduction preserves the advantage exactly",
+   "rationale": {
+    "class": "The construction calls the identity-based signature scheme's Setup, Extract, Sign and Vrfy only as oracles with one identity hardwired, and the reduction runs the forger unchanged as an oracle."
+   },
+   "status": "draft",
+   "page": "content/Reductions/identity-based-signature-to-ds.md",
+   "slug": "identity-based-signature-to-ds",
+   "graphSlug": "Reductions/identity-based-signature-to-ds",
+   "title": "IBS ⇒ DS"
   },
   {
    "id": "red-ind-cca-security-to-ind-cpa-kem",
@@ -25820,7 +25849,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "The protocol UC-realizes the commitment functionality given a common reference string for each commitment, which CF01 show cannot be dropped for a protocol between the committer and the receiver alone."
+    "model": "The protocol UC-realizes the commitment functionality given a common reference string for each commitment; without setup, CF01 show that no terminating protocol between the committer and the receiver alone UC-realizes it."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-uc-commitment-cf01.md",

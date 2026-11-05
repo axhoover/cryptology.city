@@ -24,7 +24,7 @@ $\Pr[A \wedge \neg F] = \Pr[B \wedge \neg F]$, so $\left|\Pr[A] - \Pr[B]\right| 
 
 ## Use in game hops
 
-In a sequence of games, $A$ and $B$ are the events that two consecutive games output $1$, and $F$ is a failure event. The lemma applies once both games are defined on one probability space, the adversary and the challenger using the same coins in both, and the games proceed identically unless $F$ occurs — [[Sho04 - Sequences of Games A Tool for Taming Complexity in Security Proofs|Sho04]]. Over a sequence of games, the triangle inequality of the [[hybrid-argument|hybrid argument]] sums these bounds.
+In a sequence of games, $A$ and $B$ are the events that two consecutive games output $1$, and $F$ is a failure event. The lemma applies once both games are defined on one probability space, the adversary and the challenger using the same coins in both, and the games proceed identically unless $F$ occurs — [[Sho04 - Sequences of Games A Tool for Taming Complexity in Security Proofs|Sho04]]. Over a sequence of games, the triangle inequality of the [[hybrid-argument|hybrid argument]] sums these bounds — standard.
 
 # Variations
 
@@ -36,4 +36,4 @@ $$
 \left|\Pr\!\left[G^{\calA} \Rightarrow 1\right] - \Pr\!\left[H^{\calA} \Rightarrow 1\right]\right| \le \Pr\!\left[G^{\calA} \text{ sets } \mathsf{bad}\right],
 $$
 
-and $G^{\calA}$ and $H^{\calA}$ set $\mathsf{bad}$ with the same probability — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]. Run on the same coins, the two games agree up to the moment $\mathsf{bad}$ is set, which is the difference lemma with $F$ the event that $\mathsf{bad}$ is set. The [[switching-lemma|switching lemma]] has a proof in this framework — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].
+and $G^{\calA}$ and $H^{\calA}$ set $\mathsf{bad}$ with the same probability — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]]. Run on the same coins, the two games agree up to the moment $\mathsf{bad}$ is set, which is the difference lemma with $F$ the event that $\mathsf{bad}$ is set — standard. The [[switching-lemma|switching lemma]] has a proof in this framework — [[BR06 - The Security of Triple Encryption and a Framework for Code-Based Game-Playing Proofs|BR06]].

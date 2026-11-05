@@ -24,6 +24,6 @@ Let $N = pq$ be a Blum integer and $H$ a hash function from identities to $\J_N$
 
 ## Notes
 
-- Decryption is correct because $s + 2r = (t + r)^2 t^{-1}$ when $r^2 = a$, and $\bar s + 2r = (\bar t + r)^2 \bar t^{-1}$ when $r^2 = -a$, so each has the Jacobi symbol of $t$, respectively $\bar t$ — [[Coc01 - An Identity Based Encryption Scheme Based on Quadratic Residues|Coc01]].
+- Decryption is correct because $s + 2r = (t + r)^2 t^{-1}$ when $r^2 = a$, and $\bar s + 2r = (\bar t + r)^2 \bar t^{-1}$ when $r^2 = -a$, so each has the Jacobi symbol of $t$, respectively $\bar t$, unless $\gcd(t + r, N) > 1$, respectively $\gcd(\bar t + r, N) > 1$, which happens with negligible probability — [[Coc01 - An Identity Based Encryption Scheme Based on Quadratic Residues|Coc01]].
 - Each plaintext bit costs two elements of $\ZZ_N$, one for each sign of $a$, since the sender does not know which of $\pm a$ is a square — [[Coc01 - An Identity Based Encryption Scheme Based on Quadratic Residues|Coc01]].
 - Quadratic residuosity also gives a space-efficient IBE in the random-oracle model, whose ciphertext on an $\ell$-bit message is one element of $\ZZ_N$ and $\ell + 1$ bits — [[BGH07 - Space-Efficient Identity Based Encryption Without Pairings|BGH07]].

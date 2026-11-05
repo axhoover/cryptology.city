@@ -22,7 +22,7 @@ rationale:
 
 ## Statement
 
-No reduction of any kind from the [[random-oracle-model|random oracle model]] to [[time-lock-puzzle|time-lock puzzles]] exists. Measuring work by oracle queries and parallel time by rounds of oracle queries, [[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]] rule out random-oracle time-lock puzzles that require more parallel time to solve than the total work required to generate a puzzle: a puzzle whose generator makes $n$ queries is solved in $O(n)$ rounds of polynomially many parallel queries each. A time-lock puzzle's generator makes $\poly(\log T, \secpar)$ queries, fewer than $T^\varepsilon$ for every large enough polynomial $T$, so no time-lock puzzle exists in the model.
+No reduction of any kind from the [[random-oracle-model|random oracle model]] to [[time-lock-puzzle|time-lock puzzles]] exists. Measuring work by oracle queries and parallel time by rounds of oracle queries, [[MMV11 - Time-Lock Puzzles in the Random Oracle Model|MMV11]] rule out random-oracle time-lock puzzles that require more parallel time to solve than the total work required to generate a puzzle: a puzzle whose generator makes $n$ queries is solved in $O(n)$ rounds of polynomially many parallel queries each. The generator of a time-lock puzzle with gap $\varepsilon \in (0,1)$ in the sense of [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]] makes $\poly(\log T, \secpar)$ queries, so MMV11's solver uses fewer than $T^\varepsilon$ rounds for every large enough polynomial $T$, and no time-lock puzzle exists in the model; the solver is bounded in oracle queries and rounds, not in computation.
 
 ## Notes
 

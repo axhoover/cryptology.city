@@ -78,7 +78,7 @@ is negligible.
 
 Semantic security compares predicting a function of the plaintext with and without its ciphertext — [[GM84 - Probabilistic encryption|GM84]]. In the following key-dependent, efficiently samplable formulation, the adversary chooses the message distribution after seeing $\pk$ — standard.
 
-For an efficient adversary $\calA = (\calA_1, \calA_2)$, sample $(\sk, \pk) \gets \KeyGen(1^\secpar)$ and $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$. Here $M$ describes an efficient sampler supported on equal-length messages in $\calM$, $f$ describes an efficiently computable function, and $\st$ is auxiliary state. Sample $m \gets M$ using fresh coins, and write $z := (1^\secpar, \pk, M, f, \st, |m|)$ for the information available in both experiments.
+In the games below, $\calA = (\calA_1, \calA_2)$ is efficient; $M$ describes an efficient sampler supported on equal-length messages in $\calM$, $f$ an efficiently computable function, and $\st$ auxiliary state; $m$ is drawn from $M$ with fresh coins, and $z$ is the information available in both experiments.
 
 ```pseudocode
 \begin{algorithm}
@@ -87,6 +87,7 @@ For an efficient adversary $\calA = (\calA_1, \calA_2)$, sample $(\sk, \pk) \get
 \begin{algorithmic}
 \State $(\sk, \pk) \gets \KeyGen(1^\secpar)$
 \State $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$
+\Comment{$M$ efficiently samplable, supported on equal-length messages in $\calM$; $f$ efficiently computable}
 \State $m \gets M$; $z := (1^\secpar, \pk, M, f, \st, |m|)$
 \State $y \gets \calA_2(z, \Enc(\pk, m))$
 \Return $[y = f(m)]$
@@ -101,6 +102,7 @@ For an efficient adversary $\calA = (\calA_1, \calA_2)$, sample $(\sk, \pk) \get
 \begin{algorithmic}
 \State $(\sk, \pk) \gets \KeyGen(1^\secpar)$
 \State $(M, f, \st) \gets \calA_1(1^\secpar, \pk)$
+\Comment{$M$ efficiently samplable, supported on equal-length messages in $\calM$; $f$ efficiently computable}
 \State $m \gets M$; $z := (1^\secpar, \pk, M, f, \st, |m|)$
 \State $y \gets \Sim(z)$
 \Return $[y = f(m)]$
@@ -183,7 +185,7 @@ $$
 \Adv^{\mathrm{nm\text{-}cpa}}_{\PKE,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{nm\text{-}cpa}}_{\PKE,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. An **admissible** adversary submits equal-length messages in $\calM$ and leaves $c^*$ out of its decryption query, whose answer would otherwise contain $m_b$. With $\ell = 0$ the game is the CPA game, and NM-CPA security implies IND-CPA security ([[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. NM-CPA and IND-CCA1 security are incomparable: if schemes meeting one of them exist, some scheme meets it and not the other ([[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|IND-CCA1 ⇏ NM-CPA]], [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|NM-CPA ⇏ IND-CCA1]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. Every IND-CPA-secure scheme can be transformed into an NM-CPA-secure one ([[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA ⇒ NM-CPA]]) — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
+is negligible. An **admissible** adversary submits equal-length messages in $\calM$ and leaves $c^*$ out of its decryption query, whose answer would otherwise contain $m_b$. With $\ell = 0$ the game is the CPA game, and NM-CPA security implies IND-CPA security ([[pke-nm-cpa-security-to-pke-cpa-security-bdpr98|NM-CPA ⇒ IND-CPA]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. NM-CPA and IND-CCA1 security are incomparable: if schemes meeting one of them exist, some scheme meets it and not the other ([[no-pke-cca1-security-to-pke-nm-cpa-security-bdpr98|IND-CCA1 ⇏ NM-CPA]], [[no-pke-nm-cpa-security-to-pke-cca1-security-bdpr98|NM-CPA ⇏ IND-CCA1]]) — [[BDPR98 - Relations Among Notions of Security for Public-Key Encryption Schemes|BDPR98]]. Every [[#Perfectly correct CPA-secure PKE|perfectly correct]] IND-CPA-secure scheme can be transformed into an NM-CPA-secure one ([[pke-cpa-security-to-pke-nm-cpa-security-psv06|IND-CPA ⇒ NM-CPA]]) — [[PSV06 - Construction of a Non-malleable Encryption Scheme from Any Semantically Secure One|PSV06]].
 
 ### NM-CCA2
 
@@ -258,7 +260,7 @@ is negligible.
 - [[leakage-resilient-public-key-encryption|Leakage-resilient PKE]]: CPA security when the adversary also learns up to $\ell$ bits of efficiently computable functions of $\sk$ before the challenge — [[AGV09 - Simultaneous Hardcore Bits and Cryptography against Memory Attacks|AGV09]], [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - [[anamorphic-encryption|Anamorphic encryption]]: an extension of a PKE scheme in which holders of a double key embed covert messages that a holder of the secret key cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]].
 
-<!-- BEGIN GENERATED participates-in 633476280014 -->
+<!-- BEGIN GENERATED participates-in 68bad3c28a60 -->
 
 ## Participates in
 
@@ -298,7 +300,7 @@ is negligible.
 - [[decisional-linear-to-pke-bbs04|DLIN ⇒ PKE (Linear Encryption)]]
 - [[factoring-blum-integers-and-uowhf-to-pke-cca2-security-hk09|Factoring + UOWHF ⇒ CCA-secure PKE (Hofheinz–Kiltz)]] (via [[public-key-encryption#cca-security|CCA Security]])
 - [[factoring-blum-integers-to-pke-cpa-security-bg84|Factoring ⇒ CPA-secure PKE (Blum–Goldwasser)]] (via [[public-key-encryption#cpa-security|CPA Security]])
-- [[group-signature-to-pke-aw04|Group signatures ⇒ PKE]]
+- [[group-signature-to-pke-aw04|Group signatures ⇒ PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[hash-function-and-io-to-pke-sw14|OWF + iO ⇒ PKE]]
 - [[hash-proof-system-to-pke-cpa-security-cs02|HPS ⇒ CPA-secure PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])
 - [[he-to-pke-cpa-security|HE ⇒ IND-CPA PKE]] (via [[public-key-encryption#cpa-security|CPA Security]])

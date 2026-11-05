@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If [[sequential-squaring|sequential squaring]] holds for $\mathsf{GenMod}$ with some gap $\varepsilon \in (0, 1)$, then [[factoring|factoring]] the moduli $N$ that $\mathsf{GenMod}$ outputs is hard, since the factors of $N$ give $\phi(N)$ and with it $x^{2^T} \bmod N$ in time $\poly(\secpar, \log T)$ — [[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]].
+If [[sequential-squaring|sequential squaring]] holds for $\GrGen$ with some gap $\varepsilon \in (0, 1)$, then [[factoring|factoring]] the moduli $N$ that $\GrGen$ outputs is hard, since the factors of $N$ give $\phi(N)$ and with it $x^{2^T} \bmod N$ in time $\poly(\secpar, \log T)$ — [[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]].
 
 ## Sketch
 

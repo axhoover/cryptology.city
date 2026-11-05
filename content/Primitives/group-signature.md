@@ -30,7 +30,7 @@ The group is fixed at key generation, which a trusted party runs, giving $\maths
 
 ### Correctness
 
-A group signature scheme $\Pi$ is **perfectly correct** if for all $n$, all $(\mathsf{gpk}, \mathsf{gmsk}, \mathsf{gsk})$ output by $\KeyGen(1^\secpar, 1^n)$, all $i \in [n]$ and $m \in \calM$, every $\sigma \gets \Sign(\mathsf{gsk}[i], m)$ satisfies $\Vrfy(\mathsf{gpk}, m, \sigma) = 1$ and $\Open(\mathsf{gmsk}, m, \sigma) = i$ — [[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]].
+A group signature scheme $\Pi$ is **perfectly correct** if for all $\secpar, n \in \NN$, all $(\mathsf{gpk}, \mathsf{gmsk}, \mathsf{gsk})$ output by $\KeyGen(1^\secpar, 1^n)$, all $i \in [n]$ and $m \in \calM$, every $\sigma \gets \Sign(\mathsf{gsk}[i], m)$ satisfies $\Vrfy(\mathsf{gpk}, m, \sigma) = 1$ and $\Open(\mathsf{gmsk}, m, \sigma) = i$ — [[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]].
 
 ### Full anonymity
 
@@ -41,7 +41,7 @@ The adversary receives the group public key and every member's signing key, and 
 \algname{Game}
 \caption{$\Game^{\mathrm{anon}}_{\Pi,\calA}(\secpar, n)$}
 \begin{algorithmic}
-\State $(\mathsf{gpk}, \mathsf{gmsk}, \mathsf{gsk}) \gets \KeyGen(1^\secpar, 1^n)$; $b \getsr \bits$; $\sigma^* \gets \bot$
+\State $(\mathsf{gpk}, \mathsf{gmsk}, \mathsf{gsk}) \gets \KeyGen(1^\secpar, 1^n)$; $b \getsr \bits$; $(m^*, \sigma^*) \gets (\bot, \bot)$
 \State $(i_0, i_1, m^*, \stA) \gets \calA^{\calO}(1^\secpar, \mathsf{gpk}, \mathsf{gsk})$
 \Comment{$i_0, i_1 \in [n]$}
 \State $\sigma^* \gets \Sign(\mathsf{gsk}[i_b], m^*)$
@@ -89,6 +89,7 @@ The adversary receives the group public key and the opening key, corrupts member
 \EndIf
 \State $i \gets \Open(\mathsf{gmsk}, m^*, \sigma^*)$
 \Return $[i = \bot \lor (i \notin C \land (i, m^*) \notin \calQ)]$
+\Comment{$i$ not corrupted; $(i, m^*)$ not queried to $\calO_{\Sign}$}
 \end{algorithmic}
 \end{algorithm}
 ```
@@ -137,8 +138,8 @@ In the dynamic model, members join at any time through an interactive protocol w
 
 # Other results
 
-- Fully anonymous and fully traceable group signatures exist if trapdoor permutations do — [[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]]; the NIZK proofs for $\classNP$ that the construction uses are known from doubly enhanced, certified trapdoor permutations ([[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures]]) — [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
-- In bilinear groups, $q$-SDH and DLIN give CPA-anonymous group signatures in the random-oracle model whose signatures are about the size of an RSA signature at the same security level ([[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures]]) — [[BBS04 - Short Group Signatures|BBS04]].
+- Fully anonymous and fully traceable group signatures exist if [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|doubly enhanced, certified trapdoor permutations]] do ([[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures]]) — [[BMW03 - Foundations of Group Signatures Formal Definitions, Simplified Requirements, and a Construction Based on General Assumptions|BMW03]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. BMW03 state the construction from [[trapdoor-permutation|trapdoor permutations]]; the [[non-interactive-zero-knowledge#nizk-for-np|NIZK proofs]] for $\classNP$ that it uses are known from doubly enhanced, certified ones ([[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]) — [[FLS90 - Multiple Non-Interactive Zero Knowledge Proofs Based on a Single Random String|FLS90]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]].
+- In [[pairings|bilinear groups]], [$q$-SDH](q-strong-diffie-hellman) and [[decisional-diffie-hellman#dlin|DLIN]] give CPA-anonymous group signatures in the [[random-oracle-model|random-oracle model]] whose signatures are about the size of an RSA signature at the same security level ([[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures]]) — [[BBS04 - Short Group Signatures|BBS04]].
 - Group signatures imply public-key encryption ([[group-signature-to-pke-aw04|Group signatures ⇒ PKE]]) — [[AW04 - On the Minimal Assumptions of Group Signature Schemes|AW04]].
 
 <!-- BEGIN GENERATED participates-in 05eae508bd8a -->

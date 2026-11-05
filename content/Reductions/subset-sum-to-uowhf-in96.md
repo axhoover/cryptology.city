@@ -22,4 +22,4 @@ Let $M = 2^{\ell(n)}$ with $\ell(n) < n$, so that the density exceeds $1$. If [[
 
 ## Notes
 
-- A collision $h_{\mathbf{a}}(\mathbf{s}) = h_{\mathbf{a}}(\mathbf{s}')$ gives $\langle \mathbf{a}, \mathbf{s} - \mathbf{s}' \rangle = 0$ with $\mathbf{s} - \mathbf{s}' \in \{-1, 0, 1\}^n \setminus \{\mathbf{0}\}$, a nonzero ternary kernel vector of the one-row matrix $\mathbf{a}$, and conversely — standard. Collision resistance of the family is hardness of finding such a vector.
+- A collision $h_{\mathbf{a}}(\mathbf{s}) = h_{\mathbf{a}}(\mathbf{s}')$ gives $\langle \mathbf{a}, \mathbf{s} - \mathbf{s}' \rangle = 0$ with $\mathbf{s} - \mathbf{s}' \in \{-1, 0, 1\}^n \setminus \{\mathbf{0}\}$, a nonzero ternary kernel vector of the one-row matrix $\mathbf{a}$, and conversely, so collision resistance of the family is hardness of finding such a vector — standard.

@@ -19,4 +19,4 @@ rationale:
 
 ## Statement
 
-A [[group-signature|group signature scheme]] that is [[group-signature#full-anonymity|fully anonymous]] is [[group-signature#cpa-full-anonymity|CPA-fully anonymous]], with the same advantage, so a fully anonymous and fully traceable scheme is a CPA-anonymous group signature scheme — folklore.
+A [[group-signature|group signature scheme]] that is [[group-signature#full-anonymity|fully anonymous]] is [[group-signature#cpa-full-anonymity|CPA-fully anonymous]], with the same advantage, so a [[group-signature#correctness|perfectly correct]], fully anonymous and fully traceable scheme is a CPA-anonymous group signature scheme — folklore.

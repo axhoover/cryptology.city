@@ -13,7 +13,7 @@ variants:
 
 # Verifiable delay function
 
-A verifiable delay function is a function, fixed by public parameters for a delay $T$, whose value at each input takes parallel time $T$ to compute and comes with a proof verified in time $\poly(\log T, \secpar)$; only one value per input verifies, and no adversary running in parallel time $\sigma(T)$ after a polynomial precomputation computes it. The definitions below are those of [[BBBF18 - Verifiable Delay Functions|BBBF18]].
+A verifiable delay function is a function, fixed by public parameters for a delay $T$, whose value at each input takes parallel time $T$ to compute and comes with a proof verified in time $\poly(\log T, \secpar)$; every adversary running in time $\poly(T, \secpar)$ finds an input and a verifying output other than its value only with negligible probability, and every adversary that precomputes on the public parameters in time $\poly(T, \secpar)$ and then runs in parallel time $\sigma(T)$ on at most $p(T)$ processors computes the value at a uniformly random input only with negligible probability. The definitions below are those of [[BBBF18 - Verifiable Delay Functions|BBBF18]].
 
 ## Syntax
 
@@ -31,12 +31,12 @@ $\mathsf{VDF}$ is **correct** if for all $\secpar$, all $T$, every $\pp = (\math
 
 ### Soundness
 
-Soundness requires that the value $\Eval$ computes is the only one that verifies.
+Soundness requires that an adversary running in time $\poly(T, \secpar)$ find an input and an output other than the one $\Eval$ computes on it, with a verifying proof, only with negligible probability.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{snd}}_{\mathsf{VDF},\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{snd}}_{\mathsf{VDF},T,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $\pp = (\mathit{ek}, \vk) \gets \Setup(1^\secpar, T)$
 \State $(x, y, \pi) \gets \calA(1^\secpar, \pp, T)$
@@ -50,7 +50,7 @@ Soundness requires that the value $\Eval$ computes is the only one that verifies
 $\mathsf{VDF}$ is **sound** if for all $\calA$ running in time $\poly(T, \secpar)$,
 
 $$
-\Adv^{\mathrm{snd}}_{\mathsf{VDF},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{snd}}_{\mathsf{VDF},\calA}(\secpar) = 1\right]
+\Adv^{\mathrm{snd}}_{\mathsf{VDF},T,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{snd}}_{\mathsf{VDF},T,\calA}(\secpar) = 1\right]
 $$
 
 is negligible — [[BBBF18 - Verifiable Delay Functions|BBBF18]].
@@ -62,7 +62,7 @@ The adversary is a pair $(\calA_0, \calA_1)$: $\calA_0$ precomputes on the publi
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{seq}}_{\mathsf{VDF},\calA_0,\calA_1}(\secpar)$}
+\caption{$\Game^{\mathrm{seq}}_{\mathsf{VDF},T,\calA_0,\calA_1}(\secpar)$}
 \begin{algorithmic}
 \State $\pp = (\mathit{ek}, \vk) \gets \Setup(1^\secpar, T)$
 \State $L \gets \calA_0(1^\secpar, \pp, T)$
@@ -79,7 +79,7 @@ The adversary is a pair $(\calA_0, \calA_1)$: $\calA_0$ precomputes on the publi
 For functions $\sigma$ and $p$, $\mathsf{VDF}$ is **$(p, \sigma)$-sequential** if for all randomized $\calA_0$ running in total time $\poly(T, \secpar)$ and $\calA_1$ running in parallel time $\sigma(T)$ on at most $p(T)$ processors,
 
 $$
-\Adv^{\mathrm{seq}}_{\mathsf{VDF},\calA_0,\calA_1}(\secpar) := \Pr\!\left[\Game^{\mathrm{seq}}_{\mathsf{VDF},\calA_0,\calA_1}(\secpar) = 1\right]
+\Adv^{\mathrm{seq}}_{\mathsf{VDF},T,\calA_0,\calA_1}(\secpar) := \Pr\!\left[\Game^{\mathrm{seq}}_{\mathsf{VDF},T,\calA_0,\calA_1}(\secpar) = 1\right]
 $$
 
 is negligible — [[BBBF18 - Verifiable Delay Functions|BBBF18]]. The bound on $\calA_1$ is necessary because $\Eval$ computes $y$ in parallel time $T$.
@@ -93,9 +93,9 @@ A **weak VDF** is defined as above except that $\Eval$ may use $\poly(T, \secpar
 # Other results
 
 - BBBF18 give the first candidate constructions with an exponential gap between evaluation and verification time — [[BBBF18 - Verifiable Delay Functions|BBBF18]].
-- Pietrzak makes the RSW [[time-lock-puzzle|time-lock puzzle]] publicly verifiable: a statistically sound public-coin interactive protocol proves that $(N, x, T, y)$ satisfies $y = x^{2^T} \bmod N$ without the prover knowing the factorization of $N$, working in the group of signed quadratic residues for $N$ a product of two safe primes, and the [[fiat-shamir-heuristic|Fiat–Shamir transform]] makes it non-interactive. Sequentiality rests on the assumption that repeated squaring in that group cannot be sped up, a [[sequential-squaring|sequential squaring]] assumption — [[Pie19 - Simple Verifiable Delay Functions|Pie19]].
-- Wesolowski's VDF works in any group of unknown order, such as an RSA group or the class group of an imaginary quadratic field; its output and its proof are each a single group element — [[Wes19 - Efficient Verifiable Delay Functions|Wes19]]. BBF18 prove Wesolowski's proof of exponentiation sound in groups satisfying the _adaptive root assumption_, that no efficient adversary that outputs a group element $w \ne 1$ and then receives a random prime $\ell$ can output $u$ with $u^\ell = w$, and show that the adaptive root assumption implies the _low order assumption_, that no efficient adversary outputs an element of small order — [[BBF18 - A Survey of Two Verifiable Delay Functions|BBF18]].
-- [[no-rom-to-vdf-gry25|No reduction from ROM to VDF]]: VDFs do not exist in the random oracle model — [[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]], [[AAK+25 - Impossibility of VDFs in the ROM The Complete Picture|AAK+25]].
+- Pietrzak makes the [[time-lock-puzzle|time-lock puzzle]] of [[RSW96 - Time-lock Puzzles and Timed-release Crypto|RSW96]] publicly verifiable: a statistically sound public-coin interactive protocol proves that $(N, x, T, y)$ satisfies $y = x^{2^T} \bmod N$ without the prover knowing the factorization of $N$, working in the group of signed quadratic residues for $N$ a product of two safe primes, and the [[fiat-shamir-heuristic|Fiat–Shamir transform]] makes it non-interactive. Sequentiality rests on the assumption that repeated squaring in that group cannot be sped up, a [[sequential-squaring|sequential squaring]] assumption — [[Pie19 - Simple Verifiable Delay Functions|Pie19]].
+- Wesolowski's VDF is built on groups of unknown order, such as an RSA group or the class group of an imaginary quadratic field; its output and its proof are each a single group element — [[Wes19 - Efficient Verifiable Delay Functions|Wes19]]. BBF18 prove Wesolowski's proof of exponentiation sound in groups satisfying the _adaptive root assumption_, that no efficient adversary that outputs a group element $w \ne 1$ and then receives a random prime $\ell$ can output $u$ with $u^\ell = w$, and show that the adaptive root assumption implies the _low order assumption_, that no efficient adversary outputs an element $\mu \ne 1$ together with a small positive integer $d$ such that $\mu^d = 1$ — [[BBF18 - A Survey of Two Verifiable Delay Functions|BBF18]].
+- [[no-rom-to-vdf-gry25|No reduction from ROM to VDF]]: with running time measured in oracle queries and parallel time in rounds of oracle queries, VDFs do not exist relative to a [[random-oracle-model|random oracle]] alone — [[GRY25 - Breaking Verifiable Delay Functions in the Random Oracle Model|GRY25]], [[AAK+25 - Impossibility of VDFs in the ROM The Complete Picture|AAK+25]].
 
 <!-- BEGIN GENERATED participates-in 7cda28dc49a1 -->
 
