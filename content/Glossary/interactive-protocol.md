@@ -80,7 +80,7 @@ A channel on which a party's message reaches every party, every party knowing th
 
 Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from a distribution that the protocol specifies, which may depend on $n$, $\secpar$ and the functionality but not on the inputs, and hands $r_i$ to $P_i$ privately; this is the preprocessing model. Random OT correlations — [[Bea95 - Precomputing Oblivious Transfer|Bea95]] — and multiplication triples, sharings of $a$, $b$ and $ab$ for uniform $a, b$, as consumed by the online phases of [[BDOZ11 - Semi-homomorphic Encryption and Multiparty Computation|BDOZ11]] and [[DPSZ12 - Multiparty Computation from Somewhat Homomorphic Encryption|DPSZ12]], are examples. Triples descend from Beaver's circuit randomization, in which the random gate values are prepared within a secret-sharing-based protocol rather than by a dealer — [[Bea91 - Efficient Multiparty Protocols Using Circuit Randomization|Bea91]].
 
-<!-- BEGIN GENERATED participates-in 2feb61d52920 -->
+<!-- BEGIN GENERATED participates-in 8102c2bbbd28 -->
 
 ## Participates in
 
@@ -89,6 +89,7 @@ Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from
 - [Authenticated channels ⇒ Broadcast against $t < n/3$ (Lamport–Shostak–Pease)](authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82) (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
 - [[correlated-randomness-to-uc-mpc-bdoz11|Correlated randomness ⇒ UC MPC (BDOZ online phase)]] (via [[interactive-protocol#correlated-randomness|Correlated randomness]])
 - [[he-to-mpc-with-preprocessing-spdz-etc|SHE + correlated randomness ⇒ MPC with preprocessing (SPDZ)]] (via [[interactive-protocol#correlated-randomness|Correlated randomness]])
+- [[prime-order-dlog-and-secure-channels-to-dkg-gjkr99|DLOG + secure channels ⇒ DKG (GJKR)]] (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/2$) (Rabin–Ben-Or)](honest-majority-t-lt-n-over-2-to-mpc-rb89) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) (BGW)](honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88) (via [[interactive-protocol#secure-channels|Secure channels]])
 - [Secure channels ⇒ MPC with honest majority ($t < n/3$) with linear communication (Beerliová-Trubíniová–Hirt)](secure-channels-to-honest-majority-t-lt-n-over-3-bh08) (via [[interactive-protocol#secure-channels|Secure channels]])
@@ -102,6 +103,7 @@ Before the inputs are chosen, a trusted dealer samples $(r_1, \ldots, r_n)$ from
 - [[no-authenticated-channels-to-byzantine-broadcast-flm85|No reduction from authenticated channels to Byzantine broadcast]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[ds-to-byzantine-broadcast-ds83|Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)]]
 - [[no-authenticated-channels-to-fair-coin-flipping-cle86|No reduction from authenticated channels to fair coin flipping]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
 - [[no-authenticated-channels-to-fair-mpc-cle86|No reduction from authenticated channels to fair MPC]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]])
+- [[no-authenticated-channels-to-uc-commitment-cf01|No reduction from authenticated channels to UC commitment]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
 - [[no-authenticated-channels-to-uc-mpc-ckl03|No reduction from authenticated channels to UC MPC]] (via [[interactive-protocol#authenticated-channels|Authenticated channels]]) — circumvented by [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]], [[ideal-ot-and-prg-to-uc-mpc-ips08|Ideal OT + PRG ⇒ UC MPC (IPS)]], [[correlated-randomness-to-uc-mpc-bdoz11|Correlated randomness ⇒ UC MPC (BDOZ online phase)]]
 
 <!-- END GENERATED participates-in -->

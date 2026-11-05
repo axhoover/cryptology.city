@@ -12,6 +12,8 @@ model: standard
 source:
   - "[[PW08 - Lossy trapdoor functions and their applications|PW08]]"
   - "[[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "for PW08's construction, a constant number of hybrids plus a statistical leftover-hash term"
 rationale:
   class: "The construction calls the lossy TDF's sampling, evaluation and inversion algorithms only as oracles, the all-but-one TDF and one-time signature are built from it black-box, and each hybrid's reduction runs the adversary only as an oracle."

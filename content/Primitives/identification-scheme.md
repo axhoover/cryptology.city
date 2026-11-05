@@ -15,7 +15,7 @@ unlisted: true
 
 # Identification scheme
 
-A protocol in which a prover holding a secret key convinces a verifier holding the matching public key of its identity, canonically as a three-message commit-challenge-response sigma protocol such as Schnorr's proof of knowledge of a discrete logarithm.
+A protocol in which a prover holding a secret key convinces a verifier holding the matching public key of its identity, canonically as a three-message commit-challenge-response [[sigma-protocol|sigma protocol]] such as Schnorr's proof of knowledge of a discrete logarithm.
 
 ## Syntax
 
@@ -125,7 +125,7 @@ The Schnorr identification protocol, required to be secure against impersonation
 
 The public parameters are independent generators $g_1, g_2$ of a group of prime order $p$. The secret key is $(x_1, x_2) \getsr \ZZ_p^2$ and the public key is $X = g_1^{x_1} g_2^{x_2}$. The prover sends $A = g_1^{r_1} g_2^{r_2}$ for $r_1, r_2 \getsr \ZZ_p$, receives $e \getsr C$ from a challenge space $C \subseteq \ZZ_p$ with $1/|C|$ negligible, and replies $z_j = r_j + e x_j \bmod p$ for $j = 1, 2$; the verifier accepts iff $g_1^{z_1} g_2^{z_2} = A X^e$ — [[Oka92 - Provably Secure and Practical Identification Schemes and Corresponding Signature Schemes|Oka92]]. Each public key has $p$ secret keys, and the transcripts of every phase-1 session are distributed independently of which one the prover holds: the protocol is perfectly witness-indistinguishable — standard. As an object, the Okamoto identification protocol denotes this protocol with security against impersonation under active attack.
 
-<!-- BEGIN GENERATED participates-in 006794e7dd48 -->
+<!-- BEGIN GENERATED participates-in 0acac08f6b04 -->
 
 ## Participates in
 
@@ -140,6 +140,7 @@ The public parameters are independent generators $g_1, g_2$ of a group of prime 
 
 - [[concurrent-schnorr-identification-to-schnorr-identification-protocol|Schnorr identification under concurrent attack ⇒ Schnorr identification protocol]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]])
+- [[factoring-blum-integers-to-identification-scheme-ffs88|Factoring ⇒ ID (Feige–Fiat–Shamir)]]
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[identification-scheme#schnorr-identification-under-concurrent-attack|Schnorr identification under concurrent attack]])
 - [[prime-order-dlog-to-okamoto-identification-protocol-oka92|DLOG ⇒ Okamoto identification protocol]] (via [[identification-scheme#okamoto-identification-protocol|Okamoto identification protocol]])
 

@@ -10,7 +10,7 @@ conclusion: statistically-hiding-commitment
 class: fully-black-box
 model: standard
 source:
-  - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]"
+  - "[[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]"
 security-loss: "tight: one call to the binding adversary yields $\\log_g h$"
 rationale:
   class: "One fixed construction uses the group only through its generator and group operations, and the fixed reduction plants the DLOG challenge as h and runs the binding adversary once as an oracle."
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-For $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $\GG$ of prime order $p$ and $h \getsr \GG \setminus \{1\}$, the Pedersen commitment to $m \in \ZZ_p$ is $c = g^m h^r$ for $r \getsr \ZZ_p$, opened by revealing $(m, r)$. It is [[commitment-scheme#hiding|perfectly hiding]], also for a receiver-chosen $\pp$ once the committer checks that $\GG$ is cyclic of prime order $p$ and that $h \ne 1$ (for the order-$p$ subgroup of $\ZZ_P^*$ with $P = 2p + 1$ prime: $P$ and $p$ prime, $h \not\equiv 1$ and $g^p \equiv h^p \equiv 1 \pmod P$), and computationally binding if [[discrete-logarithm#dlog-in-prime-order-groups|DLOG]] is hard for $\GrGen$, since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]].
+For $(\GG, g, p) \gets \GrGen(1^\secpar)$ with $\GG$ of prime order $p$ and $h \getsr \GG \setminus \{1\}$, the Pedersen commitment to $m \in \ZZ_p$ is $c = g^m h^r$ for $r \getsr \ZZ_p$, opened by revealing $(m, r)$. It is [[commitment-scheme#hiding|perfectly hiding]], also for a receiver-chosen $\pp$ once the committer checks that $\GG$ is cyclic of prime order $p$ and that $h \ne 1$ (for the order-$p$ subgroup of $\ZZ_P^*$ with $P = 2p + 1$ prime: $P$ and $p$ prime, $h \not\equiv 1$ and $g^p \equiv h^p \equiv 1 \pmod P$), and computationally binding if [[discrete-logarithm#dlog-in-prime-order-groups|DLOG]] is hard for $\GrGen$, since two openings $(m, r) \ne (m', r')$ of one $c$ give $\log_g h = (m - m')(r' - r)^{-1} \bmod p$ — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]].
 
 ## Sketch
 

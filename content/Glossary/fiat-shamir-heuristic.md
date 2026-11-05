@@ -24,7 +24,7 @@ The transform is particularly useful for constructing [[digital-signature|digita
 
 ## Security in the ROM
 
-For a large class of signature schemes obtained from three-move identification protocols, the forking lemma reduces security in the [[random-oracle-model|random oracle model]] to the hard problem underlying the protocol — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. For public-coin interactive oracle proofs, the soundness of the transform in the ROM is tightly characterized by state-restoration soundness, which is bounded tightly in terms of soundness and round complexity ([[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]]) — [[BCS16 - Interactive Oracle Proofs|BCS16]]. For a $(2\mu+1)$-move public-coin protocol and $Q$ oracle queries the generic loss is approximately $Q^\mu$, which the $\mu$-fold sequential repetition of $\Sigma$-protocols attains, while for $(k_1, \ldots, k_\mu)$-special-sound protocols the knowledge error degrades only linearly in $Q$ — [[AFK22 - Fiat-Shamir Transformation of Multi-round Interactive Proofs|AFK22]].
+For a large class of signature schemes obtained from three-move identification protocols, the [[forking-lemma|forking lemma]] reduces security in the [[random-oracle-model|random oracle model]] to the hard problem underlying the protocol — [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. For public-coin interactive oracle proofs, the soundness of the transform in the ROM is tightly characterized by state-restoration soundness, which is bounded tightly in terms of soundness and round complexity ([[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]]) — [[BCS16 - Interactive Oracle Proofs|BCS16]]. For a $(2\mu+1)$-move public-coin protocol and $Q$ oracle queries the generic loss is approximately $Q^\mu$, which the $\mu$-fold sequential repetition of $\Sigma$-protocols attains, while for $(k_1, \ldots, k_\mu)$-special-sound protocols the knowledge error degrades only linearly in $Q$ — [[AFK22 - Fiat-Shamir Transformation of Multi-round Interactive Proofs|AFK22]].
 
 ## Correlation-intractable instantiation
 
@@ -44,7 +44,7 @@ where $\Pi_{\mathrm{FS}}^H$ is the transform of $\Pi$ with $H$ in place of the o
 
 Prior counterexamples to Fiat-Shamir were contrived — protocols specifically engineered to fail. Khovratovich, Rothblum, and Soukhanov gave the first counterexample for a _standard, widely-studied_ protocol [[KRS25 - How to Prove False Statements Practical Attacks on Fiat-Shamir|KRS25]]. They showed that the Fiat-Shamir transform applied to the GKR succinct interactive argument (from [[GKR15 - Delegating Computation Interactive Proofs for Muggles|GKR15]]) allows an efficient prover to prove _false_ statements for explicit families of circuits.
 
-<!-- BEGIN GENERATED participates-in 8c42011b018a -->
+<!-- BEGIN GENERATED participates-in e918bf4ad72e -->
 
 ## Participates in
 
@@ -56,13 +56,16 @@ Prior counterexamples to Fiat-Shamir were contrived — protocols specifically e
 
 **Used via Fiat-Shamir Heuristic**
 
+- [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]]
 - [[circular-secure-fhe-to-nizk-argument-for-np-cch19|Circular-secure FHE ⇒ NIZK argument for NP]]
 - [[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]
+- [[factoring-blum-integers-to-forward-secure-signature-bm99|Factoring ⇒ Forward-secure signature (Bellare–Miner)]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 - [[lpn-low-noise-and-ddh-to-nizk-argument-for-np-bkm20|Low-noise LPN + DDH ⇒ NIZK argument for NP]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 - [[polynomial-ratio-lwe-to-barg-for-np-cjj21|LWE with polynomial ratio ⇒ BARG for NP]]
 - [[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]]
+- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
 - [[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]
 - [[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]]
 - [[subexponential-ddh-to-ppad-hardness-klv23|Sub-exponential DDH ⇒ PPAD hardness]]

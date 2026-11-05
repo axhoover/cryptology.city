@@ -14,11 +14,11 @@ variants:
 
 # RSA Assumption
 
-The _RSA assumption_ states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a value $y$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$. It was introduced alongside the RSA cryptosystem — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
+The _RSA assumption_ states that the RSA function $x \mapsto x^e \bmod n$ is hard to invert: given a modulus $n = pq$, a public exponent $e$, and a uniformly random $y \in \ZZ_n^*$, no efficient adversary can find $x$ such that $x^e \equiv y \pmod{n}$ except with negligible probability.
 
 ## Assumption
 
-The assumption is parameterized by a group generator $\GrGen$ that, on input $1^\secpar$, outputs an RSA modulus $n = pq$ (the product of two large primes) together with a public exponent $e$ coprime to $\phi(n) = (p-1)(q-1)$ and the corresponding private exponent $d \equiv e^{-1} \pmod{\phi(n)}$.
+The assumption is parameterized by a group generator $\GrGen$ that, on input $1^\secpar$, outputs an RSA modulus $n = pq$ (the product of two distinct large primes) together with a public exponent $e$ coprime to $\phi(n) = (p-1)(q-1)$ and the corresponding private exponent $d \equiv e^{-1} \pmod{\phi(n)}$.
 
 ### RSA Problem
 
@@ -48,17 +48,17 @@ is negligible.
 
 ## Known Results
 
-- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
-- [[tdp-to-pke|TDP ⇒ PKE]]
-- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to factoring $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
+- [[rsa-to-tdp-rsa78|RSA ⇒ TDP]] — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]
+- [[tdp-to-pke|TDP ⇒ PKE]] — [[GM84 - Probabilistic encryption|GM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]
+- [[fac-to-rsa-rsa78|RSA ⇒ FAC]]: the factors of $n$ give $\phi(n)$ and hence $d$ — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]]. Recovering $d$ from $(n, e)$ is deterministic polynomial-time equivalent to [[factoring|factoring]] $n$ when $p, q$ have equal bit length and $ed \le n^2$ — [[May04 - Computing the RSA Secret Key Is Deterministic Polynomial Time Equivalent to Factoring|May04]]. Whether factoring hardness implies RSA hardness is open in the standard model; for small $e$, a straight-line reduction from factoring that makes a logarithmic number of RSA-oracle queries would itself yield a factoring algorithm ([[no-fac-to-low-exponent-rsa-bv98|No straight-line reduction from FAC to low-exponent RSA]]) — [[BV98 - Breaking RSA May Not Be Equivalent to Factoring|BV98]].
 - [[rsa-to-fac-dlo24|RSA ⇔ FAC]] in the generic ring model — [[AM09 - Breaking RSA Generically Is Equivalent to Factoring|AM09]], [[DLO24 - Breaking RSA Generically Is Equivalent to Factoring, with Preprocessing|DLO24]]
-- Hard-core bit: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
+- [[hardcore-predicate|Hard-core bit]]: predicting the least significant bit of $x$ from $(n, e, x^e \bmod n)$ with non-negligible advantage is probabilistic polynomial-time equivalent to inverting RSA — [[ACGS88 - RSA and Rabin Functions Certain Parts are as Hard as the Whole|ACGS88]].
 
 # Variations
 
 ## Strong RSA
 
-The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary outputs a pair $(\hat{x}, \hat{e})$ with $\hat{e} > 1$ and $\hat{x}^{\hat{e}} \equiv y \pmod{n}$. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a collision-resistant hash it yields EUF-CMA [[digital-signature|signatures]] in the standard model — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
+The **strong RSA assumption** strengthens the standard assumption by allowing the adversary to choose the exponent $e$ itself (subject to $e > 1$). Formally, the adversary receives $(1^\secpar, n, y)$ for $(n, e, d) \gets \GrGen(1^\secpar)$ and $y \getsr \ZZ_n^*$, and outputs a pair $(\hat{x}, \hat{e})$. **Strong RSA is hard** for $\GrGen$ if for all efficient $\calA$, $\Pr\!\left[\hat{e} > 1 \wedge \hat{x}^{\hat{e}} \equiv y \pmod{n} : (n, e, d) \gets \GrGen(1^\secpar);\ y \getsr \ZZ_n^*;\ (\hat{x}, \hat{e}) \gets \calA(1^\secpar, n, y)\right]$ is negligible. Introduced by [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]] and [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]]. With a [[hash-function#collision-resistance|collision-resistant hash]] it yields EUF-CMA [[digital-signature|signatures]] in the standard model — [[CS99 - Signature Schemes Based on the Strong RSA Assumption|CS99]]; with a division-intractable hash, hash-and-sign signatures — [[GHR99 - Secure Hash-and-Sign Signatures Without the Random Oracle|GHR99]]. It also yields statistically hiding [[commitment-scheme|commitments]] to integers — [[FO97 - Statistical Zero Knowledge Protocols to Prove Modular Polynomial Relations|FO97]], [[DF02 - A Statistically-Hiding Integer Commitment Scheme Based on Groups with Hidden Order|DF02]].
 
 ## Φ-Hiding
 
@@ -70,12 +70,16 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 
 # Attacks
 
+- **Factoring**: the factors of $n$ give $d$ ([[fac-to-rsa-rsa78|RSA ⇒ FAC]]), so every factoring algorithm under [[factoring#attacks|Factoring § Attacks]] inverts RSA at the same cost plus polynomial time — [[RSA78 - A method for obtaining digital signatures and public-key cryptosystems|RSA78]].
 - **Shor's algorithm**: a quantum computer can factor $n$ in polynomial time and thus break RSA entirely — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
-- **Wiener's attack**: when the private exponent satisfies $d < n^{1/4}$, RSA can be broken via continued-fraction approximation of $e/n$.
-- **Small-exponent attacks**: encrypting the same short message under many independent RSA public keys with a small exponent $e$ (e.g., $e = 3$) allows recovery via the Chinese Remainder Theorem (Håstad's broadcast attack).
-- **Chosen-ciphertext attacks**: textbook RSA (without padding) is not CCA-secure; OAEP padding is required in practice.
+- **Wiener's attack**: if $q < p < 2q$, $e < \phi(n)$ and $d < n^{1/4}/3$, then $d$ is the denominator of a convergent of the continued fraction of $e/n$, so $d$ is computed from $(n, e)$ in polynomial time — [[Wie90 - Cryptanalysis of Short RSA Secret Exponents|Wie90]].
+- **Boneh–Durfee attack**: lattice reduction computes $d$ from $(n, e)$ when $d < n^{1 - 1/\sqrt{2}} \approx n^{0.292}$, under the heuristic assumption that the polynomials it obtains are algebraically independent — [[BD99 - Cryptanalysis of RSA with Private Key d Less than N^0.292|BD99]].
+- **Coppersmith's method**: for a monic $f \in \ZZ[z]$ of degree $\delta$, all $z_0 \in \ZZ$ with $|z_0| < n^{1/\delta}$ and $f(z_0) \equiv 0 \pmod{n}$ are found in time polynomial in $\log n$ and $\delta$ — [[Cop97 - Small Solutions to Polynomial Equations, and Low Exponent RSA Vulnerabilities|Cop97]]. For $e = 3$ it recovers $x$ from $x^3 \bmod n$ when all of $x$ but a contiguous block of fewer than $\frac{1}{3}\log_2 n$ bits is known (stereotyped messages), and it factors $n$ given the high-order $\frac{1}{4}\log_2 n$ bits of $p$ — [[Cop97 - Small Solutions to Polynomial Equations, and Low Exponent RSA Vulnerabilities|Cop97]].
+- **Partial key exposure**: given $(n, e)$ and the $\lceil \frac{1}{4}\log_2 n \rceil$ least significant bits of $d$, all of $d$ is computed in time polynomial in $\log n$ and $e$, hence efficiently when $e \le \poly(\log n)$ — [[BDF98 - An Attack on RSA Given a Small Fraction of the Private Key Bits|BDF98]].
+- **Håstad's broadcast attack**: given $x^e \bmod n_i$ for $e$ public keys $(n_i, e)$ with pairwise coprime moduli $n_i > x$, the Chinese Remainder Theorem yields $x^e \bmod \prod_i n_i$, which is $x^e$ over the integers, and its integer $e$-th root is $x$ — standard; [[Has85 - On Using RSA with Low Exponent in a Public Key Network|Has85]] extends the attack to messages that are known polynomial functions of one plaintext, given enough ciphertexts.
+- **Attacks on RSA encryption schemes**, not on the RSA problem: textbook RSA encryption $x \mapsto x^e \bmod n$ is deterministic, hence not IND-CPA-secure as a [[public-key-encryption|PKE]] scheme, and malleable, since $c \cdot y^e \bmod n$ encrypts $xy \bmod n$ — standard; Bleichenbacher's adaptive chosen-ciphertext attack decrypts PKCS #1 v1.5 ciphertexts with an oracle that reports whether a ciphertext's padding is well formed — [[Ble98 - Chosen Ciphertext Attacks Against Protocols Based on the RSA Encryption Standard PKCS 1|Ble98]].
 
-<!-- BEGIN GENERATED participates-in a873d019aa7f -->
+<!-- BEGIN GENERATED participates-in 80b0b4315b0f -->
 
 ## Participates in
 
@@ -92,8 +96,11 @@ The RSA problem for a generator $\GrGen$ whose public exponent is a fixed small 
 - [[rsa-to-ind-cca-security|RSA ⇒ IND-CCA KEM]]
 - [[rsa-to-pke-rsa78|RSA ⇒ PKE]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
+- [[rsa-to-threshold-rsa-sho00|RSA ⇒ Threshold RSA signatures (Shoup)]]
+- [[strong-rsa-to-accumulator-bp97|Strong RSA ⇒ accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-com|Strong RSA ⇒ COM]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-ds|Strong RSA + CRHF ⇒ DS]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
+- [[strong-rsa-to-dynamic-accumulator-cl02|Strong RSA ⇒ dynamic accumulator]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 - [[strong-rsa-to-rsa|Strong RSA ⇒ RSA]] (via [[rsa-assumption#strong-rsa|Strong RSA]])
 
 **Produces RSA Assumption**

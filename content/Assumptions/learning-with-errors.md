@@ -105,7 +105,7 @@ For prime $q \le \poly(n)$, the search and decision variants of LWE are equivale
 
 ### Short kernel vectors distinguish LWE samples
 
-Let $q$ be prime, let $\chi$ be the discrete Gaussian over $\ZZ$ of width $\alpha q$, and let $\beta \le 1/(4\alpha)$ with $\beta < q$. Given $(\mathbf{A}, \mathbf{u})$ with $\mathbf{A} \in \ZZ_q^{m \times n}$, a nonzero $\mathbf{z}$ with $\mathbf{A}^{\top}\mathbf{z} \equiv \mathbf{0}$ and $\|\mathbf{z}\| \le \beta$ gives $\langle \mathbf{z}, \mathbf{u} \rangle \equiv \langle \mathbf{z}, \mathbf{e} \rangle$ for LWE samples, which is subgaussian with parameter at most $q/4$ and so lies in $(-q/4, q/4)$ except with probability $2e^{-\pi} < 0.1$; for uniform $\mathbf{u}$ it is uniform modulo $q$. So hardness of decision LWE for $(n, q, \chi, m)$ implies hardness of [[shortest-integer-solution|SIS]] for $(n, m, q, \beta)$, with a constant-factor loss — folklore. The parameters are coupled: composing with [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] needs $m > n \log q$ and $\sqrt{m} \le \beta \le 1/(4\alpha)$ — standard. [[#LWE with polynomial modulus-to-noise ratio|LWE with polynomial modulus-to-noise ratio]] meets the coupling, for instance with $\alpha = 1/n$, a prime $q \in [2n^{1.5}, 4n^{1.5}]$, $m = \lceil 3n \log q \rceil$ and $\beta = \sqrt{m}$ for large $n$, which gives [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] — folklore.
+Let $q$ be prime, let $\chi$ be the [[discrete-gaussian|discrete Gaussian]] over $\ZZ$ of width $\alpha q$, and let $\beta \le 1/(4\alpha)$ with $\beta < q$. Given $(\mathbf{A}, \mathbf{u})$ with $\mathbf{A} \in \ZZ_q^{m \times n}$, a nonzero $\mathbf{z}$ with $\mathbf{A}^{\top}\mathbf{z} \equiv \mathbf{0}$ and $\|\mathbf{z}\| \le \beta$ gives $\langle \mathbf{z}, \mathbf{u} \rangle \equiv \langle \mathbf{z}, \mathbf{e} \rangle$ for LWE samples, which is subgaussian with parameter at most $q/4$ and so lies in $(-q/4, q/4)$ except with probability $2e^{-\pi} < 0.1$; for uniform $\mathbf{u}$ it is uniform modulo $q$. So hardness of decision LWE for $(n, q, \chi, m)$ implies hardness of [[shortest-integer-solution|SIS]] for $(n, m, q, \beta)$, with a constant-factor loss — folklore. The parameters are coupled: composing with [[sis-to-hash-function-ajt96|SIS ⇒ CRHF]] needs $m > n \log q$ and $\sqrt{m} \le \beta \le 1/(4\alpha)$ — standard. [[#LWE with polynomial modulus-to-noise ratio|LWE with polynomial modulus-to-noise ratio]] meets the coupling, for instance with $\alpha = 1/n$, a prime $q \in [2n^{1.5}, 4n^{1.5}]$, $m = \lceil 3n \log q \rceil$ and $\beta = \sqrt{m}$ for large $n$, which gives [[polynomial-ratio-lwe-to-sis|LWE with polynomial ratio ⇒ SIS]] — folklore.
 
 # Reduction to lattice problems
 
@@ -254,7 +254,7 @@ The assumption is parameterized by a PPT sampler $\mathrm{Samp}$ that on input $
 - $\mathbf{P} \in \ZZ_q^{n \times t}$ — a target matrix (with $m \le t$, so $\mathbf{P}$ is at least as wide as $\mathbf{B}$),
 - $\mathrm{aux} \in \bits^*$ — auxiliary information, required to contain $\mathrm{Samp}$'s coin tosses (public-coin restriction).
 
-The matrix $\mathbf{B} \in \ZZ_q^{n \times m}$ (with $m = O(n \log q)$) is produced by $\mathrm{TrapGen}(1^n, q)$, a standard lattice trapdoor algorithm yielding $\mathbf{B} \approx_s \mathrm{Uniform}(\ZZ_q^{n \times m})$ alongside a trapdoor $\tau$. The notation $\mathbf{B}^{-1}(\mathbf{P}, \sigma)$ denotes a matrix $\mathbf{K} \in \ZZ^{m \times t}$ sampled from the discrete Gaussian with parameter $\sigma = O(\sqrt{m \log q})$ conditioned on $\mathbf{B}\mathbf{K} = \mathbf{P} \pmod{q}$; sampling requires $\tau$ but $\tau$ is never given to the adversary.
+The matrix $\mathbf{B} \in \ZZ_q^{n \times m}$ (with $m = O(n \log q)$) is produced by $\mathrm{TrapGen}(1^n, q)$, a standard [[lattice-trapdoor|lattice trapdoor]] algorithm yielding $\mathbf{B} \approx_s \mathrm{Uniform}(\ZZ_q^{n \times m})$ alongside a trapdoor $\tau$. The notation $\mathbf{B}^{-1}(\mathbf{P}, \sigma)$ denotes a matrix $\mathbf{K} \in \ZZ^{m \times t}$ sampled from the discrete Gaussian with parameter $\sigma = O(\sqrt{m \log q})$ conditioned on $\mathbf{B}\mathbf{K} = \mathbf{P} \pmod{q}$; sampling requires $\tau$ but $\tau$ is never given to the adversary.
 
 The two games below use the row-vector convention from [[Wee22 - Optimal Broadcast Encryption and CP-ABE from Evasive Lattice Assumptions|Wee22]], where $\mathbf{s} \in \ZZ_q^n$ acts on the left of $n \times m$ matrices (so LWE samples take the form $\mathbf{sB}+\mathbf{e}$). The **PRE-condition** game gives the adversary $\mathbf{P}$ and an LWE sample under $\mathbf{P}$; the **POST-condition** game replaces $(\mathbf{P},\, \mathbf{sP}+\mathbf{e}'')$ with the short preimage $\mathbf{K}$.
 
@@ -368,7 +368,7 @@ is negligible. When $\ell = 1$ the condition is equivalent to standard LWE, sinc
 
 The primary application is attribute-based encryption with $O(1)$-size ciphertexts and secret keys for arbitrary circuits — [[Wee25 - Almost Optimal KP and CP-ABE for Circuits from Succinct LWE|Wee25]].
 
-<!-- BEGIN GENERATED participates-in fdc88e2ccb71 -->
+<!-- BEGIN GENERATED participates-in 9ca5c77a5b81 -->
 
 ## Participates in
 
@@ -384,6 +384,7 @@ The primary application is attribute-based encryption with $O(1)$-size ciphertex
 - [[lwe-to-depir-lmw23|Ring-LWE with quasi-polynomial factors ⇒ Unkeyed DEPIR]] (via [[learning-with-errors#ring-lwe-with-quasi-polynomial-approximation-factors|Ring LWE with quasi-polynomial approximation factors]])
 - [[lwe-to-hibe-selective-security-chkp10|LWE ⇒ Selectively secure HIBE (bonsai trees)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
+- [[lwe-to-leakage-resilient-pke-agv09|LWE ⇒ LR-PKE (Regev)]]
 - [[lwe-to-leveled-fully-homomorphic-encryption-bgv12|LWE with sub-exponential ratio ⇒ Leveled FHE (BGV12)]] (via [[learning-with-errors#lwe-with-sub-exponential-modulus-to-noise-ratio|LWE with sub-exponential modulus-to-noise ratio]])
 - [[lwe-to-leveled-fully-homomorphic-encryption-bv14|LWE with polynomial ratio ⇒ Leveled FHE (BV14)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])
 - [[lwe-to-lossy-trapdoor-function-pw08|LWE ⇒ Lossy TDF (Peikert–Waters)]] (via [[learning-with-errors#lwe-with-polynomial-modulus-to-noise-ratio|LWE with polynomial modulus-to-noise ratio]])

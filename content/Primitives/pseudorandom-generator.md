@@ -13,15 +13,15 @@ variants:
 
 # Pseudorandom generator
 
-A **Pseudorandom Generator (PRG)** stretches a short, uniformly random seed into a longer string that is computationally indistinguishable from a truly random string of the same length. Any efficient algorithm that sees only the output cannot tell whether it came from a PRG or from a truly random source.
+A **Pseudorandom Generator (PRG)** stretches a short, uniformly random seed into a longer string that is computationally indistinguishable from a truly random string of the same length.
 
 ## Syntax
 
-A PRG $G$ is an efficient deterministic function with respect to seed space $\calS$ and output space $\calR,$ where $|\calR| > |\calS|:$
+A PRG $\PRG$ is an efficient deterministic function with respect to seed space $\calS$ and output space $\calR,$ where $|\calR| \ge 2|\calS|$ (for $\calS = \bits^\secpar$ and $\calR = \bits^{m(\secpar)}$ this is $m(\secpar) > \secpar$):
 
-- $G : \calS \to \calR,$ takes a seed $s \in \calS$ and outputs a string $r \in \calR.$
+- $\PRG : \calS \to \calR,$ takes a seed $s \in \calS$ and outputs a string $r \in \calR.$
 
-The ratio $\ell = |r|/|s|$ is called the **stretch** of the PRG. A PRG with stretch $\ell(\secpar)$ expands a $\secpar$-bit seed to $\ell(\secpar) \cdot \secpar$ output bits.
+For $\calS = \bits^\secpar$ and $\calR = \bits^{m(\secpar)}$, the output length $m(\secpar)$ is the **stretch** of $\PRG$ and $m(\secpar) - \secpar$ its **additive stretch**.
 
 ## Properties
 
@@ -30,59 +30,83 @@ The ratio $\ell = |r|/|s|$ is called the **stretch** of the PRG. A PRG with stre
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{prg}}_{G,\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{prg}}_{\PRG,\calA}(\secpar)$}
 \begin{algorithmic}
 \State $s \getsr \calS$; $b \getsr \bits$
-\State $r_0 \gets G(s)$; $r_1 \getsr \calR$
+\State $r_0 \gets \PRG(s)$; $r_1 \getsr \calR$
 \State $b' \gets \calA(1^\secpar, r_b)$
 \Return $[b' = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-A PRG $G$ is **pseudorandom** if for all efficient $\calA,$
+A PRG $\PRG$ is **pseudorandom** if for all efficient $\calA,$
 
 $$
-\Adv^{\mathrm{prg}}_{G,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prg}}_{G,\calA}(\secpar) = 1\right] - 1\right|
+\Adv^{\mathrm{prg}}_{\PRG,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prg}}_{\PRG,\calA}(\secpar) = 1\right] - 1\right|
 $$
 
 is negligible.
+
+### Next-bit unpredictability
+
+Let $\PRG$ output $m = m(\secpar)$ bits.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{nb}}_{\PRG,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $s \getsr \calS$; $i \getsr [m]$; $r \gets \PRG(s)$
+\State $\beta \gets \calA(1^\secpar, r_1 \cdots r_{i-1})$
+\Return $[\beta = r_i]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$\PRG$ is **next-bit unpredictable** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{nb}}_{\PRG,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{nb}}_{\PRG,\calA}(\secpar) = 1\right] - \frac12
+$$
+
+is negligible. Next-bit unpredictability is equivalent to pseudorandomness: a distinguisher with advantage $\varepsilon$ gives a predictor with advantage $\varepsilon/m$ by a [[hybrid-argument|hybrid argument]] over the prefixes of $\PRG(s)$ followed by uniform bits, and a predictor with advantage $\delta$ gives a distinguisher with advantage $\delta$ — [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]], [[Gol01 - Foundations of Cryptography Basic Tools|Gol01]]. The constructions of [[dlog-to-prg-bm84|Blum–Micali]] and [[owp-to-prg-yao82a-gl89|Yao]] are proved through this characterization, with the bits output in the order that makes each one unpredictable from those before it — [[BM84 - How to Generate Cryptographically Strong Sequences of Pseudo-Random Bits|BM84]], [[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]].
 
 # Variations
 
 ## Keyed PRG
 
-A **keyed PRG** is a pair of efficient algorithms $(\Gen, \Eval)$ where $\Gen(1^\secpar) \to k$ samples a key and $\Eval(k) \to r$ produces the output. This models a PRG whose parameters (seed length, output length) are determined by a key generation algorithm. The security definition is the same as above, but now the adversary sees $r_0 = \Eval(k)$ for a fresh key $k \gets \Gen(1^\secpar).$
+A **keyed PRG** is a pair of efficient algorithms $(\Gen, \Eval)$ where $\Gen(1^\secpar) \to k$ samples a public key and $\Eval(k, s) \to r$ deterministically maps a seed $s \in \calS_k$ to $r \in \calR_k$, with $|\calR_k| \ge 2|\calS_k|$. This models a PRG whose parameters (seed length, output length) are determined by a key generation algorithm. Security is the game above with $k \gets \Gen(1^\secpar)$, $s \getsr \calS_k$, $r_0 = \Eval(k, s)$ and $r_1 \getsr \calR_k$, where the adversary receives $(k, r_b)$.
 
 ## Trapdoor pseudorandom generators
 
 A **trapdoor PRG** is a tuple $G$ of efficient
 algorithms $(\Gen, \Eval, \Invert)$ such that
 
-- $\Gen(1^{\secpar}) \to t,$ takes a security parameter $\secpar$
-  and outputs a trapdoor $t \in \calT$,
-- $\Eval(t,k) \to r,$ takes a trapdoor $t \in \calT$ and a key $k \getsr \calK$,
+- $\Gen(1^{\secpar}) \to \td,$ takes a security parameter $\secpar$
+  and outputs a trapdoor $\td \in \calT$,
+- $\Eval(\td,k) \to r,$ takes a trapdoor $\td \in \calT$ and a key $k \getsr \calK$,
   sampled fresh by the caller on each evaluation, and outputs a value $r \in \calR$,
-- $\Invert(t,r) \to b,$ takes as input a trapdoor $t\in \calT$ and a value
+- $\Invert(\td,r) \to b,$ takes as input a trapdoor $\td \in \calT$ and a value
   $r \in \calR$ and outputs a bit $b \in \bits$ indicating whether the value
   was generated pseudorandomly or not.
 
 A trapdoor PRG is **pseudorandom** if for all efficient $\calA$,
-$\left|\Pr\!\left[\calA^{\calO_t}(1^\secpar) = 1\right] - \Pr\!\left[\calA^{R}(1^\secpar) = 1\right]\right|$
-is negligible, where $t \gets \Gen(1^\secpar)$, each query to $\calO_t$
-samples a fresh $k \getsr \calK$ and returns $\Eval(t,k)$, and each query to
+$\left|\Pr\!\left[\calA^{\calO_{\td}}(1^\secpar) = 1\right] - \Pr\!\left[\calA^{R}(1^\secpar) = 1\right]\right|$
+is negligible, where $\td \gets \Gen(1^\secpar)$, each query to $\calO_{\td}$
+samples a fresh $k \getsr \calK$ and returns $\Eval(\td,k)$, and each query to
 $R$ returns a fresh uniform $r \getsr \calR$. Beyond that, a trapdoor PRG should be
 
 - $(1-\varepsilon)$-**complete**: for all $\secpar \in \NN,$
   $$
-      \Pr[\Invert(t, \Eval(t,k)) = 1 : t \getsr \Gen(1^{\secpar}),\ k \getsr \calK] \ge 1 - \varepsilon,
+      \Pr\!\left[\Invert(\td, \Eval(\td,k)) = 1 : \td \gets \Gen(1^{\secpar}),\ k \getsr \calK\right] \ge 1 - \varepsilon,
   $$
 - $(1-\delta)$-**sound**: for all $\secpar \in \NN,$
   $$
-      \Pr[\Invert(t,r) = 0 : t \getsr \Gen(1^{\secpar}),\ r \getsr \calR] \ge 1 - \delta.
+      \Pr\!\left[\Invert(\td,r) = 0 : \td \gets \Gen(1^{\secpar}),\ r \getsr \calR\right] \ge 1 - \delta.
   $$
 
-A [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor PRG whose completeness is robust to noise — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] for the PRC definition.
+Every [[pseudorandom-error-correcting-code#zero-bit-prc|zero-bit PRC]] is a trapdoor PRG whose completeness is robust to noise — folklore; [[CG24 - Pseudorandom Error-Correcting Codes|CG24]] for the PRC definition.
 
 ## Hitting-set generators against co-nondeterministic circuits
 
@@ -90,13 +114,10 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 
 # Other results
 
-- [[owf-to-prg-hill99|OWF ⇒ PRG]]
-  - [[prg-to-hash-function|PRG ⇒ OWF]]
-- [[dlog-to-prg-bm84|DLOG ⇒ PRG]]
 - A length-doubling PRG implies [[pseudorandom-function|PRF]]s via the GGM binary-tree construction — [[GGM86 - How to construct random functions|GGM86]]
-- CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $G(k) \oplus m$ is only one-time secure — folklore
+- CPA-secure [[symmetric-key-encryption|SKE]] follows via [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]] and [[prf-to-ske|PRF ⇒ CPA-secure SKE]]; the fixed-pad stream cipher $\PRG(k) \oplus m$ is only one-time secure — folklore
 
-<!-- BEGIN GENERATED participates-in 7d56d3c76fa5 -->
+<!-- BEGIN GENERATED participates-in 56a2a93dea5d -->
 
 ## Participates in
 
@@ -106,8 +127,10 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[prg-to-com-naor91|PRG ⇒ COM]]
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[prg-to-hash-function|PRG ⇒ OWF]]
+- [[prg-to-leakage-resilient-stream-cipher-dp08|PRG ⇒ Leakage-resilient stream cipher]]
 - [[prg-to-np-average-case-hardness|PRG ⇒ Average-case hardness of NP]]
 - [[prg-to-prf-ggm86|PRG ⇒ PRF (GGM)]]
+- [[prg-to-puncturable-prf-bw13|PRG ⇒ puncturable PRF]]
 - [[witness-encryption-and-prg-to-pke-ggsw13|WE + PRG ⇒ PKE (GGSW)]]
 - [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[pseudorandom-generator#hitting-set-generators-against-co-nondeterministic-circuits|Hitting-set generators against co-nondeterministic circuits]])
 
@@ -119,6 +142,8 @@ A co-nondeterministic circuit $C$ is given by a circuit $C'(y, z)$, and $C$ acce
 - [[owf-to-prg-hill99|OWF ⇒ PRG]]
 - [[owp-to-prg-yao82a-gl89|OWP ⇒ PRG (Blum–Micali–Yao)]]
 - [[qr-to-prg-bbs86|QR ⇒ PRG (Blum–Blum–Shub)]]
+- [[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]
+- [[syndrome-decoding-to-prg-fs96|SD ⇒ PRG]]
 - [[zero-bit-prc-to-trapdoor-pseudorandom-generators|Zero-bit PRC ⇒ Trapdoor pseudorandom generators]] (via [[pseudorandom-generator#trapdoor-pseudorandom-generators|Trapdoor pseudorandom generators]])
 
 <!-- END GENERATED participates-in -->

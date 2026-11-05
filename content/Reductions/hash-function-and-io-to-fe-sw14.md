@@ -1,28 +1,27 @@
 ---
 type: reduction
 status: draft
-title: "OWF + iO ⇒ FE"
+title: "iO + PKE + SS-NIZK ⇒ FE"
 aliases: []
-id: red-hash-function-and-io-to-fe-sw14
+id: red-io-and-perfectly-correct-pke-cpa-security-and-simulation-sound-nizk-to-fe-selective-security-gghrsw13
 kind: implication
-hypotheses: [owf, io]
-conclusion: functional-encryption
+hypotheses: [io, perfectly-correct-pke-cpa-security, simulation-sound-nizk]
+conclusion: fe-selective-security
 class: free
 model: standard
 source:
   - "[[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]]"
-  - "[[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]]"
 security-loss: "polynomial: a constant number of PKE and NIZK hybrids, and one iO hybrid per functional key each time the keys switch the component they decrypt"
 rationale:
-  class: "iO is applied to circuits containing the code of the decryption and proof-verification algorithms and, in the SW14 components, of a puncturable PRF built from the one-way function, so the construction is not black-box in the one-way function."
+  class: "iO is applied to circuits containing the code of the PKE decryption and NIZK verification algorithms, so the construction is not black-box."
   security-loss: "Each functional key is a separate obfuscated program, so switching the decryption component across all keys takes one iO step per key."
 ---
 
-# OWF + iO ⇒ FE
+# iO + PKE + SS-NIZK ⇒ FE
 
 ## Statement
 
-If [[indistinguishability-obfuscation|iO]] for all polynomial-size circuits and a [[hash-function#preimage-resistance-one-wayness|one-way function]] exist, there is a selectively secure, indistinguishability-based [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits: for all efficient $\calA$ that announce $(m_0, m_1)$ before seeing the public parameters and request functional keys only for circuits $f$ with $f(m_0) = f(m_1)$, the advantage in distinguishing an encryption of $m_0$ from one of $m_1$ is negligible. [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] build the scheme from iO, [[public-key-encryption|PKE]] and a statistically [[non-interactive-zero-knowledge#simulation-sound-nizk-ss-nizk|simulation-sound NIZK]], and [[SW14 - How to Use Indistinguishability Obfuscation Deniable Encryption, and More|SW14]] build the latter two from iO and one-way functions.
+[[indistinguishability-obfuscation|iO]] for all polynomial-size circuits, a [[public-key-encryption#perfectly-correct-cpa-secure-pke|perfectly correct]] [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]] scheme and a statistically [[non-interactive-zero-knowledge#simulation-sound-nizk-ss-nizk|simulation-sound NIZK]] proof system for $\classNP$ imply a selectively secure, indistinguishability-based [[functional-encryption|functional encryption]] scheme for all polynomial-size circuits: for all efficient $\calA$ that announce $(m_0, m_1)$ with $|m_0| = |m_1|$ before seeing the public parameters and request functional keys only for circuits $f$ with $f(m_0) = f(m_1)$, the advantage in distinguishing an encryption of $m_0$ from one of $m_1$ is negligible — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
 
 ## Sketch
 

@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\calI|$"
 rationale:
   class: "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."

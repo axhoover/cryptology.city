@@ -11,6 +11,8 @@ class: fully-black-box
 model: rom
 source:
   - "[[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]"
+via:
+  - "[[forking-lemma|forking lemma]]"
 security-loss: "$\\approx \\varepsilon^2/q$ for advantage $\\varepsilon$ and $q$ random-oracle queries (PS96)"
 rationale:
   class: "The transform uses the identification scheme's prover and verifier only as oracles, and the reductions run the forger only as an oracle, programming the random oracle (AABN02) and rewinding the forger (PS00)."

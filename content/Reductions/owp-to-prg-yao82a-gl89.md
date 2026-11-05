@@ -14,6 +14,8 @@ model: standard
 source:
   - "[[Yao82a - Theory and Applications of Trapdoor Functions|Yao82a]]"
   - "[[GL89 - A Hard-Core Predicate for All One-Way Functions|GL89]]"
+via:
+  - "[[hardcore-predicate|Goldreich–Levin]]"
 security-loss: "a factor ℓ (the output length) from the hybrid argument, plus the polynomial loss of Goldreich–Levin decoding"
 rationale:
   class: "The generator evaluates the permutation only as an oracle, and the reduction turns any distinguisher, used only as an oracle, into a predictor for the inner-product bit and then, by Goldreich–Levin decoding, into an inverter."
