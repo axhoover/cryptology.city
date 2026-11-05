@@ -11,7 +11,7 @@ unlisted: true
 
 # Pseudorandom generator in $\mathrm{NC}^1$
 
-A pseudorandom generator whose output is computable by a logarithmic-depth boolean circuit family ($\mathrm{NC}^1$). The JLS21 iO construction instead assumes a Boolean PRG in $\mathrm{NC}^0$ with stretch $n^{1+\tau}$ for a constant $\tau > 0$ — [[JLS21 - Indistinguishability obfuscation from well-founded assumptions|JLS21]].
+A PRG in $\mathrm{NC}^1$ is a [[pseudorandom-generator|pseudorandom generator]] computable by polynomial-size Boolean circuits of bounded fan-in and logarithmic depth.
 
 ## Syntax
 
@@ -21,12 +21,33 @@ A PRG in $\mathrm{NC}^1$ is a [[pseudorandom-generator|PRG]] $G = \{G_n : \bits^
 
 ### Pseudorandomness
 
-$G$ is **pseudorandom** if for all efficient $\calA$ the advantage in the [[pseudorandom-generator#pseudorandomness|PRG game]] with seed $x \getsr \bits^n$ is negligible in $n$.
+Index the family by its seed length, $n = \secpar$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{prg}}_{G,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $x \getsr \bits^{\secpar}$; $b \getsr \bits$
+\State $r_0 \gets G_\secpar(x)$; $r_1 \getsr \bits^{m(\secpar)}$
+\State $b' \gets \calA(1^\secpar, r_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$G$ is **pseudorandom** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{prg}}_{G,\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prg}}_{G,\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible.
 
 # Other results
 
 - Every PRG in $\mathrm{NC}^1$, and more generally in $\oplus\mathrm{L}/\mathrm{poly}$, compiles into a PRG in $\mathrm{NC}^0$ with locality $4$ and the same additive stretch ([[prg-in-nc1-to-low-complexity-prg-nc0-aik06|PRG in NC1 ⇒ PRG in NC0]]) — [[AIK06 - Cryptography in NC0|AIK06]].
-- The Naor–Reingold pseudorandom function is computable in $\mathrm{TC}^0 \subseteq \mathrm{NC}^1$ and pseudorandom if [[decisional-diffie-hellman|DDH]] holds — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]; evaluated at fixed inputs, it gives a PRG in $\mathrm{NC}^1$ — standard.
+- The Naor–Reingold [[pseudorandom-function|pseudorandom function]] is computable in $\mathrm{TC}^0 \subseteq \mathrm{NC}^1$ and pseudorandom if [[decisional-diffie-hellman|DDH]] holds ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) — [[NR97 - Number-Theoretic Constructions of Efficient Pseudo-Random Functions|NR97]]. PRGs in $\mathrm{NC}^1$ are implied by most number-theoretic or algebraic intractability assumptions commonly used in cryptography — [[AIK06 - Cryptography in NC0|AIK06]].
 
 <!-- BEGIN GENERATED participates-in abd479b29d98 -->
 

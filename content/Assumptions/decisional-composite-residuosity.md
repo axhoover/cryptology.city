@@ -52,7 +52,7 @@ DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where 
 - Quantum attacks: Shor's algorithm factors $n$ in polynomial time, breaking DCR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 - No sub-exponential classical attack on DCR independent of factoring is known
 
-<!-- BEGIN GENERATED participates-in 94d744484fdd -->
+<!-- BEGIN GENERATED participates-in 4823eb2a0cb8 -->
 
 ## Participates in
 
@@ -60,7 +60,7 @@ DCR for moduli $n = pq$ with $p = 2p' + 1$ and $q = 2q' + 1$ safe primes, where 
 
 - [$d$-th Composite Residuosity ⇒ Additively homomorphic encryption](d-th-composite-residuosity-to-he) (via [$d$-th Composite Residuosity](decisional-composite-residuosity#d-th-composite-residuosity))
 - [[dcr-safe-primes-to-pke-cca2-security-cs02|DCR (safe-prime moduli) ⇒ CCA-secure PKE (Cramer–Shoup)]] (via [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR with safe-prime moduli]])
-- [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR ⇒ Universal-2 HPS]] (via [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR with safe-prime moduli]])
+- [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR (safe-prime moduli) ⇒ Universal-2 HPS]] (via [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR with safe-prime moduli]])
 - [[dcr-to-com|DCR ⇒ COM]]
 - [[dcr-to-constant-bandwidth-oram-ddf-16|DCR ⇒ constant-bandwidth ORAM (Onion ORAM)]]
 - [[dcr-to-cpir-cha04|DCR ⇒ One-round sublinear cPIR]]

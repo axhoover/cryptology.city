@@ -10,14 +10,14 @@ id: mip
 
 # Multi-prover interactive proofs
 
-MIP is the class of languages with an interactive proof in which a probabilistic polynomial-time verifier interacts with two or more computationally unbounded provers who cannot communicate with one another; MIP = NEXP — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]].
+MIP is the class of languages with an interactive proof in which a probabilistic polynomial-time verifier interacts with two or more computationally unbounded provers who cannot communicate with one another; MIP = [[nondeterministic-exponential-time|NEXP]] — [[BFL90 - Non-Deterministic Exponential Time Has Two-Prover Interactive Protocols|BFL90]].
 
 ## Definition
 
 A language $L$ is in $\mathbf{MIP}$ if there are a polynomial $k$ and a probabilistic polynomial-time verifier $V$ that interacts with $k(|x|)$ provers $P_1, \ldots, P_{k(|x|)}$ on common input $x$, where each prover sees only its own messages with $V$ and the provers do not communicate during the protocol, such that:
 
 - **Completeness**: if $x \in L$, there are provers with which $V$ accepts with probability at least $2/3$;
-- **Soundness**: if $x \notin L$, then for all provers $P_1^*, \ldots, P_{k}^*$, $V$ accepts with probability at most $1/3$.
+- **Soundness**: if $x \notin L$, then for all provers $P_1^*, \ldots, P_{k(|x|)}^*$, $V$ accepts with probability at most $1/3$.
 
 The provers may agree on a strategy beforehand, and share randomness, but receive no information about each other's questions — [[BGKW88 - Multi-Prover Interactive Proofs How to Remove Intractability Assumptions|BGKW88]].
 

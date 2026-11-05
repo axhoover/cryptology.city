@@ -1368,19 +1368,6 @@
    "unlisted": false
   },
   {
-   "id": "computational-randomized-encoding",
-   "kind": "variant",
-   "type": "primitive",
-   "page": "content/Primitives/randomized-encoding.md",
-   "slug": "randomized-encoding",
-   "graphSlug": "Primitives/randomized-encoding",
-   "anchor": "#computational-randomized-encodings",
-   "of": "randomized-encoding",
-   "title": "Computational randomized encodings",
-   "aliases": [],
-   "unlisted": false
-  },
-  {
    "id": "computational-two-party-differential-privacy",
    "kind": "variant",
    "type": "primitive",
@@ -10709,7 +10696,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "tight: a forged witness exhibits a collision in one of the at most log |X| hash evaluations on the authentication path",
+   "securityLoss": "tight: a forged witness exhibits a collision in one of the $\\lceil \\log_2 |X| \\rceil$ hash evaluations on its authentication path",
    "rationale": {
     "class": "The tree calls the hash function only as an oracle, and one fixed reduction runs the forger once and extracts a collision from the two paths."
    },
@@ -11203,7 +11190,7 @@
    "page": "content/Reductions/dcr-safe-primes-to-universal2-hash-proof-system-cs02.md",
    "slug": "dcr-safe-primes-to-universal2-hash-proof-system-cs02",
    "graphSlug": "Reductions/dcr-safe-primes-to-universal2-hash-proof-system-cs02",
-   "title": "DCR ⇒ Universal-2 HPS"
+   "title": "DCR (safe-prime moduli) ⇒ Universal-2 HPS"
   },
   {
    "id": "red-dcr-to-com",
@@ -21057,7 +21044,7 @@
    ],
    "via": [],
    "heuristic": false,
-   "securityLoss": "a factor n, the input length: one PRG hybrid per level of the tree",
+   "securityLoss": "a factor 2n for input length n: n PRG hybrids, one per level of the path to $x^*$, from each of the real and ideal worlds to the world where the sibling seeds and the challenge are independent and uniform",
    "rationale": {
     "class": "The GGM construction calls the length-doubling PRG only as an oracle, and the reduction embeds its PRG challenge at one level of the path to the punctured point, running the adversary once as an oracle."
    },

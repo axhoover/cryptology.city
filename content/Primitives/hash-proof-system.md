@@ -15,11 +15,11 @@ variants:
 
 # Hash proof system
 
-A hash proof system for a language $L \subset X$ is a family of keyed functions $H_k : X \to \Pi$ with a public projection $\alpha(k)$ that determines $H_k$ on $L$, so that $H_k(x)$ for $x \in L$ is computable from $\alpha(k)$ and a witness for $x$, while for $x \in X \setminus L$ the value $H_k(x)$ is statistically close to uniform given $\alpha(k)$; the language comes from a subset membership problem in which elements of $L$ and of $X \setminus L$ are computationally indistinguishable — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+A hash proof system for a language $L \subset X$ is a family of keyed functions $H_k : X \to \Pi$ with a public projection $\alpha(k)$ that determines $H_k$ on $L$, so that $H_k(x)$ for $x \in L$ is computable from $\alpha(k)$ and a witness for $x$, while for $x \getsr X \setminus L$ the value $H_k(x)$ is statistically close to uniform given $x$ and $\alpha(k)$; the language comes from a subset membership problem in which elements of $L$ and of $X \setminus L$ are computationally indistinguishable — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 ## Syntax
 
-A **subset membership problem** $\calM$ is an efficient instance generator $\mathsf{I}(1^\secpar) \to \Lambda$, where $\Lambda$ describes finite nonempty sets $L \subsetneq X$ and a witness relation $R_\Lambda$ with $L = \{x : \exists w, (x, w) \in R_\Lambda\}$, together with efficient algorithms that sample $(x, w) \in R_\Lambda$ with $x$ uniform in $L$, sample $x$ uniform in $X \setminus L$, and decide, given $\Lambda$ and a bit string, whether the string encodes an element of $X$.
+A **subset membership problem** $\calM$ is an efficient instance generator $\mathsf{I}(1^\secpar) \to \Lambda$, where $\Lambda$ describes finite nonempty sets $L \subsetneq X$ and a witness relation $R_\Lambda$ with $L = \{x : \exists w, (x, w) \in R_\Lambda\}$, together with efficient algorithms that sample $(x, w) \in R_\Lambda$ with $x$ uniform in $L$ and decide, given $\Lambda$ and a bit string, whether the string encodes an element of $X$.
 
 A **hash proof system** $\mathsf{HPS}$ for $\calM$ associates to each $\Lambda$ a key space $\calK$, a projection space $\calS$, a group $\Pi$, functions $H_k : X \to \Pi$ for $k \in \calK$ and a projection $\alpha : \calK \to \calS$, with efficient algorithms:
 
@@ -85,7 +85,7 @@ $$
 \Pr_{k \getsr \calK}\!\left[H_k(x^*, e^*) = \pi^* \;\middle|\; H_k(x, e) = \pi \wedge \alpha(k) = s\right] \le \varepsilon,
 $$
 
-whenever the conditioning event has nonzero probability: $H_k$ at one point outside $L$ stays unpredictable given $\alpha(k)$ and its value at any other point. A _universal-2 hash proof system_ for $\calM$ is a pair of a smooth hash proof system and an extended $\varepsilon$-universal-2 hash proof system for the same hard subset membership problem, with $\varepsilon$ negligible — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+whenever the conditioning event has nonzero probability. A _universal-2 hash proof system_ for $\calM$ is a pair of a smooth hash proof system with values in $\Pi$ and an extended $\varepsilon$-universal-2 hash proof system with tag set $E = \Pi$ and values in some $\hat\Pi$, for the same hard subset membership problem, with $\varepsilon$ negligible; this pair is the input to the IND-CCA2 construction of [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 # Variations
 
@@ -96,12 +96,12 @@ TODO: the smooth projective hashing notion of [[GL03 - A Framework for Password-
 # Other results
 
 - Every smooth hash proof system for a hard subset membership problem gives [[public-key-encryption#cpa-security|IND-CPA-secure]] [[public-key-encryption|PKE]], and every universal-2 hash proof system gives [[public-key-encryption#cca-security|IND-CCA2-secure]] PKE without random oracles: [[hash-proof-system-to-pke-cpa-security-cs02|HPS ⇒ CPA-secure PKE]], [[universal2-hash-proof-system-to-pke-cca2-security-cs02|Universal-2 HPS ⇒ CCA-secure PKE]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
-- Universal-2 hash proof systems exist under [[decisional-diffie-hellman|DDH]], [[decisional-composite-residuosity|DCR]] and [[quadratic-residuosity|quadratic residuosity]], and the [[ddh-and-uowhf-to-pke-cca2-security-cs98|Cramer–Shoup cryptosystem]] is a special case of the paradigm: [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]], [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR ⇒ Universal-2 HPS]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+- Universal-2 hash proof systems exist under [[decisional-diffie-hellman#ddh-in-prime-order-groups|DDH in prime-order groups]], [[decisional-composite-residuosity#dcr-with-safe-prime-moduli|DCR for safe-prime moduli]] and [[quadratic-residuosity|quadratic residuosity]], and the [[ddh-and-uowhf-to-pke-cca2-security-cs98|Cramer–Shoup cryptosystem]] is a special case of the paradigm: [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]], [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR (safe-prime moduli) ⇒ Universal-2 HPS]] — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 - Smooth projective hash functions for languages of ciphertexts of a given message under a given public key give [[password-authenticated-key-exchange|password-based authenticated key exchange]] in the common reference string model, built from non-malleable [[commitment-scheme|commitments]], [[digital-signature#one-time-signatures|one-time signatures]] and smooth projective hash functions, abstracting the DDH-based protocol of [[KOY01 - Efficient Password-Authenticated Key Exchange Using Human-Memorable Passwords|KOY01]] ([[ddh-to-pake-koy01|DDH ⇒ PAKE]]) and instantiated under DDH, quadratic residuosity and $N$-th residuosity — [[GL03 - A Framework for Password-Based Authenticated Key Exchange|GL03]].
 - Every $\varepsilon$-universal hash proof system for a hard subset membership problem gives [[leakage-resilient-public-key-encryption|leakage-resilient PKE]] tolerating $\log(1/\varepsilon) - m - \omega(\log \secpar)$ bits of leakage on the secret key for $m$-bit messages, under no assumption beyond the hardness of the subset membership problem and with the same efficiency ([[universal-hash-proof-system-to-leakage-resilient-pke-ns09|Universal HPS ⇒ LR-PKE]]); the scheme this construction gives from a new hash proof system based on DDH, or on any of the [$d$-Linear assumptions](bilinear-map-assumptions#k-linear-assumption), tolerates leakage of a $1 - o(1)$ fraction of its secret key ([[prime-order-ddh-to-leakage-resilient-pke-ns09|DDH ⇒ LR-PKE]], [$d$-Linear ⇒ LR-PKE](k-linear-assumption-to-leakage-resilient-pke-ns09)) — [[NS09 - Public-Key Cryptosystems Resilient to Key Leakage|NS09]].
 - A modification of smooth projective hashing whose smoothness holds for maliciously chosen hash families gives two-message [[oblivious-transfer|oblivious transfer]], abstracting the DDH-based protocols of [[NP01 - Efficient Oblivious Transfer Protocols|NP01]] and [[AIR01 - Priced Oblivious Transfer How to Sell Digital Goods|AIR01]], with new instantiations under $N$-th residuosity and under quadratic residuosity together with the extended Riemann hypothesis — [[HK12 - Smooth Projective Hashing and Two-Message Oblivious Transfer|HK12]].
 
-<!-- BEGIN GENERATED participates-in cc82c461d721 -->
+<!-- BEGIN GENERATED participates-in 57d5fe1b23d0 -->
 
 ## Participates in
 
@@ -114,7 +114,7 @@ TODO: the smooth projective hashing notion of [[GL03 - A Framework for Password-
 
 **Produces Hash proof system**
 
-- [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR ⇒ Universal-2 HPS]] (via [[hash-proof-system#universal-2-hash-proof-systems|Universal-2 hash proof systems]])
+- [[dcr-safe-primes-to-universal2-hash-proof-system-cs02|DCR (safe-prime moduli) ⇒ Universal-2 HPS]] (via [[hash-proof-system#universal-2-hash-proof-systems|Universal-2 hash proof systems]])
 - [[prime-order-ddh-to-universal2-hash-proof-system-cs02|DDH ⇒ Universal-2 HPS]] (via [[hash-proof-system#universal-2-hash-proof-systems|Universal-2 hash proof systems]])
 - [[universal2-hash-proof-system-to-hash-proof-system|Universal-2 HPS ⇒ HPS]]
 

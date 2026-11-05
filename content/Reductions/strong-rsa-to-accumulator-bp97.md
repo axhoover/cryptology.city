@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-If the [[rsa-assumption#strong-rsa|strong RSA assumption]] holds, the RSA accumulator over a domain of primes, with $\pp = (N, g)$, $\mathsf{Acc}(\pp, X) = g^{\prod_{x \in X} x} \bmod N$, witness $w = g^{\prod_{y \in X \setminus \{x\}} y}$ and verification $w^x \equiv \mathit{acc} \pmod N$, is a collision-free [[accumulator|accumulator]] — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]].
+If the [[rsa-assumption#strong-rsa|strong RSA assumption]] holds, the RSA accumulator over a domain of primes, with $\pp = (N, g)$, $\Acc(\pp, X) = g^{\prod_{x \in X} x} \bmod N$, witness $w = g^{\prod_{y \in X \setminus \{x\}} y}$ and verification that accepts iff $x$ is in the domain and $w^x \equiv \mathit{acc} \pmod N$, is a collision-free [[accumulator|accumulator]] — [[BP97 - Collision-Free Accumulators and Fail-Stop Signature Schemes Without Trees|BP97]].
 
 ## Sketch
 

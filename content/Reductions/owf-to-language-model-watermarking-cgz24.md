@@ -18,8 +18,8 @@ security-loss: ""
 
 ## Statement
 
-If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, every language model has an [[language-model-watermarking|undetectable watermarking scheme]]: without the secret key, polynomially many responses to adaptively chosen prompts are computationally indistinguishable from the model's own outputs, while with the key watermarked responses of sufficient entropy are detected and every text fixed independently of the key is not — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
+If [[hash-function#preimage-resistance-one-wayness|one-way functions]] exist, every language model has an [[language-model-watermarking|undetectable watermarking scheme]]: without the secret key, polynomially many responses to adaptively chosen prompts are computationally indistinguishable from the model's own outputs, while with the key, watermarked responses of sufficient empirical entropy are detected except with negligible probability, and every text fixed independently of the key is detected with negligible probability over the choice of key — [[CGZ24 - Undetectable Watermarks for Language Models|CGZ24]].
 
 ## Notes
 
-- Undetectable watermarks whose detection survives cropping and a constant rate of substitutions and deletions follow from pseudorandom codes ([[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].
+- Undetectable watermarks whose detection survives cropping and a constant rate of random substitutions and deletions follow from pseudorandom codes ([[zero-bit-prc-to-watermarking-cg24|Zero-bit PRC ⇒ Watermarking]]) — [[CG24 - Pseudorandom Error-Correcting Codes|CG24]].

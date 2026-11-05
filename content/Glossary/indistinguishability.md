@@ -35,7 +35,7 @@ $$
 \Delta(X, Y) := \frac12 \sum_{z \in \Omega} \left|\Pr[X = z] - \Pr[Y = z]\right| = \max_{T \subseteq \Omega} \left|\Pr[X \in T] - \Pr[Y \in T]\right|.
 $$
 
-Every distinguisher, of unbounded running time, has advantage at most $\Delta(X, Y)$ in telling a sample of $X$ from a sample of $Y$, and the maximizing set $T = \{z : \Pr[X = z] > \Pr[Y = z]\}$ attains it. For every randomized function $f$, $\Delta(f(X), f(Y)) \le \Delta(X, Y)$; $\Delta$ satisfies the triangle inequality; and for $q$ independent samples $\Delta(X^q, Y^q) \le q \cdot \Delta(X, Y)$ — standard. Ensembles $\{X_\secpar\}$ and $\{Y_\secpar\}$ are **statistically indistinguishable** if $\Delta(X_\secpar, Y_\secpar)$ is negligible.
+Every distinguisher, of unbounded running time, has advantage at most $\Delta(X, Y)$ in telling a sample of $X$ from a sample of $Y$, and the maximizing set $T = \{z : \Pr[X = z] > \Pr[Y = z]\}$ attains it — standard. For every randomized function $f$, $\Delta(f(X), f(Y)) \le \Delta(X, Y)$; $\Delta$ satisfies the triangle inequality; and for $q$ independent samples $\Delta(X^q, Y^q) \le q \cdot \Delta(X, Y)$ — standard. Ensembles $\{X_\secpar\}$ and $\{Y_\secpar\}$ are **statistically indistinguishable** if $\Delta(X_\secpar, Y_\secpar)$ is negligible.
 
 The **min-entropy** of $X$ is $H_\infty(X) := -\log_2 \max_z \Pr[X = z]$.
 

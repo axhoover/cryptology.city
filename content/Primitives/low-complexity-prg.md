@@ -22,13 +22,30 @@ A low-complexity PRG is a [[pseudorandom-generator|pseudorandom generator]] in $
 
 A PRG in $\mathrm{NC}^0$ with locality $d$ is a family $G = \{G_n : \bits^n \to \bits^{m(n)}\}$ of functions, $m(n) > n$, computable in time $\poly(n)$, such that every output bit of $G_n$ depends on at most $d$ input bits for a constant $d$ independent of $n$. Its **stretch** is $m(n)$.
 
-A standard form is Goldreich's: a hypergraph with $m$ hyperedges $S_1, \ldots, S_m \subseteq [n]$ of size $d$ and a predicate $P : \bits^d \to \bits$ define $G(x)_i = P(x_{S_i})$, with $x_{S_i}$ the restriction of $x$ to $S_i$ — [[Gol00 - Candidate One-Way Functions Based on Expander Graphs|Gol00]], who proposed this form, with expanding hypergraphs, as a candidate one-way function.
-
 ## Properties
 
 ### Pseudorandomness
 
-$G$ is **pseudorandom** if for all efficient $\calA$, $\Adv^{\mathrm{prg}}_{G_n,\calA}$, the advantage in the [[pseudorandom-generator#pseudorandomness|PRG game]] with seed $x \getsr \bits^n$, is negligible in $n$; the sub-exponential version is below.
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{prg}}_{G,\calA}(n)$}
+\begin{algorithmic}
+\State $x \getsr \bits^n$; $b \getsr \bits$
+\State $r_0 \gets G_n(x)$; $r_1 \getsr \bits^{m(n)}$
+\State $b' \gets \calA(1^n, r_b)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$G$ is **pseudorandom** if for all efficient $\calA$,
+
+$$
+\Adv^{\mathrm{prg}}_{G,\calA}(n) := \left|2\Pr\!\left[\Game^{\mathrm{prg}}_{G,\calA}(n) = 1\right] - 1\right|
+$$
+
+is negligible in $n$.
 
 # Variations
 
@@ -42,6 +59,7 @@ A polynomial-stretch PRG in $\mathrm{NC}^0$ is **sub-exponentially secure** if t
 
 # Other results
 
+- Goldreich's candidate: a sequence of $d$-tuples $S_1, \ldots, S_m \in [n]^d$ and a predicate $P : \bits^d \to \bits$ define $G(x)_i = P(x_{S_i})$, with $x_{S_i} \in \bits^d$ the bits of $x$ at the indices of $S_i$, in order; for $m = n$, a highly expanding set system and a non-degenerate $P$, it was proposed as a candidate one-way function — [[Gol00 - Candidate One-Way Functions Based on Expander Graphs|Gol00]].
 - Conditional on the claimed algorithm of [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (see [[exponential-time-hypothesis#attacks|ETH]]): for every fixed $d$, every $G : \bits^n \to \bits^m$ whose output bits each depend on at most $d$ input bits can be inverted on every point of its image, and $|G^{-1}(y)|$ computed exactly, in deterministic time $(n + m)^{O_d(1)} 2^{O_d(n (\log\log n)^2 / \sqrt{\log n})}$ and space $(n + m)^{O_d(1)}$ — [[Ope26 - The Exponential Time Hypothesis is False|Ope26]] (Corollary C.2). For $m > n$, testing $|G^{-1}(y)| > 0$ distinguishes $G(x)$ from uniform $y$ with advantage at least $1 - 2^{n-m} \ge 1/2$, so no PRG in $\mathrm{NC}^0$ is secure against distinguishers running in time $2^{\varepsilon n}$ for a constant $\varepsilon > 0$. The running time is $2^{n^{1-o(1)}}$, so sub-exponential security as defined above is unaffected.
 
 <!-- BEGIN GENERATED participates-in fba1f53a0ecd -->

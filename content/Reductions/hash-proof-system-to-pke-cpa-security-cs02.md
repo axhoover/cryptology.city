@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-Let $\mathsf{HPS}$ be an $\varepsilon$-smooth [[hash-proof-system|hash proof system]] for a hard subset membership problem $\calM$. The scheme below, with message space $\Pi$, is [[public-key-encryption#cpa-security|IND-CPA-secure]] when $\varepsilon$ is negligible: for every efficient $\calA$ there is an efficient $\calB$ with $\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) \le 2\left(\Adv^{\mathrm{smp}}_{\calM,\calB}(\secpar) + \varepsilon\right)$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
+Let $\mathsf{HPS}$ be an $\varepsilon$-smooth [[hash-proof-system|hash proof system]] for a hard subset membership problem $\calM$. The scheme $\PKE$ below, with message space $\Pi$, is [[public-key-encryption#cpa-security|IND-CPA-secure]] when $\varepsilon$ is negligible: for every efficient $\calA$ there is an efficient $\calB$ with $\Adv^{\mathrm{cpa}}_{\PKE,\calA}(\secpar) \le 2\left(\Adv^{\mathrm{smp}}_{\calM,\calB}(\secpar) + \varepsilon\right)$ — [[CS02 - Universal Hash Proofs and a Paradigm for Adaptive Chosen Ciphertext Secure Public-Key Encryption|CS02]].
 
 ```pseudocode
 \begin{algorithm}

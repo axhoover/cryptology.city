@@ -30,7 +30,7 @@ For all $w, w' \in \calW$ with $\mathrm{dis}(w, w') \le t$, if $(R, P) \gets \Ge
 
 ### Security
 
-A fuzzy extractor is an $(m, \ell, t, \varepsilon)$-fuzzy extractor if for every distribution $W$ on $\calW$ with [[indistinguishability#statistical-distance|min-entropy]] $H_\infty(W) \ge m$ and every distinguisher $\calA$, of unbounded running time,
+A fuzzy extractor $(\Gen, \mathsf{Rep})$ is an $(m, \ell, t, \varepsilon)$-**fuzzy extractor** if for every distribution $W$ on $\calW$ with [[indistinguishability#statistical-distance|min-entropy]] $H_\infty(W) \ge m$ and every distinguisher $\calA$, of unbounded running time,
 
 ```pseudocode
 \begin{algorithm}
@@ -48,7 +48,7 @@ $$
 \Adv^{\mathrm{fe}}_{(\Gen, \mathsf{Rep}),W,\calA} := \left|2\Pr\!\left[\Game^{\mathrm{fe}}_{(\Gen, \mathsf{Rep}),W,\calA} = 1\right] - 1\right| \le \varepsilon,
 $$
 
-equivalently, the statistical distance between $(R, P)$ and $(U_\ell, P)$ is at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]. The helper string is public and the guarantee is information-theoretic.
+equivalently, the statistical distance between $(R, P)$ and $(U_\ell, P)$ is at most $\varepsilon$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
 # Variations
 
@@ -64,9 +64,9 @@ A **robust** fuzzy extractor lets $\mathsf{Rep}$ detect, with high probability, 
 
 ## Computational fuzzy extractors
 
-A **computational** fuzzy extractor requires $(R, P)$ to be computationally indistinguishable from $(U_\ell, P)$. Secure sketches defined with computational entropy notions, conditional HILL entropy or unpredictability entropy, are still subject to the coding-theoretic lower bounds of information-theoretic sketches for high-entropy Hamming-metric sources; analyzed directly, a computational fuzzy extractor from [[learning-with-errors|LWE]] outputs a key as long as the source's entropy, which is impossible information-theoretically, for uniform and symbol-fixing sources — [[FMR13 - Computational Fuzzy Extractors|FMR13]].
+A **computational** fuzzy extractor for a family of sources on $\calW$ requires $(R, P)$ to be computationally indistinguishable from $(U_\ell, P)$ for every source $W$ in the family — [[FMR13 - Computational Fuzzy Extractors|FMR13]]. Secure sketches defined with computational entropy notions, conditional HILL entropy or unpredictability entropy, are still subject to the coding-theoretic lower bounds of information-theoretic sketches for high-entropy Hamming-metric sources; analyzed directly, a computational fuzzy extractor from [[learning-with-errors|LWE]] outputs a key as long as the source's entropy, which is impossible information-theoretically, for uniform and symbol-fixing sources — [[FMR13 - Computational Fuzzy Extractors|FMR13]].
 
 # Other results
 
-- **Code offset.** For a $q$-ary code $C$ of length $n$ with $q^k$ codewords that corrects $t$ errors, $\mathsf{SS}(w) = w - c$ for a uniform codeword $c \in C$, with $\mathsf{Rec}(w', s)$ decoding $w' - s$ to the nearest codeword $c'$ and outputting $s + c'$, is a secure sketch for the Hamming metric on $\FF_q^n$ with entropy loss at most $(n - k)\log q$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]; it is the fuzzy commitment of [[JW99 - A Fuzzy Commitment Scheme|JW99]]. For a linear code the sketch can be the syndrome of $w$, a deterministic function with the same entropy loss — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
+- **Code offset.** For a $q$-ary code $C$ of length $n$ with $q^k$ codewords that corrects $t$ errors, $\mathsf{SS}(w) = w - c$ for a uniform codeword $c \in C$, with $\mathsf{Rec}(w', s)$ decoding $w' - s$ to the nearest codeword $c'$ and outputting $s + c'$, is a secure sketch for the Hamming metric on $\FF_q^n$ with entropy loss at most $(n - k)\log q$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]; for $q = 2$ it is the offset component of the fuzzy commitment of [[JW99 - A Fuzzy Commitment Scheme|JW99]], which also publishes a hash of $c$. For a linear code the sketch can be the syndrome of $w$, a deterministic function with the same entropy loss — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 - **Set difference.** For subsets of a universe of size $N$, the PinSketch construction from BCH codes has entropy loss at most $t \lceil \log(N + 1) \rceil$, independent of the size of the sets — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].

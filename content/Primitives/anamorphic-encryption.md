@@ -39,7 +39,7 @@ $$
 \Pr\!\left[\mathsf{aDec}(\mathsf{dk}, \mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m)) = \hat m\right] \ge 1 - \varepsilon,
 $$
 
-over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness of $\mathsf{aEnc}$.
+over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness of $\mathsf{aEnc}$. For a stateful $\mathsf{aEnc}$, the bound holds for every $i \le q$ with $c_i$ and $\hat m_i$ in place of $\mathsf{aEnc}(\pk, \mathsf{dk}, m, \hat m)$ and $\hat m$, where $c_1, \ldots, c_q$ are the outputs of successive calls $\mathsf{aEnc}(\pk, \mathsf{dk}, m_i, \hat m_i)$ on any pairs $(m_1, \hat m_1), \ldots, (m_q, \hat m_q) \in \calM \times \hat\calM$.
 
 ### Security against the dictator
 
@@ -58,7 +58,7 @@ over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness
 \end{algorithm}
 ```
 
-The dictator receives the public and the secret key and chooses both messages of every query. In world 0 the key pair is regular and the oracle encrypts $m$; in world 1 the key pair comes from $\mathsf{aGen}$ and the oracle embeds $\hat m$. An anamorphic encryption scheme $\mathsf{AME}$ is **anamorphically secure** if for all efficient $\calA$,
+An anamorphic encryption scheme $\mathsf{AME}$ is **anamorphically secure** if for all efficient $\calA$,
 
 $$
 \Adv^{\mathrm{anam}}_{\mathsf{AME},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{anam}}_{\mathsf{AME},\calA}(\secpar) = 1\right] - 1\right|
@@ -70,7 +70,7 @@ The world-0 oracle ignores $\hat m$, so the dictator's view in world 1 is comput
 
 ### Robustness
 
-An anamorphic encryption scheme is **robust** if for all $\secpar \in \NN$ and $m \in \calM$,
+Robustness widens the range of $\mathsf{aDec}$ to $\hat\calM \cup \{\bot\}$, with $\bot \notin \hat\calM$. An anamorphic encryption scheme is **robust** if for all $\secpar \in \NN$ and $m \in \calM$,
 
 $$
 \Pr\!\left[\mathsf{aDec}(\mathsf{dk}, \Enc(\pk, m)) = \bot\right] \ge 1 - \negl(\secpar),
@@ -82,7 +82,7 @@ over $(\pk, \sk, \mathsf{dk}) \gets \mathsf{aGen}(1^\secpar)$ and the randomness
 
 ## Sender-anamorphic encryption
 
-In _sender-anamorphic encryption_ the dictator determines the regular message the sender encrypts, removing the sender's freedom to choose it; the sender still embeds a covert message the dictator cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]] reformulate the notion as $\ell$-sender-anamorphic encryption with (strong) security and robustness, and show that a strongly secure $\ell$-sender-anamorphic scheme implies a reformulated receiver-anamorphic scheme, a [[vAH04 - Public Key Steganography|public-key stegosystem]], and a generalized algorithm-substitution attack on PKE.
+In _sender-anamorphic encryption_ the dictator determines the regular message the sender encrypts, removing the sender's freedom to choose it; the sender still embeds a covert message the dictator cannot detect — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. [[WCHY23 - Sender-Anamorphic Encryption Reformulated Achieving Robust and Generic Constructions|WCHY23]] reformulate the notion as $\ell$-sender-anamorphic encryption with (strong) security and robustness, and show that a strongly secure $\ell$-sender-anamorphic scheme implies a reformulated receiver-anamorphic scheme, a public-key stegosystem in the sense of [[vAH04 - Public Key Steganography|vAH04]], and a generalized algorithm-substitution attack on PKE.
 
 ## Fully asymmetric anamorphic encryption
 
@@ -98,16 +98,16 @@ An _anamorphic-resistant_ PKE scheme is one over which any attempt to communicat
 
 ## Anamorphic signatures
 
-In an _anamorphic signature_ scheme a signer embeds a covert message in signatures for a party holding a double key, against a dictator that holds the signing key — [[KPPYZ23a - Anamorphic Signatures Secrecy from a Dictator Who Only Permits Authentication!|KPPYZ23a]]. [[JS24 - Dictators Friends Forgers. Breaking and Fixing Unforgeability Definitions for Anamorphic Signature Schemes|JS24]] break and repair the unforgeability definitions of the anamorphic signature literature.
+In an _anamorphic signature_ scheme a signer embeds a covert message in [[digital-signature|signatures]] for a party holding a double key, against a dictator that holds the signing key — [[KPPYZ23a - Anamorphic Signatures Secrecy from a Dictator Who Only Permits Authentication!|KPPYZ23a]]. [[JS24 - Dictators Friends Forgers. Breaking and Fixing Unforgeability Definitions for Anamorphic Signature Schemes|JS24]] break and repair the unforgeability definitions of the anamorphic signature literature.
 
 # Other results
 
 ## Constructions
 
-- Receiver-anamorphic extensions exist for established schemes, among them the Naor–Yung CCA-secure construction ([[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE]]), and a black-box rejection-sampling method embeds a small covert message in ciphertexts of a PKE scheme — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. The rejection-sampling method is not secure for every IND-CPA-secure scheme (§ Limits).
+- Receiver-anamorphic extensions exist for established schemes, among them the Naor–Yung CCA-secure construction ([[pke-cpa-security-and-nizk-to-pke-cca1-security-ny90|CPA-secure PKE + NIZK ⇒ CCA1-secure PKE]]), and a black-box rejection-sampling method embeds a small covert message in ciphertexts of a PKE scheme — [[PPY22 - Anamorphic Encryption Private Communication against a Dictator|PPY22]]. The rejection-sampling method is not secure for every IND-CPA-secure scheme — [[CGM25 - Generic Anamorphic Encryption, Revisited New Limitations and Constructions|CGM25]].
 - Many existing encryption schemes admit anamorphic extensions — [[KPPYZ23b - The Self-Anti-Censorship Nature of Encryption On the Prevalence of Anamorphic Cryptography|KPPYZ23b]].
 - [[ddh-to-pke-elgamal85|ElGamal]] and [[ddh-and-uowhf-to-pke-cca2-security-cs98|Cramer–Shoup]] encryption satisfy _selective randomness recoverability_, which gives each a robust anamorphic extension, and [[rsa-to-ind-cca-pke-oaep-fops01|RSA-OAEP]] has a robust anamorphic extension — [[BGHMR24 - Anamorphic Encryption, Revisited|BGHMR24]].
-- Hybrid encryption ([[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]) and the IBE-to-CCA transform of [[ind-sid-cpa-to-pke-cca2-security-chk04|CHK04]] admit anamorphic extensions; homomorphic schemes, among them the fully homomorphic scheme of [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]], can be made anamorphic while keeping their [[homomorphic-encryption|homomorphism]] — [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]].
+- Hybrid encryption ([[kem-and-ske-to-pke|KEM + SKE ⇒ PKE]]) and the [[identity-based-encryption|IBE]]-to-CCA transform of [[ind-sid-cpa-to-pke-cca2-security-chk04|CHK04]] admit anamorphic extensions; homomorphic schemes, among them the fully homomorphic scheme of [[GSW13 - Homomorphic Encryption from Learning with Errors Conceptually-Simpler, Asymptotically-Faster, Attribute-Based|GSW13]], can be made anamorphic while keeping their [[homomorphic-encryption|homomorphism]] — [[CGM24a - Anamorphic Encryption New Constructions and Homomorphic Realizations|CGM24a]].
 - The CCA-secure scheme of [[KW19b - Realizing Chosen Ciphertext Security Generically in Attribute-Based Encryption and Predicate Encryption|KW19b]] is public-key anamorphic; more generally, a CPA-to-CCA transform whose security reduction produces non-ambiguous challenge ciphertexts yields a public-key anamorphic CCA-secure scheme — [[PPY24 - Public-Key Anamorphism in (CCA-Secure) Public-Key Encryption and Beyond|PPY24]].
 - From [[indistinguishability-obfuscation|iO]], every IND-CPA-secure PKE scheme with sufficiently high min-entropy ciphertexts has a fully asymmetric anamorphic extension with a small covert message space — [[CGM25 - Generic Anamorphic Encryption, Revisited New Limitations and Constructions|CGM25]]. Fully asymmetric anamorphic homomorphic encryption exists under [[learning-with-errors|LWE]] — [[DL25 - Fully Asymmetric Anamorphic Homomorphic Encryption from LWE|DL25]].
 - The Dual Regev scheme of [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]] has an anamorphic broadcast mode, in which one ciphertext for a single public key carries a separate covert message to each of several anonymous groups of receivers — [[DPPY25 - Anamorphism Beyond One-to-One Messaging Public-Key with Anamorphic Broadcast Mode|DPPY25]].

@@ -11,7 +11,7 @@ conclusion: accumulator
 class: fully-black-box
 model: standard
 source: folklore
-security-loss: "tight: a forged witness exhibits a collision in one of the at most log |X| hash evaluations on the authentication path"
+security-loss: "tight: a forged witness exhibits a collision in one of the $\\lceil \\log_2 |X| \\rceil$ hash evaluations on its authentication path"
 rationale:
   class: "The tree calls the hash function only as an oracle, and one fixed reduction runs the forger once and extracts a collision from the two paths."
 ---
@@ -20,11 +20,11 @@ rationale:
 
 ## Statement
 
-If $\hash$ is a [[hash-function#collision-resistance|collision-resistant hash function]] family, the Merkle tree accumulator is a collision-free [[accumulator|accumulator]]: $\mathsf{Acc}(\pp, X)$ is the root of a binary hash tree under $\hash$ whose leaves are the elements of $X$ in sorted order, padded to a power of two; the witness for $x$ is its leaf position and the sibling of every node on the path to the root; and $\Vrfy$ recomputes the root — folklore.
+If $\hash$ is a [[hash-function#collision-resistance|collision-resistant hash function]] family with $\hash(k, \cdot) : \bits^{2m} \to \bits^m$, the Merkle tree accumulator over $\calD = \bits^m$ is a collision-free [[accumulator|accumulator]]: $\pp = k$; $\Acc(\pp, \emptyset) = \bot$, on which $\Vrfy$ rejects, and for nonempty $X$, $\Acc(\pp, X) = (d, \rho)$, where $d = \lceil \log_2 |X| \rceil$ and $\rho$ is the root of the depth-$d$ binary tree whose $2^d$ leaves are the elements of $X$ in sorted order followed by copies of its largest element, each internal node being $\hash(k, u \| v)$ for its children $u, v$; the witness for $x$ is the first leaf position $p \in \bits^d$ holding $x$ and the sibling of every node on the path from it to the root; and $\Vrfy$ accepts iff the witness has exactly $d$ siblings and recomputing from $x$ along $p$ yields $\rho$ — folklore.
 
 ## Sketch
 
-A witness for $x \notin X$ that reproduces the root from a leaf position holding $y \in X$, $y \ne x$, gives two distinct inputs on which the recomputed path and the honest path agree at the root; the lowest level at which they agree with different inputs is a collision for $\hash$.
+An accepted witness for $x \notin X$ has exactly $d$ siblings, and its leaf position holds some $y \in X$ because padding repeats an element of $X$. The path recomputed from $x$ and the honest path from $y$ therefore have equal length, differ at the leaves ($x \ne y$) and agree at the root $\rho$. At the lowest level where they agree, the two hash inputs differ because the child values below them differ, which gives a collision for $\hash$.
 
 ## Notes
 

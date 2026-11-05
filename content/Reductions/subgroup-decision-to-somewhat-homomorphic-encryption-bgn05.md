@@ -21,12 +21,12 @@ rationale:
 
 ## Statement
 
-If the [[bilinear-map-assumptions#subgroup-decision|subgroup decision assumption]] holds for a composite-order bilinear group generator, the Boneh–Goh–Nissim scheme is an IND-CPA-secure [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme of degree $d = 2$: it evaluates any number of additions and one multiplication, and so every 2-DNF formula, on ciphertexts of fixed length, for messages in a range $\{0, \ldots, T\}$ with $T$ polynomial in $\secpar$ — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
+If the [[bilinear-map-assumptions#subgroup-decision|subgroup decision assumption]] holds for a composite-order bilinear group generator $\GrGen$, the Boneh–Goh–Nissim scheme is an IND-CPA-secure [[homomorphic-encryption#somewhat-homomorphic-encryption-she|somewhat homomorphic encryption]] scheme of degree $d = 2$: it evaluates additions and one multiplication, and so every 2-DNF formula, on ciphertexts of fixed length, for messages in a range $\{0, \ldots, B\}$ with $B$ polynomial in $\secpar$, provided the evaluated result also lies in a range of size polynomial in $\secpar$ — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 
-- $\KeyGen$: $(q_1, q_2, \GG, \GG_T, e, g) \gets \GrGen(1^\secpar)$, $N = q_1 q_2$, $u \getsr \GG$, $h = u^{q_2}$, of order $q_1$; $\pk = (N, \GG, \GG_T, e, g, h)$ and $\sk = q_1$.
+- $\KeyGen$: $(q_1, q_2, \GG, \GG_T, e, g) \gets \GrGen(1^\secpar)$, $N = q_1 q_2$, $u \getsr \GG$, $h = u^{q_2}$, uniform in the order-$q_1$ subgroup of $\GG$; $\pk = (N, \GG, \GG_T, e, g, h)$ and $\sk = q_1$.
 - $\Enc(\pk, m) = g^m h^r$ for $r \getsr \ZZ_N$.
-- $\Dec(\sk, c)$: $c^{q_1} = (g^{q_1})^m$, and $m \le T$ is found by a discrete logarithm to the base $g^{q_1}$ in time $O(\sqrt T)$.
-- Addition multiplies ciphertexts and rerandomizes by a power of $h$; multiplication maps $(c_1, c_2) \mapsto e(c_1, c_2) \cdot e(g, h)^r$ into $\GG_T$, where decryption and further additions work the same way with $e(g, g)$ and $e(g, h)$ in place of $g$ and $h$.
+- $\Dec(\sk, c)$: $c^{q_1} = (g^{q_1})^m$, and $m$ is found by a discrete logarithm to the base $g^{q_1}$, in time $O(\sqrt B)$ for $m \in \{0, \ldots, B\}$.
+- Addition multiplies ciphertexts and rerandomizes by a power of $h$; multiplication samples a fresh $r \getsr \ZZ_N$ and maps $(c_1, c_2) \mapsto e(c_1, c_2) \cdot e(g, h)^r$ into $\GG_T$, where decryption and further additions work the same way with $e(g, g)$ and $e(g, h)$ in place of $g$ and $h$.
 
 ## Sketch
 
