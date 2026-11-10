@@ -16,6 +16,7 @@ variants:
   transparent-succinct-argument: "#stark"
   interactive-succinct-argument: "#interactive-succinct-arguments"
   snarg-for-p: "#snargs-for-p"
+  sublinear-snarg-for-np: "#snargs-for-np-with-sublinear-proofs"
   barg-for-np: "#batch-arguments-for-np"
   universal-snark: "#universalupdatable-snarks"
   fully-succinct-snark: "#fully-succinct-snarks"
@@ -120,6 +121,10 @@ An interactive argument system for $\classNP$ whose prover–verifier communicat
 
 A publicly verifiable non-interactive argument in the CRS model for deterministic computations, with no knowledge extractor. For a polynomial $T = T(\secpar)$, a statement is a pair $(M, x)$ of a deterministic Turing machine and an input, true when $M$ accepts $x$ within $T$ steps. $\Setup(1^\secpar, T)$ outputs $\crs$; $\crs$ and proofs have size $\poly(\secpar, \log T)$, and $\Vrfy$ runs in time $(|M| + |x|) \cdot \poly(\secpar, \log T)$. Soundness is adaptive: for all efficient $\calA$, the probability that $\calA(\crs)$ outputs $(M, x, \pi)$ with $\Vrfy(\crs, (M, x), \pi) = 1$ although $M$ does not accept $x$ within $T$ steps is negligible. [[CJJ21 - SNARGs for P from LWE|CJJ21]] construct one from LWE with a common random string ([[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]]). The bound on verification time is what makes the notion non-trivial: a verifier allowed $T$ steps runs $M$ itself and needs no proof — standard.
 
+## SNARGs for NP with sublinear proofs
+
+For every $\classNP$ relation $\calR$, a publicly verifiable non-interactive argument $(\Setup, \Prove, \Vrfy)$ for $\calR$ in the CRS model, with no knowledge extractor, sound for statements chosen after seeing $\crs$ against all efficient provers, whose proofs have size $|\pi| \le \poly(\secpar) \cdot (|x| + |w|)^{\delta}$ for a constant $\delta < 1$ independent of $\calR$; verification time is not bounded. This is the succinctness [[KMY20 - NIZK from SNARG|KMY20]] require, with neither knowledge soundness nor efficient verification — [[KMY20 - NIZK from SNARG|KMY20]].
+
 ## Designated-verifier delegation for P
 
 For a polynomial $T = T(\secpar)$, a **designated-verifier delegation scheme for P** is an argument $(\Gen, \Prove, \Vrfy)$ for statements $(M, x)$, true when the deterministic machine $M$ accepts $x$ within $T$ steps. $\Gen(1^\secpar, T) \to (\pk, \sk)$ runs in time $\poly(\secpar, \log T)$, so $\pk$ is independent of the statement; $\Prove(\pk, M, x) \to \pi$ runs in time $\poly(\secpar, T)$; $\Vrfy(\sk, M, x, \pi) \to \bits$ runs in time $(|M| + |x|) \cdot \poly(\secpar, \log T)$; $\pk$ and $\pi$ have size $\poly(\secpar, \log T)$. Soundness is non-adaptive: for every false statement fixed before $\pk$ is sampled, every efficient prover given $\pk$ makes $\Vrfy$ accept with negligible probability. The bound on verification time is what makes the notion non-trivial — standard. From PIR with polylogarithmic communication, a scheme exists whose public key is reusable and whose soundness is adaptive ([[polylog-cpir-to-dv-delegation-for-p-bhk17|PIR with polylogarithmic communication ⇒ Designated-verifier delegation for P]]) — [[BHK17 - Non-interactive delegation and batch NP verification from standard computational assumptions|BHK17]]; from sub-exponentially secure PIR, 1-round delegation exists for every language computable in time $t$, with prover time $\poly(t)$ and verifier time $n \cdot \polylog(t)$ — [[KRR14 - How to delegate computations the power of no-signaling proofs|KRR14]].
@@ -140,14 +145,15 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces tightly to the $q$-DLOG assumption ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in e629daccbacf -->
+<!-- BEGIN GENERATED participates-in 6e1ee24c84b9 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
+- [[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]] (via [[succinct-argument#fully-succinct-snarks|Fully succinct SNARKs]])
 - [[snark-and-crhf-to-fully-succinct-snark-bcct13|SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)]]
-- [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]]
+- [[snark-to-nizk|Sublinear SNARG + OWF ⇒ NIZK argument]] (via [[succinct-argument#snargs-for-np-with-sublinear-proofs|SNARGs for NP with sublinear proofs]])
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 - [[universal-snark-to-snark|Universal SNARK ⇒ SNARK]] (via [[succinct-argument#universalupdatable-snarks|Universal/updatable SNARKs]])
 
@@ -158,6 +164,7 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]] (via [[succinct-argument#zk-snark|zk-SNARK]])
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
 - [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
+- [[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]] (via [[succinct-argument#snargs-for-np-with-sublinear-proofs|SNARGs for NP with sublinear proofs]])
 - [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[linear-only-encryption-to-designated-verifier-snarg-bciop13|Linear-only encryption ⇒ Designated-verifier SNARG]] (via [[succinct-argument#designated-verifier-snargs|Designated-verifier SNARGs]])
 - [[linear-only-vector-encryption-to-designated-verifier-snarg-bisw17|Linear-only vector encryption ⇒ Designated-verifier SNARG (lattice-based)]] (via [[succinct-argument#designated-verifier-snargs|Designated-verifier SNARGs]])

@@ -9,6 +9,7 @@ title: Subset sum
 id: subset-sum
 variants:
   decision-subset-sum: "#decision-subset-sum"
+  lps10-subset-sum: "#subset-sum-at-the-lps10-parameters"
 ---
 
 # Subset sum
@@ -82,7 +83,13 @@ For $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ and a constant $c > 0$, hardness o
 ### Constructions
 
 - One-wayness at $\ell(n) = (1+c)n$ makes $f$ itself a PRG ([[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]), and one-wayness at $\ell(n) < n$ makes $\mathbf{s} \mapsto \langle \mathbf{a}, \mathbf{s} \rangle$, keyed by $\mathbf{a}$, a [[hash-function#target-collision-resistance-universal-one-wayness|UOWHF]] ([[subset-sum-to-uowhf-in96|Subset sum ⇒ UOWHF]]) — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. Each evaluation of $f$ yields or hashes many bits at once — [[IN96 - Efficient Cryptographic Schemes Provably as Secure as Subset Sum|IN96]]. A PRG gives [[commitment-scheme|bit commitment]] ([[prg-to-com-naor91|PRG ⇒ COM]]) — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
-- At the low density of the parameters in [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]], subset sum gives IND-CPA [[public-key-encryption|PKE]] ([[subset-sum-to-pke-lps10|Subset sum ⇒ PKE]]) and semi-honest [[oblivious-transfer|OT]] ([[subset-sum-to-ot-lps10|Subset sum ⇒ OT]]) — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]].
+- At the [[subset-sum#subset-sum-at-the-lps10-parameters|low density of the parameters in LPS10]], subset sum gives IND-CPA [[public-key-encryption|PKE]] ([[subset-sum-to-pke-lps10|Subset sum at the LPS10 parameters ⇒ PKE]]) and semi-honest [[oblivious-transfer|OT]] ([[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]]) — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]].
+
+# Variations
+
+## Subset sum at the LPS10 parameters
+
+**Subset sum is hard at the LPS10 parameters** if subset sum is hard for $(n, M)$ with $M = M(n)$ the modulus of the [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]] constructions. The parameters of the LPS10 encryption scheme satisfy $M^{1/n} > 10 n \log^2 n$, a density $n / \log_2 M = O(1/\log n)$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 
 # Attacks
 
@@ -92,15 +99,15 @@ For $M = 2^{\ell(n)}$ with $\ell(n) = (1+c)n$ and a constant $c > 0$, hardness o
 - **Subexponential algorithms at vanishing density.** A BKW-style algorithm solves random instances of density $o(1)$ in subexponential time; the parameters of the [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]] encryption scheme, with $M^{1/n} > 10 n \log^2 n$, fall in time $2^{(\ln 2/2 + o(1))\, n / \log\log n}$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 - **Merkle–Hellman.** The Merkle–Hellman knapsack cryptosystem publishes a superincreasing sequence disguised by a modular multiplication — [[MH78 - Hiding Information and Signatures in Trapdoor Knapsacks|MH78]]. Shamir's polynomial-time algorithm breaks the basic, singly iterated scheme — [[Sha82 - A Polynomial Time Algorithm for Breaking the Basic Merkle-Hellman Cryptosystem|Sha82]]. The attack exploits the trapdoor structure of the public weights and does not apply to random instances — standard.
 
-<!-- BEGIN GENERATED participates-in 8235633ae987 -->
+<!-- BEGIN GENERATED participates-in 028400403b1a -->
 
 ## Participates in
 
 **Builds on Subset sum**
 
 - [[subset-sum-to-decision-subset-sum-in96|Subset sum ⇒ Decision subset sum]]
-- [[subset-sum-to-ot-lps10|Subset sum ⇒ OT]]
-- [[subset-sum-to-pke-lps10|Subset sum ⇒ PKE]]
+- [[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]] (via [[subset-sum#subset-sum-at-the-lps10-parameters|Subset sum at the LPS10 parameters]])
+- [[subset-sum-to-pke-lps10|Subset sum at the LPS10 parameters ⇒ PKE]] (via [[subset-sum#subset-sum-at-the-lps10-parameters|Subset sum at the LPS10 parameters]])
 - [[subset-sum-to-prg-in96|Subset sum ⇒ PRG]]
 - [[subset-sum-to-uowhf-in96|Subset sum ⇒ UOWHF]]
 

@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Subset sum ⇒ PKE"
+title: "Subset sum at the LPS10 parameters ⇒ PKE"
 aliases: []
 id: red-subset-sum-to-pke-lps10
 kind: implication
-hypotheses: [subset-sum]
+hypotheses: [lps10-subset-sum]
 conclusion: pke
 class: unstated
 model: standard
@@ -14,11 +14,11 @@ source:
 security-loss: ""
 ---
 
-# Subset sum ⇒ PKE
+# Subset sum at the LPS10 parameters ⇒ PKE
 
 ## Statement
 
-If [[subset-sum|subset sum]] is hard for $(n, M)$ at the parameters of LPS10, there is an IND-CPA-secure [[public-key-encryption|PKE]] whose security is polynomial-time equivalent to that hardness — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]. Those parameters satisfy $M^{1/n} > 10 n \log^2 n$, a density $n / \log_2 M = O(1/\log n)$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
+If [[subset-sum#subset-sum-at-the-lps10-parameters|subset sum is hard at the LPS10 parameters]], there is an IND-CPA-secure [[public-key-encryption|PKE]] whose security is polynomial-time equivalent to that hardness — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]. Those parameters satisfy $M^{1/n} > 10 n \log^2 n$, a density $n / \log_2 M = O(1/\log n)$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 
 ## Notes
 
