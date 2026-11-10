@@ -10,7 +10,7 @@ id: tdh
 
 # Trapdoor hash functions
 
-A trapdoor hash function compresses $x \in \bits^n$ to a hash value of length independent of $n$, and for an index $i \in [n]$ samples an encoding key that hides $i$ together with a trapdoor: from the hash of $x$, a short hint computed from the encoding key and $x$, and the trapdoor, the bit $x_i$ is recovered — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+A trapdoor hash function compresses $x \in \bits^n$ to a randomized hash value that has length independent of $n$ and hides $x$, and for an index $i \in [n]$ samples an encoding key that hides $i$ together with a trapdoor: from the hash of $x$, a short hint computed from the encoding key and $x$, and the trapdoor, the bit $x_i$ is recovered — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 ## Syntax
 
@@ -26,9 +26,42 @@ The hash length $\eta$ is $\poly(\secpar)$, independent of $n$. The hint length 
 
 ## Properties
 
+A trapdoor hash function is required to be $(1 - \tau)$-correct for its error $\tau$, input-private (computationally or statistically) and index-hiding — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+
 ### Correctness
 
-Recovery of $x_i$ succeeds when $e = e_{x_i} \ne e_{1 - x_i}$: the receiver compares $e$ with $e_0$ and $e_1$. A trapdoor hash function is $(1 - \tau)$-**correct** if for all $\secpar, n \in \NN$, $x \in \bits^n$ and $i \in [n]$, recovery succeeds with probability at least $1 - \tau$ over $\mathsf{hk} \gets \Setup(1^\secpar, 1^n)$, $(\mathsf{ek}, \td) \gets \KeyGen(\mathsf{hk}, i)$ and the coins $\rho$, where $h = \hash(\mathsf{hk}, x; \rho)$, $e = \mathsf{E}(\mathsf{ek}, x; \rho)$ and $(e_0, e_1) = \Decode(\td, h)$. The error $\tau$ is a parameter of the construction, and an application must tolerate the error its instantiation has; in the constructions of DGI+19, $\tau$ is negligible or only inverse-polynomial — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+A trapdoor hash function is $(1 - \tau)$-**correct**, for a function $\tau = \tau(\secpar)$, if there is a negligible function $\negl$ such that for all $\secpar, n \in \NN$, $x \in \bits^n$ and $i \in [n]$,
+
+$$
+\Pr\!\left[e = e_{x_i}\right] \ge 1 - \negl(\secpar) \qquad \text{and} \qquad \Pr\!\left[e \ne e_{1 - x_i}\right] \ge 1 - \tau - \negl(\secpar),
+$$
+
+over $\mathsf{hk} \gets \Setup(1^\secpar, 1^n)$, $(\mathsf{ek}, \td) \gets \KeyGen(\mathsf{hk}, i)$ and the coins $\rho$, where $h = \hash(\mathsf{hk}, x; \rho)$, $e = \mathsf{E}(\mathsf{ek}, x; \rho)$ and $(e_0, e_1) = \Decode(\td, h)$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+
+The receiver outputs the $b$ with $e = e_b$ when $e_0 \ne e_1$ and fails otherwise. By the first inequality its output is wrong only with negligible probability; by the second it fails with probability at most $\tau + \negl(\secpar)$. The error $\tau$ is a parameter of the construction, and an application must tolerate the error its instantiation has; in the constructions of DGI+19, $\tau$ is negligible or only inverse-polynomial — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+
+### Input privacy
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{ip}}_{\mathsf{TDH},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(x_0, x_1, \st) \gets \calA(1^\secpar)$; $b \getsr \bits$ \Comment{$x_0, x_1 \in \bits^n$}
+\State $\mathsf{hk} \gets \Setup(1^\secpar, 1^n)$; $h \gets \hash(\mathsf{hk}, x_b; \rho)$ \Comment{fresh coins $\rho$}
+\State $b' \gets \calA(\st, \mathsf{hk}, h)$
+\Return $[b' = b]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A trapdoor hash function $\mathsf{TDH}$ is **input-private** if for all efficient $\calA$ outputting $x_0, x_1$ of equal length,
+
+$$
+\Adv^{\mathrm{ip}}_{\mathsf{TDH},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ip}}_{\mathsf{TDH},\calA}(\secpar) = 1\right] - 1\right|
+$$
+
+is negligible, and **statistically input-private** if this holds for all $\calA$, efficient or not, whose inputs $x_0, x_1$ have equal length polynomial in $\secpar$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 ### Index hiding
 
@@ -57,7 +90,7 @@ is negligible — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+
 
 ## Rate-1 trapdoor hash functions
 
-With one-bit hints, a receiver that sends $m$ encoding keys for indices of one input $x$ recovers $m$ bits of $x$, each except with probability at most $\tau$, from a single hash value and $m$ hint bits, $\eta + m$ bits in all, so the rate tends to 1 as $m$ grows; this underlies the rate-1 protocols of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+With one-bit hints, a receiver that sends $m$ encoding keys for indices of one input $x$ recovers $m$ bits of $x$, each except with probability at most $\tau + \negl(\secpar)$, from a single hash value and $m$ hint bits, $\eta + m$ bits in all, so the rate tends to 1 as $m$ grows; this underlies the rate-1 protocols of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 # Other results
 

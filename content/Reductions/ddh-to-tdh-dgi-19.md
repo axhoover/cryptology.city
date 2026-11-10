@@ -18,11 +18,11 @@ security-loss: ""
 
 ## Statement
 
-[[decisional-diffie-hellman|DDH]] implies [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: for every index $i$, an encoding key hides $i$, and its trapdoor recovers $x_i$ from the hash $H(x)$ and the hint — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
+[[decisional-diffie-hellman|DDH]] implies [[trapdoor-hash-function|trapdoor hash functions]] for the index predicates $f_i(x) = x_i$ with one-bit hints: the hash of $x$ hides $x$, an encoding key for $i$ hides $i$, and its trapdoor recovers $x_i$ from the hash and the hint, is wrong only with negligible probability, and otherwise fails detectably with probability at most $\tau + \negl(\secpar)$ for the construction's [[trapdoor-hash-function#correctness|error]] $\tau$ — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
 ## Sketch
 
-The hash key is a matrix $(g_{j,b})_{j \in [n], b \in \bits}$ of group elements and $H(x) = \prod_j g_{j,x_j}$; the encoding key for index $i$ raises every entry to a secret exponent $s$ and multiplies the $(i,1)$ entry by $g$, so evaluating it on $x$ gives $H(x)^s \cdot g^{x_i}$. The trapdoor $s$ recovers $x_i$ from $H(x)$ and this value, a distributed discrete-logarithm step compresses the hint to one bit, and under DDH the encoding key is pseudorandom given the hash key, which hides $i$.
+The hash key is a matrix $(g_{j,b})_{j \in [n], b \in \bits}$ of group elements and, leaving out the randomization by the coins $\rho$ that makes the hash hide $x$, $H(x) = \prod_j g_{j,x_j}$; the encoding key for index $i$ raises every entry to a secret exponent $s$ and multiplies the $(i,1)$ entry by $g$, so evaluating it on $x$ gives $H(x)^s \cdot g^{x_i}$. The trapdoor $s$ recovers $x_i$ from $H(x)$ and this value, a distributed discrete-logarithm step compresses the hint to one bit, and under DDH the encoding key is pseudorandom given the hash key, which hides $i$.
 
 ## Notes
 
