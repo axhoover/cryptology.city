@@ -17,4 +17,4 @@ cryptobib_key: C:BGGHKM88
 
 ## Abstract
 
-Assuming the existence of a secure probabilistic encryption scheme, we show that every language that admits an interactive proof admits a (computational) zero-knowledge interactive proof. This result extends the result of Goldreich, Micali and Wigderson, that, under the same assumption, all of \textit{NP} admits zero-knowledge interactive proofs. Assuming envelopes for bit commitment, we show that every language that admits an interactive proof admits a perfect zero-knowledge interactive proof.
+Assuming the existence of a secure probabilistic encryption scheme, we show that every language that admits an interactive proof admits a (computational) zero-knowledge interactive proof. This result extends the result of Goldreich, Micali and Wigderson, that, under the same assumption, all of _NP_ admits zero-knowledge interactive proofs. Assuming envelopes for bit commitment, we show that every language that admits an interactive proof admits a perfect zero-knowledge interactive proof.

@@ -25,5 +25,5 @@ keyed round functions
 is indifferentiable from an ideal cipher, thus demonstrating the feasibility
 of such a construction.
 Left unresolved is the best possible efficiency of the transformation.
-We improve upon the result of Coron et al.\ and show that
+We improve upon the result of Coron et al. and show that
 10 rounds suffice.
