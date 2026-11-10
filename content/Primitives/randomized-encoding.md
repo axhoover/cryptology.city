@@ -22,7 +22,7 @@ A randomized encoding of $f : \bits^n \to \bits^\ell$ is a function $\hat f : \b
 - a deterministic decoder $\Decode : \bits^{s} \to \bits^\ell$,
 - a randomized simulator $\Sim$ that takes $f(x)$ and outputs a string in $\bits^{s}$.
 
-For a family of functions $f = \{f_\secpar\}$, the encodings, decoders and simulators form families computable in time polynomial in $\secpar$. The complexity of an encoding is that of $\hat f$: its degree, its locality (the number of input bits, of $x$ and $r$ together, on which each output bit depends) or its depth — [[AIK06 - Cryptography in NC0|AIK06]]; for succinct encodings, its running time — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]].
+For a family of functions $f = \{f_\secpar\}$, the encodings, decoders and simulators form families computable in time polynomial in $\secpar$. The complexity of an encoding is that of $\hat f$: its degree, its locality (the number of input bits, of $x$ and $r$ together, on which each output bit depends) or its depth — [[AIK06 - Cryptography in NC0|AIK06]]; for succinct encodings, its running time as a function of the time, space and output length of the encoded computation — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]].
 
 ## Properties
 
@@ -68,7 +68,7 @@ A perfect randomized encoding is perfectly correct and perfectly private, and in
 
 ## Succinct randomized encodings
 
-A succinct randomized encoding of a computation given by a Turing machine or RAM program $M$, input $x$ and time bound $T$ can be computed in time polynomial in $\secpar$, $|M|$, $|x|$ and $\log T$, much less than the running time of $M$. Succinct randomized encodings whose encoding time is in addition polynomial in the space bound $S$ of the computation follow from [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]], [[CHJV15 - Succinct Garbling and Indistinguishability Obfuscation for RAM Programs|CHJV15]]. With a non-parallelizing language they give [[time-lock-puzzle|time-lock puzzles]] — [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]].
+A succinct randomized encoding, for a space bound $S$ and an output length $m$ fixed in advance, is a randomized encoding of the output of a program $M$ on an input $x$, given a time bound $T$ such that $M$ halts on $x$ within $T$ steps using space at most $S$ and outputs $m$ bits; it is computable in time $\poly(\secpar, |M|, |x|, S, m, \log T)$, and its privacy hides $M$ as well as $x$ — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]]. Such encodings exist assuming [[indistinguishability-obfuscation|iO]] and [[hash-function#preimage-resistance-one-wayness|one-way functions]] — [[BGLPT15 - Succinct Randomized Encodings and their Applications|BGLPT15]]. Succinct garbling of RAM programs, with garbled programs of size proportional to the space bound up to polylogarithmic factors and a factor in $\secpar$, follows from iO and [[injective-one-way-function|injective one-way functions]] — [[CHJV15 - Succinct Garbling and Indistinguishability Obfuscation for RAM Programs|CHJV15]]. With a non-parallelizing language, succinct randomized encodings give [[time-lock-puzzle|time-lock puzzles]] — [[BGJ+16 - Time-Lock Puzzles from Randomized Encodings|BGJ+16]].
 
 # Other results
 

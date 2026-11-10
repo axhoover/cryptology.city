@@ -39,18 +39,20 @@ over the randomness of $\KeyGen$ and the measurements of $\Enc$ and $\Dec$. $\ma
 
 ### Unclonable security
 
-A cloning adversary is a triple $(\calA, \calB, \calC)$: $\calA$ maps the ciphertext to a joint state on two registers $R_B, R_C$; then $\calB$ receives $R_B$ and $\calC$ receives $R_C$, each together with the key, and they do not communicate, since otherwise $\calA$ could pass $\rho$ to $\calB$, who decrypts it and sends $m$ to $\calC$.
+A cloning adversary is a triple $(\calA, \calB, \calC)$: $\calA$ maps the ciphertext to a joint state on two registers $R_B, R_C$; then $\calB$ receives $R_B$ and $\calC$ receives $R_C$, each together with the key, and they do not communicate, since otherwise $\calA$ could pass $\rho$ to $\calB$, who decrypts it and sends $m$ to $\calC$. In the [[random-oracle-model#quantum-random-oracle-model|QROM]] the games first sample a uniformly random function $H : \calD \to \calR$, of domain and range fixed by the scheme; $\KeyGen$, $\Enc$ and $\Dec$ query $H$, and every stage of the adversary queries it in superposition. In the plain model there is no $H$.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
 \caption{$\Game^{\mathrm{uncl}}_{\mathsf{UE},(\calA,\calB,\calC)}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \KeyGen(1^\secpar)$; $m \getsr \calM$
-\State $\rho \gets \Enc(k, m)$
-\State $(R_B, R_C) \gets \calA(\rho)$
+\State $H \getsr \Funcs(\calD, \calR)$
+\Comment{QROM only}
+\State $k \gets \KeyGen^H(1^\secpar)$; $m \getsr \calM$
+\State $\rho \gets \Enc^H(k, m)$
+\State $(R_B, R_C) \gets \calA^H(\rho)$
 \Comment{a joint, possibly entangled, state on two registers}
-\State $m_B \gets \calB(k, R_B)$; $m_C \gets \calC(k, R_C)$
+\State $m_B \gets \calB^H(k, R_B)$; $m_C \gets \calC^H(k, R_C)$
 \Comment{$\calB$ and $\calC$ do not communicate}
 \Return $[m_B = m_C = m]$
 \end{algorithmic}
@@ -67,30 +69,34 @@ $$
 
 ### Unclonable indistinguishability
 
-The messages $m_0, m_1 \in \calM$ are fixed in advance.
+$\calA$ chooses the two messages, then receives an encryption of one of them and splits it, keeping its state between the two stages.
 
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{uncl\text{-}ind}}_{\mathsf{UE},(\calA,\calB,\calC),m_0,m_1}(\secpar)$}
+\caption{$\Game^{\mathrm{uncl\text{-}ind}}_{\mathsf{UE},(\calA,\calB,\calC)}(\secpar)$}
 \begin{algorithmic}
-\State $k \gets \KeyGen(1^\secpar)$; $b \getsr \bits$
-\State $\rho \gets \Enc(k, m_b)$
-\State $(R_B, R_C) \gets \calA(\rho)$
-\State $b_B \gets \calB(k, R_B)$; $b_C \gets \calC(k, R_C)$
+\State $H \getsr \Funcs(\calD, \calR)$
+\Comment{QROM only}
+\State $(m_0, m_1, \stA) \gets \calA^H(1^\secpar)$
+\Comment{$m_0, m_1 \in \calM$}
+\State $k \gets \KeyGen^H(1^\secpar)$; $b \getsr \bits$
+\State $\rho \gets \Enc^H(k, m_b)$
+\State $(R_B, R_C) \gets \calA^H(\stA, \rho)$
+\State $b_B \gets \calB^H(k, R_B)$; $b_C \gets \calC^H(k, R_C)$
 \Comment{$\calB$ and $\calC$ do not communicate}
 \Return $[b_B = b_C = b]$
 \end{algorithmic}
 \end{algorithm}
 ```
 
-$\mathsf{UE}$ is **unclonable-indistinguishable** if for all efficient cloning adversaries $(\calA, \calB, \calC)$ and all $m_0, m_1 \in \calM$,
+$\mathsf{UE}$ is **unclonable-indistinguishable** if for all cloning adversaries $(\calA, \calB, \calC)$ in the class considered (efficient, query-bounded in an oracle model, or unbounded),
 
 $$
-\Pr\!\left[\Game^{\mathrm{uncl\text{-}ind}}_{\mathsf{UE},(\calA,\calB,\calC),m_0,m_1}(\secpar) = 1\right] \le \frac{1}{2} + \negl(\secpar)
+\Pr\!\left[\Game^{\mathrm{uncl\text{-}ind}}_{\mathsf{UE},(\calA,\calB,\calC)}(\secpar) = 1\right] \le \frac{1}{2} + \negl(\secpar)
 $$
 
-— [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]], [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]]. The threshold is $1/2$ because $\calB$ and $\calC$ win with probability $1/2$ by outputting a common random bit that $\calA$ places in both registers; the bound is one-sided because they lose outright by disagreeing. For one-bit messages and $(m_0, m_1) = (0, 1)$ the two games coincide, so unclonable indistinguishability asks for $\delta = 1/2 + \negl(\secpar)$ in the unclonable-security game — folklore.
+— [[AKL+22 - On the Feasibility of Unclonable Encryption, and More|AKL+22]] (Definition 2.10); in the original definition of [[BL20 - Uncloneable Quantum Encryption via Oracles|BL20]] (Definition 11), $m_0 = 0^n$ is fixed and $\calA$ chooses only $m_1$. The threshold is $1/2$ because $\calB$ and $\calC$ win with probability $1/2$ by outputting a common random bit that $\calA$ places in both registers; the bound is one-sided because they lose outright by disagreeing. For one-bit messages, the adversary whose first stage outputs $(m_0, m_1) = (0, 1)$ plays the unclonable-security game, so unclonable indistinguishability implies $\delta$-unclonability for $\delta = 1/2 + \negl(\secpar)$ — folklore.
 
 # Other results
 
