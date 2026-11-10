@@ -28,5 +28,4 @@ FRI folds the committed codeword round by round: writing $f_i(x) = g_i(x^2) + x\
 
 ## Notes
 
-- The interactive protocol, before the BCS16 compilation, reduces to [[hash-function#collision-resistance|collision resistance]] of the Merkle hash in the standard model — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 - The polynomial-commitment abstraction of FRI, as a _list_ polynomial commitment, is made explicit and used to build transparent SNARKs — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].
