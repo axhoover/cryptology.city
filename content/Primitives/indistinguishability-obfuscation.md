@@ -71,7 +71,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[fe-to-io|Compact FE ⇒ iO]]
 - VBB obfuscation is impossible for general circuits — [[BGI+01 - On the (Im)possibility of Obfuscating Programs|BGI+01]]; efficient iO is best-possible obfuscation: it leaks no more than any other circuit of comparable size computing the same function — [[GR07 - On Best-Possible Obfuscation|GR07]]
 
-<!-- BEGIN GENERATED participates-in c6952aa68275 -->
+<!-- BEGIN GENERATED participates-in e0f5fc648e29 -->
 
 ## Participates in
 
@@ -92,7 +92,7 @@ A differing-inputs obfuscator requires that for every efficient sampler of $(C_0
 - [[io-to-witness-encryption|iO ⇒ Witness encryption]]
 - [[owf-and-io-to-fe-wat15|OWF + iO ⇒ FE]]
 - [[statistical-io-to-io|Statistical iO ⇒ iO]] (via [[indistinguishability-obfuscation#statistical-io|Statistical iO]])
-- [[subclasses-to-hash-function|Sub-exponential OWF + iO ⇒ PPAD hardness]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
+- [[subclasses-to-hash-function|Sub-exponential injective OWF + iO ⇒ PPAD hardness]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-owf-to-tdp-bpw16|Sub-exponential iO + Sub-exponential OWF ⇒ TDP (Bitansky–Paneth–Wichs)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-and-rerandomizable-encryption-to-he-cltv15|Sub-exponential iO + Rerandomizable encryption ⇒ Compact FHE (CLTV)]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
 - [[subexponential-io-to-io|Sub-exponentially secure iO ⇒ iO]] (via [[indistinguishability-obfuscation#sub-exponentially-secure-io|Sub-exponentially secure iO]])
