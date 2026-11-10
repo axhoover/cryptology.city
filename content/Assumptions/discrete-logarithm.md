@@ -174,7 +174,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
     Succinct means that the tuple $(\GG,g,p)$ is at most
     $\poly(\secpar)$-bits, but $|\GG| = p$ may be super-polynomial in $\secpar.$
 
-<!-- BEGIN GENERATED participates-in 785e51cd7c95 -->
+<!-- BEGIN GENERATED participates-in 693aa4182deb -->
 
 ## Participates in
 
@@ -197,7 +197,7 @@ Below, $\FF_Q$ is a finite field with $Q$ elements, $P$ is a prime, and $L_Q[\al
 - [[dlog-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr identification protocol]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[dlog-to-szk-gk93|DLOG ∈ SZK]]
 - [[dlog-to-tfnp|DLOG ⊆ TFNP]]
-- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]
+- [[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]] (via [[discrete-logarithm#dlog-in-prime-order-groups|DLOG in prime-order groups]])
 - [[omdl-and-ros-to-blind-schnorr-signature-fps20|OMDL + ROS ⇒ Blind Schnorr signatures]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
 - [[omdl-to-musig2-nrs21|OMDL ⇒ MuSig2]] (via [[discrete-logarithm#one-more-discrete-logarithm|One-more Discrete Logarithm]])
