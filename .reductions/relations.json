@@ -829,6 +829,19 @@
    "unlisted": false
   },
   {
+   "id": "bit-compressing-sis",
+   "kind": "variant",
+   "type": "assumption",
+   "page": "content/Assumptions/shortest-integer-solution.md",
+   "slug": "shortest-integer-solution",
+   "graphSlug": "Assumptions/shortest-integer-solution",
+   "anchor": "#bit-compressing-sis",
+   "of": "sis",
+   "title": "Bit-compressing SIS",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "black-box-separation",
    "kind": "object",
    "type": "glossary",
@@ -9680,6 +9693,33 @@
    "slug": "permuted-puzzles-to-depir-bipw17",
    "graphSlug": "Reductions/permuted-puzzles-to-depir-bipw17",
    "title": "Permuted puzzles ⇒ OLDC"
+  },
+  {
+   "id": "red-bit-compressing-sis-to-sis",
+   "kind": "implication",
+   "hypotheses": [
+    "bit-compressing-sis"
+   ],
+   "conclusion": "sis",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on parameters, and the reduction forwards any SIS solver unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/bit-compressing-sis-to-sis.md",
+   "slug": "bit-compressing-sis-to-sis",
+   "graphSlug": "Reductions/bit-compressing-sis-to-sis",
+   "title": "Bit-compressing SIS ⇒ SIS"
   },
   {
    "id": "red-boneh-lynn-shacham-signature-to-ds",
@@ -24626,7 +24666,7 @@
    "id": "red-sis-to-hash-function-ajt96",
    "kind": "implication",
    "hypotheses": [
-    "sis"
+    "bit-compressing-sis"
    ],
    "conclusion": "crhf",
    "class": "fully-black-box",
@@ -24653,7 +24693,7 @@
    "id": "red-sis-to-pwpp-szz18",
    "kind": "inclusion",
    "hypotheses": [
-    "sis"
+    "bit-compressing-sis"
    ],
    "conclusion": "pwpp",
    "class": "free",

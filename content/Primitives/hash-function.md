@@ -142,10 +142,16 @@ $$
 $$
 
 is negligible. Compression is part of the definition because without it the
-notion is trivial: the identity has no collisions. The amount of compression is
-immaterial: Merkle–Damgård iteration turns a family compressing by one bit into
-a collision-resistant family from $\bits^{p(\secpar)}$ to $\bits^{m(\secpar)}$
-for every polynomial $p$ — [[Dam89 - A Design Principle for Hash Functions|Dam89]].
+notion is trivial: the identity has no collisions. A family on other finite
+sets, such as $\ZZ_q^k$, is read through binary encodings: its inputs are
+$2^{n(\secpar)}$ elements of its domain, efficiently indexed by
+$\bits^{n(\secpar)}$, and its outputs are written as integers below $|\calR|$.
+These fit in $n(\secpar) - 1$ bits exactly when $|\calR| \le 2^{n(\secpar) - 1}$,
+which is then the compression condition; $|\calR| < 2^{n(\secpar)}$ does not
+suffice. The amount of
+compression is immaterial: Merkle–Damgård iteration turns a family compressing
+by one bit into a collision-resistant family from $\bits^{p(\secpar)}$ to
+$\bits^{m(\secpar)}$ for every polynomial $p$ — [[Dam89 - A Design Principle for Hash Functions|Dam89]].
 
 ### Target collision resistance (universal one-wayness)
 
