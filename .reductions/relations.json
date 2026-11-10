@@ -4669,6 +4669,19 @@
    "unlisted": false
   },
   {
+   "id": "one-time-quantum-public-key-signature",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/digital-signature.md",
+   "slug": "digital-signature",
+   "graphSlug": "Primitives/digital-signature",
+   "anchor": "#one-time-signatures-with-quantum-public-keys",
+   "of": "ds",
+   "title": "One-time signatures with quantum public keys",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "one-time-signature",
    "kind": "variant",
    "type": "primitive",
@@ -18498,6 +18511,33 @@
    "title": "One-round sublinear cPIR ⇒ cPIR with total communication below n"
   },
   {
+   "id": "red-one-way-state-generator-to-one-time-quantum-public-key-signature-my22",
+   "kind": "equivalence",
+   "hypotheses": [
+    "one-way-state-generator"
+   ],
+   "conclusion": "one-time-quantum-public-key-signature",
+   "class": "unstated",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "[[MY22 - One-Wayness in Quantum Cryptography|MY22]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor 2 from one-way state generators to signatures; none in the other direction",
+   "rationale": {
+    "model": "The public keys are quantum states and the adversaries are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/owsg-to-quantum-public-key-signature-my22.md",
+   "slug": "owsg-to-quantum-public-key-signature-my22",
+   "graphSlug": "Reductions/owsg-to-quantum-public-key-signature-my22",
+   "title": "OWSG ⇔ one-time signatures with quantum public keys"
+  },
+  {
    "id": "red-oprf-to-ot",
    "kind": "implication",
    "hypotheses": [
@@ -22513,7 +22553,7 @@
    "hypotheses": [
     "pure-state-quantum-money"
    ],
-   "conclusion": "one-way-state-generator",
+   "conclusion": "pure-one-way-state-generator",
    "class": "unstated",
    "model": "quantum",
    "models": [

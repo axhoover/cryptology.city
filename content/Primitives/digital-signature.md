@@ -20,6 +20,7 @@ variants:
   aggregate-signature: "#aggregate-signatures"
   structure-preserving-signature: "#structure-preserving-signatures"
   short-structure-preserving-signature: "#optimally-short-structure-preserving-signatures"
+  one-time-quantum-public-key-signature: "#one-time-signatures-with-quantum-public-keys"
 ---
 
 # Digital signature
@@ -270,6 +271,45 @@ Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integ
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
+## One-time signatures with quantum public keys
+
+A signature scheme with quantum public keys is a tuple of quantum polynomial-time algorithms $\DS = (\KeyGen, \mathsf{PKGen}, \Sign, \Vrfy)$:
+
+- $\KeyGen(1^\secpar) \to \sk$, outputting a classical secret key;
+- $\mathsf{PKGen}(\sk) \to \pk$, outputting a quantum public key, so that $t$ independent runs give $\pk^{\otimes t}$;
+- $\Sign(\sk, m) \to \sigma$, outputting a classical signature;
+- $\Vrfy(\pk, m, \sigma) \to \top/\bot$.
+
+Correctness requires $\Pr[\Vrfy(\pk, m, \sigma) = \top : \sk \gets \KeyGen(1^\secpar),\ \pk \gets \mathsf{PKGen}(\sk),\ \sigma \gets \Sign(\sk, m)] \ge 1 - \negl(\secpar)$ for every message $m$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar)$}
+\begin{algorithmic}
+\State $\sk \gets \KeyGen(1^\secpar)$
+\State run $\mathsf{PKGen}(\sk)$ $t+1$ times, obtaining $\pk^{\otimes (t+1)}$
+\State $(m, \stA) \gets \calA(1^\secpar, \pk^{\otimes t})$
+\Comment{$\calA$ receives $t$ of the copies}
+\State $\sigma \gets \Sign(\sk, m)$
+\State $(m', \sigma') \gets \calA(\stA, \sigma)$
+\State $d \gets \Vrfy(\pk, m', \sigma')$
+\Comment{run on the remaining copy}
+\Return $[d = \top \wedge m' \ne m]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$\DS$ is **one-time secure** if for all efficient quantum $\calA$ and all polynomials $t$,
+
+$$
+\Adv^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) := \Pr\!\left[\Game^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) = 1\right]
+$$
+
+is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], $\KeyGen$ is classical, $\Sign$ is classical and deterministic, and correctness is perfect. One-time-secure schemes yield $q$-time-secure ones, which allow $q$ signing queries and a forgery on a fresh message, for every polynomial $q$ — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]
+
 # Other results
 
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
@@ -279,7 +319,7 @@ Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integ
 - For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].
 - For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by simple reductions from any non-interactive assumption in a very general class, unless that assumption is false — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in c01ab5fee048 -->
+<!-- BEGIN GENERATED participates-in 478dc48d3981 -->
 
 ## Participates in
 
@@ -321,6 +361,7 @@ Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integ
 - [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]] (via [[digital-signature#one-time-signatures-with-quantum-public-keys|One-time signatures with quantum public keys]])
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
