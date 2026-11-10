@@ -92,8 +92,7 @@ For a prime $p$, LPN over $\FF_p$, in the field generalization above, with secre
 
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]]
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]]
-- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]]
-- [[tdh-to-cpir-amr25|TDH ⇒ cPIR]]
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]]
 - [[lpn-to-secret-key-pir-sk-pir-cimr25|High-noise LPN ⇒ Secret-Key PIR (SK-PIR)]]
 - [[subexponential-lpn-to-pke-yz16|Subexponential LPN ⇒ IND-CCA PKE]]
 - [[lpn-mid-noise-to-pke-cca2-security-kmp14|Mid-noise LPN ⇒ IND-CCA PKE]]
@@ -187,7 +186,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - **Walsh–Hadamard final step.** Keeping every sample in BKW's last stage and recovering the last block of $\mathbf{s}$ with a fast Walsh–Hadamard transform reduces the number of samples needed; applied to the parameters of the HB+ authentication protocol, this gives an attack with work factor $2^{52}$ — [[LF06 - An Improved LPN Algorithm|LF06]].
 - **Decoding.** $m$ samples are a decoding instance for a random binary $[m, k]$ code under Bernoulli noise, so the information-set-decoding attacks on [[syndrome-decoding|syndrome decoding]] apply — standard.
 
-<!-- BEGIN GENERATED participates-in 9532e643d597 -->
+<!-- BEGIN GENERATED participates-in af59a6b029be -->
 
 ## Participates in
 
@@ -205,7 +204,7 @@ Sparse Ring-LPN yields pseudorandom correlation generators for OLE and authentic
 - [[noise-level-to-hash-function-blvw19|Low-noise LPN ⇒ CRHF]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-noise-level|Low-noise LPN ⇒ Mid-noise LPN]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[noise-level-to-pke-ale03|Mid-noise LPN ⇒ PKE]] (via [[learning-parity-with-noise#mid-noise-lpn|Mid-noise LPN]])
-- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]] (via [[learning-parity-with-noise#low-noise-lpn|Low-noise LPN]])
 - [[partially-homomorphic-encryption-phe-and-sparse-learning-parity-with-noise-to-somewhat-homomorphic-encryption-she-chkv25|Additively homomorphic encryption + Sparse LPN ⇒ SHE]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])
 - [[ring-lpn-to-pseudorandom-correlation-generators-pcg|Sparse Ring-LPN ⇒ PCG]] (via [[learning-parity-with-noise#sparse-ring-lpn|Sparse Ring-LPN]])
 - [[sparse-learning-parity-with-noise-to-pseudorandom-correlation-generators-pcg|Sparse Learning Parity with Noise ⇒ Pseudorandom correlation generators (PCG)]] (via [[learning-parity-with-noise#sparse-learning-parity-with-noise|Sparse Learning Parity with Noise]])

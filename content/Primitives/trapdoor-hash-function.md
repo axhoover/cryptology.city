@@ -6,6 +6,8 @@ aliases:
   - Trapdoor hash functions
 title: Trapdoor hash functions
 id: tdh
+variants:
+  sublinear-tdh: "#slightly-sublinear-trapdoor-hash-functions"
 ---
 
 # Trapdoor hash functions
@@ -92,12 +94,19 @@ is negligible — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+
 
 With one-bit hints, a receiver that sends $m$ encoding keys for indices of one input $x$ recovers $m$ bits of $x$, each except with probability at most $\tau + \negl(\secpar)$, from a single hash value and $m$ hint bits, $\eta + m$ bits in all, so the rate tends to 1 as $m$ grows; this underlies the rate-1 protocols of [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
 
+## Slightly sublinear trapdoor hash functions
+
+In a slightly sublinear trapdoor hash function, the hash of $x \in \bits^n$ has length $\eta \le n / c(\secpar)$ for a compression factor $c = c(\secpar)$, in place of a length independent of $n$; an encoding key for a function $f$ and its trapdoor recover $f(x)$ from the hash and a short encoding of $x$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
+
+TODO: the syntax, the compactness requirement (which compression factors $c$ qualify), and the correctness and privacy notions of [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]], stated from the paper.
+
+The first trapdoor hash function from LPN is of this kind: it rests on quasi-polynomial hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta > 0$, has compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, and gives [[single-server-private-information-retrieval|PIR]] with communication $L/2^{\Theta(\log^{1-\beta} L)}$ for a database of size $L$, the first PIR with communication $o(L)$ from a code-based assumption — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
+
 # Other results
 
 - Two-message rate-1 string [[oblivious-transfer|OT]] from DDH, QR or LWE; [[single-server-private-information-retrieval|PIR]] with communication polylogarithmic in the database size from DDH or QR, of rate 1 for block PIR; semi-compact [[homomorphic-encryption|homomorphic encryption]] for branching programs, whose encrypted output grows only with the program length, from DDH or QR; [[trapdoor-permutation#lossy-trapdoor-functions|lossy trapdoor functions]] with input-to-output ratio approaching 1 from DDH, QR or LWE; constant-rate two-message statistically sender-private OT from LWE in the plain model; and rate-1 protocols for $n$ parallel OTs and for matrix–vector products from DDH, QR or LWE — [[DGI+19 - Trapdoor Hash Functions and Their Applications|DGI+19]].
-- The first trapdoor hash function from LPN, in a relaxed form whose hash length is only slightly sublinear in $n$ rather than independent of $n$, rests on quasi-polynomial hardness of [[learning-parity-with-noise#low-noise-lpn|low-noise LPN]] in dimension $k$ with noise rate $\varepsilon = O(\log^{1+\beta}(k)/k)$ for a constant $\beta > 0$, has compression factor $2^{\Theta(\log^{1-\beta} \secpar)}$, and gives PIR with communication $L/2^{\Theta(\log^{1-\beta} L)}$ for a database of size $L$ — [[AMR25 - Trapdoor Hash Functions and PIR from Low-Noise LPN|AMR25]].
 
-<!-- BEGIN GENERATED participates-in b4221696794b -->
+<!-- BEGIN GENERATED participates-in c50819819aee -->
 
 ## Participates in
 
@@ -110,7 +119,7 @@ With one-bit hints, a receiver that sends $m$ encoding keys for indices of one i
 - [[dcr-to-tdh-dgi-19|DCR ⇒ TDH]]
 - [[ddh-to-tdh-dgi-19|DDH ⇒ TDH]]
 - [[lwe-to-tdh-dgi-19|LWE with superpolynomial ratio ⇒ TDH]]
-- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ TDH]]
+- [[noise-level-to-tdh-amr25|Low-noise LPN ⇒ Slightly sublinear TDH]] (via [[trapdoor-hash-function#slightly-sublinear-trapdoor-hash-functions|Slightly sublinear trapdoor hash functions]])
 - [[qr-to-tdh-dgi-19|QR ⇒ TDH]]
 
 <!-- END GENERATED participates-in -->
