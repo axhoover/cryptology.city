@@ -29,4 +29,4 @@ From signatures to generators: an inverter that outputs $k'$ from copies of $\pk
 ## Notes
 
 - [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]] gave the construction of signatures from pure generators with uniformly random keys and verification by projection, and, with [[prs-to-owsg-my22a|PRS ⇒ OWSG]], one-time-secure signatures with quantum public keys from [[pseudorandom-quantum-state|PRS generators]] with output length $n \ge c\secpar$, $c > 1$.
-- Signatures with weak security, whose forgers succeed with probability at most $1 - 1/p$ for a fixed polynomial $p$, already give one-way state generators — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+- One-time signatures with weak security, whose forgers succeed with probability at most $1 - 1/p$ for a fixed polynomial $p$, already give one-way state generators — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].

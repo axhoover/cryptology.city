@@ -22,4 +22,4 @@ Private-key [[quantum-money#pure-money-states|quantum money with pure money stat
 
 ## Notes
 
-- Whether one-way state generators imply private-key quantum money is open — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+- Whether one-way state generators imply private-key quantum money is posed as an open problem in [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
