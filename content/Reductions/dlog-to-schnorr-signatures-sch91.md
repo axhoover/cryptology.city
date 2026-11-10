@@ -11,7 +11,7 @@ class: fully-black-box
 model: standard
 source:
   - "[[Sch91 - Efficient signature generation by smart cards|Sch91]]"
-security-loss: "DLOG success $\\ge (\\varepsilon - 1/|C|)^2$ for impersonation success $\\varepsilon$"
+security-loss: "DLOG success $\\ge (\\varepsilon - 1/|C|)^2$ for impersonation success $\\varepsilon \\ge 1/|C|$"
 rationale:
   class: "One fixed protocol uses only the group operation, and the reduction runs the impersonator only as an oracle, rewinding it to two accepting transcripts with a common commitment."
 ---
@@ -28,6 +28,6 @@ Rewinding an impersonator to two accepting transcripts $(a, e, z)$, $(a, e', z')
 
 ## Notes
 
-- By the Reset Lemma, a passive impersonator with success probability $\varepsilon$ yields a DLOG solver with success probability at least $(\varepsilon - 1/|C|)^2$ — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
+- By the Reset Lemma, a passive impersonator with success probability $\varepsilon \ge 1/|C|$ yields a DLOG solver with success probability at least $(\varepsilon - 1/|C|)^2$ — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
 - Security against active and concurrent impersonation holds under the [[discrete-logarithm#one-more-discrete-logarithm|one-more discrete logarithm]] assumption ([[omdl-to-concurrent-schnorr-identification-bp02|OMDL ⇒ Schnorr identification under concurrent attack]]) — [[BP02 - GQ and Schnorr Identification Schemes Proofs of Security against Impersonation under Active and Concurrent Attacks|BP02]].
 - If DLOG is 2-moment hard, meaning that every algorithm's success probability is bounded in terms of the second moment of its running time, as in the generic group model, then every $t$-time passive impersonator succeeds with probability at most $(t^2/p)^{2/3}$, against $(t^2/p)^{1/2}$ from earlier proofs — [[RS21 - Tighter Security for Schnorr Identification and Signatures A High-Moment Forking Lemma for Sigma-Protocols|RS21]].
