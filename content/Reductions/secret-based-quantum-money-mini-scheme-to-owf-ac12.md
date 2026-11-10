@@ -1,11 +1,11 @@
 ---
 type: reduction
 status: draft
-title: "Secret-based mini-scheme ⇒ OWF"
+title: "Secret-based mini-scheme with classical serial numbers ⇒ OWF"
 aliases: []
 id: red-secret-based-quantum-money-mini-scheme-to-owf-ac12
 kind: implication
-hypotheses: [secret-based-quantum-money-mini-scheme]
+hypotheses: [classical-serial-quantum-money-mini-scheme]
 conclusion: owf
 class: fully-black-box
 model: quantum
@@ -17,11 +17,11 @@ rationale:
   model: "The inverter and the counterfeiter are quantum, so the function is one-way against efficient quantum adversaries."
 ---
 
-# Secret-based mini-scheme ⇒ OWF
+# Secret-based mini-scheme with classical serial numbers ⇒ OWF
 
 ## Statement
 
-Let $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ be a [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}(1^\secpar)$ samples a uniform classical string $r$ and then generates a banknote $(s_r, \rho_r)$ determined by $r$. If $\mathsf{MS}$ is [[quantum-money#mini-schemes|unforgeable]] and has completeness error at most $1/3$, then $r \mapsto s_r$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] against efficient quantum adversaries — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+Let $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ be a [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}(1^\secpar)$ samples a uniform classical string $r$ and then generates a banknote $(s_r, \rho_r)$ determined by $r$, with [[quantum-money#classical-serial-numbers|classical serial numbers]]: a deterministic classical polynomial-time algorithm computes $s_r$ from $r$. If $\mathsf{MS}$ is [[quantum-money#mini-schemes|unforgeable]] and has completeness error at most $1/3$, then $r \mapsto s_r$ is a [[hash-function#preimage-resistance-one-wayness|one-way function]] against efficient quantum adversaries — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 
 ## Sketch
 

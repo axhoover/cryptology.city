@@ -1127,6 +1127,19 @@
    "unlisted": false
   },
   {
+   "id": "classical-serial-quantum-money-mini-scheme",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#classical-serial-numbers",
+   "of": "quantum-money",
+   "title": "Classical serial numbers",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "claw-free-permutations",
    "kind": "variant",
    "type": "primitive",
@@ -5237,6 +5250,19 @@
    "anchor": "#non-malleability",
    "of": "pke",
    "title": "Non-malleability",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "pointwise-complete-public-key-quantum-money",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/quantum-money.md",
+   "slug": "quantum-money",
+   "graphSlug": "Primitives/quantum-money",
+   "anchor": "#pointwise-completeness",
+   "of": "quantum-money",
+   "title": "Pointwise completeness",
    "aliases": [],
    "unlisted": false
   },
@@ -10083,6 +10109,34 @@
    "slug": "circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "graphSlug": "Reductions/circular-security-and-somewhat-homomorphic-encryption-she-to-he-gen09",
    "title": "Circular-secure bootstrappable SHE ⇒ Compact FHE"
+  },
+  {
+   "id": "red-classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme",
+   "kind": "implication",
+   "hypotheses": [
+    "classical-serial-quantum-money-mini-scheme"
+   ],
+   "conclusion": "secret-based-quantum-money-mini-scheme",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the mini-scheme, and the reduction forwards any counterfeiter unchanged.",
+    "model": "The banknotes and the counterfeiters are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme.md",
+   "slug": "classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme",
+   "graphSlug": "Reductions/classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme",
+   "title": "Mini-scheme with classical serial numbers ⇒ Secret-based mini-scheme"
   },
   {
    "id": "red-claw-free-permutations-to-concurrent-zk-proof-prs02",
@@ -20626,6 +20680,34 @@
    "title": "PKE ⇒ KEM"
   },
   {
+   "id": "red-pointwise-complete-public-key-quantum-money-to-public-key-quantum-money",
+   "kind": "implication",
+   "hypotheses": [
+    "pointwise-complete-public-key-quantum-money"
+   ],
+   "conclusion": "public-key-quantum-money",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the scheme, and the reduction forwards any counterfeiter unchanged.",
+    "model": "The banknotes and the counterfeiters are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/pointwise-complete-public-key-quantum-money-to-public-key-quantum-money.md",
+   "slug": "pointwise-complete-public-key-quantum-money-to-public-key-quantum-money",
+   "graphSlug": "Reductions/pointwise-complete-public-key-quantum-money-to-public-key-quantum-money",
+   "title": "Pointwise-complete public-key QM ⇒ Public-key QM"
+  },
+  {
    "id": "red-polylog-cpir-to-cpir",
    "kind": "implication",
    "hypotheses": [
@@ -22175,7 +22257,7 @@
    "id": "red-public-key-quantum-money-to-quantum-money-mini-scheme-ac12",
    "kind": "implication",
    "hypotheses": [
-    "public-key-quantum-money"
+    "pointwise-complete-public-key-quantum-money"
    ],
    "conclusion": "quantum-money-mini-scheme",
    "class": "fully-black-box",
@@ -23654,7 +23736,7 @@
    "id": "red-secret-based-quantum-money-mini-scheme-to-owf-ac12",
    "kind": "implication",
    "hypotheses": [
-    "secret-based-quantum-money-mini-scheme"
+    "classical-serial-quantum-money-mini-scheme"
    ],
    "conclusion": "owf",
    "class": "fully-black-box",
@@ -23676,7 +23758,35 @@
    "page": "content/Reductions/secret-based-quantum-money-mini-scheme-to-owf-ac12.md",
    "slug": "secret-based-quantum-money-mini-scheme-to-owf-ac12",
    "graphSlug": "Reductions/secret-based-quantum-money-mini-scheme-to-owf-ac12",
-   "title": "Secret-based mini-scheme ⇒ OWF"
+   "title": "Secret-based mini-scheme with classical serial numbers ⇒ OWF"
+  },
+  {
+   "id": "red-secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme",
+   "kind": "implication",
+   "hypotheses": [
+    "secret-based-quantum-money-mini-scheme"
+   ],
+   "conclusion": "quantum-money-mini-scheme",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the mini-scheme, and the reduction forwards any counterfeiter unchanged.",
+    "model": "The banknotes and the counterfeiters are quantum."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme.md",
+   "slug": "secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme",
+   "graphSlug": "Reductions/secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme",
+   "title": "Secret-based mini-scheme ⇒ Mini-scheme"
   },
   {
    "id": "red-secret-key-xor-homomorphic-encryption-to-pke-rot11",

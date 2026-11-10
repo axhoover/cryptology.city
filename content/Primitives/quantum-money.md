@@ -12,8 +12,10 @@ id: quantum-money
 variants:
   pure-state-quantum-money: "#pure-money-states"
   public-key-quantum-money: "#public-key-quantum-money"
+  pointwise-complete-public-key-quantum-money: "#pointwise-completeness"
   quantum-money-mini-scheme: "#mini-schemes"
   secret-based-quantum-money-mini-scheme: "#secret-based-mini-schemes"
+  classical-serial-quantum-money-mini-scheme: "#classical-serial-numbers"
   quantum-lightning: "#quantum-lightning"
 ---
 
@@ -78,6 +80,10 @@ $\mathsf{QM}$ has **pure money states** if for every key $\sk$ there is a pure s
 
 In a **public-key** scheme $\mathsf{QM} = (\KeyGen, \mathsf{Mint}, \Vrfy)$, $\KeyGen(1^\secpar) \to (\sk, \pk)$, minting uses $\sk$, and $\Vrfy(\pk, \sigma) \to \top/\bot$ uses only the public key. Unforgeability is $\Game^{\mathrm{qm}}$ with $\pk$ given to $\calA$ and verification run under $\pk$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 
+### Pointwise completeness
+
+A public-key scheme is **pointwise $(1-\varepsilon)$-complete** if for every key pair $(\sk, \pk)$ that $\KeyGen(1^\secpar)$ can output and every banknote $\rho$ that $\mathsf{Mint}(\sk)$ can output, $\Vrfy(\pk, \rho)$ accepts with probability at least $1 - \varepsilon(\secpar)$; this is the completeness condition of [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. Pointwise completeness implies the averaged [[#Correctness|correctness]] above with the same $\varepsilon$, but not conversely: a scheme whose $\KeyGen$ outputs, with probability $2^{-\secpar}$, a key whose banknotes always fail is correct with negligible error and not pointwise complete — standard.
+
 ## Mini-schemes
 
 A **mini-scheme** $\mathsf{MS} = (\mathsf{Mint}, \Vrfy)$ has no keys, and its security concerns a single banknote: $\mathsf{Mint}(1^\secpar) \to (s, \rho_s)$ outputs a classical serial number $s$ and a quantum money state $\rho_s$, and $\Vrfy(s, \sigma) \to \top/\bot$ accepts or rejects a state $\sigma$ as a money state for $s$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]], following [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]]. $\mathsf{MS}$ is $(1-\varepsilon)$-**correct** if $\Vrfy(s, \rho_s)$ accepts with probability at least $1 - \varepsilon$ for every $(s, \rho_s)$ that $\mathsf{Mint}(1^\secpar)$ outputs, and **correct** when $\varepsilon$ is negligible.
@@ -108,6 +114,10 @@ is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. [[AC12 - 
 
 A mini-scheme is **secret-based** if $\mathsf{Mint}(1^\secpar)$ first samples a uniform classical string $r$ and then generates a banknote $(s_r, \rho_r)$ determined by $r$, so that reusing $r$ gives identical banknotes — [[AC12 - Quantum Money from Hidden Subspaces|AC12]]. The mini-schemes of [[AC12 - Quantum Money from Hidden Subspaces|AC12]] are secret-based; those of [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]] are not, since their serial number is obtained only as the outcome of a quantum measurement — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 
+#### Classical serial numbers
+
+A secret-based mini-scheme has **classical serial numbers** if a deterministic classical polynomial-time algorithm computes $s_r$ from $r$. $\mathsf{Mint}$ itself may be quantum, so a secret-based mini-scheme in general guarantees only that $r \mapsto s_r$ is computable in quantum polynomial time; the oracle mini-scheme of [[AC12 - Quantum Money from Hidden Subspaces|AC12]], whose $\mathsf{Mint}$ reads $s_r$ off a classical oracle, has classical serial numbers — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+
 ## Quantum lightning
 
 A **quantum lightning** scheme has no secret key: $\KeyGen(1^\secpar) \to \pk$, anyone can run $\mathsf{Mint}(\pk) \to \rho$, and $\Vrfy(\pk, \sigma)$ either rejects or outputs a classical serial number. It is secure if for all efficient quantum $\calA$, the probability that $\calA(\pk)$ outputs a state on two registers on which $\Vrfy(\pk, \cdot)$ outputs the same serial number is negligible, so not even the party that minted a banknote can hold two banknotes with one serial number — [[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]].
@@ -125,24 +135,30 @@ A **quantum lightning** scheme has no secret key: $\KeyGen(1^\secpar) \to \pk$, 
 - [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]]: with subspaces of $\ZZ_q^n$ for a prime $q$ and the membership oracles replaced by [[indistinguishability-obfuscation|indistinguishability obfuscations]] of the membership programs, the hidden-subspace mini-scheme is secure if the obfuscator and an [[injective-one-way-function|injective one-way function]] are both secure against quantum adversaries — [[Zha19 - Quantum Lightning Never Strikes the Same State Twice|Zha19]]; signing its serial numbers with a signature scheme built from the one-way function then gives a public-key scheme — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
 - Knot money: a candidate public-key scheme whose banknotes are superpositions of knot diagrams sharing one Alexander polynomial, which serves as the serial number; [[FGH+12 - Quantum Money from Knots|FGH+12]] give no security reduction.
 
-<!-- BEGIN GENERATED participates-in 57e9298b7cf2 -->
+<!-- BEGIN GENERATED participates-in e54323ea824a -->
 
 ## Participates in
 
 **Builds on Quantum money**
 
-- [[public-key-quantum-money-to-quantum-money-mini-scheme-ac12|Public-key QM ⇒ Mini-scheme]] (via [[quantum-money#public-key-quantum-money|Public-key quantum money]])
+- [[classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme|Mini-scheme with classical serial numbers ⇒ Secret-based mini-scheme]] (via [[quantum-money#classical-serial-numbers|Classical serial numbers]])
+- [[pointwise-complete-public-key-quantum-money-to-public-key-quantum-money|Pointwise-complete public-key QM ⇒ Public-key QM]] (via [[quantum-money#pointwise-completeness|Pointwise completeness]])
+- [[public-key-quantum-money-to-quantum-money-mini-scheme-ac12|Public-key QM ⇒ Mini-scheme]] (via [[quantum-money#pointwise-completeness|Pointwise completeness]])
 - [[pure-state-quantum-money-to-quantum-money|Pure-state QM ⇒ QM]] (via [[quantum-money#pure-money-states|Pure money states]])
 - [[quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12|Mini-scheme + DS ⇒ Public-key QM]] (via [[quantum-money#mini-schemes|Mini-schemes]])
 - [[owsg-to-qm|Pure-state QM ⇒ OWSG]] (via [[quantum-money#pure-money-states|Pure money states]])
-- [[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme ⇒ OWF]] (via [[quantum-money#secret-based-mini-schemes|Secret-based mini-schemes]])
+- [[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme with classical serial numbers ⇒ OWF]] (via [[quantum-money#classical-serial-numbers|Classical serial numbers]])
+- [[secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme|Secret-based mini-scheme ⇒ Mini-scheme]] (via [[quantum-money#secret-based-mini-schemes|Secret-based mini-schemes]])
 
 **Produces Quantum money**
 
+- [[classical-serial-quantum-money-mini-scheme-to-secret-based-quantum-money-mini-scheme|Mini-scheme with classical serial numbers ⇒ Secret-based mini-scheme]] (via [[quantum-money#secret-based-mini-schemes|Secret-based mini-schemes]])
 - [[io-and-injective-one-way-function-to-public-key-quantum-money-zha19|iO + Injective OWF ⇒ Public-key QM]] (via [[quantum-money#public-key-quantum-money|Public-key quantum money]])
+- [[pointwise-complete-public-key-quantum-money-to-public-key-quantum-money|Pointwise-complete public-key QM ⇒ Public-key QM]] (via [[quantum-money#public-key-quantum-money|Public-key quantum money]])
 - [[prs-to-quantum-money-jls18|PRS ⇒ QM]] (via [[quantum-money#pure-money-states|Pure money states]])
 - [[public-key-quantum-money-to-quantum-money-mini-scheme-ac12|Public-key QM ⇒ Mini-scheme]] (via [[quantum-money#mini-schemes|Mini-schemes]])
 - [[pure-state-quantum-money-to-quantum-money|Pure-state QM ⇒ QM]]
 - [[quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12|Mini-scheme + DS ⇒ Public-key QM]] (via [[quantum-money#public-key-quantum-money|Public-key quantum money]])
+- [[secret-based-quantum-money-mini-scheme-to-quantum-money-mini-scheme|Secret-based mini-scheme ⇒ Mini-scheme]] (via [[quantum-money#mini-schemes|Mini-schemes]])
 
 <!-- END GENERATED participates-in -->
