@@ -17,4 +17,17 @@ cryptobib_key: JC:Canetti00
 
 ## Abstract
 
-TODO — abstract.
+We present general definitions of security for multiparty cryptographic
+protocols and show that, using these definitions, security is preserved
+under a natural composition method.
+
+The definitions follow the general paradigm of known definitions;
+yet some substantial modifications and simplifications are introduced. In
+particular, ‘black-box simulation’ is no longer required. The composition
+method is essentially the natural ‘subroutine substitution’ method suggested
+by Micali and Rogaway.
+
+We first present the general definitional approach. Next we consider several
+settings for multiparty protocols. These include the cases of non-adaptive
+and adaptive adversaries, as well as the information-theoretic and the
+computational models.

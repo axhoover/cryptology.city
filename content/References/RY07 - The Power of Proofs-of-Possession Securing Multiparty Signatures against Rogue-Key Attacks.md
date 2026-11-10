@@ -17,4 +17,4 @@ cryptobib_key: EC:RisYil07
 
 ## Abstract
 
-TODO — abstract.
+Multiparty signature protocols need protection against rogue-key attacks, made possible whenever an adversary can choose its public key(s) arbitrarily. For many schemes, provable security has only been established under the knowledge of secret key (KOSK) assumption where the adversary is required to reveal the secret keys it utilizes. In practice, certifying authorities rarely require the strong proofs of knowledge of secret keys required to substantiate the KOSK assumption. Instead, proofs of possession (POPs) are required and can be as simple as just a signature over the certificate request message. We propose a general registered key model, within which we can model both the KOSK assumption and in-use POP protocols. We show that simple POP protocols yield provable security of Boldyreva's multisignature scheme [11], the LOSSW multisignature scheme [28], and a 2-user ring signature scheme due to Bender, Katz, and Morselli [10]. Our results are the first to provide formal evidence that POPs can stop rogue-key attacks.

@@ -17,4 +17,29 @@ cryptobib_key: C:Waters09
 
 ## Abstract
 
-We present a new methodology for proving the security of identity-based encryption (IBE) and hierarchical identity-based encryption (HIBE) schemes. Prior to this work, the only constructions of these primitives without random oracles either had large parameter sizes or relied on complex complexity assumptions. Using our new technique, called _dual system encryption_, we give the first constructions of IBE and HIBE that are: (1) adaptively secure (no selective-ID restriction), (2) proven in the standard model, and (3) based on simple pairing-based assumptions. In a dual system encryption proof, ciphertexts and keys can each be normal or semi-functional. A semi-functional key decrypts normal ciphertexts and a normal key decrypts semi-functional ciphertexts, but decryption fails when a semi-functional key is used on a semi-functional ciphertext; these forms are used only in the simulation. The proof proceeds in a sequence of games that changes first the challenge ciphertext and then the private keys one by one to semi-functional, at which point the adversary has no information about the plaintext.
+We present a new methodology for proving security of encryption
+systems using what we call Dual System Encryption. Our techniques
+result in fully secure Identity-Based Encryption (IBE) and
+Hierarchical Identity-Based Encryption (HIBE) systems under the simple
+and established decisional Bilinear Diffie-Hellman and decisional
+Linear assumptions. Our IBE system has ciphertexts, private keys, and
+public parameters each consisting of a constant number of group
+elements. These results are the first HIBE system and the first IBE system with short parameters under simple assumptions.
+
+In a Dual System Encryption system both ciphertexts and private keys can take on one of two indistinguishable forms. A private key or
+ciphertext will be normal if they are generated respectively
+from the system's key generation or encryption algorithm. These keys
+and ciphertexts will behave as one expects in an IBE system. In
+addition, we define semi-functional keys and ciphertexts. A
+semi-functional private key will be able to decrypt all normally
+generated ciphertexts; however, decryption will fail if one attempts
+to decrypt a semi-functional ciphertext with a semi-functional private
+key. Analogously, semi-functional ciphertexts will be decryptable only
+by normal private keys.
+
+Dual System Encryption opens up a new way to prove security of IBE and
+related encryption systems. We define a sequence of games where
+we change first the challenge ciphertext and then the private keys
+one by one to be semi-functional. We finally
+end up in a game where the challenge ciphertext and all private keys
+are semi-functional at which point proving security is straightforward.

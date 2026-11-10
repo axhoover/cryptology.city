@@ -24,4 +24,8 @@ bibtex: |
 
 ## Abstract
 
-In secret-key private information retrieval (SK-PIR), the client in an offline phase processes the database using a short secret key. In the online phase the client uses the secret key to make queries to the server, without revealing the entries accessed, using only sublinear communication $o(N)$ in the database size $N$. While (non-SK) PIR requires public-key cryptography, this paper shows that one-way functions suffice for SK-PIR with online communication $\tilde{O}(\sqrt{N})$. More generally, for any $N_c, N_s$ with $N_c \cdot N_s = N$, the construction achieves client-to-server communication $\tilde{O}(N_c)$ and server-to-client communication $N_s$. The construction is based on garbled circuits satisfying an _uncorrelated input encoding_ property, shown to hold for point-and-permute garbling.
+In secret-key private information retrieval (SK-PIR), the client in an offline phase processes the database using a short secret key. In the online phase the client could then use the secret key to make queries to the server, without revealing the entries accessed, and using only sublinear communication $o(N)$ in the database size $N$. While (non-SK) PIR requires public-key cryptography, recent work provides evidence that SK-PIR may not. In particular, Chen, Ishai, Mour, and Rosen (STOC 26) construct SK-PIR with communication $N^{\varepsilon}$, for any $\varepsilon$, from high-noise LPN, which is not known to imply public-key cryptography.
+
+We construct SK-PIR with online communication $\tilde{O}(\sqrt{N})$, under the minimal assumption of one-way functions. More generally we can achieve client-to-server communication $\tilde{O}(N_c)$ and server-to-client communication $\tilde{O}(N_s)$ as long as $N_c \cdot N_s \geq N$.
+
+Our construction is simple and is based on garbled circuits with an uncorrelated input encoding property, which is satisfied by schemes from the literature.

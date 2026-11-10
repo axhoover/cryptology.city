@@ -11,6 +11,8 @@ class: unstated
 model: rom
 source:
   - "[[DKL+18 - CRYSTALS-Dilithium A Lattice-Based Digital Signature Scheme|DKL+18]]"
+via:
+  - "[[forking-lemma|forking lemma]]"
 security-loss: "non-tight in the ROM: forking lemma on the Module-SIS step"
 rationale:
   class: "The proof rewinds the forger via the forking lemma in the random-oracle model, and no source places it in the RTV04 taxonomy."

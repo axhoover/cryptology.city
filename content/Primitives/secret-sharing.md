@@ -54,11 +54,11 @@ Relaxes perfect privacy to computational indistinguishability, which allows shar
 
 ## Verifiable secret sharing (VSS)
 
-A secret sharing scheme in which each party can check, even against a malicious dealer, that its share is consistent with a single secret, so that every $t$ parties holding accepted shares reconstruct the same value. Pedersen's scheme achieves this non-interactively by broadcasting DLOG-based homomorphic commitments to the coefficients of the Shamir polynomial ([[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ VSS]]) — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91]]. VSS is the sharing step of [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|information-theoretic MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+A secret sharing scheme in which each party can check, even against a malicious dealer, that its share is consistent with a single secret, so that every $t$ parties holding accepted shares reconstruct the same value. Pedersen's scheme achieves this non-interactively by broadcasting DLOG-based homomorphic commitments to the coefficients of the Shamir polynomial ([[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]) — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]. VSS is the sharing step of [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|information-theoretic MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
 
 ## Linear secret sharing schemes (LSSS)
 
-A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$.
+A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$ ([[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]).
 
 # Other results
 
@@ -66,7 +66,7 @@ A secret sharing scheme is linear if the shares are linear functions of the secr
 - Secret sharing is information-theoretically achievable; no computational hardness assumption required
 - [[ss-to-it-pir-cgks98|Linear SS ⇒ IT-PIR]]
 - [[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]
-- Monotone-span-program size lower bounds survive amortization: a lower bound proved for a program sharing one secret still applies, per secret, when the same program is reused to share several secrets at once — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
+- A share-size lower bound for linear schemes, which share one field element, need not hold per element for multilinear schemes, which share $k$ field elements at once. The Razborov–Gál rank-measure lower bound on [[monotone-span-program|monotone span program]] size does: a monotone span program with $k$ target vectors, the form a multilinear scheme takes, has size at least $k$ times the rank measure of the access structure it computes — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
 - There exist access structures on $n$ parties for which every perfect multilinear scheme, over every finite field, requires shares of total size $2^{\Omega(n)}$ times the secret size — matching the known $2^{O(n)}$ upper bound and settling Question 10.4 of [[Bei25 - Secret-Sharing Schemes for General Access Structures An Introduction|Bei25]] — [[Kha26 - Rank Measures and Exponential Lower Bounds for Multilinear Secret Sharing|Kha26]]
 
 <!-- BEGIN GENERATED participates-in e72cbb77e1cd -->

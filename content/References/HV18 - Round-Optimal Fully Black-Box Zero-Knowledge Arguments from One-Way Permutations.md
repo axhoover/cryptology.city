@@ -17,4 +17,5 @@ cryptobib_key: TCC:HazVen18
 
 ## Abstract
 
-TODO — abstract.
+In this paper, we revisit the round complexity of designing zero-knowledge (ZK) arguments via a black-box construction from minimal assumptions. Our main result implements a 4-round ZK argument for any language in NP, based on injective one-way functions, that makes black-box use of the underlying function.
+As a corollary, we also obtain the first 4-round perfect zero-knowledge argument for NP based on claw-free permutations via a black-box construction and 4-round input-delayed commit-and-prove zero-knowledge argument based on injective one-way functions.

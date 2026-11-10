@@ -16,6 +16,7 @@ variants:
   transparent-succinct-argument: "#stark"
   interactive-succinct-argument: "#interactive-succinct-arguments"
   snarg-for-p: "#snargs-for-p"
+  sublinear-snarg-for-np: "#snargs-for-np-with-sublinear-proofs"
   barg-for-np: "#batch-arguments-for-np"
   universal-snark: "#universalupdatable-snarks"
   fully-succinct-snark: "#fully-succinct-snarks"
@@ -25,30 +26,32 @@ variants:
 
 # Succinct argument
 
-A **succinct non-interactive argument of knowledge** (SNARK) is a proof system in which a prover can convince a verifier that a statement $x \in L$ is true using a single short message, where the proof is short relative to the witness size and verification is fast. The "knowledge" variant (SNARK) additionally requires that the prover must "know" a witness — formalized via an extractor. A **STARK** (Scalable Transparent ARgument of Knowledge) is a SNARK variant that requires no trusted setup, is secure in the random oracle model, and is plausibly post-quantum.
+A **succinct non-interactive argument of knowledge** (SNARK) for circuit satisfiability is a non-interactive argument, with a reference string generated from the circuit $C$, by which a prover convinces a verifier that it knows a $w$ with $C(x, w) = 1$ using a proof much shorter than $w$, checked much faster than evaluating $C$; knowledge is formalized by an extractor. A **STARK** (Scalable Transparent ARgument of Knowledge) is a SNARK variant whose setup is public-coin, with no trapdoor.
 
 ## Syntax
 
-A succinct argument system for a relation $\calR$ is a tuple of efficient algorithms $(\Setup, \Prove, \Vrfy)$:
+A preprocessing SNARK for circuit satisfiability is a tuple of efficient algorithms $(\Setup, \Prove, \Vrfy)$ in which $\Setup$ takes as input an arbitrary Boolean circuit $C$; the relation proved is $\calR_C := \{(x, w) : C(x, w) = 1\}$.
 
-- $\Setup(1^\secpar, C) \to \crs,$ takes a security parameter and a circuit $C$ (or a bound on circuit size for universal schemes) and produces a common reference string $\crs$. For transparent systems, $\Setup$ is public-coin (no trapdoor).
-- $\Prove(\crs, x, w) \to \pi,$ takes the CRS, instance $x$, and witness $w$ with $(x, w) \in \calR$, and produces a proof $\pi$.
+- $\Setup(1^\secpar, C) \to \crs,$ takes a security parameter and the circuit $C$, runs in time $\poly(\secpar, |C|)$, and produces a common reference string $\crs$. For transparent systems, $\Setup$ is public-coin (no trapdoor).
+- $\Prove(\crs, x, w) \to \pi,$ takes the CRS, instance $x$, and witness $w$ with $(x, w) \in \calR_C$, and produces a proof $\pi$.
 - $\Vrfy(\crs, x, \pi) \to \bits,$ verifies the proof.
+
+The properties below hold for every family of circuits $C = \{C_\secpar\}$ of size $\poly(\secpar)$. Given a collision-resistant hash function, a non-interactive argument of knowledge for the universal relation $\calR_U = \{((M, x, T), w) : M \text{ accepts } (x, w) \text{ within } T \text{ steps}\}$, knowledge-sound for adaptively chosen statements, with proof size and verification time $\poly(\secpar, |M|, |x|, \log T)$ gives a SNARK in this sense for every $C$: $\Setup(1^\secpar, C)$ samples a hash key and publishes it with the hash $h$ of $C$, and the prover proves knowledge of a circuit $C'$ with hash $h$ and a $w$ with $C'(x, w) = 1$, so that an extracted $C' \ne C$ is a collision; the setup is public-coin when the argument's setup and the hash key are — standard.
 
 ## Properties
 
 ### Completeness
 
-For all $(x, w) \in \calR$ and all $\crs \gets \Setup(1^\secpar, C)$:
+For every circuit $C$, all $(x, w) \in \calR_C$ and all $\crs \gets \Setup(1^\secpar, C)$:
 $$\Pr[\Vrfy(\crs, x, \Prove(\crs, x, w)) = 1] = 1.$$
 
 ### Knowledge soundness
 
-For all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that: if $\calA(\crs; r)$, run on coins $r$, outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE_\calA(\crs, r)$ outputs $w$ with $(x, w) \in \calR$, except with negligible probability — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
+For every family of circuits $C$ of size $\poly(\secpar)$ and all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that: if $\calA(\crs; r)$, run on coins $r$, outputs $(x, \pi)$ with $\Vrfy(\crs, x, \pi) = 1$, then $\calE_\calA(\crs, r)$ outputs $w$ with $(x, w) \in \calR_C$, except with negligible probability — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. Knowledge soundness is strictly stronger than plain soundness (which only requires the prover cannot convince the verifier of a false statement).
 
 ### Succinctness
 
-The proof size $|\pi|$ and verifier runtime are $\poly(\secpar, |x|) \cdot \polylog(|w|, |C|)$ — sublinear in the witness and circuit size.
+For every circuit $C$, the proof size $|\pi|$ and verifier runtime are $\poly(\secpar, |x|) \cdot \polylog(|w|, |C|)$ — sublinear in the witness and circuit size.
 
 ### Zero-knowledge (optional)
 
@@ -59,13 +62,13 @@ A **zk-SNARK** additionally satisfies zero-knowledge: there exists a simulator t
 ```pseudocode
 \begin{algorithm}
 \algname{Game}
-\caption{$\Game^{\mathrm{ks}}_{\calA,\calE_\calA}(\secpar)$}
+\caption{$\Game^{\mathrm{ks}}_{C,\calA,\calE_\calA}(\secpar)$}
 \begin{algorithmic}
 \State $\crs \gets \Setup(1^\secpar, C)$
 \State $r \getsr \bits^{*}$; $(x, \pi) \gets \calA(\crs; r)$
 \State $w \gets \calE_{\calA}(\crs, r)$
 \Comment{$\calE_\calA$ gets $\calA$'s input and coins}
-\If{$\Vrfy(\crs, x, \pi) = 1$ and $(x, w) \notin \calR$}
+\If{$\Vrfy(\crs, x, \pi) = 1$ and $(x, w) \notin \calR_C$}
 \Return $1$
 \Comment{$\calA$ wins: valid proof but extractor failed}
 \EndIf
@@ -74,13 +77,13 @@ A **zk-SNARK** additionally satisfies zero-knowledge: there exists a simulator t
 \end{algorithm}
 ```
 
-A succinct argument is **knowledge-sound** if for all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that $\Pr[\Game^{\mathrm{ks}}_{\calA, \calE_\calA}(\secpar) = 1]$ is negligible.
+A succinct argument is **knowledge-sound** if for every family of circuits $C$ of size $\poly(\secpar)$ and all efficient $\calA$ there exists a polynomial-time extractor $\calE_\calA$ such that $\Pr[\Game^{\mathrm{ks}}_{C, \calA, \calE_\calA}(\secpar) = 1]$ is negligible.
 
 # Variations
 
 ## zk-SNARK
 
-A SNARK with zero-knowledge. The verifier learns nothing about the witness beyond the validity of the statement. Groth16 is the canonical pairing-based zk-SNARK with constant proof size (3 group elements) and millisecond verification — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
+A SNARK with zero-knowledge. The verifier learns nothing about the witness beyond the validity of the statement. Groth16 is the canonical pairing-based zk-SNARK with constant proof size (3 group elements) and millisecond verification ([[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]) — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
 Two-move linear interactive proofs cannot have a linear decision procedure, so SNARGs whose prover and verifier use only generic asymmetric bilinear-group operations cannot consist of a single group element; whether two elements suffice, which would make the three-element construction optimal, is open — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]. The impossibility of a linear decision procedure answers an open question of [[BCIOP13 - Succinct Non-interactive Arguments via Linear Interactive Proofs|BCIOP13]] — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]].
 
@@ -88,7 +91,7 @@ Pinocchio is a publicly verifiable preprocessing verifiable-computation scheme f
 
 ## STARK
 
-A **Scalable Transparent ARgument of Knowledge** achieves succinctness without any trusted setup: the $\Setup$ algorithm is public-coin (the CRS is just a random oracle / hash function). Security is proven in the [[random-oracle-model|ROM]] by the [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]] — [[BCS16 - Interactive Oracle Proofs|BCS16]]; the same compiler is sound in the quantum ROM when the IOP is round-by-round sound — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]] — so STARKs are plausibly post-quantum. Proof size is $O(\log^2 T)$ for a computation of size $T$, larger than pairing-based SNARKs but still sublinear — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
+A **transparent succinct argument** is a SNARK, in the sense above, whose $\Setup$ is public-coin, with no trapdoor. The notion bounds the prover's running time only by $\poly(\secpar, |C|)$. The name STARK, for scalable transparent argument of knowledge, is from [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]], whose ZK-STARK is a transparent zero-knowledge system in which verification scales exponentially faster than the size of the data the computation runs on — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]]. Security is proven in the [[random-oracle-model|ROM]] by the [[succinct-state-restoration-iop-to-transparent-succinct-argument-bcs16|BCS transform]], which preserves the time complexity of the IOP it compiles, so that known IOPs give zero-knowledge proofs in the ROM with quasilinear prover and polylogarithmic verifier — [[BCS16 - Interactive Oracle Proofs|BCS16]]; the same compiler is sound in the quantum ROM when the IOP is round-by-round sound — [[CMS19 - Succinct Arguments in the Quantum Random Oracle Model|CMS19]] — so STARKs are plausibly post-quantum. Proof size is $O(\log^2 T)$ for a computation of size $T$, larger than pairing-based SNARKs but still sublinear — [[BBHR18 - Scalable, transparent, and post-quantum secure computational integrity|BBHR18a]].
 
 The core component of STARKs is the **FRI** (Fast Reed-Solomon IOP of Proximity) protocol, an interactive oracle proof of proximity to Reed-Solomon codes — [[BBHR18b - Fast Reed-Solomon Interactive Oracle Proofs of Proximity|BBHR18b]]. Combined with Merkle-tree commitments, FRI yields a transparent (list) polynomial commitment scheme — [[KPV22 - RedShift Transparent SNARKs from List Polynomial Commitments|KPV22]].
 
@@ -104,7 +107,7 @@ An SRS is **updatable** if any party can update it, with security as long as at 
 
 ## Recursive SNARKs
 
-_Incrementally verifiable computation (IVC)_ for a step function $F$ and an initial state $s_0$ lets a prover holding only $(s_t, \pi_t)$ compute a proof $\pi_{t+1}$ for $s_{t+1} = F(s_t)$ in time $\poly(\secpar, |F|, |s_t|)$ independent of $t$, such that the verifier accepts honest proofs of $(t, s_t)$, proof size and verification time are $\poly(\secpar)$ independent of $t$, and for every polynomial $t$ no efficient prover makes the verifier accept $(t, s)$ with $s \ne F^{t}(s_0)$, except with negligible probability — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]. A _recursive SNARK_ proves that earlier proofs verify. Extraction cost grows polynomially with each level of nesting, so such composition is proved sound only to constant depth; a depth reduction then gives IVC for any fixed polynomial bound on the number of steps — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]].
+_Incrementally verifiable computation (IVC)_ for a step function $F$ and an initial state $s_0$ lets a prover holding only $(s_t, \pi_t)$ compute a proof $\pi_{t+1}$ for $s_{t+1} = F(s_t)$ in time $\poly(\secpar, |F|, |s_t|)$ independent of $t$, such that the verifier accepts honest proofs of $(t, s_t)$, proof size and verification time are $\poly(\secpar)$ independent of $t$, and for every polynomial $t$ no efficient prover makes the verifier accept $(t, s)$ with $s \ne F^{t}(s_0)$, except with negligible probability — [[Val08 - Incrementally Verifiable Computation or Proofs of Knowledge Imply Time-Space Efficiency|Val08]]. A _recursive SNARK_ proves that earlier proofs verify. Extraction cost grows polynomially with each level of nesting, so such composition is proved sound only to constant depth; a depth reduction then gives IVC for any fixed polynomial bound on the number of steps ([[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]) — [[BCCT13 - Recursive Composition and Bootstrapping for SNARKs and Proof-Carrying Data|BCCT13]].
 
 ## Fully succinct SNARKs
 
@@ -112,11 +115,15 @@ A **fully succinct SNARK** is a publicly verifiable SNARK for the universal rela
 
 ## Interactive succinct arguments
 
-An interactive argument system for $\classNP$ whose prover–verifier communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers, and either no setup or public parameters of length $\poly(\secpar, T)$ sampled by an honest setup (a common random string, or uniformly random group elements whose discrete-logarithm relations no party knows), not counted in the communication. Kilian's protocol needs no setup — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]; the argument of Bootle et al. uses uniformly random group elements as public parameters ([[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP]]) — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]].
+An interactive argument system for $\classNP$ whose prover–verifier communication is $\poly(\secpar, \log T)$ for statements whose $\classNP$ verification takes time $T$, with soundness against efficient provers, and either no setup or public parameters of length $\poly(\secpar, T)$ sampled by an honest setup (a common random string, or uniformly random group elements whose discrete-logarithm relations no party knows), not counted in the communication. Kilian's protocol needs no setup ([[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]]) — [[Kil92 - A Note on Efficient Zero-Knowledge Proofs and Arguments (Extended Abstract)|Kil92]]; the argument of Bootle et al. uses uniformly random group elements as public parameters ([[prime-order-dlog-to-interactive-succinct-argument-bccgp16|DLOG ⇒ Succinct arguments for NP]]) — [[BCCGP16 - Efficient Zero-Knowledge Arguments for Arithmetic Circuits in the Discrete Log Setting|BCCGP16]].
 
 ## SNARGs for P
 
 A publicly verifiable non-interactive argument in the CRS model for deterministic computations, with no knowledge extractor. For a polynomial $T = T(\secpar)$, a statement is a pair $(M, x)$ of a deterministic Turing machine and an input, true when $M$ accepts $x$ within $T$ steps. $\Setup(1^\secpar, T)$ outputs $\crs$; $\crs$ and proofs have size $\poly(\secpar, \log T)$, and $\Vrfy$ runs in time $(|M| + |x|) \cdot \poly(\secpar, \log T)$. Soundness is adaptive: for all efficient $\calA$, the probability that $\calA(\crs)$ outputs $(M, x, \pi)$ with $\Vrfy(\crs, (M, x), \pi) = 1$ although $M$ does not accept $x$ within $T$ steps is negligible. [[CJJ21 - SNARGs for P from LWE|CJJ21]] construct one from LWE with a common random string ([[polynomial-ratio-lwe-to-snarg-for-p-cjj21|LWE with polynomial ratio ⇒ SNARG for P]]). The bound on verification time is what makes the notion non-trivial: a verifier allowed $T$ steps runs $M$ itself and needs no proof — standard.
+
+## SNARGs for NP with sublinear proofs
+
+For every $\classNP$ relation $\calR$, a publicly verifiable non-interactive argument $(\Setup, \Prove, \Vrfy)$ for $\calR$ in the CRS model, with no knowledge extractor, sound for statements chosen after seeing $\crs$ against all efficient provers, whose proofs have size $|\pi| \le \poly(\secpar) \cdot (|x| + |w|)^{\delta}$ for a constant $\delta < 1$ independent of $\calR$; verification time is not bounded. This is the succinctness [[KMY20 - NIZK from SNARG|KMY20]] require, with neither knowledge soundness nor efficient verification — [[KMY20 - NIZK from SNARG|KMY20]].
 
 ## Designated-verifier delegation for P
 
@@ -132,20 +139,21 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 
 # Other results
 
-- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
+- [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]]
 - The Fiat–Shamir transform removes interaction from a public-coin protocol but keeps its communication, so in the random oracle model it yields succinct arguments only from succinct protocols: Merkle-committed PCPs (CS proofs) — [[Mic00 - Computationally Sound Proofs|Mic00]]; public-coin IOPs with state-restoration soundness — [[BCS16 - Interactive Oracle Proofs|BCS16]]
 - Many SNARKs (e.g. Plonk, Marlin) compile a polynomial IOP, obtained from an [[arithmetization]], with a [[polynomial-commitment|polynomial commitment scheme]] — [[CHM+20 - Marlin Preprocessing zkSNARKs with Universal and Updatable SRS|CHM+20]]
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]: Groth16 is knowledge-sound in the generic bilinear group model — [[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]]; in the algebraic group model its knowledge soundness reduces tightly to the $q$-DLOG assumption ([[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK]]) — [[FKL18 - The Algebraic Group Model and its Applications|FKL18]]
 - [[no-falsifiable-assumption-to-snark-gro16|No fully-black-box reduction from Falsifiable assumption to SNARK]]
 
-<!-- BEGIN GENERATED participates-in e73533d34909 -->
+<!-- BEGIN GENERATED participates-in 6e1ee24c84b9 -->
 
 ## Participates in
 
 **Builds on Succinct argument**
 
+- [[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]] (via [[succinct-argument#fully-succinct-snarks|Fully succinct SNARKs]])
 - [[snark-and-crhf-to-fully-succinct-snark-bcct13|SNARK + CRHF ⇒ Fully succinct SNARK (bootstrapping)]]
-- [[snark-to-nizk|SNARK + OWF ⇒ NIZK argument]]
+- [[snark-to-nizk|Sublinear SNARG + OWF ⇒ NIZK argument]] (via [[succinct-argument#snargs-for-np-with-sublinear-proofs|SNARGs for NP with sublinear proofs]])
 - [[snark-to-recursive-snarks|SNARK ⇒ Recursive SNARKs]]
 - [[universal-snark-to-snark|Universal SNARK ⇒ SNARK]] (via [[succinct-argument#universalupdatable-snarks|Universal/updatable SNARKs]])
 
@@ -156,7 +164,8 @@ A **batch argument (BARG)** for $\classNP$ is a non-interactive argument in the 
 - [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]] (via [[succinct-argument#zk-snark|zk-SNARK]])
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]] (via [[succinct-argument#zk-snark|zk-SNARK]])
 - [[crhf-to-interactive-succinct-argument-kil92|CRHF ⇒ Succinct arguments for NP (Kilian)]] (via [[succinct-argument#interactive-succinct-arguments|Interactive succinct arguments]])
-- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
+- [[fully-succinct-snark-to-sublinear-snarg-for-np|Fully succinct SNARK ⇒ SNARG for NP with sublinear proofs]] (via [[succinct-argument#snargs-for-np-with-sublinear-proofs|SNARGs for NP with sublinear proofs]])
+- [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]] (via [[succinct-argument#stark|STARK]])
 - [[linear-only-encryption-to-designated-verifier-snarg-bciop13|Linear-only encryption ⇒ Designated-verifier SNARG]] (via [[succinct-argument#designated-verifier-snargs|Designated-verifier SNARGs]])
 - [[linear-only-vector-encryption-to-designated-verifier-snarg-bisw17|Linear-only vector encryption ⇒ Designated-verifier SNARG (lattice-based)]] (via [[succinct-argument#designated-verifier-snargs|Designated-verifier SNARGs]])
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]

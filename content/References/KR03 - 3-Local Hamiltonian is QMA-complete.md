@@ -27,4 +27,4 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+It has been shown by Kitaev that the 5-local Hamiltonian problem is QMA-complete. Here we reduce the locality of the problem by showing that 3-local Hamiltonian is already QMA-complete.

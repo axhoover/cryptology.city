@@ -14,7 +14,7 @@ variants:
 
 # Inner-product predicate encryption
 
-**Inner-product predicate encryption (IPPE)** is a form of predicate encryption in which keys and ciphertexts are each associated with vectors over $\ZZ_p$. A key for vector $v \in \ZZ_p^n$ can decrypt a ciphertext for vector $x \in \ZZ_p^n$ if and only if $\langle v, x \rangle = 0 \pmod{p}$. IPPE achieves **full attribute-hiding**: a ciphertext hides both the encrypted payload and the attribute vector $x$. It subsumes [[hidden-vector-encryption|HVE]] and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation—making it the practical ceiling before full predicate encryption.
+**Inner-product predicate encryption (IPPE)** is a form of predicate encryption in which keys and ciphertexts are each associated with vectors over $\ZZ_p$. A key for vector $v \in \ZZ_p^n$ can decrypt a ciphertext for vector $x \in \ZZ_p^n$ if and only if $\langle v, x \rangle = 0 \pmod{p}$. IPPE achieves **full attribute-hiding**: a ciphertext hides both the encrypted payload and the attribute vector $x$. It subsumes [[hidden-vector-encryption|HVE]] ([[ippe-to-hve|IPPE ⇒ HVE]]) and, via inner-product encodings, supports disjunctions, CNF/DNF formulas, and polynomial evaluation—making it the practical ceiling before full predicate encryption.
 
 ## Syntax
 
@@ -72,7 +72,7 @@ is negligible.
 
 ## Payload-only hiding
 
-Dropping the attribute-hiding requirement yields a simpler **payload-hiding** variant: the adversary commits to a single $x^*$ and submits two messages, with the constraint that no queried $v$ satisfies $\langle v, x^* \rangle = 0 \pmod p$.
+Dropping the attribute-hiding requirement yields a simpler **payload-hiding** variant ([[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]]): the adversary commits to a single $x^*$ and submits two messages, with the constraint that no queried $v$ satisfies $\langle v, x^* \rangle = 0 \pmod p$.
 
 ## Zero inner product vs. non-zero
 
@@ -84,7 +84,7 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 - The first IPPE scheme, over composite-order bilinear groups, shows that inner products encode disjunctions, polynomial equations, and CNF/DNF formulas; it is selectively attribute-hiding under two new assumptions justified in the generic group model — [[KSW08 - Predicate Encryption Supporting Disjunctions Polynomial Equations and Inner Products|KSW08]]
 - [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
 
-<!-- BEGIN GENERATED participates-in 64db66e25dc6 -->
+<!-- BEGIN GENERATED participates-in cf9208352a0c -->
 
 ## Participates in
 
@@ -95,7 +95,7 @@ Some formulations flip the predicate: decryption succeeds when $\langle v, x \ra
 
 **Produces Inner-product predicate encryption**
 
-- [[dlin-to-ippe-ksw08|DLIN ⇒ IPPE]]
+- [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]]
 - [[ippe-to-payload-only-hiding|IPPE ⇒ Payload-only hiding]] (via [[inner-product-predicate-encryption#payload-only-hiding|Payload-only hiding]])
 
 <!-- END GENERATED participates-in -->

@@ -14,7 +14,7 @@ variants:
 
 # Hidden vector encryption
 
-**Hidden vector encryption (HVE)** is a form of predicate encryption in which ciphertexts are labeled with an attribute vector $x \in \Sigma^n$ and secret keys correspond to conjunctive pattern predicates $v \in (\Sigma \cup \{*\})^n$. A key for pattern $v$ decrypts a ciphertext for attribute $x$ if and only if $v$ matches $x$ at every non-wildcard position: $\forall i,\; v_i \ne * \Rightarrow v_i = x_i$. The same framework supports subset queries and range queries (via bit decomposition). The primary motivation is fine-grained access control over encrypted databases and conjunctive keyword search.
+**Hidden vector encryption (HVE)** is a form of predicate encryption in which ciphertexts are labeled with an attribute vector $x \in \Sigma^n$ and secret keys correspond to conjunctive pattern predicates $v \in (\Sigma \cup \{*\})^n$. A key for pattern $v$ decrypts a ciphertext for attribute $x$ if and only if $v$ matches $x$ at every non-wildcard position: $\forall i,\; v_i \ne * \Rightarrow v_i = x_i$. The same framework supports comparison queries $x \ge a$, subset queries $x \in S$, and conjunctions of them — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]]. The primary motivation is fine-grained access control over encrypted databases and conjunctive keyword search.
 
 ## Syntax
 
@@ -95,13 +95,13 @@ $$
 \Adv^{\mathrm{ah}}_{\mathsf{HVE},\calA}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{ah}}_{\mathsf{HVE},\calA}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible. Attribute-hiding strictly implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$).
+is negligible. Attribute-hiding implies payload-hiding (take $(x_0, m_0) = (x^*, m_0)$ and $(x_1, m_1) = (x^*, m_1)$; [[attribute-hiding-security-to-payload-hiding-security|Attribute-Hiding Security ⇒ Payload-Hiding Security]]). If a payload-hiding HVE scheme exists, the converse fails: appending $x$ to every ciphertext keeps payload-hiding, since $x^*$ is the adversary's own choice, and breaks attribute-hiding for any $x_0 \ne x_1$ with no key queries — folklore.
 
 # Variations
 
 ## Subset and range queries
 
-The BW07 paper also formalizes subset predicates (is $x_i \in T_i$ for some set $T_i$?) and range predicates (is $a_i \le x_i \le b_i$?) within the same framework via encodings into inner products. Range predicates are handled by a bit decomposition of $x_i$ and $a_i, b_i$, reducing the range check to a conjunction over single-bit comparisons.
+Subset predicates (is $x_i \in T_i$ for a set $T_i$?) and range predicates (is $a_i \le x_i \le b_i$?) reduce to HVE over $\Sigma = \bits$ by fixed encodings: $x \in T$ by the indicator vector of $x$ against the pattern with wildcards exactly on $T$ and $0$ elsewhere, $x \ge a$ by $x$ in unary against the pattern with $1$ at position $a$ and wildcards elsewhere, and a range as the conjunction of two comparisons, with ciphertexts linear in the domain size ([[hve-to-subset-and-range-queries|HVE ⇒ Subset and range queries]]) — [[BW07 - Conjunctive Normal Form Encryption and Attribute Based Encryption|BW07]].
 
 # Other results
 

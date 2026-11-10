@@ -19,7 +19,7 @@ variants:
 
 # Doubly-efficient PIR
 
-A doubly-efficient PIR (DEPIR) is a [[single-server-private-information-retrieval|single-server PIR]] whose database is _preprocessed_ once into an encoding $EDB$, after which the communication and the computation of each query are at most $p(\secpar) + s(n)$ for a polynomial $p$ and a function $s(n) = o(n)$, where $n$ is the size of the database. The three main variants are secret-key, public-key and unkeyed; every unkeyed DEPIR is a PK-DEPIR, and every PK-DEPIR is an SK-DEPIR. Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
+A doubly-efficient PIR (DEPIR) is a [[single-server-private-information-retrieval|single-server PIR]] whose database is _preprocessed_ once into an encoding $EDB$, after which the communication and the computation of each query are at most $p(\secpar) + s(n)$ for a polynomial $p$ and a function $s(n) = o(n)$, where $n$ is the size of the database. The three main variants are secret-key, public-key and unkeyed; every unkeyed DEPIR is a PK-DEPIR ([[unkeyed-depir-to-depir|Unkeyed DEPIR ⇒ PK-DEPIR]]), and every PK-DEPIR is an SK-DEPIR ([[pk-depir-to-sk-depir|PK-DEPIR ⇒ SK-DEPIR]]). Secret-key DEPIR was introduced by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]] and [[CHR17 - Towards Doubly Efficient Private Information Retrieval|CHR17]], and public-key DEPIR by [[BIPW17 - Can We Access a Database Both Locally and Privately|BIPW17]].
 
 ## Syntax
 

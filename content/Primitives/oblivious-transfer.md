@@ -120,7 +120,7 @@ The sender- and receiver-privacy definitions are **semi-honest**: both parties f
 
 ## Rabin OT
 
-Introduced by [[Rab81]], **Rabin's OT** is a simpler variant where the sender transmits a single message $x$ and the receiver obtains it with probability $1/2$, receiving $\bot$ otherwise — without the sender learning which outcome occurred. Rabin OT and 1-out-of-2 OT are equivalent; each implies the other by efficient reductions.
+Introduced by [[Rab81]], **Rabin's OT** is a simpler variant where the sender transmits a single message $x$ and the receiver obtains it with probability $1/2$, receiving $\bot$ otherwise — without the sender learning which outcome occurred. Rabin OT and 1-out-of-2 OT are equivalent; each implies the other by efficient reductions ([[rabin-ot-to-ot|Rabin OT ⇔ OT]]).
 
 ## $k$-out-of-$n$ OT
 
@@ -130,23 +130,23 @@ Single-server [[single-server-private-information-retrieval#Symmetric private in
 
 ## OT Extension
 
-OT from public-key primitives requires expensive operations per transfer. **OT extension** generates any polynomial number $m$ of OTs from a number of base OTs that depends only on the security parameter, using only symmetric-key primitives beyond them — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]; each extended transfer costs a constant number of hash evaluations in [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]].
+OT from public-key primitives requires expensive operations per transfer. **OT extension** generates any polynomial number $m$ of OTs from a number of base OTs that depends only on the security parameter, using only symmetric-key primitives beyond them ([[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]]) — [[Bea96 - Correlated Pseudorandomness and the Complexity of Private Computations|Bea96]]; each extended transfer costs a constant number of hash evaluations in [[IKNP03 - Extending Oblivious Transfers Efficiently|IKNP03]] ([[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]]).
 
 ## Random OT
 
-In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with a single round of communication.
+In a **Random OT**, the parties do not choose their inputs: the sender receives uniformly random $(x_0, x_1)$ and the receiver receives a uniformly random bit $c$ and the value $x_c$. Random OT can be converted to standard OT with one message from each party, the receiver's first ([[random-ot-to-ot|Random OT ⇒ OT]]) — [[Bea95 - Precomputing Oblivious Transfer|Bea95]].
 
 ## Two-round OT
 
-A **two-round OT** is an OT $\OT$ with [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]] whose interaction is one message each way: the receiver computes $(m_R, \st_R) \gets R_1(\pp, c)$ and sends $m_R$, the sender replies with $m_S \gets S(\pp, x_0, x_1, m_R)$, and the receiver outputs $R_2(\st_R, m_S) = x_c$. $\Setup$ is as in the syntax above, so a common reference string is allowed. Two-round OT is necessary and sufficient for two-round MPC secure against semi-honest adversaries corrupting any number of parties — [[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]], [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
+A **two-round OT** is an OT $\OT$ with [[#Sender Privacy|sender privacy]] and [[#Receiver Privacy|receiver privacy]] whose interaction is one message each way: the receiver computes $(m_R, \st_R) \gets R_1(\pp, c)$ and sends $m_R$, the sender replies with $m_S \gets S(\pp, x_0, x_1, m_R)$, and the receiver outputs $R_2(\st_R, m_S) = x_c$. $\Setup$ is as in the syntax above, so a common reference string is allowed. Two-round OT is necessary and sufficient for two-round MPC secure against semi-honest adversaries corrupting any number of parties ([[two-round-ot-to-two-round-semi-honest-mpc-gs18|Two-round OT ⇒ Two-round semi-honest MPC (Garg–Srinivasan, Benhamouda–Lin)]], [[two-round-semi-honest-mpc-to-two-round-ot|Two-round semi-honest MPC ⇒ Two-round OT]]) — [[BL18 - k-Round Multiparty Computation from k-Round Oblivious Transfer via Garbled Interactive Circuits|BL18]], [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
 
 ## UC-secure OT
 
-An OT protocol is **UC-secure** if it UC-realizes $\calF_{\mathrm{OT}}$ in the common reference string model, with $\pp \gets \Setup(1^\secpar)$ as the reference string, against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]], and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
+An OT protocol is **UC-secure** if it [[universal-composability-framework#uc-emulation|UC-realizes]] $\calF_{\mathrm{OT}}$ in the common reference string model, with $\pp \gets \Setup(1^\secpar)$ as the reference string, against a malicious adversary that statically corrupts either party — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. UC security implies stand-alone [[#Malicious Security|malicious security]] ([[uc-ot-to-malicious-ot-security|UC-secure OT ⇒ Malicious OT]]), and by the composition theorem a UC-secure protocol can replace the ideal functionality in any protocol in the OT-hybrid model — [[Can01 - Universally composable security a new paradigm for cryptographic protocols|Can01]]. A UC-secure protocol also has sender and receiver privacy with the same reference string, since a UC environment can choose the inputs after learning the reference string through the adversary ([[uc-ot-to-ot|UC-secure OT ⇒ OT]]) — folklore.
 
 ## Two-round UC-secure OT
 
-A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose interaction is one message from the receiver followed by one message from the sender, as in [[#Two-round OT|two-round OT]]. The dual-mode protocols of [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]], from DDH, QR or LWE, and the protocol of [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]], from CDH, are two-round UC-secure OT protocols. Two-round malicious OT in the common reference string model gives two-round MPC secure with abort against a malicious adversary corrupting any number of parties — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
+A **two-round UC-secure OT** is a [[#UC-secure OT|UC-secure OT]] protocol whose interaction is one message from the receiver followed by one message from the sender, as in [[#Two-round OT|two-round OT]]. The dual-mode protocols of [[PVW08 - A Framework for Efficient and Composable Oblivious Transfer|PVW08]], from DDH, QR or LWE ([[ddh-to-malicious-ot-security-pvw08|DDH ⇒ Two-round UC-secure OT (PVW)]], [[qr-to-malicious-ot-security-pvw08|QR ⇒ Two-round UC-secure OT (PVW)]], [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]]), and the protocol of [[DGHMW20 - Two-Round Oblivious Transfer from CDH or LPN|DGHMW20]], from CDH ([[cdh-to-uc-ot-dghmw20|CDH ⇒ Two-round UC-secure OT (DGHMW)]]), are two-round UC-secure OT protocols. Two-round malicious OT in the common reference string model gives two-round MPC secure with abort against a malicious adversary corrupting any number of parties ([[two-round-uc-ot-to-two-round-mpc-gs18|Two-round UC OT ⇒ Two-round MPC in the CRS model (Garg–Srinivasan)]]) — [[GS18 - Two-Round Multiparty Secure Computation from Minimal Assumptions|GS18]].
 
 ## Malicious security with expected polynomial-time simulation
 
@@ -162,7 +162,7 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[ot-to-com|Malicious OT ⇒ COM (Kilian)]]
 - [[ot-to-mpc-kil88|Ideal OT ⇒ 2PC (Kilian)]]
 
-<!-- BEGIN GENERATED participates-in accac0551d62 -->
+<!-- BEGIN GENERATED participates-in eff4212f0fb2 -->
 
 ## Participates in
 
@@ -206,14 +206,18 @@ A **four-round OT** is an OT protocol with [[#Malicious security with expected p
 - [[lossy-trapdoor-function-to-ot-pw08|Lossy TDF ⇒ OT]]
 - [[lwe-to-malicious-ot-security-pvw08|LWE ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[malicious-ot-security-to-malicious-ot-with-expected-time-simulation|Malicious OT ⇒ Malicious OT with expected-time simulation]] (via [[oblivious-transfer#malicious-security-with-expected-polynomial-time-simulation|Malicious security with expected polynomial-time simulation]])
+- [[ope-to-ot|OPE ⇒ OT]]
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
+- [[oprf-to-ot|OPRF ⇒ OT]]
 - [[ot-and-owf-to-ot-extension-bea96|OT + OWF ⇒ OT extension (Beaver)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
 - [[ot-to-malicious-ot-security-hai08|Semi-honest OT ⇒ Malicious OT (Haitner)]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[ot-to-ot-extension-iknp03|OT ⇒ OT extension (IKNP)]] (via [[oblivious-transfer#ot-extension|OT Extension]])
+- [[psi-to-ot|PSI ⇒ OT]]
 - [[qr-to-malicious-ot-security-pvw08|QR ⇒ Two-round UC-secure OT (PVW)]] (via [[oblivious-transfer#two-round-uc-secure-ot|Two-round UC-secure OT]])
 - [[rabin-ot-to-ot|Rabin OT ⇔ OT]]
 - [[random-ot-to-ot|Random OT ⇒ OT]]
 - [[subexponential-lpn-to-ot-yz16|Subexponential LPN ⇒ OT]]
+- [[subset-sum-to-ot-lps10|Subset sum at the LPS10 parameters ⇒ OT]]
 - [[symmetric-private-information-retrieval-single-server-to-ot|Symmetric private information retrieval (Single-server) ⇒ OT]]
 - [[two-party-computation-to-malicious-ot-security|2PC ⇒ Malicious OT]] (via [[oblivious-transfer#malicious-security|Malicious Security]])
 - [[two-party-computation-to-ot|Semi-honest 2PC ⇒ OT]]

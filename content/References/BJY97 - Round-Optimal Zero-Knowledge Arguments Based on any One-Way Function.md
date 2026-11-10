@@ -17,4 +17,9 @@ cryptobib_key: EC:BelJakYun97
 
 ## Abstract
 
-TODO — abstract.
+We fill a gap in the theory of zero-knowledge protocols by presenting
+NP-arguments that achieve negligible error probability and computational
+zero-knowledge in four rounds of interaction, assuming only the existence of a
+one-way function. This result is optimal in the sense that four rounds and a
+one-way function are each individually necessary to achieve a negligible error
+zero-knowledge argument for NP.

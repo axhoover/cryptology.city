@@ -6,10 +6,14 @@ import path from "node:path";
 const ROOT = path.resolve(import.meta.dirname, "..");
 
 test("Path ORAM's parameter sets keep each variant's own bandwidth and storage", () => {
-  // SDS+13 Table 1: with the stashes on the client, bandwidth
-  // O(log^2 N / log X) needs O(log^2 N / log X)·ω(1) client blocks; with them
-  // on the server, O(log N)·ω(1) client blocks cost an extra ω(1) bandwidth
-  // factor. A row pairing the better bound of each is not a theorem.
+  // SDS+13, blocks of X log N bits with a recursive position map. One stash
+  // per level on the client: bandwidth O(log^2 N / log X), client storage
+  // O(log^2 N / log X)·ω(1) (arXiv v2 Table 1, v3 §4.2(i)). One stash shared
+  // by all levels on the client: the same bandwidth with O(log N)·ω(1) client
+  // blocks (v3 §4.2(ii), §5.7). Stashes on the server, downloaded with the
+  // rest of the client state for each access: O(1) client blocks between
+  // operations at an extra ω(1) bandwidth factor (v2 §3.3, §4.2). Each row
+  // pairs the bounds of one parameter set; a row mixing two is not a theorem.
   const page = fs.readFileSync(
     path.join(ROOT, "content", "Primitives", "oblivious-ram.md"),
     "utf8",
@@ -20,7 +24,7 @@ test("Path ORAM's parameter sets keep each variant's own bandwidth and storage",
     .slice(start)
     .split("\n")
     .slice(1)
-    .filter((l) => /^\s*\| on the (client|server) \|/.test(l))
+    .filter((l) => /^\s*\| on the (client|server)[ ,]/.test(l))
     .map((l) =>
       l
         .trim()
@@ -28,25 +32,23 @@ test("Path ORAM's parameter sets keep each variant's own bandwidth and storage",
         .split("|")
         .map((c) => c.trim()),
     );
-  assert.deepEqual(
-    rows.map((r) => r[0]),
-    ["on the client", "on the server"],
-  );
-  const omega = (c: string) => c.includes("\\omega(1)");
-  const squared = (c: string) => c.includes("\\log^2");
-  for (const [where, bandwidth, storage] of rows) {
-    assert.ok(omega(storage), `${where}: client storage carries ω(1)`);
-    if (!squared(storage))
-      assert.ok(
-        omega(bandwidth),
-        `${where}: O(log N)·ω(1) client storage needs the ω(1) bandwidth factor`,
-      );
-    if (!omega(bandwidth))
-      assert.ok(
-        squared(storage),
-        `${where}: bandwidth without ω(1) needs O(log^2 N / log X)·ω(1) storage`,
-      );
-  }
+  assert.deepEqual(rows, [
+    [
+      "on the client, one per level",
+      "$O(\\log^2 N_1 / \\log X)$",
+      "$O(\\log^2 N_1 / \\log X) \\cdot \\omega(1)$",
+    ],
+    [
+      "on the client, one shared by all levels",
+      "$O(\\log^2 N_1 / \\log X)$",
+      "$O(\\log N_1) \\cdot \\omega(1)$",
+    ],
+    [
+      "on the server, one per level",
+      "$O(\\log^2 N_1 / \\log X) \\cdot \\omega(1)$",
+      "$O(1)$",
+    ],
+  ]);
 });
 
 test("BN16's sorting-circuit ORAM concludes the node whose store values are fixed in advance", () => {

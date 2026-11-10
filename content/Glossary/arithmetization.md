@@ -32,7 +32,7 @@ R1CS is the arithmetization underlying Groth16 and the original Pinocchio protoc
 A QAP encodes an R1CS instance into a polynomial divisibility check. Given an R1CS with $m$ constraints and distinct evaluation points $\omega_1, \ldots, \omega_m \in \FF_p$, define the **target polynomial** $t(X) = \prod_{i=1}^m (X - \omega_i)$, interpolate for each coordinate $j \in [n]$ polynomials $A_j, B_j, C_j$ of degree $< m$ with $A_j(\omega_i) = a_{i,j}$, $B_j(\omega_i) = b_{i,j}$, $C_j(\omega_i) = c_{i,j}$, and set $A(X) = \sum_{j} z_j A_j(X)$, $B(X) = \sum_{j} z_j B_j(X)$, $C(X) = \sum_{j} z_j C_j(X)$. The witness $\mathbf{z}$ satisfies all constraints if and only if ([[Gro16 - On the Size of Pairing-based Non-interactive Arguments|Gro16]], following Gennaro, Gentry, Parno, and Raykova, EUROCRYPT 2013):
 $$t(X) \mid A(X) \cdot B(X) - C(X).$$
 
-This divisibility check can be verified at a single random point using the Schwartz-Zippel lemma, which is how SNARKs like Groth16 reduce circuit satisfiability to a pairing check.
+This divisibility check can be verified at a single random point using the [[schwartz-zippel-lemma|Schwartz–Zippel lemma]], which is how SNARKs like Groth16 reduce circuit satisfiability to a pairing check.
 
 ### PLONKish
 
@@ -52,5 +52,5 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - Every NP statement can be arithmetized as R1CS in polynomial size — standard
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
-- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
+- [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]]
 - For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$), as does each XOR gate over $\FF_p$ with $p > 2$ ($2a \cdot b = a + b - c$); NOT is affine and free — standard

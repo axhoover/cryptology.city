@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "BDH ⇒ ABE"
+title: "DBDH ⇒ Selectively secure ABE"
 aliases: []
 id: red-bdh-to-abe-gpsw06
 kind: implication
-hypotheses: [bdh]
-conclusion: abe
+hypotheses: [dbdh]
+conclusion: abe-selective-security
 class: fully-black-box
 model: standard
 source:
@@ -16,11 +16,11 @@ rationale:
   class: "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
 ---
 
-# BDH ⇒ ABE
+# DBDH ⇒ Selectively secure ABE
 
 ## Statement
 
-If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) holds, there is a key-policy [[attribute-based-encryption|ABE]] for monotone access structures (monotone Boolean formulas or LSSS) that is [[attribute-based-encryption#selective-security|selectively]] [[attribute-based-encryption#kp-abe-ind-cpa-security|KP-IND-CPA-secure]]: the adversary commits to the challenge attribute set before $\Setup$ runs — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions#decisional-bdh|DBDH]]) holds, there is a key-policy [[attribute-based-encryption|ABE]] for monotone access structures (monotone Boolean formulas or LSSS) that is [[attribute-based-encryption#selective-security|selectively]] [[attribute-based-encryption#kp-abe-ind-cpa-security|KP-IND-CPA-secure]]: the adversary commits to the challenge attribute set before $\Setup$ runs — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]].
 
 ## Sketch
 

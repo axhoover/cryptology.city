@@ -17,4 +17,4 @@ cryptobib_key: TCC:CCGJO20
 
 ## Abstract
 
-TODO — abstract.
+We construct a four round secure multiparty computation (MPC) protocol in the plain model that achieves security against any dishonest majority. The security of our protocol relies only on the existence of four round oblivious transfer. This culminates the long line of research on constructing round-efficient MPC from minimal assumptions (at least w.r.t. black-box simulation).

@@ -17,4 +17,4 @@ cryptobib_key: TCC:GerMalMye07
 
 ## Abstract
 
-TODO — abstract.
+We address the question of whether or not semantically secure public-key encryption primitives imply the existence of chosen ciphertext attack (CCA) secure primitives. We show a black-box separation, using the methodology introduced by Impagliazzo and Rudich, for a large non-trivial class of constructions. In particular, we show that if the proposed CCA construction's decryption algorithm does not query the semantically secure primitive's encryption algorithm, then the proposed construction cannot be CCA secure

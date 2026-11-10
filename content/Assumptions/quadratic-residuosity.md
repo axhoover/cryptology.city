@@ -14,7 +14,7 @@ variants:
 
 # Quadratic residuosity assumption
 
-The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme — [[GM84 - Probabilistic encryption|GM84]].
+The _quadratic residuosity (QR) assumption_ states that it is computationally hard to decide whether a given integer $a$ with Jacobi symbol $\left(\frac{a}{N}\right) = 1$ is a quadratic residue modulo $N = pq$. The restriction is necessary: $\left(\frac{a}{N}\right)$ is efficiently computable without $p, q$, and $\left(\frac{a}{N}\right) = -1$ certifies $a \notin \QR_N$ — [[GM84 - Probabilistic encryption|GM84]]. It underlies the first provably CPA-secure public-key encryption scheme ([[qr-to-pke-gm84|QR ⇒ PKE]]) — [[GM84 - Probabilistic encryption|GM84]].
 
 ## Assumption
 
@@ -64,14 +64,14 @@ For a prime $p$, deciding quadratic residuosity modulo $p$ is easy (via the Lege
 
 ## Higher residuosity
 
-Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Micali generalizations and the Benaloh cryptosystem.
+Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Micali generalizations and the Benaloh cryptosystem ([[higher-residuosity-to-pke|Higher residuosity ⇒ PKE]]).
 
 # Attacks
 
 - QR is broken if [[factoring|factoring]] $N$ is easy: knowing $p, q$ determines all Legendre symbols — folklore
 - Quantum attacks: Shor's algorithm factors $N$ and breaks QR — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]
 
-<!-- BEGIN GENERATED participates-in 2f53358183b3 -->
+<!-- BEGIN GENERATED participates-in ce4f89a1f553 -->
 
 ## Participates in
 
@@ -86,6 +86,7 @@ Generalizes QR to $d$-th power residuosity modulo $N$. Underlies Goldwasser-Mica
 - [[fac-to-qr-gm84|QR ⇒ FAC]]
 - [[qr-to-four-round-mpc-bgj18|QR ⇒ Four-round MPC (Badrinarayanan–Goyal–Jain–Kalai–Khurana–Sahai)]]
 - [[qr-to-he-gm84|QR ⇒ Additively homomorphic encryption]]
+- [[qr-to-ind-id-cpa-coc01|QR ⇒ IBE (Cocks, random oracle model)]]
 - [[qr-to-lossy-trapdoor-function-fgkrs10|QR ⇒ Lossy TDF (Freeman–Goldreich–Kiltz–Rosen–Segev)]]
 - [[qr-to-malicious-ot-security-pvw08|QR ⇒ Two-round UC-secure OT (PVW)]]
 - [[qr-to-np|QR ∈ NP]]

@@ -15,11 +15,12 @@ variants:
   doubly-enhanced-certified-tdp: "#doubly-enhanced-certified-trapdoor-permutations"
   injective-trapdoor-function: "#injective-trapdoor-functions"
   claw-free-permutations: "#claw-free-permutations"
+  claw-free-trapdoor-permutations: "#claw-free-trapdoor-permutations"
 ---
 
 # Trapdoor permutation
 
-A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard to invert without a _trapdoor_: a secret that makes inversion efficient. Trapdoor permutations are one-way functions with an additional invertibility structure, and they are associated with Impagliazzo's "Cryptomania" world. Their existence implies many public-key cryptographic primitives.
+A _trapdoor permutation (TDP)_ is a permutation that is easy to compute but hard to invert without a _trapdoor_: a secret that makes inversion efficient. Trapdoor permutations are one-way functions with an additional invertibility structure ([[tdp-to-hash-function|TDP ⇒ OWF]]), and they are associated with Impagliazzo's "Cryptomania" world. Their existence implies many public-key cryptographic primitives.
 
 ## Syntax
 
@@ -52,27 +53,31 @@ Inversion with the trapdoor is efficient: $\Invert(\td, \Eval(f, x)) = x$ with p
 
 ## Enhanced trapdoor permutations
 
-An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
+An _enhanced TDP_ comes with a domain sampler and remains hard to invert on a sampled image $y$ even given the sampler's coins $r$. The [[EGL85 - A randomized protocol for signing contracts|EGL85]] construction of [[oblivious-transfer|OT]] is proved secure under this stronger property, since its receiver samples an image obliviously and holds the sampling coins ([[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]) — [[Gol04 - Foundations of Cryptography Basic Applications|Gol04]], [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. No fully black-box construction of an enhanced TDP from a standard TDP exists ([[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]) — [[Haj18 - Enhancements Are Blackbox Non-Trivial Impossibility of Enhanced Trapdoor Permutations from Standard Trapdoor Permutations|Haj18]].
 
 ### Doubly enhanced certified trapdoor permutations
 
-An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
+An enhanced TDP is _doubly enhanced_ if, given the index alone, one can efficiently sample a pair $(x, r)$ with $x$ uniform in the domain and $r$ uniform among the domain sampler's coins that output $f(x)$ — [[GR13 - Enhancements of Trapdoor Permutations|GR13]]. It is _certified_ if its indices, and the domains they describe, are efficiently recognizable, so that a verifier can check that an index describes a permutation — [[BY96 - Certifying Permutations Noninteractive Zero-Knowledge Based on Any Trapdoor Permutation|BY96]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]]. These are the properties the hidden-bits compilation of NIZK proofs uses ([[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]]) — [[GR13 - Enhancements of Trapdoor Permutations|GR13]], [[CL18 - Certifying Trapdoor Permutations, Revisited|CL18]].
 
 ## Injective trapdoor functions
 
-An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one — folklore.
+An _injective trapdoor function_ has the syntax above with $\Eval(f, \cdot) : \calD \to \calR$ injective rather than a permutation of $\calD$, and the same one-wayness and inversion requirements. Every trapdoor permutation is one ([[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]) — folklore.
 
 ## Claw-free permutations
 
-A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for uniform $x_1$ yields a claw — standard. GMR88 use claw-free pairs with trapdoors for $f_0^{-1}$ and $f_1^{-1}$.
+A _claw-free pair_ is a pair of permutations $f_0, f_1$ of a common domain $\calD$, sampled together by $\Gen$, such that no efficient $\calA$ given $(f_0, f_1)$ outputs a claw $(x_0, x_1)$ with $f_0(x_0) = f_1(x_1)$, except with negligible probability — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then one-way, since inverting $f_0$ on $f_1(x_1)$ for uniform $x_1$ yields a claw — standard.
+
+### Claw-free trapdoor permutations
+
+A _claw-free pair of trapdoor permutations_ is a claw-free pair $(f_0, f_1)$ whose generator also outputs trapdoors $\td_0, \td_1$ with which $f_0^{-1}$ and $f_1^{-1}$ are efficiently computable — [[GMR88 - A Digital Signature Scheme Secure Against Adaptive Chosen-Message Attacks|GMR88]]. Each $f_b$ is then a trapdoor permutation, one-way by the argument above — standard.
 
 ## Lossy trapdoor functions
 
-An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is injective and inverted by $\Invert$ with the trapdoor, one-wayness not being assumed, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. A _lossy trapdoor function_ is an $(n, k)$-lossy one with $k = \omega(\log \secpar)$; without a lower bound on $k$, every injective trapdoor function is an $(n, 0)$-lossy one, with the same index in both modes. $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and IND-CCA-secure encryption — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]].
+An $(n, k)$-_lossy trapdoor function_ samples a function index $s$ in one of two computationally indistinguishable modes: in the injective mode $f_s : \bits^n \to \calR$ is injective and inverted by $\Invert$ with the trapdoor, one-wayness not being assumed, and in the lossy mode $f_s$ has at most $2^{n-k}$ images, so it loses at least $k$ bits of its input — [[PW08 - Lossy trapdoor functions and their applications|PW08]]. A _lossy trapdoor function_ is an $(n, k)$-lossy one with $k = \omega(\log \secpar)$; without a lower bound on $k$, every injective trapdoor function is an $(n, 0)$-lossy one, with the same index in both modes. $r := n - k$ is the _residual leakage_. Lossy TDFs imply injective trapdoor functions ([[lossy-trapdoor-function-to-injective-trapdoor-function-pw08|Lossy TDF ⇒ Injective TDF]]) — [[PW08 - Lossy trapdoor functions and their applications|PW08]] — and IND-CCA-secure encryption ([[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]]) — [[MY10 - Chosen-Ciphertext Security from Slightly Lossy Trapdoor Functions|MY10]].
 
 ### Highly lossy trapdoor functions
 
-An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is $r \le \rho n$ for a constant $\rho < 1/2$, the regime in which it yields collision-resistant hashing — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
+An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is $r \le \rho n$ for a constant $\rho < 1/2$, the regime in which it yields collision-resistant hashing ([[lossy-trapdoor-function-to-crhf-pw08|Highly lossy TDF ⇒ CRHF]]) — [[PW08 - Lossy trapdoor functions and their applications|PW08]].
 
 # Other results
 
@@ -80,7 +85,7 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[enhanced-trapdoor-permutations-to-ot-gkm-00|Enhanced trapdoor permutations ⇒ OT]]
 - [[rsa-to-tdp-rsa78|RSA ⇒ TDP]]
 
-<!-- BEGIN GENERATED participates-in 85738da8b3ec -->
+<!-- BEGIN GENERATED participates-in 693ad3eeb879 -->
 
 ## Participates in
 
@@ -89,8 +94,11 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
 - [[claw-free-permutations-to-crhf-dam87|Claw-free permutations ⇒ CRHF (Damgård)]] (via [[trapdoor-permutation#claw-free-permutations|Claw-free permutations]])
+- [[claw-free-tdp-and-cca2-pke-to-uc-multi-commitment-cf01|Claw-free TDP + CCA2 PKE ⇒ UC multi-commitment in the CRS model (Canetti–Fischlin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
+- [[claw-free-trapdoor-permutations-to-chameleon-hash-function-kr00|Claw-free TDP ⇒ Chameleon hash (Krawczyk–Rabin)]] (via [[trapdoor-permutation#claw-free-trapdoor-permutations|Claw-free trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-enhanced-trapdoor-permutation|Doubly enhanced certified TDP ⇒ Enhanced TDP]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[doubly-enhanced-certified-tdp-to-five-round-two-party-computation-ko04|Doubly enhanced certified TDP ⇒ Five-round 2PC (Katz–Ostrovsky)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
+- [[doubly-enhanced-certified-tdp-to-group-signature-bmw03|Doubly enhanced certified TDP ⇒ Group signatures (BMW)]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [Enhanced TDP ⇒ MPC with honest majority ($t < n/2$) (GMW)](enhanced-trapdoor-permutation-to-honest-majority-t-lt-n-over-2-gmw87) (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-two-party-computation-ors15|Enhanced TDP ⇒ 2PC with expected-time simulation (Ostrovsky–Richelson–Scafuro)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[enhanced-trapdoor-permutation-to-uc-mpc-clos02|Enhanced TDP ⇒ UC MPC in the CRS model (CLOS)]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
@@ -102,10 +110,12 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 - [[lossy-trapdoor-functions-to-pke|Lossy trapdoor functions ⇒ IND-CCA PKE]] (via [[trapdoor-permutation#lossy-trapdoor-functions|Lossy trapdoor functions]])
 - [[tdp-to-cpir-ko00|TDP ⇒ cPIR with total communication below n (Kushilevitz–Ostrovsky)]]
 - [[tdp-to-ds-br93|TDP ⇒ DS (full-domain hash, random oracle model)]]
+- [[tdp-to-fixed-ring-ring-signature-rst01|TDP ⇒ Ring signatures with fixed-ring unforgeability (Rivest–Shamir–Tauman)]]
 - [[tdp-to-hash-function|TDP ⇒ OWF]]
 - [[tdp-to-injective-trapdoor-function|TDP ⇒ Injective TDF]]
 - [[tdp-to-nizk-bfm88|Doubly enhanced certified TDP ⇒ NIZK]] (via [[trapdoor-permutation#doubly-enhanced-certified-trapdoor-permutations|Doubly enhanced certified trapdoor permutations]])
 - [[tdp-to-pke|TDP ⇒ PKE]]
+- [[tdp-to-uc-commitment-cf01|TDP ⇒ UC commitment in the CRS model (Canetti–Fischlin)]]
 
 **Produces Trapdoor permutation**
 
@@ -126,12 +136,15 @@ An $(n, k)$-lossy trapdoor function is _highly lossy_ if its residual leakage is
 **Barriers**
 
 - [[no-enhanced-trapdoor-permutation-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
+- [[no-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08|No polynomially-preserving fully-black-box reduction from enhanced TDP to PIR with polylogarithmic communication]] (via [[trapdoor-permutation#enhanced-trapdoor-permutations|Enhanced trapdoor permutations]])
 - [[no-ke-to-tdp-rud91|No relativizing reduction from KE to TDP]]
 - [[no-ot-to-tdp-gkm-00|No fully-black-box reduction from OT to TDP]]
 - [[no-pke-to-injective-trapdoor-function-gmr01|No fully-black-box reduction from PKE to injective TDF]] (via [[trapdoor-permutation#injective-trapdoor-functions|Injective trapdoor functions]])
 - [[no-pke-to-tdp-gkm-00|No fully-black-box reduction from PKE to TDP]]
 - [[no-tdp-to-ot|No fully-black-box reduction from TDP to enhanced TDP]]
+- [[no-tdp-to-ibe-bprvw08|No fully-black-box reduction from TDP to IBE]]
 - [[no-tdp-to-one-round-sublinear-cpir-hhs08|No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR]]
+- [[no-tdp-to-polylog-cpir-hhs08|No polynomially-preserving fully-black-box reduction from TDP to PIR with polylogarithmic communication]]
 - [[no-tdp-to-verifiable-random-function-fs12|No fully-black-box reduction from TDP to VRF]]
 
 <!-- END GENERATED participates-in -->

@@ -7,7 +7,6 @@ aliases:
   - Zero-knowledge proof
   - ZK
   - ZK proofs
-  - Sigma protocol
 title: Zero-knowledge proof
 id: zkp
 variants:
@@ -36,6 +35,8 @@ A zero-knowledge proof system for a language $L \subseteq \bits^*$ is an interac
 - $P$ receives as input $(x, w)$ where $w$ is a witness for $x \in L$
 - $V$ receives input $x$ and outputs $\mathrm{accept}$ or $\mathrm{reject}$
 - The transcript of the interaction is a sequence of messages $(\alpha_1, \beta_1, \ldots, \alpha_k, \beta_k)$
+
+A zero-knowledge proof without further qualification means a computational zero-knowledge proof system for every language in $\classNP$, as one-way functions give through statistically binding commitments ([[hash-function-to-zkp-gmw91|OWF ⇒ ZKP]]) — [[GMW91 - Proofs that yield nothing but their validity or all languages in NP have zero-knowledge proof systems|GMW91]], [[Naor91 - Bit commitment using pseudorandomness|Naor91]], [[HILL99 - A Pseudorandom Generator from Any One-Way Function|HILL99]]. For a single language in $\classBPP$ the notion is trivial: the verifier decides $x$ alone — standard.
 
 ## Properties
 
@@ -66,11 +67,11 @@ Depending on whether the simulator's output is identically distributed, statisti
 
 ## Honest-verifier ZK (HVZK)
 
-Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform.
+Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]).
 
 ## Sigma protocols
 
-A _sigma protocol_ ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
+A [[sigma-protocol|sigma protocol]] ($\Sigma$-protocol) is a 3-message HVZK proof: (1) commitment $\alpha$ from prover; (2) random challenge $\beta$ from verifier; (3) response $\gamma$ from prover. Sigma protocols satisfy **special soundness** (two accepting transcripts with the same $\alpha$ but different $\beta$ yield a witness extractor) and HVZK. The Schnorr protocol for the [[discrete-logarithm|discrete-logarithm]] relation is the canonical example — [[Sch91 - Efficient signature generation by smart cards|Sch91]]; its special soundness and perfect HVZK hold in every prime-order group, with no hardness assumption — standard.
 
 ## Witness-indistinguishable (WI) proofs
 
@@ -131,7 +132,7 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
   - Assuming either almost-optimal hardness of search [[learning-with-errors|LWE]] or a circular-secure [[homomorphic-encryption|fully homomorphic encryption]] scheme with standard security, the quadratic residuosity protocol of [[GMR85 - The knowledge complexity of interactive proof-systems|GMR85]] is not zero-knowledge when repeated in parallel; under either assumption the same paper gives NIZK arguments for $\classNP$ in the common reference string model — [[CCH+19 - Fiat-Shamir from practice to theory|CCH+19]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
 
-<!-- BEGIN GENERATED participates-in 762f729a22c5 -->
+<!-- BEGIN GENERATED participates-in cb3c856b71b4 -->
 
 ## Participates in
 
@@ -140,10 +141,11 @@ A zero-knowledge proof, sound against unbounded provers, for an $\classNP$-compl
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]] (via [[zero-knowledge-proof#honest-verifier-zk-hvzk|Honest-verifier ZK (HVZK)]])
 - [[non-interactive-zap-to-zap|Non-interactive zap ⇒ Zap]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 - [[zap-and-co-nondeterministic-hsg-to-non-interactive-zap-bov03|Zap + HSG ⇒ Non-interactive zaps (BOV)]] (via [[zero-knowledge-proof#zaps|Zaps]])
+- [[zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness|ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP]]
 
 **Produces Zero-knowledge proof**
 
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[zero-knowledge-proof#non-interactive-zaps|Non-interactive zaps]])
 - [[claw-free-permutations-to-concurrent-zk-proof-prs02|Claw-free permutations ⇒ Concurrent ZK proofs for NP in ω(log n) rounds]] (via [[zero-knowledge-proof#concurrent-zero-knowledge-proofs|Concurrent zero-knowledge proofs]])
 - [[claw-free-permutations-to-constant-round-zk-proof-gk96b|Claw-free permutations ⇒ Constant-round ZK proofs for NP (Goldreich–Kahan)]] (via [[zero-knowledge-proof#constant-round-zero-knowledge-proofs|Constant-round zero-knowledge proofs]])
 - [[crhf-to-constant-round-zk-argument-bar01|CRHF ⇒ Constant-round ZK argument (Barak)]] (via [[zero-knowledge-proof#constant-round-public-coin-zero-knowledge-arguments|Constant-round public-coin zero-knowledge arguments]])

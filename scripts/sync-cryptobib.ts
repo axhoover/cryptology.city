@@ -155,6 +155,13 @@ const UPSTREAM_ERRORS: {
     cryptobib: "Oblivious {RAMs} without cryptogrpahic assumptions",
     why: "cryptobib misspells cryptographic",
   },
+  {
+    key: "C:GuiQui88",
+    field: "title",
+    cryptobib:
+      "A ``Paradoxical'' Indentity-Based Signature Scheme Resulting from Zero-Knowledge",
+    why: "cryptobib misspells Identity",
+  },
 ];
 
 function isUpstreamError(key: string, d: Drift): boolean {

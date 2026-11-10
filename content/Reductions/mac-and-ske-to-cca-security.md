@@ -21,7 +21,7 @@ rationale:
 
 ## Statement
 
-Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]]. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$ — encrypt $m$ to $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$, and decrypt $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme, and with a MAC that is only UF-CMA it can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
+Let $\SKE$ be a [[symmetric-key-encryption#cpa-security|CPA-secure]] [[symmetric-key-encryption|SKE]] scheme and $\MAC$ a [[message-authentication-code#strong-unforgeability|strongly unforgeable]] (SUF-CMA) [[message-authentication-code|MAC]] whose message space contains the ciphertext space of $\SKE$. Encrypt-then-MAC under an $\SKE$ key $k_e$ and an independent $\MAC$ key $k_m$ — encrypt $m$ to $c \gets \Enc(k_e, m)$, output $(c, \Tag(k_m, c))$, and decrypt $(c, t)$ to $\Dec(k_e, c)$ if $\Vrfy(k_m, c, t) = 1$ and to $\bot$ otherwise — is a [[symmetric-key-encryption#cca-security|CCA-secure]] SKE scheme, and with a MAC that is only UF-CMA it can fail CCA security — [[BN00 - Authenticated Encryption Relations among Notions and Analysis of the Generic Composition Paradigm|BN00]].
 
 ## Sketch
 

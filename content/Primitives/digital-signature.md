@@ -11,7 +11,7 @@ id: ds
 variants:
   one-time-signature: "#one-time-signatures"
   schnorr-signature: "#schnorr-signatures"
-  hash-and-sign-signature: "#lattice-based-signatures"
+  hash-and-sign-signature: "#hash-and-sign-signatures"
   boneh-lynn-shacham-signature: "#bls-signatures"
   waters-signature: "#waters-signatures"
   eddsa: "#eddsa"
@@ -20,6 +20,9 @@ variants:
   aggregate-signature: "#aggregate-signatures"
   structure-preserving-signature: "#structure-preserving-signatures"
   short-structure-preserving-signature: "#optimally-short-structure-preserving-signatures"
+  one-time-quantum-public-key-signature: "#one-time-signatures-with-quantum-public-keys"
+  post-quantum-ds: "#security-against-quantum-adversaries"
+  nonadaptive-post-quantum-ds: "#nonadaptive-queries"
 ---
 
 # Digital signature
@@ -49,14 +52,14 @@ message space $\calM$, and signature space $\calS$:
 ### Correctness
 
 A Digital Signature scheme $\DS = (\KeyGen, \Sign, \Vrfy)$ is
-$(1-\varepsilon)$**-correct** if for all $m \in \calM$,
+$(1-\varepsilon)$**-correct** if for all $\secpar \in \NN$ and $m \in \calM$,
 
 $$
   \Pr\!\left[\Vrfy(\vk, m, \Sign(\sk, m)) = 1\right] \ge 1-\varepsilon,
 $$
 
 over the randomness of $(\sk, \vk) \leftarrow \KeyGen(1^\secpar)$ and
-possibly $\Sign.$
+possibly $\Sign.$ When $\varepsilon = 0$, $\DS$ is **perfectly correct**.
 
 ### Existential Unforgeability
 
@@ -64,7 +67,7 @@ The following is the **existential unforgeability under chosen
 message attacks (EUF-CMA)** game. This security notion requires that an
 adversary cannot produce a valid message-signature pair
 $(\hat{m},\hat{\sigma})$ for a message $\hat{m}$ it has not submitted to the
-signing oracle, even given signatures on adversarially chosen messages.
+signing oracle, even given signatures on adversarially chosen messages. Without the restriction, $\calA$ wins with probability at least $1-\varepsilon$ by querying $\calO(m)$ and outputting $(m, \sigma)$.
 
 ```pseudocode
 \begin{algorithm}
@@ -152,11 +155,11 @@ is negligible.
 
 ## Schnorr signatures
 
-Schnorr signatures are built from the **[[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]]** — a three-message sigma protocol for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform. For a generator $g$ of a group of prime order $p$, to sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
+Schnorr signatures are built from the **[[identification-scheme#schnorr-identification-protocol|Schnorr identification protocol]]** — a three-message [[sigma-protocol|sigma protocol]] for proving knowledge of a discrete logarithm — compiled to a signature via the Fiat-Shamir transform ([[fiat-shamir-and-schnorr-signatures-to-schnorr-signatures-sch91|Schnorr identification ⇒ Schnorr signatures (Fiat–Shamir)]]). For a generator $g$ of a group of prime order $p$, to sign $m$ with secret key $x$ (where $\pk = g^x$): sample $r \getsr \ZZ_p$, compute $R = g^r$, $c = H(R \| m)$, $s = r + cx \mod p$; the signature is $(R, s)$. Verification checks $g^s = R \cdot \pk^c$.
 
-Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the discrete logarithm assumption in the random oracle model — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They support efficient **multi-signatures** whose signatures verify as Schnorr signatures, with the key included in the hash, under an aggregate public key ([[multi-signature#musig|MuSig]], [[multi-signature#musig2|MuSig2]]) — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]], [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]], and **threshold signatures**. Blinding the signer's commitment and the challenge gives [[blind-signature#blind-schnorr-signatures|blind Schnorr signatures]], analysed by [[Sch01 - Security of Blind Discrete Log Signatures against Interactive Attacks|Sch01]] and [[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]].
+Schnorr signatures ([[Sch91 - Efficient signature generation by smart cards|Sch91]], via [[FS86 - How to Prove Yourself Practical Solutions to Identification and Signature Problems|FS86]]) are **EUF-CMA secure** under the [[discrete-logarithm|discrete logarithm assumption]] in the [[random-oracle-model|random oracle model]] ([[dlog-and-rom-to-schnorr-signatures-sch91|DLOG ⇒ Schnorr signatures]]) — [[PS96 - Security Proofs for Signature Schemes|PS96]], [[PS00 - Security Arguments for Digital Signatures and Blind Signatures|PS00]]. They support efficient **multi-signatures** whose signatures verify as Schnorr signatures, with the key included in the hash, under an aggregate public key ([[multi-signature#musig|MuSig]], [[multi-signature#musig2|MuSig2]]) — [[MPSW19 - Simple Schnorr Multi-Signatures with Applications to Bitcoin|MPSW19]], [[NRS21 - MuSig2 Simple Two-Round Schnorr Multi-signatures|NRS21]], and [[threshold-signature|threshold signatures]] whose output is a Schnorr signature with the public key included in the hash ([[threshold-signature#frost|FROST]]) — [[KG20 - FROST Flexible Round-Optimized Schnorr Threshold Signatures|KG20]]. Blinding the signer's commitment and the challenge gives [[blind-signature#blind-schnorr-signatures|blind Schnorr signatures]], analysed by [[Sch01 - Security of Blind Discrete Log Signatures against Interactive Attacks|Sch01]] and [[FPS20 - Blind Schnorr Signatures and Signed ElGamal Encryption in the Algebraic Group Model|FPS20]].
 
-For groups with compact encodings, such as elliptic-curve groups, two properties of the hash function, random-prefix preimage resistance and random-prefix second-preimage resistance, are necessary for the security of Schnorr signatures and, in the generic group model, sufficient; collision resistance is not among them — [[NSW09 - Hash Function Requirements for Schnorr Signatures|NSW09]]. The sufficiency theorem needs a further condition on how group elements are encoded as bit strings: a defective encoding of curve points meets its hypotheses while making Schnorr signatures insecure — [[Bro15 - A Flaw in a Theorem About Schnorr Signatures|Bro15]].
+For groups with compact encodings, such as elliptic-curve groups, two properties of the hash function, random-prefix preimage resistance and random-prefix second-preimage resistance, are necessary for the security of Schnorr signatures and are claimed sufficient in the generic group model; collision resistance is not among them — [[NSW09 - Hash Function Requirements for Schnorr Signatures|NSW09]]. The sufficiency theorem needs a further condition on how group elements are encoded as bit strings: a defective encoding of curve points meets its hypotheses while making Schnorr signatures insecure — [[Bro15 - A Flaw in a Theorem About Schnorr Signatures|Bro15]].
 
 ### EdDSA
 
@@ -164,16 +167,15 @@ EdDSA works in the subgroup of prime order $L$ generated by a base point $B$ of 
 
 ## BLS signatures
 
-BLS signatures (Boneh-Lynn-Shacham) [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique, deterministic, and aggregatable** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
+BLS signatures (Boneh-Lynn-Shacham) [[BLS01 - Short Signatures from the Weil Pairing|BLS01]] use a bilinear pairing $e: \GG_1 \times \GG_2 \to \GG_T$ to achieve **unique** and **deterministic** signatures. To sign $m$: output $\sigma = H(m)^{\sk} \in \GG_1$ (where $H: \bits^* \to \GG_1$ is a hash-to-curve function, $g_2$ generates $\GG_2$, $\sk \getsr \ZZ_p$, and $\pk = g_2^{\sk}$). Verification checks $e(\sigma, g_2) = e(H(m), \pk)$.
 
 Key properties:
 
-- **Deterministic**: no per-signature randomness needed
-- **Short**: one group element ($\approx 48$ bytes on BLS12-381)
+- **Short**: one group element of $\GG_1$ — [[BLS01 - Short Signatures from the Weil Pairing|BLS01]]
 - **Aggregatable**: $n$ signatures on distinct messages can be aggregated into one signature verifiable with $n+1$ pairings, checking $e(\sigma, g_2) = \prod_{i=1}^n e(H(m_i), \pk_i)$ — [[BGLS03 - Aggregate and Verifiably Encrypted Signatures from Bilinear Maps|BGLS03]]
 - [[co-cdh-to-ds|co-CDH ⇒ BLS signatures]]
 
-BLS signatures are used in Ethereum 2.0 for validator attestations and threshold BLS is widely used in threshold signature protocols.
+In [[threshold-signature#threshold-bls|threshold BLS]], any $t+1$ signature shares $H(m)^{x_i}$, where $x_i = f(i)$ for a polynomial $f$ of degree $t$ with $f(0) = \sk$, combine by Lagrange interpolation in the exponent into the BLS signature $H(m)^{\sk}$ — [[Bol03 - Threshold Signatures, Multisignatures and Blind Signatures Based on the Gap-Diffie-Hellman-Group Signature Scheme|Bol03]].
 
 ## Aggregate signatures
 
@@ -221,7 +223,7 @@ In a [[pairings#type-1|symmetric bilinear group]] $(\GG, \GG_T, p, g, e)$, the W
 
 ## Tight Diffie-Hellman signatures
 
-Signatures whose security reduces tightly, without forking, to a Diffie–Hellman problem in a group of prime order $p$, with a hash modeled as a random oracle.
+Signatures whose security reduces tightly, without forking, to a Diffie–Hellman problem in a group of prime order $p$, with a hash modeled as a random oracle ([[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]], [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]]).
 
 ### EDL signatures
 
@@ -233,7 +235,7 @@ The public key is $\pk = (g, h, y_1, y_2)$ with $y_1 = g^x$ and $y_2 = h^x$. To 
 
 ## Structure-preserving signatures
 
-A DS scheme over a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ is **structure-preserving** if its verification keys, messages and signatures are vectors of elements of $\GG_1$ and $\GG_2$, and $\Vrfy$ only checks group membership and a conjunction of pairing-product equations $\prod_{i,j} e(A_i, B_j)^{\gamma_{ij}} = 1$, where the $A_i \in \GG_1$ and $B_j \in \GG_2$ are key, message and signature elements and public constants, and the $\gamma_{ij} \in \ZZ_p$ are public — [[AFG+10 - Structure-Preserving Signatures and Commitments to Group Elements|AFG+10]]. Security is EUF-CMA. In a Type 3 bilinear group, every structure-preserving signature scheme whose signer uses only generic group operations has signatures of at least three group elements — [[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]].
+A DS scheme over a bilinear group $(\GG_1, \GG_2, \GG_T, p, e)$ is **structure-preserving** if its verification keys, messages and signatures are vectors of elements of $\GG_1$ and $\GG_2$, and $\Vrfy$ only checks group membership and a conjunction of pairing-product equations $\prod_{i,j} e(A_i, B_j)^{\gamma_{ij}} = 1$, where the $A_i \in \GG_1$ and $B_j \in \GG_2$ are key, message and signature elements and public constants, and the $\gamma_{ij} \in \ZZ_p$ are public — [[AFG+10 - Structure-Preserving Signatures and Commitments to Group Elements|AFG+10]]. Security is EUF-CMA. In a Type 3 bilinear group, every EUF-CMA-secure structure-preserving signature scheme whose signer uses only generic group operations has signatures of at least three group elements — [[AGHO11 - Optimal Structure-Preserving Signatures in Asymmetric Bilinear Groups|AGHO11]].
 
 ### Optimally short structure-preserving signatures
 
@@ -244,14 +246,14 @@ Structure-preserving signature schemes in a [[pairings#type-3|Type 3]] bilinear 
 ECDSA works in a subgroup of prime order $q$ generated by a point $G$ of an elliptic curve, with secret key $x \in \ZZ_q$ and public key $X = xG$. To sign $m$, sample $k \getsr \ZZ_q^*$, set $r = f(kG)$, where the conversion function $f$ reduces the $x$-coordinate of a point modulo $q$, and $s = k^{-1}(H(m) + rx) \bmod q$, and output $(r, s)$, resampling if $r = 0$ or $s = 0$. Verification checks $r = f(s^{-1}H(m)\,G + s^{-1}r\,X)$. DSA is the same scheme in a subgroup of prime order $q$ of $\ZZ_P^*$, with $f$ reducing the group element modulo $q$ — standard. Since $kG$ and $-kG$ have the same $x$-coordinate, $(r, -s \bmod q)$ is again a valid ECDSA signature on $m$, so ECDSA is not strongly unforgeable — standard.
 
 - ECDSA is EUF-CMA secure if the hash function is collision-resistant and has a uniformity property, the ephemeral-key generator is pseudorandom, the group is treated generically, and a further condition holds on the map from ephemeral public keys to scalars. That condition seems to fail for DSA — [[Bro05 - Generic Groups, Collision Resistance, and ECDSA|Bro05]].
-- Prior generic-group analyses of ECDSA in fact establish strong unforgeability, which ECDSA does not have, so their abstraction of the conversion function does not describe ECDSA faithfully — [[FKP16 - On the Provable Security of (EC)DSA Signatures|FKP16]].
+- Prior generic-group analyses of ECDSA in fact establish strong unforgeability, which ECDSA does not have, so their abstraction of the conversion function does not describe ECDSA faithfully — [[SPMS02 - Flaws in Applying Proof Methodologies to Signature Schemes|SPMS02]], [[FKP16 - On the Provable Security of (EC)DSA Signatures|FKP16]].
 - With the conversion function modeled as two algebraic outer maps around an inner bijective random oracle, unmodified DSA and ECDSA are as hard to forge as DLOG, without assuming generic group behavior — [[FKP16 - On the Provable Security of (EC)DSA Signatures|FKP16]].
 - An algebraic security reduction for ECDSA can exist only if it programs the conversion function — [[HK23 - Limits in the Provable Security of ECDSA Signatures|HK23]].
 - If [[discrete-logarithm#one-more-discrete-logarithm|OMDL]] is hard, no algebraic reduction from DLOG proves DSA or ECDSA secure in the standard model ([[no-prime-order-dlog-to-schnorr-signature-pv05|the barrier for Schnorr signatures]]) — [[PV05 - Discrete-Log-Based Signatures May Not Be Equivalent to Discrete Log|PV05]].
 
 ## Hash-based signatures
 
-Hash-based signatures need no number-theoretic or lattice assumption: one-time signatures follow from OWF — [[Lam79 - Constructing digital signatures from a one way function|Lam79]] — and many-time signatures from OWF — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
+Hash-based signatures need no number-theoretic or lattice assumption: one-time signatures follow from [[hash-function#preimage-resistance-one-wayness|OWF]] ([[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]) — [[Lam79 - Constructing digital signatures from a one way function|Lam79]] — and many-time signatures from OWF ([[hash-function-to-ds|OWF ⇒ DS]]) — [[Rom90 - One-way functions are necessary and sufficient for secure signatures|Rom90]].
 
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
@@ -263,24 +265,108 @@ A one-time signature scheme is EUF-CMA secure against adversaries that make at m
 
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
 
+## Hash-and-sign signatures
+
+Full-domain hash signs $m$ as $\sigma = f^{-1}(H(m))$ for a [[trapdoor-permutation|trapdoor permutation]] $f$, with $H$ a random oracle onto the domain of $f$, and is EUF-CMA-unforgeable in the [[random-oracle-model|random-oracle model]] ([[tdp-to-ds-br93|TDP ⇒ DS]]) — [[BR93 - Random Oracles are Practical A Paradigm for Designing Efficient Protocols|BR93]]. With $f$ the [[lattice-trapdoor#preimage-sampling-and-inversion|preimage sampleable function]] $\mathbf{e} \mapsto \mathbf{A}\mathbf{e} \bmod q$ instead, $\Sign$ uses a trapdoor for $\mathbf{A}$ to sample a short preimage of $H(m)$ whose distribution is, up to negligible statistical distance, independent of the trapdoor. With the sampler derandomized, so that signing $m$ twice gives the same signature, the scheme is SUF-CMA-unforgeable in the random-oracle model if [[shortest-integer-solution|SIS]] is hard ([[sis-to-ds|SIS ⇒ DS]]) — [[GPV08 - Trapdoors for hard lattices and new cryptographic constructions|GPV08]], [[BDF+11 - Random Oracles in a Quantum World|BDF+11]].
+
 ## Lattice-based signatures
 
-Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions.
+Lattice-based signatures rest on [[learning-with-errors|LWE]]-, [[shortest-integer-solution|SIS]]- and [[ntru|NTRU]]-type assumptions, conjectured hard for quantum algorithms — standard.
 
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
 - [[sis-to-ds|SIS ⇒ DS]]
 
+## Security against quantum adversaries
+
+$\DS = (\KeyGen, \Sign, \Vrfy)$ is a classical scheme, and the game is $\Game^{\eufcma}_{\DS,\calA}$ of [[#Existential Unforgeability|existential unforgeability]] with $\calA$ quantum: $\calA$ queries the signing oracle $\calO$ classically, and its queries may be adaptive. $\DS$ is **post-quantum EUF-CMA unforgeable** if for all efficient quantum $\calA$,
+
+$$
+\Adv^{\eufcma}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\eufcma}_{\DS,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — standard. [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1) use the weaker nonadaptive form below, in which the forger submits one classical list of messages.
+
+### Nonadaptive queries
+
+A quantum forger with **nonadaptive** classical queries submits one classical list of messages to the signing oracle, receives a signature on each, and outputs a forgery.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(\sk, \vk) \gets \KeyGen(1^\secpar)$
+\State $((m_1, \ldots, m_q), \stA) \gets \calA(1^\secpar, \vk)$
+\Comment{one classical list, chosen before any signature is seen}
+\State $\sigma_i \gets \Sign(\sk, m_i)$ for each $i \in [q]$
+\State $(\hat{m}, \hat{\sigma}) \gets \calA(\stA, \sigma_1, \ldots, \sigma_q)$
+\If{$\hat{m} \in \{m_1, \ldots, m_q\}$}
+\Comment{$\hat{m}$ cannot repeat}
+\Return $0$
+\EndIf
+\Return $[\Vrfy(\vk,\hat{m},\hat{\sigma})]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$\DS$ is **secure against nonadaptive quantum chosen-message attacks** if for all efficient quantum $\calA$,
+
+$$
+\Adv^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{na\text{-}cma}}_{\DS,\calA}(\secpar) = 1\right]
+$$
+
+is negligible — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Definition 1). [[AC12 - Quantum Money from Hidden Subspaces|AC12]] also require completeness error at most $1/3$. A nonadaptive forger is an adaptive one that makes all its queries at once, so post-quantum EUF-CMA unforgeability implies this notion ([[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]]) — folklore.
+
+## One-time signatures with quantum public keys
+
+A signature scheme with quantum public keys is a tuple of quantum polynomial-time algorithms $\DS = (\KeyGen, \mathsf{PKGen}, \Sign, \Vrfy)$:
+
+- $\KeyGen(1^\secpar) \to \sk$, outputting a classical secret key;
+- $\mathsf{PKGen}(\sk) \to \pk$, outputting a quantum public key, so that $t$ independent runs give $\pk^{\otimes t}$;
+- $\Sign(\sk, m) \to \sigma$, outputting a classical signature;
+- $\Vrfy(\pk, m, \sigma) \to \top/\bot$.
+
+Correctness requires $\Pr[\Vrfy(\pk, m, \sigma) = \top : \sk \gets \KeyGen(1^\secpar),\ \pk \gets \mathsf{PKGen}(\sk),\ \sigma \gets \Sign(\sk, m)] \ge 1 - \negl(\secpar)$ for every message $m$.
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar)$}
+\begin{algorithmic}
+\State $\sk \gets \KeyGen(1^\secpar)$
+\State run $\mathsf{PKGen}(\sk)$ $t+1$ times, obtaining $\pk^{\otimes (t+1)}$
+\State $(m, \stA) \gets \calA(1^\secpar, \pk^{\otimes t})$
+\Comment{$\calA$ receives $t$ of the copies}
+\State $\sigma \gets \Sign(\sk, m)$
+\State $(m', \sigma') \gets \calA(\stA, \sigma)$
+\State $d \gets \Vrfy(\pk, m', \sigma')$
+\Comment{run on the remaining copy}
+\Return $[d = \top \wedge m' \ne m]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+$\DS$ is **one-time secure** if for all efficient quantum $\calA$ and all polynomials $t$,
+
+$$
+\Adv^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) := \Pr\!\left[\Game^{\mathrm{qpk\text{-}ots}}_{\DS,\calA,t}(\secpar) = 1\right]
+$$
+
+is negligible — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. In the original definition of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]], $\KeyGen$ is classical, $\Sign$ is classical and deterministic, and correctness is perfect. One-time-secure schemes yield $q$-time-secure ones, which allow $q$ signing queries and a forgery on a fresh message, for every polynomial $q$ — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]]
+
 # Other results
 
-- [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]]
-- [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]]
 - [[fac-to-ds-gmr88|FAC ⇒ DS]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
-- For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
-- For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by reductions from a very general class of non-interactive assumptions — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
+- [[forward-secure-signature|Forward-secure signatures]] evolve the signing key over $T$ periods so that exposing the key of one period does not allow forging for earlier periods — [[BM99 - A Forward-Secure Digital Signature Scheme|BM99]].
+- A [[chameleon-hash-function|chameleon hash]] turns a signature scheme into an online/offline one: offline, sign the chameleon hash of a random message; online, use the trapdoor to find a collision with the actual message — [[ST01 - Improved Online-Offline Signature Schemes|ST01]].
+- For Waters signatures, whose signatures re-randomize publicly, every simple reduction of EUF-CMA security to a non-interactive hardness assumption, one that runs the forger only as straight-line instances one after another — [[MP18 - On the Security Loss of Unique Signatures|MP18]] — loses a factor $\Omega(q_S)$ for $q_S$ signing queries, unless the assumption is false ([[no-tight-non-interactive-assumption-to-waters-signature-hjk12|the barrier for Waters signatures]]) — [[HJK12 - Waters Signatures with Optimal Security Reduction|HJK12]]. Coron's earlier meta-reduction, stated for schemes with unique signatures, gives the corresponding bound for BLS signatures in the random-oracle model ([[no-tight-non-interactive-assumption-to-boneh-lynn-shacham-signature-cor02|the barrier for BLS signatures]]) — [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]], [[KK12 - Optimal Security Proofs for Full Domain Hash, Revisited|KK12]].
+- For signature schemes whose relation between verification and signing keys is unique or re-randomizable, the security loss of passing from single-user EUF-CMA to multi-user EUF-CMA with adaptive corruptions cannot be avoided by simple reductions from any non-interactive assumption in a very general class, unless that assumption is false — [[BJLS16 - On the Impossibility of Tight Cryptographic Reductions|BJLS16]]. Their meta-reduction refines the one of [[Cor02 - Optimal Security Proofs for PSS and Other Signature Schemes|Cor02]].
 
-<!-- BEGIN GENERATED participates-in 7988acd8a7e1 -->
+<!-- BEGIN GENERATED participates-in a7049e83385b -->
 
 ## Participates in
 
@@ -288,11 +374,16 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 
 - [[boneh-lynn-shacham-signature-to-ds|BLS signatures ⇒ DS]] (via [[digital-signature#bls-signatures|BLS signatures]])
 - [[ds-to-byzantine-broadcast-ds83|Digital signatures ⇒ Byzantine broadcast (Dolev–Strong)]]
+- [[ds-to-forward-secure-signature|DS ⇔ Forward-secure signature]]
 - [[ds-to-hash-function|DS ⇒ OWF]]
+- [[ds-to-identity-based-signature-bnn04|DS ⇒ IBS (certificates)]]
 - [[eddsa-to-ds|EdDSA ⇒ DS]] (via [[digital-signature#eddsa|EdDSA]])
 - [[edl-signature-to-ds|EDL signatures ⇒ DS]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[hash-function-and-hash-based-signatures-to-ds-mer89|CRHF + One-time signature ⇒ DS]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
+- [[post-quantum-ds-to-ds|Post-quantum DS ⇒ DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
+- [[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#security-against-quantum-adversaries|Security against quantum adversaries]])
+- [[quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12|Mini-scheme + DS ⇒ Public-key QM]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
 - [[schnorr-signature-to-ds|Schnorr signatures ⇒ DS]] (via [[digital-signature#schnorr-signatures|Schnorr signatures]])
 - [[short-structure-preserving-signature-to-structure-preserving-signature|Optimally short structure-preserving signatures ⇒ Structure-preserving signatures]] (via [[digital-signature#optimally-short-structure-preserving-signatures|Optimally short structure-preserving signatures]])
 - [[structure-preserving-signature-to-ds|Structure-preserving signatures ⇒ DS]] (via [[digital-signature#structure-preserving-signatures|Structure-preserving signatures]])
@@ -316,10 +407,15 @@ Lattice-based signatures achieve post-quantum security under LWE/SIS assumptions
 - [[hash-function-to-hash-based-signatures|Hash function + PRF ⇒ DS (XMSS)]]
 - [[hash-function-to-hash-based-signatures-lam79|OWF ⇒ One-time signatures (Lamport)]] (via [[digital-signature#one-time-signatures|One-time signatures]])
 - [[id-and-rom-to-ds|ID ⇒ DS]]
+- [[identity-based-signature-to-ds|IBS ⇒ DS]]
 - [[katz-wang-signature-to-ds|Katz–Wang signatures ⇒ DS]]
 - [[module-lwe-and-module-sis-to-ds|Module LWE + Module-SIS ⇒ DS]]
 - [[ntru-to-ds|NTRU + NTRU-SIS ⇒ DS]]
+- [[owsg-to-quantum-public-key-signature-my22|OWSG ⇔ one-time signatures with quantum public keys]] (via [[digital-signature#one-time-signatures-with-quantum-public-keys|One-time signatures with quantum public keys]])
 - [[phi-hiding-to-ds-kk12|Φ-Hiding ⇒ DS (RSA full-domain hash, tight)]]
+- [[post-quantum-ds-to-ds|Post-quantum DS ⇒ DS]]
+- [[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
+- [[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Quantum-secure OWF ⇒ Nonadaptive post-quantum DS]] (via [[digital-signature#nonadaptive-queries|Nonadaptive queries]])
 - [[prime-order-cdh-to-edl-signature-gj03|Prime-order CDH ⇒ EDL signatures]] (via [[digital-signature#edl-signatures|EDL signatures]])
 - [[prime-order-ddh-to-katz-wang-signature-kw03|Prime-order DDH ⇒ Katz–Wang signatures]] (via [[digital-signature#katz-wang-signatures|Katz-Wang signatures]])
 - [[prime-order-dlog-to-eddsa-bcjz21|DLOG ⇒ EdDSA]] (via [[digital-signature#eddsa|EdDSA]])

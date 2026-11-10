@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "QM ⇒ OWSG"
+title: "Pure-state QM ⇒ OWSG"
 aliases: []
 id: red-quantum-money-to-one-way-state-generator-my22
 kind: implication
-hypotheses: [quantum-money]
-conclusion: one-way-state-generator
+hypotheses: [pure-state-quantum-money]
+conclusion: pure-one-way-state-generator
 class: unstated
 model: quantum
 source:
@@ -14,12 +14,12 @@ source:
 security-loss: ""
 ---
 
-# QM ⇒ OWSG
+# Pure-state QM ⇒ OWSG
 
 ## Statement
 
-Private-key [[quantum-money|quantum money]] whose banknotes are pure states implies [[one-way-state-generator|one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]].
+Private-key [[quantum-money#pure-money-states|quantum money with pure money states]] implies [[one-way-state-generator#pure-owsgs|pure one-way state generators]] — [[MY22 - One-Wayness in Quantum Cryptography|MY22]]. From a scheme $(\KeyGen, \mathsf{Mint}, \Vrfy)$ whose banknote under key $k$ is $|\psi_k\rangle$, the generator keeps $\KeyGen$, sets $\mathsf{StateGen}(k) := |\psi_k\rangle$, and accepts a key $k'$ on a state $\sigma$ with probability $\langle \psi_{k'} | \sigma | \psi_{k'} \rangle$, by projecting $\sigma$ onto $|\psi_{k'}\rangle$.
 
 ## Notes
 
-- The converse, quantum money from one-way state generators, is not known — folklore.
+- Whether one-way state generators imply private-key quantum money is posed as an open problem in [[MY22 - One-Wayness in Quantum Cryptography|MY22]].

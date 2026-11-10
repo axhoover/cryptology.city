@@ -17,7 +17,7 @@ variants:
 
 # Attribute-based encryption
 
-**Attribute-based encryption (ABE)** generalizes [[identity-based-encryption|IBE]] by replacing exact-identity matching with expressive Boolean access policies. The decryption relation is a pair $(f, x) \in \calF \times 2^{\calU}$, where $f$ is a monotone Boolean formula over attributes from universe $\calU$ and $x \subseteq \calU$ is an attribute set; decryption succeeds if and only if $f(x) = 1$. ABE comes in two dual flavors depending on which component travels with the key and which with the ciphertext:
+**Attribute-based encryption (ABE)** generalizes [[identity-based-encryption|IBE]] by replacing exact-identity matching with expressive Boolean access policies ([[abe-to-ibe|ABE ⇒ IBE]]). The decryption relation is a pair $(f, x) \in \calF \times 2^{\calU}$, where $f$ is a monotone Boolean formula over attributes from universe $\calU$ and $x \subseteq \calU$ is an attribute set; decryption succeeds if and only if $f(x) = 1$. ABE comes in two dual flavors depending on which component travels with the key and which with the ciphertext:
 
 | Variant                        | Key holds         | Ciphertext holds  |
 | ------------------------------ | ----------------- | ----------------- |
@@ -109,7 +109,7 @@ is negligible.
 
 ### Selective Security
 
-In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\Setup$ runs. Selective security is strictly weaker than adaptive security; complexity leveraging [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]] converts one to the other at a loss factor of $2^{|\calU|}$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.
+In both KP-ABE and CP-ABE, the **selective** variant requires the adversary to commit to the challenge ($x^*$ in KP-ABE, $f^*$ in CP-ABE) before $\Setup$ runs. Selective security is strictly weaker than adaptive security; [[complexity-leveraging|complexity leveraging]] [[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]] converts one to the other at a loss factor of $2^{|\calU|}$ for KP-ABE, but the conversion for CP-ABE can incur exponential loss in the formula size.
 
 # Variations
 
@@ -130,14 +130,14 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 - [[abe-to-fuzzy-ibe|ABE ⇒ Fuzzy IBE]]
 - The [[bdh-to-abe-gpsw06|GPSW06 KP-ABE]] supports delegation of private keys, which subsumes [[hierarchical-identity-based-encryption|HIBE]] — [[GPSW06 - Attribute-Based Encryption for Fine-Grained Access Control of Encrypted Data|GPSW06]]
 - [[abe-to-be|ABE ⇒ BE]]
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|DBDH ⇒ Selectively secure ABE]]
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (generic bilinear group model)
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
 - [$k$-Linear assumption ⇒ ABE](k-linear-assumption-to-abe-rw13)
 - Large-universe KP-ABE and CP-ABE in prime-order bilinear groups, selectively secure in the standard model under two $q$-type assumptions — [[RW13 - New Constructions and Proof Methods for Large Universe Attribute-Based Encryption|RW13]]
 
-<!-- BEGIN GENERATED participates-in 5688cf05fce9 -->
+<!-- BEGIN GENERATED participates-in b7790e5cd40e -->
 
 ## Participates in
 
@@ -149,7 +149,7 @@ Standard KP-ABE and CP-ABE leak the access policy: in KP-ABE the policy $f$ is v
 
 **Produces Attribute-based encryption**
 
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|DBDH ⇒ Selectively secure ABE]] (via [[attribute-based-encryption#selective-security|Selective Security]])
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]] (via [[attribute-based-encryption#cp-abe-ind-cpa-security|CP-ABE: IND-CPA Security]])
 - [[evasive-lwe-to-abe|Evasive circular LWE ⇒ ABE]]
 - [[evasive-lwe-to-abe-wee22|Evasive LWE + Tensor LWE ⇒ ABE]]

@@ -17,4 +17,10 @@ cryptobib_key: EC:Waters05
 
 ## Abstract
 
-TODO — abstract.
+We present the first efficient Identity-Based Encryption
+(IBE) scheme that is fully secure without random
+oracles. We first present our IBE construction and reduce the
+security of our scheme to the decisional Bilinear Diffie-Hellman
+(BDH) problem. Additionally, we show that our techniques can be used
+to build a new signature scheme that is secure under the
+computational Diffie-Hellman assumption without random oracles.

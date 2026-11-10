@@ -16,7 +16,7 @@ Also written MQA (Merlin Quantum Arthur): the class of decision problems verifia
 1. If $x \in L$, there exists a classical string $w \in \bits^{p(|x|)}$ such that $V$ accepts $(x, w)$ with probability at least 2/3.
 2. If $x \notin L$, then for all $w \in \bits^{p(|x|)}$, $V$ rejects $(x, w)$ with probability at least 2/3.
 
-QCMA sits between [[merlin-arthur|MA]] (classical verifier) and [[quantum-merlin-arthur|QMA]] (quantum witness allowed) in the hierarchy of proof systems.
+QCMA sits between [[merlin-arthur|MA]] (classical verifier) and [[quantum-merlin-arthur|QMA]] (quantum witness allowed) in the hierarchy of proof systems ([[ma-to-qcma|MA ⊆ QCMA]]; [[qcma-to-qma|QCMA ⊆ QMA]]).
 
 See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#qcma).
 
@@ -27,7 +27,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:Q#q
 
 ## Oracle separation from QMA
 
-Relative to oracles, $\classQMA \not\subseteq \classQCMA$ ([[no-qcma-to-qma-ak07]]):
+Relative to oracles, $\classQMA \not\subseteq \classQCMA$ ([[no-qcma-to-qma-ak07|No relativizing reduction from QMA to QCMA]]):
 
 - [[AK07 - Quantum versus Classical Proofs and Advice|AK07]]: relative to a quantum unitary oracle; also separates $\classBQP/\mathrm{qpoly}$ from $\classBQP/\mathrm{poly}$ relative to a quantum oracle.
 - [[BFM23 - On the Power of Nonstandard Quantum Oracles|BFM23]]: relative to an in-place quantum oracle, for a graph connectivity problem, via representation theory of the symmetric group.

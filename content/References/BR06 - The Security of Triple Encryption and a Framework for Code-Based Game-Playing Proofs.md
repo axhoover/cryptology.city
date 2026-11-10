@@ -17,4 +17,4 @@ cryptobib_key: EC:BelRog06
 
 ## Abstract
 
-TODO — abstract.
+The game-playing technique is a powerful tool for analyzing cryptographic constructions. We illustrate this by using games as the central tool for proving security of three-key triple-encryption, a long-standing open problem. Our result, which is in the ideal-cipher model, demonstrates that for DES parameters (56-bit keys and 64-bit plaintexts) an adversary's maximal advantage is small until it asks about $2^{78}$ queries. Beyond this application, we develop the foundations for game playing, formalizing a general framework for game-playing proofs and discussing techniques used within such proofs. To further exercise the game-playing framework we show how to use games to get simple proofs for the PRP/PRF Switching Lemma, the security of the basic CBC MAC, and the chosen-plaintext-attack security of OAEP.

@@ -17,4 +17,10 @@ cryptobib_key: PKC:Fischlin03
 
 ## Abstract
 
-TODO — abstract.
+We discuss a modification of the Cramer-Shoup strong-RSA signature
+scheme. Our proposal also presumes the strong RSA assumption (and a
+collision-intractable hash function for long messages), but -without
+loss in performance- the size of a signature is almost halved
+compared to the original scheme. We also show how to turn the
+signature scheme into a "lightweight" anonymous (but linkable)
+group identification protocol without random oracles.

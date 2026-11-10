@@ -25,7 +25,7 @@ See the complexity zoo entry [here](https://complexityzoo.net/Complexity_Zoo:N#n
 
 ## Notable problems
 
-- SAT is complete for NP — TODO citation
+- SAT is $\classNP$-complete — [[Coo71 - The Complexity of Theorem-Proving Procedures|Coo71]]. Twenty-one combinatorial problems, among them clique, vertex cover, Hamiltonian cycle and subset sum, are $\classNP$-complete under polynomial-time many-one reductions — [[Kar72 - Reducibility among Combinatorial Problems|Kar72]].
 
 ## Known relationships
 
@@ -45,7 +45,7 @@ $$
 
 the probability also over the coins of $\calA$ — standard.
 
-<!-- BEGIN GENERATED participates-in 19243b194386 -->
+<!-- BEGIN GENERATED participates-in 3848a5dde83c -->
 
 ## Participates in
 
@@ -56,6 +56,7 @@ the probability also over the coins of $\calA$ — standard.
 - [[np-to-ma|NP ⊆ MA]]
 - [[np-to-pp|NP ⊆ PP]]
 - [[np-to-pspace|NP ⊆ PSPACE]]
+- [[zkp-and-np-not-in-io-bpp-to-czk-worst-case-hardness|ZKP + NP ⊄ io-BPP ⇒ CZK ⊄ BPP]] (via [[nondeterministic-polynomial-time#hardness-at-almost-every-input-length|Hardness at almost every input length]])
 
 **Produces Nondeterministic Polynomial-Time**
 

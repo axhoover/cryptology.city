@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-[[factoring#factoring-with-known-factor-structure|Factoring Blum integers]] is in [[bounded-error-quantum-polynomial-time|BQP]]: Shor's quantum algorithm finds, with constant probability and in polynomial time, a nontrivial factor of every odd composite $N$ that is not a prime power, Blum integers in particular — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
+[[factoring#factoring-blum-integers|Factoring Blum integers]] is in [[bounded-error-quantum-polynomial-time|BQP]]: Shor's quantum algorithm finds, with constant probability and in polynomial time, a nontrivial factor of every odd composite $N$ that is not a prime power, Blum integers in particular — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]].
 
 ## Notes
 

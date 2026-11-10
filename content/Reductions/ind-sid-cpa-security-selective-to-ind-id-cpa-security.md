@@ -7,13 +7,15 @@ id: red-ind-sid-cpa-security-selective-to-ind-id-cpa-security
 kind: implication
 hypotheses: [subexp-ind-sid-cpa]
 conclusion: ind-id-cpa
-class: fully-black-box
+class: unstated
 model: standard
 source:
   - "[[BB04 - Efficient Selective-ID Secure Identity Based Encryption Without Random Oracles|BB04b]]"
+via:
+  - "[[complexity-leveraging|complexity leveraging]]"
 security-loss: "multiplicative $|\\calI|$"
 rationale:
-  class: "The construction is the identity map on IBE schemes, and the reduction runs the adaptive adversary once as an oracle on a guessed challenge identity, aborting on a wrong guess."
+  class: "The construction runs the selective scheme at security parameter $\\lceil \\secpar^{2/\\epsilon} \\rceil$, which depends on the hardness exponent $\\epsilon$ of the scheme it is given, so it is not one construction fixed in advance for every sub-exponentially IND-sID-CPA-secure scheme."
 ---
 
 # Sub-exponential IND-sID-CPA Security ⇒ IND-ID-CPA Security

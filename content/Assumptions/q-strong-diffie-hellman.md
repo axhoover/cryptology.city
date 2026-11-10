@@ -52,7 +52,7 @@ For a bilinear group generator $\GrGen$ that outputs $(\GG_1, \GG_2, \GG_T, p, e
 
 - Given $g$, $g^{\tau}$ and $g^{\tau^d}$ for a positive divisor $d$ of $p - 1$, $\tau$ can be computed with $O((\sqrt{p/d} + \sqrt{d}) \log p)$ group operations and $O(\max\{\sqrt{p/d}, \sqrt{d}\})$ memory — [[Che06 - Security Analysis of the Strong Diffie-Hellman Problem|Che06]]. A $q$-SDH instance with $q \ge d$ contains $g^{\tau^d}$, so when $p - 1$ has a divisor $d \approx p^{1/3}$, $q$-SDH with $q \ge d$ falls with about $p^{1/3}$ group operations, up to the logarithmic factor, instead of $\sqrt{p}$ — [[Che06 - Security Analysis of the Strong Diffie-Hellman Problem|Che06]]. For $q \approx p^{1/3}$ this meets the generic lower bound of $\Omega(\sqrt{p/q})$ group operations ([[generic-bilinear-group-model-to-asymmetric-q-sdh-bb08|Generic bilinear group model ⇒ asymmetric q-SDH]]) — [[BB08 - Short Signatures Without Random Oracles and the SDH Assumption in Bilinear Groups|BB08]].
 
-<!-- BEGIN GENERATED participates-in c8afe8321352 -->
+<!-- BEGIN GENERATED participates-in e68696cfd925 -->
 
 ## Participates in
 
@@ -60,6 +60,7 @@ For a bilinear group generator $\GrGen$ that outputs $(\GG_1, \GG_2, \GG_T, p, e
 
 - [[bilinear-pairing-and-q-sdh-to-ds-bb04a|Bilinear pairing + q-SDH ⇒ DS (Boneh–Boyen)]]
 - [[bilinear-pairing-and-q-sdh-to-pcs-kzg10|Bilinear pairing + q-SDH ⇒ PCS]]
+- [[bilinear-pairing-q-sdh-and-dlin-to-cpa-anonymous-group-signature-bbs04|Bilinear pairing + q-SDH + DLIN ⇒ CPA-anonymous group signatures (Boneh–Boyen–Shacham)]]
 
 **Produces $q$-Strong Diffie-Hellman assumption**
 

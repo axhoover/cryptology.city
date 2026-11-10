@@ -17,4 +17,4 @@ cryptobib_key: EC:Lindell03
 
 ## Abstract
 
-TODO — abstract.
+In this paper we present a simpler construction of an encryption scheme that achieves adaptive chosen ciphertext security (CCA2), assuming the existence of trapdoor permutations. We build on previous works of Sahai and De Santis et al. and construct a scheme that we believe is the easiest to understand to date. In particular, it is only slightly more involved than the Naor-Yung encryption scheme that is secure against passive chosen-ciphertext attacks (CCA1). We stress that the focus of this paper is on simplicity only.

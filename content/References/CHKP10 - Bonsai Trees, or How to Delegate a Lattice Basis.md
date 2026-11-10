@@ -17,4 +17,12 @@ cryptobib_key: EC:CHKP10
 
 ## Abstract
 
-TODO — abstract.
+We introduce a new _lattice-based_ cryptographic structure called
+a _bonsai tree_, and use it to resolve some important open
+problems in the area. Applications of bonsai trees include:
+
+- An efficient, stateless ‘hash-and-sign’ signature scheme in the _standard model_ (i.e., no random oracles), and
+- The first _hierarchical_ identity-based encryption (HIBE) scheme (also in the standard model) that does not rely on bilinear pairings.
+
+Interestingly, the abstract properties of bonsai trees seem to have no
+known realization in conventional number-theoretic cryptography.

@@ -28,4 +28,20 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We present a new methodology for realizing Ciphertext-Policy Attribute
+Encryption (CP-ABE) under concrete and noninteractive cryptographic
+assumptions in the standard model. Our solutions allow any encryptor
+to specify access control in terms of any access formula over the
+attributes in the system. In our most efficient system, ciphertext size, encryption,
+and decryption time scales linearly with the complexity of the access
+formula. The only previous work to achieve these parameters was
+limited to a proof in the generic group model.
+
+We present three constructions within our framework.
+Our first system is proven selectively secure under a assumption that
+we call the decisional Parallel Bilinear Diffie-Hellman Exponent
+(PBDHE) assumption which can be viewed as a generalization of the BDHE
+assumption. Our next two constructions
+provide performance tradeoffs to achieve provable security
+respectively under the (weaker) decisional Bilinear-Diffie-Hellman
+Exponent and decisional Bilinear Diffie-Hellman assumptions.

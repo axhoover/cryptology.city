@@ -11,6 +11,8 @@ class: fully-black-box
 model: standard
 source:
   - "[[BGV12 - Leveled fully homomorphic encryption without bootstrapping|BGV12]]"
+via:
+  - "[[leftover-hash-lemma|leftover hash lemma]]"
 security-loss: "additive: one LWE advantage per level, $L + 1$ in all, from the hybrid along the chain of keys, plus a leftover-hash term for the challenge ciphertext"
 rationale:
   class: "The construction is fixed, with a public key that is an acyclic chain of key-switching hints (LWE encryptions of level-$j$ key material under the level-$(j-1)$ key), and the proof is a hybrid over levels in which each step runs the IND-CPA adversary only as an oracle to distinguish LWE samples from uniform."

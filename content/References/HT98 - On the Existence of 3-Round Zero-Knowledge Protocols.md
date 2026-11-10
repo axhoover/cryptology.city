@@ -17,4 +17,15 @@ cryptobib_key: C:HadTan98
 
 ## Abstract
 
-TODO — abstract.
+In this paper, we construct a 3-round zero-knowledge protocol for
+any NP language. Our protocol achieves weaker notions of zero-knowledge
+than black-box simulation zero-knowledge.
+Therefore, our result does not contradict the triviality result of
+Goldreich and Krawczyk which shows that 3-round black-box simulation
+zero-knowledge exist only for BPP languages.
+Our main contribution is to provide a non-black-box simulation technique.
+Whether there exists such a simulation technique was a major open
+problem in the theory of zero-knowledge.
+Our simulation technique is based on a non-standard computational assumption
+related to the Diffie-Hellman problem, which was originally proposed by
+Damgard.

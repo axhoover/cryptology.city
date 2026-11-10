@@ -1,0 +1,35 @@
+---
+type: reduction
+status: draft
+title: "Mini-scheme + DS ⇒ Public-key QM"
+aliases: []
+id: red-quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12
+kind: implication
+hypotheses: [quantum-money-mini-scheme, nonadaptive-post-quantum-ds]
+conclusion: public-key-quantum-money
+class: fully-black-box
+model: quantum
+source:
+  - "[[AC12 - Quantum Money from Hidden Subspaces|AC12]]"
+security-loss: "polynomial: a counterfeiter that receives $q$ banknotes and outputs $r$ succeeds with probability at most $r$ times the forger's advantage plus $q\\binom{r}{2}$ times the mini-scheme counterfeiter's"
+rationale:
+  class: "The construction calls the mini-scheme and the signature scheme only as oracles, and the reduction runs any counterfeiter once as an oracle, either as a forger that outputs the serial number and signature of a uniformly chosen output banknote or as a mini-scheme counterfeiter that signs under a key pair it samples and outputs the money states of two uniformly chosen outputs."
+  model: "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers."
+  security-loss: "The forger outputs a uniformly chosen one of the $r$ outputs; when two valid outputs share one of the $q$ given serial numbers, the mini-scheme counterfeiter's challenge, hidden at a uniform one of the $q$ positions, carries such a serial number with probability at least $1/q$, and its uniformly chosen pair of outputs is a valid pair with that serial number with probability at least $1/\\binom{r}{2}$."
+---
+
+# Mini-scheme + DS ⇒ Public-key QM
+
+## Statement
+
+Let $\mathsf{MS} = (\mathsf{Mint}_{\mathsf{MS}}, \Vrfy_{\mathsf{MS}})$ be a [[quantum-money#mini-schemes|quantum money mini-scheme]] and $\DS = (\KeyGen, \Sign, \Vrfy_{\DS})$ a [[digital-signature|signature scheme]]. The standard construction is the [[quantum-money#public-key-quantum-money|public-key quantum money scheme]] $\mathsf{QM}$ whose key generation is that of $\DS$, $(\sk, \pk) := (\sk, \vk) \gets \KeyGen(1^\secpar)$; $\mathsf{Mint}(\sk)$ runs $(s, \rho) \gets \mathsf{Mint}_{\mathsf{MS}}(1^\secpar)$ and outputs the banknote $(s, \Sign(\sk, s), \rho)$; and $\Vrfy(\pk, (s, w, \sigma))$ accepts iff $\Vrfy_{\DS}(\pk, s, w)$ and $\Vrfy_{\mathsf{MS}}(s, \sigma)$ both accept. If $\mathsf{MS}$ is unforgeable and $\DS$ is [[digital-signature#nonadaptive-queries|unforgeable against efficient quantum forgers that submit one classical list of messages to the signing oracle]], then $\mathsf{QM}$ is [[quantum-money#unforgeability|unforgeable]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Theorem 16). In particular, it suffices that $\DS$ is [[digital-signature#security-against-quantum-adversaries|EUF-CMA against efficient quantum adversaries making classical signing queries]] ([[post-quantum-ds-to-nonadaptive-post-quantum-ds|Post-quantum DS ⇒ Nonadaptive post-quantum DS]]) — folklore. If $\mathsf{MS}$ is $(1-\varepsilon_1)$-correct and $\DS$ is $(1-\varepsilon_2)$-correct, $\mathsf{QM}$ is $(1-\varepsilon_1-\varepsilon_2)$-correct, by a union bound over its two verifiers — standard.
+
+## Sketch
+
+Let a counterfeiter receive $q$ banknotes and output more than $q$ valid ones. If a valid output carries a serial number outside the $q$ given ones, a forger that mints the $q$ banknotes itself, with one list of signing queries for their serial numbers, and outputs the serial number and signature of a uniformly chosen output breaks $\DS$. Otherwise two valid outputs share a given serial number, by pigeonhole, and a mini-scheme counterfeiter that places its challenge at a uniformly chosen one of the $q$ positions, signs all $q$ serial numbers under a key pair it samples, and outputs the money states of two uniformly chosen outputs breaks $\mathsf{MS}$ — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+
+## Notes
+
+- The construction, without a security proof, is from [[LAF+10 - Breaking and Making Quantum Money Toward a New Quantum Cryptographic Protocol|LAF+10]] and [[FGH+12 - Quantum Money from Knots|FGH+12]] — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+- Conversely, an unforgeable public-key scheme yields an unforgeable mini-scheme, whose serial number is a fresh public key and whose money state is one banknote minted under it ([[public-key-quantum-money-to-quantum-money-mini-scheme-ac12|Public-key QM ⇒ Mini-scheme]]) — [[AC12 - Quantum Money from Hidden Subspaces|AC12]].
+- For a secure [[quantum-money#secret-based-mini-schemes|secret-based mini-scheme]], whose $\mathsf{Mint}_{\mathsf{MS}}$ samples a uniform classical string $r$ and outputs a banknote $(s_r, \rho_r)$ determined by $r$, with [[quantum-money#classical-serial-numbers|classical serial numbers]], the map $r \mapsto s_r$ is [[hash-function#quantum-secure-one-wayness|one-way against quantum adversaries]] ([[secret-based-quantum-money-mini-scheme-to-owf-ac12|Secret-based mini-scheme ⇒ OWF]]), and Rompel's signatures from such a function are secure against quantum forgers that submit one classical list of messages, since Rompel's reduction is black-box ([[post-quantum-owf-to-nonadaptive-post-quantum-ds-ac12|Quantum-secure OWF ⇒ Nonadaptive post-quantum DS]]) — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Theorem 2). The mini-scheme alone therefore suffices for public-key quantum money — [[AC12 - Quantum Money from Hidden Subspaces|AC12]] (arXiv v3, Proposition 17).

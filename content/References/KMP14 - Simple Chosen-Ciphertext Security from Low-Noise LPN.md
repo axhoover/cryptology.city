@@ -17,4 +17,7 @@ cryptobib_key: PKC:KilMasPie14
 
 ## Abstract
 
-TODO — abstract.
+Recently, Döttling et al. (ASIACRYPT 2012) proposed the first
+chosen-ciphertext (IND-CCA) secure public-key encryption scheme from the learning parity with noise (LPN) assumption.
+In this work we give an alternative scheme which is conceptually simpler and more efficient.
+At the core of our construction is a trapdoor technique originally proposed for lattices by Micciancio and Peikert (EUROCRYPT 2012), which we adapt to the LPN setting. The main technical tool is a new double-trapdoor mechanism, together with a trapdoor switching lemma based on a computational variant of the leftover hash lemma.

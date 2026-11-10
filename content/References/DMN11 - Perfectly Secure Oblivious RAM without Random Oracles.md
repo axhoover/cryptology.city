@@ -17,4 +17,8 @@ cryptobib_key: TCC:DamMelNie11
 
 ## Abstract
 
-TODO — abstract.
+We present an algorithm for implementing a secure oblivious
+RAM where the access pattern is perfectly hidden in the information
+theoretic sense, without assuming that the CPU has access to a random
+oracle. In addition we prove a lover bound on the amount of randomness
+needed for information theoretically secure oblivious RAM.
