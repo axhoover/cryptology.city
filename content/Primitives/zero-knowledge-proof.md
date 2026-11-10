@@ -67,7 +67,7 @@ Depending on whether the simulator's output is identically distributed, statisti
 
 ## Honest-verifier ZK (HVZK)
 
-Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform.
+Weaker form where the simulator only works against an honest verifier that picks challenges uniformly at random. Sufficient for many applications when combined with the Fiat-Shamir transform ([[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]).
 
 ## Sigma protocols
 

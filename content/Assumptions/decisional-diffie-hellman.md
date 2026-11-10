@@ -85,7 +85,7 @@ A _paired group generator_ outputs two prime-order groups $(\GG, g, p)$ and $(\h
 
 ## Sub-exponential DDH
 
-DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$ suffices for NIZK arguments for $\classNP$, and no pairing is needed — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
+DDH is **sub-exponentially hard** for $\GrGen$ if there is a constant $\varepsilon > 0$ such that for all sufficiently large $\secpar$, every adversary $\calA$ of size at most $2^{\secpar^{\varepsilon}}$ has $\Adv^{\text{ddh}}_{\GrGen,\calA}(\secpar) \le 2^{-\secpar^{\varepsilon}}$ — standard. The weaker form that bounds only polynomial-time adversaries by advantage $2^{-\secpar^{\varepsilon}}$ suffices for NIZK arguments for $\classNP$, and no pairing is needed ([[subexponential-ddh-to-nizk-argument-for-np-jj21|Sub-exponential DDH ⇒ NIZK argument for NP]]) — [[JJ21 - Non-interactive Zero Knowledge from Sub-exponential DDH|JJ21]].
 
 ## DLIN
 
@@ -124,7 +124,7 @@ is negligible — [[EHK+13 - An Algebraic Framework for Diffie-Hellman Assumptio
 
 ## SXDH (Symmetric External Diffie-Hellman)
 
-Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
+Assumes DDH is hard in both $\GG_1$ and $\GG_2$ of an asymmetric (Type 3) pairing; used to instantiate Groth–Sahai proofs efficiently ([[sxdh-symmetric-external-diffie-hellman-to-nizk|SXDH (Symmetric External Diffie-Hellman) ⇒ NIZK]]) — [[GS08 - Efficient Non-interactive Proof Systems for Bilinear Groups|GS08]].
 
 ### Sub-exponential SXDH
 

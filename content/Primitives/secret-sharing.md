@@ -54,11 +54,11 @@ Relaxes perfect privacy to computational indistinguishability, which allows shar
 
 ## Verifiable secret sharing (VSS)
 
-A secret sharing scheme in which each party can check, even against a malicious dealer, that its share is consistent with a single secret, so that every $t$ parties holding accepted shares reconstruct the same value. Pedersen's scheme achieves this non-interactively by broadcasting DLOG-based homomorphic commitments to the coefficients of the Shamir polynomial ([[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ VSS]]) — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]. VSS is the sharing step of [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|information-theoretic MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
+A secret sharing scheme in which each party can check, even against a malicious dealer, that its share is consistent with a single secret, so that every $t$ parties holding accepted shares reconstruct the same value. Pedersen's scheme achieves this non-interactively by broadcasting DLOG-based homomorphic commitments to the coefficients of the Shamir polynomial ([[com-and-ss-to-verifiable-secret-sharing-vss|DLOG ⇒ Verifiable secret sharing (VSS)]]) — [[Ped91 - Non-Interactive and Information-Theoretic Secure Verifiable Secret Sharing|Ped91b]]. VSS is the sharing step of [[honest-majority-t-n-3-or-t-n-2-to-mpc-bgw88|information-theoretic MPC]] — [[BGW88 - Completeness theorems for non-cryptographic fault-tolerant distributed computation|BGW88]].
 
 ## Linear secret sharing schemes (LSSS)
 
-A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$.
+A secret sharing scheme is linear if the shares are linear functions of the secret and randomness. Equivalent to monotone span programs over $\FF$ ([[linear-secret-sharing-schemes-lsss-to-msp|Linear secret sharing schemes (LSSS) ⇔ MSP]]).
 
 # Other results
 
