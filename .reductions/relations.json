@@ -25710,7 +25710,7 @@
    "heuristic": false,
    "securityLoss": "",
    "rationale": {
-    "model": "The proof models the symmetric cipher as an ideal cipher, a family of independent random permutations that every party can query in both directions, which is none of the named models."
+    "model": "The proof models the symmetric cipher as an ideal cipher, a family of independent random permutations that every party can query in both directions, and the hash h as a random oracle; no named model covers the two together."
    },
    "status": "draft",
    "page": "content/Reductions/tdp-to-fixed-ring-ring-signature-rst01.md",

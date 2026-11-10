@@ -23,7 +23,7 @@ Following [[BPR00 - Authenticated Key Exchange Secure against Dictionary Attacks
 - $\Setup(1^\secpar) \to \pp$, a randomized algorithm generating public parameters, with $\pp = 1^\secpar$ in the plain model,
 - for each user $U \in \mathsf{Client} \cup \mathsf{Server}$, the stateful interactive algorithm run by each **instance** $\Pi^i_U$, $i \in \NN$, of $U$. An instance of a client $C$ communicating with a server $S$ has input $(\pp, \mathit{pw}_C)$, and an instance of $S$ has input $(\pp, (\mathit{pw}_C)_{C \in \mathsf{Client}})$. An instance processes incoming messages and eventually either rejects or **accepts**, outputting a partner identity $\mathit{pid}$, a session identity $\mathit{sid}$ and a session key $K \in \calK$.
 
-Two instances are **partners** if both accepted with the same $\mathit{sid}$, each one's $\mathit{pid}$ naming the other's user.
+Two instances $\Pi^i_U$ and $\Pi^j_{U'}$ are **partners** if one is a client instance and the other a server instance, both accepted with the same $\mathit{sid}$ and the same session key $K$, each one's $\mathit{pid}$ names the other's user, and no other instance accepted with that $\mathit{sid}$ — [[BPR00 - Authenticated Key Exchange Secure against Dictionary Attacks|BPR00]].
 
 ## Properties
 
