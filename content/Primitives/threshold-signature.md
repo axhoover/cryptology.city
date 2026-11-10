@@ -119,7 +119,7 @@ $$
 
 is negligible.
 
-When $n \ge 2t+1$, at least $t+1$ parties are honest whatever $C$ is, so the honest parties can always sign — standard. In a non-interactive scheme, a session with at least $t+1$ honest parties has at least $t+1$ shares that pass $\mathsf{ShareVrfy}$, by correctness, so the scheme is robust if, except with negligible probability, every $t+1$ shares that pass $\mathsf{ShareVrfy}$ combine into a valid signature — standard.
+When $n \ge 2t+1$, a session on all $n$ parties has at least $t+1$ honest parties whatever $C$ is, so in a robust scheme it outputs a valid signature except with negligible probability; when $n \le 2t$, an adversary corrupting $t$ parties leaves at most $t$ honest ones, and the game then asks nothing of the scheme — standard. In a non-interactive scheme, a session with at least $t+1$ honest parties has at least $t+1$ shares that pass $\mathsf{ShareVrfy}$, by correctness, so the scheme is robust if, except with negligible probability, every $t+1$ shares that pass $\mathsf{ShareVrfy}$ combine into a valid signature — standard.
 
 # Variations
 
