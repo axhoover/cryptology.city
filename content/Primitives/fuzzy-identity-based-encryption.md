@@ -11,7 +11,7 @@ id: fuzzy-ibe
 
 # Fuzzy identity-based encryption
 
-**Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$. A key for attribute set $\omega$ can decrypt a ciphertext encrypted under attribute set $\omega'$ if and only if the two sets overlap by at least $t$ attributes: $|\omega \cap \omega'| \ge t$. This threshold-based partial matching makes Fuzzy IBE suitable for biometric identities, where noise prevents exact matching. Sahai and Waters (2005) introduced Fuzzy IBE as the conceptual precursor to attribute-based encryption.
+**Fuzzy identity-based encryption (Fuzzy IBE)** is an extension of [[identity-based-encryption|IBE]] in which identities are represented as sets of descriptive attributes drawn from a universe $\calU$ ([[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]). A key for attribute set $\omega$ can decrypt a ciphertext encrypted under attribute set $\omega'$ if and only if the two sets overlap by at least $t$ attributes: $|\omega \cap \omega'| \ge t$. This threshold-based partial matching makes Fuzzy IBE suitable for biometric identities, where noise prevents exact matching. Sahai and Waters (2005) introduced Fuzzy IBE as the conceptual precursor to attribute-based encryption.
 
 ## Syntax
 

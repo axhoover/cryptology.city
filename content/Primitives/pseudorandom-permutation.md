@@ -63,7 +63,7 @@ is negligible.
 
 ### Strong Security
 
-In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. Assuming PRPs exist, this is a strictly stronger notion than standard PRP security: the three-round Feistel network with independently keyed PRF round functions is a PRP ([[prf-to-prp-lr88|PRF ⇒ PRP]]) but not a strong PRP — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
+In the **strong PRP (sPRP)** security game, the adversary additionally receives an inverse oracle. Assuming PRPs exist, this is a strictly stronger notion than standard PRP security ([[strong-security-to-prp|sPRP ⇒ PRP]]): the three-round Feistel network with independently keyed PRF round functions is a PRP ([[prf-to-prp-lr88|PRF ⇒ PRP]]) but not a strong PRP — [[LR88 - How to Construct Pseudorandom Permutations from Pseudorandom Functions|LR88]].
 
 ```pseudocode
 \begin{algorithm}

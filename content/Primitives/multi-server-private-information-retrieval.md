@@ -38,7 +38,7 @@ Intuitively, this means that each server observes the same query uploaded with t
 
 ## Computational Multi-server PIR
 
-Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers. In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
+Similar to the [[single-server-private-information-retrieval|PIR]], one can weaken the notion of multi-server PIR to only be private against polynomial-time non-colluding servers ([[it-pir-to-computational-multi-server-pir|IT-PIR ⇒ Computational Multi-server PIR]]). In this setting, the syntax remains the same, but now the query distribution is only required to be computationally indistinguishable for any two index pairs.
 
 - [[prg-to-dpf-gi14|PRG ⇒ DPF]]
 - [[dpf-to-computational-multi-server-pir-gi14|DPF ⇒ Computational Multi-server PIR]]
