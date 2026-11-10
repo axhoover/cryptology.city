@@ -22,6 +22,8 @@ If the [[decisional-diffie-hellman#dlin|decisional linear assumption]] holds in 
 
 ## Notes
 
+- Under [[decisional-diffie-hellman#sxdh-symmetric-external-diffie-hellman|SXDH]] in place of DLIN, the per-period leakage rate is $1 - o(1)$ — [[BKKV10 - Overcoming the Hole in the Bucket Public-Key Cryptography Resilient to Continual Memory Leakage|BKKV10]].
+- Relying on subexponential hardness, each update may leak $\secpar^{\epsilon}$ bits, for some constant $\epsilon > 0$, in place of $O(\log \secpar)$ — [[BKKV10 - Overcoming the Hole in the Bucket Public-Key Cryptography Resilient to Continual Memory Leakage|BKKV10]].
 - The same paper constructs [[identity-based-encryption|identity-based encryption]] and [[digital-signature|signature]] schemes resilient to continual memory leakage — [[BKKV10 - Overcoming the Hole in the Bucket Public-Key Cryptography Resilient to Continual Memory Leakage|BKKV10]].
 - [[DHLW10 - Cryptography against Continuous Memory Attacks|DHLW10]] construct continual-leakage-resilient one-way relations, [[digital-signature|signatures]], [[identification-scheme|identification schemes]] and [[key-exchange#authenticated-key-exchange-ake|authenticated key agreement]] under the [$K$-Linear assumption](bilinear-map-assumptions#k-linear-assumption) in bilinear groups.
 - Without updates, the bounded-leakage notion is met: [[continual-leakage-resilient-pke-to-leakage-resilient-pke|CLR-PKE ⇒ LR-PKE]] — folklore.

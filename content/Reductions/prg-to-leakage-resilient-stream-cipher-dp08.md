@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-From any [[pseudorandom-generator|PRG]] there is a stream cipher that is [$\ell$-leakage-resilient](leakage-resilient-stream-cipher#leakage-resilience) when only the state a round accesses leaks. The leakage $\ell$ tolerated per round depends on the strength of the PRG: it is at least logarithmic in $\secpar$, and a constant fraction of the state when the PRG is exponentially hard — [[DP08 - Leakage-Resilient Cryptography|DP08]].
+From any [[pseudorandom-generator|PRG]] secure against [[uniform-and-non-uniform-adversaries|non-uniform adversaries]] there is a stream cipher that is [$\ell$-leakage-resilient](leakage-resilient-stream-cipher#leakage-resilience) when only the state a round accesses leaks. The leakage $\ell$ tolerated per round depends on the strength of the PRG: it is at least logarithmic in $\secpar$, and a constant fraction of the state when the PRG is exponentially hard — [[DP08 - Leakage-Resilient Cryptography|DP08]].
 
 ## Notes
 
