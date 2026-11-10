@@ -9005,7 +9005,7 @@
    "hypotheses": [
     "dbdh"
    ],
-   "conclusion": "abe",
+   "conclusion": "abe-selective-security",
    "class": "fully-black-box",
    "model": "standard",
    "models": [
@@ -9024,7 +9024,7 @@
    "page": "content/Reductions/bdh-to-abe-gpsw06.md",
    "slug": "bdh-to-abe-gpsw06",
    "graphSlug": "Reductions/bdh-to-abe-gpsw06",
-   "title": "DBDH ⇒ ABE"
+   "title": "DBDH ⇒ Selectively secure ABE"
   },
   {
    "id": "red-bdh-to-be-bgw05",
@@ -9274,7 +9274,7 @@
    "id": "red-bilinear-pairing-and-dlin-to-zap-gos06",
    "kind": "implication",
    "hypotheses": [
-    "bilinear-pairing",
+    "type-1-pairing",
     "decisional-linear"
    ],
    "conclusion": "non-interactive-zap",
@@ -9293,7 +9293,7 @@
    "page": "content/Reductions/bilinear-pairing-and-dlin-to-zap-gos06.md",
    "slug": "bilinear-pairing-and-dlin-to-zap-gos06",
    "graphSlug": "Reductions/bilinear-pairing-and-dlin-to-zap-gos06",
-   "title": "Bilinear pairing + DLIN ⇒ Zaps (non-interactive)"
+   "title": "Type 1 pairing + DLIN ⇒ Zaps (non-interactive)"
   },
   {
    "id": "red-bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22",
@@ -12383,7 +12383,7 @@
    "id": "red-dlin-to-nizk-gos06",
    "kind": "implication",
    "hypotheses": [
-    "bilinear-pairing",
+    "type-1-pairing",
     "decisional-linear"
    ],
    "conclusion": "nizk-for-np",
@@ -12405,7 +12405,7 @@
    "page": "content/Reductions/bdh-to-nizk-gro16.md",
    "slug": "bdh-to-nizk-gro16",
    "graphSlug": "Reductions/bdh-to-nizk-gro16",
-   "title": "Bilinear pairing + DLIN ⇒ NIZK"
+   "title": "Type 1 pairing + DLIN ⇒ NIZK"
   },
   {
    "id": "red-dlog-and-rom-to-schnorr-signatures-sch91",

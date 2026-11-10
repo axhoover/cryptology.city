@@ -154,13 +154,13 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm computes discrete logarithms modulo a prime in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, so it breaks discrete log in $\GG_1$, $\GG_2$ and $\GG_T$ — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
-<!-- BEGIN GENERATED participates-in 1b0eae2d329c -->
+<!-- BEGIN GENERATED participates-in b071cbde1dd0 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
-- [[bdh-to-abe-gpsw06|DBDH ⇒ ABE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
+- [[bdh-to-abe-gpsw06|DBDH ⇒ Selectively secure ABE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [Decision $n$-BDHE](bilinear-map-assumptions#decision-n-bdhe))
 - [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[bdh-to-consistent-peks-bdop04|BDH ⇒ PEKS (random oracle model)]]

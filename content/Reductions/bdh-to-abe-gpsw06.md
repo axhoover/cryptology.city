@@ -1,12 +1,12 @@
 ---
 type: reduction
 status: draft
-title: "DBDH ⇒ ABE"
+title: "DBDH ⇒ Selectively secure ABE"
 aliases: []
 id: red-bdh-to-abe-gpsw06
 kind: implication
 hypotheses: [dbdh]
-conclusion: abe
+conclusion: abe-selective-security
 class: fully-black-box
 model: standard
 source:
@@ -16,7 +16,7 @@ rationale:
   class: "The construction uses the bilinear group only through group operations and the pairing, and the selective-security reduction runs the ABE adversary once as an oracle against a DBDH challenge."
 ---
 
-# DBDH ⇒ ABE
+# DBDH ⇒ Selectively secure ABE
 
 ## Statement
 

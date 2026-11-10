@@ -50,14 +50,14 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in af5bb6a4660b -->
+<!-- BEGIN GENERATED participates-in 57849643c758 -->
 
 ## Participates in
 
 **Builds on Pairings**
 
 - [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]]
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Bilinear pairing + DLIN ⇒ Zaps (non-interactive)]]
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[pairings#type-1|Type 1]])
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]]
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
 - [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]
@@ -67,7 +67,7 @@ _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should
 - [[ggm-to-abe-bsw07|Bilinear pairing ⇒ CP-ABE]]
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
 - [[dlin-to-ippe-ksw08|Bilinear pairing + DLIN ⇒ IPPE]]
-- [[bdh-to-nizk-gro16|Bilinear pairing + DLIN ⇒ NIZK]]
+- [[bdh-to-nizk-gro16|Type 1 pairing + DLIN ⇒ NIZK]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-ds-wat05|Type 1 pairing + CDH ⇒ Waters signatures]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-kosk-bol03|Type 1 pairing + CDH ⇒ Multi-signatures in the KOSK model (Boldyreva)]] (via [[pairings#type-1|Type 1]])
 - [[type-1-pairing-and-cdh-to-multi-signature-pop-ry07|Type 1 pairing + CDH ⇒ Multi-signatures with proofs of possession]] (via [[pairings#type-1|Type 1]])
