@@ -10,6 +10,7 @@ title: Non-interactive zero-knowledge
 id: nizk
 variants:
   simulation-sound-nizk: "#simulation-sound-nizk-ss-nizk"
+  statistically-simulation-sound-nizk: "#statistically-simulation-sound-nizk-sss-nizk"
   common-random-string-nizk-proof: "#nizk-proofs-in-the-common-random-string-model"
   nizk-for-np: "#nizk-for-np"
   nizk-argument-for-np: "#nizk-arguments-for-np"
@@ -66,6 +67,31 @@ A [[#NIZK for NP|NIZK proof system for NP]] whose $\Setup$ outputs a uniformly r
 
 An SS-NIZK remains sound even against adversaries who have seen simulated proofs. This stronger notion is essential for constructing CCA-secure encryption from NIZK.
 
+### Statistically simulation-sound NIZK (SSS-NIZK)
+
+A complete and statistically sound non-interactive proof system $\mathsf{NIZK} = (\Setup, \Prove, \Vrfy)$ for an $\classNP$ relation with language $L$, together with an efficient simulator whose first stage $\Sim_1(1^\secpar, x) \to (\crs, \td)$ receives the statement $x$ it simulates a proof for. Zero knowledge holds for each fixed $x \in L$ with witness $w$: the pair $(\crs, \pi)$ with $\crs \gets \Setup(1^\secpar)$ and $\pi \gets \Prove(\crs, x, w)$ is [[indistinguishability#computational-indistinguishability|computationally indistinguishable]] from the pair with $(\crs, \td) \gets \Sim_1(1^\secpar, x)$ and $\pi \gets \Sim_2(\crs, \td, x)$. Soundness holds against computationally unbounded adversaries given the simulated proof for $x$, which may be false — [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]].
+
+```pseudocode
+\begin{algorithm}
+\algname{Game}
+\caption{$\Game^{\mathrm{sss}}_{\mathsf{NIZK},\calA}(\secpar)$}
+\begin{algorithmic}
+\State $(x, \stA) \gets \calA(1^\secpar)$
+\State $(\crs, \td) \gets \Sim_1(1^\secpar, x)$; $\pi \gets \Sim_2(\crs, \td, x)$
+\State $(x', \pi') \gets \calA(\crs, \pi, \stA)$
+\Return $[x' \ne x \wedge x' \notin L \wedge \Vrfy(\crs, x', \pi') = 1]$
+\end{algorithmic}
+\end{algorithm}
+```
+
+A NIZK proof system $\mathsf{NIZK}$ with simulator $(\Sim_1, \Sim_2)$ is **statistically simulation-sound** if for all computationally unbounded $\calA$,
+
+$$
+\Adv^{\mathrm{sss}}_{\mathsf{NIZK},\calA}(\secpar) := \Pr\!\left[\Game^{\mathrm{sss}}_{\mathsf{NIZK},\calA}(\secpar) = 1\right]
+$$
+
+is negligible. An unbounded $\calA$ outputs an accepting proof of a false $x' \ne x$ whenever one exists, so the condition bounds, uniformly over statements $x$, the probability over the simulator's coins that one exists, which is the form in which [[GGHRSW13 - Candidate indistinguishability obfuscation and functional encryption for all circuits|GGHRSW13]] state it. The simulated reference string depends on $x$, which is fixed before $\crs$ is sampled, and $\calA$ sees one simulated proof.
+
 ## zk-SNARK
 
 A **Succinct Non-interactive ARgument of Knowledge (zk-SNARK)** is a NIZK argument with the additional properties that:
@@ -91,14 +117,14 @@ Via the [[fiat-shamir-heuristic|Fiat-Shamir heuristic]], any [[sigma-protocol|si
 - NIZK can be used to convert CPA-secure [[public-key-encryption|PKE]] to CCA-secure PKE — [[BFM88 - Non-interactive zero-knowledge and its applications|BFM88]]
 - [[lwe-to-nizk-ps19|LWE ⇒ NIZK]]
 
-<!-- BEGIN GENERATED participates-in ee151cb18c6b -->
+<!-- BEGIN GENERATED participates-in c1b46c87890e -->
 
 ## Participates in
 
 **Builds on Non-interactive zero-knowledge**
 
 - [[common-random-string-nizk-proof-to-nizk|NIZK proofs with a common random string ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-proofs-in-the-common-random-string-model|NIZK proofs in the common random string model]])
-- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[non-interactive-zero-knowledge#simulation-sound-nizk-ss-nizk|Simulation-sound NIZK (SS-NIZK)]])
+- [[hash-function-and-io-to-fe-sw14|iO + PKE + SS-NIZK ⇒ FE]] (via [[non-interactive-zero-knowledge#statistically-simulation-sound-nizk-sss-nizk|Statistically simulation-sound NIZK (SSS-NIZK)]])
 - [[nizk-argument-for-np-to-nonadaptive-nizk-argument-for-np|NIZK argument for NP ⇒ Non-adaptively sound NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-arguments-for-np|NIZK arguments for NP]])
 - [[nizk-for-np-to-nizk|NIZK for NP ⇒ NIZK]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])
 - [[nizk-for-np-to-nizk-argument-for-np|NIZK proof for NP ⇒ NIZK argument for NP]] (via [[non-interactive-zero-knowledge#nizk-for-np|NIZK for NP]])

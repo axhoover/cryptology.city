@@ -148,7 +148,7 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 - The Boneh–Franklin scheme FullIdent, built from the Weil pairing, is [[#IND-ID-CCA Security|IND-ID-CCA]]-secure in the random oracle model under computational [[bilinear-map-assumptions|BDH]] — [[BF01 - Identity-Based Encryption from the Weil Pairing|BF01]]
 - Dual system encryption gives an adaptively secure ([[#IND-ID-CPA Security|IND-ID-CPA]]) IBE in the standard model whose public parameters, keys and ciphertexts each consist of a constant number of group elements, under [[bilinear-map-assumptions#decisional-bdh|DBDH]] and [[decisional-diffie-hellman#dlin|DLIN]] — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]]
 
-<!-- BEGIN GENERATED participates-in b172174f02c1 -->
+<!-- BEGIN GENERATED participates-in 257535b63f4d -->
 
 ## Participates in
 
@@ -171,7 +171,7 @@ is negligible. The restriction is necessary: with $\sk_{\mathit{id}_0}$, $\calA$
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
 - [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
 - [[cdh-to-ind-id-cpa-dg17a|CDH ⇒ IBE (Döttling–Garg)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
-- [[consistent-peks-to-ind-id-cpa-bdop04|Consistent PEKS ⇒ IBE (BDOP04)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
+- [[consistent-peks-to-ind-id-cpa-bdop04|Perfectly consistent PEKS ⇒ IBE (BDOP04)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ibe-wat05|DBDH ⇒ IBE (Waters, standard model)]] (via [[identity-based-encryption#ind-id-cpa-security|IND-ID-CPA Security]])
 - [[dbdh-to-ind-sid-cpa-bb04|DBDH ⇒ Selectively secure IBE (Boneh–Boyen)]] (via [[identity-based-encryption#ind-sid-cpa-security-selective|IND-sID-CPA Security (Selective)]])
 - [[fuzzy-ibe-to-ibe|Fuzzy IBE ⇒ IBE]]

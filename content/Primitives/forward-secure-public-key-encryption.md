@@ -99,18 +99,18 @@ The analogous notion for signatures is [[forward-secure-signature|forward-secure
 
 # Other results
 
-- CPA-secure public-key encryption exists if and only if forward-secure public-key encryption does, for every polynomially bounded $T \ge 2$; the construction from PKE uses $T$ independent key pairs, so its public key grows linearly in $T$, and conversely the period-$1$ algorithms of a forward-secure scheme form a [[public-key-encryption#cpa-security|CPA-secure]] PKE scheme ([[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]) — folklore.
-- A selective-node-secure binary tree encryption scheme of depth $\ell$, for instance one obtained from a selectively secure [[hierarchical-identity-based-encryption|HIBE]] of depth $\ell + 1$ whose delegated keys are distributed as directly extracted ones, gives a forward-secure scheme with $T = 2^{\ell + 1} - 1$ periods, keys and ciphertexts of size polynomial in $\ell$ and $\secpar$ ([[hibe-selective-security-to-forward-secure-pke-chk03|Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
+- CPA-secure public-key encryption exists if and only if forward-secure public-key encryption does, for every polynomially bounded $T \ge 2$; the construction from PKE uses $T$ independent key pairs, so its public key grows linearly in $T$, and conversely the period-$1$ algorithms of a forward-secure scheme form a [[public-key-encryption#cpa-security|CPA-secure]] PKE scheme ([[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]]) — folklore.
+- A [[hierarchical-identity-based-encryption#binary-tree-encryption|selective-node-secure binary tree encryption]] scheme of depth $\ell$ gives a forward-secure scheme with $T = 2^{\ell + 1} - 1$ periods whose period keys hold at most $\ell + 1$ tree keys ([[hibe-selective-security-to-forward-secure-pke-chk03|Selective-node-secure BTE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
 - If [[bilinear-map-assumptions#decisional-bdh|DBDH]] is hard, a forward-secure scheme exists in the standard model ([[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]) — [[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]].
 
-<!-- BEGIN GENERATED participates-in 862124dbe79c -->
+<!-- BEGIN GENERATED participates-in 598380225ab8 -->
 
 ## Participates in
 
 **Produces Forward-secure public-key encryption**
 
 - [[dbdh-to-forward-secure-pke-chk03|DBDH ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]
-- [[hibe-selective-security-to-forward-secure-pke-chk03|Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]
 - [[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]]
+- [[hibe-selective-security-to-forward-secure-pke-chk03|Selective-node-secure BTE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)]]
 
 <!-- END GENERATED participates-in -->

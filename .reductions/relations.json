@@ -4991,6 +4991,19 @@
    "unlisted": false
   },
   {
+   "id": "perfectly-consistent-peks",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/public-key-encryption-with-keyword-search.md",
+   "slug": "public-key-encryption-with-keyword-search",
+   "graphSlug": "Primitives/public-key-encryption-with-keyword-search",
+   "anchor": "#perfect-consistency",
+   "of": "peks",
+   "title": "Perfect consistency",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "perfectly-correct-pke-cpa-security",
    "kind": "variant",
    "type": "primitive",
@@ -6146,6 +6159,19 @@
    "unlisted": false
   },
   {
+   "id": "selective-node-bte",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/hierarchical-identity-based-encryption.md",
+   "slug": "hierarchical-identity-based-encryption",
+   "graphSlug": "Primitives/hierarchical-identity-based-encryption",
+   "anchor": "#binary-tree-encryption",
+   "of": "hibe",
+   "title": "Binary tree encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "semantic-security",
    "kind": "variant",
    "type": "primitive",
@@ -6746,6 +6772,19 @@
    "anchor": "#statistical-rerandomization-of-honest-ciphertexts",
    "of": "rerandomizable-encryption",
    "title": "Statistical rerandomization of honest ciphertexts",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "statistically-simulation-sound-nizk",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/non-interactive-zero-knowledge.md",
+   "slug": "non-interactive-zero-knowledge",
+   "graphSlug": "Primitives/non-interactive-zero-knowledge",
+   "anchor": "#statistically-simulation-sound-nizk-sss-nizk",
+   "of": "nizk",
+   "title": "Statistically simulation-sound NIZK (SSS-NIZK)",
    "aliases": [],
    "unlisted": false
   },
@@ -10368,7 +10407,7 @@
    "id": "red-consistent-peks-to-ind-id-cpa-bdop04",
    "kind": "implication",
    "hypotheses": [
-    "consistent-peks"
+    "perfectly-consistent-peks"
    ],
    "conclusion": "ind-id-cpa",
    "class": "fully-black-box",
@@ -10389,7 +10428,7 @@
    "page": "content/Reductions/consistent-peks-to-ind-id-cpa-bdop04.md",
    "slug": "consistent-peks-to-ind-id-cpa-bdop04",
    "graphSlug": "Reductions/consistent-peks-to-ind-id-cpa-bdop04",
-   "title": "Consistent PEKS ⇒ IBE (BDOP04)"
+   "title": "Perfectly consistent PEKS ⇒ IBE (BDOP04)"
   },
   {
    "id": "red-consistent-peks-to-peks",
@@ -11108,6 +11147,33 @@
    "slug": "dbdh-to-pre-cca-ch07",
    "graphSlug": "Reductions/dbdh-to-pre-cca-ch07",
    "title": "DBDH ⇒ CCA-secure PRE (Canetti–Hohenberger)"
+  },
+  {
+   "id": "red-dbdh-to-selective-node-bte-chk03",
+   "kind": "implication",
+   "hypotheses": [
+    "dbdh"
+   ],
+   "conclusion": "selective-node-bte",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The scheme is one fixed construction over the pairing group, and the reduction runs the selective-node adversary only as an oracle on parameters built from its DBDH tuple."
+   },
+   "status": "draft",
+   "page": "content/Reductions/dbdh-to-selective-node-bte-chk03.md",
+   "slug": "dbdh-to-selective-node-bte-chk03",
+   "graphSlug": "Reductions/dbdh-to-selective-node-bte-chk03",
+   "title": "DBDH ⇒ Binary tree encryption (Canetti–Halevi–Katz)"
   },
   {
    "id": "red-dbdh-to-three-party-nike-jou04",
@@ -14731,33 +14797,6 @@
    "title": "Strongly homomorphic encryption ⇒ Statistically rerandomizable encryption"
   },
   {
-   "id": "red-hibe-selective-security-to-forward-secure-pke-chk03",
-   "kind": "implication",
-   "hypotheses": [
-    "hibe-selective-security"
-   ],
-   "conclusion": "forward-secure-pke",
-   "class": "fully-black-box",
-   "model": "standard",
-   "models": [
-    "standard"
-   ],
-   "source": [
-    "[[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]"
-   ],
-   "via": [],
-   "heuristic": false,
-   "securityLoss": "a factor T, from guessing the challenge period",
-   "rationale": {
-    "class": "The construction calls the tree scheme's key derivation, encryption and decryption only as oracles, and the reduction runs the forward-security adversary only as an oracle after guessing its challenge period."
-   },
-   "status": "draft",
-   "page": "content/Reductions/hibe-selective-security-to-forward-secure-pke-chk03.md",
-   "slug": "hibe-selective-security-to-forward-secure-pke-chk03",
-   "graphSlug": "Reductions/hibe-selective-security-to-forward-secure-pke-chk03",
-   "title": "Selectively secure HIBE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)"
-  },
-  {
    "id": "red-hibe-selective-security-to-ind-sid-cpa",
    "kind": "implication",
    "hypotheses": [
@@ -15710,7 +15749,7 @@
    "hypotheses": [
     "io",
     "perfectly-correct-pke-cpa-security",
-    "simulation-sound-nizk"
+    "statistically-simulation-sound-nizk"
    ],
    "conclusion": "fe-selective-security",
    "class": "free",
@@ -19777,6 +19816,33 @@
    "title": "PCS ⇒ Vector commitments"
   },
   {
+   "id": "red-perfectly-consistent-peks-to-consistent-peks",
+   "kind": "implication",
+   "hypotheses": [
+    "perfectly-consistent-peks"
+   ],
+   "conclusion": "consistent-peks",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on PEKS schemes, and the reduction forwards any adversary unchanged."
+   },
+   "status": "draft",
+   "page": "content/Reductions/perfectly-consistent-peks-to-consistent-peks.md",
+   "slug": "perfectly-consistent-peks-to-consistent-peks",
+   "graphSlug": "Reductions/perfectly-consistent-peks-to-consistent-peks",
+   "title": "Perfectly consistent PEKS ⇒ Consistent PEKS"
+  },
+  {
    "id": "red-perfectly-correct-pke-cpa-security-to-pke-cpa-security",
    "kind": "implication",
    "hypotheses": [
@@ -23173,6 +23239,33 @@
    "slug": "secret-key-xor-homomorphic-encryption-to-pke-rot11",
    "graphSlug": "Reductions/secret-key-xor-homomorphic-encryption-to-pke-rot11",
    "title": "Compact private-key XOR-homomorphic encryption ⇒ PKE"
+  },
+  {
+   "id": "red-selective-node-bte-to-forward-secure-pke-chk03",
+   "kind": "implication",
+   "hypotheses": [
+    "selective-node-bte"
+   ],
+   "conclusion": "forward-secure-pke",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[CHK03 - A Forward-Secure Public-Key Encryption Scheme|CHK03]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "a factor T, from guessing the challenge period",
+   "rationale": {
+    "class": "The construction calls the tree scheme's key derivation, encryption and decryption only as oracles, and the reduction runs the forward-security adversary only as an oracle after guessing its challenge period."
+   },
+   "status": "draft",
+   "page": "content/Reductions/hibe-selective-security-to-forward-secure-pke-chk03.md",
+   "slug": "hibe-selective-security-to-forward-secure-pke-chk03",
+   "graphSlug": "Reductions/hibe-selective-security-to-forward-secure-pke-chk03",
+   "title": "Selective-node-secure BTE ⇒ Forward-secure PKE (Canetti–Halevi–Katz)"
   },
   {
    "id": "red-semi-homomorphic-encryption-to-mpc-with-preprocessing-bdoz11",
