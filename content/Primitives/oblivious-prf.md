@@ -88,11 +88,11 @@ An OPRF $(\PRF, \Pi)$ has **malicious security** if $\PRF$ is pseudorandom and $
 
 ## Verifiable OPRF
 
-In a **verifiable OPRF** the server publishes a value that binds its key, and the client outputs either the function value under the bound key or $\bot$, so a malicious server cannot evaluate different inputs under different keys. [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]] define verifiable OPRFs in the [[universal-composability-framework|UC framework]] and build one from the 2HashDH function below, the server publishing $g^k$ and proving in zero knowledge that its reply is computed with the same exponent.
+In a **verifiable OPRF** the server publishes a value that binds its key, and the client outputs either the function value under the bound key or $\bot$, so a malicious server cannot evaluate different inputs under different keys. [[JKK14 - Round-Optimal Password-Protected Secret Sharing and T-PAKE in the Password-Only Model|JKK14]] define verifiable OPRFs (V-OPRFs) by a [[universal-composability-framework|UC]]-style ideal functionality, with realizations in the [[random-oracle-model|random-oracle model]] and instantiations in the standard model, and build one from the 2HashDH function below, the server publishing $g^k$ and proving in zero knowledge that its reply is computed with the same exponent.
 
 ## UC-secure OPRF
 
-A **UC-secure OPRF** [[universal-composability-framework#uc-emulation|UC-realizes]] an OPRF functionality whose function is a random function sampled by the functionality, not a fixed PRF — [[JKKX16 - Highly-Efficient and Composable Password-Protected Secret Sharing (Or How to Protect Your Bitcoin Wallet Online)|JKKX16]]. For a group $\GG$ of prime order $p$ with generator $g$ and hash functions $H_1 : \bits^* \to \GG$ and $H_2 : \bits^* \times \GG \to \bits^\ell$ for an output length $\ell$, the 2HashDH function is
+A **UC-secure OPRF** [[universal-composability-framework#uc-emulation|UC-realizes]] an OPRF functionality whose function is a random function sampled by the functionality, not a fixed PRF; this functionality is more general than the V-OPRF functionality of JKK14 — [[JKKX16 - Highly-Efficient and Composable Password-Protected Secret Sharing (Or How to Protect Your Bitcoin Wallet Online)|JKKX16]]. For a group $\GG$ of prime order $p$ with generator $g$ and hash functions $H_1 : \bits^* \to \GG$ and $H_2 : \bits^* \times \GG \to \bits^\ell$ for an output length $\ell$, the 2HashDH function is
 
 $$
 F_k(x) = H_2\!\left(x, H_1(x)^k\right), \qquad k \in \ZZ_p.
@@ -102,13 +102,13 @@ The client sends $a = H_1(x)^r$ for $r \getsr \ZZ_p^*$, the server replies $b = 
 
 ## Partially oblivious PRF
 
-In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the server learns $t$ and nothing about $x$. [[ECSJR15 - The Pythia PRF Service|ECSJR15]] introduce verifiable partially oblivious PRFs and build one from a [[pairings|bilinear pairing]].
+In a **partially oblivious PRF** the input is a pair $(t, x)$ of which the server learns $t$ and nothing about $x$. [[ECSJR15 - The Pythia PRF Service|ECSJR15]] introduce verifiable partially oblivious PRFs and build one, from [[pairings|bilinear pairings]] and [[zero-knowledge-proof|zero-knowledge proofs]], that supports bulk rotation of previously obtained outputs to a new key.
 
 # Other results
 
 - Given a PRF, a protocol securely computing $f_\PRF$ is an OPRF: semi-honest 2PC gives a semi-honest secure OPRF ([[semi-honest-two-party-computation-and-prf-to-oprf|semi-honest 2PC + PRF ⇒ OPRF]]) and 2PC with abort an OPRF with malicious security ([[two-party-computation-and-prf-to-malicious-oprf|2PC + PRF ⇒ malicious OPRF]]) — folklore.
 - A semi-honest secure OPRF gives semi-honest [[oblivious-transfer|OT]]: the sender masks $x_0$ and $x_1$ with $\Eval(k, z_0)$ and $\Eval(k, z_1)$, and the receiver obtains the mask of $x_c$ from the OPRF on input $z_c$ ([[oprf-to-ot|OPRF ⇒ OT]]) — folklore.
-- [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword while the server learns nothing about the keyword, on OPRFs.
+- [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] base their general protocols for keyword search, in which a client retrieves the database records associated with a keyword and privacy is required for both the client and the server, on OPRFs.
 - [[FIPR05 - Keyword Search and Oblivious Pseudorandom Functions|FIPR05]] evaluate the Naor–Reingold PRF ([[ddh-to-prf-nr97|DDH ⇒ PRF]]) obliviously with one 1-out-of-2 [[oblivious-transfer|OT]] per input bit. For the key $(a_0, a_1, \ldots, a_n)$ and input $x \in \bits^n$, the server samples $r_1, \ldots, r_n \getsr \ZZ_p^*$, the client obtains $v_i = a_i^{x_i} r_i$ from the $i$-th OT with choice bit $x_i$, the server sends $g^{a_0 / \prod_i r_i}$, and the client raises it to $\prod_i v_i$, obtaining $g^{a_0 \prod_{i : x_i = 1} a_i}$.
 - [[JL09 - Efficient Oblivious Pseudorandom Function with Applications to Adaptive OT and Secure Computation of Set Intersection|JL09]] give an OPRF for the Dodis–Yampolskiy PRF $x \mapsto g^{1/(k + x)}$ ([[DY05 - A Verifiable Random Function with Short Proofs and Keys|DY05]]) and apply it to adaptive oblivious transfer and to secure computation of [[private-set-intersection|set intersection]].
 - [[JKX18 - OPAQUE An Asymmetric PAKE Protocol Secure Against Pre-Computation Attacks|JKX18]] build strong [[password-authenticated-key-exchange#asymmetric-pake|asymmetric PAKE]] from a [[#UC-secure OPRF|UC-secure OPRF]] together with either any asymmetric PAKE or any authenticated key-exchange protocol secure against key-compromise impersonation; OPAQUE instantiates the second construction.
