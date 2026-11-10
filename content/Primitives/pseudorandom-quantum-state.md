@@ -13,6 +13,8 @@ title: Pseudorandom quantum state
 id: prs
 variants:
   single-copy-prs: "#single-copy-security"
+  linear-output-prs: "#prs-with-output-length-linear-in-the-key"
+  exponential-dimension-prs: "#prs-with-exponential-dimension"
 ---
 
 # Pseudorandom quantum state
@@ -53,9 +55,17 @@ $$
 \Adv^{\mathrm{prs}}_{\mathsf{PRS},\calA,t}(\secpar) := \left|2\Pr\!\left[\Game^{\mathrm{prs}}_{\mathsf{PRS},\calA,t}(\secpar) = 1\right] - 1\right|
 $$
 
-is negligible — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The ideal state $\rho_1$, averaged over $|\psi\rangle$, is the maximally mixed state on the symmetric subspace of $(\mathbb{C}^{2^n})^{\otimes t}$ — standard. The [[quantum-money|quantum money]] and [[one-way-state-generator|one-way state generator]] results below hold for $n = \omega(\log \secpar)$: given $t$ copies of a Haar-random $n$-qubit state $|\psi\rangle$, every algorithm succeeds with probability at most $(t+1)/(2^n+t)$ both at outputting $t+1$ registers that all pass the projection onto $|\psi\rangle$ and at outputting a classical description of a state $|\phi\rangle$ such that a fresh copy of $|\psi\rangle$ passes the projection onto $|\phi\rangle$ — standard.
+is negligible — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The ideal state $\rho_1$, averaged over $|\psi\rangle$, is the maximally mixed state on the symmetric subspace of $(\mathbb{C}^{2^n})^{\otimes t}$ — standard. The [[quantum-money|quantum money]] and [[one-way-state-generator|one-way state generator]] results below are proved for the output lengths of the variations below, and the same arguments work for $n = \omega(\log \secpar)$: given $t$ copies of a Haar-random $n$-qubit state $|\psi\rangle$, every algorithm succeeds with probability at most $(t+1)/(2^n+t)$ both at outputting $t+1$ registers that all pass the projection onto $|\psi\rangle$ and at outputting a classical description of a state $|\phi\rangle$ such that a fresh copy of $|\psi\rangle$ passes the projection onto $|\phi\rangle$ — standard.
 
 # Variations
+
+## PRS with exponential dimension
+
+A PRS generator has **exponential dimension** if its output dimension $2^n$ is exponential in $\secpar$: there is a constant $c > 0$ with $n(\secpar) \ge c\secpar$ for all sufficiently large $\secpar$. The quantum money theorem of [[JLS18 - Pseudorandom Quantum States|JLS18]] assumes it ([[prs-to-quantum-money-jls18|PRS ⇒ QM]]). Every such generator is a PRS generator ([[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]]) — folklore.
+
+## PRS with output length linear in the key
+
+A PRS generator with $\secpar$-bit keys has **output length linear in the key** if there is a constant $c > 1$ with $n(\secpar) \ge c\secpar$ for all sufficiently large $\secpar$, so that $2^\secpar / 2^n \le 2^{-(c-1)\secpar}$. The one-way state generator theorem of [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]] assumes it ([[prs-to-owsg-my22a|PRS ⇒ OWSG]]). Every such generator has exponential dimension ([[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]]) — folklore.
 
 ## Single-copy security
 
@@ -71,17 +81,21 @@ A **single-copy-secure** PRS generator satisfies pseudorandomness for $t = 1$ on
 - [[no-single-copy-prs-to-owf-kqst23|No relativizing reduction from single-copy PRS to OWF]]: relative to a classical oracle, $\classP = \classNP$ and single-copy-secure PRS generators with $n > \secpar$ exist — [[KQST23 - Quantum Cryptography in Algorithmica|KQST23]].
 - If $\classBQP = \classPP$, no PRS generator with $n = \omega(\log \secpar)$ exists — [[Kre21 - Quantum Pseudorandomness and Classical Complexity|Kre21]].
 
-<!-- BEGIN GENERATED participates-in 98ed598e04f2 -->
+<!-- BEGIN GENERATED participates-in 145fbd973e73 -->
 
 ## Participates in
 
 **Builds on Pseudorandom quantum state**
 
-- [[prs-to-owsg-my22a|PRS ⇒ OWSG]]
-- [[prs-to-quantum-money-jls18|PRS ⇒ QM]]
+- [[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
+- [[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
+- [[prs-to-owsg-my22a|PRS ⇒ OWSG]] (via [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|PRS with output length linear in the key]])
+- [[prs-to-quantum-money-jls18|PRS ⇒ QM]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
 
 **Produces Pseudorandom quantum state**
 
+- [[exponential-dimension-prs-to-prs|Exponential-dimension PRS ⇒ PRS]]
+- [[linear-output-prs-to-exponential-dimension-prs|Linear-output PRS ⇒ Exponential-dimension PRS]] (via [[pseudorandom-quantum-state#prs-with-exponential-dimension|PRS with exponential dimension]])
 - [[owf-to-prs-jls18|OWF ⇒ PRS]]
 
 **Barriers**

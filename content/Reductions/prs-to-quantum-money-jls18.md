@@ -5,7 +5,7 @@ title: "PRS ⇒ QM"
 aliases: []
 id: red-prs-to-quantum-money-jls18
 kind: implication
-hypotheses: [prs]
+hypotheses: [exponential-dimension-prs]
 conclusion: pure-state-quantum-money
 class: unstated
 model: quantum
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[pseudorandom-quantum-state|pseudorandom quantum state generators]] $(\KeyGen, \mathsf{StateGen})$ whose output dimension $2^n$ is exponential in $\secpar$ exist, then private-key [[quantum-money#pure-money-states|quantum money with pure money states]] exists — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The bank's secret key is a PRS key $k$, every banknote is $|\phi_k\rangle$, and $\Vrfy(k, \cdot)$ projects onto $|\phi_k\rangle$; the scheme is [[quantum-money#unforgeability|unforgeable]] for every polynomial number $t$ of banknotes given to the adversary.
+If [[pseudorandom-quantum-state#prs-with-exponential-dimension|pseudorandom quantum state generators]] $(\KeyGen, \mathsf{StateGen})$ whose output dimension $2^n$ is exponential in $\secpar$ exist, then private-key [[quantum-money#pure-money-states|quantum money with pure money states]] exists — [[JLS18 - Pseudorandom Quantum States|JLS18]]. The bank's secret key is a PRS key $k$, every banknote is $|\phi_k\rangle$, and $\Vrfy(k, \cdot)$ projects onto $|\phi_k\rangle$; the scheme is [[quantum-money#unforgeability|unforgeable]] for every polynomial number $t$ of banknotes given to the adversary.
 
 ## Notes
 

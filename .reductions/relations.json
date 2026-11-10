@@ -2129,6 +2129,19 @@
    "unlisted": false
   },
   {
+   "id": "exponential-dimension-prs",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-quantum-state.md",
+   "slug": "pseudorandom-quantum-state",
+   "graphSlug": "Primitives/pseudorandom-quantum-state",
+   "anchor": "#prs-with-exponential-dimension",
+   "of": "prs",
+   "title": "PRS with exponential dimension",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "extractable-pcs",
    "kind": "variant",
    "type": "primitive",
@@ -3639,6 +3652,19 @@
    "anchor": "#linear-only-vector-encryption",
    "of": "linear-only-encryption",
    "title": "Linear-only vector encryption",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "linear-output-prs",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/pseudorandom-quantum-state.md",
+   "slug": "pseudorandom-quantum-state",
+   "graphSlug": "Primitives/pseudorandom-quantum-state",
+   "anchor": "#prs-with-output-length-linear-in-the-key",
+   "of": "prs",
+   "title": "PRS with output length linear in the key",
    "aliases": [],
    "unlisted": false
   },
@@ -13208,6 +13234,34 @@
    "title": "EXP ⊆ NEXP"
   },
   {
+   "id": "red-exponential-dimension-prs-to-prs",
+   "kind": "implication",
+   "hypotheses": [
+    "exponential-dimension-prs"
+   ],
+   "conclusion": "prs",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the generator, and the reduction forwards any distinguisher unchanged.",
+    "model": "PRS generators output quantum states and are secure against quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/exponential-dimension-prs-to-prs.md",
+   "slug": "exponential-dimension-prs-to-prs",
+   "graphSlug": "Reductions/exponential-dimension-prs-to-prs",
+   "title": "Exponential-dimension PRS ⇒ PRS"
+  },
+  {
    "id": "red-fac-to-bqp-shor97",
    "kind": "inclusion",
    "hypotheses": [
@@ -16508,6 +16562,34 @@
    "slug": "linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
    "graphSlug": "Reductions/linear-only-vector-encryption-to-designated-verifier-snarg-bisw17",
    "title": "Linear-only vector encryption ⇒ Designated-verifier SNARG (lattice-based)"
+  },
+  {
+   "id": "red-linear-output-prs-to-exponential-dimension-prs",
+   "kind": "implication",
+   "hypotheses": [
+    "linear-output-prs"
+   ],
+   "conclusion": "exponential-dimension-prs",
+   "class": "fully-black-box",
+   "model": "quantum",
+   "models": [
+    "quantum"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "none",
+   "rationale": {
+    "class": "The construction is the identity on the generator, and the reduction forwards any distinguisher unchanged.",
+    "model": "PRS generators output quantum states and are secure against quantum adversaries."
+   },
+   "status": "draft",
+   "page": "content/Reductions/linear-output-prs-to-exponential-dimension-prs.md",
+   "slug": "linear-output-prs-to-exponential-dimension-prs",
+   "graphSlug": "Reductions/linear-output-prs-to-exponential-dimension-prs",
+   "title": "Linear-output PRS ⇒ Exponential-dimension PRS"
   },
   {
    "id": "red-linear-secret-sharing-schemes-lsss-to-msp",
@@ -21915,7 +21997,7 @@
    "id": "red-prs-to-pure-one-way-state-generator-my22a",
    "kind": "implication",
    "hypotheses": [
-    "prs"
+    "linear-output-prs"
    ],
    "conclusion": "pure-one-way-state-generator",
    "class": "unstated",
@@ -21939,7 +22021,7 @@
    "id": "red-prs-to-quantum-money-jls18",
    "kind": "implication",
    "hypotheses": [
-    "prs"
+    "exponential-dimension-prs"
    ],
    "conclusion": "pure-state-quantum-money",
    "class": "unstated",

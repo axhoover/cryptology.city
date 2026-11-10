@@ -5,7 +5,7 @@ title: "PRS ⇒ OWSG"
 aliases: []
 id: red-prs-to-pure-one-way-state-generator-my22a
 kind: implication
-hypotheses: [prs]
+hypotheses: [linear-output-prs]
 conclusion: pure-one-way-state-generator
 class: unstated
 model: quantum
@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[pseudorandom-quantum-state|pseudorandom quantum state generators]] $(\KeyGen, \mathsf{StateGen})$ with $\secpar$-bit keys and output length $n \ge c\secpar$ for a constant $c > 1$ exist, then [[one-way-state-generator#pure-owsgs|pure one-way state generators]] exist — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]. The generator keeps $\KeyGen$ and $\mathsf{StateGen}$, and $\Vrfy(k', \sigma)$ accepts with probability $\langle \phi_{k'} | \sigma | \phi_{k'} \rangle$, by projecting $\sigma$ onto $|\phi_{k'}\rangle$.
+If [[pseudorandom-quantum-state#prs-with-output-length-linear-in-the-key|pseudorandom quantum state generators]] $(\KeyGen, \mathsf{StateGen})$ with $\secpar$-bit keys and output length $n \ge c\secpar$ for a constant $c > 1$ exist, then [[one-way-state-generator#pure-owsgs|pure one-way state generators]] exist — [[MY22a - Quantum Commitments and Signatures Without One-Way Functions|MY22a]]. The generator keeps $\KeyGen$ and $\mathsf{StateGen}$, and $\Vrfy(k', \sigma)$ accepts with probability $\langle \phi_{k'} | \sigma | \phi_{k'} \rangle$, by projecting $\sigma$ onto $|\phi_{k'}\rangle$.
 
 ## Sketch
 
