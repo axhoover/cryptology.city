@@ -4458,6 +4458,19 @@
    "unlisted": false
   },
   {
+   "id": "nonce-based-mac",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/message-authentication-code.md",
+   "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
+   "anchor": "#nonce-based-macs",
+   "of": "mac",
+   "title": "Nonce-based MACs",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "nontrivial-cpir",
    "kind": "variant",
    "type": "primitive",
@@ -4678,6 +4691,19 @@
    "anchor": "#one-round-sublinear-pir",
    "of": "cpir",
    "title": "One-round sublinear PIR",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
+   "id": "one-time-mac",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/message-authentication-code.md",
+   "slug": "message-authentication-code",
+   "graphSlug": "Primitives/message-authentication-code",
+   "anchor": "#one-time-macs",
+   "of": "mac",
+   "title": "One-time MACs",
    "aliases": [],
    "unlisted": false
   },
@@ -20759,6 +20785,33 @@
    "title": "PRF ⇒ MAC"
   },
   {
+   "id": "red-prf-to-mac-bel06",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "mac",
+   "class": "unstated",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[Bel06 - New Proofs for NMAC and HMAC Security without Collision-Resistance|Bel06]]"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The reduction is non-uniform, and the vocabulary has no non-uniform class."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-mac-bel06.md",
+   "slug": "prf-to-mac-bel06",
+   "graphSlug": "Reductions/prf-to-mac-bel06",
+   "title": "PRF ⇒ MAC (NMAC)"
+  },
+  {
    "id": "red-prf-to-mac-bkr94",
    "kind": "implication",
    "hypotheses": [
@@ -20784,6 +20837,33 @@
    "slug": "prf-to-mac-bkr94",
    "graphSlug": "Reductions/prf-to-mac-bkr94",
    "title": "PRF ⇒ MAC (CBC-MAC)"
+  },
+  {
+   "id": "red-prf-to-nonce-based-mac",
+   "kind": "implication",
+   "hypotheses": [
+    "prf"
+   ],
+   "conclusion": "nonce-based-mac",
+   "class": "fully-black-box",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "folklore"
+   ],
+   "via": [],
+   "heuristic": false,
+   "securityLoss": "for a forger making $q$ tag queries, $\\Adv^{\\ufcma}_{\\MAC,\\calA}(\\secpar) \\le \\Adv^{\\mathrm{prf}}_{\\PRF,\\calB}(\\secpar) + \\varepsilon$ with $\\calB$ making $q+1$ queries",
+   "rationale": {
+    "class": "The MAC calls the PRF only as an oracle, the reduction runs the forger once as an oracle with a hash function it samples itself, and the random-function case is bounded information-theoretically."
+   },
+   "status": "draft",
+   "page": "content/Reductions/prf-to-nonce-based-mac.md",
+   "slug": "prf-to-nonce-based-mac",
+   "graphSlug": "Reductions/prf-to-nonce-based-mac",
+   "title": "PRF ⇒ nonce-based MAC (Wegman–Carter)"
   },
   {
    "id": "red-prf-to-ope-bclo09",
