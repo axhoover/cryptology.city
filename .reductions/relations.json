@@ -7153,6 +7153,19 @@
    "unlisted": false
   },
   {
+   "id": "sublinear-tdh",
+   "kind": "variant",
+   "type": "primitive",
+   "page": "content/Primitives/trapdoor-hash-function.md",
+   "slug": "trapdoor-hash-function",
+   "graphSlug": "Primitives/trapdoor-hash-function",
+   "anchor": "#slightly-sublinear-trapdoor-hash-functions",
+   "of": "tdh",
+   "title": "Slightly sublinear trapdoor hash functions",
+   "aliases": [],
+   "unlisted": false
+  },
+  {
    "id": "sublogarithmic-balls-and-bins-oram",
    "kind": "variant",
    "type": "primitive",
@@ -18132,7 +18145,7 @@
    "hypotheses": [
     "lpn-low-noise"
    ],
-   "conclusion": "tdh",
+   "conclusion": "sublinear-tdh",
    "class": "unstated",
    "model": "standard",
    "models": [
@@ -18148,7 +18161,7 @@
    "page": "content/Reductions/noise-level-to-tdh-amr25.md",
    "slug": "noise-level-to-tdh-amr25",
    "graphSlug": "Reductions/noise-level-to-tdh-amr25",
-   "title": "Low-noise LPN ⇒ TDH"
+   "title": "Low-noise LPN ⇒ Slightly sublinear TDH"
   },
   {
    "id": "red-noisy-k-lin-and-pc-to-pke-ghjs25",
