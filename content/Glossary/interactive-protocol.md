@@ -74,7 +74,7 @@ Point-to-point channels between every pair that are authenticated, as above, and
 
 ### Broadcast channel
 
-A channel on which a party's message reaches every party, every party knowing that all parties received the same message. Over authenticated channels without setup, a [[byzantine-broadcast|Byzantine broadcast]] protocol emulates it if and only if fewer than a third of the parties are corrupted — [[LSP82 - The Byzantine Generals Problem|LSP82]].
+A channel on which a party's message reaches every party, every party knowing that all parties received the same message. Over authenticated channels without setup, a [[byzantine-broadcast|Byzantine broadcast]] protocol emulates it if and only if fewer than a third of the parties are corrupted ([Authenticated channels ⇒ Broadcast against $t < n/3$ (Lamport–Shostak–Pease)](authenticated-channels-to-byzantine-broadcast-t-lt-n-over-3-lsp82); [[no-authenticated-channels-to-byzantine-broadcast-flm85|No reduction from authenticated channels to Byzantine broadcast]]) — [[LSP82 - The Byzantine Generals Problem|LSP82]].
 
 ### Correlated randomness
 

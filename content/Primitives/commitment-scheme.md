@@ -103,7 +103,7 @@ Without an ideal functionality or a trusted dealer, no commitment scheme is simu
 
 ## Hiding for adversarial public parameters
 
-A commitment scheme is **hiding for adversarial public parameters** if the hiding game's advantage stays negligible when $\calA$ chooses $\pp$ itself; binding is still required only for $\pp \gets \Gen(1^\secpar)$. The receiver can then sample $\pp$ and send it as its first message. Naor's commitment from a [[pseudorandom-generator|PRG]] has this property, since $G(s)$ and $G(s) \oplus r$ are both pseudorandom for every $r$ — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
+A commitment scheme is **hiding for adversarial public parameters** if the hiding game's advantage stays negligible when $\calA$ chooses $\pp$ itself; binding is still required only for $\pp \gets \Gen(1^\secpar)$. The receiver can then sample $\pp$ and send it as its first message. Naor's commitment from a [[pseudorandom-generator|PRG]] has this property, since $G(s)$ and $G(s) \oplus r$ are both pseudorandom for every $r$ ([[prg-to-com-naor91|PRG ⇒ COM]]) — [[Naor91 - Bit commitment using pseudorandomness|Naor91]].
 
 ## Trapdoor commitments
 
