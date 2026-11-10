@@ -28,4 +28,12 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We provide formal definitions and efficient secure techniques for
+
+- turning noisy information into keys usable for any cryptographic application, and, in particular,
+
+- reliably and securely authenticating biometric data.
+
+Our techniques apply not just to biometric information, but to any keying material that, unlike traditional cryptographic keys, is (1) not reproducible precisely and (2) not distributed uniformly. We propose two primitives: a "fuzzy extractor" reliably extracts nearly uniform randomness R from its input; the extraction is error-tolerant in the sense that R will be the same even if the input changes, as long as it remains reasonably close to the original. Thus, R can be used as a key in a cryptographic application. A "secure sketch" produces public information about its input w that does not reveal w, and yet allows exact recovery of w given another value that is close to w. Thus, it can be used to reliably reproduce error-prone biometric inputs without incurring the security risk inherent in storing them.
+
+We define the primitives to be both formally secure and versatile, generalizing much prior work. In addition, we provide nearly optimal constructions of both primitives for various measures of “closeness” of input data, such as Hamming distance, edit distance, and set difference.

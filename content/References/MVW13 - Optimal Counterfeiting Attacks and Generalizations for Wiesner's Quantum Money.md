@@ -27,4 +27,4 @@ bibtex: |
 
 ## Abstract
 
-TODO — abstract.
+We present an analysis of Wiesner's quantum money scheme, as well as some natural generalizations of it, based on semidefinite programming. For Wiesner's original scheme, it is determined that the optimal probability for a counterfeiter to create two copies of a bank note from one, where both copies pass the bank's test for validity, is (3/4)^n for n being the number of qubits used for each note. Generalizations in which other ensembles of states are substituted for the one considered by Wiesner are also discussed, including a scheme recently proposed by Pastawski, Yao, Jiang, Lukin, and Cirac, as well as schemes based on higher dimensional quantum systems. In addition, we introduce a variant of Wiesner's quantum money in which the verification protocol for bank notes involves only classical communication with the bank. We show that the optimal probability with which a counterfeiter can succeed in two independent verification attempts, given access to a single valid n-qubit bank note, is (3/4+sqrt(2)/8)^n. We also analyze extensions of this variant to higher-dimensional schemes.
