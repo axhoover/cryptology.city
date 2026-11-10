@@ -10,6 +10,7 @@ title: Pairings
 id: bilinear-pairing
 variants:
   type-1-pairing: "#type-1"
+  verifiable-type-1-pairing: "#verifiable-type-1-pairing"
   type-3-pairing: "#type-3"
 ---
 
@@ -32,6 +33,10 @@ Galbraith, Paterson, and Smart [[GPS06 - Pairings for Cryptographers|GPS06]] cla
 
 A **symmetric** pairing: $\GG_1 = \GG_2 = \GG$, so $e : \GG \times \GG \to \GG_T$ is a non-degenerate bilinear map on one group $\GG$ of prime order — [[GPS06 - Pairings for Cryptographers|GPS06]]. Implemented on supersingular curves. Hashing to $\GG_2 = \GG_1$ is trivial, and the identity serves as a computable homomorphism. The embedding degree $k$ is small and fixed for known supersingular constructions, so the security level is bounded and polynomial-time parameter generation for arbitrary $\secpar$ is infeasible. Elements of $\GG_1$ cannot be made shorter than elements of $\GG_2$.
 
+#### Verifiable Type 1 pairing
+
+A Type 1 pairing whose group descriptions can be checked: a deterministic polynomial-time algorithm accepts a string exactly when it describes $(p, \GG, \GG_T, e, g)$ with $p$ prime, $\GG$ and $\GG_T$ cyclic of order $p$ with efficiently decidable membership, $g$ a generator of $\GG$, and $e : \GG \times \GG \to \GG_T$ a non-degenerate bilinear map. This is the premise of the non-interactive zap in [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]], where the prover chooses the group.
+
 ### Type 2
 
 $\GG_1 \ne \GG_2$, with $\phi: \GG_2 \to \GG_1$ efficiently computable. Implemented on ordinary curves; the trace map serves as $\phi$. Supports short $\GG_1$ representations and polynomial-time parameter generation. No efficient hash to $\GG_2$ is known, because $\GG_2$ is an eigenspace of the Frobenius endomorphism.
@@ -50,14 +55,14 @@ Type 3 is the only type offering acceptable efficiency and parameter flexibility
 
 _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should be added here with appropriate references._
 
-<!-- BEGIN GENERATED participates-in 57849643c758 -->
+<!-- BEGIN GENERATED participates-in 3f4cb80af0d2 -->
 
 ## Participates in
 
 **Builds on Pairings**
 
 - [[bilinear-pairing-and-dlin-to-continual-leakage-resilient-pke-bkkv10|Bilinear pairing + DLIN ⇒ CLR-PKE]]
-- [[bilinear-pairing-and-dlin-to-zap-gos06|Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[pairings#type-1|Type 1]])
+- [[bilinear-pairing-and-dlin-to-zap-gos06|Verifiable Type 1 pairing + DLIN ⇒ Zaps (non-interactive)]] (via [[pairings#verifiable-type-1-pairing|Verifiable Type 1 pairing]])
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]]
 - [[bilinear-pairing-and-q-dlog-to-universal-snark-gwc19|Bilinear pairing + q-DLOG ⇒ Universal SNARK (PLONK)]]
 - [[bilinear-pairing-and-q-dlog-to-zk-snark-fkl18|Bilinear pairing + q-DLOG ⇒ zk-SNARK (Groth16 in the AGM)]]
@@ -75,5 +80,10 @@ _Citations for specific curve families (BN curves, BLS12-381, MNT curves) should
 - [[type-1-pairing-and-lrsw-to-ds-cl04|Type 1 pairing + LRSW ⇒ DS (Camenisch–Lysyanskaya)]] (via [[pairings#type-1|Type 1]])
 - [[type-3-pairing-to-ds-ps16|Type 3 pairing ⇒ DS (Pointcheval–Sanders)]] (via [[pairings#type-3|Type 3]])
 - [[type-3-pairing-to-short-structure-preserving-signature-agho11|Type 3 pairing ⇒ Optimally short structure-preserving signatures (AGHO)]] (via [[pairings#type-3|Type 3]])
+- [[verifiable-type-1-pairing-to-type-1-pairing|Verifiable Type 1 pairing ⇒ Type 1 pairing]] (via [[pairings#verifiable-type-1-pairing|Verifiable Type 1 pairing]])
+
+**Produces Pairings**
+
+- [[verifiable-type-1-pairing-to-type-1-pairing|Verifiable Type 1 pairing ⇒ Type 1 pairing]] (via [[pairings#type-1|Type 1]])
 
 <!-- END GENERATED participates-in -->
