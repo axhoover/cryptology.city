@@ -58,7 +58,7 @@ is negligible.
 
 ## Invertible PRFs
 
-An **invertible PRF (iPRF)** extends the PRF with an inversion algorithm, allowing recovery of all inputs that map to a given output — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]. An $\mathsf{iPRF} = (\KeyGen, \Eval, \Invert)$ adds:
+An **invertible PRF (iPRF)** extends the PRF with an inversion algorithm, allowing recovery of all inputs that map to a given output ([[invertible-prfs-to-prf|Invertible PRFs ⇒ PRF]]) — [[HPPY25 - Plinko Single-Server PIR with Efficient Updates via Invertible PRFs|HPPY25]]. An $\mathsf{iPRF} = (\KeyGen, \Eval, \Invert)$ adds:
 
 - $\Invert(k, y) \to X,$ is a deterministic function that
   returns the preimage set $X = \{x \in \calD : \Eval(k, x) = y\}$
