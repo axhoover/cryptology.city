@@ -23254,6 +23254,35 @@
    "title": "Compact private-key XOR-homomorphic encryption ⇒ PKE"
   },
   {
+   "id": "red-secure-sketch-to-fuzzy-extractor-dors08",
+   "kind": "implication",
+   "hypotheses": [
+    "secure-sketch"
+   ],
+   "conclusion": "fuzzy-extractor",
+   "class": "free",
+   "model": "standard",
+   "models": [
+    "standard"
+   ],
+   "source": [
+    "[[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]"
+   ],
+   "via": [
+    "[[leftover-hash-lemma|leftover hash lemma]]"
+   ],
+   "heuristic": false,
+   "securityLoss": "",
+   "rationale": {
+    "class": "The theorem is information-theoretic: the sketch's guarantee is an entropy bound, not a game against an adversary, so there is no hardness assumption for a black-box reduction to break."
+   },
+   "status": "draft",
+   "page": "content/Reductions/secure-sketch-to-fuzzy-extractor-dors08.md",
+   "slug": "secure-sketch-to-fuzzy-extractor-dors08",
+   "graphSlug": "Reductions/secure-sketch-to-fuzzy-extractor-dors08",
+   "title": "Secure sketch ⇒ Fuzzy extractor"
+  },
+  {
    "id": "red-selective-node-bte-to-forward-secure-pke-chk03",
    "kind": "implication",
    "hypotheses": [

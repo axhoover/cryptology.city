@@ -56,7 +56,7 @@ equivalently, the statistical distance between $(R, P)$ and $(U_\ell, P)$ is at 
 
 A secure sketch is a pair $(\mathsf{SS}, \mathsf{Rec})$ with $\mathsf{SS}$ randomized and $\mathsf{Rec}$ deterministic such that $\mathsf{Rec}(w', \mathsf{SS}(w)) = w$ whenever $\mathrm{dis}(w, w') \le t$; it is an $(m, \tilde m, t)$-secure sketch if for every $W$ with $H_\infty(W) \ge m$ the [[leftover-hash-lemma#average-min-entropy|average min-entropy]] satisfies $\tilde H_\infty(W \mid \mathsf{SS}(W)) \ge \tilde m$. The difference $m - \tilde m$ is its entropy loss — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
-A secure sketch and a strong extractor for average min-entropy give a fuzzy extractor: $\Gen(w)$ outputs $P = (\mathsf{SS}(w), x)$ for a uniform seed $x$ and $R = \mathrm{Ext}(w; x)$, and $\mathsf{Rep}$ recovers $w$ with $\mathsf{Rec}$ and recomputes $R$. Instantiated with universal hashing, an $(m, \tilde m, t)$-secure sketch yields an $(m, \ell, t, \varepsilon)$-fuzzy extractor with $\ell = \tilde m - 2\log(1/\varepsilon) + 2$, by the [[leftover-hash-lemma|leftover hash lemma]] for average min-entropy — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
+A secure sketch and a strong extractor for average min-entropy give a fuzzy extractor: $\Gen(w)$ outputs $P = (\mathsf{SS}(w), x)$ for a uniform seed $x$ and $R = \mathrm{Ext}(w; x)$, and $\mathsf{Rep}$ recovers $w$ with $\mathsf{Rec}$ and recomputes $R$. Instantiated with universal hashing, an $(m, \tilde m, t)$-secure sketch yields an $(m, \ell, t, \varepsilon)$-fuzzy extractor with $\ell = \tilde m - 2\log(1/\varepsilon) + 2$, by the [[leftover-hash-lemma|leftover hash lemma]] for average min-entropy ([[secure-sketch-to-fuzzy-extractor-dors08|Secure sketch ⇒ Fuzzy extractor]]) — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 
 ## Robust and reusable fuzzy extractors
 
@@ -70,3 +70,17 @@ A **computational** fuzzy extractor for a family of sources on $\calW$ requires 
 
 - **Code offset.** For a $q$-ary code $C$ of length $n$ with $q^k$ codewords that corrects $t$ errors, $\mathsf{SS}(w) = w - c$ for a uniform codeword $c \in C$, with $\mathsf{Rec}(w', s)$ decoding $w' - s$ to the nearest codeword $c'$ and outputting $s + c'$, is a secure sketch for the Hamming metric on $\FF_q^n$ with entropy loss at most $(n - k)\log q$ — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]]; for $q = 2$ it is the offset component of the fuzzy commitment of [[JW99 - A Fuzzy Commitment Scheme|JW99]], which also publishes a hash of $c$. For a linear code the sketch can be the syndrome of $w$, a deterministic function with the same entropy loss — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
 - **Set difference.** For subsets of a universe of size $N$, the PinSketch construction from BCH codes has entropy loss at most $t \lceil \log(N + 1) \rceil$, independent of the size of the sets — [[DORS08 - Fuzzy Extractors How to Generate Strong Keys from Biometrics and Other Noisy Data|DORS08]].
+
+<!-- BEGIN GENERATED participates-in 9b0cb9326b62 -->
+
+## Participates in
+
+**Builds on Fuzzy extractor**
+
+- [[secure-sketch-to-fuzzy-extractor-dors08|Secure sketch ⇒ Fuzzy extractor]] (via [[fuzzy-extractor#secure-sketches|Secure sketches]])
+
+**Produces Fuzzy extractor**
+
+- [[secure-sketch-to-fuzzy-extractor-dors08|Secure sketch ⇒ Fuzzy extractor]]
+
+<!-- END GENERATED participates-in -->
