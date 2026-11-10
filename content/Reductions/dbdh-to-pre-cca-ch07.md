@@ -22,4 +22,4 @@ If [[bilinear-map-assumptions#decisional-bdh|DBDH]] is hard, there is a bidirect
 
 ## Notes
 
-- Earlier schemes, including the bidirectional scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] and the unidirectional schemes of [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]], target chosen-plaintext security only — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
+- Earlier schemes, including the bidirectional scheme of [[BBS98 - Divertible Protocols and Atomic Proxy Cryptography|BBS98]] and the unidirectional schemes of [[AFGH05 - Improved Proxy Re-Encryption Schemes with Applications to Secure Distributed Storage|AFGH05]], achieved only semantic (chosen-plaintext) security — [[CH07 - Chosen-Ciphertext Secure Proxy Re-Encryption|CH07]].
