@@ -31,4 +31,4 @@ None of the keys in $\sk_i$ belongs to a prefix of the node of any period $j < i
 ## Notes
 
 - The construction of [[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]] secures any BTE scheme against chosen-ciphertext attacks, which gives chosen-ciphertext forward-secure PKE in the standard model — [[CHK04 - Chosen-Ciphertext Security from Identity-Based Encryption|CHK04]].
-- With keys linear in $T$ instead, forward-secure PKE follows from [[public-key-encryption#cpa-security|CPA-secure PKE]] alone ([[pke-cpa-security-to-forward-secure-pke|PKE ⇔ Forward-secure PKE]]) — folklore.
+- With keys linear in $T$ instead, forward-secure PKE follows from [[public-key-encryption#cpa-security|CPA-secure PKE]] alone ([[pke-cpa-security-to-forward-secure-pke|CPA-secure PKE ⇔ Forward-secure PKE]]) — folklore.

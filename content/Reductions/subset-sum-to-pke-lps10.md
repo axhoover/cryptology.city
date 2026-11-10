@@ -18,7 +18,7 @@ security-loss: ""
 
 ## Statement
 
-If [[subset-sum|subset sum]] is hard for random instances at the parameters of LPS10, there is an IND-CPA-secure [[public-key-encryption|PKE]] whose security is polynomial-time equivalent to that hardness — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]. Those parameters satisfy $M^{1/n} > 10 n \log^2 n$, a density $n / \log_2 M = O(1/\log n)$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
+If [[subset-sum|subset sum]] is hard for $(n, M)$ at the parameters of LPS10, there is an IND-CPA-secure [[public-key-encryption|PKE]] whose security is polynomial-time equivalent to that hardness — [[LPS10 - Public-Key Cryptographic Primitives Provably as Secure as Subset Sum|LPS10]]. Those parameters satisfy $M^{1/n} > 10 n \log^2 n$, a density $n / \log_2 M = O(1/\log n)$ — [[KF15 - An Improved BKW Algorithm for LWE with Applications to Cryptography and Lattices|KF15]].
 
 ## Notes
 
