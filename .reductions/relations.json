@@ -22891,7 +22891,7 @@
    "rationale": {
     "class": "The construction calls the mini-scheme and the signature scheme only as oracles, and the reduction runs any counterfeiter once as an oracle, either as a forger that outputs the serial number and signature of a uniformly chosen output banknote or as a mini-scheme counterfeiter that signs under a key pair it samples and outputs the money states of two uniformly chosen outputs.",
     "model": "The banknotes and the counterfeiters are quantum, so the signature scheme must be unforgeable against quantum forgers.",
-    "securityLoss": "The forger outputs a uniformly chosen one of the $r$ outputs, and the mini-scheme counterfeiter needs its uniformly placed challenge, one of $q$ positions hidden from the counterfeiter, to be the serial number two valid outputs share, and its uniformly chosen pair of outputs to be such a pair."
+    "securityLoss": "The forger outputs a uniformly chosen one of the $r$ outputs; when two valid outputs share one of the $q$ given serial numbers, the mini-scheme counterfeiter's challenge, hidden at a uniform one of the $q$ positions, carries such a serial number with probability at least $1/q$, and its uniformly chosen pair of outputs is a valid pair with that serial number with probability at least $1/\\binom{r}{2}$."
    },
    "status": "draft",
    "page": "content/Reductions/quantum-money-mini-scheme-and-ds-to-public-key-quantum-money-ac12.md",
