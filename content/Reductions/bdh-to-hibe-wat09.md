@@ -5,7 +5,7 @@ title: "DBDH + DLIN ⇒ HIBE"
 aliases: []
 id: red-bdh-to-hibe-wat09
 kind: implication
-hypotheses: [bdh, decisional-linear]
+hypotheses: [dbdh, decisional-linear]
 conclusion: hibe
 class: fully-black-box
 model: standard
@@ -20,7 +20,7 @@ rationale:
 
 ## Statement
 
-If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions|DBDH]]) and decision linear ([[decisional-diffie-hellman#dlin|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure ([[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]]) [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss $O(q)$ for an adversary making $q$ key queries ($O(q)$ DLIN steps and one DBDH step) and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
+If decisional bilinear Diffie–Hellman ([[bilinear-map-assumptions#decisional-bdh|DBDH]]) and decision linear ([[decisional-diffie-hellman#dlin|DLIN]], the case $k = 2$ of $k$-Lin) hold in a symmetric prime-order pairing group, there is an adaptively secure ([[hierarchical-identity-based-encryption#ind-hibe-cpa-security|IND-HIBE-CPA]]) [[hierarchical-identity-based-encryption|HIBE]] of bounded depth in the standard model, with security loss $O(q)$ for an adversary making $q$ key queries ($O(q)$ DLIN steps and one DBDH step) and no exponential dependence on the depth — [[Wat09 - Dual System Encryption Realizing Fully Secure IBE and HIBE under Simple Assumptions|Wat09]].
 
 ## Sketch
 

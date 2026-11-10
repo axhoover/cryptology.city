@@ -130,20 +130,20 @@ is negligible — [[BGN05 - Evaluating 2-DNF Formulas on Ciphertexts|BGN05]].
 - Index calculus computes discrete logarithms in every finite field in heuristic subexponential time — [[AD93 - A Subexponential Algorithm for Discrete Logarithms over All Finite Fields|AD93]] — so $k$ must be large enough for DLOG in $\FF_{q^k}^*$ to be hard; [[discrete-logarithm#attacks|DLOG § Attacks]] lists the finite-field algorithms.
 - Quantum: Shor's algorithm computes discrete logarithms modulo a prime in quantum polynomial time — [[Shor97 - Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer|Shor97]]; it extends to any group with efficient group operations on unique encodings, so it breaks discrete log in $\GG_1$, $\GG_2$ and $\GG_T$ — [[BL95 - Quantum Cryptanalysis of Hidden Linear Functions|BL95]]. See [[bqp-to-dlog-shor97|DLOG ⊆ BQP]].
 
-<!-- BEGIN GENERATED participates-in d5df79e6d730 -->
+<!-- BEGIN GENERATED participates-in b6ac6c0fe536 -->
 
 ## Participates in
 
 **Builds on Bilinear map assumptions**
 
-- [[bdh-to-abe-gpsw06|BDH ⇒ ABE]]
+- [[bdh-to-abe-gpsw06|DBDH ⇒ ABE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[bdh-to-be-bgw05|n-BDHE ⇒ BE]] (via [Decision $n$-BDHE](bilinear-map-assumptions#decision-n-bdhe))
 - [[cdh-to-bdh|BDH ⇒ CDH]]
 - [[bdh-to-consistent-peks-bdop04|BDH ⇒ PEKS (random oracle model)]]
-- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]]
+- [[bdh-to-hibe-wat09|DBDH + DLIN ⇒ HIBE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[bdh-to-hve-bw07|BDH ⇒ HVE]]
 - [[bdh-to-ibe-bf01|BDH ⇒ IBE (random oracle model)]]
-- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]]
+- [[bdh-to-ibe-wat09|DBDH + DLIN ⇒ IBE]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])
 - [[bdh-to-vrf|k-Lin ⇒ VRF]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[bilinear-pairing-and-k-linear-assumption-to-barg-for-np-ww22|Bilinear pairing + k-Lin ⇒ BARG for NP]] (via [$k$-Linear assumption](bilinear-map-assumptions#k-linear-assumption))
 - [[dbdh-to-bdh|DBDH ⇒ BDH]] (via [[bilinear-map-assumptions#decisional-bdh|Decisional BDH]])

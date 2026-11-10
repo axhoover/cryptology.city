@@ -8782,7 +8782,7 @@
    "id": "red-bdh-to-abe-gpsw06",
    "kind": "implication",
    "hypotheses": [
-    "bdh"
+    "dbdh"
    ],
    "conclusion": "abe",
    "class": "fully-black-box",
@@ -8803,7 +8803,7 @@
    "page": "content/Reductions/bdh-to-abe-gpsw06.md",
    "slug": "bdh-to-abe-gpsw06",
    "graphSlug": "Reductions/bdh-to-abe-gpsw06",
-   "title": "BDH ⇒ ABE"
+   "title": "DBDH ⇒ ABE"
   },
   {
    "id": "red-bdh-to-be-bgw05",
@@ -8892,7 +8892,7 @@
    "id": "red-bdh-to-hibe-wat09",
    "kind": "implication",
    "hypotheses": [
-    "bdh",
+    "dbdh",
     "decisional-linear"
    ],
    "conclusion": "hibe",
@@ -8973,7 +8973,7 @@
    "id": "red-bdh-to-ibe-wat09",
    "kind": "implication",
    "hypotheses": [
-    "bdh",
+    "dbdh",
     "decisional-linear"
    ],
    "conclusion": "ibe",
