@@ -17,4 +17,6 @@ cryptobib_key: STOC:LinPas11
 
 ## Abstract
 
-TODO — abstract.
+We show _unconditionally_ that the existence of commitment schemes implies the existence of _constant-round_ non-malleable commitments; earlier protocols required additional assumptions such as collision resistant hash functions or subexponential one-way functions.
+
+Our protocol also satisfies the stronger notions of concurrent non-malleability and robustness. As a corollary, we establish that constant-round non-malleable zero-knowledge arguments for $\classNP$ can be based on one-way functions and constant-round secure multi-party computation can be based on enhanced trapdoor permutations; also here, earlier protocols additionally required either collision-resistant hash functions or subexponential one-way functions.
