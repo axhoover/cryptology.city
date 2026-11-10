@@ -13003,7 +13003,7 @@
    "id": "red-dlog-to-verifiable-secret-sharing-vss-ped91",
    "kind": "implication",
    "hypotheses": [
-    "dlog"
+    "prime-order-dlog"
    ],
    "conclusion": "verifiable-secret-sharing",
    "class": "unstated",
