@@ -39,12 +39,14 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[oihf-to-ot-bh26|OIHF ⇒ OT]]
 - [[no-oihf-to-ot-bh26|No fully-black-box reduction from OIHF to OT]]
 
-<!-- BEGIN GENERATED participates-in 21b058c92bca -->
+<!-- BEGIN GENERATED participates-in 432cb8d5bc49 -->
 
 ## Participates in
 
 **Builds on Random Oracle Model**
 
+- [[hash-function-to-pcs-bbhr18|ROM ⇒ PCS (FRI)]]
+- [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]]
 - [[qrom-to-unclonable-encryption-akl22|QROM ⇒ unclonable-indistinguishable UE]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[qrom-to-zk-snark-cms19|QROM ⇒ zk-SNARK (Micali's construction in the QROM)]] (via [[random-oracle-model#quantum-random-oracle-model|Quantum random oracle model]])
 - [[rom-to-merkle-puzzles-mer78|ROM ⇒ Merkle puzzles]]
@@ -74,8 +76,6 @@ In the _quantum random oracle model (QROM)_, every party gets a uniformly random
 - [[dlog-to-pcs|DLOG ⇒ PCS]]
 - [[factoring-blum-integers-to-forward-secure-signature-bm99|Factoring ⇒ Forward-secure signature (Bellare–Miner)]]
 - [[fiat-shamir-and-honest-verifier-zk-hvzk-to-nizk|HVZK ⇒ NIZK (Fiat–Shamir)]]
-- [[hash-function-to-pcs-bbhr18|CRHF ⇒ PCS]]
-- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
 - [[id-and-rom-to-ds|ID ⇒ DS]]
 - [[ind-cpa-kem-to-ind-cca-security|IND-CPA PKE ⇒ IND-CCA KEM (Fujisaki–Okamoto)]]
 - [[lwe-to-ibe-gpv08|LWE ⇒ IBE (Gentry–Peikert–Vaikuntanathan, random oracle model)]]

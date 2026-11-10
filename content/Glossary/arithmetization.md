@@ -52,5 +52,5 @@ AIR encodes a computation as a constraint on consecutive rows of an execution tr
 - Every NP statement can be arithmetized as R1CS in polynomial size — standard
 - [[bilinear-pairing-to-snark-gro16|Bilinear pairing ⇒ zk-SNARK]]
 - [[pcs-to-snark|Extractable PCS ⇒ SNARK]]
-- [[hash-function-to-snark-bbhr18|CRHF ⇒ STARK]]
+- [[hash-function-to-snark-bbhr18|ROM ⇒ STARK]]
 - For Boolean circuits, each AND gate becomes one R1CS constraint ($a \cdot b = c$ with $a, b, c \in \{0,1\}$), as does each XOR gate over $\FF_p$ with $p > 2$ ($2a \cdot b = a + b - c$); NOT is affine and free — standard
