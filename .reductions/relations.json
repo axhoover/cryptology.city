@@ -28056,6 +28056,35 @@
    "title": "No polynomially-preserving fully-black-box reduction from enhanced TDP to one-round sublinear cPIR"
   },
   {
+   "id": "bar-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08",
+   "hypotheses": [
+    "enhanced-trapdoor-permutation"
+   ],
+   "conclusion": "polylog-cpir",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
+   ],
+   "rationale": {
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08.md",
+   "slug": "no-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08",
+   "graphSlug": "Barriers/no-enhanced-trapdoor-permutation-to-polylog-cpir-hhs08",
+   "title": "No polynomially-preserving fully-black-box reduction from enhanced TDP to PIR with polylogarithmic communication"
+  },
+  {
    "id": "bar-fac-to-low-exponent-rsa-bv98",
    "hypotheses": [
     "fac"
@@ -30204,6 +30233,35 @@
    "slug": "no-tdp-to-one-round-sublinear-cpir-hhs08",
    "graphSlug": "Barriers/no-tdp-to-one-round-sublinear-cpir-hhs08",
    "title": "No polynomially-preserving fully-black-box reduction from TDP to one-round sublinear cPIR"
+  },
+  {
+   "id": "bar-tdp-to-polylog-cpir-hhs08",
+   "hypotheses": [
+    "tdp"
+   ],
+   "conclusion": "polylog-cpir",
+   "class": "fully-black-box",
+   "consequences": [
+    {
+     "kind": "contradiction",
+     "target": "",
+     "class": "fully-black-box"
+    }
+   ],
+   "strength": "unconditional",
+   "conditionalOn": [],
+   "circumventedBy": [],
+   "source": [
+    "[[HHS08 - A Linear Lower Bound on the Communication Complexity of Single-Server Private Information Retrieval|HHS08]]"
+   ],
+   "rationale": {
+    "class": "HHS08's main theorem is for polynomially-preserving fully-black-box constructions; the vocabulary has no class for the polynomially-preserving restriction, which the title and Statement keep."
+   },
+   "status": "draft",
+   "page": "content/Barriers/no-tdp-to-polylog-cpir-hhs08.md",
+   "slug": "no-tdp-to-polylog-cpir-hhs08",
+   "graphSlug": "Barriers/no-tdp-to-polylog-cpir-hhs08",
+   "title": "No polynomially-preserving fully-black-box reduction from TDP to PIR with polylogarithmic communication"
   },
   {
    "id": "bar-tdp-to-verifiable-random-function-fs12",
